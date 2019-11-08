@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: d3ea0adb4adf88e557ca360799836555cb90078e
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 709ac3a9f5e7cf0bd13a6e387f0b80caf2608fe0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520932"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748458"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Validação de alerta (arquivo de teste EICAR) na central de segurança do Azure
 Este documento ajuda-o a aprender como verificar se o sistema está corretamente configurado para os alertas do Centro de Segurança do Azure.
@@ -33,7 +33,7 @@ Para obter mais informações, consulte [alertas de segurança na central de seg
 * [Linux](#validate-linux)
 * [Kubernetes](#validate-kubernetes)
 
-## Validar alertas na VM do Windows<a name="validate-windows"></a>
+## Validar alertas em VMs do Windows<a name="validate-windows"></a>
 
 Depois que o agente da central de segurança estiver instalado no computador, siga estas etapas do computador no qual você deseja ser o recurso atacado do alerta:
 
@@ -46,7 +46,7 @@ Depois que o agente da central de segurança estiver instalado no computador, si
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## Validar alertas na VM do Linux<a name="validate-linux"></a>
+## Validar alertas em VMs do Linux<a name="validate-linux"></a>
 
 Depois que o agente da central de segurança estiver instalado no computador, siga estas etapas do computador no qual você deseja ser o recurso atacado do alerta:
 1. Copie um executável para um local conveniente e renomeie-o para **./asc_alerttest_662jfi039n**, por exemplo:

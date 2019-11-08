@@ -13,24 +13,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: d10844a52505331418e3bc4e9b36d00a5a7e7b6f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f7f4e65253e0fc160da4d343115e9115abfab808
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102618"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749307"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Criar e gerenciar uma máquina virtual do Windows que tenha várias NICs
 As VMs (máquinas virtuais) no Azure podem ter várias NICs (placas de interface de rede) virtuais conectadas a elas. Um cenário comum é ter diferentes sub-redes para conectividade de front-end e back-end. Você pode associar várias NICs em uma VM a várias sub-redes, mas essas sub-redes devem residir na mesma rede virtual (vNet). Este artigo fornece detalhes sobre como criar uma VM que tenha várias NICs anexadas a ela. Você também aprenderá a adicionar ou remover NICs de uma VM existente. Diferentes [tamanhos de VM](sizes.md) dão suporte a um número variável de NICs, portanto, dimensione sua VM adequadamente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo pelos seus próprios valores. Os nomes de parâmetrode exemplo incluem MyResource, *myVnet*e *myVM*.
+Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo pelos seus próprios valores. Os nomes de parâmetro de exemplo incluem *MyResource*, *myVnet*e *myVM*.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="create-a-vm-with-multiple-nics"></a>Criar uma VM com vários NICs
-Primeiro, crie um grupo de recursos. O exemplo a seguir cria um grupo de recursos chamado MyResource Group no local *eastus* :
+Primeiro, crie um grupo de recursos. O exemplo a seguir cria um grupo de recursos chamado *MyResource* Group no local *eastus* :
 
 ```powershell
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
@@ -76,12 +76,12 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -SubnetId $backEnd.Id
 ```
 
-Normalmente, você também cria um [grupo de segurança de rede](../../virtual-network/security-overview.md) para filtrar o tráfego de rede para a VM e um balanceador de [carga](../../load-balancer/load-balancer-overview.md) para distribuir o tráfego entre várias VMS.
+Normalmente, você também cria um [grupo de segurança de rede](../../virtual-network/security-overview.md) para filtrar o tráfego de rede para a VM e um [balanceador de carga](../../load-balancer/load-balancer-overview.md) para distribuir o tráfego entre várias VMS.
 
 ### <a name="create-the-virtual-machine"></a>Criar a máquina virtual
 Agora, comece a criar sua configuração de VM. Cada tamanho de VM tem um limite para o número total de NICs que você pode adicionar a uma VM. Para obter mais informações, consulte [tamanhos de VM do Windows](sizes.md).
 
-1. Defina suas credenciais de VM para `$cred` a variável da seguinte maneira:
+1. Defina suas credenciais de VM para a variável `$cred` da seguinte maneira:
 
     ```powershell
     $cred = Get-Credential
@@ -133,13 +133,13 @@ Para adicionar uma NIC virtual a uma VM existente, você Desaloca a VM, adiciona
     Stop-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-2. Obtenha a configuração existente da VM com [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). O exemplo a seguir obtém informações para a VM chamada *myVM* no MyResource:
+2. Obtenha a configuração existente da VM com [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). O exemplo a seguir obtém informações para a VM chamada *myVM* no *MyResource*:
 
     ```powershell
     $vm = Get-AzVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-3. O exemplo a seguir cria uma NIC virtual com [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) chamada *myNic3* que está anexada a *mySubnetBackEnd*. Em seguida, a NIC virtual é anexada à VM chamada *myVM* em MyResource filecom [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface):
+3. O exemplo a seguir cria uma NIC virtual com [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) chamada *myNic3* que está anexada a *mySubnetBackEnd*. Em seguida, a NIC virtual é anexada à VM chamada *myVM* em *MyResource* filecom [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface):
 
     ```powershell
     # Get info for the back end subnet
@@ -189,7 +189,7 @@ Para remover uma NIC virtual de uma VM existente, Desaloque a VM, remova a NIC v
     Stop-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-2. Obtenha a configuração existente da VM com [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). O exemplo a seguir obtém informações para a VM chamada *myVM* no MyResource:
+2. Obtenha a configuração existente da VM com [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). O exemplo a seguir obtém informações para a VM chamada *myVM* no *MyResource*:
 
     ```powershell
     $vm = Get-AzVm -Name "myVM" -ResourceGroupName "myResourceGroup"
@@ -204,7 +204,7 @@ Para remover uma NIC virtual de uma VM existente, Desaloque a VM, remova a NIC v
     $nicId = (Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
     ```
 
-4. Remova a NIC com [Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface) e, em seguida, atualize a VM com [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm). O exemplo a seguir remove *myNic3* conforme obtido `$nicId` pela na etapa anterior:
+4. Remova a NIC com [Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface) e, em seguida, atualize a VM com [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm). O exemplo a seguir remove *myNic3* conforme obtido por `$nicId` na etapa anterior:
 
     ```powershell
     Remove-AzVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
@@ -243,7 +243,7 @@ Adicione rotas para NICs secundárias ao sistema operacional, concluindo as etap
 
 O Azure atribui um gateway padrão para a primeira interface de rede (primária) anexada à máquina virtual. O Azure não atribui um gateway predefinido a interfaces de rede (secundárias) adicionais ligadas a uma máquina virtual. Por conseguinte, não pode comunicar com recursos que estejam fora da sub-rede em que se encontre uma interface de rede secundária, por predefinição. As interfaces de rede secundárias podem, no entanto, se comunicar com recursos fora de sua sub-rede, embora as etapas para habilitar a comunicação sejam diferentes para sistemas operacionais diferentes.
 
-1. Em um prompt de comando do Windows, `route print` execute o comando, que retorna uma saída semelhante à seguinte saída para uma máquina virtual com duas interfaces de rede anexadas:
+1. Em um prompt de comando do Windows, execute o comando `route print`, que retorna uma saída semelhante à seguinte saída para uma máquina virtual com duas interfaces de rede anexadas:
 
     ```
     ===========================================================================
@@ -255,7 +255,7 @@ O Azure atribui um gateway padrão para a primeira interface de rede (primária)
  
     Neste exemplo, **Microsoft Hyper-V adaptador de rede #4** (interface 7) é a interface de rede secundária que não tem um gateway padrão atribuído a ele.
 
-2. Em um prompt de comando, execute `ipconfig` o comando para ver qual endereço IP é atribuído à interface de rede secundária. Neste exemplo, 192.168.2.4 é atribuído à interface 7. Nenhum endereço de gateway padrão é retornado para a interface de rede secundária.
+2. Em um prompt de comando, execute o comando `ipconfig` para ver qual endereço IP é atribuído à interface de rede secundária. Neste exemplo, 192.168.2.4 é atribuído à interface 7. Nenhum endereço de gateway padrão é retornado para a interface de rede secundária.
 
 3. Para rotear todo o tráfego destinado a endereços fora da sub-rede da interface de rede secundária para o gateway para a sub-rede, execute o seguinte comando:
 
@@ -281,7 +281,7 @@ O Azure atribui um gateway padrão para a primeira interface de rede (primária)
       netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
       ```
   
-5. Para confirmar se a rota adicionada está na tabela de rotas, insira `route print` o comando, que retorna uma saída semelhante ao seguinte texto:
+5. Para confirmar se a rota adicionada está na tabela de rotas, insira o comando `route print`, que retorna uma saída semelhante ao seguinte texto:
 
     ```
     ===========================================================================

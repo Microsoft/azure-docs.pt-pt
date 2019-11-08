@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: fe9d8ce2942eea03a7976ba9a0bebc1253a9e614
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 52862ab38eea18842025f94dc383b2944e1f69a1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091010"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749915"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>Criar uma máquina virtual com base em um instantâneo com o PowerShell
 
@@ -28,7 +28,7 @@ Este script cria uma máquina virtual a partir de um instantâneo de um disco do
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -58,7 +58,7 @@ Esse script usa os seguintes comandos para obter propriedades de instantâneo, c
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Cria uma máquina virtual. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

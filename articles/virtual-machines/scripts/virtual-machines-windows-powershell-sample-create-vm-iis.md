@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a72584cfe2b113fdf9eef9323dae6b0096e3f192
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0c8893336182ef3446bc654315396fb6dfa8ca13
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090598"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748676"
 ---
 # <a name="create-an-iis-vm-with-powershell"></a>Criar uma VM de IIS com o PowerShell
 
@@ -28,7 +28,7 @@ Este script cria uma Máquina Virtual do Azure com o Windows Server 2016 e utili
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -53,7 +53,7 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) | Adicione uma extensão de VM à máquina virtual. Neste exemplo, é utilizada a extensão de script personalizada para instalar o IIS. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

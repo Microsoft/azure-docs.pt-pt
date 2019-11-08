@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: raynew
-ms.openlocfilehash: 90b1250009e6efdb2f8cb9351fe270c8324cc77a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: e752d52d0f792d39f417031c26d923fce07ccdf8
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715477"
+ms.locfileid: "73747993"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte para migrações para Azure
 
@@ -51,7 +51,7 @@ Migração de servidor de migrações para Azure | ND | Migre [VMs VMware](tutor
 [Tecnologia de coaluguel](https://go.microsoft.com/fwlink/?linkid=2084928) | Avaliar e migrar VMs VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública. |  Migre VMs VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública.
 [Dispositivo 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública.| ND
 [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Avaliar os bancos de dados SQL Server locais. | ND
-[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | Migre SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. | ND
+[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | ND | Migre SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avalie o Virtual Desktop Infrastructure (VDI) | ND
 [Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | Avaliar VMs do VMWare, VMs do Hyper-V, VMs Xen, máquinas físicas, estações de trabalho (incluindo VDI), cargas de trabalho de nuvem pública | ND
 [Rack](https://go.microsoft.com/fwlink/?linkid=2102735) | ND | Migrar VMs VMWare, VMs do Hyper-V, VMS Xen, VMs KVM, máquinas físicas, cargas de trabalho de nuvem pública 

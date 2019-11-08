@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 08/26/2019
 ms.author: aahi
-ms.openlocfilehash: 8c5df8461c74d48c0712ab1947e29813e7e1ea3f
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
-ms.translationtype: MT
+ms.openlocfilehash: 3b616ac76d2b7fca0d83db2b17b0978bbb249e45
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032684"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742717"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
@@ -25,13 +25,13 @@ A API faz parte dos [Serviços cognitivas do Azure](https://docs.microsoft.com/a
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-A análise de texto pode significar coisas diferentes, mas em serviços cognitivas, o API de Análise de Texto fornece quatro tipos de análise, conforme descrito abaixo. Você pode usar esses recursos com a [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)ou uma biblioteca de cliente para [.net](quickstarts/csharp.md), [Python](quickstarts/python-sdk.md), [node. js](quickstarts/nodejs-sdk.md), [go](quickstarts/go-sdk.md)ou [Ruby](quickstarts/ruby-sdk.md).
+A análise de texto pode significar coisas diferentes, mas em serviços cognitivas, o API de Análise de Texto fornece quatro tipos de análise, conforme descrito abaixo. Você pode usar esses recursos com a [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)ou a [biblioteca de cliente](quickstarts/text-analytics-sdk.md).
 
 ## <a name="sentiment-analysis"></a>Análise de Sentimentos
 Use a [análise de sentimentos](how-tos/text-analytics-how-to-sentiment-analysis.md) para descobrir o que os clientes acham de sua marca ou tópico analisando o texto bruto para obter dicas sobre sentimentos positivos ou negativos. Esta API devolve uma pontuação de sentimento entre 0 e 1 para cada documento, em que 1 é o mais positivo.<br /> Os modelos de análise são pré-preparados com um corpo extenso de texto e tecnologias de linguagem natural da Microsoft. Para os [idiomas selecionados](text-analytics-supported-languages.md), a API pode analisar e classificar qualquer texto não processado que fornecer, devolvendo diretamente os resultados à aplicação de chamada.
 
 ## <a name="key-phrase-extraction"></a>Extração de Expressões-Chave
-Extraia automaticamente [frases-chave](how-tos/text-analytics-how-to-keyword-extraction.md) para identificar rapidamente os pontos principais. Por exemplo, para o texto de entrada “The food was delicious and there were wonderful staff”, a API devolve os pontos de conversa principais: “food” e “wonderful staff”.
+[Extraia automaticamente frases-chave](how-tos/text-analytics-how-to-keyword-extraction.md) para identificar rapidamente os pontos principais. Por exemplo, para o texto de entrada “The food was delicious and there were wonderful staff”, a API devolve os pontos de conversa principais: “food” e “wonderful staff”.
 
 ## <a name="language-detection"></a>Deteção de Idioma
 Você pode [detectar em qual idioma o texto de entrada é gravado](how-tos/text-analytics-how-to-language-detection.md) e relatar um único código de idioma para cada documento enviado na solicitação em uma grande variedade de idiomas, variantes, dialetos e alguns idiomas regionais/culturais. O código de idioma é emparelhado com uma pontuação que indica a força da pontuação.
@@ -73,7 +73,7 @@ Você pode começar a usar o API de Análise de Texto em seus processos, mesmo q
 
 <a name="supported-languages"></a>
 
-## <a name="supported-languages"></a>Idiomas suportados
+## <a name="supported-languages"></a>Linguagens suportadas
 
 Esta secção foi movida para um artigo separado para melhor deteção. Consulte [os idiomas com suporte no API de análise de texto](text-analytics-supported-languages.md) para este conteúdo.
 
@@ -83,9 +83,9 @@ Esta secção foi movida para um artigo separado para melhor deteção. Consulte
 
 Todos os pontos finais da API de Análise de Texto aceitam dados de texto não processados. O limite atual é de 5.120 caracteres para cada documento; Se você precisar analisar documentos maiores, poderá dividi-los em partes menores.
 
-| Limite | Value |
+| Limite | Valor |
 |------------------------|---------------|
-| Tamanho máximo de um documento único | 5\.120 caracteres conforme medido [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements)por. |
+| Tamanho máximo de um documento único | 5\.120 caracteres conforme medido por [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Tamanho máximo do pedido completo | 1 MB |
 | Número máximo de documentos num pedido | 1000 documentos |
 
@@ -106,11 +106,11 @@ As solicitações são medidas para cada recurso de Análise de Texto separadame
 
 A API de Análise de Texto utiliza a codificação Unicode para representação de texto e cálculos de contagem de carateres. Os pedidos podem ser submetidos em UTF-8 e UTF-16, sem diferenças mensuráveis na contagem de carateres. Os pontos de código Unicode são utilizados como a heurística para o comprimento dos carateres, e são considerados equivalentes para efeitos de limites de dados de análise de texto. Se você usar [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) para obter a contagem de caracteres, você está usando o mesmo método que usamos para medir o tamanho dos dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 + [Crie um recurso do Azure](../cognitive-services-apis-create-account.md) para análise de texto para obter uma chave e um ponto de extremidade para seus aplicativos.
 
-+ O [Início Rápido](quickstarts/csharp.md) é uma descrição das chamadas à API REST escritas em C#. Saiba como submeter texto, escolher uma análise e ver os resultados com pouco código. Se preferir, você pode começar com o início [rápido do Python](quickstarts/python.md) em vez disso.
++ O [Início Rápido](quickstarts/text-analytics-sdk.md) é uma descrição das chamadas à API REST escritas em C#. Saiba como submeter texto, escolher uma análise e ver os resultados com pouco código. Se preferir, você pode começar com o início [rápido do Python](quickstarts/python.md) em vez disso.
 
 + Veja [o que há de novo na API de análise de texto](whats-new.md) para obter informações sobre novas versões e recursos.
 

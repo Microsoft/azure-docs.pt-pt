@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: ac1572a75a3310afb9d0e0a34c6751ed12d839f9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 24ed7b75dfa8cb09c530a3f4a896aa9ff9aa92b5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102427"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749170"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Carregar um VHD generalizado para o Azure para criar uma nova VM
 
@@ -30,7 +30,7 @@ Se você quiser criar uma VM de um VHD especializado em uma conta de armazenamen
 
 Este tópico aborda o uso de contas de armazenamento, mas recomendamos que os clientes se movam para o uso de Managed Disks. Para obter um passo a passo completo de como preparar, carregar e criar uma nova VM usando discos gerenciados, consulte [criar uma nova VM com base em um VHD generalizado carregado no Azure usando Managed disks](upload-generalized-managed.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="prepare-the-vm"></a>Preparar a VM
 
@@ -40,7 +40,7 @@ Um VHD generalizado teve todas as informações de sua conta pessoal removidas u
   * Generalizar a máquina virtual usando o Sysprep
 
 ### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Generalizar uma máquina virtual do Windows usando o Sysprep
-Esta seção mostra como generalizar sua máquina virtual do Windows para uso como uma imagem. O Sysprep remove todas as suas informações de conta pessoal, entre outras coisas, e prepara a máquina para ser utilizada como uma imagem. Para obter detalhes sobre o Sysprep, veja [How to Use Sysprep: Uma introdução](https://technet.microsoft.com/library/bb457073.aspx).
+Esta seção mostra como generalizar sua máquina virtual do Windows para uso como uma imagem. O Sysprep remove todas as suas informações de conta pessoal, entre outras coisas, e prepara a máquina para ser utilizada como uma imagem. Para mais detalhes sobre o Sysprep, veja [Como utilizar o Sysprep: uma Introdução](https://technet.microsoft.com/library/bb457073.aspx).
 
 Verifique se as funções de servidor em execução no computador têm suporte pelo Sysprep. Para obter mais informações, consulte [suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
@@ -52,7 +52,7 @@ Verifique se as funções de servidor em execução no computador têm suporte p
 1. Entre na máquina virtual do Windows.
 2. Abra a janela da Linha de Comandos como administrador. Altere o diretório para **%windir%\system32\sysprep**e execute `sysprep.exe`.
 3. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na Experiência 1ª Execução (OOBE) do Sistema** e certifique-se de que a caixa de verificação **Generalizar** está selecionada.
-4. Em **Opções**de desligamento, selecione **desligar**.
+4. Em **Opções de desligamento**, selecione **desligar**.
 5. Clique em **OK**.
    
     ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
@@ -106,7 +106,7 @@ Se você precisar criar uma conta de armazenamento, siga estas etapas:
     Get-AzResourceGroup
     ```
 
-    Para criar um grupo de recursos chamado MyResource Group na região **oeste dos EUA** , digite:
+    Para criar um grupo de recursos chamado **MyResource** Group na região **oeste dos EUA** , digite:
 
     ```powershell
     New-AzResourceGroup -Name myResourceGroup -Location "West US"
@@ -121,7 +121,7 @@ Se você precisar criar uma conta de armazenamento, siga estas etapas:
  
 ### <a name="start-the-upload"></a>Iniciar o carregamento 
 
-Use o cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) para carregar a imagem em um contêiner em sua conta de armazenamento. Este exemplo carrega o arquivo **myVHD. vhd** de `"C:\Users\Public\Documents\Virtual hard disks\"` para uma conta de armazenamento denominada **mystorageaccount** no grupo de recursos MyResource Group. O arquivo será colocado no contêiner chamado MyContainer e o novo nome de arquivo será **myUploadedVHD. vhd**.
+Use o cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) para carregar a imagem em um contêiner em sua conta de armazenamento. Este exemplo carrega o arquivo **myVHD. vhd** de `"C:\Users\Public\Documents\Virtual hard disks\"` para uma conta de armazenamento denominada **mystorageaccount** no grupo de recursos **MyResource** Group. O arquivo será colocado no contêiner chamado **MyContainer** e o novo nome de arquivo será **myUploadedVHD. vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -148,13 +148,13 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 Dependendo da sua conexão de rede e do tamanho do arquivo VHD, esse comando pode demorar um pouco para ser concluído.
 
 
-## <a name="create-a-new-vm"></a>Criar uma nova VM 
+## <a name="create-a-new-vm"></a>Crie uma nova VM 
 
 Agora você pode usar o VHD carregado para criar uma nova VM. 
 
 ### <a name="set-the-uri-of-the-vhd"></a>Definir o URI do VHD
 
-O URI para o VHD a ser usado está no formato: https://**mystorageaccount**. blob.Core.Windows.NET//MyContainer**MyVhdName**. vhd. Neste exemplo, o VHD chamado **myVHD** está na conta de armazenamento **mystorageaccount** no contêiner MyContainer.
+O URI para o VHD a ser usado está no formato: https://**mystorageaccount**. blob.Core.Windows.NET/**MyContainer**/**MyVhdName**. vhd. Neste exemplo, o VHD chamado **myVHD** está na conta de armazenamento **mystorageaccount** **no contêiner MyContainer.**
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"
@@ -164,7 +164,7 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 Crie a vNet e a sub-rede da [rede virtual](../../virtual-network/virtual-networks-overview.md).
 
-1. Crie a sub-rede. O exemplo a seguir cria uma sub-rede chamada mysubnet no grupo de recursos MyResource Group com o prefixo de endereço **10.0.0.0/24**.  
+1. Crie a sub-rede. O exemplo a seguir cria uma sub-rede chamada **mysubnet** no grupo de recursos **MyResource** Group com o prefixo de endereço **10.0.0.0/24**.  
    
     ```powershell
     $rgName = "myResourceGroup"

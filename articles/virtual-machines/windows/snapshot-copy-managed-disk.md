@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 76110fa04441540875e65c8bc056fc21555c5db6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 74ef55fe9a0a6603bd43d68b6b8557dce1bca921
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102288"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749140"
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo
 
@@ -29,7 +29,7 @@ Se você pretende usar o instantâneo para criar uma nova VM, recomendamos que v
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 2. No menu à esquerda, selecione **criar um recurso**e, em seguida, pesquise e selecione **instantâneo**.
 3. Na janela **instantâneo** , selecione **criar**. A janela **criar instantâneo** é exibida.
 4. Insira um **nome** para o instantâneo.
@@ -43,7 +43,7 @@ Se você pretende usar o instantâneo para criar uma nova VM, recomendamos que v
 
 As etapas a seguir mostram como copiar o disco VHD, criar a configuração de instantâneo e tirar um instantâneo do disco usando o cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 1. Defina alguns parâmetros: 
 
@@ -72,7 +72,7 @@ As etapas a seguir mostram como copiar o disco VHD, criar a configuração de in
    ```
    
    > [!NOTE]
-   > Se você quiser armazenar o instantâneo em um armazenamento com flexibilidade de zona, crie-o em uma região que ofereça suporte a [zonas](../../availability-zones/az-overview.md) de `-SkuName Standard_ZRS` disponibilidade e inclua o parâmetro.   
+   > Se você quiser armazenar o instantâneo em um armazenamento com capacidade de zona, crie-o em uma região que ofereça suporte a [zonas de disponibilidade](../../availability-zones/az-overview.md) e inclua o parâmetro `-SkuName Standard_ZRS`.   
    
 4. Faça o instantâneo:
 
@@ -84,6 +84,6 @@ As etapas a seguir mostram como copiar o disco VHD, criar a configuração de in
    ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Crie uma máquina virtual de um instantâneo criando um disco gerenciado com base em um instantâneo e anexando o novo disco gerenciado como o disco do sistema operacional. Para obter mais informações, consulte o exemplo em [criar uma VM com base em um instantâneo com o PowerShell](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json).

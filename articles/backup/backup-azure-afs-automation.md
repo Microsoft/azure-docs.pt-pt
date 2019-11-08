@@ -1,6 +1,6 @@
 ---
 title: Fazer backup e restaurar arquivos do Azure com o backup do Azure e o PowerShell
-description: Faça backup e restaure os arquivos do Azure usando o backup do Azure e o PowerShell.
+description: Neste artigo, saiba como fazer backup e restaurar os arquivos do Azure usando o serviço de backup do Azure e o PowerShell.
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: dacurwin
 ms.reviewer: pullabhk
-ms.openlocfilehash: bfaecc5fe9fbbd68ba0f138b7b40b2507d729635
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 491e27f85d00ce512995a63e43b9e248798e5d0f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968639"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747624"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Fazer backup e restaurar arquivos do Azure com o PowerShell
 
@@ -22,6 +22,7 @@ Este artigo descreve como usar Azure PowerShell para fazer backup e recuperar um
 Este tutorial explica como:
 
 > [!div class="checklist"]
+>
 > * Configure o PowerShell e registre o provedor de serviços de recuperação do Azure.
 > * Crie um cofre dos Serviços de Recuperação.
 > * Configure o backup para um compartilhamento de arquivos do Azure.

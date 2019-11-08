@@ -11,16 +11,16 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/02/2019
 ms.author: diberry
-ms.openlocfilehash: e6a38392b6f83479db9036eab944dc498382f5c4
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 45ce9720a840c6bc82487ed574b6577304eff4a8
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720968"
+ms.locfileid: "73794100"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Início Rápido: publicar uma base de dados de conhecimento no Criador de FAQ com o Go
 
-Este guia de início rápido baseado em REST orienta você pela publicação programática da base de dados de conhecimento (KB). A publicação emite a versão mais recente da base de dados de conhecimento para um índice dedicado do Azure Search e cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
+Este guia de início rápido baseado em REST orienta você pela publicação programática da base de dados de conhecimento (KB). A publicação envia por push a versão mais recente da base de dados de conhecimento para um índice de Pesquisa Cognitiva dedicado do Azure e cria um ponto de extremidade que pode ser chamado em seu aplicativo ou bot de chat.
 
 Este início rápido chama as APIs do Criador de FAQ:
 * [Publicar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) - esta API não requer quaisquer informações no corpo do pedido.

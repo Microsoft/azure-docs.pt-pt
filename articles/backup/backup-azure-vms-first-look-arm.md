@@ -1,18 +1,18 @@
 ---
 title: Fazer backup de uma VM do Azure das configurações da VM com o backup do Azure
-description: Saiba como fazer backup de uma VM do Azure com o serviço de backup do Azure
+description: Neste artigo, saiba como fazer backup de uma VM do Azure singular ou de várias VMs do Azure com o serviço de backup do Azure.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: cfbec94a2922995eed546d526c1f469e2ea54118
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 232c027ef60a031df53f2439586a0ae459ab67d5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969053"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747234"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Fazer backup de uma VM do Azure por meio das configurações da VM
 
@@ -35,7 +35,7 @@ Para fazer backup de VMs do Azure, o backup do Azure instala uma extensão no ag
 
 ## <a name="back-up-from-azure-vm-settings"></a>Fazer backup das configurações de VM do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique em **todos os serviços** e, no filtro, digite **máquinas virtuais**e clique em **máquinas virtuais**.
 3. Na lista de VMs, selecione a VM que você deseja fazer backup.
 4. No menu VM, clique em **backup**.

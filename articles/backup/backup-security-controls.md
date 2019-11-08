@@ -1,6 +1,6 @@
 ---
 title: Controles de segurança para o backup do Azure
-description: Uma lista de verificação de controles de segurança para avaliar o backup do Azure
+description: Saiba mais sobre os controles de segurança usados no serviço de backup do Azure. Esses controles ajudam o serviço a prevenir, detectar e responder a vulnerabilidades de segurança.
 ms.reviewer: mbaldwin
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: 8170022a3ee4b4b65e8da0d9e5a2f8464675d08f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 9d7bb2e9ea2d2cf9cce6c4f6d3b4f3346e7ce363
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528106"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747162"
 ---
 # <a name="security-controls-for-azure-backup"></a>Controles de segurança para o backup do Azure
 
@@ -34,7 +34,7 @@ Este artigo documenta os controles de segurança incorporados ao backup do Azure
 
 | Controle de segurança | Sim/Não | Notas| | Documentação
 |---|---|--|
-| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Há suporte para Log Analytics por meio de logs de recursos. Consulte [monitorar cargas de trabalho protegidas de backup do Azure usando log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) para obter mais informações. |  |
+| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Há suporte para Log Analytics por meio de logs de recursos. Para obter mais informações, consulte [monitorar cargas de trabalho protegidas de backup do Azure usando o log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
 | Registro e auditoria do plano de gerenciamento e controle| Sim | Todas as ações disparadas pelo cliente da portal do Azure são registradas em logs de atividades. |  |
 | Log e auditoria do plano de dados| Não | O plano de dados do backup do Azure não pode ser acessado diretamente.  |  |
 
@@ -43,7 +43,7 @@ Este artigo documenta os controles de segurança incorporados ao backup do Azure
 | Controle de segurança | Sim/Não | Notas| | Documentação
 |---|---|--|
 | Autenticação| Sim | A autenticação é por meio de Azure Active Directory. |  |
-| Autorização| Sim | As funções RBAC criadas e internas do cliente são usadas. Consulte [usar o controle de acesso baseado em função para gerenciar pontos de recuperação de backup do Azure](/azure/backup/backup-rbac-rs-vault) para obter mais informações. |  |
+| Autorização| Sim | As funções RBAC criadas e internas do cliente são usadas. Para obter mais informações, consulte [usar o controle de acesso baseado em função para gerenciar pontos de recuperação do backup do Azure](/azure/backup/backup-rbac-rs-vault). |  |
 
 ## <a name="data-protection"></a>Proteção de dados
 
@@ -55,7 +55,7 @@ Este artigo documenta os controles de segurança incorporados ao backup do Azure
 | Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Não | Usando HTTPS. |  |
 | Chamadas de API criptografadas| Sim |  |  |
 
-## <a name="configuration-management"></a>Gestão de configurações
+## <a name="configuration-management"></a>Gestão da configuração
 
 | Controle de segurança | Sim/Não | Notas| | Documentação
 |---|---|--|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: bf964f23b6c38444fb15b61161cb7ed5a2b15e00
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 01d5670add82291cb91264ab41fcd312a338840c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102660"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749336"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migrar recursos de IaaS do clássico para o Azure Resource Manager usando Azure PowerShell
 Estas etapas mostram como usar Azure PowerShell comandos para migrar recursos de IaaS (infraestrutura como serviço) do modelo de implantação clássico para o modelo de implantação de Azure Resource Manager.
@@ -35,9 +35,9 @@ Aqui está um fluxograma para identificar a ordem em que as etapas precisam ser 
 
 ![Captura de ecrã que mostra os passos da migração](media/migration-classic-resource-manager/migration-flow.png)
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
-## <a name="step-1-plan-for-migration"></a>Passo 1: Planear a migração
+## <a name="step-1-plan-for-migration"></a>Etapa 1: planejar a migração
 Aqui estão algumas práticas recomendadas que recomendamos ao avaliar a migração de recursos de IaaS do clássico para o Resource Manager:
 
 * Leia os [recursos e as configurações com](migration-classic-resource-manager-overview.md)e sem suporte. Se você tiver máquinas virtuais que usam recursos ou configurações sem suporte, recomendamos que aguarde até que o suporte de configuração/recurso seja anunciado. Como alternativa, se atender às suas necessidades, remova esse recurso ou retire dessa configuração para habilitar a migração.
@@ -48,23 +48,23 @@ Aqui estão algumas práticas recomendadas que recomendamos ao avaliar a migraç
 >
 >Os gateways de ExpressRoute que se conectam a circuitos do ExpressRoute em outra assinatura não podem ser migrados automaticamente. Nesses casos, remova o gateway de ExpressRoute, migre a rede virtual e recrie o gateway. Consulte [migrar circuitos de ExpressRoute e redes virtuais associadas do modelo de implantação clássico para o Gerenciador de recursos](../../expressroute/expressroute-migration-classic-resource-manager.md) para obter mais informações.
 
-## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>Passo 2: Instalar a versão mais recente do Azure PowerShell
-Há duas opções principais para instalar o Azure PowerShell: [Galeria do PowerShell](https://www.powershellgallery.com/profiles/azure-sdk/) ou [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). O WebPI recebe atualizações mensais. Galeria do PowerShell recebe atualizações continuamente. Este artigo se baseia em Azure PowerShell versão 2.1.0.
+## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>Etapa 2: instalar a versão mais recente do Azure PowerShell
+Há duas opções principais para instalar Azure PowerShell: [Galeria do PowerShell](https://www.powershellgallery.com/profiles/azure-sdk/) ou [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). O WebPI recebe atualizações mensais. Galeria do PowerShell recebe atualizações continuamente. Este artigo se baseia em Azure PowerShell versão 2.1.0.
 
 Para obter instruções de instalação, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 <br>
 
-## <a name="step-3-ensure-that-you-are-an-administrator-for-the-subscription-in-azure-portal"></a>Passo 3: Verifique se você é um administrador da assinatura no portal do Azure
+## <a name="step-3-ensure-that-you-are-an-administrator-for-the-subscription-in-azure-portal"></a>Etapa 3: Verifique se você é um administrador da assinatura no portal do Azure
 Para executar essa migração, você deve ser adicionado como um coadministrador para a assinatura no [portal do Azure](https://portal.azure.com).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu Hub, selecione **assinatura**. Se você não o vir, selecione **todos os serviços**.
 3. Localize a entrada de assinatura apropriada e, em seguida, examine o campo **minha função** . Para um coadministrador, o valor deve ser _administrador da conta_.
 
 Se você não conseguir adicionar um coadministrador, entre em contato com um administrador de serviços ou coadministrador da assinatura para se tornar adicionado.   
 
-## <a name="step-4-set-your-subscription-and-sign-up-for-migration"></a>Passo 4: Defina sua assinatura e inscreva-se para a migração
+## <a name="step-4-set-your-subscription-and-sign-up-for-migration"></a>Etapa 4: definir sua assinatura e inscrever-se para a migração
 Primeiro, inicie um prompt do PowerShell. Para a migração, você precisa configurar seu ambiente para o clássico e o Resource Manager.
 
 Entre em sua conta para o modelo do Resource Manager.
@@ -88,7 +88,7 @@ Defina sua assinatura do Azure para a sessão atual. Este exemplo define o nome 
 > [!NOTE]
 > O registro é uma etapa única, mas você deve fazê-lo uma vez antes de tentar a migração. Sem o registro, você verá a seguinte mensagem de erro:
 >
-> *BadRequest A assinatura não está registrada para migração.*
+> *BadRequest: a assinatura não está registrada para migração.*
 
 Registre-se com o provedor de recursos de migração usando o seguinte comando:
 
@@ -102,7 +102,7 @@ Aguarde cinco minutos para que o registro seja concluído. Você pode verificar 
     Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 ```
 
-Verifique se RegistrationState é `Registered` antes de continuar.
+Verifique se o Registrostate está `Registered` antes de continuar.
 
 Agora, entre em sua conta para o modelo clássico.
 
@@ -124,7 +124,7 @@ Defina sua assinatura do Azure para a sessão atual. Este exemplo define a assin
 
 <br>
 
-## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Passo 5: Verifique se você tem o suficiente Azure Resource Manager máquina virtual vCPUs na região do Azure de sua implantação atual ou VNET
+## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Etapa 5: Verifique se você tem o suficiente Azure Resource Manager máquina virtual vCPUs na região do Azure de sua implantação atual ou VNET
 Você pode usar o seguinte comando do PowerShell para verificar o número atual de vCPUs que você tem em Azure Resource Manager. Para saber mais sobre as cotas do vCPU, consulte [limites e o Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager).
 
 Este exemplo verifica a disponibilidade na região **oeste dos EUA** . Substitua o nome da região de exemplo por seu próprio.
@@ -133,7 +133,7 @@ Este exemplo verifica a disponibilidade na região **oeste dos EUA** . Substitua
 Get-AzVMUsage -Location "West US"
 ```
 
-## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Passo 6: Executar comandos para migrar seus recursos de IaaS
+## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Etapa 6: executar comandos para migrar seus recursos de IaaS
 * [Migrar VMs em um serviço de nuvem (não na rede virtual)](#step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
 * [Migrar VMs em uma rede virtual](#step-61-option-2---migrate-virtual-machines-in-a-virtual-network)
 * [Migrar conta de armazenamento](#step-62-migrate-a-storage-account)
@@ -142,7 +142,7 @@ Get-AzVMUsage -Location "West US"
 > Todas as operações descritas aqui são idempotentes. Se você tiver um problema que não seja um recurso sem suporte ou um erro de configuração, recomendamos que repita a operação de preparação, anulação ou confirmação. Em seguida, a plataforma tenta a ação novamente.
 
 
-### <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Etapa 6,1: Opção 1-migrar máquinas virtuais em um serviço de nuvem (não em uma rede virtual)
+### <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Etapa 6,1: opção 1-migrar máquinas virtuais em um serviço de nuvem (não em uma rede virtual)
 Obtenha a lista de serviços de nuvem usando o comando a seguir e escolha o serviço de nuvem que você deseja migrar. Se as VMs no serviço de nuvem estiverem em uma rede virtual ou se tiverem funções Web ou de trabalho, o comando retornará uma mensagem de erro.
 
 ```powershell
@@ -177,7 +177,7 @@ Prepare as máquinas virtuais no serviço de nuvem para migração. Você tem du
     ```
 * **Opção 2. Migrar para uma rede virtual existente no modelo de implantação do Gerenciador de recursos**
 
-    Este exemplo define o nome do grupo derecursos como MyResource Group, o nome da rede virtual como **myVirtualNetwork** e o nome da sub-rede como mysubnet. Substitua os nomes no exemplo pelos nomes dos seus próprios recursos.
+    Este exemplo define o nome do grupo de recursos como **MyResource**Group, o nome da rede virtual como **myVirtualNetwork** e o nome da sub-rede como **mysubnet**. Substitua os nomes no exemplo pelos nomes dos seus próprios recursos.
 
     ```powershell
     $existingVnetRGName = "myResourceGroup"
@@ -201,7 +201,7 @@ Prepare as máquinas virtuais no serviço de nuvem para migração. Você tem du
         -VirtualNetworkName $vnetName -SubnetName $subnetName
     ```
 
-Depois que a operação de preparação for realizada com sucesso com uma das opções anteriores, consulte o estado de migração das VMs. Verifique se eles estão no `Prepared` estado.
+Depois que a operação de preparação for realizada com sucesso com uma das opções anteriores, consulte o estado de migração das VMs. Verifique se eles estão no estado de `Prepared`.
 
 Este exemplo define o nome da VM como **myVM**. Substitua o nome de exemplo pelo seu próprio nome de VM.
 
@@ -223,7 +223,7 @@ Se a configuração preparada estiver correta, você poderá avançar e confirma
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-### <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Etapa 6,1: Opção 2-migrar máquinas virtuais em uma rede virtual
+### <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Etapa 6,1: opção 2-migrar máquinas virtuais em uma rede virtual
 
 Para migrar máquinas virtuais em uma rede virtual, você migra a rede virtual. As máquinas virtuais são migradas automaticamente com a rede virtual. Escolha a rede virtual que você deseja migrar.
 > [!NOTE]
@@ -231,7 +231,7 @@ Para migrar máquinas virtuais em uma rede virtual, você migra a rede virtual. 
 <br>
 
 > [!NOTE]
-> O nome da rede virtual pode ser diferente do que é mostrado no novo Portal. O novo portal do Azure exibe o nome `[vnet-name]` como, mas o nome real da rede virtual `Group [resource-group-name] [vnet-name]`é do tipo. Antes de migrar, pesquise o nome da rede virtual real `Get-AzureVnetSite | Select -Property Name` usando o comando ou exiba-o no portal do Azure antigo. 
+> O nome da rede virtual pode ser diferente do que é mostrado no novo Portal. O novo portal do Azure exibe o nome como `[vnet-name]`, mas o nome real da rede virtual é do tipo `Group [resource-group-name] [vnet-name]`. Antes de migrar, pesquise o nome da rede virtual real usando o comando `Get-AzureVnetSite | Select -Property Name` ou exiba-o no portal do Azure antigo. 
 
 Este exemplo define o nome da rede virtual como **myVnet**. Substitua o nome de rede virtual de exemplo pelo seu próprio.
 
@@ -342,7 +342,7 @@ Quando terminar de migrar as máquinas virtuais, recomendamos que você execute 
         Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Visão geral da migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)
 * [Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

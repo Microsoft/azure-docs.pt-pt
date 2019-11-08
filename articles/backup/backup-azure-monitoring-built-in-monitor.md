@@ -1,6 +1,6 @@
 ---
-title: 'Backup do Azure: Monitorar cargas de trabalho protegidas do backup do Azure'
-description: Monitorar cargas de trabalho de backup do Azure usando portal do Azure
+title: 'Backup do Azure: monitorar cargas de trabalho protegidas de backup do Azure'
+description: Neste artigo, saiba mais sobre os recursos de monitoramento e notificação para cargas de trabalho de backup do Azure usando o portal do Azure.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: bae05e890ef76ada9f775293c673cb8baa82c8bf
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f1dc1c7fe6aa5e8d20504427679052f68612f65e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954600"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747351"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorando cargas de trabalho de backup do Azure
 
@@ -31,10 +31,10 @@ Os trabalhos são gerados quando as operações, como configurar backup, backup,
 
 Os trabalhos das seguintes soluções de backup do Azure são mostrados aqui:
 
-  - Cópias de segurança de VMs do Azure
-  - Backup de arquivos do Azure
-  - Backup de carga de trabalho do Azure, como SQL
-  - Agente do Azure Backup (MAB)
+- Cópias de segurança de VMs do Azure
+- Backup de arquivos do Azure
+- Backup de carga de trabalho do Azure, como SQL
+- Agente do Azure Backup (MAB)
 
 Os trabalhos do System Center Data Protection Manager (SC-DPM), Backup do Microsoft Azure Server (MABS) não são exibidos.
 
@@ -46,37 +46,40 @@ Os trabalhos do System Center Data Protection Manager (SC-DPM), Backup do Micros
 Os alertas são principalmente cenários em que os usuários são notificados para que possam executar uma ação relevante. A seção **alertas de backup** mostra alertas gerados pelo serviço de backup do Azure. Esses alertas são definidos pelo serviço e o usuário não pode criar alertas personalizados.
 
 ### <a name="alert-scenarios"></a>Cenários de alerta
+
 Os cenários a seguir são definidos pelo serviço como cenários de alerta.
 
-  - Falhas de Cópia de Segurança/Restauro
-  - Cópia de segurança concluída com êxito com avisos para o Agente do Azure Backup (MAB)
-  - Interromper a proteção com reter dados/parar proteção com excluir dados
+- Falhas de Cópia de Segurança/Restauro
+- Cópia de segurança concluída com êxito com avisos para o Agente do Azure Backup (MAB)
+- Interromper a proteção com reter dados/parar proteção com excluir dados
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Exceções quando um alerta não é gerado
+
 Há algumas exceções quando um alerta não é gerado em uma falha, eles são:
 
-  - O usuário cancelou explicitamente o trabalho em execução
-  - O trabalho falha porque outro trabalho de backup está em andamento (nada para agir aqui, pois acabamos de aguardar a conclusão do trabalho anterior)
-  - O trabalho de backup da VM falha porque a VM do Azure com backup não existe mais
+- O usuário cancelou explicitamente o trabalho em execução
+- O trabalho falha porque outro trabalho de backup está em andamento (nada para agir aqui, pois acabamos de aguardar a conclusão do trabalho anterior)
+- O trabalho de backup da VM falha porque a VM do Azure com backup não existe mais
 
 As exceções acima foram projetadas desde a compreensão de que o resultado dessas operações (basicamente disparados pelo usuário) aparece imediatamente em clientes do portal/PS/CLI. Portanto, o usuário reconhece imediatamente e não precisa de uma notificação.
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Os alertas das seguintes soluções de backup do Azure são mostrados aqui:
 
-  - Cópias de segurança de VMs do Azure
-  - Cópias de segurança dos Ficheiros do Azure
-  - Cópias de segurança das cargas de trabalho do Azure, como o SQL
-  - Agente do Azure Backup (MAB)
+- Cópias de segurança de VMs do Azure
+- Cópias de segurança dos Ficheiros do Azure
+- Cópias de segurança das cargas de trabalho do Azure, como o SQL
+- Agente do Azure Backup (MAB)
 
 > [!NOTE]
 > Os alertas do System Center Data Protection Manager (SC-DPM), Backup do Microsoft Azure Server (MABS) não são exibidos aqui.
 
-### <a name="alert-types"></a>Tipos de alertas
+### <a name="alert-types"></a>Tipos de alerta
+
 Com base na severidade do alerta, os alertas podem ser definidos em três tipos:
 
-  - **Crítico**: Em princípio, qualquer falha de backup ou recuperação (programada ou disparada pelo usuário) levaria à geração de um alerta e seria exibida como um alerta crítico e também operações destrutivas, como excluir backup.
-  - **Aviso**: Se a operação de backup for bem sucedido, mas com poucos avisos, elas serão listadas como alertas de aviso.
-  - **Informação**: A partir de hoje, nenhum alerta informativo é gerado pelo serviço de backup do Azure.
+- **Crítico**: em princípio, qualquer falha de backup ou recuperação (programada ou disparada pelo usuário) levaria à geração de um alerta e seria exibida como um alerta crítico e também operações destrutivas, como excluir backup.
+- **Aviso**: se a operação de backup for bem sucedido, mas com poucos avisos, elas serão listadas como alertas de aviso.
+- **Informação**: a partir de hoje, nenhum alerta informativo é gerado pelo serviço de backup do Azure.
 
 ## <a name="notification-for-backup-alerts"></a>Notificação para alertas de backup
 
@@ -96,17 +99,15 @@ Se a frequência foi definida como um resumo por hora e um alerta foi gerado e r
 
 > [!NOTE]
 >
-> * Se uma operação destrutiva, como **parar proteção com dados de exclusão** , for executada, um alerta será gerado e um email será enviado aos proprietários, administradores e coadministradores da assinatura, mesmo que as notificações não estejam configuradas para o cofre do serviço de recuperação.
-> * Para configurar a notificação para trabalhos com êxito, use [log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+> - Se uma operação destrutiva, como **parar proteção com dados de exclusão** , for executada, um alerta será gerado e um email será enviado aos proprietários, administradores e coadministradores da assinatura, mesmo que as notificações não estejam configuradas para o cofre do serviço de recuperação.
+> - Para configurar a notificação para trabalhos com êxito, use [log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## <a name="inactivating-alerts"></a>Inativando alertas
 
-Para desativar/resolver um alerta ativo, você pode clicar no item de lista correspondente ao alerta que deseja desativar. Isso abre uma tela que exibe informações detalhadas sobre o alerta, com um botão ' desativar ' na parte superior. Clicar nesse botão alteraria o status do alerta para ' inactive '. Você também pode desativar um alerta simplesmente clicando com o botão direito do mouse no item de lista correspondente a esse alerta e selecionando ' desativar '.
+Para desativar/resolver um alerta ativo, você pode clicar no item de lista correspondente ao alerta que deseja desativar. Isso abre uma tela que exibe informações detalhadas sobre o alerta, com um botão ' desativar ' na parte superior. Clicar nesse botão alteraria o status do alerta para ' inactive '. Você também pode desativar um alerta clicando com o botão direito do mouse no item de lista correspondente ao alerta e selecionando ' desativar '.
 
 ![Inativação de alerta do cofre RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 
-
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Monitorar cargas de trabalho de backup do Azure usando Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)

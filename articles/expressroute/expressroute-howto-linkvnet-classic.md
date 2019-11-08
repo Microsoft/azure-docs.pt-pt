@@ -1,6 +1,6 @@
 ---
-title: 'Ligar uma rede virtual a um circuito do ExpressRoute: PowerShell: clássico: Azure | Microsoft Docs'
-description: Este documento fornece uma descrição geral de como ligar redes virtuais (VNets) para circuitos do ExpressRoute com o modelo de implementação clássica e o PowerShell.
+title: 'Vincular uma rede virtual a um circuito de ExpressRoute: PowerShell: clássico: Azure | Microsoft Docs'
+description: Este documento fornece uma visão geral de como vincular redes virtuais (VNets) a circuitos de ExpressRoute usando o modelo de implantação clássico e o PowerShell.
 services: expressroute
 documentationcenter: na
 author: cherylmc
@@ -8,25 +8,25 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: 21676ff329613f792d6570713f044bb7440e58d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9365e36cb2beff21e795adecaef5fa41e0d7583c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370633"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748266"
 ---
-# <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Ligar uma rede virtual a um circuito do ExpressRoute com o PowerShell (clássico)
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Conectar uma rede virtual a um circuito do ExpressRoute usando o PowerShell (clássico)
 > [!div class="op_single_selector"]
 > * [Portal do Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [CLI do Azure](howto-linkvnet-cli.md)
-> * [Vídeo - portal do Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [portal do Azure de vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-linkvnet-classic.md)
 >
 
-Este artigo irá ajudá-lo a ligar redes virtuais (VNets) para circuitos do ExpressRoute do Azure com o PowerShell. Pode ser associada uma VNet única para até quatro circuitos do ExpressRoute. Utilize os passos neste artigo para criar uma nova ligação a cada circuito do ExpressRoute que está a ligar. Os circuitos do ExpressRoute podem ser na mesma subscrição, subscrições diferentes ou uma combinação de ambos. Este artigo aplica-se às redes virtuais criadas com o modelo de implementação clássica.
+Este artigo o ajudará a vincular redes virtuais (VNets) a circuitos do Azure ExpressRoute usando o PowerShell. Uma única VNet pode ser vinculada a até quatro circuitos do ExpressRoute. Use as etapas neste artigo para criar um novo link para cada circuito de ExpressRoute ao qual você está se conectando. Os circuitos do ExpressRoute podem estar na mesma assinatura, em assinaturas diferentes ou em uma mistura de ambos. Este artigo se aplica a redes virtuais criadas usando o modelo de implantação clássico.
 
-Pode ligar até 10 redes virtuais a um circuito do ExpressRoute. Tem de ser todas as redes virtuais na mesma região geopolítica. Pode associar um grande número de redes virtuais para o seu circuito do ExpressRoute ou redes virtuais de ligação que estão em outras regiões geopolíticas, se ativar o suplemento ExpressRoute premium. Verifique os [FAQ](expressroute-faqs.md) para obter mais detalhes sobre o suplemento premium.
+Você pode vincular até 10 redes virtuais a um circuito do ExpressRoute. Todas as redes virtuais devem estar na mesma região geopolítica. Você pode vincular um número maior de redes virtuais ao circuito do ExpressRoute ou vincular redes virtuais que estão em outras regiões do geopolítica se você habilitar o complemento Premium do ExpressRoute. Consulte as [perguntas frequentes](expressroute-faqs.md) para obter mais detalhes sobre o complemento Premium.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -35,31 +35,29 @@ Pode ligar até 10 redes virtuais a um circuito do ExpressRoute. Tem de ser toda
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="configuration-prerequisites"></a>Pré-requisitos da configuração
 
-* Reveja os [pré-requisitos](expressroute-prerequisites.md), [requisitos de encaminhamento](expressroute-routing.md), e [fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
+* Examine os [pré-requisitos](expressroute-prerequisites.md), [os requisitos de roteamento](expressroute-routing.md)e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 * Deve ter um circuito ExpressRoute ativo.
-   * Siga as instruções para [criar um circuito do ExpressRoute](expressroute-howto-circuit-classic.md) e ter o seu fornecedor de conectividade, ativar o circuito.
-   * Certifique-se de que tem o peering privado do Azure configurado para o seu circuito. Consulte a [configurar encaminhamento](expressroute-howto-routing-classic.md) artigo para obter instruções de encaminhamento.
-   * Certifique-se de que o peering privado do Azure está configurado e o peering de BGP entre a rede e a Microsoft está ativo, para que pode habilitar a conectividade de ponto-a-ponto.
-   * Tem de ter uma rede virtual e um gateway de rede virtual criada e totalmente aprovisionado. Siga as instruções para [configurar uma rede virtual para o ExpressRoute](expressroute-howto-vnet-portal-classic.md).
+   * Siga as instruções para [criar um circuito do ExpressRoute](expressroute-howto-circuit-classic.md) e fazer com que seu provedor de conectividade habilite o circuito.
+   * Verifique se você tem o emparelhamento privado do Azure configurado para seu circuito. Consulte o artigo [Configurar roteamento](expressroute-howto-routing-classic.md) para obter instruções de roteamento.
+   * Verifique se o emparelhamento privado do Azure está configurado e se o emparelhamento via protocolo BGP entre sua rede e a Microsoft está ativo para que você possa habilitar a conectividade de ponta a ponta.
+   * Você deve ter uma rede virtual e um gateway de rede virtual criados e totalmente provisionados. Siga as instruções para [Configurar uma rede virtual para o ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 
-### <a name="download-the-latest-powershell-cmdlets"></a>Transferir os cmdlets do PowerShell mais recente
+### <a name="download-the-latest-powershell-cmdlets"></a>Baixe os cmdlets mais recentes do PowerShell
 
-Instale as versões mais recentes de módulos do PowerShell de gestão de serviço do Azure (SM) e o módulo do ExpressRoute. Ao utilizar o exemplo seguinte, tenha em atenção que o número de versão (neste exemplo, 5.1.1) será alterado à medida que as versões mais recentes dos cmdlets são lançadas.
+Instale as versões mais recentes dos módulos do PowerShell do gerenciamento de serviços do Azure (SM) e do módulo ExpressRoute. Ao usar o exemplo a seguir, observe que o número de versão (neste exemplo, 5.1.1) será alterado conforme as versões mais recentes dos cmdlets forem liberadas.
 
 ```powershell
 Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
 Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 ```
 
-Se precisar de mais informações sobre o Azure PowerShell, veja [introdução aos cmdlets do Azure PowerShell](/powershell/azure/overview) para obter orientações passo a passo sobre como configurar o seu computador para utilizar os módulos do Azure PowerShell.
+Se você precisar de mais informações sobre Azure PowerShell, consulte [introdução aos cmdlets Azure PowerShell](/powershell/azure/overview) para obter orientações passo a passo sobre como configurar seu computador para usar os módulos de Azure PowerShell.
 
 ### <a name="sign-in"></a>Iniciar sessão
 
-Para iniciar sessão na sua conta do Azure, utilize os exemplos seguintes:
+Para entrar em sua conta do Azure, use os exemplos a seguir:
 
 1. Abra a consola do PowerShell com direitos elevados e ligue-se à sua conta.
 
@@ -77,22 +75,22 @@ Para iniciar sessão na sua conta do Azure, utilize os exemplos seguintes:
    Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
-4. Em seguida, utilize o cmdlet seguinte para adicionar a sua subscrição do Azure para o PowerShell para o modelo de implementação clássica.
+4. Em seguida, use o cmdlet a seguir para adicionar sua assinatura do Azure ao PowerShell para o modelo de implantação clássico.
 
    ```powershell
    Add-AzureAccount
    ```
 
-## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Ligar uma rede virtual na mesma subscrição a um circuito
-Pode ligar uma rede virtual a um circuito do ExpressRoute com o cmdlet seguinte. Certifique-se de que o gateway de rede virtual é criado e está pronto para a ligação antes de executar o cmdlet.
+## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Conectar uma rede virtual na mesma assinatura a um circuito
+Você pode vincular uma rede virtual a um circuito do ExpressRoute usando o cmdlet a seguir. Verifique se o gateway de rede virtual foi criado e está pronto para vinculação antes de executar o cmdlet.
 
 ```powershell
 New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
 Provisioned
 ```
     
-## <a name="remove-a-virtual-network-link-to-a-circuit"></a>Remover uma ligação de rede virtual para um circuito
-Pode remover uma ligação de rede virtual para um circuito do ExpressRoute com o cmdlet seguinte. Certifique-se de que a subscrição atual está selecionada para a rede virtual fornecida. 
+## <a name="remove-a-virtual-network-link-to-a-circuit"></a>Remover um link de rede virtual para um circuito
+Você pode remover um link de rede virtual para um circuito do ExpressRoute usando o cmdlet a seguir. Verifique se a assinatura atual está selecionada para a rede virtual fornecida. 
 
 ```powershell
 Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
@@ -100,33 +98,33 @@ Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VN
  
 
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Ligar uma rede virtual de uma subscrição diferente a um circuito
-Pode partilhar um circuito do ExpressRoute em várias subscrições. A figura seguinte mostra um simples esquemática funciona como a partilha dos circuitos do ExpressRoute em várias subscrições.
+Você pode compartilhar um circuito do ExpressRoute entre várias assinaturas. A figura a seguir mostra um esquema simples de como o compartilhamento funciona para circuitos do ExpressRoute em várias assinaturas.
 
-Cada uma das nuvens menores na cloud da grande é utilizada para representar as subscrições que pertencem a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode utilizar a sua própria subscrição para implementar os serviços, mas os departamentos pode partilhar um único circuito de ExpressRoute para ligar a voltar à sua rede no local. Um único departamento (neste exemplo: IT) pode ser proprietário do circuito do ExpressRoute. Outras subscrições dentro da organização podem utilizar o circuito do ExpressRoute.
+Cada uma das nuvens menores na nuvem grande é usada para representar assinaturas que pertencem a diferentes departamentos em uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas os departamentos podem compartilhar um único circuito do ExpressRoute para se conectar de volta à sua rede local. Um único departamento (neste exemplo: ele) pode possuir o circuito do ExpressRoute. Outras assinaturas dentro da organização podem usar o circuito do ExpressRoute.
 
 > [!NOTE]
-> Custos de largura de banda e de conectividade para o circuito dedicado serão aplicados para o proprietário do circuito ExpressRoute. Todas as redes virtuais partilham a mesma largura de banda.
+> Os encargos de conectividade e largura de banda para o circuito dedicado serão aplicados ao proprietário do circuito do ExpressRoute. Todas as redes virtuais compartilham a mesma largura de banda.
 > 
 > 
 
-![Conectividade entre subscrições](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
+![Conectividade entre assinaturas](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
 ### <a name="administration"></a>Administração
-O *proprietário do circuito* é o administrador/coadministrador da subscrição na qual é criado o circuito do ExpressRoute. O proprietário do circuito pode autorizar os administradores/coadministradores de outras subscrições, denominadas *circuito utilizadores*, para utilizar o circuito dedicado que possuem. Os utilizadores do circuito que estão autorizados a utilizar o circuito do ExpressRoute da organização podem ligar a rede virtual na sua subscrição para o circuito do ExpressRoute depois estiverem autorizadas.
+O *proprietário do circuito* é o administrador/coadministrador da assinatura na qual o circuito do ExpressRoute é criado. O proprietário do circuito pode autorizar administradores/coadministradores de outras assinaturas, chamados de *usuários de circuito*, para usar o circuito dedicado que eles possuem. Os usuários de circuito que estão autorizados a usar o circuito de ExpressRoute da organização podem vincular a rede virtual em sua assinatura ao circuito do ExpressRoute depois de serem autorizados.
 
-O proprietário do circuito tem o poder para modificar e revogar autorizações em qualquer altura. Revogar uma autorização resultará em todas as ligações a ser eliminadas da subscrição cujo acesso foi revogado.
+O proprietário do circuito tem a capacidade de modificar e revogar autorizações a qualquer momento. A revogação de uma autorização resultará na exclusão de todos os links da assinatura, cujo acesso foi revogado.
 
 ### <a name="circuit-owner-operations"></a>Operações de proprietário do circuito
 
-**Criar uma autorização**
+**Criando uma autorização**
 
-O proprietário do circuito autoriza os administradores de outras subscrições para utilizar o circuito especificado. No exemplo a seguir, o administrador do circuito (TI da Contoso) permite que o administrador da subscrição (Dev-Test) para ligar até duas redes virtuais ao circuito do outro. O administrador de TI de Contoso permite isso ao especificar o ID de desenvolvimento e teste Microsoft. O cmdlet não envie um email para o ID especificado de Microsoft. O proprietário do circuito precisa explicitamente notificar o proprietário de subscrição que a autorização está concluída.
+O proprietário do circuito autoriza os administradores de outras assinaturas a usar o circuito especificado. No exemplo a seguir, o administrador do circuito (TI da Contoso) permite que o administrador de outra assinatura (desenvolvimento/teste) vincule até duas redes virtuais ao circuito. O administrador de ti da Contoso permite isso especificando a ID da Microsoft de desenvolvimento/teste. O cmdlet não envia email para a ID da Microsoft especificada. O proprietário do circuito precisa notificar explicitamente o outro proprietário da assinatura de que a autorização foi concluída.
 
 ```powershell
 New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
 ```
 
-  Retorno:
+  Exibir
 
   ```powershell
   Description         : Dev-Test Links
@@ -136,14 +134,14 @@ New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "************************
   Used                : 0
   ```
 
-**Rever as autorizações**
+**Revisando autorizações**
 
-O proprietário do circuito pode rever todas as autorizações emitidos num determinado circuito, execute o seguinte cmdlet:
+O proprietário do circuito pode examinar todas as autorizações emitidas em um circuito específico executando o seguinte cmdlet:
 
 ```powershell
 Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
 ```
-  Retorno:
+  Exibir
 
   ```powershell
   Description         : EngineeringTeam
@@ -165,15 +163,15 @@ Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "***********************
   Used                : 2
   ```
 
-**A atualizar as autorizações**
+**Atualizando autorizações**
 
-O proprietário do circuito pode modificar as autorizações utilizando o cmdlet seguinte:
+O proprietário do circuito pode modificar autorizações usando o seguinte cmdlet:
 
 ```powershell
 Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
 ```
 
-  Retorno:
+  Exibir
 
   ```powershell
   Description         : Dev-Test Links
@@ -183,25 +181,25 @@ Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "************************
   Used                : 0
   ```
 
-**A eliminar autorizações**
+**Excluindo autorizações**
 
-O proprietário do circuito pode revogar/eliminar autorizações para o usuário executando o seguinte cmdlet:
+O proprietário do circuito pode revogar/excluir autorizações para o usuário executando o seguinte cmdlet:
 
 ```powershell
 Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
 ```
 
-### <a name="circuit-user-operations"></a>Operações de utilizador do circuito
+### <a name="circuit-user-operations"></a>Operações de usuário do circuito
 
-**Rever as autorizações**
+**Revisando autorizações**
 
-O utilizador de circuito pode rever as autorizações utilizando o cmdlet seguinte:
+O usuário do circuito pode examinar autorizações usando o seguinte cmdlet:
 
 ```powershell
 Get-AzureAuthorizedDedicatedCircuit
 ```
 
-  Retorno:
+  Exibir
 
   ```powershell
   Bandwidth                        : 200
@@ -215,15 +213,15 @@ Get-AzureAuthorizedDedicatedCircuit
   UsedLinks                        : 0
   ```
 
-**Resgatar autorizações de ligações**
+**Resgatando autorizações de link**
 
-O utilizador de circuito pode executar o cmdlet seguinte para resgatar uma autorização de ligação:
+O usuário do circuito pode executar o seguinte cmdlet para resgatar uma autorização de link:
 
 ```powershell
 New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
 ```
 
-  Retorno:
+  Exibir
 
   ```powershell
   State VnetName
@@ -231,12 +229,12 @@ New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –Vnet
   Provisioned SalesVNET1
   ```
 
-Execute este comando na subscrição recentemente ligada para a rede virtual:
+Execute este comando na assinatura recém vinculada para a rede virtual:
 
 ```powershell
 New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações acerca do ExpressRoute, veja as [FAQs do ExpressRoute](expressroute-faqs.md).

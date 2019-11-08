@@ -1,6 +1,6 @@
 ---
-title: 'Backup do Azure: Criar cofres dos serviços de recuperação usando a API REST'
-description: gerenciar operações de backup e restauração do backup de VM do Azure usando a API REST
+title: 'Backup do Azure: criar cofres dos serviços de recuperação usando a API REST'
+description: Neste artigo, saiba como gerenciar operações de backup e restauração do backup de VM do Azure usando a API REST.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: dacurwin
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: f60a675b87d989f12ac3e6181f580b8acffa640b
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 7c9d165f623367d1c888b90f76e96ce8fa2e8f89
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688704"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747558"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Criar um cofre dos serviços de recuperação do Azure usando a API REST
 
@@ -27,16 +27,16 @@ Para criar ou atualizar um cofre dos serviços de recuperação do Azure, use a 
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}?api-version=2016-06-01
 ```
 
-## <a name="create-a-request"></a>Criar um pedido
+## <a name="create-a-request"></a>Criar uma solicitação
 
-Para criar a solicitação *Put* , o `{subscription-id}` parâmetro é necessário. Se você tiver várias assinaturas, consulte [trabalhando com várias assinaturas](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Você define um `{resourceGroupName}` e `{vaultName}` para seus recursos, juntamente com o `api-version` parâmetro. Este artigo usa `api-version=2016-06-01`.
+Para criar a solicitação *Put* , o parâmetro `{subscription-id}` é necessário. Se você tiver várias assinaturas, consulte [trabalhando com várias assinaturas](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Você define um `{resourceGroupName}` e `{vaultName}` para seus recursos, juntamente com o parâmetro `api-version`. Este artigo usa `api-version=2016-06-01`.
 
-Os seguintes cabeçalhos são necessários:
+Os seguintes cabeçalhos são obrigatórios:
 
-| Cabeçalho da solicitação   | Descrição |
+| Cabeçalho do pedido   | Descrição |
 |------------------|-----------------|
-| *Tipo de conteúdo:*  | Necessário. Defina como `application/json`. |
-| *Authorization:* | Necessário. Defina como um token `Bearer` de [acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)válido. |
+| *Content-Type:*  | Necessário. Definido como `application/json`. |
+| *Authorization:* | Necessário. Definido com um `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
 
 Para obter mais informações sobre como criar a solicitação, consulte [componentes de uma solicitação/resposta da API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -44,13 +44,13 @@ Para obter mais informações sobre como criar a solicitação, consulte [compon
 
 As seguintes definições comuns são usadas para criar um corpo de solicitação:
 
-|Nome  |Requerido  |Tipo  |Descrição  |
+|Nome  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
-|eTag     |         |   Cadeia      |  ETag opcional       |
-|location     |  true       |Cadeia         |   Localização do recurso      |
-|properties     |         | [Cofreproperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
-|sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifica o identificador de sistema exclusivo para cada recurso do Azure     |
-|tags     |         | Objeto        |     Etiquetas de recursos    |
+|eTag     |         |   String      |  ETag opcional       |
+|localização     |  true       |String         |   Local do recurso      |
+|propriedades     |         | [Cofreproperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
+|SKU     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifica o identificador de sistema exclusivo para cada recurso do Azure     |
+|etiquetas     |         | Object        |     Etiquetas de recursos    |
 
 Observe que o nome do cofre e o nome do grupo de recursos são fornecidos no URI PUT. O corpo da solicitação define o local.
 
@@ -68,7 +68,7 @@ O corpo de exemplo a seguir é usado para criar um cofre no "oeste dos EUA". Esp
 }
 ```
 
-## <a name="responses"></a>Responses
+## <a name="responses"></a>Respostas
 
 Há duas respostas bem-sucedidas para a operação criar ou atualizar um cofre dos serviços de recuperação:
 
@@ -98,7 +98,7 @@ Uma resposta condensada *201 criada* no corpo da solicitação de exemplo anteri
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Crie uma política de backup para fazer backup de uma VM do Azure neste cofre](backup-azure-arm-userestapi-createorupdatepolicy.md).
 

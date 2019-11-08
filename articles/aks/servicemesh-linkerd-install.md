@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: ec8250f6cdb44af3c99c1d34d1f14fbd2209aac0
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: f70052a62152a20f808c1e491a663d1406fbd407
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530098"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747722"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Instalar o Linkerd no serviço kubernetes do Azure (AKS)
 
@@ -248,7 +248,7 @@ Opening Linkerd dashboard in the default browser
 > [!WARNING]
 > Excluir Linkerd de um sistema em execução pode resultar em problemas relacionados ao tráfego entre seus serviços. Verifique se você fez provisões para que o seu sistema ainda opere corretamente sem Linkerd antes de continuar.
 
-Primeiro, você precisará remover os proxies do plano de dados. Remova todas as [anotações][linkerd-automatic-proxy-injection] de injeção de proxy automáticas dos namespaces de carga de trabalho e lance suas implantações de carga de trabalho. Suas cargas de trabalho não devem mais ter nenhum componente de plano de dados associado.
+Primeiro, você precisará remover os proxies do plano de dados. Remova todas as [anotações][linkerd-automatic-proxy-injection] de injeção de proxy automáticas dos namespaces de carga de trabalho e distribua suas implantações de carga de trabalho. Suas cargas de trabalho não devem mais ter nenhum componente de plano de dados associado.
 
 Por fim, remova o plano de controle da seguinte maneira:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: b7d2e1b08653cb8023ef6a5190ab53ecc3d568a6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: de394a98f78b0bdb7cdf090de5c052cc761aa92d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951513"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748613"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo MXChip IoT DevKit ao aplicativo IoT Central do Azure
 
@@ -29,12 +29,12 @@ Neste artigo de instruções, você:
 
 Para concluir as etapas neste artigo, você precisa dos seguintes recursos:
 
-1. Um [dispositivo devkit](https://aka.ms/iot-devkit-purchase).
-1. Um aplicativo IoT Central criado a partir do modelo de **aplicativo de visualização** . Você pode seguir as etapas em [criar um aplicativo de plug and Play de IOT](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+- Um [dispositivo devkit](https://aka.ms/iot-devkit-purchase).
+- Um aplicativo IoT Central criado a partir do modelo de **aplicativo de visualização** . Você pode seguir as etapas em [criar um aplicativo de plug and Play de IOT](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## <a name="get-device-connection-details"></a>Obter detalhes de conexão do dispositivo
 
-No aplicativo IoT Central do Azure, selecione a guia **Administração** e selecione **conexão do dispositivo**. Anote o **escopo da ID** e a **chave primária**.
+No aplicativo IoT Central do Azure, selecione a guia **Administração** e selecione **conexão do dispositivo**. Anote a **ID do escopo** e a **chave primária** (no link **Exibir chaves** ). E verifique se a **aprovação automática** está habilitada.
 
 ![Detalhes de conexão do grupo de dispositivos](media/howto-connect-devkit-pnp/device-group-connection-details.png)
 
@@ -61,7 +61,7 @@ No aplicativo IoT Central do Azure, selecione a guia **Administração** e selec
 
     - O nome de sua rede WiFi (SSID).
     - Sua senha de rede WiFi.
-    - Os detalhes da conexão: a **ID do dispositivo** que você pode escolher por conta própria e o escopo da **ID** e a **chave primária de SAS do grupo** anotada anteriormente.
+    - Os detalhes da conexão: a **ID do dispositivo** que você pode escolher por conta própria e a ID de **escopo** e a **chave primária de SAS do grupo** anotada anteriormente.
 
     > [!NOTE]
     > Atualmente, o IoT DevKit pode se conectar somente a Wi-Fi de 2,4 GHz, não há suporte para 5 GHz devido a restrições de hardware.
@@ -82,11 +82,11 @@ Nesta etapa, você exibe a telemetria no aplicativo IoT Central do Azure.
 
 No aplicativo IoT Central, selecione a guia **dispositivos** , selecione o dispositivo que você adicionou. Na guia **visão geral** , você pode ver a telemetria do dispositivo devkit:
 
-   ![Visão geral do dispositivo IoT Central](media/howto-connect-devkit-pnp/mxchip-overview-page.png)
+![Visão geral do dispositivo IoT Central](media/howto-connect-devkit-pnp/mxchip-overview-page.png)
 
 ## <a name="review-the-code"></a>Rever o código
 
-Para examinar o código ou modificá-lo e compilá-lo, vá para os [exemplos de código](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp/sample/).
+Para examinar o código ou modificá-lo, vá para o [repositório GitHub do código de exemplo do MXChip IOT devkit](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp).
 
 ## <a name="next-steps"></a>Passos seguintes
 

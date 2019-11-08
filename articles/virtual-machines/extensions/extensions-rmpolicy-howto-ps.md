@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: e096982c7bbf4f06b96ef4e3918ca1caa9d481a0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 599417131f228c95168641c54ffbb947e3682f7b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169080"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750002"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Usar Azure Policy para restringir a instalação de extensões em VMs do Windows
 
@@ -26,7 +26,7 @@ Se você quiser impedir o uso ou a instalação de determinadas extensões em su
 
 Este tutorial usa Azure PowerShell no Cloud Shell, que é constantemente atualizado para a versão mais recente. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="create-a-rules-file"></a>Criar um arquivo de regras
 
@@ -118,7 +118,7 @@ $definition = New-AzPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>Atribuir a política
 
-Este exemplo atribui a política a um grupo de recursos usando [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Qualquer VM criada no grupo de recursos MyResource Group não será capaz de instalar o agente de acesso da VM ou as extensões de script personalizado. 
+Este exemplo atribui a política a um grupo de recursos usando [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Qualquer VM criada no grupo de recursos **MyResource** Group não será capaz de instalar o agente de acesso da VM ou as extensões de script personalizado. 
 
 Use o [Get-AzSubscription | Cmdlet Format-Table](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) para obter sua ID de assinatura para usar no lugar do exemplo.
 
@@ -141,7 +141,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>Testar a política
 
-Para testar a política, tente usar a extensão de acesso à VM. O seguinte deve falhar com a mensagem "Set-AzVMAccessExtension: O recurso ' myVMAccess ' não foi permitido pela política. "
+Para testar a política, tente usar a extensão de acesso à VM. O seguinte deve falhar com a mensagem "Set-AzVMAccessExtension: o recurso ' myVMAccess ' não foi permitido pela política."
 
 ```azurepowershell-interactive
 Set-AzVMAccessExtension `

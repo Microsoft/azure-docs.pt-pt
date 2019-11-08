@@ -1,7 +1,7 @@
 ---
 title: Suporte ao idioma-API de Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Esta é uma lista de linguagens naturais às quais a API de Content Moderator dá suporte.
+description: Esta é uma lista de linguagens naturais às quais a API de Content Moderator de serviços cognitivas do Azure dá suporte.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: b4e6a5ca2dc19671dab3087c0a182925ac8f9a1b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 9574af31c881589668c462099cae46d9e83b454b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755319"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744360"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Suporte de idioma para API de Content Moderator
 

@@ -1,18 +1,18 @@
 ---
 title: Acerca das cópias de segurança de VMs do Azure
-description: Saiba mais sobre o backup de VM do Azure e observe algumas práticas recomendadas.
+description: Neste artigo, saiba como o serviço de backup do Azure faz backup de máquinas virtuais do Azure e como seguir as práticas recomendadas.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: db3e4b8a8abea4718f5779790906bf45591d221c
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: e22c4c24e83be0f89b306eed0eb1d80bdd9387e1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018695"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747211"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup de VM do Azure
 
@@ -34,10 +34,10 @@ Veja como o backup do Azure conclui um backup para VMs do Azure:
     - O backup é otimizado com o backup de cada disco de VM em paralelo.
     - Para cada disco que está sendo submetido a backup, o backup do Azure lê os blocos no disco e identifica e transfere apenas os blocos de dados que foram alterados (o Delta) desde o backup anterior.
     - Os dados de instantâneo podem não ser copiados imediatamente para o cofre. Pode levar algumas horas em horários de pico. O tempo total de backup de uma VM será menor que 24 horas para políticas de backup diárias.
- 1. As alterações feitas em uma VM do Windows após a habilitação do backup do Azure são:
-    -   Microsoft Visual C++ 2013 redistribuível (x64)-o 12.0.40660 está instalado na VM
-    -   O tipo de inicialização do VSS (serviço de cópias de sombra de volume) foi alterado para automático do manual
-    -   O serviço do Windows IaaSVmProvider foi adicionado
+1. As alterações feitas em uma VM do Windows após a habilitação do backup do Azure são:
+    - Microsoft Visual C++ 2013 redistribuível (x64)-o 12.0.40660 está instalado na VM
+    - O tipo de inicialização do VSS (serviço de cópias de sombra de volume) foi alterado para automático do manual
+    - O serviço do Windows IaaSVmProvider foi adicionado
 
 1. Quando a transferência de dados é concluída, o instantâneo é removido e um ponto de recuperação é criado.
 
@@ -54,7 +54,7 @@ Quando você faz backup de VMs do Azure com o backup do Azure, as VMs são cript
 
 Para VMs do Azure gerenciadas e não gerenciadas, o backup dá suporte a ambas as VMs criptografadas com BEKs somente ou VMs criptografadas com BEKs junto com KEKs.
 
-Os BEKs (segredos) e KEKs (chaves) com backup são criptografados. Eles podem ser lidos e usados somente quando são restaurados de volta ao cofre de chaves por usuários autorizados. Nem usuários não autorizados nem o Azure podem ler ou usar chaves ou segredos de backup.
+Os BEKs (segredos) e KEKs (chaves) com backup são criptografados. Eles podem ser lidos e usados somente quando são restaurados de volta ao cofre de chaves por usuários autorizados. Nenhum usuário não autorizado, ou o Azure, pode ler ou usar chaves ou segredos de backup.
 
 Também é feito backup de BEKs. Portanto, se os BEKs forem perdidos, os usuários autorizados poderão restaurar o BEKs para o cofre de chaves e recuperar as VMs criptografadas. Somente os usuários com o nível necessário de permissões podem fazer backup e restaurar VMs criptografadas ou chaves e segredos.
 
@@ -67,7 +67,7 @@ O backup do Azure faz instantâneos de acordo com o agendamento de backup.
   - Por padrão, o backup do Azure faz backups completos do VSS. [Saiba mais](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
   - Para alterar a configuração de modo que o backup do Azure faça backups de cópia VSS, defina a seguinte chave do registro em um prompt de comando:
 
-    **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f**
+    **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent"/v USEVSSCOPYBACKUP/t REG_SZ/d TRUE/f**
 
 - **VMs do Linux:** Para obter instantâneos consistentes com o aplicativo de VMs do Linux, use a estrutura de pré e pós-script do Linux para escrever seus próprios scripts personalizados para garantir a consistência.
 
@@ -81,8 +81,8 @@ A tabela a seguir explica os diferentes tipos de consistência de instantâneo:
 
 **Instantânea** | **Detalhes** | **Automatiza** | **Consideração**
 --- | --- | --- | ---
-**Consistente com o aplicativo** | Backups consistentes com o aplicativo capturam conteúdo de memória e operações de e/s pendentes. Os instantâneos consistentes com o aplicativo usam um gravador VSS (ou scripts de pré/pós para Linux) para garantir a consistência dos dados do aplicativo antes que ocorra um backup. | Quando você estiver recuperando uma VM com um instantâneo consistente com o aplicativo, a VM será inicializada. Não há corrupção ou perda de dados. Os aplicativos são iniciados em um estado consistente. | Windows: Todos os gravadores VSS foram bem-sucedidos<br/><br/> Linux: Os scripts anteriores/posteriores estão configurados e tiveram êxito
-**Consistente com o sistema de arquivos** | Os backups consistentes do sistema de arquivos fornecem consistência ao tirar um instantâneo de todos os arquivos ao mesmo tempo.<br/><br/> | Quando você estiver recuperando uma VM com um instantâneo consistente do sistema de arquivos, a VM será inicializada. Não há corrupção ou perda de dados. Os aplicativos precisam implementar seu próprio mecanismo de "correção" para garantir que os dados restaurados sejam consistentes. | Windows: Alguns gravadores VSS falharam <br/><br/> Linux: Padrão (se os scripts Pre/post não estiverem configurados ou falharem)
+**Consistente com o aplicativo** | Backups consistentes com o aplicativo capturam conteúdo de memória e operações de e/s pendentes. Os instantâneos consistentes com o aplicativo usam um gravador VSS (ou scripts de pré/pós para Linux) para garantir a consistência dos dados do aplicativo antes que ocorra um backup. | Quando você estiver recuperando uma VM com um instantâneo consistente com o aplicativo, a VM será inicializada. Não há corrupção ou perda de dados. Os aplicativos são iniciados em um estado consistente. | Windows: todos os gravadores VSS foram bem-sucedidos<br/><br/> Linux: os scripts Pre/post estão configurados e tiveram êxito
+**Consistente com o sistema de arquivos** | Os backups consistentes do sistema de arquivos fornecem consistência ao tirar um instantâneo de todos os arquivos ao mesmo tempo.<br/><br/> | Quando você estiver recuperando uma VM com um instantâneo consistente do sistema de arquivos, a VM será inicializada. Não há corrupção ou perda de dados. Os aplicativos precisam implementar seu próprio mecanismo de "correção" para garantir que os dados restaurados sejam consistentes. | Windows: alguns gravadores VSS falharam <br/><br/> Linux: padrão (se os scripts Pre/post não estiverem configurados ou falharem)
 **Com consistência de falhas** | Instantâneos com consistência de falhas normalmente ocorrem se uma VM do Azure é desligada no momento do backup. Somente os dados que já existem no disco no momento do backup são capturados e submetidos a backup.<br/><br/> Um ponto de recuperação consistente com falhas não garante a consistência de dados para o sistema operacional ou o aplicativo. | Embora não haja nenhuma garantia, a VM geralmente é inicializada e, em seguida, inicia uma verificação de disco para corrigir erros de corrupção. Quaisquer operações de gravação ou dados na memória que não foram transferidas para o disco antes da falha sejam perdidas. Os aplicativos implementam sua própria verificação de dados. Por exemplo, um aplicativo de banco de dados pode usar seu log de transações para verificação. Se o log de transações tem entradas que não estão no banco de dados, o software de banco de dados reverte as transações até que eles sejam consistentes. | A VM está em estado de desligamento
 
 ## <a name="backup-and-restore-considerations"></a>Considerações de backup e restauração
@@ -140,11 +140,12 @@ Disco de dados 2 | 4095 GB | 0 GB
 O tamanho real da VM, nesse caso, é de 17 GB + 30 GB + 0 GB = 47 GB. Esse tamanho de instância protegida (47 GB) se torna a base para a fatura mensal. À medida que aumenta a quantidade de dados na VM, o tamanho da instância protegida usada para correspondência de alterações de cobrança.
 
 <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
-## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Pré-visualização Pública: Backup de VM com tamanhos de disco de até 30 TB
+
+## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Visualização pública: backup de VM com tamanhos de disco de até 30 TB
 
 O backup do Azure agora dá suporte à visualização pública de tamanhos maiores e mais potentes do [Azure Managed disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) de até 30 TB. Essa visualização fornece suporte de nível de produção para máquinas virtuais gerenciadas.
 
-Os backups de suas máquinas virtuais com cada tamanho de disco até 30TB e um máximo de 256TB combinados para todos os discos em uma VM devem funcionar sem afetar os backups existentes. Não há nenhuma ação do usuário necessária para obter os backups em execução para os discos de tamanho grande, se a máquina virtual já estiver configurada com o backup do Azure.
+Os backups para suas máquinas virtuais com cada tamanho de disco de até 30 TB e um máximo de 256 TB combinados para todos os discos em uma VM devem funcionar sem afetar os backups existentes. Não há nenhuma ação do usuário necessária para obter os backups em execução para os discos de tamanho grande, se a máquina virtual já estiver configurada com o backup do Azure.
 
 Todas as máquinas virtuais do Azure com discos grandes com backup configurado devem ser submetidas a backup com êxito.
 

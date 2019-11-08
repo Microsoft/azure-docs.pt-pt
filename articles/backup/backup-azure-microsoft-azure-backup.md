@@ -1,6 +1,6 @@
 ---
 title: Usar Servidor de Backup do Azure para fazer backup de cargas de trabalho no Azure
-description: Use Servidor de Backup do Azure para proteger ou fazer backup de cargas de trabalho para o portal do Azure.
+description: Neste artigo, saiba como preparar seu ambiente para proteger e fazer backup de cargas de trabalho usando o Backup do Microsoft Azure Server (MABS).
 ms.reviewer: kasinh
 author: dcurwin
 manager: carmonm
@@ -8,16 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7a0f1f7dd79be250370fa97096a0cbf6dfc7f637
-ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
+ms.openlocfilehash: 789cc1d835024babb2482b2601503dbaf7247fc2
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71982843"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747419"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar Servidor de Backup do Azure
 
 > [!div class="op_single_selector"]
+>
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
 >
@@ -35,7 +36,7 @@ Este artigo explica como preparar seu ambiente para fazer backup de cargas de tr
 O MABS implantado em uma VM do Azure pode fazer backup de VMs no Azure, mas deve estar no mesmo domínio para habilitar a operação de backup. O processo de back-up de uma VM do Azure permanece o mesmo que fazer backup de VMs no local, no entanto, a implantação de MABS no Azure tem algumas limitações. Para obter mais informações sobre limitações, consulte [DPM como uma máquina virtual do Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo fornece as informações e os procedimentos para restaurar as VMs implantadas usando o modelo do Resource Manager.
+> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo fornece as informações e os procedimentos para restaurar as VMs implantadas usando o modelo do Resource Manager.
 >
 >
 
@@ -55,21 +56,21 @@ A proteção de cargas de trabalho com Servidor de Backup do Azure tem muitas nu
 
 Se você não quiser executar o servidor base no Azure, poderá executar o servidor em uma VM do Hyper-V, uma VM do VMware ou um host físico. Os requisitos mínimos recomendados para o hardware do servidor são dois núcleos e 8 GB de RAM. Os sistemas operacionais com suporte são listados na tabela a seguir:
 
-| Sistema operativo | Plataforma | SKU |
+| Sistema Operativo | Plataforma | SKU |
 |:--- | --- |:--- |
-| Windows Server de 2019 |64 bits |Standard, Datacenter, Essentials |
+| Windows Server 2019 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2016 e SPs mais recentes |64 bits |Standard, Datacenter, Essentials  |
-
 
 Você pode eliminar a duplicação do armazenamento do DPM usando a eliminação de duplicação do Windows Server. Saiba mais sobre como [o DPM e a eliminação de duplicação](https://technet.microsoft.com/library/dn891438.aspx) funcionam juntos quando implantados em VMs do Hyper-V.
 
 > [!NOTE]
 > O Servidor de Backup do Azure foi projetado para ser executado em um servidor dedicado e de finalidade única. Não é possível instalar o Servidor de Backup do Azure em:
-> - Um computador em execução como um controlador de domínio
-> - Um computador no qual a função de Servidor de Aplicações está instalada
-> - Um computador que é um servidor de gestão do System Center Operations Manager
-> - Um computador no qual o Exchange Server está em execução
-> - Um computador que é um nó de um cluster
+>
+> * Um computador em execução como um controlador de domínio
+> * Um computador no qual a função de Servidor de Aplicações está instalada
+> * Um computador que é um servidor de gestão do System Center Operations Manager
+> * Um computador no qual o Exchange Server está em execução
+> * Um computador que é um nó de um cluster
 
 Sempre ingresse Servidor de Backup do Azure em um domínio. Se você planeja mover o servidor para um domínio diferente, instale Servidor de Backup do Azure primeiro e, em seguida, ingresse o servidor no novo domínio. *Não há suporte*para a movimentação de um computador servidor de backup do Azure existente para um novo domínio após a implantação.
 
@@ -94,7 +95,7 @@ Para editar a definição de replicação de armazenamento:
 
 ### <a name="downloading-the-software-package"></a>Baixando o pacote de software
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2. Se você já tiver um cofre dos serviços de recuperação aberto, vá para a etapa 3. Se você não tiver um cofre dos serviços de recuperação aberto, mas estiver na portal do Azure, no menu principal, clique em **procurar**.
 
    * Na lista de recursos, escreva **Serviços de Recuperação**.
@@ -182,11 +183,11 @@ Quando o processo de extração for concluído, marque a caixa para iniciar o *S
 
     Ao usar sua própria instância do SQL 2017, você precisa configurar manualmente o SSRS. Após a configuração do SSRS, verifique se a propriedade *IsInitialized* do SSRS está definida como *true*. Quando definido como true, MABS pressupõe que o SSRS já está configurado e ignorará a configuração do SSRS.
 
-    Use os seguintes valores para a configuração do SSRS: 
-    - Conta de serviço: ' Usar conta interna ' deve ser serviço de rede
-    - URL do serviço Web: ' Diretório virtual ' deve ser ReportServer_ @ no__t-0
-    - Banco DatabaseName deve ser ReportServer $ <SQLInstanceName>
-    - URL do portal da Web: ' Diretório virtual ' deve ser Reports_ @ no__t-0
+    Use os seguintes valores para a configuração do SSRS:
+    * Conta de serviço: ' usar conta interna ' deve ser serviço de rede
+    * URL do serviço Web: ' diretório virtual ' deve ser ReportServer_<SQLInstanceName>
+    * Banco de dados: DatabaseName deve ser ReportServer $<SQLInstanceName>
+    * URL do portal da Web: ' diretório virtual ' deve ser Reports_<SQLInstanceName>
 
     [Saiba mais](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sobre a configuração do SSRS.
 
@@ -238,7 +239,7 @@ O MABS usa o agente de proteção do System Center Data Protection Manager. [Aqu
 
 As seções a seguir descrevem como atualizar agentes de proteção para computadores cliente.
 
-1. Na Console do Administrador do servidor de backup, selecione **gerenciamento** > **agentes**.
+1. Na Console do Administrador servidor de backup, selecione **Management** > **Agents**.
 
 2. No painel de exibição, selecione os computadores cliente para os quais você deseja atualizar o agente de proteção.
 
@@ -257,10 +258,10 @@ As seções a seguir descrevem como atualizar agentes de proteção para computa
 
 Aqui estão as etapas se você precisar mover MABS para um novo servidor, mantendo o armazenamento. Isso só poderá ser feito se todos os dados estiverem em Armazenamento de Backup Moderno.
 
-
   > [!IMPORTANT]
-  > - O nome do novo servidor deve ter o mesmo nome que a instância de Servidor de Backup do Azure original. Você não poderá alterar o nome da nova instância de Servidor de Backup do Azure se quiser usar o pool de armazenamento anterior e o DPMDB (banco de dados MABS) para manter os pontos de recuperação.
-  > - Você deve ter um backup do banco de dados MABS (DPMDB). Você precisará restaurar o banco de dados.
+  >
+  > * O nome do novo servidor deve ter o mesmo nome que a instância de Servidor de Backup do Azure original. Você não poderá alterar o nome da nova instância de Servidor de Backup do Azure se quiser usar o pool de armazenamento anterior e o DPMDB (banco de dados MABS) para manter os pontos de recuperação.
+  > * Você deve ter um backup do banco de dados MABS (DPMDB). Você precisará restaurar o banco de dados.
 
 1. No painel de exibição, selecione os computadores cliente para os quais você deseja atualizar o agente de proteção.
 2. Desligue o servidor de backup do Azure original ou retire-o da conexão.
@@ -273,7 +274,7 @@ Aqui estão as etapas se você precisar mover MABS para um novo servidor, manten
 9. Do SQL restaurar o DPMDB
 10. Na linha de comando do administrador no novo CD do servidor para Backup do Microsoft Azure local de instalação e pasta bin
 
-    Exemplo de caminho: C:\Windows\System32 > CD "C:\Arquivos de Programas\microsoft Azure Backup\DPM\DPM\bin @ no__t-0
+    Exemplo de caminho: C:\Windows\System32 > CD "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
 
 11. Para o backup do Azure, execute DPMSYNC-SYNC
 
@@ -289,11 +290,11 @@ Depois de saber o estado da conectividade do Azure e da assinatura do Azure, voc
 
 | Estado de conectividade | Subscrição do Azure | Fazer backup no Azure | Fazer backup em disco | Restaurar do Azure | Restaurar a partir do disco |
 | --- | --- | --- | --- | --- | --- |
-| Ligado |Active |Permitido |Permitido |Permitido |Permitido |
-| Ligado |Fora do prazo |Parada |Parada |Permitido |Permitido |
-| Ligado |Desprovisionada |Parada |Parada |Parado e pontos de recuperação do Azure excluídos |Parada |
-| Perda de conectividade > 15 dias |Active |Parada |Parada |Permitido |Permitido |
-| Perda de conectividade > 15 dias |Fora do prazo |Parada |Parada |Permitido |Permitido |
+| Ligada |Ativa |Permitidos |Permitidos |Permitidos |Permitidos |
+| Ligada |Fora do prazo |Parada |Parada |Permitidos |Permitidos |
+| Ligada |Desprovisionada |Parada |Parada |Parado e pontos de recuperação do Azure excluídos |Parada |
+| Perda de conectividade > 15 dias |Ativa |Parada |Parada |Permitidos |Permitidos |
+| Perda de conectividade > 15 dias |Fora do prazo |Parada |Parada |Permitidos |Permitidos |
 | Perda de conectividade > 15 dias |Desprovisionada |Parada |Parada |Parado e pontos de recuperação do Azure excluídos |Parada |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperando da perda de conectividade

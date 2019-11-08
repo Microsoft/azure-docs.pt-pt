@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 8270d17d998b27a067eb91a517a7c5fdfd23becd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f6f3a4be21eee6a9e07a4ae11a530dd9dd50c81c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101855"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749160"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Como marcar uma máquina virtual do Windows no Azure
 Este artigo descreve diferentes maneiras de marcar uma máquina virtual do Windows no Azure por meio do modelo de implantação do Resource Manager. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou em um grupo de recursos. Atualmente, o Azure dá suporte a até 15 marcas por recurso e grupo de recursos. As marcas podem ser colocadas em um recurso no momento da criação ou adicionadas a um recurso existente. Observe que as marcas têm suporte apenas para recursos criados por meio do modelo de implantação do Resource Manager. Se você quiser marcar uma máquina virtual do Linux, consulte [como marcar uma máquina virtual do Linux no Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -29,9 +29,9 @@ Este artigo descreve diferentes maneiras de marcar uma máquina virtual do Windo
 ## <a name="tagging-with-powershell"></a>Marcação com o PowerShell
 Para criar, adicionar e excluir marcas por meio do PowerShell, primeiro você precisa configurar o [ambiente do PowerShell com Azure Resource Manager][PowerShell environment with Azure Resource Manager]. Depois de concluir a instalação, você poderá posicionar as marcas nos recursos de computação, rede e armazenamento na criação ou depois que o recurso for criado por meio do PowerShell. Este artigo se concentrará na exibição/edição de marcas colocadas em máquinas virtuais.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
-Primeiro, navegue até uma máquina virtual por meio `Get-AzVM` do cmdlet.
+Primeiro, navegue até uma máquina virtual por meio do cmdlet `Get-AzVM`.
 
         PS C:\> Get-AzVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
 
@@ -44,9 +44,9 @@ Se sua máquina virtual já contiver marcas, você verá todas as marcas em seu 
                 "Environment": "Production"
                }
 
-Se você quiser adicionar marcas por meio do PowerShell, poderá usar o `Set-AzResource` comando. Observação ao atualizar marcas por meio do PowerShell, as marcas são atualizadas como um todo. Portanto, se você estiver adicionando uma marca a um recurso que já tem marcas, será necessário incluir todas as marcas que deseja que sejam colocadas no recurso. Veja abaixo um exemplo de como adicionar marcas adicionais a um recurso por meio de cmdlets do PowerShell.
+Se você quiser adicionar marcas por meio do PowerShell, poderá usar o comando `Set-AzResource`. Observação ao atualizar marcas por meio do PowerShell, as marcas são atualizadas como um todo. Portanto, se você estiver adicionando uma marca a um recurso que já tem marcas, será necessário incluir todas as marcas que deseja que sejam colocadas no recurso. Veja abaixo um exemplo de como adicionar marcas adicionais a um recurso por meio de cmdlets do PowerShell.
 
-Esse primeiro cmdlet define todas as marcas colocadas em *MyTestVM* para a variável *$Tags* , usando a `Get-AzResource` Propriedade e. `Tags`
+Esse primeiro cmdlet define todas as marcas colocadas em *MyTestVM* para a variável *$Tags* , usando a propriedade `Get-AzResource` e `Tags`.
 
         PS C:\> $tags = (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
@@ -85,7 +85,7 @@ O quinto comando exibe todas as marcas no recurso. Como você pode ver, *Locatio
     Location      MyLocation
 ```
 
-Para saber mais sobre marcação por meio do PowerShell, confira os cmdlets de [recurso do Azure][Azure Resource Cmdlets].
+Para saber mais sobre marcação por meio do PowerShell, confira os [cmdlets de recurso do Azure][Azure Resource Cmdlets].
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 

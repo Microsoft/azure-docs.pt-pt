@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: fd5014de622c37950c15006c2cc4dcbbb27ef8e1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2ae9a1419232cca051f7cab4e9bd8c70f885df73
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101130"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749043"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS nas VMs do Azure no Red Hat Enterprise Linux para o SAP NetWeaver
 
@@ -98,21 +98,21 @@ Você pode usar um dos modelos de início rápido no GitHub para implantar todos
    4. Nome de usuário de administrador, senha de administrador ou chave SSH  
       Um novo usuário é criado e pode ser usado para fazer logon no computador.
    5. ID da sub-rede  
-      Se você deseja implantar a VM em uma VNet existente em que você tem uma sub-rede definida, a VM deve ser atribuída, nomear a ID dessa sub-rede específica. A ID geralmente se parece com **&lt;a ID&gt;da assinatura**/subscriptions//resourceGroups/ **&lt;nome&gt;do grupo de recursos**/Providers/Microsoft.Network/virtualNetworks/ **&lt; nome&gt;da rede virtual**/Subnets/ **&lt;nome&gt; da sub-rede**
+      Se você deseja implantar a VM em uma VNet existente em que você tem uma sub-rede definida, a VM deve ser atribuída, nomear a ID dessa sub-rede específica. A ID geralmente é semelhante a/subscriptions/ **&lt;ID da assinatura&gt;** /resourceGroups/ **&lt;nome do grupo de recursos&gt;** /Providers/Microsoft.Network/virtualNetworks/ **&lt;nome da rede virtual&gt;** /subnets/ **&lt;nome da sub-rede&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implantar o Linux manualmente por meio de portal do Azure
 
-Primeiro, você precisa criar as máquinas virtuais para esse cluster. Posteriormente, você criará um balanceador de carga e usará as máquinas virtuais nos pools de back-end.
+Primeiro, você precisa criar as máquinas virtuais para esse cluster. Posteriormente, você criará um balanceador de carga e usará as máquinas virtuais nos pools de back-end. Recomendamos o [balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
 
 1. Criar um Grupo de Recursos
 1. Criar uma rede virtual
 1. Criar um conjunto de disponibilidade  
    Definir domínio de atualização máx.
 1. Criar máquina virtual 1  
-   Use pelo menos RHEL 7, neste exemplo, a imagem Red Hat Enterprise Linux 7,4<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use pelo menos RHEL 7, neste exemplo, a imagem Red Hat Enterprise Linux 7,4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Selecionar conjunto de disponibilidade criado anteriormente  
 1. Criar máquina virtual 2  
-   Use pelo menos RHEL 7, neste exemplo, a imagem Red Hat Enterprise Linux 7,4<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use pelo menos RHEL 7, neste exemplo, a imagem Red Hat Enterprise Linux 7,4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Selecionar conjunto de disponibilidade criado anteriormente  
 1. Adicione um disco de dados para cada sistema SAP a ambas as máquinas virtuais.
 
@@ -120,15 +120,15 @@ Primeiro, você precisa criar as máquinas virtuais para esse cluster. Posterior
 
 Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]** -aplicável somente ao nó 1, **[2]** – aplicável somente ao nó 2, **[3]** – aplicável somente ao nó 3.
 
-1. **[A]**  Configurar a resolução de nomes de anfitrião
+1. **[A]** configurar resolução de nome de host
 
-   Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
+   Você pode usar um servidor DNS ou modificar o/etc/hosts em todos os nós. Este exemplo mostra como usar o arquivo/etc/hosts.
    Substitua o endereço IP e o nome do host nos comandos a seguir
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Insira as seguintes linhas ao /etc/hosts. Alterar o endereço IP e o nome de anfitrião para corresponder ao seu ambiente
+   Insira as linhas a seguir para/etc/hosts. Alterar o endereço IP e o nome do host para corresponder ao seu ambiente
 
    <pre><code># IP addresses of the Gluster nodes
    <b>10.0.0.40 glust-0</b>
@@ -348,7 +348,7 @@ Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]*
    sudo gluster volume start <b>NW2</b>-aers
    </code></pre>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Instalar o SAP ASCS e o banco de dados](high-availability-guide-rhel.md)
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
