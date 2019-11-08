@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
 author: yijenj
 manager: nuno costa
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: f6f409c42c7ffa5639315e71ff565f9c672e227c
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 9aa41e63c275737874d57ba016e297a64f3eb124
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279750"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823007"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funcionalidades e considerações de transação do Marketplace comercial
 
@@ -40,7 +41,7 @@ Além das opções de publicação de lista e de avaliação, a opção Transact
 
 Ao usar a opção Transact Publishing, a Microsoft permite a venda de software de terceiros e a implantação de alguns tipos de oferta na assinatura do Azure do cliente. O Publicador deve considerar a cobrança de taxas de infraestrutura e as próprias tarifas de licenciamento de software do editor, ao selecionar um modelo de cobrança e um tipo de oferta.
 
-Atualmente, a opção Transact Publishing tem suporte para os seguintes tipos de oferta: Máquinas virtuais, aplicativos do Azure e aplicativos SaaS.
+Atualmente, a opção Transact Publishing tem suporte para os seguintes tipos de oferta: máquinas virtuais, aplicativos do Azure e aplicativos SaaS.
 
 
 ![[Transagindo negócios corporativos no Azure Marketplace]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
@@ -59,15 +60,15 @@ Para aplicativos SaaS, o Publicador deve considerar as tarifas de uso da infraes
 
 Dependendo da opção de transação usada, as taxas de licença de software do Publicador podem ser apresentadas da seguinte maneira:  
 
-* Gratuito: Sem custos para licenças de software. 
+* Gratuito: sem custos para licenças de software. 
 
-* BYOL (traga sua própria licença): Todos os encargos aplicáveis para as licenças de software são gerenciados diretamente entre o Publicador e o cliente. A Microsoft passa apenas pelas tarifas de uso de infraestrutura do Azure. (Somente máquinas virtuais e aplicativos do Azure.)
+* BYOL (traga sua própria licença): quaisquer encargos aplicáveis para licenças de software são gerenciados diretamente entre o Publicador e o cliente. A Microsoft passa apenas pelas tarifas de uso de infraestrutura do Azure. (Somente máquinas virtuais e aplicativos do Azure.)
 
-* Pré-pago: As taxas de licença de software são apresentadas como uma taxa de preço por hora, por núcleo (vCPU) com base na infraestrutura do Azure usada. Isso se aplica somente a máquinas virtuais e aplicativos do Azure.
+* Pré-pago: as taxas de licença de software são apresentadas como uma taxa de preço por hora, por núcleo (vCPU) com base na infraestrutura do Azure usada. Isso se aplica somente a máquinas virtuais e aplicativos do Azure.
 
-* • Preço da assinatura: As taxas de licença de software são apresentadas como uma taxa de recorrência mensal ou anual, cobrada como uma taxa fixa ou por estação. Isso se aplica somente a aplicativos SaaS e aplicativos do Azure.
+* • Preços de assinatura: as taxas de licença de software são apresentadas como uma taxa recorrente mensal ou anual, cobrada como uma taxa fixa ou por estação. Isso se aplica somente a aplicativos SaaS e aplicativos gerenciados pelo aplicativo do Azure.
 
-* Avaliação de software gratuita: Nenhum encargo para licenças de software por 30 dias ou 90 dias.
+* Avaliação de software gratuita: sem custos para licenças de software por 30 dias ou 90 dias.
 
 ### <a name="free-and-bring-your-own-license-byol-pricing"></a>Preços gratuitos e BYOL (traga sua própria licença)
 
@@ -93,7 +94,7 @@ Essa opção permite um preço mais alto ou mais baixo do que a oferta publicame
 
 ### <a name="examples"></a>Exemplos
 
-**Pré-pago** 
+**Pay As You Go** 
 
 * Se você habilitar a opção pré-paga, terá a seguinte estrutura de custo.
 
@@ -141,8 +142,8 @@ Essa opção deve ser configurada para vender pela Microsoft e pode ser cobrada 
 
 |Listas da Microsoft  | $100 por mês  |
 |---------|---------|
-|A Microsoft paga a você 80% do seu custo de licença <br> \*A Microsoft paga a você 90% do seu custo de licença para qualquer aplicativo SaaS qualificado   |   $80 por mês <br> \*$90 por mês    |
-|A Microsoft mantém 20% do seu custo de licença <br> \*A Microsoft mantém 10% do seu custo de licença para qualquer aplicativo SaaS qualificado.  |  $20 por mês <br> \*$10     |
+|A Microsoft paga a você 80% do seu custo de licença <br> \* a Microsoft paga 90% do seu custo de licença para qualquer aplicativo SaaS qualificado   |   $80 por mês <br> \* $90 por mês    |
+|A Microsoft mantém 20% do seu custo de licença <br> \* a Microsoft mantém 10% do seu custo de licença para qualquer aplicativo SaaS qualificado.  |  $20 por mês <br> \* $10     |
 
 * **Taxa reduzida de serviço do Marketplace:** Para determinados produtos SaaS que você publica em nosso mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%.  Para que seu produto seja qualificado, pelo menos um de seus produtos deve ser designado pela Microsoft como uma das vendas de covenda de IP pronta ou de IP. Para receber essa taxa de serviço do Marketplace reduzida para o mês, a qualificação deve ser atendida pelo menos cinco (5) dias úteis antes do final do mês do calendário anterior. A taxa reduzida de serviço do Marketplace não se aplicará a VMs, aplicativos gerenciados ou quaisquer outros produtos disponibilizados por meio de nosso mercado comercial.  Essa taxa de serviço do Marketplace reduzida estará disponível para ofertas qualificadas, com encargos de licença coletados pela Microsoft entre 1º de maio de 2019 e 30 de junho de 2020.  Após esse período, a taxa de serviço do Marketplace voltará ao seu valor normal.
 
@@ -168,7 +169,7 @@ Por exemplo, se o cliente comprar usando um cartão de crédito:
 |Final do termo (mês)   | 30 de agosto de 2018 |
 |Data de cobrança | 1 de setembro de 2018 |
 |Data de pagamento do cliente | 1 de setembro de 2018 |
-|Período de caução (somente cartões de crédito, 30 dias) | 1 de setembro de 2018 – 30 de setembro de 2018 |
+|Período de caução (somente cartões de crédito, 30 dias) | 1 de setembro de 2018-30 de setembro de 2018 |
 |Início do período de coleta | 1 de setembro de 2018 |
 |Término do período de coleta (máximo, 30 dias) | 30 de setembro de 2018 |
 |Data de cálculo do pagamento (mensalmente no dia 15) | 1 de outubro de 2018 |
@@ -233,11 +234,11 @@ A opção Transact Publishing só está disponível para uso com os seguintes ti
 
 Selecione entre os modelos de preços gratuitos, traga sua própria licença ou pagos conforme o uso e apresente as SKUs definidas no nível da oferta. Na fatura do Azure do cliente, a Microsoft apresenta as taxas de licença de software do Publicador separadamente das taxas de infraestrutura subjacentes do Azure. As tarifas de infraestrutura do Azure são orientadas pelo uso do software do Publicador.
 
-**Aplicativos do Azure: Modelo de solução ou aplicativo gerenciado** 
+**Aplicativos do Azure: modelo de solução ou aplicativo gerenciado** 
 
 Deve provisionar uma ou mais máquinas virtuais e efetuar pull da soma dos preços da máquina virtual. Para aplicativos gerenciados em um único plano, uma assinatura mensal de taxa fixa pode ser selecionada como o modelo de preços em vez do preço da máquina virtual. Em alguns casos, as tarifas de uso da infraestrutura do Azure são passadas para o cliente separadamente de taxas de licença de software, mas no mesmo demonstrativo de cobrança. No entanto, se você configurar uma oferta de aplicativo gerenciado para encargos de infraestrutura de ISV, os recursos do Azure serão cobrados para o Publicador e o cliente receberá uma tarifa fixa que inclui o custo de infraestrutura, licenças de software e serviços de gerenciamento.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Reveja os requisitos de elegibilidade nas opções de publicação pela secção de tipo de oferta para finalizar a seleção e a configuração da sua oferta.
-* Consulte os padrões de publicação, a loja para obter exemplos sobre como sua solução é mapeada para um tipo de oferta e a configuração.
+* Examine os requisitos de qualificação na seção Opções de publicação por tipo de oferta para finalizar a seleção e a configuração de sua oferta.
+* Examine os padrões de publicação por vitrine para obter exemplos de como sua solução é mapeada para um tipo de oferta e configuração.

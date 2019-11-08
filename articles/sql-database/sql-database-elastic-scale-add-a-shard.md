@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 3243c8dfcfa83129f57bcd3ea7969fb4f8b07156
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4043fd374a314735173a1f07f46c8394592b81e2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690346"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823717"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Adicionando um fragmento usando ferramentas de banco de dados elástico
 

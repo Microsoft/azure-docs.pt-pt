@@ -1,52 +1,53 @@
 ---
-title: Configurar a gestão de oportunidades potenciais no Marketo | O Azure Marketplace
-description: Configure a gestão de oportunidades potenciais para o Marketo para clientes do Azure marketplace.
+title: Configurar gerenciamento de leads no Marketo | Azure Marketplace
+description: Configure o gerenciamento de leads para clientes do Marketo para o Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: d749a92a1837bad053dc586477bfc27fc65299fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7949507c8c7ef57cded25cde8579c1945aa93a81
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935218"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825207"
 ---
-# <a name="configure-lead-management-in-marketo"></a>Configurar a gestão de oportunidades potenciais no Marketo
+# <a name="configure-lead-management-in-marketo"></a>Configurar gerenciamento de leads no Marketo
 
-Este artigo descreve como configurar o Marketo para lidar com oportunidades potenciais de venda de Microsoft.
+Este artigo descreve como configurar o Marketo para lidar com leads de vendas da Microsoft.
 
-1. Inicie sessão no Marketo.
+1. Entre no Marketo.
 2. Selecione **Design Studio**.
-    ![Marketo Design Studio](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo1.png)
+    ![Studio de design do Marketo](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo1.png)
 
 3.  Selecione **novo formulário**.
-    ![Novo formulário do Marketo](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo2.png)
+    novo formulário do ![Marketo](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo2.png)
 
 4.  Preencha os campos obrigatórios no novo formulário e, em seguida, selecione **criar**.
     ![Marketo criar novo formulário](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo3.png)
 
-4.  No campo de detalhes, selecione **concluir**.
-    ![Formulário de conclusão do Marketo](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo4.png)
+4.  Em detalhes do campo, selecione **concluir**.
+    ](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo4.png) formulário de conclusão ![Marketo
 
-5.  Aprovar e fechar.
+5.  Aprove e feche.
 
-6.  No separador MarketplaceLeadBacked, selecione **incorporar código**.
-    ![Opção de código de incorporação do Marketo](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo5.png)
+6.  Na guia MarketplaceLeadBacked, selecione **código de inserção**.
+    ![opção de código de inserção do Marketo](./media/cloud-partner-portal-lead-management-instructions-marketo/marketo5.png)
 
-7.  Código de incorporação do Marketo apresenta o código semelhante ao seguinte exemplo.
+7.  O código de inserção do marketo exibe um código semelhante ao exemplo a seguir.
 
 `<script src="//app-ys12.marketo.com/js/forms2/js/forms2.min.js"></script>`
 
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
 
-1. Copie os valores mostrados no código de incorporação para que pode configurar o **Id do servidor**, **Munchkin Id**, e **Id de formulário** os campos do Marketo no Portal de parceiros de nuvem.
+1. Copie os valores mostrados no código de inserção para que você possa configurar a **ID do servidor**, a **ID do Munchkin**e a ID do **formulário** nos campos do marketo no portal do Cloud Partner.
 
-Utilize o exemplo seguinte como guia para obter os Ids de que precisa do exemplo de código de incorporação do Marketo.
+Use o exemplo a seguir como um guia para obter as IDs necessárias do exemplo de código de inserção do Marketo.
 
-- Server Id = **ys12**
-- Munchkin Id = **123-PQR-789**
-- Form Id = **1179**\
+- ID do servidor = **ys12**
+- ID de Munchkin = **123-PQR-789**
+- ID do formulário = **1179**\

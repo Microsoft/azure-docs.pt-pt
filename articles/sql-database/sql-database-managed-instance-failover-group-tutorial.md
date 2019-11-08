@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: adicionar uma instância gerenciada do banco de dados SQL a um grupo de failover'
+title: 'Tutorial: adicionar uma instância gerenciada a um grupo de failover'
 description: Saiba como configurar um grupo de failover para sua instância gerenciada do banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: 4df68fb59ad5e40df3edaea59958e32c03fdb2e6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 85d2e58d35ef233fda7c724f85152fc74bd11189
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933318"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826844"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutorial: adicionar uma instância gerenciada do banco de dados SQL a um grupo de failover
 
@@ -45,7 +45,7 @@ Para concluir este tutorial, confirme que tem:
 Para concluir o tutorial, verifique se você tem os seguintes itens:
 
 - Uma subscrição do Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/) se você ainda não tiver uma.
-- [O Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Exemplos de script de Azure PowerShell para o banco de dados SQL
+title: Exemplos de script Azure PowerShell
 description: Exemplos de scripts do Azure PowerShell para ajudar a criar e gerir servidores da Base de Dados SQL do Azure, conjuntos elásticos, bases de dados e firewalls.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 17b3d23f90f77a3db68644e76edf340284daa801
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dd16753a9b057e441884b0a6a019701766aaa321
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687647"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821404"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Exemplos do Azure PowerShell para a Base de Dados SQL do Azure
 

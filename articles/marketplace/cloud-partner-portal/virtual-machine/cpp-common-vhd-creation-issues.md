@@ -4,16 +4,17 @@ description: Perguntas frequentes sobre a criação de VHD e problemas associado
 services: Azure Marketplace
 author: HannibalSII
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/02/2018
 ms.author: hascipio
 ms.reviewer: v-divte; v-miclar
-ms.openlocfilehash: bb7e62138dbefdd8ff4933ef10602986a5da2bf6
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1d4224d8f1f735ecef3d4551e3032b916e81dc3c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875005"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826623"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Problemas comuns durante a criação do VHD (FAQ)
 
@@ -67,12 +68,12 @@ Sim, se hospedado no Azure.  O Azure atribui um identificador exclusivo, denomin
 
 ## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>Em uma VM, como você gerencia a extensão de script personalizado na tarefa de inicialização?
 
-O artigo a seguir fornece detalhes sobre como usar a extensão de script personalizado usando o módulo Azure PowerShell, os modelos de Azure Resource Manager e as etapas de solução de problemas de detalhes em sistemas Windows: [Extensão de script personalizado para Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+O artigo a seguir fornece detalhes sobre como usar a extensão de script personalizado usando o módulo Azure PowerShell, modelos de Azure Resource Manager e detalhes de solução de problemas em sistemas Windows: [extensão de script personalizado para Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
 
 
 ## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Há suporte para aplicativos de 32 bits ou serviços no Azure Marketplace?
 
-Em geral, não.  Os sistemas operacionais com suporte e os serviços padrão para VMs do Azure são todos de 64 bits.  No entanto, do ponto de vista técnico, a maioria dos sistemas operacionais de 64 bits dá suporte à execução de versões de 32 bits de aplicativos para compatibilidade com versões anteriores.  No entanto, o uso de aplicativos de 32 bits como parte de sua solução de VM não tem suporte e, portanto, é *altamente*desencorajado.  Em vez disso, recompile seu aplicativo como um projeto de 64 bits.
+Em geral, não.  Os sistemas operacionais com suporte e os serviços padrão para VMs do Azure são todos de 64 bits.  No entanto, do ponto de vista técnico, a maioria dos sistemas operacionais de 64 bits dá suporte à execução de versões de 32 bits de aplicativos para compatibilidade com versões anteriores.  No entanto, o uso de aplicativos de 32 bits como parte de sua solução de VM não tem suporte e, portanto, é *altamente desencorajado*.  Em vez disso, recompile seu aplicativo como um projeto de 64 bits.
 
 Para obter mais informações, veja os artigos seguintes:
 - [Executando aplicativos de 32 bits](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)

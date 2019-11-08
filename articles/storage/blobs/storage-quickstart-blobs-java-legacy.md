@@ -1,22 +1,22 @@
 ---
-title: 'Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure para Java SDK V8'
-description: Crie uma conta de armazenamento e um contentor no armazenamento de objetos (blobs). Em seguida, use a biblioteca de cliente de armazenamento do Azure para Java SDK V8 para carregar um blob no armazenamento do Azure, baixar um blob e listar os BLOBs em um contêiner.
+title: 'Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure V8 para Java'
+description: Crie uma conta de armazenamento e um contentor no armazenamento de objetos (blobs). Em seguida, use a biblioteca de cliente de armazenamento do Azure V8 para Java para carregar um blob no armazenamento do Azure, baixar um blob e listar os BLOBs em um contêiner.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 10/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 404599ade960d43ef2cb86777fb41701ce96e11b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a6c4380e44d705e551bc96746a809c57aa02ac5b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609128"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825377"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-for-java-sdk-v8"></a>Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure para Java SDK V8
+# <a name="quickstart-azure-blob-storage-client-library-v8-for-java"></a>Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure V8 para Java
 
-Introdução à biblioteca de cliente de armazenamento de BLOBs do Azure para Java. O armazenamento de BLOBs do Azure é a solução de armazenamento de objetos da Microsoft para a nuvem. Siga as etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. O Armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
+Introdução à biblioteca de cliente do armazenamento de BLOBs do Azure V8 para Java. O armazenamento de BLOBs do Azure é a solução de armazenamento de objetos da Microsoft para a nuvem. Siga as etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. O Armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
 
 Use a biblioteca de cliente de armazenamento de BLOBs do Azure para Java para:
 

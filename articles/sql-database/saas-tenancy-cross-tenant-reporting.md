@@ -1,5 +1,5 @@
 ---
-title: Executar consultas de relatório em vários bancos de dados SQL do Azure
+title: Relatando consultas em vários bancos de dados
 description: Relatório entre locatários usando consultas distribuídas.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: billgib,ayolubek
 ms.date: 01/25/2019
-ms.openlocfilehash: f9af2af7893bd908988ee45476ce14a56f9768a9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c863946934df9990c14e49ef1a0a82bbc55b27c6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691900"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822085"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Relatório entre locatários usando consultas distribuídas
 

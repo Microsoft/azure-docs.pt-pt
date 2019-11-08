@@ -1,5 +1,5 @@
 ---
-title: Análise de Desempenho de Consultas para o banco de dados SQL do Azure
+title: Query Performance Insight
 description: O monitoramento de desempenho de consulta identifica a maioria das consultas de consumo de CPU para um banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/03/2019
-ms.openlocfilehash: eb6827669829dc7aeeb6758a07218a29955b3682
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 56daca0aa817d03298bad971506402739d71482e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687589"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821239"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Análise de Desempenho de Consultas para o banco de dados SQL do Azure
 

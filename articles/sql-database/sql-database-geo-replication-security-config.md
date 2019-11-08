@@ -1,5 +1,5 @@
 ---
-title: Configurar a segurança do banco de dados SQL para recuperação de desastre
+title: Configurar a segurança para recuperação de desastre
 description: Conheça as considerações de segurança para configurar e gerenciar a segurança após uma restauração de banco de dados ou um failover para um servidor secundário.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 3c08ba1a37d7b0d16042d6496c27e0de8d070b75
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d628583168883276e67d9e2f2fcafdce292769e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689980"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807487"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurar e gerenciar a segurança do banco de dados SQL do Azure para restauração geográfica ou failover
 

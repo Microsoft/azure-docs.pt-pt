@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um aplicativo altamente disponível com armazenamento de BLOBs-armazenamento do Azure'
+title: 'Tutorial: criar um aplicativo altamente disponível com armazenamento de BLOBs-armazenamento do Azure'
 description: Utilize o armazenamento georredundante de acesso de leitura para tornar os dados das suas aplicações altamente disponíveis
 services: storage
 author: tamram
@@ -10,14 +10,14 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 3302402ae791ac17b8ac09ab91b061a558eb7c75
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: c010b1acbf1b8f0a05ffda05bddfd8a9145dee8d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390351"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825432"
 ---
-# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Crie um aplicativo altamente disponível com o armazenamento de BLOBs
+# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: criar um aplicativo altamente disponível com o armazenamento de BLOBs
 
 Este tutorial é a primeira parte de uma série. Nele, você aprende a tornar seus dados de aplicativo altamente disponíveis no Azure.
 
@@ -58,7 +58,7 @@ Para concluir este tutorial:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -73,14 +73,14 @@ Siga estes passos para criar uma conta de armazenamento georredundante com acess
 
    | Definição       | Valor sugerido | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Name** | mystorageaccount | Um valor exclusivo para a conta de armazenamento |
+   | **Nome** | mystorageaccount | Um valor exclusivo para a conta de armazenamento |
    | **Deployment model** (Modelo de implementação) | Resource Manager  | O Resource Manager contém as funcionalidades mais recentes.|
    | **Account kind** (Tipo de conta) | StorageV2 | Para obter detalhes sobre os tipos de contas, veja [Tipos de contas de armazenamento](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Performance** (Desempenho) | Standard | O desempenho standard é suficiente para este cenário de exemplo. |
    | **Replicação**| Armazenamento georredundante com acesso de leitura (RA-GRS) | É necessário para o exemplo funcionar. |
    |**Subscrição** | A sua subscrição |Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.azure.com/Subscriptions) (Subscrições). |
-   |**ResourceGroup** | myResourceGroup |Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). |
-   |**Location** | East US | Escolher uma localização. |
+   |**ResourceGroup** | myResourceGroup |Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) (Atribuição de nomes de regras e restrições). |
+   |**Localização** | EUA Leste | Escolher uma localização. |
 
 ![criar conta de armazenamento](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
@@ -118,7 +118,7 @@ git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 
 Na aplicação, tem de indicar a cadeia de ligação da sua conta de armazenamento. Pode armazenar esta cadeia de ligação numa variável de ambiente no computador local que executa a aplicação. Siga um dos exemplos abaixo, consoante o Sistema Operativo para criar a variável de ambiente.
 
-No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Copie a **cadeia de ligação** da chave primária ou secundária. Execute um dos comandos a seguir com base em seu sistema operacional, \<substituindo yourconnectionstring\> pela cadeia de conexão real. Este comando guarda uma variável de ambiente no computador local. No Windows, a variável de ambiente não estará disponível até que você recarregue o **prompt de comando** ou o shell que você está usando.
+No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Copie a **cadeia de ligação** da chave primária ou secundária. Execute um dos seguintes comandos com base em seu sistema operacional, substituindo \<yourconnectionstring\> pela cadeia de conexão real. Este comando guarda uma variável de ambiente no computador local. No Windows, a variável de ambiente não estará disponível até que você recarregue o **prompt de comando** ou o shell que você está usando.
 
 ### <a name="linux"></a>Linux
 
@@ -136,7 +136,7 @@ setx storageconnectionstring "<yourconnectionstring>"
 
 No aplicativo, você deve fornecer suas credenciais de conta de armazenamento. Você pode armazenar essas informações em variáveis de ambiente no computador local que executa o aplicativo. Siga um dos exemplos abaixo, dependendo do seu sistema operacional, para criar as variáveis de ambiente.
 
-No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Cole o **nome da conta de armazenamento** e os valores de **chave** nos comandos a \<seguir\> , substituindo os espaços reservados YourAccountName e \<YourAccountKey\> . Esse comando salva as variáveis de ambiente no computador local. No Windows, a variável de ambiente não estará disponível até que você recarregue o **prompt de comando** ou o shell que você está usando.
+No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Cole o **nome da conta de armazenamento** e os valores de **chave** nos comandos a seguir, substituindo os espaços reservados \<YourAccountName\> e \<YourAccountKey\>. Esse comando salva as variáveis de ambiente no computador local. No Windows, a variável de ambiente não estará disponível até que você recarregue o **prompt de comando** ou o shell que você está usando.
 
 ### <a name="linux"></a>Linux
 
@@ -154,7 +154,7 @@ setx accountkey "<youraccountkey>"
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
-Para executar este exemplo, você deve adicionar suas credenciais de conta de armazenamento `.env.example` ao arquivo e, em seguida `.env`, renomeá-lo como.
+Para executar este exemplo, você deve adicionar suas credenciais de conta de armazenamento ao arquivo de `.env.example` e, em seguida, renomeá-lo como `.env`.
 
 ```
 AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
@@ -163,7 +163,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 Você pode encontrar essas informações no portal do Azure navegando até sua conta de armazenamento e selecionando **chaves de acesso** na seção **configurações** .
 
-Instale as dependências necessárias. Para fazer isso, abra um prompt de comando, navegue até a pasta de exemplo e `npm install`, em seguida, digite.
+Instale as dependências necessárias. Para fazer isso, abra um prompt de comando, navegue até a pasta de exemplo e, em seguida, insira `npm install`.
 
 ---
 
@@ -173,7 +173,7 @@ Instale as dependências necessárias. Para fazer isso, abra um prompt de comand
 
 No Visual Studio, pressione **F5** ou selecione **Iniciar** para iniciar a depuração do aplicativo. O Visual Studio restaura automaticamente os pacotes NuGet ausentes, se configurados, visita [instalar e reinstalar pacotes com a restauração do pacote](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) para saber mais.
 
-É iniciada uma janela de consola e a aplicação começa a ser executada. A aplicação carrega a imagem **HelloWorld.png** da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem foi replicada para o ponto final de RA-GRS secundário. Em seguida, começa a transferir a imagem até 999 vezes. Cada leitura é representada por um **P** ou um **S**. em que **P** representa o ponto final primário e **S** o secundário.
+É iniciada uma janela de consola e a aplicação começa a ser executada. A aplicação carrega a imagem **HelloWorld.png** da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem foi replicada para o ponto final de RA-GRS secundário. Em seguida, começa a transferir a imagem até 999 vezes. Cada leitura é representada por um **P** ou um **S**. Onde **P** representa o ponto de extremidade primário e **S** representa o ponto de extremidade secundário.
 
 ![Aplicação de consola em execução](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -181,7 +181,7 @@ No código de exemplo, a tarefa `RunCircuitBreakerAsync` no ficheiro `Program.cs
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Para executar a aplicação num terminal ou numa linha de comandos, aceda ao diretório **circuitbreaker.py** e introduza `python circuitbreaker.py`. A aplicação carrega a imagem **HelloWorld.png** da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem foi replicada para o ponto final de RA-GRS secundário. Em seguida, começa a transferir a imagem até 999 vezes. Cada leitura é representada por um **P** ou um **S**. em que **P** representa o ponto final primário e **S** o secundário.
+Para executar a aplicação num terminal ou numa linha de comandos, aceda ao diretório **circuitbreaker.py** e introduza `python circuitbreaker.py`. A aplicação carrega a imagem **HelloWorld.png** da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem foi replicada para o ponto final de RA-GRS secundário. Em seguida, começa a transferir a imagem até 999 vezes. Cada leitura é representada por um **P** ou um **S**. Onde **P** representa o ponto de extremidade primário e **S** representa o ponto de extremidade secundário.
 
 ![Aplicação de consola em execução](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -194,7 +194,7 @@ Antes do download, o objeto de serviço [retry_callback](https://docs.microsoft.
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
-Para executar o exemplo, abra um prompt de comando, navegue até a pasta de exemplo e `node index.js`, em seguida, digite.
+Para executar o exemplo, abra um prompt de comando, navegue até a pasta de exemplo e, em seguida, insira `node index.js`.
 
 O exemplo cria um contêiner em sua conta de armazenamento de BLOBs, carrega **HelloWorld. png** no contêiner e verifica repetidamente se o contêiner e a imagem foram replicados para a região secundária. Após a replicação, ele solicita que você insira **D** ou **Q** (seguido de Enter) para baixar ou encerrar. A saída deve ser semelhante ao exemplo a seguir:
 
@@ -342,7 +342,7 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 
 ---
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Na parte um da série, você aprendeu a tornar um aplicativo altamente disponível com contas de armazenamento RA-GRS.
 

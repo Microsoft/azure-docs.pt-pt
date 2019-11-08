@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/26/2019
+ms.date: 11/07/2019
 ms.author: aahi
-ms.openlocfilehash: 3b616ac76d2b7fca0d83db2b17b0978bbb249e45
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: HT
+ms.openlocfilehash: 0f16c687f9816e99e05c2495a05596bd988ca9d2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73742717"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827307"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
@@ -110,7 +110,7 @@ A API de Análise de Texto utiliza a codificação Unicode para representação 
 
 + [Crie um recurso do Azure](../cognitive-services-apis-create-account.md) para análise de texto para obter uma chave e um ponto de extremidade para seus aplicativos.
 
-+ O [Início Rápido](quickstarts/text-analytics-sdk.md) é uma descrição das chamadas à API REST escritas em C#. Saiba como submeter texto, escolher uma análise e ver os resultados com pouco código. Se preferir, você pode começar com o início [rápido do Python](quickstarts/python.md) em vez disso.
++ Use o guia de início [rápido](quickstarts/text-analytics-sdk.md) para começar a enviar chamadas de API. Saiba como submeter texto, escolher uma análise e ver os resultados com pouco código.
 
 + Veja [o que há de novo na API de análise de texto](whats-new.md) para obter informações sobre novas versões e recursos.
 

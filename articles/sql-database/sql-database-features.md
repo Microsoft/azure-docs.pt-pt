@@ -1,5 +1,5 @@
 ---
-title: Comparação de recursos do banco de dados SQL do Azure
+title: Comparação de funcionalidades
 description: Este artigo compara os recursos de SQL Server que estão disponíveis em diferentes tipos de banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 7f0e4237a8400faf95af728665e8ee61daaab3bb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bfb44a44967c474da319c574307c7c289b28648e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690016"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807815"
 ---
 # <a name="azure-sql-database-features"></a>Recursos do banco de dados SQL do Azure
 

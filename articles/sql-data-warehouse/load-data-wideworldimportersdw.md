@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c59c5ba4e5447d01bb66b9f0ed2edcb948d34d40
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5ae6844cf11ffa095f56c429e17b9c39ad0c76aa
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693062"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822906"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Tutorial: Carregar dados para o Azure SQL Data Warehouse
 
@@ -61,7 +61,7 @@ Siga estas etapas para criar um SQL Data Warehouse em branco.
    | ------- | --------------- | ----------- | 
    | **Nome da base de dados** | SampleDW | Para nomes de bases de dados válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificadores de Bases de Dados). | 
    | **Subscrição** | A sua subscrição  | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
-   | **Grupo de recursos** | SampleRG | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). |
+   | **Grupo de recursos** | SampleRG | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) (Atribuição de nomes de regras e restrições). |
    | **Selecionar origem** | Base de dados vazia | Especifica para criar uma base de dados vazia. Tenha em atenção que um armazém de dados é um tipo de base de dados.|
 
     ![criar um armazém de dados](media/load-data-wideworldimportersdw/create-data-warehouse.png)
@@ -70,7 +70,7 @@ Siga estas etapas para criar um SQL Data Warehouse em branco.
 
     | Definição | Valor sugerido | Descrição | 
     | ------- | --------------- | ----------- |
-    | **Nome do servidor** | Qualquer nome globalmente exclusivo | Para nomes de servidores válidos, veja [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). | 
+    | **Nome do servidor** | Qualquer nome globalmente exclusivo | Para nomes de servidores válidos, veja [Naming rules and restrictions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) (Atribuição de nomes de regras e restrições). | 
     | **Início de sessão de administrador do servidor** | Qualquer nome válido | Para nomes de início de sessão válidos, veja [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de Bases de Dados).|
     | **Palavra-passe** | Qualquer palavra-passe válida | A sua palavra-passe deve ter, pelo menos, oito carateres e deve conter carateres de três das seguintes categorias: carateres maiúsculos, carateres minúsculos, números e carateres não alfanuméricos. |
     | **Localização** | Nenhuma localização válida | Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure). |
@@ -152,7 +152,7 @@ Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-se
     | Tipo de servidor | Motor de base de dados | Este valor é obrigatório |
     | Nome do servidor | O nome de servidor completamente qualificado | Por exemplo, **sample-svr.database.windows.net** é um nome de servidor completamente qualificado. |
     | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
-    | Início de Sessão | A conta de administrador do servidor | Esta é a conta que especificou quando criou o servidor. |
+    | Iniciar sessão | A conta de administrador do servidor | Esta é a conta que especificou quando criou o servidor. |
     | Palavra-passe | A palavra-passe da sua conta de administrador do servidor | Esta é a palavra-passe que especificou quando criou o servidor. |
 
     ![ligar ao servidor](media/load-data-wideworldimportersdw/connect-to-server.png)

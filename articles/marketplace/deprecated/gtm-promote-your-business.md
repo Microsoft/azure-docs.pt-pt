@@ -4,15 +4,16 @@ description: Serviços de lançamento no mercado-os Publicadores podem aprender 
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 9549e40ea3b79c356867c2fe36dc336e69795c8b
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: d1ac8963e673044e1d3ca3a0163df065097e12be
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962831"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825954"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Fazer crescer o seu negócio com a Microsoft
 
@@ -26,7 +27,7 @@ Os parceiros do Marketplace precisam fazer parte do Microsoft Partner Network (M
 
 Para promover sua oferta ou aplicativo e acessar mais benefícios e recursos, use a tabela a seguir:
 
-| Benefícios | Recursos |
+| Vantagens | Recursos |
 |:--- |:--- |
 | Use seus principais benefícios | Como parte do Microsoft Partner Network, você recebe um conjunto de principais benefícios que podem ajudar a economizar tempo e dinheiro. Os benefícios podem ajudá-lo <ul> <li> Fortaleça seus recursos, </li> <li> atenda melhor aos clientes e </li> <li> Crie conexões para alcançar seu potencial de negócios completo. </li> </ul> Para obter mais informações sobre os principais benefícios, visite [os principais benefícios e requisitos](https://partner.microsoft.com/membership/core-benefits#tab-content-1). |
 | Ganhe sua competência de plataforma de nuvem | Ganhar uma competência ajuda você a <ul> <li> Diferencie-se entre outros parceiros da Microsoft. </li> <li> Demonstre a experiência técnica e o sucesso do cliente no mercado. </li> </ul> A competência é um pré-requisito para muitos programas-chave de parceiro, como a venda. Consulte [competência da plataforma de nuvem](https://partner.microsoft.com/reach-customers/selling-with-microsoft) para obter mais informações. |
@@ -36,6 +37,6 @@ Para promover sua oferta ou aplicativo e acessar mais benefícios e recursos, us
 
 Para saber mais sobre os serviços GTM do Marketplace, acesse [serviços de entrada no mercado](https://partner.microsoft.com/reach-customers/gtm).
 
-Inicie sessão para o [Cloud Partner Portal](https://cloudpartner.azure.com) para criar e configurar a sua oferta.
+Faça logon no [portal do Cloud Partner](https://cloudpartner.azure.com) para criar e configurar sua oferta.
 
 ---

@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: c28469e15841e2675c20868b74cf044159c4e9ca
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 2962f6c5032ba317f9eb8f10c2abddb566aad904
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259181"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825511"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerenciar sua conta do Marketplace comercial no Partner Center 
 
@@ -48,12 +49,12 @@ As configurações de conta estão localizadas no canto superior direito do [pai
 ![Menu de configurações de conta no Partner Center](./media/dashboard-developer-settings.png)
 
 Dentro **das configurações de conta**, você poderá exibir seu:
-- **Detalhes da conta**: Tipo de conta e status da conta
-- **IDs**do Publicador: ID do vendedor, ID de usuário, ID de editor, locatários do Azure AD, etc.
-- **Informações de contato**: Nome de exibição do editor, nome do contato do vendedor, email, telefone e endereço
-- **Detalhes financeiros**: Conta de pagamento, perfil de imposto e status de retenção de pagamento
-- **Dispositivos**: Todos os dispositivos de teste associados à sua conta
-- **GUIDs de acompanhamento**: Quaisquer GUIDs de acompanhamento associados à sua conta
+- **Detalhes da conta**: tipo de conta e status da conta
+- **IDs do Publicador**: ID do vendedor, ID de usuário, ID do editor, locatários do Azure AD, etc.
+- **Informações de contato**: nome de exibição do Publicador, nome do contato do vendedor, email, telefone e endereço
+- **Detalhes financeiros**: conta de pagamento, perfil de imposto e status de retenção de pagamento
+- **Dispositivos**: quaisquer dispositivos de teste associados à sua conta
+- **GUIDs de acompanhamento**: qualquer GUID de acompanhamento associado à sua conta
 
 ### <a name="account-details"></a>Detalhes da conta
 
@@ -63,9 +64,9 @@ Na seção detalhes da conta, você pode ver informações básicas, como o **ti
 
 Na seção IDs do Publicador, você pode ver sua **ID do vendedor**, ID do **MPN**e ID do **Editor**. Esses valores são atribuídos pela Microsoft para identificar exclusivamente sua conta de desenvolvedor e não podem ser editados.
 
-### <a name="contact-info"></a>Informação de contacto
+### <a name="contact-info"></a>Informações de contacto
 
-Na seção informações de contato, você pode ver o **nome de exibição do editor**, **informações de contato do vendedor** (o nome do contato, email, número de telefone e endereço para o vendedor da empresa) e o aprovador **da empresa** (o nome, o email e o número de telefone do indivíduo com autoridade para aprovar decisões para a empresa). 
+Na seção informações de contato, você pode ver o **nome de exibição do editor**, **informações de contato do vendedor** (o nome do contato, email, número de telefone e endereço para o vendedor da empresa) e o **Aprovador da empresa** (o nome, o email e o número de telefone do indivíduo com autoridade para aprovar decisões para a empresa). 
 
 ### <a name="financial-details"></a>Detalhes financeiros
 
@@ -83,8 +84,8 @@ Para configurar sua conta de pagamento, você precisa **associar sua conta da Mi
 3. Para concluir a configuração da sua conta de pagamento, faça o log completamente fora do Partner Center e, em seguida, faça logon novamente com sua conta da Microsoft (em vez de sua conta corporativa). 
 
 Agora que sua conta da Microsoft está associada, para adicionar uma conta de pagamento, você precisará:
-- **Escolha um método de pagamento**: Conta bancária ou PayPal
-- **Adicionar informações de pagamento**: Isso pode incluir escolher um tipo de conta (verificação ou economia), inserir o nome do titular da conta, o número da conta e o número de roteamento, endereço de cobrança, número de telefone ou endereço de email do PayPal. \* Para obter mais informações sobre como usar o PayPal como seu método de pagamento de conta e descobrir se há suporte em sua região de mercado, consulte [informações de PayPal](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+- **Escolha um método de pagamento**: conta bancária ou paypal
+- **Adicionar informações de pagamento**: isso pode incluir a escolha de um tipo de conta (verificação ou economia), a inserção do nome do titular da conta, número da conta e número de roteamento, endereço de cobrança, número de telefone ou endereço de email do PayPal. \* Para obter mais informações sobre como usar o PayPal como seu método de pagamento de conta e descobrir se há suporte em sua região de mercado, consulte [informações de PayPal](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
 > [!IMPORTANT]
 > Alterar sua conta de pagamento pode atrasar seus pagamentos em até um ciclo de pagamento. Esse atraso ocorre porque precisamos verificar a alteração da conta, assim como fazemos ao configurar a conta de pagamento pela primeira vez. Você ainda será pago pelo valor total depois que sua conta tiver sido verificada; todos os pagamentos devidos ao ciclo de pagamento atual serão adicionados ao próximo.  
@@ -339,9 +340,9 @@ Para criar um novo locatário do Azure AD com sua conta do Partner Center:
 
 1.  Na página **locatários** (em **configurações de conta**), selecione **criar um novo locatário do Azure ad**.
 2. Insira as informações de diretório para seu novo Azure AD:
-    - **Nome de domínio**: O nome exclusivo que usaremos para seu domínio do Azure AD, junto com ". onmicrosoft.com". Por exemplo, se você inseriu "example", seu domínio do Azure AD seria "example.onmicrosoft.com".
-    - **Email de contato**: Um endereço de email no qual podemos contatá-lo sobre sua conta, se necessário.
-    - **Informações da conta de usuário de administrador global**: Nome, sobrenome, nome de usuário e senha que você deseja usar para a nova conta de administrador global.
+    - **Nome de domínio**: o nome exclusivo que usaremos para seu domínio do Azure AD, juntamente com ". onmicrosoft.com". Por exemplo, se você inseriu "example", seu domínio do Azure AD seria "example.onmicrosoft.com".
+    - **Email de contato**: um endereço de email no qual podemos contatá-lo sobre sua conta, se necessário.
+    - **Informações da conta de usuário de administrador global**: nome, sobrenome, nome de usuário e senha que você deseja usar para a nova conta de administrador global.
 3. Selecione **criar** para confirmar as novas informações de domínio e conta.
 4. Entre com seu novo nome de usuário e senha de administrador global do Azure AD para começar a [Adicionar e gerenciar usuários](#manage-users).
 
@@ -349,7 +350,7 @@ Para obter mais informações sobre como criar novos locatários dentro de seu p
 
 ### <a name="remove-a-tenant"></a>Remover um locatário
 
-Para remover um locatário de sua conta do Partner Center, localize seu nome na página locatários (em **configurações da conta**) e selecione **remover**. Você será solicitado a confirmar que deseja remover o locatário. Depois de fazer isso, nenhum usuário nesse locatário poderá entrar na conta do Partner Center e todas as permissões configuradas para esses usuários serão removidas.
+Para remover um locatário de sua conta do Partner Center, localize seu nome na página **locatários** (em **configurações da conta**) e selecione **remover**. Você será solicitado a confirmar que deseja remover o locatário. Depois de fazer isso, nenhum usuário nesse locatário poderá entrar na conta do Partner Center e todas as permissões configuradas para esses usuários serão removidas.
 
 Quando você remove um locatário, todos os usuários que foram adicionados à conta do Partner Center desse locatário não poderão mais entrar na conta.
 
@@ -364,6 +365,6 @@ A seção **contratos** do Partner Center (em **configurações de conta**) perm
 As **ações necessárias** podem aparecer na parte superior desta página se houver atualizações de contrato que precisam de sua atenção. Para aceitar um contrato atualizado, primeiro leia a versão do contrato vinculado e, em seguida, selecione **aceitar contrato**. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma nova oferta de SaaS](./create-new-saas-offer.md)

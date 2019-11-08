@@ -1,28 +1,29 @@
 ---
-title: Obter uma API de oferta específico | O Azure Marketplace
-description: API obtém a oferta especificada dentro do espaço de nomes do publicador.
+title: Recuperar uma API de oferta específica | Azure Marketplace
+description: A API recupera a oferta especificada dentro do namespace do Publicador.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: bb6bbd457ff372ad46091f49cf4ae7e4b34b3d83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 030fb221b9227acf9c5dcda8797b106e51f56d64
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935445"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827354"
 ---
-<a name="retrieve-a-specific-offer"></a>Obter uma oferta específica
+<a name="retrieve-a-specific-offer"></a>Recuperar uma oferta específica
 =========================
 
-Obtém a oferta especificada dentro do espaço de nomes do publicador.  
+Recupera a oferta especificada dentro do namespace do Publicador.  
 
-Também pode obter uma versão específica da oferta, ou obter a oferta no rascunho, vista ou ranhuras de produção. Se não for especificado um bloco, a predefinição é `draft`. Tentar obter uma oferta que não foi visualizada ou publicada resultará num `404 Not Found` erro.
+Você também pode recuperar uma versão específica da oferta ou recuperar a oferta em slots de rascunho, exibição ou produção. Se um slot não for especificado, o padrão será `draft`. A tentativa de recuperar uma oferta que não foi visualizada ou publicada resultará em um erro `404 Not Found`.
 
 > [!WARNING]
-> Não serão possível obter os valores secretos para campos de tipo secreta por esta API.
+> Os valores secretos para campos de tipo secreto não serão recuperados por essa API.
 
 ``` http
     GET https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>?api-version=2017-10-31
@@ -34,17 +35,17 @@ Também pode obter uma versão específica da oferta, ou obter a oferta no rascu
 ```
 
 
-<a name="uri-parameters"></a>Parâmetros do URI
+<a name="uri-parameters"></a>Parâmetros de URI
 --------------
 
 
 | **Nome**    | **Descrição**                                                                          | **Tipo de dados** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId. Por exemplo, Contoso                                                        | String        |
-| offerId     | GUID que identifica exclusivamente a oferta.                                                 | String        |
-| version     | Versão da oferta que está a ser recuperada. Por predefinição, a versão mais recente da oferta é recuperada. | Integer       |
-| slotId      | A ranhura a partir do qual a oferta é a obter, pode ser um de:      <br/>  - `Draft` (predefinição) obtém a versão da oferta atualmente no rascunho.  <br/>  -  `Preview` obtém a versão de oferta, atualmente em pré-visualização.     <br/>  -  `Production` obtém a versão de oferta, atualmente em produção.          |      Enum |
-| versão de API | Versão mais recente da API                                                                    | Date          |
+| publisherId | publisherId. Por exemplo, contoso                                                        | String        |
+| OfferId     | GUID que identifica exclusivamente a oferta.                                                 | String        |
+| versão     | Versão da oferta sendo recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Número inteiro       |
+| SlotId      | O slot do qual a oferta deve ser recuperada pode ser um de:      <br/>  - `Draft` (padrão) recupera a versão da oferta atualmente em rascunho.  <br/>  -  `Preview` recupera a versão da oferta atualmente em visualização.     <br/>  -  `Production` recupera a versão da oferta atualmente em produção.          |      enumera |
+| versão da API | Versão mais recente da API                                                                    | Date          |
 |  |  |  |
 
 
@@ -53,7 +54,7 @@ Também pode obter uma versão específica da oferta, ou obter a oferta no rascu
 
 |  **Nome**          |   **Valor**            |
 |  ---------------   |  --------------        |
-|  Content-Type      | `application/json`     |
+|  Tipo de conteúdo      | `application/json`     |
 |  Autorização     | `Bearer YOUR_TOKEN`    |
 |  |  |
 
@@ -166,40 +167,40 @@ Também pode obter uma versão específica da oferta, ou obter a oferta no rascu
 ```
 
 
-### <a name="response-body-properties"></a>Propriedades do corpo de resposta
+### <a name="response-body-properties"></a>Propriedades do corpo da resposta
 
 |  **Nome**       |   **Descrição**                                                                                                               |
 |  -------------  |   -----------------------------------------------------------------------------------------------------                         |
 |  offerTypeId    | Identifica o tipo de oferta                                                                                                    |
-|  publisherId    | Identificador exclusivo do publicador                                                                                              |
-|  status         | Estado da oferta. Para obter a lista de valores possíveis, consulte [stav Nabídky](#offer-status) abaixo.                                  |
+|  publisherId    | Identificador exclusivo do Publicador                                                                                              |
+|  status         | Status da oferta. Para obter a lista de valores possíveis, consulte o [status da oferta](#offer-status) abaixo.                                  |
 |  Id             | GUID que identifica exclusivamente a oferta                                                                                         |
-|  version        | Versão atual da oferta. A propriedade de versão não pode ser modificada pelo cliente. Ele é incrementado após cada publicação.    |
-|  Definição     | Definição real da carga de trabalho                                                                                               |
-|  changedTime    | Datetime UTC quando a oferta foi modificado pela última vez.                                                                                   |
+|  versão        | Versão atual da oferta. A Propriedade Version não pode ser modificada pelo cliente. Ele é incrementado após cada publicação.    |
+|  Defini     | Definição real da carga de trabalho                                                                                               |
+|  alteradotime    | DateTime UTC quando a oferta foi modificada pela última vez                                                                                   |
 |  |  |
 
 
-### <a name="response-status-codes"></a>Códigos de estado de resposta
+### <a name="response-status-codes"></a>Códigos de status de resposta
 
-| **Código**  | **Descrição**                                                                                                                 |
+| **Auto-completar**  | **Descrição**                                                                                                                 |
 |  ------   | ------------------------------------------------------------------------------------------------------------------------------- |
-|  200      | `OK` -O pedido foi processado com êxito e todas as ofertas sob o publicador foram devolvidas ao cliente.               |
-|  400      | `Bad/Malformed request` -O corpo da resposta de erro pode conter mais informações.                                                 |
-|  403      | `Forbidden` -O cliente não tem acesso ao espaço de nomes especificado.                                                        |
-|  404      | `Not found` -A entidade especificada não existe. Cliente verificaria a publisherId offerId e versão (se especificada).      |
+|  200      | `OK`-a solicitação foi processada com êxito e todas as ofertas no Publicador foram retornadas ao cliente.               |
+|  400      | `Bad/Malformed request`-o corpo da resposta de erro pode conter mais informações.                                                 |
+|  403      | `Forbidden`-o cliente não tem acesso ao namespace especificado.                                                        |
+|  404      | `Not found`-a entidade especificada não existe. O cliente deve verificar a PublisherID, a OfferId e a versão (se especificado).      |
 |  |  |
 
 
-### <a name="offer-status"></a>Stav nabídky
+### <a name="offer-status"></a>Status da oferta
 
 |  **Nome**                   |   **Descrição**                             |
 | --------------------------- |  -------------------------------------------- |
-|  NeverPublished             | Oferta nunca foi publicada.               |
-|  NotStarted                 | Oferta é nova, mas não foi iniciada.              |
-|  WaitingForPublisherReview  | Oferta está à espera de aprovação do publicador.      |
-|  A executar                    | Submissão de oferta está a ser processado.          |
-|  Bem-sucedido                  | Submissão de oferta terminou de processar.    |
-|  Cancelado                   | Submissão de oferta foi cancelada.                |
-|  Com Falhas                     | Falha na submissão de oferta.                      |
+|  NeverPublished             | A oferta nunca foi publicada.               |
+|  NotStarted                 | A oferta é nova, mas não iniciada.              |
+|  WaitingForPublisherReview  | A oferta está aguardando a aprovação do Publicador.      |
+|  A executar                    | O envio da oferta está sendo processado.          |
+|  Bem-sucedido                  | O envio da oferta concluiu o processamento.    |
+|  Cancelado                   | O envio da oferta foi cancelado.                |
+|  Com Falhas                     | Falha no envio da oferta.                      |
 |  |  |

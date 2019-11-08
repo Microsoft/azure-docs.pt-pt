@@ -1,5 +1,5 @@
 ---
-title: 'Conectar VM do cliente-Instância Gerenciada do Banco de Dados SQL do Azure '
+title: Conectar a instância gerenciada da VM do cliente
 description: Conecte-se a um Instância Gerenciada do Banco de Dados SQL do Azure usando o SQL Server Management Studio de uma máquina virtual do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: fb45df869bc9ecbe6584837894844c29bafa6223
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a455607b1459ebc9e37b1df70b454feea76d1f2f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689389"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822780"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Início rápido: configurar a VM do Azure para se conectar a um Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -28,7 +28,7 @@ Este guia de início rápido usa os recursos criados em [criar um instância ger
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-new-subnet-in-the-managed-instance-vnet"></a>Criar uma nova sub-rede na VNet Instância Gerenciada
 
@@ -46,7 +46,7 @@ As etapas a seguir criam uma nova sub-rede na VNet Instância Gerenciada para qu
 
    | Definição| Valor sugerido | Descrição |
    | ---------------- | ----------------- | ----------- |
-   | **Nome** | Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   | **Nome** | Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).|
    | **Intervalo de endereços (bloco CIDR)** | Um intervalo válido | O valor padrão é bom para este guia de início rápido.|
    | **Grupo de segurança de rede** | Nenhum | O valor padrão é bom para este guia de início rápido.|
    | **Tabela de rotas** | Nenhum | O valor padrão é bom para este guia de início rápido.|
@@ -78,8 +78,8 @@ A maneira mais fácil de criar uma máquina virtual de cliente com todas as ferr
    | **Subscrição** | Uma assinatura válida | Deve ser uma assinatura na qual você tenha permissão para criar novos recursos. |
    | **Grupo de Recursos** |O grupo de recursos que você especificou no guia de início rápido [criar instância gerenciada](sql-database-managed-instance-get-started.md) .|Esse grupo de recursos deve ser aquele em que a VNet existe.|
    | **Localização** | O local do grupo de recursos | Esse valor é preenchido com base no grupo de recursos selecionado. |
-   | **Nome da máquina virtual**  | Qualquer nome válido | Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Nome de usuário do administrador**|Qualquer nome de usuário válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Não use "ServerAdmin", pois essa é uma função de nível de servidor reservada.<br>Você usa esse nome de usuário sempre que [se conectar à VM](#connect-to-virtual-machine).|
+   | **Nome da máquina virtual**  | Qualquer nome válido | Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).|
+   |**Nome de usuário do administrador**|Qualquer nome de usuário válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). Não use "ServerAdmin", pois essa é uma função de nível de servidor reservada.<br>Você usa esse nome de usuário sempre que [se conectar à VM](#connect-to-virtual-machine).|
    |**Palavra-passe**|Qualquer palavra-passe válida|A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Use essa senha sempre que [se conectar à VM](#connect-to-virtual-machine).|
    | **Tamanho da máquina virtual** | Qualquer tamanho válido | O padrão neste modelo de **Standard_B2s** é suficiente para este guia de início rápido. |
    | **Localização**|[resourcegroup (). Location].| Não altere esse valor. |

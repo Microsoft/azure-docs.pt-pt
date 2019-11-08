@@ -1,22 +1,22 @@
 ---
-title: 'Aplicativo SaaS: monitorar o desempenho de muitos bancos de dados SQL do Azure '
+title: 'Aplicativo SaaS: monitorar o desempenho de vários bancos de dados'
 description: Monitorar e gerenciar o desempenho de pools e bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 4860766ddb4214591dc2c77f2746f958cb101741
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e2e752ec37f71ea501dcee586e7daf0fc950919d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692132"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822240"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorar e gerenciar o desempenho de pools e bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
 

@@ -4,15 +4,15 @@ description: Saiba como integrar um cliente ao gerenciamento de recursos delegad
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 11/6/2019
+ms.date: 11/7/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 259a0b1b278588ef2237622d61a89fe02e5c004c
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 1d5e9c44fe7669a89c52d2ac14299c2687f11dc5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721407"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827242"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente na gestão de recursos delegados do Azure
 
@@ -291,7 +291,7 @@ O exemplo a seguir mostra uma atribuição que concede a **função de exclusão
         { 
             "principalId": "cfa7496e-a619-4a14-a740-85c5ad2063bb", 
             "principalIdDisplayName": "MSP Operators", 
-            "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c" 
+            "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46" 
         } 
     ] 
 ```

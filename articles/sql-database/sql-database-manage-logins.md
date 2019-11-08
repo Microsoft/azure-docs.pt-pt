@@ -1,5 +1,5 @@
 ---
-title: Logons e usuários do SQL Azure
+title: Inícios de sessão e utilizadores
 description: Saiba mais sobre o gerenciamento de segurança do banco de dados SQL e do SQL Data Warehouse, especificamente como gerenciar o acesso ao banco de dados e a segurança de logon por meio da conta de entidade do servidor
 keywords: segurança de base de dados sql,gestão de segurança da base de dados,segurança de início de sessão,segurança de base de dados,acesso de base de dados
 services: sql-database
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/26/2019
-ms.openlocfilehash: 501df95b80bd651020fa044970f6bc701959a6a5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a33c653199ae21b551acadfb4503eae029ddc5e4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689474"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822835"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controlando e concedendo acesso ao banco de dados SQL e SQL Data Warehouse
 

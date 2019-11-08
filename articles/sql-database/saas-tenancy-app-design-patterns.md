@@ -1,5 +1,5 @@
 ---
-title: 'Padrões de SaaS multilocatário-banco de dados SQL do Azure '
+title: Padrões de SaaS multilocatário
 description: Saiba mais sobre os requisitos e padrões comuns de arquitetura de dados de aplicativos de banco de dado SaaS (software como serviço) multilocatários executados no ambiente de nuvem do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: ecbcf2cdfea2714e46d0c9cff4066befabddeeb8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ad7bd660ee685b490fb79c7e63fd3c5fce557977
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691924"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822061"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de locação de banco de dados SaaS multilocatário
 
@@ -135,7 +135,7 @@ Em geral, bancos de dados multilocatários têm o menor custo por locatário.  O
 
 Duas variações de um modelo de banco de dados multilocatário são discutidas da seguinte maneira, com o modelo multilocatário fragmentado sendo o mais flexível e escalonável.
 
-## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>fixo. Aplicativo multilocatário com um único banco de dados de vários locatários
+## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>Fixo. Aplicativo multilocatário com um único banco de dados de vários locatários
 
 O padrão mais simples de banco de dados multilocatário usa um banco de dados individual para hospedar o dado para todos os locatários.  À medida que mais locatários são adicionados, o banco de dados é dimensionado com mais recursos de armazenamento e computação.  Essa escala vertical pode ser tudo o que é necessário, embora sempre haja um limite de escala final.  No entanto, muito antes que esse limite seja atingido, o banco de dados torna-se difícil de gerenciar.
 

@@ -8,14 +8,14 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 663ef16511269dd61a6567d6570f3445b7da6447
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 030401623a61e7fcff40187f522309255482647f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804252"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824808"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Chamar pontos de extremidade REST usando aplicativos lógicos do Azure
 
@@ -25,7 +25,7 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* A URL para o arquivo Swagger que descreve o ponto de extremidade REST de destino
+* A URL para o arquivo Swagger (não OpenAPI) que descreve o ponto de extremidade REST de destino
 
   Normalmente, o ponto de extremidade REST deve atender a esses critérios para que o conector funcione:
 
@@ -45,7 +45,7 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o
 
 Esse gatilho interno envia uma solicitação HTTP para uma URL para um arquivo do Swagger que descreve uma API REST e retorna uma resposta que contém o conteúdo desse arquivo.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no designer de aplicativo lógico.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no designer de aplicativo lógico.
 
 1. No designer, na caixa de pesquisa, digite "Swagger" como filtro. Na lista de **gatilhos** , selecione o gatilho **http + Swagger** .
 
@@ -81,7 +81,7 @@ Esse gatilho interno envia uma solicitação HTTP para uma URL para um arquivo d
 
 Essa ação interna faz uma solicitação HTTP para a URL do arquivo Swagger que descreve uma API REST e retorna uma resposta que contém o conteúdo desse arquivo.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico no designer de aplicativo lógico.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico no designer de aplicativo lógico.
 
 1. Na etapa em que você deseja adicionar a ação HTTP + Swagger, selecione **nova etapa**.
 

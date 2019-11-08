@@ -1,22 +1,22 @@
 ---
-title: Migrar banco de dados da instância SQL Server para a instância gerenciada do banco de dados SQL do Azure
+title: Migrar do SQL Server para a instância gerenciada
 description: Saiba como migrar um banco de dados de SQL Server instância para instância gerenciada do banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 228b22d9d283fe8c23cbf7a82036b7f3782cbf25
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 802dfa7e3b2d0b9deac957662ac1e7604d085fd9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688009"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73828080"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração de instância de SQL Server para instância gerenciada do banco de dados SQL do Azure
 

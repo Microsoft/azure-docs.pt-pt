@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: criar um blob no armazenamento de BLOBs do Azure com Python'
-description: Neste início rápido, crie uma conta de armazenamento e um contentor no armazenamento de objetos (Blobs). Em seguida, utilize a biblioteca de clientes de armazenamento para Python, para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
+title: 'Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure v 2.1 para Python'
+description: Neste início rápido, crie uma conta de armazenamento e um contentor no armazenamento de objetos (Blobs). Em seguida, você usa a biblioteca de cliente de armazenamento v 2.1 para Python para carregar um blob no armazenamento do Azure, baixar um blob e listar os BLOBs em um contêiner.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 09/11/2019
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 8a3f8b5f8944552c92ac5a1c1d5fb2eabffad2c9
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 606c7d1fd012052a22afeef906bbe9df4c63a76b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608744"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825286"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-in-azure-blob-storage-with-python"></a>Início rápido: carregar, baixar e listar BLOBs no armazenamento de BLOBs do Azure com Python
+# <a name="quickstart-azure-blob-storage-client-library-v21-for-python"></a>Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure v 2.1 para Python
 
 Neste artigo, você usa o Python para carregar, baixar e listar blobs de blocos em um contêiner no armazenamento de BLOBs do Azure. Os BLOBs são apenas objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, mídia de streaming e dados de arquivo. Os BLOBs no armazenamento do Azure são diferentes de compartilhamentos de arquivos, tabelas sem esquema e filas de mensagens.  Para obter mais informações, consulte [introdução ao armazenamento do Azure](/azure/storage/common/storage-introduction).
 
@@ -97,8 +97,8 @@ O programa de exemplo cria um arquivo de teste na pasta *documentos* , carrega o
 
 1. Antes de continuar, vá para a pasta *documentos* e verifique os dois arquivos.
 
-    * *QuickStart_\<universalmente – identificador exclusivo\>*
-    * *QuickStart_\<universalmente – identificador exclusivo\>_DOWNLOADED*
+    * *QuickStart_\<identificador exclusivo\>*
+    * *QuickStart_ de\<de identificador exclusivo\>_DOWNLOADED*
 
 1. Pode abri-los e ver que são idênticos.
 

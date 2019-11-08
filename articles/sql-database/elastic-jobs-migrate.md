@@ -1,22 +1,22 @@
 ---
-title: 'Migrar para os novos trabalhos de banco de dados elástico '
+title: Migrar para novos trabalhos de banco de dados elástico
 description: Migre para os novos trabalhos de banco de dados elástico.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 2cba7ecb4be500a8f7007c8da009e03e6f33dfde
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5a7ed254de7b7ea32f2fb357d860354693e46e92
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692275"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827222"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrar para o novo trabalhos de Banco de Dados Elástico
 

@@ -1,5 +1,5 @@
 ---
-title: 'Solucionar problemas do Azure Sincronização de Dados SQL '
+title: Resolver problemas da Sincronização de Dados SQL
 description: Saiba como solucionar problemas comuns com o Azure Sincronização de Dados SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 31cf2693ba33461f38ea6361bf2ca8b688f177ff
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8e223d0c6243bfddc1e5a56867c4c69de5e2a62e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686898"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822461"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Solucionar problemas com Sincronização de Dados SQL
 

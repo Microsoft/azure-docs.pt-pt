@@ -1,5 +1,5 @@
 ---
-title: Notas de Versão
+title: Notas de versão
 description: Notas de versão do Azure SQL Data Warehouse.
 services: sql-data-warehouse
 ms.service: sql-data-warehouse
@@ -11,12 +11,12 @@ ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bb9aa1cf547c37670732665a8d207f8c9f01eee0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 967263bde459739482100524e5f85bed96cee6f9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692919"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824290"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notas de versão do Azure SQL Data Warehouse
 

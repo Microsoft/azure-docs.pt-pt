@@ -1,22 +1,23 @@
 ---
-title: Modelo de implementação de Cofre de chaves do Azure | O Azure Marketplace
-description: Lista o modelo de Gestor de recursos do Azure necessário para implementar uma nova instância do Azure Key Vault.
+title: Azure Key Vault modelo de implantação | Azure Marketplace
+description: Lista o modelo de Azure Resource Manager necessário para implantar uma nova instância de Azure Key Vault.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 053a9f8ddfcc523532597d9e73aa095bf9110d72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: befed70b6858ebc8aaab7ebe200bb8082a430bab
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938638"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824056"
 ---
 # <a name="key-vault-deployment-template"></a>Modelo de implementação do cofre de chaves
 
-O modelo Azure Resource Manager seguinte define uma nova instância do Azure Key Vault.  Ele é usado no artigo [Criar certificado do Cofre de chaves](cpp-create-key-vault-cert.md). 
+O modelo de Azure Resource Manager a seguir define uma nova instância de Azure Key Vault.  Ele é usado no artigo [criar certificado do Key Vault](cpp-create-key-vault-cert.md). 
 
 ```json
 {

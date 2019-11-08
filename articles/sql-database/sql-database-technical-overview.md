@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: d22408904ae21bc7512d4ebe8792666227893337
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3932c22ff003a343e4c32aee117a7ddea922fbdb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687021"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820734"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço Base de Dados SQL do Azure?
 
@@ -117,7 +117,7 @@ Zonas de Disponibilidade do Azure tenta se proteger contra a interrupção de um
 
 Na verdade, o [SLA (](https://azure.microsoft.com/support/legal/sla/) contrato de nível de serviço) do Azure, equipado com uma rede global de datacenters gerenciados pela Microsoft, ajuda a manter seu aplicativo em execução 24/7. A plataforma Azure gerencia totalmente todos os bancos de dados e garante que não haja perda e um alto percentual de disponibilidade de dados. O Azure lida automaticamente com patches, backups, replicação, detecção de falhas, hardware potencial subjacente, software ou falhas de rede, implantação de correções de bugs, failovers, atualizações de banco de dados e outras tarefas de manutenção. A disponibilidade standard é conseguida por uma separação das camadas de armazenamento e computação. A disponibilidade Premium é obtida com a integração da computação e do armazenamento em um único nó para o desempenho e, em seguida, a implementação de uma tecnologia semelhante à Always On grupos de disponibilidade. Para obter uma discussão completa sobre os recursos de alta disponibilidade do banco de dados SQL do Azure, consulte [disponibilidade do banco de dados SQL](sql-database-high-availability.md). 
 
-Além disso, o banco de dados SQL fornece recursos internos de [continuidade de negócios e escalabilidade global](sql-database-business-continuity.md) . As regiões incluem:
+Além disso, o banco de dados SQL fornece recursos internos de [continuidade de negócios e escalabilidade global](sql-database-business-continuity.md) . Estas incluem:
 
 - [Backups automáticos](sql-database-automated-backups.md):
 

@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute
 author: qianw211
 manager: MaggiePucciEvans
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/02/2019
 ms.author: blevens
-ms.openlocfilehash: 7dda9d38b1620b5559ebee52fa6ba03555a4cec9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ce2390f1aa71b6cfc10bbb5144127d46fc82fb19
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73570074"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826431"
 ---
 # <a name="microsoft-commercial-marketplace-roadmap"></a>Roteiro do Microsoft Commercial Marketplace
 

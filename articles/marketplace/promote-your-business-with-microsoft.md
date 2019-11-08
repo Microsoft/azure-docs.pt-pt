@@ -1,38 +1,39 @@
 ---
-title: Promover o seu negócio com a Microsoft | O Azure Marketplace
-description: Promova a sua empresa com o Azure Marketplace e AppSource para editores de aplicações e serviços
+title: Promova seus negócios com a Microsoft | Azure Marketplace
+description: Promova seus negócios usando o Azure Marketplace e o AppSource para Publicadores de aplicativos e serviços
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: f21c5f94c595fe3718a0a59a80deff8f1c53b9fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0f33402c5ff9f970e2ffebf405178dbc0974690
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937654"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827785"
 ---
-# <a name="promote-your-business-with-microsoft"></a>Promover o seu negócio com a Microsoft 
+# <a name="promote-your-business-with-microsoft"></a>Promova seus negócios com a Microsoft 
 
-A Microsoft tem o objetivo para oferecer suporte a parceiros () e para simplificar a venda da sua aplicação ou oferta em lojas no marketplace. Por listagem no marketplace, acessar os programas e recursos no marketplace. 
+A Microsoft tem o objetivo de dar suporte a parceiros (você) e simplificar a venda de seu aplicativo ou oferta nas vitrines do Marketplace. Ao listar no Marketplace, você acessa os programas e recursos no Marketplace. 
 
-Se tiver não tiver inscrito para o Microsoft Partner Network (MPN), em seguida, fazê-lo antes de continuar.  
-*   Para obter mais informações sobre a MPN, visite a página localizada em do Microsoft Partner Network [partner.microsoft.com](https://partner.microsoft.com).  
+Se você ainda não tiver se inscrito no Microsoft Partner Network (MPN), faça isso antes de continuar.  
+*   Para obter mais informações sobre MPN, visite a página Microsoft Partner Network localizada em [Partner.Microsoft.com](https://partner.microsoft.com).  
 
-MPN fornece orientação sobre os tópicos seguintes.  
-*   Novas oportunidades de negócio  
-*   Ligar com as equipes ou parceiros  
-*   Soluções e formação para ajudar a aumentar o conjunto de capacidades  
+O MPN fornece orientação sobre os tópicos a seguir.  
+*   Novas oportunidades de negócios  
+*   Conectando-se com equipes ou parceiros  
+*   Soluções e treinamento para ajudar a aumentar seu qualificante  
 
-Para promover a sua aplicação ou uma oferta, utilize a tabela seguinte para obter mais benefícios e recursos de acesso. 
+Para promover sua oferta ou aplicativo, use a tabela a seguir para acessar mais benefícios e recursos. 
 
-| Benefício | Recursos |  
+| contam | Os |  
 |:--- |:--- |  
-| Utilize os seus benefícios de núcleo | Como parte do Microsoft Partner Network, recebe um conjunto de benefícios centrais que podem ajudá-lo a economizar tempo e dinheiro. Os benefícios podem também ajudar a reforçar as capacidades, melhor servir clientes e criar ligações para atingir seu potencial de negócios.<ul> <li>Para obter mais informações sobre os benefícios de core, visite as principais vantagens e página requisitos localizado em [partner.microsoft.com/membership/core-benefits](https://partner.microsoft.com/membership/core-benefits).</li> </ul> |  
-| Obter a competência Cloud Platform | Obter a competência ajuda-o destaque-se entre outros parceiros da Microsoft. Obter a competência também ajuda-o a demonstrar a experiência técnica e o sucesso dos clientes no mercado. Competência é um pré-requisito para muitos programas de parceria de chave, como a venda conjunta.<ul> <li>Para obter mais informações sobre a competência Cloud Platform, visite a competência Cloud Platform página localizada em [partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency).</li> </ul> |  
-| Tornar-se de venda conjunta pronto | O programa de venda conjunta pronto permite que colabore diretamente com vendedores da Microsoft e outros parceiros em oportunidades de clientes de destino e o planejamento de contas. Sua solução se torna visível aos vendedores da Microsoft no catálogo de solução do vendedor. Vendedores da Microsoft são recompensados de colaboração e a ganhar com.<ul> <li>Para obter mais informações sobre a preparação de venda conjunta, visite o negócio Your promover página localizada em [partner.microsoft.com/reach-customers/promote-your-business](https://partner.microsoft.com/reach-customers/promote-your-business).</li> </ul> |  
+| Use seus principais benefícios | Como parte do Microsoft Partner Network, você recebe um conjunto de benefícios principais que podem ajudá-lo a economizar tempo e dinheiro. Os benefícios também podem ajudá-lo a fortalecer seus recursos, atender melhor aos clientes e criar conexões para alcançar seu potencial total de negócios.<ul> <li>Para obter mais informações sobre os principais benefícios, visite a página principais benefícios e requisitos localizada em [Partner.Microsoft.com/Membership/Core-Benefits](https://partner.microsoft.com/membership/core-benefits).</li> </ul> |  
+| Ganhe sua competência de plataforma de nuvem | Ganhar uma competência ajuda você a se diferenciar entre outros parceiros da Microsoft. Ganhar uma competência também ajuda você a demonstrar a experiência técnica e o sucesso do cliente no mercado. A competência é um pré-requisito para muitos programas-chave de parceiro, como a venda conjunta.<ul> <li>Para obter mais informações sobre a competência da plataforma de nuvem, visite a página de competência da plataforma de nuvem localizada em [Partner.Microsoft.com/Membership/Cloud-Platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency).</li> </ul> |  
+| Torne-se pronto para venda | O programa pronto para venda pronta permite que você colabore diretamente com os vendedores da Microsoft e outros parceiros em oportunidades de clientes de destino e planejamento de conta. Sua solução se torna visível para os vendedores da Microsoft no catálogo de soluções do vendedor. Os vendedores da Microsoft são recompensados por colaborar e ganhar com você.<ul> <li>Para obter mais informações sobre a preparação para a venda, visite a página promover sua empresa localizada em [Partner.Microsoft.com/REACH-Customers/Promote-Your-Business](https://partner.microsoft.com/reach-customers/promote-your-business).</li> </ul> |  
 
 ---

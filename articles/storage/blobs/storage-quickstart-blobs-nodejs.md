@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 0664982c2e0d430a639ed8095a1c65b12c8d8bd2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 28a75158b161e680f857b986bcb754f1f99e8fab
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605225"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825309"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure V12 para JavaScript
 
@@ -30,6 +30,8 @@ Use a biblioteca de cliente do armazenamento de BLOBs do Azure V12 para JavaScri
 * Eliminar um contentor
 
 [Documentação de referência de API](/javascript/api/@azure/storage-blob) | [código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [pacote (Gerenciador de pacotes do nó)](https://www.npmjs.com/package/@azure/storage-blob/v/12.0.0) | [exemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

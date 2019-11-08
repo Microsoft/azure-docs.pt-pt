@@ -4,15 +4,16 @@ description: Perguntas frequentes sobre o recurso de informações do vendedor d
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 059ec175a48cdcdec6214a6581452ec0536bf566
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: b015d21005448d24d24923ba424a10a4af0d47b1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030446"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821607"
 ---
 <a name="seller-insights-faq"></a>Perguntas frequentes sobre o vendedor insights
 ===================
@@ -29,7 +30,7 @@ As definições dos valores de métrica no arquivo de transação são encontrad
 <a name="see-customer-details-of-transactions-for-which-ive-been-paid"></a>Consulte os detalhes do cliente das transações para as quais fui pago
 -------------------------------------------------------------
 
-Depois de baixar suas transações do módulo pagamento, localize a coluna denominada **status de pagamento**e aplique o filtro para exibir apenas o valor "pago". As colunas a seguir aparecerão contendo os detalhes do cliente: **Nome da empresa**, **email do cliente**, **país do cliente**, estado do **cliente**e **CEP do cliente**.
+Depois de baixar suas transações do módulo pagamento, localize a coluna denominada **status de pagamento**e aplique o filtro para exibir apenas o valor "pago". As colunas a seguir aparecerão contendo os detalhes do cliente: **nome da empresa**, **email do cliente**, **país do cliente**, **estado do cliente**e CEP do **cliente**.
 
 
 <a name="calculate-my-open-accounts-receivable"></a>Calcular minhas contas a receber abertas

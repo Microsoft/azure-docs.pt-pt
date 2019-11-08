@@ -1,6 +1,6 @@
 ---
 title: Adicionar um dispositivo real a uma aplicação do Azure IoT Central | Microsoft Docs
-description: Como operador, adicione um dispositivo real à aplicação do Azure IoT Central.
+description: Saiba como adicionar e configurar um dispositivo real em seu aplicativo de IoT Central do Azure. Você também pode aprender sobre o código em seu dispositivo real.
 author: sandeeppujar
 ms.author: sandeepu
 ms.date: 08/23/2019
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 1f7afde7a5c4f3553cde40e4b179d056b8caee9b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fce5be4d059d7b3698f1e76a4ec6ff46c4ce3c0b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72956209"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824616"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Tutorial: Adicionar um dispositivo real à aplicação do Azure IoT Central
 

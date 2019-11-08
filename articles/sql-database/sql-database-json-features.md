@@ -1,5 +1,5 @@
 ---
-title: Trabalhando com dados JSON no banco de dado SQL do Azure
+title: Trabalhar com dados JSON
 description: O banco de dados SQL do Azure permite que você analise, consulte e formato a notação JavaScript Object Notation (JSON).
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 01/15/2019
-ms.openlocfilehash: 2fe760e3792b5540b18946fd9dbcc5d571b50ee9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 958d937ad85fd62249c7ce3f0e0ab2f8cc1d1b80
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689658"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819930"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Introdução aos recursos JSON no banco de dados SQL do Azure
 O banco de dados SQL do Azure permite que você analise e consulte as consultas representadas no formato JavaScript Object Notation [(JSON)](https://www.json.org/) e exporte os dados relacionais como texto JSON. Os seguintes cenários JSON estão disponíveis no banco de dados SQL do Azure:

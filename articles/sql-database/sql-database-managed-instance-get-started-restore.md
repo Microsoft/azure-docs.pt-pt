@@ -1,5 +1,5 @@
 ---
-title: 'Restaurar um backup para Instância Gerenciada do Banco de Dados SQL do Azure '
+title: Restaurar um backup para uma instância gerenciada
 description: Restaure uma cópia de segurança para uma Instância Gerida da Base de Dados SQL do Azure através do SSMS.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: ce112628c94c235b028331db5c37ba2b56458044
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 37f7366d6622356017e458fb8f893b0be0851335
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688060"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825700"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Início rápido: restaurar um banco de dados para um Instância Gerenciada
 
@@ -86,10 +86,10 @@ No SSMS, siga estas etapas para restaurar o banco de dados de importadores mundi
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. Quando a restauração for concluída, exiba o banco de dados no Pesquisador de objetos. Você pode verificar se a restauração do banco de dados foi concluída usando a exibição [Sys. dm _operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
+7. Quando a restauração for concluída, exiba o banco de dados no Pesquisador de objetos. Você pode verificar se a restauração do banco de dados foi concluída usando o modo de exibição [Sys. dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
 
 > [!NOTE]
-> A operação de restauração de banco de dados é assíncrona e passível. Você pode receber algum erro SQL Server Management Studio se quebras de conexão ou algum tempo limite expirar. O banco de dados SQL do Azure continuará tentando restaurar o banco de dados em segundo plano e você poderá acompanhar o progresso da restauração usando as exibições [Sys. dm _exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [Sys. dm _operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
+> A operação de restauração de banco de dados é assíncrona e passível. Você pode receber algum erro SQL Server Management Studio se quebras de conexão ou algum tempo limite expirar. O banco de dados SQL do Azure continuará tentando restaurar o banco de dados em segundo plano e você poderá acompanhar o progresso da restauração usando as exibições [Sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [Sys. dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
 > Em algumas fases do processo de restauração, você verá o identificador exclusivo em vez do nome real do banco de dados nas exibições do sistema. Saiba mais sobre as diferenças de comportamento de instrução de `RESTORE` [aqui](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
 
 ## <a name="next-steps"></a>Passos seguintes

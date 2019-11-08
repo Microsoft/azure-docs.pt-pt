@@ -1,5 +1,5 @@
 ---
-title: Pontos de extremidade públicos de instância gerenciada segura-instância gerenciada do banco de dados SQL do Azure
+title: Pontos de extremidade públicos de instância gerenciada segura
 description: Usar pontos de extremidade públicos com segurança no Azure com uma instância gerenciada
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 3d97eb16ee2a8b3203b187dca7b2a17974473098
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6dfeab3530445f8f9a102f47039d15b04fdf134a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687942"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821744"
 ---
 # <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Usar uma instância gerenciada do banco de dados SQL do Azure com segurança com pontos de extremidade públicos
 

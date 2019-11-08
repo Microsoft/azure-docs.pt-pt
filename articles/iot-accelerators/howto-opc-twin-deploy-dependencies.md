@@ -1,6 +1,6 @@
 ---
 title: Como implantar as dependências de nuvem do OPC entrelaçadas no Azure | Microsoft Docs
-description: Como implantar as dependências do Azure de OPC.
+description: Este artigo descreve como implantar as dependências do Azure de OPC/desenvolvedor necessárias para fazer o desenvolvimento e a depuração locais.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: cb07899b51280cff8613d637640c0da23debbc8e
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 231d1efa02ec80e8ad56a8895d4262d774480111
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016522"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824104"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Implantando dependências para desenvolvimento local
 
@@ -50,7 +50,7 @@ O script de implantação tenta registrar os aplicativos do AAD em Azure Active 
 2. Como alternativa, implante um locatário particular do AAD, reinicie o script e selecione para usá-lo.
 3. Continuar sem autenticação.  Como você está executando seus micro Services localmente, isso é aceitável, mas não imita ambientes de produção.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você implantou com êxito os serviços do OPC filepara um projeto existente, esta é a próxima etapa sugerida:
 

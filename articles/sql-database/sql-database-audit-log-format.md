@@ -1,5 +1,5 @@
 ---
-title: Formato do log de auditoria do banco de dados SQL
+title: Formato do Registo de Auditoria
 description: Entenda como os logs de auditoria do banco de dados SQL são estruturados.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 5befd15beba6a5c8071a6f5a01e34dc109fd118a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 389404f59b5a0cba1acd7aa097ddd3dd929d8082
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691210"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821999"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato do log de auditoria do banco de dados SQL
 
@@ -88,6 +88,6 @@ Os eventos de auditoria são gravados no espaço de trabalho Log Analytics defin
 | user_defined_event_id | user_defined_event_id_d | ID do evento definido pelo usuário passada como um argumento para sp_audit_write. NULL para eventos do sistema (padrão) e diferente de zero para o evento definido pelo usuário. Para obter mais informações, consulte [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
 | user_defined_information | user_defined_information_s | Informações definidas pelo usuário passadas como um argumento para sp_audit_write. NULL para eventos do sistema (padrão) e diferente de zero para o evento definido pelo usuário. Para obter mais informações, consulte [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar (4000) | string |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Saiba mais sobre a [auditoria do banco de dados SQL do Azure](sql-database-auditing.md).

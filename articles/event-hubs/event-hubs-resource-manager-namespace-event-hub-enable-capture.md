@@ -1,5 +1,5 @@
 ---
-title: Criar um hub de eventos com habilitar - a captura dos Hubs de eventos do Azure | Documentos da Microsoft
+title: Criar um hub de eventos com a captura habilitada-hubs de eventos do Azure | Microsoft Docs
 description: Criar um espaço de nomes de Hubs de Eventos do Azure com o hub de um evento e ativar a Captura através de um modelo do Azure Resource Manager
 services: event-hubs
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 804ef04f0066a8b8dd9df82aef03fcfc32d7cb43
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5d980cefa5aa953a3fb9683adb589bf202e73250
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343743"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826302"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Criar um espaço de nomes com o hub de eventos e ativar a captura utilizando um modelo
 
@@ -27,17 +27,17 @@ Este artigo mostra como utiliza um modelo do Azure Resource Manager que cria um 
 
 Este artigo mostra também como especificar que eventos são capturados nos Azure Storage Blobs ou num Azure Data Lake Store, com base no destino que escolher.
 
-Para obter mais informações sobre a criação de modelos, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Criar modelos do Azure Resource Manager). Para a sintaxe JSON e propriedades para utilizar num modelo, consulte [tipos de recursos do eventhub](/azure/templates/microsoft.eventhub/allversions).
+Para obter mais informações sobre como criar modelos, consulte Criando [modelos de Azure Resource Manager][Authoring Azure Resource Manager templates]. Para obter a sintaxe JSON e as propriedades a serem usadas em um modelo, consulte [tipos de recurso Microsoft. EventHub](/azure/templates/microsoft.eventhub/allversions).
 
-Para obter mais informações sobre padrões e práticas das convenções de nomenclatura de Recursos do Azure, veja [Azure Resources naming conventions][Azure Resources naming conventions] (Convenções de nomenclatura de Recursos do Azure).
+Para obter mais informações sobre padrões e práticas para convenções de nomenclatura de recursos do Azure, consulte [convenções de nomenclatura de recursos do Azure][Azure Resources naming conventions].
 
 Para os modelos completos, clique nas seguintes ligações do GitHub:
 
-- [Hub de eventos e ativar a Captura para o Modelo de armazenamento][Event Hub and enable Capture to Storage template] 
-- [Hub de eventos e ativar a Captura para o Modelo do Azure Data Lake Store][Event Hub and enable Capture to Azure Data Lake Store template]
+- [Hub de eventos e habilitar a captura para o modelo de armazenamento][Event Hub and enable Capture to Storage template] 
+- [Hub de eventos e habilitar a captura para Azure Data Lake Store modelo][Event Hub and enable Capture to Azure Data Lake Store template]
 
 > [!NOTE]
-> Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][Azure Quickstart Templates] e procure Hubs de Eventos.
+> Para verificar os modelos mais recentes, visite a Galeria de [modelos de início rápido do Azure][Azure Quickstart Templates] e procure por hubs de eventos.
 > 
 > 
 
@@ -387,7 +387,7 @@ Cria um espaço de nomes do tipo **EventHub** com um hub de eventos e também at
 ```
 
 > [!NOTE]
-> Pode ativar ou desativar emitindo ficheiros vazios quando não existem eventos ocorrem durante a janela de captura utilizando o **skipEmptyArchives** propriedade. 
+> Você pode habilitar ou desabilitar a emissão de arquivos vazios quando não ocorrerem eventos durante a janela de captura usando a propriedade **skipEmptyArchives** . 
 
 ## <a name="commands-to-run-deployment"></a>Comandos para executar a implementação
 
@@ -427,18 +427,18 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json][]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Também pode configurar a Captura de Hubs de Eventos através do [portal do Azure](https://portal.azure.com). Para mais informações, consulte [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md) (Ativar Captura de Hubs de Eventos no portal do Azure).
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
-* [Descrição geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Event Hubs Overview (Descrição Geral dos Hubs de Eventos)](event-hubs-what-is-event-hubs.md)
 * [Criar um hub de eventos](event-hubs-create.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
-[Azure Resources naming conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
+[Azure Resources naming conventions]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 [Event hub and enable Capture to Storage template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture
 [Event hub and enable Capture to Azure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls

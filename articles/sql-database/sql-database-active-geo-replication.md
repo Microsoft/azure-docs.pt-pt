@@ -1,5 +1,5 @@
 ---
-title: Replicação geográfica ativa-banco de dados SQL do Azure
+title: Georreplicação ativa
 description: Use a replicação geográfica ativa para criar bancos de dados secundários legíveis de bancos de dados individuais no mesmo ou em data center diferentes (região).
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 74cbb9fa5a00b287746afd92fe74f50bfa19110b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 33697fd8d3b0c6faea423026e1462834c6b1ef4c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691318"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822665"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criando e usando a replicação geográfica ativa
 

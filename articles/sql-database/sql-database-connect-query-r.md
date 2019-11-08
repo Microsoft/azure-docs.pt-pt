@@ -1,5 +1,5 @@
 ---
-title: Usar o R com Serviços de Machine Learning para consultar o banco de dados SQL do Azure
+title: Usar R com Serviços de Machine Learning para consultar
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: Este artigo mostra como usar um script R com o banco de dados SQL do Azure Serviços de Machine Learning para se conectar a um banco de dados SQL do Azure e consultá-lo usando instruções Transact-SQL.
 services: sql-database
@@ -13,14 +13,14 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: ff38346a9b3bd14db51383c116240b030d3ee42a
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: a54b538247f81ea3bb0ea70a2af374158bd9e2ff
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514848"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826975"
 ---
-# <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>Início rápido: Usar R com Serviços de Machine Learning para consultar um banco de dados SQL do Azure (versão prévia)
+# <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>Início rápido: usar R com Serviços de Machine Learning para consultar um banco de dados SQL do Azure (versão prévia)
 
 Este guia de início rápido demonstra como usar o [R](https://www.r-project.org/) com o serviços de Machine Learning para se conectar a um banco de dados SQL do Azure e usar instruções TRANSACT-SQL para consultar o dado. Serviços de Machine Learning é um recurso do banco de dados SQL do Azure, usado para executar scripts R no banco de dados. Para obter mais informações, consulte [serviços de Machine Learning do banco de dados SQL do Azure com R (versão prévia)](sql-database-machine-learning-services-overview.md).
 
@@ -70,7 +70,7 @@ Para concluir este início rápido, certifique-se de que tem o seguinte:
 
 Obtenha as informações de conexão necessárias para se conectar ao banco de dados SQL do Azure. Você precisará do nome do servidor totalmente qualificado ou nome do host, nome do banco de dados e informações de logon para os próximos procedimentos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Navegue até a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL** .
 
@@ -80,11 +80,11 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 1. Abra o **SQL Server Management Studio** e ligue à sua base de dados SQL.
 
-   Se precisar de ajuda para se conectar [, consulte início rápido: Use SQL Server Management Studio para se conectar e consultar um banco de](sql-database-connect-query-ssms.md)dados SQL do Azure.
+   Se precisar de ajuda para se conectar, consulte [início rápido: usar SQL Server Management Studio para se conectar e consultar um banco de dados SQL do Azure](sql-database-connect-query-ssms.md).
 
 1. Passe o script R completo para o procedimento armazenado [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) .
 
-   O script é passado pelo `@script` argumento. Tudo dentro do `@script` argumento deve ser um código R válido.
+   O script é passado pelo argumento `@script`. Tudo dentro do argumento `@script` deve ser um código R válido.
    
    >[!IMPORTANT]
    >O código neste exemplo usa os dados AdventureWorksLT de exemplo, que você pode escolher como fonte ao criar o banco de dado. Se o seu banco de dados tiver um dado diferente, use tabelas do seu próprio banco na consulta SELECT. 
@@ -105,7 +105,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 1. Verifique se as 20 principais linhas de categoria/produto são retornadas na janela **mensagens** .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar a sua primeira base de dados SQL do Azure](sql-database-design-first-database.md)
 - [Serviços de Machine Learning do banco de dados SQL do Azure (com R)](sql-database-machine-learning-services-overview.md)

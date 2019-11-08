@@ -4,15 +4,16 @@ description: Configure o gerenciamento de leads no armazenamento de tabelas do A
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: pabutler
-ms.openlocfilehash: a53ed93813215655c4a165faa0bce36d9249e8e6
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 21105d72ccd288faf0fed58019e67afe2e1c9d01
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227890"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825278"
 ---
 # <a name="lead-management-instructions-for-table-storage"></a>Instruções de gerenciamento de Lead para armazenamento de tabelas
 
@@ -31,7 +32,7 @@ Este artigo descreve como configurar o armazenamento de tabelas do Azure para ge
 
     Para obter mais informações sobre contas de armazenamento, consulte os [tutoriais de início rápido](https://docs.microsoft.com/azure/storage/). Para obter informações sobre preços, consulte [preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-1. Aguarde até que sua conta de armazenamento seja provisionada, o que normalmente leva alguns minutos. Em seguida, acesse a conta do home page do portal do Azure: Selecione **Ver todos os seus recursos** ou **todos os recursos** no painel de navegação.
+1. Aguarde até que sua conta de armazenamento seja provisionada, o que normalmente leva alguns minutos. Em seguida, acesse a conta do home page da portal do Azure: selecione **Ver todos os seus recursos** ou **todos os recursos** no painel de navegação.
 
     ![Acessar sua conta de armazenamento do Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
 
@@ -63,9 +64,9 @@ Este exemplo mostra como criar um fluxo básico. O fluxo envia automaticamente u
 
    ![Criar um novo fluxo a partir de branco](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-create-from-blank.png)
 
-1. Na página de pesquisa conectores e gatilhos , selecione gatilhos.
-1. Em **gatilhos**, selecione recorrência.
-1. Na janela  de recorrência, mantenha a configuração padrão de **1** para **intervalo**. Na lista suspensa **frequência** , selecione **hora**.
+1. Na página de pesquisa conectores e gatilhos, selecione **gatilhos**.
+1. Em **gatilhos**, selecione **recorrência**.
+1. Na janela de **recorrência** , mantenha a configuração padrão de **1** para **intervalo**. Na lista suspensa **frequência** , selecione **hora**.
 
    >[!NOTE] 
    >Este exemplo usa um intervalo de uma hora. Mas você pode selecionar um intervalo e uma frequência que melhor se adaptam às suas necessidades de negócios.
@@ -84,7 +85,7 @@ Este exemplo mostra como criar um fluxo básico. O fluxo envia automaticamente u
     ![Definir o intervalo de obtenção de tempo passado](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getpast-time.png)
 
     >[!TIP] 
-    >Você pode verificar seu fluxo a qualquer momento para verificar se cada etapa está configurada corretamente: Selecione **Verificador de fluxo** na barra de menus do fluxo.
+    >Você pode verificar seu fluxo a qualquer momento para verificar se cada etapa está configurada corretamente: selecione o **Verificador de fluxo** na barra de menus do fluxo.
 
 No próximo conjunto de etapas, você se conecta à tabela de armazenamento e configura a lógica de processamento para lidar com novos clientes potenciais.
 
@@ -96,7 +97,7 @@ No próximo conjunto de etapas, você se conecta à tabela de armazenamento e co
 
      ![Escolha um valor personalizado para o nome da tabela do Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **Consulta de filtro**: Quando você seleciona esse campo, o ícone **obter hora passada** é exibido em uma janela pop-up. Selecione **última hora** para usar esse valor como um carimbo de data/hora para filtrar a consulta. Ou, você pode colar a seguinte função no campo:
+   - **Consulta de filtro**: quando você seleciona esse campo, o ícone **obter hora passada** é exibido em uma janela pop-up. Selecione **última hora** para usar esse valor como um carimbo de data/hora para filtrar a consulta. Ou, você pode colar a seguinte função no campo:
    
       `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
 
@@ -132,8 +133,8 @@ No próximo conjunto de etapas, você se conecta à tabela de armazenamento e co
    1. Na janela **enviar um email** , insira as informações nos seguintes campos:
 
       - **Para**: um endereço de email para todos que receberão a notificação.
-      - **Assunto**: um assunto para o email. Por exemplo: *Novos leads!*
-      - **Corpo**: o texto que você deseja incluir em cada email (opcional). Cole `body('Get_entities')?['value']` também como uma função para inserir informações de Lead.
+      - **Assunto**: um assunto para o email. Por exemplo: *novos leads!*
+      - **Corpo**: o texto que você deseja incluir em cada email (opcional). Cole também `body('Get_entities')?['value']` como uma função para inserir informações de Lead.
 
         >[!NOTE] 
         >Você pode inserir pontos de dados estáticos ou dinâmicos adicionais no corpo do email.
@@ -144,7 +145,7 @@ No próximo conjunto de etapas, você se conecta à tabela de armazenamento e co
 
     A imagem a seguir mostra um exemplo de como o fluxo final deve ser examinado.
 
-    [![Sequência de fluxo final](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
+    [![sequência de fluxo final](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
 
     (*Selecione a imagem para aumentá-la.* )
 
@@ -161,6 +162,6 @@ Você receberá um email como o exemplo a seguir se ocorrer uma falha de fluxo:
 
  ![Notificação de email de falha do fluxo](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Configurar oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)

@@ -1,5 +1,5 @@
 ---
-title: Proteção avançada contra ameaças-banco de dados SQL do Azure
+title: Proteção Avançada Contra Ameaças
 description: A proteção avançada contra ameaças detecta atividades anormais de banco de dados que indicam possíveis ameaças à segurança no banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 03/31/2019
-ms.openlocfilehash: fca68fbc1ee30b1df100255e463eca2fc895980b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d09cc202c3f7e18358ec693d1cfe4bd2648811ba
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686964"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820705"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Advanced Threat Protection para a Base de Dados SQL do Azure
 

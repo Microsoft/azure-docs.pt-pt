@@ -1,5 +1,5 @@
 ---
-title: 'Práticas recomendadas para o Azure Sincronização de Dados SQL '
+title: Melhores práticas para a Sincronização de Dados
 description: Saiba mais sobre as práticas recomendadas para configurar e executar Sincronização de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 728ac8ab42573e1cab30eaf12dd38a6d33b97aac
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 75fe07dc9847ae32248688bc20fac01e74c7b26a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691074"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821861"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Melhores práticas para a Sincronização de Dados SQL 
 

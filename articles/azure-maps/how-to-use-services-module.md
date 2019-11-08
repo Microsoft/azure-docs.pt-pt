@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 77659fdf93947cfbaa0daa322dccf4e9cb1a41fa
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 3911d4e780e993fdd1c2945b34cd683d47fb884a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844708"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827279"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Usar o módulo de serviços do Azure Maps
 
@@ -23,7 +23,7 @@ O SDK da Web do Azure Maps fornece um *módulo de serviços*. Esse módulo é um
 
 1. Crie um novo arquivo HTML.
 1. Carregue o módulo serviços do Azure Maps. Você pode carregá-lo de uma das duas maneiras:
-    - Use a versão de rede de distribuição de conteúdo do Azure hospedada globalmente do módulo serviços do Azure Maps. Adicione uma referência de script ao `<head>` elemento do arquivo:
+    - Use a versão de rede de distribuição de conteúdo do Azure hospedada globalmente do módulo serviços do Azure Maps. Adicione uma referência de script ao elemento `<head>` do arquivo:
 
         ```html
         <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
@@ -33,7 +33,7 @@ O SDK da Web do Azure Maps fornece um *módulo de serviços*. Esse módulo é um
     
         > **NPM instalar Azure-Maps – REST**
     
-        Em seguida, adicione uma referência de script `<head>` ao elemento do arquivo:
+        Em seguida, adicione uma referência de script ao elemento `<head>` do arquivo:
 
          ```html
         <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
@@ -124,7 +124,7 @@ O SDK da Web do Azure Maps fornece um *módulo de serviços*. Esse módulo é um
 
     Para obter mais informações, consulte [autenticação com o Azure Maps](azure-maps-authentication.md).
 
-1. O código a seguir usa o cliente da URL do serviço recém-criado do Azure Search para geocodificar um endereço: "1 Microsoft Way, Redmond, WA". O código usa a `searchAddress` função e exibe os resultados como uma tabela no corpo da página.
+1. O código a seguir usa o cliente URL do serviço de pesquisa do Azure Maps recém-criado para geocodificar um endereço: "1 Microsoft Way, Redmond, WA". O código usa a função `searchAddress` e exibe os resultados como uma tabela no corpo da página.
 
     ```javascript
     // Search for "1 microsoft way, redmond, wa".

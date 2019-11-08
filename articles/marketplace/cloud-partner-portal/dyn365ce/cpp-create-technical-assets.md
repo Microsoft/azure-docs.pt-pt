@@ -4,15 +4,16 @@ description: Este artigo de CPP foi substituído e vinculado ao artigo do PC; fo
 services: Dynamics 365 for Customer Engagement, Azure, Marketplace, Cloud Partner Portal, AppSource
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: v-chjen
-ms.openlocfilehash: 378dc7d4b267a27088616cbe46b1a4309471af6b
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 1b3552a8c6d97b526edb354e849e1b72dc0eb104
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72033843"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825637"
 ---
 # <a name="create-technical-assets-for-azure-application-offer"></a>Criar ativos técnicos para a oferta de aplicativo do Azure
 

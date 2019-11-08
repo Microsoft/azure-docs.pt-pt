@@ -1,76 +1,77 @@
 ---
-title: Guia para o Azure Marketplace de publicação de oferta de máquina virtual
-description: Este artigo descreve os requisitos para publicar uma máquina virtual e uma versão de avaliação gratuita de software para ser implementadas a partir do Marketplace.
+title: Guia de publicação da oferta de máquina virtual para o Azure Marketplace
+description: Este artigo descreve os requisitos para publicar uma máquina virtual e uma avaliação gratuita de software a ser implantada no Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: ccb6fc9c522e8d05d0184fc5e248d070efb9921d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f2047501b6c57b2bb98ff7e3c56498417644324
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937728"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818977"
 ---
-# <a name="virtual-machine-offer-publishing-guide"></a>Guia de publicação de oferta de máquina virtual
+# <a name="virtual-machine-offer-publishing-guide"></a>Guia de publicação da oferta de máquina virtual
 
-Imagens de máquinas virtuais são uma das principais formas que publicar uma solução no Azure Marketplace. Utilize este guia para compreender os requisitos para esta oferta. 
+As imagens de máquina virtual são uma das principais maneiras de publicar uma solução no Azure Marketplace. Use este guia para entender os requisitos para esta oferta. 
 
-Estes são ofertas de transação que são implementadas e faturadas através do Marketplace. A chamada a ação que um utilizador vê é a "Obter agora."
+Essas são ofertas de transação que são implantadas e cobradas pelo Marketplace. O plano de ação que um usuário vê é "obter agora".
 
 ## <a name="free-trial"></a>Avaliação gratuita 
 
-Pode fazer com que os utilizadores testar a sua oferta acedendo às licenças de software do período de validade limitado ao utilizar o modelo de faturação de traga a sua própria licença (BYOL). Seguem-se os requisitos para implementar esta oferta. 
+Você pode organizar os usuários para testar sua oferta acessando licenças de software de termo limitado ao usar o modelo de cobrança BYOL (traga sua própria licença). Abaixo estão os requisitos para implantar essa oferta. 
 
 |Requisitos  |Detalhes  |
 |---------|---------|
-|Período de avaliação gratuita e a experiência de avaliação     |   Os clientes podem tentar sua aplicação gratuitamente por um período limitado. Os clientes são nota de pagar quaisquer taxas de licenciamento ou de subscrição para a sua oferta. Os clientes não são necessários para pagar o produto de original Microsoft subjacente ou serviço. Todas as opções de avaliação são implementadas para a sua subscrição do Azure. Tem controle único da otimização de custos e a gestão. Pode optar por uma demonstração de avaliação ou interativa gratuita. Não importa o que escolha, a avaliação gratuita tem de fornecer aos clientes uma quantidade predefinida de tempo de testar a sua oferta sem custos adicionais.|
-|Solução facilmente configurável e prontos a utilizar    |  A aplicação tem de ser fácil e rápida configurar e configurar.       |
-|Disponibilidade / tempo de atividade    |    A aplicação de SaaS ou plataforma tem de ter um tempo de atividade de, pelo menos, 99,9%.     |
-|Azure Active Directory     |    A oferta tem de permitir a que Azure Active Directory (Azure AD) federadas início de sessão único (SSO) (SSO federado do Azure AD) com o consentimento ativado.     |
+|Período de avaliação gratuita e experiência de avaliação     |   Seus clientes podem tentar seu aplicativo gratuitamente por um período limitado. Seus clientes têm a nota necessária para pagar quaisquer taxas de licença ou assinatura para sua oferta. Seus clientes não precisam pagar pelo produto ou serviço subjacente da Microsoft. Todas as opções de avaliação são implantadas em sua assinatura do Azure. Você tem controle exclusivo da otimização e do gerenciamento de custos. Você pode escolher uma avaliação gratuita ou demonstração interativa. Não importa o que você escolher, sua avaliação gratuita deve fornecer aos clientes um período predefinido de tempo para experimentar sua oferta sem custo adicional.|
+|Solução facilmente configurável e pronta para uso    |  Seu aplicativo deve ser fácil e rápido de configurar e configurar.       |
+|Disponibilidade/tempo de atividade    |    Seu aplicativo ou plataforma SaaS deve ter um tempo de atividade de pelo menos 99,9%.     |
+|Azure Active Directory     |    Sua oferta deve permitir o Azure Active Directory (SSO (logon único) federado (SSO) do Azure AD (Azure Active Directory) com consentimento habilitado.     |
 
 ## <a name="test-drive"></a>Versão de Teste
 
-Implementar um ou mais máquinas virtuais por meio de infraestrutura-como-serviço (IaaS) ou aplicações de software-como-serviço (SaaS). Tour interativo de um benefício da unidade de teste que opção de publicação é o aprovisionamento automatizado de uma máquina virtual ou a solução inteira, liderado por um hospedada pelo parceiro. Uma versão de teste fornece uma edição de avaliação sem custos adicionais para o seu cliente. Seu cliente não precisa de ser um cliente existente do Azure a interagir com a experiência de avaliação. 
+Você implanta uma ou mais máquinas virtuais por meio de aplicativos de infraestrutura como serviço (IaaS) ou software como serviço (SaaS). Um benefício da opção de publicação test drive é o provisionamento automatizado de uma máquina virtual ou uma solução completa, por um tour guiado hospedado pelo parceiro. Uma test drive fornece uma avaliação sem custo adicional para o cliente. Seu cliente não precisa ser um cliente existente do Azure para se envolver com a experiência de avaliação. 
 
-Contacte-nos [amp-Test-Drive do](mailto:amp-testdrive@microsoft.com) para começar a utilizar. 
+Entre em contato conosco em [amp-testdrive](mailto:amp-testdrive@microsoft.com) para começar. 
 
 |Requisitos  |Detalhes |
 |---------|---------|
-| Tem um aplicativo do Marketplace   |    Um ou mais máquinas de virtuais por meio de IaaS ou SaaS.      |
+| Você tem um aplicativo do Marketplace   |    Uma ou mais máquinas virtuais por meio de IaaS ou SaaS.      |
 
 ## <a name="interactive-demo"></a>Interactive Demo
 
-Fornecer uma experiência orientada da sua solução aos seus clientes através de uma demonstração interativa. O benefício de demonstração interativa, opção de publicação é que fornecer uma experiência de avaliação sem aprovisionar complicadas da sua solução complexa. 
+Você fornece uma experiência guiada de sua solução para seus clientes usando uma demonstração interativa. O benefício da opção de publicação de demonstração interativa é que você fornece uma experiência de avaliação sem provisionamento complicado de sua solução complexa. 
 
 ## <a name="virtual-machine-offer"></a>Oferta de máquina virtual
 
-Utilize o tipo de oferta de máquina virtual ao implementar uma aplicação virtual para a subscrição associada do seu cliente. As VMs são totalmente commerce ativada com modelos de licenciamento de pay as you go ou bring-your-own-license (BYOL). A Microsoft aloja a transação de comércio e cobra o seu cliente em seu nome. Obtém a vantagem de utilizar a relação de pagamento preferencial entre o cliente e a Microsoft, incluindo todos os contratos Enterprise.
+Use o tipo de oferta de máquina virtual ao implantar um dispositivo virtual na assinatura associada ao cliente. As VMs são totalmente habilitadas para o comércio usando modelos de licenciamento pago pelo uso ou BYOL (traga sua própria licença). A Microsoft hospeda a transação de comércio e cobra seu cliente em seu nome. Você Obtém o benefício de usar a relação de pagamento preferencial entre o cliente e a Microsoft, incluindo qualquer contrato Enterprise.
 
 > [!NOTE]
-> Neste momento, compromissos monetários, associados com um contrato Enterprise podem ser utilizado contra a utilização do Azure da sua VM, mas não em relação a taxas de licenciamento de software.  
+> Neste momento, os compromissos monetários associados a um Enterprise Agreement podem ser usados em relação ao uso do Azure de sua VM, mas não contra suas taxas de licenciamento de software.  
 > 
 > [!NOTE]
-> É possível restringir a deteção e a implementação da sua VM a um conjunto específico de clientes ao publicar a imagem e preços como uma oferta privada. Ofertas privadas desbloquear a capacidade de criar ofertas exclusivas para os seus clientes mais próximos e personalizada de software e os termos da oferta. Os termos personalizados permitem-lhe destacar uma variedade de cenários, incluindo o campo ministrado por negociações com especializadas de preços e termos, bem como acesso antecipado a software de versão limitada. Ofertas privadas ativar para lhe permitir disponibilizar preços específicos ou produtos para um conjunto limitado de clientes através da criação de um novo SKU com esses detalhes.  
-> *   Para obter mais informações sobre ofertas privadas, visite as ofertas de privado no Azure Marketplace, página localizada em [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
+> Você pode restringir a descoberta e a implantação de sua VM a um conjunto específico de clientes publicando a imagem e os preços como uma oferta privada. As ofertas privadas desbloqueiam a capacidade de criar ofertas exclusivas para seus clientes mais próximos e oferecer softwares e termos personalizados. Os termos personalizados permitem que você realce uma variedade de cenários, incluindo acordos orientados a campo com preços e termos especializados, bem como acesso antecipado a software de versão limitada. As ofertas privadas permitem que você forneça preços ou produtos específicos a um conjunto limitado de clientes criando uma nova SKU com esses detalhes.  
+> *   Para obter mais informações sobre ofertas privadas, visite a página ofertas particulares no Azure Marketplace localizada em [Azure.Microsoft.com/blog/Private-offers-on-Azure-Marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
 
 | Requisito | Detalhes |  
 |:--- |:--- | 
-| Faturação e medição | A VM tem de suportar uma faturação mensal BYOL ou pay as you go. |  
-| Compatível com o Azure de disco rígido virtual (VHD) | As VMs devem ser criadas no Windows ou Linux. <ul> <li>Para obter mais informações sobre a criação de um VHD do Linux, consulte [distribuições do Linux apoiadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para obter mais informações sobre a criação de um VHD do Windows, consulte [criar um VHD compatível com o Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
+| Cobrança e medição | Sua VM deve dar suporte a cobrança mensal BYOL ou paga conforme o uso. |  
+| VHD (disco rígido virtual) compatível com o Azure | As VMs devem ser criadas no Windows ou no Linux. <ul> <li>Para obter mais informações sobre como criar um VHD do Linux, consulte [distribuições do Linux endossadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para obter mais informações sobre como criar um VHD do Windows, consulte [criar um VHD compatível com o Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
 >[!Note]
->Fornecedores de soluções (CSP) parceiro canal optar ativamente por participar na cloud agora está disponível.  Veja [fornecedores de soluções Cloud](./cloud-solution-providers.md) para obter mais informações sobre a sua oferta através do CSP da Microsoft de marketing de parceiros canais.
+>A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](./cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se ainda não fez isso, 
+Se você ainda não fez isso, 
 
-- [Registar](https://azuremarketplace.microsoft.com/sell) no marketplace.
+- [Registre-se](https://azuremarketplace.microsoft.com/sell) no Marketplace.
 
-Se é registrado e estiver a criar uma nova oferta ou trabalhando num já existente
+Se você estiver registrado e estiver criando uma nova oferta ou trabalhando em uma existente,
 
-- [Inicie sessão no Portal de parceiro de Cloud](https://cloudpartner.azure.com) para criar ou concluir sua oferta.
-- Ver [oferta de Máquina Virtual](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer) para obter mais informações.
+- [Faça logon no portal do Cloud Partner](https://cloudpartner.azure.com) para criar ou concluir sua oferta.
+- Consulte [oferta da máquina virtual](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer) para obter mais informações.

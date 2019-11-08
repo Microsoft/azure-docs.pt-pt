@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: a244e4f7ac406fecd4c053b39a5e9a9cb6ecab2c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 54b59cfecbbba6b71cf301aa4872892825d4b675
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105501"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827933"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Cobrança limitada usando o serviço de medição do Marketplace
 
@@ -73,7 +74,7 @@ As dimensões de cobrança são compartilhadas entre todos os planos para uma of
 Os atributos que definem a própria dimensão são compartilhados entre todos os planos para uma oferta.  Antes de publicar a oferta, uma alteração feita nesses atributos do contexto de qualquer plano afetará a definição da dimensão em todos os planos.  Depois de publicar a oferta, esses atributos não serão mais editáveis.  Esses atributos são:
 
 * Identificador
-* Name
+* Nome
 * Unidade de medida
 
 Os outros atributos de uma dimensão são específicos para cada plano e podem ter valores diferentes do plano para o plano.  Antes de publicar o plano, você pode editar esses valores e somente esse plano será afetado.  Depois de publicar o plano, esses atributos não serão mais editáveis.  Esses atributos são:
@@ -103,7 +104,7 @@ Como uma dimensão usada com o serviço de medição do Marketplace representa u
 Depois que uma oferta é publicada com uma dimensão, os detalhes de nível de oferta para essa dimensão não podem mais ser alterados:
 
 * Identificador
-* Name
+* Nome
 * Unidade de medida
 
 Depois que um plano é publicado, os detalhes de nível de plano não podem mais ser alterados:
@@ -127,7 +128,7 @@ Se você tiver um dos seguintes, poderá abrir um tíquete de suporte.
 
 Siga as etapas abaixo para enviar seu tíquete de suporte:
 
-1. Vá para a [página de suporte](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Os primeiros menus suspensos são preenchidos automaticamente para você. Para obter suporte ao Marketplace, identifique a família de produtos como **serviços de nuvem e online**, o produto como Publicador do **Marketplace**.  Não altere as seleções de menu suspenso preenchidas previamente.
+1. Vá para a [página de suporte](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Os primeiros menus suspensos são preenchidos automaticamente para você. Para obter suporte ao Marketplace, identifique a família de produtos como **serviços de nuvem e online**, o produto como **Publicador do Marketplace**.  Não altere as seleções de menu suspenso preenchidas previamente.
 2. Em "selecionar a versão do produto", selecione **Gerenciamento de ofertas dinâmicas**.
 3. Em "Selecione uma categoria que melhor descreva o problema", escolha **aplicativos SaaS**.
 4. Em "Selecione um problema que melhor descreva o problema", selecione **cobrança limitada**.
@@ -135,6 +136,6 @@ Siga as etapas abaixo para enviar seu tíquete de suporte:
 
 Consulte [suporte para o programa do Marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support) para obter mais opções de suporte do Publicador.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [APIs do serviço de medição do Marketplace](./marketplace-metering-service-apis.md) para obter mais informações.

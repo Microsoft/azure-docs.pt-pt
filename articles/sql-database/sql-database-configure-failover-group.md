@@ -1,5 +1,5 @@
 ---
-title: Configurar um grupo de failover para o banco de dados SQL do Azure
+title: Configurar um grupo de failover
 description: Saiba como configurar um grupo de failover automático para um banco de dados único do banco de dados SQL do Azure, um pool elástico e uma instância gerenciada usando o portal do Azure, a CLI do AZ e o PowerShell.
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 626677ef9444e0ad99fd3678e23bdeec62fd920c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fb9ee2378679c420a7675856ec95e60f6ae1d14f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933397"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827141"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurar um grupo de failover para o banco de dados SQL do Azure
 
 Este tópico ensina como configurar um grupo de [failover automático](sql-database-auto-failover-group.md) para um banco de dados individual do banco de dados SQL do Azure, um pool elástico e uma instância gerenciada usando o portal do Azure ou o PowerShell. 
 
-## <a name="single-database"></a>Base de dados única
+## <a name="single-database"></a>Base de dados individual
 Crie o grupo de failover e adicione um único banco de dados a ele usando o portal do Azure ou o PowerShell.
 
 ### <a name="prerequisites"></a>Pré-requisitos

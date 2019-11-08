@@ -1,5 +1,5 @@
 ---
-title: Como mover recursos do banco de dados SQL do Azure para outra região
+title: Como mover recursos para outra região
 description: Saiba como mover o banco de dados SQL do Azure, o pool elástico do SQL do Azure ou a instância gerenciada do SQL do Azure para outra região.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 9e7cd6cb338de1d029d38ef08693a7b52f7cf15c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 851ef49a5c066f12a95baa54daf5e267cb4278c5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687786"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821439"
 ---
 # <a name="how-to-move-azure-sql-resources-to-another-region"></a>Como mover recursos do SQL do Azure para outra região
 

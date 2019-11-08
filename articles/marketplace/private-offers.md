@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute
 author: qianw211
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: pabutler
-ms.openlocfilehash: cd61a30ccc9de08c3f0950d811d0d10ec5cd842a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 16903d4f9b1bad8a588b1a234ac84bc9c0150c4a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598382"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827849"
 ---
 # <a name="private-offers"></a>Ofertas privadas
 

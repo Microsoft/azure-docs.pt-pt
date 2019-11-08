@@ -1,5 +1,5 @@
 ---
-title: Configurar a proteção avançada contra ameaças – banco de dados SQL do Azure
+title: Configurar a proteção avançada contra ameaças
 description: A proteção avançada contra ameaças detecta atividades anormais de banco de dados que indicam possíveis ameaças de segurança ao banco de dados em um único banco de dados ou pool elástico.
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 08/05/2019
-ms.openlocfilehash: 8a6d40f37dec3488009a702d52d6437cd345717b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8eb8e4fccc17fe31def671cf6e8edb19d867b244
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686953"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822496"
 ---
 # <a name="azure-sql-database-advanced-threat-protection-for-single-or-pooled-databases"></a>Proteção avançada contra ameaças do banco de dados SQL do Azure para bancos de dados individuais ou em pool
 

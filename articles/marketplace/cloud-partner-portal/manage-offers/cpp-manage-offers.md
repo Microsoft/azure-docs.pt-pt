@@ -1,38 +1,39 @@
 ---
-title: Gerir o Azure e ofertas do Marketplace do AppSource | O Azure Marketplace
-description: Gestão de ofertas no Azure e mercados de AppSource
+title: Gerenciar ofertas do Azure e do AppSource Marketplace | Azure Marketplace
+description: Gerenciando ofertas nos Marketplaces do Azure e do AppSource
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pabutler
-ms.openlocfilehash: 8a03ce94971d704aa38c1be5d7cfbb3c24bd2f82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bbbad0434cf0e3b27d985b10bd0552d1fb4315a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943363"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826756"
 ---
-# <a name="manage-azure-and-appsource-marketplace-offers"></a>Gerir o Azure e ofertas do Marketplace do AppSource
+# <a name="manage-azure-and-appsource-marketplace-offers"></a>Gerenciar ofertas do Azure e do AppSource Marketplace
 
-Esta secção apresenta as operações gerais utilizadas para gerir a ofertas para o Azure e mercados de AppSource.  Por exemplo, ele explica como utilizar o [Cloud Partner Portal](https://cloudpartner.azure.com/) para criar e publicar uma oferta do marketplace.  Esta secção também explica os problemas técnicos que são comuns à maioria dos tipos de oferta, por exemplo, com base em texto e imagem ativos.
+Esta seção apresenta as operações gerais usadas para gerenciar ofertas para os Marketplaces do Azure e do AppSource.  Por exemplo, ele explica como usar o [portal do Cloud Partner](https://cloudpartner.azure.com/) para criar e publicar uma oferta do Marketplace.  Esta seção também explica problemas técnicos comuns à maioria dos tipos de oferta, como ativos de imagem e baseados em texto.
 
 
 ## <a name="standard-offer-operations"></a>Operações de oferta padrão
 
-O Portal de parceiro de Cloud que permite que um publicador para efetuar as seguintes operações básicas numa oferta.
+O Portal do Cloud Partner permite que um Publicador execute as seguintes operações básicas em uma oferta.
 
 |     Operação      |  Descrição                                           |
 |     ---------      |  -----------                                           |
-| [Criar oferta](./cpp-create-offer.md)   | Cria uma entrada de oferta pendente no repositório de inclusão, mas não automaticamente publicá-lo para um mercado da Microsoft | 
-| [Ver estado da oferta](./cpp-view-status-offer.md)   | Fornece o estado de publicação de uma oferta.  Há vários locais no portal, onde são apresentadas as informações de estado. |
-| [Publicar oferta](./cpp-publish-offer.md) | Valida e, em seguida, publica uma entrada de oferta concluída para o mercado da Microsoft adequado.  A oferta, em seguida, é conhecida como *live*. |
-| [Atualizar a oferta](./cpp-update-offer.md)   | Permite a modificação do determinadas características de uma oferta existente.  Aplica-se a ofertas publicadas tanto pendentes. |
-| [Eliminar oferta](./cpp-delete-offer.md)   | Elimina uma oferta existente pendentes ou em direta.  | 
+| [Criar oferta](./cpp-create-offer.md)   | Cria uma entrada de oferta pendente no repositório de integração, mas não a publica automaticamente em um Microsoft Marketplace | 
+| [Ver estado da oferta](./cpp-view-status-offer.md)   | Fornece o status de publicação de uma oferta.  Há vários locais no portal em que as informações de status são exibidas. |
+| [Publicar oferta](./cpp-publish-offer.md) | Valida e, em seguida, posta uma entrada de oferta completa para o Microsoft Marketplace apropriado.  A oferta é então considerada *ativa*. |
+| [Atualizar a oferta](./cpp-update-offer.md)   | Permite a modificação de determinadas características de uma oferta existente.  Aplica-se a ofertas pendentes e publicadas. |
+| [Eliminar oferta](./cpp-delete-offer.md)   | Exclui uma oferta existente pendente ou atual.  | 
 |  |  |
   
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se não estiver familiarizado com capacidades e a interface de utilizador do Cloud Partner Portal, consulte a secção [Cloud Partner Portal Tour](../portal-tour/cpp-portal-tour.md).  Depois disso Saiba mais sobre [criar uma oferta](./cpp-create-offer.md).
+Se você não estiver familiarizado com os recursos e a interface do usuário a Portal do Cloud Partner, consulte a seção [portal do Cloud Partner Tour](../portal-tour/cpp-portal-tour.md).  Mais tarde, saiba mais sobre como [criar uma oferta](./cpp-create-offer.md).

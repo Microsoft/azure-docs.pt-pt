@@ -1,6 +1,6 @@
 ---
 title: Gerenciar IoT Central do portal do Azure | Microsoft Docs
-description: Gerencie IoT Central da portal do Azure.
+description: Este artigo descreve como criar e gerenciar seus aplicativos de IoT Central do portal do Azure.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 37e016da25be5fad86bc57e3ddf42458852a14bd
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 59fc01920a94e8ab3e7037e4bb226ea18a4314bf
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950278"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73806513"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gerenciar IoT Central do portal do Azure
 

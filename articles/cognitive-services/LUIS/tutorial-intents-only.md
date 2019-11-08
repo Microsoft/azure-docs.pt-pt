@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: 0241af88d30d47233d972bcb3e7c58ef8de12d6e
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1e39126324de486d118f808b37672c9fd08af711
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648252"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822765"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Tutorial: compilar o aplicativo LUIS para determinar as intenções do usuário
 
@@ -205,4 +205,4 @@ Depois de devolver a resposta JSON, o LUIS conclui este pedido. O LUIS não forn
 Este tutorial criou um aplicativo LUIS, criou tentativas, adicionou um exemplo de declarações a cada tentativa, adicionou um exemplo declarações à intenção de nenhum, treinado, publicado e testado no ponto de extremidade. Estes são os passos básicos de criação de um modelo do LUIS. 
 
 > [!div class="nextstepaction"]
-> [Adicionar intenções e entidades pré-concebidas a esta aplicação](luis-tutorial-prebuilt-intents-entities.md)
+> [Adicionar intenções e entidades pré-concebidas a esta aplicação](tutorial-machine-learned-entity.md)

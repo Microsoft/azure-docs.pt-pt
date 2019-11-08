@@ -1,5 +1,5 @@
 ---
-title: Como usar o envio em lote para melhorar o desempenho do aplicativo do banco de dados SQL do Azure
+title: Como usar o envio em lote para melhorar o desempenho do aplicativo
 description: O tópico fornece evidências de que o envio em lote de operações de banco de dados melhora muito a velocidade e a escalabilidade dos aplicativos do banco de dados SQL do Azure. Embora essas técnicas de envio em lote funcionem para qualquer SQL Server banco de dados, o foco do artigo está no Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 3d18f5b77d08a55bd06656a72cbc02c040b6f127
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 175ba6b4e65b4a6e276dbfb586e210027a6cd9b3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566246"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822426"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como usar o envio em lote para melhorar o desempenho do aplicativo do banco de dados SQL
 
@@ -126,7 +126,7 @@ Para obter mais informações sobre transações em ADO.NET, consulte [transaç�
 
 ### <a name="table-valued-parameters"></a>Parâmetros com valor de tabela
 
-Os parâmetros com valor de tabela dão suporte a tipos de tabela definidos pelo usuário como parâmetros em instruções Transact-SQL, procedimentos armazenados e funções. Essa técnica de envio em lote do lado do cliente permite que você envie várias linhas de dados dentro do parâmetro com valor de tabela. Para usar parâmetros com valor de tabela, primeiro defina um tipo de tabela. A instrução Transact-SQL a seguir cria um tipo detabela chamado mytablename.
+Os parâmetros com valor de tabela dão suporte a tipos de tabela definidos pelo usuário como parâmetros em instruções Transact-SQL, procedimentos armazenados e funções. Essa técnica de envio em lote do lado do cliente permite que você envie várias linhas de dados dentro do parâmetro com valor de tabela. Para usar parâmetros com valor de tabela, primeiro defina um tipo de tabela. A instrução Transact-SQL a seguir cria um tipo de tabela chamado **mytablename**.
 
 ```sql
     CREATE TYPE MyTableType AS TABLE 
@@ -167,7 +167,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-No exemplo anterior, o objeto **SqlCommand** insere linhas de um parâmetro com valor de tabela,  **\@TestTvp**. O objeto **DataTable** criado anteriormente é atribuído a esse parâmetro com o método **SqlCommand. Parameters. Add** . O envio em lote das inserções em uma chamada aumenta significativamente o desempenho em relação às inserções sequenciais.
+No exemplo anterior, o objeto **SqlCommand** insere linhas de um parâmetro com valor de tabela, **\@TestTvp**. O objeto **DataTable** criado anteriormente é atribuído a esse parâmetro com o método **SqlCommand. Parameters. Add** . O envio em lote das inserções em uma chamada aumenta significativamente o desempenho em relação às inserções sequenciais.
 
 Para melhorar ainda mais o exemplo anterior, use um procedimento armazenado em vez de um comando baseado em texto. O comando Transact-SQL a seguir cria um procedimento armazenado que usa o parâmetro com valor de tabela **SimpleTestTableType** .
 
@@ -321,11 +321,11 @@ Dependendo da sua arquitetura, o envio em lote pode envolver uma compensação e
 
 Devido a essa compensação, avalie o tipo de operações em lote. Lote mais agressivamente (lotes maiores e janelas de tempo maior) com dados menos críticos.
 
-### <a name="batch-size"></a>Tamanho do batch
+### <a name="batch-size"></a>Tamanho do lote
 
 Em nossos testes, normalmente não havia vantagem em dividir grandes lotes em partes menores. Na verdade, essa subdivisão geralmente resultou em um desempenho mais lento do que o envio de um único lote grande. Por exemplo, considere um cenário em que você deseja inserir 1000 linhas. A tabela a seguir mostra quanto tempo leva para usar parâmetros com valor de tabela para inserir 1000 linhas quando divididas em lotes menores.
 
-| Tamanho do batch | Iterações | Parâmetros com valor de tabela (MS) |
+| Tamanho do lote | Iterações | Parâmetros com valor de tabela (MS) |
 | --- | --- | --- |
 | 1000 |1 |347 |
 | 500 |2 |355 |
@@ -403,7 +403,7 @@ public class NavHistoryData
 }
 ```
 
-A classe NavHistoryDataMonitor é responsável por armazenar em buffer os dados de navegação do usuário para o banco de dado. Ele contém um método, RecordUserNavigationEntry, que responde gerando um evento OnAdded. O código a seguir mostra a lógica do construtor que usa RX para criar uma coleção observável com base no evento. Em seguida, ele assina essa coleção observável com o método de buffer. A sobrecarga Especifica que o buffer deve ser enviado a cada 20 segundos ou 1000 entradas.
+A classe NavHistoryDataMonitor é responsável por armazenar em buffer os dados de navegação do usuário para o banco de dado. Ele contém um método, RecordUserNavigationEntry, que responde gerando um evento **OnAdded** . O código a seguir mostra a lógica do construtor que usa RX para criar uma coleção observável com base no evento. Em seguida, ele assina essa coleção observável com o método de buffer. A sobrecarga Especifica que o buffer deve ser enviado a cada 20 segundos ou 1000 entradas.
 
 ```csharp
 public NavHistoryDataMonitor()
@@ -580,7 +580,7 @@ JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
 GO
 ```
 
-Neste exemplo, a tabela definida @IdentityLink localmente armazena os valores reais de OrderID das linhas recentemente inseridas. Esses identificadores de ordem são diferentes dos valores temporários de OrderID @orders nos @details parâmetros com valor de tabela e. Por esse motivo, a @IdentityLink tabela conecta os valores @orders de OrderID do parâmetro aos valores reais de OrderID para as novas linhas na tabela PurchaseOrder. Após essa etapa, a @IdentityLink tabela pode facilitar a inserção dos detalhes do pedido com o OrderID real que satisfaz a restrição FOREIGN KEY.
+Neste exemplo, a tabela @IdentityLink definida localmente armazena os valores reais de OrderID das linhas recentemente inseridas. Esses identificadores de ordem são diferentes dos valores temporários de OrderID no @orders e @details parâmetros com valor de tabela. Por esse motivo, a tabela @IdentityLink conecta os valores de OrderID do parâmetro @orders aos valores reais de OrderID para as novas linhas na tabela PurchaseOrder. Após essa etapa, a tabela @IdentityLink pode facilitar a inserção dos detalhes do pedido com o OrderID real que satisfaz a restrição FOREIGN KEY.
 
 Esse procedimento armazenado pode ser usado do código ou de outras chamadas Transact-SQL. Consulte a seção parâmetros com valor de tabela deste documento para obter um exemplo de código. O Transact-SQL a seguir mostra como chamar o sp_InsertOrdersBatch.
 
@@ -635,7 +635,7 @@ CREATE TYPE EmployeeTableType AS TABLE
 GO
 ```
 
-Em seguida, crie um procedimento armazenado ou escreva um código que use a instrução MERGE para executar a atualização e a inserção. O exemplo a seguir usa a instrução MERGE em um parâmetro com valor de @employeestabela,, do tipo EmployeeTableType. O conteúdo da @employees tabela não é mostrado aqui.
+Em seguida, crie um procedimento armazenado ou escreva um código que use a instrução MERGE para executar a atualização e a inserção. O exemplo a seguir usa a instrução MERGE em um parâmetro com valor de tabela, @employees, do tipo EmployeeTableType. O conteúdo da tabela @employees não é mostrado aqui.
 
 ```sql
 MERGE Employee AS target
@@ -674,7 +674,7 @@ A lista a seguir fornece um resumo das recomendações de envio em lote discutid
 * Evite a execução paralela de lotes que operam em uma única tabela em um banco de dados. Se você optar por dividir um único lote entre vários threads de trabalho, execute testes para determinar o número ideal de threads. Após um limite não especificado, mais threads diminuirão o desempenho em vez de aumentá-lo.
 * Considere o armazenamento em buffer no tamanho e no tempo como uma maneira de implementar o envio em lote para mais cenários.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo se concentrou em como as técnicas de design e codificação de banco de dados relacionadas ao envio em lote podem melhorar o desempenho e a escalabilidade do aplicativo. Mas esse é apenas um fator em sua estratégia geral. Para obter mais maneiras de melhorar o desempenho e a escalabilidade, consulte [diretrizes de desempenho do banco de dados SQL do Azure para obter bancos](sql-database-performance-guidance.md) e [considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool-guidance.md).
 

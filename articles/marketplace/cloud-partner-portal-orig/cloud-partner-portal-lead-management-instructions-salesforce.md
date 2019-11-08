@@ -1,34 +1,35 @@
 ---
-title: Configurar a gestão de oportunidade potencial no Salesforce | O Azure Marketplace
-description: Configure a gestão de oportunidade potencial no Salesforce para clientes do Azure Marketplace.
+title: Configurar gerenciamento de leads para Salesforce | Azure Marketplace
+description: Configure o gerenciamento de leads no Salesforce para clientes do Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 0be5cd84e9ed8314584b5cea064b5c0241db1ab5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa1bfdcd172b17f88f6acf14a9d9b80e13767da8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935113"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827714"
 ---
-# <a name="configure-lead-management-for-salesforce"></a>Configurar a gestão de oportunidade potencial no Salesforce
+# <a name="configure-lead-management-for-salesforce"></a>Configurar o gerenciamento de leads para o Salesforce
 
-Este artigo descreve como configurar o seu sistema do Salesforce para lidar com oportunidades potenciais de venda.
+Este artigo descreve como configurar seu sistema Salesforce para lidar com clientes potenciais de vendas.
 
-1. Inicie sessão no Salesforce.
-2. Selecione **configuração**.
-    ![Configuração do Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce1.png)
+1. Entre no Salesforce.
+2. Selecione **instalação**.
+    ![configuração do Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce1.png)
 
-3. Expanda a **crie** menu para **personalizar/oportunidades potenciais/Web-para-líder**.
-    ![Web-líder de Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce2.png)
+3. Expanda o menu **Compilar** para **Personalizar/leads/Web-to-Lead**.
+    ![](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce2.png) da Web a leads do Salesforce
 
-4. No **programa de configuração Web para líder**, selecione **criar líder de Web Form**.
-    ![Formulário de criação de Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce3.png)
+4. Na **configuração da Web para o Lead**, selecione **criar formulário da Web para o Lead**.
+    ![criar formulário do Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce3.png)
 
-5. No **criar um formulário da Web para líder**, selecione **gerar** ![gerar do Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png)
+5. Em **criar um formulário da Web para o Lead**, selecione **gerar** ![o Salesforce gerar](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png)
 
-6. Copie o OID no exemplo e guardá-lo. Irá colar o OID na **identificador de objeto** campo no Portal de parceiros de nuvem.
-![Salesforce get OID](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)
+6. Copie o OID no exemplo e salve-o. Você colará o OID no campo **identificador de objeto** na portal do Cloud Partner.
+![Salesforce obter OID](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)

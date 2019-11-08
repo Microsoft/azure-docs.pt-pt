@@ -1,5 +1,5 @@
 ---
-title: Log de diagnóstico e métricas do banco de dados SQL do Azure
+title: Log de métricas e diagnósticos
 description: Saiba como habilitar o diagnóstico no banco de dados SQL do Azure para armazenar informações sobre a utilização de recursos e estatísticas de execução de consultas.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: 6c2040a223b7ec33b05ee3c8b3c65bad031aa3c2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d51acaff89c2a8589b6b524c112c11f9c4f18220
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687805"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821779"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Log de diagnóstico e métricas do banco de dados SQL do Azure
 

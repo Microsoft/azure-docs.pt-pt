@@ -5,16 +5,17 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 66c28039f9126ed9e3f56c3ac15b1b3d82279b64
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 1643a1e309ecc2bcfc440e3553fcffef54cfb038
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036365"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824632"
 ---
-# <a name="saas-offer-creation-checklist"></a>Lista de verificação de criação de oferta de SaaS
+# <a name="saas-offer-creation-checklist"></a>Lista de verificação de criação de ofertas de SaaS
 
 O processo de criação da oferta de SaaS levará você por várias páginas. Aqui estão os detalhes que você pode fornecer em cada página, com links para saber mais sobre cada item.
 
@@ -42,7 +43,7 @@ As primeiras informações que você será solicitado a fornecer são uma ID e u
 
 | **Nome do campo**    | **Notas**   |  
 | :---------------- | :-----------| 
-| ID de Oferta  | Obrigatório, não pode ser alterado após a criação. Máximo de 50 caracteres e deve consistir apenas em letras minúsculas, caracteres alfanuméricos, traços ou sublinhados. |
+| ID da oferta  | Obrigatório, não pode ser alterado após a criação. Máximo de 50 caracteres e deve consistir apenas em letras minúsculas, caracteres alfanuméricos, traços ou sublinhados. |
 | Alias de oferta  | Necessário. |
 
 ## <a name="offer-setup-page"></a>Página de instalação da oferta
@@ -51,14 +52,14 @@ A página de instalação da oferta é onde você pode aceitar diferentes canais
 
 | **Nome do campo**    | **Notas**   | 
 | :---------------- | :-----------|  
-| Você gostaria de vender pela Microsoft?  | Necessário. Predefinição: Sim |
-| Como você deseja que clientes potenciais interajam com a listagem de ofertas? (Plano de ação)  | Necessário se não estiver vendendo pela Microsoft. Predefinição: Avaliação gratuita, opções: "Obtenha agora", "avaliação gratuita", "entre em contato comigo". |
+| Você gostaria de vender pela Microsoft?  | Necessário. Padrão: Sim |
+| Como você deseja que clientes potenciais interajam com a listagem de ofertas? (Plano de ação)  | Necessário se não estiver vendendo pela Microsoft. Padrão: avaliação gratuita, opções: "obter agora", "avaliação gratuita", "entre em contato comigo". |
 | URL de avaliação  | Necessário se a opção "avaliação gratuita" estiver selecionada, como o modo como os clientes devem interagir com a listagem de ofertas. |
 | URL da oferta  | Necessário se "obter agora" estiver selecionado, como o modo como os clientes devem interagir com a listagem de ofertas |
-| Canais  | Opcional. Predefinição: Não foi optado pelo canal do CSP (revendedor).  |
-| Test Drive | Opcional. Predefinição: Nenhum test drive habilitado.  |
-| Tipo de unidade de teste | Necessário se estiver habilitado um test drive. Predefinição: Nenhum selecionado. Opções: Azure Resource Manager, Dynamics 365 for Business central, Dynamics 365 para compromisso com o cliente, Dynamics 365 para operações, aplicativo lógico Power BI.  |
-| Gerenciamento de leads – conectar a um sistema de CRM | Necessário se estiver vendendo pela Microsoft ou se a listagem oferecer como "entre em contato comigo". Padrão: nenhum sistema CRM conectado. Opções de CRM: Tabela do Azure, BLOB do Azure, Dynamics CRM Online, HTTPs ' ponto de extremidade, Marketo, Salesforce  |
+| Canais  | Opcional. Padrão: não foi incluído no canal CSP (revendedor).  |
+| Versão de Teste | Opcional. Padrão: nenhum test drive habilitado.  |
+| Tipo de unidade de teste | Necessário se estiver habilitado um test drive. Padrão: nenhum selecionado. Opções: Azure Resource Manager, Dynamics 365 for Business central, Dynamics 365 para compromisso com o cliente, Dynamics 365 para operações, aplicativo lógico Power BI.  |
+| Gerenciamento de Lead-conectar-se a um sistema CRM | Necessário se estiver vendendo pela Microsoft ou se a listagem oferecer como "entre em contato comigo". Padrão: nenhum sistema CRM conectado. Opções de CRM: tabela do Azure, BLOB do Azure, Dynamics CRM Online, HTTPs ' ponto de extremidade, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Página Propriedades
 
@@ -66,9 +67,9 @@ A página de propriedades é onde você define as categorias e os setores usados
 
 | **Nome do campo**    | **Notas**   | 
 | :---------------- | :-----------|  
-| Categoria e subcategoria | Necessário 1 e máximo 3. Predefinição: Nenhum selecionado. |
-| Indústrias e subsetors | Opcional. máximo de 2 setores L1 e 2 submercados em cada setor de L1, padrão: Nenhum selecionado |
-| Versão da aplicação  | Opcional. Predefinição: Nenhum. |
+| Categoria e subcategoria | Necessário 1 e máximo 3. Padrão: nenhum selecionado. |
+| Indústrias e subsetors | Opcional. máximo de 2 setores L1 e 2 submercados em cada setor de L1, padrão: nenhum selecionado |
+| Versão da aplicação  | Opcional. Padrão: nenhum. |
 | Usar contrato padrão  | Opcional. Padrão: não selecionado.  | |
 | Termos de utilização  | Obrigatório se o contrato padrão não estiver selecionado.  |
 
@@ -78,7 +79,7 @@ A página de listagem é onde você fornece o texto e as imagens que os clientes
 
 | **Nome do campo**    | **Notas**   |
 | :---------------- | :-----------| 
-| Name  | São necessários, no máximo 50 caracteres. |
+| Nome  | São necessários, no máximo 50 caracteres. |
 | Resumo  | São necessários, no máximo 100 caracteres. | 
 | Descrição  | São necessários, no máximo 3000 caracteres. |
 | Instruções de Introdução  | São necessários, no máximo 3000 caracteres. |
@@ -88,8 +89,8 @@ A página de listagem é onde você fornece o texto e as imagens que os clientes
 | URL de materiais de marketing do programa CSP  | Opcional. |
 | Título de links úteis + URL  | Opcional. |
 | Título de documentos de suporte + arquivo  | Obrigatório, mín. 1 e máx. 3. Deve ser formato de arquivo PDF. |
-| Capturas de ecrã  | Necessário, mín. 1 captura de tela e máx. 5; quatro ou mais recomendados. Deve ser 1280 X 720 no formato PNG. |
-| Logotipos da loja (pequeno, médio, grande, largo, herói)  | Pequeno (48 X 48) e grande (216 X 216) necessário; outros tamanhos opcionais, mas recomendados: Médio (90 x 90), largo (255 x 115), Hero (815 x 290). Deve estar no formato PNG. |
+| Capturas de Ecrã  | Necessário, mín. 1 captura de tela e máx. 5; quatro ou mais recomendados. Deve ser 1280 X 720 no formato PNG. |
+| Logotipos da loja (pequeno, médio, grande, largo, herói)  | Pequeno (48 X 48) e grande (216 X 216) necessário; outros tamanhos opcionais, mas recomendados: médio (90 x 90), largo (255 x 115), Hero (815 x 290). Deve estar no formato PNG. |
 | Nome dos vídeos + URL + miniatura  | Opcional, recomendado, máximo de 4 vídeos. A miniatura deve ser 1280 x 720 no formato PNG. O vídeo deve ser hospedado no YouTube ou no Vimeo. |
 | Contatos (programa CSP, engenharia, suporte)  | Contato de engenharia e suporte necessário (nome, email e número de telefone); Contato do programa CSP opcional, mas recomendado. |
 | URL de suporte  | Necessário. |
@@ -137,11 +138,11 @@ A página planejar preços e disponibilidade é onde você define as caracterís
 | **Nome do campo**    | **Notas**   | 
 | :---------------- | :-----------| 
 | Disponibilidade do mercado  | Obrigatório, mín. 1 e máx. 141. |
-| Modelo de Preços  | Necessário. Predefinição: Taxa fixa. Opções: Taxa fixa, por usuário. |
+| Modelo de Determinação de Preço  | Necessário. Padrão: taxa fixa. Opções: taxa fixa, por usuário. |
 | Estações mínimas e máximas  | Opcional, disponível somente se o modelo de preços baseado em assentos estiver selecionado. |
-| Termo de cobrança  | Necessário. Predefinição: Mensais. Opções: Mensal, anual. |
+| Termo de cobrança  | Necessário. Padrão: mensalmente. Opções: mensal, anual. |
 | Preço  | Obrigatório USD por mês, se o termo de cobrança mensal for selecionado; ou USD por ano se o termo de cobrança anual selecionado. |
-| Planejar público  | Opcional. Predefinição: Plano público. Opções: Público, privado por ID de locatário |
+| Planejar público  | Opcional. Padrão: plano público. Opções: público, privado por ID de locatário |
 | Público do plano restrito (ID do locatário + descrição)  | Necessário se o plano privado for selecionado. As IDs de locatário min 1 e Max 10 se forem inseridas manualmente. Máximo 20000 se a importação de arquivo CSV. |
 
 ## <a name="test-drive-listing-page"></a>Página de listagem do Test Drive
@@ -151,7 +152,7 @@ Disponível somente se você optar por oferecer um test drive para sua oferta. D
 | **Nome do campo**    | **Notas**   | 
 | :---------------- | :-----------| 
 | Descrição  | Necessário. |
-| Nome manual do usuário + arquivo  | Necessário, máximo 1 documento. Deve ser o formato PDF. |
+| Nome manual do usuário + arquivo  | Necessário, máximo de 1 doc. deve ser um formato PDF. |
 | Nome do vídeo, URL + miniatura  | Opcional, recomendado. A miniatura deve ser 533 x 324 no formato JPGP ou PNG. O vídeo deve ser hospedado no YouTube ou no Vimeo. |
 
 ## <a name="review-and-publish-page"></a>Página revisar e publicar

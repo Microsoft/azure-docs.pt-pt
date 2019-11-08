@@ -1,5 +1,5 @@
 ---
-title: Configurar informações de segurança (versão prévia) para usar suas perguntas de segurança-Azure Active Directory | Microsoft Docs
+title: Configurar informações de segurança (versão prévia) para perguntas de segurança-Azure AD
 description: Como configurar suas informações de segurança para verificar sua identidade usando perguntas de segurança predefinidas.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74ca733c02fe4bbabce410824151fedbf8d2e71e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c2513b52c347db428b5ac0236a2561e5d4f1cdd2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160983"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820311"
 ---
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>Configurar informações de segurança (versão prévia) para usar perguntas de segurança
 

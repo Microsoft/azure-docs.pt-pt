@@ -1,6 +1,6 @@
 ---
 title: O que é o OPC "Azure" | Microsoft Docs
-description: Visão geral do OPC.
+description: Este artigo fornece uma visão geral do OPC. O OPC Myoferece descoberta, registro e controle remoto de dispositivos industriais por meio de APIs REST.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: c0d824e23a98aa14081fbd21bd6a9fbec5d583e0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 91448f55f0ebb88ba6c685b960ece9d91cb98e25
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815949"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826229"
 ---
 # <a name="what-is-opc-twin"></a>O que é OPC.
 
@@ -28,7 +28,7 @@ O OPC maup permite que os operadores de fábrica verifiquem a rede de fábrica, 
 ### <a name="simple-control"></a>Controle simples
 O OPC maup permite que os operadores de fábrica reajam a eventos e reconfigurem seus computadores de chão de fábrica da nuvem de forma automática ou manual. O OPC myfornece APIs REST para invocar serviços no servidor OPC UA, procurar seu espaço de endereço, bem como variáveis de leitura/gravação e métodos de execução. Por exemplo, um preistor usa KPI de temperatura para controlar a linha de produção. O sensor de temperatura publica a alteração nos dados usando o editor OPC. O operador de fábrica recebe o alerta de que a temperatura atingiu o limite. A linha de produção é esfriada automaticamente por meio de OPC. O operador de fábrica é notificado do resfriamento.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 Você pode usar o OPC "para autenticação simples" e para uma experiência de desenvolvedor simples.
 
 ### <a name="simple-authentication"></a>Autenticação simples 
