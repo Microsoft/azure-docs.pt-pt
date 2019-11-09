@@ -1,6 +1,6 @@
 ---
-title: Simulated o comportamento do dispositivo na solução de monitorização remota - Azure | Documentos da Microsoft
-description: Este artigo descreve como utilizar JavaScript para definir o comportamento de um dispositivo simulado na solução de monitorização remota.
+title: Dispositivo simulado na solução de monitoramento remoto – Azure | Microsoft Docs
+description: Este artigo descreve como usar o JavaScript para definir o comportamento de um dispositivo simulado na solução de monitoramento remoto.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,38 +8,38 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 04d2ad2f0e86ee977600af86a2ffd1e9d7680375
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c39ca0a018bd22844cf7e5350e6d3586319aac16
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65823408"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890854"
 ---
-# <a name="implement-the-device-model-behavior"></a>Implementar o comportamento de modelo do dispositivo
+# <a name="implement-the-device-model-behavior"></a>Implementar o comportamento do modelo do dispositivo
 
-O artigo [compreender o esquema do modelo de dispositivo](iot-accelerators-remote-monitoring-device-schema.md) descreve o esquema que define um modelo de dispositivo simulado. Esse artigo chamado de dois tipos de arquivo JavaScript que implementam o comportamento de um dispositivo simulado:
+O artigo [compreende o esquema de modelo de dispositivo](iot-accelerators-remote-monitoring-device-schema.md) descrito no esquema que define um modelo de dispositivo simulado. Esse artigo fez referência a dois tipos de arquivo JavaScript que implementam o comportamento de um dispositivo simulado:
 
-- **Estado** JavaScript ficheiros que são executados em intervalos fixos para atualizar o estado interno do dispositivo.
-- **Método** JavaScript ficheiros que são executados quando a solução invoca um método no dispositivo.
+- **Estado** Arquivos JavaScript que são executados em intervalos fixos para atualizar o estado interno do dispositivo.
+- **Método** Arquivos JavaScript que são executados quando a solução invoca um método no dispositivo.
 
 > [!NOTE]
-> Comportamentos de modelo do dispositivo são apenas para dispositivos simulados alojados no serviço de simulação do dispositivo. Se quiser criar um dispositivo real, veja [ligar o seu dispositivo para o acelerador de solução de monitorização remota](iot-accelerators-connecting-devices.md).
+> Os comportamentos de modelo de dispositivo são apenas para dispositivos simulados hospedados no serviço de simulação de dispositivo. Se você quiser criar um dispositivo real, consulte [conectar seu dispositivo ao acelerador de solução de monitoramento remoto](iot-accelerators-connecting-devices.md).
 
 Neste artigo, vai aprender a:
 
 >[!div class="checklist"]
 > * Controlar o estado de um dispositivo simulado
-> * Definir como um dispositivo simulado responde a uma chamada de método da solução de monitorização remota
-> * Os scripts de depuração
+> * Definir como um dispositivo simulado responde a uma chamada de método da solução de monitoramento remoto
+> * Depurar seus scripts
 
-## <a name="state-behavior"></a>Comportamento de estado
+## <a name="state-behavior"></a>Comportamento do estado
 
-O [simulação](../../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#simulation) seção do esquema de modelo do dispositivo define o estado interno de um dispositivo simulado:
+A seção de [simulação](../../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#simulation) do esquema de modelo de dispositivo define o estado interno de um dispositivo simulado:
 
-- `InitialState` Define os valores iniciais para todas as propriedades do objeto de estado do dispositivo.
-- `Script` identifica um arquivo JavaScript que é executada numa agenda, para atualizar o estado do dispositivo.
+- `InitialState` define os valores iniciais para todas as propriedades do objeto de estado do dispositivo.
+- `Script` identifica um arquivo JavaScript que é executado em uma agenda para atualizar o estado do dispositivo.
 
-O exemplo seguinte mostra a definição do objeto de estado do dispositivo para um dispositivo simulado chiller:
+O exemplo a seguir mostra a definição do objeto de estado do dispositivo para um dispositivo resfriador simulado:
 
 ```json
 "Simulation": {
@@ -61,9 +61,9 @@ O exemplo seguinte mostra a definição do objeto de estado do dispositivo para 
 }
 ```
 
-O estado do dispositivo simulado, conforme definido no `InitialState` secção, é mantida na memória pelo serviço de simulação. As informações de estado são passadas como entrada para o `main` função definida **chiller-01-state.js**. Neste exemplo, o serviço de simulação é executado o **chiller-01-state.js** ficheiro a cada cinco segundos. O script pode modificar o estado do dispositivo simulado.
+O estado do dispositivo simulado, conforme definido na seção `InitialState`, é mantido na memória pelo serviço de simulação. As informações de estado são passadas como entrada para a função `main` definida em **chiller-01-State. js**. Neste exemplo, o serviço de simulação executa o arquivo **chiller-01-State. js** a cada cinco segundos. O script pode modificar o estado do dispositivo simulado.
 
-O seguinte mostra o contorno da típica `main` função:
+O seguinte mostra o contorno de uma função `main` típica:
 
 ```javascript
 function main(context, previousState, previousProperties) {
@@ -76,15 +76,15 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-O `context` parâmetro tem as seguintes propriedades:
+O parâmetro `context` tem as seguintes propriedades:
 
-- `currentTime` como uma cadeia com formato `yyyy-MM-dd'T'HH:mm:sszzz`
+- `currentTime` como uma cadeia de caracteres com o formato `yyyy-MM-dd'T'HH:mm:sszzz`
 - `deviceId`, por exemplo `Simulated.Chiller.123`
 - `deviceModel`, por exemplo `Chiller`
 
-O `state` parâmetro contém o estado do dispositivo, como mantidos pelo serviço de simulação do dispositivo. Este valor é o `state` objeto retornado pela chamada anterior para `main`.
+O parâmetro `state` contém o estado do dispositivo como mantido pelo serviço de simulação de dispositivo. Esse valor é o objeto `state` retornado pela chamada anterior para `main`.
 
-O exemplo seguinte mostra uma implementação típica do `main` método para lidar com o estado do dispositivo mantido pelo serviço de simulação:
+O exemplo a seguir mostra uma implementação típica do método `main` para manipular o estado do dispositivo mantido pelo serviço de simulação:
 
 ```javascript
 // Default state
@@ -118,7 +118,7 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-A exemplo a seguir mostra como o `main` método pode simular a valores de telemetria que variam ao longo do tempo:
+O exemplo a seguir mostra como o método `main` pode simular valores de telemetria que variam ao longo do tempo:
 
 ```javascript
 /**
@@ -156,13 +156,13 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-Pode ver o concluída [chiller-01-state.js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) no GitHub.
+Você pode exibir o [chiller-01-State. js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) completo no github.
 
 ## <a name="method-behavior"></a>Comportamento do método
 
-O [CloudToDeviceMethods](../../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#cloudtodevicemethods) seção do esquema de modelo do dispositivo define os métodos de um dispositivo simulado responde a.
+A seção [CloudToDeviceMethods](../../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#cloudtodevicemethods) do esquema de modelo de dispositivo define os métodos que um dispositivo simulado responde.
 
-O exemplo seguinte mostra a lista de métodos suportados por um dispositivo simulado chiller:
+O exemplo a seguir mostra a lista de métodos com suporte por um dispositivo resfriador simulado:
 
 ```json
 "CloudToDeviceMethods": {
@@ -185,11 +185,11 @@ O exemplo seguinte mostra a lista de métodos suportados por um dispositivo simu
 }
 ```
 
-Cada método possui um arquivo JavaScript associado que implementa o comportamento do método.
+Cada método tem um arquivo JavaScript associado que implementa o comportamento do método.
 
-O estado do dispositivo simulado, conforme definido no `InitialState` seção do esquema, é mantida na memória pelo serviço de simulação. As informações de estado são passadas como entrada para o `main` função definida no arquivo JavaScript, quando o método é chamado. O script pode modificar o estado do dispositivo simulado.
+O estado do dispositivo simulado, conforme definido na seção `InitialState` do esquema, é mantido na memória pelo serviço de simulação. As informações de estado são passadas como entrada para a função `main` definida no arquivo JavaScript quando o método é chamado. O script pode modificar o estado do dispositivo simulado.
 
-O seguinte mostra o contorno da típica `main` função:
+O seguinte mostra o contorno de uma função `main` típica:
 
 ```javascript
 function main(context, previousState, previousProperties) {
@@ -197,23 +197,23 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-O `context` parâmetro tem as seguintes propriedades:
+O parâmetro `context` tem as seguintes propriedades:
 
-- `currentTime` como uma cadeia com formato `yyyy-MM-dd'T'HH:mm:sszzz`
+- `currentTime` como uma cadeia de caracteres com o formato `yyyy-MM-dd'T'HH:mm:sszzz`
 - `deviceId`, por exemplo `Simulated.Chiller.123`
 - `deviceModel`, por exemplo `Chiller`
 
-O `state` parâmetro contém o estado do dispositivo, como mantidos pelo serviço de simulação do dispositivo.
+O parâmetro `state` contém o estado do dispositivo como mantido pelo serviço de simulação de dispositivo.
 
-O `properties` parâmetro contém as propriedades do dispositivo que são escritas como propriedades comunicadas para o dispositivo duplo do IoT Hub.
+O parâmetro `properties` contém as propriedades do dispositivo que são gravadas como propriedades relatadas no dispositivo do Hub IoT.
 
-Existem três funções globais, que pode usar para ajudar a implementar o comportamento do método:
+Há três funções globais que podem ser usadas para ajudar a implementar o comportamento do método:
 
-- `updateState` Para atualizar o estado mantido pelo serviço de simulação.
-- `updateProperty` Para atualizar uma propriedade de único dispositivo.
-- `sleep` para colocar em pausa a execução para simular uma tarefa de execução longa.
+- `updateState` atualizar o estado mantido pelo serviço de simulação.
+- `updateProperty` atualizar uma única propriedade de dispositivo.
+- `sleep` pausar a execução para simular uma tarefa de execução longa.
 
-O exemplo seguinte mostra uma versão abreviada do **IncreasePressure method.js** script utilizado pelos dispositivos simulados chiller:
+O exemplo a seguir mostra uma versão abreviada do script **IncreasePressure-Method. js** usado pelos dispositivos resfriadores simulados:
 
 ```javascript
 function main(context, previousState, previousProperties) {
@@ -248,27 +248,27 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-## <a name="debugging-script-files"></a>Arquivos de script de depuração
+## <a name="debugging-script-files"></a>Depuração de arquivos de script
 
-Não é possível anexar um depurador para o interpretador de Javascript utilizado pelo serviço de simulação do dispositivo para executar scripts de estado e o método. No entanto, pode registar informações no registo do serviço. O incorporado `log()` função permite-lhe guardar as informações para controlar e depurar a execução de função.
+Não é possível anexar um depurador ao interpretador JavaScript usado pelo serviço de simulação de dispositivo para executar os scripts de estado e método. No entanto, você pode registrar informações no log de serviço. A função interna `log()` permite que você salve informações para rastrear e depurar a execução da função.
 
-Se houver um erro de sintaxe o interpretador falha, e grava uma `Jint.Runtime.JavaScriptException` entrada no registo de serviço.
+Se houver um erro de sintaxe, o intérprete falhará e gravará uma entrada de `Jint.Runtime.JavaScriptException` no log de serviço.
 
-O [que executa o serviço localmente](https://github.com/Azure/device-simulation-dotnet#running-the-service-locally-eg-for-development-tasks) artigo no GitHub mostra-lhe como executar o serviço de simulação de dispositivo localmente. Executar o serviço localmente torna mais fácil depurar seus dispositivos simulados antes de implementá-las para a cloud.
+O artigo [executando o serviço localmente](https://github.com/Azure/device-simulation-dotnet#running-the-service-locally-eg-for-development-tasks) no GitHub mostra como executar o serviço de simulação de dispositivo localmente. Executar o serviço localmente torna mais fácil depurar seus dispositivos simulados antes de implantá-los na nuvem.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Este artigo descreveu como definir o comportamento do seu próprio modelo personalizado de dispositivo simulado. Este artigo mostrou como para:
+Este artigo descreveu como definir o comportamento do seu próprio modelo de dispositivo simulado personalizado. Este artigo mostrou como:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
 > * Controlar o estado de um dispositivo simulado
-> * Definir como um dispositivo simulado responde a uma chamada de método da solução de monitorização remota
-> * Os scripts de depuração
+> * Definir como um dispositivo simulado responde a uma chamada de método da solução de monitoramento remoto
+> * Depurar seus scripts
 
-Agora que aprendeu como especificar o comportamento de um dispositivo simulado, o passo seguinte sugerido é saber como [criar um dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).
+Agora que você aprendeu como especificar o comportamento de um dispositivo simulado, a próxima etapa sugerida é aprender a [criar um dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
-Para obter mais informações para desenvolvedores sobre a solução de monitorização remota, consulte:
+Para obter mais informações de desenvolvedor sobre a solução de monitoramento remoto, consulte:
 
 * [Guia de Referência para Programadores](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Guia de Resolução de Problemas de Programadores](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)

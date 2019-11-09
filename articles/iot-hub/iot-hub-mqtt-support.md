@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 11e2a02277a47e070f91e8f057f0d8493235c5ce
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 183b85ad8a61c76942981ebb764512b8a090b0a8
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821347"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890444"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar-se com o Hub IoT usando o protocolo MQTT
 
@@ -42,7 +42,7 @@ Quando um dispositivo está conectado a um hub IoT, os SDKs do dispositivo forne
 
 A tabela a seguir contém links para exemplos de código para cada idioma com suporte e especifica o parâmetro a ser usado para estabelecer uma conexão com o Hub IoT usando o protocolo MQTT.
 
-| Linguagem | Parâmetro de protocolo |
+| Idioma | Parâmetro de protocolo |
 | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |Azure-IOT-Device-MQTT |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol. MQTT |
@@ -132,7 +132,7 @@ Este repositório contém:
 
 • DeviceTwinMQTTWin32: contém o código para consultar e assinar os eventos de entrelaçamento do dispositivo de um dispositivo no Hub IoT do Azure em um computador Windows.
 
-• PnPMQTTWin32: contém o código para enviar uma mensagem de telemetria com os recursos do dispositivo de visualização do plug & Play de IoT para um hub IoT do Azure, compilado e executado em um computador Windows. Mais sobre o & de plug-in IoT [aqui](https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play)
+• PnPMQTTWin32: contém o código para enviar uma mensagem de telemetria com os recursos do dispositivo de visualização do plug & Play de IoT para um hub IoT do Azure, compilado e executado em um computador Windows. Mais sobre o & de plug-in IoT [aqui](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 
 **Para Linux:**
 
@@ -140,9 +140,9 @@ Este repositório contém:
 
 • LinuxConsoleVS2019: contém o mesmo código, mas em um projeto VS2019 direcionado a WSL (subsistema Linux do Windows). Este projeto permite que você depure o código em execução no Linux passo a passo do Visual Studio.
 
-**Para mosquito_pub:**
+**Por mosquito_pub:**
 
-• Essa pasta contém dois comandos de exemplos usados com a ferramenta Utilitário mosquitto_pub fornecida pelo Mosquitto.org.
+• Essa pasta contém dois comandos de exemplos usados com a ferramenta de utilitário mosquitto_pub fornecida pelo Mosquitto.org.
 
 Mosquitto_sendmessage: para enviar uma mensagem de texto simples para um hub IoT do Azure atuando como um dispositivo.
 
@@ -181,7 +181,7 @@ pip install paho-mqtt
 
 Em seguida, implemente o cliente em um script Python. Substitua os espaços reservados da seguinte maneira:
 
-* `<local path to digicert.cer>` é o caminho para um arquivo local que contém o certificado raiz DigiCert Baltimore. Você pode criar esse arquivo copiando as informações de certificado de [certs. c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) no SDK do IOT do Azure para c. inclua as linhas `-----BEGIN CERTIFICATE-----` e `-----END CERTIFICATE-----`, remova as marcas de `"` no início e no final de cada linha e remova os caracteres de `\r\n` no fim de cada linha.
+* `<local path to digicert.cer>` é o caminho para um arquivo local que contém o certificado raiz DigiCert Baltimore. Você pode criar esse arquivo copiando as informações de certificado de [certs. c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) no SDK do IOT do Azure para c. inclua as linhas `-----BEGIN CERTIFICATE-----` e `-----END CERTIFICATE-----`, remova as marcas de `"` no início e no final de cada linha e remova os caracteres de `\r\n` ao final de cada linha.
 
 * `<device id from device registry>` é a ID de um dispositivo que você adicionou ao seu hub IoT.
 
@@ -361,7 +361,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
                rid, twin_reported_property_patch, qos=0)
 ```
 
-Após o êxito da operação de atualização de propriedades relatadas de entrelaçamento acima, a mensagem de publicação do Hub IoT terá o seguinte tópico: `$iothub/twin/res/204/?$rid=1&$version=6`, em que `204` é o código de status que indica êxito, `$rid=1` corresponde à ID de solicitação fornecida pelo dispositivo em o código e `$version` corresponde à versão da seção de propriedades relatadas do dispositivo gêmeos após a atualização.
+Após o êxito da operação de atualização de propriedades relatadas de entrelaçamento acima, a mensagem de publicação do Hub IoT terá o seguinte tópico: `$iothub/twin/res/204/?$rid=1&$version=6`, em que `204` é o código de status indicando êxito, `$rid=1` corresponde à ID de solicitação fornecida pelo dispositivo no código e `$version` corresponde à versão da seção de propriedades relatadas do dispositivo gêmeos após a atualização.
 
 Para obter mais informações, consulte [Guia do desenvolvedor do dispositivo gêmeos](iot-hub-devguide-device-twins.md).
 

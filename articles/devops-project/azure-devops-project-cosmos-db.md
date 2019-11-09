@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Implantar aplicativos node. js fornecidos por Azure Cosmos DB com Azure DevOps Projects'
-description: Projetos de DevOps do Azure torna mais fácil começar a utilizar no Azure. Com DevOps Projects, você pode implantar seu aplicativo node. js que é alimentado por Azure Cosmos DB ao aplicativo Web do Windows em algumas etapas rápidas.
+title: 'Tutorial: implantar aplicativos node. js da plataforma Azure Cosmos DB com Azure DevOps Projects'
+description: Azure DevOps Projects facilita a introdução ao Azure. Com DevOps Projects, você pode implantar seu aplicativo node. js que é alimentado por Azure Cosmos DB ao aplicativo Web do Windows em algumas etapas rápidas.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 1c16368990148406fbacdde2981c10fab0b2d405
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 229b4b9f53ea3866dce1169645f6d6da20827271
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969665"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888891"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Implantar aplicativos node. js fornecidos por Azure Cosmos DB com DevOps Projects
 
@@ -30,7 +30,7 @@ Neste tutorial, irá:
 
 > [!div class="checklist"]
 > * Use DevOps Projects para implantar um aplicativo node. js fornecido pela Azure Cosmos DB
-> * Configurar o Azure DevOps e uma subscrição do Azure
+> * Configurar o Azure DevOps e uma assinatura do Azure
 > * Examinar Azure Cosmos DB
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
@@ -45,7 +45,7 @@ Você precisa de uma assinatura do Azure, que pode ser obtida por meio de [Visua
 
 DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. Você pode criar uma nova organização de DevOps do Azure ou usar uma organização existente. DevOps Projects também cria recursos do Azure, como Azure Cosmos DB, Application Insights, serviço de aplicativo e planos de serviço de aplicativo, na assinatura do Azure de sua escolha.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, selecione **criar um recurso**.
 
@@ -103,11 +103,11 @@ DevOps Projects configura automaticamente um pipeline de CI/CD em sua organizaç
 
     ![Painel de compilação](_img/azure-devops-project-cosmos-db/build.png)
 
-1. Selecione **Editar**. Neste painel, pode examinar as várias tarefas para o seu pipeline de compilação. A compilação executa várias tarefas, como a busca de código-fonte do repositório git, a criação do aplicativo, a execução de testes de unidade e a publicação de saídas que são usadas para implantações.
+1. Selecione **Editar**. Nesse painel, você pode examinar as várias tarefas para o pipeline de compilação. A compilação executa várias tarefas, como a busca de código-fonte do repositório git, a criação do aplicativo, a execução de testes de unidade e a publicação de saídas que são usadas para implantações.
 
 1. Selecione **Acionadores**. DevOps Projects cria automaticamente um gatilho de CI e todas as confirmações para o repositório iniciam uma nova compilação. Você pode optar por incluir ou excluir ramificações do processo de CI.
 
-1. Selecione **Retenção**. Dependendo do seu cenário, pode especificar políticas de manter ou remover um determinado número de compilações.
+1. Selecione **Retenção**. Dependendo do seu cenário, você pode especificar políticas para manter ou remover um determinado número de compilações.
 
 1. Na parte superior do pipeline de compilação, selecione o nome do pipeline de compilação.
 
@@ -154,7 +154,7 @@ Agora você está pronto para colaborar com uma equipe em seu aplicativo usando 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Exclua os recursos relacionados que você criou quando não precisar mais deles. Utilize o **eliminar** funcionalidade no dashboard de projetos de DevOps.
+Exclua os recursos relacionados que você criou quando não precisar mais deles. Use a funcionalidade **excluir** no painel DevOps Projects.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -162,13 +162,13 @@ Pode modificar estes pipelines de compilação e de lançamento para satisfazer 
 
 > [!div class="checklist"]
 > * Use DevOps Projects para implantar um aplicativo node. js fornecido pela Azure Cosmos DB
-> * Configurar o Azure DevOps e uma subscrição do Azure 
+> * Configurar o Azure DevOps e uma assinatura do Azure 
 > * Examinar Azure Cosmos DB
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Confirmar alterações no git e implantá-las automaticamente no Azure
 > * Limpar recursos
 
-Consulte [definir seu pipeline de implantação contínua de vários estágios (CD)](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) para obter mais informações e próximas etapas.
+Consulte [definir seu pipeline de implantação contínua de vários estágios (CD)](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) para obter mais informações e próximas etapas.
 
 

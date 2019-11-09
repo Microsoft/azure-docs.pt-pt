@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: cephalin
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ac73b549546c353dce4c40005b7742577e03d26c
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 6812f99d8433ef318eca37eb2615d43f4749e944
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176987"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886176"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Configurar seu aplicativo do serviço de aplicativo para usar o logon do Azure AD
 
@@ -28,7 +28,7 @@ ms.locfileid: "72176987"
 Este artigo mostra como configurar Azure App serviço para usar o Azure Active Directory (AD do Azure) como um provedor de autenticação.
 
 > [!NOTE]
-> Neste momento, Azure App serviço e Azure Functions só têm suporte do Azure AD v 1.0. Eles não têm suporte da [plataforma Microsoft Identity v 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview), que inclui MSAL (bibliotecas de autenticação da Microsoft).
+> Neste momento, Azure App serviço e Azure Functions só têm suporte do Azure AD v 1.0. Eles não têm suporte da [plataforma Microsoft Identity v 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-overview), que inclui MSAL (bibliotecas de autenticação da Microsoft).
 
 Siga estas práticas recomendadas ao configurar seu aplicativo e a autenticação:
 
@@ -75,13 +75,13 @@ Você precisará das seguintes informações ao configurar seu aplicativo do ser
 Execute as seguintes etapas:
 
 1. Entre no [portal do Azure] e vá para o aplicativo do serviço de aplicativo. Anote a **URL**do seu aplicativo. Você o usará para configurar o registro do aplicativo Azure Active Directory.
-1. Selecione **Azure Active Directory** > **Registros de aplicativo** **novo registro** > .
+1. Selecione **Azure Active Directory** > **registros de aplicativo** > **novo registro**.
 1. Na página **registrar um aplicativo** , insira um **nome** para o registro do aplicativo.
 1. Em **URI de redirecionamento**, selecione **Web** e insira a URL do seu aplicativo do serviço de aplicativo e acrescente o caminho `/.auth/login/aad/callback`. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
 1. Selecione **Criar**.
 1. Depois que o registro do aplicativo for criado, copie a **ID do aplicativo (cliente)** e a **ID do diretório (locatário)** para mais tarde.
 1. Selecione **identidade visual**. Na **URL da Home Page**, insira a URL do seu aplicativo do serviço de aplicativo e selecione **salvar**.
-1. Selecione **expor uma API** > **conjunto**. Cole a URL do aplicativo do serviço de aplicativo e selecione **salvar**.
+1. Selecione **expor um conjunto de > de API** . Cole a URL do aplicativo do serviço de aplicativo e selecione **salvar**.
 
    > [!NOTE]
    > Esse valor é o **URI de ID do aplicativo** do registro do aplicativo. Se seu aplicativo Web exigir acesso a uma API na nuvem, você precisará do **URI de ID de aplicativo** do aplicativo Web ao configurar o recurso de serviço de aplicativo de nuvem. Você pode usar isso, por exemplo, se desejar que o serviço de nuvem Conceda explicitamente acesso ao aplicativo Web.
@@ -104,7 +104,7 @@ Execute as seguintes etapas:
     |Campo|Descrição|
     |-|-|
     |ID de Cliente| Use a **ID do aplicativo (cliente)** do registro do aplicativo. |
-    |ID do emissor| Use `https://login.microsoftonline.com/<tenant-id>` e substitua *\<tenant-id >* com a **ID do diretório (locatário)** do registro do aplicativo. |
+    |ID do emissor| Use `https://login.microsoftonline.com/<tenant-id>`e substitua *\<> ID do locatário* pela ID do **diretório (locatário)** do registro do aplicativo. |
     |Segredo do cliente (opcional)| Use o segredo do cliente gerado no registro do aplicativo.|
     |Públicos de token permitidos| Se este for um aplicativo de nuvem ou de servidor e você quiser permitir tokens de autenticação de um aplicativo Web, adicione o **URI de ID de aplicativo** do aplicativo Web aqui. |
 
@@ -127,7 +127,7 @@ Você pode registrar clientes nativos para permitir a autenticação usando uma 
     > Para um aplicativo do Windows, use o [SID do pacote](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como o URI em vez disso.
 1. Depois que o registro do aplicativo for criado, copie o valor da **ID do aplicativo (cliente)** .
 1. Selecione **permissões de API** > **adicionar uma permissão** > **minhas APIs**.
-1. Selecione o registro de aplicativo que você criou anteriormente para seu aplicativo do serviço de aplicativo. Se você não vir o registro do aplicativo, certifique-se de ter adicionado o escopo **user_impersonation** em [criar um registro de aplicativo no Azure ad para seu aplicativo do serviço de aplicativo](#register).
+1. Selecione o registro de aplicativo que você criou anteriormente para seu aplicativo do serviço de aplicativo. Se você não vir o registro do aplicativo, certifique-se de ter adicionado o escopo de **user_impersonation** em [criar um registro de aplicativo no Azure ad para seu aplicativo do serviço de aplicativo](#register).
 1. Selecione **user_impersonation**e, em seguida, selecione **adicionar permissões**.
 
 Agora você configurou um aplicativo cliente nativo que pode acessar seu aplicativo do serviço de aplicativo.

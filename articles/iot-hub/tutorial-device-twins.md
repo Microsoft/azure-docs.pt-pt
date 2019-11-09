@@ -1,28 +1,24 @@
 ---
 title: Sincronizar estados de dispositivos a partir do Hub IoT do Azure | Microsoft Docs
-description: Utilize dispositivos duplos para sincronizar estados entre os seus dispositivos e o seu hub do IoT
+description: Saiba como usar dispositivos gêmeos para configurar seus dispositivos na nuvem e receber dados de status e conformidade de seus dispositivos.
 services: iot-hub
-documentationcenter: ''
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/21/2019
 ms.custom: mvc
-ms.openlocfilehash: 4ad3013f6914abbf4c75676e7423848dff9d5e9a
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 647182389ec0ad4cb2b80a0676812961cb9be770
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330365"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890437"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
-# <a name="tutorial-configure-your-devices-from-a-back-end-service"></a>Tutorial: Configurar os seus dispositivos através de um serviço de back-end
+# <a name="tutorial-configure-your-devices-from-a-back-end-service"></a>Tutorial: configurar os seus dispositivos a partir de um serviço de back-end
 
 Para além de receber dados telemétricos dos seus dispositivos, poderá ter de os configurar a partir do seu serviço de back-end. Quando enviar uma configuração pretendida para os seus dispositivos, também poderá querer receber atualizações de conformidade e de estado desses dispositivos. Por exemplo, poderá definir um intervalo pretendido para a temperatura de um dispositivo ou recolher informações sobre a versão do firmware dos seus dispositivos.
 
@@ -43,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Terá de node. js v10.x.x ou posterior no seu computador de desenvolvimento.
+As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Você precisa do node. js v10. x. x ou posterior em seu computador de desenvolvimento.
 
 Pode transferir o Node.js para múltiplas plataformas em [nodejs.org](https://nodejs.org).
 
@@ -59,7 +55,7 @@ Transfira o projeto Node.js de exemplo de https://github.com/Azure-Samples/azure
 
 Para concluir este tutorial, a sua subscrição do Azure tem de conter um hub do IoT com um dispositivo adicionado ao registo de identidades de dispositivos. A entrada no registo de identidades de dispositivos permite que o dispositivo simulado que executará neste tutorial se ligue ao seu hub.
 
-Se ainda não tiver um hub IoT que configurar na sua subscrição, pode configurar um com o seguinte script CLI. Este script utiliza o nome **tutorial-iot-hub** para o hub do IoT. Quando o executar, deve substituir este nome pelo seu próprio nome exclusivo. O script cria o grupo de recursos e o hub na região **E.U.A. Central**, que pode alterar para uma região mais próxima de si. O script obtém a cadeia de ligação do serviço do hub do IoT, que irá utilizar no exemplo de back-end para ligar ao seu hub do IoT:
+Se você ainda não tiver um hub IoT configurado em sua assinatura, poderá configurar um com o script da CLI a seguir. Este script utiliza o nome **tutorial-iot-hub** para o hub do IoT. Quando o executar, deve substituir este nome pelo seu próprio nome exclusivo. O script cria o grupo de recursos e o hub na região **E.U.A. Central**, que pode alterar para uma região mais próxima de si. O script obtém a cadeia de ligação do serviço do hub do IoT, que irá utilizar no exemplo de back-end para ligar ao seu hub do IoT:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -240,7 +236,7 @@ A seguinte captura de ecrã mostra os dados de saída da aplicação de disposit
 
 ![Dispositivo simulado](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-Captura de ecrã seguinte mostra a saída da aplicação de back-end e destaca como ele recebe e processa uma propriedade comunicada de atualização de um dispositivo:
+A captura de tela a seguir mostra a saída do aplicativo de back-end e realça como ele recebe e processa uma atualização de propriedade relatada de um dispositivo:
 
 ![Aplicação de back-end](./media/tutorial-device-twins/BackEnd2.png)
 
@@ -257,7 +253,7 @@ Em alternativa, utilize a CLI:
 az group delete --name tutorial-iot-hub-rg
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a sincronizar informações de estado entre os seus dispositivos e o seu hub do IoT. Avance para o próximo tutorial para saber como utilizar dispositivos duplos para implementar um processo de atualização de firmware.
 

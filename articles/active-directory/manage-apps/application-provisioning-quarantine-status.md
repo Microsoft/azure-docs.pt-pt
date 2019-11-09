@@ -16,12 +16,12 @@ ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 704e217cd7ddea988b6a9812627aba8c8468fb73
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: e3ad689fb57c51d0deb698a723b93e6175bdbb5c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955500"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882885"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionamento de aplicativo no status de quarentena
 
@@ -33,7 +33,7 @@ Durante a quarentena, a frequência de ciclos incrementais é reduzida gradualme
 
 Há três maneiras de verificar se um aplicativo está em quarentena:
   
-- Na portal do Azure, navegue até **Azure Active Directory** > **aplicativos empresariais** >  @ no__t-4*nome do aplicativo*&gt; @ no__t-7**Provisionando** e role até a barra de progresso na parte inferior.  
+- Na portal do Azure, navegue até **Azure Active Directory** > **aplicativos empresariais** > &lt;*nome do aplicativo*&gt; > **provisionamento** e role até a barra de progresso na parte inferior.  
 
   ![Barra de status de provisionamento mostrando o status de quarentena](media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
@@ -63,12 +63,12 @@ Primeiro, resolva o problema que fez com que o aplicativo fosse colocado em quar
 
 - Verifique as configurações de provisionamento do aplicativo para certificar-se de que você [inseriu credenciais de administrador válidas](configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). O Azure AD deve ser capaz de estabelecer uma relação de confiança com o aplicativo de destino. Verifique se você inseriu credenciais válidas e se sua conta tem as permissões necessárias.
 
-- Examine os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para investigar melhor quais erros estão causando a quarentena e resolver o erro. Acesse os logs de provisionamento no portal do Azure acessando **Azure Active Directory** &gt; **aplicativos empresariais** &gt; **logs de provisionamento (versão prévia)** na seção **atividade** .
+- Examine os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para investigar melhor quais erros estão causando a quarentena e resolver o erro. Acesse os logs de provisionamento no portal do Azure acessando **Azure Active Directory** &gt; **aplicativos empresariais** &gt; **os logs de provisionamento (versão prévia)** na seção **atividade** .
 
 Depois de resolver o problema, reinicie o trabalho de provisionamento. Determinadas alterações nas configurações de provisionamento do aplicativo, como mapeamentos de atributo ou filtros de escopo, reiniciarão automaticamente o provisionamento para você. A barra de progresso na página de **provisionamento** do aplicativo indica quando o provisionamento foi iniciado pela última vez. Se você precisar reiniciar o trabalho de provisionamento manualmente, use um dos seguintes métodos:  
 
 - Use o portal do Azure para reiniciar o trabalho de provisionamento. Na página de **provisionamento** do aplicativo em **configurações**, selecione **limpar estado e reiniciar sincronização** e defina o **status de provisionamento** como **ativado**. Essa ação reinicia completamente o serviço de provisionamento, o que pode levar algum tempo. Um ciclo inicial completo será executado novamente, o que limpa as caução, remove o aplicativo da quarentena e limpa as marcas d' água.
 
-- Use Microsoft Graph para [reiniciar o trabalho de provisionamento](https://docs.microsoft.com/en-us/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Você terá controle total sobre o que reinicia. Você pode optar por limpar as caução (para reiniciar o contador de caução que se acumula para o status de quarentena), limpar a quarentena (para remover o aplicativo da quarentena) ou limpar as marcas d' água. Use a seguinte solicitação:
+- Use Microsoft Graph para [reiniciar o trabalho de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Você terá controle total sobre o que reinicia. Você pode optar por limpar as caução (para reiniciar o contador de caução que se acumula para o status de quarentena), limpar a quarentena (para remover o aplicativo da quarentena) ou limpar as marcas d' água. Use a seguinte solicitação:
  
        `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`

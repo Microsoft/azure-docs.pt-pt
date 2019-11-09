@@ -1,5 +1,5 @@
 ---
-title: Implantar a solução de monitoramento remoto localmente (via IntelliJ IDE) – Azure | Microsoft Docs
+title: Implantar a solução de monitoramento remoto localmente-IntelliJ IDE-Azure | Microsoft Docs
 description: Este guia de instruções mostra como implantar o acelerador de solução de monitoramento remoto em seu computador local usando o IntelliJ para teste e desenvolvimento.
 author: v-krghan
 manager: dominicbetts
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2f3c11763bb2f406caf9d33275fc29b0d140da9a
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 779ee1e057d74b11c5e0ba58dc2fd32b803f1e0e
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "70743284"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888818"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implantar o acelerador de solução de monitoramento remoto localmente-IntelliJ
 
@@ -27,7 +27,7 @@ Se você quiser executar o acelerador de solução de monitoramento remoto no Do
 
 Para implantar os serviços do Azure usados pelo acelerador de solução de monitoramento remoto, você precisa de uma assinatura ativa do Azure.
 
-Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Configuração do computador
 
@@ -98,18 +98,18 @@ Se você ainda não tiver criado os recursos do Azure necessários, siga estas e
    O script também adiciona um conjunto de variáveis de ambiente ao computador local. Cada nome de variável tem o prefixo **PCs**. Essas variáveis de ambiente fornecem detalhes que permitem que o monitoramento remoto leia seus valores de configuração de um recurso de Azure Key Vault.
 
    > [!TIP]
-   > Quando o script for concluído, ele salvará as variáveis de ambiente em um arquivo chamado  **\<sua pasta\\\\\>base.\>PCs\<nome da solução. env**. Você pode usá-los para implantações futuras do Solution-Accelerator. Observe que todas as variáveis de ambiente definidas no computador local substituem os valores **no\\arquivo\\\\. env dos scripts de serviços** ao executar o **Docker-Compose**.
+   > Quando o script for concluído, ele salvará as variáveis de ambiente em um arquivo chamado **\<pasta base\>\\. pcs\\\<nome da solução\>. env**. Você pode usá-los para implantações futuras do Solution-Accelerator. Observe que todas as variáveis de ambiente definidas no computador local substituem os valores nos **\\scripts de serviços\\arquivo local\\. env** quando você executa o **Docker-Compose**.
 
 1. Feche seu ambiente de linha de comando.
 
 ### <a name="use-existing-azure-resources"></a>Usar recursos existentes do Azure
 
 Se você já tiver criado os recursos do Azure necessários, defina as variáveis de ambiente correspondentes em seu computador local:
-* **PCS_KEYVAULT_NAME**: O nome do recurso de Key Vault.
-* **PCS_AAD_APPID**: A ID do aplicativo Azure Active Directory (Azure AD).
-* **PCS_AAD_APPSECRET**: O segredo do aplicativo do Azure AD.
+* **PCS_KEYVAULT_NAME**: o nome do recurso de Key Vault.
+* **PCS_AAD_APPID**: a ID do aplicativo Azure Active Directory (Azure AD).
+* **PCS_AAD_APPSECRET**: o segredo do aplicativo do Azure AD.
 
-Os valores de configuração serão lidos deste Key Vault recurso. Essas variáveis de ambiente podem ser salvas  **\<no arquivo.\>env da\\solução\>Home\\Folder\<. PCs** da implantação. Observe que as variáveis de ambiente definidas no computador local substituem os valores no arquivo **\\\\. env dos scripts\\de serviços** ao executar o **Docker-Compose**.
+Os valores de configuração serão lidos deste Key Vault recurso. Essas variáveis de ambiente podem ser salvas no **\<sua pasta base\>\\. pcs\\\<nome da solução\>arquivo. env** da implantação. Observe que as variáveis de ambiente definidas no computador local substituem os valores nos **\\scripts de serviços\\arquivo local\\. env** quando você executa o **Docker-Compose**.
 
 Algumas das configurações necessárias para o microserviço são armazenadas em uma instância do Key Vault que foi criada na implantação inicial. As variáveis correspondentes no cofre de chaves devem ser modificadas conforme necessário.
 
@@ -160,7 +160,7 @@ As etapas a seguir mostram como executar os microserviços de monitoramento remo
 #### <a name="create-run-configurations"></a>Criar configurações de execução
 
 1. Selecione **executar** > **Editar configurações**.
-1. Selecione **Adicionar nova configuração** > **SBT tarefa**.
+1. Selecione **Adicionar nova configuração** > **tarefa SBT**.
 1. Insira **nome**e, em seguida, insira **tarefas** como **executar**.
 1. Selecione o **diretório de trabalho** com base no serviço que você deseja executar.
 1. Selecione **aplicar** > **OK** para salvar suas escolhas.
@@ -172,7 +172,7 @@ As etapas a seguir mostram como executar os microserviços de monitoramento remo
 
 Por exemplo, a imagem a seguir mostra como adicionar uma configuração para um serviço:
 
-[![Captura de tela da janela configurações de execução/depuração do IDE do IntelliJ, mostrando a opção storageAdapter realçada na lista tarefas do SBT no painel esquerdo e entradas nas caixas nome, tarefas, diretório de trabalho e parâmetros de VM no painel direito.](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
+[![captura de tela da janela configurações de execução/depuração do IDE do IntelliJ, mostrando a opção storageAdapter realçada na lista tarefas do SBT no painel esquerdo e entradas nas caixas nome, tarefas, diretório de trabalho e parâmetros de VM no painel direito.](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 #### <a name="create-a-compound-configuration"></a>Criar uma configuração composta
 
@@ -182,7 +182,7 @@ Por exemplo, a imagem a seguir mostra como adicionar uma configuração para um 
 
 Por exemplo, a imagem a seguir mostra como adicionar todas as tarefas SBT a uma única configuração:
 
-[![Captura de tela da janela configurações de execução/depuração do IDE do IntelliJ, mostrando a opção de todos os serviços realçada na lista composta no painel esquerdo e a opção SBT tarefa ' deviceTelemetry ' realçada no painel direito.](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
+[![captura de tela da janela de configurações de execução/depuração do IDE do IntelliJ, mostrando a opção de todos os serviços realçada na lista composta no painel esquerdo e a opção SBT tarefa ' deviceTelemetry ' realçada no painel direito.](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
 Selecione **executar** para compilar e executar os serviços Web no computador local.
 
@@ -190,10 +190,10 @@ Cada serviço Web abre uma janela de prompt de comando e uma janela do navegador
 
 Para acessar o status dos serviços, acesse as seguintes URLs:
 
-* Gerenciador de Hub IoT:[http://localhost:9002/v1/status](http://localhost:9002/v1/status)
-* Telemetria do dispositivo:[http://localhost:9004/v1/status](http://localhost:9004/v1/status)
-* configuração[http://localhost:9005/v1/status](http://localhost:9005/v1/status)
-* adaptador de armazenamento:[http://localhost:9022/v1/status](http://localhost:9022/v1/status)
+* Gerenciador de Hub IoT: [http://localhost:9002/v1/status](http://localhost:9002/v1/status)
+* Telemetria do dispositivo: [http://localhost:9004/v1/status](http://localhost:9004/v1/status)
+* configuração: [http://localhost:9005/v1/status](http://localhost:9005/v1/status)
+* adaptador de armazenamento: [http://localhost:9022/v1/status](http://localhost:9022/v1/status)
 
 ### <a name="start-the-stream-analytics-job"></a>Iniciar o trabalho de Stream Analytics
 
@@ -226,7 +226,7 @@ Para obter mais informações sobre como executar o Nginx, consulte [Nginx for W
 
 ### <a name="connect-to-the-dashboard"></a>Conectar-se ao painel
 
-Para acessar o painel da solução de monitoramento remoto, http://localhost:9000 vá para em seu navegador.
+Para acessar o painel da solução de monitoramento remoto, vá para http://localhost:9000 em seu navegador.
 
 ## <a name="clean-up"></a>Limpeza
 

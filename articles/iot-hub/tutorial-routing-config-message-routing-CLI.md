@@ -1,6 +1,6 @@
 ---
 title: Configurar o roteamento de mensagens para o Hub IoT do Azure usando o CLI do Azure | Microsoft Docs
-description: Configurar o roteamento de mensagens para o Hub IoT do Azure usando o CLI do Azure
+description: Configure o roteamento de mensagens para o Hub IoT do Azure usando o CLI do Azure. Dependendo das propriedades da mensagem, encaminhe para uma conta de armazenamento ou para uma fila do barramento de serviço.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 1748ec5ada9488487cd29ffb563226749b29f9f4
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 844ed44a588bfd789e7e2dcf2b9fecda3d51329b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808831"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890372"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Tutorial: usar o CLI do Azure para configurar o roteamento de mensagens do Hub IoT
 
@@ -26,7 +26,7 @@ ms.locfileid: "72808831"
 
 Para a segunda parte deste tutorial, você baixa e executa um aplicativo do Visual Studio para enviar mensagens para o Hub IoT. Há uma pasta no download que contém o modelo de Azure Resource Manager e o arquivo de parâmetros, bem como os scripts do CLI do Azure e do PowerShell.
 
-Se você quiser exibir o script concluído, baixe os [exemplos de IOT C# do Azure](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Descompacte o arquivo. zip mestre. O script de CLI do Azure está em/iot-hub/Tutorials/Routing/SimulatedDevice/resources/como **iothub_routing_cli. azcli**.
+Se você quiser exibir o script concluído, baixe os [exemplos de IOT C# do Azure](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Descompacte o arquivo. zip mestre. O script CLI do Azure está em/iot-hub/Tutorials/Routing/SimulatedDevice/resources/como **iothub_routing_cli. azcli**.
 
 ## <a name="use-the-azure-cli-to-create-your-resources"></a>Use o CLI do Azure para criar seus recursos
 

@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: d0bf023be9c34f449c40ff74ba9e68ea5e197e2e
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 6450169ae2b2d74006eedc66f35338494257594a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615373"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889093"
 ---
 # <a name="architecture-of-iot-central-smart-inventory-management-application-template"></a>Arquitetura do modelo de aplicativo de gerenciamento de inventário inteligente do IoT Central
 
@@ -54,4 +54,4 @@ A plataforma IoT Central fornece opções avançadas de extensibilidade por meio
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba como implantar o [modelo de gerenciamento de inventário inteligente](./tutorial-iot-central-smart-inventory-management-pnp.md)
 * Saiba mais sobre os [modelos de varejo IOT central](./overview-iot-central-retail-pnp.md)
-* Saiba mais sobre IoT Central consulte [IOT central visão geral](../core/overview-iot-central-pnp.md)
+* Saiba mais sobre IoT Central consulte [IOT central visão geral](../preview/overview-iot-central.md)

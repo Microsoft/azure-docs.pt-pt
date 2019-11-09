@@ -1,5 +1,5 @@
 ---
-title: Monitorize os seus dispositivos IoT a partir de um tutorial de solução do Azure – Azure | Documentos da Microsoft
+title: Monitorar dispositivos na solução de monitoramento remoto – Azure | Microsoft Docs
 description: Neste tutorial irá aprender a monitorizar os seus dispositivos IoT com o acelerador de soluções de Monitorização Remota.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d6d850fa8f896809318be77529e10abddaf6ea9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 400a71b11fde210b889d938041e88c5ebe73c1dc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61452437"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890875"
 ---
-# <a name="tutorial-monitor-your-iot-devices"></a>Tutorial: Monitorize os seus dispositivos IoT
+# <a name="tutorial-monitor-your-iot-devices"></a>Tutorial: Monitorizar os seus dispositivos IoT
 
 Neste tutorial, vai utilizar o acelerador de soluções de Monitorização Remota para monitorizar os seus dispositivos IoT ligados. Utilize o dashboard de soluções para ver telemetria, informações do dispositivo, alertas e KPIs.
 
@@ -95,7 +95,7 @@ Os mesmos filtros que definem o período de tempo para os alertas, e controlam o
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este tutorial mostrou como utilizar a página **Dashboard** no acelerador de soluções de Monitorização Remota, para filtrar e monitorizar os camiões simulados. Para saber como utilizar o acelerador de soluções para detetar problemas com os seus dispositivos ligados, avance para o próximo tutorial.
 

@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3717199d2fa342fff5996d97bc5cdaf6da6e9880
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: b265ff8831275a9f4b84f7dac28b82ae75630f8b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595191"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889776"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperação de desastres e failover de conta de armazenamento (versão prévia) no armazenamento do Azure
 
@@ -47,8 +47,8 @@ Outras opções de redundância de armazenamento do Azure incluem ZRS (armazenam
 
 É importante projetar seu aplicativo para alta disponibilidade desde o início. Consulte estes recursos do Azure para obter orientação sobre como projetar seu aplicativo e planejar a recuperação de desastres:
 
-* [Criando aplicativos resilientes para o Azure](https://docs.microsoft.com/azure/architecture/resiliency/): uma visão geral dos principais conceitos para a arquitetura de aplicativos altamente disponíveis no Azure.
-* [Lista de verificação de disponibilidade](https://docs.microsoft.com/azure/architecture/checklist/availability): uma lista de verificação para verificar se o aplicativo implementa as melhores práticas de design para alta disponibilidade.
+* [Criando aplicativos resilientes para o Azure](/azure/architecture/checklist/resiliency-per-service): uma visão geral dos principais conceitos para a arquitetura de aplicativos altamente disponíveis no Azure.
+* [Lista de verificação de disponibilidade](/azure/architecture/checklist/resiliency-per-service): uma lista de verificação para verificar se o aplicativo implementa as melhores práticas de design para alta disponibilidade.
 * [Criando aplicativos altamente disponíveis usando o Ra-grs](storage-designing-ha-apps-with-ragrs.md): diretrizes de design para a criação de aplicativos para tirar proveito do Ra-grs.
 * [Tutorial: criar um aplicativo altamente disponível com o armazenamento de BLOBs](../blobs/storage-create-geo-redundant-storage.md): um tutorial que mostra como criar um aplicativo altamente disponível que alterna automaticamente entre pontos de extremidade como falhas e recuperações são simuladas. 
 
@@ -125,8 +125,8 @@ O failover de conta está disponível em versão prévia para todos os clientes 
 - Sudeste da Austrália
 - Centro dos EUA
 - Este dos EUA 2
-- E.U.A. Centro-Oeste
-- E.U.A. Oeste 2
+- EUA Centro-Oeste
+- EUA Oeste 2
 
 A versão prévia destina-se apenas ao uso de não produção. Os SLAs (contratos de nível de serviço) de produção não estão disponíveis no momento.
 
@@ -186,7 +186,7 @@ Se sua conta de armazenamento estiver configurada para RA-GRS, você terá acess
 
 Em circunstâncias extremas em que uma região é perdida devido a um desastre significativo, a Microsoft pode iniciar um failover regional. Nesse caso, nenhuma ação de sua parte é necessária. Até que o failover gerenciado pela Microsoft seja concluído, você não terá acesso de gravação à sua conta de armazenamento. Seus aplicativos poderão ler a partir da região secundária se sua conta de armazenamento estiver configurada para RA-GRS. 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consultar também
 
 * [Iniciar um failover de conta (versão prévia)](storage-initiate-account-failover.md)
 * [Conceber aplicações de elevada disponibilidade com o RA-GRS](storage-designing-ha-apps-with-ragrs.md)

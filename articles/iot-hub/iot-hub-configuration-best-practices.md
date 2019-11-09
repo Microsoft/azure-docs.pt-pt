@@ -1,93 +1,93 @@
 ---
-title: Práticas recomendadas com uma configuração de dispositivo para o IoT Hub do Azure | Documentos da Microsoft
-description: Saiba mais sobre as melhores práticas para a configuração de dispositivos IoT à escala
+title: Práticas recomendadas de configuração do dispositivo para o Hub IoT do Azure | Microsoft Docs
+description: Saiba mais sobre as práticas recomendadas para usar o gerenciamento automático de dispositivos para minimizar tarefas repetitivas e complexas envolvidas no gerenciamento de dispositivos IoT em escala.
 author: chrisgre
 ms.author: chrisgre
 ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 33e77d63b958df292ee9b4ac8ded41f3693cb6bc
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: a3b70af71c2ce19835ac2ef8fc8ceed79ca5fe1a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485815"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889536"
 ---
-# <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Melhores práticas para configuração do dispositivo dentro de uma solução de IoT
+# <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Práticas recomendadas para a configuração do dispositivo em uma solução de IoT
 
-Gerenciamento automático de dispositivos no IoT Hub do Azure automatiza muitas tarefas repetitivas e complexas de gerenciamento de frotas de dispositivo grandes sobre a totalidade dos respetivos ciclos de vida. Este artigo define muitas das práticas recomendadas para as várias funções envolvidas no desenvolvimento e operar uma solução de IoT.
+O gerenciamento automático de dispositivos no Hub IoT do Azure automatiza muitas tarefas repetitivas e complexas de gerenciar as frotas de dispositivos grandes durante todo o ciclo de vida deles. Este artigo define muitas das práticas recomendadas para as várias funções envolvidas no desenvolvimento e operação de uma solução de IoT.
 
-* **Integrador/fabricante de hardware de IoT:** Os fabricantes de hardware de IoT, integradores de montagem de hardware de vários fabricantes, ou os fornecedores fornecendo o hardware para uma implementação de IoT fabricados ou integrados por outros fornecedores. Envolvidos no desenvolvimento e integração de firmware, sistemas de operativos incorporados e software incorporados.
+* **Fabricante/integrador de hardware de IOT:** Fabricantes de hardware de IoT, integradores montando hardware de vários fabricantes ou fornecedores fornecendo hardware para uma implantação de IoT fabricada ou integrada por outros fornecedores. Envolvidos no desenvolvimento e na integração de firmware, sistemas operacionais incorporados e software incorporado.
 
-* **Desenvolvedor de soluções de IoT:** O desenvolvimento de uma solução de IoT é geralmente feito por um desenvolvedor de soluções. Este developer pode ser parte de uma equipa interna ou um integrador de sistemas especializado nesta atividade. O desenvolvedor de soluções de IoT pode desenvolver vários componentes da solução IoT partir do zero, integrar vários componentes de código-fonte aberto ou padrão ou personalizar uma [acelerador de solução de IoT](/azure/iot-accelerators/).
+* **Desenvolvedor de soluções de IOT:** O desenvolvimento de uma solução de IoT normalmente é feito por um desenvolvedor de soluções. Esse desenvolvedor pode fazer parte de uma equipe interna ou um integrador de sistemas especializado nesta atividade. O desenvolvedor da solução de IoT pode desenvolver vários componentes da solução de IoT do zero, integrar vários componentes padrão ou de código-fonte aberto ou personalizar um [acelerador de solução de IOT](/azure/iot-accelerators/).
 
-* **Operador de solução de IoT:** Depois de implementar a solução de IoT, necessita de operações de longa duração, monitorização, atualizações e manutenção. Estas tarefas podem ser feitas por uma equipe interna que é composta por especialistas em tecnologia de informação, as operações de hardware e as equipes de manutenção e especialistas de domínio que monitorar o comportamento correto da infraestrutura global do IoT.
+* **Operador de solução de IOT:** Depois que a solução de IoT é implantada, ela requer operações de longo prazo, monitoramento, atualizações e manutenção. Essas tarefas podem ser feitas por uma equipe interna que consiste em especialistas em tecnologia da informação, em operações de hardware e em equipes de manutenção e em especialistas de domínio que monitoram o comportamento correto da infraestrutura de IoT geral.
 
-## <a name="understand-automatic-device-management-for-configuring-iot-devices-at-scale"></a>Compreender a gestão de dispositivos automático para a configuração de dispositivos IoT à escala
+## <a name="understand-automatic-device-management-for-configuring-iot-devices-at-scale"></a>Entender o gerenciamento automático de dispositivos para configurar dispositivos IoT em escala
 
-Gestão de dispositivos automático inclui os vários benefícios de [dispositivos duplos](iot-hub-devguide-device-twins.md) e [duplos de módulo](iot-hub-devguide-module-twins.md) para sincronizar os Estados desejados e comunicados entre a cloud e dispositivos. [Configurações de dispositivos automático](iot-hub-auto-device-config.md) automaticamente atualizar conjuntos grandes de duplos e resumir o progresso e conformidade. Os passos de alto nível seguintes descrevem como automática gestão de dispositivos é desenvolvido e usado:
+O gerenciamento automático de dispositivos inclui os muitos benefícios do [dispositivo gêmeos](iot-hub-devguide-device-twins.md) e do [módulo gêmeos](iot-hub-devguide-module-twins.md) para sincronizar os Estados desejados e relatados entre a nuvem e os dispositivos. [As configurações automáticas de dispositivo](iot-hub-auto-device-config.md) atualizam automaticamente grandes conjuntos de gêmeos e resumem o progresso e a conformidade. As etapas de alto nível a seguir descrevem como o gerenciamento automático de dispositivos é desenvolvido e usado:
 
-* O **fabricante de hardware de IoT/integrador** implementa as funcionalidades de gestão de dispositivos dentro de uma aplicação incorporada com [dispositivos duplos](iot-hub-devguide-device-twins.md). Esses recursos podem incluir atualizações de firmware, instalação de software e atualizações e gerenciamento de configurações.
+* O **fabricante/integrador de hardware de IOT** implementa recursos de gerenciamento de dispositivos em um aplicativo inserido usando [dispositivos gêmeos](iot-hub-devguide-device-twins.md). Esses recursos podem incluir atualizações de firmware, instalação de software e atualização e gerenciamento de configurações.
 
-* O **desenvolvedor de soluções de IoT** implementa a camada de gerenciamento de operações de gestão de dispositivos usando [dispositivos duplos](iot-hub-devguide-device-twins.md) e [configurações de dispositivos automático](iot-hub-auto-device-config.md). A solução deve incluir a definir uma interface de operador para executar tarefas de gestão do dispositivo.
+* O **desenvolvedor da solução de IOT** implementa a camada de gerenciamento de operações de gerenciamento de dispositivos usando [dispositivos gêmeos](iot-hub-devguide-device-twins.md) e [configurações de dispositivo automáticas](iot-hub-auto-device-config.md). A solução deve incluir a definição de uma interface de operador para executar tarefas de gerenciamento de dispositivos.
 
-* O **operador de solução de IoT** utiliza a solução de IoT para efetuar tarefas de gestão de dispositivos, especialmente para agrupar dispositivos em conjunto, iniciar alterações de configuração, como atualizações de firmware, monitorizar o progresso e resolver problemas que surgem.
+* O **operador de solução de IOT** usa a solução de IOT para executar tarefas de gerenciamento de dispositivos, especialmente para agrupar dispositivos, iniciar alterações de configuração como atualizações de firmware, monitorar o progresso e solucionar problemas que surgem.
 
 ## <a name="iot-hardware-manufacturerintegrator"></a>Fabricante/integrador de hardware de IoT
 
-Seguem-se as melhores práticas para fabricantes de hardware e integradores de lidar com o desenvolvimento de software incorporados:
+Veja a seguir as práticas recomendadas para fabricantes de hardware e integradores que lidam com o desenvolvimento de software incorporado:
 
-* **Implemente [dispositivos duplos](iot-hub-devguide-device-twins.md):** Dispositivos duplos ativar a sincronização de configuração pretendida da cloud e para o relatório de configuração atual e propriedades do dispositivo. A melhor maneira de implementar dispositivos duplos dentro de aplicativos incorporados é através da [do Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks). Os dispositivos duplos são mais adequados para a configuração porque eles:
+* **Implementar [dispositivo gêmeos](iot-hub-devguide-device-twins.md):** O dispositivo gêmeos habilita a sincronização da configuração desejada da nuvem e para relatar a configuração atual e as propriedades do dispositivo. A melhor maneira de implementar dispositivos gêmeos em aplicativos inseridos é por meio dos [SDKs do Azure IOT](https://github.com/Azure/azure-iot-sdks). Dispositivos gêmeos são mais adequados para configuração porque eles:
 
-    * Suporta a comunicação bidirecional.
-    * Permitir que os dois Estados de dispositivo conectado ou desconectado.
-    * Acompanhar o princípio da consistência eventual.
-    * São totalmente consultável na cloud.
+    * Suporte à comunicação bidirecional.
+    * Permitir Estados de dispositivo conectado e desconectado.
+    * Siga o princípio de consistência eventual.
+    * São totalmente consultável na nuvem.
 
-* **Estruture o twin do dispositivo para gestão de dispositivos:** O dispositivo duplo deve ser estruturado, de modo a que as propriedades de gestão do dispositivo estão logicamente agrupadas em conjunto em seções. Se o fizer, irá permitir alterações de configuração para ser isolados sem afetar outras secções do duplo. Por exemplo, crie uma secção de propriedades pretendidas firmware, outra seção de software e uma terceira secção para definições de rede. 
+* **Estruturar os dispositivos de dispositivo para o gerenciamento de dispositivos:** O dispositivo "/" deve ser estruturado de modo que as propriedades de gerenciamento de dispositivos sejam agrupadas logicamente em seções. Isso permitirá que as alterações de configuração sejam isoladas sem afetar outras seções do. Por exemplo, crie uma seção dentro das propriedades desejadas para o firmware, outra seção para software e uma terceira seção para configurações de rede. 
 
-* **Atributos de dispositivo do relatório que são úteis para gestão de dispositivos:** Atributos, como o dispositivo físico marca e modelam, firmware, o sistema operativo, o número de série, e outros identificadores são úteis para relatórios e como parâmetros para o direcionamento de alterações de configuração.
+* **Relate atributos de dispositivo que são úteis para o gerenciamento de dispositivos:** Atributos como Make de dispositivo físico e modelo, firmware, sistema operacional, número de série e outros identificadores são úteis para relatórios e como parâmetros para direcionar as alterações de configuração.
 
-* **Definem os Estados de principais para os relatórios de estado e o progresso:** Estados de nível superior devem ser enumerados para que eles podem ser comunicados para o operador. Por exemplo, uma atualização de firmware poderia informar o estado como atual, transferir, aplicar, em curso e erro. Defina campos adicionais para obter mais informações em cada Estado.
+* **Defina os Estados principais para relatar o status e o progresso:** Os Estados de nível superior devem ser enumerados para que possam ser relatados ao operador. Por exemplo, uma atualização de firmware relataria o status como atual, baixando, aplicando, em andamento e erro. Defina campos adicionais para obter mais informações sobre cada Estado.
 
 ## <a name="iot-solution-developer"></a>Desenvolvedor de soluções de IoT
 
-Seguem-se as práticas recomendadas para os desenvolvedores de solução de IoT que estão a criar sistemas com base no Azure:
+Veja a seguir as práticas recomendadas para desenvolvedores de soluções de IoT que estão criando sistemas baseados no Azure:
 
-* **Implemente [dispositivos duplos](iot-hub-devguide-device-twins.md):** Dispositivos duplos ativar a sincronização de configuração pretendida da cloud e para o relatório de configuração atual e propriedades do dispositivo. A melhor maneira de implementar dispositivos duplos dentro de aplicações de soluções na cloud é através da [do Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks). Os dispositivos duplos são mais adequados para a configuração porque eles:
+* **Implementar [dispositivo gêmeos](iot-hub-devguide-device-twins.md):** O dispositivo gêmeos habilita a sincronização da configuração desejada da nuvem e para relatar a configuração atual e as propriedades do dispositivo. A melhor maneira de implementar dispositivos gêmeos em aplicativos de soluções de nuvem é por meio dos [SDKs do IOT do Azure](https://github.com/Azure/azure-iot-sdks). Dispositivos gêmeos são mais adequados para configuração porque eles:
 
-    * Suporta a comunicação bidirecional.
-    * Permitir que os dois Estados de dispositivo conectado ou desconectado.
-    * Acompanhar o princípio da consistência eventual.
-    * São totalmente consultável na cloud.
+    * Suporte à comunicação bidirecional.
+    * Permitir Estados de dispositivo conectado e desconectado.
+    * Siga o princípio de consistência eventual.
+    * São totalmente consultável na nuvem.
 
-* **Organize dispositivos utilizando etiquetas do dispositivo duplo:** A solução deve permitir que o operador definir os anéis de qualidade ou outros conjuntos de dispositivos com base em várias estratégias de implantação, como Canárias. Organização de dispositivo pode ser implementada dentro da sua solução utilizando as etiquetas do dispositivo duplo e [consultas](iot-hub-devguide-query-language.md). Organização de dispositivo é necessária para permitir a Vossa configuração com precisão e em segurança.
+* **Organizar dispositivos usando marcas de dispositivo de entrelaçamento:** A solução deve permitir que o operador defina anéis de qualidade ou outros conjuntos de dispositivos com base em várias estratégias de implantação, como canário. A organização do dispositivo pode ser implementada em sua solução usando marcas e [consultas](iot-hub-devguide-query-language.md)do dispositivo. A organização do dispositivo é necessária para permitir que os lançamentos de configuração sejam com segurança e precisão.
 
-* **Implemente [configurações de dispositivos automático](iot-hub-auto-device-config.md):** Implantar configurações de dispositivos automática e configuração do monitor é alterado para grandes conjuntos de dispositivos de IoT através de dispositivos duplos.
+* **Implementar [configurações de dispositivo automáticas](iot-hub-auto-device-config.md):** As configurações automáticas de dispositivos implantam e monitoram alterações de configuração em grandes conjuntos de dispositivos IoT por meio de dispositivos gêmeos.
 
-   Configurações de automático de dispositivos de destino conjuntos de dispositivos duplos através do **condição, de destino** que é uma consulta no dispositivo etiquetas duplo ou propriedades comunicadas. O **conteúdo de destino** é o conjunto de propriedades pretendidas que serão definidas dentro os twins do dispositivo de destino. O conteúdo de destino, deve alinhar com a estrutura de gémeos de dispositivo definida pelo fabricante/integrador do hardware IoT. O **métricas** são consultas no dispositivo duplo propriedades comunicadas e também devem alinhar com a estrutura de gémeos de dispositivo definida pelo fabricante/integrador do hardware IoT.
+   Configurações automáticas de destino definem conjuntos de dispositivos gêmeos por meio da **condição de destino,** que é uma consulta em marcas de dispositivo ou Propriedades relatadas. O **conteúdo de destino** é o conjunto de propriedades desejadas que será definido dentro do dispositivo de destino gêmeos. O conteúdo de destino deve ser alinhado com a estrutura de entrelaçamento do dispositivo definida pelo fabricante/integrador de hardware de IoT. As **métricas** são consultas em Propriedades relatadas do dispositivo e também devem ser alinhadas com a estrutura de entrelaçamento do dispositivo definida pelo fabricante/integrador de hardware de IOT.
 
-   Configurações de dispositivos automática executam pela primeira vez, logo após a configuração é criada e, em seguida, em intervalos de cinco minutos. Eles também se beneficiam do IoT Hub realizar operações de gémeos de dispositivo a uma velocidade que nunca vai exceder o [limites de conjunto](iot-hub-devguide-quotas-throttling.md) para leituras de twin do dispositivo e atualizações.
+   As configurações automáticas do dispositivo são executadas pela primeira vez logo após a configuração ser criada e, em seguida, em intervalos de cinco minutos. Eles também se beneficiam do Hub IoT que executa operações de dispositivos de velocidade de dispositivo a uma taxa que nunca excederá os [limites de limitação](iot-hub-devguide-quotas-throttling.md) para leituras e atualizações do dispositivo.
 
-* **Utilize o [serviço aprovisionamento de dispositivos](../iot-dps/how-to-manage-enrollments.md):** Os desenvolvedores de solução devem utilizar o serviço de aprovisionamento de dispositivos para atribuir etiquetas do dispositivo duplo para novos dispositivos, que irá ser configurados automaticamente pelo **configurações de dispositivos automático** que se destinam a ser duplos com a mesma. 
+* **Usar o [serviço de provisionamento de dispositivos](../iot-dps/how-to-manage-enrollments.md):** os desenvolvedores de soluções devem usar o serviço de provisionamento de dispositivos para atribuir marcas de dispositivo para novos dispositivos, de modo que eles serão automaticamente configurados por **configurações de dispositivo automáticas** que são destinadas a gêmeos com essa marca. 
 
 ## <a name="iot-solution-operator"></a>Operador de solução de IoT
 
-Seguem-se as práticas recomendadas para operadores de solução de IoT que utilizar uma solução de IoT criada no Azure:
+Veja a seguir as práticas recomendadas para operadores de solução de IoT que usam uma solução de IoT criada no Azure:
 
-* **Organize dispositivos para gestão:** A solução de IoT deve definir ou permitir a criação de anéis de qualidade ou outros conjuntos de dispositivos com base em várias estratégias de implantação, como Canárias. Os conjuntos de dispositivos serão utilizados para distribuir as alterações de configuração e executar outras operações de gestão de dispositivos à escala.
+* **Organizar dispositivos para gerenciamento:** A solução de IoT deve definir ou permitir a criação de anéis de qualidade ou outros conjuntos de dispositivos com base em várias estratégias de implantação, como canário. Os conjuntos de dispositivos serão usados para distribuir alterações de configuração e para executar outras operações de gerenciamento de dispositivo em escala.
 
-* **Efetue alterações à configuração utilizando uma implementação faseada:**  Implementação faseada é um processo geral no qual um operador implementa as alterações a um conjunto essa de dispositivos IoT. O objetivo é fazer alterações gradualmente para reduzir o risco de efetuar alterações significativas de grande escala.  O operador deve usar a interface da solução para criar uma [configuração do dispositivo automática](iot-hub-auto-device-config.md) e a condição de destino deve visar um conjunto inicial de dispositivos (por exemplo, um grupo de proteção). O operador deve, em seguida, validar a alteração da configuração no conjunto inicial de dispositivos.
+* **Realizar alterações de configuração usando uma distribuição em fases:**  Uma distribuição em fases é um processo geral no qual um operador implanta alterações em um conjunto abrangente de dispositivos IoT. O objetivo é fazer alterações gradualmente para reduzir o risco de fazer alterações significativas em larga escala.  O operador deve usar a interface da solução para criar uma [configuração de dispositivo automática](iot-hub-auto-device-config.md) e a condição de direcionamento deve ter como destino um conjunto inicial de dispositivos (como um grupo canário). O operador deve validar a alteração de configuração no conjunto inicial de dispositivos.
 
-   Depois de concluída a validação, o operador irá atualizar a configuração do dispositivo automática para incluir um conjunto maior de dispositivos. O operador também deve definir a prioridade para a configuração seja maior do que outras configurações atualmente visadas para esses dispositivos. A implementação pode ser monitorizada com as métricas informadas pela configuração do dispositivo automática.
+   Depois que a validação for concluída, o operador atualizará a configuração automática do dispositivo para incluir um conjunto maior de dispositivos. O operador também deve definir a prioridade para que a configuração seja maior que outras configurações atualmente destinadas a esses dispositivos. A distribuição pode ser monitorada usando as métricas relatadas pela configuração automática do dispositivo.
 
-* **Execute reversões em caso de erros ou erros de configuração:**  Uma configuração do dispositivo automática que causa erros ou configurações incorretas pode ser revertida, alterando a **direcionamento condição** para que os dispositivos já não cumprem a condição de destino. Certifique-se de que outra configuração do dispositivo automática de menor prioridade ainda está direcionada para esses dispositivos. Certifique-se de que a reversão foi concluída com êxito ao visualizar as métricas: A configuração de revertidas deve deixar de Mostrar estado dos dispositivos untargeted e métricas da configuração segundo devem incluir agora contagens para os dispositivos que ainda são visados.
+* **Executar reversões em caso de erros ou configurações incorretas:**  Uma configuração de dispositivo automática que causa erros ou configurações incorretas pode ser revertida alterando a **condição de destino** para que os dispositivos não atendam mais à condição de direcionamento. Verifique se outra configuração automática de dispositivo de prioridade mais baixa ainda é direcionada para esses dispositivos. Verifique se a reversão foi bem-sucedida exibindo as métricas: a configuração revertida não deve mais mostrar o status de dispositivos não direcionados e as métricas da segunda configuração agora devem incluir contagens para os dispositivos que ainda estão direcionados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre a implementação de dispositivos duplos no [compreender e utilizar dispositivos duplos no IoT Hub](iot-hub-devguide-device-twins.md).
+* Saiba mais sobre como implementar dispositivos gêmeos em [entender e usar dispositivos gêmeos no Hub IOT](iot-hub-devguide-device-twins.md).
 
-* Siga os passos para criar, atualizar ou eliminar uma configuração de automático de dispositivos na [configurar e monitorizar dispositivos de IoT em escala](iot-hub-auto-device-config.md).
+* Percorra as etapas para criar, atualizar ou excluir uma configuração de dispositivo automática em [configurar e monitorar dispositivos IOT em escala](iot-hub-auto-device-config.md).
 
-* Implementar um padrão de atualização de firmware a utilizar dispositivos duplos e configurações de automático de dispositivos no [Tutorial: Implementar um processo de atualização de firmware do dispositivo](tutorial-firmware-update.md).
+* Implementar um padrão de atualização de firmware usando dispositivos gêmeos e configurações de dispositivo automáticas no [tutorial: implementar um processo de atualização de firmware de dispositivo](tutorial-firmware-update.md).

@@ -4,16 +4,16 @@ ms.service: billing
 ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
-ms.openlocfilehash: ea7add9277dde79d0dd2bf960d287f3aba0c3df9
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 8767340ffc749381a932c51f926376be66f8b4e5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375406"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850460"
 ---
 Verifique o tipo de contrato para determinar se tem acesso a uma conta de faturação de um Contrato de Cliente Microsoft.
  
-1. Inicie sessão no [portal do Azure]( http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
  
 2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
  

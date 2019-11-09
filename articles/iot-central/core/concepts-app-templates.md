@@ -7,16 +7,16 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: eb7319d665f228c552423a60a3b1529dc9b1143f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3389744c44f7eb4f11a1c9a53ea9e370b83dd79b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583219"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890829"
 ---
 # <a name="what-are-application-templates"></a>O que são modelos de aplicativos?
 
-Os modelos de aplicativo no Azure IoT Central são uma ferramenta para ajudar os criadores de solução a início rápido seu desenvolvimento de solução de IoT. Você pode usar modelos de aplicativo para tudo, desde o que é possível, a personalização e o branco de rotulagem do seu aplicativo para revenda a seus clientes.
+Os modelos de aplicativo no Azure IoT Central são uma ferramenta para ajudar os criadores de solução a início rápido seu desenvolvimento de solução de IoT. Você pode usar modelos de aplicativo para tudo, desde o que é possível, para personalizar totalmente e seu aplicativo para revenda para seus clientes.
 
 Os modelos de aplicativo consistem em:
 
@@ -26,7 +26,32 @@ Os modelos de aplicativo consistem em:
 - Regras e trabalhos pré-configurados
 - Documentação avançada, incluindo tutoriais e instruções
 
-## <a name="industry-focused-app-templates"></a>Modelos de aplicativo focados no setor
+## <a name="preview-templates"></a>Modelos de visualização
+
+Sua escolha de modelo de aplicativo determina se seu aplicativo usa IoT Central recursos de visualização, como Plug and Play para dispositivos.
+
+Atualmente, os modelos de aplicativos que usam recursos _geralmente disponíveis_ são:
+
+- Aplicativo personalizado > aplicativos personalizados
+- Aplicativo personalizado > exemplo de contoso
+- Aplicativo personalizado > exemplo devkits
+
+Atualmente, os modelos de aplicativo que usam recursos de _Visualização pública_ são:
+
+- Aplicativo de visualização de > de aplicativo personalizado
+- Logística de varejo > conectada
+- Centro de distribuição digital de > de varejo
+- Retail > Analytics na loja – monitoramento de condição
+- Retail > Analytics na loja – check-out
+- Gerenciamento de inventário inteligente do > de varejo
+- Monitoramento de medidor inteligente de energia >
+- Monitoramento do painel solar de energia >
+- Gerenciamento de lixo conectado > governamental
+- Monitoramento de consumo de água do governo >
+- Monitoramento de qualidade de água do governo > aquático
+- Assistência médica > monitoramento contínuo de pacientes
+
+## <a name="industry-focused-templates"></a>Modelos focados no setor
 
 O Azure IoT Central é uma plataforma de aplicativo independente do setor. Os modelos de aplicativo são exemplos voltados para o setor disponíveis para esses setores hoje, com mais informações sobre o futuro:
 
@@ -48,4 +73,4 @@ O Azure IoT Central é uma plataforma de aplicativo independente do setor. Os mo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você sabe o que são os modelos de aplicativo IoT Central, comece [criando um aplicativo IOT central](quick-deploy-iot-central-pnp.md).
+Agora que você sabe o que são os modelos de aplicativo IoT Central, comece [criando um aplicativo IOT central](quick-deploy-iot-central.md).
