@@ -1,6 +1,6 @@
 ---
 title: Convidar usuários para o Video Indexer-Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Este artigo mostra como convidar usuários para Video Indexer.
 services: media-services
 author: ReutAmior
@@ -10,14 +10,14 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 740b03179fad91e9042a54f8e74a622b3125b832
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: c1395bc3b329630a1ecbd479d275c30c9c787bb1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950186"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839019"
 ---
-# <a name="quickstart-invite-users-to-video-indexer"></a>Início rápido: Convidar usuários para Video Indexer
+# <a name="quickstart-invite-users-to-video-indexer"></a>Início rápido: convidar usuários para Video Indexer
 
 Para colaborar com seus colegas, você pode convidá-los para sua conta de Video Indexer. 
 
@@ -55,7 +55,7 @@ Os usuários não recebem uma notificação após a remoção. Depois de removid
 
 Agora você pode usar o [Video indexer site](video-indexer-view-edit.md) ou [Video indexer portal do desenvolvedor](video-indexer-use-apis.md) para ver as informações do vídeo.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consultar também
 
 - [Descrição geral do Video Indexer](video-indexer-overview.md)
 - [Como se inscrever e carregar seu primeiro vídeo](video-indexer-get-started.md)

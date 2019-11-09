@@ -1,18 +1,18 @@
 ---
 title: Como montar o armazenamento de BLOBs do Azure como um sistema de arquivos no Linux | Microsoft Docs
 description: Montar um contêiner de armazenamento de BLOBs do Azure com fusível no Linux
-author: normesta
+author: rishabpoh
 ms.service: storage
 ms.topic: conceptual
 ms.date: 2/1/2019
-ms.author: normesta
+ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: 88002999baacf38b4afd40b574686457c48546e4
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 35a4313d10231aec74685069a67d803ea32e68b1
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845019"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847548"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Como montar o armazenamento de BLOBs como um sistema de arquivos com o blobfuse
 
@@ -27,7 +27,7 @@ Este guia mostra como usar o blobfuse e montar um contêiner de armazenamento de
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Instalar o blobfuse no Linux
-Os binários do Blobfuse estão disponíveis nos repositórios de [software da Microsoft para](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) as distribuições do Linux para Ubuntu e RHEL. Para instalar o blobfuse nessas distribuições, configure um dos repositórios da lista. Você também pode criar os binários do código-fonte seguindo as [etapas de instalação do armazenamento do Azure](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) se não houver binários disponíveis para sua distribuição.
+Os binários do Blobfuse estão disponíveis nos [repositórios de software da Microsoft para](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) as distribuições do Linux para Ubuntu e RHEL. Para instalar o blobfuse nessas distribuições, configure um dos repositórios da lista. Você também pode criar os binários do código-fonte seguindo as [etapas de instalação do armazenamento do Azure](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) se não houver binários disponíveis para sua distribuição.
 
 O Blobfuse dá suporte à instalação no Ubuntu 14, 4, 16, 4 e 18, 4. Execute este comando para certificar-se de que você tem uma dessas versões implantadas:
 ```
@@ -42,7 +42,7 @@ Por exemplo, em uma distribuição Enterprise Linux 6:
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/6/packages-microsoft-prod.rpm
 ```
 
-Da mesma forma, altere a `.../rhel/7/...` URL para para apontar para uma distribuição Enterprise Linux 7.
+Da mesma forma, altere a URL para `.../rhel/7/...` para apontar para uma distribuição Enterprise Linux 7.
 
 Outro exemplo em uma distribuição do Ubuntu 14, 4:
 ```bash
@@ -51,7 +51,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-Da mesma forma, altere a `.../ubuntu/16.04/...` URL `.../ubuntu/18.04/...` para ou para fazer referência a outra versão do Ubuntu.
+Da mesma forma, altere a URL para `.../ubuntu/16.04/...` ou `.../ubuntu/18.04/...` para fazer referência a outra versão do Ubuntu.
 
 ### <a name="install-blobfuse"></a>Instalar o blobfuse
 
@@ -111,7 +111,7 @@ chmod 600 fuse_connection.cfg
 ```
 
 > [!NOTE]
-> Se você tiver criado o arquivo de configuração no Windows, certifique-se `dos2unix` de executar para limpar e converter o arquivo para o formato UNIX. 
+> Se você tiver criado o arquivo de configuração no Windows, certifique-se de executar `dos2unix` para limpar e converter o arquivo em formato UNIX. 
 >
 
 ### <a name="create-an-empty-directory-for-mounting"></a>Criar um diretório vazio para montagem
@@ -125,13 +125,13 @@ mkdir ~/mycontainer
 > Para obter uma lista completa de opções de montagem, verifique [o repositório blobfuse](https://github.com/Azure/azure-storage-fuse#mount-options).  
 > 
 
-Para montar o blobfuse, execute o comando a seguir com o usuário. Este comando monta o contêiner especificado em '/path/to/fuse_connection.cfg ' no local '/MyContainer '.
+Para montar o blobfuse, execute o comando a seguir com o usuário. Este comando monta o contêiner especificado em '/path/to/fuse_connection. cfg ' no local '/MyContainer '.
 
 ```bash
 sudo blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
 
-Agora você deve ter acesso aos seus blobs de blocos por meio das APIs regulares do sistema de arquivos. O usuário que monta o diretório é a única pessoa que pode acessá-lo, por padrão, que protege o acesso. Para permitir o acesso a todos os usuários, você pode montar por ```-o allow_other```meio da opção. 
+Agora você deve ter acesso aos seus blobs de blocos por meio das APIs regulares do sistema de arquivos. O usuário que monta o diretório é a única pessoa que pode acessá-lo, por padrão, que protege o acesso. Para permitir o acesso a todos os usuários, você pode montar por meio da opção ```-o allow_other```. 
 
 ```bash
 cd ~/mycontainer
@@ -139,7 +139,7 @@ mkdir test
 echo "hello world" > test/blob.txt
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [home page Blobfuse](https://github.com/Azure/azure-storage-fuse#blobfuse)
 * [Relatar problemas de blobfuse](https://github.com/Azure/azure-storage-fuse/issues) 

@@ -1,17 +1,17 @@
 ---
 title: Modelos de Azure Resource Manager para Azure Cosmos DB
 description: Use modelos de Azure Resource Manager para criar e configurar Azure Cosmos DB.
-author: markjbrown
+author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: ecdfe89e899e0d416784ae32a0d66b335c09e2b6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/07/2019
+ms.author: thvankra
+ms.openlocfilehash: 7c508d736c7c04cc6df2b42e0a90a2906052adbc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582813"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835523"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Modelos de Azure Resource Manager para Azure Cosmos DB
 
@@ -37,8 +37,6 @@ As tabelas a seguir incluem links para modelos de Azure Resource Manager para Az
 |**Modelo**|**Descrição**|
 |---| ---|
 |[Criar uma conta do Azure Cosmos, keyspace, tabela](manage-cassandra-with-resource-manager.md#create-resource) | Este modelo cria uma conta de API do Cassandra em duas regiões com vários mestres habilitados. A conta do Azure Cosmos terá duas tabelas que compartilham a taxa de transferência de nível de espaço. |
-|[Taxa de transferência de atualização (RU/s) para um keyspace](manage-cassandra-with-resource-manager.md#keyspace-ru-update) | Este modelo atualiza a taxa de transferência para um keyspace em uma conta de API do Cassandra. |
-|[Atualizar taxa de transferência (RU/s) para uma tabela](manage-cassandra-with-resource-manager.md#table-ru-update) | Este modelo atualiza a taxa de transferência de uma tabela em uma conta de API do Cassandra. |
 
 ## <a name="gremlin-api"></a>API do Gremlin
 

@@ -1,6 +1,6 @@
 ---
 title: Criar uma conta de Video Indexer no portal do Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Este artigo mostra como criar uma conta de Video Indexer no portal do Azure.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: 0f67b2e37e264febf11f3fa55b4469d392c59712
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: dc844392d64178cb9000db15af39f923521efc19
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815678"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838388"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta de Video Indexer conectada ao Azure
 
@@ -72,7 +72,7 @@ Procure **Microsoft. Media** e **Microsoft. EventGrid**. Se não estiver no esta
 
     ![conectar Video Indexer ao Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
-4. Selecione uma região do Azure nos locais com suporte: Oeste dos EUA 2, Europa Setentrional ou Ásia Oriental.
+4. Selecione uma região do Azure nos locais com suporte: oeste dos EUA 2, Europa Setentrional ou Ásia Oriental.
 5. Em **conta dos serviços de mídia do Azure**, escolha uma destas opções:
 
     * Para criar uma nova conta de serviços de mídia, selecione **criar novo grupo de recursos**. Forneça um nome para seu grupo de recursos.
@@ -127,7 +127,7 @@ Se a conexão com o Azure falhar, você poderá tentar solucionar o problema con
     2. Selecione o [método de autenticação da entidade de serviço](../previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).
     3. Obtenha a ID do cliente e o segredo do cliente, conforme descrito na seção [obter a ID do cliente e o segredo do cliente](../previous/media-services-portal-get-started-with-aad.md#get-the-client-id-and-client-secret) .
 
-        Depois de selecionar **as configurações**->**chaves**, adicionar **Descrição**, pressione **salvar**, o valor da chave será preenchido.
+        Depois de selecionar **configurações**->**chaves**, adicionar **Descrição**, pressione **salvar**, o valor da chave será preenchido.
 
         Se a chave expirar, o proprietário da conta precisará entrar em contato com Video Indexer suporte para renovar a chave.
 
@@ -148,7 +148,7 @@ Na caixa de diálogo, forneça as seguintes informações:
 |Nome do grupo de recursos dos serviços de mídia do Azure|O nome do grupo de recursos no qual você criou a conta dos serviços de mídia.|
 |Nome do recurso do serviço de mídia|O nome da conta dos serviços de mídia do Azure que você criou na seção anterior.|
 |ID da aplicação|A ID do aplicativo do Azure AD (com permissões para a conta de serviços de mídia especificada) que você criou na seção anterior.|
-|Chave da Aplicação|A chave de aplicativo do Azure AD que você criou na seção anterior. |
+|Chave do aplicativo|A chave de aplicativo do Azure AD que você criou na seção anterior. |
 
 ## <a name="considerations"></a>Considerações
 
@@ -165,7 +165,7 @@ As seguintes considerações relacionadas aos serviços de mídia do Azure se ap
 
 * Se você se conectar a uma nova conta dos serviços de mídia, Video Indexer iniciar automaticamente o **ponto de extremidade de streaming** padrão nele:
 
-    ![Ponto final de transmissão em fluxo dos serviços de multimédia](./media/create-account/ams-streaming-endpoint.png)
+    ![Ponto de extremidade de streaming dos serviços de mídia](./media/create-account/ams-streaming-endpoint.png)
 
     Os pontos de extremidade de streaming têm um tempo de inicialização considerável. Portanto, pode levar vários minutos a partir do momento em que você conectou sua conta ao Azure, até que seus vídeos possam ser transmitidos e observados no aplicativo Web Video Indexer.
 
@@ -173,7 +173,7 @@ As seguintes considerações relacionadas aos serviços de mídia do Azure se ap
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você pode interagir de forma programática com sua conta de avaliação e/ou com suas contas de Video Indexer que estão conectadas ao Azure seguindo as instruções em: [Usar APIs](video-indexer-use-apis.md).
+Você pode interagir de forma programática com sua conta de avaliação e/ou com suas contas de Video Indexer que estão conectadas ao Azure seguindo as instruções em: [usar APIs](video-indexer-use-apis.md).
 
 Você deve usar o mesmo usuário do Azure AD usado ao conectar-se ao Azure.
 

@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 2a8a19dfd2cdc7a64a5ea90b96808963b19f73bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4b07252aed2205917f6b43e3e09a2877663e5bab
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498639"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838905"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de suporte para avaliar e migrar o VMware
 
@@ -27,7 +27,7 @@ A tabela resume os cenários com suporte para VMs VMware.
 **Implementação** | **Detalhes**
 --- | ---
 **Avaliar VMs VMware locais** | [Configure](tutorial-prepare-vmware.md) sua primeira avaliação.<br/><br/> [Execute](scale-vmware-assessment.md) uma avaliação em larga escala.
-**Migrar VMs VMware** | Você pode migrar usando a migração sem agente ou usar uma migração baseada em agente. [Saber mais](server-migrate-overview.md)
+**Migrar VMs VMware** | Você pode migrar usando a migração sem agente ou usar uma migração baseada em agente. [Saiba mais](server-migrate-overview.md)
 
 
 ## <a name="azure-migrate-projects"></a>Projetos de migrações para Azure
@@ -112,7 +112,7 @@ dc.services.visualstudio.com | Carregar logs de aplicativo usados para monitoram
 *.servicebus.windows.net | Comunicação entre o dispositivo e o serviço de migrações para Azure.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Conecte-se às URLs de serviço de migrações para Azure.
 *.blob.core.windows.net | Carregar dados para contas de armazenamento.
-http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Usado para atualizações do dispositivo de migração do Azure.
+https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Usado para atualizações do dispositivo de migração do Azure.
 
 ## <a name="assessment-port-requirements"></a>Avaliação – requisitos de porta
 
@@ -168,7 +168,7 @@ Máquina virtual. interação. desligar | Permitir que a VM seja desligada duran
 **Suporte** | **Detalhes**
 --- | ---
 **Sistemas operativos suportados** | Os sistemas operacionais [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) com suporte do Azure podem ser migrados usando a migração sem agente.
-**Alterações necessárias para o Azure** | Algumas VMs podem exigir alterações para que possam ser executadas no Azure. As migrações para Azure fazem essas alterações automaticamente para os seguintes sistemas operacionais:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> Para outros sistemas operacionais, você precisa fazer ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazer isso.
+**Alterações necessárias para o Azure** | Algumas VMs podem exigir alterações para que possam ser executadas no Azure. As migrações para Azure fazem essas alterações automaticamente para os seguintes sistemas operacionais:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> - SUSE Linux Enterprise Server 12 SP1+<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> Para outros sistemas operacionais, você precisa fazer ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazer isso.
 **Inicialização do Linux** | Se/boot estiver em uma partição dedicada, ele deverá residir no disco do sistema operacional e não poderá ser distribuído em vários discos.<br/> Se/boot fizer parte da partição raiz (/), a partição '/' deverá estar no disco do sistema operacional e não poderá abranger outros discos.
 **Inicialização UEFI** | As VMs com inicialização UEFI não têm suporte para migração.
 **Tamanho do disco** | disco do sistema operacional de 2 TB; 4 TB para discos de dados.
@@ -177,7 +177,7 @@ Máquina virtual. interação. desligar | Permitir que a VM seja desligada duran
 **Cluster de disco compartilhado** | Não suportado.
 **Discos independentes** | Não suportado.
 **Discos de RDM/PassThrough** | Se as VMs tiverem discos RDM ou de passagem, esses discos não serão replicados para o Azure.
-**-** | Volumes NFS montados como volumes nas VMs não serão replicados.
+**NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
 **destinos iSCSI** | Não há suporte para VMs com destinos iSCSI para migração sem agente.
 **E/s de vários caminhos** | Não suportado.
 **VMotion de armazenamento** | Não suportado. A replicação não funcionará se uma VM usar o Storage vMotion.
@@ -215,7 +215,7 @@ dc.services.visualstudio.com | Carregar logs de aplicativo usados para monitoram
 *.servicebus.windows.net | Comunicação entre o dispositivo e o serviço de migrações para Azure.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Conecte-se às URLs de serviço de migrações para Azure.
 *.blob.core.windows.net | Carregar dados para contas de armazenamento.
-http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Usado para atualizações do dispositivo de migração do Azure.
+https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Usado para atualizações do dispositivo de migração do Azure.
 
 
 ## <a name="agentless-migration-port-requirements"></a>Migração sem agente – requisitos de porta
@@ -268,7 +268,7 @@ TLS | O TLS 1,2 deve estar habilitado.
 MySQL | O MySQL deve ser instalado no dispositivo.<br/> O MySQL deve ser instalado. Você pode instalar manualmente ou Site Recovery pode instalá-lo durante a implantação do dispositivo.
 Outros aplicativos | Não execute outros aplicativos no dispositivo de replicação.
 Funções do Windows Server | Não habilite estas funções: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V
-Políticas de grupo | Não habilite essas políticas de Grupo: <br> -Impedir o acesso ao prompt de comando. <br> -Impedir o acesso às ferramentas de edição do registro. <br> -Lógica de confiança para anexos de arquivo. <br> -Ative a execução do script. <br> [Saber mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+Políticas de grupo | Não habilite essas políticas de Grupo: <br> -Impedir o acesso ao prompt de comando. <br> -Impedir o acesso às ferramentas de edição do registro. <br> -Lógica de confiança para anexos de arquivo. <br> -Ative a execução do script. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | -Nenhum site padrão já existente <br> -Nenhum site/aplicativo já existente escutando na porta 443 <br>-Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Habilitar configuração de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)
 **Configurações de rede** |
 Tipo de endereço IP | Estático
@@ -323,7 +323,7 @@ Baixar e instalar em migrações para Azure | Quando você instalar o dispositiv
 **Cluster de disco compartilhado** | Não suportado.
 **Discos independentes** | Suportado.
 **Discos de passagem** | Suportado.
-**-** | Volumes NFS montados como volumes nas VMs não serão replicados.
+**NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
 destinos iSCSI | Não há suporte para VMs com destinos iSCSI para migração sem agente.
 **E/s de vários caminhos** | Não suportado.
 **VMotion de armazenamento** | Suportado

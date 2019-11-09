@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: a5176f74964e0809cea39aa160943cc6f3451237
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: a2f6d7f881e404e9e4dbdb8087cabf25f67d561b
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176518"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847310"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como usar identidades gerenciadas para o serviço de aplicativo e Azure Functions
 
@@ -41,7 +41,7 @@ Para configurar uma identidade gerenciada no portal, primeiro você criará um a
 
 2. Se estiver usando um aplicativo de funções, navegue até **recursos da plataforma**. Para outros tipos de aplicativos, role para baixo até o grupo **configurações** no painel de navegação esquerdo.
 
-3. Selecione **identidade gerenciada**.
+3. Selecione **identidade**.
 
 4. Na guia **atribuído pelo sistema** , alterne o **status** para **ativado**. Clique em **Guardar**.
 
@@ -168,7 +168,7 @@ Primeiro, você precisará criar um recurso de identidade atribuído pelo usuár
 
 3. Se estiver usando um aplicativo de funções, navegue até **recursos da plataforma**. Para outros tipos de aplicativos, role para baixo até o grupo **configurações** no painel de navegação esquerdo.
 
-4. Selecione **identidade gerenciada**.
+4. Selecione **identidade**.
 
 5. Na guia **atribuído pelo usuário** , clique em **Adicionar**.
 
@@ -193,7 +193,7 @@ Qualquer recurso do tipo `Microsoft.Web/sites` pode ser criado com uma identidad
 > [!NOTE] 
 > Um aplicativo pode ter identidades atribuídas pelo sistema e atribuídas pelo usuário ao mesmo tempo. Nesse caso, a propriedade `type` seria `SystemAssigned,UserAssigned`
 
-Adicionar o tipo atribuído pelo usuário e um o informa ao Azure para criar e gerenciar a identidade do seu aplicativo.
+Adicionar o tipo atribuído pelo usuário informa ao Azure para usar a identidade atribuída pelo usuário especificada para seu aplicativo.
 
 Por exemplo, um aplicativo Web pode ser semelhante ao seguinte:
 ```json
@@ -252,7 +252,7 @@ Há um protocolo REST simples para obter um token no serviço de aplicativo e Az
 Um aplicativo com uma identidade gerenciada tem duas variáveis de ambiente definidas:
 
 - MSI_ENDPOINT-a URL para o serviço de token local.
-- MSI_SECRET-um cabeçalho usado para ajudar a mitigar ataques de SSRF (falsificação de solicitação no lado do servidor). O valor é girado pela plataforma.
+- MSI_SECRET-um cabeçalho usado para ajudar a mitigar ataques SSRF (falsificação de solicitação no lado do servidor). O valor é girado pela plataforma.
 
 O **MSI_ENDPOINT** é uma URL local da qual seu aplicativo pode solicitar tokens. Para obter um token para um recurso, faça uma solicitação HTTP GET para esse ponto de extremidade, incluindo os seguintes parâmetros:
 

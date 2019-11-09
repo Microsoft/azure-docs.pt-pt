@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 11/07/2019
 ms.author: juliako
-ms.openlocfilehash: c402381534087f1e8cdab711bd1b2a34c78417f4
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 7b4e2d14e8719808db138a4f2607b19cece401a6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675729"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839590"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurar o postmaster para chamadas da API REST dos serviços de mídia
 
@@ -92,7 +92,12 @@ Antes de começar a manipular os recursos do AMS v3, você precisa obter e defin
 
     ![Obter token do AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
-## <a name="see-also"></a>Ver também
+## <a name="troubleshooting"></a>Resolução de problemas 
+
+* Se seu aplicativo falhar com "HTTP 504: tempo limite do gateway", verifique se a variável de local não foi definida explicitamente com um valor diferente do local esperado da conta dos serviços de mídia. 
+* Se você receber um erro "conta não encontrada", verifique também se a propriedade local na mensagem JSON do corpo está definida como o local em que a conta dos serviços de mídia está. 
+
+## <a name="see-also"></a>Consultar também
 
 - [Carregar arquivos em uma conta dos serviços de mídia-REST](upload-files-rest-how-to.md)
 - [Criar filtros com os serviços de mídia-REST](filters-dynamic-manifest-rest-howto.md)

@@ -1,7 +1,7 @@
 ---
-title: Retornar N-melhores conversões-API de Tradução de Texto
+title: Retornar N-melhores conversões-Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Retornar N-melhores conversões usando o Microsoft API de Tradução de Texto.
+description: Retornar N-melhores conversões usando o API de Tradução de Texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,13 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 7aec6bb81f3ca99ead744767668c2e4f1d1d4d53
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ROBOTS: NOINDEX
+ms.openlocfilehash: eff25877165ac365e0af77651147fcdd1eebe294
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594882"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837248"
 ---
 # <a name="how-to-return-n-best-translations"></a>Como retornar N-melhores conversões
 
@@ -31,26 +32,26 @@ A assinatura é:
 
 | C# |
 |:---|
-| GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); |
+| GetTranslationsResponse Microsoft. Translator. gettranslates (appId, Text, from, to, maxTranslations, Options); |
 
 **Parâmetros**
 
 | Parâmetro | Descrição |
 |:---|:---|
 | appId | **Necessário** Se o cabeçalho de autorização for usado, deixe o campo AppID vazio, caso contrário, especifique uma cadeia de caracteres contendo "portador" + "" + token de acesso.|
-| text | **Necessário** Uma cadeia de caracteres que representa o texto a ser traduzido. O tamanho do texto não deve exceder 10000 caracteres.|
-| from | **Necessário** Uma cadeia de caracteres que representa o código de idioma do texto a ser traduzido. |
+| texto | **Necessário** Uma cadeia de caracteres que representa o texto a ser traduzido. O tamanho do texto não deve exceder 10000 caracteres.|
+| De | **Necessário** Uma cadeia de caracteres que representa o código de idioma do texto a ser traduzido. |
 | para | **Necessário** Uma cadeia de caracteres que representa o código de idioma no qual converter o texto. |
 | maxTranslations | **Necessário** Um int que representa o número máximo de conversões a serem retornadas. |
-| options | **Opcional** Um objeto translateoptions que contém os valores listados abaixo. Eles são todos opcionais e padrão para as configurações mais comuns.
+| Opções | **Opcional** Um objeto translateoptions que contém os valores listados abaixo. Eles são todos opcionais e padrão para as configurações mais comuns.
 
-* Categorias O único com suporte e a opção padrão é "geral".
-* ContentType: O único com suporte e a opção default é "text/plain".
-* Estado: Estado do usuário para ajudar a correlacionar a solicitação e a resposta. O mesmo conteúdo será retornado na resposta.
+* Categoria: o único com suporte e a opção padrão é "geral".
+* ContentType: o único com suporte e a opção default é "text/plain".
+* Estado: estado do usuário para ajudar a correlacionar a solicitação e a resposta. O mesmo conteúdo será retornado na resposta.
 * IncludeMultipleMTAlternatives: sinalizador para determinar se deve retornar mais de uma alternativa do mecanismo MT. O padrão é false e inclui apenas uma alternativa.
 
 ## <a name="ratings"></a>As
-As classificações são aplicadas da seguinte maneira: A melhor tradução automática tem uma classificação de 5.
+As classificações são aplicadas da seguinte maneira: a melhor tradução automática tem uma classificação de 5.
 As alternativas de tradução (N-melhor) geradas automaticamente têm uma classificação de 0 e têm um grau de correspondência de 100.
 
 ## <a name="number-of-alternatives"></a>Número de alternativas

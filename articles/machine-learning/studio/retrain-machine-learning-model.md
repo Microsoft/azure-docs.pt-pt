@@ -1,6 +1,6 @@
 ---
 title: Requalificar um serviço Web
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Saiba como atualizar um serviço Web para usar um modelo de aprendizado de máquina treinado recentemente no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: e35ab4b3a45edd5a1172bc3a07d7c31abd2135f7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c24eb50688efcf220b26b5a0f352d012876dbab3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684767"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838671"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Readaptação e implantação de um modelo de aprendizado de máquina
 

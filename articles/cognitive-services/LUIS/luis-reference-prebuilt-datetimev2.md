@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 4c16953d3c708516edbe0b3c13b091dc3181b187
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 75d1f2b6facd438e329555d8595fe159565dbb74
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465073"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837357"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida DatetimeV2 para um aplicativo LUIS
 
@@ -119,7 +119,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 |tipo|**String** -um dos [subtipos de datetimeV2](#subtypes-of-datetimev2)
 |startIndex|**int** -o índice no expressão em que a entidade começa.|
 |endIndex|**int** -o índice no expressão em que a entidade termina.|
-|Resolução|Tem uma matriz `values` que tem um, dois ou quatro [valores de resolução](#values-of-resolution).|
+|resolução|Tem uma matriz `values` que tem um, dois ou quatro [valores de resolução](#values-of-resolution).|
 |completo|O valor final de um intervalo de tempo ou de data, no mesmo formato que `value`. Usado somente se `type` for `daterange`, `timerange`ou `datetimerange`|
 
 * * * 
@@ -147,7 +147,7 @@ Cada elemento da matriz de `values` pode ter os seguintes campos:
 |--|--|
 |Timex|hora, data ou intervalo de datas expresso no formato TIMEX que segue os atributos [padrão ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e TIMEX3 para anotação usando o idioma TimeML. Essa anotação é descrita nas [diretrizes do Timex](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
 |tipo|O subtipo, que pode ser um dos seguintes itens: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
-|valor|**Adicional.** Um objeto DateTime no formato aaaa: MM: DD (Date), HH: mm: SS (time) aaaa: MM: DD HH: mm: SS (DateTime). Se `type` for `duration`, o valor será o número de segundos (duração) <br/> Usado somente se `type` for `datetime` ou `date`, `time`ou ' duração '.|
+|valor|**Adicional.** Um objeto DateTime no formato AAAA-MM-DD (Date), HH: mm: SS (time) aaaa-MM-DD HH: mm: SS (DateTime). Se `type` for `duration`, o valor será o número de segundos (duração) <br/> Usado somente se `type` for `datetime` ou `date`, `time`ou ' duração '.|
 
 ## <a name="valid-date-values"></a>Valores de data válidos
 

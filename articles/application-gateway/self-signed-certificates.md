@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 659c4cb3a6f0d50176875b76eeb2784c711eafd1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 84a46e66bb6c36950a84fbeb2dacc3a8d6bcc241
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967148"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833375"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Gerar um certificado autoassinado de Aplicativo Azure gateway com uma autoridade de certificação raiz Personalizada
 
@@ -23,7 +23,7 @@ O gateway de aplicativo confia no certificado do site por padrão se ele é assi
 > [!NOTE]
 > Os certificados autoassinados não são confiáveis por padrão e podem ser difíceis de manter. Além disso, eles podem usar hash desatualizado e conjuntos de codificação que podem não ser fortes. Para obter mais segurança, adquira um certificado assinado por uma autoridade de certificação conhecida.
 
-Neste artigo, ficará a saber como:
+Neste artigo, você aprenderá a:
 
 - Criar sua própria autoridade de certificação personalizada
 - Criar um certificado autoassinado assinado por sua autoridade de certificação personalizada
@@ -40,7 +40,7 @@ Neste artigo, ficará a saber como:
 
 - **Um SKU do gateway de aplicativo v2**
    
-  Se você não tiver um gateway de aplicativo existente, [consulte início rápido: Direcionar o tráfego da Web com Aplicativo Azure](quick-create-portal.md)gateway portal do Azure.
+  Se você não tiver um gateway de aplicativo existente, consulte [início rápido: tráfego direto da Web com aplicativo Azure gateway-portal do Azure](quick-create-portal.md).
 
 ## <a name="create-a-root-ca-certificate"></a>Criar um certificado de autoridade de certificação raiz
 
@@ -87,7 +87,7 @@ Use o comando a seguir para gerar a chave para o certificado do servidor.
 O CSR é uma chave pública que é dada a uma CA ao solicitar um certificado. A CA emite o certificado para essa solicitação específica.
 
 > [!NOTE]
-> O CN (nome comum) para o certificado do servidor deve ser diferente do domínio do emissor. Por exemplo, nesse caso, o CN para o emissor é www.contoso.com e o CN do certificado do servidor é www.fabrikam.com
+> O CN (nome comum) para o certificado do servidor deve ser diferente do domínio do emissor. Por exemplo, nesse caso, o CN para o emissor é `www.contoso.com` e o CN do certificado do servidor é `www.fabrikam.com`.
 
 
 1. Use o seguinte comando para gerar o CSR:
@@ -96,9 +96,9 @@ O CSR é uma chave pública que é dada a uma CA ao solicitar um certificado. A 
    openssl req -new -sha256 -key fabrikam.key -out fabrikam.csr
    ```
 
-1. Quando solicitado, digite a senha para a chave raiz e as informações organizacionais para a autoridade de certificação personalizada: País, estado, org, UO e o nome de domínio totalmente qualificado. Esse é o domínio do site e deve ser diferente do emissor.
+1. Quando solicitado, digite a senha da chave raiz e as informações organizacionais para a autoridade de certificação personalizada: país, estado, org, OU e o nome de domínio totalmente qualificado. Esse é o domínio do site e deve ser diferente do emissor.
 
-   ![Certificado de servidor](media/self-signed-certificates/server-cert.png)
+   ![Certificado do servidor](media/self-signed-certificates/server-cert.png)
 
 ### <a name="generate-the-certificate-with-the-csr-and-the-key-and-sign-it-with-the-cas-root-key"></a>Gere o certificado com o CSR e a chave e assine-o com a chave raiz da autoridade de certificação
 
@@ -130,7 +130,7 @@ No servidor Web, configure o SSL usando os arquivos fabrikam. CRT e fabrikam. Ke
 
 ### <a name="iis"></a>IIS
 
-Para obter instruções sobre como importar o certificado e carregá-los como certificado do servidor no [IIS, consulte Como: Instalar certificados importados em um servidor Web no Windows](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server)Server 2003.
+Para obter instruções sobre como importar o certificado e carregá-los como certificado do servidor no IIS, consulte [como instalar certificados importados em um servidor Web no Windows server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
 
 Para obter instruções de associação SSL, consulte [como configurar o SSL no IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
 
@@ -161,7 +161,7 @@ A configuração a seguir é um [bloco de servidor Nginx](https://nginx.org/docs
    ![Certificados raiz confiáveis](media/self-signed-certificates/trusted-root-cert.png)
 
    > [!NOTE]
-   > Supõe-se que o DNS foi configurado para apontar o nome do servidor Web (neste exemplo, www.fabrikam.com) para o endereço IP do seu servidor Web. Caso contrário, você pode editar o [arquivo](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) de hosts para resolver o nome.
+   > Supõe-se que o DNS foi configurado para apontar o nome do servidor Web (neste exemplo, www.fabrikam.com) para o endereço IP do seu servidor Web. Caso contrário, você pode editar o [arquivo de hosts](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) para resolver o nome.
 1. Navegue até seu site e clique no ícone de cadeado na caixa de endereço do navegador para verificar as informações do site e do certificado.
 
 ## <a name="verify-the-configuration-with-openssl"></a>Verificar a configuração com OpenSSL
@@ -268,7 +268,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
     ![Investigação de HTTPS](media/self-signed-certificates/https-probe.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o SSL\TLS no gateway de aplicativo, consulte [visão geral da terminação SSL e SSL de ponta a ponta com o gateway de aplicativo](ssl-overview.md).
 

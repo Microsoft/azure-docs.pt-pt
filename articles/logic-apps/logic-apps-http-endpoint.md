@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: 41173e088b000530030b24400640f8003f330db6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 27a3bf036cce27a5f215068ff71928cb7e181452
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580957"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833931"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Chamar, disparar ou aninhar aplicativos lógicos usando pontos de extremidade HTTP em aplicativos lógicos do Azure
 
@@ -39,11 +39,11 @@ Se você for novo em aplicativos lógicos, consulte [o que é o início rápido 
 
 ## <a name="create-a-callable-endpoint"></a>Criar um ponto de extremidade que possa ser chamado
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Crie e abra um aplicativo lógico em branco no designer de aplicativo lógico.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Crie e abra um aplicativo lógico em branco no designer de aplicativo lógico.
 
    Este exemplo usa o gatilho Request, mas você pode usar qualquer gatilho que possa receber solicitações HTTP de entrada. Todos os princípios se aplicam de forma idêntica a esses gatilhos. Para obter mais informações sobre o gatilho de solicitação, consulte [receber e responder a chamadas HTTPS de entrada usando o aplicativo lógico do Azure](../connectors/connectors-native-reqres.md).
 
-1. Na caixa de pesquisa, selecione **interno**. Na caixa de pesquisa, digite `request` como seu filtro. Na lista de gatilhos, selecione **quando uma solicitação HTTP é recebida**.
+1. Na caixa de pesquisa, selecione **interno**. Na caixa de pesquisa, insira `request` como seu filtro. Na lista de gatilhos, selecione **quando uma solicitação HTTP é recebida**.
 
    ![Localizar e selecionar o gatilho de solicitação](./media/logic-apps-http-endpoint/find-and-select-request-trigger.png)
 
@@ -143,7 +143,7 @@ Por padrão, o gatilho de solicitação espera uma solicitação HTTP POST. No e
 
 ## <a name="accept-parameters-in-endpoint-url"></a>Aceitar parâmetros na URL do ponto de extremidade
 
-Quando desejar que a URL do ponto de extremidade aceite parâmetros, especifique o caminho relativo no gatilho. Você também deve [definir explicitamente o método](#set-method) que sua solicitação HTTP espera.
+Quando desejar que a URL do ponto de extremidade aceite parâmetros, especifique o caminho relativo no gatilho. Você também precisa definir explicitamente [o método](#set-method) que sua solicitação HTTP espera.
 
 1. No gatilho de solicitação, abra a lista **Adicionar novo parâmetro** e selecione **caminho relativo**, que adiciona essa propriedade ao gatilho.
 
@@ -178,7 +178,7 @@ Quando desejar que a URL do ponto de extremidade aceite parâmetros, especifique
     A URL do ponto de extremidade HTTP agora inclui o caminho relativo, por exemplo:
 
     ```http
-    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/postalCode?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
+    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
     ```
 
 1. Para testar o ponto de extremidade HTTP, copie e cole a URL atualizada em outra janela do navegador, mas substitua `{postalCode}` por `123456`e pressione Enter.
@@ -231,7 +231,7 @@ Você pode aninhar fluxos de trabalho em seu aplicativo lógico adicionando outr
 
 1. Na etapa em que você deseja chamar outro aplicativo lógico, selecione **nova etapa** > **Adicionar uma ação**.
 
-1. Em **escolher uma ação**, selecione **interno**. Na caixa de pesquisa, digite `logic apps` como seu filtro. Na lista ações, selecione **escolher um fluxo de trabalho de aplicativos lógicos**.
+1. Em **escolher uma ação**, selecione **interno**. Na caixa de pesquisa, insira `logic apps` como seu filtro. Na lista ações, selecione **escolher um fluxo de trabalho de aplicativos lógicos**.
 
    ![Aninhar aplicativo lógico dentro do aplicativo lógico atual](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 

@@ -1,10 +1,10 @@
 ---
-title: Examinar o acesso às funções de recurso do Azure no Privileged Identity Management-Azure Active Directory | Microsoft Docs
+title: Examinar o acesso às funções de recurso do Azure no PIM – Azure AD | Microsoft Docs
 description: Saiba como examinar o acesso das funções de recurso do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d5837bba537990f4a2b49a74a1266bd09aba0d5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 7ddb4d0ff1339f1427c5041528cdbe464a345b37
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895585"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847007"
 ---
 # <a name="review-access-to-azure-resource-roles-in-privileged-identity-management"></a>Examinar o acesso às funções de recurso do Azure no Privileged Identity Management
 
@@ -37,7 +37,7 @@ Você pode aprovar ou negar o acesso com base em se você ainda usa essa funçã
 
 Siga estas etapas para localizar e concluir a revisão de acesso:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 1. Selecione **Azure Active Directory** e abra **Privileged Identity Management**.
 1. Selecione **examinar acesso**.
 

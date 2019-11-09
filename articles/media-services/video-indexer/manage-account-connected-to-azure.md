@@ -1,7 +1,7 @@
 ---
-title: Gerir uma conta do Video Indexer
-titlesuffix: Azure Media Services
-description: Este artigo mostra como gerir uma conta do Video Indexer ligada ao Azure.
+title: Gerenciar uma conta de Video Indexer
+titleSuffix: Azure Media Services
+description: Este artigo mostra como gerenciar uma conta de Video Indexer conectada ao Azure.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,72 +10,72 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 37aef7c0ae06aefc69b8a72a80c8ade3951e8b0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8221cdcf7afe82ee969f645d7f459c69519711d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799523"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838971"
 ---
-# <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gerir uma conta do Video Indexer ligada ao Azure
+# <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gerenciar uma conta de Video Indexer conectada ao Azure
 
-Este artigo demonstra como gerir uma conta do Video Indexer que está ligada à sua subscrição do Azure e uma conta de Media Services do Azure.
+Este artigo demonstra como gerenciar uma conta de Video Indexer que está conectada à sua assinatura do Azure e uma conta dos serviços de mídia do Azure.
 
 > [!NOTE]
-> Tem de ser o titular de conta do Video Indexer fazer conta ajustamentos de configuração, abordados neste tópico.
+> Você precisa ser o proprietário da conta de Video Indexer para fazer ajustes de configuração de conta discutidos neste tópico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Ligue a sua conta do Video Indexer para o Azure, conforme descrito em [ligado ao Azure](connect-to-azure.md). 
+Conecte sua conta do Video Indexer ao Azure, conforme descrito em [conectado ao Azure](connect-to-azure.md). 
 
-Lembre-se de que siga [pré-requisitos](connect-to-azure.md#prerequisites) e reveja [considerações](connect-to-azure.md#considerations) no artigo.
+Certifique-se de seguir os [pré-requisitos](connect-to-azure.md#prerequisites) e examine as [considerações](connect-to-azure.md#considerations) no artigo.
 
-## <a name="examine-account-settings"></a>Examinar as definições da conta
+## <a name="examine-account-settings"></a>Examinar configurações de conta
 
-Esta seção examina as definições da sua conta do Video Indexer.
+Esta seção examina as configurações de sua conta de Video Indexer.
 
-Para ver as definições:
+Para exibir as configurações:
 
-1. Clique no ícone do utilizador no canto superior direito e selecione **definições**.
+1. Clique no ícone de usuário no canto superior direito e selecione **configurações**.
 
     ![Definições](./media/manage-account-connected-to-azure/select-settings.png)
 
-2. Sobre o **definições** página, selecione a **conta** separador.
+2. Na página **configurações** , selecione a guia **conta** .
 
-Se a sua conta do indexador de vídeos está ligada ao Azure, consulte o seguinte:
+Se sua conta do indexador de vídeos estiver conectada ao Azure, você verá o seguinte:
 
-* O nome da conta de Media Services do Azure subjacente.
-* O número de tarefas de indexação em execução e em fila.
-* O número e tipo de unidades reservadas alocado.
+* O nome da conta de serviços de mídia do Azure subjacente.
+* O número de trabalhos de indexação em execução e na fila.
+* O número e o tipo de unidades reservadas alocadas.
 
-Se a conta tem de alguns ajustes, será apresentado relevantes erros e avisos sobre a configuração da conta a **definições** página. As mensagens contêm links para exatas locais no portal do Azure em que precisa de fazer alterações. Para obter mais informações, consulte a [erros e avisos](#errors-and-warnings) secção que se segue.
+Se sua conta precisar de alguns ajustes, você verá erros relevantes e avisos sobre a configuração da sua conta na página **configurações** . As mensagens contêm links para os locais exatos em portal do Azure onde você precisa fazer alterações. Para obter mais informações, consulte a seção [erros e avisos](#errors-and-warnings) a seguir.
 
-## <a name="auto-scale-reserved-units"></a>Unidades reservada de dimensionamento automático
+## <a name="auto-scale-reserved-units"></a>Unidades reservadas de dimensionamento automático
 
-O **definições** página permite-lhe definir o dimensionamento automático de suporte de dados de unidades reservadas (UR). Se a opção estiver **no**, pode alocar o número máximo de RUs e não se esqueça de que o indexador de vídeo termina/começa RUs automaticamente. Com esta opção, não tenha despesas com dinheiro extra para o tempo de inatividade, mas também não espere para indexação tarefas a concluir muito tempo quando a carga de indexação é elevada.
+A página **configurações** permite que você defina o dimensionamento automático de ru (unidades reservadas de mídia). Se a opção estiver **ativada**, você poderá alocar o número máximo de RUs e certificar-se de que Video indexer para de confirmar/iniciar RUs automaticamente. Com essa opção, você não paga dinheiro extra por tempo ocioso, mas também não espera que os trabalhos de indexação sejam concluídos há muito tempo quando a carga de indexação é alta.
 
-Dimensionamento automático não dimensiona abaixo 1 RU ou acima do limite predefinido de conta de Media Services. Para aumentar o limite, crie um pedido de serviço. Para obter informações sobre as quotas e limitações e como abrir um pedido de suporte, consulte [Quotas e limitações](../../media-services/previous/media-services-quotas-and-limitations.md).
+O dimensionamento automático não é dimensionado abaixo de 1 RU ou acima do limite padrão da conta dos serviços de mídia. Para aumentar o limite, crie uma solicitação de serviço. Para obter informações sobre cotas e limitações e como abrir um tíquete de suporte, consulte [cotas e limitações](../../media-services/previous/media-services-quotas-and-limitations.md).
 
 ![Inscrever-se](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## <a name="errors-and-warnings"></a>Erros e avisos
 
-Se a conta tem de alguns ajustes, verá relevantes erros e avisos sobre a configuração da conta a **definições** página. As mensagens contêm links para exatas locais no portal do Azure em que precisa de fazer alterações. Esta secção fornece mais detalhes sobre as mensagens de aviso e erro.
+Se sua conta precisar de alguns ajustes, você verá erros relevantes e avisos sobre a configuração da sua conta na página **configurações** . As mensagens contêm links para os locais exatos em portal do Azure onde você precisa fazer alterações. Esta seção fornece mais detalhes sobre as mensagens de erro e de aviso.
 
 * Event Grid
 
-    Tem de registar o fornecedor de recursos de EventGrid no portal do Azure. Na [portal do Azure](https://portal.azure.com/), aceda à **subscrições** > [subscrição] > **ResourceProviders** > **Microsoft.EventGrid**. Se não estiver da **registada** de estado, clique em **registar**. Demora alguns minutos para se registar. 
+    Você precisa registrar o provedor de recursos EventGrid usando o portal do Azure. No [portal do Azure](https://portal.azure.com/), acesse **assinaturas** > [subscription] > **ResourceProviders** > **Microsoft. EventGrid**. Se não estiver no estado **registrado** , clique em **registrar**. É preciso registrar alguns minutos. 
 
-* Ponto final de transmissão em fluxo
+* Ponto de extremidade de streaming
 
-    Certifique-se a conta de serviços de suporte de dados subjacente tem a predefinição **ponto final de transmissão em fluxo** num estado iniciado. Caso contrário, não será capaz de ver vídeos desta conta dos serviços de multimédia ou em Video Indexer.
+    Verifique se a conta de serviços de mídia subjacente tem o **ponto de extremidade de streaming** padrão em um estado iniciado. Caso contrário, você não poderá assistir a vídeos desta conta de serviços de mídia ou em Video Indexer.
 
 * Unidades Reservadas de Multimédia 
 
-    Tem de alocar unidades reservadas de multimédia no seu recurso de serviço de multimédia a vídeos do índice. Para otimizar o desempenho indexação, é recomendado alocar, pelo menos, 10 unidades reservadas de S3. Para obter informações sobre preços, consulte a secção de FAQ do [preços de serviços de multimédia](https://azure.microsoft.com/pricing/details/media-services/) página.   
+    Você deve alocar unidades reservadas de mídia em seu recurso de serviço de mídia para indexar vídeos. Para obter um desempenho de indexação ideal, é recomendável alocar pelo menos 10 unidades reservadas S3. Para obter informações sobre preços, consulte a seção perguntas frequentes da página de [preços dos serviços de mídia](https://azure.microsoft.com/pricing/details/media-services/) .   
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Pode interagir programaticamente com a sua conta de avaliação e/ou com as suas contas do indexador de vídeo que estiver ligadas ao azure ao seguir as instruções em: [Utilizar APIs](video-indexer-use-apis.md).
+Você pode interagir de forma programática com sua conta de avaliação e/ou com suas contas de Video Indexer que estão conectadas ao Azure seguindo as instruções em: [usar APIs](video-indexer-use-apis.md).
 
-Deve usar o mesmo utilizador do Azure AD que utilizou quando ligar ao Azure.
+Você deve usar o mesmo usuário do Azure AD usado ao conectar-se ao Azure.

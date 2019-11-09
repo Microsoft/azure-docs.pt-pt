@@ -1,6 +1,6 @@
 ---
 title: Gerir iterações das experimentações
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Como gerenciar iterações de experimento no Azure Machine Learning Studio (clássico). Você pode examinar as execuções anteriores de seus experimentos a qualquer momento para desafiar, revisitar e, por fim, confirmar ou refinar as suposições anteriores.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 3fedd613d2a9de90f5ee04ca4266d06c6ed725a4
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 9a69ebaa9b7f6ffffdfc80e09fb2eec9495e2ce2
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621603"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838829"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio-classic"></a>Gerenciar iterações de experimento no Azure Machine Learning Studio (clássico)
 Desenvolver um modelo de análise preditiva é um processo iterativo-conforme você modifica as várias funções e parâmetros de seu experimento, seus resultados convergem até que você esteja satisfeito com um modelo treinado e eficaz. A chave para esse processo é acompanhar as várias iterações de seus parâmetros de experimento e configurações.

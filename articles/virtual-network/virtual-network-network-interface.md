@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: 102490335e91c95b53b5a6d37a00809d34d31e90
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 809e40f6616e8ab022a31d8dd29d4a5386c5e844
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168571"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838417"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou excluir uma interface de rede
 
@@ -49,7 +49,7 @@ Ao criar uma máquina virtual usando o portal do Azure, o portal cria um adaptad
 
     |Definição|Necessário?|Detalhes|
     |---|---|---|
-    |Nome|Sim|O nome deve ser exclusivo dentro do grupo de recursos que você selecionar. Ao longo do tempo, você provavelmente terá várias interfaces de rede em sua assinatura do Azure. Para obter sugestões ao criar uma Convenção de nomenclatura para facilitar o gerenciamento de várias interfaces de rede, consulte [convenções de nomenclatura](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming). O nome não pode ser alterado após a criação da interface de rede.|
+    |Nome|Sim|O nome deve ser exclusivo dentro do grupo de recursos que você selecionar. Ao longo do tempo, você provavelmente terá várias interfaces de rede em sua assinatura do Azure. Para obter sugestões ao criar uma Convenção de nomenclatura para facilitar o gerenciamento de várias interfaces de rede, consulte [convenções de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). O nome não pode ser alterado após a criação da interface de rede.|
     |Rede virtual|Sim|Selecione a rede virtual para a interface de rede. Você só pode atribuir um adaptador de rede a uma rede virtual que exista na mesma assinatura e local que a interface de rede. Depois que um adaptador de rede é criado, você não pode alterar a rede virtual à qual ele está atribuído. A máquina virtual à qual você adiciona o adaptador de rede também deve existir no mesmo local e assinatura que a interface de rede.|
     |Subrede|Sim|Selecione uma sub-rede na rede virtual que você selecionou. Você pode alterar a sub-rede à qual a interface de rede está atribuída após sua criação.|
     |Atribuição de endereço IP privado|Sim| Nessa configuração, você está escolhendo o método de atribuição para o endereço IPv4. Escolha entre os seguintes métodos de atribuição: **dinâmico:** ao selecionar essa opção, o Azure atribui automaticamente o próximo endereço disponível do espaço de endereço da sub-rede que você selecionou. **Estático:** Ao selecionar essa opção, você deve atribuir manualmente um endereço IP disponível de dentro do espaço de endereço da sub-rede que você selecionou. Os endereços estáticos e dinâmicos não são alterados até que você os altere ou a interface de rede seja excluída. Você pode alterar o método de atribuição após a criação da interface de rede. O servidor DHCP do Azure atribui esse endereço à interface de rede dentro do sistema operacional da máquina virtual.|
@@ -81,7 +81,7 @@ Você pode exibir e alterar a maioria das configurações de uma interface de re
 1. Na caixa que contém os recursos de *pesquisa* de texto na parte superior da portal do Azure, digite *interfaces de rede*. Quando as **interfaces de rede** aparecerem nos resultados da pesquisa, selecione-as.
 2. Selecione o adaptador de rede que você deseja exibir ou altere as configurações da lista.
 3. Os seguintes itens são listados para a interface de rede que você selecionou:
-   - **Visão geral:** Fornece informações sobre a interface de rede, como os endereços IP atribuídos a ela, a rede virtual/sub-rede à qual o adaptador de rede está atribuído e a máquina virtual à qual o adaptador de rede está anexado (se estiver conectado a um). A imagem a seguir mostra as configurações de visão geral de um adaptador de rede chamado **mywebserver256**: visão geral da interface do ![Network @ no__t-2
+   - **Visão geral:** Fornece informações sobre a interface de rede, como os endereços IP atribuídos a ela, a rede virtual/sub-rede à qual o adaptador de rede está atribuído e a máquina virtual à qual o adaptador de rede está anexado (se estiver conectado a um). A imagem a seguir mostra as configurações de visão geral de um adaptador de rede chamado **mywebserver256**: visão geral do ![interface de rede](./media/virtual-network-network-interface/nic-overview.png)
 
      Você pode mover uma interface de rede para um grupo de recursos ou assinatura diferente selecionando (**alterar**) ao lado do **grupo de recursos** ou **nome da assinatura**. Se você mover a interface de rede, deverá mover todos os recursos relacionados à interface de rede com ela. Se a interface de rede estiver conectada a uma máquina virtual, por exemplo, você também deverá mover a máquina virtual e outros recursos relacionados à máquina virtual. Para mover um adaptador de rede, consulte [mover o recurso para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-the-portal). O artigo lista os pré-requisitos e como mover recursos usando o portal do Azure, o PowerShell e o CLI do Azure.
    - **Configurações de IP:** Os endereços IPv4 e IPv6 públicos e privados atribuídos às configurações de IP estão listados aqui. Se um endereço IPv6 for atribuído a uma configuração de IP, o endereço não será exibido. Para saber mais sobre as configurações de IP e como adicionar e remover endereços IP, consulte [configurar endereços IP para uma interface de rede do Azure](virtual-network-network-interface-addresses.md). O encaminhamento de IP e a atribuição de sub-rede também são configurados nesta seção. Para saber mais sobre essas configurações, consulte [habilitar ou desabilitar encaminhamento de IP](#enable-or-disable-ip-forwarding) e [alterar atribuição de sub-rede](#change-subnet-assignment).
@@ -168,7 +168,7 @@ Você pode alterar a sub-rede, mas não a rede virtual, à qual uma interface de
 Você só poderá adicionar um adaptador de rede ou remover um adaptador de rede de um grupo de segurança de aplicativo usando o portal se o adaptador de rede estiver conectado a uma máquina virtual. Você pode usar o PowerShell ou o CLI do Azure para adicionar um adaptador de rede ou remover um adaptador de rede de um grupo de segurança de aplicativo, independentemente de o adaptador de rede estar conectado a uma máquina virtual ou não. Saiba mais sobre [grupos de segurança de aplicativo](security-overview.md#application-security-groups) e como [criar um grupo de segurança de aplicativo](manage-network-security-group.md).
 
 1. Na caixa *Pesquisar recursos, serviços e documentos* na parte superior do portal, comece a digitar o nome de uma máquina virtual que tem um adaptador de rede que você deseja adicionar ou remover de um grupo de segurança de aplicativo. Quando o nome da VM aparecer nos resultados da pesquisa, selecione-o.
-2. Em **DEFINIÇÕES**, selecione **Redes**.  Selecione **configurar os grupos de segurança de aplicativo**, selecione os grupos de segurança de aplicativo aos quais você deseja adicionar o adaptador de rede ou desmarque os grupos de segurança de aplicativo dos quais você deseja remover o adaptador de rede e, em seguida, selecione  **Salvar**. Somente as interfaces de rede que existem na mesma rede virtual podem ser adicionadas ao mesmo grupo de segurança de aplicativo. O grupo de segurança do aplicativo deve existir no mesmo local que a interface de rede.
+2. Em **DEFINIÇÕES**, selecione **Redes**.  Selecione **configurar os grupos de segurança de aplicativo**, selecione os grupos de segurança de aplicativo aos quais você deseja adicionar o adaptador de rede ou desmarque os grupos de segurança de aplicativo dos quais deseja remover o adaptador de rede e, em seguida, selecione **salvar**. Somente as interfaces de rede que existem na mesma rede virtual podem ser adicionadas ao mesmo grupo de segurança de aplicativo. O grupo de segurança do aplicativo deve existir no mesmo local que a interface de rede.
 
 **Comandos**
 

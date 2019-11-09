@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/07/2019
 ms.author: diberry
-ms.openlocfilehash: 0788df1c05d70c01d4de7f7a6ba62a476252f75a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2e32d0f4906dea69d6eab27faca4a2e41106ed73
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498938"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836844"
 ---
 # <a name="whats-new-in-language-understanding"></a>O que há de novo no Reconhecimento vocal
 
@@ -31,11 +31,13 @@ Saiba o que há de novo no serviço. Esses itens incluem notas de versão, víde
     * Capacidade de importar e exportar aplicativos com o formato. Lu ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)). Isso abre o caminho para um processo de CI/CD eficaz. 
 * Expansão de idioma
     * [Árabe e híndi](luis-language-support.md) em visualização pública.
-* Modelos de compilação
+* Modelos pré-construídos
     * Os [domínios predefinidos](luis-reference-prebuilt-domains.md) agora estão disponíveis para o público geral (GA)
     * [Entidades predefinidas](luis-reference-prebuilt-entities.md#japanese-entity-support) japonesas-idade, moeda, número, porcentagem não são compatíveis com v3.
     * [Entidades predefinidas](luis-reference-prebuilt-entities.md#italian-entity-support) em italiano-idade, moeda, dimensão, número, resolução percentual alterada de v2.
-* Aprimore a experiência do usuário no [portal Preview.Luis.ai](https://preview.luis.ai) – experiência de rotulação remodelada para habilitar a criação e a depuração de modelos complexos.
+* Aprimore a experiência do usuário no [portal Preview.Luis.ai](https://preview.luis.ai) – experiência de rotulação remodelada para habilitar a criação e a depuração de modelos complexos. Experimente os tutoriais do portal de visualização:
+    * [Somente tentativas](tutorial-intents-only.md)
+    * [Entidade aprendida por máquina decomposta](tutorial-machine-learned-entity.md) 
 * Recursos de reconhecimento de idioma avançado- [criando modelos de linguagem sofisticados](luis-concept-entity-types.md) com menos esforço. 
 * Definir recursos de aprendizado de máquina no nível de modelo e habilitar modelos a serem usados como sinais para outro modelo, como usar entidades como recursos para intenções e outras entidades.
 * Novos [limites](luis-boundaries.md) expandidos-máximos superiores para listas de frases e total de frases, novo modelo como limites de recursos

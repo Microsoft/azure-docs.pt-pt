@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 5ababe9eb1f680378e882970df2d0b008287a7c4
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6aa721ee6cf6680518a28d050c22d8649f0f531f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241720"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833157"
 ---
 # <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Início rápido: implantar o modelo de solução Ansible para o Azure para CentOS
 
@@ -43,7 +43,7 @@ O modelo de solução Ansible para o Azure foi projetado para configurar uma ins
    - **Nome de usuário:** -especifique o nome de usuário que terá acesso à instância de Ansible. Para fins de demonstração, o nome `ansibleuser` é usado.
    - **Tipo de autenticação:** -selecione a **senha** ou a **chave pública SSH**. Para fins de demonstração, a **chave pública SSH** é selecionada.
    - **Senha** e **Confirmar senha** – se você selecionar **senha** para o **tipo de autenticação**, insira sua senha para esses valores.
-   - **Chave pública SSH** -se você selecionar **chave pública SSH** para o **tipo de autenticação**, insira sua chave pública RSA no formato de linha única-começando com `ssh-rsa`.
+   - **Chave pública SSH** -se você selecionar **chave pública SSH** para **tipo de autenticação**, insira sua chave pública RSA no formato de linha única-começando com `ssh-rsa`.
    - **Assinatura** – selecione sua assinatura do Azure na lista suspensa.
    - **Grupo de recursos** – selecione um grupo de recursos existente na lista suspensa ou selecione **criar novo** e especifique um nome para um novo grupo de recursos. Para fins de demonstração, um novo grupo de recursos chamado `ansiblerg` é usado.
    - **Local** -selecione o local na lista suspensa que é apropriado para seu cenário.
@@ -59,7 +59,7 @@ O modelo de solução Ansible para o Azure foi projetado para configurar uma ins
        - [Armazenamento Premium e discos geridos de elevado desempenho para VMs](/azure/virtual-machines/windows/premium-storage)
        - [Managed Disks de SSD Standard para cargas de trabalho de máquina virtual do Azure](/azure/virtual-machines/windows/disks-standard-ssd)
    - **Endereço IP público** -especifique essa configuração se desejar se comunicar com a máquina virtual de fora da máquina virtual. O padrão é um novo endereço IP público com o nome `ansible-pip`. Para especificar um endereço IP diferente, selecione a seta especificar os atributos, como nome, SKU e atribuição, desse endereço IP. 
-   - **Rótulo de nome de domínio** – Insira o nome de domínio voltado para o público da máquina virtual. O nome deve ser exclusivo e atender aos requisitos de nomenclatura. Para obter mais informações sobre como especificar um nome para a máquina virtual, consulte [convenções de nomenclatura para recursos do Azure](/azure/architecture/best-practices/naming-conventions).
+   - **Rótulo de nome de domínio** – Insira o nome de domínio voltado para o público da máquina virtual. O nome deve ser exclusivo e atender aos requisitos de nomenclatura. Para obter mais informações sobre como especificar um nome para a máquina virtual, consulte [convenções de nomenclatura para recursos do Azure](/azure/architecture/best-practices/resource-naming).
    - **Versão do Ansible** -especifique um número de versão ou o valor `latest` para implantar a versão mais recente. Selecione o ícone de informações ao lado de **Ansible versão** para ver mais informações sobre as versões disponíveis.
 
      ![Guia portal do Azure para configurações adicionais do Ansible](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-2.png)

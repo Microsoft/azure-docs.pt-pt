@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 10/15/2019
-ms.openlocfilehash: 31c3cd944651b9ba4ca4fcaa275e5b0ccedd947c
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 11/06/2019
+ms.openlocfilehash: ded95800c482d43fcaf27993869f1e71eee68f47
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72559440"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831804"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Agendar pipelines do Machine Learning com o SDK do Azure Machine Learning para Python
 
@@ -54,7 +54,7 @@ pipeline_id = "aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 
 ## <a name="create-a-schedule"></a>Criar uma agenda
 
-Para executar um pipeline de forma recorrente, você criará uma agenda. Um `Schedule` associa um pipeline, um experimento e um gatilho. O gatilho pode ser um `ScheduleRecurrence` que descreve a espera entre execuções ou um caminho de repositório de armazenamento que especifica um diretório para observar as alterações. Em ambos os casos, você precisará do identificador do pipeline e do nome do experimento no qual criar o agendamento.
+Para executar um pipeline de forma recorrente, você criará uma agenda. Um `Schedule` associa um pipeline, um experimento e um gatilho. O gatilho pode ser um`ScheduleRecurrence` que descreve a espera entre execuções ou um caminho de repositório de armazenamento que especifica um diretório para observar as alterações. Em ambos os casos, você precisará do identificador do pipeline e do nome do experimento no qual criar o agendamento.
 
 ### <a name="create-a-time-based-schedule"></a>Criar uma agenda baseada em tempo
 
@@ -94,9 +94,9 @@ Além dos argumentos discutidos anteriormente, você pode definir o argumento `s
 
 ## <a name="view-your-scheduled-pipelines"></a>Exibir seus pipelines agendados
 
-No navegador da Web, navegue até seu espaço de trabalho do Machine Learning Service. Na seção **ativos** do painel de navegação, escolha **pipelines**. Esse link leva você para uma lista dos pipelines publicados no espaço de trabalho.
+No navegador da Web, navegue até Azure Machine Learning. Na seção **pontos de extremidade** do painel de navegação, escolha **pontos de extremidade de pipeline**. Isso leva você para uma lista dos pipelines publicados no espaço de trabalho.
 
-![Página pipelines do espaço de trabalho](media/how-to-schedule-a-pipeline/pipelines-list.png)
+![Página pipelines do AML](media/how-to-schedule-pipelines/scheduled-pipelines.png)
 
 Nesta página, você pode ver informações resumidas sobre todos os pipelines no espaço de trabalho: nomes, descrições, status e assim por diante. Faça uma busca detalhada clicando em seu pipeline. Na página resultante, há mais detalhes sobre o pipeline e você pode fazer uma busca detalhada em execuções individuais.
 
@@ -134,7 +134,7 @@ Se você executar `Schedule.list(ws)` novamente, deverá obter uma lista vazia.
 
 Neste artigo, você usou o SDK do Azure Machine Learning para Python para agendar um pipeline de duas maneiras diferentes. Uma agenda se repete com base no tempo decorrido do relógio. A outra agenda será executada se um arquivo for modificado em um `Datastore` especificado ou dentro de um diretório nesse repositório. Você viu como usar o portal para examinar o pipeline e as execuções individuais. Por fim, você aprendeu como desabilitar uma agenda para que o pipeline pare de funcionar.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 > [!div class="nextstepaction"]
 > [Usar pipelines de Azure Machine Learning para Pontuação de lote](tutorial-pipeline-batch-scoring-classification.md)

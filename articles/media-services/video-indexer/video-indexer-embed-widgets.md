@@ -1,6 +1,6 @@
 ---
 title: Inserir Video Indexer widgets em seus aplicativos
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Saiba como inserir Video Indexer widgets em seu aplicativo.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 74518fb891c5ecb25e818b9642d31e3daaf828de
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 99d6647ab5e7fa8f35cef883dd00ae9fea866370
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162605"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839108"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Inserir Video Indexer widgets em seus aplicativos
 
@@ -235,7 +235,7 @@ Por exemplo, se você quiser inserir um widget que contenha apenas pessoas e Pes
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
 
-O título da janela do iframe também pode ser personalizado fornecendo `&title=<YourTitle>` à URL do iframe. (Ele personaliza o \<title HTML > valor).
+O título da janela do iframe também pode ser personalizado fornecendo `&title=<YourTitle>` à URL do iframe. (Ele personaliza o HTML \<título > valor).
     
 Por exemplo, se você quiser dar à janela iframe o título "mysights", a URL terá a seguinte aparência:
 

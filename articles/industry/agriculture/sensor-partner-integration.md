@@ -5,21 +5,22 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e7de815b7254fb071b3094f9ae636b712b38684b
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 7a85ed93d9ee01255d809cce84ebe24e6c3f71d1
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797689"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847400"
 ---
 # <a name="sensor-partner-integration"></a>Integração de parceiros de sensor
-Este artigo fornece informações sobre o componente do Azure FarmBeats **Translator** .
+
+Este artigo fornece informações sobre o componente Azure FarmBeats **Translator** , que habilita a integração de parceiros de sensor.
 
 Usando esse componente, os parceiros podem desenvolver sensores que se integram ao FarmBeats, aproveitando nossa API e enviando dados de dispositivo do cliente e telemetria para o Hub de dados FarmBeats. Os dados são visualizados usando o acelerador FarmBeats. Os dados podem ser usados para a fusão de dados e para a criação de modelos de inteligência artificial/idioma da máquina.
 
 ## <a name="link-farmbeats-account"></a>Vincular conta do FarmBeats
 
-Depois que os clientes tiverem comprado e implantado dispositivos/sensores, eles poderão acessar os dados do dispositivo e a telemetria no portal de SaaS dos parceiros de dispositivo (software como serviço). Os parceiros de dispositivo precisam permitir que os clientes vinculem suas contas à instância do FarmBeats no Azure. As seguintes credenciais são necessárias para preencher pelo cliente/SI:
+Depois que os clientes tiverem comprado e implantado dispositivos/sensores, eles poderão acessar os dados do dispositivo e a telemetria no portal de SaaS dos parceiros de dispositivo (software como serviço). Os parceiros de dispositivo precisam permitir que os clientes vinculem suas contas à instância do FarmBeats no Azure. As seguintes credenciais são necessárias para preencher pelo integrador de cliente/sistema:
 
    - Nome de exibição (um campo opcional para o usuário definir um nome para essa integração)
    - Ponto de extremidade de API
@@ -41,14 +42,11 @@ Os clientes têm a capacidade de desvincular uma integração existente do FarmB
 
 ## <a name="edit-farmbeats-integration"></a>Editar integração do FarmBeats
 
-O cliente pode editar a integração do FarmBeats. O cenário principal para editar é quando a cadeia de conexão ou o segredo do cliente é alterado devido à expiração, neste caso, o cliente pode editar somente os campos a seguir.
+O cliente pode editar as configurações de integração do FarmBeats, se a cadeia de conexão ou o segredo do cliente for alterado. Nesse caso, o cliente pode editar apenas os seguintes campos:
 
    - Nome de exibição (se aplicável)
    - Segredo do cliente (deve ser exibido no formato "2x8 * * * * * * * * * * *" ou mostrar/ocultar recurso em vez de texto não criptografado)
    - Cadeia de conexão (deve ser exibida no formato "2x8 * * * * * * * * * * *" ou mostrar/ocultar recurso em vez de texto não criptografado)
-
-   > [!NOTE]
-   > Editar não deve interromper a criação de objetos de metadados.
 
 ## <a name="view-last-telemetry-sent"></a>Exibir a última telemetria enviada
 
@@ -192,7 +190,7 @@ ParentDeviceId | ID do dispositivo pai ao qual este dispositivo está conectado.
   descrição  | Forneça uma descrição significativa
   propriedades  | Propriedades adicionais do fabricante
 
- Para obter informações sobre cada um dos objetos e suas propriedades, consulte [Swagger](httpa://aka.ms/FarmBeatsDatahubSwagger).
+ Para obter informações sobre cada um dos objetos e suas propriedades, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
  > [!NOTE]
  > As APIs retornam IDs exclusivas para cada instância criada. Essa ID precisa ser retida pelo Tradutor para o gerenciamento de dispositivos e a sincronização de metadados.

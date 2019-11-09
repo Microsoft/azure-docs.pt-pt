@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 0046443bef0e71215157dfe89aaae45b2a91c330
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 93ae820f8c98b749ef8f71b17bf3d540d7886ed6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200268"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832134"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Início rápido: Adicionar entrada com a Microsoft a um aplicativo Web Java
 
@@ -42,22 +42,22 @@ Para executar este exemplo, você precisará de:
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
 > Você tem duas opções para iniciar seu aplicativo de início rápido: Express (opção 1) ou manual (opção 2)
-> 
+>
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
-> 
+>
 > 1. Vá para o [registros de aplicativo de portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
 > 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para baixar e configurar automaticamente seu novo aplicativo.
-> 
+>
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: registar e configurar manualmente a aplicação e o exemplo de código
-> 
+>
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
-> 
+>
 > Para registrar seu aplicativo e adicionar manualmente as informações de registro do aplicativo à sua solução, siga estas etapas:
-> 
+>
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-> 
+>
 > 1. Navegue até a página da plataforma Microsoft Identity para desenvolvedores [registros de aplicativo](/azure/active-directory/develop/) .
 > 1. Selecione **novo registro**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
@@ -66,10 +66,9 @@ Para executar este exemplo, você precisará de:
 > 1. Na página **visão geral** , localize a **ID do aplicativo (cliente)** e os valores de **ID do diretório (locatário)** do aplicativo. Copie esses valores para mais tarde.
 > 1. Selecione a **autenticação** no menu e, em seguida, adicione as seguintes informações:
 >    - Em **URIs de redirecionamento**, adicione `http://localhost:8080/msal4jsamples/secure/aad` e `http://localhost:8080/msal4jsamples/graph/me`.
->    - Em **Configurações avançadas**, adicione `https://localhost:8080/msal4jsample/sign-out` à **URL de logout**.
 >    - Selecione **Guardar**.
 > 1. Selecione os **certificados & segredos** no menu e, na seção **segredos do cliente** , clique em **novo segredo do cliente**:
-> 
+>
 >    - Digite uma descrição de chave (por exemplo, segredo do aplicativo).
 >    - Selecione uma duração **de chave em 1 ano**.
 >    - O valor da chave será exibido quando você selecionar **Adicionar**.
@@ -77,9 +76,9 @@ Para executar este exemplo, você precisará de:
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Etapa 1: configurar seu aplicativo no portal do Azure
-> 
+>
 > Para que o exemplo de código para este guia de início rápido funcione, você precisa:
-> 
+>
 > 1. Adicione URLs de resposta como `http://localhost:8080/msal4jsamples/secure/aad` e `http://localhost:8080/msal4jsamples/graph/me`.
 > 1. Crie um segredo do cliente.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -108,7 +107,7 @@ Para executar este exemplo, você precisará de:
     ```
 
 > [!div renderon="docs"]
-> Onde:
+> Em que:
 >
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
 > - `Enter_the_Client_Secret_Here`-é o **segredo do cliente** que você criou em **certificados & segredos** para o aplicativo registrado.
@@ -145,12 +144,12 @@ Adicione o MSAL4J ao seu aplicativo usando o Maven ou o gradle para gerenciar su
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>
-    <version>0.6.0-preview</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
 ```$xslt
-compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.6.0-preview'
+compile group: 'com.microsoft.azure', name: 'msal4j', version: '1.0.0'
 ```
 
 ### <a name="msal-initialization"></a>Inicialização da MSAL

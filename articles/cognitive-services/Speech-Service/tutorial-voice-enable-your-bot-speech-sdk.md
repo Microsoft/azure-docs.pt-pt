@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: dcohen
-ms.openlocfilehash: 839bb24996ab782a386d7d28bcc1c06c686e6cd5
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c95bc7b58f3883fee54aaa8095cb187eaefdb3e0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73578028"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836977"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: habilitar o bot para voz usando o SDK de fala
 
@@ -65,7 +65,7 @@ Veja o que você precisará para concluir este tutorial:
 
 O aplicativo cliente que você criará neste tutorial usa alguns serviços do Azure. Para reduzir o tempo de ida e volta das respostas do bot, você desejará certificar-se de que esses serviços estejam localizados na mesma região do Azure. Nesta seção, você criará um grupo de recursos na região **oeste dos EUA** . Esse grupo de recursos será usado ao criar recursos individuais para o bot-Framework, o canal de fala de linha direta e os serviços de fala.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. No painel de navegação esquerdo, selecione **grupos de recursos**. Em seguida, clique em **Adicionar** para adicionar um novo grupo de recursos.
 1. Você será solicitado a fornecer algumas informações:
    * Defina a **assinatura** para **avaliação gratuita** (você também pode usar uma assinatura existente).
@@ -93,7 +93,7 @@ Agora que você tem um grupo de recursos na região **oeste dos EUA** , a próxi
 
 Siga estas instruções para criar um recurso de fala:
 
-1. Selecione **criar um recurso** no painel de navegação esquerdo.
+1. Vá para a [portal do Azure](https://portal.azure.com) e selecione **criar um recurso** no painel de navegação esquerdo.
 2. Na barra de pesquisa, digite **fala**.
 3. Selecione **fala**e clique em **criar**.
 4. Você será solicitado a fornecer algumas informações:
@@ -109,13 +109,13 @@ Neste ponto, verifique se seu grupo de recursos (**SpeechEchoBotTutorial-resourc
 
 | NOMES | TIPO  | LOCAL |
 |------|-------|----------|
-| SpeechEchoBotTutorial-fala | Serviços Cognitivos | EUA Oeste |
+| SpeechEchoBotTutorial-fala | Serviços Cognitivos | Oeste dos E.U.A. |
 
 ### <a name="create-an-azure-app-service-plan"></a>Criar um plano do Serviço de Aplicações do Azure
 
 A próxima etapa é criar um plano do serviço de aplicativo. Um plano do Serviço de Aplicações define um conjunto de recursos de computação para a execução da aplicação Web.
 
-1. Selecione **criar um recurso** no painel de navegação esquerdo.
+1. Vá para a [portal do Azure](https://portal.azure.com) e selecione **criar um recurso** no painel de navegação esquerdo.
 2. Na barra de pesquisa, digite **plano do serviço de aplicativo**. Em seguida, localize e selecione o cartão do **plano do serviço de aplicativo** nos resultados da pesquisa.
 3. Clique em **Criar**.
 4. Você será solicitado a fornecer algumas informações:
@@ -124,7 +124,7 @@ A próxima etapa é criar um plano do serviço de aplicativo. Um plano do Servi�
    * Dê um **nome**ao seu recurso. Recomendamos **SpeechEchoBotTutorial-AppServicePlan**
    * Para **sistema operacional**, selecione **Windows**.
    * Para **região**, selecione **oeste dos EUA**.
-   * Para **tipo de preço**, verifique se **padrão S1** está selecionado. Esse deve ser o valor padrão.
+   * Para **tipo de preço**, verifique se **padrão S1** está selecionado. Esse deve ser o valor padrão. Se não estiver, certifique-se de definir o **sistema operacional** para o **Windows** , conforme descrito acima.
 5. Clique em **revisar e criar**. Você deve ver uma faixa que a **validação**de leitura passou.
 6. Clique em **Criar**. Pode levar alguns minutos para criar o grupo de recursos.
 
@@ -132,17 +132,17 @@ Neste ponto, verifique se seu grupo de recursos (**SpeechEchoBotTutorial-resourc
 
 | NOMES | TIPO  | LOCAL |
 |------|-------|----------|
-| SpeechEchoBotTutorial-AppServicePlan | Plano do Serviço de Aplicações | EUA Oeste |
-| SpeechEchoBotTutorial-fala | Serviços Cognitivos | EUA Oeste |
+| SpeechEchoBotTutorial-AppServicePlan | Plano do Serviço de Aplicações | Oeste dos E.U.A. |
+| SpeechEchoBotTutorial-fala | Serviços Cognitivos | Oeste dos E.U.A. |
 
 ## <a name="build-an-echo-bot"></a>Criar um bot de eco
 
 Agora que você criou alguns recursos, vamos criar um bot. Vamos começar com o exemplo de bot de eco, que como o nome indica, ecoa o texto que você inseriu como resposta. Não se preocupe, o código de exemplo está pronto para uso sem nenhuma alteração. Ele está configurado para trabalhar com o canal de fala de linha direta, que vamos conectar depois de implantarmos o bot no Azure.
 
 > [!NOTE]
-> As instruções a seguir, bem como informações adicionais sobre o bot de eco, estão disponíveis no [Leiame do exemplo no GitHub](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/directline-speech/csharp_dotnetcore/02.echo-bot/README.md).
+> As instruções a seguir, bem como informações adicionais sobre o bot de eco, estão disponíveis no [Leiame do exemplo no GitHub](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/02.echo-bot/README.md).
 
-### <a name="download-and-run-the-sample"></a>Transferir e executar o exemplo
+### <a name="run-the-bot-sample-on-your-machine"></a>Executar o exemplo de bot em seu computador
 
 1. Clone o repositório de exemplos:
 
@@ -151,17 +151,17 @@ Agora que você criou alguns recursos, vamos criar um bot. Vamos começar com o 
    ```
 
 2. Inicie o Visual Studio.
-3. Na barra de ferramentas, selecione **arquivo** > **abrir** > **projeto/solução**e abra o arquivo de projeto do bot de eco que foi configurado para uso com o canal de fala de linha direta:
+3. Na barra de ferramentas, selecione **arquivo** > **abrir** > **projeto/solução**e abra a solução de projeto de bot de eco:
 
    ```
-   experimental\directline-speech\csharp_dotnetcore\02.echo-bot\EchoBot.csproj
+   samples\csharp_dotnetcore\02.echo-bot\EchoBot.sln
    ```
 
-4. Depois que o projeto for carregado, pressione `F5` para executar o projeto.
+4. Depois que o projeto for carregado, pressione `F5` para compilar e executar o projeto.
 
-### <a name="test-with-the-bot-framework-emulator"></a>Testar com o emulador do bot Framework
+### <a name="test-the-bot-sample-with-the-bot-framework-emulator"></a>Testar o exemplo de bot com o emulador do bot Framework
 
-O [emulador do bot Framework](https://github.com/microsoft/botframework-emulator) é um aplicativo de desktop que permite que os desenvolvedores de bot testem e depurem seus bots localmente ou remotamente por meio de um túnel. Siga estas etapas para usar o emulador do bot Framework para testar seu bot de eco.
+O [emulador do bot Framework](https://github.com/microsoft/botframework-emulator) é um aplicativo de desktop que permite que os desenvolvedores de bot testem e depurem seus bots localmente ou remotamente por meio de um túnel. O emulador dá suporte ao texto digitado como entrada (não de voz). O bot responderá com o texto. Siga estas etapas para usar o emulador do bot Framework para testar seu bot de eco em execução localmente, com entrada de texto e saída de texto. Depois de implantarmos o bot Azure, vamos testá-lo com entrada de voz e saída de voz.
 
 1. Instalar o [emulador do bot Framework](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) versão 4.3.0 ou superior
 2. Inicie o emulador do bot Framework e abra o bot:
@@ -171,8 +171,8 @@ O [emulador do bot Framework](https://github.com/microsoft/botframework-emulator
    ```
    http://localhost:3978/api/messages
    ```
-
-4. Use a interface do usuário para se comunicar com o bot usando texto digitado. Confirme que você obtém uma resposta.
+   e pressione "conectar".
+4. O bot deve lhe saudar imediatamente com "Olá e bem-vindo!" Mensagem. Digite qualquer mensagem de texto e confirme que você obtém uma resposta do bot.
 
 ## <a name="deploy-your-bot-to-an-azure-app-service"></a>Implantar o bot em um serviço de Azure App
 
@@ -184,7 +184,7 @@ A próxima etapa é implantar o Echo bot no Azure. Há algumas maneiras de impla
 1. No Visual Studio, abra o bot de eco que foi configurado para uso com canal de fala de linha direta:
 
    ```
-   experimental\directline-speech\csharp_dotnetcore\02.echo-bot\EchoBot.csproj
+   samples\csharp_dotnetcore\02.echo-bot\EchoBot.sln
    ```
 
 1. Na **Gerenciador de soluções**, clique com o botão direito do mouse na solução **EchoBot** e selecione **publicar...**
@@ -209,16 +209,16 @@ A próxima etapa é implantar o Echo bot no Azure. Há algumas maneiras de impla
 
 | NOMES | TIPO  | LOCAL |
 |------|-------|----------|
-| EchoBot20190805125647 | Serviço de Aplicações | EUA Oeste |
-| SpeechEchoBotTutorial-AppServicePlan | Plano do App Service | EUA Oeste |
-| SpeechEchoBotTutorial-fala | Serviços Cognitivos | EUA Oeste |
+| EchoBot20190805125647 | Serviço de Aplicações | Oeste dos E.U.A. |
+| SpeechEchoBotTutorial-AppServicePlan | Plano do App Service | Oeste dos E.U.A. |
+| SpeechEchoBotTutorial-fala | Serviços Cognitivos | Oeste dos E.U.A. |
 
 ## <a name="enable-web-sockets"></a>Habilitar soquetes Web
 
 Você precisará fazer uma pequena alteração de configuração para que o bot possa se comunicar com o canal de fala de linha direta usando os soquetes da Web. Siga estas etapas para habilitar o Web Sockets:
 
 1. Navegue até a [portal do Azure](https://portal.azure.com)e localize seu serviço de aplicativo. O recurso deve ser nomeado semelhante a **EchoBot20190805125647** (seu nome de aplicativo exclusivo).
-2. No painel de navegação esquerdo, selecione **configurações**e clique em **configuração**.
+2. No painel de navegação esquerdo, em **configurações**, clique em **configuração**.
 3. Selecione a guia **configurações gerais** .
 4. Localize a alternância para **Web Sockets** e defina-a como **ativado**.
 5. Clique em **Guardar**.
@@ -251,10 +251,10 @@ Neste ponto, verifique o grupo de recursos **SpeechEchoBotTutorial-resourcegroup
 
 | NOMES | TIPO  | LOCAL |
 |------|-------|----------|
-| EchoBot20190805125647 | Serviço de Aplicações | EUA Oeste |
-| SpeechEchoBotTutorial-AppServicePlan | Plano do App Service | EUA Oeste |
+| EchoBot20190805125647 | Serviço de Aplicações | Oeste dos E.U.A. |
+| SpeechEchoBotTutorial-AppServicePlan | Plano do App Service | Oeste dos E.U.A. |
 | SpeechEchoBotTutorial-BotRegistration | Registro de canais de bot | Global |
-| SpeechEchoBotTutorial-fala | Serviços Cognitivos | EUA Oeste |
+| SpeechEchoBotTutorial-fala | Serviços Cognitivos | Oeste dos E.U.A. |
 
 > [!IMPORTANT]
 > O recurso de registro de canais de bot mostrará a região global, embora você tenha selecionado oeste dos EUA. Isto era esperado.
@@ -268,6 +268,7 @@ Agora é hora de registrar seu bot com o canal de fala de linha direta. Esse can
    * Procure **mais canais**, localize e clique em **Direct line Speech**.
    * Examine o texto na página intitulado configurar a **Direct line Speech**e, em seguida, expanda o menu suspenso chamado "conta de serviço cognitiva".
    * Selecione o recurso de fala que você criou anteriormente (por exemplo, **SpeechEchoBotTutorial-Speech**) no menu para associar o bot à sua chave de assinatura de fala.
+   * Clique em **Guardar**.
 
 1. No painel de navegação esquerdo, clique em **configurações**.
    * Marque a caixa rotulada **habilitar ponto de extremidade de streaming**. Isso é necessário para habilitar um protocolo de comunicação criado em soquetes da Web entre o bot e o canal de fala de linha direta.
@@ -296,8 +297,7 @@ Se você receber uma mensagem de erro na janela do aplicativo principal, use est
 
 | Erro | O que você deve fazer? |
 |-------|----------------------|
-|Erro de aplicativo (consulte o log para obter detalhes): Microsoft. Cognitivaservices. Speech. CSharp: o valor não pode ser nulo. Nome do parâmetro: speechConfig | Este é um erro de aplicativo cliente. Verifique se você tem um valor não vazio para o *segredo de bot* na janela principal do aplicativo (consulte [a seção registrar seu bot com canal de fala de linha direta](#register-the-direct-line-speech-channel)) |
-|Erro AuthenticationFailure: falha na atualização do WebSocket com um erro de autenticação (401). Verificar a chave de assinatura (ou o token de autorização) correta e o nome da região| Na página Configurações do aplicativo, verifique se você inseriu a chave de assinatura de fala e sua região corretamente.<br>Verifique se o segredo do bot foi digitado corretamente. |
+|Erro AuthenticationFailure: falha na atualização do WebSocket com um erro de autenticação (401). Verificar a chave de assinatura (ou o token de autorização) correta e o nome da região| Na página Configurações do aplicativo, verifique se você inseriu a chave de assinatura de fala e sua região corretamente.<br>Certifique-se de que sua chave de fala e região de chave foram inseridas corretamente. |
 |Erro ConnectionFailure: a conexão foi fechada pelo host remoto. Código de erro: 1011. Detalhes do erro: não foi possível conectar ao bot antes de enviar uma mensagem | Verifique se você [marcou a caixa "Habilitar ponto de extremidade de streaming"](#register-the-direct-line-speech-channel) e/ou os [ **soquetes da Web** alternados](#enable-web-sockets) para ativado.<br>Verifique se o serviço de Azure App está em execução. Se for, tente reiniciar o serviço de aplicativo.|
 |Erro ConnectionFailure: a conexão foi fechada pelo host remoto. Código de erro: 1011. Detalhes do erro: o código de status de resposta não indica êxito: 500 (InternalServerError)| O bot especificou uma voz neural em seu campo [ler](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) atividade de saída, mas a região do Azure associada à sua chave de assinatura de fala não oferece suporte a vozes neurais. Consulte [vozes padrão e neural](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
 |Erro ConnectionFailure: a conexão foi fechada pelo host remoto. Código de erro: 1000. Detalhes do erro: tempo ocioso máximo de conexão de soquete da Web excedido (> 300000 MS)| Esse é um erro esperado quando uma conexão com o canal é deixada aberta e inativa por mais de cinco minutos. |
@@ -348,7 +348,7 @@ Para saber mais sobre o que é retornado na saída JSON, consulte [campos na ati
 ### <a name="view-client-source-code-for-calls-to-the-speech-sdk"></a>Exibir o código-fonte do cliente para chamadas para o SDK de fala
 
 O cliente Direct line Speech usa o pacote NuGet [Microsoft. cognitivaservices. Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/), que contém o SDK de fala. Um bom lugar para começar a examinar o código de exemplo é o método InitSpeechConnector () no arquivo [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs), que cria esses dois objetos SDK de fala:
-- [`DialogServiceConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconfig) -para definições de configuração (chave de assinatura de fala, região de chave, segredo de bot)
+- [`DialogServiceConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconfig) -para definições de configuração (por exemplo, chave de assinatura de fala, região de chave)
 - [`DialogServiceConnector`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.-ctor) -gerenciar os eventos de conexão de canal e de assinatura de cliente para tratamento de respostas reconhecidas de fala e bot.
 
 ## <a name="add-custom-keyword-activation"></a>Adicionar ativação de palavra-chave personalizada
@@ -367,7 +367,7 @@ Siga estas etapas para criar um modelo de palavra-chave, configurar o cliente de
 3. No cliente Direct line Speech, localize o menu **configurações** (procure o ícone de engrenagem no canto superior direito). Localize o **caminho do arquivo de modelo** e insira o nome do caminho completo para o arquivo de `kws.table` da etapa 2.
 4. Certifique-se de marcar a caixa denominada **habilitado**. Você deverá ver essa mensagem ao lado da caixa de seleção: "escutará a palavra-chave na próxima conexão". Se você tiver fornecido o arquivo errado ou um caminho inválido, verá uma mensagem de erro.
 5. Insira sua **chave de assinatura**de fala, região de **chave de assinatura**e clique em **OK** para fechar o menu **configurações** .
-6. Selecione um **segredo de bot**e clique em **reconectar**. Você deverá ver uma mensagem que lê: "nova conversa iniciada-tipo, pressione o botão do microfone ou diga a palavra-chave". Agora, o aplicativo está ouvindo continuamente.
+6. Clique em **reconectar**. Você deverá ver uma mensagem que lê: "nova conversa iniciada-tipo, pressione o botão do microfone ou diga a palavra-chave". Agora, o aplicativo está ouvindo continuamente.
 7. Fale qualquer frase que comece com sua palavra-chave. Por exemplo: " **{Your palavra-chave}** , qual é a hora?". Você não precisa fazer uma pausa após a desabsolutação da palavra-chave. Quando terminar, duas coisas acontecem:
    * Você verá uma transcrição do que falou
    * Logo após, você ouvirá a resposta do bot
@@ -378,7 +378,7 @@ Siga estas etapas para criar um modelo de palavra-chave, configurar o cliente de
 
 ### <a name="view-the-source-code-that-enables-keyword"></a>Exibir o código-fonte que habilita a palavra-chave
 
-No código-fonte do cliente de linha direta, dê uma olhada nesses arquivos para examinar o código usado para habilitar a detecção de palavra-chave:
+No código-fonte do cliente Direct line Speech, dê uma olhada nesses arquivos para examinar o código usado para habilitar a detecção de palavras-chave:
 
 1. [`DLSpeechClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/Models.cs) inclui uma chamada para o método SDK de fala [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-), que é usado para instanciar o modelo de um arquivo local no disco.
 1. [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs) inclui uma chamada para o método SDK de fala [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync), que ativa a detecção de palavra-chave contínua.
@@ -389,7 +389,7 @@ O bot que você criou irá escutar e responder em inglês. No entanto, você nã
 
 ### <a name="change-the-language"></a>Alterar o idioma
 
-1. Vamos começar abrindo `\experimental\directline-speech\csharp_dotnetcore\02.echo-bot\Bots\echo-bot.cs`.
+1. Vamos começar abrindo `samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs`.
 2. Em seguida, localize o SSML. É fácil de encontrar, pois está entre as marcas de `<speak></speak>`.
 3. Na cadeia de caracteres SSML, localize a marca `<voice name>`, substitua-a por `<voice name='de-DE-Stefan-Apollo'>`e salve. Essa cadeia de caracteres formatada diz ao serviço de conversão de texto em fala para retornar uma resposta de fala sintetizada usando o `de-DE-Stefan-Apollo`de voz, que é otimizado para alemão.
 
@@ -429,4 +429,4 @@ Se você não continuar usando o Echo-bot implantado neste tutorial, poderá rem
   * [Serviços de Voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Criando e implantando seu próprio bot habilitado para voz:
   * Crie um [bot de estrutura de bot](https://dev.botframework.com/). Registre-o com o [canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) e [Personalize seu bot para voz](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
-  * Explore as [soluções de bot-Framework](https://github.com/microsoft/botframework-solutions)existentes: criar um [Assistente de voz personalizado](https://docs.microsoft.com/azure/cognitive-services/speech-service/voice-assistants) e [habilitar por voz](https://github.com/microsoft/botframework-solutions/blob/master/docs/howto/assistant/csharp/speechenablement.md)
+  * Explore as [soluções de bot-Framework](https://microsoft.github.io/botframework-solutions/index)existentes: Crie um [assistente virtual](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) e [estenda-o para a Direct line Speech](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/)

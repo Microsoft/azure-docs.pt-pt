@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: angle
-ms.openlocfilehash: d3b3f90be7dda28db9a27aa96282acee61e6c8fc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7dffa3d9f6e96adc6146a1059e7360c77926ece3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507343"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837381"
 ---
 # <a name="disclosure-design-guidelines"></a>Diretrizes de design de divulgação
 Saiba como criar e manter a confiança com os clientes ao ser transparente sobre a natureza sintética da sua experiência de voz.
@@ -76,7 +76,7 @@ Use o diagrama a seguir para determinar se sua experiência de voz sintética re
 
 ## <a name="reference-docs"></a>Documentos de referência
 
-* [Nota de transparência](https://aka.ms/neural-tts-transparency-note)
+* [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent)
 * [Diretrizes para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Visão geral da retenção](concepts-gating-overview.md)
 

@@ -12,12 +12,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 2bb721002ad072bb850869ed52b9738380ff9e6e
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 168ec65cfd0ff4e87c33324daa353b554111c8aa
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636131"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838562"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Como fazer uma chamada telefônica usando o twilio em um aplicativo Java no Azure
 O exemplo a seguir mostra como você pode usar twilio para fazer uma chamada de uma página da web hospedada no Azure. O aplicativo resultante solicitará valores de chamada telefônica ao usuário, conforme mostrado na captura de tela a seguir.
@@ -26,12 +26,12 @@ O exemplo a seguir mostra como você pode usar twilio para fazer uma chamada de 
 
 Você precisará fazer o seguinte para usar o código neste tópico:
 
-1. Adquira uma conta do twilio e um token de autenticação. Para começar a usar o twilio, avalie os [https://www.twilio.com/pricing][twilio_pricing]preços em. Você pode se inscrever [https://www.twilio.com/try-twilio][try_twilio]em. Para obter informações sobre a API fornecida pelo twilio, [https://www.twilio.com/api][twilio_api]consulte.
+1. Adquira uma conta do twilio e um token de autenticação. Para começar a usar o twilio, avalie os preços em [https://www.twilio.com/pricing][twilio_pricing]. Você pode se inscrever em [https://www.twilio.com/try-twilio][try_twilio]. Para obter informações sobre a API fornecida pelo twilio, consulte [https://www.twilio.com/api][twilio_api].
 2. Obtenha o JAR twilio. Em [https://github.com/twilio/twilio-java][twilio_java_github], você pode baixar as fontes do GitHub e criar seu próprio jar ou baixar um jar predefinido (com ou sem dependências).
    O código neste tópico foi escrito usando o JAR predefinido TwilioJava-3.3.8-with-Dependencies.
 3. Adicione o JAR ao seu caminho de Build do Java.
 4. Se você estiver usando o Eclipse para criar esse aplicativo Java, inclua o twilio JAR no arquivo de implantação de aplicativo (WAR) usando o recurso de assembly de implantação do eclipse. Se você não estiver usando o Eclipse para criar esse aplicativo Java, verifique se o twilio JAR está incluído na mesma função do Azure que seu aplicativo Java e adicionado ao caminho de classe do seu aplicativo.
-5. Verifique se o repositório de chaves cacerts contém o certificado de autoridade de certificado seguro Equifax com impressão digital MD5 67: CB: 9D: C0:13:24:8A: 82:9B: B2:17:1E: D1:1B: EC: D4 (o número de série é 35: DE: F4: CF e a impressão digital SHA1 é D2:32:09: AD: 23 3:14:23:21:74: E4:0D: 7F: 9D: 62:13:97:86:63:3A). Esse é o certificado de autoridade de certificação (CA) [https://api.twilio.com][twilio_api_service] para o serviço, que é chamado quando você usa APIs twilio. Para obter informações sobre como adicionar esse certificado de autoridade de certificação ao repositório cacerts do JDK, consulte [adicionando um certificado ao repositório de certificados da autoridade de certificação Java][add_ca_cert].
+5. Verifique se o repositório de chaves cacerts contém o certificado de autoridade de certificado seguro Equifax com impressão digital MD5 67: CB: 9D: C0:13:24:8A: 82:9B: B2:17:1E: D1:1B: EC: D4 (o número de série é 35: DE: F4: CF e a impressão digital SHA1 é D2:32:09: AD: 23 3:14:23:21:74: E4:0D: 7F: 9D: 62:13:97:86:63:3A). Esse é o certificado de autoridade de certificação (CA) para o serviço de [https://api.twilio.com][twilio_api_service] , que é chamado quando você usa APIs twilio. Para obter informações sobre como adicionar esse certificado de autoridade de certificação ao repositório cacerts do JDK, consulte [adicionando um certificado ao repositório de certificados da autoridade de certificação Java][add_ca_cert].
 
 Além disso, a familiaridade com as informações em [criando um aplicativo de Olá, mundo usando o Azure Toolkit for Eclipse][azure_java_eclipse_hello_world], ou com outras técnicas para hospedar aplicativos Java no Azure, se você não estiver usando o eclipse, é altamente recomendável.
 
@@ -77,7 +77,7 @@ O código a seguir mostra como criar um formulário da Web para recuperar dados 
     </html>
 
 ## <a name="create-the-code-to-make-the-call"></a>Criar o código para fazer a chamada
-O código a seguir, que é chamado quando o usuário conclui o formulário exibido por callform. jsp, cria a mensagem de chamada e gera a chamada. Para fins deste exemplo, o arquivo JSP é denominado **MakeCall. jsp** e foi adicionado ao projeto **TwilioCloud** . (Use sua conta do twilio e o token de autenticação em vez dos valores de espaço reservado atribuídos a AccountId e **authToken** no código a seguir.)
+O código a seguir, que é chamado quando o usuário conclui o formulário exibido por callform. jsp, cria a mensagem de chamada e gera a chamada. Para fins deste exemplo, o arquivo JSP é denominado **MakeCall. jsp** e foi adicionado ao projeto **TwilioCloud** . (Use sua conta do twilio e o token de autenticação em vez dos valores de espaço reservado atribuídos a **AccountId** e **authToken** no código a seguir.)
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     import="java.util.*"
@@ -176,17 +176,17 @@ Veja a seguir as etapas de alto nível para executar seu aplicativo; os detalhes
 
 Quando você estiver pronto para implantar no Azure, recompile para implantação na nuvem, implante no Azure e execute http://*your_hosted_name*. cloudapp.net/TwilioCloud/callform.jsp no navegador (substitua seu valor por *your_hosted_name*).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Esse código foi fornecido para mostrar a funcionalidade básica usando o twilio no Java no Azure. Antes de implantar no Azure em produção, convém adicionar mais tratamento de erro ou outros recursos. Por exemplo:
 
 * Em vez de usar um formulário da Web, você pode usar os blobs de armazenamento do Azure ou o banco de dados SQL para armazenar números de telefone e texto de chamada. Para obter informações sobre como usar os blobs de armazenamento do Azure em Java, consulte [como usar o serviço de armazenamento de BLOBs do Java][howto_blob_storage_java]. 
-* Você pode usar **RoleEnvironment. getConfigurationSettings** para recuperar a ID da conta do twilio e o token de autenticação das definições de configuração de sua implantação, em vez de embutir os valores em MakeCall. jsp. Para obter informações sobre a classe **RoleEnvironment** , consulte [usando a biblioteca de tempo de execução de serviço do Azure no jsp][azure_runtime_jsp] e a [http://dl.windowsazure.com/javadoc][azure_javadoc]documentação do pacote de tempo de execução do serviço do Azure em.
-* O código MakeCall. jsp atribui uma URL fornecida pelo twilio, [https://twimlets.com/message][twimlet_message_url], à variável de **URL** . Essa URL fornece uma resposta de TwiML (twilio Markup Language) que informa twilio como continuar com a chamada. Por exemplo, o TwiML retornado pode conter um **&lt;verbo de dizer&gt;** que resulta no texto que está sendo falado para o destinatário da chamada. Em vez de usar a URL fornecida pelo twilio, você pode criar seu próprio serviço para responder à solicitação do twilio; para obter mais informações, consulte [como usar o twilio para recursos de voz e SMS em Java][howto_twilio_voice_sms_java]. Mais informações sobre TwiML podem ser encontradas em [https://www.twilio.com/docs/api/twiml][twiml], e mais informações sobre  **&lt; como&gt; dizer** e outros verbos do twilio podem ser encontradas [https://www.twilio.com/docs/api/twiml/say][twilio_say]em.
-* Leia as diretrizes de segurança do [https://www.twilio.com/docs/security][twilio_docs_security]twilio em.
+* Você pode usar **RoleEnvironment. getConfigurationSettings** para recuperar a ID da conta do twilio e o token de autenticação das definições de configuração de sua implantação, em vez de embutir os valores em MakeCall. jsp. Para obter informações sobre a classe **RoleEnvironment** , consulte [usando a biblioteca de tempo de execução de serviço do Azure no jsp][azure_runtime_jsp].
+* O código MakeCall. jsp atribui uma URL fornecida pelo twilio, [https://twimlets.com/message][twimlet_message_url], à variável de **URL** . Essa URL fornece uma resposta de TwiML (twilio Markup Language) que informa twilio como continuar com a chamada. Por exemplo, o TwiML retornado pode conter um **&lt;dizer&gt;** verbo que resulta no texto que está sendo falado para o destinatário da chamada. Em vez de usar a URL fornecida pelo twilio, você pode criar seu próprio serviço para responder à solicitação do twilio; para obter mais informações, consulte [como usar o twilio para recursos de voz e SMS em Java][howto_twilio_voice_sms_java]. Mais informações sobre TwiML podem ser encontradas em [https://www.twilio.com/docs/api/twiml][twiml]e mais informações sobre **&lt;dizer&gt;** e outros verbos twilio podem ser encontrados em [https://www.twilio.com/docs/api/twiml/say][twilio_say].
+* Leia as diretrizes de segurança do twilio em [https://www.twilio.com/docs/security][twilio_docs_security].
 
-Para obter informações adicionais sobre twilio, [https://www.twilio.com/docs][twilio_docs]consulte.
+Para obter informações adicionais sobre twilio, consulte [https://www.twilio.com/docs][twilio_docs].
 
-## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Veja também
 * [Como usar o twilio para recursos de voz e SMS em Java][howto_twilio_voice_sms_java]
 * [Adicionando um certificado ao repositório de certificados de autoridade de certificação Java][add_ca_cert]
 
@@ -204,7 +204,6 @@ Para obter informações adicionais sobre twilio, [https://www.twilio.com/docs][
 [howto_blob_storage_java]: https://www.windowsazure.com/develop/java/how-to-guides/blob-storage/
 [howto_sql_azure_java]: https://msdn.microsoft.com/library/windowsazure/hh749029.aspx
 [azure_runtime_jsp]: https://msdn.microsoft.com/library/windowsazure/hh690948.aspx
-[azure_javadoc]: http://dl.windowsazure.com/javadoc
 [twilio_docs_security]: https://www.twilio.com/docs/security
 [twilio_docs]: https://www.twilio.com/docs
 [twilio_say]: https://www.twilio.com/docs/api/twiml/say

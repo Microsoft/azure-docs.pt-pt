@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: 68c991396c92e6f288d1cc17d6b7dcf1ec79343f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 88a914a2a4d3d62918b01674d6d21f2f011e2c2e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165488"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834307"
 ---
 # <a name="manage-microsoft-azure-recovery-services-agent-backups-by-using-the-azure-backup-service"></a>Gerenciar backups do agente Serviços de Recuperação do Microsoft Azure usando o serviço de backup do Azure
 
@@ -181,7 +181,7 @@ Há duas maneiras de interromper a proteção de arquivos e pastas backup:
 
     ![Interromper um backup agendado.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Você será solicitado a inserir um PIN de segurança (número de identificação pessoal), que deve ser gerado manualmente. Para fazer isso, primeiro entre no portal do Azure.
-5. Vá para **cofre dos serviços de recuperação**  > **configurações**  > **Propriedades**.
+5. Vá para **cofre dos serviços de recuperação** > **configurações** > **Propriedades**.
 6. Em **PIN de segurança**, selecione **gerar**. Copie este PIN. O PIN é válido por apenas cinco minutos.
 7. No console de gerenciamento, Cole o PIN e selecione **OK**.
 
@@ -209,4 +209,4 @@ Se você interrompeu a proteção enquanto retém os dados e decidiu retomar a p
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre cenários e limitações com suporte, consulte a [matriz de suporte para Mars](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
-- Saiba mais sobre o [comportamento de retenção da política de backup ad hoc](https://docs.microsoft.com/azure/backup/backup-configure-vault#ad-hoc-backup-policy-retention-behavior.md).
+- Saiba mais sobre o [comportamento de retenção da política de backup ad hoc](backup-configure-vault.md#ad-hoc-backup-policy-retention-behavior).

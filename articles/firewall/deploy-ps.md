@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 494beb6ba2bf8a9409962b4418089cdad0e182e1
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 7f48012ca1f97c2e28380d95da37863c4bc17f63
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114788"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831845"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implantar e configurar o Firewall do Azure usando o Azure PowerShell
 
@@ -68,7 +68,7 @@ New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 Essa rede virtual tem três sub-redes:
 
 > [!NOTE]
-> O tamanho da sub-rede AzureFirewallSubnet é/26. Para obter mais informações sobre o tamanho da sub-rede, consulte perguntas frequentes sobre o [Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> O tamanho da sub-rede AzureFirewallSubnet é/26. Para obter mais informações sobre o tamanho da sub-rede, consulte [perguntas frequentes sobre o Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 ```azurepowershell
 $FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/26
@@ -241,7 +241,7 @@ Agora, teste o firewall para confirmar se ele funciona conforme o esperado.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   As solicitações www.google.com devem ser bem sucedidas e as solicitações www.microsoft.com devem falhar. Isso demonstra que as regras de firewall estão funcionando conforme o esperado.
+   As solicitações de `www.google.com` devem ter êxito e as solicitações de `www.microsoft.com` devem falhar. Isso demonstra que as regras de firewall estão funcionando conforme o esperado.
 
 Agora você verificou que as regras de firewall estão funcionando:
 
@@ -256,6 +256,6 @@ Você pode manter seus recursos de firewall para o próximo tutorial ou, se não
 Remove-AzResourceGroup -Name Test-FW-RG
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Tutorial: Monitorar logs de firewall do Azure](./tutorial-diagnostics.md)
+* [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)

@@ -1,6 +1,6 @@
 ---
 title: Preparar modelo para implantação
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Como preparar seu modelo treinado para implantação como um serviço Web convertendo seu teste de treinamento Machine Learning Studio (clássico) em um experimento de previsão.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: e24393783dac0f918009f3138f31bdda98bbd22e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4b07150ac9f35085763786c505d3d746428a542b
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684850"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839682"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>Como preparar seu modelo para implantação no Azure Machine Learning Studio (clássico)
 

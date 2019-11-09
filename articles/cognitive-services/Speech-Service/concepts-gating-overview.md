@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: shlo
-ms.openlocfilehash: c0a097c17a24c68f7ebe4ec06a01b9ab7d9943b0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 73e6e4e69a245485ca473f048bbeafef21dbbf37
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507145"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836792"
 ---
 # <a name="custom-neural-voice-gating-overview"></a>Visão geral de retenção de voz neural personalizada
 
@@ -28,7 +28,7 @@ Como parte do compromisso da Microsoft em projetar a AI responsável, reunimos u
 ### <a name="guidance-for-deploying-custom-neural-voice"></a>Diretrizes para implantar a voz neural personalizada
 
 - [Diretrizes para implantação responsável](concepts-guidelines-responsible-deployment-synthetic.md): nossas principais recomendações com base em nossa pesquisa
-- [Nota de transparência de conversão de texto em fala neural](https://aka.ms/neural-tts-transparency-note): o que você precisa saber sobre a tecnologia para usá-la com responsabilidade
+- [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent): o que você precisa saber e informar o talento de voz sobre a tecnologia para usá-la com responsabilidade
 - [Design de divulgação](concepts-disclosure-guidelines.md): como projetar experiências para que os usuários saibam quando uma voz sintética está sendo usada e confia em seu serviço
 
 ### <a name="why-custom-neural-voice-is-a-gated-technology"></a>Por que a voz neural personalizada é uma tecnologia restrita
@@ -41,11 +41,11 @@ Para obter acesso à voz neural personalizada, você precisará começar preench
 
 O acesso ao serviço de voz neural personalizado está sujeito à exclusiva critério da Microsoft com base em nossos critérios de qualificação, processo de habilitação e disponibilidade para dar suporte a um número limitado de clientes durante essa visualização restrita.
 
-Como parte do processo do aplicativo, você precisará confirmar a obtenção de permissão explícita por escrito do talento de voz antes de criar uma fonte de voz, que inclui o compartilhamento da [Nota de transparência de TTS neural](https://aka.ms/neural-tts-transparency-note). Você também deve concordar que ao implantar a fonte de voz, sua implementação [divulgará a natureza sintética](concepts-disclosure-guidelines.md) do serviço aos usuários, fornecerá a atribuição ao serviço de fala sintético da Microsoft em seus termos de serviço e dará suporte a um canal de comentários Isso permite que os usuários do serviço relatem problemas e compartilhem detalhes com a Microsoft. Saiba mais sobre nossos termos de uso [aqui](https://aka.ms/neural-tts-transparency-note).
+Como parte do processo do aplicativo, você precisará confirmar a obtenção de permissão explícita por escrito do talento de voz antes de criar uma fonte de voz, que inclui o compartilhamento da [divulgação para talento de voz](https://aka.ms/disclosure-voice-talent). Você também deve concordar que ao implantar a fonte de voz, sua implementação [divulgará a natureza sintética](concepts-disclosure-guidelines.md) do serviço aos usuários, fornecerá a atribuição ao serviço de fala sintético da Microsoft em seus termos de serviço e dará suporte a um canal de comentários Isso permite que os usuários do serviço relatem problemas e compartilhem detalhes com a Microsoft. Saiba mais sobre nossos termos de uso [aqui](https://aka.ms/custom-neural-code-of-conduct).
 
 ## <a name="reference-docs"></a>Documentos de referência
 
-* [Nota de transparência](https://aka.ms/neural-tts-transparency-note)
+* [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent)
 * [Diretrizes para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Como divulgar](concepts-disclosure-guidelines.md)
 

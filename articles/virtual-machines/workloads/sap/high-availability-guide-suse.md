@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 11/07/2019
 ms.author: sedusch
-ms.openlocfilehash: 569ac844a971970c22f5cc0a511545020fe802c5
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d08f17bd22188f3d969261d8626d47a9e0faf08e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791690"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839615"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs do Azure em SUSE Linux Enterprise Server para aplicativos SAP
 
@@ -78,13 +78,13 @@ Leia as seguintes notas e documentos SAP primeiro
 * [Guias de práticas recomendadas do SUSE SAP ha][suse-ha-guide] Os guias contêm todas as informações necessárias para configurar o NetWeaver HA e a replicação de sistema SAP HANA no local. Use esses guias como uma linha de base geral. Eles fornecem informações muito mais detalhadas.
 * [Notas de versão da extensão de alta disponibilidade do SUSE 12 SP3][suse-ha-12sp3-relnotes]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Para obter alta disponibilidade, o SAP NetWeaver requer um servidor NFS. O servidor NFS é configurado em um cluster separado e pode ser usado por vários sistemas SAP.
 
 ![Visão geral de alta disponibilidade do SAP NetWeaver](./media/high-availability-guide-suse/ha-suse.png)
 
-O servidor NFS, o SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e o banco de dados SAP HANA usam o nome de host virtual e endereços IP virtuais. No Azure, um balanceador de carga é necessário para usar um endereço IP virtual. A lista a seguir mostra a configuração do balanceador de carga (a) SCS e ERS.
+O servidor NFS, o SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e o banco de dados SAP HANA usam o nome de host virtual e endereços IP virtuais. No Azure, um balanceador de carga é necessário para usar um endereço IP virtual. É recomendável usar o [balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). A lista a seguir mostra a configuração do balanceador de carga (a) SCS e ERS.
 
 > [!IMPORTANT]
 > **Não há suporte para**clustering de vários SIDs do SAP ASCS/ers com o SuSE Linux como sistema operacional convidado em VMs do Azure. Clustering de vários SIDs descreve a instalação de várias instâncias do SAP ASCS/ERS com SIDs diferentes em um cluster pacemaker
@@ -97,15 +97,16 @@ O servidor NFS, o SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e
   * Conectado às interfaces de rede primárias de todas as máquinas virtuais que devem fazer parte do cluster (A) SCS/ERS
 * Porta de investigação
   * Porta 620<strong>&lt;nr&gt;</strong>
-* Carregar 
-* regras de balanceamento
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 36<strong>&lt;nr&gt;</strong> TCP
-  * 39<strong>&lt;nr&gt;</strong> TCP
-  * 81<strong>&lt;nr&gt;</strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
+* Regras de balanceamento de carga
+  * Se estiver usando Standard Load Balancer, selecione **portas de alta disponibilidade**
+  * Se estiver usando Load Balancer básica, crie regras de balanceamento de carga para as seguintes portas
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 36<strong>&lt;nr&gt;</strong> TCP
+    * 39<strong>&lt;nr&gt;</strong> TCP
+    * 81<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -116,11 +117,13 @@ O servidor NFS, o SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e
 * Porta de investigação
   * Porta 621<strong>&lt;nr&gt;</strong>
 * Regras de balanceamento de carga
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 33<strong>&lt;nr&gt;</strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * Se estiver usando Standard Load Balancer, selecione **portas de alta disponibilidade**
+  * Se estiver usando Load Balancer básica, crie regras de balanceamento de carga para as seguintes portas
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 33<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Configurando um servidor NFS altamente disponível
 
@@ -176,7 +179,44 @@ Primeiro, você precisa criar as máquinas virtuais para esse cluster NFS. Poste
    Selecionar conjunto de disponibilidade criado anteriormente  
 1. Adicionar pelo menos um disco de dados a ambas as máquinas virtuais  
    Os discos de dados são usados para o/usr/SAP/`<SAPSID`> Directory
-1. Criar um Load Balancer (interno)  
+1. Criar balanceador de carga (interno, padrão):  
+   1. Criar os endereços IP de front-end
+      1. Endereço IP 10.0.0.7 para o ASCS
+         1. Abra o balanceador de carga, selecione pool de IPS de front-end e clique em Adicionar
+         1. Insira o nome do novo pool de IPS de front-end (por exemplo **, NW1-ASCs-frontend**)
+         1. Defina a atribuição como estática e insira o endereço IP (por exemplo **10.0.0.7**)
+         1. Clique em OK
+      1. Endereço IP 10.0.0.8 para ASCS ERS
+         * Repita as etapas acima para criar um endereço IP para o ERS (por exemplo **10.0.0.8** e **NW1-AERS-backend**)
+   1. Criar os pools de back-end
+      1. Criar um pool de back-end para o ASCS
+         1. Abra o balanceador de carga, selecione pools de back-end e clique em Adicionar
+         1. Insira o nome do novo pool de back-end (por exemplo **, NW1-ASCs-backend**)
+         1. Clique em adicionar uma máquina virtual.
+         1. Selecionar máquina virtual
+         1. Selecione as máquinas virtuais do cluster (A) SCS e seus endereços IP.
+         1. Clique em Adicionar
+      1. Criar um pool de back-end para o ASCS ERS
+         * Repita as etapas acima para criar um pool de back-end para o ERS (por exemplo **NW1-AERS-backend**)
+   1. Criar as investigações de integridade
+      1. Porta 620**00** para ASCS
+         1. Abra o balanceador de carga, selecione investigações de integridade e clique em Adicionar
+         1. Insira o nome da nova investigação de integridade (por exemplo **NW1-ASCs-HP**)
+         1. Selecione TCP como protocolo, porta 620**00**, manter intervalo 5 e limite não íntegro 2
+         1. Clique em OK
+      1. Porta 621**02** para ASCS ers
+         * Repita as etapas acima para criar uma investigação de integridade para o ERS (por exemplo, 621**02** e **NW1-AERS-HP**)
+   1. Regras de balanceamento de carga
+      1. Regras de balanceamento de carga para ASCS
+         1. Abra o balanceador de carga, selecione regras de balanceamento de carga e clique em Adicionar
+         1. Insira o nome da nova regra do balanceador de carga (por exemplo **NW1-lb-ASCs**)
+         1. Selecione o endereço IP de front-end, o pool de back-ends e a investigação de integridade que você criou anteriormente (por exemplo **NW1-ASCs-frontend**, **NW1-ASCs-backend** e **NW1-ASCs-HP**)
+         1. Selecionar **portas de alta disponibilidade**
+         1. Aumentar o tempo limite de ociosidade para 30 minutos
+         1. **Certifique-se de habilitar o IP flutuante**
+         1. Clique em OK
+         * Repita as etapas acima para criar regras de balanceamento de carga para ERS (por exemplo **NW1-lb-ers**)
+1. Como alternativa, se seu cenário exigir o Load Balancer básico (interno), siga estas etapas:  
    1. Criar os endereços IP de front-end
       1. Endereço IP 10.0.0.7 para o ASCS
          1. Abra o balanceador de carga, selecione pool de IPS de front-end e clique em Adicionar
@@ -217,8 +257,11 @@ Primeiro, você precisa criar as máquinas virtuais para esse cluster NFS. Poste
       1. Portas adicionais para o ASCS ERS
          * Repita as etapas acima para as portas 33**02**, 5**02**13, 5**02**14, 5**02**16 e TCP para ASCS ers
 
+> [!Note]
+> Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Azure Load Balancer padrão (sem endereço IP público), não haverá nenhuma conectividade com a Internet de saída, a menos que a configuração adicional seja executada para permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como obter conectividade de saída, consulte [conectividade de ponto de extremidade pública para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+
 > [!IMPORTANT]
-> Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. TCP _timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. tcp_timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Criar cluster pacemaker
 

@@ -16,12 +16,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6968379722dc7f2deda95e8d3804a03d4dbc8686
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 38235e90ccf79cf1322ce0f26ed426d8c3a693cc
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176010"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847169"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure Active Directory (AD do Azure) atualiza regularmente Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -80,8 +80,8 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 - Foi adicionado um aviso de reprovação para o Gerenciador de serviços de sincronização na página de propriedades do conector. Esse aviso notifica o usuário de que as alterações devem ser feitas por meio do assistente de AADC.
 - Adição de novo erro para problemas com a política de senha de um usuário.
 - Impedir a configuração incorreta da filtragem de grupo por filtros de domínio e UO. A filtragem de grupo mostrará um erro quando o domínio/UO do grupo inserido já estiver filtrado e impedir que o usuário avance até que o problema seja resolvido.
-- Os usuários não podem mais criar um conector para Active Directory Domain Services ou para o Windows Azure Active Directory na interface do usuário antiga.
-- Correção da acessibilidade de controles de interface do usuário personalizados no Service Manager de sincronização
+- Os usuários não podem mais criar um conector para Active Directory Domain Services ou para o Windows Azure Active Directory na interface do usuário do Synchronization Service Manager.
+- Correção da acessibilidade de controles de interface do usuário personalizados no Synchronization Service Manager.
 - Habilitamos seis tarefas de gerenciamento de Federação para todos os métodos de entrada no Azure AD Connect.  (Anteriormente, apenas a tarefa "atualização AD FS certificado SSL" estava disponível para todas as entradas.)
 - Foi adicionado um aviso ao alterar o método de entrada de Federação para PHS ou PTA que todos os domínios e usuários do Azure AD serão convertidos para a autenticação gerenciada.
 - Certificados de assinatura de token removidos da tarefa "redefinir o Azure AD e AD FS confiança" e adicionou uma subtarefa separada para atualizar esses certificados.
@@ -133,7 +133,7 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 - Adicionar suporte para atualização de domínio 
 - O recurso de pastas públicas do Exchange mail vai para GA 
 - Melhorar o tratamento de erros do assistente para falhas de serviço 
-- Adicionado link de aviso para interface do usuário antiga na página Propriedades do conector. 
+- Adicionado o link de aviso na interface do usuário do Synchronization Service Manager na página de propriedades do conector. 
 - O recurso de write-back de grupos unificados agora está disponível 
 - Mensagem de erro SSPR aprimorada quando o controlador de domínio está sem um controle LDAP 
 - Foram adicionados diagnósticos para erros de registro DCOM durante a instalação  
@@ -159,7 +159,7 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 - Corrigir erros do VSS com o LocalDB  
 - Corrigir mensagem de erro enganosa quando o tipo de objeto não está no escopo 
 - Correção de um problema em que a instalação do PowerShell do Azure AD em um servidor poderia potencialmente causar um conflito de assembly com Azure AD Connect. 
-- Corrigido o bug PHS no servidor de preparo quando as credenciais do conector são atualizadas na interface do usuário antiga. 
+- Corrigido o bug PHS no servidor de preparo quando as credenciais do conector são atualizadas na interface do usuário do Synchronization Service Manager. 
 - Correção de alguns vazamentos de memória 
 - Correções de atualização automática diversas 
 - Correções diversas para exportar e não confirmado o processamento de importação 
@@ -450,7 +450,7 @@ Status: 12 de dezembro de 2017
 >Esta versão é um hotfix relacionado à segurança para Azure AD Connect
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
-Foi adicionado um aperfeiçoamento à Azure AD Connect versão 1.1.654.0 (e posterior) para garantir que as alterações de permissão recomendadas descritas em seção [bloquear o acesso à conta de AD DS](#lock) sejam aplicadas automaticamente quando Azure ad Connect criar o AD DS considerar. 
+Foi adicionado um aperfeiçoamento à Azure AD Connect versão 1.1.654.0 (e posterior) para garantir que as alterações de permissão recomendadas descritas em seção [bloquear o acesso à conta de AD DS](#lock) sejam aplicadas automaticamente quando Azure ad Connect criar a conta de AD DS. 
 
 - Ao configurar Azure AD Connect, o administrador de instalação pode fornecer uma conta de AD DS existente ou permitir que Azure AD Connect crie automaticamente a conta. As alterações de permissão são aplicadas automaticamente à conta de AD DS que é criada pelo Azure AD Connect durante a instalação. Eles não são aplicados à conta de AD DS existente fornecida pelo administrador de instalação.
 - Para os clientes que atualizaram de uma versão mais antiga do Azure AD Connect para 1.1.654.0 (ou posterior), as alterações de permissão não serão retroativamente aplicadas às contas existentes do AD DS criadas antes da atualização. Eles serão aplicados somente a novas contas de AD DS criadas após a atualização. Isso ocorre quando você está adicionando novas florestas do AD para serem sincronizadas com o Azure AD.
@@ -465,7 +465,7 @@ Bloqueie o acesso à conta de AD DS implementando as seguintes alterações de p
 *   Remova todas as ACEs no objeto específico, exceto ACEs específicas para si mesma. Queremos manter as permissões padrão intactas quando se trata de si mesma.
 *   Atribua estas permissões específicas:
 
-Tipo     | Nome                          | Access               | Aplica-se a
+Tipo     | Nome                          | Acesso               | Aplica-se a
 ---------|-------------------------------|----------------------|--------------|
 Permitir    | SISTEMA                        | Controle total         | Este objeto  |
 Permitir    | Administradores corporativos             | Controle total         | Este objeto  |
@@ -549,7 +549,7 @@ Status: outubro de 19 2017
   
   * Observe que o mesmo problema também ocorrerá se você tentar habilitar/desabilitar o logon único contínuo. Especificamente, você tem uma implantação de Azure AD Connect existente com a sincronização de senha desabilitada e o método de entrada do usuário já está configurado como *autenticação de passagem*. Usando a tarefa *alterar entrada de usuário* , você tenta marcar/desmarcar a opção *habilitar logon único contínuo* enquanto o método de entrada do usuário permanece configurado como "autenticação de passagem". Quando a alteração é aplicada, o assistente habilita a sincronização de senha. Com essa correção, o assistente não habilita mais a sincronização de senha. 
 
-* Corrigido um problema que fazia com que Azure AD Connect atualização falhasse com o erro "*não foi possível atualizar o serviço de sincronização*". Além disso, o serviço de sincronização não pode mais iniciar com o erro de evento "*o serviço não pôde ser iniciado porque a versão do banco de dados é mais recente do que a versão dos binários instalados*". O problema ocorre quando o administrador que executa a atualização não tem o privilégio sysadmin para o SQL Server que está sendo usado pelo Azure AD Connect. Com essa correção, Azure AD Connect requer apenas que o administrador tenha o privilégio db_owner para o banco de dados ADSync durante a atualização.
+* Corrigido um problema que fazia com que Azure AD Connect atualização falhasse com o erro "*não foi possível atualizar o serviço de sincronização*". Além disso, o serviço de sincronização não pode mais iniciar com o erro de evento "*o serviço não pôde ser iniciado porque a versão do banco de dados é mais recente do que a versão dos binários instalados*". O problema ocorre quando o administrador que executa a atualização não tem o privilégio sysadmin para o SQL Server que está sendo usado pelo Azure AD Connect. Com essa correção, Azure AD Connect requer apenas que o administrador tenha privilégios de db_owner para o banco de dados ADSync durante a atualização.
 
 * Corrigido um problema de atualização de Azure AD Connect que afetou os clientes que habilitaram o [logon único contínuo](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). Depois que Azure AD Connect for atualizado, o logon único contínuo será exibido incorretamente como desabilitado no assistente de Azure AD Connect, mesmo que o recurso permaneça habilitado e totalmente funcional. Com essa correção, o recurso agora aparece corretamente como habilitado no assistente.
 
@@ -656,7 +656,7 @@ Status: julho de 23 2017
 
 * Foi corrigido um problema em que a [tela de filtragem de domínio e UO](how-to-connect-install-custom.md#domain-and-ou-filtering) no assistente de Azure ad Connect está mostrando a opção *sincronizar todos os domínios e UOs* como selecionada, mesmo que a filtragem baseada em UO esteja habilitada.
 
-*   Corrigido um problema que causou a [tela configurar partições de diretório](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) no Synchronization Service Manager para retornar um erro se o botão *Atualizar* for clicado. A mensagem de erro é *"foi encontrado um erro durante a atualização de domínios: não é possível converter o objeto do tipo ' System. Collections. ArrayList ' no tipo ' Microsoft. DirectoryServices. MetadirectoryServices. UI. PropertySheetBase. MaPropertyPages. Particionobject. "* O erro ocorre quando um novo domínio do AD é adicionado a uma floresta existente do AD e você está tentando atualizar Azure AD Connect usando o botão atualizar.
+*   Corrigido um problema que causou a [tela configurar partições de diretório](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) no Synchronization Service Manager para retornar um erro se o botão *Atualizar* for clicado. A mensagem de erro é *"foi encontrado um erro durante a atualização de domínios: não é possível converter o objeto do tipo ' System. Collections. ArrayList ' para o tipo ' Microsoft. DirectoryServices. timedirectoryservices. UI. PropertySheetBase. MaPropertyPages. particionobject."* O erro ocorre quando um novo domínio do AD é adicionado a uma floresta existente do AD e você está tentando atualizar Azure AD Connect usando o botão atualizar.
 
 #### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 
@@ -666,7 +666,7 @@ Status: julho de 23 2017
   * A instalação não é uma configuração expressa ou uma atualização do DirSync.
   * Você tem mais de 100.000 objetos no metaverso.
   * Você está se conectando a mais de uma floresta. A instalação expressa se conecta somente a uma floresta.
-  * A conta do conector do AD não é mais a conta padrão do MSOL_.
+  * A conta do conector do AD não é mais a conta de MSOL_ padrão.
   * O servidor está definido como no modo de preparo.
   * Você habilitou o recurso de write-back de usuário.
   
@@ -684,7 +684,7 @@ Status: não será liberado. As alterações nesta compilação estão incluída
 
 * Foi corrigido um problema em que a [tela de filtragem de domínio e UO](how-to-connect-install-custom.md#domain-and-ou-filtering) no assistente de Azure ad Connect está mostrando a opção *sincronizar todos os domínios e UOs* como selecionada, mesmo que a filtragem baseada em UO esteja habilitada.
 
-*   Corrigido um problema que causou a [tela configurar partições de diretório](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) no Synchronization Service Manager para retornar um erro se o botão *Atualizar* for clicado. A mensagem de erro é *"foi encontrado um erro durante a atualização de domínios: não é possível converter o objeto do tipo ' System. Collections. ArrayList ' no tipo ' Microsoft. DirectoryServices. MetadirectoryServices. UI. PropertySheetBase. MaPropertyPages. Particionobject. "* O erro ocorre quando um novo domínio do AD é adicionado a uma floresta existente do AD e você está tentando atualizar Azure AD Connect usando o botão atualizar.
+*   Corrigido um problema que causou a [tela configurar partições de diretório](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) no Synchronization Service Manager para retornar um erro se o botão *Atualizar* for clicado. A mensagem de erro é *"foi encontrado um erro durante a atualização de domínios: não é possível converter o objeto do tipo ' System. Collections. ArrayList ' para o tipo ' Microsoft. DirectoryServices. timedirectoryservices. UI. PropertySheetBase. MaPropertyPages. particionobject."* O erro ocorre quando um novo domínio do AD é adicionado a uma floresta existente do AD e você está tentando atualizar Azure AD Connect usando o botão atualizar.
 
 #### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 
@@ -694,7 +694,7 @@ Status: não será liberado. As alterações nesta compilação estão incluída
   * A instalação não é uma configuração expressa ou uma atualização do DirSync.
   * Você tem mais de 100.000 objetos no metaverso.
   * Você está se conectando a mais de uma floresta. A instalação expressa se conecta somente a uma floresta.
-  * A conta do conector do AD não é mais a conta padrão do MSOL_.
+  * A conta do conector do AD não é mais a conta de MSOL_ padrão.
   * O servidor está definido como no modo de preparo.
   * Você habilitou o recurso de write-back de usuário.
   
@@ -862,10 +862,10 @@ Lançamento: maio de 2017
 Sincronização do Azure AD Connect
 
 * Corrigido um problema que faz com que a atualização automática ocorra no servidor de Azure AD Connect, mesmo que o cliente tenha desabilitado o recurso usando o cmdlet Set-ADSyncAutoUpgrade. Com essa correção, o processo de atualização automática no servidor ainda verifica a atualização periodicamente, mas o instalador baixado honra a configuração de atualização automática.
-* Durante a atualização in-loco do DirSync, Azure AD Connect cria uma conta de serviço do Azure AD a ser usada pelo Azure AD Connector para sincronizar com o Azure AD. Depois que a conta é criada, o Azure AD Connect é autenticado com o Azure AD usando a conta. Às vezes, a autenticação falha devido a problemas transitórios, o que, por sua vez, faz com que a atualização in-loco do DirSync falhe com *o erro "ocorreu um erro ao executar configurar AAD Sync tarefa: AADSTS50034: para entrar neste aplicativo, a conta deve ser adicionada ao diretório xxx.onmicrosoft.com. "* Para melhorar a resiliência da atualização do DirSync, Azure AD Connect agora repete a etapa de autenticação.
+* Durante a atualização in-loco do DirSync, Azure AD Connect cria uma conta de serviço do Azure AD a ser usada pelo Azure AD Connector para sincronizar com o Azure AD. Depois que a conta é criada, o Azure AD Connect é autenticado com o Azure AD usando a conta. Às vezes, a autenticação falha devido a problemas transitórios, o que, por sua vez, faz com que a atualização in-loco do DirSync falhe com *o erro "ocorreu um erro ao executar configurar AAD Sync tarefa: AADSTS50034: para entrar neste aplicativo, a conta deve ser adicionada ao diretório xxx.onmicrosoft.com".* Para melhorar a resiliência da atualização do DirSync, Azure AD Connect agora repete a etapa de autenticação.
 * Ocorreu um problema com a compilação 443 que faz com que a atualização in-loco do DirSync tenha êxito, mas os perfis de execução necessários para a sincronização de diretório não são criados. A lógica de reparo está incluída neste Build de Azure AD Connect. Quando o cliente atualiza para essa compilação, Azure AD Connect detecta perfis de execução ausentes e os cria.
 * Corrigido um problema que faz com que o processo de sincronização de senha falhe ao iniciar com a ID de evento 6900 e *o erro "um item com a mesma chave já foi adicionado"* . Esse problema ocorre se você atualizar a configuração de filtragem de UO para incluir a partição de configuração do AD. Para corrigir esse problema, o processo de sincronização de senha agora sincroniza somente as alterações de senha de partições de domínio do AD. As partições que não são de domínio, como a partição de configuração, são ignoradas.
-* Durante a instalação expressa, o Azure AD Connect cria uma conta de AD DS local a ser usada pelo AD Connector para se comunicar com o AD local. Anteriormente, a conta é criada com o sinalizador PASSWD_NOTREQD definido no atributo de controle de conta de usuário e uma senha aleatória é definida na conta. Agora, Azure AD Connect remove explicitamente o sinalizador PASSWD_NOTREQD depois que a senha é definida na conta.
+* Durante a instalação expressa, o Azure AD Connect cria uma conta de AD DS local a ser usada pelo AD Connector para se comunicar com o AD local. Anteriormente, a conta é criada com o sinalizador de PASSWD_NOTREQD definido no atributo de controle de conta de usuário e uma senha aleatória é definida na conta. Agora, Azure AD Connect remove explicitamente o sinalizador PASSWD_NOTREQD depois que a senha é definida na conta.
 * Corrigido um problema que faz com que a atualização do DirSync falhe com *o erro "ocorreu um deadlock no SQL Server que está tentando adquirir um bloqueio de aplicativo"* quando o atributo mailNickname é encontrado no esquema do AD local, mas não está associado à classe de objeto de usuário do AD.
 * Correção de um problema que faz com que o recurso de write-back de dispositivo seja desabilitado automaticamente quando um administrador está atualizando Azure AD Connect configuração de sincronização usando Azure AD Connect assistente. Esse problema é causado pelo assistente que executa uma verificação de pré-requisito para a configuração de write-back do dispositivo existente no AD local e a verificação falha. A correção é ignorar a verificação se o Write-back do dispositivo já estiver habilitado anteriormente.
 * Para configurar a filtragem de UO, você pode usar o assistente de Azure AD Connect ou o Synchronization Service Manager. Anteriormente, se você usar o assistente de Azure AD Connect para configurar a filtragem de UO, novas UOs criadas posteriormente serão incluídas para a sincronização de diretórios. Se não quiser que novas UOs sejam incluídas, você deverá configurar a filtragem de UO usando o Synchronization Service Manager. Agora, você pode obter o mesmo comportamento usando Azure AD Connect assistente.

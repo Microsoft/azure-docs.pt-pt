@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 771a4ffde9f3929a55ee8ce48c2b38e16b83ad49
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 4fd6de848756cedf21d7bb1f7f1be31175de6627
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650684"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838242"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Windows
 
@@ -46,7 +46,7 @@ Para executar uma aplicação existente num contentor do Windows num cluster do 
 
   Para este artigo, a versão (compilação) do Windows Server com contêineres em execução em seus nós de cluster deve corresponder à do seu computador de desenvolvimento. Isso ocorre porque você cria a imagem do Docker em seu computador de desenvolvimento e há restrições de compatibilidade entre as versões do sistema operacional do contêiner e o sistema operacional do host no qual ele está implantado. Para obter mais informações, consulte [sistema operacional de contêiner do Windows Server e compatibilidade do sistema operacional do host](#windows-server-container-os-and-host-os-compatibility). 
   
-Para determinar a versão do Windows Server com contêineres necessários para o cluster, execute o `ver` comando em um prompt de comando do Windows em seu computador de desenvolvimento:
+Para determinar a versão do Windows Server com contêineres necessários para o cluster, execute o comando `ver` em um prompt de comando do Windows em seu computador de desenvolvimento:
 
 * Se a versão contiver *x. x. 14323. x*, selecione *WindowsServer 2016-datacenter-com-containers* para o sistema operacional ao [criar um cluster](service-fabric-cluster-creation-via-portal.md).
   * Se a versão contiver *x. x. 16299. x*, selecione *WindowsServerSemiAnnual datacenter-Core-1709-with-containers* para o sistema operacional ao [criar um cluster](service-fabric-cluster-creation-via-portal.md).
@@ -158,7 +158,7 @@ Se esse comando não devolver nada, execute o seguinte comando e inspecione o el
 docker inspect my-web-site
 ```
 
-Ligue-se ao contentor em execução. Abra um navegador da Web apontando para o endereço IP retornado, por exemplo, "\/http:/172.31.194.61". Deverá ver o cabeçalho "Hello World!" apresentado no browser.
+Ligue-se ao contentor em execução. Abra um navegador da Web apontando para o endereço IP retornado, por exemplo, "http:\//172.31.194.61". Deverá ver o cabeçalho "Hello World!" apresentado no browser.
 
 Para parar o contentor, execute:
 
@@ -281,7 +281,7 @@ O Windows suporta dois modos de isolamento para contentores: processo e Hyper-V.
    >
 
 ## <a name="configure-resource-governance"></a>Configurar a governação de recursos
-A [governação de recursos](service-fabric-resource-governance.md) restringe os recursos que o contentor pode utilizar no anfitrião. O elemento `ResourceGovernancePolicy`, que está especificado no manifesto de aplicação, é utilizado para declarar os limites de recursos para um pacote do código do serviço. Os limites de recursos podem ser definidos para os seguintes recursos: Memória, MemorySwap, CpuShares (peso relativo da CPU), MemoryReservationInMB, BlkioWeight (peso relativo de BlockIO). Neste exemplo, o Guest1Pkg do pacote de serviço obtém um núcleo nos nós de cluster onde está colocado. Os limites de memória são absolutos, pelo que o pacote do código está limitado a 1024 MB de memória (e uma reserva de garantia com o mesmo valor). Os pacotes do código (contentores ou processos) não conseguem alocar mais memória para além deste limite. Tentar fazê-lo resulta numa exceção de memória esgotada. Para que a imposição dos limites de recursos funcione, todos os pacotes do código dentro de um pacote de serviço devem ter limites de memória especificados.
+A [governação de recursos](service-fabric-resource-governance.md) restringe os recursos que o contentor pode utilizar no anfitrião. O elemento `ResourceGovernancePolicy`, que está especificado no manifesto de aplicação, é utilizado para declarar os limites de recursos para um pacote do código do serviço. Pode definir limites de recursos para os seguintes recursos: Memória, MemorySwap, CpuShares (peso relativo de CPU), MemoryReservationInMB, BlkioWeight (peso relativo de BlockIO). Neste exemplo, o Guest1Pkg do pacote de serviço obtém um núcleo nos nós de cluster onde está colocado. Os limites de memória são absolutos, pelo que o pacote do código está limitado a 1024 MB de memória (e uma reserva de garantia com o mesmo valor). Os pacotes do código (contentores ou processos) não conseguem alocar mais memória para além deste limite. Tentar fazê-lo resulta numa exceção de memória esgotada. Para que a imposição dos limites de recursos funcione, todos os pacotes do código dentro de um pacote de serviço devem ter limites de memória especificados.
 
 ```xml
 <ServiceManifestImport>
@@ -294,7 +294,7 @@ A [governação de recursos](service-fabric-resource-governance.md) restringe os
 ```
 ## <a name="configure-docker-healthcheck"></a>Configurar docker HEALTHCHECK 
 
-A partir da versão v6.1, o Service Fabric integra automaticamente eventos [HEALTHCHECK do docker](https://docs.docker.com/engine/reference/builder/#healthcheck) no respetivo relatório de estado de funcionamento do sistema. Isto significa que, se o seu contentor tiver **HEALTHCHECK** ativado, o Service Fabric comunicará o estado de funcionamento sempre que o estado de funcionamento do contentor for alterado, conforme comunicado pelo Docker. Quando o *health_status* for *bom estado de funcionamento* é apresentado no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) um relatório com o estado de funcionamento **OK** e é apresentado **AVISO** se o *health_status* for *mau estado de funcionamento*. 
+A partir da versão v6.1, o Service Fabric integra automaticamente eventos [HEALTHCHECK do docker](https://docs.docker.com/engine/reference/builder/#healthcheck) no respetivo relatório de estado de funcionamento do sistema. Isto significa que, se o seu contentor tiver **HEALTHCHECK** ativado, o Service Fabric comunicará o estado de funcionamento sempre que o estado de funcionamento do contentor for alterado, conforme comunicado pelo Docker. Quando o **health_status** for [bom estado de funcionamento](service-fabric-visualizing-your-cluster.md) é apresentado no *Service Fabric Explorer* um relatório com o estado de funcionamento *OK* e é apresentado **AVISO** se o *health_status* for *mau estado de funcionamento*. 
 
 A partir da versão de atualização mais recente do v 6.4, você tem a opção de especificar que as avaliações do Docker HEALTHCHECK devem ser relatadas como um erro. Se essa opção estiver habilitada, um relatório de integridade **OK** será exibido quando *health_status* estiver *íntegro* e o **erro** será exibido quando *health_status* não estiver *íntegro*.
 
@@ -320,7 +320,7 @@ Pode configurar o comportamento de **HEALTHCHECK** para cada contentor, especifi
     </Policies>
 </ServiceManifestImport>
 ```
-Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido **como true**, *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false**e *TreatContainerUnhealthyStatusAsError* é definido como **false** . 
+Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido como **true**, *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false**e *TreatContainerUnhealthyStatusAsError* é definido como **false**. 
 
 Se *RestartContainerOnUnhealthyDockerHealthStatus* estiver definido como **verdadeiro**, um contentor que esteja a comunicar repetidamente um mau estado de funcionamento é reiniciado (possivelmente nos outros nós).
 
@@ -331,15 +331,15 @@ Se pretender desativar a integração de **HEALTHCHECK** em todo o cluster do Se
 ## <a name="deploy-the-container-application"></a>Implementar a aplicação de contentor
 Guarde todas as alterações e crie a aplicação. Para publicar a sua aplicação, clique com o botão direito do rato em **MyFirstContainer**, no Explorador de Soluções, e selecione **Publicar**.
 
-No **Ponto Final da Ligação**, introduza o ponto final de gestão para o cluster. Por exemplo, "containercluster.westus2.cloudapp.azure.com:19000". Pode encontrar o ponto final de ligação do cliente no separador Descrição Geral do seu cluster no [portal do Azure](https://portal.azure.com).
+No **Ponto Final da Ligação**, introduza o ponto final de gestão para o cluster. Por exemplo, `containercluster.westus2.cloudapp.azure.com:19000`. Pode encontrar o ponto final de ligação do cliente no separador Descrição Geral do seu cluster no [portal do Azure](https://portal.azure.com).
 
 Clique em **Publicar**.
 
-O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma ferramenta baseada na Web utilizada para inspecionar e gerir aplicações e nós num cluster do Service Fabric. Abra um browser e navegue para http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ e siga a implementação da aplicação. O aplicativo é implantado, mas está em um estado de erro até que a imagem seja baixada nos nós de cluster (o que pode levar algum tempo, dependendo do tamanho da imagem): ![Ao][1]
+O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma ferramenta baseada na Web utilizada para inspecionar e gerir aplicações e nós num cluster do Service Fabric. Abra um browser e navegue para `http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/` e siga a implementação da aplicação. A aplicação é implementada, mas fica em estado de erro até que a imagem seja transferida nos nós do cluster (o que pode demorar algum tempo, consoante o tamanho da imagem): ![Erro][1]
 
-O aplicativo está pronto quando está no ```Ready``` Estado: ![Esteja][2]
+A aplicação está pronta quando estiver no estado ```Ready```: ![Pronto][2]
 
-Abra um browser e navegue para http://containercluster.westus2.cloudapp.azure.com:8081. Deverá ver o cabeçalho "Hello World!" apresentado no browser.
+Abra um browser e navegue para `http://containercluster.westus2.cloudapp.azure.com:8081`. Deverá ver o cabeçalho "Hello World!" apresentado no browser.
 
 ## <a name="clean-up"></a>Limpeza
 
@@ -507,7 +507,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Configurar o intervalo de tempo antes do contentor ser forçado a terminar
 
-Pode configurar um intervalo de tempo para o tempo de execução para aguardar antes do contentor ser removido após a eliminação do serviço (ou uma mudança para outro nó) ser iniciada. Configurar o intervalo de tempo envia o comando `docker stop <time in seconds>` para o contentor.  Para obter mais detalhes, veja [paragem do docker](https://docs.docker.com/engine/reference/commandline/stop/). O intervalo de tempo de espera é especificado na secção `Hosting`. A `Hosting` seção pode ser adicionada na criação do cluster ou posteriormente em uma atualização de configuração. O fragmento do manifesto do cluster seguinte mostra como definir o intervalo de espera:
+Pode configurar um intervalo de tempo para o tempo de execução para aguardar antes do contentor ser removido após a eliminação do serviço (ou uma mudança para outro nó) ser iniciada. Configurar o intervalo de tempo envia o comando `docker stop <time in seconds>` para o contentor.  Para obter mais detalhes, veja [paragem do docker](https://docs.docker.com/engine/reference/commandline/stop/). O intervalo de tempo de espera é especificado na secção `Hosting`. A seção `Hosting` pode ser adicionada na criação do cluster ou posteriormente em uma atualização de configuração. O fragmento do manifesto do cluster seguinte mostra como definir o intervalo de espera:
 
 ```json
 "fabricSettings": [
@@ -606,7 +606,7 @@ Com a versão e posterior 6.2 do runtime do Service Fabric, pode iniciar o daemo
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre como executar [contentores no Service Fabric](service-fabric-containers-overview.md).
 * Leia o tutorial [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) (Implementar uma aplicação .NET num contentor).
 * Saiba mais sobre o [ciclo de vida das aplicações](service-fabric-application-lifecycle.md) do Service Fabric.

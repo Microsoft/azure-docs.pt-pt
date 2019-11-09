@@ -1,7 +1,7 @@
 ---
 title: API de Tradução de Texto método BreakSentence
 titleSuffix: Azure Cognitive Services
-description: Use o método API de Tradução de Texto BreakSentence.
+description: O método API de Tradução de Texto BreakSentence identifica o posicionamento dos limites de sentença em um pedaço de texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 184677589b3aa777ec556215455f8018e0d71f3f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: b4eb083b0f98112274a5d00631af8662ff5c063a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934043"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835892"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>API de Tradução de Texto 3,0: BreakSentence
 
@@ -23,13 +23,13 @@ Identifica o posicionamento de limites de sentença em um pedaço de texto.
 
 ## <a name="request-url"></a>URL do Pedido
 
-Enviar uma `POST` solicitação para:
+Enviar uma solicitação de `POST` para:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 ```
 
-## <a name="request-parameters"></a>Parâmetros do pedido
+## <a name="request-parameters"></a>Parâmetros de solicitação
 
 Os parâmetros de solicitação passados na cadeia de caracteres de consulta são:
 
@@ -37,15 +37,15 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   <th width="20%">Parâmetro de consulta</th>
   <th>Descrição</th>
   <tr>
-    <td>versão de API</td>
-    <td>*Parâmetro de consulta necessário*.<br/>Versão da API solicitada pelo cliente. O valor deve `3.0`ser.</td>
+    <td>versão da API</td>
+    <td>*Parâmetro de consulta necessário*.<br/>Versão da API solicitada pelo cliente. O valor deve ser `3.0`.</td>
   </tr>
   <tr>
     <td>language</td>
     <td>*Parâmetro de consulta opcional*.<br/>Marca de idioma que identifica o idioma do texto de entrada. Se um código não for especificado, a detecção automática de idioma será aplicada.</td>
   </tr>
   <tr>
-    <td>script</td>
+    <td>.</td>
     <td>*Parâmetro de consulta opcional*.<br/>Marca de script que identifica o script usado pelo texto de entrada. Se um script não for especificado, o script padrão do idioma será assumido.</td>
   </tr>
 </table> 
@@ -60,22 +60,22 @@ Os cabeçalhos de solicitação incluem:
     <td><em>Cabeçalho de solicitação necessário</em>.<br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
-    <td>*Cabeçalho de solicitação necessário*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são `application/json`:.</td>
+    <td>Tipo de conteúdo</td>
+    <td>*Cabeçalho de solicitação necessário*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
   </tr>
   <tr>
-    <td>Content-Length</td>
+    <td>Comprimento do conteúdo</td>
     <td>*Cabeçalho de solicitação necessário*.<br/>O comprimento do corpo da solicitação.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Observe que você pode omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um `ClientTraceId`parâmetro de consulta denominado.</td>
+    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Observe que você pode omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta chamado `ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Corpo do pedido
 
-O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objeto JSON com uma propriedade de `Text`cadeia de caracteres chamada. Os limites de frase são calculados para o valor `Text` da propriedade. Um corpo de solicitação de exemplo com uma parte do texto tem a seguinte aparência:
+O corpo da solicitação é uma matriz JSON. Cada elemento de matriz é um objeto JSON com uma propriedade de cadeia de caracteres chamada `Text`. Os limites de sentença são calculados para o valor da propriedade `Text`. Um corpo de solicitação de exemplo com uma parte do texto tem a seguinte aparência:
 
 ```json
 [
@@ -88,21 +88,21 @@ As seguintes limitações se aplicam:
 * A matriz pode ter no máximo 100 elementos.
 * O valor de texto de um elemento de matriz não pode exceder 10.000 caracteres, incluindo espaços.
 * O texto inteiro incluído na solicitação não pode exceder 50.000 caracteres, incluindo espaços.
-* Se o `language` parâmetro de consulta for especificado, todos os elementos de matriz deverão estar no mesmo idioma. Caso contrário, a detecção automática de idioma será aplicada a cada elemento de matriz de forma independente.
+* Se o parâmetro de consulta `language` for especificado, todos os elementos de matriz deverão estar no mesmo idioma. Caso contrário, a detecção automática de idioma será aplicada a cada elemento de matriz de forma independente.
 
 ## <a name="response-body"></a>Corpo da resposta
 
 Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
-  * `sentLen`: Uma matriz de inteiros que representa os comprimentos das frases no elemento de texto. O comprimento da matriz é o número de sentenças e os valores são o comprimento de cada frase. 
+  * `sentLen`: uma matriz de inteiros que representa os comprimentos das frases no elemento de texto. O comprimento da matriz é o número de sentenças e os valores são o comprimento de cada frase. 
 
-  * `detectedLanguage`: Um objeto que descreve a linguagem detectada por meio das seguintes propriedades:
+  * `detectedLanguage`: um objeto que descreve a linguagem detectada por meio das seguintes propriedades:
 
-     * `language`: Código do idioma detectado.
+     * `language`: código da linguagem detectada.
 
-     * `score`: Um valor float que indica a confiança no resultado. A pontuação é entre zero e uma e uma pontuação baixa indica uma baixa confiança.
+     * `score`: um valor float que indica a confiança no resultado. A pontuação é entre zero e uma e uma pontuação baixa indica uma baixa confiança.
      
-    Observe que a `detectedLanguage` Propriedade está presente apenas no objeto de resultado quando a detecção automática de idioma é solicitada.
+    Observe que a propriedade `detectedLanguage` só está presente no objeto result quando a detecção automática de idioma é solicitada.
 
 Um exemplo de resposta JSON é:
 
@@ -134,7 +134,7 @@ Um exemplo de resposta JSON é:
 A seguir estão os códigos de status HTTP possíveis que uma solicitação retorna. 
 
 <table width="100%">
-  <th width="20%">Código de Estado</th>
+  <th width="20%">Código de status</th>
   <th>Descrição</th>
   <tr>
     <td>200</td>
@@ -146,11 +146,11 @@ A seguir estão os códigos de status HTTP possíveis que uma solicitação reto
   </tr>
   <tr>
     <td>401</td>
-    <td>Não foi possível autenticar o pedido. Verifique se as credenciais estão especificadas e válidas.</td>
+    <td>Não foi possível autenticar a solicitação. Verifique se as credenciais estão especificadas e válidas.</td>
   </tr>
   <tr>
     <td>403</td>
-    <td>O pedido não está autorizado. Verifique a mensagem de erro detalhes. Isso geralmente indica que todas as traduções gratuitas fornecidas com uma assinatura de avaliação foram usadas.</td>
+    <td>A solicitação não é autorizada. Verifique a mensagem de erro detalhes. Isso geralmente indica que todas as traduções gratuitas fornecidas com uma assinatura de avaliação foram usadas.</td>
   </tr>
   <tr>
     <td>429</td>
@@ -158,11 +158,11 @@ A seguir estão os códigos de status HTTP possíveis que uma solicitação reto
   </tr>
   <tr>
     <td>500</td>
-    <td>Ocorreu um erro inesperado. Se o erro persistir, denuncie-o com: data e hora da falha, identificador de solicitação do cabeçalho `X-RequestId`de resposta e identificador de cliente do `X-ClientTraceId`cabeçalho da solicitação.</td>
+    <td>Ocorreu um erro inesperado. Se o erro persistir, denuncie-o com: data e hora da falha, identificador de solicitação do cabeçalho de resposta `X-RequestId`e identificador de cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servidor temporariamente indisponível. Repita a solicitação. Se o erro persistir, denuncie-o com: data e hora da falha, identificador de solicitação do cabeçalho `X-RequestId`de resposta e identificador de cliente do `X-ClientTraceId`cabeçalho da solicitação.</td>
+    <td>Servidor temporariamente indisponível. Repita a solicitação. Se o erro persistir, denuncie-o com: data e hora da falha, identificador de solicitação do cabeçalho de resposta `X-RequestId`e identificador de cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
   </tr>
 </table> 
 

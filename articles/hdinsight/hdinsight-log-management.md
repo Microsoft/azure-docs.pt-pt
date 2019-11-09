@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/19/2019
-ms.openlocfilehash: c069b620e129177be5d374f5b23b5e54befd8ca2
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.date: 11/07/2019
+ms.openlocfilehash: e5abc9e75e11424b5d0dc4c260b412d0e414ad83
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105433"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837960"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerir registos de um cluster do HDInsight
 
@@ -23,13 +23,13 @@ O gerenciamento de logs do cluster HDInsight inclui reter informações sobre to
 
 As etapas típicas no gerenciamento de log do HDInsight são:
 
-* Passo 1: Determinar políticas de retenção de log
-* Passo 2: Gerenciar logs de configuração de versões do serviço de cluster
-* Passo 3: Gerenciar arquivos de log de execução de trabalho do cluster
-* Passo 4: Custos e tamanhos de armazenamento de volume de log de previsão
-* Passo 5: Determinar políticas e processos de arquivo de log
+* Etapa 1: determinar as políticas de retenção de log
+* Etapa 2: gerenciar logs de configuração de versões de serviço de cluster
+* Etapa 3: gerenciar arquivos de log de execução de trabalho do cluster
+* Etapa 4: custos e tamanhos de armazenamento de volume de log de previsão
+* Etapa 5: determinar políticas e processos de arquivo de log
 
-## <a name="step-1-determine-log-retention-policies"></a>Passo 1: Determinar políticas de retenção de log
+## <a name="step-1-determine-log-retention-policies"></a>Etapa 1: determinar as políticas de retenção de log
 
 A primeira etapa na criação de uma estratégia de gerenciamento de log de cluster HDInsight é reunir informações sobre cenários de negócios e requisitos de armazenamento de histórico de execução de trabalhos.
 
@@ -45,8 +45,8 @@ Os detalhes do cluster a seguir são úteis para ajudar a reunir informações e
 Você pode obter a maioria dessas informações de nível superior usando o portal do Azure.  Como alternativa, você pode usar [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para obter informações sobre seus clusters HDInsight:
 
 ```azurecli
-    az hdinsight list --resource-group <ResourceGroup>
-    az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
+az hdinsight list --resource-group <ResourceGroup>
+az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
 
 Você também pode usar o PowerShell para exibir essas informações.  Para obter mais informações, consulte [Apache Manage Hadoop clusters no HDInsight usando Azure PowerShell](hdinsight-administer-use-powershell.md).
@@ -69,7 +69,7 @@ Você também pode usar o PowerShell para exibir essas informações.  Para obte
 
 * Considere se uma solução ou um serviço de monitoramento seria um benefício útil. O Microsoft System Center fornece um [pacote de gerenciamento do HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). Você também pode usar ferramentas de terceiros, como Apache Chukwa e Ganglia, para coletar e centralizar logs. Muitas empresas oferecem serviços para monitorar soluções de Big Data baseadas em Hadoop, por exemplo: Centerity, Compuware APM, Sematext SPM e Zettaset Orchestrator.
 
-## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Passo 2: Gerenciar versões do serviço de cluster e exibir logs de ação de script
+## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Etapa 2: gerenciar versões de serviço de cluster e exibir logs de ação de script
 
 Um cluster HDInsight típico usa vários serviços e pacotes de software de código aberto (como o Apache HBase, Apache Spark e assim por diante). Para algumas cargas de trabalho, como bioinformática, talvez seja necessário manter o histórico do log de configuração do serviço além dos logs de execução do trabalho.
 
@@ -87,9 +87,9 @@ Usando a interface do usuário do amAmbari, você pode baixar a configuração p
 
 ### <a name="view-the-script-action-logs"></a>Exibir os logs de ação de script
 
-As [ações de script](hdinsight-hadoop-customize-cluster-linux.md) do HDInsight executam scripts em um cluster, seja manualmente ou quando especificado. Por exemplo, as ações de script podem ser usadas para instalar software adicional no cluster ou alterar definições de configuração dos valores padrão. Os logs de ação de script podem fornecer informações sobre erros que ocorreram durante a instalação do cluster e também alterações de definições de configuração que podem afetar o desempenho e a disponibilidade do cluster.  Para ver o status de uma ação de script, selecione o botão **Ops** na sua interface do usuário do Ambari ou acesse os logs de status na conta de armazenamento padrão. Os logs de armazenamento estão disponíveis `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`em.
+As [ações de script](hdinsight-hadoop-customize-cluster-linux.md) do HDInsight executam scripts em um cluster, seja manualmente ou quando especificado. Por exemplo, as ações de script podem ser usadas para instalar software adicional no cluster ou alterar definições de configuração dos valores padrão. Os logs de ação de script podem fornecer informações sobre erros que ocorreram durante a instalação do cluster e também alterações de definições de configuração que podem afetar o desempenho e a disponibilidade do cluster.  Para ver o status de uma ação de script, selecione o botão **Ops** na sua interface do usuário do Ambari ou acesse os logs de status na conta de armazenamento padrão. Os logs de armazenamento estão disponíveis em `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
 
-## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Passo 3: Gerenciar os arquivos de log de execução do trabalho do cluster
+## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Etapa 3: gerenciar os arquivos de log de execução do trabalho do cluster
 
 A próxima etapa é examinar os arquivos de log de execução do trabalho para os vários serviços.  Os serviços podem incluir o Apache HBase, o Apache Spark e muitos outros. Um cluster Hadoop produz um grande número de logs detalhados, portanto, determinar quais logs são úteis (e quais não são) pode ser demorado.  Compreender o sistema de registro em log é importante para o gerenciamento direcionado de arquivos de log.  Este é um exemplo de arquivo de log.
 
@@ -112,29 +112,29 @@ Além dos principais arquivos de log gerados pelo HDInsight, os serviços instal
 O YARN agrega logs em todos os contêineres em um nó de trabalho e armazena esses logs como um arquivo de log agregado por nó de trabalho. Esse log é armazenado no sistema de arquivos padrão após a conclusão de um aplicativo. Seu aplicativo pode usar centenas ou milhares de contêineres, mas os logs para todos os contêineres que são executados em um único nó de trabalho são sempre agregados a um único arquivo. Há apenas um log por nó de trabalho usado pelo seu aplicativo. A agregação de log é habilitada por padrão nos clusters HDInsight versão 3,0 e posteriores. Os logs agregados estão localizados no armazenamento padrão para o cluster.
 
 ```
-    /app-logs/<user>/logs/<applicationId>
+/app-logs/<user>/logs/<applicationId>
 ```
 
 Os logs agregados não são diretamente legíveis, pois são gravados em um formato binário TFile indexado pelo contêiner. Use os logs ResourceManager do YARN ou as ferramentas da CLI para exibir esses logs como texto sem formatação para aplicativos ou contêineres de interesse.
 
 #### <a name="yarn-cli-tools"></a>Ferramentas da CLI do YARN
 
-Para usar as ferramentas da CLI do YARN, primeiro você deve se conectar ao cluster HDInsight usando SSH. Especifique as `<applicationId>` `<user-who-started-the-application>`informações, `<containerId>`, e ao executar esses comandos. `<worker-node-address>` Você pode exibir os logs como texto sem formatação com um dos seguintes comandos:
+Para usar as ferramentas da CLI do YARN, primeiro você deve se conectar ao cluster HDInsight usando SSH. Especifique as informações de `<applicationId>`, `<user-who-started-the-application>`, `<containerId>`e `<worker-node-address>` ao executar esses comandos. Você pode exibir os logs como texto sem formatação com um dos seguintes comandos:
 
 ```bash
-    yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
-    yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
+yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
+yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 ```
 
 #### <a name="yarn-resourcemanager-ui"></a>Interface do usuário do ResourceManager YARN
 
 A interface do usuário do ResourceManager YARN é executada no nó principal do cluster e é acessada por meio da interface do usuário da Web do amAmbari. Use as etapas a seguir para exibir os logs do YARN:
 
-1. Em um navegador da Web, navegue `https://CLUSTERNAME.azurehdinsight.net`até. Substitua CLUSTERname pelo nome do seu cluster HDInsight.
+1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`. Substitua CLUSTERname pelo nome do seu cluster HDInsight.
 2. Na lista de serviços à esquerda, selecione YARN.
 3. Na lista suspensa links rápidos, selecione um dos nós de cabeçalho do cluster e, em seguida, selecione **logs de ResourceManager**. Você verá uma lista de links para logs do YARN.
 
-## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Passo 4: Custos e tamanhos de armazenamento de volume de log de previsão
+## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Etapa 4: custos e tamanhos de armazenamento de volume de log de previsão
 
 Depois de concluir as etapas anteriores, você compreenderá os tipos e volumes de arquivos de log que seus clusters HDInsight estão produzindo.
 
@@ -142,11 +142,11 @@ Em seguida, analise o volume de dados de log em locais de armazenamento de log d
 
 Agora você tem informações suficientes para criar uma estratégia de gerenciamento de log para os logs de chave.  Use sua planilha (ou ferramenta de escolha) para prever o crescimento do tamanho do log e o armazenamento de log que os custos do serviço do Azure avançando.  Considere também quaisquer requisitos de retenção de log para o conjunto de logs que você está examinando.  Agora você pode reprever os custos de armazenamento de log futuros, depois de determinar quais arquivos de log podem ser excluídos (se houver) e quais logs devem ser retidos e arquivados em um armazenamento do Azure menos dispendioso.
 
-## <a name="step-5-determine-log-archive-policies-and-processes"></a>Passo 5: Determinar políticas e processos de arquivo de log
+## <a name="step-5-determine-log-archive-policies-and-processes"></a>Etapa 5: determinar políticas e processos de arquivo de log
 
 Depois de determinar quais arquivos de log podem ser excluídos, você pode ajustar os parâmetros de log em muitos serviços do Hadoop para excluir automaticamente os arquivos de log após um período de tempo especificado.
 
-Para determinados arquivos de log, você pode usar uma abordagem de arquivamento de arquivo de log de menor preço. Para Azure Resource Manager logs de atividades, você pode explorar essa abordagem usando o portal do Azure.  Configure o arquivamento dos logs do ARM selecionando o link **log de atividades**no portal do Azure para sua instância do HDInsight.  Na parte superior da página de pesquisa do log de atividades, selecione o item de menu **Exportar** para abrir o painel **Exportar log de atividades** .  Preencha a assinatura, a região, se deseja exportar para uma conta de armazenamento e quantos dias para manter os logs. Nesse mesmo painel, você também pode indicar se deseja exportar para um hub de eventos.
+Para determinados arquivos de log, você pode usar uma abordagem de arquivamento de arquivo de log de menor preço. Para Azure Resource Manager logs de atividades, você pode explorar essa abordagem usando o portal do Azure.  Configure o arquivamento dos logs do Gerenciador de recursos selecionando o link **log de atividades** no portal do Azure para sua instância do HDInsight.  Na parte superior da página de pesquisa do log de atividades, selecione o item de menu **Exportar** para abrir o painel **Exportar log de atividades** .  Preencha a assinatura, a região, se deseja exportar para uma conta de armazenamento e quantos dias para manter os logs. Nesse mesmo painel, você também pode indicar se deseja exportar para um hub de eventos.
 
 ![Visualização de portal do Azure exportar log de atividades](./media/hdinsight-log-management/hdi-export-log-files.png)
 
@@ -159,14 +159,14 @@ Você pode usar o SDK do .NET para Hadoop para examinar os arquivos de log gerad
 
 ### <a name="control-the-size-and-number-of-backup-indexes-for-old-log-files"></a>Controlar o tamanho e o número de índices de backup para arquivos de log antigos
 
-Para controlar o tamanho e o número de arquivos de log retidos, defina as seguintes `RollingFileAppender`Propriedades do:
+Para controlar o tamanho e o número de arquivos de log retidos, defina as seguintes propriedades do `RollingFileAppender`:
 
-* `maxFileSize`é o tamanho crítico do arquivo, acima do qual o arquivo é revertido. O valor padrão é 10 MB.
-* `maxBackupIndex`Especifica o número de arquivos de backup a serem criados, padrão 1.
+* `maxFileSize` é o tamanho crítico do arquivo, acima do qual o arquivo é revertido. O valor padrão é 10 MB.
+* `maxBackupIndex` especifica o número de arquivos de backup a serem criados, o padrão é 1.
 
 ### <a name="other-log-management-techniques"></a>Outras técnicas de gerenciamento de log
 
-Para evitar a indisponibilidade de espaço em disco, você pode usar algumas ferramentas do sistema operacional, como o [logrotate](https://linux.die.net/man/8/logrotate) , para gerenciar a manipulação de arquivos de log. Você pode configurar `logrotate` o para ser executado diariamente, compactando arquivos de log e removendo os antigos. Sua abordagem depende de seus requisitos, como por quanto tempo manter os arquivos de log em nós locais.  
+Para evitar a indisponibilidade de espaço em disco, você pode usar algumas ferramentas do sistema operacional, como o [logrotate](https://linux.die.net/man/8/logrotate) , para gerenciar a manipulação de arquivos de log. Você pode configurar o `logrotate` para ser executado diariamente, compactando arquivos de log e removendo os antigos. Sua abordagem depende de seus requisitos, como por quanto tempo manter os arquivos de log em nós locais.  
 
 Você também pode verificar se o log de depuração está habilitado para um ou mais serviços, o que aumenta muito o tamanho do log de saída.  
 

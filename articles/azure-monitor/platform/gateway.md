@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 10/30/2019
-ms.openlocfilehash: 87e1995a84ae2b598b8097d4910914831a75a318
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7574f5c17c1b4598336b8db3108946164dc203f2
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162011"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847288"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conectar computadores sem acesso à Internet usando o gateway de Log Analytics no Azure Monitor
 
@@ -26,7 +26,7 @@ O gateway de Log Analytics é um proxy de encaminhamento HTTP que dá suporte ao
 
 O gateway de Log Analytics dá suporte a:
 
-* Relatando até os mesmos quatro Log Analytics agentes de espaço de trabalho que estão por trás dele e configurados com Hybrid runbook Workers de automação do Azure.  
+* Relatando até os mesmos espaços de trabalho Log Analytics configurados em cada agente por trás dele e configurados com Hybrid runbook Workers de automação do Azure.  
 * Computadores Windows nos quais o Microsoft Monitoring Agent está diretamente conectado a um espaço de trabalho Log Analytics no Azure Monitor.
 * Computadores Linux nos quais um agente Log Analytics para Linux está conectado diretamente a um espaço de trabalho Log Analytics no Azure Monitor.  
 * System Center Operations Manager 2012 SP1 com UR7, Operations Manager 2012 R2 com UR3 ou um grupo de gerenciamento no Operations Manager 2016 ou posterior que é integrado com Log Analytics.  

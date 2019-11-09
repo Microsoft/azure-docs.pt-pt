@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: a455607b1459ebc9e37b1df70b454feea76d1f2f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7273c7b1dbf5eb6c855b95a8661f38bd4bd14af7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822780"
+ms.locfileid: "73839053"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Início rápido: configurar a VM do Azure para se conectar a um Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -46,7 +46,7 @@ As etapas a seguir criam uma nova sub-rede na VNet Instância Gerenciada para qu
 
    | Definição| Valor sugerido | Descrição |
    | ---------------- | ----------------- | ----------- |
-   | **Nome** | Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).|
+   | **Nome** | Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming).|
    | **Intervalo de endereços (bloco CIDR)** | Um intervalo válido | O valor padrão é bom para este guia de início rápido.|
    | **Grupo de segurança de rede** | Nenhum | O valor padrão é bom para este guia de início rápido.|
    | **Tabela de rotas** | Nenhum | O valor padrão é bom para este guia de início rápido.|
@@ -78,15 +78,15 @@ A maneira mais fácil de criar uma máquina virtual de cliente com todas as ferr
    | **Subscrição** | Uma assinatura válida | Deve ser uma assinatura na qual você tenha permissão para criar novos recursos. |
    | **Grupo de Recursos** |O grupo de recursos que você especificou no guia de início rápido [criar instância gerenciada](sql-database-managed-instance-get-started.md) .|Esse grupo de recursos deve ser aquele em que a VNet existe.|
    | **Localização** | O local do grupo de recursos | Esse valor é preenchido com base no grupo de recursos selecionado. |
-   | **Nome da máquina virtual**  | Qualquer nome válido | Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).|
-   |**Nome de usuário do administrador**|Qualquer nome de usuário válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). Não use "ServerAdmin", pois essa é uma função de nível de servidor reservada.<br>Você usa esse nome de usuário sempre que [se conectar à VM](#connect-to-virtual-machine).|
+   | **Nome da máquina virtual**  | Qualquer nome válido | Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming).|
+   |**Nome de usuário do administrador**|Qualquer nome de usuário válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming). Não use "ServerAdmin", pois essa é uma função de nível de servidor reservada.<br>Você usa esse nome de usuário sempre que [se conectar à VM](#connect-to-virtual-machine).|
    |**Palavra-passe**|Qualquer palavra-passe válida|A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Use essa senha sempre que [se conectar à VM](#connect-to-virtual-machine).|
    | **Tamanho da máquina virtual** | Qualquer tamanho válido | O padrão neste modelo de **Standard_B2s** é suficiente para este guia de início rápido. |
    | **Localização**|[resourcegroup (). Location].| Não altere esse valor. |
    | **Nome da rede virtual**|A rede virtual na qual você criou a Instância Gerenciada.|
    | **Nome da sub-rede**|O nome da sub-rede que você criou no procedimento anterior| Não escolha a sub-rede na qual você criou a Instância Gerenciada.|
    | **Localização de artefatos** | [Deployment (). Properties. templateLink. URI] | Não altere esse valor. |
-   | **token SAS de localização de artefatos** | Deixar em branco | Não altere esse valor. |
+   | **token SAS de localização de artefatos** | deixar em branco | Não altere esse valor. |
 
    ![criar a VM cliente](./media/sql-database-managed-instance-configure-vm/create-client-sql-vm.png)
 

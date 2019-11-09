@@ -2,21 +2,25 @@
 title: 'Criar um locatário Azure Active Directory para conexões VPN P2S: autenticação do Azure AD | Microsoft Docs'
 description: Você pode usar a VPN P2S para se conectar à sua VNet usando a autenticação do Azure AD
 services: vpn-gateway
-author: cherylmc
+author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/08/2019
-ms.author: cherylmc
-ms.openlocfilehash: 9d3ab7e56c136d110f58b95d10c0e4bda5839fd0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/07/2019
+ms.author: alzam
+ms.openlocfilehash: 6730cad4f65648516769476740813c2e3384fe6a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517400"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837914"
 ---
-# <a name="create-an-azure-active-directory-tenant-for-p2s-open-vpn-connections-that-use-azure-ad-authentication"></a>Criar um locatário Azure Active Directory para conexões VPN abertas do P2S que usam a autenticação do Azure AD
+# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um locatário de Azure Active Directory para conexões de protocolo P2S OpenVPN
 
 Ao conectar-se à sua VNet, você pode usar a autenticação baseada em certificado ou a autenticação RADIUS. No entanto, ao usar o protocolo VPN aberto, você também pode usar a autenticação Azure Active Directory. Este artigo ajuda você a configurar um locatário do Azure AD para autenticação de VPN aberta do P2S.
+
+> [!NOTE]
+> A autenticação do Azure AD tem suporte apenas para conexões de protocolo OpenVPN®.
+>
 
 ## <a name="tenant"></a>1. criar o locatário do Azure AD
 

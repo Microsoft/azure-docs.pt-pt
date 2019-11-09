@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 34b54459629560ba80e6a38d10edbab32ea44778
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3f987b9e05bcdcda9afe26a1eb1354e5e2450ac5
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820159"
+ms.locfileid: "73846528"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account-preview"></a>Configurar o link privado do Azure para uma conta do Azure Cosmos (versão prévia)
 
@@ -86,7 +86,7 @@ A tabela a seguir mostra o mapeamento entre diferentes tipos de API de conta do 
 
 ### <a name="fetch-the-private-ip-addresses"></a>Buscar os endereços IP privados
 
-Depois que o ponto de extremidade privado for provisionado, você poderá consultar os endereços IP. Para exibir os endereços IP de portal do Azure. Selecione **todos os recursos**, procure o ponto de extremidade privado que você criou anteriormente, neste caso, é "dbPrivateEndpoint3" e selecione a guia Visão geral para ver as configurações de DNS e os endereços IP:
+Depois que o ponto de extremidade privado for provisionado, você poderá consultar os endereços IP. Para exibir os endereços IP de portal do Azure, selecione **todos os recursos**, procure o ponto de extremidade privado que você criou anteriormente neste caso é "dbPrivateEndpoint3" e selecione a guia Visão geral para ver as configurações de DNS e os endereços IP:
 
 ![Endereços IP privados no portal do Azure](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
 
@@ -354,7 +354,7 @@ Adicionar ou remover regiões para uma conta do Azure Cosmos exige que você adi
 
 Por exemplo, se você implantar uma conta do Azure Cosmos em 3 regiões: "oeste dos EUA", "EUA Central" e "Europa Ocidental". Quando você cria um ponto de extremidade privado para sua conta, 4 IPs privados são reservados na sub-rede. Uma para cada região, que conta para um total de 3 e uma para o ponto de extremidade global/independente de região.
 
-Mais tarde, se você adicionar uma nova região, por exemplo, "leste dos EUA" à conta do Azure Cosmos. Por padrão, a nova região não pode ser acessada do ponto de extremidade privado existente. O administrador da conta do Azure Cosmos deve atualizar a conexão de ponto de extremidade particular antes de acessá-la na nova região. 
+Mais tarde, se você adicionar uma nova região, por exemplo, "leste dos EUA" à conta do Azure Cosmos. Por padrão, a nova região não pode ser acessada do ponto de extremidade privado existente. O administrador da conta do Azure Cosmos deve atualizar a conexão de ponto de extremidade privada antes de acessá-la da nova região. 
 
 Quando você executa o comando ` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>`, a saída do comando contém o parâmetro `actionsRequired`, que é definido como "recriar". Esse valor indica que o ponto de extremidade privado deve ser atualizado. Em seguida, o administrador da conta do Azure Cosmos executa o comando `Set-AzPrivateEndpoint` para disparar a atualização do ponto de extremidade privado.
 

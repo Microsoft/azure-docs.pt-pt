@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e1f7aeb5615c1a22c1970f118c24c996ac936870
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3c70d2086fc5866b07c31966343397f8ccc809be
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826830"
+ms.locfileid: "73846735"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -169,7 +169,7 @@ Observe que a economia de volume se aplica somente ao servidor; seus dados no co
 > A eliminação de duplicação de dados e a camada de nuvem não têm suporte no mesmo volume no servidor 2019 devido a um bug que será corrigido em uma atualização futura.
 
 **Windows Server 2012 R2**  
-Sincronização de Arquivos do Azure não dá suporte à eliminação de duplicação de dados e à camada de nuvem no mesmo volume. Se a eliminação de duplicação de dados estiver habilitada em um volume, a camada de nuvem deverá ser desabilitada. 
+Sincronização de Arquivos do Azure não dá suporte à eliminação de duplicação de dados e à camada de nuvem no mesmo volume no Windows Server 2012 R2. Se a eliminação de duplicação de dados estiver habilitada em um volume, a camada de nuvem deverá ser desabilitada. 
 
 **Notas**
 - Se a eliminação de duplicação de dados for instalada antes da instalação do agente de Sincronização de Arquivos do Azure, uma reinicialização será necessária para dar suporte à eliminação de duplicação de dados e à camada de nuvem no mesmo volume.
@@ -281,7 +281,7 @@ Sincronização de Arquivos do Azure está disponível somente nas seguintes reg
 | EAU Central * | Abu Dhabi |
 | Europa Ocidental | Países Baixos |
 | EUA Centro-Oeste | Wyoming |
-| EUA Oeste | Califórnia |
+| Oeste dos E.U.A. | Califórnia |
 | EUA Oeste 2 | Washington |
 
 Sincronização de Arquivos do Azure dá suporte à sincronização somente com um compartilhamento de arquivos do Azure que está na mesma região que o serviço de sincronização de armazenamento.
@@ -306,7 +306,7 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 | Índia Central       | Sul da Índia        |
 | EUA Central          | EUA Leste 2          |
 | Ásia Oriental           | Sudeste Asiático     |
-| EUA Leste             | EUA Oeste            |
+| EUA Leste             | Oeste dos E.U.A.            |
 | EUA Leste 2           | EUA Central         |
 | França Central      | Sul de França       |
 | Sul de França        | França Central     |
@@ -328,7 +328,7 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 | Gov (US) - Virginia      | Gov (US) - Texas       |
 | Europa Ocidental         | Europa do Norte       |
 | EUA Centro-Oeste     | EUA Oeste 2          |
-| EUA Oeste             | EUA Leste            |
+| Oeste dos E.U.A.             | EUA Leste            |
 | EUA Oeste 2           | EUA Centro-Oeste    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync

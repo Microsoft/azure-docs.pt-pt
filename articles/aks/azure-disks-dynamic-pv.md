@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 84c06c0ac45a5005646cf7b4fb1e274d0347593c
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 1c7a406f0b06b94aaa6d8b4af63b1416b11c7c56
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958493"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847338"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Criar e usar dinamicamente um volume persistente com discos do Azure no serviço kubernetes do Azure (AKS)
 
@@ -27,7 +27,7 @@ Para obter mais informações sobre volumes kubernetes, consulte [Opções de ar
 
 Este artigo pressupõe que você tenha um cluster AKS existente. Se você precisar de um cluster AKS, consulte o guia de início rápido do AKS [usando o CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
 
-Você também precisa do CLI do Azure versão 2.0.59 ou posterior instalada e configurada. Execute @ no__t-0 para localizar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
+Você também precisa do CLI do Azure versão 2.0.59 ou posterior instalada e configurada. Execute `az --version` para localizar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
 
 ## <a name="built-in-storage-classes"></a>Classes de armazenamento internas
 
@@ -40,7 +40,7 @@ Cada cluster AKS inclui duas classes de armazenamento criadas previamente, ambas
 * A classe de armazenamento *gerenciada Premium* provisiona um disco Premium do Azure.
     * Os discos Premium são apoiados por um disco de elevado desempenho baseado em SSD e de baixa latência. São perfeitos para as VMs com carga de trabalho de produção. Se os nós AKS no cluster usarem o armazenamento Premium, selecione a classe *Managed-Premium* .
     
-Essas classes de armazenamento padrão não permitem que você atualize o tamanho do volume depois de criado. Para habilitar essa capacidade, adicione a linha *allowVolumeExpansion: true* a uma das classes de armazenamento padrão ou crie sua própria classe de armazenamento personalizada. Você pode editar uma classe de armazenamento existente usando o comando `kubectl edit sc`. Para obter mais informações sobre classes de armazenamento e criação de youor, consulte [Opções de armazenamento para aplicativos em AKs][storage-class-concepts].
+Essas classes de armazenamento padrão não permitem que você atualize o tamanho do volume depois de criado. Para habilitar essa capacidade, adicione a linha *allowVolumeExpansion: true* a uma das classes de armazenamento padrão ou crie sua própria classe de armazenamento personalizada. Você pode editar uma classe de armazenamento existente usando o comando `kubectl edit sc`. Para obter mais informações sobre classes de armazenamento e criar suas próprias, consulte [Opções de armazenamento para aplicativos no AKs][storage-class-concepts].
 
 Use o comando [kubectl Get SC][kubectl-get] para ver as classes de armazenamento criadas previamente. O exemplo a seguir mostra as classes de armazenamento de criação prévia disponíveis em um cluster AKS:
 
@@ -59,7 +59,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 
 Uma declaração de volume persistente (PVC) é usada para provisionar automaticamente o armazenamento com base em uma classe de armazenamento. Nesse caso, um PVC pode usar uma das classes de armazenamento criadas previamente para criar um disco gerenciado do Azure Standard ou Premium.
 
-Crie um arquivo chamado `azure-premium.yaml` e copie-o no manifesto a seguir. A declaração solicita um disco chamado `azure-managed-disk` que tenha *5 GB* de tamanho com acesso *ReadWriteOnce* . A classe de armazenamento *Managed-Premium* é especificada como a classe de armazenamento.
+Crie um arquivo chamado `azure-premium.yaml`e copie-o no manifesto a seguir. A declaração solicita um disco chamado `azure-managed-disk` que tenha *5 GB* de tamanho com acesso *ReadWriteOnce* . A classe de armazenamento *Managed-Premium* é especificada como a classe de armazenamento.
 
 ```yaml
 apiVersion: v1
@@ -76,7 +76,7 @@ spec:
 ```
 
 > [!TIP]
-> Para criar um disco que usa o armazenamento padrão, use `storageClassName: default` em vez de *gerenciado-Premium*.
+> Para criar um disco que usa o armazenamento Standard, use `storageClassName: default` em vez de *Managed-Premium*.
 
 Crie a declaração de volume persistente com o comando [kubectl Apply][kubectl-apply] e especifique seu arquivo *Azure-Premium. YAML* :
 
@@ -90,7 +90,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 Depois que a declaração de volume persistente tiver sido criada e o disco provisionado com êxito, um pod pode ser criado com acesso ao disco. O manifesto a seguir cria um pod NGINX básico que usa a declaração de volume persistente denominada *Azure-Managed-Disk* para montar o disco do Azure no caminho `/mnt/azure`. Para contêineres do Windows Server (atualmente em visualização em AKS), especifique um *mountPath* usando a Convenção de caminho do Windows, como *: '* .
 
-Crie um arquivo chamado `azure-pvc-disk.yaml` e copie-o no manifesto a seguir.
+Crie um arquivo chamado `azure-pvc-disk.yaml`e copie-o no manifesto a seguir.
 
 ```yaml
 kind: Pod
@@ -125,7 +125,7 @@ $ kubectl apply -f azure-pvc-disk.yaml
 pod/mypod created
 ```
 
-Agora você tem um pod em execução com o disco do Azure montado no diretório `/mnt/azure`. Essa configuração pode ser vista ao inspecionar o Pod via `kubectl describe pod mypod`, conforme mostrado no seguinte exemplo condensado:
+Agora você tem um pod em execução com o disco do Azure montado no diretório `/mnt/azure`. Essa configuração pode ser vista ao inspecionar o Pod por meio de `kubectl describe pod mypod`, conforme mostrado no seguinte exemplo condensado:
 
 ```console
 $ kubectl describe pod mypod
@@ -171,7 +171,7 @@ $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c
 /subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
 ```
 
-Use a ID do disco para criar um disco de instantâneo com [AZ snapshot Create][az-snapshot-create]. O exemplo a seguir cria um instantâneo chamado *pvcSnapshot* no mesmo grupo de recursos que o cluster AKs (*MC_myResourceGroup_myAKSCluster_eastus*). Você poderá encontrar problemas de permissão se criar instantâneos e restaurar discos em grupos de recursos aos quais o cluster AKS não tem acesso.
+Use a ID do disco para criar um disco de instantâneo com [AZ snapshot Create][az-snapshot-create]. O exemplo a seguir cria um instantâneo chamado *pvcSnapshot* no mesmo grupo de recursos que o cluster AKS (*MC_myResourceGroup_myAKSCluster_eastus*). Você poderá encontrar problemas de permissão se criar instantâneos e restaurar discos em grupos de recursos aos quais o cluster AKS não tem acesso.
 
 ```azurecli-interactive
 $ az snapshot create \
@@ -233,7 +233,7 @@ $ kubectl apply -f azure-restored.yaml
 pod/mypodrestored created
 ```
 
-Você pode usar `kubectl describe pod mypodrestored` para exibir detalhes do pod, como o exemplo condensado a seguir, que mostra as informações de volume:
+Você pode usar `kubectl describe pod mypodrestored` para exibir detalhes do pod, como o seguinte exemplo condensado que mostra as informações de volume:
 
 ```console
 $ kubectl describe pod mypodrestored

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: 94db17405457be91795d1588bee68a0deea68246
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: e97783d1a32916cad151f1d0858a8190d0005fd0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114818"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831975"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Implantar e configurar o Firewall do Azure usando o CLI do Azure
 
@@ -79,7 +79,7 @@ az group create --name Test-FW-RG --location eastus
 Essa rede virtual tem três sub-redes.
 
 > [!NOTE]
-> O tamanho da sub-rede AzureFirewallSubnet é/26. Para obter mais informações sobre o tamanho da sub-rede, consulte perguntas frequentes sobre o [Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> O tamanho da sub-rede AzureFirewallSubnet é/26. Para obter mais informações sobre o tamanho da sub-rede, consulte [perguntas frequentes sobre o Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 ```azurecli-interactive
 az network vnet create \
@@ -284,7 +284,7 @@ Agora, teste o firewall para confirmar se ele funciona conforme o esperado.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   As solicitações www.google.com devem ser bem sucedidas e as solicitações www.microsoft.com devem falhar. Isso demonstra que as regras de firewall estão funcionando conforme o esperado.
+   As solicitações de `www.google.com` devem ter êxito e as solicitações de `www.microsoft.com` devem falhar. Isso demonstra que as regras de firewall estão funcionando conforme o esperado.
 
 Agora você verificou que as regras de firewall estão funcionando:
 
@@ -302,4 +302,4 @@ az group delete \
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Tutorial: Monitorar logs de firewall do Azure](./tutorial-diagnostics.md)
+* [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)

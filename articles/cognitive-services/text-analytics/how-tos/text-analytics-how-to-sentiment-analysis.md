@@ -1,7 +1,7 @@
 ---
-title: Análise de sentimentos usando a API REST do Análise de Texto dos serviços cognitivas do Azure
+title: Executar análise de sentimentos com Análise de Texto API REST
 titleSuffix: Azure Cognitive Services
-description: Saiba como detectar sentimentos usando a API REST do Análise de Texto.
+description: Este artigo mostrará como detectar sentimentos em texto com os serviços cognitivas do Azure Análise de Texto API REST.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: d246b14a5bd6e60a7b6facae73c68d7449e2e097
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a930a22472dd4329c555539704747af9a2359c33
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494436"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837153"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exemplo: detectar sentimentos com Análise de Texto
 

@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8936bc21af951cbabb90188b6a31d610caf80395
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: aaf59de2425e0725958847477f1043a5b7fac68a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241765"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839351"
 ---
 # <a name="onboarding-and-installing"></a>Integração e instalação
 
@@ -51,7 +51,7 @@ Pré-requisitos para a introdução à análise de código de segurança da Micr
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Instalando a extensão de análise de código de segurança da Microsoft
 
-1. Depois que a extensão for compartilhada com sua organização do DevOps do Azure, vá para a página da organização do DevOps do Azure. Uma URL de exemplo para tal página é http://dev.azure.com/contoso.
+1. Depois que a extensão for compartilhada com sua organização do DevOps do Azure, vá para a página da organização do DevOps do Azure. Uma URL de exemplo para essa página é `https://dev.azure.com/contoso`.
 1. Selecione o ícone de bolsa de compras no canto superior direito ao lado de seu nome e, em seguida, selecione **gerenciar extensões**.
 1. Selecione a extensão de análise de código de segurança da Microsoft e abra o assistente de interface do usuário do Azure DevOps para iniciar a instalação.
 1. Na lista suspensa, escolha a organização DevOps do Azure na qual instalar a extensão.
@@ -65,10 +65,10 @@ Depois de instalar a extensão, as tarefas de compilação de desenvolvimento se
 ## <a name="adding-specific-build-tasks-to-your-azure-devops-pipeline"></a>Adicionando tarefas de compilação específicas ao pipeline DevOps do Azure
 
 1. Em sua organização do Azure DevOps, abra seu projeto de equipe.
-1. Selecione **pipelines** > **Builds**.
+1. Selecione **pipelines** > **compilações**.
 1. Selecione o pipeline no qual você deseja adicionar as tarefas de compilação de extensão:
-   - Novo pipeline: Selecione **novo** e siga as etapas detalhadas para criar um novo pipeline.
-   - Editar pipeline: Selecione um pipeline existente e, em seguida, selecione **Editar** para começar a editar o pipeline.
+   - Novo pipeline: selecione **novo** e siga as etapas detalhadas para criar um novo pipeline.
+   - Editar pipeline: selecione um pipeline existente e, em seguida, selecione **Editar** para começar a editar o pipeline.
 1. Selecione **+** e vá para o painel **adicionar tarefas** .
 1. Na lista ou usando a caixa de pesquisa, localize a tarefa de compilação que você deseja adicionar. Selecione **Adicionar**.
 1. Especifique os parâmetros necessários para a tarefa.
@@ -84,7 +84,7 @@ Depois de instalar a extensão, as tarefas de compilação de desenvolvimento se
 > - Algumas tarefas de compilação DevOps do Azure não têm suporte quando executadas por meio de um pipeline de liberação. Mais especificamente, o Azure DevOps não dá suporte a tarefas que publicam artefatos de dentro de um pipeline de lançamento.
 > - Para obter uma lista de variáveis predefinidas no Azure DevOps Team Build que você pode especificar como parâmetros, consulte [variáveis de compilação do DevOps do Azure](https://docs.microsoft.com/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como configurar as tarefas de compilação, consulte nosso [Guia de configuração](security-code-analysis-customize.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Gerenciar serviços Web usando o gerenciamento de API
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Um guia que mostra como gerenciar os serviços Web do AzureML usando o gerenciamento de API. Gerencie seus pontos de extremidade da API REST definindo o acesso do usuário, a limitação de uso e o monitoramento do painel.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 227a7205788194cc507dcd9dab7e5cad57abc7f9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 084f3a1ecc7e44dc404d63a75b4561f8d5cb57cb
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671582"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839815"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Gerenciar Azure Machine Learning Studio (clássico) serviços Web usando o gerenciamento de API
 ## <a name="overview"></a>Descrição geral
@@ -35,7 +35,7 @@ Para concluir este guia, você precisará de:
 
 Você pode gerenciar seu serviço Web do Azure Machine Learning com uma instância de gerenciamento de API.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **+ Criar um recurso**.
 3. Na caixa de pesquisa, digite "gerenciamento de API" e, em seguida, selecione o recurso "gerenciamento de API".
 4. Clique em **Criar**.

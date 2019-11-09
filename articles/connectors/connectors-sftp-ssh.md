@@ -10,12 +10,12 @@ ms.reviewer: divswa, klam, LADocs
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: a48ba0d2d691314a1ca7c91ac7ae27b62fbb379b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f52fc91d218e1a5448f6e6e7465f6416a04fd67d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825246"
+ms.locfileid: "73837140"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorar, criar e gerenciar arquivos SFTP usando SSH e aplicativos lógicos do Azure
 
@@ -49,7 +49,9 @@ Aqui estão outras diferenças principais entre o conector SFTP-SSH e o conector
 
 * Usa a [biblioteca SSH.net](https://github.com/sshnet/SSH.NET), que é uma biblioteca de Secure Shell de código aberto (SSH) que dá suporte ao .net.
 
-* Por padrão, as ações de SFTP-SSH podem ler ou gravar arquivos que são de *1 GB ou menores* , mas apenas em partes de *15 MB* por vez. Para lidar com arquivos com mais de 15 MB, as ações do SFTP-SSH podem usar o [agrupamento de mensagens](../logic-apps/logic-apps-handle-large-messages.md). Para carregar arquivos grandes, você também precisa de permissões de leitura e gravação. No entanto, a ação copiar arquivo dá suporte a apenas 15 arquivos, pois essa ação não dá suporte ao agrupamento de mensagens. Os gatilhos SFTP-SSH não dão suporte ao agrupamento.
+* Por padrão, as ações de SFTP-SSH podem ler ou gravar arquivos que são de *1 GB ou menores* , mas apenas em partes de *15 MB* por vez.
+
+  Para lidar com arquivos com mais de 15 MB, as ações do SFTP-SSH podem usar o [agrupamento de mensagens](../logic-apps/logic-apps-handle-large-messages.md). No entanto, a ação copiar arquivo dá suporte a apenas 15 arquivos, pois essa ação não dá suporte ao agrupamento de mensagens. Os gatilhos SFTP-SSH não dão suporte ao agrupamento. Para carregar arquivos grandes, você precisa de permissões de leitura e gravação para a pasta raiz em seu servidor SFTP.
 
 * Fornece a ação **criar pasta** , que cria uma pasta no caminho especificado no servidor SFTP.
 
@@ -61,7 +63,7 @@ Aqui estão outras diferenças principais entre o conector SFTP-SSH e o conector
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Seu endereço de servidor SFTP e as credenciais de conta, que permitem que seu aplicativo lógico acesse sua conta SFTP. Você também precisa de acesso a uma chave privada SSH e à senha de chave privada SSH. Para usar o Agrupamento ao carregar arquivos grandes, você precisa de permissões de leitura e gravação.
+* Seu endereço de servidor SFTP e as credenciais de conta, que permitem que seu aplicativo lógico acesse sua conta SFTP. Você também precisa de acesso a uma chave privada SSH e à senha de chave privada SSH. Para usar o Agrupamento ao carregar arquivos grandes, você precisará de permissões de leitura e gravação para a pasta raiz em seu servidor SFTP. Caso contrário, você receberá um erro "401 não autorizado".
 
   > [!IMPORTANT]
   >

@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 293a90591a77825279c8ebbae64516b6126d8621
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a7a9efbf6fd9c3dbe6b16d12a54f743d5b0820ba
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73588268"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838220"
 ---
 # <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Implantar Data Explorer do Azure em sua rede virtual (versão prévia)
 
@@ -126,7 +126,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | EUA Centro-Sul | 20.45.3.60 |
 | Sudeste Asiático | 40.119.203.252 |
 | Sul da Índia | 40.81.72.110 |
-| Reino Unido Sul | 40.81.154.254 |
+| Sul do Reino Unido | 40.81.154.254 |
 | Reino Unido Oeste | 40.81.122.39 |
 | EUA Centro-Oeste | 52.159.55.120 |
 | Europa Ocidental | 51.145.176.215 |
@@ -165,7 +165,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | EUA Centro-Sul | 23.98.145.105 |
 | Sul da Índia | 23.99.5.162 |
 | Sudeste Asiático | 168.63.173.234 |
-| Reino Unido Sul | 23.97.212.5 |
+| Sul do Reino Unido | 23.97.212.5 |
 | Reino Unido Oeste | 23.97.212.5 |
 | EUA Centro-Oeste | 168.61.212.201 |
 | Europa Ocidental | 23.97.212.5 |
@@ -220,30 +220,32 @@ Use o ExpressRoute para conectar a rede local à rede virtual do Azure. Uma conf
 
 Se você quiser proteger o tráfego de saída usando o [Firewall do Azure](/azure/firewall/overview) ou qualquer dispositivo virtual para limitar os nomes de domínio, os seguintes nomes de domínio totalmente qualificados (FQDN) devem ser permitidos no firewall.
 
-* prod.warmpath.msftcloudes.com:443
-* production.diagnostics.monitoring.core.windows.net:443
-* graph.windows.net:443
-* *. update.microsoft.com:443
-* shavamanifestcdnprod1.azureedge.net:443
-* login.live.com:443
-* wdcp.microsoft.com:443
-* login.microsoftonline.com:443
-* azureprofilerfrontdoor.cloudapp.net:443
-* *. core.windows.net:443
-* *. servicebus.windows.net:443
-* shoebox2.metrics.nsatc.net:443
-* production.diagnostics.monitoring.core.windows.net:443
-* prod-dsts.dsts.core.windows.net:443
-* ocsp.msocsp.com:80
-* *. windowsupdate.com:80
-* ocsp.digicert.com:80
-* go.microsoft.com:80
-* dmd.metaservices.microsoft.com:80
-* www.msftconnecttest.com:80
-* crl.microsoft.com:80
-* www.microsoft.com:80
-* adl.windows.com:80
-* crl3.digicert.com:80
+```
+prod.warmpath.msftcloudes.com:443
+production.diagnostics.monitoring.core.windows.net:443
+graph.windows.net:443
+*.update.microsoft.com:443
+shavamanifestcdnprod1.azureedge.net:443
+login.live.com:443
+wdcp.microsoft.com:443
+login.microsoftonline.com:443
+azureprofilerfrontdoor.cloudapp.net:443
+*.core.windows.net:443
+*.servicebus.windows.net:443
+shoebox2.metrics.nsatc.net:443
+production.diagnostics.monitoring.core.windows.net:443
+prod-dsts.dsts.core.windows.net:443
+ocsp.msocsp.com:80
+*.windowsupdate.com:80
+ocsp.digicert.com:80
+go.microsoft.com:80
+dmd.metaservices.microsoft.com:80
+www.msftconnecttest.com:80
+crl.microsoft.com:80
+www.microsoft.com:80
+adl.windows.com:80
+crl3.digicert.com:80
+```
 
 Você também precisa definir a [tabela de rotas](/azure/virtual-network/virtual-networks-udr-overview) na sub-rede com os endereços de [Gerenciamento](#azure-data-explorer-management-ip-addresses) e os endereços de [monitoramento de integridade](#health-monitoring-addresses) com a *Internet* do próximo salto para evitar problemas de rotas assimétricas.
 

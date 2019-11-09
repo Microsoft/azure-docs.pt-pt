@@ -1,7 +1,7 @@
 ---
-title: Utilize a API do Video Indexer para personalizar um modelo de pessoa - Azure
-titlesuffix: Azure Media Services
-description: Este artigo mostra como personalizar um modelo de pessoa com a API do Video Indexer.
+title: Usar a API de Video Indexer para personalizar um modelo Person-Azure
+titleSuffix: Azure Media Services
+description: Este artigo mostra como personalizar um modelo Person com a API Video Indexer.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,28 +10,28 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 6c4980536eddd0226fac422ae17ddb717e34630d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44f97e3d9af9daac8d62ae42be76bd73dedbd453
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799476"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838271"
 ---
-# <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personalizar um modelo de pessoa com a API do Video Indexer
+# <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personalizar um modelo Person com a API Video Indexer
 
-O Video Indexer suporta a deteção de rostos e reconhecimento de celebridade para conteúdo de vídeo. O recurso de reconhecimento de celebridade abrange aproximadamente os rostos de um milhão com base na origem de dados frequentemente pedidos como IMDB, Wikipedia e influenciadores principais do LinkedIn. Rostos que não são reconhecidos pela funcionalidade de reconhecimento de celebridade são detetados; No entanto, eles são deixados sem nome. Depois de carregar vídeo para o indexador de vídeos e obtenha os resultados, pode voltar atrás e nomear os rostos que não foram reconhecidos. Depois de identificar um rosto com um nome, o mostrador e o nome seja adicionados ao modelo de pessoa da sua conta. Indexador de vídeos, em seguida, irá reconhecer este rostos nos vídeos futuros e vídeos nos últimos.
+Video Indexer dá suporte à detecção de face e ao reconhecimento de celebridade para conteúdo de vídeo. O recurso de reconhecimento de celebridade abrange aproximadamente 1 milhão rostos com base na fonte de dados solicitada comumente, como o IMDB, a Wikipédia e os principais influenciadores do LinkedIn. As faces que não são reconhecidas pelo recurso de reconhecimento de celebridade são detectadas; no entanto, elas são deixadas sem nome. Depois de carregar seu vídeo para Video Indexer e obter resultados de volta, você pode voltar e nomear as faces que não foram reconhecidas. Depois de rotular uma face com um nome, a face e o nome serão adicionados ao modelo Person da sua conta. Video Indexer, em seguida, reconhecerá essa face em seus vídeos futuros e vídeos anteriores.
 
-Pode utilizar a API do indexador de vídeo para editar rostos que foram detetados um vídeo, conforme descrito neste tópico. Também pode utilizar o site do Video Indexer, conforme descrito em [modelo de personalizar pessoa através do site do Video Indexer](customize-person-model-with-api.md).
+Você pode usar a API Video Indexer para editar faces que foram detectadas em um vídeo, conforme descrito neste tópico. Você também pode usar o site Video Indexer, conforme descrito em [Personalizar modelo de pessoa usando o site do video indexer](customize-person-model-with-api.md).
 
-## <a name="managing-multiple-person-models"></a>Gerir vários modelos de pessoa 
+## <a name="managing-multiple-person-models"></a>Gerenciando modelos de várias pessoas 
 
-O Video Indexer suporta vários modelos de pessoa por conta. Esta funcionalidade está atualmente disponível apenas através das APIs do indexador de vídeo.
+Video Indexer dá suporte a vários modelos de pessoa por conta. Esse recurso está atualmente disponível somente por meio das APIs de Video Indexer.
 
-Se a sua conta atende a diferentes cenários de casos de utilização, pode querer criar vários modelos de pessoa por conta. Por exemplo, se seu conteúdo está relacionada com eventos desportivos, em seguida, pode criar um modelo de pessoa separado para cada desporto (futebol americano, basquete, futebol, etc.). 
+Se sua conta atender a diferentes cenários de caso de uso, talvez você queira criar vários modelos de pessoa por conta. Por exemplo, se o conteúdo estiver relacionado a esportes, você poderá criar um modelo de pessoa separado para cada esporte (futebol, basquete, futebol, etc.). 
 
-Depois de criar um modelo, pode usá-lo ao fornecer o ID de modelo de um modelo de pessoa específico quando carregar/indexar ou reindexação um vídeo. Um novo rosto para um vídeo de formação atualiza o modelo personalizado específico que o vídeo foi associado.
+Depois que um modelo é criado, você pode usá-lo fornecendo a ID do modelo de um modelo Person específico ao carregar/indexar ou reindexar um vídeo. Treinar uma nova face para um vídeo atualiza o modelo personalizado específico ao qual o vídeo foi associado.
 
-Cada conta tem um limite de 50 modelos de pessoa. Se não for necessário o suporte a vários modelo pessoa, não atribua uma pessoa ID de modelo para o seu vídeo quando carregar/indexar ou reindexação. Neste caso, o Video Indexer utiliza o modelo de pessoa personalizado de predefinição na sua conta.
+Cada conta tem um limite de 50 modelos de pessoa. Se você não precisar do suporte ao modelo de várias pessoas, não atribua uma ID de modelo de pessoa ao seu vídeo ao carregar/indexar ou reindexar. Nesse caso, Video Indexer usa o modelo de pessoa personalizada padrão em sua conta.
 
 ## <a name="create-a-new-person-model"></a>Criar um novo modelo de pessoa
 
@@ -39,36 +39,36 @@ Crie um novo modelo de pessoa na conta especificada.
 
 ### <a name="request-url"></a>URL do Pedido
 
-Este é um pedido POST.
+Esta é uma solicitação POST.
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?name={name}&accessToken={accessToken}
 ```
 
-Segue-se o pedido no Curl.
+Abaixo está a solicitação na ondulação.
 
 ```curl
 curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?name={name}&accessToken={accessToken}"
 ```
 
-[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?).
+[Consulte os parâmetros necessários e teste-o usando o portal do desenvolvedor Video indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?).
 
-### <a name="request-parameters"></a>Parâmetros do pedido 
+### <a name="request-parameters"></a>Parâmetros de solicitação 
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
-|accountId|string|Sim|Identificador exclusivo global para a conta|
-|name|string|Sim|O nome para o modelo de pessoa|
-|accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
+|localização|string|Sim|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, consulte [regiões e video indexer do Azure](regions.md).|
+|accountId|string|Sim|Identificador global exclusivo para a conta|
+|nome|string|Sim|O nome do modelo Person|
+|accessToken|string|Sim|Token de acesso (deve ser do [token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)de escopo) para autenticar na chamada. Tokens de acesso expiram em 1 hora.|
 
 ### <a name="request-body"></a>Corpo do pedido
 
-Não são necessárias mais é necessário para esta chamada o corpo do pedido.
+Não há nenhum corpo de solicitação adicional necessário para esta chamada.
 
 ### <a name="response"></a>Resposta
 
-A resposta fornece que o nome e ID de modelo gerado da pessoa de modelo que acabou de criar seguindo o formato de exemplo abaixo.
+A resposta fornece o nome e a ID de modelo gerada do modelo Person que você acabou de criar, seguindo o formato do exemplo abaixo.
 
 ```json
 {
@@ -77,13 +77,13 @@ A resposta fornece que o nome e ID de modelo gerado da pessoa de modelo que acab
 }
 ```
 
-Em seguida, deve utilizar o **id** valor para o **personModelId** parâmetro quando [carregar um vídeo para o índice](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [reindexação um vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+Em seguida, você deve usar o valor de **ID** para o parâmetro **personModelId** ao [carregar um vídeo para indexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [reindexar um vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
 
-## <a name="delete-a-person-model"></a>Eliminar um modelo de pessoa
+## <a name="delete-a-person-model"></a>Excluir um modelo Person
 
-Elimine um modelo de pessoa personalizado da conta especificada. 
+Excluir um modelo de pessoa personalizada da conta especificada. 
 
-Assim que o modelo de pessoa é eliminado com êxito, o índice dos seus vídeos atuais que estava a utilizar o modelo eliminado permanecerá inalterado, até que reindexá-los. Após a reindexação, os rostos que eram nomeados no modelo eliminado não serão reconhecidos pelo indexador de vídeo nos seus vídeos atuais que foram indexados com esse modelo; No entanto, esses rostos ainda serão detetados. Seus vídeos atuais que foram indexados com o modelo eliminado agora irão utilizar o modelo de pessoa da sua conta padrão. Se rostos do modelo eliminado também são nomeados no modelo de predefinição da sua conta, esses rostos continuará a ser reconhecida nos vídeos.
+Depois que o modelo Person for excluído com êxito, o índice dos seus vídeos atuais que estavam usando o modelo excluído permanecerá inalterado até que você os reindexe. Após a reindexação, as faces que foram nomeadas no modelo excluído não serão reconhecidas pelo Video Indexer em seus vídeos atuais que foram indexados usando esse modelo; no entanto, essas faces ainda serão detectadas. Seus vídeos atuais que foram indexados usando o modelo excluído agora usarão o modelo de pessoa padrão da sua conta. Se as faces do modelo excluído também forem nomeadas no modelo padrão da sua conta, essas faces continuarão a ser reconhecidas nos vídeos.
 
 ### <a name="request-url"></a>URL do Pedido
 
@@ -91,65 +91,65 @@ Assim que o modelo de pessoa é eliminado com êxito, o índice dos seus vídeos
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels/{id}?accessToken={accessToken}
 ```
 
-Segue-se o pedido no Curl.
+Abaixo está a solicitação na ondulação.
 ```curl
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels/{id}?accessToken={accessToken}"
 ```
 
-[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?).
+[Consulte os parâmetros necessários e teste-o usando o portal do desenvolvedor Video indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?).
 
-### <a name="request-parameters"></a>Parâmetros do pedido
+### <a name="request-parameters"></a>Parâmetros de solicitação
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
-|accountId|string|Sim|Identificador exclusivo global para a conta|
-|id|string|Sim|O id de modelo de pessoa (gerado quando é criado o modelo de pessoa)|
-|accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
+|localização|string|Sim|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, consulte [regiões e video indexer do Azure](regions.md).|
+|accountId|string|Sim|Identificador global exclusivo para a conta|
+|ID|string|Sim|A ID do modelo Person (gerado quando o modelo Person é criado)|
+|accessToken|string|Sim|Token de acesso (deve ser do [token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)de escopo) para autenticar na chamada. Tokens de acesso expiram em 1 hora.|
 
 ### <a name="request-body"></a>Corpo do pedido
 
-Não são necessárias mais é necessário para esta chamada o corpo do pedido.
+Não há nenhum corpo de solicitação adicional necessário para esta chamada.
 
 ### <a name="response"></a>Resposta
 
-Não há nenhum conteúdo retornado quando o modelo de pessoa é eliminado com êxito.
+Não há nenhum conteúdo retornado quando o modelo Person é excluído com êxito.
 
-## <a name="get-all-person-models"></a>Obter todos os modelos de pessoa
+## <a name="get-all-person-models"></a>Obter todos os modelos de pessoas
 
 Obter todos os modelos de pessoa na conta especificada. 
 
-### <a name="request-call"></a>Chamada de pedido
+### <a name="request-call"></a>Solicitar chamada
 
-Este é um pedido GET.
+Essa é uma solicitação GET.
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?accessToken={accessToken}
 ```
 
-Segue-se o pedido no Curl.
+Abaixo está a solicitação na ondulação.
 
 ```curl
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?accessToken={accessToken}"
 ```
 
-[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?).
+[Consulte os parâmetros necessários e teste-o usando o portal do desenvolvedor Video indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?).
 
-### <a name="request-parameters"></a>Parâmetros do pedido
+### <a name="request-parameters"></a>Parâmetros de solicitação
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
-|accountId|string|Sim|Identificador exclusivo global para a conta|
-|accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
+|localização|string|Sim|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, consulte [regiões e video indexer do Azure](regions.md).|
+|accountId|string|Sim|Identificador global exclusivo para a conta|
+|accessToken|string|Sim|Token de acesso (deve ser do [token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)de escopo) para autenticar na chamada. Tokens de acesso expiram em 1 hora.|
 
 ### <a name="request-body"></a>Corpo do pedido
 
-Não são necessárias mais é necessário para esta chamada o corpo do pedido.
+Não há nenhum corpo de solicitação adicional necessário para esta chamada.
 
 ### <a name="response"></a>Resposta
 
-A resposta fornece uma lista de todos os modelos de pessoa na sua conta (incluindo o modelo de pessoa padrão na conta especificada) e cada um dos seus nomes e os ids de seguir o formato de exemplo abaixo.
+A resposta fornece uma lista de todos os modelos de pessoa em sua conta (incluindo o modelo de pessoa padrão na conta especificada) e cada um de seus nomes e IDs seguindo o formato do exemplo abaixo.
 
 ```json
 [
@@ -164,53 +164,53 @@ A resposta fornece uma lista de todos os modelos de pessoa na sua conta (incluin
 ]
 ```
 
-Pode escolher qual modelo de que pretende utilizar para ver um vídeo com o **id** valor do modelo de pessoa para o **personModelId** parâmetro quando [carregar um vídeo para o índice](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [reindexação um vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+Você pode escolher o modelo que deseja usar para um vídeo usando o valor de **ID** do modelo Person para o parâmetro **personModelId** ao [carregar um vídeo para indexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [reindexar um vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
 
-## <a name="update-a-face"></a>Atualizar um rosto
+## <a name="update-a-face"></a>Atualizar uma face
 
-Este comando permite-lhe atualizar um rosto no seu vídeo com um nome com o ID do vídeo e o ID do mostrador da. Este, em seguida, atualiza o modelo de pessoa que o vídeo foi associado ao carregar/indexar ou reindexação. Não se foi atribuído nenhum modelo de pessoa, ele atualiza o modelo de pessoa da conta padrão. 
+Esse comando permite que você atualize uma face em seu vídeo com um nome usando a ID do vídeo e a ID da face. Isso atualiza o modelo Person ao qual o vídeo foi associado após o carregamento/indexação ou a reindexação. Se nenhum modelo de pessoa foi atribuído, ele atualiza o modelo de pessoa padrão da conta. 
 
-Quando isso acontecer, ele reconhece as ocorrências do mostrador da mesma nos seus vídeos atuais que partilham o mesmo modelo de pessoa. Reconhecimento de rosto nos seus outros vídeos atuais poderá demorar algum tempo a entrar em vigor, como se trata de um processo em lotes.
+Quando isso acontece, ele reconhece as ocorrências da mesma face em seus outros vídeos atuais que compartilham o mesmo modelo de pessoa. O reconhecimento da face em seus outros vídeos atuais pode levar algum tempo para entrar em vigor, pois esse é um processo em lote.
 
-Pode atualizar um rosto que Video Indexer reconhecida como uma celebridade com um novo nome. O novo nome que dar irá ter precedência sobre o reconhecimento de celebridade incorporada.
+Você pode atualizar uma face que Video Indexer reconhecida como um celebridade com um novo nome. O novo nome que você atribuir terá precedência sobre o reconhecimento de celebridade interno.
 
-### <a name="request-call"></a>Chamada de pedido
+### <a name="request-call"></a>Solicitar chamada
 
-Este é um pedido POST.
+Esta é uma solicitação POST.
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/Index/Faces/{faceId}?accessToken={accessToken}&newName={newName}
 ```
 
-Segue-se o pedido no Curl.
+Abaixo está a solicitação na ondulação.
 
 ```curl
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/Index/Faces/{faceId}?accessToken={accessToken}&newName={newName}"
 ```
 
-[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?).
+[Consulte os parâmetros necessários e teste-o usando o portal do desenvolvedor Video indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?).
 
-### <a name="request-parameters"></a>Parâmetros do pedido
+### <a name="request-parameters"></a>Parâmetros de solicitação
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
-|accountId|string|Sim|Identificador exclusivo global para a conta|
-|videoId|string|Sim|ID do vídeo em que aparece o mostrador que pretende atualizar. Isso é criado quando o vídeo é carregado e indexado.|
-|faceId|inteiro|Sim|ID para o rosto que será atualizado. Pode obter o face ID de índice de vídeos|
-|accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
-|name|string|Sim|Novo nome para atualizar o mostrador com.|
+|localização|string|Sim|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, consulte [regiões e video indexer do Azure](regions.md).|
+|accountId|string|Sim|Identificador global exclusivo para a conta|
+|vídeoid|string|Sim|ID do vídeo no qual a face que você deseja atualizar é exibida. Isso é criado quando o vídeo é carregado e indexado.|
+|faceId|número inteiro|Sim|ID da face que será atualizada. Você pode obter a faceid do índice de vídeo|
+|accessToken|string|Sim|Token de acesso (deve ser do [token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)de escopo) para autenticar na chamada. Tokens de acesso expiram em 1 hora.|
+|nome|string|Sim|Novo nome para o qual atualizar a face.|
 
-Os nomes são exclusivos para modelos de pessoa, portanto, se fornecer dois diferentes rostos na mesma pessoa modelam o mesmo **nome** valor do parâmetro, o Video Indexer visualiza os rostos como a mesma pessoa e converge-las assim que a reindexar o seu vídeo. 
+Os nomes são exclusivos para modelos de pessoa, portanto, se você fornecer duas faces diferentes no mesmo modelo de pessoa com o mesmo valor de parâmetro de **nome** , Video indexer exibirá os rostos como a mesma pessoa e os convergirá quando você reindexar o vídeo. 
 
 ### <a name="request-body"></a>Corpo do pedido
 
-Não são necessárias mais é necessário para esta chamada o corpo do pedido.
+Não há nenhum corpo de solicitação adicional necessário para esta chamada.
 
 ### <a name="response"></a>Resposta
 
-Não existe nenhum conteúdo retornado quando o mostrador foi atualizado com êxito.
+Não há nenhum conteúdo retornado quando a face foi atualizada com êxito.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Personalizar o modelo de pessoa através do site do Video Indexer](customize-person-model-with-website.md)
+[Personalizar o modelo Person usando o site Video Indexer](customize-person-model-with-website.md)

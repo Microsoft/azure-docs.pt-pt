@@ -1,6 +1,6 @@
 ---
 title: Carregar e indexar vídeos com o Video Indexer
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Este tópico demonstra como utilizar APIs para carregar e indexar vídeos com o Video Indexer.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
-ms.openlocfilehash: d6338f3840b6f8afe21f8115304ba00bba90c6ea
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 255c98965026266348a66bb98a1741eaf04a1d38
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372383"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839147"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -37,7 +37,7 @@ Após o carregamento do vídeo, Video Indexer, opcionalmente, codifica o vídeo 
 - O comprimento da URL de solicitação é limitado a 6144 caracteres em que o comprimento da URL da cadeia de caracteres de consulta é limitado a 4096 caracteres.
 - O tamanho do carregamento com a opção de matriz de bytes é limitado a 2GB.
 - A opção de matriz de bytes atinge o tempo limite após 30 min.
-- A URL fornecida no parâmetro `videoURL` precisa ser codificada.
+- A URL fornecida no `videoURL` param precisa ser codificada.
 - A indexação de ativos de serviços de mídia tem a mesma limitação de indexação da URL.
 - Video Indexer tem um limite de duração máximo de 4 horas para um único arquivo.
 
@@ -65,7 +65,7 @@ Uma URL que é usada para notificar o cliente (usando uma solicitação POST) so
         |---|---|
         |ID|A ID do vídeo|
         |state|O estado do vídeo|  
-    - Exemplo: https: \//Test. com/Notifyme? projectName = MyProject & ID = 1234abcd & estado = processado
+    - Exemplo: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Pessoa identificada em vídeo:
   - Propriedades
     
@@ -76,7 +76,7 @@ Uma URL que é usada para notificar o cliente (usando uma solicitação POST) so
       |knownPersonId|A ID da pessoa que é exclusiva dentro de um modelo de face|
       |PersonName|O nome da pessoa|
         
-    - Exemplo: https: \//Test. com/Notifyme? projectName = MyProject & ID = 1234abcd & faceid = 12 & knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5 & PersonName = Inigo_Montoya 
+    - Exemplo: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>Notas
 

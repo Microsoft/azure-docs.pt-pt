@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6c7a9fdb5ed60023a82984fd5be5b424c634e679
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 75317f73ad724b4ce8ad7a894890b2269bd8c5d0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720256"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837504"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Fornecer autenticação de Key Vault com uma identidade gerenciada
 
@@ -34,7 +34,7 @@ Para concluir este guia, você deve ter os seguintes recursos.
    - [Criar um cofre de chaves com Azure PowerShell](quick-create-powershell.md)
    - [Crie um cofre de chaves com o portal do Azure](quick-create-portal.md).
 - Um aplicativo do serviço de aplicativo existente ao qual conceder acesso ao cofre de chaves. Você pode criar um rapidamente seguindo as etapas na documentação do [serviço de aplicativo](../app-service/overview.md).
-- [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview). Como alternativa, você pode usar o [portal do Azure](http://portal.azure.com).
+- [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview). Como alternativa, você pode usar o [portal do Azure](https://portal.azure.com).
 
 
 ## <a name="adding-a-system-assigned-identity"></a>Adicionando uma identidade atribuída pelo sistema 
@@ -111,7 +111,7 @@ az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-perm
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- segurança de Key Vault de @no__t 0Azure: Gerenciamento de identidade e acesso @ no__t-0
+- [Segurança de Azure Key Vault: gerenciamento de acesso e identidade](overview-security.md#identity-and-access-management)
 - [Fornecer Key Vault autenticação com uma política de controle de acesso](key-vault-group-permissions-for-apps.md)
 - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
 - [Proteja seu cofre de chaves](key-vault-secure-your-key-vault.md).

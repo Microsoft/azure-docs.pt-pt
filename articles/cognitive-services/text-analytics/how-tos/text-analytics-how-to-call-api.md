@@ -1,7 +1,7 @@
 ---
 title: Chamar a API de Análise de Texto
 titleSuffix: Azure Cognitive Services
-description: Saiba como chamar a API REST do Análise de Texto.
+description: Este artigo explica como você pode chamar os serviços cognitivas do Azure Análise de Texto a API REST e o postmaster.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 14d3864f654dac42566441b3729de0cf88482295
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5697ae4c8864e0b9c4cbfc9e1e1048e1c3d60f77
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697851"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837217"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST do Análise de Texto
 
 Chamadas para as **API de análise de texto** são chamadas http post/Get, que você pode formular em qualquer idioma. Neste artigo, usamos REST e [postmaster](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) para demonstrar os principais conceitos.
 
-Cada solicitação deve incluir sua chave de acesso e um ponto de extremidade HTTP. O ponto de extremidade especifica a região que você escolheu durante a inscrição, a URL do serviço e um recurso usado na `sentiment`solicitação `keyphrases`: `languages`,, `entities`e. 
+Cada solicitação deve incluir sua chave de acesso e um ponto de extremidade HTTP. O ponto de extremidade especifica a região que você escolheu durante a inscrição, a URL do serviço e um recurso usado na solicitação: `sentiment`, `keyphrases`, `languages`e `entities`. 
 
 Lembre-se de que Análise de Texto é sem estado, portanto, não há ativos de dados a serem gerenciados. O texto é carregado, analisado após o recebimento, e os resultados são retornados imediatamente para o aplicativo de chamada.
 
@@ -40,11 +40,11 @@ A entrada deve ser JSON em texto não estruturado bruto. Não há suporte para X
 
 Atualmente, você pode enviar os mesmos documentos para todas as operações de Análise de Texto: opiniões, frases-chave, detecção de idioma e identificação de entidade. (É provável que o esquema varie para cada análise no futuro.)
 
-| Elemento | Valores válidos | Obrigatório? | Utilização |
+| Elemento | Valores válidos | Necessário? | Utilização |
 |---------|--------------|-----------|-------|
-|`id` |O tipo de dados é String, mas, nas práticas, as IDs de documento tendem a ser inteiros. | Requerido | O sistema usa as IDs que você fornece para estruturar a saída. Códigos de idioma, frases-chave e pontuações de opiniões são gerados para cada ID na solicitação.|
-|`text` | Texto bruto não estruturado, até 5.120 caracteres. | Requerido | Para detecção de idioma, o texto pode ser expresso em qualquer idioma. Para análise de sentimentos, extração de frases-chave e identificação de entidade, o texto deve estar em um [idioma com suporte](../text-analytics-supported-languages.md). |
-|`language` | código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de 2 caracteres para um [idioma com suporte](../text-analytics-supported-languages.md) | Varia | Necessário para análise de sentimentos, extração de frases-chave e vinculação de entidade; opcional para detecção de idioma. Não há erro se você excluí-lo, mas a análise é diminuída sem ele. O código de idioma deve corresponder ao `text` que você fornece. |
+|`id` |O tipo de dados é String, mas, nas práticas, as IDs de documento tendem a ser inteiros. | Necessário | O sistema usa as IDs que você fornece para estruturar a saída. Códigos de idioma, frases-chave e pontuações de opiniões são gerados para cada ID na solicitação.|
+|`text` | Texto bruto não estruturado, até 5.120 caracteres. | Necessário | Para detecção de idioma, o texto pode ser expresso em qualquer idioma. Para análise de sentimentos, extração de frases-chave e identificação de entidade, o texto deve estar em um [idioma com suporte](../text-analytics-supported-languages.md). |
+|`language` | código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de 2 caracteres para um [idioma com suporte](../text-analytics-supported-languages.md) | Varia | Necessário para análise de sentimentos, extração de frases-chave e vinculação de entidade; opcional para detecção de idioma. Não há erro se você excluí-lo, mas a análise é diminuída sem ele. O código de idioma deve corresponder à `text` que você fornece. |
 
 Para obter mais informações sobre limites, consulte [análise de texto visão geral > limites de dados](../overview.md#data-limits). 
 
@@ -91,7 +91,7 @@ O serviço aceita a solicitação de até 1 MB de tamanho. Se você estiver usan
 
    No postmaster, a resposta é exibida na próxima janela abaixo, como um único documento JSON, com um item para cada ID de documento fornecida na solicitação.
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Consultar também 
 
  [Text Analytics Overview](../overview.md) (Descrição Geral da Análise de Texto)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)

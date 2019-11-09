@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: d3035572e629bc11207cc473b51e3edb4f6a5a13
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 7ecc76a8b1f57d4e397746c28dc4cd56b90c3599
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302822"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834720"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Início rápido: configurar Azure NetApp Files e criar um volume do NFS 
 
@@ -111,7 +111,7 @@ Este artigo de instruções requer o módulo Azure PowerShell AZ Version 2.6.0 o
 
     > [!NOTE]
     > Consulte os [produtos disponíveis por região](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp&regions=all) para obter uma lista de regiões com suporte.
-    > Para obter o nome da região com suporte em nossas ferramentas de linha de comando, use `Get-AzLocation | select Location`
+    > Para obter o nome da região que é compatível com nossas ferramentas de linha de comando, use `Get-AzLocation | select Location`
     >
 
 1. Crie um novo grupo de recursos usando o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) :
@@ -138,7 +138,7 @@ Este artigo de instruções requer o módulo Azure PowerShell AZ Version 2.6.0 o
 
     > [!NOTE]
     > Consulte os [produtos disponíveis por região](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp&regions=all) para obter uma lista de regiões com suporte.
-    > Para obter o nome da região com suporte em nossas ferramentas de linha de comando, use `az account list-locations -query "[].{Region:name}" --out table`
+    > Para obter o nome da região que é compatível com nossas ferramentas de linha de comando, use `az account list-locations -query "[].{Region:name}" --out table`
     >
 
 2. Crie um novo grupo de recursos usando o comando [AZ Group Create](/cli/azure/group#az-group-create) :
@@ -346,7 +346,7 @@ Este artigo de instruções requer o módulo Azure PowerShell AZ Version 2.6.0 o
     VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
     SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" -o tsv)
     VOLUME_SIZE_GiB=100 # 100 GiB
-    UNIQUE_FILE_PATH="myfilepath2" # Please note that creation token needs to be unique within all ANF Accounts
+    UNIQUE_FILE_PATH="myfilepath2" # Please note that creation token needs to be unique within subscription and region
 
     az netappfiles volume create \
         --resource-group $RESOURCE_GROUP \
@@ -358,7 +358,7 @@ Este artigo de instruções requer o módulo Azure PowerShell AZ Version 2.6.0 o
         --vnet $VNET_ID \
         --subnet $SUBNET_ID \
         --usage-threshold $VOLUME_SIZE_GiB \
-        --creation-token $UNIQUE_FILE_PATH \
+        --file-path $UNIQUE_FILE_PATH \
         --protocol-types "NFSv3"
     ```
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: afbf77014ece981568d4123db7820a2fa0a8f60d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: e1b513344b6ea16c25d829939e64cd5ca1063c87
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749103"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838897"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais em um modelo de Azure Resource Manager
 
@@ -282,7 +282,7 @@ Para definir essa propriedade, a interface de rede deve existir. Portanto, você
 Vários elementos de perfil são usados ao definir um recurso de máquina virtual. Alguns são necessários e alguns são opcionais. Por exemplo, os elementos hardwareProfile, osProfile, storageProfile e networkProfile são necessários, mas o diagnosticsProfile é opcional. Esses perfis definem configurações como:
    
 - [tamanho](sizes.md)
-- [nome](/azure/architecture/best-practices/naming-conventions) e credenciais
+- [nome](/azure/architecture/best-practices/resource-naming) e credenciais
 - configurações do [sistema operacional](cli-ps-findimage.md) e do disco
 - [interface de rede](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - diagnóstico de inicialização

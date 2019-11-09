@@ -1,7 +1,7 @@
 ---
 title: Filtragem de profanação-API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Use a filtragem de profanação no API de Tradução de Texto.
+description: Use a filtragem de profanação para determinar o nível de profanação traduzido em seu texto no API de Tradução de Texto de serviços cognitivas do Azure.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 114dea098db5c824a1235ba1635f547383bf6743
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: e7e2097e0d3daf360f1fa0f30bf3fd2c62c07163
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595189"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836233"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Adicionar filtragem de profanação com o API de Tradução de Texto
 
@@ -26,12 +26,12 @@ Se você quiser evitar a presença de profanação na tradução, mesmo se a pro
 O método translate () usa o parâmetro "Options", que contém o novo elemento "ProfanityAction". Os valores aceitos de ProfanityAction são "NoAction", "Marked" e "Deleted".
 
 ## <a name="accepted-values-of-profanityaction-and-examples"></a>Valores aceitos de ProfanityAction e exemplos
-|Valor de ProfanityAction | Action | Exemplo: Origem-japonês | Exemplo: Destino-inglês|
+|Valor de ProfanityAction | Ação | Exemplo: fonte-japonês | Exemplo: destino-inglês|
 | :---|:---|:---|:---|
-| NoAction | Predefinição. O mesmo que não definir a opção. A profanação passa da origem para o destino. | 彼は変態です。 | Ele é um automáticas. |
-| Marca | Palavras obscenas são circundadas por profanação de marcas \<XML >... \<>/profanity. | 彼は変態です。 | Ele é uma \<profanação > automáticas\</profanity >. |
+| NoAction | Predefinição. O mesmo que não definir a opção. A profanação passa da origem para o destino. | 彼は変態です Marketplace. | Ele é um automáticas. |
+| Marca | Palavras obscenas são cercadas por marcas XML \<profanação >... \</profanity >. | 彼は変態です Marketplace. | Ele é uma profanação \<> automáticas\</profanity >. |
 | Eliminado | Palavras obscenas são removidas da saída sem substituição. | 彼は Marketplace. | Ele é um. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Aplicar a filtragem de profanação à sua chamada à API do Tradutor](reference/v3-0-translate.md)

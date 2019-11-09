@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
-ms.openlocfilehash: 266569494c58ac75371c1a891e9cbffb4c351056
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: c917ab08d9640599c31d2ebf911e1554cf90425d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232131"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835393"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Criar um gateway de aplicativo com redirecionamento interno usando Azure PowerShell
 
-Você pode usar o Azure PowerShell para configurar o redirecionamento de [tráfego da Web](multiple-site-overview.md) ao criar um [Gateway de aplicativo](overview.md). Neste tutorial, você define um pool de back-end usando um conjunto de dimensionamento de máquinas virtuais. Em seguida, você configura ouvintes e regras com base em domínios que você possui para garantir que o tráfego da Web chegue no pool apropriado. Este tutorial pressupõe que você possui vários domínios e usa exemplos de *www.contoso.com* e *contoso.org\.da www*.
+Você pode usar o Azure PowerShell para configurar o [redirecionamento de tráfego da Web](multiple-site-overview.md) ao criar um [Gateway de aplicativo](overview.md). Neste tutorial, você define um pool de back-end usando um conjunto de dimensionamento de máquinas virtuais. Em seguida, você configura ouvintes e regras com base em domínios que você possui para garantir que o tráfego da Web chegue no pool apropriado. Este tutorial pressupõe que você possui vários domínios e usa exemplos de *www.contoso.com* e *www\.contoso.org*.
 
 Neste artigo, vai aprender a:
 
@@ -296,11 +296,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Introduza o nome de domínio na barra de endereço do seu browser. Como, [http://www.contoso.com](http://www.contoso.com).
+Introduza o nome de domínio na barra de endereço do seu browser. Como, [https://www.contoso.com](https://www.contoso.com).
 
 ![Testar o site contoso no gateway de aplicação](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Altere o endereço para o outro domínio, por exemplo http://www.contoso.org , e você verá que o tráfego foi Redirecionado de volta para o ouvinte para www.contoso.com.
+Altere o endereço para seu outro domínio, por exemplo https://www.contoso.org e você verá que o tráfego foi Redirecionado de volta para o ouvinte para `www.contoso.com`.
 
 ## <a name="next-steps"></a>Passos seguintes
 

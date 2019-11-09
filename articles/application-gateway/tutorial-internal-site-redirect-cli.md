@@ -1,6 +1,6 @@
 ---
-title: Criar um gateway de aplicação com o redirecionamento interno – CLI do Azure | Documentos da Microsoft
-description: Saiba como criar um gateway de aplicação que redireciona o tráfego da web internos para o conjunto adequado, com a CLI do Azure.
+title: Criar um gateway de aplicativo com redirecionamento interno-CLI do Azure | Microsoft Docs
+description: Saiba como criar um gateway de aplicativo que redireciona o tráfego da Web interno para o pool apropriado usando o CLI do Azure.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -12,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 186d0bb9161d70d9e458d25dc1b9cbe518bb790e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a4a47f93054c4c93043b5215371b5eea7244d46
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133531"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835001"
 ---
-# <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Criar um gateway de aplicação com o redirecionamento interno com a CLI do Azure
+# <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com redirecionamento interno usando o CLI do Azure
 
-Pode utilizar a CLI do Azure para configurar [redirecionamento de tráfego da web](application-gateway-multi-site-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, vai criar um conjunto de back-end com um conjunto de dimensionamento de máquinas virtuais. Em seguida, configurar serviços de escuta e regras com base nos domínios que é proprietário para se certificar de que o tráfego de web chega ao conjunto adequado. Este tutorial parte do princípio de que seu vários exemplos de domínios e utilizações de *www\.contoso.com* e *www\.contoso.org*.
+Você pode usar o CLI do Azure para configurar o [redirecionamento de tráfego da Web](application-gateway-multi-site-overview.md) ao criar um [Gateway de aplicativo](application-gateway-introduction.md). Neste tutorial, você cria um pool de back-end usando um conjunto de dimensionamento de máquinas virtuais. Em seguida, você configura ouvintes e regras com base em domínios que você possui para garantir que o tráfego da Web chegue no pool apropriado. Este tutorial pressupõe que você possui vários domínios e usa exemplos de *www\.contoso.com* e *www\.contoso.org*.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar a rede
 > * Criar um gateway de aplicação
-> * Adicionar serviços de escuta e a regra de redirecionamento
-> * Criar um conjunto com o conjunto de back-end de dimensionamento de máquina virtual
+> * Adicionar ouvintes e regra de redirecionamento
+> * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end
 > * Criar um registo CNAME no seu domínio
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -50,7 +50,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos de rede 
 
-Crie a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* com [az network vnet create](/cli/azure/network/vnet). Em seguida, pode adicionar a sub-rede denominada *myBackendSubnet* que é necessária para o conjunto de back-end de servidores usando [criar a sub-rede de vnet de rede de az](/cli/azure/network/vnet/subnet). Crie o endereço IP público denominado *myAGPublicIPAddress* com [az network public-ip create](/cli/azure/network/public-ip).
+Crie a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* com [az network vnet create](/cli/azure/network/vnet). Em seguida, você pode adicionar a sub-rede denominada *myBackendSubnet* que é necessária para o pool de back-end de servidores usando [AZ Network vnet subnet Create](/cli/azure/network/vnet/subnet). Crie o endereço IP público denominado *myAGPublicIPAddress* com [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli-interactive
 az network vnet create \
@@ -101,7 +101,7 @@ A criação do gateway de aplicação pode demorar vários minutos. Depois de cr
 
 ## <a name="add-listeners-and-rules"></a>Adicionar serviços de escuta e regras 
 
-É necessário um serviço de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste tutorial, vai criar dois serviços de escuta para os seus dois domínios. Neste exemplo, os serviços de escuta são criados para os domínios de *www\.contoso.com* e *www\.contoso.org*.
+É necessário um serviço de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste tutorial, vai criar dois serviços de escuta para os seus dois domínios. Neste exemplo, os ouvintes são criados para os domínios de *www\.contoso.com* e *www\.contoso.org*.
 
 Adicione os serviços de escuta de back-end que são necessários para encaminhar o tráfego, com [az network application-gateway http-listener create](/cli/azure/network/application-gateway).
 
@@ -124,7 +124,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Adicionar a configuração de redirecionamento
 
-Adicionar a configuração de redirecionamento que envia o tráfego a partir *www\.consoto.org* para o serviço de escuta para *www\.contoso.com* no gateway de aplicação utilizando o [redirecionamento de gateway de aplicação de rede de az-config criar](/cli/azure/network/application-gateway/redirect-config).
+Adicione a configuração de redirecionamento que envia o tráfego do *www\.consoto.org* ao ouvinte para *www\.contoso.com* no gateway de aplicativo usando [AZ Network Application-Gateway Redirect-config Create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -139,7 +139,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-routing-rules"></a>Adicionar regras de encaminhamento
 
-As regras são processadas na ordem em que são criados e o tráfego é direcionado através da primeira regra que corresponda ao URL enviado para o gateway de aplicação. A regra básica de predefinição que foi criada não é necessária neste tutorial. Neste exemplo, vai criar duas novas regras com o nome *contosoComRule* e *contosoOrgRule* e eliminar a regra predefinida que foi criada.  Pode adicionar as regras de usando [criar regra de gateway de aplicação de rede de az](/cli/azure/network/application-gateway).
+As regras são processadas na ordem em que são criadas e o tráfego é direcionado usando a primeira regra que corresponde à URL enviada ao gateway de aplicativo. A regra básica padrão que foi criada não é necessária neste tutorial. Neste exemplo, você cria duas novas regras chamadas *contosoComRule* e *contosoOrgRule* e exclui a regra padrão que foi criada.  Você pode adicionar as regras usando [AZ Network Application-Gateway regra Create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -164,7 +164,7 @@ az network application-gateway rule delete \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, vai criar um conjunto de dimensionamento de máquina virtual que suporta o conjunto de back-end predefinido que foi criado. O conjunto de dimensionamento que criar com o nome *myvmss* e contém duas instâncias de máquina virtual no qual instala o NGINX.
+Neste exemplo, você cria um conjunto de dimensionamento de máquinas virtuais que dá suporte ao pool de back-end padrão que foi criado. O conjunto de dimensionamento que você cria é denominado *myvmss* e contém duas instâncias de máquina virtual nas quais você instala o Nginx.
 
 ```azurecli-interactive
 az vmss create \
@@ -209,21 +209,21 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Introduza o nome de domínio na barra de endereço do seu browser. Como, por exemplo, http://www.contoso.com.
+Introduza o nome de domínio na barra de endereço do seu browser. Como, por exemplo, `http://www.contoso.com`.
 
 ![Testar o site contoso no gateway de aplicação](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 
-Alterar o endereço para o seu domínio, por exemplo http://www.contoso.org e deverá ver que o tráfego foi redirecionado para o serviço de escuta para www\. contoso.com.
+Altere o endereço para seu outro domínio, por exemplo http://www.contoso.org e você verá que o tráfego foi Redirecionado de volta para o ouvinte para www\.contoso.com.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 > * Configurar a rede
 > * Criar um gateway de aplicação
-> * Adicionar serviços de escuta e a regra de redirecionamento
-> * Criar um conjunto com o conjunto de back-end de dimensionamento de máquina virtual
+> * Adicionar ouvintes e regra de redirecionamento
+> * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end
 > * Criar um registo CNAME no seu domínio
 
 > [!div class="nextstepaction"]

@@ -7,12 +7,12 @@ ms.topic: reference
 author: rboucher
 ms.author: robb
 ms.date: 09/20/2018
-ms.openlocfilehash: 1d378571a02f30c223338eef5c7d142ed02ff4c8
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 3d79fe6a415b7d1f862797bf41caed89bfe50a41
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555546"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834751"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Diagnóstico do Azure 1,3 e esquema de configuração posterior
 > [!NOTE]
@@ -20,7 +20,7 @@ ms.locfileid: "72555546"
 > - Máquinas Virtuais do Azure
 > - Conjuntos de Dimensionamento de Máquinas Virtuais
 > - Service Fabric
-> - Serviços em Nuvem
+> - Serviços Cloud
 > - Grupos de Segurança de Rede
 >
 > Essa página só será relevante se você estiver usando um desses serviços.
@@ -411,7 +411,7 @@ Adicionado na versão 1,3.
 O elemento de nível superior do arquivo de configuração de diagnóstico.  
 
 **Atributo** xmlns-o namespace XML para o arquivo de configuração de diagnóstico é:  
-http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
+`http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration`
 
 
 |Elementos filho|Descrição|  
@@ -441,7 +441,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="diagnosticmonitorconfiguration-element"></a>Elemento DiagnosticMonitorConfiguration
  *Árvore: raiz-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration*
 
- Obrigatório
+ Necessário
 
 |Atributos|Descrição|  
 |----------------|-----------------|  
@@ -560,7 +560,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Permite que você gere uma tabela de contador de desempenho otimizada para consultas rápidas. Cada contador de desempenho definido no elemento **PerformanceCounters** é armazenado na tabela de métricas, além da tabela de contador de desempenho.  
 
- O atributo **ResourceId** é necessário.  A ID de recurso da máquina virtual ou do conjunto de dimensionamento de máquinas virtuais em que você está implantando Diagnóstico do Azure. Obtenha o **ResourceId** do [portal do Azure](https://portal.azure.com). Selecione **procurar**  -> **grupos de recursos**  -> **nome do < \>** . Clique no bloco **Propriedades** e copie o valor do campo **ID** .  
+ O atributo **ResourceId** é necessário.  A ID de recurso da máquina virtual ou do conjunto de dimensionamento de máquinas virtuais em que você está implantando Diagnóstico do Azure. Obtenha o **ResourceId** do [portal do Azure](https://portal.azure.com). Selecione **procurar** -> **grupos de recursos** -> **nome do <\>** . Clique no bloco **Propriedades** e copie o valor do campo **ID** .  
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
@@ -682,7 +682,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**StorageAccount**|A conta de armazenamento a ser usada. Os atributos a seguir são necessários<br /><br /> **nome** do - -o nome da conta de armazenamento.<br /><br /> **chave** de - -a chave para a conta de armazenamento.<br /><br /> **ponto de extremidade** - -o ponto de extremidade para acessar a conta de armazenamento. <br /><br /> -**sasToken** (adicionado 1.8.1)-você pode especificar um token SAS em vez de uma chave de conta de armazenamento na configuração particular. Se fornecido, a chave da conta de armazenamento será ignorada. <br />Requisitos para o token SAS: <br />-Dá suporte somente ao token SAS da conta <br />- *b*, os tipos de serviço *t* são necessários. <br /> -  as permissões*a*, *c*, *u*, *w* são necessárias. <br /> os tipos de recurso - *c*e *o* são necessários. <br /> – Dá suporte apenas ao protocolo HTTPS <br /> -A hora de início e de expiração deve ser válida.|  
+|**StorageAccount**|A conta de armazenamento a ser usada. Os atributos a seguir são necessários<br /><br /> **nome** do - -o nome da conta de armazenamento.<br /><br /> **chave** de - -a chave para a conta de armazenamento.<br /><br /> **ponto de extremidade** - -o ponto de extremidade para acessar a conta de armazenamento. <br /><br /> -**sasToken** (adicionado 1.8.1)-você pode especificar um token SAS em vez de uma chave de conta de armazenamento na configuração particular. Se fornecido, a chave da conta de armazenamento será ignorada. <br />Requisitos para o token SAS: <br />-Dá suporte somente ao token SAS da conta <br />- *b*, os tipos de serviço *t* são necessários. <br /> - as permissões *a*, *c*, *u*, *w* são necessárias. <br /> os tipos de recurso - *c*e *o* são necessários. <br /> – Dá suporte apenas ao protocolo HTTPS <br /> -A hora de início e de expiração deve ser válida.|  
 
 
 ## <a name="isenabled-element"></a>Elemento IsEnabled  

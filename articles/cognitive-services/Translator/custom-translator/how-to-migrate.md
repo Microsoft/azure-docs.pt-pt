@@ -1,7 +1,7 @@
 ---
 title: Migrar o espaço de trabalho e os projetos do Hub do Microsoft Translator? -Tradutor personalizado
 titleSuffix: Azure Cognitive Services
-description: Migre seu espaço de trabalho de Hub e projetos para o tradutor personalizado.
+description: Este artigo explica como migrar seu espaço de trabalho de Hub e projetos para o tradutor personalizado de serviços cognitivas do Azure.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,19 +9,19 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 9c97eaef30a08123605ed4c01810745e312d6aa0
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 7ea7b48e1fc36399a0ca173f9068faf8b88849d5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675504"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836582"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar o espaço de trabalho do Hub e projetos para o tradutor personalizado
 
 Você pode facilmente migrar seu espaço de trabalho do [Hub do Microsoft Translator](https://hub.microsofttranslator.com/) e projetos para o tradutor personalizado. A migração é iniciada do Hub da Microsoft selecionando um espaço de trabalho ou projeto, selecionando um espaço de trabalho no Tradutor personalizado e, em seguida, selecionando os treinamentos que você deseja transferir. Depois que a migração for iniciada, as configurações de treinamento selecionadas serão transferidas com todos os documentos relevantes. Modelos implantados são treinados e podem ser autoimplantados após a conclusão.
 
 Essas ações são executadas durante a migração:
-* Todos os documentos e definições de projeto terão seus nomes transferidos com a adição de "hub_" prefixado para o nome. Os dados de teste e de ajuste gerados automaticamente serão nomeados hub_systemtune_ \<modelid > ou hub_systemtest_ \<modelid >.
+* Todos os documentos e definições de projeto terão seus nomes transferidos com a adição de "hub_" prefixado para o nome. Os dados de teste e de ajuste gerados automaticamente serão nomeados hub_systemtune_\<ModelId > ou hub_systemtest_\<ModelId >.
 * Todos os treinamentos que estavam no estado implantado quando a migração ocorrer serão treinados automaticamente usando os documentos do treinamento do Hub. Este treinamento não será cobrado em sua assinatura. Se a implantação automática foi selecionada para a migração, o modelo treinado será implantado após a conclusão. Os encargos de hospedagem regular serão aplicados.
 * Todos os treinamentos migrados que não estavam no estado implantado serão colocados no estado de rascunho migrado. Nesse estado, você terá a opção de treinar um modelo com a definição migrada, mas os encargos de treinamento regular serão aplicados.
 * A qualquer momento, a pontuação de BLEU migrada do treinamento de Hub pode ser encontrada na página TrainingDetails do modelo no cabeçalho "Pontuação Bleu no Hub MT".

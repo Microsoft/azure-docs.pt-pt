@@ -1,7 +1,7 @@
 ---
-title: Conceitos de indexador de vídeo
-titlesuffix: Azure Media Services
-description: Este tópico descreve alguns dos conceitos do serviço do Video Indexer.
+title: Conceitos de Video Indexer
+titleSuffix: Azure Media Services
+description: Este tópico descreve alguns conceitos do serviço de Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,33 +10,33 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 156eceba856bf159d4821360639a0641d3ed02be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3795b699f5518efdbef117fb24d118041ed3e78
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799062"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839567"
 ---
-# <a name="video-indexer-concepts"></a>Conceitos de indexador de vídeo
+# <a name="video-indexer-concepts"></a>Conceitos de Video Indexer
  
-Este artigo descreve alguns dos conceitos do serviço do Video Indexer.
+Este artigo descreve alguns conceitos do serviço de Video Indexer.
     
-## <a name="summarized-insights"></a>Insights resumidos
+## <a name="summarized-insights"></a>Informações resumidas
 
-Insights resumidos contêm uma exibição agregada dos dados: rostos, tópicos, emoções. Por exemplo, em vez de passar por cada uma das milhares de intervalos de tempo e verificando quais faces estão no mesmo, as informações resumidas contém todos os rostos e para cada um deles, os intervalos de tempo que aparece no e % do tempo é mostrado.
+As informações resumidas contêm uma exibição agregada dos dados: rostos, tópicos, emoções. Por exemplo, em vez de passar por cada um dos milhares de intervalos de tempo e verificar quais faces estão nele, as informações resumidas contêm todas as faces e, para cada uma delas, os intervalos de tempo em que aparecem e o% do tempo em que é mostrado.
 
-## <a name="time-range-vs-adjusted-time-range"></a>intervalo de tempo vs. o intervalo de tempo ajustado
+## <a name="time-range-vs-adjusted-time-range"></a>intervalo de tempo versus ajustado
 
-TimeRange é o intervalo de tempo no vídeo original. AdjustedTimeRange é o intervalo de tempo relativo à lista de reprodução atual. Uma vez que pode criar uma lista de reprodução de linhas diferentes de vídeos diferentes, pode demorar um vídeo de 1 hora e utilizar apenas 1 linha dela, por exemplo, 10:00-10:15. Nesse caso, terá uma lista de reprodução com 1 linha, em que o intervalo de tempo é 10:00-10:15, mas o adjustedTimeRange é 00:00 00:15.
+Timerange é o intervalo de tempo no vídeo original. AdjustedTimeRange é o intervalo de tempo relativo à playlist atual. Como você pode criar uma lista de reprodução de diferentes linhas de vídeos diferentes, você pode levar um vídeo de 1 hora e usar apenas uma linha dela, por exemplo, 10:00-10:15. Nesse caso, você terá uma lista de reprodução com 1 linha, em que o intervalo de tempo é 10:00-10:15, mas o adjustedTimeRange é 00:00-00:15.
  
-## <a name="blocks"></a>blocos
+## <a name="blocks"></a>trava
 
-Blocos foram feitos para facilitar a percorrer os dados. Por exemplo, o bloco pode estar dividido com base nos momentos em que ocorre uma mudança de orador ou uma longa pausa.
+Os blocos destinam-se a facilitar o uso dos dados. Por exemplo, o bloco pode estar dividido com base nos momentos em que ocorre uma mudança de orador ou uma longa pausa.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter informações sobre como começar, consulte [como inscrever-se e carregar o seu primeiro vídeo](video-indexer-get-started.md).
+Para obter informações sobre como começar, consulte [como inscrever-se e carregar seu primeiro vídeo](video-indexer-get-started.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consultar também
 
 [Descrição geral do Video Indexer](video-indexer-overview.md)

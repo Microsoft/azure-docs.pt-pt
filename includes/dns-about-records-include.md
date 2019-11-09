@@ -4,24 +4,24 @@ ms.service: dns
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
-ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 261ae22348cd82b129727261c619727917e19c96
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184889"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832060"
 ---
 ### <a name="record-names"></a>Nomes de registo
 
-No DNS do Azure, os registos são especificados com nomes relativos. Um nome de domínio *completamente qualificado* (FQDN) inclui o nome da zona, enquanto um nome *relativo* não. Por exemplo, o nome do registo relativo “www” na zona “contoso.com” fornece o nome do registo completamente qualificado “www.contoso.com”.
+No DNS do Azure, os registos são especificados com nomes relativos. Um nome de domínio *completamente qualificado* (FQDN) inclui o nome da zona, enquanto um nome *relativo* não. Por exemplo, o nome de registro relativo `www` na zona `contoso.com` fornece o nome de registro totalmente qualificado `www.contoso.com`.
 
-Um registo *apex* é um registo DNS na raiz (ou *apex*) de uma zona DNS. Por exemplo, o zona DNS "contoso.com", um registo de apex também tem o nome totalmente qualificado "contoso.com" (por vezes denominado um domínio *sem prefixo*).  Por convenção, o nome relativo "\@" é usado para representar registos apex.
+Um registo *apex* é um registo DNS na raiz (ou *apex*) de uma zona DNS. Por exemplo, no `contoso.com`de zona DNS, um registro de Apex também tem o nome totalmente qualificado `contoso.com` (isso às vezes é chamado de domínio *descoberto* ).  Por convenção, o nome relativo '\@' é usado para representar os registros de Apex.
 
 ### <a name="record-types"></a>Tipos de registo
 
 Cada registo DNS tem um nome e um tipo. Os registos são organizados em vários tipos de acordo com os dados que contêm. O tipo mais comum é um registo “A”, que mapeia um nome para um endereço IPv4. Outro tipo comum é um registo “MX”, que mapeia um nome para um servidor de correio.
 
-O DNS do Azure suporta todos os tipos de registo DNS comuns: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV, and TXT. Tenha em atenção que [os registos SPF são representados utilizando registos TXT](../articles/dns/dns-zones-records.md#spf-records).
+O DNS do Azure dá suporte A todos os tipos de registro DNS comuns: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV e TXT. Tenha em atenção que [os registos SPF são representados utilizando registos TXT](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Conjuntos de registos
 

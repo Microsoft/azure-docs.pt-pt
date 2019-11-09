@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: angle
-ms.openlocfilehash: fde4a73dd4a95028f23563fb6a8ae36c0142fd39
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dfa05ff114ea0976cb8d57f711eaacc016ea53cc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507321"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836984"
 ---
 # <a name="disclosure-design-patterns"></a>Padrões de design de divulgação
 Agora que você&#39;já determinou o [nível certo de divulgação](concepts-disclosure-guidelines.md#disclosure-assessment) para sua experiência de voz sintética&#39;, é um bom momento para explorar os possíveis padrões de design.
@@ -247,11 +247,11 @@ Use a divulgação como uma oportunidade de falhar normalmente.
 
 ## <a name="reference-docs"></a>Documentos de referência
 
-* [Nota de transparência](https://aka.ms/neural-tts-transparency-note)
+* [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent)
 * [Diretrizes para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Visão geral da retenção](concepts-gating-overview.md)
 * [Como divulgar](concepts-disclosure-guidelines.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Nota de transparência](https://aka.ms/neural-tts-transparency-note)
+* [Divulgação para talento de voz](https://aka.ms/disclosure-voice-talent)

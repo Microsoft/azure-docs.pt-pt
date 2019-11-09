@@ -6,16 +6,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 11/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24efd9d67e5bcc083ce1a02dcf0850a39189afe8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 2596091324acde5c4fdc3f7c467849f90266fec9
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173103"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847235"
 ---
 # <a name="cloud-authentication-staged-rollout-public-preview"></a>Autenticação de nuvem: distribuição em etapas (visualização pública)
 
@@ -117,18 +117,18 @@ Habilite o SSO contínuo nas florestas do AD usando o PowerShell. Se você tiver
 
 2. Navegue até a pasta% ProgramFiles%\\Microsoft Azure Active Directory Connect.
 
-3. Importe o módulo do PowerShell do SSO contínuo usando este comando: `Import-Module .\\AzureADSSO.psd1`.
+3. Importe o módulo do PowerShell do SSO contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
 
 4. Execute o PowerShell como administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer uma caixa de diálogo na qual você pode inserir as credenciais de administrador global do seu locatário.
 
-5. Chame `Get-AzureADSSOStatus \| ConvertFrom-Json`. Esse comando fornece a lista de florestas do AD (consulte a lista \"domínios\") em que esse recurso foi habilitado. Por padrão, ele é definido como false no nível do locatário.
+5. Chame `Get-AzureADSSOStatus | ConvertFrom-Json`. Esse comando fornece a lista de florestas do AD (consulte a lista \"domínios\") em que esse recurso foi habilitado. Por padrão, ele é definido como false no nível do locatário.
 
    > **Exemplo:** 
    > ![exemplo da saída do Windows PowerShell](./media/how-to-connect-staged-rollout/sr3.png)
 
-6. Chame `\$creds = Get-Credential`. Quando solicitado, insira as credenciais de administrador de domínio para a floresta do AD pretendida.
+6. Chame `$creds = Get-Credential`. Quando solicitado, insira as credenciais de administrador de domínio para a floresta do AD pretendida.
 
-7. Chame `Enable-AzureADSSOForest -OnPremCredentials \$creds`. Esse comando cria a conta de computador AZUREADSSOACC do controlador de domínio local para essa floresta de Active Directory específica que é necessária para o SSO contínuo.
+7. Chame `Enable-AzureADSSOForest -OnPremCredentials $creds`. Esse comando cria a conta de computador AZUREADSSOACC do controlador de domínio local para essa floresta de Active Directory específica que é necessária para o SSO contínuo.
 
 8. O SSO contínuo exige que as URLs estejam na zona da intranet. Consulte o guia de [início rápido de logon único contínuo](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature) para implantar essas URLs usando as políticas de grupo.
 
@@ -240,7 +240,7 @@ Veja como você pode acompanhar as entradas do usuário que ainda estão ocorren
 
 -   **P: podemos usar o PowerShell para executar a distribuição em etapas?**
 
--   R: Sim, encontre a documentação para usar o PowerShell para executar a distribuição em etapas aqui.
+-   R: Sim, encontre a documentação para usar o PowerShell para executar a distribuição em etapas [aqui](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="next-steps"></a>Próximos Passos
 - [Versão prévia do AzureAD 2,0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

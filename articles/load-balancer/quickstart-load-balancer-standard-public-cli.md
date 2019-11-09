@@ -1,7 +1,7 @@
 ---
 title: 'Início rápido: criar um Standard Load Balancer público-CLI do Azure'
 titlesuffix: Azure Load Balancer
-description: Este início rápido mostra como criar um balanceador de carga público com a CLI do Azure
+description: Este guia de início rápido mostra como criar um balanceador de carga público com a CLI do Azure
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 8c4659fada420bc81c4633deb8bd241497a0263d
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: fb292e268df57dda8ed2db56a915270b7fe51bb2
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509681"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839821"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início rápido: Criar um Standard Load Balancer para balancear a carga de VMS usando CLI do Azure
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início rápido: criar um Standard Load Balancer para balancear a carga de VMs usando CLI do Azure
 
 Este guia de introdução mostra como criar um Balanceador de Carga Standard. Para testar o balanceador de carga, implemente duas máquinas virtuais (VMs) com o servidor Ubuntu e faça o balanceamento de carga de uma aplicação Web entre as duas VMs.
 

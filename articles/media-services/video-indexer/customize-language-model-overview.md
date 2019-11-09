@@ -1,7 +1,7 @@
 ---
-title: Personalizar um modelo de idioma no indexador de vídeo - Azure
-titlesuffix: Azure Media Services
-description: Este artigo fornece uma descrição geral sobre o que é um modelo de idioma no indexador de vídeo e como personalizá-lo.
+title: Personalizar um modelo de linguagem no Video Indexer-Azure
+titleSuffix: Azure Media Services
+description: Este artigo fornece uma visão geral do que é um modelo de linguagem no Video Indexer e como personalizá-lo.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,38 +10,38 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 516ecd8842e7b673201cc640b283c081a02d2b2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b096b9352be65033f2fb782b118e815dc16b43b6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799547"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838322"
 ---
-# <a name="customize-a-language-model-with-video-indexer"></a>Personalizar um modelo de idioma com o indexador de vídeo
+# <a name="customize-a-language-model-with-video-indexer"></a>Personalizar um modelo de linguagem com Video Indexer
 
-Reconhecimento de voz automático por meio da integração com a Microsoft suporta o indexador de vídeos [serviço de voz personalizada](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). Pode personalizar o modelo de idioma através do carregamento de texto de adaptação, ou seja, o texto do domínio cujo vocabulário que pretende que o mecanismo para se adaptar às. Depois de preparar o seu modelo, serão reconhecidas novas palavras que aparecem no texto adaptação, partindo do princípio de pronúncia de padrão, e o modelo de idioma irá aprender novas seqüências prováveis de palavras. Modelos de linguagem personalizados são suportados para inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo, português (Brasil), Híndi e coreano. 
+O Video Indexer dá suporte ao reconhecimento automático de fala por meio da integração com o [serviço de fala personalizada](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/)da Microsoft. Você pode personalizar o modelo de linguagem carregando o texto de adaptação, ou seja, o texto do domínio cujo vocabulário você deseja que o mecanismo se adapte. Depois de treinar seu modelo, novas palavras que aparecem no texto de adaptação serão reconhecidas, assumindo a pronúncia padrão, e o modelo de linguagem aprenderá novas sequências prováveis de palavras. Os modelos de idioma personalizados têm suporte para inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo, Português do Brasil, híndi e coreano. 
 
-Vamos dar uma palavra que é altamente específica, como o "Kubernetes" (no contexto do serviço Kubernetes do Azure), por exemplo. Como o word é novo ao Video Indexer, ela é reconhecida como "Comunidades". Terá de preparar o modelo reconhecê-lo como "Kubernetes". Em outros casos, as palavras existem, mas o modelo de idioma não está esperando serem apresentadas num determinado contexto. Por exemplo, "serviço de contentor" não é uma sequência de 2 palavras que um modelo de idioma não especializado reconheceria como um conjunto específico de palavras.
+Vamos pegar uma palavra altamente específica, como "kubernetes" (no contexto do serviço kubernetes do Azure), como um exemplo. Como a palavra é nova no Video Indexer, ela é reconhecida como "comunidades". Você precisa treinar o modelo para reconhecê-lo como "kubernetes". Em outros casos, as palavras existem, mas o modelo de linguagem não está esperando que elas apareçam em um determinado contexto. Por exemplo, "serviço de contêiner" não é uma sequência de duas palavras que um modelo de linguagem não especializado reconheceria como um conjunto específico de palavras.
 
-Tem a opção de carregar palavras sem contexto numa lista num ficheiro de texto. Esse é considerado adaptação parcial. Em alternativa, pode carregar ficheiros de texto de documentação ou frases relacionados com o seu conteúdo para adaptação de melhor.
+Você tem a opção de carregar palavras sem contexto em uma lista em um arquivo de texto. Isso é considerado adaptação parcial. Como alternativa, você pode carregar arquivo (s) de texto de documentação ou sentenças relacionadas ao seu conteúdo para melhor adaptação.
 
-Pode utilizar as APIs do indexador de vídeo ou o Web site para criar e editar modelos de idioma personalizados, conforme descrito nos tópicos de [próximos passos](#next-steps) secção deste tópico.
+Você pode usar as APIs de Video Indexer ou o site para criar e editar modelos de idioma personalizados, conforme descrito em tópicos na seção [próximas etapas](#next-steps) deste tópico.
 
-## <a name="best-practices-for-custom-language-models"></a>Melhores práticas para modelos de idioma personalizados
+## <a name="best-practices-for-custom-language-models"></a>Práticas recomendadas para modelos de linguagem personalizada
 
-O Video Indexer aprende com base no probabilidades de combinações word, por isso, para saber mais:
+Video Indexer aprende com base nas probabilidades de combinações de palavras, para que você aprenda melhor:
 
-* Dê suficiente exemplos reais de frases conforme eles seriam ser ditas.
-* Coloque uma frase apenas um por linha, não mais. Caso contrário, o sistema irá aprender probabilidades entre frases.
-* Há problema colocar uma palavra como uma frase para aumentar a palavra em relação a outras pessoas, mas o sistema aprende o melhor de frases completas.
-* Ao introduzir novas palavras ou acrônimos, se possível, dar a tantos exemplos de utilização numa frase completa para dar o máximo de contexto possível no sistema.
-* Tente colocar várias opções de adaptação e veja como funcionam para.
-* Evite a repetição de mesma frase exata várias vezes. Poderá criar psicológico contra o resto da entrada.
-* Evitar a inclusão de símbolos incomuns (~, # % &) à medida que irão obter descartados. Também irão obter eliminadas as frases em que aparecem.
-* Evite colocar entradas demasiado grandes, por exemplo, a centenas de milhares de frases, porque ao fazê-lo será diluir o efeito de adaptativo.
+* Forneça exemplos reais suficientes de frases, pois elas seriam faladas.
+* Coloque apenas uma frase por linha, e não mais. Caso contrário, o sistema aprenderá probabilidades entre frases.
+* Não há problema em colocar uma palavra como uma frase para impulsionar a palavra em relação a outras, mas o sistema aprende melhor com as frases completas.
+* Ao introduzir novas palavras ou acrônimos, se possível, dê quantos exemplos de uso em uma frase completa para dar o máximo de contexto possível ao sistema.
+* Tente colocar várias opções de adaptação e veja como elas funcionam para você.
+* Evite a repetição exata da mesma frase várias vezes. Ele pode criar uma tendência em relação ao restante da entrada.
+* Evite incluir símbolos incomuns (~, # @% &), pois eles serão descartados. As frases nas quais elas aparecem também serão descartadas.
+* Evite colocar entradas muito grandes, como centenas de milhares de frases, pois isso causará diluir o efeito do aumento.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Personalizar o modelo de idioma com APIs](customize-language-model-with-api.md)
+[Personalizar o modelo de linguagem usando APIs](customize-language-model-with-api.md)
 
-[Personalizar o modelo de idioma com o Web site](customize-language-model-with-website.md)
+[Personalizar o modelo de idioma usando o site](customize-language-model-with-website.md)

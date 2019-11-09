@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 76648428e6adcaed579b0e4f1896fdf83e11a8b6
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 8ce949ac997ba7ee38cb057752d89f4b4d22388f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348857"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838711"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Mover uma conta de armazenamento do Azure para outra região
 
@@ -39,7 +39,7 @@ Neste artigo, você aprenderá a:
 
 <a id="prepare" />
 
-## <a name="prepare"></a>Preparar
+## <a name="prepare"></a>Preparação
 
 Para começar, exportar e modificar um modelo do Resource Manager. 
 
@@ -51,11 +51,11 @@ Este modelo contém configurações que descrevem sua conta de armazenamento.
 
 Para exportar um modelo usando portal do Azure:
 
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **todos os recursos** e, em seguida, selecione sua conta de armazenamento.
 
-3. Selecione **configurações** > de >**modelo de exportação**.
+3. Selecione **configurações** de > > **modelo de exportação**.
 
 4. Escolha **baixar** na folha **Exportar modelo** .
 
@@ -186,11 +186,11 @@ Implante o modelo para criar uma nova conta de armazenamento na região de desti
 
 2. Insira ou selecione os valores de propriedade:
 
-- **Subscrição**: Selecione uma subscrição do Azure.
+- **Subscrição**: selecione uma subscrição do Azure.
 
-- **Grupo de recursos**: Selecione **criar novo** e dê um nome ao grupo de recursos.
+- **Grupo de recursos**: selecione **Criar novo** e dê um nome ao grupo de recursos.
 
-- **Local**: Selecione uma localização do Azure.
+- **Local**: selecione um local do Azure.
 
 3. Clique na caixa de seleção **eu concordo com os termos e condições declarados acima** e clique no botão **selecionar compra** .
 
@@ -234,19 +234,19 @@ A tabela a seguir lista esses recursos, juntamente com as diretrizes para adicio
 
 Aqui estão algumas maneiras de mover seus dados.
 
-:heavy_check_mark: **Explorador do Armazenamento do Azure**
+: heavy_check_mark: **Gerenciador de armazenamento do Azure**
 
   Ele é fácil de usar e adequado para conjuntos de dados pequenos. Você pode copiar contêineres e compartilhamentos de arquivos e, em seguida, colá-los na conta de destino.
 
   Consulte [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/);
 
-:heavy_check_mark: **AZCopy**
+: heavy_check_mark: **AzCopy**
 
   Essa é a abordagem preferida. Ele é otimizado para desempenho.  Uma maneira mais rápida, é que os dados são copiados diretamente entre os servidores de armazenamento, portanto, o AzCopy não usa a largura de banda de rede do seu computador. Use AzCopy na linha de comando ou como parte de um script personalizado.
 
   Consulte Introdução [ao AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-:heavy_check_mark: **Azure Data Factory** 
+: heavy_check_mark: **Azure data Factory** 
 
   Use essa ferramenta somente se precisar de funcionalidade que não tenha suporte na versão atual do AzCopy. Por exemplo, na versão atual do AzCopy, não é possível copiar BLOBs entre contas que têm um namespace hierárquico. Também AzCopy não preserva as listas de controle de acesso do arquivo ou os carimbos de data/hora do arquivo (por exemplo: criar e modificar carimbos de data/hora) 
 

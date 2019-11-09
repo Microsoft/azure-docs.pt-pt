@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: ccc418cd3af14c0468ab8d669ad2e2e11a0b6d57
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: fdf9b60e38ad37334fe6183bb1a9c60cce9f85e1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772261"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832048"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
 
@@ -30,7 +30,7 @@ Esta página explica os principais conceitos de domínios, zonas DNS e registros
 
 O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia começa a partir do domínio “raiz”, cujo nome é simplesmente “ **.** ”.  Abaixo deste domínio, surgem os domínios de nível superior, como “com”, “net”, “org”, “pt” ou “fr”.  Abaixo destes, estão os domínios de segundo nível, tais como “org.pt” ou “co.uk”. Os domínios na hierarquia de DNS são distribuídos globalmente, hospedados por servidores de nomes DNS em todo o mundo.
 
-Um registrador de nome de domínio é uma organização que permite que você compre um nome de domínio, como ' contoso.com '.  A compra de um nome de domínio lhe dá o direito de controlar a hierarquia de DNS com esse nome, por exemplo, permitindo que você direcione o nome www.contoso.com para o site da sua empresa. O registrador pode hospedar o domínio em seus próprios servidores de nomes em seu nome ou permitir que você especifique servidores de nomes alternativos.
+Um registrador de nome de domínio é uma organização que permite que você compre um nome de domínio, como `contoso.com`.  A compra de um nome de domínio lhe dá o direito de controlar a hierarquia de DNS com esse nome, por exemplo, permitindo que você direcione o nome `www.contoso.com` para o site da sua empresa. O registrador pode hospedar o domínio em seus próprios servidores de nomes em seu nome ou permitir que você especifique servidores de nomes alternativos.
 
 O DNS do Azure fornece uma infraestrutura de servidor de nome de alta disponibilidade globalmente distribuída, que pode ser usada para hospedar seu domínio. Ao hospedar seus domínios no DNS do Azure, você pode gerenciar seus registros DNS com as mesmas credenciais, APIs, ferramentas, cobrança e suporte que os outros serviços do Azure.
 
@@ -54,12 +54,12 @@ No DNS do Azure, o TTL é especificado para o conjunto de registros, não para c
 
 O DNS do Azure suporta [registos de carateres universais](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Os registros curinga são retornados em resposta a qualquer consulta com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de registros não curinga). O DNS do Azure dá suporte a conjuntos de registros curinga para todos os tipos de registro, exceto NS e SOA.
 
-Para criar um conjunto de registros curinga, use o nome do conjunto\*de registros ' '. Como alternativa, você também pode usar um nome com '\*' como o rótulo mais à esquerda, por exemplo, '\*. foo '.
+Para criar um conjunto de registros curinga, use o nome do conjunto de registros '\*'. Como alternativa, você também pode usar um nome com '\*' como seu rótulo mais à esquerda, por exemplo, '\*. foo '.
 
 ### <a name="caa-records"></a>Registros de CAA
 
 Os registros do CAA permitem que os proprietários do domínio especifiquem quais CAs (autoridades de certificação) estão autorizadas a emitir certificados para seu domínio. Isso permite que o CAs Evite certificados de emissão incorreta em algumas circunstâncias. Os registros CAA têm três propriedades:
-* **Sinalizadores**: Este é um inteiro entre 0 e 255, usado para representar o sinalizador crítico que tem um significado especial de acordo com a [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Flags**: Este é um inteiro entre 0 e 255, usado para representar o sinalizador crítico que tem um significado especial de acordo com a [RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * **Marca**: uma cadeia de caracteres ASCII que pode ser uma das seguintes:
     * **problema**: Use esta se desejar especificar as CAS que têm permissão para emitir certificados (todos os tipos)
     * **issuewild**: Use esta se desejar especificar as CAS que têm permissão para emitir certificados (somente certificados curinga)
@@ -70,13 +70,13 @@ Os registros do CAA permitem que os proprietários do domínio especifiquem quai
 
 Os conjuntos de registos CNAME não podem coexistir com outros conjuntos de registos com o mesmo nome. Por exemplo, você não pode criar um conjunto de registros CNAME com o nome relativo ' www ' e um registro A com o nome relativo ' www ' ao mesmo tempo.
 
-Como o Apex da zona (nome =\@' ') sempre contém os conjuntos de registros NS e soa que foram criados quando a zona foi criada, você não pode criar um conjunto de registros CNAME no Apex da zona.
+Como o Apex da zona (nome = '\@') sempre contém os conjuntos de registros NS e SOA que foram criados quando a zona foi criada, você não pode criar um conjunto de registros CNAME no Apex da zona.
 
 Essas restrições surgem dos padrões de DNS e não são limitações do DNS do Azure.
 
 ### <a name="ns-records"></a>Registros NS
 
-O conjunto de registros ns no Apex da zona (nome\@' ') é criado automaticamente com cada zona DNS e é excluído automaticamente quando a zona é excluída (não pode ser excluída separadamente).
+O conjunto de registros NS no Apex da zona (nome '\@') é criado automaticamente com cada zona DNS e é excluído automaticamente quando a zona é excluída (não pode ser excluído separadamente).
 
 Esse conjunto de registros contém os nomes dos servidores de nome DNS do Azure atribuídos à zona. Você pode adicionar servidores de nomes adicionais a esse conjunto de registros NS para dar suporte a domínios de hospedagem com mais de um provedor de DNS. Você também pode modificar o TTL e os metadados para este conjunto de registros. No entanto, não é possível remover ou modificar os servidores de nomes DNS do Azure populados previamente. 
 
@@ -98,7 +98,7 @@ O número de série da zona no registro SOA não é atualizado automaticamente q
 
 Os [Registros SRV](https://en.wikipedia.org/wiki/SRV_record) são usados por vários serviços para especificar locais de servidor. Ao especificar um registro SRV no DNS do Azure:
 
-* O *serviço* e o *protocolo* devem ser especificados como parte do nome do conjunto de registros, prefixado com sublinhados.  Por exemplo, '\_SIP.\_ tcp.name '.  Para um registro no Apex da zona, não é necessário especificar '\@' no nome do registro, basta usar o serviço e o protocolo, por exemplo, ' SIP '.\_ \_ TCP '.
+* O *serviço* e o *protocolo* devem ser especificados como parte do nome do conjunto de registros, prefixado com sublinhados.  Por exemplo, '\_SIP.\_tcp.name '.  Para um registro no Apex da zona, não é necessário especificar '\@' no nome do registro, basta usar o serviço e o protocolo, por exemplo, '\_SIP.\_TCP '.
 * A *prioridade*, o *peso*, a *porta*e o *destino* são especificados como parâmetros de cada registro no conjunto de registros.
 
 ### <a name="txt-records"></a>Registros TXT
@@ -113,7 +113,7 @@ As várias cadeias de caracteres em um registro DNS não devem ser confundidas c
 
 ## <a name="tags-and-metadata"></a>Marcas e metadados
 
-### <a name="tags"></a>Tags
+### <a name="tags"></a>Etiquetas
 
 As marcas são uma lista de pares nome-valor e são usadas por Azure Resource Manager para rotular recursos.  Azure Resource Manager usa marcas para habilitar exibições filtradas da sua fatura do Azure e também permite que você defina uma política na qual as marcas são necessárias. Para obter mais informações sobre etiquetas, consulte [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/resource-group-using-tags.md).
 
@@ -136,7 +136,7 @@ No nível da API REST do DNS do Azure, as ETags são especificadas usando cabeç
 | Cabeçalho | Comportamento |
 | --- | --- |
 | Nenhum |PUT sempre sucede (nenhuma verificação de eTag) |
-| If-match \<etag> |PUT só terá sucesso se o recurso existir e a ETag corresponder |
+| > If-Match \<ETag |PUT só terá sucesso se o recurso existir e a ETag corresponder |
 | If-Match * |PUT só terá sucesso se o recurso existir |
 | If-None-Match * |PUT só terá sucesso se o recurso não existir |
 
@@ -147,7 +147,7 @@ Os seguintes limites padrão se aplicam ao usar o DNS do Azure:
 
 [!INCLUDE [dns-limits](../../includes/dns-limits.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para começar a usar o DNS do Azure, saiba como [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e [criar registros DNS](dns-getstarted-create-recordset-portal.md).
 * Para migrar uma zona DNS existente, saiba como [importar e exportar um arquivo de zona DNS](dns-import-export.md).

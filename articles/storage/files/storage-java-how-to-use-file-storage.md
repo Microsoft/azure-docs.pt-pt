@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 00130114b793b5f4d4459eee3404fc4adaf6a8b4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 28a280ea7c3bf9ef84a1fff05da5090ed526fb12
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699401"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837465"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Desenvolver para arquivos do Azure com Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -54,7 +54,7 @@ public static final String storageConnectionString =
 ```
 
 > [!NOTE]
-> Substitua your_storage_account_name e your_storage_account_key pelos valores reais de sua conta de armazenamento.
+> Substitua your_storage_account_name e your_storage_account_key pelos valores reais da sua conta de armazenamento.
 > 
 > 
 
@@ -227,7 +227,7 @@ Se você quiser saber mais sobre outras APIs de armazenamento do Azure, siga est
 * [Azure para desenvolvedores Java](/java/azure)/)
 * [SDK do armazenamento do Azure para Java](https://github.com/azure/azure-storage-java)
 * [SDK do armazenamento do Azure para Android](https://github.com/azure/azure-storage-android)
-* [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/) (Referência do SDK do Cliente do Armazenamento do Azure)
+* [Azure Storage Client SDK Reference](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html) (Referência do SDK do Cliente do Armazenamento do Azure)
 * [API REST dos Serviços do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blogue da Equipa de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Transferir dados com o Utilitário de Linha de Comandos AzCopy](../common/storage-use-azcopy.md)

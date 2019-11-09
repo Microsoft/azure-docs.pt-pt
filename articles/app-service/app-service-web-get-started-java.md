@@ -16,14 +16,14 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 3251637d5a5bd0593a9eaf559963921a68a6ccdc
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: d119ffdcb952405f17e0df152c817df9a8a63110
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102766"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833633"
 ---
-# <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Início rápido: Criar um aplicativo Java no serviço de Azure App no Windows
+# <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Início rápido: criar um aplicativo Java no serviço de Azure App no Windows
 
 > [!NOTE]
 > Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implantar o serviço de aplicativo no _Linux_, consulte [criar aplicativo Web Java no Linux](./containers/quickstart-java.md).
@@ -42,7 +42,7 @@ O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojam
 
 ## <a name="create-a-java-app"></a>Criar uma aplicação em Java
 
-Execute o seguinte comando do Maven no prompt de Cloud Shell para criar um novo aplicativo `helloworld`chamado:
+Execute o seguinte comando do Maven no prompt de Cloud Shell para criar um novo aplicativo chamado `helloworld`:
 
 ```bash
 mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
@@ -66,7 +66,7 @@ Em seguida, adicione a seguinte definição de plug-in dentro do elemento `<buil
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.7.0</version>
+        <version>1.8.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>
@@ -104,8 +104,8 @@ Atualize os seguintes marcadores de posição na configuração do plug-in:
 
 | Marcador de posição | Descrição |
 | ----------- | ----------- |
-| `SUBSCRIPTION_ID` | A ID exclusiva da assinatura na qual você deseja implantar seu aplicativo. A ID da assinatura padrão pode ser encontrada no Cloud Shell ou CLI usando o `az account show` comando. Para todas as assinaturas disponíveis, use o `az account list` comando.|
-| `RESOURCEGROUP_NAME` | Nome do novo grupo de recursos no qual criar seu aplicativo. Ao colocar todos os recursos de uma aplicação num grupo, pode geri-los em conjunto. Por exemplo, eliminar o grupo de recursos eliminará todos os recursos associados à aplicação. Atualize esse valor com um novo nome de grupo de recursos exclusivo, porexemplo, MyResource Group. Irá utilizar este nome de grupo de recursos para limpar todos os recursos do Azure numa secção posterior. |
+| `SUBSCRIPTION_ID` | A ID exclusiva da assinatura na qual você deseja implantar seu aplicativo. A ID da assinatura padrão pode ser encontrada no Cloud Shell ou CLI usando o comando `az account show`. Para todas as assinaturas disponíveis, use o comando `az account list`.|
+| `RESOURCEGROUP_NAME` | Nome do novo grupo de recursos no qual criar seu aplicativo. Ao colocar todos os recursos de uma aplicação num grupo, pode geri-los em conjunto. Por exemplo, eliminar o grupo de recursos eliminará todos os recursos associados à aplicação. Atualize esse valor com um novo nome de grupo de recursos exclusivo, por exemplo, *MyResource*Group. Irá utilizar este nome de grupo de recursos para limpar todos os recursos do Azure numa secção posterior. |
 | `WEBAPP_NAME` | O nome do aplicativo será parte do nome do host para o aplicativo quando implantado no Azure (WEBAPP_NAME. azurewebsites. net). Atualize esse valor com um nome exclusivo para o novo aplicativo do serviço de aplicativo, que hospedará seu aplicativo Java, por exemplo, *contoso*. |
 | `REGION` | Uma região do Azure em que o aplicativo está hospedado, por exemplo, *westus2*. Pode obter uma lista de regiões do Cloud Shell ou da CLI com o comando `az account list-locations`. |
 

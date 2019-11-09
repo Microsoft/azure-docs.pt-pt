@@ -1,7 +1,7 @@
 ---
 title: API de Tradução de Texto método de conversão
 titleSuffix: Azure Cognitive Services
-description: Use o método de conversão API de Tradução de Texto.
+description: Entenda os parâmetros, os cabeçalhos e as mensagens de corpo para os serviços cognitivas do Azure API de Tradução de Texto o método translate para traduzir o texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 10/16/2019
 ms.author: swmachan
-ms.openlocfilehash: b809171549a8f3cbbbb6ccad1553608598afa345
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b4daa04a4dbf87006147fb0d44d7b128a6d8ecf4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161712"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835788"
 ---
 # <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3,0: traduzir
 
@@ -23,7 +23,7 @@ Traduz o texto.
 
 ## <a name="request-url"></a>URL do Pedido
 
-Enviar uma solicitação `POST` para:
+Enviar uma solicitação de `POST` para:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
@@ -42,11 +42,11 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
   <tr>
     <td>De</td>
-    <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Encontre quais idiomas estão disponíveis para tradução procurando por <a href="./v3-0-languages.md">idiomas com suporte</a> usando o escopo <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem. <br/><br/>Você deve usar o parâmetro <code>from</code> em vez da detecção automática ao usar o recurso de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dicionário dinâmico</a> .</td>
+    <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Encontre quais idiomas estão disponíveis para tradução procurando por <a href="./v3-0-languages.md">idiomas com suporte</a> usando o escopo de <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem. <br/><br/>Você deve usar o parâmetro <code>from</code> em vez da detecção automática ao usar o recurso de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dicionário dinâmico</a> .</td>
   </tr>
   <tr>
     <td>para</td>
-    <td><em>Parâmetro obrigatório</em>.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos <a href="./v3-0-languages.md">idiomas com suporte</a> incluídos no escopo <code>translation</code>. Por exemplo, use <code>to=de</code> para converter em alemão.<br/>É possível traduzir para vários idiomas simultaneamente, repetindo o parâmetro na cadeia de caracteres de consulta. Por exemplo, use <code>to=de&to=it</code> para converter para alemão e italiano.</td>
+    <td><em>Parâmetro obrigatório</em>.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos <a href="./v3-0-languages.md">idiomas com suporte</a> incluídos no escopo de <code>translation</code>. Por exemplo, use <code>to=de</code> para converter para alemão.<br/>É possível traduzir para vários idiomas simultaneamente, repetindo o parâmetro na cadeia de caracteres de consulta. Por exemplo, use <code>to=de&to=it</code> para converter para alemão e italiano.</td>
   </tr>
   <tr>
     <td>Tipo de texto</td>
@@ -74,7 +74,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
   <tr>
     <td>suggestedFrom</td>
-    <td><em>Parâmetro opcional</em>.<br/>Especifica um idioma de fallback se o idioma do texto de entrada não puder ser identificado. A detecção automática de idioma é aplicada quando o parâmetro <code>from</code> é omitido. Se a detecção falhar, a linguagem <code>suggestedFrom</code> será presumida.</td>
+    <td><em>Parâmetro opcional</em>.<br/>Especifica um idioma de fallback se o idioma do texto de entrada não puder ser identificado. A detecção automática de idioma é aplicada quando o parâmetro <code>from</code> é omitido. Se a detecção falhar, o idioma <code>suggestedFrom</code> será considerado.</td>
   </tr>
   <tr>
     <td>fromScript</td>
@@ -110,7 +110,7 @@ Os cabeçalhos de solicitação incluem:
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td><em>Opcional</em>.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Você pode omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta denominado <code>ClientTraceId</code>.</td>
+    <td><em>Opcional</em>.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Você pode omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta chamado <code>ClientTraceId</code>.</td>
   </tr>
 </table> 
 
@@ -153,19 +153,19 @@ Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada cadeia d
 
       * `text`: uma cadeia de caracteres fornecendo o texto traduzido no script de destino.
 
-    O objeto `transliteration` não será incluído se o transliteramento não ocorrer.
+    O objeto `transliteration` não será incluído se o transliteração não ocorrer.
 
     * `alignment`: um objeto com uma única propriedade de cadeia de caracteres chamada `proj`, que mapeia o texto de entrada para o texto traduzido. As informações de alinhamento só são fornecidas quando o parâmetro de solicitação `includeAlignment` é `true`. O alinhamento é retornado como um valor de cadeia de caracteres do seguinte formato: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  Os dois-pontos separa o índice inicial e final, o traço separa os idiomas e o espaço separa as palavras. Uma palavra pode ser alinhada com zero, uma ou várias palavras na outra linguagem, e as palavras alinhadas podem ser não contíguas. Quando nenhuma informação de alinhamento estiver disponível, o elemento Alignment estará vazio. Consulte [obter informações de alinhamento](#obtain-alignment-information) para obter um exemplo e restrições.
 
     * `sentLen`: um objeto que retorna limites de sentença nos textos de entrada e de saída.
 
-      * `srcSentLen`: uma matriz de inteiros que representa os comprimentos das sentenças no texto de entrada. O comprimento da matriz é o número de sentenças e os valores são o comprimento de cada frase.
+      * `srcSentLen`: uma matriz de inteiros que representa os comprimentos das frases no texto de entrada. O comprimento da matriz é o número de sentenças e os valores são o comprimento de cada frase.
 
-      * `transSentLen`: uma matriz de inteiros que representa os comprimentos das sentenças no texto traduzido. O comprimento da matriz é o número de sentenças e os valores são o comprimento de cada frase.
+      * `transSentLen`: uma matriz de inteiros que representa os comprimentos das frases no texto traduzido. O comprimento da matriz é o número de sentenças e os valores são o comprimento de cada frase.
 
     Os limites de frase são incluídos apenas quando o parâmetro de solicitação `includeSentenceLength` é `true`.
 
-  * `sourceText`: um objeto com uma única propriedade de cadeia de caracteres denominada `text`, que fornece o texto de entrada no script padrão do idioma de origem. a propriedade `sourceText` está presente somente quando a entrada é expressa em um script que não é o script comum para a linguagem. Por exemplo, se a entrada fosse escrita em árabe no script latino, `sourceText.text` seria o mesmo texto em árabe convertido em script arábico.
+  * `sourceText`: um objeto com uma única propriedade de cadeia de caracteres chamada `text`, que fornece o texto de entrada no script padrão do idioma de origem. `sourceText` Propriedade está presente somente quando a entrada é expressa em um script que não é o script comum para a linguagem. Por exemplo, se a entrada fosse escrita em árabe em latim, `sourceText.text` seria o mesmo texto em árabe convertido no script árabe.
 
 O exemplo de respostas JSON é fornecido na seção de [exemplos](#examples) .
 
@@ -209,7 +209,7 @@ A seguir estão os códigos de status HTTP possíveis que uma solicitação reto
   </tr>
   <tr>
     <td>408</td>
-    <td>A solicitação não pôde ser atendida porque um recurso está ausente. Verifique a mensagem de erro detalhes. Ao usar um <code>category</code> personalizado, isso geralmente indica que o sistema de tradução personalizado ainda não está disponível para atender às solicitações. A solicitação deve ser repetida após um período de espera (por exemplo, 1 minuto).</td>
+    <td>A solicitação não pôde ser atendida porque um recurso está ausente. Verifique a mensagem de erro detalhes. Ao usar um <code>category</code>personalizado, isso geralmente indica que o sistema de tradução personalizado ainda não está disponível para atender às solicitações. A solicitação deve ser repetida após um período de espera (por exemplo, 1 minuto).</td>
   </tr>
   <tr>
     <td>429</td>
@@ -217,11 +217,11 @@ A seguir estão os códigos de status HTTP possíveis que uma solicitação reto
   </tr>
   <tr>
     <td>500</td>
-    <td>Ocorreu um erro inesperado. Se o erro persistir, denuncie-o com: data e hora da falha, identificador de solicitação do cabeçalho de resposta <code>X-RequestId</code> e identificador de cliente do cabeçalho de solicitação <code>X-ClientTraceId</code>.</td>
+    <td>Ocorreu um erro inesperado. Se o erro persistir, denuncie-o com: data e hora da falha, identificador de solicitação do cabeçalho de resposta <code>X-RequestId</code>e identificador de cliente do cabeçalho de solicitação <code>X-ClientTraceId</code>.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servidor temporariamente indisponível. Repita a solicitação. Se o erro persistir, denuncie-o com: data e hora da falha, identificador de solicitação do cabeçalho de resposta <code>X-RequestId</code> e identificador de cliente do cabeçalho de solicitação <code>X-ClientTraceId</code>.</td>
+    <td>Servidor temporariamente indisponível. Repita a solicitação. Se o erro persistir, denuncie-o com: data e hora da falha, identificador de solicitação do cabeçalho de resposta <code>X-RequestId</code>e identificador de cliente do cabeçalho de solicitação <code>X-ClientTraceId</code>.</td>
   </tr>
 </table> 
 
@@ -249,7 +249,7 @@ O corpo da resposta é:
 ]
 ```
 
-A matriz `translations` inclui um elemento, que fornece a tradução da única parte do texto na entrada.
+A matriz de `translations` inclui um elemento, que fornece a tradução da única parte do texto na entrada.
 
 ### <a name="translate-a-single-input-with-language-auto-detection"></a>Traduza uma única entrada com detecção automática de idioma
 
@@ -372,12 +372,12 @@ Se você quiser evitar a irprofanação na tradução, independentemente da pres
   <tr>
     <td><code>Marked</code></td>
     <td>Palavras obscenas são substituídas por um marcador na saída. O marcador depende do parâmetro <code>ProfanityMarker</code>.<br/><br/>
-Para <code>ProfanityMarker=Asterisk</code>, palavras impróprias são substituídas por <code>***</code>:<br/>
+Por <code>ProfanityMarker=Asterisk</code>, palavras obscenas são substituídas por <code>***</code>:<br/>
     <strong>Exemplo de origem (japonês)</strong>: 彼はジャッカスです Marketplace.<br/>
-    <strong>Tradução de exemplo (inglês)</strong>: ele é um \* \* \*.<br/><br/>
-Por <code>ProfanityMarker=Tag</code>, palavras obscenas são cercadas por marcas XML &lt;profanity &gt; e &lt;/profanity &gt;:<br/>
+    <strong>Tradução de exemplo (inglês)</strong>: ele é um \*\*\*.<br/><br/>
+Por <code>ProfanityMarker=Tag</code>, palavras obscenas são cercadas por marcas XML &lt;profanação&gt; e &lt;/profanity&gt;:<br/>
     <strong>Exemplo de origem (japonês)</strong>: 彼はジャッカスです Marketplace.<br/>
-    <strong>Tradução de exemplo (inglês)</strong>: ele é um &lt;profanity &gt;jackass &lt;/profanity &gt;.
+    <strong>Tradução de exemplo (inglês)</strong>: é uma &lt;profana&gt;Jackass&lt;/profanity&gt;.
   </tr>
 </table> 
 

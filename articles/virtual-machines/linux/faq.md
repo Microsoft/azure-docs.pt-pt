@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 0648b9b321aabc7c9e56997c320a63386542498c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e7c577e28b30e68020532049affba59f355341cf
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083378"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838495"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Perguntas frequentes sobre Máquinas Virtuais do Linux
 Este artigo aborda algumas perguntas comuns sobre as máquinas virtuais do Linux criadas no Azure usando o modelo de implantação do Resource Manager. Para obter a versão do Windows deste tópico, consulte perguntas frequentes [sobre máquinas virtuais do Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -30,7 +30,7 @@ Todos os subscritores podem executar software de servidor numa máquina virtual 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Quanto armazenamento posso utilizar com uma máquina virtual?
 Cada disco de dados pode ter até 32.767 GiB. O número de discos de dados que pode utilizar depende do tamanho da máquina virtual. Para obter mais detalhes, veja [Tamanhos das Virtual Machines](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-O Azure Managed Disks são as ofertas de armazenamento em disco recomendadas para uso com máquinas virtuais do Azure para armazenamento persistente de dados. Pode utilizar vários Managed Disks com cada Máquina Virtual. Managed Disks oferecem dois tipos de opções de armazenamento durável: Managed Disks Premium e Standard. Para obter informações sobre preços, consulte [preços de Managed disks](https://azure.microsoft.com/pricing/details/managed-disks).
+O Azure Managed Disks são as ofertas de armazenamento em disco recomendadas para uso com máquinas virtuais do Azure para armazenamento persistente de dados. Pode utilizar vários Managed Disks com cada Máquina Virtual. Os Managed Disks oferecem dois tipos de opções de armazenamento duráveis: Managed Disks Premium e Standard. Para obter informações sobre preços, consulte [preços de Managed disks](https://azure.microsoft.com/pricing/details/managed-disks).
 
 As contas de armazenamento do Azure também podem fornecer armazenamento para o disco do sistema operacional e quaisquer discos de dados. Cada disco é um ficheiro .vhd armazenado como um blob de páginas. Para detalhes de preços, veja [Detalhes de Preço do Armazenamento](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -52,10 +52,10 @@ As duas novas regiões da central do Canadá e do leste do Canadá não são reg
 Sim, agora isso é possível. A VM primeiro precisa ser interrompida desalocada. Em seguida, você pode adicionar ou remover uma NIC (a menos que seja a última NIC na VM). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Há algum requisito de nome de computador?
-Sim. O nome do computador pode ter no máximo 64 caracteres de comprimento. Consulte [regras e restrições de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions) para obter mais informações sobre como nomear seus recursos.
+Sim. O nome do computador pode ter no máximo 64 caracteres de comprimento. Consulte [regras e restrições de convenções de nomenclatura](/azure/architecture/best-practices/resource-naming) para obter mais informações sobre como nomear seus recursos.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Há algum requisito de nome de grupo de recursos?
-Sim. O nome do grupo de recursos pode ter no máximo 90 caracteres de comprimento. Consulte [regras e restrições de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions) para obter mais informações sobre grupos de recursos.
+Sim. O nome do grupo de recursos pode ter no máximo 90 caracteres de comprimento. Consulte [regras e restrições de convenções de nomenclatura](/azure/architecture/best-practices/resource-naming) para obter mais informações sobre grupos de recursos.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Quais são os requisitos de nome de usuário ao criar uma VM?
 
@@ -88,17 +88,17 @@ As senhas também devem atender a três dos 4 seguintes requisitos de complexida
 * Ter caracteres inferiores
 * Ter caracteres superiores
 * Ter um dígito
-* Ter um caractere especial (correspondência de Regex [\W_])
+* Ter um caractere especial (correspondência de Regex [\ W_])
 
 As seguintes senhas não são permitidas:
 
 <table>
     <tr>
         <td style="text-align:center">abc@123</td>
-        <td style="text-align:center">P@$$w0rd</td>
+        <td style="text-align:center">P @ $ $w 0rd</td>
         <td style="text-align:center">P@ssw0rd</td>
         <td style="text-align:center">P@ssword123</td>
-        <td style="text-align:center">Pa$$word</td>
+        <td style="text-align:center">$word PA $</td>
     </tr>
     <tr>
         <td style="text-align:center">pass@word1</td>

@@ -4,14 +4,14 @@ description: Descreve como criar um grupo de recursos em um modelo de Azure Reso
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 11/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: d8b1be1d79ae0426d73c45408dd3c4f4f4660afb
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 04a46700b68bcf498956f93c96ce2dccf1b555fe
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532188"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832720"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos no nível da assinatura
 
@@ -23,7 +23,7 @@ Para implantar modelos no nível de assinatura, use CLI do Azure, PowerShell ou 
 
 Você pode implantar os seguintes tipos de recursos no nível da assinatura:
 
-* [implantações](/azure/templates/microsoft.resources/deployments) 
+* [implantações](/azure/templates/microsoft.resources/deployments)
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
@@ -36,10 +36,16 @@ Você pode implantar os seguintes tipos de recursos no nível da assinatura:
 
 O esquema usado para implantações em nível de assinatura é diferente do esquema para implantações de grupo de recursos.
 
-Para o esquema, use:
+Para modelos, use:
 
 ```json
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+```
+
+Para arquivos de parâmetro, use:
+
+```json
+https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>Comandos de implantação
@@ -76,14 +82,14 @@ Para implantações em nível de assinatura, você deve fornecer um local para a
 
 Você pode fornecer um nome para a implantação ou usar o nome de implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy. JSON** cria um nome de implantação padrão de **azuredeploy**.
 
-Para cada nome de implantação, o local é imutável. Não é possível criar uma implantação em um local quando há uma implantação existente com o mesmo nome, mas com um local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local da implantação anterior para esse nome.
+Para cada nome de implantação, o local é imutável. Não é possível criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local da implantação anterior para esse nome.
 
 ## <a name="use-template-functions"></a>Usar funções de modelo
 
 Para implantações em nível de assinatura, há algumas considerações importantes ao usar funções de modelo:
 
 * **Não** há suporte para a função [resourcegroup ()](resource-group-template-functions-resource.md#resourcegroup) .
-* Há suporte para a função [ResourceId ()](resource-group-template-functions-resource.md#resourceid) . Use-o para obter a ID de recurso para recursos que são usados em implantações de nível de assinatura. Por exemplo, obtenha a ID de recurso para uma definição de política com `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`
+* Há suporte para a função [ResourceId ()](resource-group-template-functions-resource.md#resourceid) . Use-o para obter a ID de recurso para recursos que são usados em implantações de nível de assinatura. Por exemplo, obtenha a ID de recurso para uma definição de política com `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. Ou use a função [subscriptionResourceId ()](resource-group-template-functions-resource.md#subscriptionresourceid) para obter a ID de recurso para um recurso de nível de assinatura.
 * Há suporte para as funções [Reference ()](resource-group-template-functions-resource.md#reference) e [list ()](resource-group-template-functions-resource.md#list) .
 
 ## <a name="create-resource-groups"></a>Criar grupos de recursos

@@ -1,6 +1,6 @@
 ---
 title: Identificar automaticamente o idioma falado com o Video Indexer-Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Este artigo descreve como o modelo de identificação de idioma Video Indexer é usado para identificar automaticamente o idioma falado em um vídeo.
 services: media-services
 author: juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ellbe
-ms.openlocfilehash: 729ac9fc7c8ec6a85b3497c51888d3b5a6fc8558
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: ce3e488a6387f9a823d7c1b514b52af24944776b
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147198"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839000"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identificar automaticamente o idioma falado com o modelo de identificação de idioma
 
@@ -23,7 +23,7 @@ O Video Indexer dá suporte à identificação automática de idioma (tampa), qu
 
 ## <a name="choosing-auto-language-identification-on-indexing"></a>Escolhendo a identificação automática de idioma na indexação
 
-Ao indexar ou [reindexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) um vídeo usando a API, escolha a `auto detect` opção no `sourceLanguage` parâmetro.
+Ao indexar ou [reindexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) um vídeo usando a API, escolha a opção `auto detect` no parâmetro `sourceLanguage`.
 
 Ao usar o portal, acesse os vídeos da sua **conta** no [Video indexer](https://www.videoindexer.ai/) Home Page e passe o mouse sobre o nome do vídeo que você deseja reindexar. No canto inferior direito, clique no botão reindexar. No diálogo **reindexar vídeo** , escolha *detecção automática* na caixa suspensa **idioma da origem do vídeo** .
 
@@ -33,7 +33,7 @@ Ao usar o portal, acesse os vídeos da sua **conta** no [Video indexer](https://
 
 Video Indexer transcreve o vídeo de acordo com a linguagem mais provável se a confiança para esse idioma for `> 0.6`. Se o idioma não puder ser identificado com confiança, ele assumirá que o idioma falado é o inglês. 
 
-O idioma dominante do modelo está disponível no JSON do insights `sourceLanguage` como o atributo (em raiz/vídeos/insights). Uma pontuação de confiança correspondente também está disponível no `sourceLanguageConfidence` atributo.
+O idioma dominante do modelo está disponível no JSON do insights como o atributo `sourceLanguage` (em raiz/vídeos/insights). Uma pontuação de confiança correspondente também está disponível no atributo `sourceLanguageConfidence`.
 
 ```json
 "insights": {
@@ -51,7 +51,7 @@ O idioma dominante do modelo está disponível no JSON do insights `sourceLangua
 
 * Os idiomas com suporte incluem Inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo e português (Brasil).
 * Se o áudio contiver idiomas diferentes da lista de suporte acima, o resultado será inesperado.
-* Se video indexer não puder identificar o idioma com alta confiança suficiente (`>0.6`), o idioma de fallback será o inglês.
+* Se Video Indexer não puder identificar o idioma com alta confiança suficiente (`>0.6`), o idioma de fallback será o inglês.
 * Não há suporte atual para arquivos com áudio de idiomas mistos. Se o áudio contiver idiomas mistos, o resultado será inesperado. 
 * O áudio de baixa qualidade pode afetar os resultados do modelo.
 * O modelo requer pelo menos um minuto de fala no áudio.
@@ -59,5 +59,5 @@ O idioma dominante do modelo está disponível no JSON do insights `sourceLangua
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Descrição Geral](video-indexer-overview.md)
+* [Descrição geral](video-indexer-overview.md)
 * [Identificar e transcrever automaticamente o conteúdo em vários idiomas](multi-language-identification-transcription.md)

@@ -1,6 +1,6 @@
 ---
 title: Examinar os serviços de mídia do Azure Video Indexer saída produzida pela API v2
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Este tópico examina a saída Video Indexer produzida pela API v2.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: juliako
-ms.openlocfilehash: 20a973e5386cd9cad7d090236f021ced9a64cafc
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 0a42c2dce3976a1bf83c85644f56f4c1d8abc9c8
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300923"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839545"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examinar a saída de Video Indexer produzida pela API
 
@@ -23,7 +23,7 @@ Quando você chama a API **obter índice de vídeo** e o status da resposta é o
 
 Você também pode examinar visualmente as informações resumidas do vídeo pressionando o botão **reproduzir** no vídeo no site [Video indexer](https://www.videoindexer.ai/) . Para obter mais informações, consulte [Exibir e editar informações de vídeo](video-indexer-view-edit.md).
 
-![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
+![Informações](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
 Este artigo examina o conteúdo JSON retornado pela API **obter índice de vídeo** . 
 
@@ -48,7 +48,7 @@ Este artigo examina o conteúdo JSON retornado pela API **obter índice de víde
 |IsBase|Indica se a playlist é uma lista de reprodução de base (um vídeo) ou uma lista de reprodução feita por outros vídeos (derivados).|
 |durationInSeconds|A duração total da playlist.|
 |summarizedInsights|Contém um [summarizedInsights](#summarizedinsights).
-|Explica|Uma lista de [vídeos](#videos) que constroem a playlist.<br/>Se essa lista de reprodução for construída de intervalos de tempo de outros vídeos (derivados), os vídeos nessa listagem conterão apenas os dados dos intervalos de tempo incluídos.|
+|explica|Uma lista de [vídeos](#videos) que constroem a playlist.<br/>Se essa lista de reprodução for construída de intervalos de tempo de outros vídeos (derivados), os vídeos nessa listagem conterão apenas os dados dos intervalos de tempo incluídos.|
 
 ```json
 {
@@ -78,7 +78,7 @@ Esta seção mostra o resumo das informações.
 |nome|O nome do vídeo. Por exemplo, Azure Monitor.|
 |ID|A ID do vídeo. Por exemplo, 63c6d532ff.|
 |PrivacyMode|Sua divisão pode ter um dos seguintes modos: **privado**, **público**. **Público** -o vídeo é visível para todos em sua conta e qualquer pessoa que tenha um link para o vídeo. **Particular** -o vídeo fica visível para todos em sua conta.|
-|Permanência|Contém uma duração que descreve a hora em que ocorreu uma Insight. A duração é em segundos.|
+|permanência|Contém uma duração que descreve a hora em que ocorreu uma Insight. A duração é em segundos.|
 |thumbnailVideoId|A ID do vídeo do qual a miniatura foi tirada.
 |miniaturaid|A ID da miniatura do vídeo. Para obter a miniatura real, chame [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passe-o thumbnailVideoId e thumbnailid.|
 |frente|Pode conter zero ou mais faces. Para obter informações mais detalhadas, consulte [faces](#faces).|
@@ -91,7 +91,7 @@ Esta seção mostra o resumo das informações.
 |emoções| Pode conter zero ou mais emoções. Para obter informações mais detalhadas, consulte [emoções](#emotions).|
 |Tópicos|Pode conter zero ou mais tópicos. A dimensão de [Tópicos](#topics) .|
 
-## <a name="videos"></a>Explica
+## <a name="videos"></a>explica
 
 |Nome|Descrição|
 |---|---|
@@ -106,7 +106,7 @@ Esta seção mostra o resumo das informações.
 |externalUrl|A URL externa do vídeo (se especificado pelo usuário).|
 |do IdP|Os metadados externos do vídeo (se especificados pelo usuário).|
 |isadulto|Indica se o vídeo foi revisado e identificado manualmente como um vídeo adulto.|
-|Insights|O objeto insights. Para obter mais informações, consulte [percepções](#insights).|
+|insights|O objeto insights. Para obter mais informações, consulte [percepções](#insights).|
 |miniaturaid|A ID da miniatura do vídeo. Para obter a chamada de miniatura real [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passá-la para a ID de vídeo e thumbnailid.|
 |publishedUrl|Uma URL para transmitir o vídeo.|
 |publishedUrlProxy|Uma URL para transmitir o vídeo (para dispositivos Apple).|
@@ -143,7 +143,7 @@ Esta seção mostra o resumo das informações.
     }],
 }
 ```
-### <a name="insights"></a>Insights
+### <a name="insights"></a>insights
 
 As informações são um conjunto de dimensões (por exemplo, linhas de transcrição, rostos, marcas, etc.), em que cada dimensão é uma lista de elementos exclusivos (por exemplo, face1, face2, face3) e cada elemento tem seus próprios metadados e uma lista de suas instâncias (que são intervalos de tempo com metadados opcionais adicionais).
 
@@ -156,7 +156,7 @@ Uma face pode ter uma ID, um nome, uma miniatura, outros metadados e uma lista d
 |transcriçõe|A dimensão de [transcrição](#transcript) .|
 |OCR|A dimensão de [OCR](#ocr) .|
 |Palavras-chave|A dimensão de [palavras-chave](#keywords) .|
-|Trava|Pode conter um ou mais [blocos](#blocks)|
+|trava|Pode conter um ou mais [blocos](#blocks)|
 |frente|A dimensão [faces](#faces) .|
 |las|A dimensão de [Rótulos](#labels) .|
 |momentos|A dimensão de [capturas](#shots) .|
@@ -189,7 +189,7 @@ Exemplo:
 }
 ```
 
-#### <a name="blocks"></a>Trava
+#### <a name="blocks"></a>trava
 
 Atributo | Descrição
 ---|---
@@ -243,7 +243,7 @@ Exemplo:
 |confidencial|A confiança do reconhecimento.|
 |language|O idioma do OCR.|
 |instâncias|Uma lista de intervalos de tempo em que esse OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
-|Tamanho|A altura do retângulo OCR|
+|tamanho|A altura do retângulo OCR|
 |Início|O local principal em px|
 |mantida| O local à esquerda em px|
 |Largura|A largura do retângulo OCR|

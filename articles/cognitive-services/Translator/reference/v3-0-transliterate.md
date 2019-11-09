@@ -1,7 +1,7 @@
 ---
 title: API de Tradução de Texto método transliterate
 titleSuffix: Azure Cognitive Services
-description: Use o método transliterate API de Tradução de Texto.
+description: Converta o texto em um idioma de um script para outro com o método transliterate API de Tradução de Texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,26 +10,26 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 58c9399b3701e2d8f0737b48c00336159e9688a8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e6bb1541b2b668796b352bebc68d59b4ade143e3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931989"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837283"
 ---
-# <a name="translator-text-api-30-transliterate"></a>API de Tradução de Texto 3,0: Transliterate
+# <a name="translator-text-api-30-transliterate"></a>API de Tradução de Texto 3,0: transliteração
 
 Converte o texto em um idioma de um script para outro.
 
 ## <a name="request-url"></a>URL do Pedido
 
-Enviar uma `POST` solicitação para:
+Enviar uma solicitação de `POST` para:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 ```
 
-## <a name="request-parameters"></a>Parâmetros do pedido
+## <a name="request-parameters"></a>Parâmetros de solicitação
 
 Os parâmetros de solicitação passados na cadeia de caracteres de consulta são:
 
@@ -37,20 +37,20 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   <th width="20%">Parâmetro de consulta</th>
   <th>Descrição</th>
   <tr>
-    <td>versão de API</td>
-    <td>*Parâmetro obrigatório*.<br/>Versão da API solicitada pelo cliente. O valor deve `3.0`ser.</td>
+    <td>versão da API</td>
+    <td>*Parâmetro obrigatório*.<br/>Versão da API solicitada pelo cliente. O valor deve ser `3.0`.</td>
   </tr>
   <tr>
     <td>language</td>
-    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto a ser convertido de um script para outro. As linguagens possíveis são listadas no `transliteration` escopo obtido pela consulta do serviço para seus [idiomas com suporte](./v3-0-languages.md).</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto a ser convertido de um script para outro. As linguagens possíveis são listadas no escopo de `transliteration` obtido pela consulta do serviço para seus [idiomas com suporte](./v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Parâmetro obrigatório*.<br/>Especifica o script usado pelo texto de entrada. Procure os [idiomas com suporte](./v3-0-languages.md) usando `transliteration` o escopo para encontrar os scripts de entrada disponíveis para o idioma selecionado.</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o script usado pelo texto de entrada. Pesquise os [idiomas com suporte](./v3-0-languages.md) usando o escopo de `transliteration`, para localizar os scripts de entrada disponíveis para o idioma selecionado.</td>
   </tr>
   <tr>
-    <td>toScript</td>
-    <td>*Parâmetro obrigatório*.<br/>Especifica o script de saída. Pesquise os [idiomas com suporte](./v3-0-languages.md) usando `transliteration` o escopo para localizar os scripts de saída disponíveis para a combinação selecionada de idioma de entrada e script de entrada.</td>
+    <td>toscript</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o script de saída. Pesquise os [idiomas com suporte](./v3-0-languages.md) usando o escopo de `transliteration` para localizar os scripts de saída disponíveis para a combinação selecionada de idioma de entrada e script de entrada.</td>
   </tr>
 </table> 
 
@@ -64,22 +64,22 @@ Os cabeçalhos de solicitação incluem:
     <td><em>Cabeçalho de solicitação necessário</em>.<br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
-    <td>*Cabeçalho de solicitação necessário*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são `application/json`:.</td>
+    <td>Tipo de conteúdo</td>
+    <td>*Cabeçalho de solicitação necessário*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
   </tr>
   <tr>
-    <td>Content-Length</td>
+    <td>Comprimento do conteúdo</td>
     <td>*Cabeçalho de solicitação necessário*.<br/>O comprimento do corpo da solicitação.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Observe que você pode omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um `ClientTraceId`parâmetro de consulta denominado.</td>
+    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Observe que você pode omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta chamado `ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Corpo do pedido
 
-O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objeto JSON com uma propriedade de `Text`cadeia de caracteres chamada, que representa a cadeia de caracteres a ser convertida.
+O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objeto JSON com uma propriedade de cadeia de caracteres chamada `Text`, que representa a cadeia de caracteres a ser convertida.
 
 ```json
 [
@@ -98,9 +98,9 @@ As seguintes limitações se aplicam:
 
 Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada elemento na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
-  * `text`: Uma cadeia de caracteres que é o resultado da conversão da cadeia de caracteres de entrada para o script de saída.
+  * `text`: uma cadeia de caracteres que é o resultado da conversão da cadeia de caracteres de entrada para o script de saída.
   
-  * `script`: Uma cadeia de caracteres que especifica o script usado na saída.
+  * `script`: uma cadeia de caracteres que especifica o script usado na saída.
 
 Um exemplo de resposta JSON é:
 
@@ -127,7 +127,7 @@ Um exemplo de resposta JSON é:
 A seguir estão os códigos de status HTTP possíveis que uma solicitação retorna. 
 
 <table width="100%">
-  <th width="20%">Código de Estado</th>
+  <th width="20%">Código de status</th>
   <th>Descrição</th>
   <tr>
     <td>200</td>
@@ -139,11 +139,11 @@ A seguir estão os códigos de status HTTP possíveis que uma solicitação reto
   </tr>
   <tr>
     <td>401</td>
-    <td>Não foi possível autenticar o pedido. Verifique se as credenciais estão especificadas e válidas.</td>
+    <td>Não foi possível autenticar a solicitação. Verifique se as credenciais estão especificadas e válidas.</td>
   </tr>
   <tr>
     <td>403</td>
-    <td>O pedido não está autorizado. Verifique a mensagem de erro detalhes. Isso geralmente indica que todas as traduções gratuitas fornecidas com uma assinatura de avaliação foram usadas.</td>
+    <td>A solicitação não é autorizada. Verifique a mensagem de erro detalhes. Isso geralmente indica que todas as traduções gratuitas fornecidas com uma assinatura de avaliação foram usadas.</td>
   </tr>
   <tr>
     <td>429</td>
@@ -151,11 +151,11 @@ A seguir estão os códigos de status HTTP possíveis que uma solicitação reto
   </tr>
   <tr>
     <td>500</td>
-    <td>Ocorreu um erro inesperado. Se o erro persistir, denuncie-o com: data e hora da falha, identificador de solicitação do cabeçalho `X-RequestId`de resposta e identificador de cliente do `X-ClientTraceId`cabeçalho da solicitação.</td>
+    <td>Ocorreu um erro inesperado. Se o erro persistir, denuncie-o com: data e hora da falha, identificador de solicitação do cabeçalho de resposta `X-RequestId`e identificador de cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servidor temporariamente indisponível. Repita a solicitação. Se o erro persistir, denuncie-o com: data e hora da falha, identificador de solicitação do cabeçalho `X-RequestId`de resposta e identificador de cliente do `X-ClientTraceId`cabeçalho da solicitação.</td>
+    <td>Servidor temporariamente indisponível. Repita a solicitação. Se o erro persistir, denuncie-o com: data e hora da falha, identificador de solicitação do cabeçalho de resposta `X-RequestId`e identificador de cliente do cabeçalho de solicitação `X-ClientTraceId`.</td>
   </tr>
 </table> 
 
@@ -171,7 +171,7 @@ O conteúdo JSON para a solicitação neste exemplo:
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
-Se você estiver usando ondulação em uma janela de linha de comando que não ofereça suporte a caracteres Unicode, use a seguinte carga JSON e salve-a `request.txt`em um arquivo chamado. Certifique-se de salvar o arquivo `UTF-8` com codificação.
+Se você estiver usando uma ondulação em uma janela de linha de comando que não ofereça suporte a caracteres Unicode, use a seguinte carga JSON e salve-a em um arquivo chamado `request.txt`. Certifique-se de salvar o arquivo com a codificação `UTF-8`.
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt

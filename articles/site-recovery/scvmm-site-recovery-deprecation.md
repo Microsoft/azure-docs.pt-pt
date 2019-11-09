@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: rajanaki
-ms.openlocfilehash: 68881d57f251d2f26996b2a837780106326ec1d3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c126d72720c16d4ba869156e86a6e60110b2c31b
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492290"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847483"
 ---
 # <a name="upcoming-deprecation-of-dr-between-customer-owned-sites-using-hyper-v-and-between-sites-managed-by-scvmm-to-azure"></a>Substituição futura de DR entre sites de Propriedade do cliente usando o Hyper-V e entre sites gerenciados pelo SCVMM para o Azure
 
@@ -43,7 +43,7 @@ Abaixo estão as opções que o cliente tem para garantir que sua estratégia de
 - Opte [por começar a usar o Azure como o destino de Dr para VMs em hosts Hyper-V](hyper-v-azure-tutorial.md).
 
 > [!IMPORTANT]
-> Observe que seu ambiente local ainda pode ter o SCVMMm, mas você configurará o ASR com referências apenas aos hosts do Hyper-V.
+> Observe que seu ambiente local ainda pode ter o SCVMM, mas você configurará o ASR com referências apenas aos hosts do Hyper-V.
 
 - Opte por continuar com a replicação site a site, mas usando a [solução de réplica do Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica)subjacente, mas não poderá gerenciar as configurações de DR usando Azure Site Recovery no portal do Azure. 
 
