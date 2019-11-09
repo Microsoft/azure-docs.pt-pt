@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 11/07/2019
 ms.author: radeltch
-ms.openlocfilehash: 3764ae9ff3a20de6d31f0438b73597933080e372
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 910ffc1a94b78fec259dcf30a3c7284716809355
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791739"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832590"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs do Azure em SUSE Linux Enterprise Server com Azure NetApp Files para aplicativos SAP
 
@@ -86,7 +86,7 @@ Leia as seguintes notas e documentos SAP primeiro:
 * [Notas de versão da extensão de alta disponibilidade do SUSE 12 SP3][suse-ha-12sp3-relnotes]
 * [Aplicativos SAP da NetApp em Microsoft Azure usando Azure NetApp Files][anf-sap-applications-azure]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 HA (alta disponibilidade) para serviços centrais do SAP NetWeaver requer armazenamento compartilhado.
 Para conseguir isso no SUSE Linux até o momento, era necessário criar um cluster NFS altamente disponível separado. 
@@ -96,7 +96,7 @@ Agora é possível obter a alta disponibilidade do SAP NetWeaver usando o armaze
 
 ![Visão geral de alta disponibilidade do SAP NetWeaver](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.PNG)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e o banco de dados SAP HANA usar o nome de host virtual e endereços IP virtuais. No Azure, um [balanceador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) é necessário para usar um endereço IP virtual. A lista a seguir mostra a configuração do balanceador de carga (a) SCS e ERS.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e o banco de dados SAP HANA usar o nome de host virtual e endereços IP virtuais. No Azure, um [balanceador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) é necessário para usar um endereço IP virtual. É recomendável usar o [balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). A lista a seguir mostra a configuração do balanceador de carga (a) SCS e ERS.
 
 > [!IMPORTANT]
 > **Não há suporte para**clustering de vários SIDs do SAP ASCS/ers com o SuSE Linux como sistema operacional convidado em VMs do Azure. Clustering de vários SIDs descreve a instalação de várias instâncias do SAP ASCS/ERS com SIDs diferentes em um cluster pacemaker
@@ -111,13 +111,15 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e o banco de dados SAP 
 * Porta de investigação
   * Porta 620<strong>&lt;nr&gt;</strong>
 * Regras de balanceamento de carga
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 36<strong>&lt;nr&gt;</strong> TCP
-  * 39<strong>&lt;nr&gt;</strong> TCP
-  * 81<strong>&lt;nr&gt;</strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * Se estiver usando Standard Load Balancer, selecione **portas de alta disponibilidade**
+  * Se estiver usando Load Balancer básica, crie regras de balanceamento de carga para as seguintes portas
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 36<strong>&lt;nr&gt;</strong> TCP
+    * 39<strong>&lt;nr&gt;</strong> TCP
+    * 81<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -128,11 +130,13 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e o banco de dados SAP 
 * Porta de investigação
   * Porta 621<strong>&lt;nr&gt;</strong>
 * Regras de balanceamento de carga
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 33<strong>&lt;nr&gt;</strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * Se estiver usando Standard Load Balancer, selecione **portas de alta disponibilidade**
+  * Se estiver usando Load Balancer básica, crie regras de balanceamento de carga para as seguintes portas
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 33<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Configurando a infraestrutura de Azure NetApp Files 
 
@@ -207,7 +211,42 @@ Neste exemplo, os recursos foram implantados manualmente por meio do [portal do 
 
 Primeiro, você precisa criar os volumes de Azure NetApp Files. Implante as VMs. Posteriormente, você criará um balanceador de carga e usará as máquinas virtuais nos pools de back-end.
 
-1. Criar um Load Balancer (interno)  
+1. Criar balanceador de carga (interno, padrão):  
+   1. Criar os endereços IP de front-end
+      1. Endereço IP 10.1.1.20 para o ASCS
+         1. Abra o balanceador de carga, selecione pool de IPS de front-end e clique em Adicionar
+         1. Insira o nome do novo pool de IPS de front-end (por exemplo, **frontend. QAS. ASCS**)
+         1. Defina a atribuição como estática e insira o endereço IP (por exemplo **10.1.1.20**)
+         1. Clique em OK
+      1. Endereço IP 10.1.1.21 para ASCS ERS
+         * Repita as etapas acima em "a" para criar um endereço IP para o ERS (por exemplo, **10.1.1.21** e **frontend. QAS. ERS**)
+   1. Criar os pools de back-end
+      1. Criar um pool de back-end para o ASCS
+         1. Abra o balanceador de carga, selecione pools de back-end e clique em Adicionar
+         1. Insira o nome do novo pool de back-end (por exemplo, o **back-end. QAS**)
+         1. Clique em adicionar uma máquina virtual.
+         1. Selecionar máquina virtual
+         1. Selecione as máquinas virtuais do cluster (A) SCS e seus endereços IP.
+         1. Clique em Adicionar
+   1. Criar as investigações de integridade
+      1. Porta 620**00** para ASCS
+         1. Abra o balanceador de carga, selecione investigações de integridade e clique em Adicionar
+         1. Insira o nome da nova investigação de integridade (por exemplo, **integridade. QAS. ASCS**)
+         1. Selecione TCP como protocolo, porta 620**00**, manter intervalo 5 e limite não íntegro 2
+         1. Clique em OK
+      1. Porta 621**01** para ASCS ers
+            * Repita as etapas acima em "c" para criar uma investigação de integridade para o ERS (por exemplo, 621**01** e a **integridade. QAS. ERS**)
+   1. Regras de balanceamento de carga
+      1. Criar um pool de back-end para o ASCS
+         1. Abra o balanceador de carga, selecione regras de balanceamento de carga e clique em Adicionar
+         1. Insira o nome da nova regra do balanceador de carga (por exemplo, **lb. QAS. ASCS**)
+         1. Selecione o endereço IP de front-end para ASCS, pool de back-end e investigação de integridade que você criou anteriormente (por exemplo, **frontend. QAS. ASCS**, **back-end. QAS** e **integridade. QAS. ASCS**)
+         1. Selecionar **portas de alta disponibilidade**
+         1. Aumentar o tempo limite de ociosidade para 30 minutos
+         1. **Certifique-se de habilitar o IP flutuante**
+         1. Clique em OK
+         * Repita as etapas acima para criar regras de balanceamento de carga para ERS (por exemplo, **lb. QAS. ERS**)
+1. Como alternativa, se seu cenário exigir o Load Balancer básico (interno), siga estas etapas:  
    1. Criar os endereços IP de front-end
       1. Endereço IP 10.1.1.20 para o ASCS
          1. Abra o balanceador de carga, selecione pool de IPS de front-end e clique em Adicionar
@@ -246,8 +285,11 @@ Primeiro, você precisa criar os volumes de Azure NetApp Files. Implante as VMs.
       1. Portas adicionais para o ASCS ERS
          * Repita as etapas acima em "d" para as portas 33**01**, 5**01**13, 5**01**14, 5**01**16 e TCP para o ASCS ers
 
+> [!Note]
+> Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Azure Load Balancer padrão (sem endereço IP público), não haverá nenhuma conectividade com a Internet de saída, a menos que a configuração adicional seja executada para permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como obter conectividade de saída, consulte [conectividade de ponto de extremidade pública para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+
 > [!IMPORTANT]
-> Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. TCP _timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. tcp_timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Criar cluster pacemaker
 
@@ -434,9 +476,9 @@ Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]*
   
 2. **[1]** instalar o ASCS do SAP NetWeaver  
 
-   Instale o ASCS do SAP NetWeaver como raiz no primeiro nó usando um nome de host virtual que mapeia para o endereço IP da configuração de front-end do balanceador de carga para o ASCS, por exemplo, <b>anftstsapvh</b>, <b>10.1.1.20</b> e o número da instância que você usou para o investigação do balanceador de carga, por exemplo <b>00</b>.
+   Instale o ASCS do SAP NetWeaver como raiz no primeiro nó usando um nome de host virtual que mapeia para o endereço IP da configuração de front-end do balanceador de carga para o ASCS, por exemplo, <b>anftstsapvh</b>, <b>10.1.1.20</b> e o número da instância que você usou para a investigação do balanceador de carga, por exemplo <b>00</b>.
 
-   Você pode usar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um usuário não raiz se conecte ao sapinst. Você pode usar o parâmetro SAPINST_USE_HOSTNAME para instalar o SAP usando o nome de host virtual.
+   Você pode usar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um usuário não raiz se conecte ao sapinst. Você pode usar o parâmetro SAPINST_USE_HOSTNAME para instalar o SAP, usando o nome de host virtual.
 
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
@@ -495,9 +537,9 @@ Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]*
 
 4. **[2]** instalar o ers do SAP NetWeaver
 
-   Instale o ERS do SAP NetWeaver como raiz no segundo nó usando um nome de host virtual que mapeia para o endereço IP da configuração de front-end do balanceador de carga para o ERS, por exemplo, <b>anftstsapers</b>, <b>10.1.1.21</b> e o número da instância que você usou para o investigação do balanceador de carga, por exemplo <b>01</b>.
+   Instale o ERS do SAP NetWeaver como raiz no segundo nó usando um nome de host virtual que mapeia para o endereço IP da configuração de front-end do balanceador de carga para o ERS, por exemplo, <b>anftstsapers</b>, <b>10.1.1.21</b> e o número da instância que você usou para a investigação do balanceador de carga, por exemplo <b>01</b>.
 
-   Você pode usar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um usuário não raiz se conecte ao sapinst. Você pode usar o parâmetro SAPINST_USE_HOSTNAME para instalar o SAP usando o nome de host virtual.
+   Você pode usar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um usuário não raiz se conecte ao sapinst. Você pode usar o parâmetro SAPINST_USE_HOSTNAME para instalar o SAP, usando o nome de host virtual.
 
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>

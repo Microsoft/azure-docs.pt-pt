@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 11/04/2019
-ms.openlocfilehash: f1b061e92ce0650da4d5b95643eb6e9df917e3b8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 11/06/2019
+ms.openlocfilehash: c42d2d308398d548df4b1c088819c024ff613564
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671564"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832492"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são pipelines Azure Machine Learning?
 

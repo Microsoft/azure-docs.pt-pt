@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar a autenticação de identidade da SAP Cloud Platform para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: configurar a autenticação de identidade da SAP Cloud Platform para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para a autenticação de identidade da SAP Cloud Platform.
 services: active-directory
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: f570cb6f945f403e77a36374cc9f82edb7b640c9
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 266e68b2378db7148649fd4067f1da6172932367
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174815"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833844"
 ---
-# <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Tutorial: Configurar a autenticação de identidade da SAP Cloud Platform para o provisionamento automático de usuário
+# <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Tutorial: configurar a autenticação de identidade da SAP Cloud Platform para o provisionamento automático de usuário
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas na autenticação de identidade da SAP Cloud Platform e Azure Active Directory (AD do Azure) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos para a nuvem do SAP Autenticação de identidade da plataforma.
+O objetivo deste tutorial é demonstrar as etapas a serem executadas na autenticação de identidade da SAP Cloud Platform e Azure Active Directory (AD do Azure) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos para a autenticação de identidade da SAP Cloud Platform.
 
 > [!NOTE]
-> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter detalhes importantes sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte automatizar o [provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../manage-apps/user-provisioning.md).
+> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter detalhes importantes sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../manage-apps/user-provisioning.md).
 >
 > Este conector está atualmente em visualização pública. Para obter mais informações sobre os termos de uso geral de Microsoft Azure para recursos de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -76,15 +76,15 @@ Antes de configurar a autenticação de identidade da SAP Cloud Platform para o 
 
 1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
 2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A folha aplicativos empresariais](common/enterprise-applications.png)
 
 3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O botão novo aplicativo](common/add-new-app.png)
 
 4. Na caixa de pesquisa, insira **autenticação de identidade da SAP Cloud Platform**, selecione **autenticação de identidade da SAP Cloud Platform** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
@@ -99,7 +99,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 ### <a name="to-configure-automatic-user-provisioning-for-sap-cloud-platform-identity-authentication-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para a autenticação de identidade da SAP Cloud Platform no Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
     ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
@@ -115,13 +115,13 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira `https://<tenantID>.accounts.ondemand.com/service/scim ` a **URL de locatário**. Insira os valores de **ID de usuário** e **senha** recuperados anteriormente em **admin username** e **password admin** , respectivamente. Clique em **testar conexão** para garantir que o Azure ad possa se conectar à autenticação de identidade da SAP Cloud Platform. Se a conexão falhar, verifique se sua conta de autenticação de identidade da SAP Cloud Platform tem permissões de administrador e tente novamente.
+5. Na seção **credenciais de administrador** , insira `https://<tenantID>.accounts.ondemand.com/service/scim ` na **URL do locatário**. Insira os valores de **ID de usuário** e **senha** recuperados anteriormente em **admin username** e **password admin** , respectivamente. Clique em **testar conexão** para garantir que o Azure ad possa se conectar à autenticação de identidade da SAP Cloud Platform. Se a conexão falhar, verifique se sua conta de autenticação de identidade da SAP Cloud Platform tem permissões de administrador e tente novamente.
 
     ![URL do locatário + token](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/testconnection.png)
 
 6. No campo **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e marque a caixa de seleção- **Enviar uma notificação por email quando ocorrer uma falha**.
 
-    ![E-mail de Notificação](common/provisioning-notification-email.png)
+    ![Email de notificação](common/provisioning-notification-email.png)
 
 7. Clique em **Guardar**.
 
@@ -149,7 +149,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **escopo** na seção **configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure ad na autenticação de identidade da SAP Cloud Platform.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
+
+## <a name="connector-limitations"></a>Limitações do conector
+
+* O ponto de extremidade SCIM da autenticação de identidade da SAP Cloud Platform exige que determinados atributos sejam do formato específico. Você pode saber mais sobre esses atributos e seu formato específico [aqui](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/b10fc6a9a37c488a82ce7489b1fab64c.html#).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

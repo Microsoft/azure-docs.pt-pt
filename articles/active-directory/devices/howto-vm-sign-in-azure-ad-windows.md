@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f0d732917a6587307e6d60581e0189687cc7e9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: dd50ca8b81b933a61a67ac36db6a656791a8121f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164773"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832859"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
@@ -33,7 +33,7 @@ Há muitos benefícios em usar a autenticação do Azure AD para fazer logon em 
 - Não precisa mais gerenciar contas de administrador local.
 - O RBAC do Azure permite conceder o acesso apropriado às VMs com base na necessidade e removê-la quando não for mais necessária.
 - Antes de permitir o acesso a uma VM, o acesso condicional do Azure AD pode impor requisitos adicionais, como: 
-   - Autenticação multifator
+   - Multi-Factor Authentication
    - Risco de entrada
 - Automatize e dimensione o ingresso no Azure AD para VMs do Windows baseadas no Azure.
 
@@ -53,7 +53,7 @@ No momento, há suporte para as seguintes regiões do Azure durante a versão pr
 > [!IMPORTANT]
 > Para usar esse recurso de visualização, implante apenas uma distribuição do Windows com suporte e em uma região do Azure com suporte. No momento, não há suporte para o recurso em nuvens do Azure governamental ou soberanas.
 
-### <a name="network-requirements"></a>Requisitos de rede
+### <a name="network-requirements"></a>Requisitos da rede
 
 Para habilitar a autenticação do Azure AD para suas VMs do Windows no Azure, você precisa garantir que sua configuração de rede de VMs permita o acesso de saída aos seguintes pontos de extremidade pela porta TCP 443:
 
@@ -166,7 +166,7 @@ Depois de alguns instantes, a entidade de segurança recebe a função no escopo
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>Usando a experiência de Azure Cloud Shell
 
-O exemplo a seguir usa [AZ role Assignment Create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) para atribuir a função de logon de administrador de máquina virtual à VM para o usuário atual do Azure. O nome de usuário da sua conta ativa do Azure é obtido com [AZ Account show](https://docs.microsoft.com/cli/azure/account#az-account-show)e o escopo é definido como a VM criada em uma etapa anterior com [AZ VM show](https://docs.microsoft.com/cli/azure/vm#az-vm-show). O escopo também pode ser atribuído em um nível de assinatura ou grupo de recursos, e as permissões de herança RBAC normais se aplicam. Para obter mais informações, consulte [controles de acesso baseado em função](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control).
+O exemplo a seguir usa [AZ role Assignment Create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) para atribuir a função de logon de administrador de máquina virtual à VM para o usuário atual do Azure. O nome de usuário da sua conta ativa do Azure é obtido com [AZ Account show](https://docs.microsoft.com/cli/azure/account#az-account-show)e o escopo é definido como a VM criada em uma etapa anterior com [AZ VM show](https://docs.microsoft.com/cli/azure/vm#az-vm-show). O escopo também pode ser atribuído em um nível de assinatura ou grupo de recursos, e as permissões de herança RBAC normais se aplicam. Para obter mais informações, consulte [controles de acesso baseado em função](../../virtual-machines/linux/login-using-aad.md).
 
 ```AzureCLI
 username=$(az account show --query user.name --output tsv)
@@ -223,24 +223,24 @@ A extensão AADLoginForWindows deve ser instalada com êxito para que a VM concl
 
    | Comando a ser executado | Resultado esperado |
    | --- | --- |
-   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/instance?api-version=2017-08-01 " | Informações corretas sobre a VM do Azure |
-   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01 " | ID de locatário válida associada à assinatura do Azure |
-   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01 " | Token de acesso válido emitido por Azure Active Directory para a identidade gerenciada atribuída a esta VM |
+   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Informações corretas sobre a VM do Azure |
+   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | ID de locatário válida associada à assinatura do Azure |
+   | Metadados de ondulação-H: verdadeiro "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | Token de acesso válido emitido por Azure Active Directory para a identidade gerenciada atribuída a esta VM |
 
    > [!NOTE]
    > O token de acesso pode ser decodificado usando uma ferramenta como [http://calebb.net/](http://calebb.net/). Verifique se "AppID" no token de acesso corresponde à identidade gerenciada atribuída à VM.
 
 1. Verifique se os pontos de extremidade necessários estão acessíveis da VM usando a linha de comando:
    
-   - ondulação https://login.microsoftonline.com/ -D –
-   - ondulação de https://login.microsoftonline.com/`<TenantID>` /-D –
+   - ondulação https://login.microsoftonline.com/-D –
+   - ondulação de https://login.microsoftonline.com/`<TenantID>`/-D –
 
    > [!NOTE]
    > Substitua `<TenantID>` pela ID de locatário do Azure AD associada à assinatura do Azure.
 
-   - ondulação https://enterpriseregistration.windows.net/ -D-
-   - ondulação https://device.login.microsoftonline.com/ -D-
-   - ondulação https://pas.windows.net/ -D-
+   - ondulação https://enterpriseregistration.windows.net/-D-
+   - ondulação https://device.login.microsoftonline.com/-D-
+   - ondulação https://pas.windows.net/-D-
 
 1. O estado do dispositivo pode ser exibido executando `dsregcmd /status`. O objetivo é que o estado do dispositivo seja mostrado como `AzureAdJoined : YES`.
 
@@ -251,7 +251,7 @@ Se a extensão AADLoginForWindows falhar com determinado código de erro, você 
 
 #### <a name="issue-1-aadloginforwindows-extension-fails-to-install-with-terminal-error-code-1007-and-exit-code--2145648574"></a>Problema 1: a extensão AADLoginForWindows falha ao instalar com o código de erro de terminal ' 1007 ' e código de saída:-2145648574.
 
-Esse código de saída é convertido em DSREG_E_MSI_TENANTID_UNAVAILABLE porque a extensão não pode consultar as informações de locatário do Azure AD.
+Esse código de saída é convertido para DSREG_E_MSI_TENANTID_UNAVAILABLE porque a extensão não pode consultar as informações de locatário do Azure AD.
 
 1. Verifique se a VM do Azure pode recuperar a Tenantid do serviço de metadados de instância.
 
@@ -263,19 +263,19 @@ Esse código de saída é convertido em DSREG_E_MSI_TENANTID_UNAVAILABLE porque 
 
 #### <a name="issue-2-aadloginforwindows-extension-fails-to-install-with-exit-code--2145648607"></a>Problema 2: a extensão AADLoginForWindows falha ao instalar com o código de saída:-2145648607
 
-Esse código de saída é convertido em DSREG_AUTOJOIN_DISC_FAILED porque a extensão não é capaz de alcançar o ponto de extremidade https://enterpriseregistration.windows.net.
+Esse código de saída é convertido para DSREG_AUTOJOIN_DISC_FAILED porque a extensão não é capaz de alcançar o ponto de extremidade de https://enterpriseregistration.windows.net.
 
 1. Verifique se os pontos de extremidade necessários estão acessíveis da VM usando a linha de comando:
 
-   - ondulação https://login.microsoftonline.com/ -D –
-   - ondulação de https://login.microsoftonline.com/`<TenantID>` /-D –
+   - ondulação https://login.microsoftonline.com/-D –
+   - ondulação de https://login.microsoftonline.com/`<TenantID>`/-D –
    
    > [!NOTE]
    > Substitua `<TenantID>` pela ID de locatário do Azure AD associada à assinatura do Azure. Se você precisar localizar a ID do locatário, passe o mouse sobre o nome da sua conta para obter a ID do diretório/locatário ou selecione Azure Active Directory > Propriedades > ID do diretório no portal do Azure.
 
-   - ondulação https://enterpriseregistration.windows.net/ -D-
-   - ondulação https://device.login.microsoftonline.com/ -D-
-   - ondulação https://pas.windows.net/ -D-
+   - ondulação https://enterpriseregistration.windows.net/-D-
+   - ondulação https://device.login.microsoftonline.com/-D-
+   - ondulação https://pas.windows.net/-D-
 
 1. Se qualquer um dos comandos falhar com "não foi possível resolver o host `<URL>`", tente executar esse comando para determinar o servidor DNS que está sendo usado pela VM.
    
@@ -312,7 +312,7 @@ Se você vir a seguinte mensagem de erro ao iniciar uma conexão de área de tra
 
 ![Sua conta está configurada para impedir que você use este dispositivo.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
-Verifique se você [configurou as políticas de RBAC](https://docs.microsoft.com/azure/virtual-machines/linux/login-using-aad#configure-rbac-policy-for-the-virtual-machine) para a VM que concede ao usuário o logon de administrador da máquina virtual ou a função de logon de usuário da máquina virtual:
+Verifique se você [configurou as políticas de RBAC](../../virtual-machines/linux/login-using-aad.md) para a VM que concede ao usuário o logon de administrador da máquina virtual ou a função de logon de usuário da máquina virtual:
  
 #### <a name="unauthorized-client"></a>Cliente não autorizado
 

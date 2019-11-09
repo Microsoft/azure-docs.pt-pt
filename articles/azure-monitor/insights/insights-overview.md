@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
-ms.openlocfilehash: 81d82ce79130513a2827090a98bfef192c9d7829
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: d1b53267daa2d47baf9976727bbaf3fa56172432
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795704"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832100"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Visão geral das informações no Azure Monitor
 As informações fornecem uma experiência de monitoramento Personalizada para aplicativos e serviços específicos. Eles armazenam dados na [plataforma de dados Azure monitor](../platform/data-platform.md) e aproveitam outros recursos de Azure monitor para análise e alertas, mas podem coletar dados adicionais e fornecer uma experiência de usuário exclusiva no portal do Azure. Acesse informações da seção **insights** do menu Azure Monitor na portal do Azure.
@@ -47,8 +47,8 @@ Veja [o que é Azure monitor para VMs?](vminsights-overview.md)
 
 ![Azure Monitor para VMs](media/insights-overview/vm-insights.png)
 
-## <a name="azure-monitor-for-network-preview"></a>Azure Monitor para rede (visualização)
-O Azure Monitor para rede fornece uma visão abrangente da integridade e das métricas para todos os recursos de rede. A capacidade de pesquisa avançada ajuda a identificar dependências de recursos, permitindo cenários como identificar recursos que hospedam seu site, simplesmente pesquisando o nome do site.
+## <a name="azure-monitor-for-networks-preview"></a>Azure Monitor para redes (visualização)
+O [Azure monitor para redes](network-insights-overview.md) fornece uma visão abrangente da integridade e das métricas para todos os recursos de rede. A capacidade de pesquisa avançada ajuda a identificar dependências de recursos, permitindo cenários como identificar recursos que hospedam seu site, simplesmente pesquisando o nome do site.
 
 ![Azure Monitor para redes](media/insights-overview/network-insights.png)
 

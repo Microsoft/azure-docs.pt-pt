@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 97265a83a73d45f45a4bd1183df61521f4ca29bf
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: e660db5db3d1afc14a3c895e6786d1b6a8b82c13
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989690"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832413"
 ---
 # <a name="data-querying"></a>Consulta de dados
 
@@ -33,15 +33,15 @@ Time Series Insights usa uma linguagem de expressão baseada em cadeia de caract
 
 As APIs principais a seguir têm suporte.
 
-[Visão geral de consulta de série temporal![](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
+[Visão geral de consulta de série temporal ![](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
 ## <a name="environment-apis"></a>APIs de ambiente
 
 As seguintes APIs de ambiente estão disponíveis:
 
-* [Obter API do ambiente](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environments-api): retorna a lista de ambientes aos quais o chamador está autorizado a acessar.
-* [Obter API de disponibilidade do ambiente](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): retorna a distribuição da contagem de eventos sobre o `$ts` do carimbo de data/hora do evento. Essa API ajuda a determinar se há algum evento no carimbo de data/hora retornando a contagem de eventos, se existir.
-* [Obter API do esquema de evento](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): retorna os metadados do esquema de evento para um determinado intervalo de pesquisa. Essa API ajuda a recuperar todos os metadados e propriedades disponíveis no esquema para o intervalo de pesquisa fornecido.
+* [Obter API do ambiente](/rest/api/time-series-insights/management/environments/get): retorna a lista de ambientes aos quais o chamador está autorizado a acessar.
+* [Obter API de disponibilidade do ambiente](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): retorna a distribuição da contagem de eventos sobre o `$ts`do carimbo de data/hora do evento. Essa API ajuda a determinar se há algum evento no carimbo de data/hora retornando a contagem de eventos, se existir.
+* [Obter API do esquema de evento](/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema): retorna os metadados do esquema de evento para um determinado intervalo de pesquisa. Essa API ajuda a recuperar todos os metadados e propriedades disponíveis no esquema para o intervalo de pesquisa fornecido.
 
 ## <a name="time-series-model-query-tsm-q-apis"></a>APIs de consulta de modelo de série temporal (TSM-Q)
 
@@ -58,16 +58,16 @@ As seguintes APIs de consulta de modelo de série temporal estão disponíveis. 
 
 As seguintes APIs de consulta de série temporal estão disponíveis. Essas APIs estão disponíveis em todos os armazenamentos em várias camadas com suporte no Time Series Insights. Os parâmetros de URL de consulta são usados para especificar o [tipo de repositório](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters) em que a consulta deve ser executada:
 
-* [API Get Events](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api): habilita a consulta e a recuperação de dados de time Series insights de eventos conforme eles são gravados em time Series insights do provedor de origem. Essa API permite a recuperação de eventos brutos para uma determinada ID de série temporal e intervalo de pesquisa. Essa API dá suporte à paginação para recuperar o conjunto de dados completo da entrada selecionada. 
+* [API Get Events](/rest/api/time-series-insights/dataaccess(preview)/query/execute#getevents): habilita a consulta e a recuperação de dados de time Series insights de eventos conforme eles são gravados em time Series insights do provedor de origem. Essa API permite a recuperação de eventos brutos para uma determinada ID de série temporal e intervalo de pesquisa. Essa API dá suporte à paginação para recuperar o conjunto de dados completo da entrada selecionada. 
 
-* [Obter a API da série](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api): habilita a consulta e a recuperação de dados de time Series insights de eventos capturados usando dados registrados na conexão. Os valores retornados são baseados nas variáveis que foram definidas no modelo ou embutidas em linha. Essa API dá suporte à paginação para recuperar o conjunto de dados completo da entrada selecionada. Essa API ajuda a definir propriedades ou colunas calculadas.
+* [Obter a API da série](/rest/api/time-series-insights/dataaccess(preview)/query/execute#getseries): habilita a consulta e a recuperação de dados de time Series insights de eventos capturados usando dados registrados na conexão. Os valores retornados são baseados nas variáveis que foram definidas no modelo ou embutidas em linha. Essa API dá suporte à paginação para recuperar o conjunto de dados completo da entrada selecionada. Essa API ajuda a definir propriedades ou colunas calculadas.
 
     >[!NOTE]
     > A cláusula de agregação é ignorada mesmo que seja especificada em um modelo ou fornecida em linha.
 
   A API obter série retorna um valor de série temporal para cada variável para cada intervalo. Um valor de série temporal é um formato que Time Series Insights usa para o JSON de saída de uma consulta. Os valores retornados são baseados na ID da série temporal e no conjunto de variáveis que foram fornecidas.
 
-* [API da série de agregação](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api): habilita a consulta e a recuperação de dados de time Series insights de eventos capturados por amostragem e agregação de dados gravados. Essa API dá suporte à execução de continuável usando [tokens de continuação](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#queryresultpage).
+* [API da série de agregação](/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregatevariable): habilita a consulta e a recuperação de dados de time Series insights de eventos capturados por amostragem e agregação de dados gravados. Essa API dá suporte à execução de continuável usando [tokens de continuação](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#queryresultpage).
 
   A API da série agregada retorna um valor de série temporal para cada variável para cada intervalo. Os valores são baseados na ID da série temporal e no conjunto de variáveis que foram fornecidas. A API da série agregada alcança a redução usando variáveis armazenadas no modelo de série temporal ou fornecidas em linha para agregar ou dados de exemplo.
 
