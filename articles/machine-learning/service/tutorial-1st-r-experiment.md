@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: bcd1fff61e1612cc3361548527e5ed13affa3ba5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 9073893ebfcfea1a7f4e2a00bf82babcb8841122
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501373"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838526"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Tutorial: treinar e implantar seu primeiro modelo em R com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -167,7 +167,7 @@ Para este tutorial, ajuste um modelo de regressão logística em seus dados carr
 Um script de treinamento chamado `accidents.R` foi fornecido para você no mesmo diretório que este tutorial. Observe os seguintes detalhes **dentro do script de treinamento** que foi feito para aproveitar o serviço do Azure ml para treinamento:
 
 * O script de treinamento usa um argumento `-d` para localizar o diretório que contém os dados de treinamento. Quando você definir e enviar seu trabalho mais tarde, aponte para o repositório de armazenamento para esse argumento. O Azure ML montará a pasta de armazenamento para o cluster remoto para o trabalho de treinamento.
-* O script de treinamento registra a precisão final como uma métrica para o registro de execução no Azure ML usando `log_metric_to_run()`. O SDK do Azure ML fornece um conjunto de APIs de log para registrar várias métricas durante execuções de treinamento. Essas métricas são registradas e mantidas no registro de execução do experimento. As métricas podem então ser acessadas a qualquer momento ou exibidas na página de detalhes de execução no [Azure Machine Learning Studio](http://ml.azure.com). Consulte a [referência](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) para obter o conjunto completo de métodos de registro em log `log_*()`.
+* O script de treinamento registra a precisão final como uma métrica para o registro de execução no Azure ML usando `log_metric_to_run()`. O SDK do Azure ML fornece um conjunto de APIs de log para registrar várias métricas durante execuções de treinamento. Essas métricas são registradas e mantidas no registro de execução do experimento. As métricas podem então ser acessadas a qualquer momento ou exibidas na página de detalhes de execução no [Azure Machine Learning Studio](https://ml.azure.com). Consulte a [referência](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) para obter o conjunto completo de métodos de registro em log `log_*()`.
 * O script de treinamento salva seu modelo em um diretório chamado **Outputs**. A pasta `./outputs` recebe tratamento especial pelo Azure ML. Durante o treinamento, os arquivos gravados em `./outputs` são carregados automaticamente para o registro de execução pelo Azure ML e mantidos como artefatos. Ao salvar o modelo treinado em `./outputs`, você poderá acessar e recuperar o arquivo de modelo mesmo depois que a execução terminar e você não tiver mais acesso ao seu ambiente de treinamento remoto.
 
 ### <a name="create-an-estimator"></a>Criar simulador
@@ -373,7 +373,7 @@ delete_compute(compute)
 
 Você também pode manter o grupo de recursos, mas excluir um único espaço de trabalho. Exiba as propriedades do espaço de trabalho e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que você concluiu seu primeiro experimento Azure Machine Learning em R, saiba mais sobre o [SDK do Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/index.html).
 

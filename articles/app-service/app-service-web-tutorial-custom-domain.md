@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 52394eb150a4206b7fb31cdf4b801762511e1a8c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa8acbab8179eea752607c4410851d74ae4e9444
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471362"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835863"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: mapear um nome DNS personalizado existente para o serviço Azure App
 
@@ -330,7 +330,7 @@ Na parte inferior da página, o diretório de raiz virtual `/` aponta para `site
 
 ![Personalizar o diretório virtual](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Uma vez concluída a operação, a aplicação deverá devolver a página correta no caminho da raiz (por exemplo, http://contoso.com)).
+Depois que a operação for concluída, seu aplicativo deverá retornar a página correta no caminho raiz (por exemplo, `http://contoso.com`).
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 
@@ -364,7 +364,7 @@ Set-AzWebApp `
 
 Para obter mais informações, veja [Assign a custom domain to a web app](scripts/powershell-configure-custom-domain.md) (Atribuir um domínio personalizado a uma aplicação Web).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

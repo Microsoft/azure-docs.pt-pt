@@ -5,13 +5,13 @@ ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2019
-ms.openlocfilehash: 205cf7610bd9f86bf36fc738ced71fc8175ccdc9
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.date: 11/07/2019
+ms.openlocfilehash: e2b7d816a02eaf47ef50bfd2d814f7b26a813446
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969446"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838395"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>Tutorial: criar um conjunto de dimensionamento de máquinas virtuais do Azure usando Terraform
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a usar [Azure cloud Shell](/azure/cloud-shell/o
 
 - **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Instalar o Terraform**: siga as instruções no artigo [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) (Terraform e configuração do acesso ao Azure)
+- **Instalar o Terraform**: Siga as instruções no artigo [Terraform e configuração do acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
 - **Criar um par de chaves SSH**: para obter mais informações, consulte [como criar e usar um par de chaves SSH pública e privada para VMs do Linux no Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
@@ -43,7 +43,7 @@ Neste tutorial, você aprenderá a usar [Azure cloud Shell](/azure/cloud-shell/o
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se não tiver selecionado um ambiente anteriormente, selecione **Bash** como o seu ambiente.
 
-    ![Comando do Cloud Shell](./media/terraform-create-vm-scaleset-network-disks-hcl/azure-portal-cloud-shell-button-min.png)
+    ![Comandos do Cloud Shell](./media/terraform-create-vm-scaleset-network-disks-hcl/azure-portal-cloud-shell-button-min.png)
 
 1. Mude para o diretório `clouddrive`.
 
@@ -51,7 +51,7 @@ Neste tutorial, você aprenderá a usar [Azure cloud Shell](/azure/cloud-shell/o
     cd clouddrive
     ```
 
-1. Crie um diretório com o nome `vmss`.
+1. Crie um diretório denominado `vmss`.
 
     ```bash
     mkdir vmss
@@ -96,7 +96,7 @@ No Azure Cloud Shell, execute as seguintes etapas:
    }
    ```
 
-1. Salve o arquivo ( **&lt;Ctrl > S**) e saia do editor ( **&lt;Ctrl > Q**).
+1. Salve o arquivo ( **&lt;ctrl > S**) e saia do editor ( **&lt;CTRL > Q**).
 
 ## <a name="create-the-output-definitions-file"></a>Criar o ficheiro de definições de saída
 Nesta secção, vai criar o ficheiro que descreve a saída após a implementação.
@@ -118,7 +118,7 @@ No Azure Cloud Shell, execute as seguintes etapas:
     }
    ```
 
-1. Salve o arquivo ( **&lt;Ctrl > S**) e saia do editor ( **&lt;Ctrl > Q**).
+1. Salve o arquivo ( **&lt;ctrl > S**) e saia do editor ( **&lt;CTRL > Q**).
 
 ## <a name="define-the-network-infrastructure-in-a-template"></a>Definir a infraestrutura de rede num modelo
 Nesta secção, vai criar a seguinte infraestrutura de rede num novo grupo de recursos do Azure:
@@ -176,12 +176,12 @@ No Azure Cloud Shell, execute as seguintes etapas:
    }
    ```
 
-1. Salve o arquivo ( **&lt;Ctrl > S**) e saia do editor ( **&lt;Ctrl > Q**).
+1. Salve o arquivo ( **&lt;ctrl > S**) e saia do editor ( **&lt;CTRL > Q**).
 
 ## <a name="provision-the-network-infrastructure"></a>Aprovisionar a infraestrutura de rede
 Usando o Azure Cloud Shell do diretório em que você criou os arquivos de configuração (. TF), execute as seguintes etapas:
 
-1. Inicialize o Terraform.
+1. Inicie o Terraform.
 
    ```bash
    terraform init
@@ -377,7 +377,7 @@ Em Cloud Shell, execute as seguintes etapas:
     }
     ```
 
-1. Salve o arquivo ( **&lt;Ctrl > S**) e saia do editor ( **&lt;Ctrl > Q**).
+1. Salve o arquivo ( **&lt;ctrl > S**) e saia do editor ( **&lt;CTRL > Q**).
 
 1. Crie um plano do Terraform para visualizar a implementação do conjunto de dimensionamento de máquinas virtuais (tem de especificar uma palavra-passe escolhida por si, bem como a localização para os seus recursos).
 
@@ -496,7 +496,7 @@ Um *JUMPBOX* SSH é um único servidor que você "salta" para acessar outros ser
    }
    ```
 
-1. Salve o arquivo ( **&lt;Ctrl > S**) e saia do editor ( **&lt;Ctrl > Q**).
+1. Salve o arquivo ( **&lt;ctrl > S**) e saia do editor ( **&lt;CTRL > Q**).
 
 1. Implemente a jumpbox.
 
@@ -521,7 +521,7 @@ terraform destroy
 
 O processo de destruição pode demorar vários minutos a ser concluído.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"] 
-> [Terraform no Azure](/azure/ansible/)
+> [Saiba mais sobre como usar o Terraform no Azure](/azure/terraform)

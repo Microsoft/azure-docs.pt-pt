@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial 1: prever o risco de crédito'
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Um tutorial detalhado que mostra como criar uma solução de análise preditiva para avaliação de risco de crédito na versão clássica do Azure Machine Learning Studio. Este tutorial é a parte um de uma série de tutoriais de três partes.  Ele mostra como criar um espaço de trabalho, carregar dados e criar um experimento.
 keywords: risco de crédito, solução de análise preditiva, avaliação de riscos
 author: sdgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 78092bd4ad4da896cd2fd36768f181764335ee85
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e8c1eea097fc3ea2704acfae198eb493943b6ccf
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619189"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838860"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutorial 1: prever o risco de crédito-Azure Machine Learning Studio (clássico)
 
@@ -290,7 +290,7 @@ Para obter mais informações sobre como usar scripts do R em seus experimentos,
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você concluiu estas etapas: 
  

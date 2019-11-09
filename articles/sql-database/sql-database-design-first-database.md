@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: 97e603e6daa64bb70edefe06b52a7c45f90787f3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d3fecd54e36c8a3dd43c88f5aa4e4233057c3f91
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818308"
+ms.locfileid: "73838581"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Tutorial: criar um banco de dados relacional em um banco de dados individual no banco de dados SQL do Azure usando o SSMS
 
@@ -63,14 +63,14 @@ Siga estas etapas para criar um banco de dados individual em branco.
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nome da base de dados** | *yourDatabase* | Para obter nomes de banco de dados válidos, consulte [identificadores de banco de dados](/sql/relational-databases/databases/database-identifiers). |
     | **Subscrição** | *yourSubscription*  | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
-    | **Grupo de recursos** | *Seugruporecursos* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). |
+    | **Grupo de recursos** | *Seugruporecursos* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
     | **Selecionar origem** | Base de dados vazia | Especifica que deve ser criada uma base de dados vazia. |
 
 4. Clique em **servidor** para usar um servidor de banco de dados existente ou criar e configurar um novo servidor de banco de dados. Selecione um servidor existente ou clique em **criar um novo servidor** e preencha o formulário **novo servidor** com as seguintes informações:
 
     | Definição       | Valor sugerido | Descrição |
     | ------------ | ------------------ | ------------------------------------------------- |
-    | **Nome do servidor** | Qualquer nome globalmente exclusivo | Para nomes de servidores válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). |
+    | **Nome do servidor** | Qualquer nome globalmente exclusivo | Para nomes de servidores válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
     | **Início de sessão de administrador do servidor** | Qualquer nome válido | Para obter nomes de logon válidos, consulte [identificadores de banco de dados](/sql/relational-databases/databases/database-identifiers). |
     | **Palavra-passe** | Qualquer palavra-passe válida | Sua senha deve ter pelo menos oito caracteres e deve usar caracteres de três das seguintes categorias: caracteres maiúsculos, caracteres minúsculos, números e caracteres não alfanuméricos. |
     | **Localização** | Nenhuma localização válida | Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure). |
@@ -268,7 +268,7 @@ Execute as seguintes consultas para obter informações das tabelas de base de d
        AND person.LastName = 'Coleman'
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você aprendeu muitas tarefas básicas de banco de dados. Aprendeu a:
 

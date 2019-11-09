@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 8/13/2018
 ms.author: victorh
-ms.openlocfilehash: 6e85bd6ec51cff27fed6d0b2d9e73f94325e4d4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df7897e5b0941f1763f1a10e51d49827bd2ca63d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194195"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839273"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Criar um ambiente de teste do Azure Firewall
 
@@ -21,20 +21,20 @@ Este exemplo de script cria uma firewall e um ambiente de rede de teste. A rede 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-A firewall está em AzureFirewallSubnet configurada com uma Coleção de Regras de Aplicação com uma única regra que permite o acesso a www.microsoft.com.
+O firewall está no AzureFirewallSubnet e está configurado com uma coleção de regras de aplicativo com uma única regra que permite acesso a `www.microsoft.com`.
 
 É criada uma rota definida pelo utilizador que aponta o tráfego de rede de ServersSubnet através da firewall, em que são aplicadas as regras de firewall.
 
 Pode executar o script a partir do [Azure Cloud Shell](https://shell.azure.com/powershell) ou a partir de uma instalação local do PowerShell. 
 
-Se executar o PowerShell localmente, este script requer o Azure PowerShell. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. 
+Se você executar o PowerShell localmente, esse script exigirá Azure PowerShell. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. 
 
 Pode utilizar o `PowerShellGet` se precisar de atualizar, o qual está incorporado no Windows 10 e no Windows Server 2016.
 
 > [!NOTE]
 >Outra versão do Windows requer a instalação do `PowerShellGet` antes de poder utilizá-lo. Pode executar `Get-Module -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,Path` para determinar se está instalado no seu sistema. Se a saída estiver em branco, tem de instalar a versão mais recente do [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616).
 
-Para obter mais informações, consulte [instalar o Azure PowerShell](/powershell/azure/install-Az-ps)
+Para obter mais informações, consulte [instalar Azure PowerShell](/powershell/azure/install-Az-ps)
 
 Qualquer instalação existente do Azure PowerShell feita com o instalador de Plataforma Web entrará em conflito com a instalação do PowerShellGet e terá de ser removida.
 

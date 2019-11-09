@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial 3: implantar o modelo de risco de crédito'
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Um tutorial detalhado que mostra como criar uma solução de análise preditiva para avaliação de risco de crédito na versão clássica do Azure Machine Learning Studio. Este tutorial é a parte três de uma série de tutoriais de três partes. Ele mostra como implantar um modelo como um serviço Web.
 keywords: risco de crédito, solução de análise preditiva, avaliação de risco, implantação, serviço Web
 author: sdgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 0f4ee6cfebcb5edb38b1cc7a11b070dab5d2098c
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 4e8e8a114a06029ef9a81d92b60afd575bc9661f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619021"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839489"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutorial 3: implantar o modelo de risco de crédito-Azure Machine Learning Studio (clássico)
 
@@ -239,7 +239,7 @@ Para obter mais informações sobre como usar os modelos de aplicativo Web, cons
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, você concluiu estas etapas:
 

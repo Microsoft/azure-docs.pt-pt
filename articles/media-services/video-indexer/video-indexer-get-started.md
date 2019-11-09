@@ -1,6 +1,6 @@
 ---
 title: Inscreva-se para Video Indexer e carregue seu primeiro vídeo-Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Saiba como inscrever-se e carregar o seu primeiro vídeo no portal do Video Indexer.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: juliako
-ms.openlocfilehash: 9d89247740852b7bfc185fbcf864947efe30ef0f
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 957acc25c3218069a20e90fe83e00e441b6303d6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372336"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839562"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Início rápido: como se inscrever e carregar seu primeiro vídeo
 
@@ -43,11 +43,11 @@ Para começar a criar com o Video Indexer, aceda ao site do [Video Indexer](http
 
     Quando o Video Indexer concluir a análise, será apresentada uma notificação com uma ligação para o seu vídeo juntamente com uma breve descrição dos conteúdos encontrados no mesmo. Por exemplo: people (pessoas), topics (tópicos), OCRs.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora você pode usar o [Video indexer](video-indexer-view-edit.md) site ou [Video indexer portal do desenvolvedor](video-indexer-use-apis.md) para ver as informações do vídeo. 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consultar também
 
 [Descrição geral do Video Indexer](video-indexer-overview.md)
 

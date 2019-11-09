@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 8916cb0438f0005d3ff9f720cf1b5a5653eeac77
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9a226c17dd72d0dcd6403277054cf264f0094e65
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504033"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850462"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,7 +44,7 @@ Antes de inicializar um objeto `IntentRecognizer`, você precisa criar uma confi
 Este exemplo constrói o objeto `SpeechConfig` usando a chave e a região LUIS. Para obter uma lista completa dos métodos disponíveis, consulte [classe SpeechConfig](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
 
 > [!NOTE]
-> É importante usar a chave de ponto de extremidade LUIS e não as chaves iniciante ou Authroing, já que apenas a chave do ponto de extremidade é válida para reconhecimento de fala e intenção. Consulte [criar um aplicativo Luis e obter uma chave de ponto de extremidade](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) para obter instruções sobre como obter a chave correta.
+> É importante usar a chave de ponto de extremidade LUIS e não as chaves de início ou de criação, já que apenas a chave do ponto de extremidade é válida para reconhecimento de fala e intenção. Consulte [criar um aplicativo Luis e obter uma chave de ponto de extremidade](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) para obter instruções sobre como obter a chave correta.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=12)]
 
@@ -83,6 +83,6 @@ Execute o exemplo do console do ou do no IDE:
 
 Os próximos 15 segundos de entrada de voz do microfone serão reconhecidos e registados na janela da consola.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [!INCLUDE [footer](./footer.md)]

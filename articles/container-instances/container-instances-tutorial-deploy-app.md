@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e14a3ba50d75161afa3325b3b7bcbfe96ea24cc3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f2890948dd15fa972104e4ef11001e83a2abd4f8
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325635"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73846585"
 ---
-# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implantar um aplicativo de contêiner nas instâncias de contêiner do Azure
+# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: implantar um aplicativo de contêiner em instâncias de contêiner do Azure
 
 Este é o último tutorial de uma série de três partes. Nas duas primeiras partes da série, [foi criada uma imagem de contentor](container-instances-tutorial-prepare-app.md) e [enviada para o Azure Container Registry](container-instances-tutorial-prepare-acr.md). Este artigo termina a série ao implementar o contentor no Azure Container Instances.
 
@@ -37,9 +37,11 @@ Nesta secção, vai utilizar a CLI do Azure para implementar a imagem criada no 
 
 ### <a name="get-registry-credentials"></a>Obter as credenciais do registo
 
-Ao implantar uma imagem que é hospedada em um registro de contêiner privado como aquele criado no [segundo tutorial](container-instances-tutorial-prepare-acr.md), você deve fornecer credenciais para acessar o registro. Conforme mostrado em [autenticar com o registro de contêiner do Azure de instâncias de contêiner do Azure](../container-registry/container-registry-auth-aci.md), uma prática recomendada para muitos cenários é criar e configurar uma entidade de serviço Azure Active Directory com permissões de *pull* para o registro. Consulte esse artigo para ver scripts de exemplo para criar uma entidade de serviço com as permissões necessárias. Anote a ID da entidade de serviço e a senha da entidade de serviço. Você usa essas credenciais ao implantar o contêiner.
+Quando você implanta uma imagem hospedada em um registro de contêiner do Azure privado como aquele criado no [segundo tutorial](container-instances-tutorial-prepare-acr.md), você deve fornecer credenciais para acessar o registro. 
 
-Você também precisa do nome completo do servidor de logon do registro de contêiner `<acrName>` (substitua pelo nome do registro):
+Uma prática recomendada para muitos cenários é criar e configurar uma entidade de serviço Azure Active Directory com permissões de *pull* para o registro. Confira [autenticar com o registro de contêiner do Azure de instâncias de contêiner do Azure](../container-registry/container-registry-auth-aci.md) para scripts de exemplo para criar uma entidade de serviço com as permissões necessárias. Anote a ID da *entidade de serviço* e a *senha da entidade de serviço*. Você usa essas credenciais para acessar o registro ao implantar o contêiner.
+
+Você também precisa do nome completo do servidor de logon do registro de contêiner (substitua `<acrName>` pelo nome do registro):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
@@ -47,7 +49,7 @@ az acr show --name <acrName> --query loginServer
 
 ### <a name="deploy-container"></a>Implementar o contentor
 
-Agora, use o comando [AZ container Create][az-container-create] para implantar o contêiner. Substituir `<acrLoginServer>` pelo valor obtido do comando anterior. Substitua `<service-principal-ID>` e`<service-principal-password>` pela ID da entidade de serviço e senha que você criou para acessar o registro. Substituir `<aciDnsLabel>` pelo nome DNS desejado.
+Agora, use o comando [AZ container Create][az-container-create] para implantar o contêiner. Substitua `<acrLoginServer>` pelo valor obtido do comando anterior. Substitua `<service-principal-ID>` e `<service-principal-password>` com a ID da entidade de serviço e a senha que você criou para acessar o registro. Substitua `<aciDnsLabel>` por um nome DNS desejado.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <service-principal-ID> --registry-password <service-principal-password> --dns-name-label <aciDnsLabel> --ports 80

@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: b686ceace3679d1541e8f1a74bca7e99b81ba932
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a2dc6aeb7dc2a62c543a58c322c23c9661c6940a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68598904"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832748"
 ---
-# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implantar um aplicativo de contêiner com CI/CD em um Cluster Service Fabric
+# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementar uma aplicação de contentor com CI/CD num cluster do Service Fabric
 
 Este tutorial é a parte dois de uma série e descreve como configurar a integração e a implantação contínua para um aplicativo de contêiner de Service Fabric do Azure usando o Visual Studio e o Azure DevOps.  É necessária uma aplicação do Service Fabric existente. A aplicação criada em [Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric](service-fabric-host-app-in-a-container.md) é utilizada como exemplo.
 
@@ -65,7 +65,7 @@ Verifique seu email e selecione sua organização na lista suspensa **conta** . 
 
 A publicação do repositório cria um novo projeto de equipa na sua conta com o mesmo nome que o repositório local. Para criar o repositório num projeto de equipa existente, clique em **Avançadas** junto ao nome do **Repositório** e selecione um projeto de equipa. Pode ver o código na Web, selecionando **Ver na Web**.
 
-## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Configurar entrega contínua com Pipelines do Azure
+## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Configurar a entrega contínua com o Azure Pipelines
 
 Uma definição de compilação DevOps do Azure descreve um fluxo de trabalho que é composto por um conjunto de etapas de compilação que são executadas sequencialmente. Crie uma definição de compilação que produz um pacote de aplicação do Service Fabric, e outros artefactos, para implementar num cluster do Service Fabric. Saiba mais sobre as [definições de compilação](https://www.visualstudio.com/docs/build/define/create)do Azure DevOps. 
 
@@ -73,9 +73,9 @@ Uma definição da versão DevOps do Azure descreve um fluxo de trabalho que imp
 
 ### <a name="create-a-build-definition"></a>Criar uma definição de compilação
 
-Abra seu novo projeto de equipe navegando https://dev.azure.com até em um navegador da Web e selecionando sua organização, seguido pelo novo projeto. 
+Abra seu novo projeto de equipe navegando até https://dev.azure.com em um navegador da Web e selecionando sua organização, seguido pelo novo projeto. 
 
-Selecione a opção pipelines no painel esquerdo e clique em **novo pipeline**.
+Selecione a opção **pipelines** no painel esquerdo e clique em **novo pipeline**.
 
 >[!NOTE]
 >Se não vir o modelo de definição de compilação, certifique-se de que a funcionalidade **Nova experiência de criação do pipeline YAML** está desativada. Esta funcionalidade está configurada na secção **Funcionalidades de Pré-visualização** da sua conta de DevOps.
@@ -110,11 +110,11 @@ Na caixa de diálogo **Guardar pipeline de compilação e fila**, clique em **Gu
 
 ![Selecionar acionadores][save-and-queue]
 
-As compilações também são acionadas após push ou dar entrada. Para verificar o progresso da compilação, mude para o separador **Compilações**.  Depois de verificar se a compilação é executada com êxito, defina uma definição de versão que implementa a aplicação num cluster.
+As compilações também são acionadas após push ou dar entrada. Para verificar o progresso da compilação, alterne para a guia **compilações** .  Depois de verificar se a compilação é executada com êxito, defina uma definição de versão que implanta seu aplicativo em um cluster.
 
 ### <a name="create-a-release-definition"></a>Criar uma definição de versão
 
-Selecione a opção pipelines no painel esquerdo, então **libera**e **+ novo pipeline**.  Em **Selecionar um modelo**, selecione o modelo **Implementação do Azure Service Fabric** na lista e, em seguida, **Aplicar**.
+Selecione a opção **pipelines** no painel esquerdo, então **libera**e **+ novo pipeline**.  Em **Selecionar um modelo**, selecione o modelo **Implementação do Azure Service Fabric** na lista e, em seguida, **Aplicar**.
 
 ![Escolher o modelo de versão][select-release-template]
 
@@ -147,7 +147,7 @@ Ative um acionador de implementação contínua para que uma versão seja criada
 
 Selecione **+ Versão** -> **Criar uma Versão** -> **Criar** para criar manualmente uma versão. Pode monitorizar o progresso da versão no separador **Versões**.
 
-Verifique se a implementação foi concluída com êxito e se a aplicação está em execução no cluster.  Abra um browser e navegue para [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Tome nota da versão da aplicação, que neste exemplo é "1.0.0.20170616.3".
+Verifique se a implementação foi concluída com êxito e se a aplicação está em execução no cluster.  Abra um navegador da Web e navegue até `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Tome nota da versão da aplicação, que neste exemplo é "1.0.0.20170616.3".
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Consolidar e emitir alterações, acionar uma versão
 
@@ -167,7 +167,7 @@ A emissão das alterações ao Azure DevOps aciona automaticamente uma compilaç
 
 Para verificar o progresso da compilação, mude para o separador **Compilações** no **Team Explorer** no Visual Studio.  Depois de verificar se a compilação é executada com êxito, defina uma definição de versão que implementa a aplicação num cluster.
 
-Verifique se a implementação foi concluída com êxito e se a aplicação está em execução no cluster.  Abra um browser e navegue para [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Tome nota da versão da aplicação, que neste exemplo é "1.0.0.20170815.3".
+Verifique se a implementação foi concluída com êxito e se a aplicação está em execução no cluster.  Abra um navegador da Web e navegue até `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Tome nota da versão da aplicação, que neste exemplo é "1.0.0.20170815.3".
 
 ![Service Fabric Explorer][sfx1]
 
@@ -183,7 +183,7 @@ A atualização de versão da aplicação pode demorar vários minutos. Quando a
 
 ![Service Fabric Explorer][sfx3]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

@@ -5,13 +5,13 @@ ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2019
-ms.openlocfilehash: e00b674df35516da559339af8028c1ca1845b0db
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.date: 11/07/2019
+ms.openlocfilehash: 233012d6caf1280914a6d2439ae856d69570fff7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969792"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838037"
 ---
 # <a name="tutorial-create-a-linux-vm-with-a-managed-identity-from-the-azure-marketplace-image-using-terraform"></a>Tutorial: criar uma VM do Linux com uma identidade gerenciada da imagem do Azure Marketplace usando o Terraform
 
@@ -96,7 +96,7 @@ Depois de criar a VM, execute as seguintes etapas:
 
     Para obter mais informações sobre o gerenciamento de estado remoto, consulte [estado remoto do Terraform](https://www.terraform.io/docs/state/remote.html). A chave de acesso de armazenamento é exposta neste arquivo. Exclua-o antes de confirmar os arquivos de configuração do Terraform no controle do código-fonte.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"] 
-> [Terraform no Azure](/azure/ansible/)
+> [Saiba mais sobre como usar o Terraform no Azure](/azure/terraform)
