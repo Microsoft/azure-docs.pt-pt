@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a8823a9b354ca4ae9ecab0eeac265b486116bec
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 050bc3cf6b81b9467d9947a4f611477e2fcbcd9a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808964"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885866"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras de associação dinâmica para grupos no Azure Active Directory
 
@@ -88,7 +88,7 @@ A seguir estão as propriedades do usuário que você pode usar para criar uma �
 
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
-| AccountEnabled |verdadeiro falso |User. accountEnabled-EQ true |
+| accountEnabled |verdadeiro falso |User. accountEnabled-EQ true |
 | dirSyncEnabled |verdadeiro falso |User. dirSyncEnabled-EQ true |
 
 ### <a name="properties-of-type-string"></a>Propriedades do tipo cadeia de caracteres
@@ -96,28 +96,28 @@ A seguir estão as propriedades do usuário que você pode usar para criar uma �
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
 | city |Qualquer valor de cadeia de caracteres ou *nulo* |(User. City-eq "valor") |
-| País |Qualquer valor de cadeia de caracteres ou *nulo* |(User. Country-EQ "valor") |
-| CompanyName | Qualquer valor de cadeia de caracteres ou *nulo* | (User. companyName-EQ "valor") |
-| Inteiros |Qualquer valor de cadeia de caracteres ou *nulo* |(User. Department-EQ "valor") |
-| DisplayName |Qualquer valor de cadeia de caracteres |(User. displayName-EQ "valor") |
+| país |Qualquer valor de cadeia de caracteres ou *nulo* |(User. Country-EQ "valor") |
+| companyName | Qualquer valor de cadeia de caracteres ou *nulo* | (User. companyName-EQ "valor") |
+| inteiros |Qualquer valor de cadeia de caracteres ou *nulo* |(User. Department-EQ "valor") |
+| displayName |Qualquer valor de cadeia de caracteres |(User. displayName-EQ "valor") |
 | Funcionário |Qualquer valor de cadeia de caracteres |(User. employeeId-EQ "valor")<br>(User. employeeId-ne *NULL*) |
 | facsimileTelephoneNumber |Qualquer valor de cadeia de caracteres ou *nulo* |(User. facsimileTelephoneNumber-EQ "valor") |
-| GivenName |Qualquer valor de cadeia de caracteres ou *nulo* |(User. excertoname-EQ "valor") |
-| JobTitle |Qualquer valor de cadeia de caracteres ou *nulo* |(User. jobTitle-EQ "valor") |
-| Mescla |Qualquer valor de cadeia de caracteres ou *nulo* (endereço SMTP do usuário) |(User. mail-EQ "valor") |
+| givenName |Qualquer valor de cadeia de caracteres ou *nulo* |(User. excertoname-EQ "valor") |
+| jobTitle |Qualquer valor de cadeia de caracteres ou *nulo* |(User. jobTitle-EQ "valor") |
+| mescla |Qualquer valor de cadeia de caracteres ou *nulo* (endereço SMTP do usuário) |(User. mail-EQ "valor") |
 | mailNickName |Qualquer valor de cadeia de caracteres (alias de email do usuário) |(User. mailNickName-EQ "valor") |
 | móveis |Qualquer valor de cadeia de caracteres ou *nulo* |(User. Mobile-EQ "valor") |
 | objectId |GUID do objeto de usuário |(User. objectId-EQ "11111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | SID (identificador de segurança) local para usuários que foram sincronizados do local para a nuvem. |(User. onPremisesSecurityIdentifier-EQ "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Nenhum DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(User. passwordPolicies-EQ "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Qualquer valor de cadeia de caracteres ou *nulo* |(User. physicalDeliveryOfficeName-EQ "valor") |
-| PostalCode |Qualquer valor de cadeia de caracteres ou *nulo* |(User. postalCode-EQ "valor") |
+| postalCode |Qualquer valor de cadeia de caracteres ou *nulo* |(User. postalCode-EQ "valor") |
 | preferredLanguage |Código ISO 639-1 |(User. preferredLanguage-EQ "en-US") |
 | sipProxyAddress |Qualquer valor de cadeia de caracteres ou *nulo* |(User. sipProxyAddress-EQ "valor") |
 | state |Qualquer valor de cadeia de caracteres ou *nulo* |(User. State-EQ "valor") |
 | streetAddress |Qualquer valor de cadeia de caracteres ou *nulo* |(User. streetAddress-EQ "valor") |
-| Sobrenome |Qualquer valor de cadeia de caracteres ou *nulo* |(User. sobrenome-EQ "valor") |
-| TelephoneNumber |Qualquer valor de cadeia de caracteres ou *nulo* |(User. telephoneNumber-EQ "valor") |
+| sobrenome |Qualquer valor de cadeia de caracteres ou *nulo* |(User. sobrenome-EQ "valor") |
+| telephoneNumber |Qualquer valor de cadeia de caracteres ou *nulo* |(User. telephoneNumber-EQ "valor") |
 | usageLocation |Código de país de duas letras |(User. usageLocation-EQ "US") |
 | userPrincipalName |Qualquer valor de cadeia de caracteres |(User. userPrincipalName-EQ "alias@domain") |
 | userType |membro convidado *nulo* |(User. UserType-EQ "membro") |
@@ -357,7 +357,10 @@ O nome da propriedade personalizada pode ser encontrado no diretório consultand
 
 ## <a name="rules-for-devices"></a>Regras para dispositivos
 
-Você também pode criar uma regra que Selecione objetos de dispositivo para associação em um grupo. Você não pode ter usuários e dispositivos como membros do grupo. O atributo **OrganizationalUnit** não está mais listado e não deve ser usado. Essa cadeia de caracteres é definida pelo Intune em casos específicos, mas não é reconhecida pelo Azure AD, portanto, nenhum dispositivo é adicionado aos grupos com base nesse atributo.
+Você também pode criar uma regra que Selecione objetos de dispositivo para associação em um grupo. Você não pode ter usuários e dispositivos como membros do grupo. 
+
+> [!NOTE]
+> O atributo **OrganizationalUnit** não está mais listado e não deve ser usado. Essa cadeia de caracteres é definida pelo Intune em casos específicos, mas não é reconhecida pelo Azure AD, portanto, nenhum dispositivo é adicionado aos grupos com base nesse atributo.
 
 > [!NOTE]
 > systemlabels é um atributo somente leitura que não pode ser definido com o Intune.
@@ -368,8 +371,8 @@ Os atributos de dispositivo a seguir podem ser usados.
 
  Atributo de dispositivo  | Valores | Exemplo
  ----- | ----- | ----------------
- AccountEnabled | verdadeiro falso | (Device. accountEnabled-EQ true)
- DisplayName | Qualquer valor de cadeia de caracteres |(Device. displayName-EQ "Rob iPhone")
+ accountEnabled | verdadeiro falso | (Device. accountEnabled-EQ true)
+ displayName | Qualquer valor de cadeia de caracteres |(Device. displayName-EQ "Rob iPhone")
  deviceOSType | Qualquer valor de cadeia de caracteres | (Device. deviceOSType-EQ "iPad")-ou (Device. deviceOSType-EQ "iPhone")<br>(Device. deviceOSType-contém "AndroidEnterprise")<br>(Device. deviceOSType-EQ "AndroidForWork")
  deviceOSVersion | Qualquer valor de cadeia de caracteres | (Device. deviceOSVersion-EQ "9,1")
  deviceCategory | um nome de categoria de dispositivo válido | (Device. deviceCategory-EQ "BYOD")
@@ -379,9 +382,8 @@ Os atributos de dispositivo a seguir podem ser usados.
  enrollmentProfileName | Perfil de registro de dispositivo da Apple, registro de dispositivo-identificadores de dispositivo corporativo (Android-quiosque) ou nome do perfil do Windows AutoPilot | (Device. enrollmentProfileName-EQ "iPhone DEP")
  IsRoot | verdadeiro falso | (Device. isenraizadad-EQ true)
  gerenciamento de | MDM (para dispositivos móveis)<br>PC (para computadores gerenciados pelo agente de PC do Intune) | (Device. managementtype-EQ "MDM")
- organizationalUnit | uma UO (unidade organizacional) local válida | (Device. organizationalUnit-contém "laptop")
  deviceId | uma ID de dispositivo do Azure AD válida | (Device. DeviceID-EQ "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
- objectId | uma ID de objeto do Azure AD válida |  (Device. objectId-EQ 76ad43c9-32c5-45e8-A272-7b58b58f596d ")
+ objectId | uma ID de objeto do Azure AD válida |  (Device. objectId-EQ "76ad43c9-32c5-45e8-A272-7b58b58f596d")
  devicePhysicalIds | qualquer valor de cadeia de caracteres usado pelo AutoPilot, como todos os dispositivos AutoPilot, OrderID ou PurchaseOrderID  | (Device. devicePhysicalIDs-any _ contém "[ZTDId]") (Device. devicePhysicalIds-qualquer _-EQ "[OrderID]: 179887111881") (Device. devicePhysicalIds-qualquer _-EQ "[PurchaseOrderId]: 76222342342")
  systemLabels | qualquer cadeia de caracteres correspondente à propriedade de dispositivo do Intune para marcar dispositivos de local de trabalho modernos | (Device. systemLabels-contém "M365Managed")
 

@@ -1,20 +1,19 @@
 ---
 title: Configurar cloud para o Serviço Aprovisionamento de Dispositivos no Hub IoT no portal | Microsoft Docs
-description: Aprovisionamento automático de dispositivos do Hub IoT no Portal do Azure
+description: Configurar os recursos de nuvem para o provisionamento de dispositivos no [portal do Azure](https://portal.azure.com) usando o DPS (serviço de provisionamento de dispositivos) do Hub IOT
 author: wesmc7777
 ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: f2f3e56c9eb9362b8164ec611c9b305f5f994b03
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
-ms.translationtype: HT
+ms.openlocfilehash: f0e61f264ac0e6a4a2306bc94234811b38941bb5
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833071"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888757"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurar recursos da cloud para aprovisionamento de dispositivos com o Serviço Aprovisionamento de Dispositivos no Hub IoT
 
@@ -111,7 +110,7 @@ Outros tutoriais desta coleção têm por base este tutorial. Se planeia continu
 
 2. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Na parte superior da página **Todos os recursos**, clique em **Eliminar**.
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

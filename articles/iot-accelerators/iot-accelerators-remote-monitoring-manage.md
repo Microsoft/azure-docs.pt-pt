@@ -1,6 +1,6 @@
 ---
-title: Configurar dispositivos um remoto tutorial de solução de monitorização - Azure | Documentos da Microsoft
-description: Este tutorial mostra-lhe como configurar dispositivos ligados ao acelerador de solução de monitorização remota.
+title: Configurar dispositivos na solução de monitoramento remoto – Azure | Microsoft Docs
+description: Este tutorial mostra como configurar dispositivos conectados ao acelerador de solução de monitoramento remoto.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,18 +9,18 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d23b7c8fa10127094fec67535333ae169f0f38f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4236952bd41c4955e337813ff6d706263b8ef47
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61453221"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890910"
 ---
-# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configurar dispositivos ligados à sua solução de monitorização
+# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutorial: configurar dispositivos conectados à sua solução de monitoramento
 
-Neste tutorial, vai utilizar o acelerador de soluções de Monitorização Remota para configurar e gerir os seus dispositivos IoT ligados. Adicionar um novo dispositivo para o solution accelerator e configurar o dispositivo.
+Neste tutorial, vai utilizar o acelerador de soluções de Monitorização Remota para configurar e gerir os seus dispositivos IoT ligados. Você adiciona um novo dispositivo ao Solution Accelerator e configura o dispositivo.
 
-A Contoso encomendou novas máquinas para expandir uma das suas instalações. Enquanto aguarda pela entrega das novas máquinas, quer executar uma simulação para testar o comportamento da sua solução. Para executar a simulação, adicione um novo dispositivo simulado motor para o solution accelerator do monitoramento remoto e o teste que esse dispositivo responde corretamente às atualizações de configuração. Embora este tutorial utiliza dispositivos simulados, um desenvolvedor de dispositivo pode implementar os métodos diretos num [dispositivo real ligado para o acelerador de solução de monitorização remota](iot-accelerators-connecting-devices.md).
+A Contoso encomendou novas máquinas para expandir uma das suas instalações. Enquanto aguarda pela entrega das novas máquinas, quer executar uma simulação para testar o comportamento da sua solução. Para executar a simulação, você adiciona um novo dispositivo de mecanismo simulado ao acelerador de solução de monitoramento remoto e testa se esse dispositivo simulado responde corretamente às atualizações de configuração. Embora este tutorial use dispositivos simulados, um desenvolvedor de dispositivos pode implementar métodos diretos em um [dispositivo real conectado ao acelerador de solução de monitoramento remoto](iot-accelerators-connecting-devices.md).
 
 Neste tutorial:
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="add-a-simulated-device"></a>Adicionar um dispositivo simulado
 
-Navegue para o **Device Explorer** página na solução e, em seguida, clique em **+ novo dispositivo**:
+Navegue até a página **Device Explorer** na solução e clique em **+ novo dispositivo**:
 
 [![Aprovisionar um dispositivo simulado](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-expanded.png#lightbox)
 
@@ -46,7 +46,7 @@ No painel **Novo dispositivo**, selecione **Simulado**, deixe o número de dispo
 
 ## <a name="test-the-simulated-device"></a>Testar o dispositivo simulado
 
-Para testar seu mecanismo de simulado dispositivo está a enviar telemetria e de geração de relatórios de valores de propriedades, selecione-o na lista de dispositivos no **Device Explorer** página. São apresentadas informações em direto sobre o motor no painel **Detalhes do Dispositivo**:
+Para testar se o dispositivo de mecanismo simulado está enviando valores de propriedade de telemetria e de relatório, selecione-os na lista de dispositivos na página de **Device Explorer** . São apresentadas informações em direto sobre o motor no painel **Detalhes do Dispositivo**:
 
 [![Ver o novo dispositivo de motor simulado](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
@@ -60,7 +60,7 @@ Para ver diagnósticos detalhados, desloque-se para baixo no painel **Detalhes d
 
 ## <a name="reconfigure-a-device"></a>Reconfigurar um dispositivo
 
-Para testar o que é possível atualizar as propriedades de configuração do mecanismo, selecione-o na lista de dispositivos no **Device Explorer** página. Em seguida, clique em **trabalhos**e, em seguida, escolha **propriedades**. O painel de tarefas mostra os valores de propriedade atualizáveis para o dispositivo selecionado:
+Para testar se você pode atualizar as propriedades de configuração do mecanismo, selecione-o na lista de dispositivos na página **Device Explorer** . Em seguida, clique em **trabalhos**e escolha **Propriedades**. O painel de tarefas mostra os valores de propriedade atualizáveis para o dispositivo selecionado:
 
 [![Reconfigurar um dispositivo](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 
@@ -83,7 +83,7 @@ Para facilitar a organização e a gestão dos seus dispositivos por um operador
 * A equipa Smart Vehicle gere camiões e dispositivos para criação de protótipos.
 * A equipa Smart Building gere chillers, elevadores e motores.
 
-Para apresentar todos os seus dispositivos, navegue para o **Device Explorer** página e escolha o **todos os dispositivos** filtro:
+Para exibir todos os seus dispositivos, navegue até a página **Device Explorer** e escolha o filtro **todos os dispositivos** :
 
 [![Ver todos os dispositivos](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-expanded.png#lightbox)
 
@@ -103,7 +103,7 @@ No painel **Tarefas**, selecione **Etiqueta**, defina o nome da tarefa como **Ad
 
 ### <a name="create-filters"></a>Criar filtros
 
-Agora, pode utilizar os valores de etiqueta para criar filtros. Sobre o **Device Explorer** página, clique em **gerir grupos de dispositivos**:
+Agora, pode utilizar os valores de etiqueta para criar filtros. Na página **Device Explorer** , clique em **gerenciar grupos de dispositivos**:
 
 [![Gerir grupos de dispositivos](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-expanded.png#lightbox)
 
@@ -121,7 +121,7 @@ Agora, o operador da Contoso pode consultar dispositivos com base na equipa oper
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este tutorial mostrou como configurar e gerir os dispositivos ligados ao acelerador de soluções de Monitorização Remota. Para saber como utilizar o acelerador de soluções para efetuar uma análise da causa raiz num alerta inesperado, avance para o próximo tutorial.
 

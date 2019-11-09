@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: cb115b8658850fc85f93fc7a9508a82ecee920d8
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 2c6226fea5235d45b7a3e99d56da6b007f171f98
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166445"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890518"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Início rápido: enviar telemetria para um hub IoT do Azure e lê-lo com um aplicativo Java
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Java. Você precisa do Java SE 8 em seu computador de desenvolvimento.
 
-Você pode baixar Java SE Development Kit 8 para várias plataformas de [suporte a longo prazo Java para Azure e Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable). Certifique-se de selecionar **Java 8** em **suporte a longo prazo** para obter downloads para o JDK 8.
+Você pode baixar Java SE Development Kit 8 para várias plataformas de [suporte a longo prazo Java para Azure e Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Certifique-se de selecionar **Java 8** em **suporte a longo prazo** para obter downloads para o JDK 8.
 
 Pode verificar qual a versão atual do Java no seu computador de desenvolvimento através do seguinte comando:
 

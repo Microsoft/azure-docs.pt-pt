@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: cf4274931d83b51afb4a8ada7d1c9040ccce3c14
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7003e5b8574d2caa05bfe66e500b93db0c1cdcfa
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606839"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891629"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contentores de perfil FSLogix e ficheiros do Azure
 
@@ -78,7 +78,7 @@ Desde a aquisição, a Microsoft começou a substituir as soluções de perfil d
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Integração de arquivos do Azure com o serviço de domínio Azure Active Directory
 
-O desempenho e os recursos dos contêineres de perfil do FSLogix aproveitam a nuvem. Em 7 de agosto de 2019, os arquivos de Microsoft Azure anunciaram a disponibilidade geral da [autenticação de arquivos do Azure com o AD DS (serviço de domínio Azure Active Directory)](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-overview). Ao abordar o custo e a sobrecarga administrativa, os arquivos do Azure com a autenticação de AD DS do Azure são uma solução premium para perfis de usuário no serviço de área de trabalho virtual do Windows.
+O desempenho e os recursos dos contêineres de perfil do FSLogix aproveitam a nuvem. Em 7 de agosto de 2019, os arquivos de Microsoft Azure anunciaram a disponibilidade geral da [autenticação de arquivos do Azure com o AD DS (serviço de domínio Azure Active Directory)](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview). Ao abordar o custo e a sobrecarga administrativa, os arquivos do Azure com a autenticação de AD DS do Azure são uma solução premium para perfis de usuário no serviço de área de trabalho virtual do Windows.
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Práticas recomendadas para área de trabalho virtual do Windows
 

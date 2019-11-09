@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: f3006dd3f474dea1add1621f35f902422e244ce1
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 4f3f435110f0cba5ea2370f2900d4e7031904067
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161549"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890320"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Anexar ou desanexar uma galeria de imagens compartilhadas no Azure Lab Services
 Os professores/administradores de laboratório podem salvar uma imagem de VM de modelo em uma [Galeria de imagens compartilhada](../../virtual-machines/windows/shared-image-galleries.md) do Azure para que ela seja reutilizada por outras pessoas. Como uma primeira etapa, o administrador do laboratório anexa uma galeria de imagens compartilhada existente à conta do laboratório. Depois que a Galeria de imagens compartilhada é anexada, os laboratórios criados na conta de laboratório podem salvar imagens na Galeria de imagens compartilhadas. Outros professores podem selecionar essa imagem na Galeria de imagens compartilhadas para criar um modelo para suas classes. 
@@ -26,7 +26,7 @@ Os professores/administradores de laboratório podem salvar uma imagem de VM de 
 Este artigo mostra como anexar ou desanexar uma galeria de imagens compartilhadas a uma conta de laboratório. 
 
 > [!NOTE]
-> Quando uma imagem é salva em uma galeria de imagens compartilhada, Azure Lab Services Replica a imagem salva em outras regiões disponíveis na mesma [geografia](https://azure.microsoft.com/global-infrastructure/geographies/). Ele garante que a imagem esteja disponível para laboratórios criados em outras regiões na mesma geografia. Salvar imagens em uma galeria de imagens compartilhadas gera um custo adicional, o que inclui o custo de todas as imagens replicadas. Esse custo é separado do custo de uso de Azure Lab Services. Para obter mais informações sobre preços da Galeria de imagens compartilhadas, consulte [Galeria de imagens compartilhadas – cobrança]( https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries#billing).
+> Quando uma imagem é salva em uma galeria de imagens compartilhada, Azure Lab Services Replica a imagem salva em outras regiões disponíveis na mesma [geografia](https://azure.microsoft.com/global-infrastructure/geographies/). Ele garante que a imagem esteja disponível para laboratórios criados em outras regiões na mesma geografia. Salvar imagens em uma galeria de imagens compartilhadas gera um custo adicional, o que inclui o custo de todas as imagens replicadas. Esse custo é separado do custo de uso de Azure Lab Services. Para obter mais informações sobre preços da Galeria de imagens compartilhadas, consulte [Galeria de imagens compartilhadas – cobrança]( https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
 
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurar no momento da criação da conta do laboratório
@@ -42,8 +42,8 @@ Depois que a conta do laboratório for criada, você poderá executar as seguint
 - Desanexar uma galeria de imagens compartilhada da conta do laboratório
 
 ## <a name="create-and-attach-a-shared-image-gallery"></a>Criar e anexar uma galeria de imagens compartilhadas
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **todos os serviços** no menu à esquerda. Selecione **serviços de laboratório** na seção **DEVOPS** . Se você selecionar Star (`*`) ao lado de **serviços de laboratório**, ele será adicionado à seção **favoritos** no menu à esquerda. Da próxima vez em diante, selecione **serviços de laboratório** em **favoritos**.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+2. Selecione **todos os serviços** no menu à esquerda. Selecione **serviços de laboratório** na seção **DEVOPS** . Se você selecionar asterisco (`*`) ao lado de **serviços de laboratório**, ele será adicionado à seção **favoritos** no menu à esquerda. Da próxima vez em diante, selecione **serviços de laboratório** em **favoritos**.
 
     ![Todos os serviços-> Lab Services](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
 3. Selecione sua conta de laboratório para ver a página da **conta do laboratório** . 

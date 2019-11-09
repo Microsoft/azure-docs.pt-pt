@@ -185,7 +185,7 @@
         - name: Node.js
           items:
             - name: Documentação de Referência
-              href: 'https://docs.microsoft.com/en-us/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest'
+              href: 'https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest'
             - name: NPM
               href: 'https://www.npmjs.com/package/azure-cognitiveservices-qnamaker'
             - name: Amostras
@@ -193,7 +193,7 @@
         - name: Python
           items:
             - name: Documentação de Referência
-              href: 'https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python'
+              href: 'https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python'
             - name: Pip
               href: 'https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/'
             - name: Amostras

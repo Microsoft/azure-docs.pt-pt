@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 457154a797a4b6d9853b1effe0d8121053653a99
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: cd16ee87b213c2bfa4c541c4d3c453a4499855d0
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174770"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887738"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Estilos de mapa com suporte do Azure Maps
 O Azure Maps dá suporte a vários estilos de mapa internos diferentes, conforme descrito abaixo.
@@ -31,7 +31,7 @@ Um mapa de **estrada** é um mapa padrão que exibe estradas, recursos naturais 
 
 ## <a name="blank-and-blank_accessible"></a>em branco e blank_accessible
 
-Os estilos de mapa **em branco** e **blank_accessible** fornecem uma tela em branco na qual os dados são visualizados. O estilo **blank_accessible** continuará a fornecer atualizações de leitor de tela com detalhes de local de onde o mapa está localizado, mesmo que o mapa base não seja exibido.
+Os estilos de mapa **em branco** e de **blank_accessible** fornecem uma tela em branco na qual os dados são visualizados. O estilo de **blank_accessible** continuará a fornecer atualizações de leitor de tela com detalhes de local de onde o mapa está localizado, mesmo que o mapa base não seja exibido.
 
 > [!Note]
 > No SDK Web, você pode alterar a cor do plano de fundo do mapa definindo o estilo CSS `background-color` do elemento DIV do mapa.
@@ -103,4 +103,4 @@ o **alívio de estrada sombreado** é um estilo principal do Azure Maps concluí
 Saiba mais sobre como definir um estilo de mapa no Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Escolher um estilo de mapa](https://docs.microsoft.com/en-us/azure/azure-maps/choose-map-style)
+> [Escolher um estilo de mapa](https://docs.microsoft.com/azure/azure-maps/choose-map-style)

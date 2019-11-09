@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 853c186155fe5cff3dcf2907246920a43048f65d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 0e33d05450e19331d876029b07d520634a40ab31
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72600386"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884454"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-cloud-security"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Netskope Cloud Security
 
@@ -95,7 +95,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. O aplicativo Netskope Cloud Security espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-    ![imagem](common/default-attributes.png)
+    ![image](common/default-attributes.png)
 
 1. Além de acima, o aplicativo Netskope Cloud Security espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seus requisitos.
 
@@ -104,7 +104,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | função de administrador | User. assignedroles |
 
     > [!NOTE]
-    > Clique [aqui](https://docs.microsoft.com/en-gb/azure/active-directory/develop/active-directory-enterprise-app-role-management) para saber como criar funções no Azure AD.
+    > Clique [aqui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) para saber como criar funções no Azure AD.
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 

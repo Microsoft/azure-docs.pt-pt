@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: da68cfe504332ed6641c52322f0df0d2efd95997
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e06ac0c0647d9a9a6b5adee289b497f2fe94b222
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820675"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889378"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso aos recursos de rede virtual do Azure de aplicativos lógicos do Azure usando ambientes de serviço de integração (ISEs)
 
@@ -50,7 +50,7 @@ Os aplicativos lógicos em um ISE fornecem as mesmas experiências de usuário e
 
 * Armazenamento de BLOBs, armazenamento de arquivos e armazenamento de tabelas do Azure
 * Filas do Azure, barramento de serviço do Azure, hubs de eventos do Azure e IBM MQ
-* FTP e SFTP-SSH
+* Sistema de arquivos, FTP e SFTP-SSH
 * SQL Server, SQL Data Warehouse do Azure, Azure Cosmos DB
 * AS2, X12 e EDIFACT
 

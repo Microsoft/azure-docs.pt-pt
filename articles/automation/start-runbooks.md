@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a42ba0a385b73032e3d4045094bc88613016b849
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8200052e14161d91b7daef6a0acd9c851518d9c2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850332"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886495"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Iniciar um runbook na automação do Azure
 
@@ -22,10 +22,10 @@ A tabela a seguir ajuda a determinar o método para iniciar um runbook na automa
 
 | **Método** | **Características** |
 | --- | --- |
-| [Azure portal](#start-a-runbook-with-the-azure-portal) |<li>Método mais simples com interface do usuário interativa.<br> <li>Formulário para fornecer valores de parâmetro simples.<br> <li>Rastreie facilmente o estado do trabalho.<br> <li>Acesso autenticado com o Azure entrar. |
+| [Portal do Azure](#start-a-runbook-with-the-azure-portal) |<li>Método mais simples com interface do usuário interativa.<br> <li>Formulário para fornecer valores de parâmetro simples.<br> <li>Rastreie facilmente o estado do trabalho.<br> <li>Acesso autenticado com o Azure entrar. |
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Chame da linha de comando com cmdlets do Windows PowerShell.<br> <li>Pode ser incluído em uma solução automatizada com várias etapas.<br> <li>A solicitação é autenticada com certificado ou entidade de serviço/entidade de usuário OAuth.<br> <li>Forneça valores de parâmetro simples e complexos.<br> <li>Acompanhe o estado do trabalho.<br> <li>Cliente necessário para dar suporte a cmdlets do PowerShell. |
 | [API de automação do Azure](/rest/api/automation/) |<li>Método mais flexível, mas também mais complexo.<br> <li>Chame de qualquer código personalizado que possa fazer solicitações HTTP.<br> <li>Solicitação autenticada com certificado ou entidade de usuário/entidade de serviço OAuth.<br> <li>Forneça valores de parâmetro simples e complexos. *Se você estiver chamando um runbook do Python usando a API, a carga JSON deverá ser serializada.*<br> <li>Acompanhe o estado do trabalho. |
-| [Webhooks](automation-webhooks.md) |<li>Iniciar o runbook a partir de uma solicitação HTTP única.<br> <li>Autenticado com token de segurança na URL.<br> <li>O cliente não pode substituir os valores de parâmetro especificados quando o webhook foi criado. O runbook pode definir um único parâmetro que é populado com os detalhes da solicitação HTTP.<br> <li>Não é possível acompanhar o estado do trabalho por meio da URL do webhook. |
+| [WebHooks](automation-webhooks.md) |<li>Iniciar o runbook a partir de uma solicitação HTTP única.<br> <li>Autenticado com token de segurança na URL.<br> <li>O cliente não pode substituir os valores de parâmetro especificados quando o webhook foi criado. O runbook pode definir um único parâmetro que é populado com os detalhes da solicitação HTTP.<br> <li>Não é possível acompanhar o estado do trabalho por meio da URL do webhook. |
 | [Responder ao alerta do Azure](../log-analytics/log-analytics-alerts.md) |<li>Inicie um runbook em resposta ao alerta do Azure.<br> <li>Configure o webhook para o runbook e vincule ao alerta.<br> <li>Autenticado com token de segurança na URL. |
 | [Agenda](automation-schedules.md) |<li>Iniciar automaticamente o runbook em uma agenda de hora, diária, semanal ou mensal.<br> <li>Manipule o agendamento por meio de portal do Azure, cmdlets do PowerShell ou API do Azure.<br> <li>Forneça os valores de parâmetro a serem usados com o agendamento. |
 | [De outro runbook](automation-child-runbooks.md) |<li>Use um runbook como uma atividade em outro runbook.<br> <li>Útil para a funcionalidade usada por vários runbooks.<br> <li>Forneça valores de parâmetro para o runbook filho e use a saída no runbook pai. |
@@ -76,7 +76,7 @@ $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
 Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -ResourceGroupName "ResourceGroup01" –Parameters $params
 ```
 
-## <a name="runbook-parameters"></a>Parâmetros do Runbook
+## <a name="runbook-parameters"></a>Parâmetros de runbook
 
 Quando você inicia um runbook do portal do Azure ou do Windows PowerShell, a instrução é enviada por meio do serviço Web de automação do Azure. Este serviço não dá suporte a parâmetros com tipos de dados complexos. Se você precisar fornecer um valor para um parâmetro complexo, deverá chamá-lo embutido de outro runbook, conforme descrito em [Runbooks filho na automação do Azure](automation-child-runbooks.md).
 
@@ -157,7 +157,7 @@ Smith
 
 ### <a name="credentials"></a>Credenciais
 
-Se o parâmetro for do tipo de dados **PSCredential**, você poderá fornecer o nome de um [ativo](automation-credentials.md)de credencial de automação do Azure. O runbook recupera a credencial com o nome que você especificar.
+Se o parâmetro for do tipo de dados **PSCredential**, você poderá fornecer o nome de um [ativo de credencial](automation-credentials.md)de automação do Azure. O runbook recupera a credencial com o nome que você especificar.
 
 Considere o seguinte runbook de teste que aceita um parâmetro chamado Credential.
 
@@ -187,4 +187,4 @@ jsmith
 
 * A arquitetura de runbook no artigo atual fornece uma visão geral de alto nível dos runbooks que gerenciam recursos no Azure e no local com o Hybrid Runbook Worker. Para saber mais sobre como executar runbooks de automação em seu datacenter, consulte [Hybrid runbook Workers](automation-hybrid-runbook-worker.md).
 * Para saber mais sobre a criação de runbooks modulares a serem usados por outros runbooks para funções específicas ou comuns, consulte [Runbooks filho](automation-child-runbooks.md).
-* Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](https://docs.microsoft.com/powershell/scripting/overview).

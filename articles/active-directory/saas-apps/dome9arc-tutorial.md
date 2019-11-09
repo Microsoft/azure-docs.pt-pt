@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f0669a474c24647e71eae8b5e0e0830b7c0bef
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: b46ac34db21576c7e2de2271a468e3e782ff6aa9
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533092"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885358"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Arc do Check Point CloudGuard Dome9
 
@@ -98,7 +98,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. O aplicativo Check Point CloudGuard Dome9 Arc espera que as asserções SAML estejam em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-    ![imagem](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 1. Além de acima, o aplicativo de arco do Check Point CloudGuard Dome9 espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seu requisito.
     
@@ -107,7 +107,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | memberOf | User. assignedroles |
 
     >[!NOTE]
-    >Clique [aqui](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/apptio-tutorial) para saber como criar funções no Azure AD.
+    >Clique [aqui](https://docs.microsoft.com/azure/active-directory/saas-apps/apptio-tutorial) para saber como criar funções no Azure AD.
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 

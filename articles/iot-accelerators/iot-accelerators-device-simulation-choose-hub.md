@@ -1,6 +1,6 @@
 ---
-title: Utilizar um hub IoT com a solução de simulação do dispositivo - Azure | Documentos da Microsoft
-description: Este artigo descreve como configurar o acelerador de solução de simulação do dispositivo para utilizar um IoT Hub.
+title: Usar o Hub IoT existente com a solução de simulação de dispositivo – Azure | Microsoft Docs
+description: Este artigo descreve como configurar o acelerador de solução de simulação de dispositivo para usar um hub IoT existente.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,35 +8,35 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 38cde750ce07741a433baa1b8607a584f94ad9b1
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 1f89e23d7bb279e7cce5c104060cc7898517f8b7
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203958"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889187"
 ---
-# <a name="use-an-existing-iot-hub-with-the-device-simulation-solution-accelerator"></a>Utilizar um hub IoT com o solution accelerator de simulação do dispositivo
+# <a name="use-an-existing-iot-hub-with-the-device-simulation-solution-accelerator"></a>Usar um hub IoT existente com o acelerador de solução de simulação de dispositivo
 
-Ao implementar simulação do dispositivo, também pode optar por implementar um hub IoT para utilizar na simulação. Esta opção implementa uma [hub de IoT do escalão S2 com uma unidade de escala único](../iot-hub/iot-hub-scaling.md). Se implementar este hub IoT opcional, ainda pode optar por outro IoT Hub para uma execução de simulação de destino.
+Ao implantar a simulação de dispositivo, você também pode optar por implantar um hub IoT para usar em sua simulação. Essa opção implanta um [Hub IOT de camada S2 com uma única unidade de escala](../iot-hub/iot-hub-scaling.md). Se você implantar esse Hub IoT opcional, ainda poderá optar por direcionar outro hub IoT para uma execução de simulação.
 
-Se optar por não implementar o IoT Hub opcional, tem de utilizar o seu próprio hub para qualquer simulações executar.
+Se optar por não implantar o Hub IoT opcional, você deverá usar seu próprio Hub para as simulações executadas.
 
-Se não tiver um hub IoT, pode sempre criar uma nova a partir da [portal do Azure](https://portal.azure.com).
+Se você não tiver um hub IoT, sempre poderá criar um novo no [portal do Azure](https://portal.azure.com).
 
-Para utilizar um hub IoT já existente, tem da cadeia de ligação para o **iothubowner** partilhado a política de acesso. Pode obter esta cadeia de ligação a partir da [portal do Azure](https://portal.azure.com):
+Para usar um hub IoT já existente, você precisa da cadeia de conexão para a política de acesso compartilhado **iothubowner** . Você pode obter essa cadeia de conexão do [portal do Azure](https://portal.azure.com):
 
-1. Na página de configuração do hub no portal, clique em **políticas de acesso partilhado**.
+1. Na página de configuração do Hub, no portal, clique em **políticas de acesso compartilhado**.
 
 1. Clique em **iothubowner**.
 
-1. Copie a cadeia de ligação primária ou secundária.
+1. Copie a cadeia de conexão primária ou secundária.
 
-[![Obter cadeia de ligação](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-inline.png)](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-expanded.png#lightbox)
+[![obter cadeia de conexão](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-inline.png)](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-expanded.png#lightbox)
 
-Utilize a cadeia de ligação que copiou quando configurar a simulação:
+Use a cadeia de conexão que você copiou ao configurar a simulação:
 
-![Configurar a simulação](./media/iot-accelerators-device-simulation-choose-hub/configuresimulation.png)
+![Configurar simulação](./media/iot-accelerators-device-simulation-choose-hub/configuresimulation.png)
 
-### <a name="next-steps"></a>Passos Seguintes
+### <a name="next-steps"></a>Passos seguintes
 
-Este guia de procedimentos, aprendeu a utilizar o hub IoT existente numa simulação. Em seguida, pode querer saber como [criar um modelo de dispositivo avançados](iot-accelerators-device-simulation-advanced-device.md) para uma simulação.
+Neste guia de instruções, você aprendeu a usar um hub IoT existente em uma simulação. Em seguida, talvez você queira aprender a [criar um modelo de dispositivo avançado](iot-accelerators-device-simulation-advanced-device.md) para uma simulação.

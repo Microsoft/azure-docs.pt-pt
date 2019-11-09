@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: Revise e teste alterações de uma solicitação pull diretamente no serviço kubernetes do Azure usando ações e Azure Dev Spaces do GitHub.
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, ações do GitHub, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 590d49f4c189ff48f20369d18b17e0f6e4a46fa2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 09dc9440628ac5d808f90d086bd88e4f90765c28
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571595"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889739"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Ações do GitHub & serviço kubernetes do Azure (versão prévia)
 
@@ -145,7 +145,7 @@ Use `git push` para enviar por push seu novo Branch para o repositório bifurcad
 git push origin bike-images
 ```
 
-Depois que o envio por push for concluído, navegue até o repositório bifurcado no GitHub criar uma solicitação de pull com o *dev* no repositório bifurcado como a ramificação de base em comparação com a ramificação de *imagens de bicicletas* .
+Depois que o envio por push for concluído, navegue até o repositório bifurcado no GitHub para criar uma solicitação de pull com a Branch *mestre* no repositório bifurcado como a ramificação de base em comparação com a ramificação de *imagens de bicicletas* .
 
 Depois que sua solicitação de pull for aberta, navegue até a guia *ações* . Verifique se uma nova ação foi iniciada e se está criando o serviço *bicicletas* .
 
@@ -158,7 +158,7 @@ Depois que a ação for concluída, você verá um comentário com uma URL para 
 
 Navegue até o serviço *bikesharingweb* abrindo a URL do comentário. Selecione *Aurelia Briggs (cliente)* como o usuário e, em seguida, selecione uma bicicleta para alugar. Verifique se você não vê mais a imagem de espaço reservado para a bicicleta.
 
-Se você mesclar suas alterações na ramificação de *desenvolvimento* , outra ação será executada para recompilar e executar todo o aplicativo no espaço de desenvolvimento pai. Neste exemplo, o espaço pai é *dev*. Essa ação está configurada em [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
+Se você mesclar suas alterações no Branch *mestre* na bifurcação, outra ação será executada para recompilar e executar todo o aplicativo no espaço de desenvolvimento pai. Neste exemplo, o espaço pai é *dev*. Essa ação está configurada em [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
 ## <a name="clean-up-your-azure-resources"></a>Limpar os recursos do Azure
 

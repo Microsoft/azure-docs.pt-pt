@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 34759077bd7223d17fea70d32bda63fd1b2595eb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4e55932d47389e09b135d571d0e000b9795e6edc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668128"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884953"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede Azure Functions
 
@@ -86,7 +86,7 @@ Independentemente da versão usada, a integração de rede virtual dá ao seu ap
 O recurso de integração de rede virtual:
 
 * Requer um plano do serviço de aplicativo Standard, Premium ou PremiumV2
-* dá suporte a TCP e UDP
+* Dá suporte a TCP e UDP
 * Funciona com aplicativos do serviço de aplicativo e aplicativos de funções
 
 Há algumas coisas para as quais a integração de rede virtual não dá suporte, incluindo:
@@ -116,6 +116,12 @@ Para fornecer um nível mais alto de segurança, você pode restringir vários s
 Ao criar um aplicativo de funções, você deve criar ou vincular a uma conta de armazenamento do Azure de uso geral que dá suporte ao armazenamento de BLOBs, filas e tabelas. No momento, não é possível usar nenhuma restrição de rede virtual nesta conta. Se você configurar um ponto de extremidade de serviço de rede virtual na conta de armazenamento que você está usando para seu aplicativo de funções, isso interromperá seu aplicativo.
 
 [Saiba mais sobre os requisitos da conta de armazenamento.](./functions-create-function-app-portal.md#storage-account-requirements)
+
+### <a name="using-key-vault-references"></a>Usando referências de Key Vault 
+
+Key Vault referências permitem que você use segredos de Azure Key Vault em seu aplicativo Azure Functions sem a necessidade de nenhuma alteração de código. Azure Key Vault é um serviço que fornece gerenciamento de segredos centralizado, com controle total sobre políticas de acesso e histórico de auditoria.
+
+No momento, [Key Vault referências](../app-service/app-service-key-vault-references.md) não funcionarão se o Key Vault estiver protegido com pontos de extremidade de serviço. Para se conectar a um Key Vault usando a integração de rede virtual, você precisará chamar o Key Vault no código do aplicativo.
 
 ## <a name="virtual-network-triggers-non-http"></a>Gatilhos de rede virtual (não HTTP)
 

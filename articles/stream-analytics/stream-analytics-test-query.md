@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c67d511f6c94c8b9af034835e149875304e2235
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: d68c1ee084efc146d69d8404aadb8acbb4cc33d1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918973"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891759"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Testar um trabalho de Azure Stream Analytics com dados de exemplo
 
-No Azure Stream Analytics, você pode testar sua consulta sem iniciar ou parar seu trabalho. Você pode testar consultas em dados de entrada de seu coletor de entrada ou carregar dados de exemplo de um arquivo local no portal do Azure. Você também pode testar as consultas localmente de seus dados de exemplo locais ou dados dinâmicos no [Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-live-data-local-testing) e [Visual Studio Code](https://docs.microsoft.com/en-us/azure/stream-analytics/vscode-local-run). 
+No Azure Stream Analytics, você pode testar sua consulta sem iniciar ou parar seu trabalho. Você pode testar consultas em dados de entrada de seu coletor de entrada ou carregar dados de exemplo de um arquivo local no portal do Azure. Você também pode testar as consultas localmente de seus dados de exemplo locais ou dados dinâmicos no [Visual Studio](stream-analytics-live-data-local-testing.md) e [Visual Studio Code](vscode-local-run.md). 
 
 ## <a name="sample-incoming-data-from-input"></a>Exemplo de dados de entrada de entrada
 
@@ -74,7 +74,7 @@ Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo 
 
 1. Inicie sessão no Portal do Azure.
    
-2. Localize a tarefa de Stream Analytics existente e selecioná-lo.
+2. Localize o trabalho de Stream Analytics existente e selecione-o.
 
 3. Na página Stream Analytics trabalho, no cabeçalho **topologia do trabalho** , selecione **consulta** para abrir a janela do editor de consultas.
 
@@ -98,7 +98,7 @@ Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo 
 
 10. Depois de verificar os resultados mostrados no navegador, você pode **Iniciar** o trabalho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 
@@ -106,4 +106,4 @@ Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo 
 
 * [Entender as entradas para Azure Stream Analytics](stream-analytics-add-inputs.md)
 
-* [Compreender as saídas do Azure Stream Analytics](stream-analytics-define-outputs.md)
+* [Entender as saídas de Azure Stream Analytics](stream-analytics-define-outputs.md)

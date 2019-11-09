@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: fa3cd84978119a5858e63712b4d22c2ea89ea528
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8f6fb9737d3d8dad93a95f31d566f7cc4706ded3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470912"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886055"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Linux para o serviço Azure App
 
@@ -86,7 +86,7 @@ Durante o intervalo de 30 segundos, você pode validar se a gravação está oco
 
 #### <a name="continuous-recording"></a>Gravação contínua
 
-Você pode usar o gravador de vôo Zulu para criar o perfil de seu aplicativo Java com impacto mínimo sobre o desempenho do tempo de execução ([origem](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). Para fazer isso, execute o seguinte comando CLI do Azure para criar uma configuração de aplicativo chamada JAVA_OPTS com a configuração necessária. O conteúdo da configuração do aplicativo JAVA_OPTS é passado para o comando `java` quando seu aplicativo é iniciado.
+Você pode usar o gravador de vôo Zulu para criar o perfil de seu aplicativo Java com impacto mínimo sobre o desempenho do tempo de execução ([origem](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). Para fazer isso, execute o seguinte comando CLI do Azure para criar uma configuração de aplicativo chamada JAVA_OPTS com a configuração necessária. O conteúdo da configuração JAVA_OPTS aplicativo é passado para o comando `java` quando seu aplicativo é iniciado.
 
 ```azurecli
 az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
@@ -238,6 +238,24 @@ O [Azure keyvault](../../key-vault/key-vault-overview.md) fornece gerenciamento 
 Primeiro, siga as instruções para [conceder acesso ao aplicativo para Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) e [fazer uma referência de keyvault para seu segredo em uma configuração de aplicativo](../app-service-key-vault-references.md#reference-syntax). Você pode validar que a referência seja resolvida para o segredo imprimindo a variável de ambiente ao acessar remotamente o terminal do serviço de aplicativo.
 
 Para injetar esses segredos em seu arquivo de configuração Spring ou Tomcat, use a sintaxe de injeção de variável de ambiente (`${MY_ENV_VAR}`). Para arquivos de configuração do Spring, consulte esta documentação sobre [configurações externas](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
+
+## <a name="using-the-java-key-store"></a>Usando o repositório de chaves Java
+
+Por padrão, todos os certificados públicos ou privados [carregados no serviço de aplicativo Linux](../configure-ssl-certificate.md) serão carregados no repositório de chaves Java à medida que o contêiner for iniciado. Isso significa que os certificados carregados estarão disponíveis no contexto de conexão ao fazer conexões TLS de saída.
+
+Você pode interagir ou depurar a ferramenta de chave do Java [abrindo uma conexão SSH](app-service-linux-ssh-support.md) para o serviço de aplicativo e executando o comando `keytool`. Consulte a [documentação da ferramenta de chave](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) para obter uma lista de comandos. Os certificados são armazenados no local do arquivo de keystore padrão do Java, `$JAVA_HOME/jre/lib/security/cacerts`.
+
+A configuração adicional pode ser necessária para criptografar sua conexão JDBC. Consulte a documentação para o driver JDBC escolhido.
+
+- [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
+- [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
+- [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+
+### <a name="manually-initialize-and-load-the-key-store"></a>Inicializar e carregar manualmente o repositório de chaves
+
+Você pode inicializar o repositório de chaves e adicionar certificados manualmente. Crie uma configuração de aplicativo, `SKIP_JAVA_KEYSTORE_LOAD`, com um valor de `1` para desabilitar o serviço de aplicativo de carregar os certificados no repositório de chaves automaticamente. Todos os certificados públicos carregados no serviço de aplicativo por meio do portal do Azure são armazenados em `/var/ssl/certs/`. Os certificados privados são armazenados em `/var/ssl/private/`.
+
+Para obter mais informações sobre a API do keystore, consulte [a documentação oficial](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
 
 ## <a name="configure-apm-platforms"></a>Configurar plataformas APM
 

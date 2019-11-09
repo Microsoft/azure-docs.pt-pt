@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: 866faa560a9ffbc08bf171951b6e1456cabe5a3d
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: 10b5ce57f0ea2d789ea65dfc1f6e2d2181e0f276
+  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72935248"
+  ms.lasthandoff: 11/09/2019
+  ms.locfileid: "73889568"
 highlightedContent:
   items:
   - title: O que é o IoT do Azure?
@@ -26,7 +26,7 @@ highlightedContent:
     url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
   - title: Procurar exemplos de código do Azure IoT
     itemType: overview
-    url: https://docs.microsoft.com/en-us/samples/browse/?term=iot
+    url: https://docs.microsoft.com/samples/browse/?term=iot
   - title: Proteger a sua implementação do Azure IoT
     itemType: concept
     url: ../iot-fundamentals/security-recommendations.md
@@ -35,7 +35,7 @@ highlightedContent:
     url: https://docs.microsoft.com/azure/architecture/reference-architectures/iot/
   - title: Azure IoT no Microsoft Learn
     itemType: learn
-    url: https://docs.microsoft.com/en-us/learn/browse/?products=azure&term=iot
+    url: https://docs.microsoft.com/learn/browse/?products=azure&term=iot
 conceptualContent:
   title: Começar a criar a sua solução de IoT
   summary: O Azure IoT oferece plataformas de IoT de cloud e de margem, bem como soluções de IoT totalmente geridas
@@ -158,16 +158,16 @@ tools:
   items:
   - title: Referência de SDK do Azure IoT para C
     imageSrc: https://docs.microsoft.com/media/logos/logo_c.svg
-    url: https://docs.microsoft.com/en-us/azure/iot-hub/iot-c-sdk-ref/
+    url: https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/
   - title: SDK do Azure IoT para Python (Pré-visualização)
     imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
     url: https://github.com/Azure/azure-iot-sdk-python
   - title: Referência de SDK do Azure IoT para Node.js
     imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
-    url: https://docs.microsoft.com/en-us/javascript/api/overview/azure/iot-hub?view=azure-node-latest
+    url: https://docs.microsoft.com/javascript/api/overview/azure/iot-hub?view=azure-node-latest
   - title: Referência de SDK do Azure IoT para Java
     imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-    url: https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.sdk.iot.service?view=azure-java-stable
+    url: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service?view=azure-java-stable
   - title: Referência de SDK do Azure IoT para .NET
     imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
-    url: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/iot?view=azure-dotnet
+    url: https://docs.microsoft.com/dotnet/api/overview/azure/iot?view=azure-dotnet

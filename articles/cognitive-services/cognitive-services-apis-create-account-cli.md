@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: 8ca994b0b4abb27eef284eedf5a76571fe19699d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d715252f16a34f2261c108ebd3ff5d1f6f3424d8
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595321"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887922"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Criar um recurso de serviços cognitivas usando a CLI (interface de linha de comando) do Azure
 
@@ -95,7 +95,7 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 | Reconhecedor de Formato            | `FormRecognizer`          |
 | Reconhecedor de Tinta Digital             | `InkRecognizer`           |
 
-### <a name="search"></a>Procurar
+### <a name="search"></a>Pesquisa
 
 | Serviço            | quase                  |
 |--------------------|-----------------------|
@@ -103,16 +103,16 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 | Pesquisa Personalizada do Bing | `Bing.CustomSearch`   |
 | Pesquisa de Entidades do Bing | `Bing.EntitySearch`   |
 | Pesquisa do Bing        | `Bing.Search.v7`      |
-| Verificação de Ortografia do Bing   | `Bing.SpellCheck.v7`  |
+| Verificação Ortográfica do Bing   | `Bing.SpellCheck.v7`  |
 
 ### <a name="speech"></a>Voz
 
 | Serviço            | quase                 |
 |--------------------|----------------------|
 | Serviços de Voz    | `SpeechServices`     |
-| Reconhecimento de voz | `SpeakerRecognition` |
+| Reconhecimento de Voz | `SpeakerRecognition` |
 
-### <a name="language"></a>Linguagem
+### <a name="language"></a>Idioma
 
 | Serviço            | quase                |
 |--------------------|---------------------|
@@ -179,7 +179,7 @@ Os tipos de preço (e o valor que você recebe é cobrado) baseiam-se no número
 
 ## <a name="get-current-quota-usage-for-your-resource"></a>Obter o uso de cota atual para seu recurso
 
-Use o comando [AZ cognitivaservices Account List-Usage](https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) para obter o uso de seu recurso de serviço cognitiva.
+Use o comando [AZ cognitivaservices Account List-Usage](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) para obter o uso de seu recurso de serviço cognitiva.
 
 ```azurecli-interactive
 az cognitiveservices account list-usage \
@@ -198,7 +198,7 @@ Para remover o grupo de recursos e seus recursos associados, use o comando AZ Gr
 az group delete --name storage-resource-group
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consultar também
 
 * [Autenticar solicitações para serviços cognitivas do Azure](authentication.md)
 * [O que são os serviços cognitivas do Azure?](Welcome.md)

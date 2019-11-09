@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 9c9dcd567b8632626bf4b1f0bf2ef6b5e69b8a9d
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 245ac3b1fd88b8d2430e9ddefef3562efd16e6d1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530449"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885388"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalar e usar o İSTİO no serviço kubernetes do Azure (AKS)
 
@@ -21,9 +21,9 @@ O [İSTİO][istio-github] é uma malha de serviço de software livre que fornece
 Este artigo mostra como instalar o İSTİO. O binário do İSTİO `istioctl` Client é instalado no computador cliente e os componentes do İSTİO são instalados em um cluster kubernetes no AKS.
 
 > [!NOTE]
-> Estas instruções fazem referência à versão do İSTİO `1.3.2` e usam pelo menos a versão do Helm `2.14.2`.
+> Estas instruções fazem referência à versão do İSTİO `1.3.2`e usam pelo menos a versão do Helm `2.14.2`.
 >
-> As versões de `1.3.x` do İSTİO foram testadas pela equipe do İSTİO em relação às versões do kubernetes `1.13`, `1.14` `1.15`. Você pode encontrar versões adicionais do İSTİO em [versões do GitHub-İSTİO][istio-github-releases], informações sobre cada uma das versões em [İSTİO News][istio-release-notes] e versões de kubernetes com suporte em [perguntas frequentes][istio-faq]sobre o İSTİO.
+> As versões de `1.3.x` do İSTİO foram testadas pela equipe do İSTİO em relação às versões do kubernetes `1.13`, `1.14``1.15`. Você pode encontrar versões adicionais do İSTİO em [versões do GitHub-İSTİO][istio-github-releases], informações sobre cada uma das versões em [İSTİO News][istio-release-notes] e versões de kubernetes com suporte em [perguntas frequentes][istio-faq]sobre o İSTİO.
 
 Neste artigo, vai aprender a:
 
@@ -195,7 +195,7 @@ kubectl get svc --namespace istio-system --output wide
 A saída de exemplo a seguir mostra os serviços que agora devem estar em execução:
 
 - serviços `istio-*`s
-- `jaeger-*`, `tracing` e `zipkin` serviços de rastreamento de complemento
+- `jaeger-*`, `tracing`e `zipkin` serviços de rastreamento de complemento
 - `prometheus` serviço de métricas complementares
 - `grafana` o serviço de painel de análise e monitoramento do complemento
 - serviço de painel de malha do serviço de `kiali` complementar
@@ -383,7 +383,7 @@ Para saber como monitorar seu aplicativo AKS usando o Application Insights e o �
 [kubernetes-crd]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions
 [kubernetes-jobs]: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
 [kubernetes-secrets]: https://kubernetes.io/docs/concepts/configuration/secret/
-[kubernetes-node-selectors]: https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#node-selectors
+[kubernetes-node-selectors]: https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#node-selectors
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-port-forward]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward

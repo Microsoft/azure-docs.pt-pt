@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8a783581394de05fff9f0060e124e8dc59c96b60
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 8fa20608f09b4e3006dad685d2fc52bcc9207b5a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790175"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890151"
 ---
 # <a name="working-with-skillsets-in-azure-cognitive-search"></a>Trabalhando com habilidades no Azure Pesquisa Cognitiva
 
@@ -32,7 +32,7 @@ Um qualificable tem três propriedades:
 
 
 
-Habilidades são criados em JSON. Você pode criar habilidades complexas com loop e [ramificação](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-conditional) usando a [linguagem de expressão](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). A linguagem de expressão usa a notação de caminho de [ponteiro JSON](https://tools.ietf.org/html/rfc6901) com algumas modificações para identificar nós na árvore de enriquecimento. Um ```"/"``` percorre um nível inferior na árvore e ```"*"``` atua como um operador for-each no contexto. Esses conceitos são mais bem descritos com um exemplo. Para ilustrar alguns dos conceitos e funcionalidades, veremos o Skill [Reviews Sample](knowledge-store-connect-powerbi.md) Configurations. Para exibir o configurador de conhecimentos depois de seguir o fluxo de trabalho importar dados, você precisará usar um cliente da API REST para obter o configurador [de habilidades](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset).
+Habilidades são criados em JSON. Você pode criar habilidades complexas com loop e [ramificação](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional) usando a [linguagem de expressão](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). A linguagem de expressão usa a notação de caminho de [ponteiro JSON](https://tools.ietf.org/html/rfc6901) com algumas modificações para identificar nós na árvore de enriquecimento. Um ```"/"``` percorre um nível inferior na árvore e ```"*"``` atua como um operador for-each no contexto. Esses conceitos são mais bem descritos com um exemplo. Para ilustrar alguns dos conceitos e funcionalidades, veremos o Skill [Reviews Sample](knowledge-store-connect-powerbi.md) Configurations. Para exibir o configurador de conhecimentos depois de seguir o fluxo de trabalho importar dados, você precisará usar um cliente da API REST para obter o configurador [de habilidades](https://docs.microsoft.com/rest/api/searchservice/get-skillset).
 
 ### <a name="enrichment-tree"></a>Árvore de enriquecimento
 
@@ -43,14 +43,14 @@ Quando um documento está no pipeline de enriquecimento, ele é representado com
 
 |Modo de Source\Parsing de dados|Predefinição|JSON, linhas JSON & CSV|
 |---|---|---|
-|Armazenamento de Blobs|/document/content<br>/document/normalized_images/*<br>...|/document/{key1}<br>/document/{key2}<br>...|
-|SQL|/document/{column1}<br>/document/{column2}<br>...|N/A |
-|Cosmos DB|/document/{key1}<br>/document/{key2}<br>...|N/A|
+|Blob Storage|/document/content<br>/Document/normalized_images/*<br>...|/document/{key1}<br>/document/{key2}<br>...|
+|SQL|/document/{column1}<br>/document/{column2}<br>...|N/D |
+|BD do Cosmos|/document/{key1}<br>/document/{key2}<br>...|N/D|
 
  À medida que as habilidades são executadas, elas adicionam novos nós à árvore de enriquecimento. Esses novos nós podem ser usados como entradas para habilidades de downstream, projeção para a loja de conhecimento ou mapeamento para campos de índice. Os aprimoramentos não são mutáveis: uma vez criados, os nós não podem ser editados. À medida que seu habilidades se tornar mais complexo, sua árvore de enriquecimento, mas nem todos os nós na árvore de enriquecimento precisarão fazê-lo no índice ou na loja de conhecimento. Você pode persistir seletivamente apenas um subconjunto dos aprimoramentos no índice ou na loja de conhecimento.
 
 Você pode persistir seletivamente apenas um subconjunto dos aprimoramentos no índice ou na loja de conhecimento.
-No restante deste documento, vamos pressupor que estamos trabalhando com o [exemplo de revisões de Hotel](https://docs.microsoft.com/en-us/azure/search/knowledge-store-connect-powerbi), mas os mesmos conceitos se aplicam a documentos aprimorados de todas as outras fontes de dados.
+No restante deste documento, vamos pressupor que estamos trabalhando com o [exemplo de revisões de Hotel](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi), mas os mesmos conceitos se aplicam a documentos aprimorados de todas as outras fontes de dados.
 
 ### <a name="context"></a>Contexto
 Cada habilidade requer um contexto. Um contexto determina:

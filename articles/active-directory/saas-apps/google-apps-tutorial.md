@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 540dbc3605cfddc9b8d83eceeae8407848f1a91e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 66d8e13a4e042146ef2b99728e41e14f1dcb3435
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175992"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885365"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-g-suite"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o G Suite
 
@@ -154,7 +154,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Seu aplicativo G Suite espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra um exemplo disso. O valor padrão do **identificador de usuário exclusivo** é **User. UserPrincipalName** , mas G Suite espera que isso seja mapeado com o endereço de email do usuário. Para o, você pode usar o atributo **User. mail** da lista ou usar o valor de atributo apropriado com base na configuração da sua organização.
 
-    ![imagem](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 1. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML, conforme mostrado na imagem acima, e execute as seguintes etapas:
 
@@ -164,9 +164,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     a. Clique em **Adicionar nova declaração** para abrir a caixa de diálogo **gerenciar declarações do usuário** .
 
-    ![imagem](common/new-save-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![imagem](common/new-attribute-details.png)
+    ![image](common/new-attribute-details.png)
 
     b. Na caixa de texto **nome** , digite o nome do atributo mostrado para essa linha.
 
@@ -252,7 +252,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 O objetivo desta seção é [criar um usuário no G Suite](https://support.google.com/a/answer/33310?hl=en) chamado B. Simon. Depois que o usuário tiver sido criado manualmente no G Suite, o usuário poderá entrar usando suas credenciais de logon do Office 365.
 
-O G Suite também dá suporte ao provisionamento automático de usuários. Para configurar o provisionamento automático de usuário, primeiro você deve [Configurar o G Suite para o provisionamento automático de usuário](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
+O G Suite também dá suporte ao provisionamento automático de usuários. Para configurar o provisionamento automático de usuário, primeiro você deve [Configurar o G Suite para o provisionamento automático de usuário](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
 
 > [!NOTE]
 > Verifique se o usuário já existe no G Suite se o provisionamento no Azure AD não foi ativado antes de testar o logon único.

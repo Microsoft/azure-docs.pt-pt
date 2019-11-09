@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 5c2ecd5a53bb77193469ba1135c46d9b5fa65b2c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8b7e50fdc02ab47c50cecb95073f1b51393db898
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202976"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885636"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>Proteção de segurança em hosts de máquina virtual AKS 
 
@@ -30,7 +30,7 @@ O objetivo do sistema operacional de host protegido por segurança é reduzir a 
 
 * O AKS fornece um sistema operacional de host otimizado para segurança por padrão. Não há nenhuma opção atual para selecionar um sistema operacional alternativo. 
 
-* O Azure aplica patches diários (incluindo patches de segurança) a hosts de máquina virtual AKS. Alguns desses patches exigirão uma reinicialização, enquanto outros não vão. Você é responsável por agendar reinicializações de host de VM AKS conforme necessário. Para obter orientação sobre como automatizar a aplicação de patches do AKS, consulte [patching AKs Nodes](https://docs.microsoft.com/en-us/azure/aks/node-updates-kured).
+* O Azure aplica patches diários (incluindo patches de segurança) a hosts de máquina virtual AKS. Alguns desses patches exigirão uma reinicialização, enquanto outros não vão. Você é responsável por agendar reinicializações de host de VM AKS conforme necessário. Para obter orientação sobre como automatizar a aplicação de patches do AKS, consulte [patching AKs Nodes](https://docs.microsoft.com/azure/aks/node-updates-kured).
 
 Veja abaixo um resumo do trabalho de proteção de imagem que é implementado no AKS para produzir o sistema operacional de host otimizado para segurança. O trabalho foi implementado [neste projeto do GitHub](https://github.com/Azure/aks-engine/projects/7).  
 
@@ -57,7 +57,7 @@ O AKS-Engine não promove ou adere a nenhum padrão de segurança específico no
 |3.2.3 |Verifique se os redirecionamentos ICMP seguros não são aceitos |
 |3.2.4 |Garantir que os pacotes suspeitos sejam registrados |
 |3.3.1 |Verifique se os anúncios do roteador IPv6 não são aceitos |
-|3.5.1 |Verifique se o DCCP está desabilitado |
+|3.0 |Verifique se o DCCP está desabilitado |
 |3.5.2 |Verifique se SCTP está desabilitado |
 |3.5.3 |Garantir que o RDS esteja desabilitado |
 |3.5.4 |Verifique se o TIPC está desabilitado |
@@ -75,7 +75,7 @@ O AKS-Engine não promove ou adere a nenhum padrão de segurança específico no
 |5.4.1.1 |Garantir que a expiração da senha seja de 90 dias ou menos |
 |5.4.1.4 |Garantir que o bloqueio de senha inativo seja de 30 dias ou menos |
 |5.4.4 |Garantir que o usuário padrão umask seja 027 ou mais restritivo |
-|5.6 |Verifique se o acesso ao comando su está restrito|
+|5,6 |Verifique se o acesso ao comando su está restrito|
 
 ## <a name="additional-notes"></a>Notas adicionais
  
@@ -87,7 +87,7 @@ O AKS-Engine não promove ou adere a nenhum padrão de segurança específico no
 
 Consulte os artigos a seguir para obter mais informações sobre a segurança do AKS: 
 
-[Serviço Kubernetes do Azure (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+[Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
 
 [Considerações de segurança do AKS](https://docs.microsoft.com/azure/aks/concepts-security)
 

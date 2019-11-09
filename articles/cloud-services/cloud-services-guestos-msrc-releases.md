@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/1/2019
 ms.author: raiye
-ms.openlocfilehash: e1d27563d2181a8e094e00295f9506d88e694513
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 22e833a1d555057c7e6a2ce46e7a1bb136260851
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500256"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888312"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Response Center) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao sistema operacional convidado que você está usando. As atualizações sempre são postergadas para a [família][family-explain] específica em que foram introduzidas.
@@ -64,11 +64,11 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 [4512574]: https://support.microsoft.com/kb/4512574
 [4512577]: https://support.microsoft.com/kb/4512577
 
-[6,12]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5,36]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4,71]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3,78]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2,91]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6,12]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5,36]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4,71]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3,78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2,91]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="september-2019-guest-os"></a>SO convidado de setembro de 2019
@@ -106,11 +106,11 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 [4512488]: https://support.microsoft.com/kb/4512488
 [4512518]: https://support.microsoft.com/kb/4512518
 [4512506]: https://support.microsoft.com/kb/4512506
-[6,11]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5,35]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4,70]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3,77]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2,90]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6,11]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5,35]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4,70]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3,77]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2,90]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="august-2019-guest-os"></a>SO convidado de agosto de 2019
@@ -163,11 +163,11 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 [4507001]: https://support.microsoft.com/kb/4507001
 [4507704]: https://support.microsoft.com/kb/4507704
 
-[6,1]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5,34]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4,69]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3,76]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2,89]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6,1]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5,34]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4,69]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3,76]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2,89]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="july-2019-guest-os"></a>SO convidado de julho de 2019
@@ -187,11 +187,11 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 |  Rel 19-07   |  [4507460]  |  Segurança do Windows   |  5,33  |  9 de julho de 2019  |
 |  Rel 19-07   |  [4506998]  |  Segurança do .NET 3,5 & 4.7.2   |  6,9  |  9 de julho de 2019  |
 |  Rel 19-07   |  [4507469]  |  Segurança do Windows   |  6,9  |  9 de julho de 2019  |
-|  N/A  |  [4503537]  |  Atualização da pilha de manutenção de 19 de junho para (servidor 2016)   |  5,33  |  14 de maio de 2019  |
-|  N/A  |  [4504369]  |  Atualização da pilha de manutenção de 19 de junho para (servidor 2019)   |  6,9  |  14 de maio de 2019  |
-|  N/A  |  [4503292]  |  19 de junho ' sem segurança (servidor 2008 R2)   |  2,88  |  20 de maio de 2019  |
-|  N/A  |  [4503285]  |  19 de junho ' sem segurança (servidor 2012)   |  3,75  |  14 de maio de 2019  |
-|  N/A  |  [4503276]  |  19 de junho ' sem segurança (servidor 2012 R2)   |  4,68  |  14 de maio de 2019  |
+|  N/D  |  [4503537]  |  Atualização da pilha de manutenção de 19 de junho para (servidor 2016)   |  5,33  |  14 de maio de 2019  |
+|  N/D  |  [4504369]  |  Atualização da pilha de manutenção de 19 de junho para (servidor 2019)   |  6,9  |  14 de maio de 2019  |
+|  N/D  |  [4503292]  |  19 de junho ' sem segurança (servidor 2008 R2)   |  2,88  |  20 de maio de 2019  |
+|  N/D  |  [4503285]  |  19 de junho ' sem segurança (servidor 2012)   |  3,75  |  14 de maio de 2019  |
+|  N/D  |  [4503276]  |  19 de junho ' sem segurança (servidor 2012 R2)   |  4,68  |  14 de maio de 2019  |
 
 [4507434]: https://support.microsoft.com/kb/4507434
 [4506621]: https://support.microsoft.com/kb/4506621
@@ -227,19 +227,19 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 |  Rel 19-06   |  [4494175]  |  Atualização de microcódigo   |  5,32  |  3 de junho de 2019  |
 |  Rel 19-06   |  [4503308]  |  Flash   |  3,74, 4,67, 5,32, 6,8  |  11 de junho de 2019  |
 |  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2,87, 3,74, 4,67  |  13 de junho de 2019  |
-|  N/A  |  [4499164]  |  Não é segurança de 19 de maio  |  2,87  |  14 de maio de 2019  |
-|  N/A  |  [4495606]  |  Pode ser ' 19 .NET 3,5 não relacionado à segurança  |  2,87  |  14 de maio de 2019  |
-|  N/A  |  [4495596]  |  Pode ser ' 19 .NET 4,5 não relacionado à segurança  |  2,87  |  20 de maio de 2019  |
-|  N/A  |  [4499171]  |  Não é segurança de 19 de maio  |  3,74  |  14 de maio de 2019  |
-|  N/A  |  [4495602]  |  Pode ser ' 19 .NET 3,5 não relacionado à segurança  |  3,74  |  14 de maio de 2019  |
-|  N/A  |  [4495594]  |  Maio de ' 19 .NET 4. x não segurança  |  4,67  |  14 de maio de 2019  |
-|  N/A  |  [4499151]  |  Não é segurança de 19 de maio  |  4,67  |  14 de maio de 2019  |
-|  N/A  |  [4495608]  |  Pode ser ' 19 .NET 3,5 não relacionado à segurança  |  4,67  |  14 de maio de 2019  |
-|  N/A  |  [4495592]  |  Pode ' 19 .NET 4.5.2 não segurança  |  4,67  |  14 de maio de 2019  |
-|  N/A  |  [4495610]  |  Maio de "19 .NET 4,8 cumulativos"  |  6.8  |  14 de maio de 2019  |
-|  N/A  |  [4495618]  |  Maio de "19 .NET 4,8 cumulativos"  |  6.8  |  14 de maio de 2019  |
-|  N/A  |  [4501226]  |  Atualizações de fuso horário de verão para Marrocos e para a Autoridade Palestina  |  2,87, 3,74, 4,67  |  23 de maio de 2019  |
-|  N/A  |  [4490128]  |  Atualizações de fuso horário de verão para São Tomé e Príncipe e Qyzylorda  |  2,87, 3,74, 4,67  |  17 de abril de 2019  |
+|  N/D  |  [4499164]  |  Não é segurança de 19 de maio  |  2,87  |  14 de maio de 2019  |
+|  N/D  |  [4495606]  |  Pode ser ' 19 .NET 3,5 não relacionado à segurança  |  2,87  |  14 de maio de 2019  |
+|  N/D  |  [4495596]  |  Pode ser ' 19 .NET 4,5 não relacionado à segurança  |  2,87  |  20 de maio de 2019  |
+|  N/D  |  [4499171]  |  Não é segurança de 19 de maio  |  3,74  |  14 de maio de 2019  |
+|  N/D  |  [4495602]  |  Pode ser ' 19 .NET 3,5 não relacionado à segurança  |  3,74  |  14 de maio de 2019  |
+|  N/D  |  [4495594]  |  Maio de ' 19 .NET 4. x não segurança  |  4,67  |  14 de maio de 2019  |
+|  N/D  |  [4499151]  |  Não é segurança de 19 de maio  |  4,67  |  14 de maio de 2019  |
+|  N/D  |  [4495608]  |  Pode ser ' 19 .NET 3,5 não relacionado à segurança  |  4,67  |  14 de maio de 2019  |
+|  N/D  |  [4495592]  |  Pode ' 19 .NET 4.5.2 não segurança  |  4,67  |  14 de maio de 2019  |
+|  N/D  |  [4495610]  |  Maio de "19 .NET 4,8 cumulativos"  |  6.8  |  14 de maio de 2019  |
+|  N/D  |  [4495618]  |  Maio de "19 .NET 4,8 cumulativos"  |  6.8  |  14 de maio de 2019  |
+|  N/D  |  [4501226]  |  Atualizações de fuso horário de verão para Marrocos e para a Autoridade Palestina  |  2,87, 3,74, 4,67  |  23 de maio de 2019  |
+|  N/D  |  [4490128]  |  Atualizações de fuso horário de verão para São Tomé e Príncipe e Qyzylorda  |  2,87, 3,74, 4,67  |  17 de abril de 2019  |
 
 [4503327]: https://support.microsoft.com/kb/4503327
 [4503267]: https://support.microsoft.com/kb/4503267
@@ -401,15 +401,15 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 19-02 | [4487026] | Segurança do Windows | 5,28 | 12 de fevereiro de 2019 |
 | Rel 19-02 | [4487044] | Segurança do Windows | 6.4 | 12 de fevereiro de 2019 |
 | Rel 19-02 | [4483452] | .NET 3,5, segurança 4.7.2 | 6.4 | 12 de fevereiro de 2019 |
-| N/A | [4480970] | ROLLUP não relacionado à segurança de janeiro | 2,83 | 8 de janeiro de 2019 |
-| N/A | [4483483] | ROLLUP de Janeiro não relacionado à segurança .NET 3.5.1  | 2,83 | 8 de janeiro de 2019 |
-| N/A | [4480059] | Pacote cumulativo de atualizações sem segurança de janeiro de 4.5.2 do .NET  | 2,83 | 8 de janeiro de 2019 |
-| N/A | [4480975] | ROLLUP não relacionado à segurança de janeiro | 3,70 | 8 de janeiro de 2019 |
-| N/A | [4480061] | ROLLUP de Janeiro não relacionado à segurança .NET 3,5 | 3,70 | 8 de janeiro de 2019 |
-| N/A | [4480058] | Pacote cumulativo de atualizações sem segurança de janeiro de 4.5.2 do .NET | 3,70 | 8 de janeiro de 2019 |
-| N/A | [4480963] | ROLLUP não relacionado à segurança de janeiro | 4,63 | 8 de janeiro de 2019 |
-| N/A | [4480064] | ROLLUP de Janeiro não relacionado à segurança .NET 3,5 | 4,63 | 8 de janeiro de 2019 |
-| N/A | [4480057] | Pacote cumulativo de atualizações sem segurança de janeiro de 4.5.2 do .NET | 4,63 | 8 de janeiro de 2019 |
+| N/D | [4480970] | ROLLUP não relacionado à segurança de janeiro | 2,83 | 8 de janeiro de 2019 |
+| N/D | [4483483] | ROLLUP de Janeiro não relacionado à segurança .NET 3.5.1  | 2,83 | 8 de janeiro de 2019 |
+| N/D | [4480059] | Pacote cumulativo de atualizações sem segurança de janeiro de 4.5.2 do .NET  | 2,83 | 8 de janeiro de 2019 |
+| N/D | [4480975] | ROLLUP não relacionado à segurança de janeiro | 3,70 | 8 de janeiro de 2019 |
+| N/D | [4480061] | ROLLUP de Janeiro não relacionado à segurança .NET 3,5 | 3,70 | 8 de janeiro de 2019 |
+| N/D | [4480058] | Pacote cumulativo de atualizações sem segurança de janeiro de 4.5.2 do .NET | 3,70 | 8 de janeiro de 2019 |
+| N/D | [4480963] | ROLLUP não relacionado à segurança de janeiro | 4,63 | 8 de janeiro de 2019 |
+| N/D | [4480064] | ROLLUP de Janeiro não relacionado à segurança .NET 3,5 | 4,63 | 8 de janeiro de 2019 |
+| N/D | [4480057] | Pacote cumulativo de atualizações sem segurança de janeiro de 4.5.2 do .NET | 4,63 | 8 de janeiro de 2019 |
 
 [4486474]: https://support.microsoft.com/kb/4486474
 [4487038]: https://support.microsoft.com/kb/4487038
@@ -453,15 +453,15 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 19-01 | [4480085] | Segurança do .NET 3. x | 2,82 | 8 de janeiro de 2019 |
 | Rel 19-01 | [4480979] | Flash | 3,69, 4,62, 5,27, 6,3 | 8 de janeiro de 2019 |
 | Rel 19-01 | [4480965] | Internet Explorer | 2,82, 3,69, 4,62 | 8 de janeiro de 2019 |
-| N/A | [4471318] | ROLLUP de não segurança de dezembro | 2,82 | 11 de dezembro de 2018 |
-| N/A | [4470641] | ROLLUP de não segurança do .NET 3. x de dezembro | 2,82 | 11 de dezembro de 2018 |
-| N/A | [4470637] | ROLLUP de não-segurança do .NET 4. x de dezembro | 2,82 | 11 de dezembro de 2018 |
-| N/A | [4471330] | ROLLUP de não segurança de dezembro | 3,69 | 11 de dezembro de 2018 |
-| N/A | [4470629] | ROLLUP de não segurança do .NET 3. x de dezembro | 3,69 | 11 de dezembro de 2018 |
-| N/A | [4470623] | ROLLUP de não-segurança do .NET 4. x de dezembro | 3,69 | 11 de dezembro de 2018 |
-| N/A | [4471320] | ROLLUP de não segurança de dezembro | 4,62 | 11 de dezembro de 2018 |
-| N/A | [4470630] | ROLLUP de não segurança do .NET 3. x de dezembro | 4,62 | 11 de dezembro de 2018 |
-| N/A | [4470622] | ROLLUP de não-segurança do .NET 4. x de dezembro | 4,62 | 11 de dezembro de 2018 |
+| N/D | [4471318] | ROLLUP de não segurança de dezembro | 2,82 | 11 de dezembro de 2018 |
+| N/D | [4470641] | ROLLUP de não segurança do .NET 3. x de dezembro | 2,82 | 11 de dezembro de 2018 |
+| N/D | [4470637] | ROLLUP de não-segurança do .NET 4. x de dezembro | 2,82 | 11 de dezembro de 2018 |
+| N/D | [4471330] | ROLLUP de não segurança de dezembro | 3,69 | 11 de dezembro de 2018 |
+| N/D | [4470629] | ROLLUP de não segurança do .NET 3. x de dezembro | 3,69 | 11 de dezembro de 2018 |
+| N/D | [4470623] | ROLLUP de não-segurança do .NET 4. x de dezembro | 3,69 | 11 de dezembro de 2018 |
+| N/D | [4471320] | ROLLUP de não segurança de dezembro | 4,62 | 11 de dezembro de 2018 |
+| N/D | [4470630] | ROLLUP de não segurança do .NET 3. x de dezembro | 4,62 | 11 de dezembro de 2018 |
+| N/D | [4470622] | ROLLUP de não-segurança do .NET 4. x de dezembro | 4,62 | 11 de dezembro de 2018 |
 
 [4480116]: https://support.microsoft.com/kb/4480116
 [4480961]: https://support.microsoft.com/kb/4480961
@@ -503,10 +503,10 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 18-12 | [4470491] | Segurança do .NET 4. x  | 4,61| 11 de dezembro de 2018 |
 | Rel 18-12 | [4471331] | Flash  | 3,68, 4,61, 5,26 | 5 de dezembro de 2018  |
 | Rel 18-12 | [4470199] | Internet Explorer  | 2,81, 3,68, 4,61 | 11 de dezembro de 2018 |
-| N/A | [4468323] | Atualização de fuso horário    | 2,81, 3,68, 4,61 | 13 de dezembro de 2018 |
-| N/A | [4467107] | ROLLUP não relacionado à segurança de novembro   | 2,81 | 13 de novembro de 2018 |
-| N/A | [4467701] | ROLLUP não relacionado à segurança de novembro     | 3,68 | 13 de novembro de 2018 |
-| N/A | [4467697] | ROLLUP não relacionado à segurança de novembro     | 4,61 | 13 de novembro de 2018 |
+| N/D | [4468323] | Atualização de fuso horário    | 2,81, 3,68, 4,61 | 13 de dezembro de 2018 |
+| N/D | [4467107] | ROLLUP não relacionado à segurança de novembro   | 2,81 | 13 de novembro de 2018 |
+| N/D | [4467701] | ROLLUP não relacionado à segurança de novembro     | 3,68 | 13 de novembro de 2018 |
+| N/D | [4467697] | ROLLUP não relacionado à segurança de novembro     | 4,61 | 13 de novembro de 2018 |
 
 [4471321]: https://support.microsoft.com/kb/4471321
 [4471328]: https://support.microsoft.com/kb/4471328
@@ -535,13 +535,13 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 18-11 | [4467678] | Segurança do Windows | 3,67 | 13 de novembro de 2018 |
 | Rel 18-11 | [4467703] | Segurança do Windows | 4,60 | 13 de novembro de 2018 |
 | Rel 18-11 | [4467691] | Segurança do Windows 10 | 5,25 | 13 de novembro de 2018 |
-| N/A | [3173426] | Atualização da pilha de manutenção | 3,67 | 12 de julho de 2016 |
-| N/A | [4465659] | Atualização da pilha de manutenção | 5,25 | 13 de novembro de 2018 |
-| N/A | [4462923] | ROLLUP não relacionado à segurança de outubro | 2,80 | 9 de outubro de 2018 |
-| N/A | [4462929] | ROLLUP não relacionado à segurança de outubro | 3,67 | 9 de outubro de 2018 |
-| N/A | [4462926] | ROLLUP não relacionado à segurança de outubro | 4,60 | 9 de outubro de 2018 |
-| N/A | [3109976] | Shims de compatibilidade do aplicativo | 4,60 | 12 de abril de 2016 |
-| N/A | [4457037] | Shims de compatibilidade do aplicativo | 4,60| 12 de junho de 2018 |
+| N/D | [3173426] | Atualização da pilha de manutenção | 3,67 | 12 de julho de 2016 |
+| N/D | [4465659] | Atualização da pilha de manutenção | 5,25 | 13 de novembro de 2018 |
+| N/D | [4462923] | ROLLUP não relacionado à segurança de outubro | 2,80 | 9 de outubro de 2018 |
+| N/D | [4462929] | ROLLUP não relacionado à segurança de outubro | 3,67 | 9 de outubro de 2018 |
+| N/D | [4462926] | ROLLUP não relacionado à segurança de outubro | 4,60 | 9 de outubro de 2018 |
+| N/D | [3109976] | Shims de compatibilidade do aplicativo | 4,60 | 12 de abril de 2016 |
+| N/D | [4457037] | Shims de compatibilidade do aplicativo | 4,60| 12 de junho de 2018 |
 
 [4466536]: https://support.microsoft.com/kb/4466536
 [4467694]: https://support.microsoft.com/kb/4467694
@@ -567,16 +567,16 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 18-10 | [4462941] | Segurança do Windows | 4,59 | 9 de outubro de 2018 |
 | Rel 18-10 | [4462930] | Flash | 3,66, 4,59, 5,24 | 9 de outubro de 2018 |
 | Rel 18-10 | [4462949] | Internet Explorer | 2,79, 3,66, 4,59 | 9 de outubro de 2018 |
-| N/A | [4339284] | Atualização de fuso horário | 2,79, 3,66, 4,59 | 24 de julho de 2018 |
-| N/A | [4457144] | ROLLUP não relacionado à segurança de setembro | 2,79 | 11 de setembro de 2018 |
-| N/A | [4457044] | ROLLUP do .NET 3,5 sem segurança de setembro | 2,79 | 11 de setembro de 2018 |
-| N/A | [4457038] | ROLLUP de 4.5.2 .NET sem segurança de setembro | 2,79 | 11 de setembro de 2018 |
-| N/A | [4457135] | ROLLUP não relacionado à segurança de setembro | 3,66 | 11 de setembro de 2018 |
-| N/A | [4457042] | ROLLUP do .NET 3,5 sem segurança de setembro | 3,66 | 11 de setembro de 2018 |
-| N/A | [4457037] | ROLLUP de 4.5.2 .NET sem segurança de setembro | 3,66 | 11 de setembro de 2018 |
-| N/A | [4457129] | ROLLUP não relacionado à segurança de setembro | 4,59 | 11 de setembro de 2018 |
-| N/A | [4457045] | ROLLUP do .NET 3,5 sem segurança de setembro | 4,59 | 11 de setembro de 2018 |
-| N/A | [4457036] | ROLLUP de 4.5.2 .NET sem segurança de setembro | 4,59 | 11 de setembro de 2018 |
+| N/D | [4339284] | Atualização de fuso horário | 2,79, 3,66, 4,59 | 24 de julho de 2018 |
+| N/D | [4457144] | ROLLUP não relacionado à segurança de setembro | 2,79 | 11 de setembro de 2018 |
+| N/D | [4457044] | ROLLUP do .NET 3,5 sem segurança de setembro | 2,79 | 11 de setembro de 2018 |
+| N/D | [4457038] | ROLLUP de 4.5.2 .NET sem segurança de setembro | 2,79 | 11 de setembro de 2018 |
+| N/D | [4457135] | ROLLUP não relacionado à segurança de setembro | 3,66 | 11 de setembro de 2018 |
+| N/D | [4457042] | ROLLUP do .NET 3,5 sem segurança de setembro | 3,66 | 11 de setembro de 2018 |
+| N/D | [4457037] | ROLLUP de 4.5.2 .NET sem segurança de setembro | 3,66 | 11 de setembro de 2018 |
+| N/D | [4457129] | ROLLUP não relacionado à segurança de setembro | 4,59 | 11 de setembro de 2018 |
+| N/D | [4457045] | ROLLUP do .NET 3,5 sem segurança de setembro | 4,59 | 11 de setembro de 2018 |
+| N/D | [4457036] | ROLLUP de 4.5.2 .NET sem segurança de setembro | 4,59 | 11 de setembro de 2018 |
 
 [4462917]: https://support.microsoft.com/kb/4462917
 [4462915]: https://support.microsoft.com/kb/4462915
@@ -607,38 +607,38 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 18-09 | [4457056], [4457028] | Segurança do .NET 3,5, 4. x | 4,58 | 11 de setembro de 2018 |
 | Rel 18-09 | [4457146] | Flash | 3,65, 4,58, 5,23 | 11 de setembro de 2018 |
 | Rel 18-09 | [4457426] | Internet Explorer | 2,78, 3,65, 4,58 | 11 de setembro de 2018 |
-| N/A | [4343900] | ROLLUP não relacionado à segurança de agosto | 2,78 | 14 de agosto de 2018 |
-| N/A | [4344152] | ROLLUP .NET 3,5 de agosto não relacionados à segurança | 2,78 | 14 de agosto de 2018 |
-| N/A | [4344149] | ROLLUP de não segurança do .NET 4x de agosto | 2,78 | 14 de agosto de 2018 |
-| N/A | [4343901] | ROLLUP não relacionado à segurança de agosto | 3,65 | 14 de agosto de 2018 |
-| N/A | [4344150] | ROLLUP .NET 3,5 de agosto não relacionados à segurança | 3,65 | 14 de agosto de 2018 |
-| N/A | [4344148] | ROLLUP de não segurança do .NET 4x de agosto | 3,65 | 14 de agosto de 2018 |
-| N/A | [4343898] | ROLLUP não relacionado à segurança de agosto | 4,58 | 14 de agosto de 2018 |
-| N/A | [4344153] | ROLLUP .NET 3,5 de agosto não relacionados à segurança | 4,58 | 14 de agosto de 2018 |
-| N/A | [4344147] | ROLLUP de não segurança do .NET 4x de agosto | 4,58 | 14 de agosto de 2018 |
+| N/D | [4343900] | ROLLUP não relacionado à segurança de agosto | 2,78 | 14 de agosto de 2018 |
+| N/D | [4344152] | ROLLUP .NET 3,5 de agosto não relacionados à segurança | 2,78 | 14 de agosto de 2018 |
+| N/D | [4344149] | ROLLUP de não segurança do .NET 4x de agosto | 2,78 | 14 de agosto de 2018 |
+| N/D | [4343901] | ROLLUP não relacionado à segurança de agosto | 3,65 | 14 de agosto de 2018 |
+| N/D | [4344150] | ROLLUP .NET 3,5 de agosto não relacionados à segurança | 3,65 | 14 de agosto de 2018 |
+| N/D | [4344148] | ROLLUP de não segurança do .NET 4x de agosto | 3,65 | 14 de agosto de 2018 |
+| N/D | [4343898] | ROLLUP não relacionado à segurança de agosto | 4,58 | 14 de agosto de 2018 |
+| N/D | [4344153] | ROLLUP .NET 3,5 de agosto não relacionados à segurança | 4,58 | 14 de agosto de 2018 |
+| N/D | [4344147] | ROLLUP de não segurança do .NET 4x de agosto | 4,58 | 14 de agosto de 2018 |
 
 ## <a name="august-2018-guest-os"></a>SO convidado de agosto de 2018
 | Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 18-08 | [4343887] | Segurança do Windows 10 | 5,22 | 14 de agosto de 2018 |
-| Rel 18-08 | [4343899] | Somente segurança do Windows | 2,77 | 14 de agosto de 2018 |
+| Rel 18-08 | [4343899] | Somente segurança do Windows | 2.77 | 14 de agosto de 2018 |
 | Rel 18-08 | [4343896] | Somente segurança do Windows | 3,64 | 14 de agosto de 2018 |
 | Rel 18-08 | [4343888] | Somente segurança do Windows | 4,57 | 14 de agosto de 2018 |
-| Rel 18-08 | [4344177], [4344173] | Segurança do .NET 3,5, 4,5 | 2,77 | 14 de agosto de 2018 |
+| Rel 18-08 | [4344177], [4344173] | Segurança do .NET 3,5, 4,5 | 2.77 | 14 de agosto de 2018 |
 | Rel 18-08 | [4344175], [4344172] | Segurança do .NET 3,5, 4. x | 3,64 | 14 de agosto de 2018 |
 | Rel 18-08 | [4344178], [4344171] | Segurança do .NET 3,5, 4. x | 4,57 | 14 de agosto de 2018 |
 | Rel 18-08 | [4346742], [4346739] | Versão OOB do .NET 3,5, 4. x | 3,64 | 30 de julho de 2018 |
 | Rel 18-08 | [4346745], [4346408] | Versão OOB do .NET 3,5, 4. x | 4,57 | 30 de julho de 2018 |
 | Rel 18-08 | [4343902] | Flash | 3,64, 4,57, 5,22 | 14 de agosto de 2018 |
 | Rel 18-08 | [4343205] | Internet Explorer | 2,77, 3,64, 4,57 | 14 de agosto de 2018 |
-| N/A | [4338818] |ROLLUP sem segurança de julho |2,77 | 10 de julho de 2018 |
-| N/A | [4019990] |Atualização do compilador do D3D para .NET |2,77 | 10 de julho de 2018 |
-| N/A | [4338830] |ROLLUP sem segurança de julho |3,64 | 10 de julho de 2018 |
-| N/A | [4338421] |ROLLUP do .NET 3,5 sem segurança de julho |3,64 | 10 de julho de 2018 |
-| N/A | [4338416] |ROLLUP do .NET 4x sem segurança de julho |3,64 | 10 de julho de 2018 |
-| N/A | [4338815] |ROLLUP sem segurança de julho |4,57 | 10 de julho de 2018 |
-| N/A | [4338424] |ROLLUP do .NET 3,5 sem segurança de julho |3,64 | 10 de julho de 2018 |
-| N/A | [4338415] |ROLLUP do .NET 4x sem segurança de julho |3,64 | 10 de julho de 2018 |
+| N/D | [4338818] |ROLLUP sem segurança de julho |2.77 | 10 de julho de 2018 |
+| N/D | [4019990] |Atualização do compilador do D3D para .NET |2.77 | 10 de julho de 2018 |
+| N/D | [4338830] |ROLLUP sem segurança de julho |3,64 | 10 de julho de 2018 |
+| N/D | [4338421] |ROLLUP do .NET 3,5 sem segurança de julho |3,64 | 10 de julho de 2018 |
+| N/D | [4338416] |ROLLUP do .NET 4x sem segurança de julho |3,64 | 10 de julho de 2018 |
+| N/D | [4338815] |ROLLUP sem segurança de julho |4,57 | 10 de julho de 2018 |
+| N/D | [4338424] |ROLLUP do .NET 3,5 sem segurança de julho |3,64 | 10 de julho de 2018 |
+| N/D | [4338415] |ROLLUP do .NET 4x sem segurança de julho |3,64 | 10 de julho de 2018 |
 
 ## <a name="july-2018-guest-os"></a>SO convidado de julho de 2018
 | Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -656,9 +656,9 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 18-07 | [4338613], [4338600], [4338605] |Segurança do .NET 3,5, 4. x, 4.5 x |4,56|10 de julho de 2018 |
 | Rel 18-07 | [4338832] |Flash |3,63, 4,76, 5,21 |10 de julho de 2018 |
 | Rel 18-07 | [4339093] |Internet Explorer |2,76, 3,63, 4,76 |10 de julho de 2018 |
-| N/A | [4284826] |ROLLUP não relacionado à segurança de junho |2,76 |12 de junho de 2018 |
-| N/A | [4284855] |ROLLUP não relacionado à segurança de junho |3,63 |12 de junho de 2018 |
-| N/A | [4284815] |ROLLUP não relacionado à segurança de junho |4,56 |12 de junho de 2018 |
+| N/D | [4284826] |ROLLUP não relacionado à segurança de junho |2,76 |12 de junho de 2018 |
+| N/D | [4284855] |ROLLUP não relacionado à segurança de junho |3,63 |12 de junho de 2018 |
+| N/D | [4284815] |ROLLUP não relacionado à segurança de junho |4,56 |12 de junho de 2018 |
 
 ## <a name="june-2018-guest-os"></a>SO convidado de junho de 2018
 | Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -669,21 +669,21 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 18-06 | [4284878] |Somente segurança do Windows |4,55 |12 de junho de 2018 |
 | Rel 18-06 | [4230450] |Internet Explorer |2,75, 3,62, 4,75 |12 de junho de 2018 |
 | Rel 18-06 | [4287903] |Flash |3,62, 4,75, 5,20 |12 de junho de 2018 |
-| N/A | [4103718] |ROLLUP de não segurança pode |2,75 |8 de maio de 2018 |
-| N/A | [4103730] |ROLLUP de não segurança pode |3,62 |8 de maio de 2018 |
-| N/A | [4103725] |ROLLUP de não segurança pode |4,55 |8 de maio de 2018 |
-| N/A | [4040980], [4040977] |ROLLUP de não segurança de ' 17 .NET de setembro |2,75 |14 de novembro de 2017 |
-| N/A | [4095874] |Versão de não segurança do .NET 3,5 de maio |2,75 |8 de maio de 2018 |
-| N/A | [4096495] |Versão de não segurança do .NET 4. x de maio |2,75 |8 de maio de 2018 |
-| N/A | [4040975] |ROLLUP de não segurança de ' 17 .NET de setembro |3,62 |14 de novembro de 2017 |
-| N/A | [4095872] |Versão de não segurança do .NET 3,5 de maio |3,62 |8 de maio de 2018 |
-| N/A | [4096494] |Versão de não segurança do .NET 4. x de maio |3,62 |8 de maio de 2018 |
-| N/A | [4096416] |Versão de não segurança do .NET 4.5 x de maio |3,62 |8 de maio de 2018 |
-| N/A | [4040974], [4040972] |ROLLUP de não segurança de ' 17 .NET de setembro |4,55 |14 de novembro de 2017 |
-| N/A | [4043763] |ROLLUP de não segurança de outubro de 17 .NET |4,55 |12 de setembro de 2017 |
-| N/A | [4095876] |Versão de não segurança do .NET 4. x de maio |4,55 |8 de maio de 2018 |
-| N/A | [4096417] |Versão de não segurança do .NET 4.5 x de maio |4,55 |8 de maio de 2018 |
-| N/A | [4132216] |SSU de maio |5,20 |8 de maio de 2018 |
+| N/D | [4103718] |ROLLUP de não segurança pode |2,75 |8 de maio de 2018 |
+| N/D | [4103730] |ROLLUP de não segurança pode |3,62 |8 de maio de 2018 |
+| N/D | [4103725] |ROLLUP de não segurança pode |4,55 |8 de maio de 2018 |
+| N/D | [4040980], [4040977] |ROLLUP de não segurança de ' 17 .NET de setembro |2,75 |14 de novembro de 2017 |
+| N/D | [4095874] |Versão de não segurança do .NET 3,5 de maio |2,75 |8 de maio de 2018 |
+| N/D | [4096495] |Versão de não segurança do .NET 4. x de maio |2,75 |8 de maio de 2018 |
+| N/D | [4040975] |ROLLUP de não segurança de ' 17 .NET de setembro |3,62 |14 de novembro de 2017 |
+| N/D | [4095872] |Versão de não segurança do .NET 3,5 de maio |3,62 |8 de maio de 2018 |
+| N/D | [4096494] |Versão de não segurança do .NET 4. x de maio |3,62 |8 de maio de 2018 |
+| N/D | [4096416] |Versão de não segurança do .NET 4.5 x de maio |3,62 |8 de maio de 2018 |
+| N/D | [4040974], [4040972] |ROLLUP de não segurança de ' 17 .NET de setembro |4,55 |14 de novembro de 2017 |
+| N/D | [4043763] |ROLLUP de não segurança de outubro de 17 .NET |4,55 |12 de setembro de 2017 |
+| N/D | [4095876] |Versão de não segurança do .NET 4. x de maio |4,55 |8 de maio de 2018 |
+| N/D | [4096417] |Versão de não segurança do .NET 4.5 x de maio |4,55 |8 de maio de 2018 |
+| N/D | [4132216] |SSU de maio |5,20 |8 de maio de 2018 |
 
 ## <a name="may-2018-guest-os"></a>Sistema operacional convidado 2018 de maio
 | Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -698,11 +698,11 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 18-05 | [4054856] |Segurança do .NET 4.7 x |5,19 |8 de maio de 2018 |
 | Rel 18-05 | [4103768] |Internet Explorer |2,74, 3,61, 4,74 |8 de maio de 2018 |
 | Rel 18-05 | [4103729] |Flash |3,61, 4,74, 5,19 |8 de maio de 2018 |
-| N/A | [4093118] |ROLLUP não relacionado à segurança de abril |2,73 |10 de abril de 2018 |
-| N/A | [4093123] |ROLLUP não relacionado à segurança de abril |3,61 |10 de abril de 2018 |
-| N/A | [4093114] |ROLLUP não relacionado à segurança de abril |4,74 |10 de abril de 2018 |
-| N/A | [4093137] |SSU de abril |5,19 |10 de abril de 2018 |
-| N/A | [4093753] |Atualização de fuso horário |2,74, 3,61, 4,74 |10 de abril de 2018 |
+| N/D | [4093118] |ROLLUP não relacionado à segurança de abril |2,73 |10 de abril de 2018 |
+| N/D | [4093123] |ROLLUP não relacionado à segurança de abril |3,61 |10 de abril de 2018 |
+| N/D | [4093114] |ROLLUP não relacionado à segurança de abril |4,74 |10 de abril de 2018 |
+| N/D | [4093137] |SSU de abril |5,19 |10 de abril de 2018 |
+| N/D | [4093753] |Atualização de fuso horário |2,74, 3,61, 4,74 |10 de abril de 2018 |
 
 
 ## <a name="april-2018-guest-os"></a>SO convidado de abril de 2018
@@ -714,10 +714,10 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 18-04 | [4093115] |Somente segurança do Windows |4,53 |10 de abril de 2018 |
 | Rel 18-04 | [4092946] |Internet Explorer |2,73, 3,60, 4,53 |10 de abril de 2018 |
 | Rel 18-04 | [4093110] |Flash |3,60, 4,53, 5,18 |10 de abril de 2018 |
-| N/A | [4088875] |ROLLUP não relacionado à segurança de março |2,73 |13 de março de 2018 |
-| N/A | [4099950] |Pré-requisito de Rollup de não segurança de março|2,73 |13 de março de 2018 |
-| N/A | [4088877] |ROLLUP não relacionado à segurança de março |3,60 |13 de março de 2018 |
-| N/A | [4088876] |ROLLUP não relacionado à segurança de março |4,53 |13 de março de 2018 |
+| N/D | [4088875] |ROLLUP não relacionado à segurança de março |2,73 |13 de março de 2018 |
+| N/D | [4099950] |Pré-requisito de Rollup de não segurança de março|2,73 |13 de março de 2018 |
+| N/D | [4088877] |ROLLUP não relacionado à segurança de março |3,60 |13 de março de 2018 |
+| N/D | [4088876] |ROLLUP não relacionado à segurança de março |4,53 |13 de março de 2018 |
 
 ## <a name="march-2018-guest-os"></a>SO convidado de março de 2018
 | Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -726,10 +726,10 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 18-03 | [4088878], [4088880], [4088879] |Somente segurança do Windows |2,72, 3,59, 4,52 |13 de março de 2018 |
 | Rel 18-03 | [4089187] |Internet Explorer |2,72, 3,59, 4,52 |13 de março de 2018 |
 | Rel 18-03 | [4074595] |Flash |3,59, 4,52, 5,17 |13 de março de 2018 |
-| N/A | [4074598] |ROLLUP não relacionado à segurança de fevereiro |2,72 |13 de fevereiro de 2018 |
-| N/A | [4074593] |ROLLUP não relacionado à segurança de fevereiro |3,59 |13 de fevereiro de 2018 |
-| N/A | [4074594] |ROLLUP não relacionado à segurança de fevereiro |4,52 |13 de fevereiro de 2018 |
-| N/A | [4074837] |Atualização de fuso horário |2,72, 3,59, 4,52 |13 de fevereiro de 2018 |
+| N/D | [4074598] |ROLLUP não relacionado à segurança de fevereiro |2,72 |13 de fevereiro de 2018 |
+| N/D | [4074593] |ROLLUP não relacionado à segurança de fevereiro |3,59 |13 de fevereiro de 2018 |
+| N/D | [4074594] |ROLLUP não relacionado à segurança de fevereiro |4,52 |13 de fevereiro de 2018 |
+| N/D | [4074837] |Atualização de fuso horário |2,72, 3,59, 4,52 |13 de fevereiro de 2018 |
 
 
 ## <a name="february-2018-guest-os"></a>SO convidado de fevereiro de 2018
@@ -739,22 +739,22 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 18-02 | [4074587], [4074589], [4074597] |Somente segurança do Windows |2,71, 3,58, 4,51 |13 de fevereiro de 2018 |
 | Rel 18-02 | [4074736] |Internet Explorer |2,71, 3,58, 4,51 |13 de fevereiro de 2018 |
 | Rel 18-02 | [4074595] |Flash |3,58, 4,51, 5,16 |13 de fevereiro de 2018 |
-| N/A | [4056894] |ROLLUP não relacionado à segurança de janeiro |2,71 |4 de janeiro de 2018 |
-| N/A | [4056896] |ROLLUP não relacionado à segurança de janeiro |3,58 |4 de janeiro de 2018 |
-| N/A | [4056895] |ROLLUP não relacionado à segurança de janeiro |4,51 |4 de janeiro de 2018 |
-| N/A | [4054176], [4054172] |ROLLUP .NET de janeiro |2,71 |4 de janeiro de 2018 |
-| N/A | [4054175], [4054171] |ROLLUP .NET de janeiro |3,58 |4 de janeiro de 2018 |
-| N/A | [4054177], [4054170] |ROLLUP .NET de janeiro |4,51 |4 de janeiro de 2018 |
+| N/D | [4056894] |ROLLUP não relacionado à segurança de janeiro |2,71 |4 de janeiro de 2018 |
+| N/D | [4056896] |ROLLUP não relacionado à segurança de janeiro |3,58 |4 de janeiro de 2018 |
+| N/D | [4056895] |ROLLUP não relacionado à segurança de janeiro |4,51 |4 de janeiro de 2018 |
+| N/D | [4054176], [4054172] |ROLLUP .NET de janeiro |2,71 |4 de janeiro de 2018 |
+| N/D | [4054175], [4054171] |ROLLUP .NET de janeiro |3,58 |4 de janeiro de 2018 |
+| N/D | [4054177], [4054170] |ROLLUP .NET de janeiro |4,51 |4 de janeiro de 2018 |
 
 ## <a name="january-2018-guest-os"></a>SO convidado de janeiro de 2018
 | Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 18-01 | [4056898], [4056897], [4056899] |Somente segurança do Windows |2,70, 3,57, 4,50 |3 de janeiro de 2018 |
 | Rel 18-01 | [4056890], [4056892] |Somente segurança do Windows |5,15 |3 de janeiro de 2018 |
-| N/A | [4054518] |ROLLUP de não segurança de dezembro |2,70 |12 de dezembro de 2017 |
-| N/A | [4054520] |ROLLUP de não segurança de dezembro |3,57 |12 de dezembro de 2017 |
-| N/A | [4054519] |ROLLUP de não segurança de dezembro |4,50 |12 de dezembro de 2017 |
-| N/A | [4051956] |Atualização de fuso horário de janeiro |2,70, 3,57, 4,50 |12 de dezembro de 2017 |
+| N/D | [4054518] |ROLLUP de não segurança de dezembro |2,70 |12 de dezembro de 2017 |
+| N/D | [4054520] |ROLLUP de não segurança de dezembro |3,57 |12 de dezembro de 2017 |
+| N/D | [4054519] |ROLLUP de não segurança de dezembro |4,50 |12 de dezembro de 2017 |
+| N/D | [4051956] |Atualização de fuso horário de janeiro |2,70, 3,57, 4,50 |12 de dezembro de 2017 |
 
 
 
@@ -765,10 +765,10 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 17-12 | [4054521], [4054522], [4054523] |Somente segurança do Windows |2,69, 3,56, 4,49 |12 de dezembro de 2017 |
 | Rel 17-12 | [4052978] |Internet Explorer |2,69, 3,56, 4,49 |12 de dezembro de 2017 |
 | Rel 17-12 | [4052978] |Flash |3,56, 4,49, 5,14 |12 de dezembro de 2017 |
-| N/A | [4048957] |ROLLUP não relacionado à segurança de novembro |2,69 |14 de novembro de 2017 |
-| N/A | [4048959] |ROLLUP não relacionado à segurança de novembro |3,56 |14 de novembro de 2017 |
-| N/A | [4048958] |ROLLUP não relacionado à segurança de novembro |4,49 |14 de novembro de 2017 |
-| N/A | [4049068] |Atualização de fuso horário de dezembro |2,69, 3,56, 4,49 |12 de dezembro de 2017 |
+| N/D | [4048957] |ROLLUP não relacionado à segurança de novembro |2,69 |14 de novembro de 2017 |
+| N/D | [4048959] |ROLLUP não relacionado à segurança de novembro |3,56 |14 de novembro de 2017 |
+| N/D | [4048958] |ROLLUP não relacionado à segurança de novembro |4,49 |14 de novembro de 2017 |
+| N/D | [4049068] |Atualização de fuso horário de dezembro |2,69, 3,56, 4,49 |12 de dezembro de 2017 |
 
 ## <a name="november-2017-guest-os"></a>SO convidado de novembro de 2017
 | Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -777,12 +777,12 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 17-11 | [4048960], [4048962], [4048961] |Somente segurança do Windows |2,68, 3,55, 4,48 |14 de novembro de 2017 |
 | Rel 17-11 | [4047206] |Internet Explorer |2,68, 3,55, 4,48 |14 de novembro de 2017 |
 | Rel 17-11 | [4048951] |Flash |3,55, 4,48, 5,13 |14 de novembro de 2017 |
-| N/A | [4041681] |ROLLUP não relacionado à segurança de outubro |2,68 |10 de outubro de 2017 |
-| N/A | [4041690] |ROLLUP não relacionado à segurança de outubro |3,55 |10 de outubro de 2017 |
-| N/A | [4041693] |ROLLUP não relacionado à segurança de outubro |4,48 |10 de outubro de 2017 |
-| N/A | [3191566] |Atualização para o Windows Management Framework 5,1  |2,68 |14 de novembro de 2017 |
-| N/A | [3191565] |Atualização para o Windows Management Framework 5,1  |3,55 |14 de novembro de 2017 |
-| N/A | [3191564] |Atualização para o Windows Management Framework 5,1  |4,48 |14 de novembro de 2017 |
+| N/D | [4041681] |ROLLUP não relacionado à segurança de outubro |2,68 |10 de outubro de 2017 |
+| N/D | [4041690] |ROLLUP não relacionado à segurança de outubro |3,55 |10 de outubro de 2017 |
+| N/D | [4041693] |ROLLUP não relacionado à segurança de outubro |4,48 |10 de outubro de 2017 |
+| N/D | [3191566] |Atualização para o Windows Management Framework 5,1  |2,68 |14 de novembro de 2017 |
+| N/D | [3191565] |Atualização para o Windows Management Framework 5,1  |3,55 |14 de novembro de 2017 |
+| N/D | [3191564] |Atualização para o Windows Management Framework 5,1  |4,48 |14 de novembro de 2017 |
 
 ## <a name="october-2017-guest-os"></a>SO convidado de outubro de 2017
 | Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -791,12 +791,12 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 17-10 | [4041678], [4041679], [4041687] |Somente segurança do Windows |2,67, 3,54, 4,47 |10 de outubro de 2017 |
 | Rel 17-10 | [4040685], |Internet Explorer |2,67, 3,54, 4,47 |10 de outubro de 2017 |
 | Rel 17-10 | [4041681], [4041690], [4041693] |Rollups mensais do Windows |2,67, 3,54, 4,47 |10 de outubro de 2017 |
-| N/A | [4038777] |ROLLUP não relacionado à segurança de setembro |2,67 |12 de setembro de 2017 |
-| N/A | [4038799] |ROLLUP não relacionado à segurança de setembro |3,54 |12 de setembro de 2017 |
-| N/A | [4038792] |ROLLUP não relacionado à segurança de setembro |4,47 |12 de setembro de 2017 |
-| N/A | [4040980] |ROLLUP de não segurança do .NET de setembro |2,67 |12 de setembro de 2017 |
-| N/A | [4040979] |ROLLUP de não segurança do .NET de setembro |3,54 |12 de setembro de 2017 |
-| N/A | [4040981] |ROLLUP de não segurança do .NET de setembro |4,47 |12 de setembro de 2017 |
+| N/D | [4038777] |ROLLUP não relacionado à segurança de setembro |2,67 |12 de setembro de 2017 |
+| N/D | [4038799] |ROLLUP não relacionado à segurança de setembro |3,54 |12 de setembro de 2017 |
+| N/D | [4038792] |ROLLUP não relacionado à segurança de setembro |4,47 |12 de setembro de 2017 |
+| N/D | [4040980] |ROLLUP de não segurança do .NET de setembro |2,67 |12 de setembro de 2017 |
+| N/D | [4040979] |ROLLUP de não segurança do .NET de setembro |3,54 |12 de setembro de 2017 |
+| N/D | [4040981] |ROLLUP de não segurança do .NET de setembro |4,47 |12 de setembro de 2017 |
 
 ## <a name="september-2017-guest-os"></a>SO convidado de setembro de 2017
 | Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -806,9 +806,9 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|Atualização do .NET de setembro |2,66, 3,53, 4,46 |12 de setembro de 2017 |
 | Rel 17-09 | [4036586] |Internet Explorer |2,66, 3,53, 4,46 |12 de setembro de 2017 |
 | CVE-2017-8704 | [4038782] |Denial of Service (DoS) |5.11 |12 de setembro de 2017 |
-| N/A | [4034664] |ROLLUP não relacionado à segurança de agosto  |2,66 |8 de agosto de 2017 |
-| N/A | [4034665] |ROLLUP não relacionado à segurança de agosto |5.11 |8 de agosto de 2017 |
-| N/A | [4034681] |ROLLUP não relacionado à segurança de agosto |4,46 |8 de agosto de 2017 |
+| N/D | [4034664] |ROLLUP não relacionado à segurança de agosto  |2,66 |8 de agosto de 2017 |
+| N/D | [4034665] |ROLLUP não relacionado à segurança de agosto |5.11 |8 de agosto de 2017 |
+| N/D | [4034681] |ROLLUP não relacionado à segurança de agosto |4,46 |8 de agosto de 2017 |
 
 ## <a name="august-2017-guest-os"></a>SO convidado de agosto de 2017
 | Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -833,10 +833,10 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 17-07 | [4025343] |Somente segurança do Windows |3,51 |11 de julho de 2017 |
 | Rel 17-07 | [4025376] |Flash |3,51, 4,44, 5,9 |11 de julho de 2017 |
 | Rel 17-07 | [4025252] |Internet Explorer |2,64, 3,51, 4,44 |11 de julho de 2017 |
-| N/A | [4020322] |Atualização de fuso horário |2,64, 3,51, 4,44 |11 de julho de 2017 |
-| N/A | [4022719] |ROLLUP não relacionado à segurança de junho |2,64 |13 de junho de 2017 |
-| N/A | [4022724] |ROLLUP não relacionado à segurança de junho |3,51 |13 de junho de 2017 |
-| N/A | [4022726] |ROLLUP não relacionado à segurança de junho |4,44 |13 de junho de 2017 |
+| N/D | [4020322] |Atualização de fuso horário |2,64, 3,51, 4,44 |11 de julho de 2017 |
+| N/D | [4022719] |ROLLUP não relacionado à segurança de junho |2,64 |13 de junho de 2017 |
+| N/D | [4022724] |ROLLUP não relacionado à segurança de junho |3,51 |13 de junho de 2017 |
+| N/D | [4022726] |ROLLUP não relacionado à segurança de junho |4,44 |13 de junho de 2017 |
 
 ## <a name="june-2017-guest-os"></a>SO convidado de junho de 2017
 | Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -849,22 +849,22 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 17-06 | [4022719], [4022724], [4022726] |Rollups mensais do Windows |2,63, 3,50, 4,43 |13 de junho de 2017 |
 | Rel 17-06 | [4022730] |Atualização de segurança para o Adobe Flash Player |3,50, 4,43, 5,8 |13 de junho de 2017 |
 | Rel 17-06 | [4015217], [4015221], [4015583], [4015550], [4015219] |Relançamento do CVE-2017-0167 |4,43, 5,8 |11 de abril de 2017 |
-| N/A | [4023136] |Atualização de fuso horário  |2,63, 3,50, 4,43 |13 de junho de 2017 |
-| N/A | [4019264] |ROLLUP de não segurança pode |2,63 |13 de junho de 2017 |
-| N/A | [4014545] |ROLLUP de não segurança do .NET de maio |2,63 |11 de abril de 2017 |
-| N/A | [4014508] |ROLLUP de não segurança do .NET de maio |2,63 |9 de maio de 2017 |
-| N/A | [4014511] |ROLLUP de não segurança do .NET de maio |2,63 |9 de maio de 2017 |
-| N/A | [4014514] |ROLLUP de não segurança do .NET de maio |2,63 |9 de maio de 2017 |
-| N/A | [4019216] |ROLLUP de não segurança pode |3,50 |9 de maio de 2017 |
-| N/A | [4014503] |ROLLUP de não segurança do .NET de maio |3,50 |9 de maio de 2017 |
-| N/A | [4014506] |ROLLUP de não segurança do .NET de maio |3,50 |9 de maio de 2017 |
-| N/A | [4014509] |ROLLUP de não segurança do .NET de maio |3,50 |9 de maio de 2017 |
-| N/A | [4014513] |ROLLUP de não segurança do .NET de maio |3,50 |9 de maio de 2017 |
-| N/A | [4019215] |ROLLUP de não segurança pode |4,43 |9 de maio de 2017 |
-| N/A | [4014505] |ROLLUP de não segurança do .NET de maio |4,43 |9 de maio de 2017 |
-| N/A | [4014507] |ROLLUP de não segurança do .NET de maio |4,43 |9 de maio de 2017 |
-| N/A | [4014510] |ROLLUP de não segurança do .NET de maio |4,43 |9 de maio de 2017 |
-| N/A | [4014512] |ROLLUP de não segurança do .NET de maio |4,43 |9 de maio de 2017 |
+| N/D | [4023136] |Atualização de fuso horário  |2,63, 3,50, 4,43 |13 de junho de 2017 |
+| N/D | [4019264] |ROLLUP de não segurança pode |2,63 |13 de junho de 2017 |
+| N/D | [4014545] |ROLLUP de não segurança do .NET de maio |2,63 |11 de abril de 2017 |
+| N/D | [4014508] |ROLLUP de não segurança do .NET de maio |2,63 |9 de maio de 2017 |
+| N/D | [4014511] |ROLLUP de não segurança do .NET de maio |2,63 |9 de maio de 2017 |
+| N/D | [4014514] |ROLLUP de não segurança do .NET de maio |2,63 |9 de maio de 2017 |
+| N/D | [4019216] |ROLLUP de não segurança pode |3,50 |9 de maio de 2017 |
+| N/D | [4014503] |ROLLUP de não segurança do .NET de maio |3,50 |9 de maio de 2017 |
+| N/D | [4014506] |ROLLUP de não segurança do .NET de maio |3,50 |9 de maio de 2017 |
+| N/D | [4014509] |ROLLUP de não segurança do .NET de maio |3,50 |9 de maio de 2017 |
+| N/D | [4014513] |ROLLUP de não segurança do .NET de maio |3,50 |9 de maio de 2017 |
+| N/D | [4019215] |ROLLUP de não segurança pode |4,43 |9 de maio de 2017 |
+| N/D | [4014505] |ROLLUP de não segurança do .NET de maio |4,43 |9 de maio de 2017 |
+| N/D | [4014507] |ROLLUP de não segurança do .NET de maio |4,43 |9 de maio de 2017 |
+| N/D | [4014510] |ROLLUP de não segurança do .NET de maio |4,43 |9 de maio de 2017 |
+| N/D | [4014512] |ROLLUP de não segurança do .NET de maio |4,43 |9 de maio de 2017 |
 
 ## <a name="may-2017-guest-os"></a>Sistema operacional convidado 2017 de maio
 | Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -878,21 +878,21 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 17-05 | [4022344] |Consultoria de segurança da Microsoft |5.7 | 9 de maio de 2017 |
 | Rel 17-05 | [4022345] |Consultoria de segurança da Microsoft |5.7 | 9 de maio de 2017 |
 | Rel 17-05 | [4021279] |Consultoria .NET/ASP.NET Core |2,62, 3,49, 4,42, 5,7 | 9 de maio de 2017 |
-| N/A | [4012864] |Atualização de fuso horário |2,62, 3,49, 4,42 | 9 de maio de 2017 |
-| N/A | [4014565] |ROLLUP de não segurança do .NET de abril |2,62 | 11 de abril de 2017 |
-| N/A | [4014559] |ROLLUP de não segurança do .NET de abril |2,62 | 11 de abril de 2017 |
-| N/A | [4015549] |ROLLUP não relacionado à segurança de abril |2,62 | 11 de abril de 2017 |
-| N/A | [4019990] |D3DCompiler Update – requisito para o .NET 4,7 |3,49 | 9 de maio de 2017 |
-| N/A | [4014563] |ROLLUP de não segurança do .NET de abril |3,49 | 11 de abril de 2017 |
-| N/A | [4014557] |ROLLUP de não segurança do .NET de abril |3,49 | 11 de abril de 2017 |
-| N/A | [4014545] |ROLLUP de não segurança do .NET de abril |3,49 | 11 de abril de 2017 |
-| N/A | [4014548] |ROLLUP de não segurança do .NET de abril |3,49 | 11 de abril de 2017 |
-| N/A | [4015551] |ROLLUP não relacionado à segurança de abril |3,49 | 11 de abril de 2017 |
-| N/A | [3173424] |Atualização da pilha de manutenção  |4,42 | 12 de julho de 2016 |
-| N/A | [4014555] |ROLLUP de não segurança do .NET de abril  |4,42 | 11 de abril de 2017 |
-| N/A | [4014567] |ROLLUP de não segurança do .NET de abril |4,42 | 11 de abril de 2017 |
-| N/A | [4015550] |ROLLUP não relacionado à segurança de abril |4,42 | 11 de abril de 2017 |
-| N/A | [4013418] |Atualização da pilha de manutenção |5.7 | 14 de março de 2017 |
+| N/D | [4012864] |Atualização de fuso horário |2,62, 3,49, 4,42 | 9 de maio de 2017 |
+| N/D | [4014565] |ROLLUP de não segurança do .NET de abril |2,62 | 11 de abril de 2017 |
+| N/D | [4014559] |ROLLUP de não segurança do .NET de abril |2,62 | 11 de abril de 2017 |
+| N/D | [4015549] |ROLLUP não relacionado à segurança de abril |2,62 | 11 de abril de 2017 |
+| N/D | [4019990] |D3DCompiler Update – requisito para o .NET 4,7 |3,49 | 9 de maio de 2017 |
+| N/D | [4014563] |ROLLUP de não segurança do .NET de abril |3,49 | 11 de abril de 2017 |
+| N/D | [4014557] |ROLLUP de não segurança do .NET de abril |3,49 | 11 de abril de 2017 |
+| N/D | [4014545] |ROLLUP de não segurança do .NET de abril |3,49 | 11 de abril de 2017 |
+| N/D | [4014548] |ROLLUP de não segurança do .NET de abril |3,49 | 11 de abril de 2017 |
+| N/D | [4015551] |ROLLUP não relacionado à segurança de abril |3,49 | 11 de abril de 2017 |
+| N/D | [3173424] |Atualização da pilha de manutenção  |4,42 | 12 de julho de 2016 |
+| N/D | [4014555] |ROLLUP de não segurança do .NET de abril  |4,42 | 11 de abril de 2017 |
+| N/D | [4014567] |ROLLUP de não segurança do .NET de abril |4,42 | 11 de abril de 2017 |
+| N/D | [4015550] |ROLLUP não relacionado à segurança de abril |4,42 | 11 de abril de 2017 |
+| N/D | [4013418] |Atualização da pilha de manutenção |5.7 | 14 de março de 2017 |
 
 ## <a name="april-2017-guest-os"></a>SO convidado de abril de 2017
 | Categoria de Produtos | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -922,11 +922,11 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | Rel 17-03 |  [4012213] |Atualização de qualidade apenas de segurança de março de 2017 para Windows 8.1 e Windows Server 2012 R2 |4,40 |14 de março de 2017 |
 | Rel 17-03 |  [4012214] |Atualização de qualidade apenas de segurança de março de 2017 para Windows Server 2012|3,47 |14 de março de 2017 |
 | Rel 17-03 |  [4012204] |Atualização de segurança para o Internet Explorer |2,60, 3,47, 4,40, 5,5 |14 de março de 2017 |
-| N/A |  [4012864] |Alterações de horário de verão no Windows para o norte Cipestre, Mongólia e região Saratov russa |2,60, 3,47, 4,40 |14 de março de 2017 |
-| N/A |  [3212646] |ROLLUP de qualidade mensal de segurança de janeiro de 2017 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2,60 |14 de março de 2017 |
-| N/A |  [3205409] |ROLLUP de qualidade mensal de segurança de dezembro de 2016 para o Windows Server 2012 |3,47 |14 de março de 2017 |
-| N/A |  [3205401] |ROLLUP de qualidade mensal de segurança de dezembro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4,40 |14 de março de 2017 |
-| N/A |  [3211320] |Atualização da pilha de manutenção para Windows 10 versão 1607 e Windows Server 2016:24 de janeiro de 2017 |5,5 |14 de março de 2017 |
+| N/D |  [4012864] |Alterações de horário de verão no Windows para o norte Cipestre, Mongólia e região Saratov russa |2,60, 3,47, 4,40 |14 de março de 2017 |
+| N/D |  [3212646] |ROLLUP de qualidade mensal de segurança de janeiro de 2017 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2,60 |14 de março de 2017 |
+| N/D |  [3205409] |ROLLUP de qualidade mensal de segurança de dezembro de 2016 para o Windows Server 2012 |3,47 |14 de março de 2017 |
+| N/D |  [3205401] |ROLLUP de qualidade mensal de segurança de dezembro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4,40 |14 de março de 2017 |
+| N/D |  [3211320] |Atualização da pilha de manutenção para Windows 10 versão 1607 e Windows Server 2016:24 de janeiro de 2017 |5,5 |14 de março de 2017 |
 
 ## <a name="january-2017-guest-os"></a>SO convidado de janeiro de 2017
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -946,9 +946,9 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | MS16-152 |[3199709]   |Atualização de segurança para o kernel do Windows |5,4 |13 de dezembro de 2016 |
 | MS16-153 |[3207328] |Atualização de segurança para o Driver Sistema de Arquivos de Log Comum|2,58, 3,46, 4,39, 5,4 |13 de dezembro de 2016 |
 | MS16-155 |[3205640]   |Atualização de segurança para .NET Framework |5,4 |13 de dezembro de 2016 |
-| N/A |[3197868] |ROLLUP de qualidade mensal de segurança de novembro de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2,58 |13 de dezembro de 2016 |
-| N/A |[3197877] |ROLLUP de qualidade mensal de segurança de novembro de 2016 para o Windows Server 2012 |3,46 |13 de dezembro de 2016 |
-| N/A |[3197874] |ROLLUP de qualidade mensal de segurança de novembro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4,39 |13 de dezembro de 2016 |
+| N/D |[3197868] |ROLLUP de qualidade mensal de segurança de novembro de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2,58 |13 de dezembro de 2016 |
+| N/D |[3197877] |ROLLUP de qualidade mensal de segurança de novembro de 2016 para o Windows Server 2012 |3,46 |13 de dezembro de 2016 |
+| N/D |[3197874] |ROLLUP de qualidade mensal de segurança de novembro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4,39 |13 de dezembro de 2016 |
 
 ## <a name="november-2016-guest-os"></a>SO convidado de novembro de 2016
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -964,16 +964,16 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | MS16-139 |[3199720] |Atualização de segurança para o kernel do Windows |2,57 |8,2016 de novembro |
 | MS16-140 |[3193479] |Atualização de segurança para o Gerenciador de inicialização |5,3, 4,38, 3,45 |8 de novembro de 2016 |
 | MS16-142 |[3198467] |Atualização de segurança cumulativa para o Internet Explorer |2,57, 4,38, 5,3 |8 de novembro de 2016 |
-| N/A |[3192321] |Turquia termina com observância de hora de verão |5,3, 4,38, 3,45, 2,57 |8 de novembro de 2016 |
-| N/A |[3185330] |ROLLUP de qualidade mensal de segurança de outubro de 2016 para o Windows 7 SP1 e o Windows Server 2008 R2 SP1 |2,57 |8 de novembro de 2016 |
-| N/A |[3192403] |Versão prévia de outubro de 2016 de Rollup de qualidade mensal para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2,57 |8 de novembro de 2016 |
-| N/A |[3177467] |Atualização da pilha de manutenção para Windows 7 SP1 e Windows Server 2008 R2 SP1:20 de setembro de 2016 |2,57 |8 de novembro de 2016 |
-| N/A |[3185332] |ROLLUP de qualidade mensal de segurança de outubro de 2016 para o Windows Server 2012 |3,45 |8 de novembro de 2016 |
-| N/A |[3192406] |Versão prévia de outubro de 2016 de Rollup de qualidade mensal para o Windows Server 2012 |3,45 |8 de novembro de 2016 |
-| N/A |[3185331] |ROLLUP de qualidade mensal de segurança de outubro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4,38 |8 de novembro de 2016 |
-| N/A |[3192404] |Versão prévia de outubro de 2016 de Rollup de qualidade mensal para Windows 8.1 e Windows Server 2012 R2 |4,38 |8 de novembro de 2016 |
-| N/A |[3199986] |Atualização da pilha de manutenção para Windows 10 versão 1607:27 de outubro de 2016 |5,3 |8 de novembro de 2016 |
-| N/A |[3197954] |Atualização cumulativa para Windows 10 versão 1607 e Windows Server 2016:27 de outubro de 2016 |5,3 |8 de novembro de 2016 |
+| N/D |[3192321] |Turquia termina com observância de hora de verão |5,3, 4,38, 3,45, 2,57 |8 de novembro de 2016 |
+| N/D |[3185330] |ROLLUP de qualidade mensal de segurança de outubro de 2016 para o Windows 7 SP1 e o Windows Server 2008 R2 SP1 |2,57 |8 de novembro de 2016 |
+| N/D |[3192403] |Versão prévia de outubro de 2016 de Rollup de qualidade mensal para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2,57 |8 de novembro de 2016 |
+| N/D |[3177467] |Atualização da pilha de manutenção para Windows 7 SP1 e Windows Server 2008 R2 SP1:20 de setembro de 2016 |2,57 |8 de novembro de 2016 |
+| N/D |[3185332] |ROLLUP de qualidade mensal de segurança de outubro de 2016 para o Windows Server 2012 |3,45 |8 de novembro de 2016 |
+| N/D |[3192406] |Versão prévia de outubro de 2016 de Rollup de qualidade mensal para o Windows Server 2012 |3,45 |8 de novembro de 2016 |
+| N/D |[3185331] |ROLLUP de qualidade mensal de segurança de outubro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4,38 |8 de novembro de 2016 |
+| N/D |[3192404] |Versão prévia de outubro de 2016 de Rollup de qualidade mensal para Windows 8.1 e Windows Server 2012 R2 |4,38 |8 de novembro de 2016 |
+| N/D |[3199986] |Atualização da pilha de manutenção para Windows 10 versão 1607:27 de outubro de 2016 |5,3 |8 de novembro de 2016 |
+| N/D |[3197954] |Atualização cumulativa para Windows 10 versão 1607 e Windows Server 2016:27 de outubro de 2016 |5,3 |8 de novembro de 2016 |
 
 ## <a name="october-2016-guest-os"></a>SO convidado de outubro de 2016
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -984,11 +984,11 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | MS16-124 |[3193227] |Atualização de segurança para o registro do Windows |4,37, 3,44, 2,56 |11 de outubro de 2016 |
 | MS16-126 |[3196067] |Atualização de segurança para a API de mensagens da Internet da Microsoft |2,56 |11 de outubro de 2016 |
 | MS16-101 |[3178465] |Atualização de segurança para métodos de autenticação do Windows |4,37, 3,44, 2,56 |11 de outubro de 2016 |
-| N/A |[3182203] |Alteração de fuso horário de setembro de 2016 para Novosibirsk |4,37, 3,44, 2,56 |11 de outubro de 2016 |
-| N/A |[3185278] |Pacote cumulativo de atualizações de setembro de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2,56 |11 de outubro de 2016 |
-| N/A |[3185280] |Pacote cumulativo de atualizações de setembro de 2016 para o Windows Server 2012 |3,44 |11 de outubro de 2016 |
-| N/A |[3185279] |Pacote cumulativo de atualizações de setembro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4,37 |11 de outubro de 2016 |
-| N/A |[3194798] |Atualização cumulativa para Windows 10 versão 1607 e Windows Server 2016 |5,2 |11 de outubro de 2016 |
+| N/D |[3182203] |Alteração de fuso horário de setembro de 2016 para Novosibirsk |4,37, 3,44, 2,56 |11 de outubro de 2016 |
+| N/D |[3185278] |Pacote cumulativo de atualizações de setembro de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2,56 |11 de outubro de 2016 |
+| N/D |[3185280] |Pacote cumulativo de atualizações de setembro de 2016 para o Windows Server 2012 |3,44 |11 de outubro de 2016 |
+| N/D |[3185279] |Pacote cumulativo de atualizações de setembro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4,37 |11 de outubro de 2016 |
+| N/D |[3194798] |Atualização cumulativa para Windows 10 versão 1607 e Windows Server 2016 |5,2 |11 de outubro de 2016 |
 
 ## <a name="september-2016-guest-os"></a>SO convidado de setembro de 2016
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -1001,11 +1001,11 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | MS16-114 |[3185879] |Atualização de segurança para o Windows SMB Server |4,36, 3,43, 2,55 |13 de setembro de 2016 |
 | MS16-115 |[3188733] |Atualização de segurança para PDF |4,35, 3,43 |13 de setembro de 2016 |
 | MS16-116 |[3188724] |Atualização de segurança na automação OLE para o mecanismo de script VBScript |4,36, 3,43, 2,55 |13 de setembro de 2016 |
-| N/A |[3174644] |Suporte atualizado para troca de chaves Diffie-Hellman |4,36, 3,43, 2,55 |13 de setembro de 2016 |
-| N/A |[3177723] |Atualização de fuso horário – o Egito cancela o horário de verão |4,36, 3,43, 2,55 |13 de setembro de 2016 |
-| N/A |[3179573] |Pacote cumulativo de atualizações de agosto de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2,55 |13 de setembro de 2016 |
-| N/A |[3179575] |Pacote cumulativo de atualizações de agosto de 2016 para o Windows Server 2012 |3,43 |13 de setembro de 2016 |
-| N/A |[3179574] |Pacote cumulativo de atualizações de agosto de 2016 para Windows RT 8,1, Windows 8.1 e Windows Server 2012 R2 |4,36 |13 de setembro de 2016 |
+| N/D |[3174644] |Suporte atualizado para troca de chaves Diffie-Hellman |4,36, 3,43, 2,55 |13 de setembro de 2016 |
+| N/D |[3177723] |Atualização de fuso horário – o Egito cancela o horário de verão |4,36, 3,43, 2,55 |13 de setembro de 2016 |
+| N/D |[3179573] |Pacote cumulativo de atualizações de agosto de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2,55 |13 de setembro de 2016 |
+| N/D |[3179575] |Pacote cumulativo de atualizações de agosto de 2016 para o Windows Server 2012 |3,43 |13 de setembro de 2016 |
+| N/D |[3179574] |Pacote cumulativo de atualizações de agosto de 2016 para Windows RT 8,1, Windows 8.1 e Windows Server 2012 R2 |4,36 |13 de setembro de 2016 |
 
 ## <a name="august-2016-guest-os"></a>SO convidado de agosto de 2016
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -1017,9 +1017,9 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | MS16-101 |[3178465] |Atualização de segurança para métodos de autenticação do Windows |4,35, 3,42, 2,54 |9 de agosto de 2016 |
 | MS16-102 |[3182248] |Atualização de segurança para a biblioteca do Microsoft Windows PDF |4,35, 3,42 |9 de agosto de 2016 |
 | Relançamento de MS16-077 |[3165191] |Atualização de segurança para o WPAD (AutoDiscovery) de proxy da Web |4,35, 3,42, 2,54 |9 de agosto de 2016 |
-| N/A |[3172605] |Pacote cumulativo de atualizações de julho de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2,54 |9 de agosto de 2016 |
-| N/A |[3172615] |Pacote cumulativo de atualizações de julho de 2016 para o Windows Server 2012 |3,42 |9 de agosto de 2016 |
-| N/A |[3172614] |Pacote cumulativo de atualizações de julho de 2016 para Windows RT 8,1, Windows 8.1 e Windows Server 2012 R2 |4,35 |9 de agosto de 2016 |
+| N/D |[3172605] |Pacote cumulativo de atualizações de julho de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2,54 |9 de agosto de 2016 |
+| N/D |[3172615] |Pacote cumulativo de atualizações de julho de 2016 para o Windows Server 2012 |3,42 |9 de agosto de 2016 |
+| N/D |[3172614] |Pacote cumulativo de atualizações de julho de 2016 para Windows RT 8,1, Windows 8.1 e Windows Server 2012 R2 |4,35 |9 de agosto de 2016 |
 
 ## <a name="july-2016-guest-os"></a>SO convidado de julho de 2016
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -1030,12 +1030,12 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | MS16-091 |[3170048] |Atualização de segurança para .NET Framework |4,34, 3,41, 2,53 |12 de julho de 2016 |
 | MS16-092 |[3171910] |Atualização de segurança para o kernel do Windows |4,34, 3,41 |12 de julho de 2016 |
 | MS16-094 |[3177404] |Atualização de segurança para inicialização segura |4,34, 3,41 |12 de julho de 2016 |
-| N/A |[3162835] |Atualização de junho de 2016 e fuso horário para Windows |4,34, 3,41, 2,53 |12 de julho de 2016 |
-| N/A |[3156417] |Pacote cumulativo de atualizações 2016 de maio para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2,53 |12 de julho de 2016 |
-| N/A |[3161608] |Pacote cumulativo de atualizações de junho de 2016 para o Windows 7 SP1 e o Windows Server 2008 R2 SP1 |2,53 |12 de julho de 2016 |
-| N/A |[3161609] |Pacote cumulativo de atualizações de junho de 2016 para o Windows Server 2012 |3,41 |12 de julho de 2016 |
-| N/A |[3161606] |Pacote cumulativo de atualizações de junho de 2016 para Windows RT 8,1, Windows 8.1 e Windows Server 2012 R2 |4,34 |12 de julho de 2016 |
-| N/A |[3139923] |O reparo do Windows Installer (MSI) não funciona quando o pacote MSI é instalado em um compartilhamento HTTP no Windows |4,34 |12 de julho de 2016 |
+| N/D |[3162835] |Atualização de junho de 2016 e fuso horário para Windows |4,34, 3,41, 2,53 |12 de julho de 2016 |
+| N/D |[3156417] |Pacote cumulativo de atualizações 2016 de maio para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2,53 |12 de julho de 2016 |
+| N/D |[3161608] |Pacote cumulativo de atualizações de junho de 2016 para o Windows 7 SP1 e o Windows Server 2008 R2 SP1 |2,53 |12 de julho de 2016 |
+| N/D |[3161609] |Pacote cumulativo de atualizações de junho de 2016 para o Windows Server 2012 |3,41 |12 de julho de 2016 |
+| N/D |[3161606] |Pacote cumulativo de atualizações de junho de 2016 para Windows RT 8,1, Windows 8.1 e Windows Server 2012 R2 |4,34 |12 de julho de 2016 |
+| N/D |[3139923] |O reparo do Windows Installer (MSI) não funciona quando o pacote MSI é instalado em um compartilhamento HTTP no Windows |4,34 |12 de julho de 2016 |
 
 ## <a name="june-2016-guest-os"></a>SO convidado de junho de 2016
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -1053,16 +1053,16 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | MS16-077 |[3165191] |Atualização de segurança para WPAD |4,33, 3,40, 2,52 |14 de junho de 2016 |
 | MS16-080 |[3164302] |Atualização de segurança para o PDF do Microsoft Windows |4,33, 3,40 |14 de junho de 2016 |
 | MS16-081 |[3160352] |Atualização de segurança para Active Directory |4,33, 3,40, 2,52 |14 de junho de 2016 |
-| N/A |[2922223] |Você não poderá alterar a hora do sistema se a entrada do registro RealTimeIsUniversal estiver habilitada no Windows |2,52 |14 de junho de 2016 |
-| N/A |[3121255] |erro de parada "0x00000024" em FsRtlNotifyFilterReportChange e o arquivo de cópia pode falhar no Windows |2,52 |14 de junho de 2016 |
-| N/A |[3125424] |Os deadlocks do LSASs fazem com que o Windows Server 2012 R2 ou o Windows Server 2012 não responda |4,33, 3,40 |14 de junho de 2016 |
-| N/A |[3125574] |Atualização cumulativa de conveniência para o Windows 7 SP1 e o Windows Server 2008 R2 SP1 |2,52 |14 de junho de 2016 |
-| N/A |[3140245] |Atualização para habilitar o TLS 1,1 e o TLS 1,2 como um protocolo de segurança padrão no WinHTTP no Windows |3,40, 2,52 |14 de junho de 2016 |
-| N/A |[3146604] |O serviço WMI falha aleatoriamente no Windows Server 2012 R2 ou no Windows Server 2012 |4,33, 3,40 |14 de junho de 2016 |
-| N/A |[3149157] |Melhorias de confiabilidade e escalabilidade no TCP/IP para Windows 8.1 e Windows Server 2012 R2 |4,33 |14 de junho de 2016 |
-| N/A |[3156416] |Pacote cumulativo de atualizações 2016 de maio para o Windows Server 2012 |3,40 |14 de junho de 2016 |
-| N/A |[3156418] |Pacote cumulativo de atualizações 2016 de maio para Windows RT 8,1, Windows 8.1 e Windows Server 2012 R2 |4,33 |14 de junho de 2016 |
-| N/A |[3153731] |2016 atualização de hora de verão para Azerbaijão, Chile, Haiti e Marrocos no Windows |4,33, 3,40, 2,52 |14 de junho de 2016 |
+| N/D |[2922223] |Você não poderá alterar a hora do sistema se a entrada do registro RealTimeIsUniversal estiver habilitada no Windows |2,52 |14 de junho de 2016 |
+| N/D |[3121255] |erro de parada "0x00000024" em FsRtlNotifyFilterReportChange e o arquivo de cópia pode falhar no Windows |2,52 |14 de junho de 2016 |
+| N/D |[3125424] |Os deadlocks do LSASs fazem com que o Windows Server 2012 R2 ou o Windows Server 2012 não responda |4,33, 3,40 |14 de junho de 2016 |
+| N/D |[3125574] |Atualização cumulativa de conveniência para o Windows 7 SP1 e o Windows Server 2008 R2 SP1 |2,52 |14 de junho de 2016 |
+| N/D |[3140245] |Atualização para habilitar o TLS 1,1 e o TLS 1,2 como um protocolo de segurança padrão no WinHTTP no Windows |3,40, 2,52 |14 de junho de 2016 |
+| N/D |[3146604] |O serviço WMI falha aleatoriamente no Windows Server 2012 R2 ou no Windows Server 2012 |4,33, 3,40 |14 de junho de 2016 |
+| N/D |[3149157] |Melhorias de confiabilidade e escalabilidade no TCP/IP para Windows 8.1 e Windows Server 2012 R2 |4,33 |14 de junho de 2016 |
+| N/D |[3156416] |Pacote cumulativo de atualizações 2016 de maio para o Windows Server 2012 |3,40 |14 de junho de 2016 |
+| N/D |[3156418] |Pacote cumulativo de atualizações 2016 de maio para Windows RT 8,1, Windows 8.1 e Windows Server 2012 R2 |4,33 |14 de junho de 2016 |
+| N/D |[3153731] |2016 atualização de hora de verão para Azerbaijão, Chile, Haiti e Marrocos no Windows |4,33, 3,40, 2,52 |14 de junho de 2016 |
 
 ## <a name="may-2016-guest-os"></a>Sistema operacional convidado 2016 de maio
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -1076,11 +1076,11 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 | MS16-062 |[3158222] |Atualização de segurança para drivers de modo kernel |4,32, 3,39, 2,51 |10 de maio de 2016 |
 | MS16-065 |[3156757] |Atualização de segurança para .NET Framework |4,32, 3,39, 2,51 |10 de maio de 2016 |
 | MS16-067 |[3155784] |Atualização de segurança para o driver do Gerenciador de volumes |4,32, 3,39 |10 de maio de 2016 |
-| N/A |[3148851] |Alterações de fuso horário para a Rússia no Windows  |4,32, 3,39, 2,51 |10 de maio de 2016 |
-| N/A |[3133977] |O BitLocker não pode criptografar unidades devido a falhas de serviço no processo Svchost. exe no Windows 7 ou no Windows Server 2008 R2  |2,51 |10 de maio de 2016 |
-| N/A |[3133681] |As máquinas virtuais não respondem à sua operação no SCVMM no Windows Server 2012 R2  |4,32 |10 de maio de 2016 |
-| N/A |[3123245] |A atualização melhora a identificação de esgotamento de porta no Windows Server 2012 R2  |4,32 |10 de maio de 2016 |
-| N/A |[Desabilitar RC4] | Consultoria de segurança da Microsoft: atualização para desabilitar o RC4  |4,32, 3,39, 2,51 |10 de maio de 2016 |
+| N/D |[3148851] |Alterações de fuso horário para a Rússia no Windows  |4,32, 3,39, 2,51 |10 de maio de 2016 |
+| N/D |[3133977] |O BitLocker não pode criptografar unidades devido a falhas de serviço no processo Svchost. exe no Windows 7 ou no Windows Server 2008 R2  |2,51 |10 de maio de 2016 |
+| N/D |[3133681] |As máquinas virtuais não respondem à sua operação no SCVMM no Windows Server 2012 R2  |4,32 |10 de maio de 2016 |
+| N/D |[3123245] |A atualização melhora a identificação de esgotamento de porta no Windows Server 2012 R2  |4,32 |10 de maio de 2016 |
+| N/D |[Desabilitar RC4] | Consultoria de segurança da Microsoft: atualização para desabilitar o RC4  |4,32, 3,39, 2,51 |10 de maio de 2016 |
 
 ## <a name="april-2016-guest-os"></a>SO convidado de abril de 2016
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -1251,17 +1251,17 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="march-2015-guest-os"></a>SO convidado de março de 2015
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS15-018 |[3032359] |Atualização de segurança cumulativa para o Internet Explorer |4,18, 3,25, 2,37 |N/A |
-| MS15-019 |[3040297] |Vulnerabilidade no mecanismo de script VBScript pode permitir a execução remota de código |4,18, 3,25, 2,37 |N/A |
-| MS15-020 |[3041836] |Vulnerabilidades no Windows podem permitir a execução remota de código |4,18, 3,25, 2,37 |N/A |
-| MS15-021 |[3032323] |Vulnerabilidades o driver de fonte Adobe pode permitir a execução remota de código |4,18, 3,25, 2,37 |N/A |
-| MS15-023 |[3034344] |Vulnerabilidades no driver de modo kernel podem permitir a elevação de privilégio |4,18, 3,25, 2,37 |N/A |
-| MS15-024 |[3035132] |Vulnerabilidade no processamento de PNG pode permitir a divulgação de informações |4,18, 3,25, 2,37 |N/A |
-| MS15-025 |[3038680] |Vulnerabilidades no kernel do Windows podem permitir a elevação de privilégio |4,18, 3,25, 2,37 |N/A |
-| MS15-027 |[3002657] |Vulnerabilidade no NETLOGON pode permitir falsificação |4,18, 3,25, 2,37 |N/A |
-| MS15-028 |[3030377] |Vulnerabilidade no Windows Agendador de Tarefas pode permitir o bypass do recurso de segurança |4,18, 3,25, 2,37 |N/A |
-| MS15-029 |[3035126] |Vulnerabilidade no componente decodificador de fotos do Windows pode permitir a divulgação de informações |4,18, 3,25, 2,37 |N/A |
-| MS15-030 |[3039976] |Vulnerabilidade no protocolo RDP pode permitir negação de serviço |4,18, 3,25, 2,37 |N/A |
+| MS15-018 |[3032359] |Atualização de segurança cumulativa para o Internet Explorer |4,18, 3,25, 2,37 |N/D |
+| MS15-019 |[3040297] |Vulnerabilidade no mecanismo de script VBScript pode permitir a execução remota de código |4,18, 3,25, 2,37 |N/D |
+| MS15-020 |[3041836] |Vulnerabilidades no Windows podem permitir a execução remota de código |4,18, 3,25, 2,37 |N/D |
+| MS15-021 |[3032323] |Vulnerabilidades o driver de fonte Adobe pode permitir a execução remota de código |4,18, 3,25, 2,37 |N/D |
+| MS15-023 |[3034344] |Vulnerabilidades no driver de modo kernel podem permitir a elevação de privilégio |4,18, 3,25, 2,37 |N/D |
+| MS15-024 |[3035132] |Vulnerabilidade no processamento de PNG pode permitir a divulgação de informações |4,18, 3,25, 2,37 |N/D |
+| MS15-025 |[3038680] |Vulnerabilidades no kernel do Windows podem permitir a elevação de privilégio |4,18, 3,25, 2,37 |N/D |
+| MS15-027 |[3002657] |Vulnerabilidade no NETLOGON pode permitir falsificação |4,18, 3,25, 2,37 |N/D |
+| MS15-028 |[3030377] |Vulnerabilidade no Windows Agendador de Tarefas pode permitir o bypass do recurso de segurança |4,18, 3,25, 2,37 |N/D |
+| MS15-029 |[3035126] |Vulnerabilidade no componente decodificador de fotos do Windows pode permitir a divulgação de informações |4,18, 3,25, 2,37 |N/D |
+| MS15-030 |[3039976] |Vulnerabilidade no protocolo RDP pode permitir negação de serviço |4,18, 3,25, 2,37 |N/D |
 
 > [!NOTE]
 > O boletim MS15-031 pode aparecer como desinstalado. No entanto, ele não se aplica a essa versão do sistema operacional convidado.
@@ -1271,13 +1271,13 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="february-2015-guest-os"></a>SO convidado de fevereiro de 2015
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| MS15-009 |[3034682] |Atualização de segurança para o Internet Explorer |4,17, 3,24, 2,36 |N/A |
-| MS15-010 |[3036220] |Vulnerabilidades nos drivers do modo de kernel do Windows podem permitir a execução remota de código |4,17, 3,24, 2,36 |N/A |
-| MS15-011 |[3000483] |Vulnerabilidade no Política de Grupo pode permitir a execução remota de código |4,17, 3,24, 2,36 |N/A |
-| MS15-014 |[3004361] |Vulnerabilidade no SMB pode permitir o bypass do recurso de segurança |4,17, 3,24, 2,36 |N/A |
-| MS15-015 |[3031432] |Vulnerabilidade no Microsoft Windows pode permitir a elevação de privilégio |4,17, 3,24, 2,36 |N/A |
-| MS15-016 |[3029944] |Vulnerabilidade no componente gráfico da Microsoft pode permitir a divulgação de informações |4,17, 3,24, 2,36 |N/A |
-| N/A |[3004375] |Atualização para melhorar a auditoria de linha de comando do Windows<p/>**Observação**: isso é instalado, mas a chave do registro para habilitá-lo está desativada |4,17, 3,24, 2,36 |N/A |
+| MS15-009 |[3034682] |Atualização de segurança para o Internet Explorer |4,17, 3,24, 2,36 |N/D |
+| MS15-010 |[3036220] |Vulnerabilidades nos drivers do modo de kernel do Windows podem permitir a execução remota de código |4,17, 3,24, 2,36 |N/D |
+| MS15-011 |[3000483] |Vulnerabilidade no Política de Grupo pode permitir a execução remota de código |4,17, 3,24, 2,36 |N/D |
+| MS15-014 |[3004361] |Vulnerabilidade no SMB pode permitir o bypass do recurso de segurança |4,17, 3,24, 2,36 |N/D |
+| MS15-015 |[3031432] |Vulnerabilidade no Microsoft Windows pode permitir a elevação de privilégio |4,17, 3,24, 2,36 |N/D |
+| MS15-016 |[3029944] |Vulnerabilidade no componente gráfico da Microsoft pode permitir a divulgação de informações |4,17, 3,24, 2,36 |N/D |
+| N/D |[3004375] |Atualização para melhorar a auditoria de linha de comando do Windows<p/>**Observação**: isso é instalado, mas a chave do registro para habilitá-lo está desativada |4,17, 3,24, 2,36 |N/D |
 
 ## <a name="january-2015-guest-os"></a>SO convidado de janeiro de 2015
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -1298,17 +1298,17 @@ As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Respon
 ## <a name="december-2014-guest-os"></a>SO convidado de dezembro de 2014
 | ID do boletim | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-| N/A |[3013776] |O sistema congela quando você usa uma conta de domínio para iniciar um aplicativo |4,15, 3,22, 2,34 |Jan 13 2015 |
-| N/A |[3013043] |Os dados do sistema de arquivos estão corrompidos em um computador baseado no Windows que tem mais de um nó NUMA |4,15, 3,22, 2,34 |Jan 13 2015 |
-| N/A |[3012712] |Novos blocos de dados são inicializados incorretamente quando um VHD diferencial é expandido |4,15, 3,22, 2,34 |Jan 13 201 |
-| N/A |[3004905] |Aprimoramento do Windows Hyper-V para máquinas virtuais Linux com sistemas de arquivos maiores que 2 TB |4,15, 3,22, 2,34 |Jan 13 2015 |
-| N/A |[3004394] |Atualização de dezembro de 2014 para o programa de certificado raiz do Windows no Windows |4,15, 3,22, 2,34 |Jan 13 2015 |
-| N/A |[2999323] |O texto para a ID de evento 17 foi alterado |4,15, 3,22, 2,34 |Jan 13 2015 |
-| N/A |[3013488] |Longa espera para redefinir o servidor do WSUS ao importar arquivos CSA no Windows Server 2012 R2 ou no Windows Server 2012 |4,15, 3,22, 2,34 |Jan 13 2015 |
-| N/A |[3012325] |Atualização de entradas do banco de dados APN do Windows para operadores de celular DIGI, Vodafone e Telekom no Windows 8.1 e no Windows 8 |4,15, 3,22, 2,34 |Jan 13 2015 |
-| N/A |[3007054] |A opção de impressão protegida por PIN sempre mostra quando você imprime um documento em um aplicativo da Windows Store no Windows |4,15, 3,22, 2,34 |Jan 13 2015 |
-| N/A |[2999802] |Linhas sólidas em vez de linhas pontilhadas são impressas no Windows |4,15, 3,22, 2,34 |Jan 13 2015 |
-| N/A |[2896881] |Tempo de logon longo ao usar o comando AddPrinterConnection VBScript para mapear impressoras para usuários durante o processo de logon no Windows |4,15, 3,22, 2,34 |Jan 13 2015 |
+| N/D |[3013776] |O sistema congela quando você usa uma conta de domínio para iniciar um aplicativo |4,15, 3,22, 2,34 |Jan 13 2015 |
+| N/D |[3013043] |Os dados do sistema de arquivos estão corrompidos em um computador baseado no Windows que tem mais de um nó NUMA |4,15, 3,22, 2,34 |Jan 13 2015 |
+| N/D |[3012712] |Novos blocos de dados são inicializados incorretamente quando um VHD diferencial é expandido |4,15, 3,22, 2,34 |Jan 13 201 |
+| N/D |[3004905] |Aprimoramento do Windows Hyper-V para máquinas virtuais Linux com sistemas de arquivos maiores que 2 TB |4,15, 3,22, 2,34 |Jan 13 2015 |
+| N/D |[3004394] |Atualização de dezembro de 2014 para o programa de certificado raiz do Windows no Windows |4,15, 3,22, 2,34 |Jan 13 2015 |
+| N/D |[2999323] |O texto para a ID de evento 17 foi alterado |4,15, 3,22, 2,34 |Jan 13 2015 |
+| N/D |[3013488] |Longa espera para redefinir o servidor do WSUS ao importar arquivos CSA no Windows Server 2012 R2 ou no Windows Server 2012 |4,15, 3,22, 2,34 |Jan 13 2015 |
+| N/D |[3012325] |Atualização de entradas do banco de dados APN do Windows para operadores de celular DIGI, Vodafone e Telekom no Windows 8.1 e no Windows 8 |4,15, 3,22, 2,34 |Jan 13 2015 |
+| N/D |[3007054] |A opção de impressão protegida por PIN sempre mostra quando você imprime um documento em um aplicativo da Windows Store no Windows |4,15, 3,22, 2,34 |Jan 13 2015 |
+| N/D |[2999802] |Linhas sólidas em vez de linhas pontilhadas são impressas no Windows |4,15, 3,22, 2,34 |Jan 13 2015 |
+| N/D |[2896881] |Tempo de logon longo ao usar o comando AddPrinterConnection VBScript para mapear impressoras para usuários durante o processo de logon no Windows |4,15, 3,22, 2,34 |Jan 13 2015 |
 
 [4457131]: https://support.microsoft.com/kb/4457131
 [4457145]: https://support.microsoft.com/kb/4457145

@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c739e827589a9fd6adeb10255f869acef29a4f16
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9c8219dd9ec971303fb62cf828da91ee877f4ca9
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562220"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882911"
 ---
-# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planear a sua implementação de associação do Azure AD
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como planejar sua implementação de ingresso no Azure AD
 
 O ingresso no Azure AD permite que você ingresse dispositivos diretamente no Azure AD sem a necessidade de ingressar no local Active Directory enquanto mantém seus usuários produtivos e seguros. O ingresso no Azure AD está pronto para empresas para implantações em escala e com escopo.   
 
@@ -34,13 +34,13 @@ Para planejar sua implementação de ingresso no Azure AD, você deve se familia
 
 |   |   |
 |---|---|
-|![Verificação][1]|Examine seus cenários|
-|![Verificação][1]|Examine sua infraestrutura de identidade|
-|![Verificação][1]|Avaliar o gerenciamento de dispositivos|
-|![Verificação][1]|Entenda as considerações para aplicativos e recursos|
-|![Verificação][1]|Entenda suas opções de provisionamento|
-|![Verificação][1]|Configurar roaming de estado da empresa|
-|![Verificação][1]|Configurar o acesso condicional|
+|![Marcar][1]|Examine seus cenários|
+|![Marcar][1]|Examine sua infraestrutura de identidade|
+|![Marcar][1]|Avaliar o gerenciamento de dispositivos|
+|![Marcar][1]|Entenda as considerações para aplicativos e recursos|
+|![Marcar][1]|Entenda suas opções de provisionamento|
+|![Marcar][1]|Configurar roaming de estado da empresa|
+|![Marcar][1]|Configurar o acesso condicional|
 
 ## <a name="review-your-scenarios"></a>Examine seus cenários 
 
@@ -67,10 +67,10 @@ Esses cenários não exigem que você configure um servidor de Federação para 
 
 Um ambiente federado deve ter um provedor de identidade que ofereça suporte a protocolos WS-Trust e WS-Drive:
 
-- **WS-Fed:** Esse protocolo é necessário para ingressar um dispositivo no Azure AD.
+- **WS-alimentado:** Esse protocolo é necessário para ingressar um dispositivo no Azure AD.
 - **WS-Trust:** Esse protocolo é necessário para entrar em um dispositivo ingressado no Azure AD.
 
-Quando você estiver usando AD FS, será necessário habilitar os seguintes pontos de extremidade WS-Trust:`/adfs/services/trust/2005/usernamemixed`
+Quando você estiver usando AD FS, será necessário habilitar os seguintes pontos de extremidade WS-Trust: `/adfs/services/trust/2005/usernamemixed`
  `/adfs/services/trust/13/usernamemixed`
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
@@ -78,14 +78,14 @@ Quando você estiver usando AD FS, será necessário habilitar os seguintes pont
 Se seu provedor de identidade não oferecer suporte a esses protocolos, o ingresso no Azure AD não funcionará nativamente. A partir do Windows 10 1809, os usuários podem entrar em um dispositivo ingressado no Azure AD com um provedor de identidade baseado em SAML por meio de [entrada na Web no Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Atualmente, a entrada na Web é um recurso de visualização e não é recomendada para implantações de produção.
 
 >[!NOTE]
-> Atualmente, o ingresso no Azure AD não funciona com [AD FS 2019 configurado com provedores de autenticação externa como o método de autenticação principal](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). O ingresso no Azure AD usa como padrão a autenticação de senha como o método principal, o que resulta em falhas de autenticação nesse cenário
+> Atualmente, o ingresso no Azure AD não funciona com [AD FS 2019 configurado com provedores de autenticação externa como o método de autenticação principal](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). O ingresso no Azure AD usa como padrão a autenticação de senha como o método principal, o que resulta em falhas de autenticação nesse cenário
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Cartão inteligente e autenticação baseada em certificado
 
 Não é possível usar cartões inteligentes ou autenticação baseada em certificado para unir dispositivos ao Azure AD. No entanto, os cartões inteligentes podem ser usados para entrar em dispositivos ingressados no Azure AD se você tiver AD FS configurados.
 
-**Recomendação** Implemente o Windows Hello for Business para autenticação forte e sem senha em dispositivos Windows 10.
+**Recomendação:** Implemente o Windows Hello for Business para autenticação forte e sem senha em dispositivos Windows 10.
 
 ### <a name="user-configuration"></a>Configuração do usuário
 
@@ -106,7 +106,7 @@ Ingresso no Azure AD:
 - Não é aplicável a versões anteriores do Windows ou outros sistemas operacionais. Se você tiver dispositivos Windows 7/8.1, deverá atualizar para o Windows 10 para implantar o ingresso no Azure AD.
 - Não tem suporte em dispositivos com TPM no modo FIPS.
  
-**Recomendação** Sempre use a versão mais recente do Windows 10 para aproveitar os recursos atualizados.
+**Recomendação:** Sempre use a versão mais recente do Windows 10 para aproveitar os recursos atualizados.
 
 ### <a name="management-platform"></a>Plataforma de gerenciamento
 
@@ -131,7 +131,7 @@ Se sua solução de MDM não estiver disponível por meio da Galeria de aplicati
 
 Por meio do cogerenciamento, você pode usar o SCCM para gerenciar determinados aspectos de seus dispositivos enquanto as políticas são entregues por meio da sua plataforma MDM. Microsoft Intune habilita o cogerenciamento com o SCCM. Para obter mais informações, consulte [cogerenciamento para dispositivos Windows 10](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). Se você usar um produto MDM diferente do Intune, verifique com seu provedor de MDM em cenários de cogerenciamento aplicáveis.
 
-**Recomendação** Considere o gerenciamento somente MDM para dispositivos ingressados no Azure AD.
+**Recomendação:** Considere o gerenciamento somente MDM para dispositivos ingressados no Azure AD.
 
 ## <a name="understand-considerations-for-applications-and-resources"></a>Entenda as considerações para aplicativos e recursos
 
@@ -157,13 +157,13 @@ Se seus aplicativos forem personalizados criados e/ou hospedados localmente, voc
 
 Se você usar AD FS, consulte [verificar e gerenciar o logon único com o AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
-**Recomendação** Considere a hospedagem na nuvem (por exemplo, o Azure) e a integração com o Azure AD para uma melhor experiência.
+**Recomendação:** Considere a hospedagem na nuvem (por exemplo, o Azure) e a integração com o Azure AD para uma melhor experiência.
 
 ### <a name="on-premises-applications-relying-on-legacy-protocols"></a>Aplicativos locais que dependem de protocolos herdados
 
 Os usuários obtêm SSO de dispositivos ingressados no Azure AD se o dispositivo tiver acesso a um controlador de domínio. 
 
-**Recomendação** Implante [aplicativo Azure ad proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) para habilitar o acesso seguro para esses aplicativos.
+**Recomendação:** Implante [aplicativo Azure ad proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) para habilitar o acesso seguro para esses aplicativos.
 
 ### <a name="on-premises-network-shares"></a>Compartilhamentos de rede locais
 
@@ -179,7 +179,7 @@ Embora as impressoras não possam ser descobertas automaticamente em um ambiente
 
 Os dispositivos ingressados no Azure AD não dão suporte a aplicativos locais que dependem da autenticação do computador. 
 
-**Recomendação** Considere a desativação desses aplicativos e a mudança para suas alternativas modernas.
+**Recomendação:** Considere a desativação desses aplicativos e a mudança para suas alternativas modernas.
 
 ### <a name="remote-desktop-services"></a>Serviços de Ambiente de Trabalho Remoto
 
@@ -195,7 +195,7 @@ Você pode provisionar o ingresso no Azure AD usando as seguintes abordagens:
  
 Aqui está uma comparação dessas três abordagens 
  
-|   | Configuração de autoatendimento | Piloto automático do Windows | Inscrição em massa |
+|   | Configuração de autoatendimento | Piloto automático do Windows | Registro em massa |
 | --- | --- | --- | --- |
 | Exigir interação do usuário para configurar | Sim | Sim | Não |
 | Exigir esforço de ti | Não | Sim | Sim |
@@ -219,17 +219,17 @@ Escolha a abordagem ou abordagens de implantação examinando a tabela acima e r
 
 O portal do Azure permite que você controle a implantação de dispositivos ingressados no Azure AD na sua organização. Para definir as configurações relacionadas, na **página Azure Active Directory**, selecione `Devices > Device settings`.
 
-### <a name="users-may-join-devices-to-azure-ad"></a>Os utilizadores podem associar dispositivos ao Azure AD
+### <a name="users-may-join-devices-to-azure-ad"></a>Os usuários podem ingressar dispositivos no Azure AD
 
 Defina essa opção como **All** ou **Selected** com base no escopo da sua implantação e que você deseja permitir para configurar um dispositivo ingressado no Azure AD. 
 
-![Os utilizadores podem associar dispositivos ao Azure AD](./media/azureadjoin-plan/01.png)
+![Os usuários podem ingressar dispositivos no Azure AD](./media/azureadjoin-plan/01.png)
 
-### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Administradores locais adicionais nos dispositivos associados do Azure AD
+### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Administradores locais adicionais em dispositivos ingressados no Azure AD
 
 Escolha **selecionado** e selecione os usuários que você deseja adicionar ao grupo Administradores locais em todos os dispositivos ingressados no Azure AD. 
 
-![Administradores locais adicionais nos dispositivos associados do Azure AD](./media/azureadjoin-plan/02.png)
+![Administradores locais adicionais em dispositivos ingressados no Azure AD](./media/azureadjoin-plan/02.png)
 
 ### <a name="require-multi-factor-auth-to-join-devices"></a>Exigir autenticação multifator para unir dispositivos
 
@@ -247,30 +247,30 @@ Antes de definir as configurações de mobilidade, talvez seja necessário adici
 1. Clique em **Adicionar aplicativo**.
 1. Selecione seu provedor de MDM na lista.
 
-   ![Adicionar uma Aplicação](./media/azureadjoin-plan/04.png)
+   ![Adicionar uma aplicação](./media/azureadjoin-plan/04.png)
 
 Selecione seu provedor de MDM para definir as configurações relacionadas. 
 
-### <a name="mdm-user-scope"></a>Âmbito do utilizador MDM
+### <a name="mdm-user-scope"></a>Escopo de usuário do MDM
 
 Selecione **alguma** ou **todas as** opções com base no escopo da sua implantação. 
 
-![Âmbito do utilizador MDM](./media/azureadjoin-plan/05.png)
+![Escopo de usuário do MDM](./media/azureadjoin-plan/05.png)
 
 Com base no seu escopo, uma das seguintes situações ocorrerá: 
 
-- O **usuário está no escopo do MDM**: Se você tiver uma assinatura Azure AD Premium, o registro de MDM será automatizado junto com o ingresso no Azure AD. Todos os usuários com escopo devem ter uma licença apropriada para o MDM. Se o registro do MDM falhar nesse cenário, o ingresso no Azure AD também será revertido.
-- O **usuário não está no escopo do MDM**: Se os usuários não estiverem no escopo do MDM, o ingresso no Azure AD será concluído sem qualquer registro de MDM. Isso resulta em um dispositivo não gerenciado.
+- O **usuário está no escopo do MDM**: se você tiver uma assinatura Azure ad Premium, o registro do MDM será automatizado junto com o ingresso no Azure AD. Todos os usuários com escopo devem ter uma licença apropriada para o MDM. Se o registro do MDM falhar nesse cenário, o ingresso no Azure AD também será revertido.
+- O **usuário não está no escopo do MDM**: se os usuários não estiverem no escopo do MDM, a junção do Azure ad será concluída sem qualquer registro de MDM. Isso resulta em um dispositivo não gerenciado.
 
 ### <a name="mdm-urls"></a>URLs de MDM
 
 Há três URLs relacionadas à sua configuração de MDM:
 
-- URL dos termos de utilização do MDM
-- URL de deteção de MDM 
+- URL dos termos de uso do MDM
+- URL de descoberta de MDM 
 - URL de conformidade do MDM
 
-![Adicionar uma Aplicação](./media/azureadjoin-plan/06.png)
+![Adicionar uma aplicação](./media/azureadjoin-plan/06.png)
 
 Cada URL tem um valor padrão predefinido. Se esses campos estiverem vazios, entre em contato com seu provedor de MDM para obter mais informações.
 
@@ -282,13 +282,13 @@ O MAM não se aplica ao ingresso no Azure AD.
 
 Se você quiser habilitar o roaming de estado para o Azure AD para que os usuários possam sincronizar suas configurações entre dispositivos, consulte [habilitar Enterprise State roaming em Azure Active Directory](enterprise-state-roaming-enable.md). 
 
-**Recomendação**: Habilite essa configuração mesmo para dispositivos ingressados no Azure AD híbrido.
+**Recomendação**: habilite essa configuração mesmo para dispositivos ingressados no Azure ad híbrido.
 
 ## <a name="configure-conditional-access"></a>Configurar o acesso condicional
 
 Se você tiver um provedor de MDM configurado para seus dispositivos ingressados no Azure AD, o provedor sinalizará o dispositivo como compatível assim que o dispositivo estiver sob gerenciamento. 
 
-![Dispositivo em conformidade](./media/azureadjoin-plan/46.png)
+![Dispositivo conforme](./media/azureadjoin-plan/46.png)
 
 Você pode usar essa implementação para [exigir dispositivos gerenciados para acesso de aplicativo de nuvem com acesso condicional](../conditional-access/require-managed-devices.md).
 

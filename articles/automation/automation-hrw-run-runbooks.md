@@ -9,18 +9,18 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83c185a6ba8f1c5e6edf095db5baf575f750fa3b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9c7084954fe58351a6f9af40552714faa34685ad
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176465"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887051"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Executando runbooks em um Hybrid Runbook Worker
 
 Não há nenhuma diferença na estrutura de runbooks que são executados na automação do Azure e runbooks que são executados em um Hybrid Runbook Worker. Os Runbooks que você usa com cada um provavelmente diferem significativamente. Essa diferença ocorre porque os runbooks direcionados a um Hybrid Runbook Worker normalmente gerenciam recursos no próprio computador local ou em recursos no ambiente local onde ele é implantado. Os Runbooks na automação do Azure normalmente gerenciam recursos na nuvem do Azure.
 
-Ao criar runbooks para serem executados em um Hybrid Runbook Worker, você deve editar e testar os runbooks dentro do computador que hospeda o Hybrid Worker. O computador host tem todos os módulos do PowerShell e o acesso à rede que você precisa para gerenciar e acessar os recursos locais. Depois que um runbook é testado no computador do Hybrid Worker, você pode carregá-lo no ambiente de automação do Azure onde ele está disponível para ser executado no Hybrid Worker. É importante saber que os trabalhos executados na conta sistema local para Windows ou uma conta de usuário especial `nxautomation` no Linux. No Linux, isso significa que você deve garantir que a conta `nxautomation` tenha acesso ao local onde você armazena seus módulos. Ao usar o cmdlet [install-Module](/powershell/module/powershellget/install-module) , especifique **AllUsers** para o parâmetro `-Scope` para confirmar que a conta de `nxautomation` tem acesso.
+Ao criar runbooks para serem executados em um Hybrid Runbook Worker, você deve editar e testar os runbooks dentro do computador que hospeda o Hybrid Worker. O computador host tem todos os módulos do PowerShell e o acesso à rede que você precisa para gerenciar e acessar os recursos locais. Depois que um runbook é testado no computador do Hybrid Worker, você pode carregá-lo no ambiente de automação do Azure onde ele está disponível para ser executado no Hybrid Worker. É importante saber que os trabalhos executados na conta sistema local para Windows ou uma conta de usuário especial `nxautomation` no Linux. No Linux, isso significa que você deve garantir que a conta de `nxautomation` tenha acesso ao local onde você armazena seus módulos. Ao usar o cmdlet [install-Module](/powershell/module/powershellget/install-module) , especifique **AllUsers** para o parâmetro `-Scope` para confirmar que a conta de `nxautomation` tem acesso.
 
 Para obter mais informações sobre o PowerShell no Linux, consulte [problemas conhecidos do PowerShell em plataformas que não são do Windows](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms).
 
@@ -60,7 +60,7 @@ Você também pode usar [InlineScript](automation-powershell-workflow.md#inlines
 
 ### <a name="runas-account"></a>Conta Executar como
 
-Por padrão, o Hybrid Runbook Worker usa o sistema local para Windows e uma conta de usuário especial `nxautomation` para Linux para executar runbooks. Em vez de fazer com que os runbooks forneçam sua própria autenticação para recursos locais, você pode especificar uma conta **runas** para um grupo do Hybrid Worker. Você especifica um [ativo de credencial](automation-credentials.md) que tem acesso a recursos locais, incluindo repositórios de certificados e todos os runbooks executados sob essas credenciais quando executados em um Hybrid runbook Worker no grupo.
+Por padrão, o Hybrid Runbook Worker usa o sistema local para Windows e uma conta de usuário especial `nxautomation` para o Linux executar runbooks. Em vez de fazer com que os runbooks forneçam sua própria autenticação para recursos locais, você pode especificar uma conta **runas** para um grupo do Hybrid Worker. Você especifica um [ativo de credencial](automation-credentials.md) que tem acesso a recursos locais, incluindo repositórios de certificados e todos os runbooks executados sob essas credenciais quando executados em um Hybrid runbook Worker no grupo.
 
 O nome de usuário para a credencial deve estar em um dos seguintes formatos:
 
@@ -109,7 +109,7 @@ Get-AzureRmVm | Select Name
 
 Como parte do processo de compilação automatizado para a implantação de recursos no Azure, você pode precisar de acesso a sistemas locais para dar suporte a uma tarefa ou a um conjunto de etapas em sua sequência de implantação. Para dar suporte à autenticação no Azure usando a conta Executar como, você precisa instalar o certificado da conta Executar como.
 
-O runbook do PowerShell a seguir, **Export-RunAsCertificateToHybridWorker**, exporta o certificado executar como da sua conta de automação do Azure e baixa e importa para o repositório de certificados do computador local em um trabalhador híbrido, que está conectado para a mesma conta. Depois que essa etapa for concluída, ela verificará se o trabalho pode se autenticar com êxito no Azure usando a conta Executar como.
+O runbook do PowerShell a seguir, **Export-RunAsCertificateToHybridWorker**, exporta o certificado executar como da sua conta de automação do Azure e baixa e importa para o repositório de certificados do computador local em um trabalhador híbrido, que está conectado à mesma conta. Depois que essa etapa for concluída, ela verificará se o trabalho pode se autenticar com êxito no Azure usando a conta Executar como.
 
 ```azurepowershell-interactive
 <#PSScriptInfo
@@ -266,7 +266,7 @@ Use `sudo` para entrar como a conta de `nxautomation`.
 sudo su – nxautomation
 ```
 
-Uma vez usando a conta `nxautomation`, gere o par de chaves GPG.
+Uma vez usando a conta de `nxautomation`, gere o par de chaves GPG.
 
 ```bash
 sudo gpg --generate-key
@@ -315,4 +315,4 @@ O runbook assinado agora pode ser carregado na automação do Azure e pode ser e
 * Para saber mais sobre os diferentes métodos que podem ser usados para iniciar um runbook, consulte [iniciando um runbook na automação do Azure](automation-starting-a-runbook.md).
 * Para entender as diferentes maneiras de trabalhar com runbooks do PowerShell na automação do Azure usando o editor de texto, consulte [editando um runbook na automação do Azure](automation-edit-textual-runbook.md)
 * Se seus runbooks não estiverem sendo concluídos com êxito, examine o guia de solução de problemas em [falhas de execução do runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
-* Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](https://docs.microsoft.com/powershell/scripting/overview).

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f8ddec95b92121c8dad4a39cf0c7b3f1798ec8ad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 81e652b90831af0e1e20e716842b4e79f5606d05
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789508"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889880"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Como indexar BLOBs JSON usando um indexador de blob no Azure Pesquisa Cognitiva
 
@@ -65,17 +65,11 @@ Na página **fonte de dados** , a origem deve ser o **armazenamento de BLOBs do 
 
    ![Definição da fonte de dados do blob](media/search-howto-index-json/import-wizard-json-data-source.png)
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4-ignorar a página "Adicionar pesquisa cognitiva" no assistente
+### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4-ignorar a página "conteúdo enriquecer" no assistente
 
-Adicionar habilidades cognitivas não é necessário para a importação de documento JSON. A menos que você tenha uma necessidade específica de [Adicionar o enriquecimento de ia](cognitive-search-concept-intro.md) ao seu pipeline de indexação, ignore esta etapa.
+Adicionar habilidades cognitivas (ou enriquecimento) não é um requisito de importação. A menos que você tenha uma necessidade específica de [Adicionar o enriquecimento de ia](cognitive-search-concept-intro.md) ao seu pipeline de indexação, ignore esta etapa.
 
-Para ignorar a etapa, primeiro vá para a próxima página.
-
-   ![Botão próxima página para pesquisa cognitiva](media/search-get-started-portal/next-button-add-cog-search.png)
-
-Nessa página, você pode pular para a personalização do índice.
-
-   ![Ignorar o passo de capacidades cognitivas](media/search-get-started-portal/skip-cog-skill-step.png)
+Para ignorar a etapa, clique nos botões azuis na parte inferior da página para "Avançar" e "ignorar".
 
 ### <a name="5---set-index-attributes"></a>5-definir atributos de índice
 
@@ -411,7 +405,7 @@ Revisitando nosso documento JSON de exemplo:
         }
     }
 
-Suponha um índice de pesquisa com os seguintes campos: `text` do tipo `Edm.String`, `date` do tipo `Edm.DateTimeOffset` e `tags` do tipo `Collection(Edm.String)`. Observe a discrepância entre "datePublished" no campo de origem e `date` no índice. Para mapear o JSON para a forma desejada, use os seguintes mapeamentos de campo:
+Suponha um índice de pesquisa com os seguintes campos: `text` do tipo `Edm.String`, `date` do tipo `Edm.DateTimeOffset`e `tags` do tipo `Collection(Edm.String)`. Observe a discrepância entre "datePublished" no campo de origem e `date` no índice. Para mapear o JSON para a forma desejada, use os seguintes mapeamentos de campo:
 
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
@@ -430,7 +424,7 @@ Você também pode se referir a elementos individuais da matriz usando um índic
 >
 >
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consultar também
 
 + [Indexadores no Azure Pesquisa Cognitiva](search-indexer-overview.md)
 + [Indexando o armazenamento de BLOBs do Azure com o Azure Pesquisa Cognitiva](search-howto-index-json-blobs.md)

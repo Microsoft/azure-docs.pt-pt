@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 65a257cc4613fb9e4dece09a2544de2e78779ab4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 305de556cc6e50af21cb38aa1b8073b420efbf43
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577065"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887758"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicativos: triagem de aplicativos distribuídos
 
@@ -234,7 +234,7 @@ Como alternativa, a **instância de função de nuvem** pode ser útil para cen�
 
 Um cenário em que você talvez queira substituir o valor para a instância de função de nuvem poderia ser se seu aplicativo estiver sendo executado em um ambiente em contêineres, onde apenas saber se o servidor individual pode não ser informações suficientes para localizar um determinado problema.
 
-Para obter mais informações sobre como substituir a propriedade de nome da função de nuvem por inicializadores de telemetria, consulte [Adicionar propriedades: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Para obter mais informações sobre como substituir a propriedade de nome da função de nuvem por inicializadores de telemetria, consulte [Adicionar propriedades: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

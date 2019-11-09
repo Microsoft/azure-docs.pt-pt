@@ -1,6 +1,6 @@
 ---
-title: Implementar a solução de monitorização remota localmente (Visual Studio Code) - Azure | Documentos da Microsoft
-description: Este guia de procedimentos mostra-lhe como implementar o acelerador de solução de monitorização remota em seu computador local com o Visual Studio Code para teste e desenvolvimento.
+title: Implantar a solução de monitoramento remoto localmente-Visual Studio Code-Azure | Microsoft Docs
+description: Este guia de instruções mostra como implantar o acelerador de solução de monitoramento remoto em seu computador local usando Visual Studio Code para teste e desenvolvimento.
 author: avneet723
 manager: hegate
 ms.author: avneets
@@ -8,99 +8,99 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: ed3301eb0e723e05e2a642ffea2f1609032553b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f1d20e9a6a78d99a23fe4b98aeb4f3eb8359da7
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730180"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890962"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Implementar o monitorização remota acelerador de soluções localmente - Visual Studio Code
+# <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Implantar o acelerador de solução de monitoramento remoto Visual Studio Code
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Este artigo mostra-lhe como implementar o acelerador de solução de monitorização remota no seu computador local para teste e desenvolvimento. Saiba como executar os microsserviços no Visual Studio Code. Uma implementação de microsserviços local utiliza os seguintes serviços de nuvem: IoT Hub, o Cosmos DB, análise de transmissão em fluxo do Azure e Azure Time Series Insights.
+Este artigo mostra como implantar o acelerador de solução de monitoramento remoto em seu computador local para teste e desenvolvimento. Você aprende a executar os microserviços no Visual Studio Code. Uma implantação de microserviços locais usa os seguintes serviços de nuvem: Hub IoT, Cosmos DB, análise de streaming do Azure e Azure Time Series Insights.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para implementar os serviços do Azure utilizados pelo acelerador de solução de monitorização remota, precisa de uma subscrição do Azure Active Directory.
+Para implantar os serviços do Azure usados pelo acelerador de solução de monitoramento remoto, você precisa de uma assinatura ativa do Azure.
 
-Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-### <a name="machine-setup"></a>Configuração de máquina
+### <a name="machine-setup"></a>Configuração do computador
 
-Para concluir a implementação de local, terá das seguintes ferramentas instaladas no seu computador de desenvolvimento local:
+Para concluir a implantação local, você precisará das seguintes ferramentas instaladas em seu computador de desenvolvimento local:
 
 * [Git](https://git-scm.com/)
 * [.NET Core](https://dotnet.microsoft.com/download)
 * [Docker](https://www.docker.com)
 * [Nginx](https://nginx.org/en/download.html)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [VS Code C# extensão](https://code.visualstudio.com/docs/languages/csharp)
-* [NODE. js v8](https://nodejs.org/) -este software é um pré-requisito para a CLI de PCS que os scripts usam para criar recursos do Azure. Não utilize a v10 de node. js
+* [Extensão de C# vs Code](https://code.visualstudio.com/docs/languages/csharp)
+* [Node. js V8](https://nodejs.org/) – este software é um pré-requisito para a CLI de PCs que os scripts usam para criar recursos do Azure. Não usar V10 node. js
 
 > [!NOTE]
-> Código do Visual Studio está disponível para Windows, Mac e Ubuntu.
+> Visual Studio Code está disponível para Windows, Mac e Ubuntu.
 
 [!INCLUDE [iot-accelerators-local-setup](../../includes/iot-accelerators-local-setup.md)]
 
-## <a name="run-the-microservices"></a>Execute os microsserviços
+## <a name="run-the-microservices"></a>Executar os microserviços
 
-Nesta secção, vai executar os microsserviços de monitorização remota. Executar a IU da web nativamente, o serviço de simulação do dispositivo no Docker e os microsserviços no Visual Studio Code.
+Nesta seção, você executa os microserviços de monitoramento remoto. Você executa a interface do usuário da Web nativamente, o serviço de simulação de dispositivo no Docker e os microserviços no Visual Studio Code.
 
 ### <a name="build-the-code"></a>Compilar o código
 
-Navegue para azure-iot-pcs-remote-monitoring-dotnet\services no prompt de comando e execute os seguintes comandos para criar o código.
+Navegue até Azure-IOT-PCs-Remote-Monitoring-dotnet\services no prompt de comando e execute os comandos a seguir para compilar o código.
 
 ```cmd
 dotnet restore
 dotnet build -c Release
 ```
 
-### <a name="deploy-all-other-microservices-on-local-machine"></a>Implementar todos os outros microsserviços no computador local
+### <a name="deploy-all-other-microservices-on-local-machine"></a>Implantar todos os outros microserviços no computador local
 
-Os passos seguintes mostram como executar os microsserviços de monitorização remota no Visual Studio Code:
+As etapas a seguir mostram como executar os microserviços de monitoramento remoto no Visual Studio Code:
 
 1. Abra o Visual Studio Code.
-1. No VS Code, abra a **azure-iot-pcs-remote-monitoring-dotnet** pasta.
-1. Criar uma nova pasta chamada **.vscode** no **azure-iot-pcs-remote-monitoring-dotnet** pasta.
-1. Copie os ficheiros **Launch** e **tasks.json** de services\scripts\local\launch\idesettings\vscode para o **.vscode** pasta que acabou de criar.
-1. Abra o **painel de depuração** no VS Code e execute o **executar todos os microsserviços** configuração. Esta configuração é executada o simulação de dispositivo dos microsserviços no Docker e executa os outros microsserviços no depurador.
+1. Em VS Code, abra a pasta **Azure-IOT-PCs-Remote-Monitoring-dotnet** .
+1. Crie uma nova pasta chamada **. vscode** na pasta **Azure-IOT-PCs-Remote-Monitoring-dotnet** .
+1. Copie os arquivos **Launch. JSON** e **Tasks. JSON** de services\scripts\local\launch\idesettings\vscode para a pasta **. vscode** que você acabou de criar.
+1. Abra o **painel de depuração** no vs Code e execute a configuração **executar todos os microserviços** . Essa configuração executa o microserviço de simulação de dispositivo no Docker e executa os outros microserviços no depurador.
 
-O resultado da execução **microsoervices executar todos** na consola de depuração é semelhante ao seguinte:
+A saída da execução **executar todos os microsserviços** no console de depuração é semelhante ao seguinte:
 
-[![Deploy-Local-Microservices](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
+[![implantar-locais-microserviços](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
 
-### <a name="run-the-web-ui"></a>Executar a IU da web
+### <a name="run-the-web-ui"></a>Executar a interface do usuário da Web
 
-Neste passo, começa a IU da web. Navegue para **azure-iot-pcs-remote-monitoring-dotnet\webui** pasta no seu local copiar e execute os seguintes comandos:
+Nesta etapa, você inicia a interface do usuário da Web. Navegue até a pasta **Azure-IOT-PCs-Remote-Monitoring-dotnet\webui** em sua cópia local e execute os seguintes comandos:
 
 ```cmd
 npm install
 npm start
 ```
 
-Quando o início for concluído, o browser apresenta a página **http:\//localhost:3000 / dashboard**. Espera-se os erros nesta página. Para ver a aplicação sem erros, conclua o passo seguinte.
+Quando o início for concluído, o navegador exibirá a página **http:\//localhost: 3000/Dashboard**. Os erros nesta página são esperados. Para exibir o aplicativo sem erros, conclua a etapa a seguir.
 
 ### <a name="configure-and-run-nginx"></a>Configurar e executar o NGINX
 
-Configure um servidor de proxy inverso para ligar a aplicação web e os microsserviços em execução no seu computador local:
+Configure um servidor proxy reverso para vincular o aplicativo Web e os microserviços em execução no computador local:
 
-* Cópia a **nginx.conf** ficheiro a partir do **webui\scripts\localhost** pasta para o **nginx\conf** diretório de instalação.
-* Execute **nginx**.
+* Copie o arquivo **nginx. conf** da pasta **webui\scripts\localhost** para o diretório de instalação do **nginx\conf** .
+* Execute **Nginx**.
 
-Para obter mais informações sobre como executar **nginx**, consulte [nginx para Windows](https://nginx.org/en/docs/windows.html).
+Para obter mais informações sobre como executar o **Nginx**, consulte [Nginx for Windows](https://nginx.org/en/docs/windows.html).
 
-### <a name="connect-to-the-dashboard"></a>Ligar ao dashboard
+### <a name="connect-to-the-dashboard"></a>Conectar-se ao painel
 
-Para aceder ao dashboard de solução de monitorização remota, navegue para o http:\//localhost:9000 no seu browser.
+Para acessar o painel da solução de monitoramento remoto, navegue até http:\//localhost: 9000 em seu navegador.
 
 ## <a name="clean-up"></a>Limpeza
 
-Para evitar desnecessários custos, quando tiver concluído os testes remover os serviços em nuvem da sua subscrição do Azure. Para remover os serviços, navegue para o [portal do Azure](https://ms.portal.azure.com) e eliminar o recurso de grupo que o **start.cmd** script criado.
+Para evitar encargos desnecessários, quando você concluir o teste, remova os serviços de nuvem da sua assinatura do Azure. Para remover os serviços, navegue até a [portal do Azure](https://ms.portal.azure.com) e exclua o grupo de recursos criado pelo script **Start. cmd** .
 
-Também pode eliminar a cópia local do repositório de monitorização remota criado quando clonou o código-fonte do GitHub.
+Você também pode excluir a cópia local do repositório de monitoramento remoto criado quando você clonou o código-fonte do GitHub.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que implementou a solução de monitorização remota, a próxima etapa é [explore os recursos do dashboard da solução](quickstart-remote-monitoring-deploy.md).
+Agora que você implantou a solução de monitoramento remoto, a próxima etapa é [explorar os recursos do painel da solução](quickstart-remote-monitoring-deploy.md).

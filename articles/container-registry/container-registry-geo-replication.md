@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: c0de5f958c6dcbf935de4eec9557cf64620abbcf
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: f6d1987012cb401d7167896d9352ba7eae821a04
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208017"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887991"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Georreplicação no Azure Container Registry
 
@@ -35,7 +35,7 @@ A contoso executa um site de presença pública localizado nos EUA, no Canadá e
 
 A equipe de desenvolvimento está localizada em Seattle WA, utilizando o data center oeste dos EUA.
 
-![Enviando por push para vários registros](media/container-registry-geo-replication/before-geo-replicate.png)<br />*Enviando por push para vários registros*
+![enviar por push para vários registros](media/container-registry-geo-replication/before-geo-replicate.png)<br />*Enviando por push para vários registros*
 
 Antes de usar os recursos de replicação geográfica, a Contoso tinha um registro baseado nos EUA no oeste dos EUA, com um registro adicional no Europa Ocidental. Para atender a essas regiões diferentes, a equipe de desenvolvimento enviou imagens para dois registros diferentes.
 
@@ -43,7 +43,7 @@ Antes de usar os recursos de replicação geográfica, a Contoso tinha um regist
 docker push contoso.azurecr.io/public/products/web:1.2
 docker push contosowesteu.azurecr.io/public/products/web:1.2
 ```
-![Pull de vários registros](media/container-registry-geo-replication/before-geo-replicate-pull.png)<br />*Pull de vários registros*
+![a extração de vários registros](media/container-registry-geo-replication/before-geo-replicate-pull.png)<br />*Pull de vários registros*
 
 Os desafios típicos de vários registros incluem:
 
@@ -58,9 +58,9 @@ Os desafios típicos de vários registros incluem:
 
 Usando o recurso de replicação geográfica do registro de contêiner do Azure, esses benefícios são percebidos:
 
-* Gerenciar um único registro em todas as regiões:`contoso.azurecr.io`
-* Gerencie uma única configuração de implantações de imagem, pois todas as regiões usaram a mesma URL de imagem:`contoso.azurecr.io/public/products/web:1.2`
-* Enviar por push para um único registro, enquanto o ACR gerencia a replicação geográfica. Você pode configurar WebHooks regionais para notificá-lo de eventos em réplicas específicas. [](container-registry-webhook.md)
+* Gerenciar um único registro em todas as regiões: `contoso.azurecr.io`
+* Gerencie uma única configuração de implantações de imagem, pois todas as regiões usaram a mesma URL de imagem: `contoso.azurecr.io/public/products/web:1.2`
+* Enviar por push para um único registro, enquanto o ACR gerencia a replicação geográfica. Você pode configurar [WebHooks](container-registry-webhook.md) regionais para notificá-lo de eventos em réplicas específicas.
 
 ## <a name="configure-geo-replication"></a>Configurar georreplicação
 
@@ -72,7 +72,7 @@ A replicação geográfica é um recurso somente de [registros Premium](containe
 
 Para configurar a replicação geográfica para o registro Premium, faça logon no portal do Azure em https://portal.azure.com.
 
-Navegue até o registro de contêiner do Azure eselecione replicações:
+Navegue até o registro de contêiner do Azure e selecione **replicações**:
 
 ![Replicações na IU de registo de contentor do portal do Azure](media/container-registry-geo-replication/registry-services.png)
 
@@ -97,7 +97,7 @@ O ACR começa a sincronizar imagens entre as réplicas configuradas. Após a con
 * Cada região em um registro com replicação geográfica é independente uma vez configurada. Os SLAs do registro de contêiner do Azure se aplicam a cada região replicada geograficamente.
 * Quando você envia por Push ou efetua pull de imagens de um registro com replicação geográfica, o Gerenciador de tráfego do Azure em segundo plano envia a solicitação para o registro localizado na região mais próxima de você.
 * Depois de enviar uma imagem ou uma atualização de marca para a região mais próxima, leva algum tempo para o registro de contêiner do Azure replicar os manifestos e as camadas nas regiões restantes que você aceitou. Imagens maiores levam mais tempo para serem replicadas do que as menores. Imagens e marcas são sincronizadas nas regiões de replicação com um modelo de consistência eventual.
-* Para gerenciar fluxos de trabalho que dependem de atualizações por push para uma replicação geográfica, recomendamos que você configure [](container-registry-webhook.md) WebHooks para responder aos eventos de push. Você pode configurar WebHooks regionais em um registro replicado geograficamente para rastrear eventos de push à medida que eles são concluídos em regiões com replicação geográfica.
+* Para gerenciar fluxos de trabalho que dependem de atualizações por push para uma replicação geográfica, recomendamos que você configure [WebHooks](container-registry-webhook.md) para responder aos eventos de push. Você pode configurar WebHooks regionais em um registro replicado geograficamente para rastrear eventos de push à medida que eles são concluídos em regiões com replicação geográfica.
 
 ## <a name="delete-a-replica"></a>Excluir uma réplica
 
@@ -105,7 +105,7 @@ Depois de configurar uma réplica para o registro, você poderá excluí-la a qu
 
 Para excluir uma réplica no portal do Azure:
 
-1. Navegue até o registro de contêiner do Azure eselecione replicações.
+1. Navegue até o registro de contêiner do Azure e selecione **replicações**.
 1. Selecione o nome de uma réplica e selecione **excluir**. Confirme que você deseja excluir a réplica.
 
 > [!NOTE]
@@ -121,13 +121,13 @@ No exemplo anterior, a contoso consolidou dois registros em um, adicionando rép
  
 Um cliente do Docker que envia uma imagem para um registro com replicação geográfica pode não enviar por push todas as camadas de imagem e seu manifesto para uma única região replicada. Isso pode ocorrer porque o Gerenciador de tráfego do Azure roteia solicitações de registro para o registro replicado mais próximo da rede. Se o registro tiver duas regiões de replicação *próximas* , as camadas de imagem e o manifesto poderão ser distribuídos para os dois sites, e a operação de envio falhará quando o manifesto for validado. Esse problema ocorre devido à maneira como o nome DNS do registro é resolvido em alguns hosts Linux. Esse problema não ocorre no Windows, que fornece um cache DNS do lado do cliente.
  
-Se esse problema ocorrer, uma solução é aplicar um cache DNS do lado do cliente, `dnsmasq` como no host do Linux. Isso ajuda a garantir que o nome do registro seja resolvido de forma consistente. Se você estiver usando uma VM do Linux no Azure para enviar por push a um registro, consulte Opções em [Opções de resolução de nomes DNS para máquinas virtuais do Linux no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/azure-dns).
+Se esse problema ocorrer, uma solução é aplicar um cache DNS do lado do cliente, como `dnsmasq` no host do Linux. Isso ajuda a garantir que o nome do registro seja resolvido de forma consistente. Se você estiver usando uma VM do Linux no Azure para enviar por push a um registro, consulte Opções em [Opções de resolução de nomes DNS para máquinas virtuais do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/azure-dns).
 
 Para otimizar a resolução DNS para a réplica mais próxima ao enviar imagens por push, configure um registro replicado geograficamente nas mesmas regiões do Azure que a origem das operações de envio por Push ou a região mais próxima ao trabalhar fora do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Confira a série de tutoriais de três partes, [replicação geográfica no registro de contêiner do Azure](container-registry-tutorial-prepare-registry.md). Percorra a criação de um registro replicado geograficamente, a criação de um contêiner e a implantação de um `docker push` único comando para vários aplicativos Web regionais para instâncias de contêineres.
+Confira a série de tutoriais de três partes, [replicação geográfica no registro de contêiner do Azure](container-registry-tutorial-prepare-registry.md). Percorra a criação de um registro replicado geograficamente, a criação de um contêiner e, em seguida, a implantação com um único comando `docker push` para vários aplicativos Web regionais para instâncias de contêineres.
 
 > [!div class="nextstepaction"]
 > [Replicação geográfica no registro de contêiner do Azure](container-registry-tutorial-prepare-registry.md)

@@ -1,7 +1,7 @@
 ---
 title: Referência do API de Tradução de Texto V 3.0
 titleSuffix: Azure Cognitive Services
-description: Documentação de referência para o API de Tradução de Texto V 3.0.
+description: Documentação de referência para o API de Tradução de Texto V 3.0. A versão 3 do API de Tradução de Texto fornece uma API da Web moderna baseada em JSON.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: a441ca83230a1c715aadda79683964aaab6d6213
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: c07673e7b170170de4723a1232d2e7281feaaf99
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72252966"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888084"
 ---
 # <a name="translator-text-api-v30"></a>API de Tradução de Texto v 3.0
 
@@ -64,7 +64,7 @@ Há três cabeçalhos que você pode usar para autenticar sua assinatura. Esta t
 A primeira opção é autenticar usando o cabeçalho `Ocp-Apim-Subscription-Key`. Adicione o cabeçalho `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` à sua solicitação.
 
 ### <a name="authorization-token"></a>Token de autorização
-Como alternativa, você pode trocar sua chave secreta para um token de acesso. Esse token é incluído em cada solicitação como o cabeçalho `Authorization`. Para obter um token de autorização, faça uma solicitação `POST` para a seguinte URL:
+Como alternativa, você pode trocar sua chave secreta para um token de acesso. Esse token é incluído em cada solicitação como o cabeçalho de `Authorization`. Para obter um token de autorização, faça uma solicitação de `POST` para a seguinte URL:
 
 | Ambiente     | URL do serviço de autenticação                                |
 |-----------------|-----------------------------------------------------------|
@@ -98,7 +98,7 @@ Ao usar uma chave secreta de vários serviços, você deve incluir dois cabeçal
 
 A região é necessária para a assinatura de API de texto de vários serviços. A região selecionada é a única região que você pode usar para a tradução de texto ao usar a chave de assinatura de vários serviços e deve ser a mesma região que você selecionou quando se inscreveu para sua assinatura de vários serviços por meio do portal do Azure.
 
-As regiões disponíveis são `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, @no__ t-21 e 2.
+As regiões disponíveis são `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`e `southafricanorth`.
 
 Se você passar a chave secreta na cadeia de caracteres de consulta com o parâmetro `Subscription-Key`, deverá especificar a região com o parâmetro de consulta `Subscription-Region`.
 
@@ -107,10 +107,10 @@ Se você usar um token de portador, deverá obter o token do ponto de extremidad
 
 ## <a name="errors"></a>Erros
 
-Uma resposta de erro padrão é um objeto JSON com o par nome/valor denominado `error`. O valor também é um objeto JSON com propriedades:
+Uma resposta de erro padrão é um objeto JSON com um par de nome/valor chamado `error`. O valor também é um objeto JSON com propriedades:
 
   * `code`: um código de erro definido pelo servidor.
-  * `message`: uma cadeia de caracteres fornecendo uma representação legível do erro.
+  * `message`: uma cadeia de caracteres que oferece uma representação legível do erro.
 
 Por exemplo, um cliente com uma assinatura de avaliação gratuita receberia o seguinte erro depois que a cota livre for esgotada:
 

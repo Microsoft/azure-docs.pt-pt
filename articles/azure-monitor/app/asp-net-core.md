@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
-ms.openlocfilehash: 5b9b92cd39e8d540f784d82d6c7f4a5754c85b62
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 8a87335dba237e8088275706f7dcc2eb7f34831a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677716"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887568"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicativos ASP.NET Core
 
@@ -44,19 +44,19 @@ O [SDK do Application insights para ASP.NET Core](https://nuget.org/packages/Mic
 1. Abra seu projeto no Visual Studio.
 
     > [!TIP]
-    > Se desejar, você pode configurar o controle do código-fonte para o seu projeto para poder acompanhar todas as alterações que Application Insights faz. Para habilitar o controle do código-fonte, selecione **arquivo**  > **Adicionar ao controle do código-fonte**.
+    > Se desejar, você pode configurar o controle do código-fonte para o seu projeto para poder acompanhar todas as alterações que Application Insights faz. Para habilitar o controle do código-fonte, selecione **arquivo** > **Adicionar ao controle do código-fonte**.
 
-2. Selecione **projeto**  > **Adicionar Application insights Telemetry**.
+2. Selecione **projeto** > **Adicionar Application insights Telemetry**.
 
 3. Selecione **introdução**. O texto dessa seleção pode variar, dependendo da sua versão do Visual Studio. Em vez disso, algumas versões anteriores usam um botão **Iniciar gratuito** .
 
-4. Selecione a sua subscrição. Em seguida, selecione **recurso**  > **registrar**.
+4. Selecione a sua subscrição. Em seguida, selecione **recurso** > **registrar**.
 
-5. Depois de adicionar Application Insights ao seu projeto, verifique se você está usando a versão estável mais recente do SDK. Vá para **projeto**  > **gerenciar pacotes NuGet**  > **Microsoft. ApplicationInsights. AspNetCore**. Se necessário, escolha **Atualizar**.
+5. Depois de adicionar Application Insights ao seu projeto, verifique se você está usando a versão estável mais recente do SDK. Vá para **projeto** > **gerenciar pacotes NuGet** > **Microsoft. ApplicationInsights. AspNetCore**. Se necessário, escolha **Atualizar**.
 
      ![Captura de tela mostrando onde selecionar o pacote de Application Insights para atualização](./media/asp-net-core/update-nuget-package.png)
 
-6. Se você seguiu a dica opcional e adicionou o projeto ao controle do código-fonte, acesse **exibir**  > **Team Explorer**  > **alterações**. Em seguida, selecione cada arquivo para ver uma exibição de comparação das alterações feitas por Application Insights telemetria.
+6. Se você seguiu a dica opcional e adicionou o projeto ao controle do código-fonte, acesse **exibir** > **Team Explorer** > **alterações**. Em seguida, selecione cada arquivo para ver uma exibição de comparação das alterações feitas por Application Insights telemetria.
 
 ## <a name="enable-application-insights-server-side-telemetry-no-visual-studio"></a>Habilitar Application Insights telemetria do lado do servidor (sem o Visual Studio)
 
@@ -213,7 +213,7 @@ Para obter mais informações, consulte [Configurar a amostragem adaptável para
 
 ### <a name="adding-telemetryinitializers"></a>Adicionando TelemetryInitializers
 
-Use [inicializadores de telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) quando desejar definir propriedades globais que são enviadas com toda a telemetria.
+Use [inicializadores de telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) quando desejar definir propriedades globais que são enviadas com toda a telemetria.
 
 Adicione qualquer `TelemetryInitializer` novo ao contêiner `DependencyInjection`, conforme mostrado no código a seguir. O SDK seleciona automaticamente qualquer `TelemetryInitializer` que seja adicionada ao contêiner de `DependencyInjection`.
 
@@ -249,7 +249,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="adding-telemetry-processors"></a>Adicionando processadores de telemetria
 
-Você pode adicionar processadores de telemetria personalizados a `TelemetryConfiguration` usando o método de extensão `AddApplicationInsightsTelemetryProcessor` em `IServiceCollection`. Você usa processadores de telemetria em [cenários de filtragem avançada](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor). Use o exemplo a seguir.
+Você pode adicionar processadores de telemetria personalizados para `TelemetryConfiguration` usando o método de extensão `AddApplicationInsightsTelemetryProcessor` no `IServiceCollection`. Você usa processadores de telemetria em [cenários de filtragem avançada](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor). Use o exemplo a seguir.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -277,7 +277,7 @@ Os seguintes módulos de coleta automática estão habilitados por padrão. Esse
 * `AzureInstanceMetadataTelemetryModule`-coleta os batidas no coração (que são enviados como métricas personalizadas), sobre o ambiente de VM do Azure em que o aplicativo está hospedado.
 * `EventCounterCollectionModule`-coleta [EventCounters.](eventcounters.md) Este módulo é um novo recurso e está disponível no SDK versão 2.8.0 e superior.
 
-Para configurar qualquer `TelemetryModule` padrão, use o método de extensão `ConfigureTelemetryModule<T>` em `IServiceCollection`, conforme mostrado no exemplo a seguir.
+Para configurar qualquer `TelemetryModule`padrão, use o método de extensão `ConfigureTelemetryModule<T>` em `IServiceCollection`, conforme mostrado no exemplo a seguir.
 
 ```csharp
 using Microsoft.ApplicationInsights.DependencyCollector;
@@ -332,7 +332,7 @@ using Microsoft.ApplicationInsights.Channel;
 
 ### <a name="disable-telemetry-dynamically"></a>Desabilitar telemetria dinamicamente
 
-Se você quiser desabilitar a telemetria condicional e dinamicamente, poderá resolver `TelemetryConfiguration` instância com ASP.NET Core contêiner de injeção de dependência em qualquer lugar em seu código e definir o sinalizador `DisableTelemetry` nele.
+Se você quiser desabilitar a telemetria condicional e dinamicamente, poderá resolver `TelemetryConfiguration` instância com ASP.NET Core contêiner de injeção de dependência em qualquer lugar em seu código e definir `DisableTelemetry` sinalizador nela.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -359,7 +359,7 @@ Além disso, se você estiver usando as instruções baseadas no Visual Studio [
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>Como posso rastrear a telemetria que não é coletada automaticamente?
 
-Obtenha uma instância de `TelemetryClient` usando injeção de construtor e chame o método necessário `TrackXXX()` nele. Não recomendamos criar novas instâncias de `TelemetryClient` em um aplicativo ASP.NET Core. Uma instância singleton de `TelemetryClient` já está registrada no contêiner `DependencyInjection`, que compartilha `TelemetryConfiguration` com o restante da telemetria. A criação de uma nova instância `TelemetryClient` é recomendada apenas se precisar de uma configuração separada do restante da telemetria.
+Obtenha uma instância de `TelemetryClient` usando injeção de construtor e chame o método de `TrackXXX()` necessário nele. Não recomendamos criar novas instâncias de `TelemetryClient` em um aplicativo ASP.NET Core. Uma instância singleton do `TelemetryClient` já está registrada no contêiner `DependencyInjection`, que compartilha `TelemetryConfiguration` com o restante da telemetria. A criação de uma nova instância de `TelemetryClient` é recomendada apenas se precisar de uma configuração separada do restante da telemetria.
 
 O exemplo a seguir mostra como acompanhar a telemetria adicional de um controlador.
 
@@ -417,7 +417,7 @@ O metapacote `Microsoft.AspNetCore.All` 2,0 incluía o SDK do Application Insigh
 Sim. O suporte a recursos para o SDK é o mesmo em todas as plataformas, com as seguintes exceções:
 
 * Os contadores de desempenho têm suporte apenas no Windows.
-* Embora `ServerTelemetryChannel` esteja habilitado por padrão, se o aplicativo estiver em execução no Linux ou no MacOS, o canal não criará automaticamente uma pasta de armazenamento local para manter a telemetria temporariamente se houver problemas de rede. Devido a essa limitação, a telemetria é perdida quando há problemas temporários de rede ou servidor. Para contornar esse problema, configure uma pasta local para o canal:
+* Embora `ServerTelemetryChannel` esteja habilitado por padrão, se o aplicativo estiver sendo executado no Linux ou no MacOS, o canal não criará automaticamente uma pasta de armazenamento local para manter a telemetria temporariamente se houver problemas de rede. Devido a essa limitação, a telemetria é perdida quando há problemas temporários de rede ou servidor. Para contornar esse problema, configure uma pasta local para o canal:
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -437,7 +437,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ### <a name="is-this-sdk-supported-for-the-new-net-core-30-worker-service-template-applications"></a>Este SDK tem suporte para os novos aplicativos de modelo de serviço de trabalho do .NET Core 3,0?
 
-Este SDK requer `HttpContext` e, portanto, não funciona em aplicativos não HTTP, incluindo os aplicativos do serviço de trabalho do .NET Core 3,0. Consulte [este](worker-service.md) documento para habilitar o Application insights em tais aplicativos, usando o SDK Microsoft. ApplicationInsights. WorkerService recentemente lançado.
+Este SDK requer `HttpContext`e, portanto, não funciona em aplicativos não HTTP, incluindo os aplicativos do serviço de trabalho do .NET Core 3,0. Consulte [este](worker-service.md) documento para habilitar o Application insights em tais aplicativos, usando o SDK Microsoft. ApplicationInsights. WorkerService recentemente lançado.
 
 ## <a name="open-source-sdk"></a>SDK de código-fonte aberto
 

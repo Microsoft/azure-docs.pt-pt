@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: c8647e316cc77e7e1eed5108fafccd6d70d181cf
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 1fec8a10a6699dc1360494cc7ac66e13f5d37ff0
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898188"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885741"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Melhorar o desempenho de aplicativos do Azure com o Azure Advisor
 
@@ -73,7 +73,7 @@ O Advisor identifica tabelas que não são tabelas replicadas, mas se beneficiam
 Migre seu modelo de implantação de conta de armazenamento para Azure Resource Manager (Resource Manager) para aproveitar as implantações de modelo, opções de segurança adicionais e a capacidade de atualizar para uma conta do GPv2 para a utilização dos recursos mais recentes do armazenamento do Azure. O Advisor identificará todas as contas de armazenamento autônomas que estão usando o modelo de implantação clássico e recomendará migrar para o modelo de implantação do Gerenciador de recursos.
 
 > [!NOTE]
-> Os alertas clássicos no Azure Monitor foram desativados em agosto de 2019. Recomendamos que você atualize sua conta de armazenamento clássico para usar o Resource Manager para manter a funcionalidade de alerta com a nova plataforma. Para obter mais informações, consulte [clássico alertas](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform)de desativação.
+> Os alertas clássicos no Azure Monitor foram desativados em agosto de 2019. Recomendamos que você atualize sua conta de armazenamento clássico para usar o Resource Manager para manter a funcionalidade de alerta com a nova plataforma. Para obter mais informações, consulte [clássico alertas](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform)de desativação.
 
 ## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Projete suas contas de armazenamento para evitar atingir o limite máximo de assinaturas
 
@@ -88,7 +88,7 @@ A utilização muito alta da CPU por um período estendido pode causar um desemp
 Uma taxa de acertos de cache baixa pode resultar em um desempenho de consulta mais lento e maior IOPS. Isso pode ser devido a um plano de consulta inadequado ou à execução de uma carga de trabalho com uso intensivo de memória. Corrigir o plano de consulta ou [aumentar a memória](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) do servidor de banco de dados do Azure para PostgreSQL, servidor de banco de dados MySQL do Azure ou Azure MariaDB Server ajudará a otimizar a execução da carga de trabalho do banco de dados. O Azure Advisor identifica os servidores afetados devido a essa alta variação do pool de buffers e recomenda a correção do plano de consulta, a mudança para um SKU superior com mais memória ou o aumento do tamanho do armazenamento para obter mais IOPS.
 
 ### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Use uma réplica de leitura do Azure MySQL ou Azure PostgreSQL para expandir leituras para cargas de trabalho com uso intensivo de leitura
-O Azure Advisor aproveita a heurística baseada em carga de trabalho, como a taxa de leituras para gravações no servidor nos últimos sete dias para identificar cargas de trabalho com uso intensivo de leitura. O recurso de banco de dados do Azure para PostgreSQL ou de banco de dados do Azure para MySQL com uma taxa de leitura/gravação muito alta pode resultar em contenções de CPU e/ou memória que levam ao desempenho de consulta lento. Adicionar uma [réplica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) ajudará a expandir as leituras para o servidor de réplica, impedindo restrições de CPU e/ou memória no servidor primário. O Advisor identificará os servidores com cargas de trabalho com alto volume de leitura e recomendará adicionar uma [réplica](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) de leitura para descarregar algumas das cargas de trabalho de leitura.
+O Azure Advisor aproveita a heurística baseada em carga de trabalho, como a taxa de leituras para gravações no servidor nos últimos sete dias para identificar cargas de trabalho com uso intensivo de leitura. O recurso de banco de dados do Azure para PostgreSQL ou de banco de dados do Azure para MySQL com uma taxa de leitura/gravação muito alta pode resultar em contenções de CPU e/ou memória que levam ao desempenho de consulta lento. Adicionar uma [réplica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) ajudará a expandir as leituras para o servidor de réplica, impedindo restrições de CPU e/ou memória no servidor primário. O Advisor identificará os servidores com cargas de trabalho com alto volume de leitura e recomendará adicionar uma [réplica de leitura](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) para descarregar algumas das cargas de trabalho de leitura.
 
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Dimensione seu Azure MySQL, Azure PostgreSQL ou Azure MariaDB Server para uma SKU superior para evitar restrições de conexão
@@ -116,7 +116,7 @@ O assistente do Azure identificará Azure Cosmos DB contêineres que estão usan
 
 2.  No painel do Advisor, clique na guia **desempenho** .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 

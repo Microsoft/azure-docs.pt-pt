@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.openlocfilehash: b8ea5c54afd4b1e2c212422417688e528367d44f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/07/2019
+ms.openlocfilehash: 0708b1dd2d272757949d014d768c1da649b50146
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949980"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889685"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo utilizador
 
@@ -23,7 +23,7 @@ O Azure digital gêmeos oferece recursos avançados de computação. Os desenvol
 
 Depois que os dispositivos enviam dados de telemetria para o Azure digital gêmeos, os desenvolvedores podem processar dados em quatro fases: *validar*, *corresponder*, *computar*e *distribuir*.
 
-[fluxo de processamento de dados do 1Azure digital gêmeos @no__t](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
+[![o fluxo de processamento de dados do Azure digital gêmeos](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
 1. A fase validar transforma a mensagem de telemetria de entrada em um formato de [objeto de transferência de dados](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) comumente compreendido. Essa fase também executa a validação do dispositivo e do sensor.
 1. A fase de correspondência localiza as funções apropriadas definidas pelo usuário a serem executadas. Os correspondentes predefinidos localizam as funções definidas pelo usuário com base no dispositivo, no sensor e nas informações de espaço da mensagem de telemetria de entrada.
@@ -34,7 +34,7 @@ Depois que os dispositivos enviam dados de telemetria para o Azure digital gême
 
 O processamento de dados no Azure digital gêmeos consiste em definir três objetos: *correspondências*, *funções definidas pelo usuário*e *atribuições de função*.
 
-[objetos de processamento de dados 1Azure digital gêmeos @no__t](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
+[![objetos de processamento de dados do Azure digital gêmeos](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
 ### <a name="matchers"></a>Correspondências
 
@@ -42,35 +42,40 @@ Os correspondentes definem um conjunto de condições que avaliam as ações que
 
 - Todos os sensores de **temperatura** de DataType representados pelo valor de cadeia de caracteres de escape `\"Temperature\"`
 - Tendo `01` em sua porta
-- Que pertencem a dispositivos com o **fabricante** da chave de propriedade estendida definido como o valor da cadeia de caracteres de escape `\"GoodCorp\"`
+- Que pertencem a dispositivos com o **fabricante** da chave de propriedade estendida definido como o valor da cadeia de caracteres de escape `\"Contoso\"`
 - Que pertencem a espaços do tipo especificado pela cadeia de caracteres de escape `\"Venue\"`
 - Que são descendentes do **spaceid** pai `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
 
 ```JSON
 {
-  "SpaceId": "DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
-  "Name": "My custom matcher",
-  "Description": "All sensors of datatype Temperature with 01 in their port that belong to devices with the extended property key Manufacturer set to the value GoodCorp and that belong to spaces of type Venue that are somewhere below space Id DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
-  "Conditions": [
+  "id": "23535afafd-f39b-46c0-9b0c-0dd3892a1c30",
+  "name": "My custom matcher",
+  "spaceId": "DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
+  "description": "All sensors of datatype Temperature with 01 in their port that belong to devices with the extended property key Manufacturer set to the value Contoso and that belong to spaces of type Venue that are somewhere below space Id DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
+  "conditions": [
     {
+      "id": "43898sg43-e15a-4e9c-abb8-2gw464364",
       "target": "Sensor",
       "path": "$.dataType",
       "value": "\"Temperature\"",
       "comparison": "Equals"
     },
     {
+      "id": "wt3th44-e15a-35sg-seg3-235wf3ga463",
       "target": "Sensor",
       "path": "$.port",
       "value": "01",
       "comparison": "Contains"
     },
     {
+      "id": "735hs33-e15a-37jj-23532-db901d550af5",
       "target": "SensorDevice",
       "path": "$.properties[?(@.name == 'Manufacturer')].value",
-      "value": "\"GoodCorp\"",
+      "value": "\"Contoso\"",
       "comparison": "Equals"
     },
     {
+      "id": "222325-e15a-49fg-5744-463643644",
       "target": "SensorSpace",
       "path": "$.type",
       "value": "\"Venue\"",

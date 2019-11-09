@@ -1,5 +1,5 @@
 ---
-title: Utilizar alertas e corrigir problemas de dispositivos na solução de monitorização remota - Azure | Microsoft Docs
+title: Usar alertas na solução de monitoramento remoto – Azure | Microsoft Docs
 description: Este tutorial mostra como Utilizar alertas para identificar e corrigir problemas com dispositivos ligados ao acelerador de soluções de Monitorização Remota.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1cd1eb9a0bd4b8457ea82303a747acb2553ab707
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 853fa2b80e04dd8d9225d023db8030fed044ed7f
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61452668"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890925"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Tutorial: Resolver problemas e corrigir erros do dispositivo
 
@@ -82,8 +82,8 @@ Pode verificar que a temperatura do dispositivo diminuiu ao ver a telemetria na 
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Este tutorial mostrou-lhe como utilizar os alertas para identificar problemas com os seus dispositivos e como agir sobre estes dispositivos para resolver os problemas. Para saber como ligar um dispositivo real do solution accelerator, avance para os artigos de procedimentos.
+Este tutorial mostrou-lhe como utilizar os alertas para identificar problemas com os seus dispositivos e como agir sobre estes dispositivos para resolver os problemas. Para saber como conectar um dispositivo real ao Solution Accelerator, continue com os artigos de instruções.
 
 Agora que aprendeu a gerir problemas de dispositivos, o próximo passo sugerido é saber como [Ligar o seu dispositivo ao acelerador de soluções de Monitorização Remota](iot-accelerators-connecting-devices.md).

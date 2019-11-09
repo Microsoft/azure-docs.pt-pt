@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: 9073893ebfcfea1a7f4e2a00bf82babcb8841122
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
-ms.translationtype: HT
+ms.openlocfilehash: 690df14e4e09b4a35589446029468a7d757d2732
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838526"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888619"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Tutorial: treinar e implantar seu primeiro modelo em R com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -269,7 +269,7 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## <a name="deploy-as-a-web-service"></a>Implantar como um serviço Web
 
-Com seu modelo, você pode prever o perigo de morte de uma colisão. Use o Azure ML para implantar seu modelo como um serviço de previsão. Neste tutorial, você implantará o serviço Web em ACI ( [instâncias de contêiner do Azure](https://docs.microsoft.com/en-us/azure/container-instances/) ).
+Com seu modelo, você pode prever o perigo de morte de uma colisão. Use o Azure ML para implantar seu modelo como um serviço de previsão. Neste tutorial, você implantará o serviço Web em ACI ( [instâncias de contêiner do Azure](https://docs.microsoft.com/azure/container-instances/) ).
 
 ### <a name="register-the-model"></a>Registrar o modelo
 
@@ -373,7 +373,7 @@ delete_compute(compute)
 
 Você também pode manter o grupo de recursos, mas excluir um único espaço de trabalho. Exiba as propriedades do espaço de trabalho e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você concluiu seu primeiro experimento Azure Machine Learning em R, saiba mais sobre o [SDK do Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/index.html).
 

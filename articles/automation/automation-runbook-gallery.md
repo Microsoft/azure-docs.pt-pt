@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5daa1cf04e04507174fa480c785bd15b656541a1
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: d1ef652747dccdcb0e04ac8032dd47e2ebaa6bf2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019095"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886898"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerias de runbook e módulo para a automação do Azure
 
@@ -35,7 +35,7 @@ Você só pode importar diretamente do Galeria do PowerShell usando o portal do 
 
 1. No portal do Azure, abra a sua conta da Automatização.
 2. Em **automação de processo**, clique em **Galeria de Runbooks**
-3. Selecionar **origem: Galeria do PowerShell**.
+3. Selecione o **código-fonte: Galeria do PowerShell**.
 4. Localize o item da Galeria desejado e selecione-o para exibir seus detalhes. À esquerda, você pode inserir parâmetros de pesquisa adicionais para o Publicador e o tipo.
 
    ![Procurar na Galeria](media/automation-runbook-gallery/browse-gallery.png)
@@ -69,8 +69,8 @@ Os módulos do PowerShell contêm cmdlets que você pode usar em seus runbooks, 
 
 4. Na página **procurar na Galeria** , você pode pesquisar pelos seguintes campos:
 
-   * Nome do Módulo
-   * Tags
+   * Nome do módulo
+   * Etiquetas
    * Autor
    * Nome do recurso de cmdlet/DSC
 
@@ -109,8 +109,8 @@ A lista a seguir contém alguns runbooks que fornecem soluções para cenários 
 * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) -este runbook copia um arquivo remoto de uma máquina virtual do Windows Azure.
 * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) -este runbook copia um arquivo local para uma máquina virtual do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para começar a usar runbooks, consulte [gerenciar runbook na automação do Azure](manage-runbooks.md)
 * Para entender as diferenças entre o PowerShell e o fluxo de trabalho do PowerShell com runbooks, consulte [Learning PowerShell Workflow](automation-powershell-workflow.md)
-* Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* Para obter mais informações sobre o PowerShell, incluindo referência de linguagem e módulos de aprendizado, consulte os [documentos do PowerShell](https://docs.microsoft.com/powershell/scripting/overview).

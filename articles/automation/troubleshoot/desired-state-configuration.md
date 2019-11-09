@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b9d2dda589cc59be24b73ce16dcdcbbe79b31aef
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 7be5e814d8092b523fa69fdd84f0e1476736fda2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259163"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887705"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Solucionar problemas de DSC (configuração de estado desejado)
 
@@ -24,7 +24,7 @@ Este artigo fornece informações sobre como solucionar problemas com a DSC (con
 
 Quando você tem erros de compilação ou implantação de configurações na configuração de estado do Azure, aqui estão algumas etapas para ajudá-lo a diagnosticar o problema.
 
-1. **Verifique se a configuração foi compilada com êxito no computador local:**  A configuração de estado do Azure é criada na DSC do PowerShell. Você pode encontrar a documentação para a linguagem DSC e a sintaxe nos [documentos DSC do PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+1. **Verifique se a configuração foi compilada com êxito no computador local:**  A configuração de estado do Azure é criada na DSC do PowerShell. Você pode encontrar a documentação para a linguagem DSC e a sintaxe nos [documentos DSC do PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
 
    Ao compilar sua configuração DSC em seu computador local, você pode descobrir e resolver erros comuns, como:
 
@@ -45,7 +45,7 @@ Quando você tem erros de compilação ou implantação de configurações na co
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Erros comuns ao trabalhar com a DSC (configuração de estado desejado)
 
-### <a name="unsupported-characters"></a>Cenário Uma configuração com caracteres especiais não pode ser excluída do portal
+### <a name="unsupported-characters"></a>Cenário: uma configuração com caracteres especiais não pode ser excluída do portal
 
 #### <a name="issue"></a>Problema
 
@@ -65,11 +65,11 @@ Esse erro é um problema temporário que está planejado para ser resolvido.
 * A documentação deste cmdlet ainda não foi atualizada.  Até lá, consulte a documentação do módulo AzureRM.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
-### <a name="failed-to-register-agent"></a>Cenário Falha ao registrar o agente DSC
+### <a name="failed-to-register-agent"></a>Cenário: falha ao registrar o agente DSC
 
 #### <a name="issue"></a>Problema
 
-Ao tentar executar `Set-DscLocalConfigurationManager` ou outro cmdlet DSC, você receberá o erro:
+Ao tentar executar `Set-DscLocalConfigurationManager` ou outro cmdlet de DSC, você receberá o erro:
 
 ```error
 Registration of the Dsc Agent with the server
@@ -90,7 +90,7 @@ Esse erro normalmente é causado por um firewall, o computador está atrás de u
 
 Verifique se seu computador tem acesso aos pontos de extremidade apropriados para o Azure DSC de Automação e tente novamente. Para obter uma lista de portas e endereços necessários, consulte [planejamento de rede](../automation-dsc-overview.md#network-planning)
 
-### <a name="failed-not-found"></a>Cenário O nó está em status com falha com um erro "não encontrado"
+### <a name="failed-not-found"></a>Cenário: o nó está em status de falha com um erro "não encontrado"
 
 #### <a name="issue"></a>Problema
 
@@ -112,7 +112,7 @@ Esse erro normalmente ocorre quando o nó é atribuído a um nome de configuraç
   * Para atribuir uma configuração de nó a um nó usando portal do Azure, abra a página **nós DSC** , selecione um nó e clique no botão **atribuir configuração de nó** .
   * Para atribuir uma configuração de nó a um nó usando o cmdlet do PowerShell, use o cmdlet **set-AzureRmAutomationDscNode**
 
-### <a name="no-mof-files"></a>Cenário Não foram produzidas configurações de nó (Arquivos MOF) quando uma configuração é compilada
+### <a name="no-mof-files"></a>Cenário: não foram produzidas configurações de nó (Arquivos MOF) quando uma configuração é compilada
 
 #### <a name="issue"></a>Problema
 
@@ -124,7 +124,7 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 #### <a name="cause"></a>Causa
 
-Quando a expressão após a palavra-chave **node** na configuração DSC é avaliada como, nenhuma configuração de `$null`nó é produzida.
+Quando a expressão após a palavra-chave **node** na configuração DSC é avaliada como `$null`, nenhuma configuração de nó é produzida.
 
 #### <a name="resolution"></a>Resolução
 
@@ -133,7 +133,7 @@ Qualquer uma das soluções a seguir corrige o problema:
 * Certifique-se de que a expressão ao lado da palavra-chave **node** na definição de configuração não esteja avaliando como $NULL.
 * Se você estiver passando ConfigurationData ao compilar a configuração, certifique-se de que você está passando os valores esperados que a configuração requer do [ConfigurationData](../automation-dsc-compile.md).
 
-### <a name="dsc-in-progress"></a>Cenário O relatório do nó DSC fica preso no estado "em andamento"
+### <a name="dsc-in-progress"></a>Cenário: o relatório do nó DSC fica preso no estado "em andamento"
 
 #### <a name="issue"></a>Problema
 
@@ -151,7 +151,7 @@ Você atualizou a versão do WMF e corrompeu o WMI.
 
 Para corrigir o problema, siga as instruções no artigo [problemas conhecidos e limitações do DSC](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc) .
 
-### <a name="issue-using-credential"></a>Cenário Não é possível usar uma credencial em uma configuração DSC
+### <a name="issue-using-credential"></a>Cenário: não é possível usar uma credencial em uma configuração DSC
 
 #### <a name="issue"></a>Problema
 
@@ -169,7 +169,7 @@ Você usou uma credencial em uma configuração, mas não forneceu **Configurati
 
 * Certifique-se de passar o **ConfigurationData** apropriado para definir **PSDscAllowPlainTextPassword** como true para cada configuração de nó mencionada na configuração. Para obter mais informações, consulte [ativos no Azure DSC de automação](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
 
-### <a name="failure-processing-extension"></a>Cenário Integração da extensão de DSC, erro "extensão de processamento de falha"
+### <a name="failure-processing-extension"></a>Cenário: integração da extensão de DSC, erro "extensão de processamento de falha"
 
 #### <a name="issue"></a>Problema
 
@@ -188,7 +188,7 @@ Esse erro normalmente ocorre quando o nó recebe um nome de configuração de n�
 * Certifique-se de que você está atribuindo o nó com um nome de configuração de nó que corresponda exatamente ao nome no serviço.
 * Você pode optar por não incluir o nome da configuração do nó, o que fará com que a integração do nó, mas não a atribuição de uma configuração de nó
 
-### <a name="failure-linux-temp-noexec"></a>Cenário Aplicando uma configuração no Linux, ocorre uma falha com um erro geral
+### <a name="failure-linux-temp-noexec"></a>Cenário: aplicando uma configuração no Linux, uma falha ocorre com um erro geral
 
 #### <a name="issue"></a>Problema
 
@@ -200,13 +200,13 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>Causa
 
-Os clientes identificaram que, `/tmp` se o local for `noexec`definido como, a versão atual do DSC falhará ao aplicar as configurações.
+Os clientes identificaram que, se o local de `/tmp` for definido como `noexec`, a versão atual do DSC não conseguirá aplicar as configurações.
 
 #### <a name="resolution"></a>Resolução
 
-* Remova a `noexec` opção `/tmp` do local.
+* Remova a opção `noexec` do local `/tmp`.
 
-### <a name="compilation-node-name-overlap"></a>Cenário Nomes de configuração de nó que se sobrepõem podem resultar em uma versão incorreta
+### <a name="compilation-node-name-overlap"></a>Cenário: nomes de configuração de nó que se sobrepõem podem resultar em uma versão incorreta
 
 #### <a name="issue"></a>Problema
 

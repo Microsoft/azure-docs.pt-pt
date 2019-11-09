@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fdd1aeea20160bb1a9f91de934bd9268a179648a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: c098b67ab2782fa3cf29b5b19aa198f899ba69c0
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529222"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890622"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: desenvolver um módulo C IoT Edge para dispositivos Windows
 
@@ -88,7 +88,7 @@ Crie um modelo de solução C que pode personalizar com o seu próprio código.
    | ----- | ----- |
    | Selecionar um modelo | Selecione **módulo C**. | 
    | Nome do projeto de módulo | Dê o nome **CModule** ao módulo. | 
-   | Repositório de imagens do Docker | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. Sua imagem de contêiner é preenchida previamente a partir do valor do nome do projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br> O repositório de imagens final é semelhante a \<registry nome \>. azurecr.io/cmodule. |
+   | Repositório de imagens do Docker | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. Sua imagem de contêiner é preenchida previamente a partir do valor do nome do projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br> O repositório de imagem final é semelhante a \<nome do registro\>. azurecr.io/cmodule. |
 
    ![Configurar seu projeto para o dispositivo de destino, o tipo de módulo e o registro de contêiner](./media/tutorial-c-module-windows/add-application-and-module.png)
 
@@ -134,11 +134,11 @@ O código de módulo padrão recebe mensagens em uma fila de entrada e as passa 
       )
       ```
 
-   3. Adicione **my_parson** à lista de bibliotecas na seção **Target_link_libraries** do arquivo CMakeLists. txt.
+   3. Adicione `my_parson` à lista de bibliotecas na seção **target_link_libraries** do arquivo CMakeLists. txt.
 
    4. Guarde o ficheiro **CMakeLists.txt**.
 
-   5. Abra **CModule**  > **Main. c**. Na parte inferior da lista de instruções include, adicione uma nova para incluir `parson.h` para suporte a JSON:
+   5. Abra **CModule** > **Main. c**. Na parte inferior da lista de instruções include, adicione uma nova para incluir `parson.h` para suporte a JSON:
 
       ```c
       #include "parson.h"
@@ -174,6 +174,14 @@ O código de módulo padrão recebe mensagens em uma fila de entrada e as passa 
 4. Localize a função `InputQueue1Callback` e substitua a função inteira pelo código a seguir. Esta função implementa o filtro de mensagens real. Quando uma mensagem é recebida, ela verifica se a temperatura relatada excede o limite. Em caso afirmativo, ele encaminha a mensagem por meio de sua fila de saída. Caso contrário, ele ignora a mensagem. 
 
     ```c
+    static unsigned char *bytearray_to_str(const unsigned char *buffer, size_t len)
+    {
+        unsigned char *ret = (unsigned char *)malloc(len + 1);
+        memcpy(ret, buffer, len);
+        ret[len] = '\0';
+        return ret;
+    }
+
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
     {
         IOTHUBMESSAGE_DISPOSITION_RESULT result;
@@ -183,7 +191,10 @@ O código de módulo padrão recebe mensagens em uma fila de entrada e as passa 
         unsigned const char* messageBody;
         size_t contentSize;
 
-        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) != IOTHUB_MESSAGE_OK)
+        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) == IOTHUB_MESSAGE_OK)
+        {
+            messageBody = bytearray_to_str(messageBody, contentSize);
+        } else
         {
             messageBody = "<null>";
         }
@@ -375,7 +386,7 @@ Caso contrário, você pode excluir as configurações locais e os recursos do A
 Neste tutorial, criou uma função do módulo do IoT Edge com código para filtrar os dados não processados que são gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar seus próprios módulos, você pode aprender mais sobre como desenvolver [seus próprios módulos IOT Edge](module-development.md) ou como [desenvolver módulos com o Visual Studio](how-to-visual-studio-develop-module.md). Você pode continuar nos próximos tutoriais para saber como Azure IoT Edge pode ajudá-lo a implantar os serviços de nuvem do Azure para processar e analisar dados na borda.
 
 > [!div class="nextstepaction"]
-> [Funções](tutorial-deploy-function.md)
+> [Functions](tutorial-deploy-function.md)
 > [Stream Analytics](tutorial-deploy-stream-analytics.md)
 > [Machine Learning](tutorial-deploy-machine-learning.md)
-> [serviço de visão personalizada](tutorial-deploy-custom-vision.md)
+> [Custom Vision Service](tutorial-deploy-custom-vision.md)

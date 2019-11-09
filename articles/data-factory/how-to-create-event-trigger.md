@@ -11,12 +11,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 7581831e846e6de835c261d3430a88f1dcee9eb4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0b1d9fad2992397a3a6768d0f5e7ff26a400a2b3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673684"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889329"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um gatilho que executa um pipeline em resposta a um evento
 
@@ -38,35 +38,37 @@ Esta seção mostra como criar um gatilho de evento dentro da interface Azure Da
 
 1. Ir para a **tela de criação**
 
-2. No canto inferior esquerdo, clique no botão **gatilhos**
+1. No canto inferior esquerdo, clique no botão **gatilhos**
 
-3. Clique em **+ novo** , que abrirá a navegação lateral do gatilho criar
+1. Clique em **+ novo** , que abrirá a navegação lateral do gatilho criar
 
-4. Selecionar **evento** de tipo de gatilho
+1. Selecionar **evento** de tipo de gatilho
 
-![Criar novo gatilho de evento](media/how-to-create-event-trigger/event-based-trigger-image1.png)
+    ![Criar novo gatilho de evento](media/how-to-create-event-trigger/event-based-trigger-image1.png)
 
-5. Selecione sua conta de armazenamento na lista suspensa assinatura do Azure ou manualmente usando sua ID de recurso da conta de armazenamento. Escolha em qual contêiner você deseja que os eventos ocorram. A seleção de contêiner é opcional, mas lembre-se de que a seleção de todos os contêineres pode levar a um grande número de eventos.
+1. Selecione sua conta de armazenamento na lista suspensa assinatura do Azure ou manualmente usando sua ID de recurso da conta de armazenamento. Escolha em qual contêiner você deseja que os eventos ocorram. A seleção de contêiner é opcional, mas lembre-se de que a seleção de todos os contêineres pode levar a um grande número de eventos.
 
    > [!NOTE]
    > O gatilho de evento atualmente dá suporte apenas a Azure Data Lake Storage Gen2 e contas de armazenamento da versão 2 de uso geral. Devido a uma limitação da grade de eventos do Azure, Azure Data Factory dá suporte apenas a um máximo de 500 gatilhos de eventos por conta de armazenamento.
 
-6. O **caminho do blob começa com** e o **caminho do blob termina com** as propriedades permitem que você especifique os contêineres, as pastas e os nomes de BLOB para os quais deseja receber eventos. Seu gatilho de evento requer que pelo menos uma dessas propriedades seja definida. Você pode usar uma variedade de padrões para o **caminho de blob começa com** e o **caminho de blob termina com** Propriedades, conforme mostrado nos exemplos mais adiante neste artigo.
+1. O **caminho do blob começa com** e o **caminho do blob termina com** as propriedades permitem que você especifique os contêineres, as pastas e os nomes de BLOB para os quais deseja receber eventos. Seu gatilho de evento requer que pelo menos uma dessas propriedades seja definida. Você pode usar uma variedade de padrões para o **caminho de blob começa com** e o **caminho de blob termina com** Propriedades, conforme mostrado nos exemplos mais adiante neste artigo.
 
     * O **caminho do blob começa com:** O caminho do blob deve começar com um caminho de pasta. Os valores válidos incluem `2018/` e `2018/april/shoes.csv`. Este campo não poderá ser selecionado se um contêiner não estiver selecionado.
     * O **caminho do blob termina com:** O caminho do blob deve terminar com um nome de arquivo ou extensão. Os valores válidos incluem `shoes.csv` e `.csv`. O nome do contêiner e da pasta são opcionais, mas, quando especificados, eles devem ser separados por um segmento de `/blobs/`. Por exemplo, um contêiner chamado ' Orders ' pode ter um valor de `/orders/blobs/2018/april/shoes.csv`. Para especificar uma pasta em qualquer contêiner, omita o caractere '/' à esquerda. Por exemplo, `april/shoes.csv` disparará um evento em qualquer arquivo chamado `shoes.csv` na pasta a chamada ' abril ' em qualquer contêiner. 
 
-7. Selecione se o gatilho responderá a um evento de **blob criado** , evento **excluído de blob** ou ambos. No local de armazenamento especificado, cada evento irá disparar os pipelines de Data Factory associados ao gatilho.
+1. Selecione se o gatilho responderá a um evento de **blob criado** , evento **excluído de blob** ou ambos. No local de armazenamento especificado, cada evento irá disparar os pipelines de Data Factory associados ao gatilho.
 
     ![Configurar o gatilho de evento](media/how-to-create-event-trigger/event-based-trigger-image2.png)
 
-8. Depois de configurar o gatilho, clique em **Avançar: visualização de dados**. Esta tela mostra os BLOBs existentes que correspondem à sua configuração de gatilho de evento. Verifique se você tem filtros específicos. A configuração de filtros muito amplos pode corresponder a um grande número de arquivos criados/excluídos e pode impactar significativamente o seu custo. Depois que as condições de filtro tiverem sido verificadas, clique em **concluir**.
+1. Selecione se o gatilho ignora ou não BLOBs com zero bytes.
+
+1. Depois de configurar o gatilho, clique em **Avançar: visualização de dados**. Esta tela mostra os BLOBs existentes que correspondem à sua configuração de gatilho de evento. Verifique se você tem filtros específicos. A configuração de filtros muito amplos pode corresponder a um grande número de arquivos criados/excluídos e pode impactar significativamente o seu custo. Depois que as condições de filtro tiverem sido verificadas, clique em **concluir**.
 
     ![Visualização de dados do gatilho de evento](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
-9. Para anexar um pipeline a esse gatilho, vá para a tela de pipeline e clique em **Adicionar gatilho** e selecione **novo/editar**. Quando a navegação lateral for exibida, clique na lista suspensa **escolher gatilho...** e selecione o gatilho que você criou. Clique em **Avançar: visualização de dados** para confirmar se a configuração está correta **e, em seguida, em validar** , a visualização de dados está correta.
+1. Para anexar um pipeline a esse gatilho, vá para a tela de pipeline e clique em **Adicionar gatilho** e selecione **novo/editar**. Quando a navegação lateral for exibida, clique na lista suspensa **escolher gatilho...** e selecione o gatilho que você criou. Clique em **Avançar: visualização de dados** para confirmar se a configuração está correta **e, em seguida, em validar** , a visualização de dados está correta.
 
-10. Se o pipeline tiver parâmetros, você poderá especificá-los na barra de navegação do lado do parâmetro do gatilho. O gatilho de evento captura o caminho da pasta e o nome do arquivo do blob nas propriedades `@triggerBody().folderPath` e `@triggerBody().fileName`. Para usar os valores dessas propriedades em um pipeline, você deve mapear as propriedades para parâmetros de pipeline. Depois de mapear as propriedades para parâmetros, você pode acessar os valores capturados pelo gatilho por meio da expressão `@pipeline().parameters.parameterName` em todo o pipeline. Clique em **concluir** quando terminar.
+1. Se o pipeline tiver parâmetros, você poderá especificá-los na barra de navegação do lado do parâmetro do gatilho. O gatilho de evento captura o caminho da pasta e o nome do arquivo do blob nas propriedades `@triggerBody().folderPath` e `@triggerBody().fileName`. Para usar os valores dessas propriedades em um pipeline, você deve mapear as propriedades para parâmetros de pipeline. Depois de mapear as propriedades para parâmetros, você pode acessar os valores capturados pelo gatilho por meio da expressão `@pipeline().parameters.parameterName` em todo o pipeline. Clique em **concluir** quando terminar.
 
     ![Mapeando Propriedades para parâmetros de pipeline](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
@@ -82,6 +84,7 @@ A tabela a seguir fornece uma visão geral dos elementos de esquema relacionados
 | **LostFocus** | O tipo de eventos que fazem com que esse gatilho seja acionado. | Array    | Microsoft. Storage. BlobCreated, Microsoft. Storage. BlobDeleted | Sim, qualquer combinação desses valores. |
 | **blobPathBeginsWith** | O caminho do blob deve começar com o padrão fornecido para o gatilho ser acionado. Por exemplo, `/records/blobs/december/` só dispara o gatilho para BLOBs na pasta `december` sob o contêiner `records`. | String   | | Você precisa fornecer um valor para pelo menos uma dessas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith`. |
 | **blobPathEndsWith** | O caminho do blob deve terminar com o padrão fornecido para o gatilho ser acionado. Por exemplo, `december/boxes.csv` só dispara o gatilho para BLOBs nomeados `boxes` em uma pasta `december`. | String   | | Você precisa fornecer um valor para pelo menos uma dessas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith`. |
+| **ignoreEmptyBlobs** | Se os blobs de zero byte dispararão uma execução de pipeline. Por padrão, isso é definido como true. | Booleano | true ou false | Não |
 
 ## <a name="examples-of-event-based-triggers"></a>Exemplos de gatilhos baseados em eventos
 

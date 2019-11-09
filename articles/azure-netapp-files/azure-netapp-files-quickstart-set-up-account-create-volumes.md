@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: 7ecc76a8b1f57d4e397746c28dc4cd56b90c3599
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 06ebe8ed22453289fa02c238d9b2e6ef13191f2a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834720"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888538"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Início rápido: configurar Azure NetApp Files e criar um volume do NFS 
 
@@ -110,7 +110,7 @@ Este artigo de instruções requer o módulo Azure PowerShell AZ Version 2.6.0 o
     ``` 
 
     > [!NOTE]
-    > Consulte os [produtos disponíveis por região](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp&regions=all) para obter uma lista de regiões com suporte.
+    > Consulte os [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) para obter uma lista de regiões com suporte.
     > Para obter o nome da região que é compatível com nossas ferramentas de linha de comando, use `Get-AzLocation | select Location`
     >
 
@@ -137,7 +137,7 @@ Este artigo de instruções requer o módulo Azure PowerShell AZ Version 2.6.0 o
     ``` 
 
     > [!NOTE]
-    > Consulte os [produtos disponíveis por região](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp&regions=all) para obter uma lista de regiões com suporte.
+    > Consulte os [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) para obter uma lista de regiões com suporte.
     > Para obter o nome da região que é compatível com nossas ferramentas de linha de comando, use `az account list-locations -query "[].{Region:name}" --out table`
     >
 

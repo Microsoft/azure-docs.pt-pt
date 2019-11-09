@@ -1,53 +1,52 @@
 ---
-title: Recursos de pedido de dados do cliente
-description: Resumo das funcionalidades de pedido de dados do cliente
+title: Solicitações de dados do cliente para dispositivos do Hub IoT do Azure
+description: A maioria dos dispositivos gerenciados no Hub IoT do Azure não é pessoal, mas alguns são. Este artigo fala sobre os administradores que podem exportar ou excluir dados pessoais de um dispositivo.
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 1519637eddf909040131a1efac5738fc7cc8e565
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29b3ed46ffe7f2236fc63d65ed49385b29b1a08a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845805"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889472"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Resumo das funcionalidades de pedido de dados do cliente
+# <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
 
-IoT Hub do Azure é um serviço de cloud baseadas em REST API destinado a clientes empresariais que permite a comunicação segura e bidirecionais entre milhões de dispositivos e um serviço do Azure particionado.
+O Hub IoT do Azure é um serviço de nuvem baseado em API REST direcionado a clientes corporativos que habilitam a comunicação bidirecional segura entre milhões de dispositivos e um serviço do Azure particionado.
 
 [!INCLUDE [gdpr-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-Dispositivos individuais são atribuídos um identificador de dispositivo (ID de dispositivo) por um administrador de inquilino. Dados do dispositivo são baseados no ID do dispositivo atribuído. A Microsoft não mantém nenhuma informação e não tem acesso aos dados que permitiria que o ID de dispositivo a correlação de utilizador.
+Os dispositivos individuais recebem um identificador de dispositivo (ID do dispositivo) por um administrador de locatários. Os dados do dispositivo são baseados na ID de dispositivo atribuída. A Microsoft não mantém nenhuma informação e não tem acesso a dados que permitiriam a identificação do dispositivo para a correlação do usuário.
 
-Muitos dos dispositivos geridos no IoT Hub do Azure não são dispositivos pessoais, por exemplo um robô de termóstato ou de fábrica do office. Os clientes podem, no entanto, a considerar alguns dos dispositivos de identificação pessoal e a seu critério podem manter seus próprios recursos ou métodos que associe os dispositivos aos indivíduos de controle de inventário. O IoT Hub do Azure gere e armazena todos os dados associados a dispositivos como se fosse dados pessoais.
+Muitos dos dispositivos gerenciados no Hub IoT do Azure não são dispositivos pessoais, por exemplo um termostato do Office ou um robô de fábrica. No entanto, os clientes podem considerar que alguns dispositivos sejam identificáveis pessoalmente e, a seu critério, podem manter seus próprios métodos de ativos ou de controle de estoque que unem dispositivos a indivíduos. O Hub IoT do Azure gerencia e armazena todos os dados associados a dispositivos como se eles fossem dados pessoais.
 
-Os administradores de inquilinos, podem utilizar o portal do Azure ou APIs de REST do serviço para satisfazer os pedidos de informações por exportar ou eliminar os dados associados a um ID de dispositivo.
+Os administradores de locatários podem usar o portal do Azure ou as APIs REST do serviço para atender às solicitações de informações exportando ou excluindo dados associados a uma ID do dispositivo.
 
-Se utilizar a funcionalidade de encaminhamento do serviço IoT Hub do Azure para encaminhar mensagens de dispositivo a outros serviços, pedidos de dados devem ser executados pelo administrador inquilino para cada ponto de extremidade de encaminhamento para concluir um pedido completo para um determinado dispositivo. Para obter mais detalhes, consulte a documentação de referência para cada ponto de extremidade. Para obter mais informações sobre pontos finais suportados, consulte [referência - pontos finais do IoT Hub](iot-hub-devguide-endpoints.md).
+Se você usar o recurso de roteamento do serviço de Hub IoT do Azure para encaminhar mensagens de dispositivo a outros serviços, as solicitações de dados deverão ser executadas pelo administrador de locatários para cada ponto de extremidade de roteamento a fim de concluir uma solicitação completa para um determinado dispositivo. Para obter mais detalhes, consulte a documentação de referência para cada ponto de extremidade. Para obter mais informações sobre pontos de extremidade com suporte, consulte [referência-pontos de extremidade do Hub IOT](iot-hub-devguide-endpoints.md).
 
-Se utilizar a funcionalidade de integração do Azure Event Grid do serviço IoT Hub do Azure, os pedidos de dados devem ser executados pelo administrador inquilino para cada assinante desses eventos. Para obter mais informações, consulte [reagir a eventos do IoT Hub com o Event Grid](iot-hub-event-grid.md).
+Se você usar o recurso integração da grade de eventos do Azure do serviço Hub IoT do Azure, as solicitações de dados deverão ser executadas pelo administrador de locatários para cada Assinante desses eventos. Para obter mais informações, consulte [reagir aos eventos do Hub IOT usando a grade de eventos](iot-hub-event-grid.md).
 
-Se utilizar a funcionalidade de integração do Azure Monitor do serviço IoT Hub do Azure para criar registos de diagnóstico, pedidos de dados devem ser executados pelo administrador inquilino com os registos armazenados. Para obter mais informações, consulte [monitorizar o estado de funcionamento do IoT Hub do Azure](iot-hub-monitor-resource-health.md).
+Se você usar o recurso de integração de Azure Monitor do serviço de Hub IoT do Azure para criar logs de diagnóstico, as solicitações de dados deverão ser executadas pelo administrador de locatários nos logs armazenados. Para obter mais informações, consulte [monitorar a integridade do Hub IOT do Azure](iot-hub-monitor-resource-health.md).
 
-## <a name="deleting-customer-data"></a>A eliminação de dados do cliente
+## <a name="deleting-customer-data"></a>Excluindo dados do cliente
 
-Os administradores de inquilinos podem utilizar o painel de dispositivos de IoT da extensão do IoT Hub do Azure no portal do Azure para eliminar um dispositivo, o que elimina os dados associados esse dispositivo.
+Os administradores de locatários podem usar a folha dispositivos IoT da extensão do Hub IoT do Azure no portal do Azure para excluir um dispositivo, o que exclui os dados associados a esse dispositivo.
 
-Também é possível realizar operações de exclusão para dispositivos com as APIs REST. Para obter mais informações, consulte [serviço - eliminar dispositivo](/rest/api/iothub/service/deletedevice).
+Também é possível executar operações de exclusão para dispositivos que usam APIs REST. Para obter mais informações, consulte [serviço-excluir dispositivo](/rest/api/iothub/service/deletedevice).
 
-## <a name="exporting-customer-data"></a>Exportar dados do cliente
+## <a name="exporting-customer-data"></a>Exportando dados do cliente
 
-Os administradores de inquilinos podem utilizar a cópia e cole no painel de dispositivos de IoT da extensão do IoT Hub do Azure no portal do Azure para exportar os dados associados a um dispositivo.
+Os administradores de locatários podem utilizar copiar e colar no painel dispositivos IoT da extensão do Hub IoT do Azure no portal do Azure para exportar dados associados a um dispositivo.
 
-Também é possível realizar operações de exportação para dispositivos com as APIs REST. Para obter mais informações, consulte [Service - obter dispositivo](/rest/api/iothub/service/getdevice).
+Também é possível executar operações de exportação para dispositivos usando APIs REST. Para obter mais informações, consulte [serviço-obter dispositivo](/rest/api/iothub/service/getdevice).
 
 > [!NOTE]
-> Quando utiliza os serviços empresariais da Microsoft, a Microsoft gera algumas informações, conhecidas como registos gerados pelo sistema. Alguns registos gerados pelo sistema do IoT Hub do Azure não são acessíveis ou exportável pelos administradores do inquilino. Estes registos constituem ações factuais realizadas dentro do serviço e os dados de diagnóstico relacionadas com dispositivos individuais.
+> Quando você usa os serviços corporativos da Microsoft, a Microsoft gera algumas informações, conhecidas como logs gerados pelo sistema. Alguns logs gerados pelo sistema do Hub IoT do Azure não estão acessíveis ou exportáveis por administradores de locatários. Esses logs constituem ações reais executadas no serviço e nos dados de diagnóstico relacionados a dispositivos individuais.
 
-## <a name="links-to-additional-documentation"></a>Ligações para documentação adicional
+## <a name="links-to-additional-documentation"></a>Links para documentação adicional
 
-Documentação completa para APIs de serviço do Azure IoT Hub está localizada em [APIs de serviço do Hub IoT](https://docs.microsoft.com/rest/api/iothub/service).
+A documentação completa para as APIs de serviço do Hub IoT do Azure está localizada em [APIs de serviço do Hub IOT](https://docs.microsoft.com/rest/api/iothub/service).

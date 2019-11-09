@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8cc02831fa00a3974da1b74b07daf581f50dd22
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: eb562caf2dfc83841762748f37d1a7ee325de10b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569614"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882633"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protegida: configuração de código
 
@@ -158,6 +158,10 @@ Os validadores são descritos nesta tabela:
 | `ValidateTokenReplay` | Garante que o token não seja reproduzido. (Caso especial para alguns protocolos de uso de OneTime). |
 
 Os validadores são todos associados às propriedades da classe `TokenValidationParameters`, inicializados a partir da configuração do ASP.NET/ASP.NET Core. Na maioria dos casos, você não precisará alterar os parâmetros. Há uma exceção para aplicativos que não são locatários únicos. (Ou seja, aplicativos Web que aceitam usuários de qualquer organização ou de contas pessoais da Microsoft). Nesse caso, o emissor deve ser validado.
+
+## <a name="token-validation-in-azure-functions"></a>Validação de token no Azure Functions
+
+Também é possível validar tokens de acesso de entrada no Azure functions. Você pode encontrar exemplos de validação de tokens no Azure Functions no [dotnet](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)e [python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
 
 ## <a name="next-steps"></a>Passos seguintes
 

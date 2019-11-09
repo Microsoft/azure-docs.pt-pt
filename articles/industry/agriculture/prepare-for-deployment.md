@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c609285b727414b4849c9ef6654406a035005bb1
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 10ff3cc940ac3d11154f1dec6c06ff3681328d38
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797728"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890943"
 ---
 # <a name="deploy-farmbeats"></a>Implantar FarmBeats
 
@@ -53,12 +53,28 @@ A implantação do Azure FarmBeats cria os recursos listados abaixo em sua assin
 
 O Azure FarmBeats está disponível para download no Azure Marketplace. Você pode acessá-lo diretamente do portal do Azure.  
 
+## <a name="create-azure-farmbeats-offer-on-marketplace"></a>Criar uma oferta do Azure FarmBeats no Marketplace
+
+Use estas etapas para criar uma oferta do Azure FarmBeats no Marketplace:
+
+1. Entre no portal do Azure e selecione sua conta no canto superior direito e alterne para o locatário do Azure AD onde você deseja implantar Microsoft Azure FarmBeats.
+2. O Azure FarmBeats está disponível no Azure Marketplace. Na página do Marketplace, selecione "obter agora".
+3. Selecione criar e insira as seguintes informações:
+  - Nome da assinatura.
+  - um nome de grupo de recursos existente (somente grupo de recursos vazio) ou crie um novo grupo de recursos para implantar o Azure FarmBeats. Anote esse grupo de recursos nas seções subsequentes.
+4. A região em que você deseja instalar o Azure FarmBeats. Atualmente, FarmBeats as seguintes regiões: EUA Central, Europa Ocidental, leste dos EUA 2, Europa Setentrional, oeste dos EUA, Sudeste Asiático, leste dos EUA, leste da Austrália, oeste dos EUA 2.
+5. Selecione **OK**.
+A página Termos de uso é exibida. Examine os termos do Marketplace padrão ou selecione o hiperlink para revisar os termos de uso.
+6. Selecione **fechar**e, em seguida, a caixa de seleção "concordo" e, em seguida, selecione **criar**.
+7. Agora você assinou com êxito o contrato de licença de usuário final (EULA) do Azure FarmBeats no Marketplace.  
+7. Para continuar com a implantação, siga as próximas etapas deste guia.
+
 ## <a name="prepare"></a>Preparação
 
 Você precisa das seguintes permissões para implantar o Azure FarmBeats:
 
 - Locatário: acesso de leitura
-- Assinatura: colaborador do proprietário
+- Assinatura: colaborador ou proprietário
 - Grupo de recursos: proprietário
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -74,11 +90,6 @@ Antes de iniciar a implantação, verifique se você tem o seguinte:
 Uma conta com o Sentinel ajuda você a baixar as imagens de satélite do Sentinela de seu site oficial para seu dispositivo. Siga estas etapas para criar uma conta gratuita:
 
 1. Aceda a https://scihub.copernicus.eu/dhus/#/self-registration. Na página de registro, forneça um nome, sobrenome, nome de usuário, senha e email.
-2. No menu suspenso **selecionar domínio** , selecione a opção **Land**.
-3. No menu suspenso **selecionar uso** , selecione a opção **educação**.
-4. No menu suspenso **Selecionar país** , selecione seu país.
-5. Selecione **registrar** para concluir o processo de registro.
-
 Um email de verificação será enviado para o endereço de email registrado para confirmação. Selecione o link e confirme. Seu processo de registro foi concluído.
 
 ## <a name="create-azure-ad-app-registration"></a>Criar registro de aplicativo do Azure AD
@@ -88,15 +99,15 @@ Para autenticação e autorização no Azure FarmBeats, você deve ter um regist
 - Caso 1: o instalador pode criar automaticamente (desde que você tenha as permissões de acesso de locatário, assinatura e grupo de recursos necessárias).
 - Caso 2: você pode criar e configurar o antes de implantar o Azure FarmBeats (requer etapas manuais).
 
-**Caso 1**: o instalador assume que você tem os direitos para criar um registro de aplicativo do Azure Active Directory dentro da assinatura desejada. Para se registrar, entre no portal, vá para **Azure active directory** > **registro de aplicativo** > **novo registro**.
+**Caso 1**:: se você tiver acesso para criar um registro de aplicativo do AAD, poderá ignorar esta etapa e permitir que o instalador crie o registro do aplicativo. Continue na próxima seção: preparar o [arquivo Input. JSON](#prepare-input-json-file)
 
 Se você já tiver uma assinatura, poderá mover diretamente para o próximo procedimento.
 
-**Caso 2**: esse método é a etapa preferida quando você não tem direitos suficientes para criar e configurar um registro de aplicativo do Azure AD em sua assinatura. Solicite que seu administrador use o [script personalizado](https://aka.ms/FarmBeatsAADScript), o que ajudará o administrador de ti a gerar e configurar automaticamente o registro de aplicativo do Azure AD no portal do Azure. Como uma saída para executar esse script personalizado usando o ambiente do PowerShell, o administrador de ti precisa compartilhar uma ID de cliente de aplicativo Azure Active Directory e um segredo de senha com você. Anote esses valores.
+**Caso 2**: esse método é a etapa preferida quando você não tem direitos suficientes para criar e configurar um registro de aplicativo do Azure AD em sua assinatura. Solicite que seu administrador use o [script personalizado](https://aka.ms/FarmBeatsMarketplace), o que ajudará o administrador de ti a gerar e configurar automaticamente o registro de aplicativo do Azure AD no portal do Azure. Como uma saída para executar esse script personalizado usando o ambiente do PowerShell, o administrador de ti precisa compartilhar uma ID de cliente de aplicativo Azure Active Directory e um segredo de senha com você. Anote esses valores.
 
 Use as seguintes etapas para executar o script de registro de aplicativo do Azure AD:
 
-1. Obtenha o [script](https://aka.ms/FarmBeatsAADScript)de registro.
+1. Baixar [script](https://aka.ms/FarmBeatsAADScript).
 2. Entre no portal do Azure e selecione sua assinatura e locatário do AD.
 3. Inicie o Cloud Shell a partir do menu de navegação superior do portal do Azure.
 
@@ -105,31 +116,39 @@ Use as seguintes etapas para executar o script de registro de aplicativo do Azur
 
 4. Os usuários de primeira hora serão solicitados a selecionar uma assinatura para criar uma conta de armazenamento e Microsoft Azure compartilhamento de arquivos. Selecione **Create storage** (Criar armazenamento).
 5. Na primeira vez, os usuários serão solicitados a escolher a experiência de shell preferencial ou o PowerShell. Escolha PowerShell.
-6. Em Cloud Shell Insira os comandos abaixo para executar o script.
+6. Carregue o script (da etapa 1) no Cloud Shell e anote o local do arquivo carregado.
 
-    ```powershell
+    > [!NOTE]
+    > Por padrão, ele é carregado em seu diretório base.
+
+    Use o seguinte script:
+
+    ```azurepowershell-interactive
     ./create_aad_script.ps1
     ```
 7. Anote a ID do aplicativo do Azure AD e o segredo do cliente para compartilhar com a pessoa que está implantando o Azure FarmBeats.
 
-## <a name="create-azure-farmbeats-offer-on-marketplace"></a>Criar uma oferta do Azure FarmBeats no Marketplace
+### <a name="prepare-input-json-file"></a>Preparar arquivo JSON de entrada
 
-Use estas etapas para criar uma oferta do Azure FarmBeats no Marketplace:
+Como parte da instalação, crie um arquivo Input. JSON da seguinte maneira:
 
-1. Entre no **portal do Azure** e selecione sua conta no canto superior direito e alterne para o locatário do Azure ad onde você deseja implantar Microsoft Azure FarmBeats.
-2. Selecione **Pesquisar/Marketplace** ou **criar recursos**. Digite **FarmBeats** para exibir os detalhes da oferta. Baixe os guias disponíveis por meio de hiperlinks do aka.ms nesta página antes de prosseguir para as próximas etapas.
-3. Selecione **criar** e insira as seguintes informações:
+    ```json
+    {  
+       "sku":"both",
+       "subscriptionId":"da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx",
+       "datahubResourceGroup":"dummy-test-dh1",
+       "location":"westus2",
+       "datahubWebsiteName":"dummy-test-dh1",
+       "acceleratorResourceGroup":" dummy-test-acc1",
+       "acceleratorWebsiteName":" dummy-test-acc1",
+       "sentinelUsername":"dummy-dev",
+       "notificationEmailAddress":"dummy@yourorg.com",
+       "updateIfExists":true
+    }
+    ```
 
-   - Insira o nome da assinatura.
-   - Insira um nome de grupo de recursos existente (somente grupo de recursos vazio) ou crie um novo grupo de recursos para implantar o Azure FarmBeats. Anote esse grupo de recursos para inserir dentro do arquivo Input. JSON em um estágio posterior.
-   - Insira a região na qual você deseja instalar o Azure FarmBeats. O FarmBeats pode ser instalado atualmente nessas regiões: EUA Central, Europa Ocidental, leste dos EUA 2, Europa Setentrional, oeste dos EUA, Sudeste Asiático, leste dos EUA, leste da Austrália, oeste dos EUA 2.
-4. Selecione **OK**, que redireciona você para a página de termos de uso. Examine os termos do Marketplace padrão ou selecione o hiperlink para revisar os termos de uso.
-5. Selecione **fechar**e, em seguida, a caixa de seleção "concordo" e, em seguida, selecione **criar**.
-6. Agora você assinou com êxito o contrato de licença de usuário final (EULA) do Azure FarmBeats no Marketplace. Para continuar com a implantação, siga as próximas etapas deste guia.
+Esse é o arquivo de entrada para Azure Cloud Shell e parâmetros cujos valores são usados durante a instalação. Todos os parâmetros no JSON precisam ser substituídos por valores apropriados ou removidos; Se removido, o instalador solicitará durante a instalação
 
-### <a name="prepare-inputjson-file"></a>Preparar o arquivo Input. JSON
-
-Esse é o arquivo de entrada para Azure Cloud Shell e parâmetros cujos valores são especificados nesse arquivo antes que o carregamento não seja solicitado durante a implantação, portanto, economizando algum tempo.  
 
 > [!NOTE]
 > Esse arquivo insere valores para Azure Cloud Shell.  Para economizar tempo, durante a implantação, não serão solicitados os parâmetros que você adicionar a esse arquivo. Você será solicitado a fornecer parâmetros ausentes.
@@ -138,174 +157,139 @@ Examine os parâmetros antes de preparar o arquivo.
 
 |Comando | Descrição|
 |--- | ---|
-|SKU  | Fornece uma opção para baixar um ou ambos os componentes do Azure FarmBeats. Especifica quais componentes baixar. Para instalar apenas o Hub de dados, use "onlydatabhub". Para instalar o Hub de dados e o acelerador, use "ambos".|
+|SKU  | Fornece uma opção para baixar um ou ambos os componentes do Azure FarmBeats. Especifica quais componentes baixar. Para instalar apenas o Hub de dados, use "onlydatabhub". Para instalar o Hub de dados e o acelerador, use "ambos"|
 |SubscriptionId  | Especifica a assinatura para instalar o FarmBeats|
-|"datahubResourceGroup"  | Nome do grupo de recursos para recursos do hub de dados.|
-|"datahubLocation" | Local onde você gostaria de armazenar os recursos do hub de dados.|
-|"acceleratorWebsiteName"  |Prefixo de URL exclusivo para nomear o Hub de dados
-Site do Swagger. O padrão é o nome do grupo de recursos do hub de dados. Pressione Enter para continuar com o valor padrão.|
-|"acceleratorResourceGroup"  | Nome do grupo de recursos para recursos do hub de dados. |
-|"acceleratorLocation"  | Local para armazenar os recursos do hub de dados
-"acceleratorWebsiteName"  | Prefixo de URL exclusivo para nomear o site do acelerador. O padrão é acelerador. Pressione Enter para continuar com o valor padrão.|
+|"datahubResourceGroup"  | Nome do grupo de recursos para recursos do hub de dados|
+|"acceleratorWebsiteName"  |Prefixo de URL exclusivo para nomear o Hub de dados|
+|"acceleratorResourceGroup"  | Prefixo de URL exclusivo para nomear o site do acelerador.|
+|"datahubWebsiteName"  | UUnique prefixo de URL para nomear o site do hub de dados. |
 |''sentinelUsername'' | nome de usuário para entrar: https://scihub.copernicus.eu/dhus/#/self-registration.|
-|"sentinelPassword"  | Senha para entrar: https://scihub.copernicus.eu/dhus/#/self-registration.|
-|"farmbeatsAppId"  | Valores a serem compartilhados pelo Team Azure FarmBeats.  |
-|"farmbeatsPassword"  | Valores a serem compartilhados pelo Team Azure FarmBeats.|
 |"notificationEmailAddress"  | Endereço de email para receber as notificações de todos os alertas que você configurar no Hub de dados.|
-|"atualizaç" aadAppClientId ""  |[**Opcional**] Parâmetro a ser incluído no Input. JSON somente se o aplicativo do Azure AD já existir.  -True/false. False para uma instalação inicial e verdadeiro para o cenário de atualização.|
+|"updateIfExists" "  |Adicional Parâmetro a ser incluído no Input. JSON somente se você quiser atualizar uma instância FarmBeats existente. Para atualização, outros detalhes, por exemplo. os nomes do grupo de recursos, os locais etc. precisam ser os mesmos.|
 |"aadAppClientId"  | [**Opcional**] Parâmetro a ser incluído no Input. JSON somente se o aplicativo do Azure AD já existir.  |
 |"aadAppClientSecret"   | [**Opcional**] Parâmetro a ser incluído no Input. JSON somente se o aplicativo do Azure AD já existir.|
 
-
-Exemplo de entrada JSON:
-
-```json
-{  
-   "sku":"both", 
-   "subscriptionId": "da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx", 
-   "datahubResourceGroup": "dummy-test-dh1", 
-   "datahubLocation": "westus2", 
-   "datahubWebsiteName": "dummy-test-dh1", 
-   "acceleratorResourceGroup": "dummy-test-acc1", 
-   "acceleratorLocation": "westus2", 
-   "acceleratorWebsiteName": "dummy-test-acc1", 
-   "sentinelUsername": "dummy-dev", 
-   "farmbeatsAppId": "c3cb3xxx-27xx-4xxb-8xx6-3xxx2xxdxxx5c", 
-   "notificationEmailAddress": "dummy@microsoft.com", 
-   "updateIfExists": true
-}
-```
 ## <a name="deploy-within-cloud-shell-browser-based-command-line"></a>Implantar dentro Cloud Shell linha de comando baseada em navegador
 
-Como parte do fluxo de trabalho do Marketplace, você criou um grupo de recursos e assinou o contrato de licença de usuário final, que pode ser revisado mais uma vez como parte da implantação real. A implantação será feita por meio de Azure Cloud Shell (linha de comando baseada em navegador) usando o ambiente bash.  
+Como parte do fluxo de trabalho do Marketplace acima, você deve ter criado um grupo de recursos e assinado o contrato de licença de usuário final, que pode ser revisado mais uma vez como parte da implantação real. A implantação pode ser feita por meio de Azure Cloud Shell (linha de comando baseada em navegador) usando o ambiente bash. Continue nas próximas seções para implantar por meio do Cloud Shell.
 
 > [!NOTE]
 > As sessões inativas de Cloud Shell expiram após 20 minutos. Tente concluir a implantação neste momento.
 
-1. Entre no portal **do Azure** e selecione a assinatura e o locatário do AD desejados.
-2. Inicie o **Cloud Shell** na parte superior da navegação do portal **do Azure** .
+1. Entre portal do Azure e selecione a assinatura e o locatário do AD desejados.
+2. Inicie o Cloud Shell a partir do menu de navegação superior do portal do Azure.
+3. Se você estiver usando o Cloud Shell pela primeira vez, será solicitado que você selecione uma assinatura para criar uma conta de armazenamento e Microsoft Azure compartilhamento de arquivos.
+4. Selecione **criar armazenamento**.  
 
-   ![Batidas no farm de projetos](./media/prepare-for-deployment/navigation-bar-1.png)
+Selecione o ambiente como bash (e não o PowerShell).
 
-3. Selecione uma assinatura para criar uma conta de armazenamento e Microsoft Azure compartilhamento de arquivos.
-4. Selecione **Create storage** (Criar armazenamento).
-5. Selecione o menu suspenso ambiente no lado esquerdo da janela do Shell (bash).
+## <a name="deployment-scenario-1"></a>Cenário de implantação 1
 
-   ![Batidas no farm de projetos](./media/prepare-for-deployment/bash-1-1.png)
+O instalador cria o registro de Aplicativo Azure AD (caso 1 acima)
 
-### <a name="deployment-scenario-1"></a>Cenário de implantação 1
-
-O instalador cria o Azure AD (você tem permissões de leitura de locatário do AD).  
-
-1. Baixe o modelo [Input. JSON](https://aka.ms/PPInputJsonTemplate) . Inclua a ID do cliente Aplicativo Azure e a senha no arquivo Input. JSON e salve-o.
-2. Abra o arquivo baixado em um bloco de notas e preencha o arquivo inserindo os valores.
+1. Copie o modelo a seguir e nomeie-o para Input. JSON.  
+Exemplo de entrada JSON:
 
     ```json
-    {
-    "sku":"both",
-    "subscriptionId":"daxx9xxx-d18f-4xxc-9c21-5xx3exxxxx45",
-    "datahubResourceGroup":"dummy-test-dh1",  
-    "location":"westus2",  
-    "datahubWebsiteName":"dummy-test-dh1",  
-    "acceleratorResourceGroup":"dummy-test-acc1",  
-    "acceleratorWebsiteName":"dummy-test-acc1",  
-    "sentinelUsername":"dummy-dev",
-    "notificationEmailAddress":"dummyuser@org1.com",
-    "updateIfExists":true
+    {  
+       "sku":"both", 
+       "subscriptionId": "da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx", 
+       "datahubResourceGroup": "dummy-test-dh1", 
+       "datahubLocation": "westus2", 
+       "datahubWebsiteName": "dummy-test-dh1", 
+       "acceleratorResourceGroup": "dummy-test-acc1", 
+       "acceleratorLocation": "westus2", 
+       "acceleratorWebsiteName": "dummy-test-acc1", 
+       "sentinelUsername": "dummy-dev", 
+       "farmbeatsAppId": "c3cb3xxx-27xx-4xxb-8xx6-3xxx2xxdxxx5c", 
+       "notificationEmailAddress": "dummy@microsoft.com", 
+       "updateIfExists": true
     }
-
     ```
+
+2. Salve o arquivo e anote o caminho (no computador local).
+3. Vá para Azure Cloud Shell e depois da autenticação bem-sucedida, selecione o carregamento (consulte o ícone realçado na imagem abaixo) e carregue o arquivo Input. JSON no armazenamento Cloud Shell.  
+
+    ![Batidas no farm de projetos](./media/prepare-for-deployment/bash-2-1.png)
+
+4. Vá para o diretório base no Cloud Shell. Por padrão, é/Home/<username>
+5. Digite ou cole os dois comandos a seguir no Cloud Shell. Certifique-se de modificar o caminho para entrada. Arquivo JSON e pressione Enter.
+
+      ```azurepowershell-interactive
+      wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScriptbash farmbeats-installer.sh /home/<username>/input.json
+     ```
+     O instalador baixa automaticamente todas as dependências e cria o implantador. Você será solicitado a concordar com o contrato de licença de usuário final (EULA) do Azure FarmBeats.
+
+     - Digite ' Y ' se você concordar e continuar para a próxima etapa.
+     - Digite ' N ' se você não concordar com os termos e a implantação será encerrada.
+
+6. Em seguida, será solicitado que você insira um token de acesso para a implantação. Copie o código gerado e faça logon para https://microsoft.com/devicelogin com suas credenciais do Azure.
 
     > [!NOTE]
-    > Você pode ignorar esta etapa e as entradas serão solicitadas em tempo de execução.
+    > O token expira após 60 minutos. Quando ele expirar, você poderá reiniciar digitando o comando de implantação novamente.
 
-3. Salve o arquivo e anote o caminho (no computador local).  
-4. Vá para Azure Cloud Shell e depois da autenticação bem-sucedida, selecione o carregamento (consulte o ícone realçado na imagem abaixo) e carregue o arquivo Input. JSON no armazenamento Cloud Shell. Você não precisa passar o parâmetro do Azure AD dentro do JSON porque o instalador criará e configurará o registro do aplicativo do Azure AD para você.
+7. Quando solicitado, insira sua senha da conta do Sentinel.
+8. O instalador agora valida e inicia a implantação, o que pode levar cerca de 20 minutos.
+9. Depois que a implantação for bem-sucedida, você receberá os links de saída abaixo:
 
-   ![Batidas no farm de projetos](./media/prepare-for-deployment/bash-2-1.png)
+ - **URL do hub de dados**: link do Swagger para experimentar as APIs FarmBeats do Azure.
+ - **URL do acelerador**: interface do usuário para explorar o acelerador de farm inteligente do Azure FarmBeats.
+ - **Arquivo de log do implantador**-arquivo de log criado durante a implantação. Ele pode ser usado para solucionar problemas, se necessário.
 
-5. Digite ou cole o "comando de implantação" no Cloud Shell. Certifique-se de modificar o caminho para entrada. Arquivo JSON e pressione Enter.  
+## <a name="deployment-scenario-2"></a>Cenário de implantação 2
 
-    ```
-    wget -N -O farmbeats-installer.sh https://aka.ms/FB_1.2.0 && bash farmbeats-installer.sh> /home/dummyuser/input.json
+O registro de aplicativo Azure Active Directory existente é usado para implantar (caso 2 acima)
 
-    ```
-   O script baixa automaticamente todas as dependências e cria o implantador. Em seguida, você será solicitado a concordar com o contrato de licença de usuário final (EULA) do Azure FarmBeats.
-
-   - Digite ' Y ' se você concordar e continuar para a próxima etapa.
-   - Digite ' N ' se você não concordar com os termos e a implantação será encerrada.
-
-   Em seguida, será solicitado que você insira um token de acesso para a implantação. Copie o código gerado e faça logon para https://microsoft.com/devicelogin com suas credenciais do Azure.
-
-   > [!NOTE]
-   > O código expira após 60 minutos. Quando ele expirar, você poderá reiniciar digitando o comando de implantação novamente.
-
-6. No próximo prompt, insira a senha da conta do Sentinel.
-7. O instalador agora valida e inicia a implantação, o que pode levar cerca de 20 minutos.
-8. Depois que a implantação for bem-sucedida, você receberá os links de saída abaixo:
-    - **URL do hub de dados**: link do Swagger para experimentar as APIs FarmBeats do Azure.
-    - **URL do acelerador**: interface do usuário para explorar o acelerador de farm inteligente do Azure FarmBeats.
-    - **Arquivo de log do implantador**-arquivo de log criado durante a implantação. Ele pode ser usado para solução de problemas.
-
-    - Digite ' Y ' se você concordar e continuará na próxima etapa.
-    - Digite ' n' se você não concordar com os termos e a implantação será encerrada.
-
-   Em seguida, será solicitado que você insira um token de acesso para a implantação. Copie o código gerado e entre no https://microsoft.com/devicelogin com suas credenciais do Azure.
-
-   > [!NOTE]
-    > Anote isso e mantenha o caminho do arquivo de log de implantação útil para uso futuro.
-
-
-### <a name="deployment-scenario-2"></a>Cenário de implantação 2
-
-O registro de aplicativo Azure Active Directory existente é usado para implantar.
-
-1. Baixar [JSON de entrada](https://aka.ms/PPInputJsonTemplate) inclua a ID do cliente aplicativo Azure e a senha no Input. JSON, salve-o.
+1. Copie o arquivo JSON abaixo, que inclui o Aplicativo Azure ID do cliente e a senha no Input. JSON e salve-o.
 
     ```json
-       {
-       "sku":"both",
-       "subscriptionId":"daxx9xxx-d18f-4xxc-9c21-5xx3exxxxx45",
-       "datahubResourceGroup":"dummy-test-dh1",  
-       "location":"westus2",  
-       "datahubWebsiteName":"dummy-test-dh1",  
-       "acceleratorResourceGroup":"dummy-test-acc1",  
-       "acceleratorWebsiteName":"dummy-test-acc1",  
-       "sentinelUsername":"dummy-dev",
-       "notificationEmailAddress":"dummyuser@org1.com",
-       "updateIfExists": true,
-       "aadAppClientId": "lmtlemlemylmylkmerkywmkm823",
-       "aadAppClientSecret": "Kxxxqxxxxu*kxcxxx3Yxxu5xx/db[xxx"
-       }
-     ```
+   {
 
-     Siga o restante das etapas:
+   "sku":"both",
+   "subscriptionId":"daxx9xxx-d18f-4xxc-9c21-5xx3exxxxx45",
+   "datahubResourceGroup":"dummy-test-dh1",   
+   "location":"westus2",   
+   "datahubWebsiteName":"dummy-test-dh1",   
+   "acceleratorResourceGroup":"dummy-test-acc1",   
+   "acceleratorWebsiteName":"dummy-test-acc1",   
+   "sentinelUsername":"dummy-dev",
+   "notificationEmailAddress":"dummyuser@org1.com",
+   "updateIfExists": true,
+   "aadAppClientId": "lmtlemlemylmylkmerkywmkm823",
+   "aadAppClientSecret": "Kxxxqxxxxu*kxcxxx3Yxxu5xx/db[xxx"
+
+   }
+   ```
+
+Siga o restante das etapas:
 
 2. Anote o caminho para o arquivo Input. JSON (no computador local).
 3. Vá para Azure Cloud Shell mais uma vez e você será autenticado com êxito, selecione o botão carregar (consulte o ícone realçado na imagem abaixo) e carregue o arquivo Input. JSON no armazenamento Cloud Shell.
 
     ![Batidas no farm de projetos](./media/prepare-for-deployment/bash-2-1.png)
 
-4. Digite ou cole o *comando de implantação* no Cloud Shell. Certifique-se de modificar o caminho para entrada. Arquivo JSON e pressione Enter.
+4. Vá para o diretório base no Cloud Shell. Por padrão, é/Home/<username>
+5. Digite ou cole os dois comandos a seguir no Cloud Shell. Certifique-se de modificar o caminho para entrada. Arquivo JSON e pressione Enter.
 
+    ```azurepowershell-interactive
+    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScriptbash farmbeats-installer.sh /home/<username>/input.json
     ```
-    wget -N -O farmbeats-installer.sh https://aka.ms/FB_1.2.0 && bash farmbeats-installer.sh> /home/dummyuser/input.json
 
-    ```
-   Siga o restante das etapas:
+Siga as instruções na tela.
 
-5. O script baixa automaticamente todas as dependências e cria o implantador.
-6. Você será solicitado a ler e concordar com o contrato de licença de usuário final (EULA) do Azure FarmBeats.
+6. O script baixa automaticamente todas as dependências e cria o implantador.
+7. Você será solicitado a ler e concordar com o contrato de licença de usuário final (EULA) do Azure FarmBeats.
 
-   - Digite ' Y ' se você concordar e continuará na próxima etapa.
-   - Digite ' n' se você não concordar com os termos e a implantação será encerrada.
+    - Digite ' Y ' se você concordar e continuará na próxima etapa.
+    - Digite ' n' se você não concordar com os termos e a implantação será encerrada.
 
-7. Você será solicitado a inserir um token de acesso para a implantação. Copie o código gerado e entre no https://microsoft.com/devicelogin com suas credenciais do Azure.
-8. O instalador agora irá validar e começar a criar os recursos, o que pode levar cerca de 20 minutos. Mantenha a sessão ativa em Cloud Shell durante esse tempo.
-9. Depois que a implantação passar com êxito, você receberá os links de saída abaixo:
-   - **URL do hub de dados**: link do Swagger para testar APIs do FarmBeats.
-   - **URL do acelerador**: interface do usuário para explorar o acelerador do Smart farm do FarmBeats.
-   - **Arquivo de log do implantador**: salva os logs durante a implantação e pode ser usado para solução de problemas.
+8. Você será solicitado a inserir um token de acesso para a implantação. Copie o código gerado e entre no https://microsoft.com/devicelogin com suas credenciais do Azure.
+9. O instalador agora irá validar e começar a criar os recursos, o que pode levar cerca de 20 minutos. Mantenha a sessão ativa em Cloud Shell durante esse tempo.
+10. Depois que a implantação passar com êxito, você receberá os links de saída abaixo:
+
+ - **URL do hub de dados**: link do Swagger para testar APIs do FarmBeats.
+ - **URL do acelerador**: interface do usuário para explorar o acelerador do Smart farm do FarmBeats.
+ - **Arquivo de log do implantador**: arquivo de log criado durante a implantação. Ele pode ser usado para solucionar problemas, se necessário.
 
 Se você encontrar problemas, examine [solucionar problemas](troubleshoot-project-farmbeats.md).
 
@@ -345,41 +329,28 @@ As etapas para atualização são semelhantes à primeira instalação. Siga est
 
    ![Batidas no farm de projetos](./media/prepare-for-deployment/navigation-bar-1.png)
 
-3. Selecione uma assinatura para criar uma conta de armazenamento e um compartilhamento de arquivos do Azure files.
-4. Selecione **Create storage** (Criar armazenamento).
-5. Selecione o ambiente na lista suspensa à esquerda do Shell (bash).
-6. Faça alterações no arquivo Input. JSON somente se necessário e carregue para o Azure Cloud Shell. Por exemplo, você pode atualizar seu endereço de email para a notificação que deseja receber.
-7. Anote o caminho do arquivo Input. JSON (no computador local).
-8. Vá para Azure Cloud Shell. Depois que você for autenticado com êxito, selecione o botão carregar (consulte o ícone realçado na imagem abaixo) e carregue o arquivo Input. JSON no armazenamento Cloud Shell.
+3. Selecione o ambiente como "bash" no menu suspenso à esquerda do do Shell.
+4. Faça alterações no arquivo Input. JSON somente se necessário e carregue para o Azure Cloud Shell. Por exemplo, você pode atualizar seu endereço de email para a notificação que deseja receber.
+5. Carregue o arquivo Input. JSON para Azure Cloud Shell.
+6. Digite ou cole os dois comandos a seguir no Cloud Shell. Certifique-se de modificar o caminho para o arquivo Input. JSON e pressione Enter.
 
-   ![Batidas no farm de projetos](./media/prepare-for-deployment/bash-2-1.png)
-
-9. Digite ou cole o **comando de implantação** no Cloud Shell. Certifique-se de modificar o caminho para entrada. Arquivo JSON e pressione Enter.
-
+    ```azurepowershell-interactive
+    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScriptbash farmbeats-installer.sh /home/<username>/input.json
     ```
-    wget -N -O farmbeats-installer.sh https://aka.ms/FB_1.2.0 && bash farmbeats-installer.sh> /home/dummyuser/input.json
+Siga as instruções na tela:
 
-    ```
-    Siga o restante das etapas:
+7. O instalador solicita automaticamente as entradas necessárias em tempo de execução:
+8. Insira um token de acesso para implantação. Copie o código gerado e entre no https://microsoft.com/devicelogin com suas credenciais do Azure.
+9. Senha do Sentinela
+10. Agora, o instalador valida e inicia a criação dos recursos, o que pode levar cerca de 20 minutos.
+11. Depois que a implantação for bem-sucedida, você receberá os links de saída abaixo:
+ - **URL do hub de dados**: link do Swagger para testar APIs do FarmBeats.
+ - **URL do acelerador**: interface do usuário para explorar o acelerador do Smart farm do FarmBeats.
+ - **Arquivo de log do implantador**: salva os logs durante a implantação. Ele pode ser usado para solução de problemas.
 
-10. O instalador solicita automaticamente as entradas necessárias em tempo de execução:
+> [!NOTE]
+> Anote os valores acima para uso futuro.
 
-    - Insira um token de acesso para implantação. Copie o código gerado e entre no https://microsoft.com/devicelogin com suas credenciais do Azure.
-
-     > [!NOTE]
-     > O código expira após 60 minutos. Quando ele expirar, você poderá reiniciar digitando o comando de implantação novamente.
-
-     - Senha do Sentinela
-
-11. Agora, o instalador valida e inicia a criação dos recursos, o que pode levar cerca de 20 minutos.
-12. Depois que a implantação for bem-sucedida, você receberá os links de saída abaixo:
-
-    - **URL do hub de dados**: link do Swagger para testar APIs do FarmBeats.
-    - **URL do acelerador**: interface do usuário para explorar o acelerador do Smart farm do FarmBeats.
-    - **Arquivo de log do implantador**: salva os logs durante a implantação. Ele pode ser usado para solução de problemas.
-
-    > [!NOTE]
-    > Anote os links acima e mantenha o caminho do arquivo de log de implantação útil para uso futuro.
 
 ## <a name="uninstall"></a>Desinstalar
 
@@ -394,7 +365,7 @@ Por exemplo, se você implantou o Hub de dados e acelerador em dois grupos de re
    > O Hub de dados é necessário para que o acelerador funcione corretamente. Não recomendamos a desinstalação do hub de dados sem a desinstalação do acelerador.
 
 3. Selecione grupos de recursos e digite o nome do hub de dados ou do grupo de recursos do acelerador que você deseja excluir.
-4. Selecione o nome do grupo de recursos. Digite o nome novamente para verificar novamente e clique em Excluir para remover o grupo de recursos e todos os seus recursos subjacentes.
+4. Selecione o nome do grupo de recursos. Digite o nome novamente para verificação dupla e selecione Excluir para remover o grupo de recursos e todos os seus recursos subjacentes.
 5. Como alternativa, você pode excluir cada recurso manualmente, o que não é recomendado.
 7. Para excluir/desinstalar o Hub de dados, vá para o grupo de recursos diretamente no Azure e exclua o grupo de recursos desse local.
 

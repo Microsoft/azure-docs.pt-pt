@@ -4,15 +4,15 @@ description: Descreve as bibliotecas de cliente necessárias para que os aplicat
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 11/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9db76ca32c97cca622dc68642be5b770254191a1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ad7165b1205921ad324525b9f46a22bec5cebaa9
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834227"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885323"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para conexão com o Azure Analysis Services
 
@@ -33,8 +33,8 @@ Os ADOMD (objetos de gerenciamento do Analysis Services) e as bibliotecas de cli
 
 |Pacote  | Versão do produto  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.0.9     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.0.9      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.2.3     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.2.3      |
 
 Os assemblies do pacote NuGet AssemblyVersion seguem o controle de versão semântico: MAJOR. Secundária. Distribuído. As referências do NuGet carregam a versão esperada mesmo se houver uma versão diferente no GAC (resultante da instalação do MSI). O PATCH é incrementado para cada versão. As versões AMO e ADOMD são mantidas em sincronia.
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 2edc644f003af2b33054a5cbdbaee81c9baa38cd
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 60837171e3f59312895a76f68c660228697529ad
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847459"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891099"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerenciar sua conta do Marketplace comercial no Partner Center 
 
@@ -145,11 +145,11 @@ O relatório é feito pelo valor do parceiro (ID do parceiro da Microsoft) e pel
 Para obter mais informações, consulte as [perguntas frequentes sobre como controlar o uso do cliente do Azure com GUIDs](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
 
 
-## <a name="establish-a-billing-profile"></a>Estabelecer um perfil de cobrança
+## <a name="create-a-billing-profile"></a>Criar um perfil de cobrança
 
 Se você estiver publicando um [cliente do dynamics 365 for Customer Engagement & Power apps](./create-new-customer-engagement-offer.md) ou o [Dynamics 365 for Operations](./create-new-operations-offer.md) Offer, você precisará concluir seu **perfil de cobrança**.
 
-O endereço de cobrança é preenchido previamente com a ID do MPN e você pode atualizar esse endereço mais tarde. Os campos de ID de IVA e imposto são opcionais.  O nome do país e o nome da empresa não podem ser editados.
+O endereço de cobrança é preenchido previamente de sua entidade legal e você pode atualizar esse endereço mais tarde. Os campos de ID de IVA e imposto são opcionais.  O nome do país e o nome da empresa não podem ser editados.
 
 ## <a name="multi-user-account-management"></a>Gerenciamento de contas de vários usuários
 

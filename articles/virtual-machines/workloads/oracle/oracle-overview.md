@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: d8fed68d9b830df359f8129d55f1b9911f69e8f1
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 71caa6730e3a00f3aa80329d6b87d2531fdd8049
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802245"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891471"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Visão geral de aplicativos e soluções Oracle no Azure
 
@@ -54,9 +54,9 @@ Execute aplicativos empresariais no Azure em sistemas operacionais Oracle com su
 
 ## <a name="backup-oracle-workloads"></a>Fazer backup de cargas de trabalho do Oracle
 
-* Fazer backup de suas VMs Oracle usando o [backup do Azure](https://docs.microsoft.com/en-us/azure/backup/backup-overview)
+* Fazer backup de suas VMs Oracle usando o [backup do Azure](https://docs.microsoft.com/azure/backup/backup-overview)
 
-* Faça backup de seu Oracle Database usando o Oracle RMAN e, opcionalmente, use o [fusível de BLOBs do Azure](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux) para montar uma [conta de armazenamento de BLOBs do Azure altamente Redudant](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) e gravar os backups do RMAN nele para obter resiliência adicional.
+* Faça backup de seu Oracle Database usando o Oracle RMAN e, opcionalmente, use o [fusível de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) para montar uma [conta de armazenamento de BLOBs do Azure altamente Redudant](https://docs.microsoft.com/azure/storage/common/storage-redundancy) e gravar os backups do RMAN nele para obter resiliência adicional.
 
 ## <a name="integration-of-azure-with-oci-preview"></a>Integração do Azure com o OCI (versão prévia)
 
@@ -86,7 +86,7 @@ Use Oracle Database serviços de nuvem (banco de dados autônomo, RAC, Exadata, 
 
 A implantação de aplicativos Oracle no Azure é baseada em um modelo "Traga sua própria licença". Supõe-se que você esteja devidamente licenciado para usar o software Oracle e que tenha um contrato de suporte atual em vigor com a Oracle. A Oracle assegurau a mobilidade de licenças do local para o Azure. Consulte as [perguntas frequentes sobre](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)o Oracle-Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre como implantar [imagens de VM do Oracle](oracle-vm-solutions.md) na infraestrutura do Azure.
 

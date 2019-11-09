@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 11/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 24b7f05bc59f3eb951897f5e36030b531d8f3aa9
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 5271b14ec008579d18a152a229b9768339927bb7
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959102"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888849"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Como criar funções definidas pelo usuário no Azure digital gêmeos
 
@@ -54,22 +54,24 @@ Com o corpo JSON:
 
 ```JSON
 {
-  "Name": "Temperature Matcher",
-  "Conditions": [
+  "id": "3626464-f39b-46c0-d9b0c-436aysj55",
+  "name": "Temperature Matcher",
+  "spaceId": "YOUR_SPACE_IDENTIFIER",
+  "conditions": [
     {
+      "id": "ag7gq35cfu3-e15a-4e9c-6437-sj6w68sy44s",
       "target": "Sensor",
       "path": "$.dataType",
       "value": "\"Temperature\"",
       "comparison": "Equals"
     }
-  ],
-  "SpaceId": "YOUR_SPACE_IDENTIFIER"
+  ]
 }
 ```
 
-| Value | Substituir |
+| Valor | Substituir |
 | --- | --- |
-| YOUR_SPACE_IDENTIFIER | Qual sua instância estiver alojada num servidor a região |
+| YOUR_SPACE_IDENTIFIER | Em qual região do servidor sua instância está hospedada |
 
 ## <a name="create-a-user-defined-function"></a>Criar uma função definida Pelo utilizador
 
@@ -107,7 +109,7 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Value | Substituir |
+| Valor | Substituir |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | Um nome de limite de conteúdo com várias partes |
 | YOUR_SPACE_IDENTIFIER | O identificador de espaço  |
@@ -205,18 +207,18 @@ Crie uma atribuição de função na qual a função definida pelo usuário deve
    Mantenha a ID de função desejada. Ele será passado como o atributo de corpo JSON **RoleID** (`YOUR_DESIRED_ROLE_IDENTIFIER`) abaixo.
 
 1. **ObjectID** (`YOUR_USER_DEFINED_FUNCTION_ID`) será a ID da função definida pelo usuário que foi criada anteriormente.
-1. Localize o valor do **caminho** (`YOUR_ACCESS_CONTROL_PATH`) consultando seus espaços com `fullpath`.
+1. Localize o valor de **path** (`YOUR_ACCESS_CONTROL_PATH`) consultando seus espaços com `fullpath`.
 1. Copie o valor de `spacePaths` retornado. Você o usará abaixo. Faça uma solicitação HTTP GET autenticada para:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | Value | Substituir |
+    | Valor | Substituir |
     | --- | --- |
     | YOUR_SPACE_NAME | O nome do espaço que você deseja usar |
 
-1. Cole o valor retornado `spacePaths` em **path** para criar uma atribuição de função de função definida pelo usuário fazendo uma solicitação HTTP post autenticada para:
+1. Cole o valor de `spacePaths` retornado em **path** para criar uma atribuição de função de função definida pelo usuário fazendo uma solicitação HTTP post autenticada para:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments
@@ -232,7 +234,7 @@ Crie uma atribuição de função na qual a função definida pelo usuário deve
     }
     ```
 
-    | Value | Substituir |
+    | Valor | Substituir |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | O identificador para a função desejada |
     | YOUR_USER_DEFINED_FUNCTION_ID | A ID da função definida pelo usuário que você deseja usar |

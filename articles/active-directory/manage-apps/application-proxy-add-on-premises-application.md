@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8d6297a32cd0f85cf354a93bfdac72cbad9603d
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 72678a67b1bc9845eae2bca658f35a05c9bcf659
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062853"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73883980"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory
 
@@ -45,6 +45,12 @@ Para adicionar um aplicativo local ao Azure AD, você precisará de:
 Para usar o proxy de aplicativo, você precisa de um Windows Server que executa o Windows Server 2012 R2 ou posterior. Você instalará o conector do proxy de aplicativo no servidor. Esse servidor do conector precisa se conectar aos serviços de proxy de aplicativo no Azure e aos aplicativos locais que você planeja publicar.
 
 Para alta disponibilidade em seu ambiente de produção, recomendamos ter mais de um Windows Server. Para este tutorial, um Windows Server é suficiente.
+
+> [!IMPORTANT]
+> Se você estiver instalando o conector no Windows Server 2019, há uma limitação HTTP2. Para usar com êxito o conector nesta versão, adicione a seguinte chave do registro e reinicie o servidor:
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+    ```
 
 #### <a name="recommendations-for-the-connector-server"></a>Recomendações para o servidor do conector
 
@@ -93,7 +99,7 @@ Se o firewall impõe o tráfego de acordo com os usuários de origem, abra as po
 
 Permitir acesso às seguintes URLs:
 
-| URL | Como é usado |
+| do IdP | Como é usado |
 | --- | --- |
 | \*. msappproxy.net<br>\*. servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem do proxy de aplicativo |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O Azure usa essas URLs para verificar os certificados. |

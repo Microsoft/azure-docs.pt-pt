@@ -1,22 +1,21 @@
 ---
 title: Configurar e usar logs de diagnóstico e métricas com um hub IoT do Azure | Microsoft Docs
-description: Configurar e usar logs de diagnóstico e métricas com um hub IoT do Azure
+description: Saiba como configurar e usar logs de diagnóstico e métricas com um hub IoT do Azure. Isso fornecerá dados a serem analisados para ajudar a diagnosticar problemas que o Hub pode ter.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 7349287945a56bb7674e364f515d0b763015ed59
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3bda78a54b0914465a50d664ab0323444203a387
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262322"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890368"
 ---
-# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: Configurar e usar logs de diagnóstico e métricas com um hub IoT
+# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: configurar e usar logs de diagnóstico e métricas com um hub IoT
 
 Se você tiver uma solução de Hub IoT em execução na produção, você deseja configurar algumas métricas e habilitar os logs de diagnóstico. Em seguida, se ocorrer um problema, você terá dados a serem examinados para ajudá-lo a diagnosticar o problema e corrigi-lo mais rapidamente. Neste artigo, você verá como habilitar os logs de diagnóstico e como verificá-los quanto a erros. Você também configurará algumas métricas para observar e alertas que são acionados quando as métricas atingem um determinado limite. Por exemplo, você pode ter um email enviado a você quando o número de mensagens de telemetria enviadas exceder um limite específico ou quando o número de mensagens usadas chegar perto da cota de mensagens permitidas por dia para o Hub IoT. 
 
@@ -45,13 +44,13 @@ Neste tutorial, vai realizar as seguintes tarefas:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="set-up-resources"></a>Configurar recursos
+## <a name="set-up-resources"></a>Configurar os recursos
 
 Para este tutorial, você precisa de um hub IoT, uma conta de armazenamento e um dispositivo IoT simulado. Pode criar estes recursos com a CLI do Azure ou o Azure PowerShell. Utilize o mesmo grupo de recursos e a mesma localização para todos os recursos. Em seguida, no fim, pode remover tudo num único passo ao eliminar o grupo de recursos.
 
 Essas são as etapas necessárias.
 
-1. Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
+1. Criar um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
 
 2. Crie um hub IoT.
 
@@ -116,7 +115,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 ```
 
 >[!NOTE]
->Ao criar a identidade do dispositivo, você pode receber o seguinte erro: *Nenhuma chave encontrada para a política iothubowner do ContosoTestHub do Hub IOT*. Para corrigir esse erro, atualize a extensão de IoT CLI do Azure e, em seguida, execute os dois últimos comandos no script novamente. 
+>Ao criar a identidade do dispositivo, você pode receber o seguinte erro: *nenhuma chave encontrada para a política iothubowner do Hub IOT ContosoTestHub*. Para corrigir esse erro, atualize a extensão de IoT CLI do Azure e, em seguida, execute os dois últimos comandos no script novamente. 
 >
 >Aqui está o comando para atualizar a extensão. Execute-o em sua instância de Cloud Shell.
 >
@@ -196,23 +195,23 @@ O Hub IoT ainda não foi migrado para as [métricas no Azure monitor](/azure/azu
 
     Preencha os campos: 
 
-    **Subscrição**: Deixe esse campo definido como sua assinatura atual.
+    **Assinatura**: Deixe esse campo definido como sua assinatura atual.
 
-    **Origem**: Defina esse campo como *métricas*.
+    **Origem**: defina esse campo como *métricas*.
 
-    **Grupo de recursos**: Defina esse campo como o grupo de recursos atual, *ContosoResources*. 
+    **Grupo de recursos**: defina esse campo para o grupo de recursos atual, *ContosoResources*. 
 
-    **Tipo de recurso**: Defina esse campo como hub IoT. 
+    **Tipo de recurso**: defina esse campo como hub IOT. 
 
-    **Recurso**: Selecione o Hub IoT, *ContosoTestHub*.
+    **Recurso**: selecione o Hub IOT, *ContosoTestHub*.
 
 3. Clique em **adicionar alerta de métrica (clássico)** para configurar um novo alerta.
 
     Preencha os campos:
 
-    **Nome**: Forneça um nome para sua regra de alerta, como *mensagens de telemetria*.
+    **Nome**: forneça um nome para a regra de alerta, como *telemetria-mensagens*.
 
-    **Descrição**: Forneça uma descrição do seu alerta, como *alertar quando houver mensagens de telemetria de 1000 enviadas*. 
+    **Descrição**: forneça uma descrição do seu alerta, como *alerta quando houver mensagens de telemetria de 1000 enviadas*. 
 
     **Origem**: Defina isso para *métricas*.
 
@@ -224,11 +223,11 @@ O Hub IoT ainda não foi migrado para as [métricas no Azure monitor](/azure/azu
 
 4. Após o gráfico, defina os seguintes campos:
 
-   **Condição**: Definido como *maior que*.
+   **Condição**: definida como *maior que*.
 
-   **Limite**: Defina como 1000.
+   **Limite**: definido como 1000.
 
-   **Período**: Defina para *nos últimos 5 minutos*.
+   **Período**: defina para *nos últimos 5 minutos*.
 
    **Destinatários do email de notificação**: Coloque seu endereço de email aqui. 
 
@@ -240,11 +239,11 @@ O Hub IoT ainda não foi migrado para as [métricas no Azure monitor](/azure/azu
 
    Na tela **exibir alertas clássicos** , clique em **adicionar alerta de métrica (clássico)** e preencha Esses campos no painel **Adicionar regra** .
 
-   **Nome**: Forneça um nome para sua regra de alerta, como *número de mensagens-usado*.
+   **Nome**: forneça um nome para a regra de alerta, como *número de mensagens-usado*.
 
-   **Descrição**: Forneça uma descrição do seu alerta, como *alertar ao chegar perto da cota*.
+   **Descrição**: forneça uma descrição do seu alerta, como *alertar ao chegar perto da cota*.
 
-   **Origem**: Defina esse campo como *métricas*.
+   **Origem**: defina esse campo como *métricas*.
 
     A **assinatura**, o **grupo de recursos**e o **recurso** devem ser definidos para os valores selecionados na tela **exibir alertas clássicos** . 
 
@@ -252,11 +251,11 @@ O Hub IoT ainda não foi migrado para as [métricas no Azure monitor](/azure/azu
 
 6. No gráfico, preencha os seguintes campos:
 
-   **Condição**: Definido como *maior que*.
+   **Condição**: definida como *maior que*.
 
-   **Limite**: Defina como 1000.
+   **Limite**: definido como 1000.
 
-   **Período**: Defina esse campo para *nos últimos 5 minutos*. 
+   **Período**: defina esse campo para *nos últimos 5 minutos*. 
 
    **Destinatários do email de notificação**: Coloque seu endereço de email aqui. 
 
@@ -288,7 +287,7 @@ Faça duplo clique no ficheiro da solução (SimulatedDevice.sln) para abrir o c
 
 ## <a name="run-and-test"></a>Executar e testar 
 
-Em Program.cs, altere `Task.Delay` de 1000 para 10, o que reduz a quantidade de tempo entre o envio de mensagens de 1 segundo a. 01 segundos. A redução desse atraso aumenta o número de mensagens enviadas.
+Em Program.cs, altere o `Task.Delay` de 1000 para 10, o que reduz a quantidade de tempo entre o envio de mensagens de 1 segundo a. 01 segundos. A redução desse atraso aumenta o número de mensagens enviadas.
 
 ```csharp
 await Task.Delay(10);

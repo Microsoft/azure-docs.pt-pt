@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6cdebb8f6abea2b50dd8aad58ccc9fb5e680cba9
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 635431fb87e5f164f92ab4b7a1027ee96e9d801a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798482"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891015"
 ---
 # <a name="generate-maps"></a>Gerar mapas
 
@@ -170,7 +170,7 @@ A umidade de solo é a água que é mantida nos espaços entre as partículas de
 Antes de tentar gerar um calor de umidade de solo, verifique o seguinte:
 
 - Pelo menos três sensores de umidade de solo devem ser implantados. A Microsoft recomenda que você não tente criar um mapa de umidade de solo antes que os sensores sejam implantados e associados ao farm.  
-- Pelo menos uma cena de sentinela livre de nuvem deve estar disponível nos últimos 120 dias, a partir do dia em que o mapa de umidade de solo foi solicitado.
+- A geração de calor de umidade de solo é influenciada pela cobertura de caminho do Sentinel, pela nuvem e pela nuvem. Pelo menos uma cena de sentinela livre de nuvem deve estar disponível nos últimos 120 dias, a partir do dia em que o mapa de umidade de solo foi solicitado.
 - Pelo menos metade dos sensores implantados no farm deve estar online e ter dados transmitidos para o Hub de dados.
 - O calor deve ser gerado usando medidas de sensor do mesmo provedor.
 
@@ -220,6 +220,6 @@ Utilize os passos seguintes:
 4. Selecione o ícone de **classificação** ao lado dos cabeçalhos de tabela para classificar de acordo com o farm, data, criado em, ID do trabalho e tipo de trabalho.
 5. Percorra a lista de mapas disponíveis usando os botões de navegação no final da página.
 6. Selecione o mapa que você deseja exibir. Uma janela pop-up exibe a visualização do mapa selecionado.
-7. Selecione **baixar** menu suspenso para selecionar o formato de download e o mapa será baixado e armazenado na pasta local do computador.
+7. Selecione **baixar** menu suspenso para selecionar o formato de download e o mapa será baixado e armazenado na pasta especificada.
 
     ![Batidas no farm de projetos](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)

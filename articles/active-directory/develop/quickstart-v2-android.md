@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: twhitney
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a1a86965eb6a50fa87c63f5713f21d6a467dedb
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 7c5d3941cec7554152090c68bc1dc95f29ca9f17
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242239"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882872"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android
 
@@ -49,11 +49,11 @@ Os aplicativos devem ser representados por um objeto de aplicativo no Azure Acti
 > > ![Já configurada](media/quickstart-v2-android/green-check.png) A sua aplicação está configurada com estes atributos
 >
 > ### <a name="step-2-download-the-project"></a>Passo 2: Transferir o projeto 
-> * [Baixar o exemplo de código](https://github.com/Azure-Samples/ms-identity-android-java)
+> * [Baixar o exemplo de código](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
 >
 > ### <a name="step-3-configure-your-project"></a>Passo 3: Configurar o projeto
 > 1. Extraia e abra o Projeto no Android Studio.
-> 2. Dentro do aplicativo > src > Principal > res > RAW, abra auth_config_multiple_account. JSON e substitua-o pelo código a seguir:
+> 2. Dentro do **aplicativo** > **src** > **principal** > **res** > **RAW**, abra **auth_config_multiple_account. JSON** e substitua-o pelo código a seguir:
 > ```javascript 
 > {
 >   "client_id" : "Enter_the_Application_Id_Here",
@@ -74,7 +74,7 @@ Os aplicativos devem ser representados por um objeto de aplicativo no Azure Acti
 > ```
 
 > [!div class="sxs-lookup" renderon="portal"]
-> 3. Dentro do aplicativo > src > Principal > res > RAW, abra auth_config_single_account. JSON e substitua-o pelo código a seguir:
+> 3. Dentro do **aplicativo** > **src** > **principal** > **res** > **RAW**, abra **auth_config_single_account. JSON** e substitua-o pelo código a seguir:
 > ```javascript 
 > {
 >   "client_id" : "Enter_the_Application_Id_Here",
@@ -98,22 +98,22 @@ Os aplicativos devem ser representados por um objeto de aplicativo no Azure Acti
 > 4. Dentro do **aplicativo** > **src** > **principal**, abra **AndroidManifest. xml**.
 > 5. No nó **manifest\application** , substitua o nó **<activity android:name="com.microsoft.identity.client.BrowserTabActivity">** pelo seguinte:  
 > ```xml
-> <!--Intent filter to catch Microsoft's callback after Sign In-->
-> <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
->     <intent-filter>
->     <action android:name="android.intent.action.VIEW" />
->     <category android:name="android.intent.category.DEFAULT" />
->     <category android:name="android.intent.category.BROWSABLE" />
->         <!--
+> &lt;!--Intent filter to catch Microsoft's callback after Sign In--&gt;
+> &lt;activity android:name=&quot;com.microsoft.identity.client.BrowserTabActivity&quot;&gt;
+>     &lt;intent-filter&gt;
+>     &lt;action android:name=&quot;android.intent.action.VIEW&quot; /&gt;
+>     &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
+>     &lt;category android:name=&quot;android.intent.category.BROWSABLE&quot; /&gt;
+>         &lt;!--
 >             Add in your scheme/host from registered redirect URI 
->             note that the leading "/" is required for android:path
->         -->
->         <data android:scheme="msauth"
->             android:host="Enter_the_Package_Name_here"
->             android:path="Enter_the_Signature_Hash_here"
->             android:scheme = "msauth" />
->     </intent-filter>
-> </activity>
+>             note that the leading &quot;/&quot; is required for android:path
+>         --&gt;
+>         &lt;data android:scheme=&quot;msauth&quot;
+>             android:host=&quot;Enter_the_Package_Name_Here&quot;
+>             android:path=&quot;Enter_the_Signature_Hash_Here&quot;
+>             android:scheme = &quot;msauth&quot; /&gt;
+>     &lt;/intent-filter&gt;
+> &lt;/activity&gt;
 > ```
 > 6. Execute o aplicativo!
 > O aplicativo de exemplo inicia na tela de **modo de conta única** . Um escopo padrão, **User. Read**, é fornecido por padrão, que é usado ao ler seus próprios dados de perfil durante a chamada à API de Microsoft Graph. A URL para a chamada à API de Microsoft Graph é fornecida por padrão. Você pode alterar ambos se desejar.
@@ -136,7 +136,7 @@ Os aplicativos devem ser representados por um objeto de aplicativo no Azure Acti
 > [!div renderon="docs"]
 > ## <a name="step-1-get-the-sample-app"></a>Etapa 1: obter o aplicativo de exemplo
 >
-> [Clone o código](https://github.com/Azure-Samples/ms-identity-android-java.git).
+> [Baixe o código](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip).
 >
 > ## <a name="step-2-run-the-sample-app"></a>Etapa 2: executar o aplicativo de exemplo
 >
@@ -159,7 +159,7 @@ Os aplicativos devem ser representados por um objeto de aplicativo no Azure Acti
 
 O código é organizado em fragmentos que mostram como escrever um aplicativo MSAL único e de várias contas. Os arquivos de código são organizados da seguinte maneira:
 
-| Ficheiros  | Demonstrar  |
+| Ficheiro  | Demonstrar  |
 |---------|---------|
 | MainActivity | Gerencia a interface do usuário |
 | MSGraphRequestWrapper  | Chama a API de Microsoft Graph usando o token fornecido por MSAL |

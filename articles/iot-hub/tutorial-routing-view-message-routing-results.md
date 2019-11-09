@@ -1,6 +1,6 @@
 ---
 title: Exibir resultados de roteamento de mensagens do Hub IoT do Azure (.NET) | Microsoft Docs
-description: Exibir resultados de roteamento de mensagens do Hub IoT do Azure
+description: Depois de configurar todos os recursos usando a parte 1 do tutorial, adicione a capacidade de rotear mensagens para Azure Stream Analytics e exibir os resultados no PowerBI.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 6d40f7d81faa77a48a32aadefdf44ed89e184efb
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: bfee4e64070e5f37eaa3d63280409f00c0ed8672
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900788"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890399"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: parte 2-exibir as mensagens roteadas
 
@@ -94,7 +94,7 @@ A fila do Service Bus serve para receber mensagens designadas como críticas. Co
 
 Para ver os dados numa visualização do Power BI, configure primeiro uma tarefa do Stream Analytics para obter os dados. Lembre-se de que apenas as mensagens com o **nível** definido como **normal** são enviadas para o ponto final predefinido e serão obtidas pela tarefa do Stream Analytics para a visualização do Power BI.
 
-### <a name="create-the-stream-analytics-job"></a>Criar a tarefa do Stream Analytics
+### <a name="create-the-stream-analytics-job"></a>Criar tarefa do Stream Analytics
 
 1. Na [portal do Azure](https://portal.azure.com), selecione **criar um recurso** > **Internet das coisas** > **trabalho Stream Analytics**.
 
@@ -230,7 +230,7 @@ Agora, com o aplicativo ainda em execução, configure a visualização Power BI
 
 ## <a name="set-up-the-power-bi-visualizations"></a>Configurar as visualizações do Power BI
 
-1. Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/).
+1. Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/).
 
 2. Aceda a **Áreas de Trabalho** e selecione a área de trabalho que definiu quando criou a saída da tarefa do Stream Analytics. Este tutorial utiliza **A Minha Área de Trabalho**. 
 
@@ -274,9 +274,9 @@ Você pode atualizar os gráficos para ver os dados mais recentes selecionando o
 
 Se você quiser remover todos os recursos do Azure criados por meio de ambas as partes deste tutorial, exclua o grupo de recursos. Esta ação também elimina todos os recursos contidos no grupo. Neste caso, remove o hub IoT, o espaço de nomes e a fila do Service Bus, a Aplicação Lógica, a conta de armazenamento e o próprio grupo de recursos. Você também pode remover os recursos de Power BI e limpar os emails enviados durante o tutorial.
 
-### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Limpar os recursos na visualização do Power BI
+### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Limpar os recursos na visualização do Power BI
 
-Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/). Vá para a área de trabalho. Este tutorial utiliza **A Minha Área de Trabalho**. Para remover a visualização Power BI, vá para conjuntos de valores e selecione o ícone de lixeira para excluir o conjunto de um. Este tutorial utiliza **contosodataset**. Quando remover o conjunto de dados, o relatório é também removido.
+Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/). Vá para a área de trabalho. Este tutorial utiliza **A Minha Área de Trabalho**. Para remover a visualização Power BI, vá para conjuntos de valores e selecione o ícone de lixeira para excluir o conjunto de um. Este tutorial utiliza **contosodataset**. Quando remover o conjunto de dados, o relatório é também removido.
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Usar o CLI do Azure para limpar os recursos
 

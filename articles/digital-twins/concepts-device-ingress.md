@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.openlocfilehash: 6c61bc6075b3f0713dd790f1b3aa1a47af9d8e6c
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/07/2019
+ms.openlocfilehash: 723fe14db9089e1127f39eae3ed7b10bbddf70bf
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950027"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889716"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrada de conectividade e telemetria de dispositivo
 
@@ -65,11 +65,11 @@ Você pode personalizar o formato e a carga de mensagens do dispositivo para ate
 
 ### <a name="telemetry-properties"></a>Propriedades de telemetria
 
- O conteúdo da carga de uma **mensagem** pode ser dados arbitrários de até 256 KB de tamanho. Há alguns requisitos esperados para as propriedades do tipo [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) . A tabela mostra as propriedades obrigatórias e opcionais com suporte no sistema.
+ O conteúdo da carga de uma **mensagem** pode ser dados arbitrários de até 256 KB de tamanho. Há alguns requisitos esperados para as propriedades do tipo de [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) . A tabela mostra as propriedades obrigatórias e opcionais com suporte no sistema.
 
-| Nome da propriedade | Value | Requerido | Descrição |
+| Nome da propriedade | Valor | Necessário | Descrição |
 |---|---|---|---|
-| **DigitalTwins-Telemetry** | 1.0 | Sim | Um valor constante que identifica uma mensagem para o sistema. |
+| **DigitalTwins-telemetria** | 1.0 | Sim | Um valor constante que identifica uma mensagem para o sistema. |
 | **DigitalTwins-SensorHardwareId** | `string(72)` | Sim | Um identificador exclusivo do sensor que envia a **mensagem**. Esse valor deve corresponder à propriedade **HardwareID** de um objeto para o sistema processá-lo. Por exemplo, `00FF0643BE88-CO2`. |
 | **CreationTimeUtc** | `string` | Não | Uma cadeia de caracteres de data formatada [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que identifica o tempo de amostragem da carga. Por exemplo, `2018-09-20T07:35:00.8587882-07:00`. |
 | **CorrelationId** | `string` | Não | Um UUID que é usado para rastrear eventos no sistema. Por exemplo, `cec16751-ab27-405d-8fe6-c68e1412ce1f`.

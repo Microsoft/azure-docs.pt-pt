@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: f27b910910ca21aa36582506e6c7b2d1d39da88a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ce5d2965d0127eec01620c702d7d83bd0b39416
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472858"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885798"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às demandas do aplicativo no serviço de kubernetes do Azure (AKS)
 
@@ -122,6 +122,35 @@ Você pode dimensionar manualmente o cluster depois de desabilitar o dimensionam
 ## <a name="re-enable-a-disabled-cluster-autoscaler"></a>Reabilitar o dimensionador de cluster desabilitado
 
 Se desejar reabilitar o dimensionador automática do cluster em um cluster existente, você poderá habilitá-lo novamente usando o comando [AZ AKs Update][az-aks-update] , especificando os parâmetros *--Enable-cluster-autoscaleer*, *--min-Count*e *--Max-Count* .
+
+## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>Recuperar status e logs de dimensionamento de clusters
+
+Para diagnosticar e depurar eventos de autoescalar, os logs e o status podem ser recuperados do complemento de dimensionamento.
+
+O AKS gerencia o cluster de dimensionamento em seu nome e o executa no plano de controle gerenciado. Os logs do nó mestre devem ser configurados para serem exibidos como resultado.
+
+Para configurar os logs a serem enviados por push do cluster de dimensionamento para Log Analytics siga estas etapas.
+
+1. Configurar uma regra para logs de diagnóstico para envio por push de cluster-logs de dimensionamento de AutoEscala para Log Analytics. [As instruções são detalhadas aqui](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs), certifique-se de marcar a caixa para `cluster-autoscaler` ao selecionar opções para "logs".
+1. Clique na seção "logs" no cluster por meio do portal do Azure.
+1. Insira a seguinte consulta de exemplo em Log Analytics:
+
+```
+AzureDiagnostics
+| where Category == "cluster-autoscaler"
+```
+
+Você deve ver logs semelhantes aos seguintes retornados, desde que haja logs a serem recuperados.
+
+![Logs de Log Analytics](media/autoscaler/autoscaler-logs.png)
+
+O autodimensionador de cluster também irá gravar o status de integridade em um ConfigMap chamado `cluster-autoscaler-status`. Para recuperar esses logs, execute o comando `kubectl` a seguir. Um status de integridade será relatado para cada pool de nós configurado com o dimensionador de cluster.
+
+```
+kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
+```
+
+Para saber mais sobre o que é registrado a partir do dimensionador de escalabilidade, leia as perguntas frequentes no [projeto GitHub kubernetes/AutoScaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why).
 
 ## <a name="use-the-cluster-autoscaler-with-multiple-node-pools-enabled"></a>Usar o dimensionamento de autoescalar do cluster com vários pools de nós habilitados
 

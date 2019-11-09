@@ -1,5 +1,5 @@
 ---
-title: Detetar problemas de dispositivos num remoto tutorial de solução de monitorização - Azure | Documentos da Microsoft
+title: Usar a solução de monitoramento remoto para detectar problemas de dispositivo – Azure | Microsoft Docs
 description: Este tutorial mostra-lhe como utilizar as regras e ações para detetar automaticamente problemas com dispositivos baseados no limiar na solução de Monitorização Remota.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61448383"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888882"
 ---
-# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detetar problemas com dispositivos ligados à sua solução de monitorização
+# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detetar problemas dos dispositivos ligados à sua solução de monitorização
 
 Neste tutorial, vai configurar o acelerador de soluções de Monitorização Remota para detetar problemas com os seus dispositivos IoT ligados. Para detetar os problemas dos seus dispositivos, adicione regras que geram alertas no dashboard de soluções.
 
@@ -51,7 +51,7 @@ Para ver apenas as regras que se aplicam a dispositivos de arrefecimento, apliqu
 
 Para criar uma regra que gera um aviso quando a pressão num dispositivo de arrefecimento ultrapassa 150 PSI, clique em **Nova regra**. Utilize os seguintes valores para criar a regra:
 
-| Definição          | Value                                 |
+| Definição          | Valor                                 |
 | ---------------- | ------------------------------------- |
 | Nome da regra        | Aviso do sistema de arrefecimento                       |
 | Descrição      | A pressão do sistema de arrefecimento excedeu 150 PSI |
@@ -74,7 +74,7 @@ Pode ver quando a regra está acionada na página **Regras** ou na página **Das
 
 Para criar uma regra com várias condições que gera um alerta crítico quando, nos últimos cinco minutos para um dispositivo de arrefecimento, a humidade média é superior a 80% e a temperatura média é superior a 75 graus fahrenheit, clique em **Nova regra**. Utilize os seguintes valores para criar a regra:
 
-| Definição          | Value                                 |
+| Definição          | Valor                                 |
 | ---------------- | ------------------------------------- |
 | Nome da regra        | Humidade de arrefecimento e temp essenciais    |
 | Descrição      | A humidade e a temperatura são essenciais |
@@ -90,7 +90,7 @@ Para criar uma regra com várias condições que gera um alerta crítico quando,
 
 Para adicionar a segunda condição, clique em "+Adicionar condição". Utilize os seguintes valores para a nova condição:
 
-| Definição          | Value                                 |
+| Definição          | Valor                                 |
 | ---------------- | ------------------------------------- |
 | Condição 2 Campo| temperatura                           |
 | Condição 2 operador | Maior que                      |
@@ -132,7 +132,7 @@ Só é possível eliminar uma regra de cada vez.
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este tutorial mostrou como utilizar a página **Regras** no acelerador de soluções de Monitorização Remota, para criar e gerir regras que acionam alertas na solução. Para saber como utilizar o acelerador de soluções para gerir e configurar os seus dispositivos ligados, avance para o próximo tutorial.
 

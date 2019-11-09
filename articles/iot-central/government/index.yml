@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 7862534e1ce938d5f95aeb5861cc194ebabd427b
-  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.openlocfilehash: d0cf11c30a772af49ca7af99445a012d27b43ad8
+  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73575156"
+  ms.lasthandoff: 11/09/2019
+  ms.locfileid: "73890793"
 landingContent:
 - title: Criar soluções para a administração pública
   linkLists:
@@ -36,13 +36,13 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Configurar um modelo de dispositivo
-      url: ../core/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../preview/howto-set-up-template.md
     - text: Ligar um dispositivo IoT Plug and Play
-      url: ../core/tutorial-add-device.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../preview/tutorial-connect-pnp-device.md
   - linkListType: how-to-guide
     links:
     - text: Preparar e ligar um DevKit de IoT MX Chip
-      url: ../core/howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../preview/howto-connect-devkit.md
     - text: Ligar outras clouds de IoT
       url: ../core/howto-build-iotc-device-bridge.md
 - title: Manter-se ligado
@@ -50,46 +50,46 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Utilizar grupos de dispositivos
-      url: ../core/tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../preview/tutorial-use-device-groups.md
   - linkListType: how-to-guide
     links:
     - text: Faça a gestão dos seus dispositivos
-      url: ../core/howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../preview/howto-manage-devices.md
     - text: Executar uma tarefa
-      url: ../core/howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../core/howto-run-a-job.md
     - text: Analisar os dados do seu dispositivo
-      url: ../core/howto-create-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../preview/howto-create-analytics.md
 - title: Transformação
   linkLists:
   - linkListType: tutorial
     links:
     - text: Criar uma regra
-      url: ../core/quick-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../preview/quick-configure-rules.md
     - text: Criar regras de telemetria
-      url: ../core/tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../preview/tutorial-create-telemetry-rules.md
     - text: Exportar para o Armazenamento de Blobs
-      url: ../core/howto-export-data-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../preview/howto-export-data.md
   - linkListType: how-to-guide
     links:
     - text: Criar regras personalizadas
-      url: ../core/howto-create-custom-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../preview/howto-create-custom-rules.md
     - text: Criar análise personalizada
-      url: ../core/howto-create-custom-analytics-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../preview/howto-create-custom-analytics.md
 - title: Administração
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Gerir a aplicação
-      url: ../core/howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../preview/howto-administer.md
     - text: Gerir utilizadores e funções
-      url: ../core/howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../preview/howto-manage-users-roles.md
     - text: Ver a sua fatura
-      url: ../core/howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../preview/howto-view-bill.md
     - text: Personalizar IU da aplicação
-      url: ../core/howto-customize-ui-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../preview/howto-customize-ui.md
     - text: Configurar dashboards pessoais
-      url: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../core/howto-create-personal-dashboards.md
     - text: Utilizar mosaicos de dashboard
-      url: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../core/howto-add-tiles-to-your-dashboard.md
     - text: Utilizar modelos de aplicação
-      url: ../core/howto-use-app-templates-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ../preview/howto-use-app-templates.md

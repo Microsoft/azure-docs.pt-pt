@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/23/2018
-ms.openlocfilehash: 0bb32486ea3fcfd37337b18b02f4f432effa8f75
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 857188ebb5ddc3c24f6a225819c47fc1643417e6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678335"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887521"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Resolução de problemas sem dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Parte da minha telemetria está ausente
@@ -113,7 +113,7 @@ A chave de instrumentação em ApplicationInsights. config controla onde a telem
 
 Soluciona
 
-* Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto e escolha Application Insights, configure Application Insights. Na caixa de diálogo, você pode optar por enviar telemetria a um recurso existente ou criar um novo. or
+* Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto e escolha Application Insights, configure Application Insights. Na caixa de diálogo, você pode optar por enviar telemetria a um recurso existente ou criar um novo. Or
 * Abra o recurso diretamente. Entre no [portal do Azure](https://portal.azure.com), clique em Application insights na barra de navegação à esquerda e, em seguida, selecione seu aplicativo.
 
 ## <a name="where-do-i-find-my-telemetry"></a>Onde encontro minha telemetria?
@@ -174,7 +174,7 @@ Você pode desabilitá-lo, mas isso não é recomendado. A amostragem é projeta
 Em fevereiro de 5 2018, anunciamos que removemos o registro em log do endereço IP do cliente. Isso não afeta o local geográfico.
 
 > [!NOTE]
-> Se você precisar dos três primeiros octetos do endereço IP, poderá usar um [inicializador de telemetria](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) para adicionar um atributo personalizado.
+> Se você precisar dos três primeiros octetos do endereço IP, poderá usar um [inicializador de telemetria](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer) para adicionar um atributo personalizado.
 > Isto não afeta os dados recolhidos antes de 5 de fevereiro de 2018.
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Dados geográficos errados na telemetria do usuário

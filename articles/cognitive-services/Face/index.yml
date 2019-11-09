@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/24/2019
-  ms.openlocfilehash: e7dabc3104f925f602fe5806e04f9da7f438c310
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: af7be7dc99187e0e74c96900421883157286fb60
+  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72935736"
+  ms.lasthandoff: 11/09/2019
+  ms.locfileid: "73888217"
 landingContent:
 - title: Acerca da API Face
   linkLists:
@@ -89,13 +89,13 @@ landingContent:
     - text: API Face v1.0
       url: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236
     - text: SDK .NET
-      url: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
     - text: SDK Python
-      url: https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-face/?view=azure-python
+      url: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python
     - text: SDK Java
-      url: https://docs.microsoft.com/en-us/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
     - text: SDK Node.js
-      url: https://docs.microsoft.com/en-us/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest
+      url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest
     - text: SDK Go
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
     - text: iOS SDK

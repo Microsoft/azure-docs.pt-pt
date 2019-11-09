@@ -1,18 +1,18 @@
 ---
 title: Suporte à plataforma de SDKs do dispositivo IoT do Azure | Microsoft Docs
-description: Conceitos-lista de plataformas com suporte dos SDKs do dispositivo IoT do Azure
+description: Os SDKs de dispositivo de software livre estão disponíveis no GitHub em C,C#.net (), Java, Node. js e Python, para conectar dispositivos ao Hub IOT do Azure e ao DPS (serviço de provisionamento de dispositivos).
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: ac5817675d3cfc97a8732ee2e10ec7b9246b12a5
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d39fd95f8704650db16c1dc1553efaba2f727052
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693324"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889432"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Suporte à plataforma de SDKs do dispositivo IoT do Azure
 
@@ -50,9 +50,9 @@ O [SDK do dispositivo C do Hub IOT do Azure](https://github.com/Azure/azure-iot-
 | iOS 12,2            | OpenSSL ou o OSX nativo        | XCode emulado no OSX 10.13.4                                                               |
 | Família Windows 10   | SChannel                     |                                                                                             |
 | Mbed OS 5,4         | Mbed TLS 2                   | [Kit de desenvolvimento de IoT MXChip](https://microsoft.github.io/azure-iot-developer-kit/)                  |
-| SO do Azure Sphere     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/en-us/services/azure-sphere/get-started/) |
+| SO do Azure Sphere     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/services/azure-sphere/get-started/) |
 
-### <a name="python-sdk"></a>Python SDK
+### <a name="python-sdk"></a>SDK Python
 
 O [SDK do dispositivo Python do Hub IOT do Azure](https://github.com/Azure/azure-iot-sdk-python) é testado com o e oferece suporte às seguintes configurações.
 
@@ -64,11 +64,11 @@ O [SDK do dispositivo Python do Hub IOT do Azure](https://github.com/Azure/azure
 
 \* Somente o Python versão 3.5.3 ou posterior dá suporte às APIs assíncronas, recomendamos o uso de 3,7 ou posterior.
 
-### <a name="net-sdk"></a>.NET SDK
+### <a name="net-sdk"></a>SDK .NET
 
 O [SDK do dispositivo .net (C#) do Hub IOT do Azure](https://github.com/Azure/azure-iot-sdk-csharp) é testado com o e oferece suporte às seguintes configurações.
 
-| SO                                   | Padrão                                                   |
+| SO                                   | Standard                                                   |
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | SKUs do Windows 10 desktop e Server   | .NET Core 2,1, .NET Framework 4.5.1 ou .NET Framework 4,7 |
@@ -84,7 +84,7 @@ O [SDK do dispositivo node. js do Hub IOT do Azure](https://github.com/Azure/azu
 | Linux               | LTS e atual |
 | Família Windows 10   | LTS e atual |
 
-### <a name="java-sdk"></a>Java SDK
+### <a name="java-sdk"></a>SDK Java
 
 O [SDK do dispositivo Java do Hub IOT do Azure](https://github.com/Azure/azure-iot-sdk-java) é testado com o e oferece suporte às seguintes configurações.
 
@@ -98,7 +98,7 @@ O [SDK do dispositivo Java do Hub IOT do Azure](https://github.com/Azure/azure-i
 
 A Microsoft trabalha com vários parceiros para fornecer kits de desenvolvimento para várias arquiteturas de microprocessador. Esses parceiros portaram o SDK do Azure IoT C para sua plataforma. Os parceiros criam e mantêm a PAL (camada de abstração de plataforma) do SDK. A Microsoft trabalha com esses parceiros para fornecer suporte estendido.
 
-| Parceiro             | Dispositivos                            | Ligação                     | Suporte |
+| Partner             | Dispositivos                            | Ligação                     | Suporte |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [ESP-Azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Modem de IoT do Qualcomm MDM9206 LTE     | [SDK do Qualcomm LTE para IoT](https://developer.qualcomm.com/software/lte-iot-sdk) | [Fórum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
@@ -115,11 +115,11 @@ A Microsoft trabalha com vários parceiros para expandir continuamente o univers
 
 * Para procurar dispositivos do Azure IoT Certified, consulte [Microsoft Azure Certified para IOT catálogo de dispositivos](https://catalog.azureiotsolutions.com/).
 
-* Para saber mais sobre os parceiros confiáveis da Microsoft ou para saber como se tornar um parceiro confiável da Microsoft, confira [Microsoft Azure certificados Internet das coisas parceiros confiáveis](https://azure.microsoft.com/en-us/marketplace/certified-iot-partners/).
+* Para saber mais sobre os parceiros confiáveis da Microsoft ou para saber como se tornar um parceiro confiável da Microsoft, confira [Microsoft Azure certificados Internet das coisas parceiros confiáveis](https://azure.microsoft.com/marketplace/certified-iot-partners/).
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>Conectando-se ao Hub IoT sem um SDK
 
-Se não for possível usar um dos SDKs de dispositivo do Hub IoT, você poderá se conectar diretamente ao Hub IoT usando as [APIs REST do Hub IOT](https://docs.microsoft.com/en-us/rest/api/iothub/) de qualquer aplicativo capaz de enviar e receber solicitações e respostas HTTPS.
+Se não for possível usar um dos SDKs de dispositivo do Hub IoT, você poderá se conectar diretamente ao Hub IoT usando as [APIs REST do Hub IOT](https://docs.microsoft.com/rest/api/iothub/) de qualquer aplicativo capaz de enviar e receber solicitações e respostas HTTPS.
 
 ## <a name="support-and-other-resources"></a>Suporte e outros recursos
 

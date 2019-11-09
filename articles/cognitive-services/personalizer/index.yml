@@ -12,12 +12,12 @@ metadata:
   title: Documentação do Personalizador
   titleSuffix: Azure Cognitive Services
   description: O Personalizador do Azure é um serviço de API com base na cloud que lhe permite escolher a melhor experiência para os seus utilizadores, ao aprender com o respetivo comportamento em tempo real.
-  ms.openlocfilehash: 19736d881400a311964920f5669a0e9423891f9e
-  ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+  ms.openlocfilehash: d71f5f673a3008f13f7bb762fc48a687c0cf0ddb
+  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/05/2019
-  ms.locfileid: "73604205"
+  ms.lasthandoff: 11/09/2019
+  ms.locfileid: "73889253"
 landingContent:
 - title: Acerca do Personalizador
   linkLists:
@@ -66,7 +66,7 @@ landingContent:
     - text: Pacote NuGet
       url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
     - text: Documentação de referência do NuGet
-      url: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet
+      url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet
   - linkListType: get-started
     links:
     - text: Desenvolver o ciclo do Personalizador com Node.js

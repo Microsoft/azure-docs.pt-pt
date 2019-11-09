@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bbfab41c3324bc16874463d2fc0201f99ee9284b
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: a56abbcb72afc1f45683259d3bd3bf13309cda07
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516962"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886072"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
 O recurso de backup e restauração no [serviço Azure app](overview.md) permite que você crie facilmente backups de aplicativos manualmente ou em um agendamento. Você pode configurar os backups a serem mantidos até um período indefinido de tempo. Você pode restaurar o aplicativo para um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo.
@@ -39,7 +39,7 @@ As seguintes soluções de banco de dados têm suporte com o recurso de backup:
 - [Base de Dados SQL](https://azure.microsoft.com/services/sql-database/)
 - [Base de Dados do Azure para MySQL](https://azure.microsoft.com/services/mysql)
 - [Base de Dados do Azure para PostgreSQL](https://azure.microsoft.com/services/postgresql)
-- [MySQL no aplicativo](https://azure.microsoft.com/en-us/blog/mysql-in-app-preview-app-service/)
+- [MySQL no aplicativo](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/)
  
 
 > [!NOTE]
@@ -68,7 +68,7 @@ As seguintes soluções de banco de dados têm suporte com o recurso de backup:
     > [!NOTE]
     > Se você vir a seguinte mensagem, clique nela para atualizar seu plano do serviço de aplicativo antes de prosseguir com os backups.
     > Para obter mais informações, consulte [escalar verticalmente um aplicativo no Azure](manage-scale-up.md).
-    > ![Choose ](./media/manage-backup/upgrade-plan.png) de conta de armazenamento
+    > ![escolher a conta de armazenamento](./media/manage-backup/upgrade-plan.png)
     > 
     > 
 
@@ -149,14 +149,14 @@ Execute backups da mesma maneira que faria normalmente, [manual](#create-a-manua
 > [!NOTE]
 > Restaure backups parciais do seu site da mesma maneira que você [restauraria um backup regular](web-sites-restore.md). O processo de restauração faz a coisa certa.
 > 
-> Quando um backup completo é restaurado, todo o conteúdo do site é substituído por qualquer coisa que esteja no backup. Se um arquivo estiver no site, mas não no backup, ele será excluído. Mas quando um backup parcial é restaurado, qualquer conteúdo localizado em um dos diretórios na lista negra ou em qualquer arquivo na lista de bloqueios é deixado como está.
+> Quando um backup completo é restaurado, todo o conteúdo do site é substituído por qualquer coisa que esteja no backup. Se um arquivo estiver no site, mas não no backup, ele será excluído. Mas quando um backup parcial é restaurado, qualquer conteúdo localizado em um dos diretórios na lista de bloqueios ou em qualquer arquivo na lista de bloqueios é deixado como está.
 > 
 
 
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>Como os backups são armazenados
-Depois de ter feito um ou mais backups para seu aplicativo, os backups são visíveis na página **contêineres** da sua conta de armazenamento e seu aplicativo. Na conta de armazenamento, cada backup consiste em um arquivo de `.zip` que contém os dados de backup e um arquivo de `.xml` que contém um manifesto do conteúdo do arquivo de `.zip`. Você pode descompactar e procurar esses arquivos se desejar acessar os backups sem realmente executar uma restauração de aplicativo.
+Depois de ter feito um ou mais backups para seu aplicativo, os backups são visíveis na página **contêineres** da sua conta de armazenamento e seu aplicativo. Na conta de armazenamento, cada backup consiste em um arquivo de`.zip` que contém os dados de backup e um arquivo de `.xml` que contém um manifesto do conteúdo do arquivo de `.zip`. Você pode descompactar e procurar esses arquivos se desejar acessar os backups sem realmente executar uma restauração de aplicativo.
 
 O backup do banco de dados para o aplicativo é armazenado na raiz do arquivo. zip. Para um banco de dados SQL, este é um arquivo BACPAC (sem extensão de arquivo) e pode ser importado. Para criar um banco de dados SQL com base na exportação de BACPAC, consulte [importar um arquivo BACPAC para criar um novo banco de dados de usuário](https://technet.microsoft.com/library/hh710052.aspx).
 
@@ -176,5 +176,5 @@ Para obter exemplos, consulte:
 
 <a name="nextsteps"></a>
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 Para obter informações sobre como restaurar um aplicativo de um backup, consulte [restaurar um aplicativo no Azure](web-sites-restore.md). 

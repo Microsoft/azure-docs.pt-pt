@@ -1,7 +1,7 @@
 ---
 title: Painel-Reconhecimento vocal-LUIS
 titleSuffix: Azure Cognitive Services
-description: Corrija as intenções com o painel de análise, uma ferramenta de relatório visualizada.
+description: Corrija as intenções e entidades com o painel de seu aplicativo treinado. O painel exibe informações gerais do aplicativo, com destaques de tentativas que devem ser corrigidas.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 22e187bba3782e485685354c203a6273d5bcc618
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: d9ae126753f55349f9bf3eefd20bc4d222866af1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735056"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888204"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Como usar o painel para melhorar seu aplicativo
 
@@ -33,7 +33,7 @@ Os três problemas abordados no painel são:
 |Problema|Cor do gráfico|Explicação|
 |--|--|--|
 |Desequilíbrio de dados|-|Isso ocorre quando a quantidade de declarações de exemplo varia significativamente. Todas as intenções precisam ter _aproximadamente_ o mesmo número de exemplos declarações-exceto a intenção None. Ele deve ter apenas 10%-15% da quantidade total de declarações no aplicativo.<br><br> Se os dados forem desequilibrados, mas a precisão da intenção estiver acima de determinado limite, esse desequilíbrio não será relatado como um problema.<br><br>**Comece com esse problema – pode ser a causa raiz dos outros problemas.**|
-|Não limpar previsões|Laranja|Isso ocorre quando a principal intenção e as pontuações da próxima tentativa são próximas o suficiente para que possam se virar no próximo treinamento, devido à [amostragem negativa](luis-how-to-train.md#train-with-all-data) ou mais declarações de exemplo adicionados à intenção. |
+|Não limpar previsões|Orange|Isso ocorre quando a principal intenção e as pontuações da próxima tentativa são próximas o suficiente para que possam se virar no próximo treinamento, devido à [amostragem negativa](luis-how-to-train.md#train-with-all-data) ou mais declarações de exemplo adicionados à intenção. |
 |Previsões incorretas|Vermelho|Isso ocorre quando um exemplo de expressão não é previsto para a intenção rotulada (a intenção em que se encontra).|
 
 As previsões corretas são representadas com a cor azul.
@@ -100,7 +100,7 @@ Não adicione declarações à intenção None, a menos que seja sugerido no pai
 
 > [!Tip]
 > Use a terceira seção da página, **declarações por intenção** , com a configuração de **declarações (número)** , como um guia visual rápido do qual as tentativas precisam de mais declarações.  
-    ![Use ' declarações (Number) ' para localizar tentativas com desequilíbrio de dados.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
+    ![usar ' declarações (Number) ' para localizar tentativas com desequilíbrio de dados.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
 
 ### <a name="review-incorrect-predictions"></a>Revisar previsões incorretas
 
@@ -169,6 +169,6 @@ O que é uma pontuação de confiança de previsão confiável para você? No in
 
 Esses dois filtros permitem que você encontre declarações na intenção selecionada além do limite. Você pode considerar esses dois percentuais como porcentagens de erro. Se você estiver familiarizado com uma taxa de erro de 10-15% para previsões, defina o limite de filtro para 15% para localizar todos os declarações acima desse valor. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerenciar seus recursos do Azure](luis-how-to-azure-subscription.md)

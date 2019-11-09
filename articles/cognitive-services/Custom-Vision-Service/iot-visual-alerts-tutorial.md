@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: pafarley
-ms.openlocfilehash: b19f5a4f4f61285bc7b1a30073ea7d33d95420e0
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: d146c264ebc2d36f0842f464f4547520546fd363
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "73519401"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888279"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Tutorial: usar Visão Personalizada com um dispositivo IoT para relatar estados visuais
 
@@ -116,7 +116,7 @@ Para repetir esse processo com seu próprio cenário:
 
 Depois que o aplicativo baixar o modelo treinado, ele mudará para o estado de **Pontuação** e iniciará as imagens de pontuação da câmera em um loop contínuo.
 
-Para cada imagem capturada, o aplicativo exibirá a marca superior na tela. Se ele não reconhecer o estado do Visual, ele não exibirá **nenhuma correspondência**). O aplicativo também envia essas mensagens para o Hub IoT e, se houver uma classe sendo detectada, a mensagem incluirá o rótulo, a pontuação de confiança e uma propriedade chamada `detectedClassAlert`, que pode ser usada por clientes do Hub IoT interessados em fazer o roteamento rápido de mensagens com base na Prop rties.
+Para cada imagem capturada, o aplicativo exibirá a marca superior na tela. Se ele não reconhecer o estado do Visual, ele não exibirá **nenhuma correspondência**. O aplicativo também envia essas mensagens para o Hub IoT e, se houver uma classe sendo detectada, a mensagem incluirá o rótulo, a pontuação de confiança e uma propriedade chamada `detectedClassAlert`, que pode ser usada por clientes do Hub IoT interessados em fazer o roteamento rápido de mensagens com base na Prop rties.
 
 Além disso, o exemplo usa uma [biblioteca do Sense Hat](https://github.com/emmellsoft/RPi.SenseHat) para detectar quando ele está em execução em um PI Raspberry com uma unidade do Sense Hat, para que possa usá-lo como uma exibição de saída, definindo todas as luzes de exibição como vermelho sempre que detectar uma classe e em branco quando ela não detectar nada.
 

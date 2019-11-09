@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 59dae65d32f1b816e59ee883cb4529c6f1fd212c
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: d79c4585d9764e2cc5cebd679372a97946479396
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026554"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889161"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-in-iot-central"></a>Tutorial: criar um aplicativo de monitoramento de consumo de água no IoT Central
 
@@ -60,7 +60,7 @@ Para criar um novo aplicativo de monitoramento de consumo de água do Azure IoT 
     * **URL**: IOT central gerará uma URL para você com base no nome do aplicativo. Você pode optar por atualizar a URL de sua preferência. Você também pode alterar a URL mais tarde. 
     * Se você tiver uma assinatura do Azure, insira seu *diretório, a assinatura do Azure e a região*. Se você não tiver uma assinatura, poderá habilitar a **avaliação gratuita de 7 dias** e concluir as informações de contato necessárias.  
 
-    Para obter mais informações sobre as subscrições e diretórios, veja [criar uma aplicação de início rápido](../core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+    Para obter mais informações sobre as subscrições e diretórios, veja [criar uma aplicação de início rápido](../preview/quick-deploy-iot-central.md).
 
 5. Clique no botão **criar** na parte inferior da página. 
 

@@ -1,19 +1,18 @@
 ---
 title: Consulta no roteamento de mensagens do Hub IoT do Azure | Microsoft Docs
-description: Guia do desenvolvedor – sintaxe de consulta para roteamento de mensagens no Hub IoT do Azure.
+description: Saiba mais sobre a linguagem de consulta de roteamento de mensagens do Hub IoT que você pode usar para aplicar consultas avançadas a mensagens para receber os dados que são importantes para você.
 author: ash2017
-manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 7f6439d79e5d46621b92b1c24ba5caf87889f443
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 859b15954f64f8b481f6b86c04fc28b542599f02
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877063"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890505"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de consulta de roteamento de mensagens do Hub IoT
 
@@ -55,7 +54,7 @@ As propriedades do sistema ajudam a identificar o conteúdo e a origem das mensa
 | -------- | ---- | ----------- |
 | contentType | string | O usuário especifica o tipo de conteúdo da mensagem. Para permitir a consulta no corpo da mensagem, esse valor deve ser definido Application/JSON. |
 | contentEncoding | string | O usuário especifica o tipo de codificação da mensagem. Os valores permitidos são UTF-8, UTF-16, UTF-32 se o contentType estiver definido como Application/JSON. |
-| iothub-connection-device-id | string | Esse valor é definido pelo Hub IoT e identifica a ID do dispositivo. Para consultar, use `$connectionDeviceId`. |
+| iothub-Connection-Device-ID | string | Esse valor é definido pelo Hub IoT e identifica a ID do dispositivo. Para consultar, use `$connectionDeviceId`. |
 | iothub-enqueuedtime | string | Esse valor é definido pelo Hub IoT e representa a hora real de enfileirar a mensagem em UTC. Para consultar, use `enqueuedTime`. |
 | iothub-interface-nome | string | Esse valor é definido pelo usuário e representa o nome da interface de entrelaçamento digital que implementa a mensagem de telemetria. Para consultar, use `$interfaceName`. Esse recurso está disponível como parte da [Visualização pública do IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md). |
 
@@ -67,7 +66,7 @@ As propriedades do aplicativo são cadeias de caracteres definidas pelo usuário
 
 ### <a name="query-expressions"></a>Expressões de consulta
 
-Uma consulta nas propriedades do sistema de mensagens precisa ser prefixada `$` com o símbolo. As consultas nas propriedades do aplicativo são acessadas com seu nome e não devem ser `$`prefixadas com o símbolo. Se um nome de propriedade de aplicativo `$`começar com, o Hub IOT irá procurá-lo nas propriedades do sistema e não será encontrado e, em seguida, ele examinará as propriedades do aplicativo. Por exemplo: 
+Uma consulta nas propriedades do sistema de mensagens precisa ser prefixada com o símbolo de `$`. As consultas nas propriedades do aplicativo são acessadas com seu nome e não devem ser prefixadas com o símbolo de `$`. Se um nome de propriedade de aplicativo começar com `$`, o Hub IoT irá procurá-lo nas propriedades do sistema e não será encontrado e, em seguida, ele examinará as propriedades do aplicativo. Por exemplo: 
 
 Para consultar a propriedade do sistema contentEncoding 
 
@@ -91,7 +90,7 @@ Uma lista completa de operadores e funções com suporte é mostrada em [express
 
 ## <a name="message-routing-query-based-on-message-body"></a>Consulta de roteamento de mensagens com base no corpo da mensagem 
 
-Para habilitar a consulta no corpo da mensagem, a mensagem deve estar em um JSON codificado em UTF-8, UTF-16 ou UTF-32. O `contentType` deve ser definido como `application/JSON` e `contentEncoding` como uma das codificações UTF com suporte na Propriedade do sistema. Se essas propriedades não forem especificadas, o Hub IoT não avaliará a expressão de consulta no corpo da mensagem. 
+Para habilitar a consulta no corpo da mensagem, a mensagem deve estar em um JSON codificado em UTF-8, UTF-16 ou UTF-32. O `contentType` deve ser definido como `application/JSON` e `contentEncoding` para uma das codificações UTF com suporte na Propriedade do sistema. Se essas propriedades não forem especificadas, o Hub IoT não avaliará a expressão de consulta no corpo da mensagem. 
 
 O exemplo a seguir mostra como criar uma mensagem com um corpo JSON corretamente formado e codificado: 
 
@@ -144,7 +143,7 @@ deviceClient.sendEvent(message, (err, res) => {
 
 ### <a name="query-expressions"></a>Expressões de consulta
 
-Uma consulta no corpo da mensagem precisa ser prefixada com `$body`o. Você pode usar uma referência de corpo, referência de matriz de corpo ou várias referências de corpo na expressão de consulta. A expressão de consulta também pode combinar uma referência de corpo com propriedades do sistema de mensagens e referência de propriedades do aplicativo de mensagens. Por exemplo, as seguintes são todas as expressões de consulta válidas: 
+Uma consulta no corpo da mensagem precisa ser prefixada com o `$body`. Você pode usar uma referência de corpo, referência de matriz de corpo ou várias referências de corpo na expressão de consulta. A expressão de consulta também pode combinar uma referência de corpo com propriedades do sistema de mensagens e referência de propriedades do aplicativo de mensagens. Por exemplo, as seguintes são todas as expressões de consulta válidas: 
 
 ```sql
 $body.Weather.HistoricalData[0].Month = 'Feb' 
@@ -197,7 +196,7 @@ O roteamento de mensagens permite que você consulte as marcas e propriedades do
 
 ### <a name="query-expressions"></a>Expressões de consulta
 
-Uma consulta no corpo da mensagem precisa ser prefixada com `$twin`o. A expressão de consulta também pode combinar uma marca de texto ou referência de propriedade com uma referência de corpo, propriedades do sistema de mensagens e referência de propriedades do aplicativo de mensagens. É recomendável usar nomes exclusivos em marcas e propriedades, pois a consulta não diferencia maiúsculas de minúsculas. Além disso, evite `twin`usar `$twin` `body`,, ou `$body`, como nomes de propriedade. Por exemplo, as seguintes são todas as expressões de consulta válidas: 
+Uma consulta no corpo da mensagem precisa ser prefixada com o `$twin`. A expressão de consulta também pode combinar uma marca de texto ou referência de propriedade com uma referência de corpo, propriedades do sistema de mensagens e referência de propriedades do aplicativo de mensagens. É recomendável usar nomes exclusivos em marcas e propriedades, pois a consulta não diferencia maiúsculas de minúsculas. Além disso, evite usar `twin`, `$twin`, `body`ou `$body`, como nomes de propriedade. Por exemplo, as seguintes são todas as expressões de consulta válidas: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'

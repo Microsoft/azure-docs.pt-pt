@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/11/2019
-ms.openlocfilehash: bee3e24739aa560a43960143d1a18c30ec1ce160
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 356c8389ed486246ce55b5006e1e489ac7c3c1e3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819442"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884790"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Localização geográfica e manipulação de endereço IP
 
@@ -124,7 +124,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>Inicializador de telemetria
 
-Se precisar de uma alternativa mais flexível do que `DisableIpMasking` para registrar todo ou parte dos endereços IP, você poderá usar um [inicializador de telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) para copiar todo ou parte do IP para um campo personalizado. 
+Se precisar de uma alternativa mais flexível do que `DisableIpMasking` para registrar todo ou parte dos endereços IP, você poderá usar um [inicializador de telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) para copiar todo ou parte do IP para um campo personalizado. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
@@ -235,7 +235,7 @@ requests
 
 Endereços IP recentemente coletados devem aparecer na coluna `customDimensions_client-ip`. A coluna de `client-ip` padrão ainda terá quatro octetos zerados ou apenas exibindo os três primeiros octetos, dependendo de como você configurou a coleta de endereços IP no nível do componente. Se você estiver testando localmente após implementar o inicializador de telemetria e o valor que você vê para `customDimensions_client-ip` for `::1` o comportamento é esperado. `::1` representa o endereço de loopback no IPv6. É equivalente a `127.0.01` no IPv4 e é o resultado que você verá ao testar a partir do localhost.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre a [coleta de dados pessoais](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) no Application insights.
 

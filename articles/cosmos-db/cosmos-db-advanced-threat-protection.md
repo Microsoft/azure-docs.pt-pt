@@ -8,12 +8,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: dca653bfaf625ff31e4dd7f43752219b312779d1
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 57303c41d90f6205c284c7de67bb8643aa3cd368
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286775"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888055"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Proteção avançada contra ameaças para Azure Cosmos DB
 
@@ -61,7 +61,7 @@ Use os seguintes cmdlets do PowerShell:
 ### <a name="using-azure-resource-manager-templates"></a>Usando modelos de Azure Resource Manager
 
 Use um modelo de Azure Resource Manager para configurar o Cosmos DB com a proteção avançada contra ameaças habilitada.
-Para obter mais informações, consulte [criar uma conta do CosmosDB com proteção avançada contra ameaças](https://azure.microsoft.com/en-us/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/).
+Para obter mais informações, consulte [criar uma conta do CosmosDB com proteção avançada contra ameaças](https://azure.microsoft.com/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/).
 
 ### <a name="using-azure-policy"></a>Usando Azure Policy
 

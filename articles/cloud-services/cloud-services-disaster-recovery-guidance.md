@@ -9,12 +9,12 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: 269bb59210e24623a16b27d21d7276c084e4cca7
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a014c3d5ada2024609e9262d8943090ac7b205c6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359668"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888319"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>O que fazer no caso de uma interrupção de serviço do Azure impactar os serviços de nuvem do Azure
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis quando você precisar deles. As forças além do nosso controle, às vezes, afetam-nos de maneiras que causam interrupções de serviço não planejadas.
@@ -31,14 +31,14 @@ Este artigo aborda um cenário de recuperação de desastres verdadeiro, quando 
 >
 
 
-## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>Opção 1: Usar uma implantação de backup por meio do Gerenciador de tráfego do Azure
+## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>Opção 1: usar uma implantação de backup por meio do Gerenciador de tráfego do Azure
 A solução de recuperação de desastres mais robusta envolve a manutenção de várias implantações de seu aplicativo em regiões diferentes, usando o [Gerenciador de tráfego do Azure](../traffic-manager/traffic-manager-overview.md) para direcionar o tráfego entre elas. O Gerenciador de tráfego do Azure fornece vários [métodos de roteamento](../traffic-manager/traffic-manager-routing-methods.md), para que você possa escolher se deseja gerenciar suas implantações usando um modelo de backup/principal ou dividir o tráfego entre elas.
 
 ![Balanceamento de serviços de nuvem do Azure entre regiões com o Gerenciador de tráfego do Azure](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
 
 Para uma resposta mais rápida à perda de uma região, é importante que você configure o monitoramento de ponto de [extremidade](../traffic-manager/traffic-manager-monitoring.md)do Gerenciador de tráfego.
 
-## <a name="option-2-deploy-your-application-to-a-new-region"></a>Opção 2: Implantar seu aplicativo em uma nova região
+## <a name="option-2-deploy-your-application-to-a-new-region"></a>Opção 2: implantar seu aplicativo em uma nova região
 A manutenção de várias implantações ativas, conforme descrito na opção anterior, incorre em custos contínuos adicionais. Se o RTO (objetivo de tempo de recuperação) for flexível o suficiente e você tiver o código original ou o pacote de serviços de nuvem compilado, você poderá criar uma nova instância do seu aplicativo em outra região e atualizar os registros DNS para apontar para a nova implantação.
 
 Para obter mais detalhes sobre como criar e implantar um aplicativo de serviço de nuvem, consulte [como criar e implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
@@ -46,13 +46,13 @@ Para obter mais detalhes sobre como criar e implantar um aplicativo de serviço 
 Dependendo das fontes de dados do aplicativo, talvez seja necessário verificar os procedimentos de recuperação para a fonte de dados do aplicativo.
 
 * Para as fontes de dados do armazenamento do Azure, consulte [replicação de armazenamento do Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) para verificar as opções disponíveis com base no modelo de replicação escolhido para seu aplicativo.
-* Para fontes de banco de dados [SQL, leia Visão geral: Continuidade de negócios de nuvem e recuperação de desastre](../sql-database/sql-database-business-continuity.md) de banco de dados com o banco de dados SQL para verificar as opções disponíveis com base no modelo de replicação escolhido para seu aplicativo.
+* Para fontes de banco de dados SQL, leia [visão geral: continuidade de negócios de nuvem e recuperação de desastre de banco de dados com o banco de dados SQL](../sql-database/sql-database-business-continuity.md) para verificar as opções disponíveis com base no modelo de replicação escolhido para seu aplicativo.
 
 
-## <a name="option-3-wait-for-recovery"></a>Opção 3: Aguardar recuperação
+## <a name="option-3-wait-for-recovery"></a>Opção 3: aguardar a recuperação
 Nesse caso, nenhuma ação de sua parte é necessária, mas seu serviço ficará indisponível até que a região seja restaurada. Você pode ver o status atual do serviço no [painel de integridade do serviço do Azure](https://azure.microsoft.com/status/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre como implementar uma estratégia de recuperação de desastres e alta disponibilidade, consulte [recuperação de desastre e alta disponibilidade para aplicativos do Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-Para desenvolver uma compreensão técnica detalhada dos recursos de uma plataforma de nuvem, consulte [orientação técnica de resiliência do Azure](../resiliency/resiliency-technical-guidance.md).
+Para desenvolver uma compreensão técnica detalhada dos recursos de uma plataforma de nuvem, consulte [orientação técnica de resiliência do Azure](/azure/architecture/checklist/resiliency-per-service).

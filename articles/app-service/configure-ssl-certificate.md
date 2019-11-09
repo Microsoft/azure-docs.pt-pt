@@ -13,12 +13,12 @@ ms.date: 10/25/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 12b8d6dff571c074d1f1422f75e33a8b12761bd9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4f0c8078a502d0332b02d95c0c46d9dbcc53a884
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572160"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886869"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adicionar um certificado SSL no serviço Azure App
 
@@ -325,7 +325,7 @@ Quando a operação de renovação for concluída, clique em **sincronizar**. A 
 
 ### <a name="export-certificate"></a>Exportar o certificado
 
-Como os certificados do serviço de aplicativo são um [segredo Key Vault](../key-vault/about-keys-secrets-and-certificates.md#key-vault-secrets), você pode exportar uma cópia pfx dele e usá-lo para outros serviços do Azure ou fora do Azure.
+Como um Certificado do Serviço de Aplicativo é um [segredo de Key Vault](../key-vault/about-keys-secrets-and-certificates.md#key-vault-secrets), você pode exportar uma cópia pfx dele e usá-lo para outros serviços do Azure ou fora do Azure.
 
 Para exportar o Certificado do Serviço de Aplicativo como um arquivo PFX, execute os comandos a seguir na [Cloud Shell](https://shell.azure.com). Você também pode executá-lo localmente se tiver [instalado CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Substitua os espaços reservados pelos nomes usados quando você [criou o certificado do serviço de aplicativo](#start-certificate-order).
 
@@ -344,7 +344,7 @@ az keyvault secret download \
     --encoding base64
 ```
 
-O arquivo *appservicecertificate. pfx* baixado é um arquivo PKCS12 bruto que contém os certificados públicos e privados. Sempre que for solicitado, a senha de importação e a frase secreta de PEM serão a cadeia de caracteres vazia.
+O arquivo *appservicecertificate. pfx* baixado é um arquivo PKCS12 bruto que contém os certificados públicos e privados. Em cada prompt, use uma cadeia de caracteres vazia para a senha de importação e a frase secreta PEM.
 
 ### <a name="delete-certificate"></a>Excluir certificado 
 

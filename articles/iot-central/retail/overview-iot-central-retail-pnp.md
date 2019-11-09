@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 7da5d7b80dfd07b742af5ff6225f26207747e58c
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 7f82e2a539c968d0dde44cbc2ed411710054c290
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615331"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890694"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Criando soluções de varejo com o Azure IoT Central
 
@@ -150,4 +150,4 @@ Para começar a criar uma solução de varejo:
 * Saiba como implantar o [modelo de solução de logística conectada](./tutorial-iot-central-connected-logistics-pnp.md)
 * Saiba como implantar o [modelo do centro de distribuição digital](./tutorial-iot-central-digital-distribution-center-pnp.md)
 * Saiba como implantar o [modelo de gerenciamento de inventário inteligente](./tutorial-iot-central-smart-inventory-management-pnp.md)
-* Saiba mais sobre IoT Central consulte [IOT central visão geral](../core/overview-iot-central-pnp.md)
+* Saiba mais sobre IoT Central consulte [IOT central visão geral](../preview/overview-iot-central.md)

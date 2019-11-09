@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: hrasheed
-ms.openlocfilehash: b9bcaf4b7497e8beba377eb7e47a44a6eb061299
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: d662ad59722658ed888aa732c1f45afdf48f850c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178011"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889198"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights"></a>Tutorial: criar um pipeline de dados de ponta a ponta para derivar informações de vendas
 
@@ -33,7 +33,7 @@ Baixe [Power bi desktop](https://www.microsoft.com/download/details.aspx?id=4533
 
 ### <a name="clone-the-repository-with-scripts-and-data"></a>Clonar o repositório com scripts e dados
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. Abra Azure Cloud Shell na barra de menus superior. Selecione sua assinatura para criar um compartilhamento de arquivos se Cloud Shell solicitar.
 
    ![Abrir o Azure Cloud Shell](./media/hdinsight-sales-insights-etl/hdinsight-sales-insights-etl-click-cloud-shell.png)
@@ -124,7 +124,7 @@ A senha padrão para acesso SSH aos clusters é `Thisisapassword1`. Se você qui
 
 ### <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-Azure Data Factory é uma ferramenta que ajuda a automatizar os pipelines do Azure. Não é a única maneira de realizar essas tarefas, mas é uma ótima maneira de automatizar os processos. Para obter mais informações sobre Azure Data Factory, consulte a [documentação do Azure data Factory](https://azure.microsoft.com/en-us/services/data-factory/). 
+Azure Data Factory é uma ferramenta que ajuda a automatizar os pipelines do Azure. Não é a única maneira de realizar essas tarefas, mas é uma ótima maneira de automatizar os processos. Para obter mais informações sobre Azure Data Factory, consulte a [documentação do Azure data Factory](https://azure.microsoft.com/services/data-factory/). 
 
 Esse data factory terá um pipeline com duas atividades: 
 
@@ -201,7 +201,7 @@ Esse script criará uma tabela gerenciada no cluster de consulta interativa que 
 
 ### <a name="create-a-power-bi-dashboard-from-sales-data"></a>Criar um painel de Power BI de dados de vendas
 
-1. Abra o Power BI Desktop.
+1. Abra o Power BI Desktop.
 1. Selecione **Obter Dados**.
 1. Pesquise **cluster de consulta interativa do HDInsight**.
 1. Cole o URI do seu cluster lá. Deverá estar no formato `https://<LLAP CLUSTER NAME>.azurehdinsight.net`.

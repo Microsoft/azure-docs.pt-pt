@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 380c67e5aeaba9be60e016f173e4da127e4e5f14
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 424df8ac7145129dd70a9a5791648730189b528b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798183"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889658"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obter dados de sensor de parceiros de sensor
 
@@ -60,7 +60,7 @@ Como alternativa, você pode gerar as credenciais executando esse script na Azur
 
     ```azurepowershell-interactive 
 
-    PS> ./generateCredentials.ps1   
+    ./generateCredentials.ps1   
 
     ```
 7. Siga as instruções na tela para capturar os valores. (Ponto de extremidade da API, ID do locatário, ID do cliente, segredo do cliente e cadeia de conexão do EventHub).

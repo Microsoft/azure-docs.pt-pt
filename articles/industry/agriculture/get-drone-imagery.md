@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 19d709a2eb0af5bdb9d40a2bce96c5716ce3c6f6
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 6ee4391369744f966ce273697e5ba9e7f0590edd
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847420"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890983"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Obter imagens do drone de parceiros do drone
 
@@ -55,7 +55,7 @@ Utilize os passos seguintes:
 
     ```azurepowershell-interactive 
 
-    PS> ./generateCredentials.ps1   
+    ./generateCredentials.ps1   
 
     ```
 

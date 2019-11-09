@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6fc70b55b3e672ecc67eb1145bb751de33d998a1
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: e6bd9b5c09e1af5ec587e1f0e52ab25d21d2293b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847440"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889618"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Dados de telemetria históricos de ingestão
 
@@ -50,11 +50,14 @@ Siga as etapas abaixo para gerá-los:
 
     ![Batidas no farm de projetos](./media/for-tutorials/power-shell-two-1.png)
 
-5. Vá para o diretório onde os arquivos foram carregados (por padrão, eles são carregados no diretório inicial/home/username/.
+5. Vá para o diretório onde os arquivos foram carregados
+
+   >[!NOTE]
+   > Por padrão, o arquivo é carregado para o diretório base/home/username/.
 6. Execute o script usando o comando:  
 
     ```azurepowershell-interactive
-    PS> ./generateCredentials.ps1
+    ./generateCredentials.ps1
     ```
 
 7. Siga as instruções na tela para concluir o procedimento.
@@ -127,7 +130,9 @@ O FarmBeats data Hub usa a autenticação de portador, que precisa das seguintes
 
 Usando as credenciais acima, o chamador pode solicitar um token de acesso, que precisa ser enviado nas solicitações de API subsequentes na seção de cabeçalho da seguinte maneira:
 
-Headers = *{"Authorization": "portador" + access_token,...}*
+```
+headers = *{"Authorization": "Bearer " + access_token, …}*
+```
 
 **Cabeçalhos de solicitação HTTP**:
 
@@ -161,8 +166,10 @@ Aqui estão os cabeçalhos de solicitação mais comuns que precisam ser especif
     "additionalProp3": {}
   }
 }
+```
 
-Device
+Dispositivo
+
 ```json
 {
   "deviceModelId": "string",
@@ -242,7 +249,7 @@ Sensores
 ```
 A solicitação de exemplo abaixo é criar um dispositivo (isso tem um JSON de entrada como carga com o corpo da solicitação).  
 
-```
+```azurepowershell-interactive
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
 "accept: application/json" -H  "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>" -d "
@@ -266,6 +273,7 @@ Você deve enviar a telemetria para o Hub de eventos do Azure para processamento
 
 Depois de estabelecer uma conexão como um cliente do EventHub, você poderá enviar mensagens para o EventHub como um JSON.  
 Converta o formato de dados do sensor histórico em um formato canônico que o FarmBeats do Azure entenda. O formato de mensagem canônica é o seguinte:  
+
 
 
  ```

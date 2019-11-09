@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ec1842d534dcb1e9ddef149d3ae879677b29e715
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c1b7f81c62217d9e113f3293a8f351d908a6a576
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262521"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887275"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Criar configuração de diagnóstico para coletar logs e métricas de plataforma no Azure
 [Os logs de plataforma](resource-logs-overview.md) no Azure fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e a plataforma do Azure da qual dependem. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para coletar logs de plataforma para destinos diferentes.
@@ -35,7 +35,7 @@ Uma única configuração de diagnóstico pode definir um de cada um dos destino
 ## <a name="destinations"></a>Destinos 
 Os logs de plataforma podem ser enviados para os destinos na tabela a seguir. A configuração de cada destino é executada usando o mesmo processo para a criação de configurações de diagnóstico descritas neste artigo. Siga cada link na tabela a seguir para obter detalhes sobre como enviar dados para esse destino.
 
-| Destination | Descrição |
+| Destino | Descrição |
 |:---|:---|
 | [Área de trabalho do Log Analytics](resource-logs-collect-workspace.md) | A coleta de logs em um Log Analytics espaço de trabalho permite analisá-los com outros dados de monitoramento coletados por Azure Monitor usando consultas de log poderosas e também para aproveitar outros recursos de Azure Monitor, como alertas e visualizações. |
 | [Hubs de eventos](resource-logs-stream-event-hubs.md) | O envio de logs para hubs de eventos permite que você transmita dados para sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics. |
@@ -55,26 +55,26 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
 
     ![Definições de diagnóstico](media/diagnostic-settings/menu-resource.png)
 
-2. Se não existem definições existem no recurso que selecionou, lhe for pedido para criar uma definição. Clique em **Ativar diagnósticos**.
+2. Se não houver configurações no recurso que você selecionou, será solicitado que você crie uma configuração. Clique em **Ativar diagnósticos**.
 
-   ![Adicionar definição de diagnóstico - sem definições existentes](media/diagnostic-settings/add-setting.png)
+   ![Adicionar configuração de diagnóstico-sem configurações existentes](media/diagnostic-settings/add-setting.png)
 
    Se houver configurações existentes no recurso, você verá uma lista de configurações já configuradas. Clique em **Adicionar configuração de diagnóstico** para adicionar uma nova configuração ou **Editar configuração** para editar uma existente. Cada configuração não pode ter mais de um de cada um dos tipos de destino.
 
-   ![Adicionar definição de diagnóstico - existente definições](media/diagnostic-settings/edit-setting.png)
+   ![Adicionar configuração de diagnóstico-configurações existentes](media/diagnostic-settings/edit-setting.png)
 
 3. Dê um nome à sua configuração se ela ainda não tiver uma.
 4. Marque a caixa para cada destino para enviar os logs. Clique em **Configurar** para especificar suas configurações, conforme descrito na tabela a seguir.
 
     | Definição | Descrição |
     |:---|:---|
-    | Área de trabalho do Log Analytics | Nome do espaço de trabalho. |
+    | Espaço de trabalho Log Analytics | Nome do espaço de trabalho. |
     | Conta de armazenamento | Nome da conta de armazenamento. |
     | Espaço de nomes do hub de eventos | O namespace em que o Hub de eventos é criado (se esta for a primeira vez que os logs de streaming) ou transmitido (se já houver recursos que estão transmitindo essa categoria de log para esse namespace).
     | Nome do hub de eventos | Opcionalmente, especifique um nome de Hub de eventos para enviar todos os dados na configuração. Se você não especificar um nome, um hub de eventos será criado para cada categoria de log. Se você estiver enviando várias categorias, talvez queira especificar um nome para limitar o número de hubs de eventos criados. Consulte [limites e cotas dos hubs de eventos do Azure](../../event-hubs/event-hubs-quotas.md) para obter detalhes. |
-    | Nome de política do hub de eventos | Define as permissões que o mecanismo de streaming tem. |
+    | Nome da política do hub de eventos | Define as permissões que o mecanismo de streaming tem. |
 
-    ![Adicionar definição de diagnóstico - existente definições](media/diagnostic-settings/setting-details.png)
+    ![Adicionar configuração de diagnóstico-configurações existentes](media/diagnostic-settings/setting-details.png)
 
 5. Marque a caixa para cada uma das categorias de dados a serem enviadas aos destinos especificados. Se você tiver selecionado a opção para **arquivar em uma conta de armazenamento**, também precisará especificar o [período de retenção](resource-logs-collect-storage.md#data-retention).
 
@@ -83,7 +83,7 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
 >
-> *Por exemplo*: A métrica ' mensagens de entrada ' em um hub de eventos pode ser explorada e colocada em gráfico em um nível por fila. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
+> *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
 
 4. Clique em **Guardar**.
 
@@ -92,7 +92,7 @@ Após alguns instantes, a nova configuração aparecerá na lista de configuraç
 
 
 ## <a name="create-diagnostic-settings-using-powershell"></a>Criar configurações de diagnóstico usando o PowerShell
-Use o cmdlet [set-AzDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/az.monitor/set-azdiagnosticsetting) para criar uma configuração de diagnóstico com [Azure PowerShell](powershell-quickstart-samples.md). Consulte a documentação deste cmdlet para obter descrições de seus parâmetros.
+Use o cmdlet [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) para criar uma configuração de diagnóstico com [Azure PowerShell](powershell-quickstart-samples.md). Consulte a documentação deste cmdlet para obter descrições de seus parâmetros.
 
 Veja a seguir um exemplo de cmdlet do PowerShell para criar uma configuração de diagnóstico usando todos os três destinos.
 

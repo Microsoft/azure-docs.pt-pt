@@ -9,14 +9,14 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 52fcd0d928ecbce5c617ff6a27175fccb8fd96f6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 44ab9688471a87e6db3712cc61b8abb194d54ac3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990248"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886517"
 ---
-# <a name="source-control-integration-in-azure-automation"></a>Integração do controlo de origem na Automatização do Azure
+# <a name="source-control-integration-in-azure-automation"></a>Integração de controlo de código fonte da Automatização do Azure
 
 O controle do código-fonte permite que você mantenha seus runbooks em sua conta de automação atualizados com seus scripts em seu GitHub ou Azure Repos repositório de controle do código-fonte. O controle do código-fonte permite que você colabore facilmente com sua equipe, controle alterações e reverta para versões anteriores de seus runbooks. Por exemplo, o controle do código-fonte permite que você sincronize diferentes branches no controle do código-fonte para suas contas de desenvolvimento, teste ou automação de produção. Isso facilita a promoção de código que foi testado em seu ambiente de desenvolvimento para sua conta de automação de produção. A integração de controle do código-fonte com automação dá suporte à sincronização de direção única no repositório do controle do código-fonte.
 
@@ -50,7 +50,7 @@ Na página **Resumo do controle do código-fonte** , preencha as informações e
 |Nome do controle do código-fonte     | Um nome amigável para o controle do código-fonte. *Esse nome deve conter apenas letras e números.*        |
 |Tipo de controle do código-fonte     | O tipo de fonte de controle do código-fonte. As opções disponíveis são:</br> GitHub</br>Azure Repos (git)</br> Azure Repos (TFVC)        |
 |Repositório     | O nome do repositório ou do projeto. Os primeiros 200 repositórios são retornados. Para pesquisar um repositório, digite o nome no campo e clique em **Pesquisar no GitHub**.|
-|Ramo     | A ramificação da qual extrair os arquivos de origem. O direcionamento de Branch não está disponível para o tipo de controle do código-fonte TFVC.          |
+|Branch     | A ramificação da qual extrair os arquivos de origem. O direcionamento de Branch não está disponível para o tipo de controle do código-fonte TFVC.          |
 |Caminho da pasta     | A pasta que contém os runbooks a serem sincronizados. Exemplo:/Runbooks </br>*Somente runbooks na pasta especificada são sincronizados. Não há suporte para recursão.*        |
 |Sincronização automática<sup>1</sup>     | Ativa ou desativa a sincronização automática quando uma confirmação é feita no repositório de controle do código-fonte         |
 |Publicar runbook     | Se definido como **on**, após os runbooks serem sincronizados do controle do código-fonte, eles serão publicados automaticamente.         |
@@ -93,21 +93,21 @@ O controle do código-fonte requer algumas permissões mínimas para tokens de a
 
 Para obter mais informações sobre como criar um token de acesso pessoal no GitHub, visite [criando um token de acesso pessoal para a linha de comando](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Scope  |Descrição  |
+|Âmbito  |Descrição  |
 |---------|---------|
 |**repo** (repositório)     |         |
 |repositório: status     | Status de confirmação de acesso         |
 |repo_deployment      | Status de implantação do Access         |
 |public_repo     | Acessar repositórios públicos         |
-|**admin:repo_hook**     |         |
-|write:repo_hook     | Gravar ganchos de repositório         |
-|read:repo_hook|Ler ganchos de repositório|
+|**administrador: repo_hook**     |         |
+|gravação: repo_hook     | Gravar ganchos de repositório         |
+|leitura: repo_hook|Ler ganchos de repositório|
 
 #### <a name="azure-repos"></a>Repositórios do Azure
 
-Para obter mais informações sobre como criar um token de acesso pessoal no Azure Repos, visite autenticar o [acesso com tokens de acesso pessoal](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+Para obter mais informações sobre como criar um token de acesso pessoal no Azure Repos, visite [autenticar o acesso com tokens de acesso pessoal](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
-|Scope  |
+|Âmbito  |
 |---------|
 |Código (leitura)     |
 |Projeto e equipe (leitura)|
@@ -118,7 +118,7 @@ Para obter mais informações sobre como criar um token de acesso pessoal no Azu
 
 <sup>1</sup> a permissão de conexões de serviço só será necessária se você tiver habilitado o AutoSync.
 
-## <a name="syncing"></a>A sincronizar
+## <a name="syncing"></a>Sincronização
 
 Selecione a origem da tabela na página **controle do código-fonte** . Clique em **Iniciar sincronização** para iniciar o processo de sincronização.
 
@@ -177,9 +177,9 @@ Se várias pessoas estiverem editando runbooks em seu repositório de controle d
 
 Atualmente, não há nenhuma maneira de atualizar o token de acesso no controle do código-fonte no Portal. Depois que o token de acesso pessoal expirar ou for revogado, você poderá atualizar o controle do código-fonte com um novo token de acesso das seguintes maneiras:
 
-* Por meio da [API REST](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update).
+* Por meio da [API REST](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
 * Usando o cmdlet [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os tipos de runbook, as vantagens e limitações, consulte o artigo [Tipos de runbook da Automatização do Azure](automation-runbook-types.md)

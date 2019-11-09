@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 4480819a08ef9a7a4ad7257f75a94c5d10a3d312
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 23e638b1d678e6ecf19c23220828185eb0e25a00
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858568"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891442"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imagens de VM Oracle e sua implantação no Microsoft Azure
 
@@ -79,7 +79,7 @@ Esses recursos são possíveis porque Azure NetApp Files se baseia no NetApp® O
 
 ## <a name="licensing-oracle-database--software-on-azure"></a>Licenciamento Oracle Database software & no Azure
 Microsoft Azure é um ambiente de nuvem autorizado para execução de Oracle Database. A tabela de fatores básicos do Oracle não é aplicável ao licenciar bancos de dados Oracle na nuvem. Em vez disso, ao usar VMs com a tecnologia Hyper-Threading habilitada para bancos de dados Enterprise Edition, conte duas vCPUs como equivalentes a uma licença de processador Oracle se o hyperthreading estiver habilitado (conforme indicado no documento de política). Os detalhes da política podem ser encontrados [aqui](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-Os bancos de dados Oracle geralmente exigem mais memória e e/s. Por esse motivo, as [VMs com otimização de memória](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-memory) são recomendadas para essas cargas de trabalho. Para otimizar suas cargas de trabalho ainda mais, as [VCPUs básicas restritas](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/constrained-vcpu) são recomendadas para cargas de trabalho Oracle DB que exigem memória alta, armazenamento e largura de banda de e/s, mas não uma contagem de núcleos alta.
+Os bancos de dados Oracle geralmente exigem mais memória e e/s. Por esse motivo, as [VMs com otimização de memória](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) são recomendadas para essas cargas de trabalho. Para otimizar suas cargas de trabalho ainda mais, as [VCPUs básicas restritas](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) são recomendadas para cargas de trabalho Oracle DB que exigem memória alta, armazenamento e largura de banda de e/s, mas não uma contagem de núcleos alta.
 
 Ao migrar o software e as cargas de trabalho do Oracle do local para o Microsoft Azure, a Oracle fornece mobilidade de licenças conforme indicado nas [perguntas frequentes sobre o Oracle no Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 
@@ -90,7 +90,7 @@ O Oracle RAC foi projetado para reduzir a falha de um único nó em uma configur
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Considerações sobre alta disponibilidade e recuperação de desastre
 Ao usar bancos de dados Oracle no Azure, você é responsável por implementar uma solução de alta disponibilidade e recuperação de desastres para evitar qualquer tempo de inatividade. 
 
-A alta disponibilidade e a recuperação de desastres para Oracle Database Enterprise Edition (sem depender do Oracle RAC) podem ser obtidas no Azure usando [Data Guard, active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html)ou [Oracle GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate), com dois bancos de dados em duas virtuais separadas maquina. Ambas as máquinas virtuais devem estar na mesma [rede virtual](https://azure.microsoft.com/documentation/services/virtual-network/) para garantir que possam acessar umas às outras por meio do endereço IP persistente privado.  Além disso, é recomendável colocar as máquinas virtuais no mesmo conjunto de disponibilidade para permitir que o Azure as coloque em domínios de falha e domínios de atualização separados. Se você quiser ter redundância geográfica, configure os dois bancos de dados para replicar entre duas regiões diferentes e conecte as duas instâncias com um gateway de VPN.
+A alta disponibilidade e a recuperação de desastres para Oracle Database Enterprise Edition (sem depender do Oracle RAC) podem ser obtidas no Azure usando [Data Guard, active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html)ou [Oracle GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate), com dois bancos de dados em duas máquinas virtuais separadas. Ambas as máquinas virtuais devem estar na mesma [rede virtual](https://azure.microsoft.com/documentation/services/virtual-network/) para garantir que possam acessar umas às outras por meio do endereço IP persistente privado.  Além disso, é recomendável colocar as máquinas virtuais no mesmo conjunto de disponibilidade para permitir que o Azure as coloque em domínios de falha e domínios de atualização separados. Se você quiser ter redundância geográfica, configure os dois bancos de dados para replicar entre duas regiões diferentes e conecte as duas instâncias com um gateway de VPN.
 
 O tutorial [implementar o Oracle Data Guard no Azure](configure-oracle-dataguard.md) orienta você pelo procedimento de configuração básica no Azure.  
 
@@ -102,7 +102,7 @@ Além de ter uma solução de HA e DR arquitetada no Azure, você deve ter uma e
 
 
 ## <a name="support-for-jd-edwards"></a>Suporte para JD Edwards
-De acordo com a nota de suporte da Oracle, a [ID do documento 2178595,1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), JD Edwards EnterpriseOne versões 9,2 e superiores têm suporte em **qualquer oferta de nuvem pública** que atenda aos seus específicos `Minimum Technical Requirements` (MTR).  Você precisa criar imagens personalizadas que atendam às suas especificações de MTR para compatibilidade de aplicativos SO e software. 
+De acordo com a nota de suporte da Oracle, a [ID do documento 2178595,1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), JD Edwards EnterpriseOne versões 9,2 e superiores têm suporte em **qualquer oferta de nuvem pública** que atenda às suas `Minimum Technical Requirements` específicas (MTR).  Você precisa criar imagens personalizadas que atendam às suas especificações de MTR para compatibilidade de aplicativos SO e software. 
 
 
 ## <a name="oracle-weblogic-server-virtual-machine-images"></a>Imagens de máquina virtual do Oracle WebLogic Server
@@ -126,7 +126,7 @@ De acordo com a nota de suporte da Oracle, a [ID do documento 2178595,1](https:/
     -Dweblogic.rjvm.enableprotocolswitch=true
     ```
 
-Para obter informações relacionadas, consulte o artigo 860340,1 <https://support.oracle.com>da base de dados em.
+Para obter informações relacionadas, consulte o artigo **860340,1** da base de dados de conhecimento em <https://support.oracle.com>.
 
 * **Limitações de clustering dinâmico e balanceamento de carga.** Suponha que você deseja usar um cluster dinâmico no WebLogic Server e expô-lo por meio de um único ponto de extremidade público com balanceamento de carga no Azure. Isso pode ser feito desde que você use um número de porta fixo para cada um dos servidores gerenciados (não atribuídos dinamicamente de um intervalo) e não inicie servidores mais gerenciados do que os computadores que o administrador está controlando. Ou seja, não há mais de um servidor gerenciado por máquina virtual). Se a sua configuração resultar em mais servidores WebLogic sendo iniciados do que há máquinas virtuais (ou seja, onde várias instâncias do WebLogic Server compartilham a mesma máquina virtual), não será possível para mais de uma dessas instâncias de servidores WebLogic para associar a um determinado número de porta. Os outros nessa máquina virtual falham.
 
@@ -139,7 +139,7 @@ Para obter informações relacionadas, consulte o artigo 860340,1 <https://suppo
    O JDK disponível nas imagens do JDK 6 e 7 e as máquinas virtuais e imagens derivadas delas só podem ser usados no Azure.
 * **JDK de 64 bits.** As imagens de máquina virtual do Oracle WebLogic Server e as imagens de máquina virtual do Oracle JDK fornecidas pelo Azure contêm as versões de 64 bits do Windows Server e do JDK.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora você tem uma visão geral das soluções atuais da Oracle com base em imagens de máquina virtual no Microsoft Azure. A próxima etapa é implantar seu primeiro banco de dados Oracle no Azure.
 
 > [!div class="nextstepaction"]
