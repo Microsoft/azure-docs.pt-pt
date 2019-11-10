@@ -4,18 +4,18 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/23/2019
-ms.openlocfilehash: b9f84385e49fcf5f101b7ce642b0a82e3a4b9388
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: fb3795ff807a87e9bac4d95400f5e446c68d1e4d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73800069"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73897540"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autenticar com o Azure Active Directory
 
 > [!IMPORTANT]
 > 1. Atualmente, **somente** o API da Pesquisa Visual Computacional, API de Detecção Facial, API de análise de texto, leitor de imersão, reconhecedor de formulário, detector de anomalias e todos os serviços do Bing, exceto pesquisa personalizada do Bing dar suporte à autenticação usando o Azure Active Directory (AAD).
-> 2. A autenticação do AAD precisa ser sempre usada junto com o nome de subdomínio personalizado do recurso do Azure. Os [pontos de extremidade regionais](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) não dão suporte à autenticação do AAD.
+> 2. A autenticação do AAD precisa ser sempre usada junto com o nome de subdomínio personalizado do recurso do Azure. Os [pontos de extremidade regionais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) não dão suporte à autenticação do AAD.
 
 Nas seções anteriores, mostramos como se autenticar nos serviços cognitivas do Azure usando uma chave de assinatura de serviço único ou de vários serviços. Embora essas chaves forneçam um caminho rápido e fácil para iniciar o desenvolvimento, elas ficam curtas em cenários mais complexos que exigem controles de acesso baseados em função. Vamos dar uma olhada no que é necessário para autenticar usando o Azure Active Directory (AAD).
 
