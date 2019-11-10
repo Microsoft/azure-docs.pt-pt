@@ -20,6 +20,8 @@ sections:
         style: dataMatrix
         columns:
           - image:
+              src: media/index/logo_cli.svg
+          - image:
               src: 'https://docs.microsoft.com/media/logos/logo_nodejs.svg'
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_NET.svg'
@@ -36,6 +38,7 @@ sections:
         rows:
           - title: Enviar telemetria
             values:
+              - href: /azure/iot-hub/quickstart-send-telemetry-cli
               - href: /azure/iot-hub/quickstart-send-telemetry-node
               - href: /azure/iot-hub/quickstart-send-telemetry-dotnet
               - href: /azure/iot-hub/quickstart-send-telemetry-java
