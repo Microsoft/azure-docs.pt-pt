@@ -1,29 +1,29 @@
 ---
-title: Exemplo do Script da CLI do Azure - trabalhar com os valores de chave num Store de configuração de aplicações do Azure | Documentos da Microsoft
-description: Fornece informações sobre como trabalhar com valores de chave num arquivo de configuração de aplicações do Azure
+title: CLI do Azure exemplo de script – trabalhar com valores de chave em um repositório de configuração de Azure App | Microsoft Docs
+description: Fornece informações sobre como trabalhar com valores de chave em um repositório de configuração de Azure App
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
-manager: balans
+author: lisaguthrie
+manager: maiye
 editor: ''
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: azure-app-configuration
-ms.date: 02/24/2019
-ms.author: yegu
+ms.date: 11/08/2019
+ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 9288ea08da6335dd29e7a15a9bc871b76c1ce7e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d89fa4c067e511e6210e8c1473bf1856297fc1de
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60235143"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904080"
 ---
-# <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Trabalhar com valores de chave num arquivo de configuração de aplicações do Azure
+# <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Trabalhar com valores de chave em um repositório de configuração de Azure App
 
-Este script de exemplo cria um novo valor de chave num arquivo de configuração de aplicações do Azure, apresenta uma lista de todos os valores de chave existentes, atualiza o valor da chave recentemente criada e elimina-a por último.
+Esse script de exemplo cria um novo valor de chave em um repositório de configuração de Azure App, lista todos os valores de chave existentes, atualiza o valor da chave recém-criada e o exclui por último.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Este script de exemplo cria um novo valor de chave num arquivo de configuração
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Tem de instalar a extensão de CLI de configuração de aplicações do Azure pela primeira vez ao executar o comando seguinte:
+Você precisa instalar a extensão da CLI de configuração do Azure App primeiro executando o seguinte comando:
 
         az extension add -n appconfig
 
@@ -42,6 +42,9 @@ Tem de instalar a extensão de CLI de configuração de aplicações do Azure pe
 
 appConfigName=myTestAppConfigStore
 newKey="TestKey"
+refKey="KeyVaultReferenceTestKey"
+uri="[URL to value stored in Key Vault]"
+uri2="[URL to another value stored in Key Vault]"
 
 # Create a new key-value 
 az appconfig kv set --name $appConfigName --key $newKey --value "Value 1"
@@ -50,13 +53,28 @@ az appconfig kv set --name $appConfigName --key $newKey --value "Value 1"
 az appconfig kv list --name $appConfigName
 
 # Update new key's value
-az appconfig kv set --name $appConfigName --value "Value 2"
+az appconfig kv set --name $appConfigName --key $newKey --value "Value 2"
+
+# List current key-values
+az appconfig kv list --name $appConfigName
+
+# Create a new key-value referencing a value stored in Azure Key Vault
+az appconfig kv set --name $appConfigName --key $refKey --content-type "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8" --value "{\"uri\":\"$uri\"}"
+
+# List current key-values
+az appconfig kv list --name $appConfigName
+
+# Update Key Vault reference
+az appconfig kv set --name $appConfigName --key $refKey --value "{\"uri\":\"$uri2\"}"
 
 # List current key-values
 az appconfig kv list --name $appConfigName
 
 # Delete new key
 az appconfig kv delete  --name $appConfigName --key $newKey
+
+# Delete Key Vault reference
+az appconfig kv delete --name $appConfigName --key $refKey
 
 # List current key-values
 az appconfig kv list --name $appConfigName
@@ -66,16 +84,16 @@ az appconfig kv list --name $appConfigName
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para operar em valores de chave num arquivo de configuração de aplicação. Cada comando na tabela liga à documentação específica do comando.
+Esse script usa os seguintes comandos para operar em valores de chave em um repositório de configuração de aplicativo. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig) | Cria ou atualiza uma chave-valor. |
-| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig) | Apresenta uma lista de valores de chave num arquivo de configuração de aplicação. |
-| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig) | Elimina uma chave-valor. |
+| [conjunto de kV AZ appconfig](/cli/azure/ext/appconfig/appconfig) | Cria ou atualiza um valor de chave. |
+| [lista AZ AppConfig kV](/cli/azure/ext/appconfig/appconfig) | Lista os valores de chave em um repositório de configuração de aplicativo. |
+| [AZ AppConfig kV Delete](/cli/azure/ext/appconfig/appconfig) | Exclui um valor de chave. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Exemplos do script da CLI de configuração de aplicações adicionais podem ser encontrados no [documentação de configuração de aplicações do Azure](../cli-samples.md).
+Exemplos de script da CLI de configuração de aplicativo adicionais podem ser encontrados na [documentação de configuração do Azure app](../cli-samples.md).

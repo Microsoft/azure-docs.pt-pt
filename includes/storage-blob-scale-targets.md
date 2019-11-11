@@ -2,16 +2,16 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 4/20/2019
+ms.date: 11/08/2019
 ms.author: tamram
-ms.openlocfilehash: aab17966862c57a52f252b3c4e9b757673078b0a
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 0fda881b805eb3a967cf3b05f6c6df8c65d20730
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67184471"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73905794"
 ---
-| Resource | Destino        |
+| Recurso | Visar        |
 |----------|---------------|
 | Tamanho máximo do contêiner de blob único | Igual à capacidade máxima da conta de armazenamento |
 | Número máximo de blocos em um blob de blocos ou BLOB de acréscimo | 50.000 blocos |
@@ -21,6 +21,8 @@ ms.locfileid: "67184471"
 | Tamanho máximo de um blob de acréscimo | 50.000 x 4 MiB (aproximadamente 195 GiB) |
 | Tamanho máximo de um blob de páginas | 8 TiB |
 | Número máximo de políticas de acesso armazenadas por contêiner de BLOB | 5 |
-|Taxa de transferência de destino para um único blob |Até os limites de entrada/saída da conta de armazenamento<sup>1</sup> |
+|Taxa de solicitação de destino para um único blob | Até 500 solicitações por segundo |
+|Taxa de transferência de destino para um blob de página única | Até 60 MiB por segundo |
+|Taxa de transferência de destino para um único blob de blocos |Até os limites de entrada/saída da conta de armazenamento<sup>1</sup> |
 
 <sup>1</sup> a taxa de transferência de objeto único depende de vários fatores, incluindo, mas não se limitando a: simultaneidade, tamanho da solicitação, nível de desempenho, velocidade da origem para carregamentos e destino para downloads. Para aproveitar os aprimoramentos de desempenho do [blob de blocos de alta taxa de transferência](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) , use um tamanho de solicitação Put Blob ou Put block de > 4 MiB (> 256 KiB para armazenamento de blobs de blocos de desempenho Premium ou para data Lake Storage Gen2).

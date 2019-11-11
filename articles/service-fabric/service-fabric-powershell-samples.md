@@ -15,25 +15,25 @@ ms.workload: service-fabric
 ms.date: 11/29/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 73e88e692b68d73c90176a6f5b8fce06bdf8b8c7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: cae88e142c3bca15e837db7f084eef68434a78ca
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035803"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903255"
 ---
 # <a name="azure-powershell-samples"></a>Exemplos do Azure PowerShell
 
 A tabela seguinte inclui ligações para exemplos de scripts do PowerShell que criar e gerem clusters, aplicações e serviços do Service Fabric.
 
-[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-powershell.md)]
+[!INCLUDE [links to azure CLI and service fabric CLI](../../includes/service-fabric-powershell.md)]
 
 | | |
 |-|-|
 | **Criar cluster** ||
 | [Criar um cluster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Cria um cluster do Azure Service Fabric. |
 | **Gerir o cluster, os nós e a infraestrutura** ||
-| [Adicionar um certificado de aplicação](./scripts/service-fabric-powershell-add-application-certificate.md)| Adiciona um certificado X.509 de aplicação a todos os nós num cluster. |
+| [Adicionar um certificado de aplicação](./scripts/service-fabric-powershell-add-application-certificate.md)| Cria um certificado X509 para Key Vault e o implanta em um conjunto de dimensionamento de máquinas virtuais em seu cluster. |
 | [Atualizar o intervalo de portas RDP nas VMs do cluster](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Altera o intervalo de portas RDP nas VMs no nó de cluster num cluster implementado.|
 | [Atualizar o utilizador e a palavra-passe de admin das VMs no nó de cluster](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) | Atualiza o nome de utilizador e a palavra-passe de admin das VMs no nó de cluster. |
 | [Abrir uma porta no balanceador de carga](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Abra uma porta de aplicação no balanceador de carga do Azure para permitir tráfego de entrada numa porta específica. |

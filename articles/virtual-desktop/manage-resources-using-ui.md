@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 06/04/2019
+ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: 175c5173091bee85a5c9fc4a50e9df5d3f73da13
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c7ef648dd2610c337bc9146e7a52c04d91907c8e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300911"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904916"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Tutorial: implantar uma ferramenta de gerenciamento
 
@@ -56,15 +56,15 @@ Siga estas instruções para implantar o modelo de gerenciamento de recursos do 
     - Se você estiver implantando em uma assinatura do provedor de soluções na nuvem, siga estas instruções para implantar no Azure:
         1. Role para baixo e clique com o botão direito do mouse em **implantar no Azure**e selecione **Copiar local do link**.
         2. Abra um editor de texto como o bloco de notas e cole o link lá.
-        3. Logo após <https://portal.azure.com/> e antes da hashtag (#), insira um sinal de arroba (@) seguido pelo nome de domínio do locatário. Aqui está um exemplo do formato: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
+        3. Logo após <https://portal.azure.com/> e antes da hashtag (#), insira um sinal de arroba (@) seguido pelo nome de domínio do locatário. Veja um exemplo do formato: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
         4. Entre no portal do Azure como um usuário com permissões de administrador/colaborador para a assinatura do provedor de soluções na nuvem.
         5. Cole o link que você copiou para o editor de texto na barra de endereços.
 
 ### <a name="guidance-for-template-parameters"></a>Diretrizes para parâmetros de modelo
 Aqui está como inserir parâmetros para configurar a ferramenta:
 
-- Esta é a URL do agente RD: https: \//rdbroker. wvd. Microsoft. com/
-- Esta é a URL do recurso: https: \//Mrs-prod. ame. GBL/Sra-RDInfra-prod
+- Esta é a URL do agente RD: https:\//rdbroker.wvd.microsoft.com/
+- Esta é a URL do recurso: https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
 - Use suas credenciais do AAD com o MFA desabilitado para entrar no Azure. Veja o [que você precisa para executar o modelo de Azure Resource Manager](#what-you-need-to-run-the-azure-resource-manager-template).
 - Use um nome exclusivo para o aplicativo que será registrado em seu Azure Active Directory para a ferramenta de gerenciamento; por exemplo, Apr3UX.
 
@@ -103,9 +103,14 @@ Siga estas instruções para iniciar a ferramenta:
 1. Selecione o recurso serviços de Azure App com o nome fornecido no modelo (por exemplo, Apr3UX) e navegue até a URL associada a ele; por exemplo, <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Entre usando suas credenciais de área de trabalho virtual do Windows.
 3. Quando for solicitado a escolher um grupo de locatários, selecione **grupo de locatários padrão** na lista suspensa.
+4. Quando você seleciona grupo de locatários padrão, um menu deve aparecer no lado direito da janela. Nesse menu, localize o nome do seu grupo de locatários e selecione-o.
 
 > [!NOTE]
 > Se você tiver um grupo de locatários personalizado, insira o nome manualmente em vez de escolher na lista suspensa.
+
+## <a name="report-issues"></a>Relatar problemas
+
+Se você encontrar problemas com a ferramenta de gerenciamento ou outras ferramentas de área de trabalho virtual do Windows, siga as instruções em [modelos de ARM para serviços de área de trabalho remota](https://github.com/Azure/RDS-Templates/blob/master/README.md) para relatá-las no github.
 
 ## <a name="next-steps"></a>Passos seguintes
 
