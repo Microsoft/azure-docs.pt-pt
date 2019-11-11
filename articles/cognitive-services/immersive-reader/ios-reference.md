@@ -1,7 +1,7 @@
 ---
 title: Referência do SDK do iOS do leitor de imersão
 titleSuffix: Azure Cognitive Services
-description: Referência para o SDK do iOS do leitor de imersão
+description: O SDK do iOS do leitor de imersão é um CocoaPod Swift que permite que você integre o leitor de imersão em seu aplicativo iOS.
 services: cognitive-services
 author: metanMSFT
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 08/01/2019
 ms.author: metan
-ms.openlocfilehash: 1f85740c358bd0949fed9c954537f0926538995d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 67d6b8c22c5635bd789078a7f91b02f8b07e5e70
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388125"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903129"
 ---
 # <a name="immersive-reader-sdk-reference-for-ios"></a>Referência do SDK do leitor de imersão para iOS
 
@@ -37,14 +37,14 @@ public func launchImmersiveReader(navController: UINavigationController, token: 
 | Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
 | `navController` | UINavigationController | O controlador de navegação para o aplicativo iOS do qual a função está sendo chamada. |
-| `token` | String | O token de autenticação do Azure AD. Consulte o [How-to de autenticação do Azure ad](./azure-active-directory-authentication.md). |
-| `subdomain` | String | O subdomínio personalizado do seu recurso de leitor de imersão no Azure. Consulte o [How-to de autenticação do Azure ad](./azure-active-directory-authentication.md). |
+| `token` | Cadeia | O token de autenticação do Azure AD. Consulte o [How-to de autenticação do Azure ad](./azure-active-directory-authentication.md). |
+| `subdomain` | Cadeia | O subdomínio personalizado do seu recurso de leitor de imersão no Azure. Consulte o [How-to de autenticação do Azure ad](./azure-active-directory-authentication.md). |
 | `content` | [Conteúdo](#content) | Um objeto que contém o conteúdo a ser mostrado no leitor de imersão. |
 | `options` | [Opções](#options) | Opções para configurar determinados comportamentos do leitor de imersão. Opcional. |
 | `onSuccess` | ()-> void | Um fechamento que é invocado quando o leitor de imersão é iniciado com êxito. |
 | `onFailure` | (_ erro: [erro](#error))-> void | Um fechamento que é invocado quando o leitor de imersão não é carregado. Esse fechamento retorna um objeto [`Error`](#error) que representa um código de erro e uma mensagem de erro associada à falha. Para obter mais informações, consulte os [códigos de erro](#error-codes). |
 
-## <a name="types"></a>Digita
+## <a name="types"></a>Tipos
 
 ### <a name="content"></a>Conteúdo
 
@@ -91,7 +91,7 @@ struct Error {
 | Código | Descrição |
 | ---- | ----------- |
 | BadArgument | O argumento fornecido é inválido, consulte `message` para obter detalhes. |
-| cedido | Falha ao carregar o leitor de imersão no tempo limite especificado. |
+| Cedido | Falha ao carregar o leitor de imersão no tempo limite especificado. |
 | TokenExpired | O token fornecido expirou. |
 | Limitado | O limite de taxa de chamada foi excedido. |
 | InternalError | Ocorreu um erro interno no controlador de exibição do leitor de imersão. Consulte `message` para obter detalhes.|

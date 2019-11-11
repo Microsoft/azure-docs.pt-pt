@@ -1,7 +1,7 @@
 ---
 title: Referência do SDK do leitor de imersão
 titleSuffix: Azure Cognitive Services
-description: Referência para o SDK do leitor de imersão
+description: O SDK do leitor de imersão é uma biblioteca JavaScript que permite integrar o leitor de imersão ao seu aplicativo Web.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: ed9bd6f5932fdcb2d9124a000115a6f68cf21613
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 09244b634fa2603a7dc92af3c78d171f8d6bd9df
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889313"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903118"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Guia de referência do SDK do leitor de imersão
 
@@ -84,7 +84,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 | ---- | ---- |------------ |
 | `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Opções para configurar determinados comportamentos da função renderButtons. Opcional. |
 
-## <a name="types"></a>Digita
+## <a name="types"></a>Tipos
 
 ### <a name="content"></a>Conteúdo
 
@@ -114,7 +114,7 @@ Um único bloco de dados, que será passado para o conteúdo do leitor de imers�
 | Tipo MIME | Descrição |
 | --------- | ----------- |
 | texto/sem formatação | Texto sem formatação. |
-| texto/HTML | Conteúdo HTML. [Saiba mais](#html-support)|
+| texto/HTML | Conteúdo HTML. [Saber mais](#html-support)|
 | aplicativo/MathML + XML | MathML (matematica Markup Language). [Saiba mais](https://developer.mozilla.org/en-US/docs/Web/MathML).
 | application/vnd. openxmlformats-officeDocument. WordprocessingML. Document | Documento de formato Microsoft Word. docx.
 

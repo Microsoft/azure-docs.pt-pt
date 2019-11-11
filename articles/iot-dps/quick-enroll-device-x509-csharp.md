@@ -1,23 +1,23 @@
 ---
-title: Este início rápido mostra como inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos do Azure com C# | Microsoft Docs
+title: 'Início rápido: como registrar o dispositivo X. 509 no serviço de provisionamento de dispositivos do Azure usandoC#'
 description: Este início rápido utiliza inscrições em grupo. Neste guia de início rápido, registre os dispositivos X. 509 no serviço de provisionamento de dispositivos do Hub C#IOT do Azure usando.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 15bce340b257b5c221192a6ace5c5f0eac30f85a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: e43448337f787115c479f2f53ca57b7a20120108
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036017"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903426"
 ---
-# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Início rápido: Registrar dispositivos X. 509 no serviço de provisionamento de dispositivos usando oC#
+# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos com C#
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
@@ -92,7 +92,7 @@ Esta seção mostra como criar um aplicativo de console do .NET Core que adicion
 
    Esta etapa baixa, instala e adiciona uma referência ao pacote NuGet do [SDK do cliente do serviço de provisionamento IOT do Azure](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) e suas dependências.
 
-1. Adicione as seguintes `using` instruções após as outras `using` instruções na parte superior de `Program.cs`:
+1. Adicione as seguintes instruções `using` após as outras instruções `using` na parte superior de `Program.cs`:
 
    ```csharp
    using System.Security.Cryptography.X509Certificates;
@@ -100,7 +100,7 @@ Esta seção mostra como criar um aplicativo de console do .NET Core que adicion
    using Microsoft.Azure.Devices.Provisioning.Service;
    ```
 
-1. Adicione os campos a seguir à `Program` classe e faça as alterações listadas.  
+1. Adicione os campos a seguir à classe `Program` e faça as alterações listadas.  
 
    ```csharp
    private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
@@ -108,11 +108,11 @@ Esta seção mostra como criar um aplicativo de console do .NET Core que adicion
    private static string X509RootCertPath = @"{Path to a .cer or .pem file for a verified root CA or intermediate CA X.509 certificate}";
    ```
 
-   * Substitua o `ProvisioningConnectionString` valor de espaço reservado pela cadeia de conexão do serviço de provisionamento para o qual você deseja criar o registro.
+   * Substitua o valor do espaço reservado `ProvisioningConnectionString` pela cadeia de conexão do serviço de provisionamento para o qual você deseja criar o registro.
 
-   * Substitua o `X509RootCertPath` valor do espaço reservado pelo caminho para um arquivo. PEM ou. cer. Esse arquivo representa a parte pública de um certificado X. 509 da AC raiz ou intermediário que foi previamente carregado e verificado com o serviço de provisionamento.
+   * Substitua o valor do espaço reservado `X509RootCertPath` pelo caminho para um arquivo. PEM ou. cer. Esse arquivo representa a parte pública de um certificado X. 509 da AC raiz ou intermediário que foi previamente carregado e verificado com o serviço de provisionamento.
 
-   * Você pode, opcionalmente, `EnrollmentGroupId` alterar o valor. A cadeia só pode conter carateres minúsculos e hífenes.
+   * Opcionalmente, você pode alterar o valor de `EnrollmentGroupId`. A cadeia só pode conter carateres minúsculos e hífenes.
 
    > [!IMPORTANT]
    > No código de produção, tenha em atenção as seguintes considerações de segurança:
@@ -120,7 +120,7 @@ Esta seção mostra como criar um aplicativo de console do .NET Core que adicion
    > * A pré-programação da cadeia de ligação para o administrador do serviço de aprovisionamento vai contra as melhores práticas de segurança. Em vez disso, a cadeia de ligação deve ser mantida de forma segura, tal como num ficheiro de configuração seguro ou no registo.
    > * Carregue apenas a parte pública do certificado de assinatura. Nunca carregue ficheiros .pfx (PKCS12) ou .pem que contêm chaves privadas para o serviço de aprovisionamento.
 
-1. Adicione o método a seguir à `Program` classe. Esse código cria uma entrada de grupo de registro e, `CreateOrUpdateEnrollmentGroupAsync` em seguida `ProvisioningServiceClient` , chama o método em para adicionar o grupo de registro ao serviço de provisionamento.
+1. Adicione o método a seguir à classe `Program`. Esse código cria uma entrada de grupo de registro e, em seguida, chama o método `CreateOrUpdateEnrollmentGroupAsync` em `ProvisioningServiceClient` para adicionar o grupo de registros ao serviço de provisionamento.
 
    ```csharp
    public static async Task RunSample()
@@ -156,7 +156,7 @@ Esta seção mostra como criar um aplicativo de console do .NET Core que adicion
    }
    ```
 
-1. Por fim, substitua o corpo do `Main` método pelas seguintes linhas:
+1. Por fim, substitua o corpo do método `Main` pelas seguintes linhas:
 
    ```csharp
    RunSample().GetAwaiter().GetResult();
@@ -164,7 +164,7 @@ Esta seção mostra como criar um aplicativo de console do .NET Core que adicion
    Console.ReadLine();
    ```
 
-1. Compilar a solução.
+1. Compile a solução.
 
 ## <a name="run-the-enrollment-group-sample"></a>Executar o exemplo do grupo de inscrição
   
@@ -186,7 +186,7 @@ Se você planeja explorar o exemplo C# de serviço, não limpe os recursos criad
 
 1. Em seu serviço de provisionamento de dispositivos no portal do Azure, selecione **certificados**, escolha o certificado que você carregou para este guia de início rápido e selecione **excluir** na parte superior dos **detalhes do certificado**.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou um grupo de registro para um certificado de autoridade de certificação X. 509 intermediário ou raiz usando o serviço de provisionamento de dispositivos no Hub IoT do Azure. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure.
 

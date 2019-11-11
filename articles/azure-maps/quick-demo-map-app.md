@@ -1,22 +1,22 @@
 ---
-title: Pesquisa de mapa interativo com mapas do Azure | Microsoft Docs
+title: 'Início rápido: pesquisa de mapa interativa com mapas do Azure'
 description: Início rápido do Azure-criar uma pesquisa de mapa interativo de demonstração usando o Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 092da53c3179d939ebf0472219338b8d8392fda6
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1b9d8c98391e7e2bac3492dcf696f098f5c6cf57
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554271"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903186"
 ---
-# <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Criar um mapa de pesquisa interativo usando o Azure Maps
+# <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Início rápido: criar um mapa de pesquisa interativo usando o Azure Maps
 
 Este artigo demonstra as capacidades do Azure Maps criar um mapa que proporciona aos utilizadores uma experiência de pesquisa interativa. Ele percorre estas etapas básicas:
 * Crie sua própria conta do Azure Maps.
@@ -26,7 +26,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-account-and-get-your-key"></a>Criar uma conta e obter a chave
 

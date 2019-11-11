@@ -1,7 +1,7 @@
 ---
 title: O que é a API de leitura de imersão?
 titleSuffix: Azure Cognitive Services
-description: Saiba mais sobre a API do leitor de imersão.
+description: A API de leitura de imersão é uma ferramenta que pode ser usada para acomodar pessoas com diferenças de aprendizado ou ajudar novos leitores e aprendizes de linguagem.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: f84804fbad07357706e786fc449fce9e42a5ec4a
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 3e6889cd5d26b88cedd6b110510cb89777252f54
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688336"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904372"
 ---
 # <a name="what-is-immersive-reader"></a>O que é a Leitura Avançada?
 
@@ -53,7 +53,7 @@ O leitor de imersão foi projetado para tornar a leitura mais acessível para to
 
 ## <a name="how-does-immersive-reader-work"></a>Como funciona o leitor de imersão?
 
-O leitor de imersão é um aplicativo Web autônomo que, quando invocado usando o SDK de JavaScript do leitor de imersão, é exibido na parte superior do `iframe`aplicativo Web existente por meio de um. Ao chamar a API para iniciar o leitor de imersão, você especifica o conteúdo que deseja mostrar no leitor de imersão. Nosso SDK trata da criação e do estilo do `iframe` e da comunicação com o serviço de back-end do leitor de imersão, que processa o conteúdo de partes de fala, texto em fala, conversão e assim por diante.
+O leitor de imersão é um aplicativo Web autônomo que, quando invocado usando o SDK de JavaScript do leitor de imersão, é exibido na parte superior do aplicativo Web existente por meio de um `iframe`. Ao chamar a API para iniciar o leitor de imersão, você especifica o conteúdo que deseja mostrar no leitor de imersão. Nosso SDK trata da criação e do estilo do `iframe` e da comunicação com o serviço de back-end do leitor de imersão, que processa o conteúdo de partes de fala, conversão de texto em fala, tradução e assim por diante.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,6 +1,6 @@
 ---
-title: Criar alertas personalizados para a central de segurança do Azure para IoT | Microsoft Docs
-description: Crie e atribua alertas de dispositivo personalizados para a central de segurança do Azure para IoT.
+title: 'Início rápido: criar alertas personalizados para a central de segurança do Azure para IoT'
+description: Neste guia de início rápido, crie e atribua alertas de dispositivo personalizados para a central de segurança do Azure para IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: ed10cbf89f878f8d27b43476d26ac93dd373ed66
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: eca5d69efb04cf8210b0b2aa502bcee5cd4f5264
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597006"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904128"
 ---
-# <a name="quickstart-create-custom-alerts"></a>Início rápido: Criar alertas personalizados
+# <a name="quickstart-create-custom-alerts"></a>Início rápido: criar alertas personalizados
 
 
 O uso de grupos de segurança e alertas personalizados aproveita totalmente as informações de segurança de ponta a ponta e o conhecimento de dispositivo categórico para garantir uma melhor segurança em sua solução de IoT. 
@@ -82,7 +82,7 @@ Use grupos de segurança para agrupar seus dispositivos em categorias lógicas. 
 A tabela a seguir fornece um resumo dos alertas disponíveis para personalização.
 
 
-| Severity | Nome | Origem de Dados | Descrição | Correção sugerida|
+| Gravidade | Nome | Fonte de dados | Descrição | Correção sugerida|
 |---|---|---|---|---|
 | Baixa      | Alerta personalizado – número de mensagens de nuvem para dispositivo no protocolo AMQP está fora do intervalo permitido          | IoT Hub     | O número de mensagens de nuvem para dispositivo (protocolo AMQP) em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.||
 | Baixa      | Alerta personalizado-o número de mensagens de nuvem rejeitadas para o dispositivo no protocolo AMQP está fora do intervalo permitido | IoT Hub     | Número de mensagens de nuvem para dispositivo (protocolo AMQP) rejeitadas pelo dispositivo em uma janela de tempo específica está fora do intervalo atualmente configurado e permitido.||
@@ -106,7 +106,7 @@ A tabela a seguir fornece um resumo dos alertas disponíveis para personalizaç�
 |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o próximo artigo para saber como implantar um agente de segurança...
 

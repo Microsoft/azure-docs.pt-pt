@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 6a17993d7bc4ff54b3d55fa5b5bb141463896e32
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5824b835b3debb33386c0d1f86581c6bb91b14ae
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488700"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904200"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Reconhecimento vocal (FAQ)
 
@@ -74,7 +74,7 @@ No portal do LUIS, você pode rotular o texto para a entidade exata que você es
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Tentei importar um arquivo de aplicativo ou de versão, mas recebi um erro, o que aconteceu? 
 
-Leia mais sobre [erros de importação de versão](luis-how-to-manage-versions.md#import-errors) e [erros de importação de aplicativo](luis-how-to-start-new-app.md#import-errors).
+Leia mais sobre [erros de importação de versão](luis-how-to-manage-versions.md#import-errors).
 
 <a name="luis-collaborating"></a>
 
@@ -264,7 +264,7 @@ Sua chave de criação/início é permitida apenas 1000 consultas de ponto de ex
 
 ## <a name="bots"></a>Bots
 
-### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Meu bot LUIS não está funcionando. O que devo fazer?
+### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Meu bot LUIS não está funcionando. O que posso fazer?
 
 O primeiro problema é isolar se o problema está relacionado a LUIS ou acontece fora do middleware LUIS. 
 

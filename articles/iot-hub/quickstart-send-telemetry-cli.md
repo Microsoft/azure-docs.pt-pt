@@ -9,12 +9,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: d926f1c286c4288784d429f13b22436d7c8ae7e5
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 8ebcc863c1812081e6198ff9c684934642e1dc41
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73849277"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904559"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Início rápido: enviar telemetria de um dispositivo para um hub IoT e monitorá-lo com o CLI do Azure
 
@@ -74,7 +74,7 @@ Nesta seção, você usa o CLI do Azure para criar um grupo de recursos e um hub
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. Execute o comando [AZ IOT Hub Create](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create) para criar um hub IOT.
+1. Execute o comando [AZ IOT Hub Create](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create) para criar um hub IOT. Pode levar alguns minutos para criar um hub IoT. 
 
     *Nomedoseuhubiot*. Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT. Um nome de Hub IoT deve ser globalmente exclusivo no Azure. Esse espaço reservado é usado no restante deste guia de início rápido para representar o nome do Hub IoT.
 
@@ -141,15 +141,15 @@ Nesta seção, você usará a segunda sessão da CLI para enviar uma mensagem ao
 
     ![Cloud Shell mensagem da nuvem para o dispositivo](media/quickstart-send-telemetry-cli/cloud-shell-receive-message.png)
 
-1. Depois de exibir a mensagem, feche as duas sessões da CLI. 
+1. Depois de exibir a mensagem, feche a segunda sessão da CLI. Mantenha a primeira sessão da CLI aberta. Você o usa para limpar recursos em uma etapa posterior.
 
 ## <a name="view-messaging-metrics-in-the-portal"></a>Exibir métricas de mensagens no portal
 O portal do Azure permite que você gerencie todos os aspectos de seu hub IoT e dispositivos. Em um aplicativo de Hub IoT típico que ingere telemetria de dispositivos, talvez você queira monitorar dispositivos ou exibir métricas na telemetria do dispositivo. 
 
 Para visualizar as métricas de mensagens no portal do Azure:
-1. Na **Home** Page do portal, selecione **todos os recursos**. 
+1. No menu de navegação à esquerda no portal, selecione **todos os recursos**. Isso lista todos os recursos em sua assinatura, incluindo o Hub IoT que você criou. 
 
-1. Na lista de grupos de recursos, selecione o Hub IoT que você criou. 
+1. Clique no link no Hub IoT que você criou. O portal exibe a página Visão geral do Hub.
 
 1. Selecione **métricas** no painel esquerdo do Hub IOT. 
 

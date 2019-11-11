@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 1fda05ffcac8952ee5a12c23383aad1a04d36b97
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 14745f79955a98727d6f55da4189212f2f18d9c0
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601320"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904402"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns em instâncias de contêiner do Azure
 
@@ -22,7 +22,8 @@ Este artigo mostra como solucionar problemas comuns de gerenciamento ou implanta
 
 Se precisar de suporte adicional, consulte Opções de **ajuda + suporte** disponíveis no [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="naming-conventions"></a>Convenções de nomenclatura
+## <a name="issues-during-container-group-deployment"></a>Problemas durante a implantação do grupo de contêineres
+### <a name="naming-conventions"></a>Convenções de nomenclatura
 
 Ao definir a especificação do contêiner, determinados parâmetros exigem a adesão às restrições de nomenclatura. Abaixo está uma tabela com requisitos específicos para propriedades do grupo de contêineres. Para obter mais informações sobre as convenções de nomenclatura do Azure, consulte [convenções de nomenclatura][azure-name-restrictions] no centro de arquitetura do Azure.
 
@@ -35,7 +36,7 @@ Ao definir a especificação do contêiner, determinados parâmetros exigem a ad
 | Variável de ambiente | 1-63 |Não sensível a maiúsculas e minúsculas |Alfanumérico e sublinhado (_) em qualquer lugar, exceto o primeiro ou o último caractere |`<name>` |`MY_VARIABLE` |
 | Nome do volume | 5-63 |Não sensível a maiúsculas e minúsculas |Letras minúsculas e números e hifens em qualquer lugar, exceto o primeiro ou o último caractere. Não pode conter dois hifens consecutivos. |`<name>` |`batch-output-volume` |
 
-## <a name="os-version-of-image-not-supported"></a>Não há suporte para a versão do so da imagem
+### <a name="os-version-of-image-not-supported"></a>Não há suporte para a versão do so da imagem
 
 Se você especificar uma imagem para a qual as instâncias de contêiner do Azure não dão suporte, um erro de `OsVersionNotSupported` será retornado. O erro é semelhante ao seguinte, em que `{0}` é o nome da imagem que você tentou implantar:
 
@@ -50,7 +51,7 @@ Se você especificar uma imagem para a qual as instâncias de contêiner do Azur
 
 Esse erro é encontrado com mais frequência ao implantar imagens do Windows baseadas na versão do canal semestral 1709 ou 1803, que não tem suporte. Para imagens do Windows com suporte em instâncias de contêiner do Azure, consulte [perguntas](container-instances-faq.md#what-windows-base-os-images-are-supported)frequentes.
 
-## <a name="unable-to-pull-image"></a>Não é possível efetuar pull da imagem
+### <a name="unable-to-pull-image"></a>Não é possível efetuar pull da imagem
 
 Se as instâncias de contêiner do Azure não puderem efetuar pull de sua imagem inicialmente, ela tentará novamente por um período de tempo. Se a operação de pull da imagem continuar falhando, o ACI eventualmente falhará na implantação e você poderá ver um erro de `Failed to pull image`.
 
@@ -86,8 +87,21 @@ Se a imagem não puder ser retirada, eventos como os mostrados a seguir serão e
   }
 ],
 ```
+### <a name="resource-not-available-error"></a>Erro de recurso não disponível
 
-## <a name="container-continually-exits-and-restarts-no-long-running-process"></a>O contêiner sai e reinicia continuamente (sem processo de execução demorada)
+Devido a uma variável de carga de recursos regionais no Azure, você pode receber o seguinte erro ao tentar implantar uma instância de contêiner:
+
+`The requested resource with 'x' CPU and 'y.z' GB memory is not available in the location 'example region' at this moment. Please retry with a different resource request or in another location.`
+
+Esse erro indica que, devido à carga pesada na região em que você está tentando implantar, os recursos especificados para o contêiner não podem ser alocados nesse momento. Use uma ou mais das etapas de mitigação a seguir para ajudar a resolver o problema.
+
+* Verifique se as configurações de implantação de contêiner estão dentro dos parâmetros definidos em [disponibilidade de região para instâncias de contêiner do Azure](container-instances-region-availability.md)
+* Especificar configurações menores de CPU e memória para o contêiner
+* Implantar em uma região diferente do Azure
+* Implantar em um momento posterior
+
+## <a name="issues-during-container-group-runtime"></a>Problemas durante o tempo de execução do grupo de contêineres
+### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>O contêiner sai e reinicia continuamente (sem processo de execução demorada)
 
 Os grupos de contêineres assumem como padrão uma [política de reinicialização](container-instances-restart-policy.md) **sempre**, portanto, os contêineres no grupo de contêineres sempre são reiniciados depois de executados até Talvez seja necessário alterar isso para **OnFailure** ou **nunca** se você pretender executar contêineres baseados em tarefas. Se você especificar **OnFailure** e ainda vir reinicializações contínuas, poderá haver um problema com o aplicativo ou script executado em seu contêiner.
 
@@ -147,16 +161,17 @@ A API de instâncias de contêiner e portal do Azure inclui uma propriedade `res
 > [!NOTE]
 > A maioria das imagens de contêiner para distribuições do Linux define um shell, como bash, como o comando padrão. Como um shell por si só não é um serviço de execução longa, esses contêineres são imediatamente encerrados e se encaixam em um loop de reinicialização quando configurados com a política padrão **Always** restart.
 
-## <a name="container-takes-a-long-time-to-start"></a>O contêiner leva muito tempo para iniciar
+### <a name="container-takes-a-long-time-to-start"></a>O contêiner leva muito tempo para iniciar
 
-Os dois fatores principais que contribuem para o tempo de inicialização do contêiner nas instâncias de contêiner do Azure são:
+Os três fatores principais que contribuem para o tempo de inicialização do contêiner em instâncias de contêiner do Azure são:
 
 * [Tamanho da imagem](#image-size)
 * [Local da imagem](#image-location)
+* [Imagens armazenadas em cache](#cached-images)
 
 As imagens do Windows têm [considerações adicionais](#cached-images).
 
-### <a name="image-size"></a>Tamanho da imagem
+#### <a name="image-size"></a>Tamanho da imagem
 
 Se o contêiner levar muito tempo para iniciar, mas acabar com sucesso, comece examinando o tamanho da imagem de contêiner. Como as instâncias de contêiner do Azure recebem sua imagem de contêiner sob demanda, o tempo de inicialização que você vê está diretamente relacionado ao seu tamanho.
 
@@ -170,39 +185,26 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 A chave para manter os tamanhos de imagem pequenos é garantir que a imagem final não contenha nada que não seja necessário no tempo de execução. Uma maneira de fazer isso é com [compilações de vários estágios][docker-multi-stage-builds]. Compilações de vários estágios facilitam a garantia de que a imagem final contenha apenas os artefatos de que você precisa para seu aplicativo, e não qualquer conteúdo extra necessário no momento da compilação.
 
-### <a name="image-location"></a>Local da imagem
+#### <a name="image-location"></a>Local da imagem
 
 Outra maneira de reduzir o impacto do pull da imagem no tempo de inicialização do contêiner é hospedar a imagem de contêiner no [registro de contêiner do Azure](/azure/container-registry/) na mesma região em que você pretende implantar as instâncias de contêiner. Isso reduz o caminho de rede que a imagem de contêiner precisa para viajar, reduzindo significativamente o tempo de download.
 
-### <a name="cached-images"></a>Imagens armazenadas em cache
+#### <a name="cached-images"></a>Imagens armazenadas em cache
 
 As instâncias de contêiner do Azure usam um mecanismo de cache para ajudar a acelerar o tempo de inicialização do contêiner para imagens criadas em [imagens básicas](container-instances-faq.md#what-windows-base-os-images-are-supported)comuns do Windows, incluindo `nanoserver:1809`, `servercore:ltsc2019`e `servercore:1809`. As imagens do Linux geralmente usadas, como `ubuntu:1604` e `alpine:3.6`, também são armazenadas em cache. Para obter uma lista atualizada de imagens e marcas armazenadas em cache, use a API da [lista de imagens em cache][list-cached-images] .
 
 > [!NOTE]
 > O uso de imagens baseadas no Windows Server 2019 em instâncias de contêiner do Azure está em versão prévia.
 
-### <a name="windows-containers-slow-network-readiness"></a>Preparação de rede lenta de contêineres do Windows
+#### <a name="windows-containers-slow-network-readiness"></a>Preparação de rede lenta de contêineres do Windows
 
 Na criação inicial, os contêineres do Windows podem não ter nenhuma conectividade de entrada ou de saída por até 30 segundos (ou mais, em casos raros). Se o aplicativo de contêiner precisar de uma conexão com a Internet, adicione a lógica de atraso e repetição para permitir que 30 segundos estabeleçam conectividade com a Internet. Após a configuração inicial, a rede de contêiner deve retomar adequadamente.
 
-## <a name="resource-not-available-error"></a>Erro de recurso não disponível
-
-Devido a uma variável de carga de recursos regionais no Azure, você pode receber o seguinte erro ao tentar implantar uma instância de contêiner:
-
-`The requested resource with 'x' CPU and 'y.z' GB memory is not available in the location 'example region' at this moment. Please retry with a different resource request or in another location.`
-
-Esse erro indica que, devido à carga pesada na região em que você está tentando implantar, os recursos especificados para o contêiner não podem ser alocados nesse momento. Use uma ou mais das etapas de mitigação a seguir para ajudar a resolver o problema.
-
-* Verifique se as configurações de implantação de contêiner estão dentro dos parâmetros definidos em [disponibilidade de região para instâncias de contêiner do Azure](container-instances-region-availability.md)
-* Especificar configurações menores de CPU e memória para o contêiner
-* Implantar em uma região diferente do Azure
-* Implantar em um momento posterior
-
-## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Não é possível conectar-se à API do Docker subjacente ou executar contêineres privilegiados
+### <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Não é possível conectar-se à API do Docker subjacente ou executar contêineres privilegiados
 
 As instâncias de contêiner do Azure não expõem o acesso direto à infraestrutura subjacente que hospeda grupos de contêineres. Isso inclui o acesso à API do Docker em execução no host do contêiner e na execução de contêineres privilegiados. Se você precisar de interação com o Docker, consulte a [documentação de referência REST](https://aka.ms/aci/rest) para ver a que a API ACI dá suporte. Se houver algo ausente, envie uma solicitação nos fóruns de [comentários do ACI](https://aka.ms/aci/feedback).
 
-## <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>O endereço IP do grupo de contêineres pode não estar acessível devido a portas incompatíveis
+### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>O endereço IP do grupo de contêineres pode não estar acessível devido a portas incompatíveis
 
 As instâncias de contêiner do Azure ainda não dão suporte ao mapeamento de porta como com a configuração regular do Docker. Se você achar que o endereço IP de um grupo de contêineres não está acessível quando acreditar que deveria ser, certifique-se de ter configurado sua imagem de contêiner para escutar as mesmas portas que você expõe em seu grupo de contêineres com a propriedade `ports`.
 

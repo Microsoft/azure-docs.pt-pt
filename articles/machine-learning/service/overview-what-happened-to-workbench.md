@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 835024f7c8d77d67a2f6321df658c2f5c2007e62
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1ff70a8a794cbc4c201512a0cf578eb0a890a5e4
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647110"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904423"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu ao Azure Machine Learning Workbench?
 
@@ -99,8 +99,8 @@ Saiba mais sobre a [arquitetura mais recente para Azure Machine Learning](concep
 Para obter uma visão geral do serviço, leia [o que é Azure Machine Learning?](overview-what-is-azure-ml.md).
 
 Crie seu primeiro experimento com o método preferencial:
-  + [Usar blocos de anotações do Python para treinar & implantar modelos de ML](tutorial-1st-experiment-sdk-setup.md)
-  + [Usar R Markdown para treinar & implantar modelos de ML]( tutorial-1st-r-experiment.md) 
-  + [Usar o Machine Learning automatizado para treinar & implantar modelos de ML](ui-tutorial-automobile-price-train-score.md) 
-  + [Use os recursos de arrastar & do designer para treinar & implantar](tutorial-first-experiment-automated-ml.md) 
-  + [Usar a CLI do Machine Learning para treinar e implantar um modelo](tutorial-train-deploy-model-cli.md)
+  + [Usar blocos de anotações do Python](tutorial-1st-experiment-sdk-setup.md)
+  + [Usar R Markdown]( tutorial-1st-r-experiment.md) 
+  + [Usar o Machine Learning automatizado](ui-tutorial-automobile-price-train-score.md) 
+  + [Usar os recursos de arrastar & soltar do designer](tutorial-first-experiment-automated-ml.md) 
+  + [Usar a extensão ML para a CLI](tutorial-train-deploy-model-cli.md)

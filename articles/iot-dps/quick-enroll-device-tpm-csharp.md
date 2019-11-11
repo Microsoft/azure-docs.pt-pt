@@ -1,23 +1,23 @@
 ---
-title: Inscrever o dispositivo TPM no Serviço de Aprovisionamento de Dispositivos do Azure com C# | Microsoft Docs
+title: 'Início rápido: registrar o dispositivo TPM no serviço de provisionamento de dispositivos do Azure usandoC#'
 description: Início rápido do Azure-registrar dispositivo TPM no serviço de provisionamento de dispositivos no Hub C# IOT do Azure usando o SDK do serviço. Este início rápido utiliza inscrições individuais.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/16/2018
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: dcb9d2000ff9432f4360dab7f7df28b5b32482bf
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 70f9c9d2ec488854a1b386b872f10e4f54c45a1c
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035755"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904740"
 ---
-# <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Inscrever o dispositivo TPM no Serviço de Aprovisionamento de Dispositivos no Hub IoT com o SDK do serviço C#
+# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Início rápido: registrar o dispositivo TPM no serviço de provisionamento de dispositivos no C# Hub IOT usando o SDK do serviço
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
@@ -64,14 +64,14 @@ Esta seção mostra como criar um aplicativo de console do .NET Core que adicion
 
    Esta etapa baixa, instala e adiciona uma referência ao pacote NuGet do [SDK do cliente do serviço de provisionamento IOT do Azure](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) e suas dependências.
 
-1. Adicione as seguintes `using` instruções após as outras `using` instruções na parte superior de `Program.cs`:
+1. Adicione as seguintes instruções `using` após as outras instruções `using` na parte superior de `Program.cs`:
   
    ```csharp
    using System.Threading.Tasks;
    using Microsoft.Azure.Devices.Provisioning.Service;
    ```
 
-1. Adicione os campos a seguir à `Program` classe e faça as alterações listadas.
+1. Adicione os campos a seguir à classe `Program` e faça as alterações listadas.
 
    ```csharp
    private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
@@ -88,13 +88,13 @@ Esta seção mostra como criar um aplicativo de console do .NET Core que adicion
    private const ProvisioningStatus OptionalProvisioningStatus = ProvisioningStatus.Enabled;
    ```
 
-   * Substitua o `ProvisioningConnectionString` valor de espaço reservado pela cadeia de conexão do serviço de provisionamento para o qual você deseja criar o registro.
+   * Substitua o valor do espaço reservado `ProvisioningConnectionString` pela cadeia de conexão do serviço de provisionamento para o qual você deseja criar o registro.
 
    * Opcionalmente, pode alterar o ID do registo, a chave de endossamento, o ID do dispositivo e o estado de aprovisionamento.
 
-   * Se você estiver usando este guia de início rápido junto com o guia de início rápido [criar e C# provisionar um dispositivo TPM simulado usando o SDK do dispositivo](quick-create-simulated-device-tpm-csharp.md) para provisionar um dispositivo simulado, substitua a chave de endosso e a ID de registro pelos valores anotados nessa TUTORIAIS. Você pode substituir a ID do dispositivo pelo valor sugerido no início rápido, usar seu próprio valor ou usar o valor padrão neste exemplo.
+   * Se você estiver usando este guia de início rápido junto com o guia de início rápido [criar e C# provisionar um dispositivo TPM simulado usando o SDK do dispositivo](quick-create-simulated-device-tpm-csharp.md) para provisionar um dispositivo simulado, substitua a chave de endosso e a ID de registro pelos valores anotados no início rápido. Você pode substituir a ID do dispositivo pelo valor sugerido no início rápido, usar seu próprio valor ou usar o valor padrão neste exemplo.
 
-1. Adicione o método a seguir à `Program` classe.  Esse código cria uma entrada de registro individual e, `CreateOrUpdateIndividualEnrollmentAsync` em seguida, `ProvisioningServiceClient` chama o método no para adicionar o registro individual ao serviço de provisionamento.
+1. Adicione o método a seguir à classe `Program`.  Esse código cria uma entrada de registro individual e, em seguida, chama o método `CreateOrUpdateIndividualEnrollmentAsync` no `ProvisioningServiceClient` para adicionar o registro individual ao serviço de provisionamento.
 
    ```csharp
    public static async Task RunSample()
@@ -129,7 +129,7 @@ Esta seção mostra como criar um aplicativo de console do .NET Core que adicion
    }
    ```
 
-1. Por fim, substitua o corpo do `Main` método pelas seguintes linhas:
+1. Por fim, substitua o corpo do método `Main` pelas seguintes linhas:
 
    ```csharp
    RunSample().GetAwaiter().GetResult();
@@ -137,7 +137,7 @@ Esta seção mostra como criar um aplicativo de console do .NET Core que adicion
    Console.ReadLine();
    ```
 
-1. Compilar a solução.
+1. Compile a solução.
 
 ## <a name="run-the-individual-enrollment-sample"></a>Executar o exemplo de inscrição individual
   
@@ -159,7 +159,7 @@ Se você planeja explorar o exemplo C# de serviço, não limpe os recursos criad
 
 1. Feche a C# janela de saída de exemplo em seu computador.
 
-1. Navegue até o serviço de provisionamento de dispositivos no portal do Azure, selecione **gerenciar registros**e, em seguida, selecione a guia **registros individuais** . Selecione a *ID de registro* para a entrada de registro que você criou usando este guia de início rápido e selecione **excluir**.
+1. Navegue até o serviço de provisionamento de dispositivos no portal do Azure, selecione **gerenciar**registros e, em seguida, selecione a guia **inscrições individuais** . Selecione a *ID de registro* para a entrada de registro que você criou usando este início rápido e selecione **excluir**.
 
 1. Se você seguiu as etapas em [criar e provisionar um dispositivo TPM simulado usando C# o SDK do dispositivo](quick-create-simulated-device-tpm-csharp.md) para criar um dispositivo TPM simulado, execute as seguintes etapas:
 

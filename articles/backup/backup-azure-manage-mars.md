@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: 88a914a2a4d3d62918b01674d6d21f2f011e2c2e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 049b09f7927da2cc841130a0adeaa90768037db8
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834307"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903190"
 ---
 # <a name="manage-microsoft-azure-recovery-services-agent-backups-by-using-the-azure-backup-service"></a>Gerenciar backups do agente Serviços de Recuperação do Microsoft Azure usando o serviço de backup do Azure
 
@@ -62,7 +62,7 @@ Crie uma política da seguinte maneira:
             -Os backups feitos no sábado na última semana do mês à meia-noite e 6:00 PM são mantidos por 12 meses.
             -Os backups feitos em um sábado na última semana de março são mantidos por 10 anos.
 
-           ![Retention example](./media/backup-configure-vault/retention-example.png)
+    ![Exemplo de retenção](./media/backup-configure-vault/retention-example.png)
 
 11. Em **escolher tipo de backup inicial** , decida se deseja fazer o backup inicial pela rede ou usar o backup offline (para obter mais informações sobre o backup offline, consulte este [artigo](backup-azure-backup-import-export.md)). Para fazer o backup inicial pela rede, selecione **automaticamente pela rede** e clique em **Avançar**.
 

@@ -6,19 +6,19 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 11/01/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: cc9b11ba5fe0cd015d0879f28b9e85fb46b11955
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: a785ecbfa09c54d3affa97c220d4808f9fe8d90b
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178575"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904457"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contêineres em instâncias de contêiner do Azure
 
-O recurso de nível superior nas instâncias de contêiner do Azure é o *grupo*de contêineres. Este artigo descreve o que são grupos de contêineres e os tipos de cenários que eles habilitam.
+O recurso de nível superior nas instâncias de contêiner do Azure é o *grupo de contêineres*. Este artigo descreve o que são grupos de contêineres e os tipos de cenários que eles habilitam.
 
 ## <a name="how-a-container-group-works"></a>Como um grupo de contêineres funciona
 
@@ -51,15 +51,17 @@ Para preservar a configuração de um grupo de contêineres, você pode exportar
 
 As instâncias de contêiner do Azure alocam recursos como CPUs, memória e, opcionalmente, [GPUs][gpus] (visualização) a um grupo de contêineres adicionando as [solicitações de recurso][resource-requests] das instâncias no grupo. Usando recursos de CPU como exemplo, se você criar um grupo de contêineres com duas instâncias, cada uma solicitando 1 CPU, o grupo de contêineres tem 2 CPUs alocadas.
 
-O máximo de recursos disponíveis para um grupo de contêineres depende da [região do Azure][region-availability] usada para a implantação.
+### <a name="resource-usage-by-instances"></a>Uso de recursos por instâncias
 
-### <a name="container-resource-requests-and-limits"></a>Limites e solicitações de recursos de contêiner
+Cada instância de contêiner é alocada aos recursos especificados em sua solicitação de recurso. No entanto, o uso de recursos por uma instância de contêiner em um grupo depende de como você configura sua propriedade de [limite de recurso][resource-limits] opcional.
 
-* Por padrão, as instâncias de contêiner em um grupo compartilham os recursos solicitados do grupo. Em um grupo com duas instâncias, cada uma solicitando 1 CPU, o grupo como todo tem acesso a duas CPUs. Cada instância pode usar até as duas CPUs e as instâncias podem competir pelo recurso de CPU enquanto estiverem em execução.
+* Se você não especificar um limite de recurso, o uso máximo de recursos da instância será o mesmo que sua solicitação de recurso.
 
-* Para limitar o uso de recursos por uma instância em um grupo, opcionalmente, defina um [limite de recurso][resource-limits] para a instância. Em um grupo com duas instâncias solicitando 1 CPU, um de seus contêineres pode exigir mais CPUs para execução do que o outro.
+* Se você especificar um limite de recurso para uma instância, poderá ajustar o uso de recursos da instância para sua carga de trabalho, reduzindo ou aumentando o uso relativo à solicitação de recurso. O limite máximo de recursos que você pode definir é o total de recursos alocados para o grupo.
+    
+    Por exemplo, em um grupo com duas instâncias solicitando 1 CPU, um de seus contêineres pode executar uma carga de trabalho que exige mais CPUs para execução do que a outra.
 
-  Nesse cenário, você pode definir um limite de recursos de CPU de 0,5 para uma instância e um limite de 2 CPUs para o segundo. Essa configuração limita o uso de recursos do primeiro contêiner a 0,5 de CPU, permitindo que o segundo contêiner use até as 2 CPUs completas, se disponíveis.
+    Nesse cenário, você pode definir um limite de recursos de CPU de 0,5 para uma instância e um limite de 2 CPUs para o segundo. Essa configuração limita o uso de recursos do primeiro contêiner a 0,5 de CPU, permitindo que o segundo contêiner use até as 2 CPUs completas, se disponíveis.
 
 Para obter mais informações, consulte a propriedade [ResourceRequirements][resource-requirements] na API REST dos grupos de contêineres.
 
@@ -75,7 +77,7 @@ Grupos de contêineres compartilham um endereço IP e um namespace de porta ness
 
 Opcionalmente, implante grupos de contêineres em uma [rede virtual do Azure][virtual-network] (versão prévia) para permitir que os contêineres se comuniquem com segurança com outros recursos na rede virtual.
 
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 
 Você pode especificar volumes externos para montar dentro de um grupo de contêineres. Você pode mapear esses volumes em caminhos específicos dentro dos contêineres individuais em um grupo.
 

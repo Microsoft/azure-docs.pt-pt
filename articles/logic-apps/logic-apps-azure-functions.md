@@ -9,12 +9,12 @@ ms.author: estfan
 ms.topic: article
 ms.date: 10/01/2019
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: 275d02219087d07a058f486c263d1886839dd4cf
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 5b946e36c5da9f122adce1f8e3b99523a789a66f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799898"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901095"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Chamar o Azure Functions de aplicativos lógicos do Azure
 
@@ -114,7 +114,7 @@ Antes de criar uma função do Azure a partir de dentro de seu aplicativo lógic
 
    * Entre as etapas existentes no fluxo de trabalho do aplicativo lógico, mova o mouse sobre a seta, selecione o sinal de adição (+) e, em seguida, selecione **Adicionar uma ação**.
 
-1. Na caixa de pesquisa, insira "Azure Functions" como seu filtro. Na lista ações, selecione esta ação: **escolher uma função do Azure**
+1. Na caixa de pesquisa, insira "Azure Functions" como seu filtro. Na lista ações, selecione a ação **escolher uma função do Azure** , por exemplo:
 
    ![Localizar "Azure Functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
@@ -126,24 +126,24 @@ Antes de criar uma função do Azure a partir de dentro de seu aplicativo lógic
 
    1. Na caixa **nome da função** , forneça um nome para a função.
 
-   1. Na caixa **código** , adicione seu código ao modelo de função, incluindo a resposta e a carga que você deseja que sejam retornados ao seu aplicativo lógico após a conclusão da execução da função.
+   1. Na caixa **código** , adicione seu código ao modelo de função, incluindo a resposta e a carga que você deseja que sejam retornados ao seu aplicativo lógico após a conclusão da execução da função. Quando terminar, selecione **Criar**.
 
-      ![Definir sua função](./media/logic-apps-azure-functions/function-definition.png)
+   Por exemplo:
 
-      No código do modelo, o *objeto`context`* refere-se à mensagem que seu aplicativo lógico envia por meio do campo **corpo da solicitação** em uma etapa posterior. Para acessar as propriedades do objeto de `context` de dentro de sua função, use esta sintaxe:
+   ![Definir sua função](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
-      `context.body.<property-name>`
+   No código do modelo, o *objeto`context`* refere-se à mensagem que seu aplicativo lógico envia por meio do campo **corpo da solicitação** em uma etapa posterior. Para acessar as propriedades do objeto de `context` de dentro de sua função, use esta sintaxe:
 
-      Por exemplo, para fazer referência à propriedade `content` dentro do objeto `context`, use esta sintaxe:
+   `context.body.<property-name>`
 
-      `context.body.content`
+   Por exemplo, para fazer referência à propriedade `content` dentro do objeto `context`, use esta sintaxe:
 
-      O código do modelo também inclui uma variável `input`, que armazena o valor do parâmetro `data` para que sua função possa executar operações nesse valor. Dentro das funções JavaScript, a variável `data` também é um atalho para `context.body`.
+   `context.body.content`
 
-      > [!NOTE]
-      > A propriedade `body` aqui se aplica ao objeto `context` e não é igual ao token do **corpo** da saída de uma ação, que você também pode passar para sua função.
+   O código do modelo também inclui uma variável `input`, que armazena o valor do parâmetro `data` para que sua função possa executar operações nesse valor. Dentro das funções JavaScript, a variável `data` também é um atalho para `context.body`.
 
-   1. Quando terminar, selecione **Criar**.
+   > [!NOTE]
+   > A propriedade `body` aqui se aplica ao objeto `context` e não é igual ao token do **corpo** da saída de uma ação, que você também pode passar para sua função.
 
 1. Na caixa **corpo da solicitação** , forneça a entrada da função, que deve ser formatada como um objeto JavaScript Object Notation (JSON).
 
@@ -167,7 +167,7 @@ Para chamar as Azure Functions existentes de seus aplicativos lógicos, você po
 
 1. Na etapa em que você deseja adicionar a função, selecione **nova etapa**.
 
-1. Em **escolher uma ação**, na caixa de pesquisa, insira "Azure Functions" como filtro. Na lista ações, selecione esta ação: **escolher uma função do Azure**
+1. Em **escolher uma ação**, na caixa de pesquisa, insira "Azure Functions" como filtro. Na lista ações, selecione a ação **escolher uma função do Azure** .
 
    ![Localizar "Azure Functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 

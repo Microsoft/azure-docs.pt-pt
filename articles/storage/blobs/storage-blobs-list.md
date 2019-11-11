@@ -1,23 +1,25 @@
 ---
 title: Listar BLOBs com .NET-armazenamento do Azure
-description: Saiba como listar BLOBs em um contêiner em sua conta de armazenamento do Azure usando a biblioteca de cliente .NET.
+description: Saiba como listar BLOBs em um contêiner em sua conta de armazenamento do Azure usando a biblioteca de cliente .NET. Os exemplos de código mostram como listar BLOBs em uma listagem simples ou como listar BLOBs hierarquicamente, como se eles fossem organizados em diretórios ou pastas.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bf9d2d59e993de3807a10a6c39f88b2063024bfc
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4b6dc9d80cfe96e501e575d265b9fa383b1c4d2c
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72599932"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902002"
 ---
 # <a name="list-blobs-with-net"></a>Listar BLOBs com .NET
 
-Ao listar BLOBs do seu código, você pode especificar várias opções para gerenciar como os resultados são retornados do armazenamento do Azure. Este artigo mostra como listar BLOBs usando a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage/client).  
+Ao listar BLOBs do seu código, você pode especificar várias opções para gerenciar como os resultados são retornados do armazenamento do Azure. Você pode especificar o número de resultados a serem retornados em cada conjunto de resultados e, em seguida, recuperar os conjuntos subsequentes. Você pode especificar um prefixo para retornar os BLOBs cujos nomes começam com esse caractere ou cadeia de caracteres. E você pode listar os BLOBs em uma estrutura de listagem simples ou hierarquicamente. Uma listagem hierárquica retorna BLOBs como se elas fossem organizadas em pastas. 
+
+Este artigo mostra como listar BLOBs usando a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage/client).  
 
 ## <a name="understand-blob-listing-options"></a>Entender as opções de listagem de BLOB
 
@@ -53,7 +55,7 @@ Para retornar os metadados de blob com os resultados, especifique o valor de **m
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Listagem simples versus listagem hierárquica
 
-Os BLOBs no armazenamento do Azure são organizados em um paradigma simples, em vez de um paradigma hierárquico (como um sistema de arquivos clássico). No entanto, você pode organizar BLOBs em *diretórios virtuais* para imitar um paradigma hierárquico. Um diretório virtual faz parte do nome do blob que é demarcadas pelo caractere delimitador.
+Os BLOBs no armazenamento do Azure são organizados em um paradigma simples, em vez de um paradigma hierárquico (como um sistema de arquivos clássico). No entanto, você pode organizar BLOBs em *diretórios virtuais* para imitar uma estrutura de pastas. Um diretório virtual faz parte do nome do blob e é indicado pelo caractere delimitador.
 
 Para organizar BLOBs em diretórios virtuais, use um caractere delimitador no nome do blob. O caractere delimitador padrão é uma barra (/), mas você pode especificar qualquer caractere como o delimitador.
 

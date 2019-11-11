@@ -1,6 +1,6 @@
 ---
 title: 'Início rápido: biblioteca de cliente do reconhecedor de formulário para .NET | Microsoft Docs'
-description: Introdução à biblioteca de cliente do reconhecedor de formulário para .NET.
+description: Introdução à biblioteca de cliente do reconhecedor de formulário para .NET para treinar, extrair, analisar e obter a saída de dados estruturados.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: e4e65f38f71b458c34a6747c434ebcd1d8a1b350
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6d360939a0196d7e5dc651ecf9a01ef5cbd2f689
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931579"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904611"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Início rápido: biblioteca de cliente do reconhecedor de formulário para .NET
 
@@ -28,7 +28,7 @@ Use a biblioteca de cliente do formulário Recognizer para .NET para:
 * [Obter uma lista de modelos personalizados](#get-a-list-of-custom-models)
 * [Excluir um modelo personalizado](#delete-a-custom-model)
 
-[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | [pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
+[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | o pacote de | do [código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) [(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/) da biblioteca
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -127,7 +127,7 @@ Antes de definir qualquer método, adicione as definições de variável a segui
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Abaixo do método `Main`, defina a tarefa que é referenciada em `Main`. Aqui, você autenticará o objeto de cliente usando as variáveis de assinatura que você definiu acima. Você definirá os outros métodos posteriormente.
+Abaixo do método `Main`, defina a tarefa que é referenciada no `Main`. Aqui, você autenticará o objeto de cliente usando as variáveis de assinatura que você definiu acima. Você definirá os outros métodos posteriormente.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_maintask)]
 

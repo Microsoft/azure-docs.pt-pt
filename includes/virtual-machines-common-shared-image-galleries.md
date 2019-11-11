@@ -6,14 +6,14 @@ author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 05/06/2019
-ms.author: akjosh; cynthn
+ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 9a564bf7f633903c58a5719327216baee2df6550
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 18c85995c545e1b603333fd6788b70cd863865ce
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026169"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73905020"
 ---
 A Galeria de imagens compartilhadas é um serviço que ajuda você a criar estrutura e organização em suas imagens gerenciadas. As galerias de imagens compartilhadas fornecem:
 
@@ -31,11 +31,12 @@ Se você tiver um grande número de imagens gerenciadas que precisa manter e des
 
 O recurso da Galeria de imagens compartilhadas tem vários tipos de recursos:
 
-| Resource | Descrição|
+| Recurso | Descrição|
 |----------|------------|
-| **Imagem gerenciada** | Uma imagem básica que pode ser usada sozinha ou usada para criar uma **versão de imagem** em uma galeria de imagens. As imagens gerenciadas são criadas a partir de VMs generalizadas. Uma imagem gerenciada é um tipo especial de VHD que pode ser usado para fazer várias VMs e agora pode ser usado para criar versões de imagens compartilhadas. |
+| **Imagem gerenciada** | Uma imagem básica que pode ser usada sozinha ou usada para criar uma **versão de imagem** em uma galeria de imagens. As imagens gerenciadas são criadas a partir de VMs [generalizadas](#generalized-and-specialized-images) . Uma imagem gerenciada é um tipo especial de VHD que pode ser usado para fazer várias VMs e agora pode ser usado para criar versões de imagens compartilhadas. |
+| **Instantânea** | Uma cópia de um VHD que pode ser usado para criar uma **versão de imagem**. Os instantâneos podem ser obtidos de uma VM [especializada](#generalized-and-specialized-images) (uma que não tenha sido generalizada) em seguida, usados sozinhos ou com instantâneos de discos de dados, para criar uma versão de imagem especializada.
 | **Galeria de imagens** | Como o Azure Marketplace, uma **Galeria de imagens** é um repositório para gerenciar e compartilhar imagens, mas você controla quem tem acesso. |
-| **Definição de imagem** | As imagens são definidas em uma galeria e contêm informações sobre a imagem e os requisitos para usá-la em sua organização. Você pode incluir informações como se a imagem é Windows ou Linux, requisitos mínimos e máximos de memória e notas de versão. É uma definição de um tipo de imagem. |
+| **Definição de imagem** | As imagens são definidas em uma galeria e contêm informações sobre a imagem e os requisitos para usá-la em sua organização. Você pode incluir informações como se a imagem é generalizada ou especializada, o sistema operacional, os requisitos mínimos e máximos de memória e notas de versão. É uma definição de um tipo de imagem. |
 | **Versão da imagem** | Uma **versão de imagem** é o que você usa para criar uma VM ao usar uma galeria. Você pode ter várias versões de uma imagem conforme necessário para seu ambiente. Como uma imagem gerenciada, quando você usa uma **versão de imagem** para criar uma VM, a versão da imagem é usada para criar novos discos para a VM. As versões de imagem podem ser usadas várias vezes. |
 
 <br>
@@ -48,17 +49,17 @@ As definições de imagem são um agrupamento lógico de versões de uma imagem.
 
 Há três parâmetros para cada definição de imagem que são usados em combinação- **Publicador**, **oferta** e **SKU**. Eles são usados para localizar uma definição de imagem específica. Você pode ter versões de imagem que compartilham um ou dois, mas não todos os três valores.  Por exemplo, aqui estão três definições de imagem e seus valores:
 
-|Definição da Imagem|Fabricante|Oferta|Sku|
+|Definição da Imagem|Publicador|Oferta|SKU|
 |---|---|---|---|
 |myImage1|Contoso|Finanças|End|
 |myImage2|Contoso|Finanças|Front-end|
-|myImage3|Testes|Finanças|Front-end|
+|myImage3|Testar|Finanças|Front-end|
 
 Todos esses três têm conjuntos de valores exclusivos. O formato é semelhante a como você pode especificar atualmente Publicador, oferta e SKU para [imagens do Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) em Azure PowerShell para obter a versão mais recente de uma imagem do Marketplace. Cada definição de imagem precisa ter um conjunto exclusivo desses valores.
 
 Veja a seguir outros parâmetros que podem ser definidos na definição de imagem para que você possa controlar seus recursos com mais facilidade:
 
-* Estado do sistema operacional – você pode definir o estado do so como generalizado ou especializado, mas só há suporte para generalizado no momento. As imagens devem ser criadas a partir de VMs que foram generalizadas usando o Sysprep para Windows ou `waagent -deprovision` para Linux.
+* Estado do sistema operacional – você pode definir o estado do so como [generalizado ou especializado](#generalized-and-specialized-images).
 * Sistema operacional – pode ser Windows ou Linux.
 * Descrição – use a descrição para fornecer informações mais detalhadas sobre por que a definição da imagem existe. Por exemplo, você pode ter uma definição de imagem para o servidor front-end que tem o aplicativo pré-instalado.
 * EULA – pode ser usado para apontar para um contrato de licença de usuário final específico para a definição de imagem.
@@ -68,21 +69,43 @@ Veja a seguir outros parâmetros que podem ser definidos na definição de image
 * Recomendações de memória e vCPU mínimas e máximas – se sua imagem tiver recomendações de memória e vCPU, você poderá anexar essas informações à definição de imagem.
 * Tipos de disco não permitidos-você pode fornecer informações sobre as necessidades de armazenamento para sua VM. Por exemplo, se a imagem não for adequada para discos HDD padrão, você as adicionará à lista de não permitir.
 
+## <a name="generalized-and-specialized-images"></a>Imagens generalizadas e especializadas
+
+Há dois Estados do sistema operacional com suporte pela galeria de imagens compartilhadas. Normalmente, as imagens exigem que a VM usada para criar a imagem tenha sido generalizada antes de tirar a imagem. Generalizar é um processo que remove informações específicas do computador e do usuário da VM. Para o Windows, o Sysprep também é usado. Para o Linux, você pode usar [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou `-deprovision+user` parâmetros.
+
+VMs especializadas não passaram por um processo para remover informações e contas específicas do computador. Além disso, as VMs criadas a partir de imagens especializadas não têm um `osProfile` associado a elas. Isso significa que imagens especializadas terão algumas limitações.
+
+- As contas que poderiam ser usadas para fazer logon na VM também podem ser usadas em qualquer VM criada usando a imagem especializada que é criada a partir dessa VM.
+- As VMs terão o **nome do computador** da VM da qual a imagem foi obtida. Você deve alterar o nome do computador para evitar colisões.
+- A `osProfile` é como algumas informações confidenciais são passadas para a VM, usando `secrets`. Isso pode causar problemas ao usar o keyvault, o WinRM e outras funcionalidades que usam `secrets` no `osProfile`. Em alguns casos, você pode usar as identidades de serviço gerenciadas (MSI) para contornar essas limitações.
+
+> [!IMPORTANT]
+> As imagens especializadas estão atualmente em visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> **Limitações de visualização conhecidas** As VMs só podem ser criadas a partir de imagens especializadas usando o portal ou a API. O não é um suporte de CLI ou PowerShell para a versão prévia.
+
+
 ## <a name="regional-support"></a>Suporte regional
 
 As regiões de origem são listadas na tabela a seguir. Todas as regiões públicas podem ser regiões de destino, mas para replicação na Austrália Central e na Austrália Central 2, você precisa ter sua assinatura na lista de permissões. Para solicitar a lista de permissões, acesse: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-| Regiões de origem |
-|---------------------|-----------------|------------------|-----------------|
-| Austrália Central   | EUA Central EUAP | Coreia do Sul Central    | EUA Centro-Oeste |
-| Austrália Central 2 | Ásia Oriental       | Coreia do Sul      | Europa Ocidental     |
-| Leste da Austrália      | East US         | EUA Centro-Norte | Oeste da Índia      |
-| Sudeste da Austrália | EUA Leste 2       | Europa do Norte     | EUA Oeste         |
-| Sul do Brasil        | Leste dos EUA 2 EUAP  | EUA Centro-Sul | EUA Oeste 2       |
-| Canadá Central      | França Central  | Sul da Índia      | Leste da China      |
-| Leste do Canadá         | Sul de França    | Sudeste Asiático   | Leste da China 2    |
-| Índia Central       | Leste do Japão      | Reino Unido Sul         | China Norte     |
-| EUA Central          | Oeste do Japão      | Reino Unido Oeste          | Norte da China 2   |
+
+| Regiões de origem        |                   |                    |                    |
+| --------------------- | ----------------- | ------------------ | ------------------ |
+| Austrália Central     | Norte da China        | Sul da Índia        | Europa ocidental        |
+| Austrália Central 2   | Leste da China 2      | Sudeste asiático     | Reino Unido Sul           |
+| Leste da Austrália        | China Norte       | Leste do Japão         | Reino Unido Oeste            |
+| Sudeste da Austrália   | Norte da China 2     | Oeste do Japão         | US DoD Centro     |
+| Sul do Brasil          | Ásia Oriental         | Coreia do Sul Central      | US DoD Leste        |
+| Canadá Central        | EUA Leste           | Coreia do Sul        | Gov (US) - Arizona     |
+| Leste do Canadá           | EUA Leste 2         | EUA Centro-Norte   | Gov (US) - Texas       |
+| Índia Central         | Leste dos EUA 2 EUAP    | Europa do Norte       | Gov (US) - Virginia    |
+| EUA Central            | França Central    | EUA Centro-Sul   | Oeste da Índia         |
+| EUA Central EUAP       | Sul de França      | EUA Centro-Oeste    | EUA Oeste            |
+|                       |                   |                    | EUA Oeste 2          |
+
+
 
 ## <a name="limits"></a>Limites 
 
@@ -120,7 +143,7 @@ As regiões nas quais uma versão de imagem compartilhada é replicada podem ser
 
 ![Gráfico mostrando como você pode replicar imagens](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Access
+## <a name="access"></a>Acesso
 
 Como a Galeria de imagens compartilhadas, a definição de imagem e a versão de imagem são todos os recursos, elas podem ser compartilhadas usando controles nativos do Azure RBAC internos. Usando o RBAC, você pode compartilhar esses recursos para outros usuários, entidades de serviço e grupos. Você pode até compartilhar o acesso a pessoas fora do locatário em que foram criadas. Quando um usuário tem acesso à versão da imagem compartilhada, ele pode implantar uma VM ou um conjunto de dimensionamento de máquinas virtuais.  Aqui está a matriz de compartilhamento que ajuda a entender a que o usuário obtém acesso:
 
@@ -215,17 +238,18 @@ Para listar todos os recursos da Galeria de imagens compartilhadas nas assinatur
  
 Sim. Há três cenários com base nos tipos de imagens que você pode ter.
 
- Cenário 1: Se você tiver uma imagem gerenciada, poderá criar uma definição de imagem e uma versão de imagem a partir dela.
+ Cenário 1: se você tiver uma imagem gerenciada, poderá criar uma definição de imagem e uma versão de imagem a partir dela.
 
- Cenário 2: Se você tiver uma imagem generalizada não gerenciada, poderá criar uma imagem gerenciada a partir dela e, em seguida, criar uma definição de imagem e uma versão de imagem a partir dela. 
+ Cenário 2: se você tiver uma imagem não gerenciada, poderá criar uma imagem gerenciada a partir dela e, em seguida, criar uma definição de imagem e uma versão de imagem a partir dela. 
 
- Cenário 3: Se você tiver um VHD em seu sistema de arquivos local, precisará carregar o VHD, criar uma imagem gerenciada e, em seguida, criar a imagem e a definição da imagem e a versão dela.
-- Se o VHD for de uma VM do Windows, consulte [carregar um VHD generalizado](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+ Cenário 3: se você tiver um VHD em seu sistema de arquivos local, precisará carregar o VHD em uma imagem gerenciada e, em seguida, poderá criar uma definição de imagem e uma versão de imagem a partir dela.
+
+- Se o VHD for de uma VM do Windows, consulte [carregar um VHD](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
 - Se o VHD for para uma VM do Linux, consulte [carregar um VHD](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>Posso criar uma versão de imagem de um disco especializado?
 
-Não, atualmente não damos suporte a discos especializados como imagens. Se você tiver um disco especializado, precisará [criar uma VM do VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) anexando o disco especializado a uma nova VM. Quando tiver uma VM em execução, você precisará seguir as instruções para criar uma imagem gerenciada da VM do [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) ou da VM do [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Depois de ter uma imagem gerenciada generalizada, você pode iniciar o processo para criar uma imagem compartilhada e uma versão de imagem.
+Sim, o suporte para discos especializados como imagens está em versão prévia. Você só pode criar uma VM de uma imagem especializada usando o portal ([Windows](../articles/virtual-machines/linux/shared-images-portal.md) ou [Linux](../articles/virtual-machines/linux/shared-images-portal.md)) e a API. Não há suporte do PowerShell para a versão prévia.
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>Posso mover o recurso da Galeria de imagens compartilhadas para uma assinatura diferente depois que ela tiver sido criada?
 
@@ -235,7 +259,7 @@ Não, você não pode mover o recurso da Galeria de imagens compartilhadas para 
 
 Não, você não pode replicar versões de imagem entre nuvens.
 
-### <a name="can-i-replicate-my-image-versions-across-subscriptions"></a>Posso replicar minhas versões de imagem entre assinaturas? 
+### <a name="can-i-replicate-my-image-versions-across-subscriptions"></a>Posso replicar minhas versões de imagem entre assinaturas?
 
 Não, você pode replicar as versões da imagem entre regiões em uma assinatura e usá-las em outras assinaturas por meio do RBAC.
 
@@ -262,7 +286,7 @@ Há duas maneiras de especificar o número de réplicas de versão da imagem a s
 1. A contagem de réplicas regionais que especifica o número de réplicas que você deseja criar por região. 
 2. A contagem de réplica comum que é a contagem padrão por região em caso de contagem de réplica regional não é especificada. 
 
-Para especificar a contagem de réplica regional, passe o local junto com o número de réplicas que você deseja criar nessa região: "Sul EUA Central = 2". 
+Para especificar a contagem de réplica regional, passe o local junto com o número de réplicas que você deseja criar nessa região: "South EUA Central = 2". 
 
 Se a contagem de réplica regional não for especificada em cada local, o número padrão de réplicas será a contagem de réplicas comum que você especificou. 
 

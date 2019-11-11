@@ -1,45 +1,45 @@
 ---
-title: Aprovisionar um dispositivo X.509 simulado no Hub IoT do Azure com C# | Microsoft Docs
+title: 'Início rápido: provisionar um dispositivo X. 509 simulado para o Hub IoT do Azure usandoC#'
 description: Início Rápido do Azure - criar e aprovisionar um dispositivo X.509 simulado com o SDK de dispositivo C# com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure. Este início rápido utiliza inscrições individuais.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/09/2018
+ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 02054824d62030b96f8353140aa49ee0fa5c2265
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c89b854eb5b87d76a24335e646553bda401f1a3a
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364028"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903525"
 ---
-# <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e aprovisionar um dispositivo X.509 simulado com o SDK de dispositivo C# com o Serviço de Aprovisionamento de Dispositivos no Hub IoT
+# <a name="quickstart-create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Início rápido: criar e provisionar um dispositivo X. 509 C# simulado usando o SDK do dispositivo para o serviço de provisionamento de dispositivos no Hub IOT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-Estes passos mostram-lhe como utilizar o [exemplos de IoT do Azure para o C# ](https://github.com/Azure-Samples/azure-iot-samples-csharp) simular um dispositivo X.509 numa máquina de desenvolvimento que executa o SO Windows. O exemplo também se conecta o dispositivo simulado para um IoT Hub com o serviço de aprovisionamento de dispositivos.
+Estas etapas mostram como usar os exemplos de [IOT do Azure para C# ](https://github.com/Azure-Samples/azure-iot-samples-csharp) para simular um dispositivo X. 509 em um computador de desenvolvimento que executa o sistema operacional Windows. O exemplo também conecta o dispositivo simulado a um hub IoT usando o serviço de provisionamento de dispositivos.
 
 Se não estiver familiarizado com o processo de aprovisionamento automático, reveja também [Conceitos de aprovisionamento automático](concepts-auto-provisioning.md). Certifique-se também de que executa os passos descritos em [Configurar o Serviço de Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md) antes de continuar. 
 
 O Serviço Aprovisionamento de Dispositivos no IoT do Azure suporta dois tipos de inscrição:
-- [Grupos de inscrição](concepts-service.md#enrollment-group): Utilizado para inscrever vários dispositivos relacionados.
-- [Inscrições individuais](concepts-service.md#individual-enrollment): Utilizado para inscrever um dispositivo individual.
+- [Grupos de inscrição](concepts-service.md#enrollment-group): utilizados para inscrever vários dispositivos relacionados.
+- [Inscrições Individuais](concepts-service.md#individual-enrollment): utilizadas para inscrever um dispositivo individual.
 
-Este artigo vai demonstrar as inscrições individuais.
+Este artigo irá demonstrar as inscrições individuais.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento 
 
-1. Certifique-se de que tem o [SDK do .NET Core 2.1 ou posterior](https://www.microsoft.com/net/download/windows) instalado no seu computador. 
+1. Verifique se você tem o [SDK do .NET Core 2,1 ou posterior](https://www.microsoft.com/net/download/windows) instalado em seu computador. 
 
 1. Verifique se `git` está instalado no computador e que é adicionado às variáveis de ambiente às quais a janela de comandos pode aceder. Veja as [ferramentas de cliente Git da Software Freedom Conservancy](https://git-scm.com/download/) relativamente à mais recente versão das ferramentas de `git` a instalar, que incluem o **Git Bash**, a aplicação de linha de comandos que pode utilizar para interagir com o seu repositório Git local. 
 
-1. Abra uma linha de comandos ou o Git Bash. Clone os exemplos de IoT do Azure para C# repositório do GitHub:
+1. Abra uma linha de comandos ou o Git Bash. Clone os exemplos de IoT do C# Azure para o repositório github:
     
     ```cmd
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
@@ -52,7 +52,7 @@ Nesta secção, vai utilizar um certificado X.509 autoassinado e é importante t
 * Os certificados autoassinados são apenas para teste e não devem ser utilizados na produção.
 * A data de expiração predefinida para um certificado autoassinado é de um ano.
 
-Irá utilizar o código de exemplo a partir do [exemplo de aprovisionamento nas cliente de dispositivo - atestado de X.509](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) para criar o certificado a ser utilizado com a entrada de inscrição individual para o dispositivo simulado.
+Você usará o código de exemplo do [cliente de provisionamento amostra-X. 509 atestado](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) para criar o certificado a ser usado com a entrada de registro individual para o dispositivo simulado.
 
 
 1. Numa linha de comandos, altere os diretórios para o diretório de projeto para o exemplo de aprovisionamento de dispositivo X.509.
@@ -91,7 +91,7 @@ Irá utilizar o código de exemplo a partir do [exemplo de aprovisionamento nas 
 
 ## <a name="provision-the-simulated-device"></a>Aprovisionar o dispositivo simulado
 
-1. No painel **Descrição Geral** do seu serviço de aprovisionamento, anote o valor de **_Âmbito do ID_**.
+1. No painel **Descrição Geral** do seu serviço de aprovisionamento, anote o valor de **_Âmbito do ID_** .
 
     ![Extrair informações de ponto final do Serviço Aprovisionamento de Dispositivos do painel do portal](./media/quick-create-simulated-device-x509-csharp/copy-scope.png) 
 

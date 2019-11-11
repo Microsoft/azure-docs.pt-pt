@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/05/2019
+ms.date: 10/31/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e12badd84bd929bdeb7b60ad6e99d6b3169e5022
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e9045fd6c1f5dcc4587b6ff85d567584f02421ba
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150458"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902909"
 ---
 # <a name="logging-in-msal-applications"></a>Registrando em log em aplicativos MSAL
 
@@ -117,14 +117,15 @@ Para desabilitar o registro em log de dados pessoais e dados da organização:
 Logger.getInstance().setEnablePII(false);
 ```
 
-Por padrão, o log em logcat está desabilitado. Para habilitar: 
+Por padrão, o log em logcat está desabilitado. Para habilitar:
+
 ```java
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
 ## <a name="logging-in-msaljs"></a>Registrando em log no MSAL. js
 
- Habilite o registro em log no MSAL. js passando um objeto do agente durante a configuração para criar uma instância de `UserAgentApplication`. Este objeto de agente tem as seguintes propriedades:
+ Habilite o log em MSAL. js (JavaScript) passando um objeto de agente durante a configuração para criar uma instância de `UserAgentApplication`. Este objeto de agente tem as seguintes propriedades:
 
 - `localCallback`: uma instância de retorno de chamada que pode ser fornecida pelo desenvolvedor para consumir e publicar logs de maneira personalizada. Implemente o método localCallback dependendo de como você deseja redirecionar os logs.
 - `level` (opcional): o nível de log configurável. Os níveis de log com suporte são: `Error`, `Warning`, `Info`e `Verbose`. A predefinição é `Info`.
@@ -202,9 +203,9 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 }
 ```
 
-### <a name="personal-identifiable-information-pii"></a>Informações de identificação pessoal (PII)
+### <a name="personal-data"></a>Dados pessoais
 
-Por padrão, o MSAL não captura nem registra nenhuma PII. A biblioteca permite que os desenvolvedores de aplicativos ativem isso por meio de uma propriedade na classe MSALLogger. Ao ativar a PII, o aplicativo assume a responsabilidade por lidar com segurança de dados altamente confidenciais e seguindo os requisitos regulatórios.
+Por padrão, o MSAL não captura nem registra nenhum dado pessoal (PII). A biblioteca permite que os desenvolvedores de aplicativos ativem isso por meio de uma propriedade na classe MSALLogger. Ao ativar `pii.Enabled`, o aplicativo assume a responsabilidade por manipular com segurança dados altamente confidenciais e seguindo os requisitos regulatórios.
 
 Objective-C
 ```objc
@@ -238,7 +239,7 @@ Para definir o nível de log ao fazer logon usando o MSAL para iOS e macOS, use 
 | `MSALLogLevelError` | Nível padrão, imprime informações somente quando ocorrem erros |
 | `MSALLogLevelWarning` | :| |
 | `MSALLogLevelInfo` |  Pontos de entrada de biblioteca, com parâmetros e várias operações de conjunto de chaves |
-|`MSALLogLevelVerbose`     |  Rastreio da API       |
+|`MSALLogLevelVerbose`     |  Rastreio da API |
 
 Por exemplo:
 
@@ -261,3 +262,51 @@ Por exemplo:
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
 Fornecer IDs de correlação e carimbos de data/hora é útil para rastrear problemas. As informações de carimbo de data e hora e ID de correlação estão disponíveis na mensagem de log. O único local confiável para recuperá-los é de mensagens de registro em log do MSAL.
+
+## <a name="logging-in-msal-for-java"></a>Registrando em MSAL para Java
+
+O MSAL para Java (MSAL4J) permite que você use a biblioteca de registro em log que você já está usando com seu aplicativo, desde que seja compatível com SLF4J. O MSAL4j usa o [fachada de log simples para Java](http://www.slf4j.org/) (SLF4J) como uma fachada ou abstração simples para várias estruturas de log, como [Java. util. Logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) e [Log4J](https://logging.apache.org/log4j/2.x/). O SLF4J permite que o usuário final Conecte a estrutura de registro em log desejada no momento da implantação.
+
+Por exemplo, para usar Logback como a estrutura de log em seu aplicativo, adicione a dependência Logback ao arquivo Maven POM para seu aplicativo:
+
+```xml
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+</dependency>
+```
+
+Em seguida, adicione o arquivo de configuração Logback:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+</configuration>
+```
+
+O SLF4J é automaticamente associado ao Logback no momento da implantação. Os logs do MSAL serão gravados no console do.
+
+Para obter instruções sobre como associar a outras estruturas de registro em log, consulte o [manual SLF4J](http://www.slf4j.org/manual.html).
+
+### <a name="personal-and-organization-information"></a>Informações pessoais e da organização
+
+Por padrão, o log do MSAL não captura nem registra dados pessoais ou organizacionais. No exemplo a seguir, os dados de log pessoal ou organizacional estão desativados por padrão:
+
+```java
+    PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+            .authority(AUTHORITY)
+            .build();
+```
+
+Ative o log de dados pessoais e organizacionais definindo `logPii()` no construtor de aplicativos cliente. Se você ativar o registro em log de dados pessoais ou organizacionais, seu aplicativo deverá assumir a responsabilidade de lidar com segurança dados altamente confidenciais e obedecer a quaisquer requisitos regulatórios.
+
+No exemplo a seguir, os dados de log pessoal ou organizacional estão habilitados:
+
+```java
+PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+        .authority(AUTHORITY)
+        .logPii(true)
+        .build();
+```

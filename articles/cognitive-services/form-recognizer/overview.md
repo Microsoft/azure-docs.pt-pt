@@ -1,7 +1,7 @@
 ---
 title: O que é o Reconhecedor de Formato?
 titleSuffix: Azure Cognitive Services
-description: Saiba como usar o reconhecedor de formulário para analisar dados de formulário e tabela.
+description: O reconhecedor de formulário de serviços cognitivas do Azure permite que você identifique e extraia pares de chave/valor e dados de tabela de documentos de formulário.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: b07201556f08bde4ef8c7a7904c6619a126d7765
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 86e0494ded84e9711b2283ae5fad77ff626cf792
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594552"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904490"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 
@@ -51,17 +51,17 @@ Os requisitos de entrada para o modelo de recebimento são um pouco diferentes.
 
 ## <a name="request-access"></a>Pedir acesso
 
-O reconhecedor de formulário está disponível em uma versão prévia de acesso limitado. Para obter acesso à visualização, preencha e envie o formulário [solicitação de acesso](https://aka.ms/FormRecognizerRequestAccess) do reconhecedor de formulário. O formulário solicita informações sobre você, sua empresa e o cenário de usuário para o qual você usará o reconhecedor de formulário. Se sua solicitação for aprovada pela equipe de serviços cognitivas do Azure, você receberá um email com instruções para acessar o serviço.
+O reconhecedor de formulário está disponível em uma versão prévia de acesso limitado. Para obter acesso à visualização, preencha e envie o formulário [solicitação de acesso do reconhecedor de formulário](https://aka.ms/FormRecognizerRequestAccess) . O formulário solicita informações sobre você, sua empresa e o cenário de usuário para o qual você usará o reconhecedor de formulário. Se sua solicitação for aprovada pela equipe de serviços cognitivas do Azure, você receberá um email com instruções para acessar o serviço.
 
 ## <a name="where-do-i-start"></a>Por onde devo começar?
 
 **Etapa 1:** Crie um recurso de reconhecimento de formulário no portal do Azure.
 
 **Etapa 2:** Siga um guia de início rápido para usar a API REST:
-* [Quickstart: Treinar um modelo de reconhecimento de formulário e extrair dados de formulário usando a API REST com ondulação](quickstarts/curl-train-extract.md)
-* [Quickstart: Treinar um modelo de reconhecimento de formulário e extrair dados de formulário usando a API REST com Python](quickstarts/python-train-extract.md)
-* [Quickstart: Extrair dados de recibo usando ondulação](quickstarts/curl-receipts.md)
-* [Quickstart: Extrair dados de recebimento usando o Python](quickstarts/python-receipts.md)
+* [Início rápido: treinar um modelo de reconhecimento de formulário e extrair dados de formulário usando a API REST com ondulação](quickstarts/curl-train-extract.md)
+* [Início rápido: treinar um modelo de reconhecimento de formulário e extrair dados de formulário usando a API REST com Python](quickstarts/python-train-extract.md)
+* [Início rápido: extrair dados de recebimento usando ondulação](quickstarts/curl-receipts.md)
+* [Início rápido: extrair dados de recebimento usando o Python](quickstarts/python-receipts.md)
 
 Recomendamos que você use o serviço gratuito quando estiver aprendendo a tecnologia. Tenha em mente que o número de páginas livres é limitado a 500 por mês.
 
@@ -83,4 +83,4 @@ Esse serviço é oferecido como uma [Visualização](https://azure.microsoft.com
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Conclua um guia de [início rápido](quickstarts/curl-train-extract.md) para começar a usar as APIs do reconhecedor de [formulário](https://aka.ms/form-recognizer/api).
+Conclua um guia de [início rápido](quickstarts/curl-train-extract.md) para começar a usar as [APIs do reconhecedor de formulário](https://aka.ms/form-recognizer/api).

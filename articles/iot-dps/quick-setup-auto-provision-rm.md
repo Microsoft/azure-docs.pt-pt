@@ -1,22 +1,22 @@
 ---
-title: Configurar o Aprovisionamento de Dispositivos com um modelo do Azure Resource Manager | Microsoft Docs
+title: 'Início rápido: configurar o provisionamento de dispositivos usando um modelo de Azure Resource Manager'
 description: Início Rápido do Azure - Configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure com um modelo
 author: wesmc7777
 ms.author: wesmc
-ms.date: 06/18/2018
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3360bfa7eed15f72fb78f698e837d887e9c8aa85
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: fdc75424c5c99e80c13ac086229da93411e3ce83
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126482"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903372"
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT com um modelo do Azure Resource Manager
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Início rápido: configurar o serviço de provisionamento de dispositivos no Hub IoT com um modelo de Azure Resource Manager
 
 Pode utilizar o [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para configurar programaticamente os recursos de cloud do Azure necessários para aprovisionar os seus dispositivos. Estes passos mostram como criar um hub IoT, um Serviço Aprovisionamento de Dispositivos no Hub IoT novo e associar ambos os serviços com um modelo do Azure Resource Manager. Este Início Rápido utiliza a [CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) para realizar programaticamente os passos necessários para criar um grupo de recursos e implementar o modelo, mas pode utilizar, de forma fácil, o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby ou outra linguagem de programação para realizá-los e implementar o modelo. 
 
@@ -31,7 +31,7 @@ Pode utilizar o [Azure Resource Manager](https://docs.microsoft.com/azure/azure-
 
 Inicie sessão na sua conta do Azure e selecione a sua subscrição.
 
-1. Na linha de comandos, execute o [comando login][lnk-login-command]:
+1. No prompt de comando, execute o [comando de logon][lnk-login-command]:
     
     ```azurecli
     az login
@@ -39,7 +39,7 @@ Inicie sessão na sua conta do Azure e selecione a sua subscrição.
 
     Siga as instruções para se autenticar com o código e inicie sessão na sua conta do Azure através de um browser.
 
-2. Se tiver várias subscrições do Azure, iniciar sessão no Azure dá-lhe acesso a todas as contas do Azure associadas às suas credenciais. Utilize o comando [ para listar as contas do Azure][lnk-az-account-command] disponíveis e que pode utilizar:
+2. Se tiver várias subscrições do Azure, iniciar sessão no Azure dá-lhe acesso a todas as contas do Azure associadas às suas credenciais. Use o seguinte [comando para listar as contas do Azure][lnk-az-account-command] disponíveis para uso:
     
     ```azurecli
     az account list 
@@ -51,7 +51,7 @@ Inicie sessão na sua conta do Azure e selecione a sua subscrição.
     az account set --subscription {your subscription name or id}
     ```
 
-3. Quando cria recursos de cloud do Azure, como os hubs IoT e os serviços de aprovisionamento, cria-os em grupos de recursos separados. Utilize um grupo de recursos existente ou execute o comando [ para criar um grupo de recursos][lnk-az-resource-command]:
+3. Quando cria recursos de cloud do Azure, como os hubs IoT e os serviços de aprovisionamento, cria-os em grupos de recursos separados. Use um grupo de recursos existente ou execute o seguinte [comando para criar um grupo de recursos][lnk-az-resource-command]:
     
     ```azurecli
      az group create --name {your resource group name} --location westus
@@ -321,7 +321,7 @@ Utilize os seguintes comandos da CLI do Azure para implementar os modelos e veri
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Outros Guias de Introdução desta coleção têm por base este Guia de Introdução. Se pretender continuar a trabalhar com Inícios Rápidos subsequentes ou com os tutoriais, não limpe os recursos criados neste Início Rápido. Se não pretender continuar, pode utilizar a CLI do Azure para [eliminar um recurso individual][lnk-az-resource-command], como um hub IoT ou um serviço de aprovisionamento, ou para eliminar um grupo de recursos e todos os respetivos recursos.
+Outros Guias de Introdução desta coleção têm por base este Guia de Introdução. Se pretender continuar a trabalhar com Inícios Rápidos subsequentes ou com os tutoriais, não limpe os recursos criados neste Início Rápido. Se você não planeja continuar, pode usar o CLI do Azure para [excluir um recurso individual][lnk-az-resource-command], como um hub IOT ou um serviço de provisionamento, ou para excluir um grupo de recursos e todos os seus recursos.
 
 Para eliminar o serviço de aprovisionamento, execute o seguinte comando:
 
@@ -342,7 +342,7 @@ az group delete --name {your resource group name}
 
 Também pode eliminar grupos de recursos e recursos individuais através do portal do Azure, do PowerShell, das APIs REST ou dos SDKs de plataforma suportados e publicados para o Azure Resource Manager ou o Serviço de Aprovisionamento de Dispositivos no Hub IoT.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste Início Rápido, implementou um hub do IoT e uma instância do Serviço Aprovisionamento de Dispositivos e ligou ambos os recursos. Para saber como utilizar esta configuração para aprovisionar um dispositivo simulado, avance para o Início Rápido para a criação de dispositivos simulados.
 

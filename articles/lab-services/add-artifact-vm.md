@@ -1,6 +1,6 @@
 ---
-title: Adicionar um artefato a uma VM no Azure DevTest Labs | Documentos da Microsoft
-description: Saiba como adicionar um artefato a uma máquina virtual num laboratório no Azure DevTest Labs
+title: Adicionar um artefato a uma VM no Azure DevTest Labs | Microsoft Docs
+description: Saiba como adicionar um artefato a uma máquina virtual em um laboratório no Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: spelluru
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 19a7d6052091f8889a88c61793186b7bf7d9d869
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27fec279582d845972b87ac635c87c16c239924e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60304292"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901311"
 ---
-# <a name="add-an-artifact-to-a-vm"></a>Adicionar um artefato a uma VM
-Ao criar uma VM, pode adicionar os artefactos existentes ao mesmo. Estes artefactos podem ser de qualquer um a [repositório de Git de laboratórios DevTest público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ou a partir do seu próprio repositório de Git. Este artigo mostra-lhe como adicionar os artefactos no portal do Azure e com o Azure PowerShell. 
+# <a name="add-an-artifact-to-a-vm"></a>Adicionar um artefacto a uma VM
+Ao criar uma VM, você pode adicionar artefatos existentes a ela. Esses artefatos podem ser do [repositório do git do DevTest Labs público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ou de seu próprio repositório git. Este artigo mostra como adicionar artefatos no portal do Azure e usando Azure PowerShell. 
 
-O Azure DevTest Labs *artefactos* permitem-lhe especificar *ações* que são executadas quando a VM está aprovisionada, como executar scripts do Windows PowerShell, executar os comandos de Bash e instalação de software. Artefactos *parâmetros* permitem-lhe personalizar o artefacto para o seu cenário.
+Os *artefatos* Azure DevTest Labs permitem especificar *ações* que são executadas quando a VM é provisionada, como executar scripts do Windows PowerShell, executar comandos bash e instalar software. Os *parâmetros* de artefato permitem que você personalize o artefato para seu cenário específico.
 
-Para saber mais sobre como criar artefactos personalizados, consulte o artigo: [Criar artefactos personalizados](devtest-lab-artifact-author.md).
+Para saber mais sobre como criar artefatos personalizados, consulte o artigo: [criar artefatos personalizados](devtest-lab-artifact-author.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure 
-1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
-1. Na lista de laboratórios, selecione o laboratório que contém a VM com a qual pretende trabalhar.  
+1. Iniciar sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** na lista.
+1. Na lista de laboratórios, selecione o laboratório que contém a VM com a qual você deseja trabalhar.  
 1. Selecione **minhas máquinas virtuais**.
-1. Selecione a VM pretendida.
-1. Selecione **gerir artefactos**. 
-1. Selecione **aplicam-se de artefactos**.
-1. Sobre o **aplicam-se de artefactos** painel, selecione o artefacto que pretende adicionar à VM.
-1. Sobre o **adicionar artefacto** painel, introduza os valores dos parâmetros necessários e quaisquer parâmetros opcionais que precisa.  
-1. Selecione **Add** para adicionar o artefacto e voltar para o **aplicam-se de artefactos** painel.
-1. Continue a adicionar os artefactos conforme necessário para a sua VM.
-1. Depois de adicionar os artefactos, pode [alterar a ordem na qual são executados os artefactos](#change-the-order-in-which-artifacts-are-run). Também pode aceder novamente à [ver ou modificar um artefato](#view-or-modify-an-artifact).
-1. Quando tiver terminado a adição de artefatos, selecione **aplicar**
+1. Selecione a VM desejada.
+1. Selecione **gerenciar artefatos**. 
+1. Selecione **aplicar artefatos**.
+1. No painel **aplicar artefatos** , selecione o artefato que você deseja adicionar à VM.
+1. No painel **Adicionar artefato** , insira os valores de parâmetro necessários e os parâmetros opcionais necessários.  
+1. Selecione **Adicionar** para adicionar o artefato e retornar ao painel **aplicar artefatos** .
+1. Continue adicionando artefatos conforme necessário para sua VM.
+1. Depois de adicionar seus artefatos, você pode [alterar a ordem na qual os artefatos são executados](#change-the-order-in-which-artifacts-are-run). Você também pode voltar para [Exibir ou modificar um artefato](#view-or-modify-an-artifact).
+1. Quando você terminar de adicionar artefatos, selecione **aplicar**
 
-### <a name="change-the-order-in-which-artifacts-are-run"></a>Alterar a ordem na qual são executados os artefactos
-Por predefinição, as ações dos artefactos são executadas na ordem em que são adicionados à VM. Os passos seguintes mostram como alterar a ordem na qual são executados os artefactos.
+### <a name="change-the-order-in-which-artifacts-are-run"></a>Alterar a ordem na qual os artefatos são executados
+Por padrão, as ações dos artefatos são executadas na ordem em que são adicionadas à VM. As etapas a seguir ilustram como alterar a ordem na qual os artefatos são executados.
 
-1. Na parte superior a **aplicam-se de artefactos** painel, selecione a ligação que indica o número de artefactos que foram adicionados à VM.
+1. Na parte superior do painel **aplicar artefatos** , selecione o link que indica o número de artefatos que foram adicionados à VM.
    
-    ![Número de artefactos adicionado à VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. Sobre o **selecionado artefactos** painel, arraste e largue os artefactos para a ordem pretendida. Se tiver problemas ao arrastar o artefacto, certifique-se de que está sendo arrastado do lado esquerdo do artefacto. 
+    ![Número de artefatos adicionados à VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+1. No painel **artefatos selecionados** , arraste e solte os artefatos na ordem desejada. Se você tiver problemas ao arrastar o artefato, certifique-se de que você está arrastando do lado esquerdo do artefato. 
 1. Selecione **OK** quando terminar.  
 
-### <a name="view-or-modify-an-artifact"></a>Ver ou modificar um artefacto
-Os passos seguintes mostram como ver ou modificar os parâmetros de um artefato:
+### <a name="view-or-modify-an-artifact"></a>Exibir ou modificar um artefato
+As etapas a seguir ilustram como exibir ou modificar os parâmetros de um artefato:
 
-1. Na parte superior a **aplicam-se de artefactos** painel, selecione a ligação que indica o número de artefactos que foram adicionados à VM.
+1. Na parte superior do painel **aplicar artefatos** , selecione o link que indica o número de artefatos que foram adicionados à VM.
    
-    ![Número de artefactos adicionado à VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. Sobre o **selecionado artefactos** painel, selecione o artefacto que pretende visualizar ou editar.  
-1. Sobre o **adicionar artefacto** painel, faça qualquer necessárias alterações e selecione **OK** para fechar o **adicionar artefacto** painel.
-1. Selecione **OK** para fechar a **selecionado artefactos** painel.
+    ![Número de artefatos adicionados à VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+1. No painel **artefatos selecionados** , selecione o artefato que você deseja exibir ou editar.  
+1. No painel **Adicionar artefato** , faça as alterações necessárias e selecione **OK** para fechar o painel **Adicionar artefato** .
+1. Selecione **OK** para fechar o painel **artefatos selecionados** .
 
 ## <a name="use-powershell"></a>Utilizar o PowerShell
-O script seguinte aplica-se o artefacto especificado para a VM especificada. O [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) comando é aquele que executa a operação.  
+O script a seguir aplica o artefato especificado à VM especificada. O comando [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) é aquele que executa a operação.  
 
 ```powershell
 #Requires -Module Az.Resources
@@ -90,7 +90,7 @@ param
 Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
  
 # Get the lab resource group name
-$resourceGroupName = (Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $DevTestLabName}).ResourceGroupName
+$resourceGroupName = (Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $DevTestLabName}).ResourceGroupName
 if ($resourceGroupName -eq $null) { throw "Unable to find lab $DevTestLabName in subscription $SubscriptionId." }
 
 # Get the internal repo name
@@ -163,10 +163,10 @@ if ($virtualMachine -ne $null) {
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos sobre artefatos:
 
-- [Especifique os artefactos obrigatórios para o laboratório](devtest-lab-mandatory-artifacts.md)
+- [Especificar artefatos obrigatórios para seu laboratório](devtest-lab-mandatory-artifacts.md)
 - [Criar artefacto personalizado](devtest-lab-artifact-author.md)
-- [Adicionar um repositório de artefactos a um laboratório](devtest-lab-artifact-author.md)
+- [Adicionar um repositório de artefatos a um laboratório](devtest-lab-artifact-author.md)
 - [Diagnosticar falhas de artefactos](devtest-lab-troubleshoot-artifact-failure.md)

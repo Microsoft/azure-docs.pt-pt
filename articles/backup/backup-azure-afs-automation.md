@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: dacurwin
 ms.reviewer: pullabhk
-ms.openlocfilehash: 491e27f85d00ce512995a63e43b9e248798e5d0f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 4642549dcdd455c97ea3e8fd8a8b5440779b923c
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747624"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903618"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Fazer backup e restaurar arquivos do Azure com o PowerShell
 
@@ -276,7 +276,7 @@ Os instantâneos de compartilhamento de arquivos do Azure são usados enquanto o
 
 ### <a name="using-on-demand-backups-to-extend-retention"></a>Usando backups sob demanda para estender a retenção
 
-Backups sob demanda podem ser usados para manter seus instantâneos por 10 anos. Os agendadores podem ser usados para executar scripts do PowerShell sob demanda com retenção escolhida e, portanto, tirar instantâneos em intervalos regulares a cada semana, mês ou ano. Ao fazer instantâneos regulares, consulte as [limitações de backups sob demanda](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share-) usando o backup do Azure.
+Backups sob demanda podem ser usados para manter seus instantâneos por 10 anos. Os agendadores podem ser usados para executar scripts do PowerShell sob demanda com retenção escolhida e, portanto, tirar instantâneos em intervalos regulares a cada semana, mês ou ano. Ao fazer instantâneos regulares, consulte as [limitações de backups sob demanda](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) usando o backup do Azure.
 
 Se você estiver procurando scripts de exemplo, poderá consultar o script de exemplo no GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup)> usando o runbook de automação do Azure que permite agendar backups periodicamente e mantê-los até 10 anos.
 

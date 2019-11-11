@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: twhitney
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c5d3941cec7554152090c68bc1dc95f29ca9f17
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8fee5d20bd831b9278f041753a9d40820b3e295e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882872"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902930"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android
 
@@ -109,8 +109,8 @@ Os aplicativos devem ser representados por um objeto de aplicativo no Azure Acti
 >             note that the leading &quot;/&quot; is required for android:path
 >         --&gt;
 >         &lt;data android:scheme=&quot;msauth&quot;
->             android:host=&quot;Enter_the_Package_Name_Here&quot;
->             android:path=&quot;Enter_the_Signature_Hash_Here&quot;
+>             android:host=&quot;Enter_the_Package_Name&quot;
+>             android:path=&quot;Enter_the_Signature_Hash&quot;
 >             android:scheme = &quot;msauth&quot; /&gt;
 >     &lt;/intent-filter&gt;
 > &lt;/activity&gt;
