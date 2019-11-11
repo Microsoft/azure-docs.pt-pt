@@ -1,7 +1,7 @@
 ---
 title: Fontes de dados com suporte-QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker extrai automaticamente pares de respostas de perguntas de conteúdo semiestruturado, como perguntas frequentes, manuais de produto, diretrizes, documentos de suporte e políticas armazenadas como páginas da Web, arquivos PDF ou arquivos de documento do MS Word. O conteúdo também pode ser adicionado à base de dados de conhecimento de arquivos de conteúdo de QnA estruturados.
+description: QnA Maker extrai automaticamente os pares de resposta de pergunta armazenados como páginas da Web, arquivos PDF ou arquivos de documento MS Word ou arquivos de conteúdo QnA estruturados.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 39746032fd012de8e0868c3bc7f810cd8e780b68
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: a1fcc1bec5db3ad64dc045cf5e1a449fce808132
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176369"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721221"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Fontes de dados para conteúdo de QnA Maker
 
@@ -29,7 +29,7 @@ A tabela a seguir resume os tipos de conteúdo e formatos de arquivo com suporte
 
 |Tipo de Fonte|Tipo de conteúdo| Exemplos|
 |--|--|--|
-|URL|FAQ<br> (Simples, com seções ou com uma home page de tópicos)<br>Páginas de suporte <br> (Artigos de instruções de página única, artigos de solução de problemas etc.)|[Perguntas frequentes simples](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Perguntas frequentes com links](https://www.microsoft.com/en-us/software-download/faq),<br> [Página de perguntas frequentes com tópicos](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Artigo de suporte](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|do IdP|Perguntas mais frequentes<br> (Simples, com seções ou com uma home page de tópicos)<br>Páginas de suporte <br> (Artigos de instruções de página única, artigos de solução de problemas etc.)|[Perguntas frequentes simples](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Perguntas frequentes com links](https://www.microsoft.com/en-us/software-download/faq),<br> [Página de perguntas frequentes com tópicos](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Artigo de suporte](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
 |PDF/DOC|FAQs<br> Manual do produto,<br> folhetos<br> Documentos<br> Política de panfleto,<br> Guia de suporte,<br> QnA estruturado,<br> diante.|[Estruturado QnA. doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Manual de produto de exemplo. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Exemplo de semi-Structured. doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exemplo White Paper. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br>[Exemplo de multi-Turn. docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)|
 |\* Excel|Arquivo QnA estruturado<br> (incluindo RTF, suporte a HTML)|[Exemplo de perguntas frequentes do QnA. xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |\* TXT/TSV|Arquivo QnA estruturado|[Exemplo de Chit-Chat. tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
@@ -190,7 +190,7 @@ Se você adicionar ou editar seu conteúdo diretamente na sua base de dados de c
 
 A seguir está a lista de formatos de redução que você pode usar em QnA Maker: 
 
-|Finalidade|Formato|Redução de exemplo|Composição<br>conforme exibido no bot de chat|
+|Objetivo|Formato|Redução de exemplo|Composição<br>conforme exibido no bot de chat|
 |--|--|--|--|
 Uma nova linha entre duas frases.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![Formatar nova linha entre duas frases](../media/qnamaker-concepts-datasources/format-newline.png)|
 |Cabeçalhos de H1 a H6, o número de `#` denota qual cabeçalho. 1 `#` é o H1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![Formatar com cabeçalhos de redução](../media/qnamaker-concepts-datasources/format-headers.png)<br>![Formatar com cabeçalhos de redução H1 a H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
@@ -239,6 +239,6 @@ O controle de versão para dados é fornecido por meio do [recurso de importaç�
 > [!div class="nextstepaction"]
 > [Configurar um serviço de QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
 
-## <a name="see-also"></a>Ver também 
+## <a name="see-also"></a>Consultar também 
 
 [Descrição geral do Criador de FAQ](../Overview/overview.md)

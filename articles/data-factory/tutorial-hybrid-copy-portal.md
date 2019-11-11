@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do SQL Server para o Armazenamento de Blobs com o Azure Data Factory | Microsoft Docs
+title: Copiar dados de SQL Server para o armazenamento de BLOBs usando Azure Data Factory
 description: Saiba como copiar dados de um arquivo de dados no local para a cloud mediante a utilização de um runtime de integração autoalojado no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: abnarain
-ms.openlocfilehash: c86f5f053c285b099b7c3575c890b108f2de8742
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 09768e3b9bd1c2e6c9d4a5dbe95bb270b07266c0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140679"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683528"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure
 Neste tutorial, vai utilizar a interface de utilizador (IU) do Azure Data Factory para criar um pipeline de fábrica de dados que copia dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure. Vai criar e utilizar um runtime de integração autoalojado, que move dados entre arquivos de dados no local e na cloud.
@@ -89,7 +89,7 @@ Utilize o nome e a chave da sua conta de armazenamento neste tutorial. Para obte
 1. Nas caixas **Nome da conta de armazenamento** e **key1**, copie os valores e cole-os no Bloco de notas ou noutro editor, para utilizar mais adiante no tutorial. 
 
 #### <a name="create-the-adftutorial-container"></a>Criar o contentor adftutorial 
-Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no seu Armazenamento de blobs. 
+Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no seu armazenamento de Blobs. 
 
 1. Na janela **Conta de armazenamento**, vá para **Descrição Geral** e selecione **Blobs**. 
 
@@ -101,13 +101,13 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. Na lista de contentores, clique em **adftutorial**.
 
-1. Mantenha a janela do **contentor** de **adftutorial** aberta. Vai utilizá-la para verificar o resultado no final deste tutorial. O Data Factory cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
+1. Mantenha a janela do **contentor** de **adftutorial** aberta. Vai utilizá-la para verificar o resultado no final deste tutorial. O Data Fabric cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 Neste passo, vai criar uma fábrica de dados e iniciar a IU do Data Factory para criar um pipeline na fábrica de dados. 
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. No menu à esquerda, selecione **criar um recurso** > **análise** > **Data Factory**:
+1. No menu à esquerda, selecione **criar um recurso** > **Analytics** > **Data Factory**:
    
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -227,7 +227,7 @@ Selecione **Adicionar gatilho** na barra de ferramentas para o pipeline e, em se
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorizar a execução do pipeline.
 
-1. Vá para o separador **Monitorizar**. Verá o pipeline que acionou manualmente no passo anterior. 
+1. Vá para a guia **Monitor** . Você verá o pipeline que você disparou manualmente na etapa anterior. 
 
     ![Monitorizar execuções de pipeline](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
 1. Para ver as execuções de atividade associadas à execução do pipeline, selecione a ligação **Ver Execuções de Atividade** na coluna **Ações**. Você vê apenas execuções de atividade porque há apenas uma atividade no pipeline. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos), na coluna **Ações**. Para voltar para a exibição execuções de pipeline, selecione **pipeline é executado** na parte superior.
@@ -236,7 +236,7 @@ Selecione **Adicionar gatilho** na barra de ferramentas para o pipeline e, em se
 O pipeline cria automaticamente a pasta de saída com o nome *fromonprem* no contentor de blobs `adftutorial`. Confirme que consegue ver o ficheiro *[pipeline().RunId].txt* na pasta de saída. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 O pipeline neste exemplo copia dados de uma localização para outra localização no amazenamento de Blobs. Aprendeu a:
 
 > [!div class="checklist"]

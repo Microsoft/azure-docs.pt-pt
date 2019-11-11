@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/01/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 64af398ec4829a0336294b33fef102392b9a4099
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 6549cf030772d805b063510b9931968027639511
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163871"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583129"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapeamento de recomendação da amostra Blueprint de benchmark do Microsoft Azure Foundations do CIS
 
@@ -356,11 +356,11 @@ Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você examinou o mapeamento de controle do plano de referência do CIS Microsoft Azure Foundations, visite o seguinte artigo para saber mais sobre o plano gráfico ou visite Azure Policy no portal do Azure para atribuir a iniciativa:
+Agora que você analisou o mapeamento de controle do plano de referência do CIS Microsoft Azure Foundations, visite os artigos a seguir para saber mais sobre o plano gráfico ou visite Azure Policy no portal do Azure para atribuir a iniciativa:
 
 > [!div class="nextstepaction"]
-> [Plano de referência do CIS Microsoft Azure Foundations Blueprint-visão geral](./index.md)
-> [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions)
+> [Cis Microsoft Azure Foundations plano de referência Blueprint-visão geral](./index.md)
+> [cis Microsoft Azure fundamentos de benchmark-etapas de implantação](./deploy.md)
 
 Artigos adicionais sobre plantas e como usá-los:
 

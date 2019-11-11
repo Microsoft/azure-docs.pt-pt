@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cf48426f14eb1ea5004b23da594194fa9828a112
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.openlocfilehash: 8945ccef1dd44570f4f59c7c91c2fe05b222c5bb
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303452"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576928"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Procurar pontos de interesse nas proximidades com o Azure Maps
 
@@ -30,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
@@ -70,7 +70,7 @@ Depois de a sua conta do Maps ser criada com êxito, obtenha a chave que lhe per
 A API de Controlo de Mapas é uma biblioteca de cliente prática que lhe permite integrar facilmente o Maps na sua aplicação Web. Oculta a complexidade das chamadas de serviço REST bare e aumenta a produtividade com componentes personalizáveis, cujo estilo pode ser definido. Os passos seguintes mostram como criar uma página HTML estática incorporada com a API de Controlo de Mapas.
 
 1. No seu computador local, crie um novo ficheiro e dê-lhe o nome **MapSearch.html**.
-2. Adicione os seguintes componentes de HTML ao ficheiro:
+2. Adicione os seguintes componentes HTML ao ficheiro:
 
    ```HTML
     <!DOCTYPE html>
@@ -161,7 +161,7 @@ A API de Controlo de Mapas é uma biblioteca de cliente prática que lhe permite
     });
     ```
 
-   Nesse segmento de código, um evento `ready` é adicionado ao mapa, que será acionado quando os recursos de mapa tiverem sido carregados e o mapa estiver pronto para ser acessado. No manipulador de eventos MAP `ready`, uma fonte de dados é criada para armazenar dados de resultado. É criada e anexada uma camada de símbolo à origem de dados. Esta camada especifica como os dados de resultado na origem de dados devem ser compostos, neste caso com um ícone de pino redondo azul escuro centrado sobre a coordenada de resultados e que permite que outros ícones se sobreponham. A camada de resultado é adicionada às camadas do mapa.
+   Nesse segmento de código, um evento `ready` é adicionado ao mapa, que será acionado quando os recursos de mapa tiverem sido carregados e o mapa estiver pronto para ser acessado. No manipulador de eventos de `ready` de mapa, uma fonte de dados é criada para armazenar dados de resultado. É criada e anexada uma camada de símbolo à origem de dados. Esta camada especifica como os dados de resultado na origem de dados devem ser compostos, neste caso com um ícone de pino redondo azul escuro centrado sobre a coordenada de resultados e que permite que outros ícones se sobreponham. A camada de resultado é adicionada às camadas do mapa.
 
 <a id="usesearch"></a>
 
@@ -171,7 +171,7 @@ Esta seção mostra como usar a API de [pesquisa](https://docs.microsoft.com/res
 
 ### <a name="service-module"></a>Módulo Serviço
 
-1. No manipulador de eventos MAP `ready`, construa a URL do serviço de pesquisa adicionando o código JavaScript a seguir.
+1. No `ready` do manipulador de eventos do MAP, construa a URL do serviço de pesquisa adicionando o código JavaScript a seguir.
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key
@@ -184,7 +184,7 @@ Esta seção mostra como usar a API de [pesquisa](https://docs.microsoft.com/res
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   O `SubscriptionKeyCredential` cria um `SubscriptionKeyCredentialPolicy` para autenticar solicitações HTTP para mapas do Azure com a chave de assinatura. O `atlas.service.MapsURL.newPipeline()` usa a política de `SubscriptionKeyCredential` e cria uma instância de [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) . O `searchURL` representa uma URL para operações de [pesquisa](https://docs.microsoft.com/rest/api/maps/search) do Azure Maps.
+   O `SubscriptionKeyCredential` cria uma `SubscriptionKeyCredentialPolicy` para autenticar solicitações HTTP para mapas do Azure com a chave de assinatura. O `atlas.service.MapsURL.newPipeline()` usa a política de `SubscriptionKeyCredential` e cria uma instância de [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) . O `searchURL` representa uma URL para operações de [pesquisa](https://docs.microsoft.com/rest/api/maps/search) do Azure Maps.
 
 2. Em seguida, adicione o seguinte bloco de script para criar a consulta de pesquisa. Utiliza o Fuzzy Search Service, que é uma API de pesquisa básica do Search Service. O Fuzzy Search Service processa a maioria das entradas difusas, como quaisquer endereços, lugares e pontos de interesse (POI). Esse código procura estações de gasolina próximas dentro do raio especificado da latitude e longitude fornecidas. Uma coleção de recursos geojson da resposta é extraída usando o método `geojson.getFeatures()` e adicionada à fonte de dados, o que resulta automaticamente nos dados sendo renderizados no mapa por meio da camada de símbolo. A última parte do script define a vista da câmera dos mapas com a caixa delimitadora dos resultados através da propriedade [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do Mapa.
 
@@ -229,7 +229,7 @@ Neste momento, a página de MapSearch pode apresentar as localizações dos pont
 
 O mapa criado até ao momento está focado apenas nos dados de longitude/latitude para os resultados da pesquisa. No entanto, se observar o JSON não processado devolvido pelo serviço de Pesquisa dos Maps, é possível reparar que contém informações adicionais sobre cada um dos postos de combustível, incluindo o nome e a morada. Pode incorporar esses dados no mapa com caixas de pop-up interativas.
 
-1. Adicione as seguintes linhas de código no manipulador de eventos MAP `ready` depois do código para consultar o serviço de pesquisa difusa. Isto irá criar uma instância de uma Pop-up e adicionar um evento de mouseover para a camada de símbolo.
+1. Adicione as seguintes linhas de código ao manipulador de eventos `ready` do mapa depois do código para consultar o serviço de pesquisa difusa. Isto irá criar uma instância de uma Pop-up e adicionar um evento de mouseover para a camada de símbolo.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.
@@ -239,9 +239,9 @@ O mapa criado até ao momento está focado apenas nos dados de longitude/latitud
     map.events.add('mouseover', resultLayer, showPopup);
     ```
 
-    A API `*atlas.Popup` fornece uma janela de informações ancorada na posição necessária no mapa. 
+    O `*atlas.Popup` de API fornece uma janela de informações ancorada na posição necessária no mapa. 
 
-2. Adicione o código a seguir na função `GetMap`, para mostrar o mouse sobre as informações de resultado no pop-up.
+2. Adicione o código a seguir dentro da função `GetMap`, para mostrar o mouse sobre as informações de resultado no pop-up.
 
     ```JavaScript
     function showPopup(e) {
@@ -251,13 +251,16 @@ O mapa criado até ao momento está focado apenas nos dados de longitude/latitud
         var position = e.shapes[0].getCoordinates();
 
         //Create HTML from properties of the selected result.
-        var html = ['<div style="padding:5px"><div><b>', p.poi.name,
-            '</b></div><div>', p.address.freeformAddress,
-            '</div><div>', position[1], ', ', position[0], '</div></div>'];
+        var html = `
+          <div style="padding:5px">
+            <div><b>${p.poi.name}</b></div>
+            <div>${p.address.freeformAddress}</div>
+            <div>${position[1]}, ${position[0]}</div>
+          </div>`;
 
         //Update the content and position of the popup.
         popup.setPopupOptions({
-            content: html.join(''),
+            content: html,
             position: position
         });
 

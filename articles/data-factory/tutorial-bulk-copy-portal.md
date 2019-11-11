@@ -1,5 +1,5 @@
 ---
-title: Copiar dados em massa com o Azure Data Factory | Microsoft Docs
+title: 'Copiar dados em massa usando Azure Data Factory '
 description: Saiba como utilizar o Azure Data Factory e a Atividade de Cópia para copiar dados de um arquivo de dados de origem para um arquivo de dados de destino em massa.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d7f97eec4e0dc6e88d89e845e086b9e5242caa7b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9feb9be5e76f91ab55ec1b3e60eb79ab5e246f4f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616517"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683728"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa através do Azure Data Factory
 Este tutorial demonstra como **copiar várias tabelas da Base de Dados SQL do Azure para o Azure SQL Data Warehouse**. Também pode aplicar o mesmo padrão noutros cenários de cópia. Por exemplo, copiar tabelas do SQL Server/Oracle para a Base de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiar caminhos diferentes do Blob para tabelas de Base de Dados SQL do Azure.
@@ -72,7 +72,7 @@ Para verificar e ativar essa configuração, vá para o Azure SQL Server > segur
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. No menu à esquerda, selecione **criar um recurso** > **análise** > **Data Factory**: ![Data Factory seleção no painel "novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
+1. No menu à esquerda, selecione **criar um recurso** > **Analytics** > **Data Factory**: ![data Factory seleção no painel "novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 1. Na página **novo data Factory** , digite **ADFTutorialBulkCopyDF** para o **nome**. 
  
@@ -87,7 +87,7 @@ Para verificar e ativar essa configuração, vá para o Azure SQL Server > segur
          
      Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
 1. Selecione **V2** para a **versão**.
-1. Selecione a **localização** da fábrica de dados. Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam na página a seguir e expanda **análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
+1. Selecione a **localização** da fábrica de dados. Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 1. Clique em **Criar**.
 1. Após concluir a criação, verá a página **Data Factory**.
    
@@ -189,12 +189,12 @@ Neste tutorial, as tabelas SQL de origem e destino não estão hard-coded nas de
 
     a. Na **Tabela**, assinale a opção **Editar**, clique na caixa de entrada do nome da tabela e, em seguida, clique na ligação **Adicionar conteúdo dinâmico** abaixo. 
 
-    b. Na página **adicionar conteúdo dinâmico** , clique no **DWTAbleName** em **parâmetros**, que preencherá automaticamente a caixa `@dataset().DWTableName`de texto da expressão superior e, em seguida, clique em **concluir**. A propriedade **tableName** do conjunto de dados está definida como o valor que é transmitido como argumento ao parâmetro **DWTableName**. A atividade ForEach itera através de uma lista de tabelas e transmite-as uma a uma à atividade Cópia. 
+    b. Na página **adicionar conteúdo dinâmico** , clique no **DWTAbleName** em **parâmetros**, que preencherá automaticamente a caixa de texto da expressão superior `@dataset().DWTableName`e, em seguida, clique em **concluir**. A propriedade **tableName** do conjunto de dados está definida como o valor que é transmitido como argumento ao parâmetro **DWTableName**. A atividade ForEach itera através de uma lista de tabelas e transmite-as uma a uma à atividade Cópia. 
 
     ![Construtor de parâmetro do conjunto de dados](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
  
 ## <a name="create-pipelines"></a>Criar pipelines
-Neste tutorial, vai criar dois pipelines: **IterateAndCopySQLTables** e **GetTableListAndTriggerCopyData**. 
+Neste tutorial, vai criar dois pipelines, **IterateAndCopySQLTables** e **GetTableListAndTriggerCopyData**. 
 
 O pipeline **GetTableListAndTriggerCopyData** executa duas ações:
 
@@ -224,7 +224,7 @@ O pipeline **IterateAndCopySQLTables** usa uma lista de tabelas como um parâmet
 
     b. Alterne para a guia **configurações** , clique na caixa de entrada de **itens**e, em seguida, clique no link **adicionar conteúdo dinâmico** abaixo. 
 
-    c. Na página **adicionar conteúdo dinâmico** , recolha as seções **variáveis** e **funções** do sistema, clique na **tabelalist** em **parâmetros**, que preencherá automaticamente a caixa de texto da expressão `@pipeline().parameter.tableList`superior como. Em seguida, clique em **concluir**. 
+    c. Na página **adicionar conteúdo dinâmico** , recolha as seções **variáveis** e **funções** do sistema, clique na **tabela de tabelas** em **parâmetros**, o que preencherá automaticamente a caixa de texto da expressão superior como `@pipeline().parameter.tableList`. Em seguida, clique em **concluir**. 
 
     ![Construtor de parâmetro do Foreach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     
@@ -316,7 +316,7 @@ Vá para pipeline **GetTableListAndTriggerCopyData**, clique em **Adicionar gati
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorizar a execução do pipeline.
 
-1. Mude para o separador **Monitorizar**. Clique em **Atualizar** até ver execuções de ambos os pipelines na sua solução. Continue a atualizar a lista até ver o estado **Com Êxito**. 
+1. Alterne para a guia **Monitor** . clique em **Atualizar** até ver as execuções para os pipelines em sua solução. Continue a atualizar a lista até ver o estado **Com Êxito**. 
 
 1. Para exibir as execuções de atividade associadas ao pipeline **GetTableListAndTriggerCopyData** , clique no primeiro link no link ações para esse pipeline. Deverá ver duas execuções de atividade para esta execução de pipeline. 
 
@@ -379,7 +379,7 @@ Vá para pipeline **GetTableListAndTriggerCopyData**, clique em **Adicionar gati
 
 1. Confirme que os dados foram copiados para o SQL Data Warehouse de destino que utilizou neste tutorial. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]
@@ -392,4 +392,4 @@ Neste tutorial, executou os passos seguintes:
 
 Avance para o tutorial seguinte para saber como copiar dados de forma incremental de uma origem para um destino:
 > [!div class="nextstepaction"]
->[Copiar dados de forma incremental](tutorial-incremental-copy-portal.md)
+>[Copiar dados incrementalmente](tutorial-incremental-copy-portal.md)

@@ -1,22 +1,22 @@
 ---
-title: Enviar eventos personalizados para o portal web do ponto de extremidade - Event Grid, do Azure
-description: Utilize o Azure Event Grid e o portal do Azure para publicar um tópico personalizado e subscrever eventos para esse tópico. Os eventos são processados por um aplicativo web.
+title: 'Início rápido: enviar eventos personalizados para o ponto de extremidade da Web-grade de eventos, portal do Azure'
+description: 'Início rápido: Use a grade de eventos do Azure e portal do Azure para publicar um tópico personalizado e assinar eventos para esse tópico. Os eventos são tratados por um aplicativo Web.'
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 03/27/2019
+ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: afb53ed013af6cd1db2f6ff3d25c350aa2b4f1e8
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 398e63ec9a8b9e1b16d8ffcee538351fc6572de9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638553"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720789"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Início rápido: Rotear eventos personalizados para o ponto de extremidade da Web com o portal do Azure e a grade de eventos
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Início rápido: rotear eventos personalizados para o ponto de extremidade da Web com o portal do Azure e a grade de eventos
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, o portal do Azure serve para criar um tópico personalizado, subscrever o tópico personalizado e acionar o evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 
@@ -42,7 +42,7 @@ Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual
 
     ![Botão Adicionar tópico da grade de eventos](./media/custom-event-quickstart-portal/add-event-grid-topic-button.png)
 4. Na página **Criar tópico** , siga estas etapas:
-    1. Forneça um **nome** exclusivo para o tópico personalizado. O nome do tópico deve ser exclusivo, porque este é representado por uma entrada DNS. Não utilize o nome apresentado na imagem. Em vez disso, criar seu próprio nome - tem de ter entre 3 e 50 carateres e conter apenas valores-z, A-Z, 0-9, e "-".
+    1. Forneça um **nome** exclusivo para o tópico personalizado. O nome do tópico deve ser exclusivo, porque este é representado por uma entrada DNS. Não utilize o nome apresentado na imagem. Em vez disso, crie seu próprio nome-ele deve ter entre 3-50 caracteres e conter apenas os valores de a-z, A-Z, 0-9 e "-".
     2. Selecione a sua **subscrição** do Azure.
     3. Selecione um grupo de recursos existente ou selecione **criar novo**e insira um **nome** para o **grupo de recursos**.
     4. Selecione um **local** para o tópico da grade de eventos.
@@ -104,12 +104,12 @@ O primeiro exemplo utiliza a CLI do Azure. Obtém o URL e a chave para o tópico
 1. Na portal do Azure, selecione **Cloud Shell**. Selecione **bash** no canto superior esquerdo da janela de Cloud Shell. 
 
     ![Cloud Shell-bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
-1. Execute o seguinte comando para obter o **ponto de extremidade** para o tópico: Depois de copiar e colar o comando, atualize o nome do **tópico** e o **nome do grupo de recursos** antes de executar o comando. 
+1. Execute o seguinte comando para obter o **ponto de extremidade** para o tópico: depois de copiar e colar o comando, atualize o nome do **tópico** e o nome do **grupo de recursos** antes de executar o comando. 
 
     ```azurecli
     endpoint=$(az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv)
     ```
-2. Execute o seguinte comando para obter a **chave** para o tópico personalizado: Depois de copiar e colar o comando, atualize o nome do **tópico** e o nome do **grupo de recursos** antes de executar o comando. 
+2. Execute o seguinte comando para obter a **chave** para o tópico personalizado: depois de copiar e colar o comando, atualize o nome do **tópico** e o nome do **grupo de recursos** antes de executar o comando. 
 
     ```azurecli
     key=$(az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv)
@@ -203,7 +203,7 @@ Se quiser continuar a trabalhar com este evento, não limpe os recursos criados 
 
     O outro grupo de recursos que você vê na imagem foi criado e usado pela janela de Cloud Shell. Exclua-o se você não planeja usar a janela de Cloud Shell mais tarde. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe como criar tópicos personalizados e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

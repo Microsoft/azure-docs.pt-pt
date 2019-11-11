@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 98ebc8d9408d937730643056f65c3d8011c1fdc4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: ecad41097786a40f7c605a686f085136856c950a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493449"
+ms.locfileid: "73581569"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: criar seu primeiro modelo de classificação com o Machine Learning automatizado
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -91,14 +91,14 @@ Você conclui as seguintes etapas de configuração e execução do experimento 
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de uma, se houver, serão tratados.| Todos os arquivos têm os mesmos cabeçalhos
         Ignorar linhas | Indica quantas linhas, se houver, são ignoradas no conjunto de registros.| Nenhum
 
-    1. O formulário de **esquema** permite a configuração adicional de seus dados para esse experimento. Para este exemplo, selecione a opção Alternar para o recurso **day_of_week** para não incluí-lo para este experimento. Selecione **Seguinte**.
+    1. O formulário de **esquema** permite a configuração adicional de seus dados para esse experimento. Para este exemplo, selecione a opção Alternar para o recurso **day_of_week** , para que não o inclua neste experimento. Selecione **Seguinte**.
 
         ![Configuração da guia de visualização](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
     1. No formulário **confirmar detalhes** , verifique se as informações correspondem ao que foi previamente populado nas **informações básicas** e **nas configurações e** na versão prévia dos formulários.
     1. Selecione **criar** para concluir a criação do conjunto de seus conjuntos de seus.
     1. Selecione o conjunto de seus conjuntos de seus quando ele aparecer na lista.
-    1. Examine a **visualização de dados** para garantir que você não incluiu **day_of_week** e, em seguida, selecione **OK**.
+    1. Examine a **visualização de dados** para garantir que você não incluiu **day_of_week** , em seguida, selecione **OK**.
 
     1. Selecione **Seguinte**.
 
@@ -151,7 +151,7 @@ Você conclui as seguintes etapas de configuração e execução do experimento 
 
 ##  <a name="explore-models"></a>Explorar modelos
 
-Navegue até a guia **modelos** para ver os algoritmos (modelos) testados. Por padrão, os modelos são ordenados pela pontuação da métrica à medida que são concluídos. Para este tutorial, o modelo que classifica o mais alto com base na métrica de **AUC_weighted** escolhida está no topo da lista.
+Navegue até a guia **modelos** para ver os algoritmos (modelos) testados. Por padrão, os modelos são ordenados pela pontuação da métrica à medida que são concluídos. Para este tutorial, o modelo que classifica o mais alto com base na métrica de **AUC_weighted** escolhida está na parte superior da lista.
 
 Enquanto você aguarda que todos os modelos de experimento sejam concluídos, selecione o **nome do algoritmo** de um modelo concluído para explorar seus detalhes de desempenho. 
 
@@ -167,22 +167,25 @@ Para este experimento, a implantação em um serviço Web significa que a instit
 
 Quando a execução for concluída, navegue de volta para a página de **detalhes da execução** e selecione a guia **modelos** . Selecione **Atualizar**. 
 
-Nesse contexto de experimento, **VotingEnsemble** é considerado o melhor modelo, com base na métrica **AUC_weighted** .  Implantamos esse modelo, mas é recomendável que a implantação demore cerca de 20 minutos para ser concluída. O processo de implantação envolve várias etapas, incluindo o registro do modelo, a geração de recursos e a configuração deles para o serviço Web.
+Nesse contexto de experimento, **VotingEnsemble** é considerado o melhor modelo, com base na métrica de **AUC_weighted** .  Implantamos esse modelo, mas é recomendável que a implantação demore cerca de 20 minutos para ser concluída. O processo de implantação envolve várias etapas, incluindo o registro do modelo, a geração de recursos e a configuração deles para o serviço Web.
 
 1. Selecione o botão **implantar melhor modelo** no canto inferior esquerdo.
 
-1. Preencha o painel **implantar melhor modelo** da seguinte maneira:
+1. Preencha o painel **implantar um modelo** da seguinte maneira:
 
     Campo| Valor
     ----|----
     Nome da implantação| meu-automl-implantar
     Descrição da implantação| Minha primeira implantação de experimento automatizada do Machine Learning
-    Script de Pontuação| AutoGenerate
-    Script de ambiente| AutoGenerate
+    Tipo de computação | Selecionar instância de computação do Azure (ACI)
+    Ativar autenticação| Desativar. 
+    Usar implantações personalizadas| Desativar. Permite que o arquivo de driver padrão (script de pontuação) e o arquivo de ambiente sejam gerados automaticamente. 
     
+    Para este exemplo, usamos os padrões fornecidos no menu *avançado* . 
+
 1. Selecione **Implementar**.  
 
-    No painel **modelo recomendado** , uma mensagem de êxito de implantação é exibida em **implantar status** quando a implantação é concluída. Selecione **Atualizar** periodicamente para verificar o status da implantação.
+    Uma mensagem de êxito verde aparece na parte superior da tela de **execução** e, no painel **modelo recomendado** , uma mensagem de status aparece em **implantar status**. Selecione **Atualizar** periodicamente para verificar o status da implantação.
     
 Agora você tem um serviço Web operacional para gerar previsões. 
 

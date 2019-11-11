@@ -1,7 +1,7 @@
 ---
 title: Melhorar a base de dados de conhecimento-QnA Maker
 titleSuffix: Azure Cognitive Services
-description: O aprendizado ativo permite que você aprimore a qualidade de sua base de dados de conhecimento sugerindo perguntas alternativas, com base em envios de usuários, para seu par de perguntas e respostas. Revise essas sugestões, adicionando-as às perguntas existentes ou rejeitando-as. Sua base de dados de conhecimento não é alterada automaticamente. Você deve aceitar as sugestões para que qualquer alteração tenha efeito. Essas sugestões adicionam perguntas, mas não alteram ou removem as perguntas existentes.
+description: Melhore a qualidade de sua base de dados de conhecimento com o aprendizado ativo. Revisar, aceitar ou rejeitar, adicionar sem remover ou alterar as perguntas existentes.
 author: diberry
 manager: nitinme
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 83d60487922e3355aab8e34f6a8409c529901d14
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: add4bbead880fb9b74d342abc1d4b3c0e9475fad
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72328013"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721172"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Utilizar a aprendizagem ativa para melhorar a base de dados de conhecimento
 
@@ -71,7 +71,7 @@ O aprendizado ativo está desativado por padrão. Ative-o para ver as perguntas 
 
 1. Localize o serviço QnA Maker e, em seguida, alterne o **aprendizado ativo**. 
 
-    [![On a página Configurações de serviço, ative o recurso de aprendizado ativo. Se não for possível alternar o recurso, talvez seja necessário atualizar seu serviço.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+    [![na página Configurações de serviço, alterne o recurso de aprendizado ativo. Se não for possível alternar o recurso, talvez seja necessário atualizar seu serviço.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
     > [!Note]
     > A versão exata na imagem anterior é mostrada apenas como um exemplo. Sua versão pode ser diferente. 
@@ -84,15 +84,15 @@ O aprendizado ativo altera a base de dados de conhecimento ou Serviço de Pesqui
 
 1. Para ver as perguntas sugeridas, na página **Editar** base de dados de conhecimento, selecione **Opções de exibição**e, em seguida, selecione **Mostrar sugestões de aprendizado ativo**. 
 
-    [![On a seção editar do portal, selecione Mostrar sugestões para ver as novas alternativas de pergunta do aprendizado ativo.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+    [![na seção editar do portal, selecione Mostrar sugestões para ver as novas alternativas de pergunta do aprendizado ativo.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
 1. Filtre a base de dados de conhecimento com pares de perguntas e respostas para mostrar apenas sugestões selecionando **Filtrar por sugestões**.
 
-    [![Use a opção Filtrar por sugestões para exibir apenas as alternativas de perguntas sugeridas do aprendizado ativo.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
+    [![use a alternância filtrar por sugestões para exibir apenas as alternativas de perguntas sugeridas do aprendizado ativo.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1. Cada par de QnA sugere a nova pergunta alternativas com uma marca de seleção, `✔`, para aceitar a pergunta ou um `x` para rejeitar as sugestões. Selecione a marca de seleção para adicionar a pergunta. 
+1. Cada par de QnA sugere a nova pergunta alternativas com uma marca de seleção, `✔`, para aceitar a pergunta ou uma `x` para rejeitar as sugestões. Selecione a marca de seleção para adicionar a pergunta. 
 
-    [![Select ou rejeitar as alternativas de pergunta sugeridas do aprendizado ativo selecionando a marca de seleção verde ou de exclusão vermelha.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![selecionar ou rejeitar as alternativas de pergunta sugeridas do aprendizado ativo, selecionando a marca de seleção verde ou de exclusão vermelha.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     Você pode adicionar ou excluir _todas as sugestões_ selecionando **Adicionar tudo** ou **rejeitar tudo** na barra de ferramentas contextual.
 
@@ -109,7 +109,7 @@ O aprendizado ativo altera a base de dados de conhecimento ou Serviço de Pesqui
 
 Um bot ou outro aplicativo cliente deve usar o seguinte fluxo de arquitetura para usar o aprendizado ativo:
 
-* O bot [Obtém a resposta da base de dados de conhecimento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) com a API GenerateAnswer, usando a propriedade `top` para obter um número de respostas.
+* O bot [Obtém a resposta da base de dados de conhecimento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) com a API GenerateAnswer, usando a propriedade `top` para obter várias respostas.
 * O bot determina os comentários explícitos:
     * Usando sua própria [lógica de negócios personalizada](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), filtre pontuações baixas.
     * No bot ou no aplicativo cliente, exiba a lista de possíveis respostas para o usuário e obtenha a resposta selecionada do usuário.
@@ -130,7 +130,7 @@ Ao enviar uma pergunta para QnA Maker para uma resposta, a propriedade `top` do 
 
 ### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Use a propriedade Score junto com a lógica de negócios para obter a lista de respostas para mostrar o usuário
 
-Quando o aplicativo cliente (como um bot de chat) recebe a resposta, as três principais perguntas são retornadas. Use a propriedade `score` para analisar a proximidade entre pontuações. Esse intervalo de proximidade é determinado pela sua própria lógica de negócios. 
+Quando o aplicativo cliente (como um bot de chat) recebe a resposta, as três principais perguntas são retornadas. Use a propriedade `score` para analisar a proximidade entre as pontuações. Esse intervalo de proximidade é determinado pela sua própria lógica de negócios. 
 
 ```json
 {
@@ -186,7 +186,7 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|Propriedade de solicitação HTTP|Nome|Tipo|Finalidade|
+|Propriedade de solicitação HTTP|Nome|Tipo|Objetivo|
 |--|--|--|--|
 |Parâmetro de rota de URL|ID da base de dados de conhecimento|string|O GUID da sua base de dados de conhecimento.|
 |Subdomínio personalizado|Nome do recurso QnAMaker|string|O nome do recurso é usado como o subdomínio personalizado para seu QnA Maker. Isso estará disponível na página configurações depois que você publicar a base de dados de conhecimento. Ele é listado como o `host`.|
@@ -196,7 +196,7 @@ Content-Type: application/json
 
 O corpo JSON tem várias configurações:
 
-|Propriedade de corpo JSON|Tipo|Finalidade|
+|Propriedade de corpo JSON|Tipo|Objetivo|
 |--|--|--|--|
 |`feedbackRecords`|array|Lista de comentários.|
 |`userId`|string|A ID de usuário da pessoa que está aceitando as perguntas sugeridas. O formato da ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válida em sua arquitetura. Opcional.|
@@ -221,7 +221,7 @@ Uma resposta bem-sucedida retorna um status de 204 e nenhum corpo de resposta JS
 
 ### <a name="batch-many-feedback-records-into-a-single-call"></a>Lote de muitos registros de comentários em uma única chamada
 
-No aplicativo do lado do cliente, como um bot, você pode armazenar os dados e, em seguida, enviar vários registros em um único corpo JSON na matriz `feedbackRecords`. 
+No aplicativo do lado do cliente, como um bot, você pode armazenar os dados e, em seguida, enviar vários registros em um único corpo JSON na matriz de `feedbackRecords`. 
 
 Um exemplo de corpo JSON é semelhante a:
 
@@ -368,9 +368,9 @@ async callTrain(stepContext){
 
 ## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>O aprendizado ativo é salvo na base de dados de conhecimento exportada
 
-Quando seu aplicativo tem o aprendizado ativo habilitado e você exporta o aplicativo, a coluna `SuggestedQuestions` no arquivo TSV retém os dados de aprendizado ativos. 
+Quando seu aplicativo tiver o aprendizado ativo habilitado e você exportar o aplicativo, a coluna `SuggestedQuestions` no arquivo TSV manterá os dados de aprendizado ativos. 
 
-A coluna `SuggestedQuestions` é um objeto JSON de informações de comentários implícitos, `autosuggested` e explícito, `usersuggested`. Um exemplo desse objeto JSON para uma única pergunta enviada pelo usuário de `help` é:
+A coluna `SuggestedQuestions` é um objeto JSON de informações de comentários implícitos, `autosuggested`e explícitos `usersuggested`. Um exemplo desse objeto JSON para uma única pergunta de `help` enviada pelo usuário é:
 
 ```JSON
 [

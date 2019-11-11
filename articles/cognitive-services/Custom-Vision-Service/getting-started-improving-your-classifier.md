@@ -1,7 +1,7 @@
 ---
 title: Melhorando seu classificador-Serviço de Visão Personalizada
 titleSuffix: Azure Cognitive Services
-description: Saiba como melhorar a qualidade do classificador.
+description: Neste artigo, você aprenderá como a quantidade, a qualidade e a variedade de dados podem melhorar a qualidade do classificador no serviço de Visão Personalizada.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: d71c750185589fd488df70b63fd48e9e674ee3dc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c2858d5f9bca662cbbcd48b2345a7dc2c7ae48b2
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561040"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718541"
 ---
 # <a name="how-to-improve-your-classifier"></a>Como melhorar seu classificador
 
@@ -53,11 +53,11 @@ Certifique-se de usar imagens representadoras do que serão enviadas para o clas
 
 Para corrigir esse problema, inclua uma variedade de imagens para garantir que o classificador também possa generalizar. Veja abaixo algumas maneiras de tornar seu treinamento definido mais diversificado:
 
-* __Seguindo__ Forneça imagens do seu objeto na frente de diferentes planos de fundo. As fotos em contextos naturais são melhores do que as fotos na frente de planos de fundo neutros, pois fornecem mais informações para o classificador.
+* __Plano de fundo:__ Forneça imagens do seu objeto na frente de diferentes planos de fundo. As fotos em contextos naturais são melhores do que as fotos na frente de planos de fundo neutros, pois fornecem mais informações para o classificador.
 
     ![Imagem de exemplos de plano de fundo](./media/getting-started-improving-your-classifier/background.png)
 
-* __Ilumina__ Forneça imagens com iluminação variada (ou seja, obtida com flash, alta exposição e assim por diante), especialmente se as imagens usadas para previsão têm iluminação diferente. Também é útil usar imagens com saturação, matiz e brilho variados.
+* __Iluminação:__ Forneça imagens com iluminação variada (ou seja, obtida com flash, alta exposição e assim por diante), especialmente se as imagens usadas para previsão têm iluminação diferente. Também é útil usar imagens com saturação, matiz e brilho variados.
 
     ![Imagem de amostras de iluminação](./media/getting-started-improving-your-classifier/lighting.png)
 
@@ -65,11 +65,11 @@ Para corrigir esse problema, inclua uma variedade de imagens para garantir que o
 
     ![Imagem de amostras de tamanho](./media/getting-started-improving-your-classifier/size.png)
 
-* __Ângulo da câmera:__ Fornecer imagens obtidas com ângulos de câmera diferentes. Como alternativa, se todas as suas fotos precisarem ser executadas com câmeras fixas (como câmeras de vigilância), certifique-se de atribuir um rótulo diferente a cada objeto que ocorre regularmente para evitar&mdash;sobreajuste de objetos não relacionados (como lampposts) como o principal recurso.
+* __Ângulo da câmera:__ Fornecer imagens obtidas com ângulos de câmera diferentes. Como alternativa, se todas as suas fotos precisarem ser executadas com câmeras fixas (como câmeras de vigilância), certifique-se de atribuir um rótulo diferente a cada objeto que ocorre regularmente para evitar o superajuste&mdash;interpretação de objetos não relacionados (como lampposts) como o recurso principal.
 
     ![Imagem de exemplos de ângulo](./media/getting-started-improving-your-classifier/angle.png)
 
-* __Estilo__ Forneça imagens de diferentes estilos da mesma classe (por exemplo, diferentes variedades da mesma fruta). No entanto, se você tiver objetos de estilos drasticamente diferentes (como o Mickey Mouse versus um mouse da vida real), recomendamos rotulá-los como classes separadas para representar melhor seus recursos distintos.
+* __Estilo:__ Forneça imagens de diferentes estilos da mesma classe (por exemplo, diferentes variedades da mesma fruta). No entanto, se você tiver objetos de estilos drasticamente diferentes (como o Mickey Mouse versus um mouse da vida real), recomendamos rotulá-los como classes separadas para representar melhor seus recursos distintos.
 
     ![Imagem de exemplos de estilo](./media/getting-started-improving-your-classifier/style.png)
 
@@ -86,7 +86,7 @@ Em algum momento em seu projeto, talvez seja necessário adicionar _amostras neg
 
 Quando você usa ou testa o classificador de imagem enviando imagens para o ponto de extremidade de previsão, o serviço de Visão Personalizada armazena essas imagens. Você pode usá-los para melhorar o modelo.
 
-1. Para exibir imagens enviadas ao classificador, abra a [página da web visão personalizada](https://customvision.ai), vá para seu projeto e selecione a guia __previsões__ . O modo de exibição padrão mostra imagens da iteração atual. Você pode usar o  menu suspenso iteração para exibir imagens enviadas durante as iterações anteriores.
+1. Para exibir imagens enviadas ao classificador, abra a [página da web visão personalizada](https://customvision.ai), vá para seu projeto e selecione a guia __previsões__ . O modo de exibição padrão mostra imagens da iteração atual. Você pode usar o menu suspenso __iteração__ para exibir imagens enviadas durante as iterações anteriores.
 
     ![captura de tela da guia previsões, com imagens na exibição](./media/getting-started-improving-your-classifier/predictions.png)
 
@@ -106,7 +106,7 @@ Para inspecionar previsões de imagem, vá para a guia __imagens de treinamento_
 
 Às vezes, uma inspeção visual pode identificar padrões que você pode corrigir adicionando mais dados de treinamento ou modificando dados de treinamento existentes. Por exemplo, um classificador para maçãs vs. verde-limão pode rotular incorretamente todas as maçãs verdes como verde-limão. Você pode corrigir esse problema adicionando e fornecendo dados de treinamento que contêm imagens marcadas de maçãs verdes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia, você aprendeu várias técnicas para tornar o modelo de classificação de imagem personalizada mais preciso. Em seguida, saiba como testar imagens programaticamente enviando-as para a API de previsão.
 

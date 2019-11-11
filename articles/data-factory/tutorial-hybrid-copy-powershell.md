@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do SQL Server para o Armazenamento de Blobs com o Azure Data Factory | Microsoft Docs
+title: Copiar dados de SQL Server para o armazenamento de BLOBs usando Azure Data Factory
 description: Saiba como copiar dados de um arquivo de dados no local para a cloud do Azure mediante a utilização de um integration runtime autoalojado no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: abnarain
-ms.openlocfilehash: 1d779c44faabc30ddfa624e7b2d8e5d5de8b6cc7
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: d2f59e7e8e86100a2a667634c0e99e6c1d5976da
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091864"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683505"
 ---
-# <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure
+# <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: copiar dados de uma base de dados SQL Server no local para o Armazenamento de Blobs do Azure
 Neste tutorial, vai utilizar o Azure PowerShell para criar um pipeline de fábrica de dados que copia dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure. Vai criar e utilizar um runtime de integração autoalojado, que move dados entre arquivos de dados no local e na cloud. 
 
 > [!NOTE]
@@ -101,11 +101,11 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. Na janela **Novo Contentor**, na caixa **Nome**, introduza **adftutorial** e selecione **OK**. 
 
-    ![Introduzir nome do contentor](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
+    ![Introduzir o nome do contentor](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
 1. Na lista de contentores, clique em **adftutorial**.  
 
-1. Mantenha a janela do **contentor** de **adftutorial** aberta. Vai utilizá-la para verificar o resultado no final deste tutorial. O Data Factory cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
+1. Mantenha a janela do **contentor** de **adftutorial** aberta. Vai utilizá-la para verificar o resultado no final deste tutorial. O Data Fabric cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
 
 
 ### <a name="windows-powershell"></a>Windows PowerShell
@@ -176,7 +176,7 @@ Instale a versão mais recente do Azure PowerShell, se ainda não a tiver no seu
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
 > * Para criar instâncias de fábricas de dados, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ter atribuída a função *contribuidor* ou *proprietário* ou ser *administradora* da subscrição do Azure.
-> * Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam na página a seguir e expanda **análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (Azure HDInsight, etc.) que a fábrica de dados utiliza podem estar noutras regiões.
+> * Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (Azure HDInsight, etc.) que a fábrica de dados utiliza podem estar noutras regiões.
 > 
 > 
 
@@ -184,7 +184,7 @@ Instale a versão mais recente do Azure PowerShell, se ainda não a tiver no seu
 
 Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a um computador no local com a base de dados do SQL Server. O integration runtime autoalojado é o componente que copia os dados da base de dados SQL Server no seu computador para o armazenamento de Blobs do Azure. 
 
-1. Crie uma variável para o nome do integration runtime. Utilize um nome exclusivo e aponte-o. Vai utilizá-lo mais tarde no tutorial. 
+1. Crie uma variável para o nome do runtime de integração. Utilize um nome exclusivo e aponte-o. Vai utilizá-lo mais tarde no tutorial. 
 
     ```powershell
    $integrationRuntimeName = "ADFTutorialIR"
@@ -299,7 +299,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
     g. Introduza a palavra-passe que está associado ao nome de utilizador.
 
     h. Para confirmar que o integration runtime se consegue ligar ao SQL Server selecione **Testar**.  
-    ![Conectividade bem-sucedida](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png) 
+    ![conectividade com êxito](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png) 
   
     Se a ligação for bem-sucedida, é apresentada uma marca de verificação verde. Caso contrário, receberá uma mensagem de erro associada à falha. Corrija os problemas e confirme que o integration runtime se consegue ligar à sua instância do SQL Server.
 
@@ -713,7 +713,7 @@ O pipeline cria automaticamente a pasta de saída com o nome *fromonprem* no con
     ![Ficheiro de saída](media/tutorial-hybrid-copy-powershell/fromonprem-file.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 O pipeline neste exemplo copia dados de uma localização para outra localização no amazenamento de Bobs do Azure. Aprendeu a:
 
 > [!div class="checklist"]

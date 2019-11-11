@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 10/15/2019
 ms.author: aahi
-ms.openlocfilehash: 04d788160f1bdfd772f48b40b35f6db54cbf87b7
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 67d6bb0bf880de0b4bf6878128e2ed27e130b18d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554782"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719001"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-net"></a>Início rápido: biblioteca de cliente do detector de anomalias para .NET
 
@@ -26,7 +26,7 @@ Use a biblioteca de cliente do detector de anomalias para .NET para:
 * Detectar anomalias em todo o seu conjunto de data de série temporal, como uma solicitação em lote
 * Detectar o status de anomalia do último ponto de dados em sua série temporal
 
-[Documentação de referência da biblioteca](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview)  | [exemplos de código](https://github.com/Azure-Samples/anomalydetector) do NuGet ([código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector)  | [do pacote)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/)  | 
+[Documentação de referência da biblioteca](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [exemplos de código](https://github.com/Azure-Samples/anomalydetector) do NuGet ( [código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [do pacote)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -125,7 +125,7 @@ Crie um método para chamar o método [EntireDetectAsync ()](https://docs.micros
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detectar o status de anomalia do último ponto de dados
 
-Crie um método para chamar o método [LastDetectAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_AnomalyDetectorClientExtensions_LastDetectAsync_Microsoft_Azure_CognitiveServices_AnomalyDetector_IAnomalyDetectorClient_Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_System_Threading_CancellationToken_) do cliente com o objeto `Request` e aguardar a resposta como um objeto [LastDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-dotnet-preview) . Verifique o atributo [Isanomaliay](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse.isanomaly?view=azure-dotnet-preview) da resposta para determinar se o último ponto de dados enviado foi uma anomalia ou não. 
+Crie um método para chamar o método [LastDetectAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_AnomalyDetectorClientExtensions_LastDetectAsync_Microsoft_Azure_CognitiveServices_AnomalyDetector_IAnomalyDetectorClient_Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_System_Threading_CancellationToken_) do cliente com o objeto `Request` e aguardar a resposta como um objeto [LastDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-dotnet-preview) . Verifique o atributo isanomaliay da resposta para determinar se o último ponto de dados enviado foi uma ou não. [anomalia](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse.isanomaly?view=azure-dotnet-preview) 
 
 [!code-csharp[LastDetectSampleAsync() function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=latestPointExample)]
 
@@ -143,12 +143,6 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-Você também pode executar o seguinte comando do Cloud Shell para remover o grupo de recursos e seus recursos associados. Isso pode levar alguns minutos para ser concluído. 
-
-```azurecli-interactive
-az group delete --name example-anomaly-detector-resource-group
-```
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -18,15 +18,15 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 273a8b06b3bd3bf299b47a1cc52fd4660353cec3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d947645b45641b2604e20f18765fd0428a1336ec
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473744"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721060"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>Suporte a Serviços de Federação do Active Directory (AD FS) no MSAL.NET
-O Serviços de Federação do Active Directory (AD FS) (AD FS) no Windows Server permite adicionar o OpenID Connect e a autenticação e autorização baseadas em OAuth 2,0 a aplicativos que você está desenvolvendo. Esses aplicativos podem, então, autenticar os usuários diretamente no AD FS. Para obter mais informações, leia [AD FS cenários para desenvolvedores](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios).
+O Serviços de Federação do Active Directory (AD FS) (AD FS) no Windows Server permite adicionar o OpenID Connect e a autenticação e autorização baseadas em OAuth 2,0 a aplicativos que você está desenvolvendo. Esses aplicativos podem, então, autenticar os usuários diretamente no AD FS. Para obter mais informações, leia [AD FS cenários para desenvolvedores](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios).
 
 A MSAL.NET (biblioteca de autenticação da Microsoft para .NET) dá suporte a dois cenários de autenticação no AD FS:
 

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/21/2019
+ms.date: 11/05/2019
 ms.author: juliako
-ms.openlocfilehash: 3f065f77c6843b135554e61f5887655114571b08
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 128513c3af5ce6c0853b63d86959e4c3c35de93c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750254"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685108"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-REST
 
@@ -173,7 +173,7 @@ A saída [Asset](https://docs.microsoft.com/rest/api/media/assets) armazena o re
 
 ### <a name="create-a-transform"></a>Criar uma transformação
 
-Ao codificar ou processar conteúdos nos Serviços de Multimédia, é comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao enviar novos trabalhos para cada novo vídeo, você está aplicando essa receita a todos os vídeos em sua biblioteca. Uma receita nos Serviços de Multimédia chama-se uma **Transformação**. Para obter mais informações, veja [Transforms and Jobs](transform-concept.md) (Transformações e Trabalhos). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmiti-lo numa variedade de dispositivos iOS e Android. 
+Ao codificar ou processar conteúdos nos Serviços de Multimédia, é um padrão comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao enviar novos trabalhos para cada novo vídeo, você está aplicando essa receita a todos os vídeos em sua biblioteca. Uma receita nos Serviços de Multimédia chama-se uma **Transformação**. Para obter mais informações, veja [Transforms and Jobs](transform-concept.md) (Transformações e Trabalhos). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmiti-lo numa variedade de dispositivos iOS e Android. 
 
 Ao criar uma nova instância [Transformar](https://docs.microsoft.com/rest/api/media/transforms), tem de especificar a saída resultante que pretende. O parâmetro necessário é um objeto **TransformOutput**. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve as instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. O exemplo descrito neste artigo utiliza uma Predefinição incorporada chamada **AdaptiveStreaming**. A Predefinição codifica o vídeo de entrada para uma escala de bits gerada automaticamente (pares de resolução/velocidade de transmissão) com base na resolução e velocidade de transmissão de entrada e produz ficheiros ISO MP4 com vídeo H.264 e áudio AAC correspondente a cada par de resolução/velocidade de transmissão. Para obter informações sobre esta Predefinição, veja [Auto-generating bitrate ladder](autogen-bitrate-ladder.md) (Escala de bits gerada automaticamente).
 
@@ -213,9 +213,9 @@ Pode utilizar um EncoderNamedPreset incorporadi ou utilizar as predefinições p
 
 ### <a name="create-a-job"></a>Criar uma tarefa
 
-Uma [Tarefa](https://docs.microsoft.com/rest/api/media/jobs) é o pedido atual para os Serviços de Multimédia aplicarem a **Transformação** criada a determinado conteúdo de vídeo ou áudio de entrada. A **Tarefa** especifica informações como a localização do vídeo de entrada e a localização para a saída.
+Uma [Tarefa](https://docs.microsoft.com/rest/api/media/jobs) é o pedido atual para os Serviços de Multimédia aplicarem a **Transformação** criada a determinado conteúdo de vídeo ou áudio de entrada. A **Tarefa** especifica informações como a localização do vídeo de entrada e a localização da saída.
 
-Neste exemplo, a entrada do trabalho é baseada em uma URL HTTPS ("https: \//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
+Neste exemplo, a entrada do trabalho é baseada em uma URL HTTPS ("https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
 1. Na janela à esquerda do aplicativo de postmaster, selecione "codificação e análise".
 2. Em seguida, selecione "Criar ou Atualizar Tarefa".
@@ -250,7 +250,7 @@ Neste exemplo, a entrada do trabalho é baseada em uma URL HTTPS ("https: \//nim
 
 A tarefa demora algum tempo a terminar, por isso irá querer receber uma notificação quando for concluída. Para ver o progresso do trabalho, recomendamos a utilização do Event Grid. Foi concebido para ter uma elevada disponibilidade, um desempenho consistente e um dimensionamento dinâmico. Com o Event Grid, as aplicações podem escutar e reagir a eventos a partir de praticamente todos os serviços do Azure, bem como de origens personalizadas. O processamento de eventos simples, reativo e baseado em HTTP ajuda-o a criar soluções eficientes através da filtragem e do encaminhamento inteligente de eventos.  Veja [Route events to a custom web endpoint](job-state-events-cli-how-to.md) (Encaminhar eventos para um ponto final de Web personalizado).
 
-Normalmente, a **Tarefa** passa pelos seguintes estados: **Agendada**, **Em fila**, **Em processamento**, **Concluída** (o estado final). Se a tarefa encontrar um erro, obterá um estado de **Erro**. Se a tarefa estiver a ser cancelada, verá **A cancelar** e **Cancelada** quando terminar.
+Normalmente, a **Tarefa** passa pelos seguintes estados: **Agendada**, **Em fila**, **Em processamento**, **Concluída** (o estado final). Se a tarefa encontrar um erro, obterá um estado de **Erro**. Se a tarefa estiver prestes a ser cancelada, obterá **A cancelar** e **Cancelada** quando terminar.
 
 #### <a name="job-error-codes"></a>Códigos de erro das tarefas
 
@@ -258,34 +258,36 @@ Consulte [códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#j
 
 ### <a name="create-a-streaming-locator"></a>Criar um localizador de transmissão
 
-Depois que o trabalho de codificação for concluído, a próxima etapa será disponibilizar o vídeo no **ativo** de saída para os clientes para reprodução. Você pode fazer isso em duas etapas: primeiro, criar um [localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators)e, em segundo lugar, criar as URLs de streaming que os clientes podem usar. 
+Depois que o trabalho de codificação for concluído, a próxima etapa será disponibilizar o vídeo no **ativo** de saída para os clientes para reprodução. Pode conseguir isto em dois passos: primeiro, crie um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) e, segundo, crie os URLs de transmissão em fluxo que os clientes podem utilizar. 
 
-O processo de criação de um **localizador de streaming** é chamado publicação. Por padrão, o **localizador de streaming** é válido imediatamente depois que você faz as chamadas à API e dura até que ela seja excluída, a menos que você configure as horas de início e término opcionais. 
+O processo de criação de um localizador de streaming é chamado publicação. Por padrão, o localizador de streaming é válido imediatamente depois que você faz as chamadas à API e dura até que ela seja excluída, a menos que você configure as horas de início e término opcionais. 
 
-Ao criar um [localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), você precisa especificar o **StreamingPolicyName**desejado. Neste exemplo, você passará por um conteúdo transparente (ou não criptografado), portanto a política de streaming de limpeza predefinida "Predefined_ClearStreamingOnly" será usada.
+Ao criar um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), tem de especificar o **StreamingPolicyName** pretendido. Neste exemplo, você passará por um conteúdo transparente (ou não criptografado), portanto, a política de streaming de limpeza predefinida "Predefined_ClearStreamingOnly" será usada.
 
 > [!IMPORTANT]
 > Quando utilizar uma [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizada, deve conceber um conjunto limitado dessas políticas para a sua conta dos Serviços de Multimédia e utilizá-las novamente para os StreamingLocators sempre que são necessárias as mesmas opções de encriptação e os mesmos protocolos. 
 
-Sua conta de serviço de mídia tem uma cota para o número de entradas de **política de streaming** . Você não deve criar uma nova **política de streaming** para cada **localizador de streaming**.
+Sua conta de serviço de mídia tem uma cota para o número de entradas de **política de streaming** . Você não deve criar uma nova **política de streaming** para cada localizador de streaming.
 
-1. Na janela à esquerda do aplicativo do postmaster, selecione "políticas de streaming".
-2. Em seguida, selecione "Criar um Localizador de Transmissão".
+1. Na janela à esquerda do aplicativo do postmaster, selecione "políticas de streaming e localizadores".
+2. Em seguida, selecione "criar um localizador de streaming (desmarcar)".
 3. Prima **Enviar**.
 
     * A seguinte operação **PUT** é enviada.
 
         ```
-        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}
         ```
     * A operação tem o corpo seguinte:
 
         ```json
         {
-            "properties":{
-            "assetName": "{{assetName}}",
-            "streamingPolicyName": "{{streamingPolicyName}}"
-            }
+          "properties": {
+            "streamingPolicyName": "Predefined_ClearStreamingOnly",
+            "assetName": "testAsset1",
+            "contentKeys": [],
+            "filters": []
+         }
         }
         ```
 

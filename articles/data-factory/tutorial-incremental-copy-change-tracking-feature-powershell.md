@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de forma incremental com o Controlo de Alterações e o Azure Data Factory | Microsoft Docs
+title: 'Copiar dados incrementalmente usando Controle de Alterações e Azure Data Factory '
 description: 'Neste tutorial, vai criar um pipeline do Azure Data Factory, que copia dados delta de forma incremental de várias tabelas numa base de dados do SQL Server local para uma base de dados SQL do Azure. '
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 36a160ad3c6b925931c6274a44cfb5492d6a562a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: feab54128a00d587ea9b68d8db5df59bd3615ee2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140629"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683473"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar dados de forma incremental da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure com informações de controlo de alterações 
 Neste tutorial, cria uma fábrica de dados do Azure com um pipeline que carrega dados delta com base em informações de **controlo de alterações** na base de dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -190,7 +190,7 @@ Tenha em atenção os seguintes pontos:
     The specified Data Factory name 'ADFIncCopyChangeTrackingTestFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser um membro das funções **contribuidor** ou **proprietário**, ou um **administrador** da subscrição do Azure.
-* Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam na página a seguir e expanda **análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
+* Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
@@ -199,7 +199,7 @@ Os serviços ligados são criados numa fábrica de dados para ligar os seus arqu
 ### <a name="create-azure-storage-linked-service"></a>Criar o serviço ligado do Armazenamento do Azure.
 Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dados.
 
-1. Crie um arquivo JSON chamado **AzureStorageLinkedService. JSON** na pasta **na c:\adftutorials\inccopychangetrackingtutorial** com o seguinte conteúdo: (Crie a pasta se ela ainda não existir.). Substitua `<accountName>`,  `<accountKey>` pelo nome e chave da sua conta de armazenamento do Azure antes de guardar o ficheiro.
+1. Crie um ficheiro JSON com o nome **AzureStorageLinkedService.json** na pasta **C:\ADFTutorials\IncCopyChangeTrackingTutorial** com o seguinte conteúdo: (crie a pasta, caso ainda não exista). Substitua `<accountName>`,  `<accountKey>` pelo nome e chave da sua conta de armazenamento do Azure antes de guardar o ficheiro.
 
     ```json
     {
@@ -234,7 +234,7 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
 ### <a name="create-azure-sql-database-linked-service"></a>Criar o serviço ligado da Base de Dados SQL do Azure.
 Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados.
 
-1. Crie um arquivo JSON chamado **AzureSQLDatabaseLinkedService. JSON** na pasta **na c:\adftutorials\inccopychangetrackingtutorial** com o seguinte conteúdo: Substitua server, database name **, &lt;user id&gt; e &lt;password&gt;** pelo nome do seu Azure SQL server, base de dados, ID de utilizador e palavra-passe antes de guardar o ficheiro. 
+1. Crie um ficheiro JSON chamado **AzureSQLDatabaseLinkedService.json** na pasta **C:\ADFTutorials\IncCopyChangeTrackingTutorial** com o seguinte conteúdo Substituir **&lt;servidor&gt; &lt;nome da base de dados&gt;, &lt;id de utilizador&gt; e a &lt;palavra-passe&gt;** com o nome do seu servidor SQL do Azure, nome da sua base de dados, ID de utilizador e a palavra-passe antes de guardar o ficheiro. 
 
     ```json
     {
@@ -388,7 +388,7 @@ Neste passo, vai criar um conjunto de dados para armazenar a versão de controlo
 ## <a name="create-a-pipeline-for-the-full-copy"></a>Criar um pipeline para a cópia completa
 Neste passo, cria um pipeline com uma atividade de cópia que copia os dados inteiros do arquivo de dados de origem (Base de Dados SQL do Azure) para o arquivo de dados de destino (Armazenamento de Blobs do Azure).
 
-1. Criar um arquivo JSON: FullCopyPipeline. JSON na mesma pasta com o seguinte conteúdo: 
+1. Crie um ficheiro JSON: FullCopyPipeline.json na mesma pasta com o seguinte conteúdo: 
 
     ```json
     {
@@ -453,7 +453,7 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
 4. Na página Fábrica de dados, clique no mosaico **Monitorizar e Gerir**. 
 
     ![Mosaico Monitorizar e Gerir](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
-5. A **Aplicação de Integração de Dados**  abre-se numa aba separada. Pode ver todas as **execuções de pipelines** e os respetivos estados. Note que no seguinte exemplo, o estado da execução do pipeline é **Com Êxito**. Pode verificar os parâmetros transmitidos para o pipeline ao clicar na ligação na coluna **Parâmetros**. Se tiver ocorrido um erro, pode ver uma ligação na coluna **Erro**. Clique na ligação na coluna **Ações**. 
+5. O **aplicativo de integração de dados** é iniciado em uma guia separada. Você pode ver todas as **execuções de pipeline** e seus status. Note que no seguinte exemplo, o estado da execução do pipeline é **Com Êxito**. Pode verificar os parâmetros transmitidos para o pipeline ao clicar na ligação na coluna **Parâmetros**. Se tiver ocorrido um erro, pode ver uma ligação na coluna **Erro**. Clique na ligação na coluna **Ações**. 
 
     ![Execuções de pipeline](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. Ao clicar na ligação na coluna **Ações**, verá a seguinte página que mostra todas as **execuções de atividade** no pipeline. 
@@ -496,7 +496,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ## <a name="create-a-pipeline-for-the-delta-copy"></a>Criar um pipeline para a cópia do delta
 Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicamente. As duas **atividades de pesquisa** obtêm os SYS_CHANGE_VERSION antigo e novo da Base de Dados SQL do Azure e passe-o para a atividade de cópia. A **atividade de cópia** copia os dados inseridos/atualizados/eliminados entre os dois valores de SYS_CHANGE_VERSION da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure. A **atividade de procedimentos armazenados** atualiza o valor de SYS_CHANGE_VERSION para a próxima execução de pipeline.
 
-1. Criar um arquivo JSON: IncrementalCopyPipeline. JSON na mesma pasta com o seguinte conteúdo: 
+1. Crie um ficheiro JSON: IncrementalCopyPipeline.json na mesma pasta com o seguinte conteúdo: 
 
     ```json
     {
@@ -651,7 +651,7 @@ O ficheiro deve ter apenas os dados delta da base de dados SQL do Azure. O regis
 1,update,10,2,U
 6,new,50,1,I
 ```
-As primeiros três colunas são dados alterados de data_source_table. As últimas duas colunas são os metadados da tabela do sistema de controlo de alterações. A quarta coluna é o SYS_CHANGE_VERSION para cada linha alterada. A quinta coluna é a operação:  U = Update, I = INSERT.  Para obter detalhes sobre as informações do registo de alterações, consulte [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
+As primeiros três colunas são dados alterados de data_source_table. As últimas duas colunas são os metadados da tabela do sistema de controlo de alterações. A quarta coluna é o SYS_CHANGE_VERSION para cada linha alterada. A quinta coluna é a operação: U = atualizar, I = inserir.  Para obter detalhes sobre as informações do registo de alterações, consulte [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
 
 ```
 ==================================================================
@@ -662,7 +662,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ```
 
     
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Avance para o tutorial a seguir para saber mais sobre como copiar arquivos novos e alterados somente com base em seus LastModifiedDate:
 
 > [!div class="nextstepaction"]

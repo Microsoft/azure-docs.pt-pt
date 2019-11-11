@@ -1,5 +1,5 @@
 ---
-title: Copiar dados no local com a ferramenta Copiar Dados do Azure | Microsoft Docs
+title: Copiar dados locais usando a ferramenta de Copiar Dados do Azure
 description: Crie uma fábrica de dados do Azure e utilize a ferramenta Copiar Dados para copiar dados de uma base de dados do SQL Server no local para um armazenamento de Blobs do Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 04/09/2018
 ms.author: abnarain
-ms.openlocfilehash: cbefc274e4ebb65f61769a7931dbed305acffe2f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 3b9c9371d947b0193f93b8084fbaaf66e3253997
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617550"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683545"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copiar dados de uma base de dados do SQL Server no local para o Armazenamento de blobs do Azure com a ferramenta Copiar Dados
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -91,7 +91,7 @@ Utilize o nome e a chave da sua conta de armazenamento neste tutorial. Para obte
 1. Nas caixas **Nome da conta de armazenamento** e **key1**, copie os valores e cole-os no Bloco de notas ou noutro editor, para utilizar mais adiante no tutorial. 
 
 #### <a name="create-the-adftutorial-container"></a>Criar o contentor adftutorial 
-Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no seu Armazenamento de blobs. 
+Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no seu armazenamento de Blobs. 
 
 1. Na janela **Conta de armazenamento**, mude para a **Descrição Geral** e selecione **Blobs**. 
 
@@ -102,12 +102,12 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 1. Na lista de contentores, clique em **adftutorial**.
 
 
-1. Mantenha a janela **Contentor** de **adftutorial** aberta. Você o usa para verificar a saída no final do tutorial. O Data Factory cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
+1. Mantenha a janela **Contentor** de **adftutorial** aberta. Você o usa para verificar a saída no final do tutorial. O Data Fabric cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
 
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. No menu à esquerda, selecione **+ criar uma** > **Data Factory**de**análise** > de recursos. 
+1. No menu à esquerda, selecione **+ criar um recurso** > **Analytics** > **Data Factory**. 
   
    ![Criação de nova fábrica de dados](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -140,7 +140,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
    ![Página Introdução](./media/doc-common-process/get-started-page.png)
 
 1. Na página **Propriedades** da ferramenta Copiar Dados, em **Nome da tarefa**, introduza **CopyFromOnPremSqlToAzureBlobPipeline**. Em seguida, selecione **Seguinte**. A ferramenta Copiar Dados cria um pipeline com o nome que especificar para este campo. 
-  ![Nome da tarefa](./media/tutorial-hybrid-copy-data-tool/properties-page.png)
+  ![nome da tarefa](./media/tutorial-hybrid-copy-data-tool/properties-page.png)
 
 1. Na página **Arquivo de dados de origem**, clique em **Criar nova ligação**. 
 
@@ -190,7 +190,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. Em **novo serviço vinculado**, pesquise e selecione **blob do Azure**e, em seguida, selecione **continuar**. 
 
-   ![Seleção do Armazenamento de blobs](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
+   ![Seleção do armazenamento de Blobs](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
 
 1. Na caixa de diálogo **Novo Serviço Ligado (Armazenamento de Blobs do Azure)** , siga os passos seguintes: 
 
@@ -202,7 +202,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
    d. Selecione **Concluir**.
 
-1. Na caixa de diálogo **armazenamento de dados de destino** , verifique se armazenamento de BLOBs **do Azure** está selecionado. Em seguida, selecione **Seguinte**. 
+1. Na caixa de diálogo **armazenamento de dados de destino** , verifique se armazenamento de **BLOBs do Azure** está selecionado. Em seguida, selecione **Seguinte**. 
 
 1. Na caixa de diálogo **Escolher ficheiro ou pasta de saída**, em **Caminho da pasta**, introduza **adftutorial/fromonprem**. Criou o contentor **adftutorial** como parte dos pré-requisitos. Se a pasta de saída não existir (neste caso **fromonprem**), o Data Factory cria-a automaticamente. Você também pode usar o botão **procurar** para procurar o armazenamento de BLOBs e seus contêineres/pastas. Se não especificar qualquer valor em **Nome de ficheiro**, por predefinição o nome da origem deverá ser utilizado (neste caso **dbo.emp**).
            
@@ -220,7 +220,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. No separador **Monitorização**, pode ver o estado do pipeline que criou. Pode utilizar as ligações na coluna **Ações** para ver as execuções de atividades associadas à execução do pipeline e voltar a executar o pipeline. 
    
-1. Selecione a ligação **Ver Execuções de Atividade** na coluna **Ações** para ver as execuções de atividades associadas à execução do pipeline. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos), na coluna **Ações**. Para voltar para a exibição de execuções de **pipeline** , selecione **pipeline é executado** na parte superior.
+1. Selecione a ligação **Ver Execuções de Atividade** na coluna **Ações** para ver as execuções de atividades associadas à execução do pipeline. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos), na coluna **Ações**. Para voltar para a exibição de **execuções de pipeline** , selecione **pipeline é executado** na parte superior.
 
 1. Confirme que vê um ficheiro de saída na pasta **fromonprem** do contentor **adftutorial**. 
 
@@ -230,7 +230,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
    ![Separador Editar](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 O pipeline neste exemplo copia os dados de uma base de dados do SQL Server no local para o Armazenamento de blobs. Aprendeu a: 
 
 > [!div class="checklist"]

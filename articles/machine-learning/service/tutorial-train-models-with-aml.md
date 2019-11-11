@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd215e754b7e72c9ac424a53015955332068558e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 4d16c07bf42c99b905868cb956d82e8723da61d6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493553"
+ms.locfileid: "73581530"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Tutorial: treinar modelos de classificação de imagem com dados do MNIST e scikit-aprender a usar Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,7 +44,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de co
 * Conclua o [tutorial: introdução à criação de seu primeiro experimento do ml](tutorial-1st-experiment-sdk-setup.md) para:
     * Criar uma área de trabalho
     * Clone o notebook tutoriais em sua pasta no espaço de trabalho.
-    * Crie uma instância de computação baseada em nuvem.
+    * Crie uma VM de bloco de notas baseada em nuvem.
 
 * Na pasta **tutoriais** clonados, abra o notebook **img-Classification-part1-Training. ipynb** . 
 
@@ -361,7 +361,7 @@ O que acontece enquanto você espera:
 
 - **Dimensionamento**: se o cluster remoto exigir mais nós para executar a execução que está disponível no momento, nós adicionais serão adicionados automaticamente. O dimensionamento normalmente leva **cerca de cinco minutos.**
 
-- **Em execução**: neste estágio, os scripts e arquivos necessários são enviados para o destino de computação. Em seguida, os repositórios de armazenamento são montados ou copiados. Em seguida, o **entry_script** é executado. Enquanto o trabalho está em execução, **stdout** e o diretório **./logs** são transmitidos para o histórico de execução. Você pode monitorar o progresso da execução usando esses logs.
+- **Em execução**: neste estágio, os scripts e arquivos necessários são enviados para o destino de computação. Em seguida, os repositórios de armazenamento são montados ou copiados. E, em seguida, o **entry_script** é executado. Enquanto o trabalho está em execução, **stdout** e o diretório **./logs** são transmitidos para o histórico de execução. Você pode monitorar o progresso da execução usando esses logs.
 
 - **Pós-processamento**: o diretório **./Outputs** da execução é copiado para o histórico de execução em seu espaço de trabalho, para que você possa acessar esses resultados.
 

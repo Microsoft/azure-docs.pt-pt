@@ -1,6 +1,6 @@
 ---
-title: Receber eventos usando o Apache Storm-hubs de eventos do Azure | Microsoft Docs
-description: Este artigo fornece informações sobre como receber eventos dos hubs de eventos do Azure usando Apache Storm.
+title: 'Início rápido: receber eventos usando o Apache Storm-hubs de eventos do Azure'
+description: 'Início rápido: Este artigo fornece informações sobre como receber eventos dos hubs de eventos do Azure usando Apache Storm.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,18 +11,18 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: eaa461dd0c4ef6bd9ed0ae4379a710ee100929d2
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 90293da07d3a7ef1c32e5f82d35198d4ffa536b1
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800192"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73717608"
 ---
-# <a name="receive-events-from-event-hubs-using-apache-storm"></a>Receber eventos dos hubs de eventos usando Apache Storm
+# <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Início rápido: receber eventos dos hubs de eventos usando Apache Storm
 
 O [Apache Storm](https://storm.incubator.apache.org) é um sistema de computação em tempo real distribuído que simplifica o processamento confiável de fluxos de dados não associados. Esta seção mostra como usar um Spout do Storm dos hubs de eventos do Azure para receber eventos de hubs de eventos. Usando Apache Storm, você pode dividir eventos em vários processos hospedados em nós diferentes. A integração dos hubs de eventos com o Storm simplifica o consumo de eventos, fazendo um ponto de verificação transparente de seu progresso usando a instalação do Zookeeper do Storm, gerenciando pontos de verificação persistentes e recebimentos paralelos dos hubs de eventos.
 

@@ -1,5 +1,5 @@
 ---
-title: Copiar uma tabela de forma incremental com o Azure Data Factory | Microsoft Docs
+title: 'Copiar uma tabela incrementalmente usando Azure Data Factory '
 description: Neste tutorial, vai criar um pipeline da fábrica de dados do Azure, que copia dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 3626e68c8cedfdd2d22f47cd92d6e7c4b8b5d180
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: a446574f0a6b2b18959f1a3c3e9a02a0a97e9f6b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806443"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683373"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure
 Neste tutorial, vai criar uma fábrica de dados do Azure com um pipeline que carrega dados delta de uma tabela numa base de dados SQL do Azure para o armazenamento de Blobs do Azure. 
@@ -27,7 +27,7 @@ Vai executar os seguintes passos neste tutorial:
 > * Preparar o arquivo de dados para armazenar o valor de limite de tamanho.
 > * Criar uma fábrica de dados.
 > * Criar serviços ligados. 
-> * Crie conjuntos de dados de origem, de sink e de limite de tamanho.
+> * Criou conjuntos de dados de origem, de sink e de limite de tamanho.
 > * Criar um pipeline.
 > * Executar o pipeline.
 > * Monitorizar a execução do pipeline. 
@@ -39,7 +39,7 @@ Vai executar os seguintes passos neste tutorial:
 
 
 ## <a name="overview"></a>Descrição geral
-Eis o diagrama da solução de alto nível: 
+Eis o diagrama de nível elevado da solução: 
 
 ![Carregar dados de forma incremental](media/tutorial-Incremental-copy-portal/incrementally-load.png)
 
@@ -48,21 +48,21 @@ Eis os passos importantes para criar esta solução:
 1. **Selecionar a coluna de limite de tamanho**.
     Selecione uma coluna no arquivo de dados de origem, que pode ser utilizada para dividir os registos novos ou atualizados para cada execução. Normalmente, os dados nesta coluna selecionada (por exemplo, last_modify_time ou ID) continuam a aumentar quando as linhas são criadas ou atualizadas. O valor máximo nesta coluna é utilizado como limite de tamanho.
 
-2. **Preparar um arquivo de dados para armazenar o valor de limite de tamanho**. Neste tutorial, vai armazenar o valor de limite superior numa base de dados SQL.
+2. **Preparar um arquivo de dados para armazenar o valor de limite de tamanho**. Neste tutorial, vai armazenar o valor do limite de tamanho numa base de dados SQL.
     
 3. **Crie um pipeline com o seguinte fluxo de trabalho**: 
     
     O pipeline nesta solução tem as seguintes atividades:
   
-    * Criar duas atividades Lookup. Utilize a primeira atividade Lookup para obter o último valor de limite de tamanho. Utilize a segunda para obter o valor de limite de tamanho novo. Estes valores de limite de tamanho são transmitidos para a atividade Copy. 
+    * Crie duas atividades de Pesquisa. Utilize a primeira atividade Lookup para obter o último valor de limite de tamanho. Utilize a segunda para obter o valor de limite de tamanho novo. Estes valores de limite de tamanho são transmitidos para a atividade Copy. 
     * Criar uma atividade Copy que copia linhas do arquivo de dados de origem com o valor da coluna de limite de tamanho superior ao valor de limite de tamanho antigo e inferior ao valor novo. Em seguida, copia os dados delta do arquivo de dados de origem para um armazenamento de Blobs como um ficheiro novo. 
-    * Criar uma atividade StoredProcedure, que atualiza o valor de limite de tamanho do pipeline que vai ser executado da próxima vez. 
+    * Crie uma atividade StoredProcedure, que atualiza o valor de marca d'água do pipeline que vai ser executado da próxima vez. 
 
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Base de Dados SQL do Azure**. Vai utilizar a base de dados como o arquivo de dados de origem. Se não tiver uma base de dados SQL, veja [Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para seguir os passos para criar uma.
+* **Base de Dados SQL do Azure**. Vai utilizar a base de dados como o arquivo de dados de origem. Se não tiver uma base de dados SQL, veja[Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para obter os passos para criar uma.
 * **Armazenamento do Azure**. Vai utilizar o armazenamento de blobs como arquivo de dados de sink. Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para seguir os passos para criar uma. Crie um contentor com o nome adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Criar uma tabela de origem de dados na base de dados SQL
@@ -100,7 +100,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     ```
 
 ### <a name="create-another-table-in-your-sql-database-to-store-the-high-watermark-value"></a>Criar outra tabela na base de dados SQL para armazenar o valor de limite superior de tamanho
-1. Execute o seguinte comando SQL na base de dados SQL para criar uma tabela com o nome `watermarktable` e armazenar o valor de marca d'água:  
+1. Execute o comando SQL seguinte na base de dados SQL para criar uma tabela com o nome `watermarktable` e armazenar o valor de limite de tamanho:  
     
     ```sql
     create table watermarktable
@@ -149,7 +149,7 @@ END
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-2. No menu à esquerda, selecione **criar um recurso** > **análise** > **Data Factory**: 
+2. No menu à esquerda, selecione **criar um recurso** > **Analytics** > **Data Factory**: 
    
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -174,7 +174,7 @@ END
 10. Clique no mosaico **Criar e Monitorizar** para iniciar a interface de utilizador (IU) do Azure Data Factory num separador à parte.
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
-Neste tutorial, vai criar um pipeline com duas atividades Lookup uma atividade Copy e uma atividade StoredProcedure encadeadas num pipeline. 
+Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma atividade de Cópia e uma atividade StoredProcedure encadeadas num pipeline. 
 
 1. Na página **introdução** da IU do Data Factory, clique no mosaico **Criar pipeline**. 
 
@@ -195,7 +195,7 @@ Neste tutorial, vai criar um pipeline com duas atividades Lookup uma atividade C
     1. Introduza **AzureSqlDatabaseLinkedService** em **Nome**. 
     2. Em **Nome do servidor**, selecione o seu servidor do SQL do Azure.
     3. Selecione o **nome do banco de dados** na lista suspensa. 
-    4. Insira sua**senha**de **nome** & de usuário. 
+    4. Insira seu **nome de usuário** & **senha**. 
     5. Para testar a ligação à base de dados SQL do Azure, clique em **Testar ligação**.
     6. Clique em **Concluir**.
     7. Confirme se **AzureSqlDatabaseLinkedService** está selecionado para o **serviço vinculado**.
@@ -255,7 +255,7 @@ Neste tutorial, vai criar um pipeline com duas atividades Lookup uma atividade C
 27. Na janela **definir propriedades** , confirme se **AzureStorageLinkedService** está selecionado para o **serviço vinculado**. Em seguida, selecione **Concluir**.
 28. Vá para a guia **conexão** do SinkDataset e execute as seguintes etapas:
     1. Para o campo **caminho do arquivo** , digite **adftutorial/incrementalcopy**. **adftutorial** é o nome do contentor de blobs e **incrementalcopy** é o nome da pasta. Este fragmento parte do princípio de que tem um contentor de blobs denominado adftutorial no armazenamento de blobs. Crie o contentor se ainda não existir ou defina-o como o nome de um contentor existente. O Azure Data Factory cria automaticamente a pasta de saída **incrementalcopy**, se não existir. Também pode utilizar o botão **Procurar** do **Caminho do ficheiro** para navegar para uma pasta num contentor de blobs.
-    2. Para a parte de **arquivo** do campo **caminho do arquivo** , selecione **adicionar conteúdo dinâmico [Alt + P]** e, em `@CONCAT('Incremental-', pipeline().RunId, '.txt')`seguida, digite na janela aberta. Em seguida, selecione **Concluir**. O nome do ficheiro é gerado dinamicamente através da expressão. Cada execução de pipeline tem um ID exclusivo. A atividade Copy utiliza o ID de execução para gerar o nome do ficheiro. 
+    2. Para a parte de **arquivo** do campo **caminho do arquivo** , selecione **adicionar conteúdo dinâmico [Alt + P]** e, em seguida, insira `@CONCAT('Incremental-', pipeline().RunId, '.txt')`na janela aberta. Em seguida, selecione **Concluir**. O nome do ficheiro é gerado dinamicamente através da expressão. Cada execução de pipeline tem um ID exclusivo. A atividade Copy utiliza o ID de execução para gerar o nome do ficheiro. 
 
 28. Clique no separador do pipeline, na parte superior, ou clique no nome do pipeline na vista de árvore, do lado esquerdo, para mudar para o editor do **pipeline**. 
 29. Na caixa de ferramentas **Atividades**, expanda **Geral** e arraste e largue a atividade **Stored Procedure** da caixa de ferramentas **Atividades** na superfície de desenho do pipeline. **Ligue** a saída verde (Êxito) da atividade **Copy** à atividade **Stored Procedure**. 
@@ -345,7 +345,7 @@ PersonID | Name | LastModifytime
 
 
 ## <a name="trigger-another-pipeline-run"></a>Acionar outra execução de pipeline
-1. Mude para o separador **Editar**. Se o pipeline não estiver aberto no estruturador, clique no mesmo na vista de árvore. 
+1. Alterne para a guia **Editar** . Clique no pipeline no modo de exibição de árvore se ele não estiver aberto no designer. 
 
 2. Clique em **Adicionar gatilho** na barra de ferramentas e clique em **disparar agora**. 
 
@@ -385,7 +385,7 @@ Neste tutorial, executou os passos seguintes:
 > * Preparar o arquivo de dados para armazenar o valor de limite de tamanho.
 > * Criar uma fábrica de dados.
 > * Criar serviços ligados. 
-> * Crie conjuntos de dados de origem, de sink e de limite de tamanho.
+> * Criou conjuntos de dados de origem, de sink e de limite de tamanho.
 > * Criar um pipeline.
 > * Executar o pipeline.
 > * Monitorizar a execução do pipeline. 
