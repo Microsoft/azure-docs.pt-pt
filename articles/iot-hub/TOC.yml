@@ -9,6 +9,8 @@
   items:
     - name: Enviar telemetria
       items:
+        - name: Introdução
+          href: quickstart-send-telemetry-cli.md
         - name: C
           href: quickstart-send-telemetry-c.md
         - name: Node.js
@@ -289,7 +291,7 @@
             - name: Utilizar a API REST
               href: iot-hub-rm-rest.md
             - name: Utilizar um modelo do Azure PowerShell
-              displayName: 'Azure Resource Manager, ARM'
+              displayName: Azure Resource Manager
               href: iot-hub-rm-template-powershell.md
             - name: Utilizar um modelo do .NET
               href: iot-hub-rm-template.md
@@ -459,7 +461,7 @@
     - name: Ferramenta iothub-diagnostics
       href: 'https://github.com/Azure/iothub-diagnostics'
     - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
     - name: Calculadora de preços
