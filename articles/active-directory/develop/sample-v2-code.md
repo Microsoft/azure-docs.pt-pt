@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01ed7383515a725816679acb405b2ff3b1dc8e92
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 84c94675ac5c69055cd2811df206f81af55d3c1e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817238"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927196"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemplos de código da plataforma Microsoft Identity (ponto de extremidade v 2.0)
 
@@ -86,7 +86,7 @@ Os exemplos a seguir mostram um aplicativo que acessa a API Microsoft Graph com 
 
 | Aplicativo cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph |
 | ------------------ | -------- | ---------- | -------------------- |
-| Console | ![Esta imagem mostra o logotipo do .NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Credenciais do cliente](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
+| Consola | ![Esta imagem mostra o logotipo do .NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Credenciais do cliente](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
 | Aplicação Web | ![Esta imagem mostra o logotipo do ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [Credenciais do cliente](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
 
 ## <a name="headless-applications"></a>Aplicativos sem periféricos
@@ -101,16 +101,28 @@ O exemplo a seguir mostra um aplicativo cliente público em execução em um dis
 
 Os exemplos a seguir mostram como proteger uma API Web com o ponto de extremidade da plataforma de identidade da Microsoft e como chamar uma API downstream da API da Web.
 
-| Plataforma | Exemplo |
+| Plataforma | Sample |
 | -------- | ------------------- |
 | ![Esta imagem mostra o logotipo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2,2 | API Web do ASP.NET Core (serviço) de [dotnet-Native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![Esta imagem mostra o logotipo do ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | API Web (serviço) de [MS-Identity-ASPNET-webAPI-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
+
+## <a name="azure-functions-as-web-apis"></a>Azure Functions como APIs Web
+
+Os exemplos a seguir mostram como proteger uma função do Azure usando HttpTrigger e expondo uma API Web com o ponto de extremidade da plataforma de identidade da Microsoft e como chamar uma API downstream da API da Web.
+
+| Plataforma | Sample |
+| -------- | ------------------- |
+| ![Esta imagem mostra o logotipo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2,2 | ASP.NET Core a função do Azure da API Web (serviço) do [dotnet-Native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
+| ![Esta imagem mostra o logotipo do node. js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | API Web (serviço) de [NodeJS e Passport-Azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
+| ![Esta imagem mostra o logotipo do Python](media/sample-v2-code/logo_python.png)</p>Python | API da Web (serviço) do [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
+| ![Esta imagem mostra o logotipo do node. js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | API da Web (serviço) de [NodeJS e Passport-Azure-ad usando em nome de](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
+
 
 ## <a name="other-microsoft-graph-samples"></a>Outros exemplos de Microsoft Graph
 
 Para saber mais sobre [exemplos](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) e tutoriais que demonstram padrões de uso diferentes para a API Microsoft Graph, incluindo a autenticação com o Azure AD, consulte [exemplos da comunidade Microsoft Graph & tutoriais](https://github.com/microsoftgraph/msgraph-community-samples).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Guia do desenvolvedor de Azure Active Directory (v 1.0)](v1-overview.md)
 - [Referência e conceitual do Azure AD API do Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx)

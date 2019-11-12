@@ -1,5 +1,5 @@
 ---
-title: Conectar um dispositivo Windows IoT Core ao seu aplicativo de IoT Central do Azure | Microsoft Docs
+title: Conectar o Windows IoT Core ao seu aplicativo de IoT Central do Azure | Microsoft Docs
 description: Como desenvolvedor de dispositivos, saiba como conectar um dispositivo MXChip IoT DevKit ao aplicativo IoT Central do Azure.
 author: miriambrus
 ms.author: miriamb
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d880130e114b2bd3e4f978c2ae3fc7bacf0648c4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 43e99c54249738436f24369ed3525e78ff971a12
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953905"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930212"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo Windows IoT Core ao seu aplicativo IoT Central do Azure
 
@@ -123,7 +123,7 @@ Configurações numéricas
 | Tipo            | Nome a apresentar | Nome do campo | Data type |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade do dispositivo | Número do chip   | dieNumber  | número    |
-| Texto            | Localização     | localização   | N/A       |
+| Texto            | Localização     | localização   | N/D       |
 
 ## <a name="next-steps"></a>Passos seguintes
 
