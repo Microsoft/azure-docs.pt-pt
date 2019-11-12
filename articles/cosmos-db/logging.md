@@ -1,5 +1,5 @@
 ---
-title: Log de diagnóstico em Azure Cosmos DB
+title: Registo de diagnósticos no Azure Cosmos DB
 description: Saiba mais sobre as diferentes maneiras de registrar e monitorar dados armazenados no Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1e9f852d01d60ead9979b6b1190e285b35d5c312
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: bdbc50983708327cf5d3857282c92fcab1c28b09
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294036"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930536"
 ---
-# <a name="diagnostic-logging-in-azure-cosmos-db"></a>Log de diagnóstico em Azure Cosmos DB 
+# <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registo de diagnósticos no Azure Cosmos DB 
 
 Depois de começar a usar um ou mais bancos de dados do Azure Cosmos, talvez você queira monitorar como e quando seus bancos de dados são acessados. Este artigo fornece uma visão geral dos logs que estão disponíveis na plataforma Azure. Você aprende a habilitar o log de diagnóstico para fins de monitoramento para enviar logs para o [armazenamento do Azure](https://azure.microsoft.com/services/storage/), como transmitir logs para os [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/)e como exportar logs para [logs de Azure monitor](https://azure.microsoft.com/services/log-analytics/).
 
@@ -40,7 +40,7 @@ O log de atividades registra as operações em um nível de assinatura para Azur
 
 Neste artigo, nos concentramos no log de atividades do Azure, nos logs de diagnóstico do Azure e nas métricas do Azure. Qual é a diferença entre esses três logs? 
 
-### <a name="azure-activity-log"></a>Log de atividades do Azure
+### <a name="azure-activity-log"></a>Registo de Atividades do Azure
 
 O log de atividades do Azure é um log de assinatura que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. O log de atividades relata eventos de plano de controle para suas assinaturas na categoria administrativa. Você pode usar o log de atividades para determinar "o que, quem e quando" para qualquer operação de gravação (PUT, POST, DELETE) nos recursos em sua assinatura. Você também pode entender o status da operação e outras propriedades relevantes. 
 
@@ -118,7 +118,7 @@ Use as etapas a seguir para habilitar o log de diagnóstico no portal do Azure:
 
 3. Selecione **Guardar**.
 
-    Se você receber um erro que diz "falha ao atualizar o diagnóstico para o nome \<workspace >. A ID da assinatura \<subscription > não está registrada para usar o Microsoft. insights, "siga as instruções de [diagnóstico do Azure de solução de problemas](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para registrar a conta e repita esse procedimento.
+    Se você receber um erro que diz "falha ao atualizar o diagnóstico para \<nome do espaço de trabalho >. A assinatura \<ID de assinatura > não está registrada para usar o Microsoft. insights, "siga as instruções de [diagnóstico do Azure de solução de problemas](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para registrar a conta e repita esse procedimento.
 
     Se você quiser alterar o modo como os logs de diagnóstico são salvos em qualquer ponto no futuro, retorne a esta página para modificar as configurações de log de diagnóstico para sua conta.
 
@@ -132,7 +132,7 @@ Para habilitar as métricas e o log de diagnóstico usando CLI do Azure, use os 
    az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   O `resource` é o nome da conta de Azure Cosmos DB. O recurso está no formato "/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/Providers/Microsoft. DocumentDB/databaseAccounts/< Azure_Cosmos_account_name >" o `storage-account` é o nome da conta de armazenamento para a qual você deseja enviar os logs. Você pode registrar outros logs atualizando os valores de parâmetro de categoria para "MongoRequests" ou "DataPlaneRequests". 
+   O `resource` é o nome da conta de Azure Cosmos DB. O recurso está no formato "/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/< Azure_Cosmos_account_name >" o `storage-account` é o nome da conta de armazenamento para a qual você deseja enviar os logs. Você pode registrar outros logs atualizando os valores de parâmetro de categoria para "MongoRequests" ou "DataPlaneRequests". 
 
 - Para habilitar o streaming de logs de diagnóstico para um hub de eventos, use este comando:
 
@@ -313,7 +313,7 @@ $blobs | Get-AzStorageBlobContent `
  -Destination 'C:\Users\username\ContosoCosmosDBLogs'
 ```
 
-Quando você executa esse segundo comando, o delimitador **/** nos nomes de blob cria uma estrutura de pasta completa na pasta de destino. Essa estrutura de pastas é usada para baixar e armazenar os BLOBs como arquivos.
+Quando você executa esse segundo comando, o delimitador de **/** nos nomes de blob cria uma estrutura de pasta completa na pasta de destino. Essa estrutura de pastas é usada para baixar e armazenar os BLOBs como arquivos.
 
 Para transferir seletivamente blobs, utilize carateres universais. Por exemplo:
 
@@ -401,61 +401,105 @@ Agora que você habilitou a coleta de dados, execute o seguinte exemplo de pesqu
 ![Pesquisa de log de exemplo para os 10 logs mais recentes](./media/logging/log-analytics-query.png)
 
 <a id="#queries"></a>
-### <a name="queries"></a>Consultas
+### <a name="cosmosdb-log-analytics-queries-in-azure-monitor"></a>CosmosDB Log Analytics consultas em Azure Monitor
 
-Aqui estão algumas consultas adicionais que você pode inserir na caixa de **pesquisa de log** para ajudá-lo a monitorar seus contêineres de Cosmos do Azure. Essas consultas funcionam com a [nova linguagem](../log-analytics/log-analytics-log-search-upgrade.md). 
+Aqui estão algumas consultas adicionais que você pode inserir na caixa de **pesquisa de log** para ajudá-lo a monitorar seus contêineres de Cosmos do Azure. Essas consultas funcionam com a [nova linguagem](../log-analytics/log-analytics-log-search-upgrade.md).  
 
 Para saber mais sobre o significado dos dados retornados por cada pesquisa de log, consulte [interpretar seus logs de Azure Cosmos DB](#interpret).
 
 * Para consultar todos os logs de diagnóstico de Azure Cosmos DB por um período de tempo especificado:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
     ```
 
 * Para consultar os 10 eventos registrados mais recentemente:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | take 10
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | limit 10
     ```
 
 * Para consultar todas as operações, agrupadas por tipo de operação:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by OperationName
     ```
 
 * Para consultar todas as operações, agrupadas por **recurso**:
 
     ```
-    AzureActivity | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    AzureActivity 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by Resource
     ```
 
 * Para consultar todas as atividades do usuário, agrupadas por recurso:
 
     ```
-    AzureActivity | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    AzureActivity 
+    | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by Resource
     ```
     > [!NOTE]
     > Esse comando é para um log de atividades, não um log de diagnóstico.
 
+* Para obter todas as consultas com mais de 100 RUs Unidas com dados de DataPlaneRequests e QueryRunTimeStatistics
+
+    ```
+    AzureDiagnostics
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
+    | project activityId_g, requestCharge_s
+    | join kind= inner (
+           AzureDiagnostics
+           | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
+           | project activityId_g, querytext_s
+    ) on $left.activityId_g == $right.activityId_g
+    | order by requestCharge_s desc
+    | limit 100
+    ```
+    
+      
+
 * Para consultar quais operações demoram mais do que 3 milissegundos:
 
     ```
-    AzureDiagnostics | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    AzureDiagnostics 
+    | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
 * Para consultar qual agente está executando as operações:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName, userAgent_s
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by OperationName, userAgent_s
     ```
 
 * Para consultar quando as operações de longa execução foram executadas:
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , duration_s | render timechart
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | project TimeGenerated , duration_s 
+    | render timechart
     ```
+    
+* Para obter estatísticas de chave de partição para avaliar a distorção entre as três principais partições para a conta de banco de dados:
+
+    ```
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
+    | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+    
+   
+    ```
+    
 
 Para obter mais informações sobre como usar a nova linguagem de pesquisa de logs, consulte [entender pesquisas de logs em logs de Azure monitor](../log-analytics/log-analytics-log-search-new.md). 
 

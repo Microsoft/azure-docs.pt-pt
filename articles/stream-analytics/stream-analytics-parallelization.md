@@ -1,6 +1,6 @@
 ---
-title: Utilizar a paralelização de consultas e dimensionamento no Azure Stream Analytics
-description: Este artigo descreve como dimensionar tarefas do Stream Analytics ao configurar partições de entrada, ajuste a definição de consulta e definir as unidades de transmissão em fluxo de trabalho.
+title: Usar paralelização de consulta e dimensionar em Azure Stream Analytics
+description: Este artigo descreve como dimensionar Stream Analytics trabalhos Configurando partições de entrada, ajustando a definição de consulta e definindo unidades de streaming de trabalho.
 services: stream-analytics
 author: JSeb225
 ms.author: jeanb
@@ -9,77 +9,77 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 5eba5601a50640261fa1b488d959f606d4514737
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 985746989af39aa55d5d8af735edf62f4c4b77b7
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612223"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932293"
 ---
-# <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Tirar partido de paralelização de consultas no Azure Stream Analytics
-Este artigo mostra-lhe como tirar partido da paralelização no Azure Stream Analytics. Saiba como dimensionar tarefas do Stream Analytics ao configurar partições de entrada e a definição de consulta de análise de otimização.
-Como pré-requisito, deverá estar familiarizado com a noção de unidade de transmissão em fluxo de mensagens em fila descrito em [compreender e ajustar as unidades transmissão em fluxo](stream-analytics-streaming-unit-consumption.md).
+# <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Aproveitar a paralelização de consultas no Azure Stream Analytics
+Este artigo mostra como aproveitar a paralelização no Azure Stream Analytics. Você aprende a dimensionar Stream Analytics trabalhos Configurando partições de entrada e ajustando a definição de consulta de análise.
+Como pré-requisito, talvez você queira estar familiarizado com a noção da unidade de streaming descrita em [entender e ajustar as unidades de streaming](stream-analytics-streaming-unit-consumption.md).
 
-## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>Quais são as partes de uma tarefa do Stream Analytics?
-Uma definição de tarefa do Stream Analytics inclui entradas, uma consulta e saída. Entradas são em que a tarefa lê o fluxo de dados do. A consulta é utilizada para transformar o fluxo de entrada de dados e a saída é onde a tarefa envia os resultados das tarefas para.
+## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>Quais são as partes de um trabalho de Stream Analytics?
+Uma definição de trabalho Stream Analytics inclui entradas, uma consulta e uma saída. As entradas são para onde o trabalho lê o fluxo de dados. A consulta é usada para transformar o fluxo de entrada de dados e a saída é onde o trabalho envia os resultados do trabalho.
 
-Uma tarefa requer pelo menos uma origem de entrada de dados de transmissão em fluxo. A origem de entrada de fluxo de dados pode ser armazenada num hub de eventos do Azure ou no armazenamento de Blobs do Azure. Para obter mais informações, consulte [introdução ao Azure Stream Analytics](stream-analytics-introduction.md) e [começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md).
+Um trabalho requer pelo menos uma fonte de entrada para o streaming de dados. A fonte de entrada do fluxo de dados pode ser armazenada em um hub de eventos do Azure ou no armazenamento de BLOBs do Azure. Para obter mais informações, consulte [introdução ao Azure Stream Analytics](stream-analytics-introduction.md) e começar a [usar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md).
 
-## <a name="partitions-in-sources-and-sinks"></a>Partições em origens e sinks
-Dimensionar uma tarefa do Stream Analytics tira partido das partições na entrada ou saída. Criação de partições permite que dividir os dados em subconjuntos com base numa chave de partição. Um processo que consome os dados (por exemplo, uma tarefa de análise de transmissão em fluxo) pode consumir e escrever diferentes partições em paralelo, o que aumenta o débito. 
+## <a name="partitions-in-sources-and-sinks"></a>Partições em fontes e coletores
+A colocação em escala de um trabalho de Stream Analytics aproveita as partições na entrada ou na saída. O particionamento permite dividir dados em subconjuntos com base em uma chave de partição. Um processo que consome os dados (como um trabalho de streaming Analytics) pode consumir e gravar partições diferentes em paralelo, o que aumenta a taxa de transferência. 
 
 ### <a name="inputs"></a>Entradas
-Todas as entradas do Azure Stream Analytics podem tirar partido da criação de partições:
--   EventHub (é necessário definir a chave de partição explicitamente com a palavra-chave por PARTIÇÃO)
--   IoT Hub (é necessário definir a chave de partição explicitamente com a palavra-chave por PARTIÇÃO)
+Todas as Azure Stream Analytics entrada podem aproveitar o particionamento:
+-   EventHub (é necessário definir a chave de partição explicitamente com partição por palavra-chave)
+-   Hub IoT (é necessário definir a chave de partição explicitamente com a palavra-chave PARTITION BY)
 -   Armazenamento de blobs
 
 ### <a name="outputs"></a>Saídas
 
-Quando trabalha com o Stream Analytics, pode aproveitar as saídas de criação de partições:
+Ao trabalhar com Stream Analytics, você pode aproveitar o particionamento nas saídas:
 -   Armazenamento do Azure Data Lake
 -   Funções do Azure
 -   Tabela do Azure
 -   Armazenamento de BLOBs (pode definir a chave de partição explicitamente)
--   Cosmos DB (é necessário definir explicitamente a chave de partição)
--   Hubs de eventos (é necessário definir explicitamente a chave de partição)
--   IoT Hub (é necessário definir explicitamente a chave de partição)
+-   Cosmos DB (é necessário definir a chave de partição explicitamente)
+-   Hubs de eventos (é necessário definir a chave de partição explicitamente)
+-   Hub IoT (é necessário definir a chave de partição explicitamente)
 -   Service Bus
-- SQL e SQL Data Warehouse com o particionamento opcional: obter mais informações sobre o [de saída para a página de base de dados do Azure SQL](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
+- SQL e SQL Data Warehouse com particionamento opcional: Veja mais informações na [página saída para o banco de dados SQL do Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
-O Power BI não suporta a criação de partições. No entanto pode ainda particionar a entrada conforme descrito em [nesta secção](#multi-step-query-with-different-partition-by-values) 
+Power BI não dá suporte ao particionamento. No entanto, você ainda pode particionar a entrada conforme descrito nesta [seção](#multi-step-query-with-different-partition-by-values) 
 
-Para obter mais informações sobre as partições, consulte os artigos seguintes:
+Para obter mais informações sobre partições, consulte os seguintes artigos:
 
 * [Descrição geral das funcionalidades dos Hubs de Eventos](../event-hubs/event-hubs-features.md#partitions)
-* [A partição de dados](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning)
+* [Criação de partições de dados](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning)
 
 
-## <a name="embarrassingly-parallel-jobs"></a>Tarefas constrangedoramente paralelas
-Uma *constrangedoramente paralelas* tarefa é o cenário mais escalonável, temos no Azure Stream Analytics. Ele se conecta uma partição de entrada para uma instância da consulta para uma partição de saída. Esse paralelismo tem os seguintes requisitos:
+## <a name="embarrassingly-parallel-jobs"></a>Trabalhos paralelos do embaraçosamente
+Um trabalho *paralelo embaraçosamente* é o cenário mais escalonável que temos em Azure Stream Analytics. Ele conecta uma partição da entrada a uma instância da consulta a uma partição da saída. Esse paralelismo tem os seguintes requisitos:
 
-1. Se a sua lógica de consulta depende da mesma chave a ser processada pela mesma instância de consulta, deve certificar-se de que os eventos de ir para a mesma partição de sua entrada. Para os Hubs de eventos ou o IoT Hub, isso significa que os dados do evento tem de ter o **PartitionKey** conjunto de valor. Em alternativa, pode utilizar os remetentes particionados. Para armazenamento de BLOBs, isso significa que os eventos são enviados para a mesma pasta de partição. Se a sua lógica de consulta não requer a mesma chave a ser processado pela mesma instância de consulta, pode ignorar este requisito. Um exemplo dessa lógica seria uma simple consulta de filtro de projeto de select.  
+1. Se a lógica de consulta depender da mesma chave que está sendo processada pela mesma instância de consulta, você deverá certificar-se de que os eventos vão para a mesma partição de sua entrada. Para hubs de eventos ou Hub IoT, isso significa que os dados do evento devem ter o valor **PartitionKey** definido. Como alternativa, você pode usar os remetentes particionados. Para o armazenamento de BLOBs, isso significa que os eventos são enviados para a mesma pasta de partição. Se a lógica de consulta não exigir que a mesma chave seja processada pela mesma instância de consulta, você poderá ignorar esse requisito. Um exemplo dessa lógica seria uma consulta SELECT-Project-Filter simples.  
 
-2. Depois dos dados são dispostos no lado de entrada, deve certificar-se de que a consulta estiver particionada. Isto requer a utilização **PARTITION BY** em todos os passos. São permitidos vários passos, mas todos eles devem ser particionados pela mesma chave. No nível de compatibilidade 1.0 e 1.1, a chave de particionamento deve ser definida como **PartitionId** para que a tarefa para ser totalmente paralela. Para as tarefas com o nível de compatility 1.2 e superior, coluna personalizada pode ser especificada como chave de partição nas definições de entrada e a tarefa será paralellized automoatically mesmo sem a cláusula PARTITION BY.
+2. Depois que os dados são dispostos no lado de entrada, você deve verificar se a consulta está particionada. Isso exige que você use **Partition by** em todas as etapas. Várias etapas são permitidas, mas todas devem ser particionadas pela mesma chave. Em nível de compatibilidade 1,0 e 1,1, a chave de particionamento deve ser definida como **PartitionID** para que o trabalho seja totalmente paralelo. Para trabalhos com o nível de compatibilidade 1,2 e superior, a coluna personalizada pode ser especificada como chave de partição nas configurações de entrada e o trabalho será paralellized automaticamente até mesmo sem a cláusula PARTITION BY. Para saída do hub de eventos, a propriedade "coluna de chave de partição" deve ser definida para usar "PartitionID".
 
-3. A maioria dos nossos saída aproveitar as vantagens do particionamento, no entanto, se usar um tipo de saída que não suporta a criação de partições de seu trabalho não será totalmente paralelo. Consulte a [secção de saída](#outputs) para obter mais detalhes.
+3. A maior parte de nossa saída pode aproveitar o particionamento. no entanto, se você usar um tipo de saída que não dê suporte ao particionamento, o trabalho não será totalmente paralelo. Consulte a [seção de saída](#outputs) para obter mais detalhes.
 
-4. O número de partições de entrada deve ser igual ao número de partições de saída. Saída de armazenamento de BLOBs pode oferecer suporte a partições e herda o esquema de particionamento da consulta a montante. Quando uma chave de partição para o Blob storage for especificado, os dados está particionada por partição de entrada, portanto, o resultado é ainda totalmente paralelo. Seguem-se exemplos de valores de partição que permitem que uma tarefa totalmente paralela:
+4. O número de partições de entrada deve ser igual ao número de partições de saída. A saída do armazenamento de BLOBs pode dar suporte a partições e herda o esquema de particionamento da consulta upstream. Quando uma chave de partição para o armazenamento de blob é especificada, os dados são particionados por partição de entrada, portanto, o resultado ainda é totalmente paralelo. Aqui estão exemplos de valores de partição que permitem um trabalho totalmente paralelo:
 
-   * 8 partições entrada para o event hub e o hub de eventos de 8 de saída de partições
-   * 8 partições entrada para o event hub e a saída de armazenamento de BLOBs
-   * 8 de partições de entrada do hub de eventos e saída de armazenamento de BLOBs particionados por um campo personalizado com cardinalidade arbitrária
-   * 8 blob entrada as partições de armazenamento e saída de armazenamento de BLOBs
-   * 8 8 partições de saída do hub de eventos e partições de entrada do armazenamento de BLOBs
+   * 8 partições de entrada do hub de eventos e 8 partições de saída do hub de eventos
+   * 8 partições de entrada do hub de eventos e saída do armazenamento de BLOBs
+   * 8 partições de entrada do hub de eventos e saída de armazenamento de BLOBs particionadas por um campo personalizado com cardinalidade arbitrária
+   * 8 partições de entrada de armazenamento de BLOBs e saída de armazenamento de BLOBs
+   * 8 partições de entrada do armazenamento de BLOBs e 8 partições de saída do hub de eventos
 
-As secções seguintes abordam alguns cenários de exemplo constrangedoramente paralelas.
+As seções a seguir discutem alguns cenários de exemplo que são embaraçosamente paralelos.
 
 ### <a name="simple-query"></a>Consulta simples
 
 * Entrada: Hub de eventos com 8 partições
-* Saída: Hub de eventos com 8 partições
+* Saída: o Hub de eventos com 8 partições ("coluna de chave de partição" deve ser definido para usar "PartitionID")
 
-Consulta:
+Consultá
 
 ```SQL
     SELECT TollBoothId
@@ -87,14 +87,14 @@ Consulta:
     WHERE TollBoothId > 100
 ```
 
-Esta consulta é um filtro simple. Por conseguinte, não precisamos de se preocupar sobre a criação de partições de entrada que está a ser enviada para o hub de eventos. Tenha em atenção que as tarefas com o nível de compatibilidade antes 1.2 tem de incluir **PARTITION BY PartitionId** cláusula, para que ele cumpre o requisito #2 anteriores. Para a saída, precisamos de configurar a saída do hub de eventos da tarefa para que o conjunto de chaves de partição para **PartitionId**. Última verificação de um é certificar-se de que o número de partições de entrada é igual ao número de partições de saída.
+Essa consulta é um filtro simples. Portanto, não precisamos nos preocupar com o particionamento da entrada que está sendo enviada para o Hub de eventos. Observe que os trabalhos com nível de compatibilidade antes de 1,2 devem incluir **a cláusula PARTITION by PartitionID** , portanto, ele atende aos requisitos #2 anteriores. Para a saída, precisamos configurar a saída do hub de eventos no trabalho para ter a chave de partição definida como **PartitionID**. Uma última verificação é certificar-se de que o número de partições de entrada seja igual ao número de partições de saída.
 
 ### <a name="query-with-a-grouping-key"></a>Consultar com uma chave de agrupamento
 
 * Entrada: Hub de eventos com 8 partições
-* Saída: Armazenamento de blobs
+* Saída: armazenamento de BLOBs
 
-Consulta:
+Consultá
 
 ```SQL
     SELECT COUNT(*) AS Count, TollBoothId
@@ -102,29 +102,29 @@ Consulta:
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 ```
 
-Esta consulta tem uma chave de agrupamento. Por conseguinte, os eventos agrupados em conjunto têm de ser enviados para a mesma partição do Hub de eventos. Uma vez que neste exemplo, agrupar por TollBoothID, podemos deve ter certeza de que TollBoothID é utilizado como a chave de partição quando os eventos são enviados para o Hub de eventos. Em seguida, no ASA, podemos usar **PARTITION BY PartitionId** herdam este esquema de partição e ativar a paralelização completa. Uma vez que a saída é o armazenamento de BLOBs, não precisamos de se preocupar sobre como configurar um valor de chave de partição, de acordo com o requisito #4.
+Esta consulta tem uma chave de agrupamento. Portanto, os eventos agrupados devem ser enviados para a mesma partição do hub de eventos. Como, neste exemplo, agrupamos por TollBoothID, devemos ter certeza de que TollBoothID é usado como a chave de partição quando os eventos são enviados ao Hub de eventos. Em seguida, no ASA, podemos usar **particionar por PartitionID** para herdar deste esquema de partição e habilitar a paralelização completa. Como a saída é o armazenamento de BLOBs, não precisamos nos preocupar com a configuração de um valor de chave de partição, de acordo com o requisito #4.
 
-## <a name="example-of-scenarios-that-are-not-embarrassingly-parallel"></a>Exemplo de cenários que são *não* constrangedoramente paralelas
+## <a name="example-of-scenarios-that-are-not-embarrassingly-parallel"></a>Exemplo de cenários que *não* são embaraçosamente paralelos
 
-Na secção anterior, mostramos alguns cenários constrangedoramente paralelos. Nesta secção, vamos abordar os cenários que não correspondam a todos os requisitos para ser constrangedoramente paralelas. 
+Na seção anterior, mostramos alguns cenários paralelos embaraçosamente. Nesta seção, discutiremos cenários que não atendem a todos os requisitos para serem embaraçosamente paralelos. 
 
-### <a name="mismatched-partition-count"></a>Contagem de partições sem correspondência
+### <a name="mismatched-partition-count"></a>Contagem de partições incompatíveis
 * Entrada: Hub de eventos com 8 partições
-* Saída: Hub de eventos com 32 partições
+* Saída: Hub de eventos com partições 32
 
-Neste caso, não importa o que é a consulta. Se o número de partições de entrada não corresponder o número de partições de saída, a topologia não constrangedoramente paralelo. + no entanto, continua a poder aceder alguns nível ou a paralelização.
+Nesse caso, não importa qual é a consulta. Se a contagem de partição de entrada não corresponder à contagem de partição de saída, a topologia não será embaraçosamente paralela. + no entanto, ainda podemos obter algum nível ou paralelização.
 
-### <a name="query-using-non-partitioned-output"></a>Consultar com a saída de não-particionada
+### <a name="query-using-non-partitioned-output"></a>Consulta usando saída não particionada
 * Entrada: Hub de eventos com 8 partições
 * Saída: Power BI
 
-Saída do Power BI atualmente não suporta a criação de partições. Por conseguinte, este cenário não é constrangedoramente paralelo.
+Power BI a saída atualmente não dá suporte ao particionamento. Portanto, esse cenário não é embaraçosamente paralelo.
 
-### <a name="multi-step-query-with-different-partition-by-values"></a>Consulta de vários passo com diferentes valores por PARTIÇÃO
+### <a name="multi-step-query-with-different-partition-by-values"></a>Consulta de várias etapas com uma partição diferente por valores
 * Entrada: Hub de eventos com 8 partições
 * Saída: Hub de eventos com 8 partições
 
-Consulta:
+Consultá
 
 ```SQL
     WITH Step1 AS (
@@ -138,15 +138,15 @@ Consulta:
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-Como pode ver, a segunda etapa usa **TollBoothId** como a chave de particionamento. Este passo não é o mesmo que o primeiro passo e, portanto, requer-nos fazer um shuffle. 
+Como você pode ver, a segunda etapa usa **TollBoothId** como a chave de particionamento. Essa etapa não é igual à primeira etapa e, portanto, exige que façamos uma ordem aleatória. 
 
-Os exemplos anteriores mostram algumas tarefas do Stream Analytics que estão em conformidade com (ou não) uma topologia constrangedoramente paralela. Se eles estão em conformidade com, eles têm o potencial para dimensionamento máximo. Atualiza para tarefas que não se ajustam um desses perfis, orientações de dimensionamento estará disponíveis no futuro. Por agora, utilize a documentação de orientação geral nas seções a seguir.
+Os exemplos anteriores mostram alguns trabalhos de Stream Analytics que estão em conformidade com (ou não) uma topologia paralela embaraçosamente. Se eles estiverem em conformidade, eles terão o potencial para a escala máxima. Para trabalhos que não se ajustam a um desses perfis, as diretrizes de dimensionamento estarão disponíveis em atualizações futuras. Por enquanto, use as diretrizes gerais nas seções a seguir.
 
-### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>1\.2 - com vários passo de consulta com valores de diferentes PARTITION BY de nível de compatibilidade 
+### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>Nível de compatibilidade 1,2-consulta de várias etapas com uma partição diferente por valores 
 * Entrada: Hub de eventos com 8 partições
-* Saída: Hub de eventos com 8 partições
+* Saída: o Hub de eventos com 8 partições ("coluna de chave de partição" deve ser definido para usar "TollBoothId")
 
-Consulta:
+Consultá
 
 ```SQL
     WITH Step1 AS (
@@ -160,15 +160,15 @@ Consulta:
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-Nível de compatibilidade 1.2 permite a execução paralela da consulta por predefinição. Por exemplo, a consulta da seção anterior será parttioned, desde que a coluna "TollBoothId" está definida como chave de partição de entrada. Cláusula de PARTIÇÃO por ParttionId não é necessária.
+O nível de compatibilidade 1,2 permite a execução de consulta paralela por padrão. Por exemplo, a consulta da seção anterior será parttioned, desde que a coluna "TollBoothId" seja definida como chave de partição de entrada. A cláusula PARTITION BY ParttionId não é necessária.
 
-## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>Calcular o máximo de unidades de uma tarefa de transmissão em fluxo
-O número total de unidades de transmissão em fluxo que pode ser utilizado por uma tarefa do Stream Analytics depende o número de passos da consulta definida para a tarefa e o número de partições para cada passo.
+## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>Calcular as unidades de streaming máximas de um trabalho
+O número total de unidades de streaming que podem ser usadas por um trabalho de Stream Analytics depende do número de etapas na consulta definida para o trabalho e o número de partições para cada etapa.
 
-### <a name="steps-in-a-query"></a>Passos numa consulta
-Uma consulta pode ter um ou vários passos. Cada passo ser uma subconsulta definida pelos **WITH** palavra-chave. A consulta que está fora do **WITH** palavra-chave (apenas uma consulta) também é contabilizado como um passo, por exemplo, o **SELECIONE** instrução na seguinte consulta:
+### <a name="steps-in-a-query"></a>Etapas em uma consulta
+Uma consulta pode ter uma ou várias etapas. Cada etapa é uma subconsulta definida pela palavra-chave **with** . A consulta que está fora da palavra-chave **with** (somente uma consulta) também é contada como uma etapa, como a instrução **Select** na seguinte consulta:
 
-Consulta:
+Consultá
 
 ```SQL
     WITH Step1 AS (
@@ -181,35 +181,35 @@ Consulta:
     GROUP BY TumblingWindow(minute,3), TollBoothId
 ```
 
-Esta consulta tem duas etapas.
+Essa consulta tem duas etapas.
 
 > [!NOTE]
-> Esta consulta é abordada em mais detalhes posteriormente neste artigo.
+> Essa consulta é discutida em mais detalhes posteriormente neste artigo.
 >  
 
-### <a name="partition-a-step"></a>Um passo de partição
-Um passo de criação de partições requer as seguintes condições:
+### <a name="partition-a-step"></a>Particionar uma etapa
+O particionamento de uma etapa requer as seguintes condições:
 
-* A origem de entrada têm de ser particionada. 
-* O **SELECIONE** instrução da consulta tem de leitura de uma origem de entrada particionada.
-* A consulta no passo de têm de ter o **PARTITION BY** palavra-chave.
+* A fonte de entrada deve ser particionada. 
+* A instrução **Select** da consulta deve ser lida de uma fonte de entrada particionada.
+* A consulta dentro da etapa deve ter a palavra-chave **Partition by** .
 
-Quando uma consulta estiver particionada, os eventos de entrada são processados e agregados numa partição separada grupos e saídas de eventos são gerados para cada um dos grupos. Se quiser um agregado combinado, tem de criar uma segunda etapa de não-particionada a agregar.
+Quando uma consulta é particionada, os eventos de entrada são processados e agregados em grupos de partição separados, e os eventos de saída são gerados para cada um dos grupos. Se você quiser uma agregação combinada, deverá criar uma segunda etapa não particionada para agregar.
 
-### <a name="calculate-the-max-streaming-units-for-a-job"></a>Calcular o máximo de unidades para uma tarefa de transmissão em fluxo
-Em conjunto, todos os passos de não-particionada podem Dimensionar até seis unidades transmissão em fluxo (SUs) para uma tarefa do Stream Analytics. Além disso, pode adicionar 6 SUs para cada partição num passo particionado.
-Pode ver algumas **exemplos** na tabela abaixo.
+### <a name="calculate-the-max-streaming-units-for-a-job"></a>Calcular as unidades de streaming máximas para um trabalho
+Todas as etapas não particionadas juntas podem escalar verticalmente até seis unidades de streaming (SUs) para um trabalho de Stream Analytics. Além disso, você pode adicionar 6 SUs para cada partição em uma etapa particionada.
+Você pode ver alguns **exemplos** na tabela a seguir.
 
-| Consulta                                               | Máx. de SUs para a tarefa |
+| Consulta                                               | SUs máximo para o trabalho |
 | --------------------------------------------------- | ------------------- |
-| <ul><li>A consulta contém uma etapa.</li><li>O passo não está particionado.</li></ul> | 6 |
-| <ul><li>O fluxo de dados de entrada é particionado por 16.</li><li>A consulta contém uma etapa.</li><li>O passo está particionado.</li></ul> | 96 (6 * 16 partições) |
-| <ul><li>A consulta contém duas etapas.</li><li>Nenhum dos passos é particionado.</li></ul> | 6 |
-| <ul><li>O fluxo de dados de entrada é particionado por 3.</li><li>A consulta contém duas etapas. O passo de entrada é particionado e não é o segundo passo.</li><li>O <strong>SELECIONE</strong> instrução lê da entrada particionada.</li></ul> | 24 (18 para obter os passos particionados + 6 para obter os passos de não-particionada |
+| <ul><li>A consulta contém uma etapa.</li><li>A etapa não é particionada.</li></ul> | 6 |
+| <ul><li>O fluxo de dados de entrada é particionado por 16.</li><li>A consulta contém uma etapa.</li><li>A etapa é particionada.</li></ul> | 96 (6 * 16 partições) |
+| <ul><li>A consulta contém duas etapas.</li><li>Nenhuma das etapas está particionada.</li></ul> | 6 |
+| <ul><li>O fluxo de dados de entrada é particionado por 3.</li><li>A consulta contém duas etapas. A etapa de entrada é particionada e a segunda etapa não é.</li><li>A instrução <strong>Select</strong> lê a partir da entrada particionada.</li></ul> | 24 (18 para etapas particionadas + 6 para etapas não particionadas |
 
 ### <a name="examples-of-scaling"></a>Exemplos de dimensionamento
 
-A seguinte consulta calcula o número de carros durante um período de três minutos através de uma estação de ligação que tem três tollbooths. Esta consulta pode ser dimensionada até seis SUs.
+A consulta a seguir calcula o número de carros em uma janela de três minutos passando por uma estação de telefone que tem três pedágios. Essa consulta pode ser dimensionada para até seis SUs.
 
 ```SQL
     SELECT COUNT(*) AS Count, TollBoothId
@@ -217,7 +217,7 @@ A seguinte consulta calcula o número de carros durante um período de três min
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 ```
 
-Para utilizar mais de SUs para a consulta, o fluxo de dados de entrada e a consulta devem ser particionados. Uma vez que a partição de fluxo de dados está definida como 3, a seguinte consulta modificada pode ser dimensionada até 18 SUs:
+Para usar mais SUs para a consulta, o fluxo de dados de entrada e a consulta devem ser particionados. Como a partição do fluxo de dados está definida como 3, a seguinte consulta modificada pode ser dimensionada para até 18 SUs:
 
 ```SQL
     SELECT COUNT(*) AS Count, TollBoothId
@@ -225,9 +225,9 @@ Para utilizar mais de SUs para a consulta, o fluxo de dados de entrada e a consu
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 ```
 
-Quando uma consulta estiver particionada, os eventos de entrada são processados e agregados em grupos de partições separado. Eventos de saída também são gerados para cada um dos grupos. Criação de partições pode fazer com que alguns resultados inesperados quando os **GROUP BY** campo não é a chave de partição no fluxo de dados de entrada. Por exemplo, o **TollBoothId** campo na consulta anterior não é a chave de partição de **Input1**. O resultado é que os dados a partir de TollBooth 1 possam ser distribuídos em várias partições.
+Quando uma consulta é particionada, os eventos de entrada são processados e agregados em grupos de partição separados. Os eventos de saída também são gerados para cada um dos grupos. O particionamento pode causar alguns resultados inesperados quando o campo **Agrupar por** não é a chave de partição no fluxo de dados de entrada. Por exemplo, o campo **TollBoothId** na consulta anterior não é a chave de partição de **entrada1**. O resultado é que os dados do pedágio #1 podem ser distribuídos em várias partições.
 
-Cada um a **Input1** partições serão processadas em separado pelo Stream Analytics. Como resultado, serão criados vários registos da contagem de carro para o mesmo tollbooth na mesma janela em cascata. Se a chave de partição de entrada não pode ser alterada, esse problema pode ser corrigido adicionando um passo de não-partition para valores agregados em partições, como no exemplo seguinte:
+Cada uma das partições **entrada1** será processada separadamente por Stream Analytics. Como resultado, vários registros da contagem de carros para o mesmo pedágio na mesma janela em cascata serão criados. Se a chave de partição de entrada não puder ser alterada, esse problema poderá ser corrigido com a adição de uma etapa que não seja de partição para agregar valores entre partições, como no exemplo a seguir:
 
 ```SQL
     WITH Step1 AS (
@@ -241,18 +241,18 @@ Cada um a **Input1** partições serão processadas em separado pelo Stream Anal
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-Esta consulta pode ser dimensionada até 24 SUs.
+Essa consulta pode ser dimensionada para 24 SUs.
 
 > [!NOTE]
-> Se estiver associando dois fluxos, certifique-se de que os fluxos estão particionados pela chave de partição da coluna que utiliza para criar as junções. Além disso, certifique-se de que tem o mesmo número de partições em ambos os fluxos.
+> Se você estiver unindo dois fluxos, certifique-se de que os fluxos sejam particionados pela chave de partição da coluna que você usa para criar as junções. Verifique também se você tem o mesmo número de partições em ambos os fluxos.
 > 
 > 
 
-## <a name="achieving-higher-throughputs-at-scale"></a>Alcançar maior taxas de transferência em escala
+## <a name="achieving-higher-throughputs-at-scale"></a>Obtendo mais taxas de transferência em escala
 
-Uma [constrangedoramente paralelas](#embarrassingly-parallel-jobs) tarefa é necessária mas não é suficiente para suportar um débito mais elevado em escala. Todos os sistemas de armazenamento e o respetivo resultado correspondente do Stream Analytics tem variações sobre como obter o melhor possível escrita débito. Como com qualquer cenário de à escala, há alguns desafios que podem ser resolvidos usando as configurações corretas. Esta seção discute as configurações para algumas saídas comuns e fornece exemplos para as taxas de ingestão de 1K, 5K e 10 mil eventos por segundo de suporte.
+Um trabalho [paralelo embaraçosamente](#embarrassingly-parallel-jobs) é necessário, mas não é suficiente para sustentar uma taxa de transferência mais alta em escala. Cada sistema de armazenamento e sua saída de Stream Analytics correspondente têm variações sobre como obter a melhor taxa de transferência possível de gravação. Assim como acontece com qualquer cenário em escala, há alguns desafios que podem ser resolvidos usando as configurações corretas. Esta seção discute as configurações para algumas saídas comuns e fornece exemplos para manter as taxas de ingestão de eventos de 1K, 5K e 10K por segundo.
 
-As seguintes observações utilizam uma tarefa do Stream Analytics com o (pass-through) sem monitoração de estado de consulta, um básico UDF do JavaScript que escreve para o Hub de eventos, BD SQL do Azure ou do Cosmos DB.
+As observações a seguir usam um trabalho Stream Analytics com consulta sem estado (passagem), um UDF JavaScript básico que grava no Hub de eventos, banco de BD SQL do Azure ou Cosmos DB.
 
 #### <a name="event-hub"></a>Hub de Eventos
 
@@ -262,7 +262,7 @@ As seguintes observações utilizam uma tarefa do Stream Analytics com o (pass-t
 | 5K     |    6    |  6 TU   |
 | 10.000    |    12   |  10 TU  |
 
-O [Hub de eventos](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) solução é dimensionado linearmente em termos de transmissão em fluxo (SU) de unidades e débito, tornando-o mais eficiente e a forma de alto desempenho para analisar e transmitir dados para fora do Stream Analytics. Tarefas podem ser dimensionadas até 192 SU, que basicamente se traduz em processamento até 200 MB/s ou triliões de 19 de eventos por dia.
+A solução de [Hub de eventos](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) é dimensionada linearmente em termos de Su (unidades de streaming) e taxa de transferência, tornando-a a maneira mais eficiente e de alto desempenho de analisar e transmitir dados fora de Stream Analytics. Os trabalhos podem ser dimensionados para até 192 SU, o que significa, aproximadamente, o processamento de até 200 MB/s ou 19.000.000.000.000 eventos por dia.
 
 #### <a name="azure-sql"></a>SQL do Azure
 |Taxa de ingestão (eventos por segundo) | Unidades Transmissão em Fluxo | Recursos de saída  |
@@ -271,18 +271,18 @@ O [Hub de eventos](https://github.com/Azure-Samples/streaming-at-scale/tree/mast
 |    5K   |   18 |  P4   |
 |    10.000  |   36 |  P6   |
 
-[SQL do Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) suporta escrever em paralelo, chamado herdam a criação de partições, mas ele não está ativada por predefinição. No entanto, permitindo a herdar de criação de partições, juntamente com uma consulta paralela totalmente, pode não ser suficiente para atingir a taxas de transferência mais elevadas. Taxas de transferência de escrita SQL dependem significativamente seu esquema de configuração e a tabela de base de dados do SQL Azure. O [desempenho de saída do SQL](./stream-analytics-sql-output-perf.md) artigo tem mais detalhes sobre os parâmetros que pode maximizar o débito de escrita. Conforme observado na [saída de Azure Stream Analytics para o Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) artigo, esta solução não dimensiona de forma linear, como um pipeline totalmente paralelo para além dos 8 partições e poderá ter repartir antes de saída SQL (consulte [ EM](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). SKU Premium é necessários para suportar as taxas de e/s elevadas, juntamente com a sobrecarga de backups de log acontecendo cada alguns minutos.
+O [SQL do Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) dá suporte à gravação em paralelo, chamado de particionamento de herança, mas não é habilitado por padrão. No entanto, habilitar o particionamento de herança, juntamente com uma consulta totalmente paralela, pode não ser suficiente para obter taxas de transferência mais altas. As taxas de transferência de gravação do SQL dependem significativamente da configuração do banco de dados SQL Azure e do esquema de tabela. O artigo [desempenho de saída do SQL](./stream-analytics-sql-output-perf.md) tem mais detalhes sobre os parâmetros que podem maximizar a taxa de transferência de gravação. Conforme observado no artigo [Azure Stream Analytics saída para o banco de dados SQL do Azure](./stream-analytics-sql-output-perf.md#azure-stream-analytics) , essa solução não é dimensionada linearmente como um pipeline totalmente paralelo além de 8 partições e pode precisar de reparticionamento antes da saída SQL (consulte [into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Os SKUs Premium são necessários para sustentar taxas de e/s altas juntamente com a sobrecarga dos backups de log ocorrendo a cada poucos minutos.
 
 #### <a name="cosmos-db"></a>BD do Cosmos
 |Taxa de ingestão (eventos por segundo) | Unidades Transmissão em Fluxo | Recursos de saída  |
 |-------|-------|---------|
-|  1K   |  3    | 20K RU  |
+|  1K   |  3    | 20 MIL RU  |
 |  5K   |  24   | 60K RU  |
-|  10.000  |  48   | 120K RU |
+|  10.000  |  48   | 120 MIL RU |
 
-[O cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) saída do Stream Analytics foi atualizada para utilizar a integração nativa sob [nível de compatibilidade 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Nível de compatibilidade 1.2 permite um débito significativamente mais elevado e reduz o consumo de RU em comparação comparado 1.1, que é o nível de compatibilidade predefinido para novas tarefas. A solução utiliza contentores CosmosDB divididos em /deviceId partições e o restante da solução de forma idêntica é configurado.
+[Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) saída do Stream Analytics foi atualizada para usar a integração nativa no [nível de compatibilidade 1,2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). O nível de compatibilidade 1,2 permite uma taxa de transferência significativamente mais alta e reduz o consumo de RU em comparação com 1,1, que é o nível de compatibilidade padrão para novos trabalhos. A solução usa contêineres CosmosDB particionados em/deviceId e o restante da solução é configurado de forma idêntica.
 
-Todos os [transmissão em fluxo em exemplos de dimensionamento do azure](https://github.com/Azure-Samples/streaming-at-scale) utilizar um Hub de eventos inseridas por carga de simulação de clientes de teste como entrada. Cada evento de entrada é um documento JSON de 1KB, o que se traduz as taxas de ingestão configurado para as taxas de débito (1MB/s, 5MB/s e 10MB/s) facilmente. Eventos de simular um dispositivo de IoT enviar os seguintes dados JSON (num formulário de shortened) para até 1 de K de dispositivos:
+Todos os [exemplos de streaming em escala do Azure](https://github.com/Azure-Samples/streaming-at-scale) usam um hub de eventos alimentado pelos clientes de teste de simulação de carga como entrada. Cada evento de entrada é um documento JSON 1 KB, que traduz as taxas de ingestão configuradas para taxas de taxa de transferência (1MB/s, 5 MB/s e 10 MB/s) facilmente. Os eventos simulam um dispositivo IoT enviando os seguintes dados JSON (em uma forma reduzida) para dispositivos de até 1K:
 
 ```
 {
@@ -299,17 +299,17 @@ Todos os [transmissão em fluxo em exemplos de dimensionamento do azure](https:/
 ```
 
 > [!NOTE]
-> As configurações estão sujeitos a alterações devido a vários componentes utilizados na solução. Para uma estimativa mais exata, personalize os exemplos para se ajustarem ao seu cenário.
+> As configurações estão sujeitas a alterações devido a vários componentes usados na solução. Para obter uma estimativa mais precisa, personalize os exemplos para se ajustar ao seu cenário.
 
-### <a name="identifying-bottlenecks"></a>Identificar Afunilamentos
+### <a name="identifying-bottlenecks"></a>Identificando afunilamentos
 
-Utilize o painel de métricas na sua tarefa do Azure Stream Analytics para identificar afunilamentos no seu pipeline. Revisão **eventos de entrada/saída** para o débito e ["Marca d'água atraso"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou **eventos pendentes** para ver se a tarefa é acompanhar a taxa de entrada. Para métricas do Hub de eventos, procure **pedidos limitados** e ajustar as unidades de limiar em conformidade. Para métricas do Cosmos DB, reveja **Max RU/s consumidas por intervalo de chaves de partição** em débito para garantir que sua partição intervalos de chaves uniformemente são consumidos. Para a BD do SQL do Azure, monitorize **Log IO** e **CPU**.
+Use o painel métricas em seu trabalho de Azure Stream Analytics para identificar afunilamentos em seu pipeline. Examine os **eventos de entrada/saída** para obter a taxa de transferência e o ["atraso da marca d' água"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou **eventos de registro** posterior para ver se o trabalho está acompanhando a taxa de entrada. Para as métricas do hub de eventos, procure **solicitações limitadas** e ajuste as unidades de limite de acordo. Para Cosmos DB métricas, examine o **intervalo máximo consumido de ru/s por chave de partição** em taxa de transferência para garantir que os intervalos de chaves de partição sejam consumidos uniformemente. Para o banco de BD SQL do Azure, monitore e **/s de log** e **CPU**.
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para obter mais assistência, experimente nosso [Fórum de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

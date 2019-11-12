@@ -1,5 +1,5 @@
 ---
-title: Como procurar um endereço usando o serviço de pesquisa do Azure Maps | Microsoft Docs
+title: Localizar um endereço usando o serviço de pesquisa do Azure Maps | Microsoft Docs
 description: Saiba como procurar um endereço usando o serviço de pesquisa do Azure Maps
 author: walsehgal
 ms.author: v-musehg
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a41a811e9313f79c9c3165e02cb5eaa4353b65ab
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 9ce6459dd65c75c6fcff5591d4e4667e4b0c75fa
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914475"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928483"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Localizar um endereço usando o serviço de pesquisa do Azure Maps
 
@@ -36,7 +36,7 @@ Este artigo usa o [aplicativo de postmaster](https://www.getpostman.com/apps) pa
 
 A API padrão para o serviço de pesquisa é a [pesquisa difusa](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) e é útil quando você não sabe quais são suas entradas de usuário para uma consulta de pesquisa. A API combina a pesquisa POI e geocodificação em uma ' pesquisa de linha única ' canônica. Por exemplo, a API pode manipular entradas de qualquer combinação de token de endereço ou POI. Ele também pode ser ponderado com uma posição contextual (lat./Lon. par), totalmente restrito por uma coordenada e um raio, ou executados mais geralmente sem nenhum ponto de ancoragem de inclinação geográfica.
 
-A maioria das consultas de `maxFuzzyLevel=1` pesquisa usa o padrão para obter desempenho e reduzir resultados incomuns. Esse padrão pode ser substituído conforme necessário por solicitação passando o parâmetro `maxFuzzyLevel=2` de consulta ou. `3`
+A maioria das consultas de pesquisa usa como padrão `maxFuzzyLevel=1` para obter desempenho e reduzir resultados incomuns. Esse padrão pode ser substituído conforme necessário por solicitação passando o parâmetro de consulta `maxFuzzyLevel=2` ou `3`.
 
 ### <a name="search-for-an-address-using-fuzzy-search"></a>Pesquisar um endereço usando a pesquisa difusa
 
@@ -58,11 +58,11 @@ A maioria das consultas de `maxFuzzyLevel=1` pesquisa usa o padrão para obter d
 
     ![Pesquisa difusa](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Chave | Value |
+    | Chave | Valor |
     |------------------|-------------------------|
-    | versão de API | 1.0 |
+    | versão da API | 1.0 |
     | chave de assinatura | \<sua chave do Azure Maps\> |
-    | query | pizza |
+    | consulta | pizzaria |
 
 4. Clique em **Enviar** e examine o corpo da resposta.
 
@@ -72,9 +72,9 @@ A maioria das consultas de `maxFuzzyLevel=1` pesquisa usa o padrão para obter d
 
 5. Adicione o seguinte par de chave/valor à seção **params** e clique em **Enviar**:
 
-    | Chave | Value |
+    | Chave | Valor |
     |------------------|-------------------------|
-    | countrySet | EUA |
+    | paísset | EUA |
   
     Os resultados agora são limitados pelo código do país e a consulta retorna restaurantes no Estados Unidos.
   
@@ -84,16 +84,16 @@ A maioria das consultas de `maxFuzzyLevel=1` pesquisa usa o padrão para obter d
 
     ![Pesquisa difusa](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | Chave | Value |
+    | Chave | Valor |
     |-----|------------|
     | Lat | 47,620525 |
-    | Lon | -122.349274 |
+    | Lon | -122,349274 |
 
 ## <a name="search-for-address-properties-and-coordinates"></a>Pesquisar Propriedades de endereço e coordenadas
 
 Você pode passar um endereço de rua completo ou parcial para a API de endereço de pesquisa e receber uma resposta que inclui propriedades de endereço detalhadas, como o município ou a subdivisão, bem como valores de posição na latitude e longitude.
 
-1. No postmaster, clique em **nova solicitação** | **obter solicitação** e nomeie-a **pesquisa de endereço**.
+1. No postmaster, clique em **nova solicitação** | **obter solicitação** e nomeie-a na **pesquisa de endereço**.
 2. Na guia Construtor, selecione o método http **Get** , insira a URL de solicitação para seu ponto de extremidade de API e selecione um protocolo de autorização, se houver.
 
     ![Pesquisa de endereço](./media/how-to-search-for-address/address_search_url.png)
@@ -108,11 +108,11 @@ Você pode passar um endereço de rua completo ou parcial para a API de endereç
   
     ![Pesquisa de endereço](./media/how-to-search-for-address/address_search_params.png)
   
-    | Chave | Value |
+    | Chave | Valor |
     |------------------|-------------------------|
-    | versão de API | 1.0 |
+    | versão da API | 1.0 |
     | chave de assinatura | \<sua chave do Azure Maps\> |
-    | query | 400 de Santa ampla, Seattle, WA 98109 |
+    | consulta | 400 de Santa ampla, Seattle, WA 98109 |
   
 4. Clique em **Enviar** e examine o corpo da resposta.
   
@@ -125,15 +125,15 @@ Você pode passar um endereço de rua completo ou parcial para a API de endereç
 
 6. Adicione o seguinte par de chave/valor à seção **params** e clique em **Enviar**:
 
-    | Chave | Value |
+    | Chave | Valor |
     |-----|------------|
-    | Typeahead | true |
+    | typeahead | true |
 
     O sinalizador **typeahead** informa à API de pesquisa de endereço para tratar a consulta como uma entrada parcial e retornar uma matriz de valores de previsão.
 
 ## <a name="search-for-a-street-address-using-reverse-address-search"></a>Pesquisar um endereço usando a pesquisa de endereço inversa
 
-1. No postmaster, clique em **nova solicitação** | **obter solicitação** e nomeie-a **pesquisa de endereço inversa**.
+1. No postmaster, clique em **nova solicitação** | **solicitação get** e nomeie-a como **inverter pesquisa de endereço**.
 
 2. Na guia Construtor, selecione o método http **Get** e insira a URL de solicitação para seu ponto de extremidade de API.
   
@@ -149,11 +149,11 @@ Você pode passar um endereço de rua completo ou parcial para a API de endereç
   
     ![Parâmetros de pesquisa de endereço inversa](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | Chave | Value |
+    | Chave | Valor |
     |------------------|-------------------------|
-    | versão de API | 1.0 |
+    | versão da API | 1.0 |
     | chave de assinatura | \<sua chave do Azure Maps\> |
-    | query | 47.591180,-122,332700 |
+    | consulta | 47.591180,-122,332700 |
   
 4. Clique em **Enviar** e examine o corpo da resposta.
 
@@ -161,15 +161,15 @@ Você pode passar um endereço de rua completo ou parcial para a API de endereç
   
 5. Adicione o seguinte par de chave/valor à seção **params** e clique em **Enviar**:
 
-    | Chave | Value |
+    | Chave | Valor |
     |-----|------------|
-    | number | true |
+    | número | true |
 
     Se o parâmetro de consulta [Number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) for enviado com a solicitação, a resposta poderá incluir o lado da rua (esquerda/direita) e também uma posição de deslocamento para esse número.
   
 6. Adicione o seguinte par de chave/valor à seção **params** e clique em **Enviar**:
 
-    | Chave | Value |
+    | Chave | Valor |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -177,7 +177,7 @@ Você pode passar um endereço de rua completo ou parcial para a API de endereç
 
 7. Adicione o seguinte par de chave/valor à seção **params** e clique em **Enviar**:
 
-    | Chave | Value |
+    | Chave | Valor |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -185,7 +185,7 @@ Você pode passar um endereço de rua completo ou parcial para a API de endereç
 
 8. Adicione o seguinte par de chave/valor à seção **params** e clique em **Enviar**:
 
-    | Chave | Value |
+    | Chave | Valor |
     |-----|------------|
     | roadUse | true |
 
@@ -193,7 +193,7 @@ Você pode passar um endereço de rua completo ou parcial para a API de endereç
   
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Pesquisar a rua cruzada usando a pesquisa de endereços inversos
 
-1. No postmaster, clique em **nova solicitação** | **obter solicitação** e nomeie-a como **endereço inverso de pesquisa entre ruas**.
+1. No postmaster, clique em **nova solicitação** | **solicitação get** e nomeie-a como **endereço inverso pesquisa entre as ruas**.
 
 2. Na guia Construtor, selecione o método http **Get** e insira a URL de solicitação para seu ponto de extremidade de API.
   
@@ -207,14 +207,14 @@ Você pode passar um endereço de rua completo ou parcial para a API de endereç
   
 3. Clique em **params**e insira os seguintes pares de chave/valor para usar como parâmetros de consulta ou caminho na URL da solicitação:
   
-    | Chave | Value |
+    | Chave | Valor |
     |------------------|-------------------------|
-    | versão de API | 1.0 |
+    | versão da API | 1.0 |
     | chave de assinatura | \<sua chave do Azure Maps\> |
-    | query | 47.591180,-122,332700 |
+    | consulta | 47.591180,-122,332700 |
   
 4. Clique em **Enviar** e examine o corpo da resposta.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Explore a documentação da API do [serviço de pesquisa do Azure Maps](https://docs.microsoft.com/rest/api/maps/search) .

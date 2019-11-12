@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: c4fca9b8f4c8a01124074396985b1ec3f1c896c6
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 5ecfa1853479c1cdc705a1a465a1de6318917a72
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675154"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929006"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Executando trabalhos de Apache Spark no AKS
 
@@ -49,7 +49,7 @@ Crie uma entidade de serviço para o cluster. Depois que ele for criado, você p
 az ad sp create-for-rbac --name SparkSP
 ```
 
-Crie o cluster AKS com nós de tamanho `Standard_D3_v2` e os valores de appId e senha passados como parâmetros de entidade de serviço e de segredo do cliente.
+Crie o cluster AKS com nós de tamanho `Standard_D3_v2`e os valores de appId e senha passados como parâmetros de entidade de serviço e de segredo do cliente.
 
 ```azurecli
 az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
@@ -92,7 +92,7 @@ Execute o comando a seguir para compilar o código-fonte do Spark com suporte a 
 ./build/mvn -Pkubernetes -DskipTests clean package
 ```
 
-Os comandos a seguir criam a imagem de contêiner do Spark e as enviam para um registro de imagem de contêiner. Substitua `registry.example.com` pelo nome do registro de contêiner e `v1` pela marca que você preferir usar. Se estiver usando o Hub do Docker, esse valor será o nome do registro. Se estiver usando o ACR (registro de contêiner do Azure), esse valor será o nome do servidor de logon do ACR.
+Os comandos a seguir criam a imagem de contêiner do Spark e as enviam para um registro de imagem de contêiner. Substitua `registry.example.com` pelo nome do registro de contêiner e `v1` com a marca que você prefere usar. Se estiver usando o Hub do Docker, esse valor será o nome do registro. Se estiver usando o ACR (registro de contêiner do Azure), esse valor será o nome do servidor de logon do ACR.
 
 ```bash
 REGISTRY_NAME=registry.example.com
@@ -294,9 +294,9 @@ Pi is roughly 3.152155760778804
 
 No exemplo acima, o arquivo JAR do Spark foi carregado no armazenamento do Azure. Outra opção é empacotar o arquivo jar em imagens do Docker personalizadas.
 
-Para fazer isso, localize o `dockerfile` para a imagem do Spark localizado no diretório `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/`. Adicione a instrução am `ADD` para o trabalho do Spark `jar` em algum lugar entre declarações `WORKDIR` e `ENTRYPOINT`.
+Para fazer isso, localize o `dockerfile` para a imagem do Spark localizada no diretório `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/`. Adicione a instrução am `ADD` para o trabalho do Spark `jar` em algum lugar entre as declarações `WORKDIR` e `ENTRYPOINT`.
 
-Atualize o caminho jar para o local do arquivo `SparkPi-assembly-0.1.0-SNAPSHOT.jar` no sistema de desenvolvimento. Você também pode usar seu próprio arquivo JAR personalizado.
+Atualize o caminho jar para o local do arquivo de `SparkPi-assembly-0.1.0-SNAPSHOT.jar` no sistema de desenvolvimento. Você também pode usar seu próprio arquivo JAR personalizado.
 
 ```bash
 WORKDIR /opt/spark/work-dir
@@ -313,7 +313,7 @@ Crie e envie por push a imagem com os scripts do Spark incluídos.
 ./bin/docker-image-tool.sh -r <your container repository name> -t <tag> push
 ```
 
-Ao executar o trabalho, em vez de indicar uma URL jar remota, o esquema `local://` pode ser usado com o caminho para o arquivo JAR na imagem do Docker.
+Ao executar o trabalho, em vez de indicar uma URL jar remota, o esquema de `local://` pode ser usado com o caminho para o arquivo JAR na imagem do Docker.
 
 ```bash
 ./bin/spark-submit \
@@ -322,6 +322,7 @@ Ao executar o trabalho, em vez de indicar uma URL jar remota, o esquema `local:/
     --name spark-pi \
     --class org.apache.spark.examples.SparkPi \
     --conf spark.executor.instances=3 \
+    --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
     --conf spark.kubernetes.container.image=<spark-image> \
     local:///opt/spark/work-dir/<your-jar-name>.jar
 ```

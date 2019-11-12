@@ -9,23 +9,23 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: b5fa1557999ae851bccafbf8ee7c41f0b3614614
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 724a38cb516e5689f817e9ddeaa867b17274971b
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715926"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932033"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: implantar um modelo de aprendizado de máquina com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Você pode implantar o modelo de previsão desenvolvido na [parte um do tutorial](tutorial-designer-automobile-price-train-score.md) para dar aos outros a oportunidade de usá-lo. Na parte 1, você treinou seu modelo. Agora, é hora de gerar novas previsões com base na entrada do usuário. Nesta parte do tutorial, você vai:
+Você pode implantar o modelo de previsão desenvolvido na [parte um do tutorial](tutorial-designer-automobile-price-train-score.md) para dar aos outros a oportunidade de usá-lo. Na parte um, você treinou seu modelo. Agora, é hora de gerar novas previsões com base na entrada do usuário. Nesta parte do tutorial, você vai:
 
 > [!div class="checklist"]
-> * Criar um pipeline de inferência em tempo real
-> * Criar um cluster inferência
-> * Implantar um ponto de extremidade em tempo real
-> * Testar um ponto de extremidade em tempo real
+> * Crie um pipeline de inferência em tempo real.
+> * Crie um cluster inferência.
+> * Implante o ponto de extremidade em tempo real.
+> * Teste o ponto de extremidade em tempo real.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,9 +37,9 @@ Para implantar seu pipeline, você deve primeiro converter o pipeline de treinam
 
 ### <a name="create-a-real-time-inference-pipeline"></a>Criar um pipeline de inferência em tempo real
 
-1. Acima da tela do pipeline, selecione **criar pipeline de inferência** > **pipeline de inferência em tempo real**
+1. Acima da tela do pipeline, selecione **criar pipeline de inferência** > **pipeline de inferência em tempo real**.
 
-    Seu pipeline agora deve ser assim:  
+    Seu pipeline agora deve ser assim: 
 
    ![Captura de tela mostrando a configuração esperada do pipeline depois de prepará-lo para implantação](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
 
@@ -48,13 +48,13 @@ Para implantar seu pipeline, você deve primeiro converter o pipeline de treinam
     * O modelo treinado é armazenado como um módulo de **conjunto** de armazenamento na paleta de módulos. Você pode encontrá-lo em **meus conjuntos de valores**.
     * Módulos de treinamento como **modelo** de treinamento e **dados divididos** são removidos.
     * O modelo treinado salvo é adicionado de volta ao pipeline.
-    * Os módulos **entrada de serviço Web** e **saída de serviço Web** são adicionados. Esses módulos mostram onde os dados de usuário entrarão no modelo e onde os dados são retornados.
+    * Os módulos **entrada de serviço Web** e **saída de serviço Web** são adicionados. Esses módulos mostram onde os dados do usuário entram no modelo e onde os dados são retornados.
 
-    > [!Note]
-    > O **pipeline de treinamento** é salvo na nova guia na parte superior da tela do pipeline. Ele também pode ser encontrado como um pipeline publicado no designer.
+    > [!NOTE]
+    > O *pipeline de treinamento* é salvo na nova guia na parte superior da tela do pipeline. Ele também pode ser encontrado como um pipeline publicado no designer.
     >
 
-1. Selecione **executar** e use o mesmo destino de computação e teste que você usou na parte 1.
+1. Selecione **executar**e use o mesmo destino de computação e teste que você usou na parte um.
 
 1. Selecione o módulo **modelo de Pontuação** .
 
@@ -64,24 +64,24 @@ Para implantar seu pipeline, você deve primeiro converter o pipeline de treinam
 
 ## <a name="create-an-inferencing-cluster"></a>Criar um cluster inferência
 
-Na caixa de diálogo exibida, você pode selecionar entre os clusters existentes do AKS (serviço kubernetes do Azure) no para implantar seu modelo no. Se você não tiver um cluster AKS, use as etapas a seguir para criar um.
+Na caixa de diálogo que aparece, você pode selecionar entre todos os clusters do AKS (serviço kubernetes do Azure) existentes para implantar o modelo. Se você não tiver um cluster AKS, use as etapas a seguir para criar um.
 
-1. Selecione **computação** na caixa de diálogo que aparece para navegar até a página de **computação** .
+1. Selecione **computação** na caixa de diálogo que aparece para ir para a página de **computação** .
 
 1. Na faixa de opções de navegação, selecione **clusters de inferência** >  **+ novo**.
 
-    ![Captura de tela mostrando como navegar até o novo painel de cluster de inferência](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
+    ![Captura de tela mostrando como chegar ao novo painel de cluster de inferência](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
 
 1. No painel cluster de inferência, configure um novo serviço kubernetes.
 
-1. Insira "AKS-Compute" para o **nome de computação**.
+1. Digite *AKs-Compute* para o **nome de computação**.
     
-1. Selecione uma **região**disponível próxima.
+1. Selecione uma região próxima que esteja disponível para a **região**.
 
 1. Selecione **Criar**.
 
-    > [!Note]
-    > Leva aproximadamente 15 minutos para criar um novo serviço AKS. Você pode verificar o estado de provisionamento na página **clusters de inferência**
+    > [!NOTE]
+    > Leva aproximadamente 15 minutos para criar um novo serviço AKS. Você pode verificar o estado de provisionamento na página **clusters de inferência** .
     >
 
 ## <a name="deploy-the-real-time-endpoint"></a>Implantar o ponto de extremidade em tempo real
@@ -98,11 +98,11 @@ Depois que o serviço AKS tiver concluído o provisionamento, retorne ao pipelin
 
     ![Captura de tela mostrando como configurar um novo ponto de extremidade em tempo real](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
 
-    Uma notificação de êxito acima da tela será exibida quando a implantação for concluída, pode levar alguns minutos.
+    Uma notificação de êxito acima da tela aparece após a conclusão da implantação. Pode levar alguns minutos.
 
 ## <a name="test-the-real-time-endpoint"></a>Testar o ponto de extremidade em tempo real
 
-Após a conclusão da implantação, você pode testar seu ponto de extremidade em tempo real navegando até a página **pontos** de extremidade.
+Após a conclusão da implantação, você pode testar seu ponto de extremidade em tempo real indo para a página **pontos** de extremidade.
 
 1. Na página **pontos** de extremidade, selecione o ponto de extremidade que você implantou.
 
@@ -110,7 +110,7 @@ Após a conclusão da implantação, você pode testar seu ponto de extremidade 
 
 1. Selecione **testar**.
 
-1. Você pode inserir manualmente os dados de teste ou usar os dados de exemplo preenchidos automaticamente e selecionar **testar**.
+1. Você pode inserir dados de teste manualmente ou usar os dados de exemplo preenchidos automaticamente e selecionar **testar**.
 
     O portal envia uma solicitação de teste para o ponto de extremidade e mostra os resultados. Embora um valor de preço seja gerado para os dados de entrada, ele não é usado para gerar o valor de previsão.
 
@@ -122,7 +122,7 @@ Após a conclusão da implantação, você pode testar seu ponto de extremidade 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu as principais etapas na criação, implantação e consumo de um modelo de aprendizado de máquina no designer. Para saber mais sobre como você pode usar o designer para resolver outros tipos de problemas, Confira nossos outros pipelines de exemplo.
+Neste tutorial, você aprendeu as principais etapas em como criar, implantar e consumir um modelo de aprendizado de máquina no designer. Para saber mais sobre como você pode usar o designer para resolver outros tipos de problemas, consulte nossos outros pipelines de exemplo.
 
 > [!div class="nextstepaction"]
 > [Exemplo de classificação de risco de crédito](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)

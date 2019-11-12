@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.reviewer: trbye, jmartens, larryfr
-ms.author: tracych
-author: tracych
+ms.reviewer: trbye, jmartens, larryfr, vaidyas
+ms.author: vaidyas
+author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 615536fbba38279a23516352c69461c19f9972ed
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 4e7ddf7fc7b18d57b8251d4fb8293ed2f6e83d17
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796720"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929564"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar a inferência de lote em grandes quantidades de dados usando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -195,7 +195,7 @@ O script *deve conter* duas funções:
 ```python
 # Snippets from a sample script.
 # Refer to the accompanying digit_identification.py
-# (https://github.com/Azure/MachineLearningNotebooks/blob/master/pipeline/digit_identification.py)
+# (https://aka.ms/batch-inference-notebooks)
 # for the implementation script.
 
 import os

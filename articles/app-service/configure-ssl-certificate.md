@@ -13,12 +13,12 @@ ms.date: 10/25/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 4f0c8078a502d0332b02d95c0c46d9dbcc53a884
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 48c8390eff52466d11f781447c448d04ba567f31
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886869"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907132"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adicionar um certificado SSL no serviço Azure App
 
@@ -68,6 +68,10 @@ O certificado gerenciado do serviço de aplicativo gratuito é uma solução de 
 - Não oferece suporte a certificados curinga.
 - Não dá suporte a domínios Naked.
 - Não é exportável.
+
+> [!NOTE]
+> O certificado gratuito é emitido por DigiCert. Para alguns domínios de nível superior, você deve permitir explicitamente o DigiCert como um emissor de certificado criando um [registro de domínio CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) com o valor: `0 issue digicert.com`.
+> 
 
 Para criar um certificado gerenciado do serviço de aplicativo gratuito:
 

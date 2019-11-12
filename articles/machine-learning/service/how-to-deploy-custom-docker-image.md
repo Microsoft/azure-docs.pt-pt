@@ -1,5 +1,5 @@
 ---
-title: Implantar modelos com uma imagem de base do Docker personalizada
+title: Implantar modelos com imagem personalizada do Docker
 titleSuffix: Azure Machine Learning
 description: Saiba como usar uma imagem de base do Docker personalizada ao implantar seus modelos de Azure Machine Learning. Embora Azure Machine Learning forneça uma imagem base padrão para você, você também pode usar sua própria imagem base.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 3f822e0089772f06245d80c1323cf1f5dfe10361
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b34ef305a6f1cf41c7b7bdcf415e1a91653ad878
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496935"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932108"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implantar um modelo usando uma imagem de base do Docker personalizada
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

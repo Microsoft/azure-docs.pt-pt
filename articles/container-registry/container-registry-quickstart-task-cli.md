@@ -1,5 +1,5 @@
 ---
-title: Início rápido-compilar e executar uma imagem de contêiner no registro de contêiner do Azure
+title: Início rápido-compilar & executar a imagem de contêiner no registro de contêiner do Azure
 description: Execute rapidamente tarefas com o registro de contêiner do Azure para compilar e executar uma imagem de contêiner sob demanda na nuvem.
 services: container-registry
 author: dlepow
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: e5e02d8194f9164a03bb27d932df45d91486c518
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: b97249aa61916975fa641d4620179be33e1d5276
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310638"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931540"
 ---
-# <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Início rápido: Criar e executar uma imagem de contêiner usando tarefas do registro de contêiner do Azure
+# <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Início rápido: criar e executar uma imagem de contêiner usando tarefas do registro de contêiner do Azure
 
 Neste guia de início rápido, você usa comandos de tarefas do registro de contêiner do Azure para criar, enviar por push e executar rapidamente uma imagem de contêiner do Docker nativamente no Azure, mostrando como descarregar o ciclo de desenvolvimento de "loop interno" para a nuvem. [As tarefas ACR][container-registry-tasks-overview] são um conjunto de recursos no registro de contêiner do Azure para ajudá-lo a gerenciar e modificar imagens de contêiner no ciclo de vida do contêiner. 
 
@@ -28,7 +28,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita][azure-account
 
 Pode utilizar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir este início rápido. Se você quiser usá-lo localmente, a versão 2.0.58 ou posterior é recomendada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Se você ainda não tiver um registro de contêiner, primeiro crie um grupo de recursos com o comando [AZ Group Create][az-group-create] . Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
@@ -56,7 +56,7 @@ Agora, use o registro de contêiner do Azure para criar uma imagem. Primeiro, cr
 echo FROM hello-world > Dockerfile
 ```
 
-Execute o comando [AZ ACR Build][az-acr-build] para criar a imagem. Quando criada com êxito, a imagem é enviada por push para o registro. O exemplo a seguir envia a `sample/hello-world:v1` imagem por push. O `.` no final do comando define o local do Dockerfile, neste caso, o diretório atual.
+Execute o comando [AZ ACR Build][az-acr-build] para criar a imagem. Quando criada com êxito, a imagem é enviada por push para o registro. O exemplo a seguir envia por push a imagem de `sample/hello-world:v1`. O `.` no final do comando define o local do Dockerfile, neste caso, o diretório atual.
 
 ```azurecli-interactive
 az acr build --image sample/hello-world:v1 --registry myContainerRegistry008 --file Dockerfile . 
@@ -118,14 +118,14 @@ Run ID: ca8 was successful after 10s
 
 Agora, execute rapidamente a imagem criada e enviada por push ao registro. No fluxo de trabalho de desenvolvimento de contêiner, essa pode ser uma etapa de validação antes de implantar a imagem.
 
-Crie um arquivo *quickrun. YAML* em um diretório de trabalho local com o seguinte conteúdo para uma única etapa. Substitua o nome do servidor de logon do registro  *\<por\>acrLoginServer*. O nome do servidor de logon está no formato  *\<Registry-\>Name. azurecr.Io* (todas as letras minúsculas), por exemplo, *mycontainerregistry008.azurecr.Io*. Este exemplo pressupõe que você criou e enviou por `sample/hello-world:v1` Push a imagem na seção anterior:
+Crie um arquivo *quickrun. YAML* em um diretório de trabalho local com o seguinte conteúdo para uma única etapa. Substitua o nome do servidor de logon do registro por *\<acrLoginServer\>* . O nome do servidor de logon está no formato *\<nome-do-registro\>. azurecr.Io* (todas as letras minúsculas), por exemplo, *mycontainerregistry008.azurecr.Io*. Este exemplo pressupõe que você criou e enviou por push a imagem de `sample/hello-world:v1` na seção anterior:
 
 ```yml
 steps:
   - cmd: <acrLoginServer>/sample/hello-world:v1
 ```
 
-A `cmd` etapa neste exemplo executa o contêiner em sua configuração padrão, mas `cmd` dá suporte a `docker run` parâmetros adicionais ou a `docker` outros comandos.
+A etapa de `cmd` neste exemplo executa o contêiner em sua configuração padrão, mas `cmd` dá suporte a parâmetros de `docker run` adicionais ou até mesmo outros comandos de `docker`.
 
 Execute o contêiner com o seguinte comando:
 
@@ -186,7 +186,7 @@ Quando não for mais necessário, você poderá usar o comando [AZ Group Delete]
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você usou recursos de tarefas ACR para criar, enviar e executar rapidamente uma imagem de contêiner do Docker nativamente no Azure. Continue com os tutoriais do registro de contêiner do Azure para saber mais sobre como usar tarefas ACR para automatizar compilações e atualizações de imagem.
 

@@ -1,6 +1,6 @@
 ---
-title: Início rápido-criar um registro privado do Docker no Azure-PowerShell
-description: Aprenda rapidamente a criar um registo de contentor do Docker no Azure com o PowerShell.
+title: Início rápido-criar registro-PowerShell-registro de contêiner do Azure
+description: Aprenda rapidamente a criar um registro do Docker privado no registro de contêiner do Azure com o PowerShell
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f99b4ee6dd11a109d1c563c84debc2157cb03337
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: b337c28efc3db7d4bec4408b5da1f8a5e1d87094
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68309500"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931616"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Início rápido: Criar um registro de contêiner privado usando Azure PowerShell
+# <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Início rápido: criar um registro de contêiner privado usando Azure PowerShell
 
 O Azure Container Registry é um serviço de registo de contentor do Docker privado e gerido que serve para criar, armazenar e fornecer imagens de contentor do Docker. Neste guia de início rápido, irá aprender a criar um registo de contentor do Azure com o PowerShell. Em seguida, use os comandos do Docker para enviar uma imagem de contêiner para o registro e, por fim, efetuar pull e executar a imagem do registro.
 
@@ -66,7 +66,7 @@ Antes de enviar e solicitar imagens de contentor, tem de iniciar sessão no regi
 $creds = Get-AzContainerRegistryCredential -Registry $registry
 ```
 
-Em seguida, execute o [logon][docker-login] do Docker para fazer logon:
+Em seguida, execute o [logon do Docker][docker-login] para fazer logon:
 
 ```powershell
 $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin
@@ -86,7 +86,7 @@ Quando terminar de trabalhar com os recursos criados neste guia de início rápi
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou um registro de contêiner do Azure com Azure PowerShell, enviou por push uma imagem de contêiner e puxau e executou a imagem do registro. Continue nos tutoriais do registro de contêiner do Azure para obter uma análise mais profunda do ACR.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: ddf5b81f7269b02ebdc6777fd1bee126157141ff
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: df6c4afc0da50c5b4b32923f24370b9c959b1af7
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73893432"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929617"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application-preview-features"></a>Tutorial: criar uma regra e configurar notificações no aplicativo IoT Central do Azure (recursos de visualização)
 
@@ -113,7 +113,7 @@ Agora que você aprendeu a criar regras em seu aplicativo IoT Central do Azure, 
 
 ## <a name="next-steps"></a>Passos seguintes
 
->>>>>>> fa07415cf19e8cdb02d570edb3785780bfa97a7c:articles/IOT-central/Preview/tutorial-Create-telemetria-Rules. MD neste tutorial, você aprendeu a:
+Neste tutorial, ficou a saber como:
 
 * Criar uma regra baseada em telemetria
 * Adicionar uma ação
@@ -121,5 +121,4 @@ Agora que você aprendeu a criar regras em seu aplicativo IoT Central do Azure, 
 Agora que você definiu uma regra baseada em limite, a próxima etapa sugerida é aprender a:
 
 > [!div class="nextstepaction"]
-
 > [Configure a exportação de dados contínuas](./howto-export-data.md).

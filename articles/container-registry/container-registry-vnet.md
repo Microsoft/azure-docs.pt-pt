@@ -1,5 +1,5 @@
 ---
-title: Restringir o acesso a um registro de contêiner do Azure de uma rede virtual
+title: Restringir o acesso ao registro de contêiner do Azure com uma rede virtual
 description: Permitir o acesso a um registro de contêiner do Azure somente de recursos em uma rede virtual do Azure ou de intervalos de endereços IP públicos.
 services: container-registry
 author: dlepow
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 3050a52da4d39657bd7b2fb38e235b9bd418faf4
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 5ba5c180def9539c486fb8727a0a78b4f98fa185
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619881"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931322"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restringir o acesso a um registro de contêiner do Azure usando uma rede virtual do Azure ou regras de firewall
 
@@ -42,7 +42,7 @@ Se, em vez disso, você precisar configurar as regras de acesso para que os recu
 
 * Para usar as etapas de CLI do Azure neste artigo, CLI do Azure versão 2.0.58 ou posterior é necessária. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli].
 
-* Se você ainda não tiver um registro de contêiner, crie um (SKU Premium necessário) e envie por push uma imagem `hello-world` de exemplo, como do Hub do Docker. Por exemplo, use o [portal do Azure][quickstart-portal] ou o [CLI do Azure][quickstart-cli] para criar um registro. 
+* Se você ainda não tiver um registro de contêiner, crie um (SKU Premium necessário) e envie por push uma imagem de exemplo, como `hello-world` do Hub do Docker. Por exemplo, use o [portal do Azure][quickstart-portal] ou o [CLI do Azure][quickstart-cli] para criar um registro. 
 
 * Se você quiser restringir o acesso ao registro usando uma rede virtual em uma assinatura do Azure diferente, será necessário registrar o provedor de recursos para o registro de contêiner do Azure nessa assinatura. Por exemplo:
 
@@ -54,17 +54,17 @@ Se, em vez disso, você precisar configurar as regras de acesso para que os recu
 
 ## <a name="about-network-rules-for-a-container-registry"></a>Sobre regras de rede para um registro de contêiner
 
-Por padrão, um registro de contêiner do Azure aceita conexões pela Internet de hosts em qualquer rede. Com uma rede virtual, você pode permitir que somente recursos do Azure, como um cluster AKS ou uma VM do Azure, acessem com segurança o registro, sem cruzar um limite de rede. Você também pode configurar regras de firewall de rede para intervalos de endereços IP públicos da Internet específicos da lista de permissões. 
+Por padrão, um registro de contêiner do Azure aceita conexões pela Internet de hosts em qualquer rede. Com uma rede virtual, você pode permitir que somente recursos do Azure, como um cluster AKS ou uma VM do Azure, acessem com segurança o registro, sem cruzar um limite de rede. Você também pode configurar as regras de firewall de rede para permitir apenas intervalos de endereços IP públicos da Internet específicos. 
 
-Para limitar o acesso a um registro, primeiro altere a ação padrão do registro para que ele negue todas as conexões de rede. Em seguida, adicione regras de acesso à rede. Os clientes que receberam acesso por meio das regras de rede devem continuar Autenticando no [registro de contêiner](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) e estar autorizados a acessar os dados.
+Para limitar o acesso a um registro, primeiro altere a ação padrão do registro para que ele negue todas as conexões de rede. Em seguida, adicione regras de acesso à rede. Os clientes que receberam acesso por meio das regras de rede devem continuar [Autenticando no registro de contêiner](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) e estar autorizados a acessar os dados.
 
 ### <a name="service-endpoint-for-subnets"></a>Ponto de extremidade de serviço para sub-redes
 
 Para permitir o acesso de uma sub-rede em uma rede virtual, você precisa adicionar um [ponto de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) para o serviço de registro de contêiner do Azure. 
 
-Serviços de vários locatários, como o registro de contêiner do Azure, usam um único conjunto de endereços IP para todos os clientes. Um ponto de extremidade de serviço atribui um ponto de extremidade para acessar um registro. Esse ponto de extremidade fornece ao tráfego uma rota ideal para o recurso na rede de backbone do Azure. As identidades de rede virtual e sub-rede também são transmitidas com cada solicitação.
+Serviços de vários locatários, como o registro de contêiner do Azure, usam um único conjunto de endereços IP para todos os clientes. Um ponto de extremidade de serviço atribui um ponto de extremidade para acessar um registro. Esse ponto de extremidade fornece ao tráfego uma rota ideal para o recurso na rede de backbone do Azure. As identidades da rede virtual e da sub-rede também são transmitidas com cada solicitação.
 
-### <a name="firewall-rules"></a>Regras de firewall
+### <a name="firewall-rules"></a>Regras da firewall
 
 Para regras de rede IP, forneça intervalos de endereços de Internet permitidos usando a notação CIDR, como *16.17.18.0/24* , ou um endereço IP individual, como *16.17.18.19*. As regras de rede IP só são permitidas para endereços IP *públicos* da Internet. Os intervalos de endereços IP reservados para redes privadas (conforme definido no RFC 1918) não são permitidos em regras de IP.
 
@@ -72,7 +72,7 @@ Para regras de rede IP, forneça intervalos de endereços de Internet permitidos
 
 Para este artigo, use uma VM Ubuntu habilitada para Docker para acessar um registro de contêiner do Azure. Para usar Azure Active Directory autenticação para o registro, instale também o [CLI do Azure][azure-cli] na VM. Se você já tiver uma máquina virtual do Azure, ignore esta etapa de criação.
 
-Você pode usar o mesmo grupo de recursos para sua máquina virtual e o registro de contêiner. Essa configuração simplifica a limpeza no final, mas não é necessária. Se você optar por criar um grupo de recursos separado para a máquina virtual e a rede virtual, execute [AZ Group Create][az-group-create]. O exemplo a seguir cria um grupo de recursos chamado MyResource Group no local *westcentralus* :
+Você pode usar o mesmo grupo de recursos para sua máquina virtual e o registro de contêiner. Essa configuração simplifica a limpeza no final, mas não é necessária. Se você optar por criar um grupo de recursos separado para a máquina virtual e a rede virtual, execute [AZ Group Create][az-group-create]. O exemplo a seguir cria um grupo de recursos chamado *MyResource* Group no local *westcentralus* :
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -89,7 +89,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Demora alguns minutos até que a VM seja criada. Quando o comando for concluído, anote o `publicIpAddress` exibido pelo CLI do Azure. Use esse endereço para fazer conexões SSH com a VM e, opcionalmente, para a configuração posterior de regras de firewall.
+Demora alguns minutos até que a VM seja criada. Quando o comando for concluído, anote as `publicIpAddress` exibidas pela CLI do Azure. Use esse endereço para fazer conexões SSH com a VM e, opcionalmente, para a configuração posterior de regras de firewall.
 
 ### <a name="install-docker-on-the-vm"></a>Instalar o Docker na VM
 
@@ -218,7 +218,7 @@ Por padrão, um registro de contêiner do Azure permite conexões de hosts em qu
 
 1. No portal, navegue até o registro de contêiner.
 1. Em **configurações**, selecione **Firewall e redes virtuais**.
-1. Para negar o acesso por predefinição, optar por permitir acesso a partir **redes selecionadas**. 
+1. Para negar acesso por padrão, escolha permitir o acesso de **redes selecionadas**. 
 1. Selecione **Adicionar rede virtual existente**e selecione a rede virtual e a sub-rede que você configurou com um ponto de extremidade de serviço. Selecione **Adicionar**.
 1. Selecione **Guardar**.
 
@@ -310,7 +310,7 @@ Depois de aguardar alguns minutos para que a configuração seja atualizada, ver
 az acr login --name mycontainerregistry
 ```
 
-Você pode executar operações de registro, como `docker pull` executar, para extrair uma imagem de exemplo do registro. Substitua uma imagem e um valor de marca apropriado para o registro, prefixado com o nome do servidor de logon do registro (todas as letras minúsculas):
+Você pode executar operações de registro, como executar `docker pull` para efetuar pull de uma imagem de exemplo do registro. Substitua uma imagem e um valor de marca apropriado para o registro, prefixado com o nome do servidor de logon do registro (todas as letras minúsculas):
 
 ```bash
 docker pull mycontainerregistry.azurecr.io/hello-world:v1
@@ -318,7 +318,7 @@ docker pull mycontainerregistry.azurecr.io/hello-world:v1
 
 O Docker efetua pull da imagem com êxito para a VM.
 
-Este exemplo demonstra que você pode acessar o registro de contêiner privado por meio da regra de acesso de rede. No entanto, o registro não pode ser acessado de um host de logon diferente que não tenha uma regra de acesso à rede configurada. Se você tentar fazer logon de outro host usando o `az acr login` comando ou `docker login` comando, a saída será semelhante à seguinte:
+Este exemplo demonstra que você pode acessar o registro de contêiner privado por meio da regra de acesso de rede. No entanto, o registro não pode ser acessado de um host de logon diferente que não tenha uma regra de acesso à rede configurada. Se você tentar fazer logon de outro host usando o comando `az acr login` ou `docker login` comando, a saída será semelhante à seguinte:
 
 ```Console
 Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ failed with status: 403 Forbidden

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 76ab6a229de14af1e3808326c62a7bdbbd188e81
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 87dbd7ab4d75150d09a8c26db50ce2e3b1a085db
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951370"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930245"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Conectar um aplicativo cliente genérico ao seu aplicativo de IoT Central do Azure (Node. js)
 
@@ -36,7 +36,7 @@ No aplicativo IoT Central do Azure, você precisa de um modelo de dispositivo co
 
 Adicione a seguinte telemetria na página **medidas** :
 
-| Nome a Apresentar | Nome do Campo  | Unidades | Mín. | Máx | Casas Decimais |
+| Nome a Apresentar | Nome do Campo  | Unidades | Mín. | Máx. | Casas Decimais |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | Temperatura  | temperatura | F     | 60  | 110 | 0              |
 | Humidade     | humidade    | %     | 0   | 100 | 0              |
@@ -98,7 +98,7 @@ Insira os nomes de campo exatamente como mostrado na tabela no modelo de disposi
 
 Adicione as seguintes configurações de **número** na página **configurações** :
 
-| Nome a Apresentar    | Nome do Campo     | Unidades | decimais | Mín. | Máx  | This |
+| Nome a Apresentar    | Nome do Campo     | Unidades | decimais | Mín. | Máx.  | This |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Velocidade do ventilador       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | Definir Temperatura | setTemperature | F     | 0        | 20  | 200  | 80      |

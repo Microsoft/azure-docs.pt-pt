@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/31/2016
-ms.openlocfilehash: 0771079eb338c2f22cb0b1f31c48b0b9f80a3ff5
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: cf03fa0055710dde86a0f74cd58344575494faf1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819084"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928569"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Utilizar o PowerShell para definir alertas no Application Insights
 
@@ -130,8 +130,8 @@ As métricas são enviadas por diferentes módulos de telemetria:
 ## <a name="webhooks"></a>Webhooks
 Você pode [automatizar sua resposta a um alerta](../../azure-monitor/platform/alerts-webhooks.md). O Azure chamará um endereço Web de sua escolha quando um alerta for gerado.
 
-## <a name="see-also"></a>Ver também
-* [Script para configurar Application Insights](powershell-script-create-resource.md)
+## <a name="see-also"></a>Consulte também
+* [Script para configurar Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Criar Application Insights e recursos de teste na Web a partir de modelos](powershell.md)
 * [Automatizar a Diagnóstico do Microsoft Azure de acoplamento a Application Insights](powershell-azure-diagnostics.md)
 * [Automatizar a resposta a um alerta](../../azure-monitor/platform/alerts-webhooks.md)

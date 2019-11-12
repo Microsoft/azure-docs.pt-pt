@@ -1,5 +1,5 @@
 ---
-title: Tutorial – criar imagens de contêiner na nuvem – tarefas de registro de contêiner do Azure
+title: Tutorial-compilação de imagem de contêiner rápido-tarefas de registro de contêiner do Azure
 description: Neste tutorial, vai aprender a compilar uma imagem do contentor de Docker no Azure com o Azure Container Registry Tasks (ACR Tasks) e, em seguida, implementá-la no Azure Container Instances.
 services: container-registry
 author: dlepow
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 091c1a4c9e6adae69ec1c8b3e507624b9f5e6a96
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 0b62ef1fa05138b1d5c0a3aacb570f5d577176fe
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057499"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931401"
 ---
-# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Criar e implantar imagens de contêiner na nuvem com tarefas de registro de contêiner do Azure
+# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: criar e implantar imagens de contêiner na nuvem com tarefas de registro de contêiner do Azure
 
 O **ACR Tasks** é um conjunto de funcionalidades no Azure Container Registry que fornece compilações de imagens do contentor de Docker simplificadas e eficientes no Azure. Neste artigo, vai aprender a utilizar a funcionalidade *tarefa rápida*  do ACR Tasks.
 
@@ -207,7 +207,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-O `--role` argumento no comando anterior configura a entidade de serviço com a função *acrpull* , que concede acesso somente pull ao registro. Para conceder acesso de push e pull, altere o `--role` argumento para *acrpush*.
+O argumento `--role` no comando anterior configura a entidade de serviço com a função *acrpull* , que concede acesso somente pull ao registro. Para conceder acesso de push e pull, altere o argumento `--role` para *acrpush*.
 
 Em seguida, armazene o *appId* do principal de serviço no cofre, que é o **nome de utilizador** que passa para o Azure Container Registry para autenticação:
 
@@ -221,8 +221,8 @@ az keyvault secret set \
 
 Acabou de criar um Azure Key Vault e de armazenar dois segredos nele:
 
-* `$ACR_NAME-pull-usr`: A ID da entidade de serviço, para uso como o **nome de usuário**do registro de contêiner.
-* `$ACR_NAME-pull-pwd`: A senha da entidade de serviço, para uso como a **senha**do registro de contêiner.
+* `$ACR_NAME-pull-usr`: o ID do principal de serviço, para utilização como o **nome de utilizador** do registo de contentor.
+* `$ACR_NAME-pull-pwd`: a palavra-passe do principal de serviço, para utilização como a **palavra-passe** do registo de contentor.
 
 Agora, pode referenciar estes segredos por nome quando você ou as suas aplicações e serviços solicitarem imagens do registo.
 

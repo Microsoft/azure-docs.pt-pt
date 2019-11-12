@@ -1,5 +1,5 @@
 ---
-title: Início rápido-criar um registro privado do Docker no Azure-CLI do Azure
+title: Início rápido-criar registro-CLI do Azure-registro de contêiner do Azure
 description: Aprenda rapidamente a criar um registo do contentor do Docker com a CLI do Azure.
 services: container-registry
 author: dlepow
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 6c511c56ab8df14cc6ea81363772ae0fd6d61272
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 562f8d41e1f91e408263809bdfc78905317912a1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68309520"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931604"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Início rápido: Criar um registro de contêiner privado usando o CLI do Azure
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Início rápido: criar um registro de contêiner privado usando o CLI do Azure
 
 O Azure Container Registry é um serviço de registo do contentor Docker gerido, utilizado para armazenar imagens de contentor do Docker privadas. Este guia detalha a criação de uma instância do Azure Container Registry com a CLI do Azure. Em seguida, use os comandos do Docker para enviar uma imagem de contêiner para o registro e, por fim, efetuar pull e executar a imagem do registro.
 
@@ -26,7 +26,7 @@ Também tem de ter o Docker instalado localmente. O Docker fornece pacotes que c
 
 Uma vez que o Azure Cloud Shell não inclui todos os componentes do Docker necessários (o daemon `dockerd`), não é possível utilizar o Cloud Shell para este guia de início rápido.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Crie um grupo de recursos com o comando [az group create][az-group-create]. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
@@ -123,7 +123,7 @@ Quando não for mais necessário, você poderá usar o comando [AZ Group Delete]
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou um registro de contêiner do Azure com o CLI do Azure, enviou por push uma imagem de contêiner para o registro e, em seguida, executou a imagem do registro. Continue nos tutoriais do registro de contêiner do Azure para obter uma análise mais profunda do ACR.
 

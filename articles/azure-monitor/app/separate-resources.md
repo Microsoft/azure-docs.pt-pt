@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/15/2017
-ms.openlocfilehash: bcf741e82e247a5b79a478ef1015a70cccb4d274
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c4d029de782ae408b83c265322a865db7b166c1e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899914"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928307"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Separação de telemetria de desenvolvimento, teste e produção
 
@@ -51,7 +51,7 @@ Defina a chave em um método de inicialização, como global.aspx.cs em um servi
 Neste exemplo, o ikeys para os diferentes recursos é colocado em versões diferentes do arquivo de configuração da Web. Alternando o arquivo de configuração da Web – o que você pode fazer como parte do script de versão – alternará o recurso de destino.
 
 ### <a name="web-pages"></a>Páginas Web
-O iKey também é usado nas páginas da Web do seu aplicativo, no [script que você obteve da folha início rápido](../../azure-monitor/app/javascript.md). Em vez de codificá-lo literalmente no script, gere-o a partir do estado do servidor. Por exemplo, em um aplicativo ASP.NET:
+O iKey também é usado nas páginas da Web do seu aplicativo, no [script que você obteve na folha início rápido](../../azure-monitor/app/javascript.md). Em vez de codificá-lo literalmente no script, gere-o a partir do estado do servidor. Por exemplo, em um aplicativo ASP.NET:
 
 *JavaScript no Razor*
 
@@ -81,7 +81,7 @@ No [Portal.Azure.com](https://portal.azure.com), adicione um recurso de Applicat
 
 A criação do recurso leva alguns segundos. Você verá um alerta quando terminar.
 
-(Você pode escrever um [script do PowerShell](../../azure-monitor/app/powershell-script-create-resource.md) para criar um recurso automaticamente.)
+(Você pode escrever um [script do PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) para criar um recurso automaticamente.)
 
 ### <a name="getting-the-instrumentation-key"></a>Obtendo a chave de instrumentação
 A chave de instrumentação identifica o recurso que você criou. 
@@ -134,7 +134,7 @@ Há vários métodos diferentes de definir a propriedade de versão do aplicativ
     Para permitir que o MSBuild gere números de versão, defina a versão como `1.0.*` em AssemblyReference.cs
 
 ## <a name="version-and-release-tracking"></a>Versão e controlo de versão
-Para controlar a versão da aplicação, certifique-se de que `buildinfo.config` é gerado pelo processo do Microsoft Build Engine. No ficheiro .csproj, adicione:  
+Para controlar a versão da aplicação, certifique-se de que `buildinfo.config` é gerado pelo processo do Microsoft Build Engine. No arquivo `.csproj`, adicione:  
 
 ```XML
 
@@ -145,9 +145,9 @@ Para controlar a versão da aplicação, certifique-se de que `buildinfo.config`
 
 Quando possui informações de compilação, o módulo Web do Application Insights adiciona automaticamente a **Versão da aplicação** como uma propriedade a todos os itens de telemetria. Desta forma, poderá filtrar por versão quando executar [pesquisas de diagnóstico](../../azure-monitor/app/diagnostic-search.md) ou [explorar métricas](../../azure-monitor/app/metrics-explorer.md).
 
-No entanto, tenha em atenção que o número de versão da compilação é gerado apenas pelo Microsoft Build Engine, não pela compilação do programador no Visual Studio.
+No entanto, observe que o número de versão da compilação é gerado apenas pelo Microsoft Build Engine, não pelo desenvolvedor Build do Visual Studio.
 
-### <a name="release-annotations"></a>Anotações da versão
+### <a name="release-annotations"></a>Notas da versão
 Se você usar o Azure DevOps, poderá [obter um marcador de anotação](../../azure-monitor/app/annotations.md) adicionado aos seus gráficos sempre que liberar uma nova versão. A imagem seguinte mostra como este marcador é apresentado.
 
 ![Captura de ecrã de um exemplo de anotação de versão num gráfico](media/separate-resources/release-annotation.png)

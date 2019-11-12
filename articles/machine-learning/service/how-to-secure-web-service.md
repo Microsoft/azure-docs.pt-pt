@@ -1,5 +1,5 @@
 ---
-title: Proteger os s usando SSL
+title: Proteger serviços Web usando SSL
 titleSuffix: Azure Machine Learning
 description: Saiba como habilitar o HTTPS em ordem muito segura um serviço Web que é implantado por meio de Azure Machine Learning.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1455ec17898e82ed0f39fea66c44d2e9b4f57280
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f1021ad1983f78252d924a5d3cb674419732d66e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489554"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932051"
 ---
 # <a name="use-ssl-to-secure-a--through-azure-machine-learning"></a>Usar SSL para proteger um por meio de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -71,7 +71,7 @@ Ao solicitar um certificado, você deve fornecer o FQDN do endereço que planeja
 
 ## <a id="enable"></a>Habilitar SSL e implantar
 
-Para implantar (ou reimplantar) o serviço com SSL habilitado, defina o parâmetro *ssl_enabled* como "true", onde for aplicável. Defina o parâmetro *ssl_certificate* para o valor do arquivo de *certificado* . Defina o *ssl_key* para o valor do arquivo de *chave* .
+Para implantar (ou reimplantar) o serviço com SSL habilitado, defina o parâmetro *ssl_enabled* como "true", onde quer que ele seja aplicável. Defina o parâmetro *ssl_certificate* como o valor do arquivo de *certificado* . Defina o *ssl_key* como o valor do arquivo de *chave* .
 
 ### <a name="deploy-on-aks-and-field-programmable-gate-array-fpga"></a>Implantar em AKS e FPGA (matriz de portão programável por campo)
 
@@ -87,7 +87,7 @@ O método **Enable_ssl** pode usar um certificado que é fornecido pela Microsof
 
   * Ao usar um certificado da Microsoft, você deve usar o parâmetro *leaf_domain_label* . Esse parâmetro gera o nome DNS para o serviço. Por exemplo, um valor de "MyService" cria um nome de domínio de "MyService\<seis caracteres aleatórios >.\<azureregion >. cloudapp. Azure. com ", em que \<azureregion > é a região que contém o serviço. Opcionalmente, você pode usar o parâmetro *overwrite_existing_domain* para substituir o *leaf_domain_label*existente.
 
-    Para implantar (ou reimplantar) o serviço com SSL habilitado, defina o parâmetro *ssl_enabled* como "true", onde for aplicável. Defina o parâmetro *ssl_certificate* para o valor do arquivo de *certificado* . Defina o *ssl_key* para o valor do arquivo de *chave* .
+    Para implantar (ou reimplantar) o serviço com SSL habilitado, defina o parâmetro *ssl_enabled* como "true", onde quer que ele seja aplicável. Defina o parâmetro *ssl_certificate* como o valor do arquivo de *certificado* . Defina o *ssl_key* como o valor do arquivo de *chave* .
 
     > [!IMPORTANT]
     > Ao usar um certificado da Microsoft, você não precisa comprar seu próprio certificado ou nome de domínio.
@@ -148,7 +148,7 @@ Em seguida, você deve atualizar o DNS para apontar para o.
 + **Para AKS:**
 
   > [!WARNING]
-  > Se você usou o *leaf_domain_label* para criar o serviço usando um certificado da Microsoft, não atualize manualmente o valor DNS para o cluster. O valor deve ser definido automaticamente.
+  > Se você usou *leaf_domain_label* para criar o serviço usando um certificado da Microsoft, não atualize manualmente o valor DNS para o cluster. O valor deve ser definido automaticamente.
 
   Atualize o DNS do endereço IP público do cluster AKS na guia **configuração** em **configurações** no painel esquerdo. (Consulte a imagem a seguir.) O endereço IP público é um tipo de recurso que é criado no grupo de recursos que contém os nós do agente AKS e outros recursos de rede.
 

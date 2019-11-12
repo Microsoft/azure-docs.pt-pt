@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 102f3e131b20534dc2f192b6485a3fdc95070315
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 801692c53ef268f15edc60d31743aefa6a247a78
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470255"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928513"
 ---
 # <a name="app-service-networking-features"></a>Recursos de rede do serviço de aplicativo
 
@@ -91,7 +91,7 @@ Você pode aprender a definir um endereço em seu aplicativo com o tutorial sobr
 
 ### <a name="access-restrictions"></a>Restrições de acesso 
 
-O recurso de restrições de acesso permite filtrar solicitações de **entrada** com base no endereço IP de origem. A ação de filtragem ocorre nas funções de front-end que são upstream do trabalho, onde seus aplicativos estão em execução. Como as funções de front-end são upstream dos trabalhadores, a capacidade de restrições de acesso pode ser considerada como proteção de nível de rede para seus aplicativos. O recurso permite que você crie uma lista de blocos de endereços allow e Deny que são avaliados em ordem de prioridade. É semelhante ao recurso NSG (grupo de segurança de rede) que existe na rede do Azure.  Você pode usar esse recurso em um ASE ou no serviço multilocatário. Quando usado com um ASE ILB, você pode restringir o acesso de blocos de endereços privados.
+O recurso de restrições de acesso permite filtrar solicitações de **entrada** com base no endereço IP de origem. A ação de filtragem ocorre nas funções de front-end que são upstream das funções de trabalho em que seus aplicativos estão em execução. Como as funções de front-end são upstream dos trabalhadores, a capacidade de restrições de acesso pode ser considerada como proteção de nível de rede para seus aplicativos. O recurso permite que você crie uma lista de blocos de endereços allow e Deny que são avaliados em ordem de prioridade. É semelhante ao recurso NSG (grupo de segurança de rede) que existe na rede do Azure.  Você pode usar esse recurso em um ASE ou no serviço multilocatário. Quando usado com um ASE ILB, você pode restringir o acesso de blocos de endereços privados.
 
 ![Restrições de acesso](media/networking-features/access-restrictions.png)
 
@@ -108,7 +108,7 @@ Se você quiser bloquear o acesso ao seu aplicativo para que ele só possa ser a
 
 Os pontos de extremidade de serviço permitem bloquear o acesso de **entrada** ao seu aplicativo, de modo que o endereço de origem deve vir de um conjunto de sub-redes que você selecionar. Esse recurso funciona em conjunto com as restrições de acesso de IP. Os pontos de extremidade de serviço são definidos na mesma experiência de usuário que as restrições de acesso de IP. Você pode criar uma lista de permissão/negação de regras de acesso que inclui endereços públicos, bem como sub-redes em seu VNets. Esse recurso dá suporte a cenários como:
 
-![Pontos de extremidade de serviço](media/networking-features/service-endpoints.png)
+![pontos de extremidade de serviço](media/networking-features/service-endpoints.png)
 
 * Configurando um gateway de aplicativo com seu aplicativo para bloquear o tráfego de entrada para seu aplicativo
 * Restrição de acesso ao seu aplicativo aos recursos em sua VNet. Isso pode incluir VMs, ASEs ou até mesmo outros aplicativos que usam a integração de VNet 

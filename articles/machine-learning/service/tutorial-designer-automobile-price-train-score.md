@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: prever o preço do automóvel com o designer'
 titleSuffix: Azure Machine Learning
-description: Saiba como treinar, pontuar e implantar um modelo de aprendizado de máquina usando uma interface de arrastar e soltar. Este tutorial é a parte um de uma série de duas partes sobre a previsão de preços de automóvel usando a regressão linear.
+description: Saiba como treinar, pontuar e implantar um modelo de aprendizado de máquina usando uma interface do tipo "arrastar e soltar". Este tutorial é a parte um de uma série de duas partes sobre a previsão de preços de automóvel usando a regressão linear.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,35 +9,35 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 3df1a0430983b52d8a791acabbd03efe19055697
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 0ffe85b6e005d2dc8fe077a5a08d8b0f11c73589
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721768"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929676"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: prever o preço do automóvel com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Neste tutorial de duas partes, você aprende a usar o Azure Machine Learning designer para desenvolver e implantar uma solução de análise preditiva que prevê o preço de qualquer carro. 
 
-Na parte um, você configura o ambiente, os módulos do tipo "arrastar e soltar" em uma tela interativa e os conecta para criar um pipeline de Azure Machine Learning.
+Na parte um, você configura seu ambiente, arrasta módulos para uma tela interativa e os conecta para criar um pipeline de Azure Machine Learning.
 
-Na parte um dos tutoriais, você aprenderá a:
+Na parte um do tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-> * Criar um novo pipeline
-> * Importar dados
-> * Preparar dados
-> * Treinar um modelo de aprendizado de máquina
-> * Avaliar um modelo de aprendizado de máquina
+> * Crie um novo pipeline.
+> * Importar dados.
+> * Preparar dados.
+> * Treinar um modelo de aprendizado de máquina.
+> * Avalie um modelo de aprendizado de máquina.
 
-Na [parte dois](tutorial-designer-automobile-price-deploy.md) do tutorial, você aprende a implantar seu modelo de previsão como um ponto de extremidade inferência em tempo real para prever o preço de qualquer carro com base nas especificações técnicas que você envia. 
+Na [parte dois](tutorial-designer-automobile-price-deploy.md) do tutorial, você aprenderá a implantar seu modelo de previsão como um ponto de extremidade inferência em tempo real para prever o preço de qualquer carro com base nas especificações técnicas que você enviar. 
 
-> [!Note]
+> [!NOTE]
 >Uma versão completa deste tutorial está disponível como um pipeline de exemplo.
 >
->Para encontrá-lo, vá para o **designer em seu espaço de trabalho**. Na seção **novo pipeline** , selecione **amostra 1-regressão: Previsão de preço de automóvel (básica)** .
+>Para encontrá-lo, vá para o designer em seu espaço de trabalho. Na seção **novo pipeline** , selecione **amostra 1-regressão: Previsão de preço de automóvel (básica)** .
 
 ## <a name="create-a-new-pipeline"></a>Criar um novo pipeline
 
@@ -45,13 +45,13 @@ Azure Machine Learning pipelines organizam várias etapas dependentes de aprendi
 
 ### <a name="create-a-new-workspace"></a>Criar um novo espaço de trabalho
 
-Se você tiver um espaço de trabalho Azure Machine Learning com uma **Enterprise Edition**, [pule para a próxima seção](#create-the-pipeline).
+Se você tiver um espaço de trabalho Azure Machine Learning com uma Enterprise Edition, [pule para a próxima seção](#create-the-pipeline).
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal-enterprise.md)]
 
 ### <a name="create-the-pipeline"></a>Criar o pipeline
 
-1. Entre no [ml.Azure.com](https://ml.azure.com) e selecione o espaço de trabalho com o qual você deseja trabalhar.
+1. Entre no [ml.Azure.com](https://ml.azure.com)e selecione o espaço de trabalho com o qual você deseja trabalhar.
 
 1. Selecione **Designer**.
 
@@ -59,25 +59,25 @@ Se você tiver um espaço de trabalho Azure Machine Learning com uma **Enterpris
 
 1. Selecione **módulos pré-criados fáceis de usar**.
 
-1. Selecione o nome do pipeline padrão, **"pipeline-criado-ligado..."** na parte superior da tela e renomeie-o para algo significativo. Por exemplo, **"Previsão de preço de automóvel"** . O nome não tem de ser exclusivo.
+1. Selecione o nome de pipeline padrão **pipeline-created-on** na parte superior da tela. Renomeie-o para algo significativo. Um exemplo é a *previsão de preço de automóvel*. O nome não tem de ser exclusivo.
 
 ## <a name="import-data"></a>Importar dados
 
 Há vários exemplos de conjuntos de exemplo incluídos no designer para você experimentar. Para este tutorial, use **dados de preço do automóvel (brutos)** . 
 
-1. À esquerda da tela do pipeline há uma paleta de conjuntos de valores e módulos. Selecione **conjuntos** de itens e, em seguida, exiba a seção de **exemplos** para exibir os conjuntos de valores de exemplo disponíveis.
+1. À esquerda da tela do pipeline há uma paleta de conjuntos de valores e módulos. Selecione **conjuntos de valores**e, em seguida, exiba a seção **amostras** para exibir os conjuntos de exemplos de conjunto de linhas disponíveis.
 
-1. Selecione o conjunto de **dados, o preço do automóvel (bruto)** e arraste-o para a tela.
+1. Selecione os dados de preço do automóvel do conjunto de **dados (bruto)** e arraste-os para a tela.
 
    ![Arrastar dados para tela](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
 
 ### <a name="visualize-the-data"></a>Ver os dados
 
-Você pode visualizar os dados para entender o DataSet que será usado.
+Você pode visualizar os dados para entender o DataSet que você usará.
 
 1. Selecione o módulo **dados de preço do automóvel (brutos)** .
 
-1. No painel **Propriedades** à direita da tela, selecione **saídas**.
+1. No painel Propriedades à direita da tela, selecione **saídas**.
 
 1. Selecione o ícone de grafo para visualizar os dados.
 
@@ -89,17 +89,17 @@ Você pode visualizar os dados para entender o DataSet que será usado.
 
 ## <a name="prepare-data"></a>Preparar dados
 
-Os conjuntos de linhas normalmente exigem algum pré-processamento antes da análise. Talvez você tenha notado alguns valores ausentes ao inspecionar o conjunto de um. Esses valores ausentes precisam ser limpos para que o modelo possa analisar os dados corretamente.
+Os conjuntos de linhas normalmente exigem algum pré-processamento antes da análise. Talvez você tenha notado alguns valores ausentes ao inspecionar o conjunto de um. Esses valores ausentes devem ser limpos para que o modelo possa analisar os dados corretamente.
 
 ### <a name="remove-a-column"></a>Remover uma coluna
 
-Ao treinar um modelo, você precisa fazer algo sobre os dados ausentes. Nesse conjunto de DataSet, a coluna **normalized-** losss não tem muitos valores, portanto, você excluirá a coluna do modelo completamente.
+Ao treinar um modelo, você precisa fazer algo sobre os dados ausentes. Nesse conjunto de DataSet, a coluna **normalized-derrotas** não tem muitos valores, portanto, você exclui a coluna do modelo completamente.
 
 1. Digite **Select** na caixa de pesquisa na parte superior da paleta para localizar o módulo **selecionar colunas no conjunto de DataSet** .
 
-1. Clique e arraste o módulo **selecionar colunas no conjunto de DataSet** para a tela. Descarte o módulo abaixo do módulo DataSet.
+1. Arraste o módulo **selecionar colunas no conjunto de DataSet** para a tela. Descarte o módulo abaixo do módulo DataSet.
 
-1. Conecte o conjunto de **dados de preço de automóvel (bruto)** para as **colunas selecionadas no DataSet**. Arraste a partir da porta de saída do conjunto de dados, que é o pequeno círculo na parte inferior do conjunto de dados na tela, para a porta de entrada de **selecionar colunas no DataSet**, que é o pequeno círculo na parte superior do módulo.
+1. Conecte o conjunto de **dados de preço de automóvel (bruto)** ao módulo **selecionar colunas no conjunto de** dados. Arraste a partir da porta de saída do conjunto de dados, que é o pequeno círculo na parte inferior do conjunto de dados na tela, para a porta de entrada de **selecionar colunas no DataSet**, que é o pequeno círculo na parte superior do módulo.
 
     > [!TIP]
     > Você cria um fluxo de dados por meio de seu pipeline ao conectar a porta de saída de um módulo a uma porta de entrada de outro.
@@ -109,13 +109,13 @@ Ao treinar um modelo, você precisa fazer algo sobre os dados ausentes. Nesse co
 
 1. Selecione o módulo **selecionar colunas no conjunto** de módulos.
 
-1. No painel **Propriedades** à direita da tela, selecione **parâmetros** > **Editar coluna**.
+1. No painel Propriedades à direita da tela, selecione **parâmetros** > **Editar coluna**.
 
 1. Selecione o **+** para adicionar uma nova regra.
 
 1. No menu suspenso, selecione **excluir** e **nomes de coluna**.
     
-1. Insira as **perdas normalizadas** na caixa de texto.
+1. Insira as *perdas normalizadas* na caixa de texto.
 
 1. No canto inferior direito, selecione **salvar** para fechar o seletor de coluna.
 
@@ -125,22 +125,22 @@ Ao treinar um modelo, você precisa fazer algo sobre os dados ausentes. Nesse co
 
 1. Selecione o módulo **selecionar colunas no conjunto** de módulos. 
 
-1. No painel **Propriedades** , selecione **parâmetros** > **Comentário** e insira "excluir perdas normalizadas.".
+1. No painel Propriedades, selecione **parâmetros** > **Comentário** e insira *excluir perdas normalizadas*.
 
 ### <a name="clean-missing-data"></a>Limpar dados ausentes
 
-Seu conjunto de seus ainda tem valores ausentes após a remoção da coluna de **perdas normalizadas** . Você pode remover os dados ausentes restantes usando o módulo **limpar dados ausentes** .
+O conjunto de seus conjuntos de seus valores ainda faltam depois que você remover a coluna de **perdas normalizadas** . Você pode remover os dados ausentes restantes usando o módulo **limpar dados ausentes** .
 
 > [!TIP]
 > Limpar os valores ausentes dos dados de entrada é um pré-requisito para usar a maioria dos módulos no designer.
 
 1. Digite **limpar** na caixa de pesquisa para localizar o módulo **limpar dados ausentes** .
 
-1. Arraste o módulo **limpar dados ausentes** para a tela do pipeline e conecte-o ao módulo **selecionar colunas no conjunto de** dados. 
+1. Arraste o módulo **limpar dados ausentes** para a tela do pipeline. Conecte-o ao módulo **selecionar colunas no conjunto de DataSet** . 
 
 1. No painel Propriedades, selecione **remover linha inteira** no **modo de limpeza**.
 
-1. Na caixa de **Comentário** do painel Propriedades, digite "remover linhas de valor ausentes".  
+1. Na caixa de **Comentário** do painel Propriedades, digite *remover linhas de valor ausentes*. 
 
     Seu pipeline agora deve ser semelhante a este:
     
@@ -152,23 +152,23 @@ Agora que os dados são processados, você pode treinar um modelo de previsão.
 
 ### <a name="select-an-algorithm"></a>Selecionar um algoritmo
 
-**Classficação** e **regrssão** são dois tipos de algoritmos de machine learning supervisionados. A **classificação** prevê uma resposta de um conjunto definido de categorias, como uma cor (vermelho, azul ou verde). A **regressão** é usada para prever um número.
+*Classficação* e *regrssão* são dois tipos de algoritmos de machine learning supervisionados. A classificação prevê uma resposta de um conjunto definido de categorias, como uma cor como vermelho, azul ou verde. A regressão é utilizada para prever um número.
 
-Como você deseja prever o preço, que é um número, você pode usar um algoritmo de regressão. Para este exemplo, você usará um modelo de regressão linear.
+Como você deseja prever o preço, que é um número, você pode usar um algoritmo de regressão. Para este exemplo, você usa um modelo de regressão linear.
 
 ### <a name="split-the-data"></a>Dividir os dados
 
 Divida seus dados em dois conjuntos separados para treinar o modelo e testá-los.
 
-1. Insira **dividir dados** na caixa de pesquisa para localizar o módulo **dividir dados** e conectá-lo à porta à esquerda do módulo **limpar dados ausentes** .
+1. Insira **dividir dados** na caixa de pesquisa para localizar o módulo **dividir dados** . Conecte-o à porta à esquerda do módulo **limpar dados ausentes** .
 
 1. Selecione o módulo **dividir dados** .
 
 1. No painel Propriedades, defina a **fração de linhas no primeiro conjunto de registros de saída** como 0,7.
 
-    Isso divide 70 por cento dos dados para treinar o modelo e 30 por cento para testá-lo.
+    Essa opção divide 70 por cento dos dados para treinar o modelo e 30 por cento para testá-lo.
 
-1. Na caixa de **Comentário** Propriedades, digite "dividir o conjunto de os em conjunto de treinamento (0,7) e conjunto de teste (0,3)."
+1. Na caixa de **Comentário** do painel Propriedades, digite *dividir o conjunto de os em conjunto de treinamento (0,7) e conjunto de teste (0,3)* .
 
 ### <a name="train-the-model"></a>Dar formação sobre o modelo
 
@@ -178,9 +178,9 @@ Treine o modelo fornecendo a ele um conjunto de dados que inclui o preço. O mod
 
 1. Expanda **algoritmos Machine Learning**.
     
-    Isso exibe várias categorias de módulos que você pode usar para inicializar algoritmos de aprendizado.
+    Essa opção exibe várias categorias de módulos que você pode usar para inicializar algoritmos de aprendizado.
 
-1. Selecione **regressão** > **regressão linear** e arraste-a para a tela do pipeline.
+1. Selecione **regressão** > **regressão linear**e arraste-a para a tela do pipeline.
 
 1. Localize e arraste o módulo **modelo de treinamento** até a tela do pipeline. 
 
@@ -196,7 +196,7 @@ Treine o modelo fornecendo a ele um conjunto de dados que inclui o preço. O mod
 
 1. Na caixa de diálogo **coluna de rótulo** , expanda o menu suspenso e selecione **nomes de coluna**. 
 
-1. Na caixa de texto, insira **preço**. Price é o valor que seu modelo pretende prever.
+1. Na caixa de texto, insira *preço*. Price é o valor que seu modelo pretende prever.
 
     Seu pipeline deve ter a seguinte aparência:
 
@@ -206,11 +206,11 @@ Treine o modelo fornecendo a ele um conjunto de dados que inclui o preço. O mod
 
 Depois de treinar seu modelo usando 70% dos dados, você pode usá-lo para pontuar os outros 30% para ver como seu modelo funciona.
 
-1. Insira o **modelo de Pontuação** na caixa de pesquisa para localizar o módulo modelo de **Pontuação** e arraste o módulo para a tela de pipeline. 
+1. Insira o *modelo de Pontuação* na caixa de pesquisa para localizar o módulo modelo de **Pontuação** . Arraste o módulo para a tela de pipeline. 
 
 1. Conecte a saída do módulo **modelo de treinamento** à porta de entrada à esquerda do **modelo de Pontuação**. Conecte a saída de dados de teste (porta direita) do módulo **dividir dados** à porta de entrada à direita do **modelo de Pontuação**.
 
-1. Digite **Evaluate** na caixa de pesquisa para localizar o **modelo de avaliação** e arraste o módulo para a tela de pipeline. 
+1. Digite *Evaluate* na caixa de pesquisa para localizar o módulo **modelo de avaliação** . Arraste o módulo para a tela de pipeline. 
 
 1. Conecte a saída do módulo **modelo de Pontuação** à entrada à esquerda do **modelo de avaliação**. 
 
@@ -228,23 +228,23 @@ Depois que a execução for concluída, você poderá exibir os resultados da ex
 
 1. Selecione o módulo **modelo de Pontuação** para exibir sua saída.
 
-1. No painel **Propriedades** , selecione **saídas** > **Visualizar**.
+1. No painel Propriedades, selecione **saídas** > **Visualizar**.
 
     Aqui você pode ver os preços previstos e os preços reais dos dados de teste.
 
-    ![Captura de tela da visualização de saída realçando a coluna "rótulo pontuado"](./media/ui-tutorial-automobile-price-train-score/score-result.png)
+    ![Captura de tela da visualização de saída realçando a coluna de rótulo pontuado](./media/ui-tutorial-automobile-price-train-score/score-result.png)
 
 1. Selecione o módulo **avaliar modelo** para exibir sua saída.
 
-1. No painel **Propriedades** , selecione **saída** > **Visualizar**.
+1. No painel Propriedades, selecione **saída** > **Visualizar**.
 
 As seguintes estatísticas são mostradas para seu modelo:
 
-* **Erro de média absoluta (Mae)** : a média de erros absolutos (um erro é a diferença entre o valor previsto e o valor real).
+* **Erro de média absoluta (Mae)** : a média de erros absolutos. Um erro é a diferença entre o valor previsto e o valor real.
 * **Erro de quadrado médio de raiz (RMSE)** : a raiz quadrada da média de erros quadrados de previsões feitas no conjunto de testes.
 * **Erro relativo absoluto**: A média dos erros absolutos relativos à diferença absoluta entre os valores reais e a média de todos os valores reais.
 * **Erro ao quadrado absoluto**: A média dos erros ao quadrado relativos à diferença ao quadrado entre os valores reais e a média de todos os valores reais.
-* **Coeficiente de determinação**: também conhecido como o valor de R quadrado, essa é uma métrica estatística que indica o quão bem um modelo se ajusta aos dados.
+* **Coeficiente de determinação**: também conhecido como o valor de R quadrado, essa métrica estatística indica o quão bem um modelo se ajusta aos dados.
 
 Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor menor indica que as previsões estão mais próximas dos valores reais. Para o coeficiente de determinação, quanto mais próximo seu valor for para um (1,0), melhor será a previsão.
 

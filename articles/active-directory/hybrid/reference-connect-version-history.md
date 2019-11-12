@@ -16,12 +16,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38235e90ccf79cf1322ce0f26ed426d8c3a693cc
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 52e15aa62043ba394ae6e8cfe2cc7f27709c7d33
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847169"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927443"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure Active Directory (AD do Azure) atualiza regularmente Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -43,9 +43,18 @@ Baixar | [Baixar Azure ad Connect](https://go.microsoft.com/fwlink/?LinkId=61577
 Enquanto passarmos por esse processo, o número de versão da versão será mostrado com um "X" na posição do número de liberação secundária, como em "1.3. X. 0" – isso indica que as notas de versão deste documento são válidas para todas as versões que começam com "1,3.". Assim que finalizamos o processo de liberação, o número de versão de lançamento será atualizado para a versão lançada mais recentemente e o status da versão será atualizado para "liberado para download e atualização automática".
 Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O status da versão indicará se uma versão é disponibilizada para atualização automática ou somente para download. Se a atualização automática tiver sido habilitada em seu servidor de Azure AD Connect, esse servidor será atualizado automaticamente para a versão mais recente do Azure AD Connect que é lançado para atualização automática. Observe que nem todas as configurações de Azure AD Connect são elegíveis para a atualização automática. Siga este link para ler mais sobre a [atualização automática](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
+## <a name="14320"></a>1.4.32.0
+### <a name="release-status"></a>Status da versão
+08/11/2019: liberado para download. Não disponível para atualização automática
+
+>[!IMPORTANT]
+>Devido a uma alteração de esquema interna nesta versão do Azure AD Connect, se você gerenciar as definições de configuração da relação de confiança do ADFS usando o PowerShell do MSOnline, deverá atualizar seu módulo do MSOnline PowerShell para a versão 1.1.183.57 ou superior
+### <a name="fixed-issues"></a>Problemas corrigidos
+
+Esta versão corrige um problema com dispositivos ingressados no Azure AD híbridos existentes. Esta versão contém uma nova regra de sincronização de dispositivo que corrige esse problema.
+Observe que essa alteração de regra pode causar a exclusão de dispositivos obsoletos do Azure AD. Isso não é uma causa de preocupação, pois esses objetos de dispositivo não são usados pelo Azure AD durante a autorização de acesso condicional. Para alguns clientes, o número de dispositivos que serão excluídos por meio dessa alteração de regra pode exceder o limite de exclusão. Se você vir a exclusão de objetos de dispositivo no Azure AD excedendo o limite de exclusão de exportação, é aconselhável permitir que as exclusões sejam passadas. [Como permitir que as exclusões fluam quando excederem o limite de exclusão](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes)
+
 ## <a name="14250"></a>1.4.25.0
-
-
 
 ### <a name="release-status"></a>Status da versão
 9/28/2019: liberado para atualização automática para selecionar locatários. Não disponível para download.

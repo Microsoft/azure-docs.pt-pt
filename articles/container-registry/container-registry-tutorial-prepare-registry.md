@@ -1,5 +1,5 @@
 ---
-title: Tutorial-criar um registro do Docker replicado geograficamente no Azure
+title: Tutorial-criar um registro de contêiner do Azure com replicação geográfica
 description: Criar um registo de contentor do Azure, configurar a georreplicação, preparar uma imagem do Docker e implementá-la para o registo. Parte um de uma série com três partes.
 services: container-registry
 author: dlepow
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 87746bd39e624699612bf5221258ad757cd462b3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5a2aedfe93aa27f839c416c27ac028db1e650295
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68309575"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931362"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar um registo de contentor georreplicado do Azure
 
@@ -42,7 +42,7 @@ O Azure Cloud Shell não inclui os componentes do Docker necessários para concl
 
 ## <a name="create-a-container-registry"></a>Criar um registo de contentores
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 Selecione **Criar um recurso** > **Contentores** > **Azure Container Registry**.
 
@@ -50,8 +50,8 @@ Selecione **Criar um recurso** > **Contentores** > **Azure Container Registry**.
 
 Configure o seu novo registo com as seguintes definições:
 
-* **Nome do registro**: Criar um nome de registro que seja globalmente exclusivo no Azure e que contenha 5-50 caracteres alfanuméricos
-* **Grupo de recursos**: **Criar novo** > `myResourceGroup`
+* **Nome do registo**: crie um nome de registo que seja globalmente exclusivo no Azure e contenha apenas 5-50 carateres alfanuméricos
+* **Grupo de Recursos**: **Criar novo** > `myResourceGroup`
 * **Localização**: `West US`
 * **Utilizador administrador**: `Enable` (necessário para a Aplicação Web para Contentores, para solicitar imagens)
 * **SKU**: `Premium` (necessário para a georreplicação)
@@ -117,7 +117,7 @@ Se você não tiver `git` instalado, poderá [baixar o arquivo zip][acr-hellowor
 
 O Dockerfile incluído nos exemplos mostra como é que o contentor é criado. Inicia a partir de uma imagem oficial [aspnetcore][dockerhub-aspnetcore], copia os ficheiros de aplicação para o contentor, instala dependências, compila a saída com a imagem oficial [aspnetcore-build][dockerhub-aspnetcore-build] e, por fim, cria uma imagem aspnetcore otimizada.
 
-O [Dockerfile][dockerfile] está localizado `./AcrHelloworld/Dockerfile` em na fonte clonada.
+O [Dockerfile][dockerfile] está localizado em `./AcrHelloworld/Dockerfile` na fonte clonada.
 
 ```Dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
@@ -225,7 +225,7 @@ a75caa09eb1f: Pushed
 v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543970 size: 1792
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou um registo de contentor georreplicado privado, criou uma imagem de contentor e então enviou essa imagem para o seu registo.
 

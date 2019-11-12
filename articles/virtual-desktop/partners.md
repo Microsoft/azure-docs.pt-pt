@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: helohr
-ms.openlocfilehash: cf344d6c551ecd3d301d79c29efe9e7adb7f8d83
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: dc93480807f34a79ee02f628f7b6f090c7efa428
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646867"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931711"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -59,7 +59,7 @@ ControlUp é um provedor de serviços de valor agregado da área de trabalho vir
 
 Quando usado com a área de trabalho virtual do Windows, o ControlUp fornece recursos adicionais para otimizar os ambientes de área de trabalho virtual do Windows e a experiência do usuário final. No console do ControlUp, ele obtém visibilidade do ambiente do usuário final para monitorar e solucionar problemas de desempenho com eficiência. Um painel intuitivo fornece informações e análises para implantações de área de trabalho virtual, bem como opções para relatórios automatizados aprimorados com os benchmarks da Comunidade. O ControlUp pode gerenciar várias fontes de dados e tipos, organizá-los em conjuntos de dados de alto desempenho agregados em computação, armazenamento e infraestrutura de área de trabalho virtual do Windows, permitindo visibilidade granular de um único painel.
 
-- [Consulte o resumo da solução de junção](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
 - [Acesse o site do parceiro](https://www.controlup.com/solutions/ms_wvd/).
 
 ## <a name="devicetrust"></a>deviceTRUST

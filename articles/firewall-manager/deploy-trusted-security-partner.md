@@ -7,14 +7,14 @@ ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: fe733b686f2b56beee26a6c33c4d6264d621e627
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bcea9a8674e4b1979698b7d28eb4192172b0dc11
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516347"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931311"
 ---
-# <a name="deploy-a-trusted-security-partner-preview"></a>Implantar um parceiro de segurança confiável (versão prévia)
+# <a name="deploy-a-trusted-security-partner-preview"></a>Implementar um parceiro de segurança fidedigno (pré-visualização)
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
@@ -83,12 +83,11 @@ Para configurar túneis para o gateway de VPN do seu hub virtual, os provedores 
 
    > [!NOTE]
    > Você pode limitar o acesso somente ao seu grupo de recursos para um controle mais granular.
-3. Siga as instruções no link a seguir.
+3. Siga o [ZScaler: Configurando uma Microsoft Azure instruções de integração de WAN virtual](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration) para:
 
-   - Para entrar no portal de parceiros e adicionar suas credenciais para conceder ao parceiro confiável acesso ao seu hub protegido.
-   - Depois que suas credenciais de autenticação do Azure AD forem validadas, use as instruções a seguir para sincronizar os hubs virtuais no portal de parceiros e configurar o túnel para o Hub virtual.
-
-   [ZScaler: Configurando uma integração de WAN virtual Microsoft Azure](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration)
+   - Entre no portal de parceiros e adicione suas credenciais para conceder ao parceiro confiável acesso ao seu hub protegido.
+   - Sincronize os hubs virtuais no portal de parceiros e configure o túnel para o Hub virtual. Você pode fazer isso depois que suas credenciais de autenticação do Azure AD são validadas.
+   
 4. Você pode examinar o status de criação do túnel no portal de WAN virtual do Azure no Azure. Depois que os túneis mostrarem **conectados** no portal do Azure e do parceiro, continue com as próximas etapas para configurar as rotas para selecionar quais branches e VNets devem enviar o tráfego de Internet para o parceiro.
 
 ## <a name="configure-route-settings"></a>Definir configurações de rota

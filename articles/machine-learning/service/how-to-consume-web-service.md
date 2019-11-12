@@ -1,5 +1,5 @@
 ---
-title: Criar cliente para consumir serviço Web implantado
+title: Criar cliente para modelo implantado como serviço Web
 titleSuffix: Azure Machine Learning
 description: Saiba como consumir um serviço Web que foi gerado quando um modelo foi implantado com Azure Machine Learning modelo. O serviço Web expõe uma API REST. Crie clientes para essa API usando a linguagem de programação de sua escolha.
 services: machine-learning
@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 387ba970aed68a5f4e682f932a362d3b04b35b8d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 608f343166b528cacf3b1479d993466f6df7cb7e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671460"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932167"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo de Azure Machine Learning implantado como um serviço Web
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Há três maneiras de recuperar essas informações para serviços Web implantad
 
 O Azure Machine Learning fornece duas maneiras de controlar o acesso aos serviços Web.
 
-|Método de Autenticação|ACI|AKS|
+|Método de autenticação|ACI|AKS|
 |---|---|---|
 |Chave|Desabilitado por padrão| Habilitado por padrão|
 |Certificado de| Não Disponível| Desabilitado por padrão |

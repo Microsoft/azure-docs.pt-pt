@@ -1,5 +1,5 @@
 ---
-title: Autenticar com o registro de contêiner do Azure de instâncias de contêiner do Azure
+title: Acessar o registro de contêiner do Azure de instâncias de contêiner
 description: Saiba como fornecer acesso a imagens em seu registro de contêiner privado de instâncias de contêiner do Azure usando uma entidade de serviço Azure Active Directory.
 services: container-registry
 author: dlepow
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: b11f88cbb29016032cbf536a2c970573eda82152
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 53cdca72587dafd39abd3f13ad488dcb460bf622
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72262857"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931660"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autenticar com o registro de contêiner do Azure de instâncias de contêiner do Azure
 
@@ -33,7 +33,7 @@ As entidades de serviço também devem ser usadas quando o [usuário administrad
 
 ## <a name="authenticate-using-the-service-principal"></a>Autenticar usando a entidade de serviço
 
-Para iniciar um contêiner em instâncias de contêiner do Azure usando uma entidade de serviço, especifique sua ID para `--registry-username` e sua senha para `--registry-password`.
+Para iniciar um contêiner em instâncias de contêiner do Azure usando uma entidade de serviço, especifique sua ID para `--registry-username`e sua senha para `--registry-password`.
 
 ```azurecli-interactive
 az container create \
@@ -50,7 +50,7 @@ az container create \
 Você pode encontrar os scripts de exemplo anteriores para CLI do Azure no GitHub, bem como versões para Azure PowerShell:
 
 * [CLI do Azure][acr-scripts-cli]
-* [O Azure PowerShell][acr-scripts-psh]
+* [Azure PowerShell][acr-scripts-psh]
 
 ## <a name="next-steps"></a>Passos seguintes
 

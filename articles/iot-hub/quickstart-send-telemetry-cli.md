@@ -9,12 +9,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 8ebcc863c1812081e6198ff9c684934642e1dc41
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 948dfd25881a6a90dd441ad640091d88812cc298
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904559"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931824"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Início rápido: enviar telemetria de um dispositivo para um hub IoT e monitorá-lo com o CLI do Azure
 
@@ -47,7 +47,7 @@ Para iniciar o Cloud Shell:
     ![Selecionar ambiente da CLI](media/quickstart-send-telemetry-cli/cloud-shell-environment.png)
 
 ## <a name="prepare-two-cli-sessions"></a>Preparar duas sessões da CLI
-Nesta seção, você prepara duas sessões de CLI do Azure. Na Cloud Shell, você executará as duas sessões em guias separadas do navegador. Em um cliente CLI local, você executará duas instâncias separadas da CLI. Você usará a primeira sessão como um dispositivo simulado e a segunda sessão para monitorar e enviar mensagens. Para executar um comando, selecione **copiar** para copiar um bloco de código neste guia de início rápido, Cole-o na sessão do Shell e execute-o.
+Nesta seção, você prepara duas sessões de CLI do Azure. Se estiver usando o Cloud Shell, você executará as duas sessões em guias separadas do navegador. Se estiver usando um cliente CLI local, você executará duas instâncias separadas da CLI. Você usará a primeira sessão como um dispositivo simulado e a segunda sessão para monitorar e enviar mensagens. Para executar um comando, selecione **copiar** para copiar um bloco de código neste guia de início rápido, Cole-o na sessão do Shell e execute-o.
 
 CLI do Azure exige que você esteja conectado à sua conta do Azure. Toda a comunicação entre a sessão do CLI do Azure Shell e o Hub IoT é autenticada e criptografada. Como resultado, este guia de início rápido não precisa de autenticação adicional que você usaria com um dispositivo real, como uma cadeia de conexão.
 
@@ -149,7 +149,7 @@ O portal do Azure permite que você gerencie todos os aspectos de seu hub IoT e 
 Para visualizar as métricas de mensagens no portal do Azure:
 1. No menu de navegação à esquerda no portal, selecione **todos os recursos**. Isso lista todos os recursos em sua assinatura, incluindo o Hub IoT que você criou. 
 
-1. Clique no link no Hub IoT que você criou. O portal exibe a página Visão geral do Hub.
+1. Selecione o link no Hub IoT que você criou. O portal exibe a página Visão geral do Hub.
 
 1. Selecione **métricas** no painel esquerdo do Hub IOT. 
 

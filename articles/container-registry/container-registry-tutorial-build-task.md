@@ -1,5 +1,5 @@
 ---
-title: Tutorial-automatizar compilações de imagem de contêiner-tarefas de registro de contêiner do Azure
+title: Tutorial-criar imagem no código confirmar-tarefas do registro de contêiner do Azure
 description: Neste tutorial, você aprenderá a configurar uma tarefa de registro de contêiner do Azure para disparar automaticamente as compilações de imagem de contêiner na nuvem quando você confirmar o código-fonte em um repositório git.
 services: container-registry
 author: dlepow
@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 05/04/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 25a0ef528d67deb5ea71720d2ff8e4d62b3b98a5
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: d01863979f4cf74d544ef2b1ff121022abb8d4f6
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744558"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931432"
 ---
-# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatizar compilações de imagem de contêiner na nuvem quando você confirma o código-fonte
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: automatizar compilações de imagem de contêiner na nuvem quando você confirma o código-fonte
 
 Além de uma [tarefa rápida](container-registry-tutorial-quick-task.md), as tarefas ACR dão suporte a compilações automatizadas de imagem de contêiner do Docker na nuvem quando você confirma o código-fonte para um repositório git.
 
-Neste tutorial, a tarefa ACR cria e envia uma única imagem de contêiner especificada em um Dockerfile quando você confirma o código-fonte para um repositório git. Para criar uma [tarefa de várias etapas](container-registry-tasks-multi-step.md) que usa um arquivo YAML para definir etapas para compilar, enviar por push e, opcionalmente, testar vários contêineres na [confirmação do código, consulte o tutorial: Execute um fluxo de trabalho de contêiner de várias etapas na nuvem ao confirmar o](container-registry-tutorial-multistep-task.md)código-fonte. Para obter uma visão geral das tarefas de ACR, consulte [automatizar o sistema operacional e a aplicação de patch de estrutura com tarefas ACR](container-registry-tasks-overview.md)
+Neste tutorial, a tarefa ACR cria e envia uma única imagem de contêiner especificada em um Dockerfile quando você confirma o código-fonte para um repositório git. Para criar uma [tarefa de várias etapas](container-registry-tasks-multi-step.md) que usa um arquivo YAML para definir etapas para compilar, enviar por push e, opcionalmente, testar vários contêineres na confirmação do código, consulte [tutorial: executar um fluxo de trabalho de contêiner de várias etapas na nuvem ao confirmar o código-fonte](container-registry-tutorial-multistep-task.md). Para obter uma visão geral das tarefas de ACR, consulte [automatizar o sistema operacional e a aplicação de patch de estrutura com tarefas ACR](container-registry-tasks-overview.md)
 
 Neste tutorial:
 
@@ -63,7 +63,7 @@ az acr task create \
 ```
 
 > [!IMPORTANT]
-> Se você tiver criado previamente tarefas durante a visualização com `az acr build-task` o comando, essas tarefas precisarão ser recriadas usando o comando [AZ ACR Task][az-acr-task] .
+> Se você tiver criado previamente tarefas durante a visualização com o comando `az acr build-task`, essas tarefas precisarão ser recriadas usando o comando [AZ ACR Task][az-acr-task] .
 
 Esta tarefa especifica que sempre que um código é consolidado no ramo *principal* do repositório especificado por `--context`, o ACR Tasks compilará a imagem do contentor do código nesse ramo. O Dockerfile especificado pelo `--file` da raiz do repositório é usado para criar a imagem. O argumento `--image` especifica um valor com parâmetros de `{{.Run.ID}}` para a parte da versão da etiqueta da imagem, o que garante que a imagem compilada está correlacionada com uma compilação específica e é etiquetada de forma exclusiva.
 
@@ -270,7 +270,7 @@ da2       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T22:50:59
 da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59Z  00:00:57
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a utilizar uma tarefa para acionar automaticamente compilações da imagem do contentor no Azure quando consolida o código de origem para um repositório de Git. Avance para o tutorial seguinte para saber como criar tarefas que acionam compilações quando a imagem de base de uma imagem do contentor é atualizada.
 

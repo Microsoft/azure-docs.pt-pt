@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/29/2019
-ms.openlocfilehash: 33302f3760cc750bfc41386aaf17368abc15ba5d
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 18e03b6828922b3444d9461bef394b5c6682c238
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063293"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930326"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usar repositórios de metadados externos no Azure HDInsight
 
@@ -57,6 +57,18 @@ O HDInsight também dá suporte a metastores personalizados, que são recomendad
 
 ![Caso de uso do repositório de metadados do hive do HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
 
+### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>Criar e configurar o banco de dados SQL do Azure para o metastore personalizado
+
+Você precisa criar ou ter um banco de dados SQL do Azure existente antes de configurar um metastore do Hive personalizado para um cluster HDInsight.  Para obter mais informações, consulte [início rápido: criar um banco de dados individual no BD SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
+
+Para garantir que seu cluster HDInsight possa acessar o banco de dados SQL do Azure conectado, configure as regras de firewall do banco de dados SQL do Azure para permitir que os serviços e recursos do Azure acessem o servidor.
+
+Você pode habilitar essa opção na portal do Azure clicando em **definir Firewall do servidor**e clicando **em** abaixo **permitir que os serviços e recursos do Azure acessem este servidor** para o banco de dados ou servidor de banco de dados SQL do Azure. Para obter mais informações, consulte [criar e gerenciar regras de firewall de IP](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+
+![botão Definir Firewall do servidor](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
+
+![permitir acesso aos serviços do Azure](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png)
+
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Selecionar um metastore personalizado durante a criação do cluster
 
 Você pode apontar seu cluster para um banco de dados SQL do Azure criado anteriormente durante a criação do cluster ou pode configurar o banco de dados SQL após a criação do cluster. Essa opção é especificada com as **configurações de metastore > de armazenamento** ao criar um novo cluster Hadoop, Spark ou Hive interativo do portal do Azure.
@@ -95,7 +107,7 @@ O Apache Oozie é um sistema de coordenação de fluxo de trabalho que gerencia 
 
 Para obter instruções sobre como criar um metastore do Oozie com o banco de dados SQL do Azure, consulte [usar o Apache Oozie para fluxos de trabalho](hdinsight-use-oozie-linux-mac.md).
 
-## <a name="custom-ambari-db"></a>BD Ambari personalizado
+## <a name="custom-ambari-db"></a>Ambari DB Personalizado
 
 Para usar seu próprio banco de dados externo com o Apache Ambari no HDInsight, consulte [banco de dados personalizado do Apache Ambari](hdinsight-custom-ambari-db.md).
 

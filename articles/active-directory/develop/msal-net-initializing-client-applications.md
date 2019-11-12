@@ -18,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f15f6480c2dc77fb1f6e229b62a0114f0f6fb735
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a8cf7b7004097ef5a4d915d8fdff60cc9606c5be
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802830"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927084"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicializar aplicativos cliente usando o MSAL.NET
 Este artigo descreve como inicializar aplicativos cliente públicos e clientes confidenciais usando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).  Para saber mais sobre os tipos de aplicativo cliente e as opções de configuração de aplicativo, leia a [visão geral](msal-client-applications.md).
@@ -101,7 +101,7 @@ Nos trechos de código que usam construtores de aplicativos, vários métodos de
 
 Os modificadores que você pode definir em um cliente público ou o construtor de aplicativos cliente confidencial são:
 
-|Parâmetro | Descrição|
+|Privacidade | Descrição|
 |--------- | --------- |
 |substituições do `.WithAuthority()` 7 | Define a autoridade padrão do aplicativo como uma autoridade do Azure AD, com a possibilidade de escolher a nuvem do Azure, o público, o locatário (ID do locatário ou nome de domínio) ou fornecer diretamente o URI de autoridade.|
 |`.WithAdfsAuthority(string)` | Define a autoridade padrão do aplicativo como uma autoridade do ADFS.|
@@ -120,7 +120,7 @@ Os modificadores que você pode definir em um cliente público ou o construtor d
 
 Os modificadores que você pode definir em um construtor de aplicativo cliente público no Xamarin. iOS são:
 
-|Parâmetro | Descrição|
+|Privacidade | Descrição|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Xamarin. Ios somente**: define o grupo de segurança da cadeia de chaves do IOS (para a persistência do cache).|
 
@@ -128,7 +128,7 @@ Os modificadores que você pode definir em um construtor de aplicativo cliente p
 
 Os modificadores que você pode definir em um construtor de aplicativos cliente confidencial são:
 
-|Parâmetro | Descrição|
+|Privacidade | Descrição|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Define o certificado que identifica o aplicativo com o Azure AD.|
 |`.WithClientSecret(string clientSecret)` | Define o segredo do cliente (senha do aplicativo) que identifica o aplicativo com o Azure AD.|

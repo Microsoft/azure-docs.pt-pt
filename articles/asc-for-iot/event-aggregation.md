@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: b1a14cf4c8aec2f3dbfa7bc4fd0800d9fd1fb0aa
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: ca1d1a5761e62b2838a474dcb83f450987972998
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327307"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928963"
 ---
 # <a name="azure-security-center-for-iot-event-aggregation"></a>Central de segurança do Azure para agregação de eventos de IoT
 
@@ -44,7 +44,7 @@ Para reduzir a superfície de memória do agente, sempre que o agente coletar um
 
 Os eventos são considerados idênticos somente quando as seguintes condições são atendidas: 
 
-* Eventos de ProcessCreate-quando **CommandLine**, **executável**, * * username e **userid** são idênticos
+* Eventos de ProcessCreate-quando **CommandLine**, **executável**, **username**e **userid** são idênticos
 * Eventos de ConnectionCreate-quando **CommandLine**, **userid**, **Direction**, **endereço local**, **endereço remoto**, * * protocolo e **porta de destino** são idênticos
 * Eventos de ProcessTerminate-quando o **status** **executável** e de saída são idênticos
 

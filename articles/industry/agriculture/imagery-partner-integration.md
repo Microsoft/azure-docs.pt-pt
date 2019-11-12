@@ -1,18 +1,18 @@
 ---
-title: Integração de parceiros com imagens
+title: Integração de parceiros de imagens
 description: Descreve sobre a integração de parceiros com imagens
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 2b15cc56cb4f804fac0b047819ccf166950e1cf3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 232ade55350ad1ac85612cf8c69117c19cb20d0c
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890977"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927785"
 ---
-# <a name="imagery-partner-integration"></a>Integração de parceiros com imagens
+# <a name="imagery-partner-integration"></a>Integração de parceiros de imagens
 
 Este artigo descreve como usar o componente Azure FarmBeats Translator para enviar dados de imagens para o FarmBeats. Os dados de imagens agricultural podem ser de várias fontes, incluindo câmeras multispectrals, satélites e drones. Os parceiros de imagens agricultural podem se integrar ao FarmBeats para fornecer aos clientes mapas gerados personalizados para seus farms.
 
@@ -97,7 +97,7 @@ Opcionalmente, você pode incluir parâmetros de consulta em GET calls para filt
 
 A solicitação de exemplo abaixo é obter a lista de dispositivos:
 
-```azurepowershell-interactive
+```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>”
@@ -108,7 +108,7 @@ A maioria das chamadas GET, POST e PUT exigem um corpo de solicitação JSON.
 A solicitação de exemplo abaixo é criar um dispositivo (isso tem um JSON de entrada com o corpo da solicitação).
 
 
-```azurepowershell-interactive
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  
 "accept: application/json" -H  
 "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d
@@ -326,6 +326,7 @@ A seguir estão os valores definidos pelo sistema:
   ]
 }
 ```
+
 Essa será uma configuração única e o escopo desse novo scenetype será limitado à assinatura na qual o projeto FarmBeats é implantado.
 
 Exemplo: para adicionar o Scenery: "SlantRange", coloque a ID do/ExtendedType com a chave: "Scenery" da carga de entrada:

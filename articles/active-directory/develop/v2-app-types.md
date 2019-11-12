@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e07136eed9c14eb4b6eda49ef635171aaf543445
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 21f1da8738946078cb625c76e11ce1bfd62d97ac
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809269"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927165"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicativos para a plataforma Microsoft Identity
 
@@ -59,7 +59,7 @@ Nesse fluxo, o aplicativo recebe tokens diretamente do ponto de extremidade de a
 
 Para ver esse cenário em ação, experimente um dos exemplos de código do aplicativo de página única na seção [introdução à plataforma de identidade da Microsoft](v2-overview.md#getting-started) .
 
-## <a name="web-apps"></a>Aplicações Web
+## <a name="web-apps"></a>Web Apps
 
 Para aplicativos Web (.NET, PHP, Java, Ruby, Python, Node) que o usuário acessa por meio de um navegador, você pode usar o [OpenID Connect](active-directory-v2-protocols.md) para entrada do usuário. No OpenID Connect, o aplicativo Web recebe um token de ID. Um token de ID é um token de segurança que verifica a identidade do usuário e fornece informações sobre o usuário na forma de declarações:
 
@@ -90,7 +90,7 @@ Além do logon simples, um aplicativo de servidor Web pode precisar acessar outr
 
 ## <a name="web-apis"></a>APIs da Web
 
-Você pode usar o ponto de extremidade da plataforma de identidade da Microsoft para proteger serviços Web, como a API Web RESTful do seu aplicativo. Em vez de tokens de ID e cookies de sessão, uma API Web usa um token de acesso OAuth 2,0 para proteger seus dados e autenticar solicitações de entrada. O chamador de uma API da Web acrescenta um token de acesso no cabeçalho de autorização de uma solicitação HTTP, desta forma:
+Você pode usar o ponto de extremidade da plataforma de identidade da Microsoft para proteger serviços Web, como a API Web RESTful do seu aplicativo. As APIs da Web podem ser implementadas em várias plataformas e linguagens. Eles também podem ser implementados usando gatilhos HTTP no Azure Functions. Em vez de tokens de ID e cookies de sessão, uma API Web usa um token de acesso OAuth 2,0 para proteger seus dados e autenticar solicitações de entrada. O chamador de uma API da Web acrescenta um token de acesso no cabeçalho de autorização de uma solicitação HTTP, desta forma:
 
 ```
 GET /api/items HTTP/1.1

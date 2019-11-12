@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 9aeffa8b756340851ca4c82ebaed2453d4ac03bc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d5d87f153b5835d5d2b38f380e5c77c03a68e1b5
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819514"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928236"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Backup e restauração periódicos no Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -127,21 +127,6 @@ Primeiro, você precisa habilitar o _serviço de backup e restauração_ no clus
 
 4. Depois de atualizar o modelo de cluster com as alterações anteriores, aplique-as e permita que a implantação/atualização seja concluída. Depois de concluído, o _serviço de backup e restauração_ inicia a execução em seu cluster. O URI desse serviço é `fabric:/System/BackupRestoreService` e o serviço pode estar localizado na seção serviço do sistema no Gerenciador de Service Fabric. 
 
-### <a name="using-service-fabric-explorer"></a>Usando Service Fabric Explorer
-
-1. Verifique se o modo avançado está habilitado.
-
-    ![Habilitar o modo avançado][2]
-
-2. Selecione um aplicativo e vá para a ação. Clique em Habilitar/atualizar backup do aplicativo.
-
-    ![Habilitar o backup do aplicativo][3] 
-
-3. Por fim, selecione a política desejada e clique em Habilitar backup.
-
-    ![Selecionar política][4]
-
-
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Habilitando backup periódico para serviço confiável com estado e Reliable Actors
 Vamos percorrer as etapas para habilitar o backup periódico para serviço confiável com estado e Reliable Actors. Estas etapas pressupõem que
 - Se o cluster está configurado usando a segurança X. 509 com o _serviço de backup e restauração_.
@@ -224,6 +209,17 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ``` 
+
+#### <a name="using-service-fabric-explorer"></a>Usando Service Fabric Explorer
+
+1. Selecione um aplicativo e vá para a ação. Clique em Habilitar/atualizar backup do aplicativo.
+
+    ![Habilitar o backup do aplicativo][3]
+
+2. Por fim, selecione a política desejada e clique em Habilitar backup.
+
+    ![Selecionar política][4]
+
 
 ### <a name="verify-that-periodic-backups-are-working"></a>Verificar se os backups periódicos estão funcionando
 
@@ -311,7 +307,6 @@ Para exibir os backups em Service Fabric Explorer, navegue até uma partição e
 
 [0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event-azure.png
 [1]: ./media/service-fabric-backuprestoreservice/enable-backup-restore-service-with-portal.png
-[2]: ./media/service-fabric-backuprestoreservice/advanced-mode.png
 [3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
 [4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
 [5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png

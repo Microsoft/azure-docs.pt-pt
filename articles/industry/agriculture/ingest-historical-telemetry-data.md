@@ -5,14 +5,14 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e6bd9b5c09e1af5ec587e1f0e52ab25d21d2293b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e721a7818c5f2fcea23263b296912edf164036b2
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889618"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927803"
 ---
-# <a name="ingest-historical-telemetry-data"></a>Dados de telemetria históricos de ingestão
+# <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos do histórico
 
 Este artigo descreve como ingerir dados de sensor históricos no Azure FarmBeats.
 
@@ -245,17 +245,15 @@ Sensores
     "additionalProp3": {}
   }
 }
-
 ```
 A solicitação de exemplo abaixo é criar um dispositivo (isso tem um JSON de entrada como carga com o corpo da solicitação).  
 
-```azurepowershell-interactive
+```bash
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
 "accept: application/json" -H  "Content-Type: application/json" -H
-"Authorization: Bearer <Access-Token>" -d "
-{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
+"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
 \"reportingInterval\": 900,  \"name\": \"Device123\",  
-\"description\": \"Test Device 123\",}"*
+\"description\": \"Test Device 123\"}" *
 ```
 
 > [!NOTE]
@@ -274,31 +272,28 @@ Você deve enviar a telemetria para o Hub de eventos do Azure para processamento
 Depois de estabelecer uma conexão como um cliente do EventHub, você poderá enviar mensagens para o EventHub como um JSON.  
 Converta o formato de dados do sensor histórico em um formato canônico que o FarmBeats do Azure entenda. O formato de mensagem canônica é o seguinte:  
 
-
-
- ```
-  {   
-      “deviceid”: “<id of the Device created>”,   
-      "timestamp": "<timestamp in ISO 8601 format>",     
-      "version" : "1",   
-      "sensors":
-      [     
-      {        
-          "id": "<id of the sensor created>”       
-          "sensordata": [         
-          {            
-              "timestamp": "< timestamp in ISO 8601 format >",           
-              "<sensor measure name (as defined in the Sensor Model)>": value          
-    },          
-    {            
-    "timestamp": "<timestamp in ISO 8601 format>",           
-     "<sensor measure name (as defined in the Sensor Model)>": value          
-    }        
-    ]      
-    }  
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+        }
+      ]
     }
+ ]
+}
 ```
-
 
 Depois de adicionar os dispositivos e sensores correspondentes, obtenha a DeviceID e o sensorid na mensagem de telemetria, conforme descrito na seção anterior
 

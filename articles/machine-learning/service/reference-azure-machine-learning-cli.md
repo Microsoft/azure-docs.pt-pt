@@ -1,7 +1,7 @@
 ---
-title: Extensão da CLI do Machine Learning
+title: Extensão da CLI
 titleSuffix: Azure Machine Learning
-description: Saiba mais sobre a extensão Azure Machine Learning CLI para o CLI do Azure. O CLI do Azure é um utilitário de linha de comando de plataforma cruzada que permite trabalhar com recursos na nuvem do Azure. A extensão Machine Learning permite que você trabalhe com Azure Machine Learning.
+description: Saiba mais sobre a extensão Azure Machine Learning CLI para o CLI do Azure. O CLI do Azure é um utilitário de linha de comando de plataforma cruzada que permite trabalhar com recursos na nuvem do Azure. A extensão Machine Learning permite que você trabalhe com Azure Machine Learning. A CLI do ML cria e gerencia recursos como seu espaço de trabalho, repositórios de armazenamento, conjuntos de valores, pipelines, modelos e implantações.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 20ff7d2cb6c185f574494871a986e1bce63536ba
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e775689da93b5197d1c2f7d130466c2afc8391e4
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619960"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932082"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Usar a extensão da CLI para Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

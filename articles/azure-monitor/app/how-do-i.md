@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/04/2017
-ms.openlocfilehash: 28881403e4938376cc1912227bdff51aa5f069cf
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 61bd5898c494018a2bacbd894d4dc2aac97f53b4
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817364"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928408"
 ---
 # <a name="how-do-i--in-application-insights"></a>Como... no Application Insights?
 ## <a name="get-an-email-when-"></a>Receber um email quando...
@@ -39,7 +39,7 @@ Os alertas podem ser definidos em [métricas personalizadas](../../azure-monitor
 
     telemetry.TrackMetric("Alarm", 10);
 
-or
+Or
 
     var measurements = new Dictionary<string,double>();
     measurements ["Alarm"] = 10;
@@ -72,14 +72,14 @@ Alguns pontos a considerar:
 [Usar o PowerShell para criar novos alertas](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Usar o PowerShell para gerenciar o Application Insights
-* [Criar novos recursos](../../azure-monitor/app/powershell-script-create-resource.md)
+* [Criar novos recursos](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Criar novos alertas](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Separar telemetria de versões diferentes
 
-* Várias funções em um aplicativo: Use um único recurso de Application Insights e filtre em [cloud_Rolename](../../azure-monitor/app/app-map.md).
+* Várias funções em um aplicativo: Use um único recurso de Application Insights e filtre [cloud_Rolename](../../azure-monitor/app/app-map.md).
 * Separando versões de desenvolvimento, teste e lançamento: Use diferentes recursos de Application Insights. Pegue as chaves de instrumentação em Web. config. [Saiba mais](../../azure-monitor/app/separate-resources.md)
-* Relatando versões de compilação: Adicione uma propriedade usando um inicializador de telemetria. [Saiba mais](../../azure-monitor/app/separate-resources.md)
+* Relatando versões de compilação: Adicione uma propriedade usando um inicializador de telemetria. [Saber mais](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Monitorar servidores de back-end e aplicativos da área de trabalho
 [Use o módulo SDK do Windows Server](../../azure-monitor/app/windows-desktop.md).

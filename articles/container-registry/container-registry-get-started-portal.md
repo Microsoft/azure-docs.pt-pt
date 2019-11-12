@@ -1,6 +1,6 @@
 ---
-title: Início rápido-criar um registro privado do Docker no Azure-portal do Azure
-description: Aprenda rapidamente a criar um registo do contentor do Docker com o portal do Azure.
+title: Início rápido-criar registro no portal-registro de contêiner do Azure
+description: Aprenda rapidamente a criar um registro do Docker privado no registro de contêiner do Azure com o portal do Azure.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c9e8c7fe4d32a44e8c0831154f02eda1f82aaff3
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: bcf0874266aa83a4b4b932670557854c4688d400
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68309475"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931637"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Início rápido: Criar um registro de contêiner privado usando o portal do Azure
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Início rápido: criar um registro de contêiner privado usando o portal do Azure
 
 Um registo de contentor do Azure é um registo do Docker privado no Azure, onde pode armazenar e gerir as imagens privadas de contentor do Docker. Neste guia de introdução, irá criar um registo de contentor com o portal do Azure. Em seguida, use os comandos do Docker para enviar uma imagem de contêiner para o registro e, por fim, efetuar pull e executar a imagem do registro.
 
@@ -60,9 +60,9 @@ O comando devolve `Login Succeeded` depois de estar concluído.
 
 ## <a name="list-container-images"></a>Listar imagens de contentor
 
-Para listar as imagens no registro, navegue até o registro no portal e selecione repositórios e, em seguida, selecione o Repository que você `docker push`criou com.
+Para listar as imagens no registro, navegue até o registro no portal **e selecione repositórios e,** em seguida, selecione o Repository criado com `docker push`.
 
-Neste exemplo, selecionamos o repositório **Hello-World** e podemos ver a `v1`imagem marcada em **marcas**.
+Neste exemplo, selecionamos o repositório **Hello-World** e podemos ver a imagem com marca `v1`em **marcas**.
 
 ![Listar imagens de contêiner no portal do Azure][qs-portal-09]
 
@@ -70,11 +70,11 @@ Neste exemplo, selecionamos o repositório **Hello-World** e podemos ver a `v1`i
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para limpar seus recursos, navegue até o grupo de recursos MyResource Group no Portal. Depois que o grupo de recursos for carregado, clique em **excluir grupo de recursos** para remover o grupo de recursos, o registro de contêiner e as imagens de contêiner armazenadas nele.
+Para limpar seus recursos, navegue até o grupo de recursos **MyResource** Group no Portal. Depois que o grupo de recursos for carregado, clique em **excluir grupo de recursos** para remover o grupo de recursos, o registro de contêiner e as imagens de contêiner armazenadas nele.
 
 ![Eliminar grupo de recursos no portal do Azure][qs-portal-08]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou um registro de contêiner do Azure com o portal do Azure, enviou por push uma imagem de contêiner e puxau e executou a imagem do registro. Continue nos tutoriais do registro de contêiner do Azure para obter uma análise mais profunda do ACR.
 

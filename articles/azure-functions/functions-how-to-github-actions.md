@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 483ac9380fa8d58f294112cb6c80e0393fa01589
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 486033ef4120d721458add7f23cdf9b78a44a388
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028962"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928357"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua usando a ação do GitHub
 
@@ -33,6 +33,9 @@ Para um fluxo de trabalho Azure Functions, o arquivo tem três seções:
 | **Integrado** | <ol><li>Configure o ambiente.</li><li>Crie o aplicativo de funções.</li></ol> |
 | **Implementar** | <ol><li>Implante o aplicativo de funções.</li></ol>|
 
+> [!NOTE]
+> Você não precisará criar uma entidade de serviço se decidir usar o perfil de publicação para autenticação.
+
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
 Você pode criar uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) usando o comando [AZ ad SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) na [CLI do Azure](/cli/azure/). Você pode executar esse comando usando [Azure cloud Shell](https://shell.azure.com) na portal do Azure ou selecionando o botão **experimentar** .
@@ -42,9 +45,6 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 ```
 
 Neste exemplo, substitua os espaços reservados no recurso por sua ID de assinatura, grupo de recursos e nome do aplicativo de funções. A saída são as credenciais de atribuição de função que fornecem acesso ao seu aplicativo de funções. Copie esse objeto JSON, que você pode usar para autenticar do GitHub.
-
-> [!NOTE]
-> Você não precisará criar uma entidade de serviço se decidir usar o perfil de publicação para autenticação.
 
 > [!IMPORTANT]
 > É sempre uma boa prática conceder acesso mínimo. É por isso que o escopo no exemplo anterior é limitado ao aplicativo de funções específico e não ao grupo de recursos inteiro.
