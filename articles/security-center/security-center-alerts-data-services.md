@@ -1,6 +1,6 @@
 ---
 title: Detecção de ameaças para serviços de dados na central de segurança do Azure | Microsoft Docs
-description: Este tópico apresenta os alertas de serviços de dados disponíveis na central de segurança do Azure.
+description: Este artigo apresenta os alertas dos serviços de dados disponíveis na central de segurança do Azure.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -10,20 +10,20 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: memildin
-ms.openlocfilehash: c69352b8ff11edfce8bd800a0d3aad4584557572
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: d23d9d2712923f37b3ab9da5ae5369342cd82f5d
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621351"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906989"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Detecção de ameaças para serviços de dados na central de segurança do Azure
 
- A central de segurança do Azure analisa os logs dos serviços de armazenamento de dados e dispara alertas quando detecta uma ameaça aos seus recursos de dados. Este tópico lista os alertas que a central de segurança gera para os seguintes serviços:
+ A central de segurança do Azure analisa os logs dos serviços de armazenamento de dados e dispara alertas quando detecta uma ameaça aos seus recursos de dados. Este artigo lista os alertas que a central de segurança gera para os seguintes serviços:
 
 * [Banco de dados SQL do Azure e Azure SQL Data Warehouse](#data-sql)
-* [Armazenamento do Azure](#azure-storage)
-* [Azure Cosmos DB](#cosmos-db)
+* [Storage do Azure](#azure-storage)
+* [BD do Cosmos para o Azure](#cosmos-db)
 
 ## Banco de dados SQL e SQL Data Warehouse<a name="data-sql"></a>
 
@@ -53,7 +53,7 @@ A central de segurança analisa os logs de diagnóstico de solicitações de lei
 
 |Alerta|Descrição|
 |---|---|
-|**Anomalias de acesso à localização incomum**|A análise de tráfego de rede de amostra detectou comunicação de saída anômala protocolo RDP (RDP), originando-se de um recurso em sua implantação. Essa atividade é considerada anormal para esse ambiente. Ele pode indicar que o recurso foi comprometido e agora é usado para atacar a força bruta de um ponto de extremidade RDP externo. Esse tipo de atividade pode fazer com que o IP seja sinalizado como mal-intencionado por entidades externas.|
+|**Acesso de local incomum**|Indica que houve uma alteração no padrão de acesso para uma conta de armazenamento do Azure. Alguém acessou essa conta de um endereço IP considerado desconhecido quando comparado com a atividade recente. Um invasor obteve acesso à conta ou um usuário legítimo se conectou de um local geográfico novo ou incomum. Um exemplo do último é a manutenção remota de um novo aplicativo ou desenvolvedor.|
 |**Anomalias de acesso ao aplicativo**|Indica que um aplicativo incomum acessou essa conta de armazenamento. Uma causa potencial é que um invasor acessou sua conta de armazenamento usando um novo aplicativo.|
 |**Anomalias de acesso anônimo**|Indica que há uma alteração no padrão de acesso para uma conta de armazenamento. Por exemplo, a conta foi acessada anonimamente (sem nenhuma autenticação), o que é inesperado em comparação com o padrão de acesso recente nessa conta. Uma causa potencial é que um invasor explorou o acesso de leitura público a um contêiner que mantém o armazenamento de BLOBs.|
 |**Anomalia de Tor**|Indica que essa conta foi acessada com êxito de um endereço IP que é conhecido como um nó de saída ativo de Tor (um proxy de anonimato). A severidade desse alerta considera o tipo de autenticação usado (se houver) e se este é o primeiro caso desse acesso. As possíveis causas podem ser um invasor que tenha acessado sua conta de armazenamento usando o Tor ou um usuário legítimo que tenha acessado sua conta de armazenamento usando o Tor.|

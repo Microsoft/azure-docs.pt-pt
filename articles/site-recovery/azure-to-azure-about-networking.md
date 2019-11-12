@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: sutalasi
-ms.openlocfilehash: fc97f9d78e84882675c3dd011a64e1e50c4cc907
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 5c2cd96ccfa3a26a9009188ad424eefaaeb7ce48
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968336"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906840"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Sobre a rede na replicação do Azure para o Azure
 
@@ -62,7 +62,7 @@ Se você estiver usando um proxy de firewall baseado em IP ou regras NSG para co
     - Permita esses endereços para que os dados possam ser gravados na conta de armazenamento de cache, da VM.
 - Criar Azure Active Directory uma regra de NSG [(AAD)](../virtual-network/security-overview.md#service-tags) baseada em marca de serviço para permitir o acesso a todos os endereços IP correspondentes ao AAD
     - Se novos endereços forem adicionados ao Azure Active Directory (AAD) no futuro, você precisará criar novas regras de NSG.
-- Site Recovery endereços IP do ponto de extremidade de serviço-disponíveis em um [arquivo XML](https://aka.ms/site-recovery-public-ips) e dependem do local de destino. É recomendável permitir o acesso à marca **"AzureSiteRecovery"** para acesso site Recovery serviço.
+- Site Recovery endereços IP do ponto de extremidade de serviço-disponíveis em um [arquivo XML](https://aka.ms/site-recovery-public-ips) e dependem do local de destino. 
 - Recomendamos que você crie as regras NSG necessárias em um NSG de teste e verifique se não há problemas antes de criar as regras em um NSG de produção.
 
 
@@ -70,45 +70,45 @@ Os intervalos de endereços IP Site Recovery são os seguintes:
 
    **Destino** | **Site Recovery IP** |  **IP de monitoramento de Site Recovery**
    --- | --- | ---
-   Este Asiático | 52.175.17.132 | 13.94.47.61
-   Sudeste Asiático | 52.187.58.193 | 13.76.179.223
-   Centro da Índia | 52.172.187.37 | 104.211.98.185
+   Ásia Oriental | 52.175.17.132 | 13.94.47.61
+   Sudeste asiático | 52.187.58.193 | 13.76.179.223
+   Índia Central | 52.172.187.37 | 104.211.98.185
    Sul da Índia | 52.172.46.220 | 104.211.224.190
-   E.U.A. Centro-Norte | 23.96.195.247 | 168.62.249.226
+   EUA Centro-Norte | 23.96.195.247 | 168.62.249.226
    Europa do Norte | 40.69.212.238 | 52.169.18.8
-   Europa Ocidental | 52.166.13.64 | 40.68.93.145
-   Este dos E.U.A. | 13.82.88.226 | 104.45.147.24
-   Oeste dos E.U.A. | 40.83.179.48 | 104.40.26.199
-   E.U.A. Centro-Sul | 13.84.148.14 | 104.210.146.250
-   Centro dos E.U.A. | 40.69.144.231 | 52.165.34.144
-   Este dos E.U.A. 2 | 52.184.158.163 | 40.79.44.59
-   Este do Japão | 52.185.150.140 | 138.91.1.105
+   Europa ocidental | 52.166.13.64 | 40.68.93.145
+   EUA Leste | 13.82.88.226 | 104.45.147.24
+   EUA Oeste | 40.83.179.48 | 104.40.26.199
+   EUA Centro-Sul | 13.84.148.14 | 104.210.146.250
+   EUA Central | 40.69.144.231 | 52.165.34.144
+   EUA Leste 2 | 52.184.158.163 | 40.79.44.59
+   Leste do Japão | 52.185.150.140 | 138.91.1.105
    Oeste do Japão | 52.175.146.69 | 138.91.17.38
    Sul do Brasil | 191.234.185.172 | 23.97.97.36
    Leste da Austrália | 104.210.113.114 | 191.239.64.144
    Sudeste da Austrália | 13.70.159.158 | 191.239.160.45
    Canadá Central | 52.228.36.192 | 40.85.226.62
    Leste do Canadá | 52.229.125.98 | 40.86.225.142
-   E.U.A. Centro-Oeste | 52.161.20.168 | 13.78.149.209
-   E.U.A. Oeste 2 | 52.183.45.166 | 13.66.228.204
-   Oeste do Reino Unido | 51.141.3.203 | 51.141.14.113
-   Sul do Reino Unido | 51.140.43.158 | 51.140.189.52
-   Sul do Reino Unido 2 | 13.87.37.4| 13.87.34.139
+   EUA Centro-Oeste | 52.161.20.168 | 13.78.149.209
+   EUA Oeste 2 | 52.183.45.166 | 13.66.228.204
+   Reino Unido Oeste | 51.141.3.203 | 51.141.14.113
+   Reino Unido Sul | 51.140.43.158 | 51.140.189.52
+   Sul do Reino Unido 2 | 13.87.37.4| 13.87.34.139
    Norte do Reino Unido | 51.142.209.167 | 13.87.102.68
    Coreia do Sul Central | 52.231.28.253 | 52.231.32.85
-   Sul da Coreia do Sul | 52.231.198.185 | 52.231.200.144
+   Coreia do Sul | 52.231.198.185 | 52.231.200.144
    França Central | 52.143.138.106 | 52.143.136.55
    Sul de França | 52.136.139.227 |52.136.136.62
    Austrália Central| 20.36.34.70 | 20.36.46.142
    Austrália Central 2| 20.36.69.62 | 20.36.74.130
    Oeste da África do Sul | 102.133.72.51 | 102.133.26.128
    Norte da África do Sul | 102.133.160.44 | 102.133.154.128
-   Gov dos E.U.A. Virginia | 52.227.178.114 | 23.97.0.197
-   US Gov - Virginia | 13.72.184.23 | 23.97.16.186
-   US Gov - Texas | 52.244.205.45 | 52.244.48.85
+   Gov (US) - Virginia | 52.227.178.114 | 23.97.0.197
+   US Gov - Iowa | 13.72.184.23 | 23.97.16.186
+   Gov (US) - Arizona | 52.244.205.45 | 52.244.48.85
    Gov (US) - Texas | 52.238.119.218 | 52.238.116.60
-   US Gov - Arizona | 52.181.164.103 | 52.181.162.129
-   US DoD - Centro | 52.182.95.237 | 52.182.90.133
+   US DoD Leste | 52.181.164.103 | 52.181.162.129
+   US DoD Centro | 52.182.95.237 | 52.182.90.133
    China Norte | 40.125.202.254 | 42.159.4.151
    Norte da China 2 | 40.73.35.193 | 40.73.33.230
    Norte da China | 42.159.205.45 | 42.159.132.40
@@ -127,9 +127,6 @@ Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
 - Se você estiver usando regras de NSG para controlar a conectividade de saída, use regras de "permitir HTTPS de saída" para a porta: 443 para todos os intervalos de endereços IP necessários.
 - O exemplo supõe que o local de origem da VM é "leste dos EUA" e o local de destino é "EUA Central".
 
-> [!NOTE]
-> É recomendável usar a **marca AzureSiteRecovery** em vez de endereços IP para permitir o acesso ao **site Recovery Service**.
-
 ### <a name="nsg-rules---east-us"></a>Regras de NSG – leste dos EUA
 
 1. Crie uma regra de segurança HTTPS (443) de saída para "Storage. Eastus" no NSG, conforme mostrado na captura de tela abaixo.
@@ -144,7 +141,7 @@ Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
 
    **Localização** | **Endereço IP Site Recovery** |  **Endereço IP de monitoramento de Site Recovery**
     --- | --- | ---
-   Centro dos E.U.A. | 40.69.144.231 | 52.165.34.144
+   EUA Central | 40.69.144.231 | 52.165.34.144
 
 ### <a name="nsg-rules---central-us"></a>Regras de NSG-EUA Central
 
@@ -158,7 +155,7 @@ Essas regras são necessárias para que a replicação possa ser habilitada da r
 
    **Localização** | **Endereço IP Site Recovery** |  **Endereço IP de monitoramento de Site Recovery**
     --- | --- | ---
-   Este dos E.U.A. | 13.82.88.226 | 104.45.147.24
+   EUA Leste | 13.82.88.226 | 104.45.147.24
 
 
 ## <a name="network-virtual-appliance-configuration"></a>Configuração da solução de virtualização de rede

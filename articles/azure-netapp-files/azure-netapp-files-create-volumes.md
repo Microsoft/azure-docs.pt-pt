@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 11/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 1a479b4928631f27d5453d462a59fe7fed09a88c
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 1f312e8a5034d238e4802e9323bc1b5ac5cdae21
+ms.sourcegitcommit: f226cdd6406372b5693d46b6d04900f2f0cda4e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302754"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906231"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
@@ -43,7 +43,7 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
   O suporte para bits de modo UNIX (leitura, gravação e execução) está disponível para NFSv3 e NFSv 4.1. O acesso no nível da raiz é necessário no cliente NFS para montar volumes NFS.
 
 * Usuário/grupo local e suporte LDAP para NFSv 4.1  
-  Atualmente, o NFSv 4.1 dá suporte ao acesso raiz somente a volumes. 
+  Atualmente, o NFSv 4.1 dá suporte ao acesso raiz somente a volumes. Consulte [Configurar o domínio padrão do nfsv 4.1 para Azure NetApp files](azure-netapp-files-configure-nfsv41-domain.md). 
 
 ## <a name="best-practice"></a>Melhores práticas
 
@@ -115,6 +115,7 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
 
 ## <a name="next-steps"></a>Passos seguintes  
 
+* [Configurar o domínio padrão do NFSv 4.1 para Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [Montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configurar a política de exportação para um volume NFS](azure-netapp-files-configure-export-policy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)

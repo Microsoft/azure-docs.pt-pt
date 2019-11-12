@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: vinigam
-ms.openlocfilehash: 831e75ba2d3f6af62496d437da3d1413dc612594
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 91fb4551f4651f44a1f7358951c5d4cc0ff70644
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686548"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907152"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -71,7 +71,7 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 * EUA Oeste
 * EUA Oeste 2
 * França Central
-* Europa Ocidental
+* Europa ocidental
 * Europa do Norte
 * Sul do Brasil
 * Reino Unido Oeste
@@ -79,7 +79,7 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 * Leste da Austrália
 * Sudeste da Austrália
 * Ásia Oriental
-* Sudeste Asiático
+* Sudeste asiático
 * Coreia do Sul Central
 * Índia Central
 * Sul da Índia
@@ -95,18 +95,22 @@ O espaço de trabalho Log Analytics deve existir nas seguintes regiões:
 * EUA Centro-Oeste
 * EUA Leste
 * EUA Leste 2
+* EUA Centro-Norte
 * EUA Centro-Sul
+* EUA Central
 * EUA Oeste
 * EUA Oeste 2
 * EUA Central
 * França Central
+* Europa ocidental
 * Europa do Norte
-* Europa Ocidental
+* Sul do Brasil
+* Reino Unido Oeste
 * Reino Unido Sul
 * Leste da Austrália
 * Sudeste da Austrália
 * Ásia Oriental
-* Sudeste Asiático
+* Sudeste asiático
 * Coreia do Sul Central
 * Índia Central
 * Leste do Japão

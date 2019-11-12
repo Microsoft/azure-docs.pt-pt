@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b30b6463ed3d58ec1565f3c49f98388ad09ed4
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: a43c5849dcd037915a46de182064b3e630a663ec
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186286"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907178"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatório de atividade de auditoria no portal do Azure Active Directory 
 
@@ -42,7 +42,7 @@ Este artigo fornece uma visão geral do relatório de auditoria.
 ## <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
 
 * Usuários nas funções **administrador de segurança**, **leitor de segurança**, leitor de **relatório** ou **administrador global**
-* Além disso, todos os usuários (não administradores) podem ver suas próprias atividades de auditoria
+* Além disso, todos os usuários (não administradores) podem ver suas próprias atividades de entrada
 
 ## <a name="audit-logs"></a>Registos de auditoria
 
@@ -57,7 +57,7 @@ Um registo de auditoria tem uma vista de lista predefinida que mostra:
 - a categoria e o nome da atividade (*o que*) 
 - o status da atividade (êxito ou falha)
 - o destino
-- o iniciador/ator (quem) de uma atividade
+- O iniciador/ator (quem) de uma atividade
 
 ![Registos de auditoria](./media/concept-audit-logs/listview.png "Registos de auditoria")
 
@@ -79,9 +79,9 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 Você pode filtrar os dados de auditoria nos seguintes campos:
 
 - Serviço
-- Category
+- Categoria
 - Atividade
-- State
+- Estado
 - Destino
 - Iniciado por (Actor)
 - Intervalo de datas
@@ -101,7 +101,7 @@ O filtro de **serviço** permite que você selecione em uma lista suspensa dos s
 - Gestão de Direitos
 - Identity Protection
 - Utilizadores Convidados
-- PIM
+- FABRICANTE
 - Gestão de Grupos Personalizada
 - Gestão de Palavra-passe Personalizada
 - Termos de Utilização
@@ -111,7 +111,7 @@ O filtro **categoria** permite que você selecione um dos seguintes filtros:
 - Todos
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
+- Autenticação
 - Autorização
 - Contacto
 - Dispositivo
@@ -127,7 +127,7 @@ O filtro **categoria** permite que você selecione um dos seguintes filtros:
 
 O filtro de **atividade** é baseado na categoria e na seleção do tipo de recurso de atividade que você faz. Pode selecionar uma atividade específica que queira ver ou selecionar todas. 
 
-Você pode obter a lista de todas as atividades de auditoria usando o API do Graph:`https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
+Você pode obter a lista de todas as atividades de auditoria usando o API do Graph: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
 O filtro de **status** permite filtrar com base no status de uma operação de auditoria. O status pode ser um dos seguintes:
 
@@ -145,7 +145,7 @@ Os valores possíveis são:
 - 1 mês
 - 7 dias
 - 24 horas
-- Personalizar
+- Personalizado
 
 Quando selecionar um período de tempo personalizado, pode configurar uma hora de início e uma hora de fim.
 
@@ -158,7 +158,7 @@ Você também pode optar por baixar os dados filtrados, até 250.000 registros, 
 Para além do **Azure Active Directory**, o portal do Azure proporciona-lhe dois pontos de entrada adicionais para dados de auditoria:
 
 - Utilizadores e grupos
-- Aplicações Empresariais
+- Aplicações empresariais
 
 ### <a name="users-and-groups-audit-logs"></a>Registos de auditoria de utilizadores e grupos
 
@@ -180,7 +180,7 @@ Com os relatórios de auditoria baseados em utilizadores e grupos, poderá obter
 
 - Que licenças foram atribuídas a um grupo ou utilizador?
 
-Se você quiser revisar apenas os dados de auditoria relacionados aos usuários, poderá encontrar uma exibição filtrada em **logs de auditoria** na seção **atividade** da guia **usuários** . Este ponto de entrada tem usermanagement como categoria preselecionada.
+Se você quiser revisar apenas os dados de auditoria relacionados aos usuários, poderá encontrar uma exibição filtrada em **logs de auditoria** na seção **atividade** da guia **usuários** . Este ponto de entrada tem **usermanagement** como categoria preselecionada.
 
 ![Registos de auditoria](./media/concept-audit-logs/users.png "Registos de auditoria")
 
@@ -208,7 +208,7 @@ Você pode exibir os logs de atividade do Office 365 no [centro de administraç�
 
 Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Referência de atividade de auditoria do Azure AD](reference-audit-activities.md)
 - [Referência de retenção de relatórios do Azure AD](reference-reports-data-retention.md)

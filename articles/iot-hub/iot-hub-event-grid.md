@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 7d5a232d92c37a94ff427a3bf203f6f20764060e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: a2bb961989d5bb1cc879b197e45d25b566c56e83
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748574"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906773"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir aos eventos do Hub IoT usando a grade de eventos para disparar ações
 
@@ -25,7 +25,7 @@ A [grade de eventos do Azure](../event-grid/overview.md) é um serviço de rotea
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A integração da grade de eventos está disponível para os hubs IoT localizados nas regiões em que há suporte para a grade de eventos. Todos os eventos de dispositivo, exceto os eventos de telemetria do dispositivo, estão geralmente disponíveis. O evento de telemetria do dispositivo está em visualização pública e está disponível em todas as regiões, exceto leste dos EUA, oeste dos EUA, Europa Ocidental, [Azure governamental](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china)e [Azure Alemanha](https://azure.microsoft.com/global-infrastructure/germany/). Para obter a lista mais recente de regiões, consulte [uma introdução à grade de eventos do Azure](../event-grid/overview.md).
+A integração da grade de eventos está disponível para os hubs IoT localizados nas regiões em que há suporte para a grade de eventos. Para obter a lista mais recente de regiões, consulte [uma introdução à grade de eventos do Azure](../event-grid/overview.md).
 
 ## <a name="event-types"></a>Tipos de evento
 

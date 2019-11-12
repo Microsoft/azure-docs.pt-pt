@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/11/2019
 ms.author: memildin
-ms.openlocfilehash: 93e52b393db288f5b19afde4a31e08d0bb91b471
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 068fb9f61b7dcb3948e4f03c284ddfa680522c85
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571566"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907032"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Segurança de dados avançada para servidores SQL em máquinas virtuais do Azure (versão prévia)
 A segurança de dados avançada para servidores SQL em máquinas virtuais do Azure é um pacote unificado para recursos avançados de segurança do SQL. Esse recurso de visualização inclui a funcionalidade para identificar e reduzir possíveis vulnerabilidades de banco de dados e detectar atividades anormais que podem indicar ameaças ao seu banco de dados. 
@@ -54,7 +54,7 @@ Habilitar a segurança de dados avançada para servidores SQL em máquinas virtu
     A segurança de dados avançada para servidores SQL será habilitada em todos os SQL Servers conectados ao espaço de trabalho selecionado ou ao espaço de trabalho padrão da assinatura selecionada.
 
     >[!NOTE]
-    > A solução estará ativa após a primeira reinicialização da SQL Server. 
+    > A solução estará totalmente ativa após a primeira reinicialização do SQL Server. 
 
 Para criar um novo espaço de trabalho, siga as instruções em [criar um log Analytics espaço de trabalho](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
@@ -72,7 +72,7 @@ Você pode definir uma lista de destinatários para receber uma notificação po
 1. No menu configurações, clique em **notificações de email**. 
 1. Na caixa de texto **endereço de email** , insira os endereços de email para receber as notificações. Você pode inserir mais de um endereço de email separando os endereços de email com uma vírgula (,).  Por exemplo admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com
 
-      ![Definições de E-mail](./media/security-center-advanced-iaas-data/email-settings.png)
+    ![Definições de E-mail](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. Nas configurações de **notificação de email** , defina as seguintes opções:
   
@@ -88,29 +88,27 @@ Você pode definir uma lista de destinatários para receber uma notificação po
 
 O painel de avaliação de vulnerabilidade fornece uma visão geral dos resultados da avaliação em todos os seus bancos de dados. Você pode exibir a distribuição de bancos de dados de acordo com a versão SQL Server, juntamente com um resumo de falhas em vez de passar bancos de dados e um resumo geral das verificações com falha de acordo com a distribuição de risco.
 
-Você pode exibir os resultados e relatórios da avaliação de vulnerabilidade diretamente do Log Analytics.
+Você pode exibir os resultados da avaliação de vulnerabilidade diretamente da central de segurança.
 
-1. Navegue até seu espaço de trabalho do Log Analytics com a solução de segurança de dados avançada.
-1. Navegue até **soluções** e selecione a solução de **avaliação de vulnerabilidade do SQL** .
-1. No painel **Resumo** , clique em **Exibir Resumo** e selecione o **relatório de avaliação de vulnerabilidade do SQL**.
+1. Na barra lateral da central de segurança, em higiene de segurança de recursos, selecione **dados & armazenamento**.
 
-    ![Relatório de Avaliação do SQL](./media/security-center-advanced-iaas-data/ads-sql-server-1.png)
+1. Selecione as **vulnerabilidades de recomendação em seus bancos de dados SQL em VMS devem ser corrigidas (versão prévia)** . Para obter mais informações, consulte [recomendações da central de segurança](security-center-recommendations.md). 
 
-    O painel de relatório é carregado. Verifique se a janela de tempo está definida para pelo menos **7 dias** desde que as verificações de avaliação de vulnerabilidade sejam executadas em seus bancos de dados em um agendamento fixo de uma vez por sete dias.
+    [![* * vulnerabilidades em seus bancos de dados SQL em VMs devem ser corrigidas (visualização) * * recomendação](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
-    ![Definir os últimos 7 dias](./media/security-center-advanced-iaas-data/ads-sql-server-2.png)
+    A exibição detalhada para essa recomendação é exibida.
 
-1. Para fazer uma busca detalhada para obter mais detalhes, clique em qualquer um dos elementos do painel. Por exemplo:
+    [![exibição detalhada para as * * vulnerabilidades em seus bancos de dados SQL em VMs devem ser corrigidas (visualização) * * recomendação](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
-   1. Clique em uma verificação de vulnerabilidade na seção **Resumo de verificações com falha** para exibir uma tabela de log Analytics com os resultados dessa verificação em todos os bancos de dados. Os que têm resultados são listados primeiro.
+1. Para fazer uma busca detalhada para obter mais detalhes:
 
-   1. Em seguida, clique para exibir detalhes de cada vulnerabilidade, incluindo a descrição e o impacto da vulnerabilidade, o status, o risco associado e os resultados reais neste banco de dados. Você também pode ver a consulta real que foi executada para executar essa verificação e informações de correção para resolver essa vulnerabilidade.
+    * Para obter uma visão geral dos recursos verificados (bancos de dados) e da lista de verificações de segurança que foram testadas, clique no servidor de interesse.
+    [![vulnerabilidades agrupadas pelo SQL Server](media/security-center-advanced-iaas-data/single-server-view.png)](media/security-center-advanced-iaas-data/single-server-view.png#lightbox)
 
-    ![Selecionar área de trabalho](./media/security-center-advanced-iaas-data/ads-sql-server-3.png)
+    * Para obter uma visão geral das vulnerabilidades agrupadas por um banco de dados SQL específico, clique no banco de dados de interesse.
+    [![vulnerabilidades agrupadas pelo SQL Server](media/security-center-advanced-iaas-data/single-database-view.png)](media/security-center-advanced-iaas-data/single-database-view.png#lightbox)
 
-    ![Selecionar área de trabalho](./media/security-center-advanced-iaas-data/ads-sql-server-4.png)
-
-1. Você pode executar qualquer consulta de Log Analytics em seus dados de resultados da avaliação de vulnerabilidade, para dividir e refinar os dados de acordo com suas necessidades.
+    Em cada exibição, as verificações de segurança são classificadas por **severidade**. Clique em uma verificação de segurança específica para ver um painel de detalhes com uma **Descrição**, como **corrigi** -lo e outras informações relacionadas, como **impacto** ou **benchmark**.
 
 ## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Proteção avançada contra ameaças para servidores SQL em alertas de VMs do Azure
 Os alertas são gerados por tentativas incomuns e potencialmente prejudiciais de acessar ou explorar servidores SQL. Esses eventos podem disparar os seguintes alertas:

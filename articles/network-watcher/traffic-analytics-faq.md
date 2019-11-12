@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: b232df010190a95d12d5a57f076a4c1bf336cea4
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 991bb91c5bc1f6d695d5b363cdb08268f1ee83df
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026594"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907095"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Análise de Tráfego perguntas frequentes
 
@@ -41,16 +41,16 @@ Sua conta deve atender a um dos seguintes para habilitar a análise de tráfego:
 - Sua conta deve ter uma das seguintes funções de RBAC (controle de acesso baseado em função) no escopo da assinatura: proprietário, colaborador, leitor ou colaborador de rede.
 - Se sua conta não estiver atribuída a uma das funções listadas anteriormente, ela deverá ser atribuída a uma função personalizada atribuída às ações a seguir, no nível de assinatura.
             
-    - Microsoft.Network/applicationGateways/read
-    - Microsoft.Network/connections/read
-    - Microsoft.Network/loadBalancers/read 
-    - Microsoft.Network/localNetworkGateways/read 
-    - Microsoft.Network/networkInterfaces/read 
-    - Microsoft.Network/networkSecurityGroups/read 
-    - Microsoft.Network/publicIPAddresses/read
-    - Microsoft.Network/routeTables/read
-    - Microsoft.Network/virtualNetworkGateways/read 
-    - Microsoft.Network/virtualNetworks/read
+    - Microsoft. Network/applicationGateways/Read
+    - Microsoft. Network/Connections/Read
+    - Microsoft. Network/balancers/Read 
+    - Microsoft. Network/localNetworkGateways/Read 
+    - Microsoft. Network/networkInterfaces/Read 
+    - Microsoft. Network/networkSecurityGroups/Read 
+    - Microsoft. Network/publicIPAddresses/Read
+    - Microsoft. Network/routeTables/Read
+    - Microsoft. Network/virtualNetworkGateways/Read 
+    - Microsoft. Network/virtualNetworks/Read
         
 Para verificar as funções atribuídas a um usuário para uma assinatura:
 
@@ -68,7 +68,7 @@ Se você não estiver vendo nenhuma saída, entre em contato com o administrador
 Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes regiões com suporte:
 - Canadá Central
 - EUA Centro-Oeste
-- East US
+- EUA Leste
 - EUA Leste 2
 - EUA Centro-Norte
 - EUA Centro-Sul
@@ -76,7 +76,7 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 - EUA Oeste
 - EUA Oeste 2
 - França Central
-- Europa Ocidental
+- Europa ocidental
 - Europa do Norte
 - Sul do Brasil
 - Reino Unido Oeste
@@ -84,35 +84,39 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 - Leste da Austrália
 - Sudeste da Austrália 
 - Ásia Oriental
-- Sudeste Asiático
+- Sudeste asiático
 - Coreia do Sul Central
 - Índia Central
 - Sul da Índia
 - Leste do Japão
 - Oeste do Japão
 - Gov (US) - Virginia
+- Leste da China 2
 
 O espaço de trabalho Log Analytics deve existir nas seguintes regiões:
 - Canadá Central
 - EUA Centro-Oeste
-- EUA Oeste
-- EUA Oeste 2
+- EUA Leste
+- EUA Leste 2
+- EUA Centro-Norte
 - EUA Centro-Sul
 - EUA Central
-- East US
-- EUA Leste 2
+- EUA Oeste
+- EUA Oeste 2
 - França Central
-- Europa Ocidental
+- Europa ocidental
 - Europa do Norte
+- Reino Unido Oeste
 - Reino Unido Sul
 - Leste da Austrália
 - Sudeste da Austrália
 - Ásia Oriental
-- Sudeste Asiático 
+- Sudeste asiático 
 - Coreia do Sul Central
 - Índia Central
 - Leste do Japão
 - Gov (US) - Virginia
+- Leste da China 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>O NSGs permite que os logs de fluxo estejam em regiões diferentes do meu espaço de trabalho?
 
@@ -151,7 +155,7 @@ O provedor Microsoft. insights deve ser registrado para que o log de fluxo funci
 
 O painel pode levar até 30 minutos para aparecer na primeira vez. A solução deve primeiro agregar dados suficientes para que ele derive informações significativas. Em seguida, ele gera relatórios. 
 
-## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>E se eu receber esta mensagem: "Não foi possível encontrar nenhum dado neste espaço de trabalho para o intervalo de tempo selecionado. Tente alterar o intervalo de tempo ou selecionar um espaço de trabalho diferente. "?
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>E se eu receber esta mensagem: "não foi possível encontrar nenhum dado neste espaço de trabalho para o intervalo de tempo selecionado. Tente alterar o intervalo de tempo ou selecionar um espaço de trabalho diferente. "?
 
 Tente as seguintes opções:
 - Altere o intervalo de tempo na barra superior.
@@ -160,7 +164,7 @@ Tente as seguintes opções:
     
 Se os problemas persistirem, aumente as preocupações no [Fórum de voz do usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>E se eu receber esta mensagem: "Analisando os logs de fluxo do NSG pela primeira vez. Esse processo pode levar de 20-30 a minutos para ser concluído. Verifique novamente após algum tempo. 2) se a etapa acima não funcionar e o espaço de trabalho estiver sob a SKU gratuita, verifique o uso do espaço de trabalho aqui para validar sobre a cota, caso contrário, consulte as perguntas frequentes para obter mais informações. "?
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>E se eu receber esta mensagem: "analisando os logs de fluxo do NSG pela primeira vez. Esse processo pode levar de 20-30 a minutos para ser concluído. Verifique novamente após algum tempo. 2) se a etapa acima não funcionar e o espaço de trabalho estiver sob a SKU gratuita, verifique o uso do espaço de trabalho aqui para validar sobre a cota, caso contrário, consulte as perguntas frequentes para obter mais informações. "?
 
 Você pode ver esta mensagem porque:
 - O Análise de Tráfego foi recentemente habilitado e talvez ainda não tenha agregado dados suficientes para que ele derive informações significativas.
@@ -168,7 +172,7 @@ Você pode ver esta mensagem porque:
     
 Se os problemas persistirem, aumente as preocupações no [Fórum de voz do usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
-## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>E se eu receber esta mensagem: "Parece que temos dados de recursos (Topologia) e nenhuma informação de fluxo. Enquanto isso, clique aqui para ver os dados de recursos e consulte as perguntas frequentes para obter mais informações. "?
+## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>E se eu receber esta mensagem: "parece que temos dados de recursos (Topologia) e nenhuma informação de fluxo. Enquanto isso, clique aqui para ver os dados de recursos e consulte as perguntas frequentes para obter mais informações. "?
 
 Você está vendo as informações de recursos no painel; no entanto, nenhuma estatística relacionada ao fluxo está presente. Os dados podem não estar presentes devido a nenhum fluxo de comunicação entre os recursos. Aguarde 60 minutos e verifique novamente o status. Se o problema persistir, e você tiver certeza de que os fluxos de comunicação entre os recursos existem, aumente as preocupações no [Fórum de voz do usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
@@ -266,38 +270,38 @@ Análise de Tráfego não tem suporte interno para alertas. No entanto, como An�
 
 A página de mapa geográfico contém duas seções principais:
     
-- **Faixa**: A faixa na parte superior do mapa geográfico fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, implantação, tráfego de países/regiões e mal-intencionado). Quando você seleciona um botão, o respectivo filtro é aplicado no mapa. Por exemplo, se você selecionar o botão ativo, o mapa realçará os data centers ativos em sua implantação.
-- **Mapa**: Abaixo da faixa, a seção de mapa mostra a distribuição de tráfego entre os data centers do Azure e os países/regiões.
+- **Faixa**: a faixa na parte superior do mapa geográfico fornece botões para selecionar os filtros de distribuição de tráfego (por exemplo, implantação, tráfego de países/regiões e mal-intencionado). Quando você seleciona um botão, o respectivo filtro é aplicado no mapa. Por exemplo, se você selecionar o botão ativo, o mapa realçará os data centers ativos em sua implantação.
+- **Mapa**: abaixo da faixa, a seção mapa mostra a distribuição de tráfego entre data centers do Azure e países/regiões.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação de teclado na faixa
     
 - Por padrão, a seleção na página de mapa geográfico para a faixa é o filtro "Azure DCs".
-- Para mover para outro filtro, use a chave `Tab` ou `Right arrow`. Para retroceder, use a chave `Shift+Tab` ou `Left arrow`. A navegação progressiva é da esquerda para a direita, seguida de cima para baixo.
+- Para mover para outro filtro, use o `Tab` ou a chave de `Right arrow`. Para retroceder, use o `Shift+Tab` ou a chave de `Left arrow`. A navegação progressiva é da esquerda para a direita, seguida de cima para baixo.
 - Pressione `Enter` ou a tecla de seta `Down` para aplicar o filtro selecionado. Com base na seleção e implantação de filtro, um ou vários nós na seção mapa são realçados.
 - Para alternar entre faixa e mapa, pressione `Ctrl+F6`.
         
 ### <a name="keyboard-navigation-on-the-map"></a>Navegação de teclado no mapa
     
-- Depois de selecionar qualquer filtro na faixa e pressionar `Ctrl+F6`, o foco será movido para um dos nós realçados (**Datacenter do Azure** ou **país/região**) na exibição do mapa.
-- Para mover para outros nós realçados no mapa, use `Tab` ou a chave `Right arrow` para movimento progressivo. Use `Shift+Tab` ou a chave `Left arrow` para movimento regressivo.
-- Para selecionar qualquer nó realçado no mapa, use a chave `Enter` ou `Down arrow`.
-- Na seleção de qualquer um desses nós, o foco é movido para a **caixa de ferramentas de informações** para o nó. Por padrão, o foco é movido para o botão fechado na **caixa ferramenta de informações**. Para mover-se ainda mais dentro do modo de exibição de **caixa** , use as teclas `Right arrow` e `Left arrow` para avançar e retroceder, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão focalizado na **caixa ferramenta de informações**.
+- Depois de selecionar qualquer filtro na faixa e pressionar `Ctrl+F6`, o foco é movido para um dos nós realçados (**Datacenter do Azure** ou **país/região**) na exibição do mapa.
+- Para mover para outros nós realçados no mapa, use `Tab` ou a chave de `Right arrow` para movimento progressivo. Use `Shift+Tab` ou a chave de `Left arrow` para movimento regressivo.
+- Para selecionar qualquer nó realçado no mapa, use a `Enter` ou `Down arrow` chave.
+- Na seleção de qualquer um desses nós, o foco é movido para a **caixa de ferramentas de informações** para o nó. Por padrão, o foco é movido para o botão fechado na **caixa ferramenta de informações**. Para mover-se ainda mais dentro do modo de exibição de **caixa** , use `Right arrow` e `Left arrow` chaves para avançar e retroceder, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão focalizado na **caixa ferramenta de informações**.
 - Quando você pressiona `Tab` enquanto o foco está na **caixa de ferramentas de informações**, o foco é movido para os pontos de extremidade no mesmo continente que o nó selecionado. Use as chaves `Right arrow` e `Left arrow` para percorrer esses pontos de extremidade.
 - Para mover para outros pontos de extremidade do fluxo ou para os clusters continentes, use `Tab` para movimento progressivo e `Shift+Tab` para movimento regressivo.
-- Quando o foco estiver em **clusters continentes**, use as teclas de seta `Enter` ou `Down` para realçar os pontos de extremidade dentro do cluster continente. Para percorrer os pontos de extremidade e o botão fechar na caixa de informações do cluster continente, use a chave `Right arrow` ou `Left arrow` para movimento para frente e para trás, respectivamente. Em qualquer ponto de extremidade, você pode usar `Shift+L` para alternar para a linha de conexão do nó selecionado para o ponto de extremidade. Você pode pressionar `Shift+L` novamente para mover para o ponto de extremidade selecionado.
+- Quando o foco estiver em **clusters continentes**, use as teclas de seta `Enter` ou `Down` para realçar os pontos de extremidade dentro do cluster continente. Para percorrer os pontos de extremidade e o botão fechar na caixa de informações do cluster continente, use a tecla `Right arrow` ou `Left arrow` para movimento para frente e para trás, respectivamente. Em qualquer ponto de extremidade, você pode usar `Shift+L` para alternar para a linha de conexão do nó selecionado para o ponto de extremidade. Você pode pressionar `Shift+L` novamente para mover para o ponto de extremidade selecionado.
         
 ### <a name="keyboard-navigation-at-any-stage"></a>Navegação por teclado em qualquer estágio
     
 - `Esc` recolhe a seleção expandida.
-- A chave `Up arrow` executa a mesma ação que `Esc`. A chave `Down arrow` executa a mesma ação que `Enter`.
+- A chave de `Up arrow` executa a mesma ação que `Esc`. A chave de `Down arrow` executa a mesma ação que `Enter`.
 - Use `Shift+Plus` para ampliar e `Shift+Minus` para reduzir.
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-virtual-network-topology-view"></a>Como posso navegar usando o teclado na exibição de topologia de rede virtual?
 
 A página topologia de redes virtuais contém duas seções principais:
     
-- **Faixa**: A faixa na parte superior da topologia de redes virtuais fornece botões para selecionar os filtros de distribuição de tráfego (por exemplo, redes virtuais conectadas, redes virtuais desconectadas e IPs públicos). Quando você seleciona um botão, o respectivo filtro é aplicado na topologia. Por exemplo, se você selecionar o botão ativo, a topologia destacará as redes virtuais ativas em sua implantação.
-- **Topologia**: Abaixo da faixa, a seção topologia mostra a distribuição de tráfego entre redes virtuais.
+- **Faixa**: a faixa na parte superior da topologia de redes virtuais fornece botões para selecionar os filtros de distribuição de tráfego (por exemplo, redes virtuais conectadas, redes virtuais desconectadas e IPS públicos). Quando você seleciona um botão, o respectivo filtro é aplicado na topologia. Por exemplo, se você selecionar o botão ativo, a topologia destacará as redes virtuais ativas em sua implantação.
+- **Topologia**: abaixo da faixa, a seção topologia mostra a distribuição de tráfego entre redes virtuais.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação de teclado na faixa
     
@@ -318,8 +322,8 @@ A página topologia de redes virtuais contém duas seções principais:
 
 A página topologia de sub-redes virtuais contém duas seções principais:
     
-- **Faixa**: A faixa na parte superior da topologia de sub-redes virtuais fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, sub-redes ativas, médias e de gateway). Quando você seleciona um botão, o respectivo filtro é aplicado na topologia. Por exemplo, se você selecionar o botão ativo, a topologia destacará a sub-rede virtual ativa em sua implantação.
-- **Topologia**: Abaixo da faixa, a seção topologia mostra a distribuição de tráfego entre sub-redes virtuais.
+- **Faixa**: a faixa na parte superior da topologia de sub-redes virtuais fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, sub-redes ativas, médias e de gateway). Quando você seleciona um botão, o respectivo filtro é aplicado na topologia. Por exemplo, se você selecionar o botão ativo, a topologia destacará a sub-rede virtual ativa em sua implantação.
+- **Topologia**: abaixo da faixa, a seção topologia mostra a distribuição de tráfego entre sub-redes virtuais.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação de teclado na faixa
     
@@ -330,8 +334,8 @@ A página topologia de sub-redes virtuais contém duas seções principais:
         
 ### <a name="keyboard-navigation-on-the-topology"></a>Navegação de teclado na topologia
     
-- Depois de selecionar qualquer filtro na faixa e pressionar `Ctrl+F6`, o foco será movido para um dos nós realçados (**sub-rede**) no modo de exibição de topologia.
+- Depois de selecionar qualquer filtro na faixa e pressionar `Ctrl+F6`, o foco é movido para um dos nós realçados (**sub-rede**) no modo de exibição de topologia.
 - Para mover para outros nós realçados no modo de exibição de topologia, use a chave `Shift+Right arrow` para movimento progressivo. 
-- Em nós realçados, o foco é movido para a **caixa de ferramentas de informações** para o nó. Por padrão, o foco é movido para o botão **mais detalhes** na **caixa de ferramentas de informações**. Para mover-se ainda mais dentro do modo de exibição de **caixa** , use as teclas `Right arrow` e `Left arrow` para avançar e retroceder, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão focalizado na **caixa ferramenta de informações**.
-- Na seleção de qualquer um desses nós, você pode visitar todas as suas conexões, uma a uma, pressionando a tecla `Shift+Left arrow`. O foco é movido para a **caixa de ferramentas de informações** dessa conexão. A qualquer momento, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.    
+- Em nós realçados, o foco é movido para a **caixa de ferramentas de informações** para o nó. Por padrão, o foco é movido para o botão **mais detalhes** na **caixa de ferramentas de informações**. Para mover-se ainda mais dentro do modo de exibição de **caixa** , use `Right arrow` e `Left arrow` chaves para avançar e retroceder, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão focalizado na **caixa ferramenta de informações**.
+- Na seleção de qualquer um desses nós, você pode visitar todas as suas conexões, uma a uma, pressionando `Shift+Left arrow` tecla. O foco é movido para a **caixa de ferramentas de informações** dessa conexão. A qualquer momento, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.    
 
