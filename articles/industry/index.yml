@@ -1,9 +1,9 @@
 ### YamlMime:Hub
-title: Documentação da Indústria para o Azure
+title: Documentação do Azure para a Indústria
 summary: Saiba como utilizar o Azure para criar soluções para casos de utilização comuns da indústria.
 brand: azure
 metadata:
-  title: Documentação da Indústria para o Azure
+  title: Documentação do Azure para a Indústria
   description: Saiba como utilizar o Azure para criar soluções para casos de utilização comuns da indústria.
   ms.service: azure-industry
   ms.topic: hub-page
@@ -11,12 +11,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 11/04/2019
-  ms.openlocfilehash: 2777093db7486f17cf19b45db08bbd0168a4e2a8
-  ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+  ms.openlocfilehash: bd0cfb1cf181cabec83c65d6cece139685c286ec
+  ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/07/2019
-  ms.locfileid: "73797079"
+  ms.lasthandoff: 11/08/2019
+  ms.locfileid: "73809834"
 highlightedContent:
   items:
   - title: Azure FarmBeats

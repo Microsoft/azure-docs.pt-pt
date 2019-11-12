@@ -262,6 +262,9 @@
     - name: Serviços Cloud
       tocHref: /azure/cloud-services/
       topicHref: /azure/cloud-services/
+    - name: Cognitive Search
+      tocHref: /azure/search/
+      topicHref: /azure/search/
     - name: Serviços Cognitivos
       tocHref: /azure/cognitive-services/
       topicHref: /azure/cognitive-services/
@@ -516,7 +519,7 @@
     - name: API do Azure para FHIR
       tocHref: /azure/healthcare-apis
       topicHref: /azure/healthcare-apis
-    - name: Indústria para o Azure
+    - name: Azure para a Indústria
       tocHref: /azure/industry
       topicHref: /azure/industry
       items:
@@ -647,9 +650,6 @@
     - name: Scheduler
       tocHref: /azure/scheduler/
       topicHref: /azure/scheduler/
-    - name: Pesquisa
-      tocHref: /azure/search/
-      topicHref: /azure/search/
     - name: Segurança
       tocHref: /azure/security/
       topicHref: /azure/security/

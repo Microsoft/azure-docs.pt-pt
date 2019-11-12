@@ -326,7 +326,7 @@
               href: shared-images.md
             - name: Portal
               href: shared-images-portal.md
-            - name: Partilhar imagens entre inquilinos
+            - name: Registo de aplicações para partilha
               href: share-images-across-tenants.md
             - name: Resolver problemas de imagens partilhadas
               href: troubleshooting-shared-images.md

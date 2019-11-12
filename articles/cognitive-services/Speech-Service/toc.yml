@@ -39,6 +39,10 @@
           href: how-to-automatic-language-detection.md
         - name: Utilizar formatos de entrada de áudio comprimido
           href: how-to-use-codec-compressed-audio-input-streams.md
+        - name: Utilizar formatos de entrada de áudio comprimido (iOS)
+          href: how-to-use-codec-compressed-audio-input-streams-ios.md
+        - name: Utilizar formatos de entrada de áudio comprimido (Android)
+          href: how-to-use-codec-compressed-audio-input-streams-android.md
         - name: Utilizar o reconhecimento de voz com contentores do Docker
           href: speech-container-howto.md?tabs=stt
     - name: Referência
@@ -200,11 +204,11 @@
     - name: Descrição geral
       items:
         - name: O que é a transcrição de conversas?
-          href: conversation-transcription-service.md
+          href: conversation-transcription.md
     - name: Guias de procedimentos
       items:
         - name: Transcrição de Conversas em tempo real
-          href: how-to-use-conversation-transcription-service.md
+          href: how-to-use-conversation-transcription.md
         - name: Transcrição de Conversas Assíncrona
           href: how-to-async-conversation-transcription.md
     - name: Referência
@@ -330,6 +334,11 @@
 - name: Serviço de Voz
   expanded: false
   items:
+    - name: Cenários
+      items:
+        - name: Centros de atendimento telefónico
+          href: get-started.md
+          displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
     - name: Guias de procedimentos
       items:
         - name: Experimente o Serviço de Voz gratuitamente

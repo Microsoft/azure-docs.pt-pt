@@ -3,9 +3,8 @@ documentType: LandingData
 title: Documentação do Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure
 metadata:
   title: 'Documentação do Serviço de Aprovisionamento de Dispositivos no Hub IoT - tutoriais, Referência de API'
-  description: Descrição geral do Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure.
+  description: 'Documentação do Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure - Tutoriais, Inícios Rápidos, Manuais de Instruções e Referência da API'
   author: nberdy
-  manager: briz
   ms.service: iot-dps
   services: iot-dps
   ms.topic: landing-page

@@ -91,6 +91,8 @@
       items:
         - name: Configurar as pesquisas liveness
           href: container-instances-liveness-probe.md
+        - name: Configurar pesquisas readiness
+          href: container-instances-readiness-probe.md
         - name: Parar e iniciar contentores
           href: container-instances-stop-start.md
         - name: Atualizar contentores em execução

@@ -138,6 +138,8 @@
           href: resource-group-create-multiple.md
         - name: Recursos ao nível da subscrição
           href: deploy-to-subscription.md
+        - name: Recursos ao nível do grupo de gestão
+          href: deploy-to-management-group.md
     - name: Implementar modelos
       items:
         - name: Implementar - portal
