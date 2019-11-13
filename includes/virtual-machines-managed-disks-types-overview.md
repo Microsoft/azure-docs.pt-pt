@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 60d0425a7dbc532e856c7bf3c91065d2548c9b9a
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 45168c23964c735a4bd51ba11c2340d4ff95fed4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601393"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012435"
 ---
-# <a name="what-disk-types-are-available-in-azure"></a>Quais tipos de disco estão disponíveis no Azure?
-
 Atualmente, o Azure Managed disks oferece quatro tipos de disco, cada tipo destina-se a cenários de clientes específicos.
 
 ## <a name="disk-comparison"></a>Comparação de discos
@@ -29,7 +27,7 @@ A tabela a seguir fornece uma comparação de ultra discos, unidades de estado s
 |Cenário   |Cargas de trabalho com uso intensivo de e/s, como [SAP Hana](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), bancos de dados de camada superior (por exemplo, SQL, Oracle) e outras cargas de trabalho de transações pesadas.   |Cargas de trabalho confidenciais de produção e de desempenho   |Servidores Web, aplicativos empresariais com pouco uso e desenvolvimento/teste   |Backup, não crítico, acesso infrequente   |
 |Tamanho máximo do disco   |65.536 Gibibyte (GiB)    |32.767 GiB    |32.767 GiB   |32.767 GiB   |
 |Taxa de transferência máxima   |2\.000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
-|IOPS máxima   |160.000    |20.000   |6\.000   |2\.000   |
+|IOPS máxima   |160.000    |20,000   |6,000   |2\.000   |
 
 ## <a name="ultra-disk"></a>Ultra Disk
 
@@ -50,14 +48,14 @@ Alguns dos principais recursos dos ultra discos são:
 
 |Tamanho do disco (GiB)  |Limite de IOPS  |Limite de taxa de transferência (MBps)  |
 |---------|---------|---------|
-|4     |1\.200         |300         |
-|8     |2\.400         |600         |
-|16     |4\.800         |1\.200         |
+|4     |1,200         |300         |
+|8     |2,400         |600         |
+|16     |4,800         |1,200         |
 |32     |9\.600         |2\.000         |
 |64     |19.200         |2\.000         |
 |128     |38.400         |2\.000         |
 |256     |76.800         |2\.000         |
-|512     |80.000         |2\.000         |
+|512     |80,000         |2\.000         |
 |1024-65536 (tamanhos neste intervalo aumentando em incrementos de 1 TiB)     |160.000         |2\.000         |
 
 ### <a name="ga-scope-and-limitations"></a>Limitações e escopo de GA

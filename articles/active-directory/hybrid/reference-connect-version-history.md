@@ -2,26 +2,22 @@
 title: 'Azure AD Connect: histórico de lançamento de versão | Microsoft Docs'
 description: Este artigo lista todas as versões de Azure AD Connect e Azure AD Sync
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: daveba
-editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52e15aa62043ba394ae6e8cfe2cc7f27709c7d33
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 893b617a965b0823b8d630e036d5d5f923647f8f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927443"
+ms.locfileid: "73944216"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure Active Directory (AD do Azure) atualiza regularmente Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -35,24 +31,23 @@ Tópico |  Detalhes
 --------- | --------- |
 Etapas para atualizar do Azure AD Connect | Métodos diferentes para [Atualizar de uma versão anterior para a versão mais recente do](how-to-upgrade-previous-version.md) Azure ad Connect.
 Permissões obrigatórias | Para obter permissões necessárias para aplicar uma atualização, consulte [contas e permissões](reference-connect-accounts-permissions.md#upgrade).
-
-Baixar | [Baixar Azure ad Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+Transferência| [Baixar Azure ad Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
 >A liberação de uma nova versão do Azure AD Connect é um processo que requer várias etapas de controle de qualidade para garantir a funcionalidade de operação do serviço e, enquanto passamos por esse processo, o número de versão de uma nova versão e o status da versão serão atualizados para refletir o estado mais recente.
 Enquanto passarmos por esse processo, o número de versão da versão será mostrado com um "X" na posição do número de liberação secundária, como em "1.3. X. 0" – isso indica que as notas de versão deste documento são válidas para todas as versões que começam com "1,3.". Assim que finalizamos o processo de liberação, o número de versão de lançamento será atualizado para a versão lançada mais recentemente e o status da versão será atualizado para "liberado para download e atualização automática".
-Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O status da versão indicará se uma versão é disponibilizada para atualização automática ou somente para download. Se a atualização automática tiver sido habilitada em seu servidor de Azure AD Connect, esse servidor será atualizado automaticamente para a versão mais recente do Azure AD Connect que é lançado para atualização automática. Observe que nem todas as configurações de Azure AD Connect são elegíveis para a atualização automática. Siga este link para ler mais sobre a [atualização automática](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O status da versão indicará se uma versão é disponibilizada para atualização automática ou somente para download. Se a atualização automática tiver sido habilitada em seu servidor de Azure AD Connect, esse servidor será atualizado automaticamente para a versão mais recente do Azure AD Connect que é lançado para atualização automática. Observe que nem todas as configurações de Azure AD Connect são elegíveis para a atualização automática. Siga este link para ler mais sobre a [atualização automática](how-to-connect-install-automatic-upgrade.md)
 
 ## <a name="14320"></a>1.4.32.0
 ### <a name="release-status"></a>Status da versão
-08/11/2019: liberado para download. Não disponível para atualização automática
+11/08/2019: liberado para download. Não disponível para atualização automática
 
 >[!IMPORTANT]
 >Devido a uma alteração de esquema interna nesta versão do Azure AD Connect, se você gerenciar as definições de configuração da relação de confiança do ADFS usando o PowerShell do MSOnline, deverá atualizar seu módulo do MSOnline PowerShell para a versão 1.1.183.57 ou superior
 ### <a name="fixed-issues"></a>Problemas corrigidos
 
 Esta versão corrige um problema com dispositivos ingressados no Azure AD híbridos existentes. Esta versão contém uma nova regra de sincronização de dispositivo que corrige esse problema.
-Observe que essa alteração de regra pode causar a exclusão de dispositivos obsoletos do Azure AD. Isso não é uma causa de preocupação, pois esses objetos de dispositivo não são usados pelo Azure AD durante a autorização de acesso condicional. Para alguns clientes, o número de dispositivos que serão excluídos por meio dessa alteração de regra pode exceder o limite de exclusão. Se você vir a exclusão de objetos de dispositivo no Azure AD excedendo o limite de exclusão de exportação, é aconselhável permitir que as exclusões sejam passadas. [Como permitir que as exclusões fluam quando excederem o limite de exclusão](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes)
+Observe que essa alteração de regra pode causar a exclusão de dispositivos obsoletos do Azure AD. Isso não é uma causa de preocupação, pois esses objetos de dispositivo não são usados pelo Azure AD durante a autorização de acesso condicional. Para alguns clientes, o número de dispositivos que serão excluídos por meio dessa alteração de regra pode exceder o limite de exclusão. Se você vir a exclusão de objetos de dispositivo no Azure AD excedendo o limite de exclusão de exportação, é aconselhável permitir que as exclusões sejam passadas. [Como permitir que as exclusões fluam quando excederem o limite de exclusão](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 
 ## <a name="14250"></a>1.4.25.0
 
@@ -129,7 +124,7 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 
 ### <a name="fixed-issues"></a>Problemas corrigidos 
 
-- Correção de uma elevação de vulnerabilidade de privilégio existente no Microsoft Azure Active Directory Connect Build 1.3.20.0.  Essa vulnerabilidade, em determinadas condições, pode permitir que um invasor execute dois cmdlets do PowerShell no contexto de uma conta com privilégios e execute ações privilegiadas.  Essa atualização de segurança resolve o problema desabilitando esses cmdlets. Para obter mais informações, consulte [atualização de segurança](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000).
+- Correção de uma elevação de vulnerabilidade de privilégio existente no Microsoft Azure Active Directory Connect Build 1.3.20.0.  Essa vulnerabilidade, em determinadas condições, pode permitir que um invasor execute dois cmdlets do PowerShell no contexto de uma conta com privilégios e execute ações privilegiadas.  Essa atualização de segurança resolve o problema desabilitando esses cmdlets. Para obter mais informações, consulte [atualização de segurança](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000).
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -398,9 +393,9 @@ Status: liberado para selecionar clientes
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 #### <a name="fixed-issues"></a>Problemas corrigidos
-* Correção da janela de tempo em tarefas em segundo plano para a página de filtragem de partição ao alternar para a próxima página.
+* Corrigi a janela de tempo em tarefas em segundo plano para a página de filtragem de partições quando mudar para a página seguinte.
 
-* Corrigido um bug que causou violação de acesso durante a ação personalizada ConfigDB.
+* Foi corrigido um erro que provocou a violação de acesso durante a ação personalizada ConfigDB.
 
 * Correção de um bug para recuperar do tempo limite da conexão SQL.
 
@@ -420,7 +415,7 @@ Status: liberado para selecionar clientes
 * telemetria de aplicativos-o administrador pode alternar entre/desativar essa classe de dados às
 
 * Dados de integridade do Azure AD-o administrador deve visitar o portal de integridade para controlar suas configurações de integridade.
-   Depois que a política de serviço for alterada, os agentes irão lê-la e imaplicá-la.
+   Assim que a política do serviço tiver sido alterada, os agentes serão ler e impor-lo.
 
 * Adição de ações de configuração de write-back do dispositivo e uma barra de progresso para inicialização de página
 
@@ -439,13 +434,13 @@ As alterações se encarregarão do seguinte:
 
 * Foi adicionado um novo utilitário para solucionar problemas de sincronização de um objeto específico. Ele está disponível na opção "solucionar problemas de sincronização de objetos" do assistente de Azure AD Connect solucionar problemas de tarefa adicional. Atualmente, o utilitário verifica o seguinte:
 
-  * Incompatibilidade de UserPrincipalName entre o objeto de usuário sincronizado e a conta de usuário no locatário do Azure AD.
-  * Se o objeto for filtrado da sincronização devido à filtragem de domínio
-  * Se o objeto for filtrado da sincronização devido à filtragem da UO (unidade organizacional)
+  * Erro de correspondência de UserPrincipalName entre a conta de utilizador no inquilino do Azure AD e o objeto de utilizador sincronizado.
+  * Se o objeto é filtrado em sincronização devido a filtragem de domínio
+  * Se o objeto é filtrado em sincronização devido a unidade organizacional (UO), filtragem
 
 * Foi adicionado um novo utilitário para sincronizar o hash de senha atual armazenado no Active Directory local para uma conta de usuário específica.
 
-O utilitário não requer uma alteração de senha. Ele está disponível na opção ' solucionar a sincronização de hash de senha ' do assistente de Azure AD Connect solucionar problemas de tarefa adicional.
+O utilitário não requer uma alteração de palavra-passe. Ele está disponível na opção ' solucionar a sincronização de hash de senha ' do assistente de Azure AD Connect solucionar problemas de tarefa adicional.
 
 
 
@@ -813,8 +808,8 @@ CBool(
     | --- | --- | --- |
     |CertSubject|CertIssuer|CertKeyAlgorithm|
     |CertSubjectNameDN|CertIssuerOid|CertNameInfo|
-    |CertSubjectNameOid|CertIssuerDN|Iscert|
-    |CertFriendlyName|certThumbprint|CertExtensionOids|
+    |CertSubjectNameOid|CertIssuerDN|IsCert|
+    |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Selecione|
@@ -825,17 +820,17 @@ CBool(
 
   * Os seguintes atributos foram adicionados ao esquema MV:
     * Grupo: AccountName
-    * Grupo: domainNetBios
-    * Grupo: domainFQDN
+    * Group: domainNetBios
+    * Group: domainFQDN
     * Pessoa: distinguishedName
 
   * Os seguintes atributos foram adicionados ao esquema do Azure AD Connector:
-    * Grupo: OnPremisesSamAccountName
-    * Grupo: NetBiosName
-    * Grupo: NomeDomínioDNS
+    * Group: OnPremisesSamAccountName
+    * Group: NetBiosName
+    * Group: DnsDomainName
     * Usuário: OnPremisesDistinguishedName
 
-* O script de cmdlet ADSyncDomainJoinedComputerSync agora tem um novo parâmetro opcional chamado AzureEnvironment. O parâmetro é usado para especificar em qual região o locatário de Azure Active Directory correspondente está hospedado. Os valores válidos incluem:
+* O script de cmdlet ADSyncDomainJoinedComputerSync agora tem um novo parâmetro opcional chamado AzureEnvironment. O parâmetro é usado para especificar em qual região o locatário de Azure Active Directory correspondente está hospedado. Valores válidos incluem:
   * AzureCloud (padrão)
   * AzureChinaCloud
   * AzureGermanyCloud
@@ -1032,7 +1027,7 @@ Lançamento: dezembro de 2016
 * A regra de declaração issuerid para AD FS está ausente nesta compilação. A regra de declaração issuerid será necessária se você estiver Federando vários domínios com o Azure AD. Se você estiver usando Azure AD Connect para gerenciar sua implantação de AD FS local, a atualização para essa compilação removerá a regra de declaração issuerid existente da sua configuração de AD FS. Você pode contornar o problema adicionando a regra de declaração issuerid após a instalação/atualização. Para obter detalhes sobre como adicionar a regra de declaração issuerid, consulte este artigo sobre [suporte a vários domínios para federação com o Azure ad](how-to-connect-install-multiple-domains.md).
 * A porta 9090 deve estar aberta de saída para concluir a instalação.
 
-**Novos recursos:**
+**Novas funcionalidades:**
 
 * Autenticação de passagem (versão prévia).
 
@@ -1052,7 +1047,7 @@ Lançamento: novembro de 2016
 * Corrigido um problema em que as regras de junção não são reavaliadas quando um objeto no espaço do conector simultaneamente fica fora do escopo de uma regra de junção e se torna dentro do escopo para outro. Isso pode acontecer se você tiver duas ou mais regras de junção cujas condições de junção são mutuamente exclusivas.
 * Corrigido um problema em que as regras de sincronização de entrada (do Azure AD), que não contêm regras de junção, não serão processadas se tiverem valores de precedência mais baixos do que aquelas que contêm regras de junção.
 
-**Na**
+**Melhorias:**
 
 * Suporte adicionado para instalar o Azure AD Connect no Windows Server 2016 Standard ou superior.
 * Adicionado suporte para usar o SQL Server 2016 como o banco de dados remoto para Azure AD Connect.
@@ -1071,7 +1066,7 @@ Lançamento: agosto de 2016
 * Azure AD Connect assistente não mostra a sincronização de senha real e a configuração de write-back de senha quando o servidor está no modo de preparo. Ele sempre os mostra como desabilitado.
 * As alterações de configuração na sincronização de senha e no write-back de senha não são persistidas pelo assistente de Azure AD Connect quando o servidor está no modo de preparo.
 
-**Na**
+**Melhorias:**
 
 * Atualizado o cmdlet Start-Adsyncsynccycle adicionado para indicar se ele consegue iniciar um novo ciclo de sincronização ou não com êxito.
 * Adicionado o cmdlet Stop-Adsyncsynccycle adicionado para encerrar o ciclo de sincronização e a operação, que estão em andamento no momento.
@@ -1090,7 +1085,7 @@ Lançamento: junho de 2016
 ## <a name="111800"></a>1.1.180.0
 Lançamento: maio de 2016
 
-**Novos recursos:**
+**Novas funcionalidades:**
 
 * Avisa e ajuda a verificar domínios se você não o fez antes de executar o Azure AD Connect.
 * Adicionado suporte para [Microsoft Cloud Alemanha](reference-connect-instances.md#microsoft-cloud-germany).
@@ -1106,7 +1101,7 @@ Lançamento: maio de 2016
 ## <a name="111300"></a>1.1.130.0
 Lançamento: abril de 2016
 
-**Novos recursos:**
+**Novas funcionalidades:**
 
 * Adicionado suporte para atributos de valores múltiplos para [extensões de diretório](how-to-connect-sync-feature-directory-extensions.md).
 * Suporte adicionado para mais variações de configuração para que a [atualização automática](how-to-connect-install-automatic-upgrade.md) seja considerada qualificada para atualização.
@@ -1134,7 +1129,7 @@ Lançamento: fevereiro de 2016
 ## <a name="111050"></a>1.1.105.0
 Lançamento: fevereiro de 2016
 
-**Novos recursos:**
+**Novas funcionalidades:**
 
 * Recurso de [atualização automática](how-to-connect-install-automatic-upgrade.md) para clientes de configurações expressas.
 * Suporte para o administrador global usando a autenticação multifator do Azure e Privileged Identity Management no assistente de instalação.
@@ -1172,7 +1167,7 @@ Lançamento: dezembro de 2015
 ## <a name="1091250"></a>1.0.9125.0
 Lançamento: novembro de 2015
 
-**Novos recursos:**
+**Novas funcionalidades:**
 
 * Pode reconfigurar AD FS para a relação de confiança do Azure AD.
 * Pode atualizar o esquema de Active Directory e regenerar as regras de sincronização.
@@ -1186,7 +1181,7 @@ Lançamento: novembro de 2015
 
 **Novo cenário com suporte:**
 
-* Dá suporte a várias organizações do Exchange locais. Para obter mais informações, consulte [implantações híbridas com várias florestas Active Directory](https://technet.microsoft.com/library/jj873754.aspx).
+* Dá suporte a várias organizações do Exchange locais. Para obter mais informações, consulte [implantações híbridas com várias florestas Active Directory](https://docs.microsoft.com/previous-versions/exchange-server/exchange-150/jj873754(v=exchg.150)).
 
 **Problemas corrigidos:**
 
@@ -1204,7 +1199,7 @@ Lançamento: novembro de 2015
 ## <a name="1086670"></a>1.0.8667.0
 Lançamento: agosto de 2015
 
-**Novos recursos:**
+**Novas funcionalidades:**
 
 * O assistente de instalação do Azure AD Connect agora está localizado em todos os idiomas do Windows Server.
 * Suporte adicionado para desbloqueio de conta ao usar o gerenciamento de senhas do Azure AD.
@@ -1233,7 +1228,7 @@ Lançamento: junho de 2015
 
 Nome alterado de Azure AD Sync para Azure AD Connect.
 
-**Novos recursos:**
+**Novas funcionalidades:**
 
 * Instalação de [configurações expressas](how-to-connect-install-express.md)
 * Pode [configurar AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs)
@@ -1272,14 +1267,14 @@ Lançamento: abril de 2015
 * Forçar uma sincronização de senha também remove a lista de controladores de domínio preferenciais.
 * CSExportAnalyzer tem problemas com alguns Estados de objetos.
 
-**Novos recursos:**
+**Novas funcionalidades:**
 
 * Uma junção agora pode se conectar ao tipo de objeto "ANY" no MV.
 
 ## <a name="104850222"></a>1.0.485.0222
 Lançamento: fevereiro de 2015
 
-**Na**
+**Melhorias:**
 
 * Melhor desempenho de importação.
 
@@ -1293,7 +1288,7 @@ Lançamento: fevereiro de 2015
 ## <a name="104751202"></a>1.0.475.1202
 Lançamento: dezembro de 2014
 
-**Novos recursos:**
+**Novas funcionalidades:**
 
 * Agora há suporte para a sincronização de senha com filtragem baseada em atributo. Para obter mais informações, consulte [sincronização de senha com filtragem](how-to-connect-sync-configure-filtering.md).
 * O atributo ms-DS-ExternalDirectoryObjectID é gravado novamente em Active Directory. Este recurso adiciona suporte para aplicativos do Office 365. Ele usa o OAuth2 para acessar caixas de correio online e locais em uma implantação híbrida do Exchange.
@@ -1314,7 +1309,7 @@ Lançamento: dezembro de 2014
 ## <a name="104701023"></a>1.0.470.1023
 Lançamento: outubro de 2014
 
-**Novos recursos:**
+**Novas funcionalidades:**
 
 * Sincronização de senha de vários Active Directory locais para o Azure AD.
 * Interface do usuário de instalação localizada em todos os idiomas do Windows Server.

@@ -2,7 +2,7 @@
 title: Utilizadores sinalizados no relatório de segurança de risco no portal do Azure Active Directory | Microsoft Docs
 description: Saiba mais sobre os utilizadores sinalizados no relatório de segurança de risco no portal do Azure Active Directory
 services: active-directory
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/17/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e6b79c7d5c2ed9744dc00eb1588c35f8ea94a76
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 894d8dfb7f870ec4a2a11f1d75ee0376b25d8c7f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127640"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014455"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Usuários sinalizados para o relatório de risco no portal do Azure
 
@@ -98,7 +98,7 @@ Para investigar uma detecção de risco, selecione uma na lista para abrir a fol
 ![Inícios de Sessão de Risco](./media/concept-user-at-risk/325.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como configurar a política de risco do usuário](../identity-protection/howto-user-risk-policy.md)
 - [Como configurar a política de correção de risco](../identity-protection/howto-user-risk-policy.md)

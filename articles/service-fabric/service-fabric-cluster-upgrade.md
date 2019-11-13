@@ -1,5 +1,5 @@
 ---
-title: Atualizar um cluster de Service Fabric do Azure | Microsoft Docs
+title: Atualizar um cluster de Service Fabric do Azure
 description: Saiba mais sobre como atualizar a versão ou a configuração de um cluster de Service Fabric do Azure.  Este artigo descreve como definir o modo de atualização de cluster, atualizar certificados, adicionar portas de aplicativo, realizar patches de sistema operacional e o que você pode esperar quando as atualizações são executadas
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: atsenthi
-ms.openlocfilehash: 2c8465a3aba4a21efaa20a118807d739dd501b09
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 161c720fbcc9370aaf273b241e88a7184f47371b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599773"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013308"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Atualizando e atualizando um cluster de Service Fabric do Azure
 
@@ -36,7 +36,7 @@ Você pode definir seu cluster para receber atualizações automáticas de malha
 ## <a name="fabric-upgrade-behavior-during-automatic-upgrades"></a>Comportamento de atualização do Fabric durante atualizações automáticas
 A Microsoft mantém o código de malha e a configuração que é executada em um cluster do Azure. Executamos atualizações monitoradas automáticas para o software de acordo com a necessidade. Essas atualizações podem ser código, configuração ou ambas. Para garantir que seu aplicativo sofra nenhum impacto ou impacto mínimo devido a essas atualizações, realizamos as atualizações nas seguintes fases:
 
-### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>Fase 1: Uma atualização é executada usando todas as políticas de integridade do cluster
+### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>Fase 1: uma atualização é executada usando todas as políticas de integridade do cluster
 Durante essa fase, as atualizações passam por um domínio de atualização por vez e os aplicativos que estavam em execução no cluster continuam a ser executados sem nenhum tempo de inatividade. As políticas de integridade do cluster (uma combinação de integridade do nó e a integridade de todos os aplicativos em execução no cluster) são seguidas durante a atualização.
 
 Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida. Em seguida, um email é enviado para o proprietário da assinatura. O email contém as seguintes informações:
@@ -49,7 +49,7 @@ Tentamos executar a mesma atualização mais algumas vezes no caso de qualquer a
 
 Se as políticas de integridade do cluster forem atendidas, a atualização será considerada com êxito e marcada como concluída. Isso pode ocorrer durante a atualização inicial ou qualquer retomada da atualização nesta fase. Não há nenhuma confirmação de email de uma execução bem-sucedida. Isso é para evitar o envio de emails demais – o recebimento de um email deve ser visto como uma exceção para normal. Esperamos que a maioria das atualizações do cluster seja realizada com sucesso sem afetar a disponibilidade do aplicativo.
 
-### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>Fase 2: Uma atualização é executada usando apenas as políticas de integridade padrão
+### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>Fase 2: uma atualização é executada usando somente políticas de integridade padrão
 As políticas de integridade nessa fase são definidas de forma que o número de aplicativos que estavam íntegros no início da atualização permaneça o mesmo durante o processo de atualização. Como na fase 1, as atualizações da fase 2 passam por um domínio de atualização por vez e os aplicativos que estavam em execução no cluster continuam a ser executados sem nenhum tempo de inatividade. As políticas de integridade do cluster (uma combinação de integridade do nó e a integridade de todos os aplicativos em execução no cluster) são seguidas durante a atualização.
 
 Se as políticas de integridade do cluster em vigor não forem atendidas, a atualização será revertida. Em seguida, um email é enviado para o proprietário da assinatura. O email contém as seguintes informações:
@@ -62,7 +62,7 @@ Tentamos executar a mesma atualização mais algumas vezes no caso de qualquer a
 
 Se as políticas de integridade do cluster forem atendidas, a atualização será considerada com êxito e marcada como concluída. Isso pode ocorrer durante a atualização inicial ou qualquer retomada da atualização nesta fase. Não há nenhuma confirmação de email de uma execução bem-sucedida.
 
-### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>Fase 3: Uma atualização é executada usando políticas de integridade agressivas
+### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>Fase 3: uma atualização é executada usando políticas de integridade agressivas
 Essas políticas de integridade nessa fase são voltadas para a conclusão da atualização em vez da integridade dos aplicativos. Algumas atualizações de cluster terminam nesta fase. Se o seu cluster chegar a essa fase, haverá uma boa chance de que seu aplicativo se torne não íntegro e/ou perca a disponibilidade.
 
 De forma semelhante às outras duas fases, as atualizações da fase 3 passam por um domínio de atualização por vez.
@@ -102,7 +102,7 @@ Muitas definições de configuração diferentes podem ser personalizadas em um 
 O POA (aplicativo de orquestração de patch) é um aplicativo Service Fabric que automatiza a aplicação de patch do sistema operacional em um Cluster Service Fabric sem tempo de inatividade. O [aplicativo de orquestração de patch para Windows](service-fabric-patch-orchestration-application.md) pode ser implantado em seu cluster para instalar patches de maneira orquestrada enquanto mantém os serviços disponíveis o tempo todo.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como personalizar algumas das configurações de [malha de cluster do Service Fabric](service-fabric-cluster-fabric-settings.md)
 * Saiba como [dimensionar o cluster para dentro e para fora](service-fabric-cluster-scale-up-down.md)
 * Saiba mais sobre [atualizações de aplicativos](service-fabric-application-upgrade.md)

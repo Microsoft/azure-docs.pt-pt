@@ -1,19 +1,18 @@
 ---
-title: Configurar a recuperação de desastres para o Azure para servidores físicos locais com Azure Site Recovery
+title: Configurar a recuperação de desastre de servidores físicos locais com o Azure Site Recovery
 description: Saiba como configurar a recuperação de desastres para o Azure para servidores Windows e Linux locais, com o serviço Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 55b375c1e98518a6c3bc2926030cfe072963216c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: a298505779def353834c294f7b5a406720fdd46c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814549"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936173"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar a recuperação de desastres para o Azure para servidores físicos locais
 
@@ -85,8 +84,8 @@ Configure uma [conta de armazenamento do Azure](../storage/common/storage-quicks
 O serviço de mobilidade deve ser instalado em cada servidor que você deseja replicar. Site Recovery instala esse serviço automaticamente quando você habilita a replicação para o servidor. Para instalar automaticamente, você precisa preparar uma conta que Site Recovery será usada para acessar o servidor.
 
 - Você pode usar uma conta local ou de domínio
-- Para VMs do Windows, se você não estiver usando uma conta de domínio, desabilite o controle de acesso de usuário remoto no computador local. Para fazer isso, em registrar em **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy**, com um valor de 1.
-- Para adicionar a entrada do registro para desabilitar a configuração de uma CLI, digite:``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- Para VMs do Windows, se você não estiver usando uma conta de domínio, desabilite o controle de acesso de usuário remoto no computador local. Para fazer isso, no registro em **HKEY_LOCAL_MACHINE \Software\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy**, com um valor de 1.
+- Para adicionar a entrada do registro para desabilitar a configuração de uma CLI, digite: ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - Para o Linux, a conta deve ser raiz no servidor Linux de origem.
 
 
@@ -106,11 +105,11 @@ Selecione o que replicar e para replicar para o.
 
 Configure o servidor de configuração, registre-o no cofre e descubra as VMs.
 
-1. Clique em **site Recovery** > **preparar a infraestrutura** > **origem**.
+1. Clique em **Site Recovery** > **preparar a infraestrutura** > **origem**.
 2. Se você não tiver um servidor de configuração, clique em **+ servidor de configuração**.
 3. Em **Adicionar servidor**, verifique se o **servidor de configuração** aparece em tipo de **servidor**.
 4. Baixe o arquivo de instalação do Site Recovery Unified setup.
-5. Transferir a chave de registo do cofre. Isso é necessário quando você executa a instalação unificada. A chave é válida durante cinco dias depois de gerá-la.
+5. Transfira a chave de registo do cofre. Isso é necessário quando você executa a instalação unificada. A chave é válida durante cinco dias depois de gerá-la.
 
    ![Configurar a origem](./media/physical-azure-disaster-recovery/source-environment.png)
 
@@ -137,7 +136,7 @@ Execute a instalação unificada como um administrador local para instalar o ser
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-Após a conclusão do registro, o servidor de configuração é exibido na página de **configurações** > de**servidores** no cofre.
+Após a conclusão do registro, o servidor de configuração é exibido na página **configurações** > **servidores** no cofre.
 
 ## <a name="set-up-the-target-environment"></a>Configurar o ambiente de destino
 
@@ -163,7 +162,7 @@ Selecione e verifique os recursos de destino.
 
 A política é associada automaticamente ao servidor de configuração. Por predefinição, uma política correspondente é criada automaticamente para reativação pós-falha. Por exemplo, se a política de replicação for **Rep-Policy** , uma política de failback **Rep-Policy-failback** será criada. Esta política não é utilizada depois de iniciar uma reativação pós-falha a partir do Azure.
 
-## <a name="enable-replication"></a>Ativar replicação
+## <a name="enable-replication"></a>Ativar a replicação
 
 Habilite a replicação para cada servidor.
 
@@ -179,12 +178,12 @@ Habilite a replicação para cada servidor.
 7. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se vão ligar quando forem criadas após a ativação pós-falha.
 8. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a definição de rede a todas as máquinas selecionadas para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina. 
 9. Em **computadores físicos**e clique em **+ computador físico**. Especifique o nome e o endereço IP. Selecione o sistema operacional do computador que você deseja replicar. Leva alguns minutos para que os servidores sejam descobertos e listados. 
-10. Em **Propriedades** > **Configurar Propriedades**, selecione a conta que será usada pelo servidor de processo para instalar automaticamente o serviço de mobilidade no computador.
+10. Em **propriedades** > **Configurar Propriedades**, selecione a conta que será usada pelo servidor de processo para instalar automaticamente o serviço de mobilidade no computador.
 11. Em **Definições de replicação** > **Configurar as definições de replicação**, certifique-se de que a política de replicação correta está selecionada. 
 12. Clique em **Ativar Replicação**. Pode controlar o progresso da tarefa **Ativar Proteção** em **Definições** > **Tarefas** > **Tarefas do Site Recovery**. Depois da tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
 
 
-Para monitorar os servidores adicionados, você pode verificar a hora da última descoberta para eles em **servidores** > de configuração**último contato em**. Para adicionar computadores sem aguardar um horário de descoberta agendada, realce o servidor de configuração (não clique nele) e clique em **Atualizar**.
+Para monitorar os servidores adicionados, você pode verificar a hora da última descoberta para eles em **servidores de configuração** > **último contato em**. Para adicionar computadores sem aguardar um horário de descoberta agendada, realce o servidor de configuração (não clique nele) e clique em **Atualizar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

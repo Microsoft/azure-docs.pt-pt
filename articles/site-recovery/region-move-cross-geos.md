@@ -1,25 +1,24 @@
 ---
-title: Mover VMs IaaS do Azure entre o Azure governamental e as regiões públicas com o serviço de Azure Site Recovery | Microsoft Docs
-description: Use Azure Site Recovery para mover VMs de IaaS do Azure entre regiões públicas do Azure governamental &.
-services: site-recovery
+title: Mover VMs do Azure entre regiões governamentais e públicas com Azure Site Recovery
+description: Use Azure Site Recovery para mover as VMs do Azure entre o Azure governamental e as regiões públicas.
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: bff6268507c0d2ec0aa1eac0c7e2e9d2513ded58
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 2a749e9345fec0e91751641cd15805d7f7d62d95
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376128"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961416"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover VMs do Azure entre o Azure governamental e as regiões públicas 
 
 Talvez você queira mover suas VMs de IaaS entre o Azure governamental e as regiões públicas para aumentar a disponibilidade de suas VMs existentes, melhorar a capacidade de gerenciamento ou por motivos de governança, conforme detalhado [aqui](azure-to-azure-move-overview.md).
 
-Além de usar o serviço de [Azure site Recovery](site-recovery-overview.md) para gerenciar e orquestrar a recuperação de desastres de máquinas locais e VMs do Azure para fins de continuidade de negócios e recuperação de desastres (BCDR), você também pode usar site Recovery para gerenciar a movimentação do Azure VMs para uma região secundária.       
+Além de usar o serviço de [Azure site Recovery](site-recovery-overview.md) para gerenciar e orquestrar a recuperação de desastres de máquinas locais e VMs do Azure para fins de continuidade de negócios e recuperação de desastres (BCDR), você também pode usar site Recovery para gerenciar a movimentação de VMs do Azure para uma região secundária.       
 
 Este tutorial mostra como mover VMs do Azure entre regiões do Azure governamental e públicas usando o Azure Site Recovery. O mesmo pode ser estendido para mover VMs entre pares de regiões que não estão dentro do mesmo cluster geográfico. Neste tutorial, ficará a saber como:
 
@@ -79,8 +78,8 @@ Configure uma [conta de armazenamento do Azure](../storage/common/storage-quicks
 O serviço de mobilidade deve ser instalado em cada servidor que você deseja replicar. Site Recovery instala esse serviço automaticamente quando você habilita a replicação para o servidor. Para instalar automaticamente, você precisa preparar uma conta que Site Recovery será usada para acessar o servidor.
 
 - Você pode usar uma conta local ou de domínio
-- Para VMs do Windows, se você não estiver usando uma conta de domínio, desabilite o controle de acesso de usuário remoto no computador local. Para fazer isso, em registrar em **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy**, com um valor de 1.
-- Para adicionar a entrada do registro para desabilitar a configuração de uma CLI, digite:``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- Para VMs do Windows, se você não estiver usando uma conta de domínio, desabilite o controle de acesso de usuário remoto no computador local. Para fazer isso, no registro em **HKEY_LOCAL_MACHINE \Software\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy**, com um valor de 1.
+- Para adicionar a entrada do registro para desabilitar a configuração de uma CLI, digite: ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - Para o Linux, a conta deve ser raiz no servidor Linux de origem.
 
 
@@ -111,23 +110,23 @@ As etapas a seguir irão orientá-lo sobre como usar Azure Site Recovery para co
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Crie o cofre em qualquer região, exceto na região de origem.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) > **Serviços de Recuperação**.
-2. Clique em **criar um recurso** > **ferramentas** > de gerenciamento**backup e site Recovery**.
+2. Clique em **criar um recurso** > **ferramentas de gerenciamento** > **backup e site Recovery**.
 3. No **Nome**, especifique o nome amigável **ContosoVMVault**. Se você tiver mais de um. , selecione a assinatura apropriada.
 4. Crie um grupo de recursos **ContosoRG**.
 5. Selecione uma região do Azure. Para verificar as regiões suportadas, veja a disponibilidade geográfica em [Detalhes dos Preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Em cofres dos serviços de recuperação, clique em **visão geral** > **ConsotoVMVault** >  **+ replicar**
-7. Selecione **para o Azure** > **não virtualizado/outro**.
+7. Selecione **para o Azure** > **não virtualizados/outros**.
 
 ### <a name="set-up-the-configuration-server-to-discover-vms"></a>Configure o servidor de configuração para descobrir VMs.
 
 
 Configure o servidor de configuração, registre-o no cofre e descubra as VMs.
 
-1. Clique em **site Recovery** > **preparar a infraestrutura** > **origem**.
+1. Clique em **Site Recovery** > **preparar a infraestrutura** > **origem**.
 2. Se você não tiver um servidor de configuração, clique em **+ servidor de configuração**.
 3. Em **Adicionar servidor**, verifique se o **servidor de configuração** aparece em tipo de **servidor**.
 4. Baixe o arquivo de instalação do Site Recovery Unified setup.
-5. Transferir a chave de registo do cofre. Isso é necessário quando você executa a instalação unificada. A chave é válida durante cinco dias depois de gerá-la.
+5. Transfira a chave de registo do cofre. Isso é necessário quando você executa a instalação unificada. A chave é válida durante cinco dias depois de gerá-la.
 
    ![Configurar a origem](./media/physical-azure-disaster-recovery/source-environment.png)
 
@@ -154,7 +153,7 @@ Execute a instalação unificada como um administrador local para instalar o ser
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-Após a conclusão do registro, o servidor de configuração é exibido na página de **configurações** > de**servidores** no cofre.
+Após a conclusão do registro, o servidor de configuração é exibido na página **configurações** > **servidores** no cofre.
 
 ### <a name="configure-target-settings-for-replication"></a>Definir configurações de destino para replicação
 
@@ -180,7 +179,7 @@ Selecione e verifique os recursos de destino.
 
 A política é associada automaticamente ao servidor de configuração. Por predefinição, uma política correspondente é criada automaticamente para reativação pós-falha. Por exemplo, se a política de replicação for **Rep-Policy** , uma política de failback **Rep-Policy-failback** será criada. Esta política não é utilizada depois de iniciar uma reativação pós-falha a partir do Azure.
 
-### <a name="enable-replication"></a>Ativar replicação
+### <a name="enable-replication"></a>Ativar a replicação
 
 - Site Recovery instalará o serviço de mobilidade quando a replicação estiver habilitada.
 - Quando você habilita a replicação para um servidor, pode levar 15 minutos ou mais para que as alterações entrem em vigor e apareçam no Portal.
@@ -198,12 +197,12 @@ A política é associada automaticamente ao servidor de configuração. Por pred
    > [!WARNING]
    > Você precisa inserir o endereço IP da VM do Azure que pretende mover
 
-10. Em **Propriedades** > **Configurar Propriedades**, selecione a conta que será usada pelo servidor de processo para instalar automaticamente o serviço de mobilidade no computador.
+10. Em **propriedades** > **Configurar Propriedades**, selecione a conta que será usada pelo servidor de processo para instalar automaticamente o serviço de mobilidade no computador.
 11. Em **Definições de replicação** > **Configurar as definições de replicação**, certifique-se de que a política de replicação correta está selecionada. 
 12. Clique em **Ativar Replicação**. Pode controlar o progresso da tarefa **Ativar Proteção** em **Definições** > **Tarefas** > **Tarefas do Site Recovery**. Depois da tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
 
 
-Para monitorar os servidores adicionados, você pode verificar a hora da última descoberta para eles em **servidores** > de configuração**último contato em**. Para adicionar computadores sem aguardar um horário de descoberta agendada, realce o servidor de configuração (não clique nele) e clique em **Atualizar**.
+Para monitorar os servidores adicionados, você pode verificar a hora da última descoberta para eles em **servidores de configuração** > **último contato em**. Para adicionar computadores sem aguardar um horário de descoberta agendada, realce o servidor de configuração (não clique nele) e clique em **Atualizar**.
 
 ## <a name="test-the-configuration"></a>Testar a configuração
 
@@ -211,9 +210,9 @@ Para monitorar os servidores adicionados, você pode verificar a hora da última
 1. Navegue até o cofre, em **configurações** > **itens replicados**, clique na máquina virtual que você pretende mover para a região de destino, clique em + ícone de **failover de teste** .
 2. Em **Ativação Pós-falha**, selecione um ponto de recuperação para utilizar na ativação pós-falha:
 
-   - **Mais recente processado**: Falha na VM para o último ponto de recuperação que foi processado pelo serviço de Site Recovery. O carimbo de data/hora é apresentado. Com esta opção, não é despendido tempo a processar os dados, pelo que oferece um RTO (Objetivo de Tempo de Recuperação) baixo
-   - **Consistente com o aplicativo mais recente**: Essa opção faz failover de todas as VMs para o ponto de recuperação consistente com o aplicativo mais recente. O carimbo de data/hora é apresentado.
-   - **Personalizado**: Selecione qualquer ponto de recuperação.
+   - **Processado mais recentemente**: faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo serviço do Site Recovery. O carimbo de data/hora é apresentado. Com esta opção, não é despendido tempo a processar os dados, pelo que oferece um RTO (Objetivo de Tempo de Recuperação) baixo
+   - **Consistente com a aplicação mais recente**: esta opção faz a ativação pós-falha de todas as VMs para o último ponto de recuperação consistente com a aplicação. O carimbo de data/hora é apresentado.
+   - **Personalizado**: selecione qualquer ponto de recuperação.
 
 3. Selecione a rede virtual do Azure de destino para a qual você deseja mover as VMs do Azure para testar a configuração. 
 
@@ -228,7 +227,7 @@ Para monitorar os servidores adicionados, você pode verificar a hora da última
 
 1. Navegue até o cofre, em **configurações** > **itens replicados**, clique na máquina virtual e, em seguida, clique em **failover**.
 2. Em **Ativação pós-falha**, selecione **Mais recente**. 
-3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar a VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Trabalhos**. 
+3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar a VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Tarefas**. 
 4. Quando o trabalho for concluído, verifique se a VM aparece na região de destino do Azure conforme o esperado.
 5. Em **Itens replicados**, clique com o botão direito do rato na VM > **Consolidar**. Isso conclui o processo de movimentação para a região de destino. Aguarde até que o trabalho de confirmação seja concluído.
 
@@ -246,7 +245,7 @@ Caso você não tenha planos para reutilizar qualquer um dos recursos de origem,
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você moveu uma VM do Azure para uma região diferente do Azure. Agora você pode configurar a recuperação de desastre para a VM movida.
 

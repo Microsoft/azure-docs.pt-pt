@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 229d960f7851b5fab8504b6c2a109bece6c7b31f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 34a8b27442fc3f755cbe33f61857aa13d3be700b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969100"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012826"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Fazer backup e restaurar bancos de dados SQL em VMs do Azure com o PowerShell
 
@@ -24,6 +24,7 @@ Este artigo descreve como usar Azure PowerShell para fazer backup e recuperar um
 Este tutorial explica como:
 
 > [!div class="checklist"]
+>
 > * Configure o PowerShell e registre o provedor de serviços de recuperação do Azure.
 > * Crie um cofre dos Serviços de Recuperação.
 > * Configure o backup para o banco de BD SQL em uma VM do Azure.
@@ -270,8 +271,8 @@ Depois que a tentativa de autoproteção é determinada, a consulta no computado
 
 O backup do Azure pode restaurar SQL Server bancos de dados que estão em execução em VMs do Azure da seguinte maneira:
 
-1. Restaurar para uma data ou hora específica (para o segundo) usando backups de log de transações. O backup do Azure determina automaticamente o backup diferencial completo apropriado e a cadeia de backups de log que são necessários para restaurar com base na hora selecionada.
-2. Restaure um backup completo ou diferencial específico para restaurar para um ponto de recuperação específico.
+* Restaurar para uma data ou hora específica (para o segundo) usando backups de log de transações. O backup do Azure determina automaticamente o backup diferencial completo apropriado e a cadeia de backups de log que são necessários para restaurar com base na hora selecionada.
+* Restaure um backup completo ou diferencial específico para restaurar para um ponto de recuperação específico.
 
 Verifique os pré-requisitos mencionados [aqui](restore-sql-database-azure-vm.md#prerequisites) antes de restaurar bancos de SQL.
 
@@ -335,9 +336,9 @@ A saída acima significa que o usuário pode restaurar para qualquer ponto no te
 
 No caso da restauração do BD SQL, há suporte para os seguintes cenários de restauração.
 
-1. Substituindo o banco de dados SQL de backup por um de outro ponto de recuperação-OriginalWorkloadRestore
-2. Restaurando o banco de BD SQL como um novo DB na mesma instância SQL-AlternateWorkloadRestore
-3. Restaurando o banco de BD SQL como um novo DB em outra instância do SQL em outra VM do SQL-AlternateWorkloadRestore
+* Substituindo o banco de dados SQL de backup por um de outro ponto de recuperação-OriginalWorkloadRestore
+* Restaurando o banco de BD SQL como um novo DB na mesma instância SQL-AlternateWorkloadRestore
+* Restaurando o banco de BD SQL como um novo DB em outra instância do SQL em outra VM do SQL-AlternateWorkloadRestore
 
 Depois de buscar o ponto de recuperação relevante (diferenciado ou ponto no tempo de log), use o cmdlet [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) do PS para buscar o objeto de configuração de recuperação de acordo com o plano de recuperação desejado.
 
@@ -560,12 +561,12 @@ Para grupos de disponibilidade do SQL Always On, certifique [-se de registrar to
 
 Por exemplo, vamos supor que um AG do SQL tem dois nós: ' SQL-Server-0 ' e ' SQL-Server-1 ' e um BD AG do SQL. Depois que ambos os nós forem registrados, se [o usuário listar os itens protegíveis](#fetching-sql-dbs), ele listará os seguintes componentes
 
-1. Um tipo de item protegido por objeto do SQL AG como sqlavailability
-2. Um SQL AG DB-tipo de item de proteção como SQLDatabase
-3. SQL-Server-0-tipo de item de proteção como SqlInstance
-4. SQL-Server-1-tipo de item de proteção como SqlInstance
-5. Quaisquer bancos de dados SQL padrão (Mestre, modelo, msdb) em SQL-Server-0-tipo de item de proteção como SQLDatabase
-6. Quaisquer bancos de dados SQL padrão (Mestre, modelo, msdb) em SQL-Server-1-tipo de item de proteção como SQLDatabase
+* Um tipo de item protegido por objeto do SQL AG como sqlavailability
+* Um SQL AG DB-tipo de item de proteção como SQLDatabase
+* SQL-Server-0-tipo de item de proteção como SqlInstance
+* SQL-Server-1-tipo de item de proteção como SqlInstance
+* Quaisquer bancos de dados SQL padrão (Mestre, modelo, msdb) em SQL-Server-0-tipo de item de proteção como SQLDatabase
+* Quaisquer bancos de dados SQL padrão (Mestre, modelo, msdb) em SQL-Server-1-tipo de item de proteção como SQLDatabase
 
 SQL-Server-0, SQL-Server-1 também será listado como "AzureVMAppContainer" quando os [contêineres de backup forem listados](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0).
 

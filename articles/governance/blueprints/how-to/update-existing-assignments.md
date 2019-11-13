@@ -1,17 +1,14 @@
 ---
 title: Atualizar uma atribuição existente do portal
 description: Saiba mais sobre o mecanismo de atualização de uma atribuição existente do portal em plantas do Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: f78ddd5fa314d588f5d667c181528c38df3f1cef
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f48f8cfb33a05e2bf8dcbe097d3a9eb3a5ebb9db
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299216"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960366"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de plano gráfico existente
 

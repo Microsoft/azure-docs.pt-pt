@@ -3,7 +3,7 @@ title: Transmitir logs para SumoLogic usando Azure Monitor | Microsoft Docs
 description: Saiba como integrar logs de Azure Active Directory com o SumoLogic usando Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70c3b72ab650eb506dfaac378e10a7170b8f041d
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 6cdfc4e393ca7bf4bcbd523b4fad72690d5f2744
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819749"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014390"
 ---
 # <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Integrar logs de Azure Active Directory com o SumoLogic usando Azure Monitor
 

@@ -1,5 +1,5 @@
 ---
-title: Implantar um executável existente no Azure Service Fabric | Microsoft Docs
+title: Empacotar um executável existente no Azure Service Fabric | Microsoft Docs
 description: Saiba mais sobre como empacotar um aplicativo existente como um executável convidado, para que ele possa ser implantado em um Cluster Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: atsenthi
-ms.openlocfilehash: 521c7a198d9085cdc93d325e63ad9d46cc4c7928
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: bd6984db67a8a7b9c38988558ada51e12d337f52
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599451"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013265"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Implantar um executável existente no Service Fabric
 Você pode executar qualquer tipo de código, como node. js, Java ou C++ no Azure Service Fabric como um serviço. Service Fabric se refere a esses tipos de serviços como executáveis convidados.
@@ -33,7 +33,7 @@ Há várias vantagens em executar um executável convidado em um Cluster Service
 * Monitoramento de integridade. Service Fabric monitoramento de integridade detecta se um aplicativo está em execução e fornece informações de diagnóstico se houver uma falha.   
 * Gerenciamento do ciclo de vida do aplicativo. Além de fornecer atualizações sem tempo de inatividade, Service Fabric fornece Reversão automática para a versão anterior se houver um evento de integridade insatisfatório relatado durante uma atualização.    
 * Dens. Você pode executar vários aplicativos em um cluster, o que elimina a necessidade de cada aplicativo ser executado em seu próprio hardware.
-* Descoberta Usando o REST, você pode chamar o serviço de nomenclatura de Service Fabric para localizar outros serviços no cluster. 
+* Descoberta: usando o REST, você pode chamar o serviço de nomenclatura de Service Fabric para localizar outros serviços no cluster. 
 
 ## <a name="samples"></a>Amostras
 * [Exemplo de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
@@ -69,11 +69,11 @@ O ApplicationPackageRoot contém o arquivo ApplicationManifest. XML que define o
 * *Dados*. Esse é um diretório adicional para armazenar dados locais adicionais que podem ser necessários para o serviço. Os dados devem ser usados para armazenar somente dados efêmeros. Service Fabric não copiar ou replicar as alterações no diretório de dados se o serviço precisar ser realocado (por exemplo, durante o failover).
 
 > [!NOTE]
-> Você não precisa criar os `config` diretórios e `data` se não precisar deles.
+> Você não precisa criar os diretórios `config` e `data` se não precisar deles.
 >
 >
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte os artigos a seguir para obter informações e tarefas relacionadas.
 * [Implementar um executável convidado](service-fabric-deploy-existing-app.md)
 * [Implementar vários executáveis convidados](service-fabric-deploy-multiple-apps.md)

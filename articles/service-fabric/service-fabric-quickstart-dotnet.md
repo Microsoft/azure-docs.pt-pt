@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação .NET no Service Fabric no Azure | Microsoft Docs
+title: Crie rapidamente um aplicativo .NET em Service Fabric no Azure
 description: Neste início rápido, vai criar uma aplicação .NET para o Azure, utilizando o exemplo de aplicação de serviços fiáveis do Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -15,20 +15,20 @@ ms.workload: azure-vs
 ms.date: 06/26/2019
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 02c77d1a34a4dec8732b5fa2edb4d7a55e079c28
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: dfc8890d58763bd193f6a0b4137fc972d26beb9f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225202"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013220"
 ---
-# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Início rápido: Implantar um aplicativo do .NET Reliable Services para Service Fabric
+# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Início Rápido: Implementar uma aplicação de serviços fiáveis no Service Fabric em .NET
 
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores dimensionáveis e fiáveis.
 
 Este início rápido mostra como implementar a sua primeira aplicação .NET no Service Fabric. Quando tiver terminado, terá uma aplicação de votações com um front-end da Web ASP.NET que guarda os resultados das votações num serviço de back-end com estado no cluster.
 
-![Captura de Ecrã da Aplicação](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
+![Captura de ecrã da aplicação](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
 Com esta aplicação, vai aprender a:
 
@@ -36,7 +36,7 @@ Com esta aplicação, vai aprender a:
 * Usar o ASP.NET Core como um front-end da Web
 * Armazenar dados da aplicação num serviço com estado
 * Depurar a sua aplicação localmente
-* Aumentar horizontalmente a aplicação em vários nós
+* Escalar horizontalmente a aplicação em vários nós
 * Realizar atualizações sem interrupção de aplicações
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -44,7 +44,7 @@ Com esta aplicação, vai aprender a:
 Para concluir este guia de início rápido:
 
 1. [Instale o Visual Studio 2019](https://www.visualstudio.com/) com as cargas de trabalho de desenvolvimento e **ASP.net e** desenvolvimento para a Web **do Azure** .
-2. [Instalar o Git](https://git-scm.com/)
+2. [Instale o Git](https://git-scm.com/)
 3. [Instale o SDK do Microsoft Azure Service Fabric](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
 4. Execute o comando seguinte para permitir que o Visual Studio implemente no cluster do Service Fabric local:
 
@@ -160,10 +160,10 @@ O Service Fabric implementa as atualizações novas na sua aplicação de forma 
 Para atualizar a aplicação, faça o seguinte:
 
 1. Abra o ficheiro **/VotingWeb/Views/Home/Index.cshtml** no Visual Studio.
-2. Altere o cabeçalho da página ao adicionar ou atualizar o texto. Por exemplo, altere o cabeçalho para "Exemplo de Aplicação de Votação v2" do Service Fabric".
+2. Altere o cabeçalho da página ao adicionar ou atualizar o texto. Por exemplo, altere o cabeçalho para "Exemplo de Aplicação de Votação v” do Service Fabric".
 3. Guarde o ficheiro.
 4. Clique com o botão direito do rato em **Voting**, no Explorador de Soluções, e escolha **Publish** (Publicar). É apresentada a caixa de diálogo Publicar.
-5. Clique no botão **Manifest Version** (Versão do Manifesto) para alterar a versão do serviço e da aplicação.
+5. Clique botão **Manifest Version** (Versão do Manifesto) para alterar a versão do serviço e da aplicação.
 6. Altere a versão do elemento **Code** em **VotingWebPkg** para "2.0.0", por exemplo, e clique em **Save** (Guardar).
 
     ![Caixa de Diálogo Alterar Versão](./media/service-fabric-quickstart-dotnet/change-version.png)
@@ -191,7 +191,7 @@ Neste início rápido, aprendeu a:
 * Usar o ASP.NET Core como um front-end da Web
 * Armazenar dados da aplicação num serviço com estado
 * Depurar a sua aplicação localmente
-* Aumentar horizontalmente a aplicação em vários nós
+* Escalar horizontalmente a aplicação em vários nós
 * Realizar atualizações sem interrupção de aplicações
 
 Para saber mais sobre o Service Fabric e .NET, veja este tutorial:

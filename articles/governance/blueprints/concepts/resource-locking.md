@@ -1,17 +1,14 @@
 ---
 title: Entender o bloqueio de recursos
 description: Saiba mais sobre as opções de bloqueio para proteger recursos ao atribuir um plano gráfico.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 04/24/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 5c62fdb698dddf293d339904fd0c854052d636eb
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 754b9d7f73c6111abf7505e222a1ca5a8712ae45
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981053"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960471"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Entender o bloqueio de recursos em plantas do Azure
 
@@ -19,17 +16,17 @@ A criação de ambientes consistentes em escala só será verdadeiramente valios
 
 ## <a name="locking-modes-and-states"></a>Modos de bloqueio e Estados
 
-O modo de bloqueio se aplica à atribuição Blueprint e tem três opções: **Não bloqueie**, **somente leitura**ou **não exclua**. O modo de bloqueio é configurado durante a implantação do artefato durante uma atribuição de Blueprint. Um modo de bloqueio diferente pode ser definido atualizando a atribuição Blueprint.
+O modo de bloqueio se aplica à atribuição Blueprint e tem três opções: **não bloquear**, **somente leitura**ou **não excluir**. O modo de bloqueio é configurado durante a implantação do artefato durante uma atribuição de Blueprint. Um modo de bloqueio diferente pode ser definido atualizando a atribuição Blueprint.
 No entanto, os modos de bloqueio não podem ser alterados fora dos planos gráficos.
 
-Os recursos criados por artefatos em uma atribuição Blueprint têm quatro Estados: **Não bloqueado**, **somente leitura**, **não é possível editar/Excluir**ou **não pode excluir**. Cada tipo de artefato pode estar no estado **não bloqueado** . A tabela a seguir pode ser usada para determinar o estado de um recurso:
+Os recursos criados por artefatos em uma atribuição Blueprint têm quatro Estados: **não bloqueado**, **somente leitura**, **não é possível editar/Excluir**ou **não pode excluir**. Cada tipo de artefato pode estar no estado **não bloqueado** . A tabela a seguir pode ser usada para determinar o estado de um recurso:
 
-|Modo|Tipo de recurso de artefato|State|Descrição|
+|Modo|Tipo de recurso de artefato|Estado|Descrição|
 |-|-|-|-|
 |Não bloquear|*|Não bloqueado|Os recursos não são protegidos por plantas. Esse estado também é usado para recursos adicionados a um artefato **somente leitura** ou **não excluir** do grupo de recursos de fora de uma atribuição Blueprint.|
-|Só de Leitura|Resource group|Não é possível editar/excluir|O grupo de recursos é somente leitura e as marcas no grupo de recursos não podem ser modificadas. Recursos **não bloqueados** podem ser adicionados, movidos, alterados ou excluídos deste grupo de recursos.|
+|Só de Leitura|Grupo de recursos|Não é possível editar/excluir|O grupo de recursos é somente leitura e as marcas no grupo de recursos não podem ser modificadas. Recursos **não bloqueados** podem ser adicionados, movidos, alterados ou excluídos deste grupo de recursos.|
 |Só de Leitura|Grupo de não recursos|Só de Leitura|O recurso não pode ser alterado de nenhuma forma, sem alterações e não pode ser excluído.|
-|Não Eliminar|*|Não é possível excluir|Os recursos podem ser alterados, mas não podem ser excluídos. Recursos **não bloqueados** podem ser adicionados, movidos, alterados ou excluídos deste grupo de recursos.|
+|Não excluir|*|Não é possível excluir|Os recursos podem ser alterados, mas não podem ser excluídos. Recursos **não bloqueados** podem ser adicionados, movidos, alterados ou excluídos deste grupo de recursos.|
 
 ## <a name="overriding-locking-states"></a>Substituindo Estados de bloqueio
 
@@ -57,7 +54,7 @@ As [Propriedades de atribuição de negação](../../../role-based-access-contro
 |Modo |Permissões. ações |Permissões. \ ações |Entidades de segurança [i]. Escreva |ExcludePrincipals [i]. Sessão | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
 |Só de Leitura |**\*** |**\*/read** |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
-|Não Eliminar |**\*/delete** | |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
+|Não excluir |**\*/delete** | |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager armazena em cache detalhes de atribuição de função por até 30 minutos. Como resultado, as atribuições de negação da ação de negação dos recursos do Blueprint podem não estar imediatamente em pleno efeito. Durante esse período de tempo, pode ser possível excluir um recurso destinado a ser protegido por bloqueios do Blueprint.

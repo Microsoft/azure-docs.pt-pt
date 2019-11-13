@@ -1,19 +1,16 @@
 ---
 title: Criar um plano gráfico com a API REST
 description: Use os planos gráficos do Azure para criar, definir e implantar artefatos usando a API REST.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: quickstart
-ms.service: blueprints
-ms.openlocfilehash: 16540441aa8bc5d115606e1c5b3bdc2302ae2c20
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 9b711a6359ed9ecb45f25c460ece095af46ad8c3
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978502"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960415"
 ---
-# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Início rápido: Definir e Atribuir um Azure Blueprint com a API REST
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Início rápido: definir e atribuir um Azure Blueprint com a API REST
 
 Aprender a criar e atribuir esquemas permite a definição de padrões comuns para desenvolver configurações reutilizáveis e rapidamente implementáveis com base nos modelos do Resource Manager, política, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure Blueprints para realizar algumas das tarefas comuns relacionadas com a criação, publicação e atribuição de um esquema na sua organização, tais como:
 

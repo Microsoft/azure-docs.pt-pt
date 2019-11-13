@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: c4f9334a91e99c92e74af060d84308a8aaccc6e7
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: c8629975d375dda32fdd9aee42b4ae09069a2049
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671259"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005426"
 ---
-# <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Perguntas mais frequentes sobre a migração da implementação clássica para a implementação Azure Resource Manager
-
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Este plano de migração afeta algum dos meus serviços ou aplicações existentes que são executados em máquinas virtuais do Azure? 
 
 Não. As VMs (clássicas) são serviços totalmente suportados na disponibilidade geral. Pode continuar a utilizar estes recursos para expandir a sua utilização no Microsoft Azure.
@@ -49,24 +47,24 @@ Não. Recentemente, ativámos a [passagem dos circuitos do ExpressRoute do model
 
 Durante a migração, os recursos passam da implementação clássica para Resource Manager. Assim, recomendamos que planeie as atualizações das políticas de RBAC que têm de ocorrer após a migração.
 
-## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Minha cópia de segurança minhas VMs clássicas num cofre. Posso migrar as VMs do modo clássico para o modo Resource Manager e protegê-las num cofre dos Serviços de Recuperação?
+## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Fiz backup de minhas VMs clássicas em um cofre. Posso migrar as VMs do modo clássico para o modo Resource Manager e protegê-las num cofre dos Serviços de Recuperação?
 
-<a name="vault">Quando</a> mover uma VM do clássico para o modo do Resource Manager, cópias de segurança criadas antes da migração não serão migrados para a VM recentemente migrado do Resource Manager. No entanto, se desejar manter as cópias de segurança de VMs clássicas, siga estes passos antes da migração. 
+<a name="vault">Quando</a> você move uma VM do modo clássico para o Gerenciador de recursos, os backups feitos antes da migração não serão migrados para a VM do Gerenciador de recursos recém migrado. No entanto, se você quiser manter seus backups de VMs clássicas, siga estas etapas antes da migração. 
 
-1. No cofre dos serviços de recuperação, vá para o **itens protegidos** separador e selecione a VM. 
-2. Clique em Parar a proteção. Deixe a opção *Eliminar dados de cópia de segurança associados* **desmarcada**.
+1. No cofre dos serviços de recuperação, vá para a guia **itens protegidos** e selecione a VM. 
+2. Clique em parar proteção. Deixe a opção *Eliminar dados de cópia de segurança associados* **desmarcada**.
 
 > [!NOTE]
-> Incorrerá em custos de instância de cópia de segurança até a manter os dados. Cópias de segurança serão eliminadas de acordo com o período de retenção. No entanto, a última cópia de segurança sempre é mantida até eliminar explicitamente os dados de cópia de segurança. Recomenda-se para verificar o seu período de retenção da Máquina Virtual e o acionador "Eliminar dados de cópia de segurança" do item protegido no cofre assim que o período de retenção terminar. 
+> Você será cobrado pelo custo da instância de backup até manter os dados. As cópias de backup serão removidas de acordo com o período de retenção. No entanto, a última cópia de backup sempre é mantida até que você exclua explicitamente os dados de backup. É aconselhável verificar o período de retenção da máquina virtual e disparar "excluir dados de backup" no item protegido no cofre depois que o período de retenção terminar. 
 >
 >
 
-Para migrar a máquina virtual para o modo Resource Manager, 
+Para migrar a máquina virtual para o modo do Gerenciador de recursos, 
 
 1. Elimine a extensão de cópia de segurança/instantâneo da VM.
 2. Migre a máquina virtual do modo clássico para o modo do Resource Manager. Certifique-se de que as informações de armazenamento e rede correspondentes à máquina virtual também são migradas para o modo do Resource Manager.
 
-Além disso, se quiser criar cópias de segurança a VM migrada, aceda ao painel de gestão de Máquina Virtual para [ativar cópia de segurança](../articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
+Além disso, se você quiser fazer backup da VM migrada, vá para a folha gerenciamento de máquinas virtuais para [habilitar o backup](../articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Posso verificar se a minha subscrição ou os meus recursos podem ser migrados? 
 
@@ -88,6 +86,6 @@ Todos os recursos para os quais indique explicitamente nomes no modelo de implem
 
 Os circuitos do ExpressRoute que utilizem ligações de autorização em várias subscrições não podem ser migrados automaticamente sem tempo de inatividade. Temos orientações que mostram como utilizar passos manuais para migrá-los. Veja [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../articles/expressroute/expressroute-migration-classic-resource-manager.md) (Migrar circuitos do ExpressRoute e as máquinas virtuais associadas do modelo de implementação clássica para Resource Manager) para obter os passos e mais informações.
 
-## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>Recebi a mensagem *"VM está a comunicar o estado do agente geral como não pronto. Por este motivo, a VM não pode ser migrada. Certifique-se de que o agente da VM está a comunicar estado geral do agente como pronto"* ou *"VM contém a extensão cujo estado não está a ser comunicado a partir da VM. Por conseguinte, esta VM não pode ser migrada".*
+## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>Recebi a mensagem *"a VM está relatando o status geral do agente como não pronto. Portanto, a VM não pode ser migrada. Verifique se o agente de VM está relatando o status geral do agente como pronto "* ou *" VM contém a extensão cujo status não está sendo relatado da VM. Portanto, essa VM não pode ser migrada ".*
 
 Esta mensagem é recebida quando a VM não tem conectividade de saída à Internet. O agente da VM utiliza a conectividade de saída para comunicar com a conta de Armazenamento do Azure para atualizar o estado do agente a cada cinco minutos.

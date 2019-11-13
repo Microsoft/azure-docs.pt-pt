@@ -1,18 +1,17 @@
 ---
-title: Sobre a recuperação de desastre de VMs VMware no Azure usando Azure Site Recovery | Microsoft Docs
+title: Recuperação de desastres do VMware com Azure Site Recovery
 description: Este artigo fornece uma visão geral da recuperação de desastres de VMs do VMware para o Azure usando o serviço Azure Site Recovery.
-author: raynew
+author: rayne-wiselman
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 9/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: dca8174caabf4799c338d780a78ba58f1af5a2f1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 589dda80d68fba73a729da4b6e59270cc09c18cb
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814322"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954398"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Sobre a recuperação de desastre de VMs VMware para o Azure
 
@@ -88,16 +87,16 @@ Local aqui está o que você precisa fazer:
 Depois de ter a infraestrutura do Azure e local em vigor, você pode configurar a recuperação de desastre.
 
 1. Para entender os componentes que você precisará implantar, examine a [arquitetura do VMware para o Azure](vmware-azure-architecture.md)e a [arquitetura física para o Azure](physical-azure-architecture.md). Há vários componentes, portanto, é importante entender como todos se encaixam.
-2. **Ambiente de origem**: Como uma primeira etapa na implantação, você configura seu ambiente de origem de replicação. Você especifica o que deseja replicar e para onde deseja replicar.
-3. **Servidor de configuração**: Você precisa configurar um servidor de configuração no seu ambiente de origem local:
+2. **Ambiente de origem**: como uma primeira etapa na implantação, você configura o ambiente de origem de replicação. Você especifica o que deseja replicar e para onde deseja replicar.
+3. **Servidor de configuração**: você precisa configurar um servidor de configuração no seu ambiente de origem local:
     - O servidor de configuração é um único computador local. Para a recuperação de desastres do VMware, recomendamos que você o implante como uma VM do VMware que pode ser implantada de um modelo de OVF baixável.
     - O servidor de configuração coordena as comunicações entre o local e o Azure
     - Alguns outros componentes são executados no computador do servidor de configuração.
         - O servidor de processo recebe, otimiza e envia dados de replicação para a conta de armazenamento em cache no Azure. Ele também trata da instalação automática do serviço de mobilidade nos computadores que você deseja replicar e executa a descoberta automática de VMs em servidores VMware.
         - O servidor de destino principal processa dados de replicação durante a reativação pós-falha a partir do Azure.
     - Configurar inclui registrar o servidor de configuração no cofre, baixar o servidor MySQL e o VMware PowerCLI e especificar as contas criadas para a instalação automática do serviço de mobilidade e descoberta.
-4. **Ambiente de destino**: Você configura o ambiente de destino do Azure especificando suas configurações de rede e sua assinatura do Azure.
-5. **Política de replicação**: Você especifica como a replicação deve ocorrer. As configurações incluem com que frequência os pontos de recuperação são criados e armazenados e se os instantâneos consistentes com o aplicativo devem ser criados.
+4. **Ambiente de destino**: configure seu ambiente de destino do Azure especificando suas configurações de rede e sua assinatura do Azure.
+5. **Política de replicação**: especifique como a replicação deve ocorrer. As configurações incluem com que frequência os pontos de recuperação são criados e armazenados e se os instantâneos consistentes com o aplicativo devem ser criados.
 6. **Habilite a replicação**. Você habilita a replicação para computadores locais. Se você criou uma conta para instalar o serviço de mobilidade, ela será instalada quando você habilitar a replicação para um computador. 
 
 *Precisa de mais ajuda?*
@@ -120,6 +119,6 @@ Depois de ter a infraestrutura do Azure e local em vigor, você pode configurar 
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Com a replicação agora em vigor, você deve [executar uma análise de recuperação de desastre](tutorial-dr-drill-azure.md) para garantir que o failover funcione conforme o esperado. 

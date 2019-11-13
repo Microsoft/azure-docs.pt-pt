@@ -1,18 +1,18 @@
 ---
-title: Configurar a recuperação de desastre para VMs do Hyper-V locais em nuvens do VMM para o Azure com Site Recovery
+title: Configurar a recuperação de desastre do Hyper-V (com VMM) usando Azure Site Recovery
 description: Saiba como configurar a recuperação de desastre de VMs do Hyper-V locais em nuvens do System Center VMM para o Azure usando Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f686a02e363025daa5d0c3b3d4e53e07da636544
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fdf6d9674305ca13af51f3f7b97e0a40568738b6
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933824"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953960"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurar a recuperação de desastre de VMs do Hyper-V locais em nuvens do VMM para o Azure
 
@@ -33,7 +33,7 @@ Neste tutorial, ficará a saber como:
 > Os tutoriais mostram o caminho de implantação mais simples para um cenário. Utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. Para obter instruções detalhadas, examine os artigos na seção **guias** de instruções da documentação do [site Recovery](https://docs.microsoft.com/azure/site-recovery).
 
 > [!WARNING]
-> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](scvmm-site-recovery-deprecation.md) antes de continuar.
+> O suporte para a recuperação de desastre de VMs do Hyper-V usando o System Center VMM será preterido em um futuro próximo. É recomendável ler os detalhes de [substituição](scvmm-site-recovery-deprecation.md) antes de continuar.
 
 
 ## <a name="before-you-begin"></a>Antes de começar

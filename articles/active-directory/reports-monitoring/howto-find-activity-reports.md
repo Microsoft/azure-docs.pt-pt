@@ -3,7 +3,7 @@ title: Localizar relatórios de atividade do usuário no portal do Azure | Micro
 description: Saiba onde os relatórios de atividade de usuário do Azure Active Directory estão no portal do Azure.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7fdf8c17c8dcbdc8203cb46342c8474b3d9832f
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820919"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008218"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no portal do Azure
 
@@ -52,12 +52,12 @@ Você pode usar a filtragem avançada no relatório de auditoria para acessar um
 
 As categorias incluem:
 
-- Tudo
+- Todos
 - AdministrativeUnit
 - ApplicationManagement
 - Autenticação
 - Autorização
-- Contacte-nos
+- Contacto
 - Dispositivo
 - DeviceConfiguration
 - DirectoryManagement
@@ -73,7 +73,7 @@ Você também pode filtrar em um serviço específico usando o filtro suspenso d
 
 Os serviços incluem:
 
-- Tudo
+- Todos
 - Revisões de Acesso
 - Aprovisionamento de Contas 
 - SSO de aplicativo
@@ -82,7 +82,7 @@ Os serviços incluem:
 - Acesso Condicional
 - Diretório do Núcleo
 - Gestão de Direitos
-- Proteção de Identidade
+- Identity Protection
 - Utilizadores Convidados
 - FABRICANTE
 - Gestão de Grupos Personalizada

@@ -1,5 +1,5 @@
 ---
-title: Sobre como usar o Azure ExpressRoute com Azure Site Recovery para recuperação de desastres e migração | Microsoft Docs
+title: Sobre como usar o ExpressRoute com Azure Site Recovery
 description: Descreve como usar o Azure ExpressRoute com o serviço de Azure Site Recovery para recuperação de desastres e migração.
 services: site-recovery
 author: mayurigupta13
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 97aea824fac60f8bed71971a416f12e8df0e5e64
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: dcc5105fcf2ad7b6a9f0695b3086dc2956a76a50
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333058"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954076"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute com Azure Site Recovery
 
@@ -23,7 +23,7 @@ Este artigo descreve como você pode usar o Azure ExpressRoute com Azure Site Re
 
 ## <a name="expressroute-circuits"></a>Circuitos do ExpressRoute
 
-Um circuito do ExpressRoute representa uma conexão lógica entre sua infraestrutura local e os serviços de nuvem da Microsoft por meio de um provedor de conectividade. Você pode ordenar vários circuitos do ExpressRoute. Cada circuito pode estar na mesma região ou em regiões diferentes e pode ser conectado a seus locais por meio de provedores de conectividade diferentes. Saiba mais sobre os circuitos do ExpressRoute [aqui](../expressroute/expressroute-circuit-peerings.md).
+Um circuito do ExpressRoute representa uma conexão lógica entre a infraestrutura no local e serviços cloud da Microsoft através de um fornecedor de conectividade. É possível pedir vários circuitos do ExpressRoute. Cada circuito pode estar as mesmas ou em diferentes regiões e pode ser ligado a local através de fornecedores de conectividade diferentes. Saiba mais sobre os circuitos do ExpressRoute [aqui](../expressroute/expressroute-circuit-peerings.md).
 
 Um circuito do ExpressRoute tem vários domínios de roteamento associados a ele. Saiba mais sobre e compare os domínios de roteamento do ExpressRoute [aqui](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 
@@ -46,7 +46,7 @@ Isso garantirá que apenas o tráfego de replicação flua por meio do ExpressRo
 
 Depois que máquinas virtuais ou servidores fizerem failover para uma rede virtual do Azure, você poderá acessá-los usando o [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering). 
 
-O cenário combinado é representado no seguinte diagrama: ![On-local-to-Azure com ExpressRoute @ no__t-1
+O cenário combinado é representado no seguinte diagrama: ![local para o Azure com o ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 
 ## <a name="azure-to-azure-replication-with-expressroute"></a>Replicação do Azure para o Azure com o ExpressRoute
 

@@ -1,17 +1,14 @@
 ---
 title: Usar parâmetros para criar plantas dinâmicas
 description: Saiba mais sobre os parâmetros estáticos e dinâmicos e como usá-los cria plantas dinâmicas.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 2bb38e0698d7504ba1bb139ca1bd5e3b14e5cdd4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: da0670bdc880c47c3b715dc8344896a6c695924c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981057"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960503"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando plantas dinâmicas por meio de parâmetros
 
@@ -61,7 +58,7 @@ Um valor de parâmetro definido na definição de um plano gráfico é chamado d
 
 1. Clique em um plano gráfico existente e, em seguida, clique em **Editar Blueprint** ou clique em **+ criar plano gráfico** e preencha as informações na guia **noções básicas** .
 
-1. Clique em **Seguinte: Artefatos @ no__t-0 ou clique na guia **artefatos** .
+1. Clique em **Avançar: artefatos** ou clique na guia **artefatos** .
 
 1. Os artefatos adicionados ao plano gráfico com opções de parâmetro exibem **X de parâmetros Y preenchidos** na coluna **parâmetros** . Clique na linha de artefato para editar os parâmetros de artefato.
 
@@ -184,7 +181,7 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico**. Esse parâme
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Definindo parâmetros dinâmicos da API REST
 
-A configuração de **parâmetros dinâmicos** durante a atribuição é feita inserindo-se o valor diretamente. Em vez de usar uma função, como [Parameters ()](../reference/blueprint-functions.md#parameters), o valor fornecido é uma cadeia de caracteres apropriada. Os artefatos de um grupo de recursos são definidos com as propriedades "nome do modelo", **nome**e **local** . Todos os outros parâmetros do artefato incluído são definidos em **parâmetros** com um par de chaves **\<name @ no__t-3** e **valor** . Se o Blueprint estiver configurado para um parâmetro dinâmico que não é fornecido durante a atribuição, a atribuição falhará.
+A configuração de **parâmetros dinâmicos** durante a atribuição é feita inserindo-se o valor diretamente. Em vez de usar uma função, como [Parameters ()](../reference/blueprint-functions.md#parameters), o valor fornecido é uma cadeia de caracteres apropriada. Os artefatos de um grupo de recursos são definidos com as propriedades "nome do modelo", **nome**e **local** . Todos os outros parâmetros do artefato incluído são definidos em **parâmetros** com um **nome de\<\>** e um par de chaves de **valor** . Se o Blueprint estiver configurado para um parâmetro dinâmico que não é fornecido durante a atribuição, a atribuição falhará.
 
 - URI da API REST
 

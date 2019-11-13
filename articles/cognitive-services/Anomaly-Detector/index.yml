@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/10/2019
   ms.author: aahi
-  ms.openlocfilehash: d073adfbc1b05bbd4d92f5cfb500184653444f4b
-  ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+  ms.openlocfilehash: 4f7eca51cd4ec6995618b68bd376fa5f4f6268e4
+  ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/18/2019
-  ms.locfileid: "71086788"
+  ms.lasthandoff: 11/13/2019
+  ms.locfileid: "74013612"
 landingContent:
 - title: Sobre a API do Detetor de Anomalias
   linkLists:
@@ -39,7 +39,11 @@ landingContent:
       url: https://www.youtube.com/embed/ERTaAnwCarM
   - linkListType: reference
     links:
-    - text: Algoritmos utilizados na deteção de anomalias (documento técnico)
+    - text: Introdução à API do Detetor de Anomalias do Azure
+      url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
+    - text: Descrição geral do algoritmo SR-CNN
+      url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798
+    - text: Algoritmo utilizado na deteção de anomalias (documento KDD)
       url: https://arxiv.org/abs/1906.03821
 - title: Detetar anomalias nos seus dados
   linkLists:
@@ -54,7 +58,7 @@ landingContent:
     - text: Visualizar anomalias utilizando a deteção de lote e o Power BI
       url: tutorials/batch-anomaly-detection-powerbi.md
     - text: Detetar Anomalias em dados de transmissão em fluxo com o Azure Databricks
-      url: tutorials/batch-anomaly-detection-powerbi.md
+      url: tutorials/anomaly-detection-streaming-databricks.md
   - linkListType: video
     links:
     - text: Deteção de anomalias dos dados de transmissão em fluxo com o Azure Databricks

@@ -1,20 +1,19 @@
 ---
-title: Gerenciar o servidor de configuração para recuperação de desastres do VMware e do servidor físico com o Azure Site Recovery | Microsoft Docs
-description: Este artigo descreve como gerenciar um servidor de configuração existente para recuperação de desastres de VMs VMware e servidores físicos no Azure com Azure Site Recovery.
+title: Gerenciar o servidor de configuração para recuperação de desastre com o Azure Site Recovery
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 42e1e283736d8a1e3d4ece33c861185df2d72da7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791826"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954365"
 ---
-# <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gerenciar o servidor de configuração para recuperação de desastre de VM VMware
+# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gerenciar o servidor de configuração para a recuperação de desastre do servidor físico/VM do VMware
 
 Você configura um servidor de configuração local quando usa [Azure site Recovery](site-recovery-overview.md) para recuperação de desastre de VMs VMware e servidores físicos para o Azure. O servidor de configuração coordena as comunicações entre o VMware local e o Azure e gerencia a replicação de dados. Este artigo resume as tarefas comuns para gerenciar o servidor de configuração após sua implantação.
 
@@ -72,7 +71,7 @@ Se você tiver perdido a adição de credenciais durante a implantação OVF do 
 
 1. Depois de [entrar](#access-configuration-server), selecione **gerenciar credenciais da máquina virtual**.
 2. Clique em **Adicionar credenciais da máquina virtual**.
-    ![Add-Mobility-Credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Insira as novas credenciais e clique em **Adicionar**.
 
 Você também pode adicionar credenciais por meio de CSPSConfigtool. exe.
@@ -189,19 +188,19 @@ Execute o arquivo de instalação da seguinte maneira:
 
 |Nome do Parâmetro| Tipo | Descrição| Valores|
 |-|-|-|-|
-| /ServerMode|Obrigatório|Especifica se a configuração e os servidores de processos devem ser instalados, ou apenas o servidor de processos|CS<br>PS|
-|/InstallLocation|Obrigatório|A pasta na qual os componentes são instalados| Qualquer pasta no computador|
-|/MySQLCredsFilePath|Obrigatório|O caminho do ficheiro no qual as credenciais do servidor MySQL são armazenadas|O ficheiro deve estar no formato especificado abaixo|
-|/VaultCredsFilePath|Obrigatório|O caminho do ficheiro de credenciais do cofre|Caminho do ficheiro válido|
-|/EnvType|Obrigatório|Tipo de ambiente que você deseja proteger |VMware<br>NonVMware|
-|/PSIP|Obrigatório|Endereço IP do NIC a ser utilizado para transferência de dados de replicação| Qualquer endereço IP válido|
-|/CSIP|Obrigatório|O endereço IP do NIC em que o servidor de configuração está a ouvir| Qualquer endereço IP válido|
-|/PassphraseFilePath|Obrigatório|O caminho completo para a localização do ficheiro da frase de acesso|Caminho do ficheiro válido|
+| /ServerMode|Necessário|Especifica se a configuração e os servidores de processos devem ser instalados, ou apenas o servidor de processos|CS<br>PS|
+|/InstallLocation|Necessário|A pasta na qual os componentes são instalados| Qualquer pasta no computador|
+|/MySQLCredsFilePath|Necessário|O caminho do ficheiro no qual as credenciais do servidor MySQL são armazenadas|O ficheiro deve estar no formato especificado abaixo|
+|/VaultCredsFilePath|Necessário|O caminho do ficheiro de credenciais do cofre|Caminho do ficheiro válido|
+|/EnvType|Necessário|Tipo de ambiente que você deseja proteger |VMware<br>NonVMware|
+|/PSIP|Necessário|Endereço IP do NIC a ser utilizado para transferência de dados de replicação| Qualquer endereço IP válido|
+|/CSIP|Necessário|O endereço IP do NIC em que o servidor de configuração está a ouvir| Qualquer endereço IP válido|
+|/PassphraseFilePath|Necessário|O caminho completo para a localização do ficheiro da frase de acesso|Caminho do ficheiro válido|
 |/BypassProxy|Opcional|Especifica que o servidor de configuração estabelece uma ligação ao Azure sem um proxy|Para obter este valor do Venu|
 |/ProxySettingsFilePath|Opcional|Definições de proxy (o proxy predefinido necessita de autenticação ou de um proxy personalizado)|O ficheiro deve estar no formato especificado abaixo|
 |DataTransferSecurePort|Opcional|Número da porta no PSIP a ser utilizado para dados de replicação| Número de Porta Válido (o valor predefinido é 9433)|
 |/SkipSpaceCheck|Opcional|Ignorar a verificação de espaços para a cache do disco| |
-|/AcceptThirdpartyEULA|Obrigatório|O sinalizador indica a aceitação do EULA de terceiros| |
+|/AcceptThirdpartyEULA|Necessário|O sinalizador indica a aceitação do EULA de terceiros| |
 |/ShowThirdpartyEULA|Opcional|Apresenta o EULA de terceiros. Se for fornecido como entrada, todos os outros parâmetros são ignorados| |
 
 

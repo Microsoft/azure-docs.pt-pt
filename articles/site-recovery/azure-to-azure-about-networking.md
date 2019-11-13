@@ -1,5 +1,5 @@
 ---
-title: Sobre a rede no Azure para a recuperação de desastres do Azure usando o Azure Site Recovery | Microsoft Docs
+title: Sobre a rede na recuperação de desastre da VM do Azure com o Azure Site Recovery
 description: Fornece uma visão geral da rede para replicação de VMs do Azure usando Azure Site Recovery.
 services: site-recovery
 author: sujayt
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5c2cd96ccfa3a26a9009188ad424eefaaeb7ce48
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 09cd814ade25be438a17b83fb73e74b89c14e22f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906840"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954198"
 ---
-# <a name="about-networking-in-azure-to-azure-replication"></a>Sobre a rede na replicação do Azure para o Azure
+# <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre a rede na recuperação de desastre da VM do Azure
 
 
 
@@ -29,11 +29,11 @@ Saiba como Site Recovery fornece recuperação de desastre para [esse cenário](
 
 O diagrama a seguir ilustra um ambiente típico do Azure, para aplicativos em execução em VMs do Azure:
 
-![cliente-ambiente](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
 Se você estiver usando o Azure ExpressRoute ou uma conexão VPN da sua rede local para o Azure, o ambiente será o seguinte:
 
-![cliente-ambiente](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
+![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
 Normalmente, as redes são protegidas usando firewalls e NSGs (grupos de segurança de rede). Os firewalls usam a URL ou a lista de permissões baseada em IP para controlar a conectividade de rede. NSGs fornecem regras que usam intervalos de endereços IP para controlar a conectividade de rede.
 
@@ -60,8 +60,8 @@ Se você estiver usando um proxy de firewall baseado em IP ou regras NSG para co
 - Todos os intervalos de endereços IP que correspondem às contas de armazenamento na região de origem
     - Crie uma regra de NSG baseada em [marca de serviço de armazenamento](../virtual-network/security-overview.md#service-tags) para a região de origem.
     - Permita esses endereços para que os dados possam ser gravados na conta de armazenamento de cache, da VM.
-- Criar Azure Active Directory uma regra de NSG [(AAD)](../virtual-network/security-overview.md#service-tags) baseada em marca de serviço para permitir o acesso a todos os endereços IP correspondentes ao AAD
-    - Se novos endereços forem adicionados ao Azure Active Directory (AAD) no futuro, você precisará criar novas regras de NSG.
+- Criar uma [etiquetas de serviço do Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) com base em regras NSG para permitir o acesso a todos os endereços IP correspondente para o AAD
+    - Se novos endereços são adicionados ao Azure Active Directory (AAD) no futuro, terá de criar novas regras NSG.
 - Site Recovery endereços IP do ponto de extremidade de serviço-disponíveis em um [arquivo XML](https://aka.ms/site-recovery-public-ips) e dependem do local de destino. 
 - Recomendamos que você crie as regras NSG necessárias em um NSG de teste e verifique se não há problemas antes de criar as regras em um NSG de produção.
 

@@ -1,20 +1,20 @@
 ---
-title: Matriz de suporte para recuperação de desastre de VMs do Azure entre regiões do Azure com Azure Site Recovery | Microsoft Docs
-description: Resume os pré-requisitos e o suporte para a recuperação de desastre de VMs do Azure de uma região para outra com Azure Site Recovery
+title: Matriz de suporte para recuperação de desastre de VM do Azure com Azure Site Recovery
+description: Resume o suporte para a recuperação de desastre de VMs do Azure em uma região secundária com Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/26/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 726b7ebd21dadf0e179f2752a9783d63492cb4c3
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 881c41ea7a28e64d2840f4a92bd64fab5dbd12ba
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622458"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961514"
 ---
-# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
+# <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para a recuperação de desastre de VM do Azure entre regiões do Azure
 
 Este artigo resume o suporte e os pré-requisitos para a recuperação de desastre de VMs do Azure de uma região do Azure para outra, usando o serviço de [Azure site Recovery](site-recovery-overview.md) .
 
@@ -23,7 +23,7 @@ Este artigo resume o suporte e os pré-requisitos para a recuperação de desast
 
 **Implementação** |  **Suporte**
 --- | ---
-**Portal do Azure** | Suportado.
+**Azure portal** | Suportado.
 **PowerShell** | Suportado. [Saber mais](azure-to-azure-powershell.md)
 **API REST** | Suportado.
 **CLI** | Sem suporte no momento
@@ -102,7 +102,7 @@ Windows 7 (x64) com SP1 em diante | Da versão 9.30. x. x (liberação esperada 
 
 **Sistema operativo** | **Detalhes**
 --- | ---
-Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, 8,0
+Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8,0](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery)
 CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, 8,0
 Servidor Ubuntu 14, 4 LTS | [Versões de kernel com suporte](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Servidor Ubuntu 16, 4 LTS | [Versão do kernel com suporte](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Os servidores Ubuntu que usam a autenticação baseada em senha e a entrada e o pacote Cloud-init para configurar VMs de nuvem podem ter um logon baseado em senha desabilitado no failover (dependendo da configuração do cloudinit). O logon baseado em senha pode ser habilitado novamente na máquina virtual redefinindo a senha no menu suporte > solução de problemas > configurações (da VM com failover no portal do Azure.
@@ -110,9 +110,9 @@ Servidor Ubuntu 18, 4 LTS | [Versão do kernel com suporte](#supported-ubuntu-ke
 Debian 7 | [Versões de kernel com suporte](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Versões de kernel com suporte](#supported-debian-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [(Versões de kernel com suporte)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 11 | SP<br/><br/> Não há suporte para a atualização de máquinas de replicação do SP3 para o SP4. Se um computador replicado tiver sido atualizado, você precisará desabilitar a replicação e reabilitar a replicação após a atualização.
+SUSE Linux Enterprise Server 11 | SP3<br/><br/> Não há suporte para a atualização de máquinas de replicação do SP3 para o SP4. Se um computador replicado tiver sido atualizado, você precisará desabilitar a replicação e reabilitar a replicação após a atualização.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7<br/><br/> Executando o kernel do Red Hat compatível ou o inquebrable Enterprise kernel versão 3, 4 & 5 (UEK3, UEK4, UEK5) 
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) <br/><br/> Executando o kernel do Red Hat compatível ou o inquebrable Enterprise kernel versão 3, 4 & 5 (UEK3, UEK4, UEK5) 
 
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versões de kernel do Ubuntu com suporte para máquinas virtuais do Azure
@@ -124,14 +124,15 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 14, 4 LTS | 9,26 | 3.13.0-24-Generic para 3.13.0-170-Generic,<br/>3.16.0-25-Generic para 3.16.0-77-Generic,<br/>3.19.0-18-Generic para 3.19.0-80-Generic,<br/>4.2.0-18-Generic para 4.2.0-42-Generic,<br/>4.4.0-21-Generic para 4.4.0-148-Generic,<br/>4.15.0-1023-Azure para 4.15.0-1045-Azure |
 14, 4 LTS | 9,25 | 3.13.0-24-Generic para 3.13.0-169-Generic,<br/>3.16.0-25-Generic para 3.16.0-77-Generic,<br/>3.19.0-18-Generic para 3.19.0-80-Generic,<br/>4.2.0-18-Generic para 4.2.0-42-Generic,<br/>4.4.0-21-Generic para 4.4.0-146-Generic,<br/>4.15.0-1023-Azure para 4.15.0-1042-Azure |
 |||
+16, 4 LTS | [9,30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.4.0-21-Generic para 4.4.0-166-Generic,<br/>4.8.0-34-Generic a 4.8.0-58-Generic,<br/>4.10.0-14-generic para 4.10.0-42-Generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-Generic,<br/>4.15.0-13-Generic para 4.15.0-66-Generic<br/>4.11.0-1009-Azure para 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-Azure <br/>4.15.0-1012-Azure para 4.15.0-1061-Azure|
 16, 4 LTS | 9,28 | 4.4.0-21-Generic para 4.4.0-159-Generic,<br/>4.8.0-34-Generic a 4.8.0-58-Generic,<br/>4.10.0-14-generic para 4.10.0-42-Generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-Generic,<br/>4.15.0-13-Generic para 4.15.0-58-Generic<br/>4.11.0-1009-Azure para 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-Azure <br/>4.15.0-1012-Azure para 4.15.0-1055-Azure|
 16, 4 LTS | 9,27 | 4.4.0-21-Generic para 4.4.0-154-Generic,<br/>4.8.0-34-Generic a 4.8.0-58-Generic,<br/>4.10.0-14-generic para 4.10.0-42-Generic<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-Generic,<br/>4.15.0-13-Generic para 4.15.0-55-Generic<br/>4.11.0-1009-Azure para 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-Azure <br/>4.15.0-1012-Azure para 4.15.0-1051-Azure|
 16, 4 LTS | 9,26 | 4.4.0-21-Generic para 4.4.0-148-Generic,<br/>4.8.0-34-Generic a 4.8.0-58-Generic,<br/>4.10.0-14-generic para 4.10.0-42-Generic<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-Generic,<br/>4.15.0-13-Generic para 4.15.0-50-Generic<br/>4.11.0-1009-Azure para 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-Azure <br/>4.15.0-1012-Azure para 4.15.0-1045-Azure|
 16, 4 LTS | 9,25 | 4.4.0-21-Generic para 4.4.0-146-Generic,<br/>4.8.0-34-Generic a 4.8.0-58-Generic,<br/>4.10.0-14-generic para 4.10.0-42-Generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-Generic,<br/>4.15.0-13-Generic para 4.15.0-48-Generic<br/>4.11.0-1009-Azure para 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-Azure <br/>4.15.0-1012-Azure para 4.15.0-1042-Azure|
 16, 4 LTS | 9,24 | 4.4.0-21-Generic para 4.4.0-143-Generic,<br/>4.8.0-34-Generic a 4.8.0-58-Generic,<br/>4.10.0-14-generic para 4.10.0-42-Generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-Generic,<br/>4.15.0-13-Generic para 4.15.0-46-Generic<br/>4.11.0-1009-Azure para 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-Azure <br/>4.15.0-1012-Azure para 4.15.0-1040-Azure|
 |||
-18, 4 LTS | [9,29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 4.15.0-20-Generic para 4.15.0-64-Generic </br> 4.18.0-13-Generic para 4.18.0-25-Generic </br> 5.0.0-15-Generic para 5.0.0-29-Generic </br> 4.15.0-1009-Azure para 4.15.0-1037-Azure </br> 4.18.0-1006-Azure para 4.18.0-1025-Azure </br> 5.0.0-1012-Azure para 5.0.0-1020-Azure
-
+18, 4 LTS | [9,29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 4.15.0-20-Generic para 4.15.0-64-Generic </br> 4.18.0-13-Generic para 4.18.0-25-Generic </br> 5.0.0-15-Generic para 5.0.0-29-Generic </br> 4.15.0-1009-Azure para 4.15.0-1037-Azure </br> 4.18.0-1006-Azure para 4.18.0-1025-Azure </br> 5.0.0-1012-Azure para 5.0.0-1020-Azure|
+18, 4 LTS | [9,30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.15.0-20-Generic para 4.15.0-66-Generic </br> 4.18.0-13-Generic para 4.18.0-25-Generic </br> 5.0.0-15-Generic para 5.0.0-32-Generic </br> 4.15.0-1009-Azure para 4.15.0-1037-Azure </br> 4.18.0-1006-Azure para 4.18.0-1025-Azure </br> 5.0.0-1012-Azure para 5.0.0-1023-Azure
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versões de kernel Debian com suporte para máquinas virtuais do Azure
 
@@ -207,6 +208,7 @@ Redundância | Há suporte para LRS e GRS.<br/><br/> ZRS não tem suporte.
 Armazenamento frio e quente | Não suportado | Os discos de VM não têm suporte em armazenamento frio e dinâmico
 Espaços de armazenamento | Suportado |
 Criptografia em repouso (SSE) | Suportado | SSE é a configuração padrão em contas de armazenamento.   
+Criptografia em repouso (CMK) | Não Suportado |   
 Azure Disk Encryption (ADE) para o sistema operacional Windows | Com suporte para VMs com discos gerenciados. Não há suporte para VMs que usam discos não gerenciados |
 Azure Disk Encryption (ADE) para o SO Linux | Não suportado |
 Adição a quente | Suportado | A habilitação da replicação para um disco de dados que você adiciona a uma VM do Azure replicada tem suporte para VMs que usam discos gerenciados.
@@ -220,7 +222,8 @@ RA-GRS | Suportado |
 ZRS | Não suportado |
 Armazenamento frio e quente | Não suportado | Não há suporte para discos de máquina virtual em armazenamento frio e quente
 Firewalls de armazenamento do Azure para redes virtuais  | Suportado | Se o acesso à rede virtual for restrito às contas de armazenamento, habilite [permitir serviços confiáveis da Microsoft](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
-Contas de armazenamento de uso geral v2 (camada quente e fria) | Sim | Os custos de transações aumentam substancialmente em comparação com as contas de armazenamento v1 de uso geral
+Contas de armazenamento de uso geral v2 (camada quente e fria) | Suportado | Os custos de transações aumentam substancialmente em comparação com as contas de armazenamento v1 de uso geral
+Geração 2 (inicialização UEFI) | Suportado
 
 >[!IMPORTANT]
 > Para evitar problemas de desempenho, certifique-se de seguir as metas de desempenho e escalabilidade de disco de VM para VMs [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md) . Se você usar as configurações padrão, Site Recovery criará os discos necessários e as contas de armazenamento, com base na configuração de origem. Se você personalizar e selecionar suas próprias configurações, siga os destinos de desempenho e escalabilidade de disco para suas VMs de origem.
@@ -232,7 +235,6 @@ A tabela a seguir resume os limites de Site Recovery.
 - Esses limites se baseiam em nossos testes, mas, obviamente, não cobrem todas as combinações de e/s de aplicativo possíveis.
 - Os resultados reais podem variar com base na combinação de e/s do aplicativo.
 - Há dois limites a serem considerados, por variação de dados de disco e por variação de dados de máquina virtual.
-- Por exemplo, se usarmos um disco P20 Premium, conforme descrito na tabela a seguir, Site Recovery poderá lidar com 5 MBs de variação por disco, com no máximo cinco discos por VM, devido ao limite total de 25 MB/s de rotatividade por VM.
 
 **Destino de armazenamento** | **Média de e/s de disco de origem** |**Média de alterações a dados do disco de origem** | **Total de alterações a dados do disco de origem por dia**
 ---|---|---|---

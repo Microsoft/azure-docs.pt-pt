@@ -1,19 +1,19 @@
 ---
-title: Migrar computadores locais para o Azure com Azure Site Recovery
+title: Migrar computadores locais com Azure Site Recovery
 description: Este artigo descreve como migrar as máquinas no local para o Azure, com o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/29/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5fa0f05f37164c24ba6441d0c4cb2abc59f331d7
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 24015810a295ef88b7d3e63bfc464ddddef6b55f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053055"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73939625"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas no local para o Azure
 
@@ -32,7 +32,7 @@ Este tutorial mostra como migrar VMs no local e servidores físicos para o Azure
 
 
 > [!TIP]
-> Agora você pode migrar servidores locais para o Azure usando o serviço migrações para Azure. [Saiba mais](../migrate/migrate-services-overview.md)
+> Agora você pode migrar servidores locais para o Azure usando o serviço migrações para Azure. [Saber mais](../migrate/migrate-services-overview.md)
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -158,7 +158,7 @@ Alguns passos podem ser automatizados como parte do processo de migração atrav
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, migrou VMs no local para VMs do Azure. seguida
+Neste tutorial, migrou VMs no local para VMs do Azure. Seguida
 
 > [!div class="nextstepaction"]
 > [Configure a recuperação de desastre](azure-to-azure-replicate-after-migration.md) para uma região secundária do Azure para as VMs do Azure.

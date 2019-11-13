@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: 59c888b1f18b1c9f700e1b79c4786a466f2c55fb
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: ba49fc72fe07378d702b8c12fcdf77d5cebee9bb
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72822020"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013093"
 ---
-# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Usando Managed Disks em modelos de Azure Resource Manager
-
 Este documento percorre as diferenças entre discos gerenciados e não gerenciados ao usar modelos de Azure Resource Manager para provisionar máquinas virtuais. Os exemplos ajudam você a atualizar os modelos existentes que estão usando discos não gerenciados para discos gerenciados. Para referência, estamos usando o modelo [101-VM-Simple-Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) como um guia. Você pode ver o modelo usando [discos gerenciados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) e uma versão anterior usando [discos não gerenciados](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) se quiser compará-los diretamente.
 
 ## <a name="unmanaged-disks-template-formatting"></a>Formatação de modelo de discos não gerenciados
@@ -96,7 +94,7 @@ Com o Azure Managed Disks, o disco torna-se um recurso de nível superior e não
 
 ### <a name="default-managed-disk-settings"></a>Configurações padrão de disco gerenciado
 
-Para criar uma VM com discos gerenciados, você não precisa mais criar o recurso de conta de armazenamento e pode atualizar o recurso de máquina virtual da seguinte maneira. Observe especificamente que a `apiVersion` reflete `2017-03-30` e a `osDisk` e `dataDisks` não se referem mais a um URI específico para o VHD. Ao implantar sem especificar propriedades adicionais, o disco usará um tipo de armazenamento com base no tamanho da VM. Por exemplo, se você estiver usando um tamanho de VM com capacidade Premium (tamanhos com "s" em seu nome, como Standard_D2s_v3), o sistema usará o armazenamento Premium_LRS. Use a configuração de SKU do disco para especificar um tipo de armazenamento. Se nenhum nome for especificado, ele usará o formato de `<VMName>_OsDisk_1_<randomstring>` para o disco do sistema operacional e `<VMName>_disk<#>_<randomstring>` para cada disco de dados. Por padrão, a criptografia de disco do Azure está desabilitada; o Caching é leitura/gravação para o disco do sistema operacional e nenhum para discos de dados. Você pode observar, no exemplo abaixo, que ainda há uma dependência de conta de armazenamento, embora isso seja apenas para o armazenamento de diagnósticos e não seja necessário para o armazenamento em disco.
+Para criar uma VM com discos gerenciados, você não precisa mais criar o recurso de conta de armazenamento e pode atualizar o recurso de máquina virtual da seguinte maneira. Observe especificamente que a `apiVersion` reflete `2017-03-30` e a `osDisk` e `dataDisks` não se referem mais a um URI específico para o VHD. Ao implantar sem especificar propriedades adicionais, o disco usará um tipo de armazenamento com base no tamanho da VM. Por exemplo, se você estiver usando um tamanho de VM com capacidade Premium (tamanhos com "s" em seu nome, como Standard_D2s_v3), o sistema usará Premium_LRS armazenamento. Use a configuração de SKU do disco para especificar um tipo de armazenamento. Se nenhum nome for especificado, ele usará o formato de `<VMName>_OsDisk_1_<randomstring>` para o disco do sistema operacional e `<VMName>_disk<#>_<randomstring>` para cada disco de dados. Por padrão, a criptografia de disco do Azure está desabilitada; o Caching é leitura/gravação para o disco do sistema operacional e nenhum para discos de dados. Você pode observar, no exemplo abaixo, que ainda há uma dependência de conta de armazenamento, embora isso seja apenas para o armazenamento de diagnósticos e não seja necessário para o armazenamento em disco.
 
 ```json
 {

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 07/17/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 565620f477382ff81f854336dbee7bdb1ad06f01
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 781203cec8d85abd74aa439b5595e8d00ed36745
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469694"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961676"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure
 
@@ -28,7 +28,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Inicie sessão no [portal do Azure](https://portal.azure.com) com a sua conta do Azure.
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
 
 1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**. A **nova** janela é exibida.
 
@@ -65,7 +65,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com a sua conta do
 
 1. Na guia **front-ends** , verifique se **tipo de endereço IP de front-end** está definido como **público**. <br>Você pode configurar o IP de front-end para ser público ou privado de acordo com seu caso de uso. Neste exemplo, você escolherá um IP de front-end público.
    > [!NOTE]
-   > Para o SKU do gateway de aplicativo v2, você só pode escolher a configuração de IP de front-end **público** . A configuração de IP de front-end privada não está habilitada no momento para este SKU v2.
+   > Para o SKU do gateway de aplicativo v2, você só pode escolher a configuração de IP de front-end **público** . Somente a configuração de IP de front-end privado não está habilitada no momento para este SKU v2. Você pode ter a configuração de IP de front-end pública e privada.
 
 2. Escolha **criar novo** para o **endereço IP público** e insira *myAGPublicIPAddress* para o nome do endereço IP público e, em seguida, selecione **OK**. 
 
@@ -196,7 +196,7 @@ Neste exemplo, você instala o IIS nas máquinas virtuais somente para verificar
 
 Embora o IIS não seja necessário para criar o gateway de aplicativo, você o instalou neste guia de início rápido para verificar se o Azure criou o gateway de aplicativo com êxito. Use o IIS para testar o gateway de aplicativo:
 
-1. Localize o endereço IP público para o gateway de aplicativo em sua página de **visão geral** .![registrar o endereço IP público do gateway de aplicativo](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) ou, você pode selecionar **todos os recursos**, insira *myAGPublicIPAddress* na caixa de pesquisa e, em seguida, selecione-o nos resultados da pesquisa. O Azure exibe o endereço IP público na página **visão geral** .
+1. Localize o endereço IP público para o gateway de aplicativo em sua página de **visão geral**Registrar endereço![IP público do gateway de aplicativo](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) ou, você pode selecionar **todos os recursos**, inserir *myAGPublicIPAddress* na caixa de pesquisa e, em seguida, selecioná-lo nos resultados da pesquisa. O Azure exibe o endereço IP público na página **visão geral** .
 2. Copie o endereço IP público e cole-o na barra de endereço do browser.
 3. Verifique a resposta. Uma resposta válida verifica se o gateway de aplicativo foi criado com êxito e pode se conectar com êxito com o back-end.![Testar o gateway de aplicação](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 

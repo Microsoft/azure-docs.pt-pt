@@ -1,5 +1,5 @@
 ---
-title: Enviar mensagens para um servidor MQTT usando a biblioteca de cliente MQTT do Azure | Microsoft Docs
+title: Enviar mensagens para um servidor MQTT usando a biblioteca de cliente MQTT do Azure
 description: Saiba como usar a biblioteca de cliente do MQTT para enviar mensagens para um agente do MQTT. Saiba também como configurar seu mXChip IoT DevKit para ser um cliente MQTT.
 author: liydu
 manager: jeffya
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 4de8b0910a2be48cc626775c5c9bc873c6e780dc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 14feb02fbac800cd37da882a1872beb8269d9938
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889537"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954232"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Enviar mensagens para um servidor MQTT
 
@@ -80,7 +80,7 @@ Se você tiver problemas, consulte as [perguntas frequentes do IOT devkit](https
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 * [Conectar IoT DevKit AZ3166 ao Hub IoT do Azure na nuvem](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 * [Agite, agite para um tweet](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)

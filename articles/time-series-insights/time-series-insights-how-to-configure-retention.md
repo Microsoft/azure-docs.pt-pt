@@ -1,6 +1,6 @@
 ---
-title: Como configurar a retenção em seu ambiente de Azure Time Series Insights | Microsoft Docs
-description: Este artigo descreve como configurar a retenção em seu ambiente de Azure Time Series Insights.
+title: Como configurar a retenção em seu ambiente-Azure Time Series Insights | Microsoft Docs
+description: Saiba como configurar a retenção em seu ambiente de Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff4d326af691ae27894dc94d7581ba68951f090e
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: aa905d1686939346827d07419a62fd6f299387ec
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990063"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012600"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configurando a retenção no Time Series Insights
 
@@ -34,9 +34,9 @@ Para obter informações detalhadas para entender melhor essas configurações, 
 
 ## <a name="configure-data-retention"></a>Configurar a retenção de dados
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
-1. Localize seu ambiente de Time Series Insights existente. Selecione **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do Time Series Insights.
+1. Localize o seu ambiente do Time Series Insights existente. Selecione **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do Time Series Insights.
 
 1. No título **configurações** , selecione **Configurar**.
 
@@ -48,7 +48,7 @@ Para obter informações detalhadas para entender melhor essas configurações, 
 
 1. Alterne a configuração de **comportamento de limite de armazenamento excedido** . Selecione **limpar dados antigos** ou **Pausar** comportamento de entrada.
 
-    [retenção de dados![-aceite e salve.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
+    [retenção de dados ![-aceite e salve.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
 1. Aceite a caixa de seleção indicando que você analisou a documentação e entendeu os riscos potenciais de perda de dados. Selecione **salvar** para configurar as alterações.
 

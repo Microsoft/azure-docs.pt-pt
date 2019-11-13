@@ -1,5 +1,5 @@
 ---
-title: Sobre o Planejador de Implantações do Azure Site Recovery para recuperação de desastre de VMs do Hyper-V para o Azure | Microsoft Docs
+title: Planejador de Implantações para a recuperação de desastres do Hyper-V com Azure Site Recovery
 description: Saiba mais sobre a recuperação de desastres do Hyper-V Planejador de Implantações do Azure Site Recovery no Azure.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: 6e7da548eb2cc6e314d446270cc04d1c57be7ae3
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 72b1311227f5c9f9efc35b2940d3c843a21dc261
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618831"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954022"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Sobre o Planejador de Implantações do Azure Site Recovery para a recuperação de desastres do Hyper-V para o Azure
 
@@ -84,7 +84,7 @@ A ferramenta tem três fases principais para Hyper-V: obter a lista de VMs, cria
 
 | Requisito do servidor | Descrição |
 |---|---|
-|Obter lista de VMs, criação de perfis e medição de débito |<ul><li>Sistema Operacional: Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2 </li><li>Configuração da máquina: 8 vCPUs, 16 GB de RAM, HDD de 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure a partir deste servidor</li><li>Conta de armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre no disco (presumindo mil VMs com uma média de três discos cada, com perfis criados para 30 dias)</li><li>A VM a partir da qual está a executar a ferramenta Planeador de Implementações do Azure Site Recovery tem de ser adicionada à lista TrustedHosts de todos os servidores Hyper-V.</li><li>Todos os servidores Hyper-V a serem cujo perfil deve ser criado devem ser adicionados à lista TrustedHosts da VM do cliente de onde a ferramenta está sendo executada. [Saiba mais sobre como adicionar servidores à lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> A ferramenta deve ser executada a partir de privilégios de administrador do PowerShell ou da consola da linha de comandos no cliente</ul></ul>|
+|Obter lista de VMs, criação de perfis e medição de débito |<ul><li>Sistema operativo: Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2 </li><li>Configuração da máquina : 8 vCPus, 16 GB de RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure a partir deste servidor</li><li>Conta de armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre no disco (presumindo mil VMs com uma média de três discos cada, com perfis criados para 30 dias)</li><li>A VM a partir da qual está a executar a ferramenta Planeador de Implementações do Azure Site Recovery tem de ser adicionada à lista TrustedHosts de todos os servidores Hyper-V.</li><li>Todos os servidores Hyper-V a serem cujo perfil deve ser criado devem ser adicionados à lista TrustedHosts da VM do cliente de onde a ferramenta está sendo executada. [Saiba mais sobre como adicionar servidores à lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> A ferramenta deve ser executada a partir de privilégios de administrador do PowerShell ou da consola da linha de comandos no cliente</ul></ul>|
 | Geração de relatórios | Um PC Windows ou Windows Server com o Microsoft Excel 2013 ou posterior |
 | Permissões de utilizador | Conta de administrador para aceder ao cluster Hyper-V/anfitrião Hyper-V durante as operações de obtenção de lista de VMs e criação de perfis.<br>Todos os anfitriões para os quais têm de ser criados perfis devem ter uma conta de administrador de domínio com as mesmas credenciais, ou sejam nome de utilizador e palavra-passe
  |
@@ -115,9 +115,9 @@ A configuração recomendada da VM: 8 vCPUs, 16 GB de RAM, HDD de 300 GB.
 1.  Extraia a pasta .zip.
 Esta contém vários ficheiros e sub-pastas. O ficheiro executável é ASRDeploymentPlanner.exe, na pasta principal.
 
-Exemplo: Copie o ficheiro .zip para a unidade E:\ e extraia-o. E:\ASR Deployment Planner_v 2.3. zip
+Exemplo: copie o ficheiro .zip para a unidade E:\ e extraia-o. E:\ASR Deployment Planner_v2.3. zip
 
-E:\ASR Deployment Planner_v 2.3 \ ASRDeploymentPlanner. exe
+Planner_v2 implantação do E:\ASR. 3 \ ASRDeploymentPlanner. exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Atualizar para a versão mais recente do Planeador de Implementações
 
@@ -139,5 +139,5 @@ A versão mais recente da ferramenta de Planejador de Implantações do Azure Si
 Consulte Planejador de Implantações do Azure Site Recovery página de [histórico de versão](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) para as correções que são adicionadas em cada atualização.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Executar o planeador de implementação](site-recovery-hyper-v-deployment-planner-run.md).

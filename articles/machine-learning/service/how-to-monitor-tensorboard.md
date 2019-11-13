@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
-ms.date: 06/28/2019
-ms.openlocfilehash: 272dbbbc335574456feebfb85e4c5eafd544f8d6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/08/2019
+ms.openlocfilehash: fc8159b3deba373948f513cb11540695362ecaf1
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574299"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954569"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualizar execuções e métricas de experimento com TensorBoard e Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,16 +41,18 @@ A maneira como você inicia o TensorBoard com Azure Machine Learning experimento
 
         * Conclua o [tutorial: ambiente de instalação e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md) para criar um servidor de notebook dedicado pré-carregado com o SDK e o repositório de exemplo.
 
-        * Na pasta Samples no servidor do notebook, encontre dois blocos de anotações concluídos e expandidos navegando até este diretório: **instruções-uso-azureml > treinamento com aprendizado profundo**.
-        * Export-execute-History-to-execute-History. ipynb
-        * tensorboard. ipynb
+        * Na pasta Samples no servidor do notebook, encontre dois blocos de anotações concluídos e expandidos navegando até esses diretórios:
+            * **como usar-azureml > treinamento com aprendizado profundo > Export-Run-History-to-tensorboard > Exportar-Run-History-to-tensorboard. ipynb**
+
+            * **instruções-use-azureml > monitorar-e-monitor-experimentos > tensorboard. ipynb**
 
     * Seu próprio servidor do Juptyer Notebook
-          * [Instale o SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) com o `tensorboard` extra
-          * [Crie um espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md).  
-          * [Crie um arquivo de configuração de espaço de trabalho](how-to-configure-environment.md#workspace).
+       * [Instale o SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) com o `tensorboard` extra
+        * [Crie um espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md).  
+        * [Crie um arquivo de configuração de espaço de trabalho](how-to-configure-environment.md#workspace).
   
 <a name="direct"></a>
+
 ## <a name="option-1-directly-view-run-history-in-tensorboard"></a>Opção 1: exibir o histórico de execução diretamente no TensorBoard
 
 Essa opção funciona para experimentos que geram nativamente os arquivos de log consumíveis por TensorBoard, como experimentos de PyTorch, Encadeadores e TensorFlow. Se esse não for o caso do seu experimento, use [o método `export_to_tensorboard()`](#export) em vez disso.
@@ -87,7 +89,7 @@ with open(os.path.join(exp_dir, "mnist_with_summaries.py"), "w") as file:
 ```
 Em todo o arquivo de código MNIST, mnist_with_summaries. py, observe que há linhas que chamam `tf.summary.scalar()`, `tf.summary.histogram()`, `tf.summary.FileWriter()` etc. Esses métodos agrupam, registram e marcam métricas principais de suas experiências no histórico de execução. A `tf.summary.FileWriter()` é especialmente importante, pois ela serializa os dados de suas métricas de teste registradas, o que permite que o TensorBoard gere visualizações para eles.
 
- ### <a name="configure-experiment"></a>Configurar experimento
+ ### <a name="configure-experiment"></a>Configurar experimentação
 
 A seguir, configuramos nosso experimento e configuramos diretórios para logs e dados. Esses logs serão carregados no serviço de artefato, que TensorBoard será acessado mais tarde.
 

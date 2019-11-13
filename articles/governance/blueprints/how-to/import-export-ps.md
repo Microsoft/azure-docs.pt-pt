@@ -1,17 +1,14 @@
 ---
 title: Importar e exportar definições de Blueprint com o PowerShell
 description: Saiba como trabalhar com suas definições de plano gráfico como código. Compartilhe, controle do código-fonte e gerencie-os usando os comandos exportar e importar.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/03/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 30e734c99a87364acfba9a58d83fe9a377958607
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: ca756ed093d5d423f6f83e5ca3953a8ecfce7d5a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978449"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960375"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importar e exportar definições de Blueprint com o PowerShell
 
@@ -41,7 +38,7 @@ Se ele ainda não estiver instalado, siga as instruções em [Adicionar o módul
 Antes de examinar a exportação e a importação de plantas, vejamos como os arquivos que compõem a definição do Blueprint são estruturados. Uma definição de Blueprint deve ser armazenada em sua própria pasta.
 
 > [!IMPORTANT]
-> Se nenhum valor for passado para o parâmetro **Name** do cmdlet `Import-AzBlueprintWithArtifact`, o nome da pasta na qual a definição de Blueprint é armazenada será usado.
+> Se nenhum valor for passado para o parâmetro **Name** do cmdlet `Import-AzBlueprintWithArtifact`, o nome da pasta na qual a definição Blueprint é armazenada será usado.
 
 Junto com a definição do Blueprint, que deve ser nomeada `blueprint.json`, são os artefatos dos quais a definição do Blueprint é composta. Cada artefato deve estar na subpasta chamada `artifacts`.
 Juntas, a estrutura de sua definição de plantas como arquivos JSON em pastas deve ter a seguinte aparência:

@@ -1,6 +1,6 @@
 ---
-title: Diagnosticar e solucionar problemas de Azure Time Series Insights visualização | Microsoft Docs
-description: Entenda como diagnosticar e solucionar problemas com o Azure Time Series Insights Preview.
+title: Diagnosticar e solucionar problemas de um ambiente de visualização-Azure Time Series Insights | Microsoft Docs
+description: Saiba como diagnosticar e solucionar problemas em um ambiente de visualização de Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b65edbd808abd6ff660ef00a8a680b4d3f0846c
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: df8300e84309a874faa4b1c06891a4c5b549fce6
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989893"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014783"
 ---
-# <a name="diagnose-and-troubleshoot"></a>Diagnosticar e resolver problemas
+# <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnosticar e solucionar problemas de um ambiente de visualização
 
 Este artigo resume vários problemas comuns que você pode encontrar ao trabalhar com seu ambiente de Azure Time Series Insights visualização. O artigo também descreve as possíveis causas e soluções para cada problema.
 
@@ -25,7 +25,7 @@ Este artigo resume vários problemas comuns que você pode encontrar ao trabalha
 
 Esse problema pode ocorrer se você não tiver permissões para acessar o ambiente de Time Series Insights. Os usuários precisam de uma função de acesso de nível de leitor para exibir seu ambiente de Time Series Insights. Para verificar os níveis de acesso atuais e conceder acesso adicional, acesse a seção **políticas de acesso a dados** no recurso de Time Series Insights no [portal do Azure](https://portal.azure.com/).
 
-  [Ambiente de![](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
+  [Ambiente de ![](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
 
 ## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problema: nenhum dado é visto no Gerenciador de visualização
 
@@ -35,11 +35,11 @@ Há vários motivos comuns pelos quais você pode não ver seus dados no [Azure 
 
     Verifique se a origem do evento, que é um hub de eventos ou um hub IoT, está recebendo dados de suas marcas ou instâncias. Para verificar, vá para a página Visão geral do recurso na portal do Azure.
 
-    [Painel de![-ideias](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
+    [Painel de ![-ideias](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
 
 - Os dados de origem do evento não estão no formato JSON.
 
-    Time Series Insights dá suporte apenas a dados JSON. Para obter exemplos de JSON, consulte [formas de JSON com suporte](./how-to-shape-query-json.md).
+    Time Series Insights dá suporte apenas a dados JSON. Para exemplos de JSON, veja [formas JSON suportadas](./how-to-shape-query-json.md).
 
 - A chave de origem do evento não tem uma permissão necessária.
 
@@ -74,10 +74,10 @@ Você pode estar enviando dados sem a ID da série temporal.
 
 ## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problema: o nome da propriedade de carimbo de data/hora da origem do evento não funciona
 
-Verifique se o nome e o valor estão em conformidade com as seguintes regras:
+Certifique-se de que o nome e o valor está em conformidade com as seguintes regras:
 
 * O nome da propriedade Timestamp diferencia maiúsculas de minúsculas.
-* O valor da propriedade Timestamp que vem da origem do evento como uma cadeia de caracteres JSON tem o formato `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. Um exemplo de tal cadeia de caracteres é `“2008-04-12T12:53Z”`.
+* O valor da propriedade Timestamp que vem da origem do evento como uma cadeia de caracteres JSON tem o formato `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. Um exemplo de uma cadeia de caracteres é `“2008-04-12T12:53Z”`.
 
 A maneira mais fácil de garantir que o nome da propriedade de carimbo de data/hora seja capturado e funcionando corretamente é usar o Gerenciador de visualização Time Series Insights. Dentro do Time Series Insights Gerenciador de visualização, use o gráfico para selecionar um período de tempo depois de fornecer o nome da propriedade de carimbo de data/hora. Clique com o botão direito do mouse na seleção e selecione a opção **explorar eventos** . O primeiro cabeçalho de coluna é o nome da propriedade de carimbo de data/hora. Ele deve ter `($ts)` ao lado da palavra `Timestamp`, em vez de:
 
@@ -98,7 +98,7 @@ Se a propriedade timestamp não for especificada explicitamente, o Hub IoT do ev
 
    Os modelos de série temporal têm suporte apenas em ambientes pagos conforme o uso. Para obter mais informações sobre como acessar seu ambiente S1 ou S2 no Time Series Insights Preview Explorer, consulte [Visualizar dados no Gerenciador](./time-series-insights-update-explorer.md).
 
-   [Acesso![](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
+   [![Access](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
 
 - Talvez você não tenha permissões para exibir e editar o modelo.
 
@@ -108,7 +108,7 @@ Se a propriedade timestamp não for especificada explicitamente, o Hub IoT do ev
 
 Esse problema pode ocorrer se o seu ambiente não tiver uma hierarquia de modelo de série temporal definida. Para obter mais informações, consulte [trabalhar com modelos de série temporal](./time-series-insights-update-how-to-tsm.md).
 
-  [Modelos de série temporal![](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
+  [Modelos de série temporal ![](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 

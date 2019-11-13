@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 62657134775d21ad6aabdf8f02a1e001de0a6094
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 55a9cbcfdb9766c6adc6d10f975fa4d074ec3aaf
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176841"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011672"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Como autorizar contas de desenvolvedor usando Azure Active Directory B2C no gerenciamento de API do Azure
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Azure Active Directory B2C é uma solução de gerenciamento de identidade de nuvem para aplicativos móveis e Web voltados para o consumidor. Você pode usá-lo para gerenciar o acesso ao portal do desenvolvedor. Este guia mostra a configuração necessária em seu serviço de gerenciamento de API para integração com o Azure Active Directory B2C. Para obter informações sobre como habilitar o acesso ao portal do desenvolvedor usando Azure Active Directory clássicas, consulte [como autorizar contas de desenvolvedor usando Azure Active Directory].
 
@@ -77,7 +77,7 @@ Azure Active Directory B2C é uma solução de gerenciamento de identidade de nu
     
 12. Especifique o nome de domínio do locatário de Azure Active Directory B2C no **locatário de entrada**.
 
-13. O campo **autoridade** permite que você controle a URL de logon do Azure ad B2C a ser usada. Defina o valor como **< your_b2c_tenant_name >. b2clogin. com**.
+13. O campo **autoridade** permite que você controle a URL de logon do Azure ad B2C a ser usada. Defina o valor para **< your_b2c_tenant_name >. b2clogin. com**.
 
 14. Especifique a **política de inscrição** e a **política de entrada** das políticas de locatário B2C. Opcionalmente, você também pode fornecer a política de **edição de perfil** e a **política de redefinição de senha**.
 
@@ -87,11 +87,11 @@ Azure Active Directory B2C é uma solução de gerenciamento de identidade de nu
 
 ## <a name="developer-portal---add-azure-ad-b2c-account-authentication"></a>Portal do desenvolvedor-adicionar Azure AD B2C autenticação de conta
 
-Para habilitar a entrada com AAD B2C no portal do desenvolvedor, você precisa adicionar o widget **botões OAuth** ao formulário de entrada.
+No portal do desenvolvedor, entre com AAD B2C é possível com o widget **botões OAuth** . O widget já está incluído na página de entrada do conteúdo do portal do desenvolvedor padrão.
 
 ![Widget de botões do AAD](./media/api-management-howto-aad/portal-oauth-widget.png)
 
-Embora uma nova conta seja criada automaticamente sempre que um novo usuário entrar com AAD B2C, você pode considerar adicionar o mesmo widget no formulário de inscrição.
+Embora uma nova conta seja criada automaticamente sempre que um novo usuário entrar com AAD B2C, você pode considerar adicionar o mesmo widget à página de inscrição.
 
 ## <a name="legacy-developer-portal---how-to-sign-up-with-azure-ad-b2c"></a>Portal do desenvolvedor herdado-como se inscrever com Azure AD B2C
 

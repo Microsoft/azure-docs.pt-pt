@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 270dbb24d851645ff7a7f0bcf5f78bfb95bcd095
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 5ae97f18bb15b5ab2fe092a1e3b857ea3ef0aed0
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604736"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012974"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -59,7 +59,7 @@ O motivo para os avisos no painel é que o cluster agora está habilitado com RB
 
 ## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Não consigo me conectar ao painel. O que devo fazer?
 
-A maneira mais fácil de acessar o serviço fora do cluster é executar `kubectl proxy`, que os proxies solicitam enviados à porta localhost 8001 para o servidor de API kubernetes. A partir daí, o servidor de API pode fazer proxy para seu serviço: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
+A maneira mais fácil de acessar o serviço fora do cluster é executar `kubectl proxy`, quais proxies as solicitações enviaram para a porta localhost 8001 para o servidor de API kubernetes. A partir daí, o servidor de API pode fazer proxy para seu serviço: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
 
 Se você não vir o painel do kubernetes, verifique se o Pod `kube-proxy` está em execução no namespace `kube-system`. Se não estiver em um estado de execução, exclua o pod e ele será reiniciado.
 
@@ -77,7 +77,7 @@ Você pode estar recebendo esse erro porque modificou as marcas nos nós de agen
 
 Esse erro ocorre quando os clusters entram em um estado de falha por vários motivos. Siga as etapas abaixo para resolver o estado de falha do cluster antes de repetir a operação que falhou anteriormente:
 
-1. Até que o cluster esteja fora do estado `failed`, as operações `upgrade` e `scale` não terão sucesso. As resoluções e problemas de raiz comuns incluem:
+1. Até que o cluster esteja fora do estado de `failed`, as operações de `upgrade` e `scale` não terão sucesso. As resoluções e problemas de raiz comuns incluem:
     * Dimensionamento com **cota de computação insuficiente (CRP)** . Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga estas [etapas para solicitar um aumento de cota de computação](../azure-supportability/resource-manager-core-quotas-request.md) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
     * Dimensionamento de um cluster com rede avançada e **recursos de sub-rede (rede) insuficientes**. Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga [estas etapas para solicitar um aumento de cota de recursos](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
 2. Depois que a causa subjacente da falha de atualização for resolvida, o cluster deverá estar em um estado com êxito. Quando um estado bem-sucedido for verificado, repita a operação original.
@@ -118,6 +118,7 @@ Siga as etapas *antes de começar* no documento apropriado para criar corretamen
 
 As restrições de nomenclatura são implementadas pela plataforma do Azure e AKS. Se um nome de recurso ou parâmetro quebrar uma dessas restrições, será retornado um erro solicitando que você forneça uma entrada diferente. As seguintes diretrizes de nomenclatura comuns se aplicam:
 
+* Os nomes de cluster devem ter de 1-63 caracteres. Os únicos caracteres permitidos são letras, números, traços e sublinhados. O primeiro e o último caractere devem ser uma letra ou um número.
 * O nome do grupo de recursos do AKS *MC_* combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerada automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` não deve ser maior que 80 caracteres. Se necessário, reduza o tamanho do nome do grupo de recursos ou do nome do cluster AKS.
 * O *dnsPrefix* deve começar e terminar com valores alfanuméricos. Os caracteres válidos incluem valores alfanuméricos e hifens (-). O *dnsPrefix* não pode incluir caracteres especiais, como um ponto (.).
 
@@ -144,7 +145,7 @@ Use as seguintes soluções alternativas para isso:
 
 ## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>Estou recebendo erros depois de restringir o tráfego de egresso
 
-Ao restringir o tráfego de saída de um cluster AKS, há regras de saída/portas de rede [recomendadas e opcionais necessárias](limit-egress-traffic.md) e regras de FQDN/aplicativo para AKs. Se suas configurações estiverem em conflito com qualquer uma dessas regras, talvez você não possa executar determinados comandos `kubectl`. Você também pode ver erros ao criar um cluster AKS.
+Ao restringir o tráfego de saída de um cluster AKS, há regras de saída/portas de rede [recomendadas e opcionais necessárias](limit-egress-traffic.md) e regras de FQDN/aplicativo para AKs. Se suas configurações estiverem em conflito com qualquer uma dessas regras, talvez você não possa executar determinados comandos de `kubectl`. Você também pode ver erros ao criar um cluster AKS.
 
 Verifique se as configurações não estão em conflito com nenhuma das portas de rede/regras de saída necessárias ou opcionais recomendadas ou regras de FQDN/aplicativo.
 

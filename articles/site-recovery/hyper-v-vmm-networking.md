@@ -1,18 +1,18 @@
 ---
-title: Configurar o endereçamento IP para se conectar a um site secundário local após o failover com Azure Site Recovery
+title: Configurar o endereçamento IP após o failover para um site secundário com Azure Site Recovery
 description: Descreve como configurar o endereçamento IP para se conectar a VMs em um site secundário local após a recuperação de desastres e o failover com o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: f158c6b71bb53d6b683577401e625e24808eb7eb
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813693"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961433"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurar o endereçamento IP para se conectar a um site secundário local após o failover
 
@@ -22,8 +22,8 @@ Depois de realizar o failover de VMs do Hyper-V em nuvens System Center Virtual 
 
 Após o failover, há duas maneiras de lidar com endereçamento IP para VMs de réplica: 
 
-- **Manter o mesmo endereço IP após o failover**: Nesse cenário, a VM replicada tem o mesmo endereço IP que a VM primária. Isso simplifica os problemas relacionados à rede após o failover, mas requer algum trabalho de infraestrutura.
-- **Usar um endereço IP diferente após o failover**: Nesse cenário, a VM Obtém um novo endereço IP após o failover. 
+- **Manter o mesmo endereço IP após o failover**: nesse cenário, a VM replicada tem o mesmo endereço IP que a VM primária. Isso simplifica os problemas relacionados à rede após o failover, mas requer algum trabalho de infraestrutura.
+- **Usar um endereço IP diferente após o failover**: nesse cenário, a VM Obtém um novo endereço IP após o failover. 
  
 
 ## <a name="retain-the-ip-address"></a>Manter o endereço IP
@@ -125,7 +125,7 @@ Neste exemplo, temos endereços IP diferentes em sites primários e secundários
 ![Endereço IP diferente-após o failover](./media/hyper-v-vmm-networking/network-design11.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Executar um failover](hyper-v-vmm-failover-failback.md)
 

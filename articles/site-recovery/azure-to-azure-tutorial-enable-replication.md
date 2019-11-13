@@ -1,20 +1,19 @@
 ---
-title: Configurar a recuperação após desastre de VMs do Azure para uma região secundária do Azure com o Azure Site Recovery
+title: Configurar a recuperação de desastre de VM do Azure com o Azure Site Recovery
 description: Saiba como configurar a recuperação após desastre de VMs do Azure para uma região diferente do Azure, utilizando o serviço Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/05/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e46bc9e4fbb2b573338b8be43c38e658ebde05a8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 502f71365d78bd8fd949d17fe8907817394586b2
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468020"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961503"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurar a recuperação de desastre para VMs do Azure
 
@@ -26,7 +25,7 @@ Este tutorial mostra como configurar a recuperação de desastre para VMs do Azu
 > * Criar um cofre dos Serviços de Recuperação
 > * Verificar as definições dos recursos de destino
 > * Configurar a conectividade de rede de saída para VMs
-> * Ativar replicação para uma VM
+> * Ativar a replicação para uma VM
 
 > [!NOTE]
 > Este artigo fornece instruções para implantar a recuperação de desastre com as configurações mais simples. Se você quiser saber mais sobre as configurações personalizadas, examine os artigos na [seção como](azure-to-azure-how-to-enable-replication.md).
@@ -93,7 +92,7 @@ Se você estiver usando o NSG, poderá criar uma marca de serviço de armazename
 Verifique se as VMs que você deseja replicar têm os certificados raiz mais recentes. Se não for, a VM não poderá ser registrada em Site Recovery, devido a restrições de segurança.
 
 - Para VMs do Windows, instale todas as atualizações mais recentes do Windows na VM, para que todos os certificados de raiz fidedigna fiquem na máquina. Num ambiente desligado, siga o padrão do Windows Update e os processos de atualização de certificados da sua organização.
-- Para VMs do Linux, siga as orientações fornecidas pelo distribuidor do Linux, para obter os certificados de raiz fidedigna mais recentes e a lista de revogação de certificados na VM.
+- Para VMs do Linux, siga a documentação de orientação fornecida pelo distribuidor do Linux, para obter os certificados de raiz fidedigna mais recentes e a lista de revogação de certificados na VM.
 
 ## <a name="set-permissions-on-the-account"></a>Definir permissões na conta
 
@@ -107,7 +106,7 @@ O Azure Site Recovery fornece três funções incorporadas para controlar as ope
 
 Saiba mais sobre as [funções internas do RBAC do Azure](../role-based-access-control/built-in-roles.md).
 
-## <a name="enable-replication-for-a-vm"></a>Ativar replicação para uma VM
+## <a name="enable-replication-for-a-vm"></a>Ativar a replicação para uma VM
 
 ### <a name="select-the-source"></a>Selecionar a origem
 

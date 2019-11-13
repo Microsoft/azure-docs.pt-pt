@@ -1,6 +1,7 @@
 ---
-title: Guia de treinamento de registros do aplicativo do portal de registro de aplicativos – plataforma Microsoft Identity | Azure
-description: Registros de aplicativo na portal do Azure para usuários familiarizados com o portal de registro de aplicativos
+title: Transição do portal de registro de aplicativos para a nova experiência de Registros de aplicativo no portal do Azure
+titleSuffix: Microsoft identity platform
+description: Uma introdução à nova experiência de registro de aplicativo no portal do Azure
 services: active-directory
 documentationcenter: ''
 author: archieag
@@ -17,14 +18,14 @@ ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1974616c0331203a803e4f13a19297940fb5d42e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 0e9c09ce2d997c58e2725c411fff0b87a0f5071b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905475"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013030"
 ---
-# <a name="training-guide-using-app-registrations-in-the-azure-portal-instead-of-application-registration-portal"></a>Guia de treinamento: usando Registros de aplicativo no portal do Azure em vez do portal de registro de aplicativos
+# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Transição do portal de registro de aplicativos para a nova experiência de Registros de aplicativo no portal do Azure
 
 Há muitas melhorias na nova experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. Se você estiver mais familiarizado com a experiência do apps.dev.microsoft.com (portal de registro de aplicativos) para registrar ou gerenciar aplicativos convergidos, chamados de experiência antiga, este guia de treinamento o ajudará a começar a usar a nova experiência.
 
@@ -83,7 +84,7 @@ A nova experiência no portal do Azure representa esses recursos em páginas sep
 
 Na nova experiência, os **segredos do aplicativo** foram renomeados para **certificados & segredos**. Além disso, **as chaves públicas** são conhecidas como **certificados** e **as senhas** são chamadas de **segredos do cliente**. Optamos por não trazer essa funcionalidade na nova experiência por motivos de segurança, portanto, você não pode mais gerar um novo par de chaves.
 
-## <a name="platformsauthentication---reply-urlsredirect-uris"></a>Plataformas/autenticação-URLs de resposta/URIs de redirecionamento
+## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Plataformas/autenticação: URLs de resposta/URIs de redirecionamento
 Na antiga experiência, uma seção aplicativo tinha plataformas para Web, nativa e API Web para configurar URLs de redirecionamento, URL de logout e fluxo implícito.
 
 Na nova experiência, as URLs de resposta podem ser encontradas em uma seção de autenticação do\'s de aplicativo. Além disso, eles são chamados de URIs de redirecionamento e o formato para URIs de redirecionamento foi alterado. Eles devem ser associados a um tipo de aplicativo (cliente Web ou público-celular e desktop). [Saber mais](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)

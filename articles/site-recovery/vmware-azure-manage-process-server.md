@@ -1,18 +1,18 @@
 ---
-title: Gerenciar um servidor de processo usado para recuperação de desastre de VMs VMware e servidores físicos para o Azure com o Azure Site Recovery | Microsoft Docs
-description: Este artigo descreve como gerenciar um servidor de processo configurado para recuperação de desastres de VMs VMware e servidores físicos no Azure usando Azure Site Recovery.
+title: Gerenciar um servidor de processo para VMs VMware/recuperação de desastres de servidor físico no Azure Site Recovery
+description: Este artigo descreve como gerenciar um servidor de processo para recuperação de desastre de VMs VMware/servidores físicos usando o Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: 509b9aed9f5daebb70a18336837da2152667a458
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242833"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954338"
 ---
 # <a name="manage-process-servers"></a>Gerir servidores de processos
 

@@ -1,6 +1,6 @@
 ---
-title: Padrões de consulta comuns do Azure digital gêmeos | Microsoft Docs
-description: Aprenda padrões comuns de consulta das APIs de gerenciamento de gêmeos digitais do Azure.
+title: Padrões de consulta comuns – gêmeos digitais do Azure | Microsoft Docs
+description: Aprenda vários padrões comuns de consulta de API para as APIs de gerenciamento de gêmeos digitais do Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/27/2019
-ms.openlocfilehash: ef9e7a41f1de05e4d21a9ad7b45ed2b99885b6b8
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: c821524b344c8b741047ba415127cffe59a74ca2
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044444"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005901"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Como consultar as APIs do Azure digital gêmeos para tarefas comuns
 

@@ -1,6 +1,6 @@
 ---
-title: Práticas recomendadas para o Shaping de JSON em consultas Azure Time Series Insights | Microsoft Docs
-description: Saiba como melhorar sua eficiência de consulta do Azure Time Series Insights.
+title: Práticas recomendadas para a formatação de consultas JSON-Azure Time Series Insights | Microsoft Docs
+description: Saiba como melhorar sua eficiência de consulta do Azure Time Series Insights ao moldar JSON.
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 10/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 09090354012d2cd3ba050ff9c94593947f27b006
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 386d10c8e4bd7d5f46d2081d5a26371fb37ff30f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990283"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007008"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Forma JSON para maximizar o desempenho da consulta 
 
@@ -30,7 +30,7 @@ Este artigo fornece orientação sobre como formatar JSON para maximizar a efici
 
 Pense em como você envia eventos para Time Series Insights. Ou seja, você sempre:
 
-1. Envie dados pela rede o mais eficiente possível.
+1. envie dados através da rede mais eficientemente possível.
 1. Verifique se os dados estão armazenados de forma que você possa executar agregações adequadas para seu cenário.
 1. Certifique-se de que você não atinja os limites de propriedade máxima de Time Series Insights de:
    - 600 Propriedades (colunas) para ambientes S1.
@@ -42,11 +42,11 @@ Pense em como você envia eventos para Time Series Insights. Ou seja, você semp
 As diretrizes a seguir ajudam a garantir o melhor desempenho de consulta possível:
 
 1. Não use propriedades dinâmicas, como uma ID de marca, como um nome de propriedade. Isso usa contribui para atingir o limite máximo de propriedades.
-1. Não envie Propriedades desnecessárias. Se uma propriedade de consulta não for necessária, é melhor não enviá-la. Dessa forma, você evitará limitações de armazenamento.
+1. Não envie propriedades desnecessárias. Se uma propriedade de consulta não for necessária, é melhor não enviá-la. Dessa forma, você evitará limitações de armazenamento.
 1. Use [dados de referência](time-series-insights-add-reference-data-set.md) para evitar o envio de dados estáticos pela rede.
 1. Compartilhe Propriedades de dimensão entre vários eventos para enviar dados pela rede com mais eficiência.
-1. Não use o aninhamento profundo de matriz. O Time Series Insights dá suporte a até dois níveis de matrizes aninhadas que contêm objetos. Time Series Insights mescla matrizes nas mensagens em vários eventos com pares de valor de propriedade.
-1. Se existirem apenas algumas medidas para todos ou a maioria dos eventos, é melhor enviar essas medidas como propriedades separadas dentro do mesmo objeto. Enviá-los separadamente reduz o número de eventos e pode melhorar o desempenho da consulta porque menos eventos precisam ser processados. Quando há várias medidas, enviá-las como valores em uma única propriedade minimiza a possibilidade de atingir o limite máximo da propriedade.
+1. Não utilize o aninhamento de matriz profunda. O Time Series Insights dá suporte a até dois níveis de matrizes aninhadas que contêm objetos. Time Series Insights mescla matrizes nas mensagens em vários eventos com pares de valor de propriedade.
+1. Se apenas existirem algumas medidas para todas as ou a maioria dos eventos, é melhor enviar essas medidas como propriedades separadas dentro do mesmo objeto. Enviá-los separadamente reduz o número de eventos e pode melhorar o desempenho da consulta porque menos eventos precisam ser processados. Quando há várias medidas, enviá-las como valores em uma única propriedade minimiza a possibilidade de atingir o limite máximo da propriedade.
 
 ## <a name="example-overview"></a>Visão geral de exemplo
 
@@ -97,22 +97,22 @@ Considere o seguinte conteúdo JSON enviado ao seu ambiente Time Series Insights
 
    | deviceId | messageId | deviceLocation |
    | --- | --- | --- |
-   | FXXX | DADOS de\_de linha | UE |
-   | FYYY | DADOS de\_de linha | EUA |
+   | FXXX | LINE\_DATA | UE |
+   | FYYY | LINE\_DATA | EUA |
 
 * Time Series Insights tabela de eventos, após o nivelamento:
 
-   | deviceId | messageId | deviceLocation | carimbo de data/hora | série. Taxa de fluxo ft3/s | série. Pressão do óleo do motor psi |
+   | deviceId | messageId | deviceLocation | carimbo de data/hora | série. Taxa de fluxo ft3/s | série. Psi de petróleo pressão do motor |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | DADOS de\_de linha | UE | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34,7 |
-   | FXXX | DADOS de\_de linha | UE | 2018-01-17T01:17:00Z | 2.445906400680542 | 49,2 |
-   | FYYY | DADOS de\_de linha | EUA | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22,2 |
+   | FXXX | LINE\_DATA | UE | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
+   | FXXX | LINE\_DATA | UE | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
+   | FYYY | LINE\_DATA | EUA | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22,2 |
 
 > [!NOTE]
 > - A coluna **DeviceID** serve como o cabeçalho de coluna para os vários dispositivos em uma frota. Tornar o valor **DeviceID** seu próprio nome de propriedade limita o total de dispositivos a 595 (para ambientes S1) ou 795 (para ambientes S2) com as outras cinco colunas.
 > - Propriedades desnecessárias são evitadas (por exemplo, as informações de marca e modelo). Como as propriedades não serão consultadas no futuro, a eliminação delas permitirá uma melhor eficiência na rede e no armazenamento.
 > - Os dados de referência são usados para reduzir o número de bytes transferidos pela rede. Os dois atributos **MessageId** e **deviceLocation** são Unidos usando a propriedade de chave **DeviceID**. Esses dados são associados aos dados de telemetria no momento da entrada e, em seguida, são armazenados em Time Series Insights para consulta.
-> - São usadas duas camadas de aninhamento, que é a quantidade máxima de aninhamento com suporte pelo Time Series Insights. É fundamental evitar matrizes profundamente aninhadas.
+> - São usadas duas camadas de aninhamento, que é a quantidade máxima de aninhamento com suporte pelo Time Series Insights. É fundamental para evitar matrizes profundamente aninhadas.
 > - As medidas são enviadas como propriedades separadas dentro do mesmo objeto porque há poucas medidas. Aqui, **série. Taxa de fluxo psi** e **série. As ft3/s de pressão do óleo do motor** são colunas exclusivas.
 
 ## <a name="scenario-two-several-measures-exist"></a>Cenário dois: existem várias medidas
@@ -165,23 +165,23 @@ Exemplo de carga JSON:
 
 * Tabela de dados de referência que tem as propriedades de chave **DeviceID** e **Series. tagId**:
 
-   | deviceId | Series. tagId | messageId | deviceLocation | tipo | unidade |
+   | deviceId | series.tagId | messageId | deviceLocation | tipo | unidade |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | DADOS de\_de linha | UE | Taxa de fluxo | ft3/s |
-   | FXXX | oilPressure | DADOS de\_de linha | UE | Pressão do óleo do motor | psi |
-   | FYYY | pumpRate | DADOS de\_de linha | EUA | Taxa de fluxo | ft3/s |
-   | FYYY | oilPressure | DADOS de\_de linha | EUA | Pressão do óleo do motor | psi |
+   | FXXX | pumpRate | LINE\_DATA | UE | Taxa de fluxo | ft3/s |
+   | FXXX | oilPressure | LINE\_DATA | UE | Pressão do óleo do motor | psi |
+   | FYYY | pumpRate | LINE\_DATA | EUA | Taxa de fluxo | ft3/s |
+   | FYYY | oilPressure | LINE\_DATA | EUA | Pressão do óleo do motor | psi |
 
 * Time Series Insights tabela de eventos, após o nivelamento:
 
-   | deviceId | Series. tagId | messageId | deviceLocation | tipo | unidade | carimbo de data/hora | série. valor |
+   | deviceId | series.tagId | messageId | deviceLocation | tipo | unidade | carimbo de data/hora | série. valor |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | DADOS de\_de linha | UE | Taxa de fluxo | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
-   | FXXX | oilPressure | DADOS de\_de linha | UE | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 34,7 |
-   | FXXX | pumpRate | DADOS de\_de linha | UE | Taxa de fluxo | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
-   | FXXX | oilPressure | DADOS de\_de linha | UE | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 49,2 |
-   | FYYY | pumpRate | DADOS de\_de linha | EUA | Taxa de fluxo | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
-   | FYYY | oilPressure | DADOS de\_de linha | EUA | Pressão do óleo do motor | psi | 2018-01-17T01:18:00Z | 22,2 |
+   | FXXX | pumpRate | LINE\_DATA | UE | Taxa de fluxo | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
+   | FXXX | oilPressure | LINE\_DATA | UE | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 34.7 |
+   | FXXX | pumpRate | LINE\_DATA | UE | Taxa de fluxo | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
+   | FXXX | oilPressure | LINE\_DATA | UE | Pressão do óleo do motor | psi | 2018-01-17T01:17:00Z | 49.2 |
+   | FYYY | pumpRate | LINE\_DATA | EUA | Taxa de fluxo | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
+   | FYYY | oilPressure | LINE\_DATA | EUA | Pressão do óleo do motor | psi | 2018-01-17T01:18:00Z | 22,2 |
 
 > [!NOTE]
 > - As colunas **DeviceID** e **Series. tagId** servem como cabeçalhos de coluna para os vários dispositivos e marcas em uma frota. O uso de cada um como seu próprio atributo limita a consulta ao total de dispositivos 594 (para ambientes S1) ou 794 (para ambientes S2), com as outras seis colunas.

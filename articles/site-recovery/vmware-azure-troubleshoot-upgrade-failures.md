@@ -1,18 +1,18 @@
 ---
-title: Solucionar problemas de Microsoft Azure Site Recovery falhas de atualização do provedor | Microsoft Docs
-description: Entenda e
+title: Solucionar problemas de atualização do provedor de Site Recovery de Microsoft Azure
+description: Resolver problemas comuns ao atualizar o provedor de Site Recovery de Microsoft Azure
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 02/05/2019
+ms.date: 11/10/2019
 ms.author: raynew
-ms.openlocfilehash: 6bb8263e7291506be6af7d5af7eda5786274d73c
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 73309103d422391aae3d72e3b0267d5d5a85515a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972638"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953757"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Resolver problemas de falhas de atualização do Fornecedor do Microsoft Azure Site Recovery
 
@@ -30,7 +30,7 @@ Para atualizar, use as seguintes etapas:
    1. Na seção "links para pacotes cumulativos de atualizações com suporte no momento" do artigo [atualizações de serviço no Azure site Recovery](service-updates-how-to.md##links-to-currently-supported-update-rollups) , selecione o provedor para o qual você está atualizando.
    2. Na página ROLLUP, localize a seção **informações de atualização** e baixe o pacote cumulativo de atualizações para Microsoft Azure site Recovery configuração unificada.
 
-2. Abra um prompt de comando e navegue até a pasta para a qual você baixou o arquivo de instalação unificada. Extraia os arquivos de instalação do download usando o comando a seguir, MicrosoftAzureSiteRecoveryUnifiedSetup. exe/q/x: &lt;folder caminho para os arquivos extraídos @ no__t-1.
+2. Abra um prompt de comando e navegue até a pasta para a qual você baixou o arquivo de instalação unificada. Extraia os arquivos de instalação do download usando o comando a seguir, MicrosoftAzureSiteRecoveryUnifiedSetup. exe/q/x:&lt;caminho da pasta para os arquivos extraídos&gt;.
     
     Comando de exemplo:
 
@@ -48,12 +48,12 @@ Para que a atualização seja realizada com sucesso, a pasta de terceiros não d
 
 Para resolver o problema.
 
-1. Inicie o editor do registro (regedit. exe) e abra o Branch HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10.
-1. Inspecione o valor da chave `Build_Version`. Se estiver definido como a versão mais recente, reduza o número de versão. Por exemplo, se a versão mais recente for 9,22. \* e a chave `Build_Version` definida para esse valor, então, reduza-o para 9,21. \*.
+1. Inicie o editor do registro (regedit. exe) e abra o HKEY_LOCAL_MACHINE \SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10 Branch.
+1. Inspecione o valor da chave de `Build_Version`. Se estiver definido como a versão mais recente, reduza o número de versão. Por exemplo, se a versão mais recente for 9,22.\* e a chave de `Build_Version` configurada para esse valor e, em seguida, reduza-a para 9,21.\*.
 1. Baixe o Microsoft Azure mais recente Site Recovery configuração unificada:
    1. Na seção "links para pacotes cumulativos de atualizações com suporte no momento" do artigo [atualizações de serviço no Azure site Recovery](service-updates-how-to.md##links-to-currently-supported-update-rollups) , selecione o provedor para o qual você está atualizando.
    2. Na página ROLLUP, localize a seção **informações de atualização** e baixe o pacote cumulativo de atualizações para Microsoft Azure site Recovery configuração unificada.
-1. Abra um prompt de comando e navegue até a pasta para a qual você baixou o arquivo de instalação unificado e extraia os arquivos de instalação do download usando o comando a seguir, MicrosoftAzureSiteRecoveryUnifiedSetup. exe/q/x: &lt;folder caminho para o arquivo extraído arquivos @ no__t-1.
+1. Abra um prompt de comando e navegue até a pasta para a qual você baixou o arquivo de instalação unificado e extraia os arquivos de instalação do download usando o comando a seguir, MicrosoftAzureSiteRecoveryUnifiedSetup. exe/q/x:&lt;caminho da pasta para os arquivos extraídos&gt;.
 
     Comando de exemplo:
 

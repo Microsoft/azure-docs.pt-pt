@@ -3,7 +3,7 @@ title: Relatórios de atividade de auditoria no portal do Azure Active Directory
 description: Introdução aos relatórios de atividade de auditoria no portal do Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 07/17/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43c5849dcd037915a46de182064b3e630a663ec
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 8883e3ade7e5d52f3a62346bf8be51ac36042f82
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907178"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008529"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatório de atividade de auditoria no portal do Azure Active Directory 
 
@@ -42,7 +42,6 @@ Este artigo fornece uma visão geral do relatório de auditoria.
 ## <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
 
 * Usuários nas funções **administrador de segurança**, **leitor de segurança**, leitor de **relatório** ou **administrador global**
-* Além disso, todos os usuários (não administradores) podem ver suas próprias atividades de entrada
 
 ## <a name="audit-logs"></a>Registos de auditoria
 

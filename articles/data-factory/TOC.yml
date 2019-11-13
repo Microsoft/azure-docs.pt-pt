@@ -165,8 +165,8 @@
               href: concepts-data-flow-monitoring.md
             - name: Desempenho do fluxo de dados
               href: concepts-data-flow-performance.md
-            - name: Mover nós
-              href: concepts-data-flow-move-nodes.md
+            - name: Gerir grafo
+              href: concepts-data-flow-manage-graph.md
             - name: Construtor de expressões
               href: concepts-data-flow-expression-builder.md
             - name: Expressão de idioma
@@ -616,6 +616,8 @@
           href: connector-troubleshoot-guide.md
         - name: Resolução de problemas da Gestão do Azure-SSIS IR
           href: ssis-integration-runtime-management-troubleshoot.md
+        - name: Resolução de problemas de IR Autoalojado
+          href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Resolução de Problemas de Execução de Pacotes no Azure-SSIS IR
           href: ssis-integration-runtime-ssis-activity-faq.md
         - name: Resolução de problemas de Fluxos de Dados
@@ -646,6 +648,8 @@
           href: scenario-ssis-migration-ssisdb-mi.md
 - name: Referência
   items:
+    - name: Script de fluxo de dados
+      href: data-flow-script.md
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.datafactory
     - name: PowerShell

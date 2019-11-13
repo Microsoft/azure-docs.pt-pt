@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 54f3d76704a1f9bf7fec2f3c6c68c88fffd993b6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 094454123a945072bfb6d7fb81cf515816c4f6cb
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932275"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936212"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -68,7 +68,7 @@ Para poder criar uma conexão, você precisa adicionar a solução Conector ITSM
 
 5. Clique em **Criar**.
 
-Quando o recurso de solução é implantado, uma notificação é exibida no canto superior direito da janela.
+Quando o recurso de solução é implantado, uma notificação é exibida na parte superior direita da janela.
 
 
 ## <a name="creating-an-itsm--connection"></a>Criando uma conexão de ITSM
@@ -91,7 +91,7 @@ Depois de ter preparado suas ferramentas de ITSM, siga as etapas abaixo para cri
    ![conexões de ITSM](media/itsmc-overview/itsm-connections.png)
 
    Esta página exibe a lista de conexões.
-3. Clique em **Adicionar conexão**.
+3. Clique em **adicionar ligação**.
 
    ![Adicionar conexão de ITSM](media/itsmc-overview/add-new-itsm-connection.png)
 
@@ -118,7 +118,7 @@ Utilize o seguinte procedimento:
 1. Em portal do Azure, clique em **monitorar**.
 2. No painel esquerdo, clique em **grupos de ação**. A janela **Adicionar grupo de ações** é exibida.
 
-    ![Grupos de Ações](media/itsmc-overview/action-groups.png)
+    ![Grupos de Ação](media/itsmc-overview/action-groups.png)
 
 3. Forneça o **nome** e o **curtoname** para o seu grupo de ação. Selecione o **grupo de recursos** e a **assinatura** em que você deseja criar o grupo de ações.
 
@@ -161,7 +161,7 @@ Se você estiver usando a solução Mapa do Serviço, poderá exibir os itens da
 Mais informações: [mapa do serviço](../../azure-monitor/insights/service-map.md)
 
 
-## <a name="additional-information"></a>Informação adicional
+## <a name="additional-information"></a>Informações adicionais
 
 ### <a name="data-synced-from-itsm-product"></a>Dados sincronizados do produto de ITSM
 Incidentes e solicitações de alteração são sincronizados de seu produto ITSM para seu espaço de trabalho Log Analytics com base na configuração da conexão.
@@ -173,9 +173,9 @@ As informações a seguir mostram exemplos de dados coletados pelo ITSMC:
 > Dependendo do tipo de item de trabalho importado para Log Analytics, **ServiceDesk_CL** contém os seguintes campos:
 
 **Item de trabalho:** **incidentes**  
-ServiceDeskWorkItemType_s = "incidente"
+ServiceDeskWorkItemType_s="Incident"
 
-**Campo**
+**Campos**
 
 - ServiceDeskConnectionName
 - ID da central de serviços
@@ -183,7 +183,7 @@ ServiceDeskWorkItemType_s = "incidente"
 - Urgência
 - Impacto
 - Prioridade
-- Escalamento
+- Escalonamento
 - Criado por
 - Resolvido por
 - Fechado por
@@ -193,17 +193,17 @@ ServiceDeskWorkItemType_s = "incidente"
 - Título
 - Descrição
 - Data de criação
-- Data de fechamento
-- Data da resolução
+- Data de fecho
+- Data de resolução
 - Data da última modificação
 - Computador
 
 
 **Item de trabalho:** **solicitações de alteração**
 
-ServiceDeskWorkItemType_s = "ChangeRequest"
+ServiceDeskWorkItemType_s="ChangeRequest"
 
-**Campo**
+**Campos**
 - ServiceDeskConnectionName
 - ID da central de serviços
 - Criado por
@@ -214,7 +214,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 - Tipo
 - Categoria
 - Estado
-- Escalamento
+- Escalonamento
 - Status de conflito
 - Urgência
 - Prioridade
@@ -222,7 +222,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 - Impacto
 - Atribuído a
 - Data de criação
-- Data de fechamento
+- Data de fecho
 - Data da última modificação
 - Data solicitada
 - Data de início planejada
@@ -236,7 +236,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 
 | Campo de Log Analytics | Campo do ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Number |
+| ServiceDeskId_s| Número |
 | IncidentState_s | Estado |
 | Urgency_s |Urgência |
 | Impact_s |Impacto|
@@ -250,7 +250,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 | Title_s|  Descrição resumida |
 | Description_s|  Notas |
 | CreatedDate_t|  Feito |
-| ClosedDate_t| Legenda|
+| ClosedDate_t| Fechado|
 | ResolvedDate_t|Resolvido|
 | Computador  | Item de configuração |
 
@@ -258,7 +258,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 
 | Log Analytics | Campo do ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Number |
+| ServiceDeskId_s| Número |
 | CreatedBy_s | Solicitado por |
 | ClosedBy_s | Fechado por |
 | AssignedTo_s | Atribuído a  |
@@ -291,7 +291,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 2. Se os dados do ServiceNow não estiverem sendo sincronizados com o Log Analytics, verifique se a instância do ServiceNow não está em suspensão. As instâncias de desenvolvimento do ServiceNow às vezes entram em suspensão quando ociosas por um longo período. Caso contrário, relate o problema.
 3. Se Log Analytics alertas forem acionados, mas os itens de trabalho não forem criados em itens de configuração ou produtos de ITSM não forem criados/vinculados a itens de trabalho ou para outras informações genéricas, procure nos seguintes locais:
    -  ITSMC: a solução mostra um resumo de conexões/itens de trabalho/computadores, etc. Clique no bloco mostrando o **status do conector**, que o leva para a pesquisa de **log** com a consulta relevante. Examine os registros de log com LogType_S como erro para obter mais informações.
-   - Página **pesquisa de logs** : exiba os erros/informações relacionadas diretamente usando a consulta `*`ServiceDeskLog_CL`*`.
+   - Página **pesquisa de logs** : exiba os erros/informações relacionadas diretamente usando o ServiceDeskLog_CL de consulta `*``*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Solucionar problemas Service Manager implantação de aplicativo Web
 1.  No caso de problemas com a implantação de aplicativo Web, verifique se você tem permissões suficientes na assinatura mencionada para criar/implantar recursos.

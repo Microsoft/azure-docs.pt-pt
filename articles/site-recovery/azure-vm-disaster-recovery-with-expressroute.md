@@ -1,5 +1,5 @@
 ---
-title: Integrar o Azure ExpressRoute com a recuperação de desastre para VMs do Azure usando o serviço de Azure Site Recovery | Microsoft Docs
+title: Integrar a recuperação de desastre de VM do Azure ExpressRoute ao Azure Site Recovery
 description: Descreve como configurar a recuperação de desastre para VMs do Azure usando o Azure Site Recovery e o Azure ExpressRoute
 services: site-recovery
 author: mayurigupta13
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 0974e2ed78e557168357c51b5c77a94de2f56dc5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722107"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954087"
 ---
-# <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o Azure ExpressRoute com a recuperação de desastre para VMs do Azure
+# <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integre o ExpressRoute com a recuperação de desastre para VMs do Azure
 
 
 Este artigo descreve como integrar o Azure ExpressRoute com o [Azure site Recovery](site-recovery-overview.md), quando você configura a recuperação de desastres para VMs do Azure para uma região secundária do Azure.
@@ -28,8 +28,8 @@ Site Recovery permite a recuperação de desastre de VMs do Azure replicando dad
 
 O ExpressRoute permite que você estenda redes locais para a nuvem Microsoft Azure por uma conexão privada, facilitada por um provedor de conectividade. Se você tiver configurado o ExpressRoute, ele se integrará com Site Recovery da seguinte maneira:
 
-- **Durante a replicação entre as regiões do Azure**: O tráfego de replicação para a recuperação de desastres de VM do Azure é somente dentro do Azure e o ExpressRoute não é necessário ou usado para replicação. No entanto, se você estiver se conectando de um site local para as VMs do Azure no site primário do Azure, há vários problemas a serem considerados quando você estiver configurando a recuperação de desastre para essas VMs do Azure.
-- **Failover entre regiões do Azure**: Quando ocorrem interrupções, você faz failover de VMs do Azure da região primária para a secundária do Azure. Após o failover para uma região secundária, há várias etapas a serem executadas para acessar as VMs do Azure na região secundária usando o ExpressRoute.
+- **Durante a replicação entre regiões do Azure**: o tráfego de replicação para a recuperação de desastres de VM do Azure é apenas dentro do Azure e o ExpressRoute não é necessário ou usado para replicação. No entanto, se você estiver se conectando de um site local para as VMs do Azure no site primário do Azure, há vários problemas a serem considerados quando você estiver configurando a recuperação de desastre para essas VMs do Azure.
+- **Failover entre regiões do Azure**: quando ocorrem interrupções, você faz failover de VMs do Azure da região primária para a secundária do Azure. Após o failover para uma região secundária, há várias etapas a serem executadas para acessar as VMs do Azure na região secundária usando o ExpressRoute.
 
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -90,12 +90,12 @@ Normalmente, as implantações corporativas têm cargas de trabalho divididas em
     - **VNet1 de origem**: 10.1.0.0/24.
     - **VNet2 de origem**: 10.2.0.0/24.
     - Cada rede virtual spoke é conectada à **vNet do Hub**.
-- **VNet do Hub**. Há uma **vnet do hub de origem**da vnet do Hub: 10.10.10.0/24.
+- **VNet do Hub**. Há uma **vnet do hub de origem**de vnet do Hub: rede 10.10.10.0/24.
   - Essa vNet do Hub atua como o gatekeeper.
   - Todas as comunicações entre sub-redes passam por esse Hub.
     - **Sub-redes vNet do Hub**. A vNet do Hub tem duas sub-redes:
-    - **Sub-rede NVA**: 10.10.10.0/25. Essa sub-rede contém um NVA (10.10.10.10).
-    - **A sub-rede de gateway**: 10.10.10.128/25. Essa sub-rede contém um gateway de ExpressRoute conectado a uma conexão de ExpressRoute que roteia para o site local por meio de um domínio de roteamento de emparelhamento privado.
+    - **Sub-rede NVA**: rede 10.10.10.0/25. Essa sub-rede contém um NVA (10.10.10.10).
+    - **Sub-rede de gateway**: 10.10.10.128/25. Essa sub-rede contém um gateway de ExpressRoute conectado a uma conexão de ExpressRoute que roteia para o site local por meio de um domínio de roteamento de emparelhamento privado.
 - O datacenter local tem uma conexão de circuito do ExpressRoute por meio de uma borda de parceiro em Hong Kong.
 - Todo o roteamento é controlado por meio de UDR (tabelas de rotas do Azure).
 - Todo o tráfego de saída entre vNets ou o datacenter local é roteado por meio do NVA.
@@ -106,10 +106,10 @@ Normalmente, as implantações corporativas têm cargas de trabalho divididas em
 
 **Direção** | **Definição** | **Status**
 --- | --- | ---
-Spoke para hub | Permitir endereço de rede virtual | Enabled
-Spoke para hub | Permitir tráfego reencaminhado | Enabled
+Spoke para hub | Permitir endereço de rede virtual | Ativado
+Spoke para hub | Permitir tráfego encaminhado | Ativado
 Spoke para hub | Permitir trânsito de gateway | Desativado
-Spoke para hub | Usar remover gateways | Enabled
+Spoke para hub | Usar remover gateways | Ativado
 
  ![Configuração de emparelhamento de spoke para Hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,9 +117,9 @@ Spoke para hub | Usar remover gateways | Enabled
 
 **Direção** | **Definição** | **Status**
 --- | --- | ---
-Hub para spoke | Permitir endereço de rede virtual | Enabled
-Hub para spoke | Permitir tráfego reencaminhado | Enabled
-Hub para spoke | Permitir trânsito de gateway | Enabled
+Hub para spoke | Permitir endereço de rede virtual | Ativado
+Hub para spoke | Permitir tráfego encaminhado | Ativado
+Hub para spoke | Permitir trânsito de gateway | Ativado
 Hub para spoke | Usar remover gateways | Desativado
 
  ![Configuração de emparelhamento de Hub para spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
@@ -215,6 +215,6 @@ Depois de recuperar as VMs e concluir a conectividade, o ambiente de recuperaç�
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como usar [planos de recuperação](site-recovery-create-recovery-plans.md) para automatizar o failover de aplicativo.

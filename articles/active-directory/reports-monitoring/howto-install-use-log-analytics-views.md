@@ -3,7 +3,7 @@ title: Como instalar e usar as exibições do log Analytics | Microsoft Docs
 description: Saiba como instalar e usar as exibições do log Analytics para Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00bca8bca19f9a71c4eeb639017845987682661f
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b17026e4cfbe69e36c8e459aa259fe16b1c9d80d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820905"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014424"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalar e usar as exibições do log Analytics para Azure Active Directory
 
@@ -51,7 +51,7 @@ Para usar as exibições do log Analytics, você precisa de:
 
 2. Quando estiver no espaço de trabalho, selecione **Resumo do espaço de trabalho**. Você deve ver os três seguintes modos de exibição:
 
-    * **Eventos de provisionamento de conta do Azure ad**: esta exibição mostra relatórios relacionados à atividade de provisionamento de auditoria, como o número de novos usuários com falhas de provisionamento e provisionamento, o número de usuários atualizados e falhas de atualização e o número de usuários desprovisionadas e falhas correspondentes.    
+    * **Eventos de provisionamento de conta do Azure ad**: essa exibição mostra relatórios relacionados à atividade de provisionamento de auditoria, como o número de novos usuários com falhas de provisionamento e provisionamento, o número de usuários atualizados e falhas de atualização e o número de usuários desprovisionados e falhas correspondentes.    
     * **Eventos de entrada**: essa exibição mostra os relatórios mais relevantes relacionados à atividade de entrada de monitoramento, como entradas por aplicativo, usuário, dispositivo, bem como uma exibição de resumo que controla o número de entradas ao longo do tempo.
 
 3. Selecione uma dessas exibições para ir para os relatórios individuais. Você também pode definir alertas em qualquer um dos parâmetros de relatório. Por exemplo, vamos definir um alerta para cada vez que houver um erro de entrada. Para fazer isso, primeiro selecione o modo de exibição de **eventos** de entradas, selecione o relatório **erros de entrada ao longo do tempo** e, em seguida, selecione **análise** para abrir a página de detalhes, com a consulta real por trás do relatório. 

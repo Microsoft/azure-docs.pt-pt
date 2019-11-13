@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 5ada61daabb1098f724189e5dd8da1847aaec479
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: df247359c8bdd9ac1bcf29e8bd5e4f8f5a71a3d1
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699865"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014848"
 ---
+# <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e recuperação de desastre para discos IaaS do Azure
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks.md)]

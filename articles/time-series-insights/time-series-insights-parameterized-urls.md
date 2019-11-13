@@ -1,6 +1,6 @@
 ---
-title: Partilhar vistas personalizadas do Azure Time Series Insights com URLs parametrizados | Microsoft Docs
-description: Este artigo descreve como desenvolver URLs parametrizados no Azure Time Series Insights, para partilhar facilmente a vista de um cliente.
+title: Compartilhar exibições personalizadas com URLs parametrizadas-Azure Time Series Insights | Microsoft Docs
+description: Saiba como desenvolver URLs com parâmetros no Azure Time Series Insights para compartilhar facilmente exibições personalizadas.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: e62455a0c8412a579c0fab9d7fabd6016f47dbf3
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 145af35f8c36d7f4659c3937209cb0d4d5b221a3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991119"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006380"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partilhar vistas personalizadas com um URL parametrizado
 
@@ -33,7 +33,7 @@ O parâmetro `environmentId=<guid>` especifica o ID do ambiente de destino. É u
 
 Um exemplo de parâmetro de ID de ambiente é `?environmentId=10000000-0000-0000-0000-100000000108`.
 
-## <a name="time"></a>Tempo
+## <a name="time"></a>Hora
 
 Pode especificar valores de hora absolutos ou relativos com URLs parametrizados.
 
@@ -69,11 +69,11 @@ O parâmetro `timeSeriesDefinitions=<collection of term objects>` especifica os 
 
 | Parâmetro | Item de URL | Descrição |
 | --- | --- | --- |
-| **nomes** | `\<string>` | É o nome do *termo*. |
+| **name** | `\<string>` | É o nome do *termo*. |
 | **splitBy** | `\<string>` | É o nome da coluna pela qual *dividir*. |
 | **measureName** | `\<string>` | É o nome da coluna da *medida*. |
 | **predicado** | `\<string>` | É a cláusula *where* para a filtragem do lado do servidor. |
-| **Uso** | `true` | Um parâmetro opcional que especifica o uso da soma para sua medida. </br>  Observe que, se `Events` for a medida selecionada, Count será selecionado por padrão.  </br>  Se `Events` não for selecionado, a média será selecionada por padrão. |
+| **useSum** | `true` | Um parâmetro opcional que especifica o uso da soma para sua medida. </br>  Observe que, se `Events` for a medida selecionada, Count será selecionado por padrão.  </br>  Se `Events` não for selecionado, a média será selecionada por padrão. |
 
 * O par `multiChartStack=<true/false>` chave-valor habilita o empilhamento no gráfico.
 * O par `multiChartSameScale=<true/false>` chave-valor habilita a mesma escala do eixo Y entre os termos dentro de um parâmetro opcional.  
@@ -117,7 +117,7 @@ A URL acima descreve e compila a exibição do Time Series Insights Explorer:
 
 A exibição completa (incluindo o gráfico):
 
-[exibição de gráfico de![](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+[exibição de gráfico de ![](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -18,14 +18,14 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26ef28be328e01f8edcf898f123db55f262f286c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 3558e589004e0488e5b96b0e39bd3f5ceea69658
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803341"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013065"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Como configurar um domínio do Publicador de um aplicativo (visualização)
+# <a name="how-to-configure-an-applications-publisher-domain"></a>Como configurar um domínio do Publicador de um aplicativo
 
 O domínio do Publicador de um aplicativo é exibido aos usuários no [prompt de consentimento do aplicativo](application-consent-experience.md) para permitir que os usuários saibam onde suas informações estão sendo enviadas. Aplicativos multilocatários que são registrados após 21 de maio de 2019 que não têm um domínio do Publicador aparecem como não **verificados**. Aplicativos multilocatários são aplicativos que dão suporte a contas fora de um único diretório organizacional; por exemplo, dar suporte a todas as contas do Azure AD ou dar suporte a todas as contas do Azure AD e contas pessoais da Microsoft.
 
@@ -39,8 +39,8 @@ A tabela a seguir resume o comportamento padrão do valor de domínio do Publica
 
 | Domínios verificados por locatário | Valor padrão do domínio do Publicador |
 |-------------------------|----------------------------|
-| Nulo | Nulo |
-| *. onmicrosoft.com | *. onmicrosoft.com |
+| nulo | nulo |
+| *.onmicrosoft.com | *.onmicrosoft.com |
 | -*. onmicrosoft.com<br/>-domain1.com<br/>-domain2.com (primário) | domain2.com |
 
 Se um domínio do Publicador de um aplicativo multilocatário não estiver definido ou se estiver definido como um domínio que termina em. onmicrosoft.com, o prompt de consentimento do aplicativo mostrará não **verificado** no lugar do domínio do Publicador.

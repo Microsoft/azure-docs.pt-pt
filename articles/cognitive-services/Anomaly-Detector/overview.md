@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 09/05/2019
 ms.author: aahi
-ms.openlocfilehash: 3bd60ff1e732940bbb13c2e224084cf7e331266b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 706bd9c141b191632acee1c04745d64baaf50ee5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934867"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012063"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detetor de Anomalias?
 
@@ -52,8 +52,8 @@ Para executar o bloco de anotações, conclua as seguintes etapas:
 1. Desmarque a opção "público" na caixa de diálogo antes de concluir a operação de clonagem, caso contrário, o bloco de anotações, incluindo as chaves de assinatura, será público.
 1. Clique em **executar em computação gratuita**
 1. Selecione um dos notebooks.
-1. Adicione a chave de assinatura da `subscription_key` API do detector de anomalias válida à variável. 
-1. Altere a `endpoint` variável para seu ponto de extremidade. Por exemplo: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
+1. Adicione a chave de assinatura API do detector de anomalias válida à variável `subscription_key`. 
+1. Altere a variável `endpoint` para seu ponto de extremidade. Por exemplo: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. Na barra de menus superior, clique em **célula**e em **executar tudo**.
 
 ## <a name="workflow"></a>Fluxo de trabalho
@@ -72,18 +72,18 @@ Após a inscrição:
 
 ## <a name="algorithms"></a>Algoritmos
 
-* Veja este blog técnico apresentando a [API do detector de anomalias do Azure](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) sobre os algoritmos nos bastidores.
+* Veja os Blogs técnicos [apresentando a API do detector de anomalias do Azure](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) e [visão geral do algoritmo Sr-CNN no detector de anomalias do Azure](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798) sobre os algoritmos nos bastidores.
 * Consulte este artigo [serviço de detecção de anomalias da série temporal na Microsoft](https://arxiv.org/abs/1906.03821) (aceito por KDD 2019) para os algoritmos Sr-CNN de ponta desenvolvidos pela Microsoft.
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
 
-## <a name="join-the-anomaly-detector-community"></a>Participe da Comunidade do detector de anomalias
+## <a name="join-the-anomaly-detector-community"></a>Juntar-se à comunidade do Detetor de Anomalias
 
 * Junte-se ao [grupo de consultores do detector de anomalias no Microsoft Teams](https://aka.ms/AdAdvisorsJoin)
 * Consulte o [conteúdo gerado pelo usuário](user-generated-content.md) selecionado
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Quickstart: Detectar anomalias nos dados de série temporal usando a API REST do detector de anomalias](quickstarts/detect-data-anomalies-csharp.md)
+* [Início rápido: detectar anomalias nos dados de série temporal usando a API REST do detector de anomalias](quickstarts/detect-data-anomalies-csharp.md)
 * A [demonstração online](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) da API do detector de anomalias
 * A [referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect) do detector de anomalias

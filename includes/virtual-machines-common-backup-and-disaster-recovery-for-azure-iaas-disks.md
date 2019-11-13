@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ca55d49721f9c22f35ba79e819efa354a660d92a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9332079cd77c4dcc972059071165ba0631135b5c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72302341"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012511"
 ---
-# <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e recuperação de desastre para discos IaaS do Azure
-
 Este artigo explica como planejar o backup e a recuperação de desastre (DR) de VMs (máquinas virtuais) IaaS e discos no Azure. Este documento aborda discos gerenciados e não gerenciados.
 
 Primeiro, abordamos os recursos internos de tolerância a falhas na plataforma do Azure que ajudam a proteger contra falhas locais. Em seguida, discutiremos os cenários de desastre não totalmente cobertos pelos recursos internos. Também mostramos vários exemplos de cenários de carga de trabalho em que diferentes considerações de backup e recuperação de desastre podem ser aplicadas. Em seguida, examinamos possíveis soluções para a DR de discos de IaaS.
@@ -112,7 +110,7 @@ Para discos não gerenciados, você pode usar o tipo de armazenamento com redund
 | Cenário | Replicação automática | Solução de DR |
 | --- | --- | --- |
 | Discos SSD Premium | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Managed Disks | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Managed disks | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Discos de armazenamento com redundância local não gerenciado | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Discos de armazenamento com redundância geográfica não gerenciado | Entre regiões ([armazenamento com redundância geográfica](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Instantâneos consistentes](#alternative-solution-consistent-snapshots) |
 | Discos de armazenamento com redundância geográfica com acesso de leitura não gerenciado | Entre regiões ([armazenamento com redundância geográfica com acesso de leitura](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Instantâneos consistentes](#alternative-solution-consistent-snapshots) |
@@ -123,7 +121,7 @@ Suas opções de alta disponibilidade, backup e recuperação de desastre em ní
 
 | Nível |   Elevada disponibilidade   | Backup ou recuperação de desastre |
 | --- | --- | --- |
-| Candidatura | SQL Server AlwaysOn | Azure Backup |
+| Aplicação | SQL Server AlwaysOn | Azure Backup |
 | Infraestrutura    | Conjunto de disponibilidade  | Armazenamento com redundância geográfica com instantâneos consistentes |
 
 ### <a name="using-azure-backup"></a>Usando o backup do Azure 

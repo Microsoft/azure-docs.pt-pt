@@ -1,43 +1,43 @@
 ---
-title: Configurar o ambiente de destino para recuperação após desastre de servidores físicos no local para o Azure | Documentos da Microsoft
-description: Este artigo descreve como configurar o destino de ambiente do Azure para recuperação após desastre de servidores físicos com o Azure Site Recovery.
+title: Configurar o ambiente de destino para servidores físicos no Azure Site Recovery
+description: Este artigo descreve como configurar o ambiente de destino do Azure para recuperação de desastre de servidores físicos usando o Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 41220ccdca945610d7d8ca87af0857114e2cef85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 685f04b27cd315b04ef5c45e155e825eebe2747b
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60949080"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953891"
 ---
-# <a name="prepare-target-vmware-to-azure"></a>Preparar o destino (VMware para o Azure)
+# <a name="prepare-target-vmware-to-azure"></a>Preparar destino (VMware para Azure)
 
-Este artigo descreve como preparar seu ambiente do Azure para começar a replicar servidores físicos (x64) com o Windows ou Linux no Azure.
+Este artigo descreve como preparar seu ambiente do Azure para iniciar a replicação de servidores físicos (x64) que executam Windows ou Linux no Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O artigo supõe:
-- Criou um cofre dos serviços de recuperação para proteger os seus servidores físicos. Pode criar um cofre dos serviços de recuperação do [portal do Azure](https://portal.azure.com "portal do Azure").
-- Tiver [configure o ambiente no local](physical-azure-disaster-recovery.md) para replicar servidores físicos para o Azure.
+O artigo pressupõe:
+- Você criou um cofre dos serviços de recuperação para proteger seus servidores físicos. Você pode criar um cofre dos serviços de recuperação no [portal do Azure](https://portal.azure.com "Portal do Azure").
+- Você configurou [seu ambiente local](physical-azure-disaster-recovery.md) para replicar servidores físicos no Azure.
 
-## <a name="prepare-target"></a>Preparar o destino
+## <a name="prepare-target"></a>Preparar destino
 
-Depois de concluir o **objetivo de proteção do passo 1:Select** e **passo 2: preparar origem**, é direcionado para **passo 3: Destino**
+Depois de concluir a **etapa 1: selecionar meta de proteção** e **etapa 2: preparar origem**, você será levado para a **etapa 3: destino**
 
-![Preparar o destino](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
+![Preparar destino](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
 
-1. **Subscrição:** No menu pendente, selecione a subscrição que pretende replicar os seus servidores físicos para.
-2. **Modelo de implementação:** Selecione o modelo de implementação (clássico ou do Resource Manager)
+1. **Assinatura:** No menu suspenso, selecione a assinatura na qual você deseja replicar seus servidores físicos.
+2. **Modelo de implantação:** Selecione o modelo de implantação (clássico ou Gerenciador de recursos)
 
-Com base no modelo de implementação escolhida, é executada uma validação para garantir que tenha pelo menos uma conta de armazenamento compatíveis e a rede virtual na subscrição de destino para replicar e ativação pós-falha seus servidores físicos para.
+Com base no modelo de implantação escolhido, uma validação é executada para garantir que você tenha pelo menos uma conta de armazenamento compatível e uma rede virtual na assinatura de destino para replicar e fazer failover de seus servidores físicos para o.
 
-Assim que as validações concluir com êxito, clique em OK para ir para o passo seguinte.
+Depois que as validações forem concluídas com êxito, clique em OK para ir para a próxima etapa.
 
-Se não tiver uma conta de armazenamento do Resource Manager compatível ou a rede virtual, pode criar uma ao clicar o **+ conta de armazenamento** ou **+ rede** botões na parte superior da página.
+Se você não tiver uma rede virtual ou uma conta de armazenamento do Resource Manager compatível, poderá criar uma clicando nos botões **+ conta de armazenamento** ou **+ rede** na parte superior da página.
 
-## <a name="next-steps"></a>Passos Seguintes
-[Configurar definições de replicação](vmware-azure-set-up-replication.md).
+## <a name="next-steps"></a>Passos seguintes
+[Defina as configurações de replicação](vmware-azure-set-up-replication.md).

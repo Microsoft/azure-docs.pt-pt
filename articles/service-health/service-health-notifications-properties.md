@@ -1,80 +1,78 @@
 ---
-title: Quais são as notificações de estado de funcionamento do serviço do Azure?
-description: Notificações de estado de funcionamento do serviço permitem-lhe ver mensagens de estado de funcionamento de serviço publicadas pelo Microsoft Azure.
-author: dkamstra
+title: O que são as notificações de integridade do serviço do Azure?
+description: As notificações de integridade do serviço permitem exibir mensagens de integridade do serviço publicadas pelo Microsoft Azure.
+author: stephbaron
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/12/2018
-ms.author: dukek
+ms.author: stbaron
 ms.subservice: logs
-ms.openlocfilehash: 87efa7442b0c67f2ee5f83b6b3e8ac8530ce5285
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b41c2cdc54ab5eecdc4503cbd98e69932c901a3d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079551"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007094"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Ver notificações do estado de funcionamento do serviço ao utilizar o portal do Azure
 
-Notificações de estado de funcionamento do serviço são publicadas pelo Azure e contêm informações sobre os recursos na sua subscrição. Estas notificações são uma classe secundárias da atividade de registo de eventos e também podem ser encontradas no registo de atividades. Notificações de estado de funcionamento do serviço podem ser informativa ou passíveis de ação, dependendo da classe.
+As notificações de integridade do serviço são publicadas pelo Azure e contêm informações sobre os recursos em sua assinatura. Essas notificações são uma subclasse de eventos do log de atividades e também podem ser encontradas no log de atividades. As notificações de integridade do serviço podem ser informativas ou acionáveis, dependendo da classe.
 
-Existem várias classes de notificações de estado de funcionamento do serviço:  
+Há várias classes de notificações de integridade do serviço:  
 
-- **Ação necessária:** Azure, pode observar algo invulgar se acontecer na sua conta e trabalhar para resolver isto. O Azure envia uma notificação, seja com detalhes sobre as ações que precisa de efetuar ou como contactar o suporte ou de engenharia do Azure.  
-- **Recuperação assistida:** Ocorreu um evento e engenheiros tem confirmado que ainda estão a experienciar impacto. Tem de engenharia do Azure trabalhar consigo diretamente para restaurar os serviços de estado de funcionamento completo.  
-- **Incidente:** Um evento que afeta o serviço está atualmente a afetar uma ou mais dos recursos na sua subscrição.  
-- **Manutenção:** Uma atividade de manutenção planeada que pode afetar uma ou mais dos recursos na sua subscrição.  
-- **Informações:** Utilizam otimizações possíveis que podem ajudar a melhorar o seu recurso. 
-- **Segurança:** Urgentes informações relacionadas com segurança relativas à sua soluções executadas no Azure.
+- **Ação necessária:** O Azure pode perceber algo incomum acontecer em sua conta e trabalhar com você para corrigir isso. O Azure envia uma notificação, detalhando as ações que você precisa tomar ou como entrar em contato com a engenharia ou o suporte do Azure.  
+- **Incidente:** Um evento que afeta o serviço está atualmente afetando um ou mais dos recursos em sua assinatura.  
+- **Manutenção:** Uma atividade de manutenção planejada que pode afetar um ou mais dos recursos em sua assinatura.  
+- **Informações:** Possíveis otimizações que podem ajudar a melhorar o uso de recursos. 
+- **Segurança:** Informações urgentes relacionadas à segurança sobre suas soluções que são executadas no Azure.
 
-Cada notificação de estado de funcionamento do serviço inclui detalhes sobre o âmbito e o impacto para os seus recursos. Os detalhes incluem:
+Cada notificação de integridade do serviço inclui detalhes sobre o escopo e o impacto para seus recursos. Os detalhes incluem:
 
 Nome da propriedade | Descrição
 -------- | -----------
-canais | Um dos seguintes valores: **Admin** ou **operação**.
-correlationId | Normalmente, um GUID no formato de cadeia de caracteres. Eventos que pertençam à mesma ação normalmente compartilham a mesma correlationId.
+meios | Um dos seguintes valores: **admin** ou **Operation**.
+correlationId | Geralmente um GUID no formato de cadeia de caracteres. Os eventos que pertencem à mesma ação normalmente compartilham a mesma CorrelationId.
 eventDataId | O identificador exclusivo de um evento.
 eventName | O título de um evento.
-nível | O nível de um evento
-resourceProviderName | O nome do fornecedor de recursos para o recurso afetado.
+level | O nível de um evento
+resourceProviderName | O nome do provedor de recursos para o recurso afetado.
 resourceType| O tipo de recurso do recurso afetado.
-subStatus | Normalmente, o código de estado HTTP do resto correspondente chamar, mas também pode incluir outras cadeias de caracteres que descreve um subestado. Por exemplo: OK (código de estado HTTP: 200), criado (código de estado HTTP: 201), aceite (código de estado HTTP: 202), não existe conteúdo (código de estado HTTP: 204), pedido incorreto (código de estado HTTP: 400), não encontrado (código de estado HTTP: 404), conflito (código de estado HTTP: 409), erro de servidor interno (código de estado HTTP: 500), serviço indisponível (código de estado HTTP: 503) e o tempo limite do Gateway (código de estado HTTP: 504).
-eventTimestamp | Timestamp quando o evento foi gerado pelo serviço do Azure a processar o pedido correspondente ao evento.
-submissionTimestamp | Timestamp quando o evento se tornou disponível para consulta.
-subscriptionId | A subscrição do Azure em que este evento foi registado.
-status | A cadeia de caracteres que descreve o estado da operação. Alguns valores comuns são: **Iniciado**, **em curso**, **foi concluída com êxito**, **falha**, **Active**, e **resolvido**.
+subStatus | Geralmente, o código de status HTTP da chamada REST correspondente, mas também pode incluir outras cadeias de caracteres que descrevem um substatus. Por exemplo: OK (código de status HTTP: 200), criado (código de status HTTP: 201), aceito (código de status HTTP: 202), nenhum conteúdo (código de status HTTP: 204), solicitação incorreta (código de status http: 400), não encontrado (código de status HTTP: 404), conflito (código de status HTTP: 409), servidor interno Erro (código de status HTTP: 500), Serviço indisponível (código de status HTTP: 503) e tempo limite do gateway (código de status HTTP: 504).
+eventTimestamp | Carimbo de data/hora quando o evento foi gerado pelo serviço do Azure processando a solicitação correspondente ao evento.
+submissionTimestamp | Carimbo de data/hora quando o evento ficou disponível para consulta.
+subscriptionId | A assinatura do Azure na qual esse evento foi registrado.
+status | Cadeia de caracteres que descreve o status da operação. Alguns valores comuns são: **iniciado**, **em andamento**, com **êxito**, **com falha**, **ativo**e **resolvido**.
 operationName | O nome da operação.
-category | Esta propriedade é sempre **ServiceHealth**.
-resourceId | O ID de recurso do recurso afetado.
-Properties.title | O título localizado para esta comunicação. Inglês é o padrão.
-Properties.communication | Os detalhes de localizada da comunicação com a marcação HTML. Inglês é o padrão.
-Properties.incidentType | Um dos seguintes valores: **Ação necessária**, **informativa**, **incidente**, **manutenção**, ou **segurança**.
-Properties.trackingId | O incidente à qual este evento está associado. Utilize esta opção para correlacionar os eventos relacionados com a um incidente.
-Properties.impactedServices | Um blob JSON com caráter de escape que descreve os serviços e regiões afetados pelo incidente. A propriedade inclui uma lista de serviços, cada um com um **ServiceName**e uma lista de regiões afetados, cada um com um **RegionName**.
+categoria | Essa propriedade sempre é o **perhealth**.
+resourceId | A ID de recurso do recurso afetado.
+Propriedades. title | O título localizado para essa comunicação. Inglês é o padrão.
+Propriedades. Communication | Os detalhes localizados da comunicação com marcação HTML. Inglês é o padrão.
+Properties.incidentType | Um dos seguintes valores: **ActionRequired**, **informativo**, **incidente**, **manutenção**ou **segurança**.
+Properties.trackingId | O incidente ao qual esse evento está associado. Use isso para correlacionar os eventos relacionados a um incidente.
+Properties.impactedServices | Um blob JSON de escape que descreve os serviços e regiões impactados pelo incidente. A propriedade inclui uma lista de serviços, cada um deles com um **ServiceName**, e uma lista de regiões afetadas, cada uma delas com **RegionName**.
 Properties.defaultLanguageTitle | A comunicação em inglês.
 Properties.defaultLanguageContent | A comunicação em inglês como marcação HTML ou texto sem formatação.
-Properties.stage | Os possíveis valores para **incidente**, e **Security** são **Active Directory,** **resolvido** ou **RCA**. Para **ação necessária** ou **informativo** é o único valor **Active Directory.** Para **manutenção** são: **Active Directory**, **planeadas**, **InProgress**, **cancelada**, **reagendada**, **resolvido**, ou **completo**.
-Properties.communicationId | A comunicação com o qual este evento está associado.
+Propriedades. Stage | Os valores possíveis para **incidente**e **segurança** são **ativo,** **resolvido** ou **RCA**. Para **ActionRequired** ou **informativo** , o único valor é **ativo.** Para **manutenção** , eles são: **ativo**, **planejado**, em **andamento**, **cancelado**, **reagendado**, **resolvido**ou **concluído**.
+Properties.communicationId | A comunicação com a qual esse evento está associado.
 
-### <a name="details-on-service-health-level-information"></a>Informações de nível de detalhes sobre o service health
+### <a name="details-on-service-health-level-information"></a>Detalhes sobre informações de nível de integridade do serviço
 
-**É necessária qualquer ação** (properties.incidentType = = ação necessária)
-- Informativo - necessário para evitar o impacto para os serviços existentes de ação do administrador
+**Ação necessária** (Propriedades. incidenttype = = ActionRequired)
+- Informativo-a ação do administrador é necessária para evitar o impacto nos serviços existentes.
     
-**Manutenção** (properties.incidentType = = manutenção)
-- Aviso - manutenção de emergência
-- Informativo - manutenção planeada padrão
+**Manutenção** (Propriedades. incidenttype = = manutenção)
+- Aviso-manutenção de emergência
+- Informativo-manutenção planejada padrão
 
-**Informações** (properties.incidentType = = informações)
-- Informativa - administrador, pode ser necessário para evitar o impacto para os serviços existentes
+**Informações** (Propriedades. incidenttype = = Information)
+- Informativo-o administrador pode ser solicitado a evitar o impacto nos serviços existentes.
 
-**Segurança** (properties.incidentType = = segurança)
-- Erro - problemas de amplo acesso a vários serviços em várias regiões estão a afetar um vasto leque de clientes.
-- Aviso - problemas de serviços específicos ao aceder ao e/ou regiões específicos estejam a afetar um subconjunto de clientes.
-- Informativo - problemas que podem afetar as operações de gestão e/ou latência, não com impacto na disponibilidade do serviço.
+**Security** (Propriedades. incidenttype = = Security)
+- Aviso-consultoria de segurança que afeta os serviços existentes e pode exigir ação do administrador.
+- Informativo-consultoria de segurança que afeta os serviços existentes.
 
-**Problemas de serviço** (properties.incidentType = = incidente)
-- Erro - problemas de amplo acesso a vários serviços em várias regiões estão a afetar um vasto leque de clientes.
-- Aviso - problemas de serviços específicos ao aceder ao e/ou regiões específicos estejam a afetar um subconjunto de clientes.
-- Informativo - problemas que podem afetar as operações de gestão e/ou latência, não com impacto na disponibilidade do serviço.
+**Problemas de serviço** (Propriedades. incidenttype = = incidente)
+- Os problemas abrangentes de erro que acessam vários serviços em várias regiões estão afetando um amplo conjunto de clientes.
+- Aviso-problemas ao acessar serviços específicos e/ou regiões específicas estão afetando um subconjunto de clientes.
+- Informações-problemas que afetam as operações de gerenciamento e/ou latência, sem afetar a disponibilidade do serviço.

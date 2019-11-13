@@ -3,7 +3,7 @@ title: Analisar logs de atividade usando logs de Azure Monitor | Microsoft Docs
 description: Saiba como analisar Azure Active Directory logs de atividades usando logs de Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
-ms.reviewer: markvi
+ms.author: markvi
+ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d9bb8bca64292b73bc14f02d126d384da33780
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 2d6212692465270182db541889bed5f03a08a345
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885269"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008277"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analisar logs de atividades do Azure AD com logs de Azure Monitor
 
@@ -43,7 +43,7 @@ Para acompanhar, você precisa de:
     - Administrador de Segurança
     - Leitor de segurança
     - Leitor de relatórios
-    - Administrador global
+    - Admin Global
     
 ## <a name="navigate-to-the-log-analytics-workspace"></a>Navegue até o espaço de trabalho Log Analytics
 

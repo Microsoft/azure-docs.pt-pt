@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 9dc26e50e1c0f43e816e422f0fee91a246ea04a9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8e91a475c7fd7f207c8b38d3da8abe7affd668b2
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487605"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013504"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entidades e sua finalidade no LUIS
 
@@ -29,7 +29,7 @@ Há dois tipos de entidades:
 
 Sempre comece com uma entidade aprendida por máquina, pois isso fornece a mais ampla variedade de opções de extração de dados.
 
-## <a name="entity-compared-to-intent"></a>Entidade comparada com a intenção
+## <a name="entity-compared-to-intent"></a>Em comparação comparada a intenção de entidade
 
 A entidade representa um conceito de dados dentro do expressão que você deseja extrair. 
 
@@ -41,7 +41,7 @@ Considere os 3 declarações a seguir:
 |`Send Bob a present`|Bob, presente|Bob é definitivamente importante para concluir a tarefa. A presente pode ser de informações suficientes ou o bot pode precisar esclarecer o que está presente com uma pergunta de acompanhamento.|
 |`Send Bob a box of chocolates.`|As duas partes importantes dos dados, Bob e a caixa de chocolates, são importantes para a conclusão da solicitação do usuário.|
 
-Um expressão pode incluir muitas entidades ou nenhuma. Um aplicativo cliente _pode_ precisar da entidade para executar sua tarefa. 
+Uma expressão pode incluir muitas entidades ou nenhum de todo. Um aplicativo cliente _pode_ precisar da entidade para executar sua tarefa. 
 
 Por comparação, a previsão da intenção de um expressão é _necessária_ e representa toda a expressão. LUIS exige que o exemplo declarações esteja contido em uma intenção. Se a principal intenção do expressão não for importante para o aplicativo cliente, adicione todos os declarações à intenção nenhum. 
 
@@ -49,20 +49,20 @@ Se você encontrar, mais tarde no ciclo de vida do aplicativo, você deseja divi
 
 Não há nenhum requisito para usar a intenção prevista no aplicativo cliente, mas ele é retornado como parte da resposta do ponto de extremidade de previsão.
 
-## <a name="entities-represent-data"></a>As entidades representam dados
+## <a name="entities-represent-data"></a>Entidades representam dados
 
-As entidades são dados que você deseja extrair do expressão. Pode ser um nome, uma data, um nome de produto ou qualquer grupo de palavras. 
+As entidades são dados que pretende solicitar a partir da expressão. Isso pode ser um nome, data, nome do produto ou qualquer grupo de palavras. 
 
 |Expressão|Entidade|Dados|
 |--|--|--|
-|Comprar 3 ingressos para Nova York|Número predefinido<br>Local. destino|3<br>Nova Iorque|
-|Comprar um tíquete de Nova York para Londres em 5 de março|Localização. origem<br>Local. destino<br>DatetimeV2 predefinido|Nova Iorque<br>Londres<br>5 de março de 2018|
+|Comprar 3 pedidos de Nova Iorque|Número pré-criados<br>Location.Destination|3<br>Nova Iorque|
+|Comprar um pedido de nova York para Londres em 5 de Março|Location.Origin<br>Location.Destination<br>DatetimeV2 pré-criados|Nova Iorque<br>Londres<br>5 de março de 2018|
 
-## <a name="entities-are-optional-but-highly-recommended"></a>As entidades são opcionais, mas altamente recomendadas
+## <a name="entities-are-optional-but-highly-recommended"></a>As entidades são opcionais, mas altamente recomendada
 
-Embora as intenções sejam obrigatórias, as entidades são opcionais. Você não precisa criar entidades para todos os conceitos em seu aplicativo, mas apenas para aqueles necessários para que o aplicativo cliente execute uma ação. 
+Enquanto os objetivos são necessários, as entidades são opcionais. Você não precisa criar entidades para todos os conceitos em seu aplicativo, mas apenas para aqueles necessários para que o aplicativo cliente execute uma ação. 
 
-Se seus declarações não tiverem detalhes de que o bot precisa continuar, você não precisará adicioná-los. À medida que seu aplicativo amadurece, você pode adicioná-los mais tarde. 
+Se as expressões não têm detalhes que seu bot tem de continuar, não é necessário para adicioná-los. Como seu aplicativo amadurece, pode adicioná-los mais tarde. 
 
 Se você não tiver certeza de como usaria as informações, adicione algumas entidades predefinidas comuns, como [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordinal](luis-reference-prebuilt-ordinal.md), [email](luis-reference-prebuilt-email.md)e número de [telefone](luis-reference-prebuilt-phonenumber.md).
 
@@ -91,11 +91,11 @@ Escolha a entidade com base em como os dados devem ser extraídos e como eles de
 
 |Tipo de entidade|Objetivo|
 |--|--|
-|[**Aprendido com o computador**](#composite-entity)|Agrupamento pai de entidades, independentemente do tipo de entidade. As entidades aprendidas por computador aprendem com o contexto no expressão. Isso torna a variação do posicionamento no exemplo declarações significativa. |
-|[**Lista**](#list-entity)|Lista de itens e seus sinônimos extraídos com **correspondência exata de texto**.|
-|[**Padrão. any**](#patternany-entity)|Entidade na qual o fim da entidade é difícil de determinar. |
-|[**Predefinidos**](#prebuilt-entity)|Já treinado para extrair um tipo específico de dados, como URL ou email. Algumas dessas entidades predefinidas são definidas no projeto de texto de [reconhecedores](https://github.com/Microsoft/Recognizers-Text) de código aberto. Se sua cultura ou entidade específica não tiver suporte no momento, contribuir para o projeto.|
-|[**Expressão regular**](#regular-expression-entity)|Usa uma expressão regular para **correspondência exata de texto**.|
+|[**Aprendido com o computador**](tutorial-machine-learned-entity.md)|Agrupamento pai de entidades, independentemente do tipo de entidade. As entidades aprendidas por computador aprendem com o contexto no expressão. Isso torna a variação do posicionamento no exemplo declarações significativa. |
+|[**Lista**](reference-entity-list.md)|Lista de itens e seus sinônimos extraídos com **correspondência exata de texto**.|
+|[**Padrão. any**](reference-entity-pattern-any.md)|Entidade na qual o fim da entidade é difícil de determinar. |
+|[**Prebuilt**](luis-reference-prebuilt-entities.md)|Já treinado para extrair um tipo específico de dados, como URL ou email. Algumas dessas entidades predefinidas são definidas no projeto de texto de [reconhecedores](https://github.com/Microsoft/Recognizers-Text) de código aberto. Se sua cultura específica ou a entidade não é atualmente suportada, contribuem para o projeto.|
+|[**Expressão regular**](reference-entity-regular-expression.md)|Usa uma expressão regular para **correspondência exata de texto**.|
 
 ### <a name="entity-role-defines-context"></a>Função de entidade define contexto
 
@@ -111,9 +111,9 @@ Várias entidades podem existir em um expressão e podem ser extraídas sem usar
 
 Se o expressão incluir uma lista de locais, `I want to travel to Seattle, Cairo, and London.`, esta é uma lista em que cada item não tem um significado adicional. 
 
-## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Se você precisar de mais do que o número máximo de entidades 
+## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Se precisar de mais do que o número máximo de entidades 
 
-Se você precisar de mais do que o limite, entre em contato com o suporte. Para fazer isso, reúna informações detalhadas sobre o seu sistema, vá para o site do [Luis](luis-reference-regions.md#luis-website) e selecione **suporte**. Se sua assinatura do Azure inclui serviços de suporte, entre em contato com o [suporte técnico do Azure](https://azure.microsoft.com/support/options/). 
+Se você precisar de mais do que o limite, entre em contato com o suporte. Para fazê-lo, coletar informações detalhadas sobre o seu sistema, vá para o [LUIS](luis-reference-regions.md#luis-website) Web site e, em seguida, selecione **suporte**. Se a sua subscrição do Azure inclui os serviços de suporte, contacte [suporte técnico do Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="entity-prediction-status"></a>Status de previsão de entidade
 
@@ -121,6 +121,6 @@ O portal do LUIS mostra quando a entidade, em um exemplo, expressão, tem uma pr
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Conheça os conceitos de boas [declarações](luis-concept-utterance.md). 
+Aprenda conceitos sobre o good [expressões com](luis-concept-utterance.md). 
 
-Consulte [adicionar entidades](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades ao seu aplicativo Luis.
+Ver [adicionar entidades](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades à sua aplicação LUIS.

@@ -1,7 +1,7 @@
 ---
 title: 'Início rápido C# : ponto de extremidade de previsão de consulta do SDK-Luis'
 titleSuffix: Azure Cognitive Services
-description: Use o C# SDK para enviar um usuário expressão para Luis e receber uma previsão.
+description: Este artigo mostrará como usar o C# SDK para enviar um usuário expressão para o aplicativo Luis de serviços cognitivas do Azure e receber uma previsão.
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: bd1fefa828aca71e3faa27f75a8c67a2f1539d52
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f4612f7b3f76cbbfc0deac98668770f92ff054bc
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837067"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953417"
 ---
 # <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>Início rápido: consulta de ponto de extremidade C# de previsão V2 com SDK do .net
 

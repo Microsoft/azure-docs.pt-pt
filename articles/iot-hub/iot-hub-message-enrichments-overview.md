@@ -1,6 +1,6 @@
 ---
 title: Visão geral dos aprimoramentos de mensagens do Hub IoT do Azure
-description: Visão geral dos aprimoramentos de mensagem para mensagens do Hub IoT do Azure
+description: Este artigo mostra os aprimoramentos de mensagens, que dão ao Hub IoT a capacidade de carimbar mensagens com informações adicionais antes que as mensagens sejam enviadas para o ponto de extremidade designado.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 40ce5c4f73daac2b88d3a59e46d43dba10db0954
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 83114023eb35221bfa53e3ce4de8a861948c7a3a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177998"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005833"
 ---
-# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Aprimoramentos de mensagem para mensagens do Hub IoT do dispositivo para a nuvem (versão prévia)
+# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Aprimoramentos de mensagem para mensagens do Hub IoT do dispositivo para a nuvem
 
 Os *aprimoramentos de mensagens* são a capacidade do Hub IOT de *carimbar* mensagens com informações adicionais antes que as mensagens sejam enviadas para o ponto de extremidade designado. Um motivo para usar os aprimoramentos de mensagem é incluir dados que possam ser usados para simplificar o processamento de downstream. Por exemplo, enriquecer mensagens de telemetria do dispositivo com uma marca de dispositivo de Altova pode reduzir a carga em clientes para fazer chamadas à API do dispositivo.
 
@@ -29,7 +29,7 @@ Um enriquecimento de mensagem tem três elementos principais:
 
 * Um ou mais [pontos de extremidade](iot-hub-devguide-endpoints.md) para os quais o enriquecimento deve ser aplicado.
 
-A **chave** é uma cadeia de caracteres. Uma chave só pode conter caracteres alfanuméricos ou estes caracteres especiais: hífen (`-`), sublinhado (`_`) e período (`.`).
+A **chave** é uma cadeia de caracteres. Uma chave só pode conter caracteres alfanuméricos ou estes caracteres especiais: hífen (`-`), sublinhado (`_`) e ponto (`.`).
 
 O **valor** pode ser qualquer um dos seguintes exemplos:
 
@@ -81,10 +81,6 @@ Para ver como experimentar os aprimoramentos de mensagens, consulte o [tutorial 
 ## <a name="pricing"></a>Preços
 
 Os aprimoramentos de mensagens estão disponíveis sem custo adicional. Atualmente, você é cobrado quando envia uma mensagem para um hub IoT. Você é cobrado apenas uma vez por essa mensagem, mesmo que a mensagem vá para vários pontos de extremidade.
-
-## <a name="availability"></a>Disponibilidade
-
-Essa funcionalidade está disponível na versão prévia e está disponível em todas as regiões, exceto leste dos EUA, oeste dos EUA, Europa Ocidental, [Azure governamental](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china)e [Azure Alemanha](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

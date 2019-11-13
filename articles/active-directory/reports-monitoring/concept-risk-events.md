@@ -3,7 +3,7 @@ title: Azure Active Directory de detecções de riscos | Microsoft Docs
 description: Este artice fornece uma visão geral detalhada de quais detecções de risco são.
 services: active-directory
 keywords: proteção de identidade do Azure Active Directory, segurança, risco, nível de risco, vulnerabilidade, política de segurança
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 523ae8e1ba31a4fe2c9683007f717149dfdc3bc6
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: e1f3755d61b5fa082665cfdb9aa91d1e31e2d4e4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127326"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014471"
 ---
 # <a name="azure-active-directory-risk-detections"></a>Azure Active Directory de detecções de risco
 
@@ -47,7 +47,7 @@ Atualmente, Azure Active Directory detecta seis tipos de detecções de risco:
 ![Detecção de riscos](./media/concept-risk-events/91.png)
 
 > [!IMPORTANT]
-> Às vezes, você pode encontrar uma detecção de risco sem uma entrada de logon correspondente no [relatório](concept-sign-ins.md)de entradas. Isso ocorre porque a proteção de identidade avalia o risco de entradas interativas e **não** interativas, enquanto o relatório de entradas mostra apenas as entradas interativas.
+> Às vezes, você pode encontrar uma detecção de risco sem uma entrada de logon correspondente no [relatório](concept-sign-ins.md)de entradas. Isso ocorre porque a proteção de identidade avalia o risco de entradas **interativas e** **não interativas** , enquanto o relatório de entradas mostra apenas as entradas interativas.
 
 O insight que você obtém para uma detecção de risco detectado está vinculado à sua assinatura do Azure AD. 
 
@@ -65,7 +65,7 @@ Os investimentos contínuos da Microsoft no processo de detecção levam a:
 - Melhorias na precisão de detecção de detecções de risco existentes 
 - Novos tipos de detecção de riscos que serão adicionados no futuro
 
-### <a name="leaked-credentials"></a>Fuga de credenciais
+### <a name="leaked-credentials"></a>Credenciais vazadas
 
 Quando o cibercriminosos compromete senhas válidas de usuários legítimos, eles geralmente compartilham essas credenciais. Normalmente, isso é feito postando-os publicamente na Web escura ou colando sites ou negociando ou vendendo as credenciais no mercado preto. O serviço de credenciais vazadas da Microsoft adquire os pares de nome de usuário/senha monitorando sites públicos e escuros e trabalhando com:
 
@@ -99,7 +99,7 @@ Esse tipo de detecção de risco identifica entradas de dispositivos infectados 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Inícios de sessão de endereços IP com atividade suspeita
 Esse tipo de detecção de risco identifica os endereços IP dos quais um grande número de tentativas de entrada com falha foram vistas, em várias contas de usuário, em um curto período de tempo. Isso corresponde aos padrões de tráfego dos endereços IP usados pelos invasores e é um indicador forte de que as contas já estão ou estão prestes a ser comprometidas. Esse é um algoritmo de aprendizado de máquina que ignora falsos positivos claros, como endereços IP que são usados regularmente por outros usuários na organização.  O sistema tem um período de aprendizado inicial de 14 dias em que ele aprende o comportamento de entrada de um novo usuário e novo locatário.
 
-## <a name="detection-type"></a>Tipo de deteção
+## <a name="detection-type"></a>Tipo de detecção
 
 A propriedade de tipo de detecção é um indicador (**em tempo real** ou **offline**) para o período de tempo de detecção de uma detecção de risco. Atualmente, a maioria das detecções de riscos é detectada offline em uma operação de pós-processamento após a detecção de riscos.
 
@@ -131,15 +131,15 @@ A severidade da detecção de riscos representa a intensidade do sinal como um i
 
 Por exemplo, 
 
-* **Alta**: Alta confiança e detecção de risco de alta gravidade. Esses eventos são indicadores fortes que a identidade do usuário foi comprometida e qualquer conta de usuário afetada deve ser corrigida imediatamente.
+* **Alta**: alta confiança e detecção de risco de alta gravidade. Esses eventos são indicadores fortes que a identidade do usuário foi comprometida e qualquer conta de usuário afetada deve ser corrigida imediatamente.
 
-* **Médio**: Alta gravidade, mas a detecção de riscos de confiança mais baixa ou vice-versa. Esses eventos são potencialmente arriscados e qualquer conta de usuário afetada deve ser corrigida.
+* **Médio**: alta gravidade, mas a detecção de riscos de confiança mais baixa, ou vice-versa. Esses eventos são potencialmente arriscados e qualquer conta de usuário afetada deve ser corrigida.
 
-* **Baixo**: Baixa confiança e detecção de risco de severidade baixa. Esse evento pode não exigir uma ação imediata, mas, quando combinado com outras detecções de risco, pode fornecer uma forte indicação de que a identidade é comprometida.
+* **Baixo**: baixa confiança e baixa gravidade de risco de severidade. Esse evento pode não exigir uma ação imediata, mas, quando combinado com outras detecções de risco, pode fornecer uma forte indicação de que a identidade é comprometida.
 
 ![Nível de risco](./media/concept-risk-events/01.png)
 
-### <a name="leaked-credentials"></a>Fuga de credenciais
+### <a name="leaked-credentials"></a>Credenciais vazadas
 
 As detecções de risco de credenciais vazadas são classificadas como **altas**, pois elas fornecem uma clara indicação de que o nome de usuário e a senha estão disponíveis para um invasor.
 
@@ -172,7 +172,7 @@ Para obter mais informações sobre como abordar infecções de malware, consult
 Recomendamos que você entre em contato com o usuário para verificar se ele realmente entrou a partir de um endereço IP que foi marcado como suspeito. O nível de risco para esse tipo de evento é "**médio**" porque vários dispositivos podem estar atrás do mesmo endereço IP, enquanto apenas alguns podem ser responsáveis pela atividade suspeita. 
 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Relatório de segurança de usuários em risco](concept-user-at-risk.md)
 * [Relatório de segurança de entradas arriscadas](concept-risky-sign-ins.md)

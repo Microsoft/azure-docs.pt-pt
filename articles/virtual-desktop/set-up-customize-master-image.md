@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 7a0cce6b72240b95943fbece08cfbf61eaee3524
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 30895af3e973fd5c9ae0de559df440f18cec1563
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891712"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013152"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
@@ -101,28 +101,6 @@ Execute este comando para especificar um layout inicial para PCs com Windows 10.
 
 ```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
-```
-
-### <a name="configure-session-timeout-policies"></a>Configurar políticas de tempo limite de sessão
-
-As políticas de sessão remota podem ser impostas no nível de Política de Grupo, já que todas as VMs em um pool de hosts fazem parte do mesmo grupo de segurança.
-
-Para configurar políticas de sessão remota:
-
-1. Navegue até **modelos administrativos** **componentes do Windows** >  > serviços de área de trabalho remota ** > host da sessão da área de trabalho remota > ** **limites de tempo de sessão**.
-2. No painel no lado direito, selecione a política **definir limite de tempo para as sessões ativas, mas ociosas serviços de área de trabalho remota** .
-3. Depois que a janela modal for exibida, altere a opção de política de **não configurado** para **habilitado** para ativar a política.
-4. No menu suspenso abaixo da opção de política, defina a quantidade de tempo como **3 horas**.
-
-Você também pode configurar políticas de sessão remota manualmente executando os seguintes comandos:
-
-```batch
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fResetBroken /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 10800000 /f
 ```
 
 ### <a name="set-up-time-zone-redirection"></a>Configurar o redirecionamento de fuso horário

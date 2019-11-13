@@ -1,18 +1,18 @@
 ---
-title: Criar um gateway de aplicação com HTTP para redirecionamento a HTTPS com o portal do Azure
+title: Redirecionamento de HTTP para HTTPS no portal-Aplicativo Azure gateway
 description: Saiba como criar um gateway de aplicação com o tráfego redirecionado de HTTP para HTTPS com o portal do Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 12/7/2018
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 17eef2fc2608ca4ccbabff8179cd63798d275582
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d67270896792ea506d2df04dcc3745a43d3d8251
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101466"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012872"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Criar um gateway de aplicação com HTTP para redirecionamento a HTTPS com o portal do Azure
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Este tutorial requer o Azure PowerShell versão 1.0.0 do módulo ou posterior para criar um certificado e instalar o IIS. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Para executar os comandos neste tutorial, terá também de executar `Login-AzAccount` para criar uma ligação com o Azure.
+Este tutorial requer o módulo Azure PowerShell versão 1.0.0 ou posterior para criar um certificado e instalar o IIS. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Para executar os comandos neste tutorial, terá também de executar `Login-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
@@ -63,7 +63,7 @@ Export-PfxCertificate `
   -Password $pwd
 ```
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
 
 Uma rede virtual é necessária para a comunicação entre os recursos que criar. Neste exemplo, são criadas duas sub-redes: uma para o gateway de aplicação e a outra para os servidores de back-end. Pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicação.
 
@@ -223,6 +223,6 @@ Pode obter o endereço IP público do aplicativo de página de descrição geral
 
    ![Testar o URL base no gateway de aplicação](./media/redirect-http-to-https-powershell/application-gateway-iistest.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [criar um gateway de aplicação com o redirecionamento interno](redirect-internal-site-powershell.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1def431bd24019c5f7d15cf7ac0e7550b85d17c4
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 5d2b43599c1e1f95f505d7987675e5fd40810fa4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176721"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012951"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar contas de desenvolvedor usando Azure Active Directory no gerenciamento de API do Azure
 
@@ -32,7 +32,7 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para usuá
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizar contas de desenvolvedor usando o Azure AD
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com). 
 2. Selecione ![seta](./media/api-management-howto-aad/arrow.png).
 3. Digite **API** na caixa de pesquisa.
 4. Selecione **serviços de gerenciamento de API**.
@@ -73,7 +73,7 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para usuá
 > [!NOTE]
 > Você pode especificar vários domínios na seção **locatários permitidos** . Antes que qualquer usuário possa entrar de um domínio diferente do domínio original em que o aplicativo foi registrado, um administrador global do domínio diferente deve conceder permissão para que o aplicativo acesse os dados do diretório. Para conceder permissão, o administrador global deve: a. Vá para `https://<URL of your developer portal>/aadadminconsent` (por exemplo, https://contoso.portal.azure-api.net/aadadminconsent).
 > b. Digite o nome de domínio do locatário do Azure AD ao qual deseja conceder acesso.
-> c. Selecione **Enviar**. 
+> c. Selecione **submeter**. 
 
 20.  Depois de especificar a configuração desejada, selecione **Adicionar**.
 
@@ -100,11 +100,11 @@ Os usuários da instância do Azure AD configurada agora podem entrar no portal 
 
 ## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/> portal do desenvolvedor-adicionar autenticação de conta do Azure AD
 
-Para habilitar a entrada com o AAD no portal do desenvolvedor, você precisa adicionar o widget **botões OAuth** ao formulário de entrada.
+No portal do desenvolvedor, é possível entrar com o AAD com o widget **botões do OAuth** . O widget já está incluído na página de entrada do conteúdo do portal do desenvolvedor padrão.
 
 ![Widget de botões do AAD](./media/api-management-howto-aad/portal-oauth-widget.png)
 
-Embora uma nova conta seja criada automaticamente sempre que um novo usuário entrar com o AAD, você pode considerar adicionar o mesmo widget no formulário de inscrição.
+Embora uma nova conta seja criada automaticamente sempre que um novo usuário entrar com o AAD, você pode considerar adicionar o mesmo widget à página de inscrição.
 
 ## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>Portal do desenvolvedor herdado-como entrar com o Azure AD
 

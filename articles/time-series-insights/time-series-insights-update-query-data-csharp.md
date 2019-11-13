@@ -1,6 +1,6 @@
 ---
-title: Consultar dados de um ambiente de visualização de C# Azure Time Series insights usando código | Microsoft Docs
-description: Este artigo descreve como consultar dados de um ambiente de Azure Time Series Insights codificando um aplicativo personalizado escrito na linguagem C# .net (C-Sharp).
+title: Consultar dados de um ambiente de visualização C# usando-Azure Time Series insights | Microsoft Docs
+description: Saiba como consultar dados de um ambiente de Azure Time Series Insights usando um aplicativo escrito em C#.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 46ade3ed6e8712a074974c81e51b2dd6c834db26
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 806460e5e4336624c6b0ead59dd5632e730c69e5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989670"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014719"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Consultar dados do ambiente de visualização de Azure Time Series Insights usandoC#
 
@@ -24,7 +24,7 @@ Este C# exemplo demonstra como consultar dados do ambiente de visualização Azu
 
 Este exemplo mostra vários exemplos básicos de utilização da API de Consulta:
 
-1. Como uma etapa de preparação, adquira o token de acesso por meio da API Azure Active Directory. Passe esse token no cabeçalho `Authorization` de cada solicitação de API de consulta. Para configurar aplicativos não interativos, consulte [autenticação e autorização](time-series-insights-authentication-and-authorization.md). Além disso, verifique se todas as constantes definidas no início do exemplo estão definidas corretamente.
+1. Como uma etapa de preparação, adquira o token de acesso por meio da API Azure Active Directory. Passe esse token no cabeçalho de `Authorization` de cada solicitação de API de consulta. Para configurar aplicativos não interativos, consulte [autenticação e autorização](time-series-insights-authentication-and-authorization.md). Além disso, verifique se todas as constantes definidas no início do exemplo estão definidas corretamente.
 1. A lista de ambientes aos quais o usuário tem acesso é obtida. Um dos ambientes é escolhido como o ambiente de interesse e outros dados são consultados para esse ambiente.
 1. Como um exemplo de pedido HTTPS, os dados de disponibilidade são necessários para o ambiente de interesse.
 1. Como um exemplo do pedido de socket Web, o evento agrega dados necessários para o ambiente de interesse. Os dados são necessários para o intervalo de tempo de toda a disponibilidade.

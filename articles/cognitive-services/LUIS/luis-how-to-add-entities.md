@@ -1,7 +1,7 @@
 ---
 title: Adicionar entidades-LUIS
 titleSuffix: Azure Cognitive Services
-description: Crie entidades para extrair dados de chave de declarações de usuário em aplicativos de Reconhecimento vocal (LUIS).
+description: Crie entidades para extrair dados de chave de declarações de usuário em aplicativos de Reconhecimento vocal (LUIS). Os dados de entidade extraídos são usados pelo aplicativo cliente para fullfil solicitações de clientes.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,191 +9,173 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 54c9d79c62052daeee76de5dffb1099dc7d75180
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ed100c27d482065e244bb3dc2cca3b66dfc11986
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467713"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013405"
 ---
-# <a name="create-entities-without-utterances"></a>Criar entidades sem declarações
+# <a name="add-entities-to-extract-data"></a>Adicionar entidades para extrair dados 
 
-A entidade representa uma palavra ou frase dentro do expressão que você deseja extrair. Uma entidade representa uma classe que inclui uma coleção de objetos semelhantes (locais, coisas, pessoas, eventos ou conceitos). As entidades descrevem as informações relevantes para a intenção e, às vezes, são essenciais para que seu aplicativo execute sua tarefa. Você pode criar entidades ao adicionar um expressão a uma intenção ou à parte (antes ou depois) de adicionar um expressão a uma intenção.
+Crie entidades para extrair dados de chave de declarações de usuário em aplicativos de Reconhecimento vocal (LUIS). Os dados de entidade extraídos são usados pelo aplicativo cliente para fullfil solicitações de clientes.
 
-Você pode adicionar, editar ou excluir entidades em seu aplicativo LUIS por meio da **lista entidades** na página **entidades** . O LUIS oferece dois tipos principais de entidades: [entidades predefinidas](luis-reference-prebuilt-entities.md)e suas próprias [entidades personalizadas](luis-concept-entity-types.md#types-of-entities).
+A entidade representa uma palavra ou frase dentro da expressão que pretende que sejam extraídos. Entidades descrevem informações relevantes para a intenção e, às vezes, são essenciais para a sua aplicação realizar suas tarefas. Você pode criar entidades ao adicionar um exemplo de expressão a uma intenção ou além de (antes ou depois) de adicionar um expressão de exemplo a uma intenção.
 
-Depois que uma entidade aprendida por máquina é criada, você precisa marcar essa entidade em todos os expressão de exemplo de todas as intenções em que ela se encontra.
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+## <a name="creating-an-entity-is-different-from-labeling-an-entity"></a>A criação de uma entidade é diferente de rotular uma entidade
 
-<a name="add-prebuilt-entity"></a>
+Primeiro, você precisa criar uma entidade antes de poder rotular a entidade no exemplo expressão. 
 
-## <a name="add-a-prebuilt-entity-to-your-app"></a>Adicionar uma entidade predefinida ao seu aplicativo
+Use a tabela a seguir para entender quais entidades onde criar ou adicionar cada entidade ao aplicativo. 
 
-Entidades predefinidas comuns adicionadas a um aplicativo são *Number* e *datetimeV2*. 
+|Tipo de entidade|Onde criar a entidade no portal do LUIS|
+|--|--|
+|Entidade aprendida por máquina|Detalhes de entidades ou intenções|
+|Entidade de lista|Detalhes de entidades ou intenções|
+|Entidade de expressão regular|Entidades|
+|Entidade Pattern.any|Entidades|
+|Entidade pré-criados|Entidades|
+|Entidade de domínio predefinida|Entidades|
 
-1. Em seu aplicativo, na seção **Compilar** , selecione **entidades** no painel esquerdo.
- 
-1. Na página **entidades** , selecione **adicionar entidades predefinidas**.
+Você pode criar todas as entidades na página **entidades** ou pode criar duas entidades como parte da rotulagem da entidade no exemplo expressão na página de **detalhes da intenção** . Você só pode _rotular_ uma entidade em um exemplo de expressão da página de **detalhes da intenção** . 
 
-1. Na caixa de diálogo **adicionar entidades predefinidas** , selecione o **número** e **datetimeV2** entidades predefinidas. Em seguida, selecione **Done** (Concluído).
+## <a name="create-a-machine-learned-entity"></a>Criar uma entidade aprendida por máquina
 
-    ![Captura de tela da caixa de diálogo Adicionar entidade predefinida](./media/add-entities/list-of-prebuilt-entities.png)
+[!INCLUDE [Create and label entities in machine-learned tutorial](includes/decomposable-tutorial-links.md)]
 
-<a name="add-simple-entities"></a>
+## <a name="create-a-text-matching-entity"></a>Criar uma entidade de correspondência de texto
 
-## <a name="add-simple-entities-for-single-concepts"></a>Adicionar entidades simples para conceitos únicos
+O uso de entidades de correspondência de texto fornece várias maneiras de extrair dados:
 
-Uma entidade simples descreve um único conceito. Use o procedimento a seguir para criar uma entidade que extrai nomes de departamento da empresa, como *recursos humanos* ou *operações*.   
+|Entidades de correspondência de texto|Objetivo|
+|--|--|
+|[Listar entidade](#add-list-entities-for-exact-matches)|lista de nomes canônicos, juntamente com sinônimos como formulários alternativos|
+|Entidade de expressão regular|corresponder texto usando uma entidade de expressão regular|
+|[Entidade predefinida](tutorial-machine-learned-entity.md#add-prebuilt-number-to-app-to-help-extract-data)|corresponder tipos de dados comuns, como número, email, data|
+|Entidade de domínio predefinida|corresponder usando domínios de assunto selecionados|
+|[Pattern.any](#add-a-patternany-entity)| para corresponder as entidades que podem ser facilmente confundidas com o texto ao redor|  
 
-1. Em seu aplicativo, selecione a seção **Compilar** e, em seguida, selecione **entidades** no painel esquerdo e, em seguida, selecione **criar nova entidade**.
-
-1. Na caixa de diálogo pop-up, digite `Location` na caixa **nome da entidade** , selecione **simples** na lista **tipo de entidade** e, em seguida, selecione **concluído**.
-
-    Depois que essa entidade for criada, vá para todas as tentativas que têm declarações de exemplo que contêm a entidade. Selecione o texto no exemplo expressão e marque o texto como a entidade. 
-
-    Uma [lista de frases](luis-concept-feature.md) é normalmente usada para impulsionar o sinal de uma entidade simples.
-
-<a name="add-regular-expression-entities"></a>
-
-## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Adicionar entidades de expressão regular para conceitos altamente estruturados
-
-Uma entidade de expressão regular é usada para extrair dados do expressão com base em uma expressão regular que você fornece. 
-
-1. Em seu aplicativo, selecione **entidades** na navegação à esquerda e, em seguida, selecione **criar nova entidade**.
-
-1. Na caixa de diálogo pop-up, digite `Human resources form name` na caixa **nome da entidade** , selecione **expressão regular** na lista **tipo de entidade** , insira a expressão regular `hrf-[0-9]{6}`e, em seguida, selecione **concluído**. 
-
-    Essa expressão regular corresponde a caracteres literais `hrf-`e, em seguida, seis dígitos para representar um número de formulário para um formulário de recursos humanos.
-
-<a name="add-composite-entities"></a>
-
-## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Adicionar entidades compostas ao grupo em uma relação pai-filho
-
-Você pode definir relações entre entidades de tipos diferentes criando uma entidade composta. No exemplo a seguir, a entidade contém uma expressão regular e uma entidade de nome predefinida.  
-
-No `Send hrf-123456 to John Smith`expressão, o texto `hrf-123456` é correspondido a uma [expressão regular](#add-regular-expression-entities) de recursos humanos e `John Smith` é extraído com a entidade predefinida. Cada entidade faz parte de uma entidade pai maior. 
-
-1. Em seu aplicativo, selecione **entidades** no painel de navegação esquerdo da seção de **compilação** e, em seguida, selecione **Adicionar entidade predefinida**.
-
-1. Adicione a entidade predefinida **PersonName**. Para obter instruções, consulte [adicionar entidades predefinidas](#add-prebuilt-entity). 
-
-1. Selecione **entidades** na navegação à esquerda e, em seguida, selecione **criar nova entidade**.
-
-1. Na caixa de diálogo pop-up, digite `SendHrForm` na caixa **nome da entidade** e, em seguida, selecione **composto** na lista **tipo de entidade** .
-
-1. Selecione **Adicionar filho** para adicionar um novo filho.
-
-1. Em **#1 filho**, selecione o **número** da entidade na lista.
-
-1. Em **#2 filho**, selecione o nome do formulário da entidade **recursos humanos** na lista. 
-
-1. Selecione **Done** (Concluído).
-
-<a name="add-pattern-any-entities"></a>
-
-## <a name="add-patternany-entities-to-capture-free-form-entities"></a>Adicionar padrão. qualquer entidade para capturar entidades de forma livre
-
-[Padrão. todas as](luis-concept-entity-types.md) entidades são válidas apenas em [padrões](luis-how-to-model-intent-pattern.md), não em intenções. Esse tipo de entidade ajuda a LUIS a localizar o fim das entidades de comprimento variável e de uma opção de palavra. Como essa entidade é usada em um padrão, LUIS sabe onde o fim da entidade está no modelo expressão.
-
-Se um aplicativo tiver uma intenção `FindHumanResourcesForm`, o título do formulário extraído poderá interferir na previsão da intenção. Para esclarecer quais palavras estão no título do formulário, use um padrão. any dentro de um padrão. A previsão LUIS começa com o expressão. Primeiro, o expressão é verificado e correspondido para entidades, quando as entidades são encontradas, o padrão é verificado e correspondido. 
-
-No `Where is Request relocation from employee new to the company on the server?`expressão, o título do formulário é complicado porque não é contextual claramente onde o título termina e onde o restante do expressão começa. Os títulos podem ser qualquer ordem de palavras, incluindo uma única palavra, frases complexas com pontuação e ordem sem detecção de palavras. Um padrão permite que você crie uma entidade na qual a entidade completa e exata pode ser extraída. Depois que o título é encontrado, a intenção de `FindHumanResourcesForm` é prevista porque essa é a intenção do padrão.
-
-1. Na seção **Compilar** , selecione **entidades** no painel esquerdo e, em seguida, selecione **criar nova entidade**.
-
-1. Na caixa de diálogo **Adicionar entidade** , digite `HumanResourcesFormTitle` na caixa **nome da entidade** e selecione **padrão. qualquer** como o **tipo de entidade**.
-
-    Para usar o padrão. qualquer entidade, adicione um padrão na página **padrões** , na seção **melhorar desempenho do aplicativo** , com a sintaxe de chave correta, como `Where is **{HumanResourcesFormTitle}** on the server?`.
-
-    Se chegar à conclusão que o seu padrão, ao incluir uma entidade Pattern.any, extrai as entidades incorretamente, utilize uma [lista explícita](luis-concept-patterns.md#explicit-lists) para corrigir este problema. 
-
-<a name="add-a-role-to-pattern-based-entity"></a>
-
-## <a name="add-a-role-to-distinguish-different-contexts"></a>Adicionar uma função para distinguir contextos diferentes
-
-Uma função é um subtipo nomeado com base no contexto. Ele está disponível em todas as entidades, incluindo entidades predefinidas e não aprendidas por computador. 
-
-A sintaxe para uma função é **`{Entityname:Rolename}`** em que o nome da entidade é seguido por dois-pontos e, em seguida, o nome da função. Por exemplo, `Move {personName} from {Location:Origin} to {Location:Destination}`.
-
-1. Na seção **Compilar** , selecione **entidades** no painel esquerdo.
-
-1. Selecione **Criar nova entidade**. Insira o nome do `Location`. Selecione o tipo **simples** e selecione **concluído**. 
-
-1. Selecione **entidades** no painel esquerdo e, em seguida, selecione o novo **local** de entidade criado na etapa anterior.
-
-1. Na caixa de texto **nome da função** , insira o nome da função `Origin` e digite. Adicione um segundo nome de função de `Destination`. 
-
-    ![Captura de tela da adição da função de origem à entidade de localização](./media/add-entities/roles-enter-role-name-text.png)
+As entidades predefinidas funcionam sem fornecer dados de treinamento personalizados. As outras entidades precisam que você forneça dados de treinamento do cliente (como itens da entidade de lista) ou uma expressão (como uma expressão regular ou padrão. any).
 
 <a name="add-list-entities"></a>
 
-## <a name="add-list-entities-for-exact-matches"></a>Adicionar entidades de lista para correspondências exatas
+### <a name="how-to-create-a-new-custom-entity"></a>Como criar uma nova entidade personalizada
 
-As entidades de lista representam um conjunto fixo e fechado de palavras relacionadas. 
+1. No portal do LUIS, vá para a seção **gerenciar** e, em seguida, a página **entidades** . 
+1. Selecione **+ criar**e, em seguida, selecione o tipo de entidade. 
+1. Continue Configurando a entidade e, em seguida, selecione **criar** quando terminar. 
 
-Para um aplicativo de recursos humanos, você pode ter uma lista de todos os departamentos junto com qualquer sinônimo para os departamentos. Você não precisa saber todos os valores ao criar a entidade. Você pode adicionar mais depois de revisar declarações de usuário reais com sinônimos.
+### <a name="add-list-entities-for-exact-matches"></a>Adicionar entidades de lista para correspondências exatas
 
-1. Na seção **Compilar** , selecione **entidades** no painel esquerdo e, em seguida, selecione **criar nova entidade**.
+Lista de entidades representam um conjunto de palavras relacionadas fixo e fechado. Embora você, como autor, possa alterar a lista, o LUIS não aumentará nem reduzirá a lista. Você também pode importar para uma entidade de lista existente usando um formato [listar entidade. JSON (referência-entidade-lista. MD # example-JSON para Import-in-List-Entity). 
 
-1. Na caixa de diálogo **Adicionar entidade** , digite `Department` na caixa **nome da entidade** e selecione **lista** como o **tipo de entidade**. Selecione **Done** (Concluído).
-  
-1. A página de entidade lista permite que você adicione nomes normalizados. Na caixa de texto **valores** , insira um nome de departamento para a lista, como `HumanResources` pressione Enter no teclado. 
+A lista a seguir demonstra o nome canônico e os sinônimos. 
 
-1. À direita do valor normalizado, insira sinônimos, pressionando Enter no teclado após cada item.
+|Nome do item da lista de cores|Sinônimos de cor|
+|--|--|
+|Vermelho|Crimson, sangue, Apple, mecanismo de incêndio|
+|Azul|céu, Azure, Cobalt|
+|Verde|Kelly, verde-limão|
 
-1. Se você quiser mais itens normalizados para a lista, selecione **recomendado** para ver as opções do [dicionário semântico](luis-glossary.md#semantic-dictionary).
+Use o procedimento para criar uma entidade de lista. Depois que a entidade de lista for criada, você não precisará rotular declarações de exemplo em uma intenção. Itens de lista e sinônimos são correspondidos usando texto exato. 
 
-    ![Captura de tela da seleção do recurso recomendado para ver as opções](./media/add-entities/hr-list-2.png)
+1. Na seção **Compilar** , selecione **entidades** no painel esquerdo e, em seguida, selecione **+ criar**.
 
+1. Na caixa de diálogo **criar um tipo de entidade** , digite o nome da entidade, como `Colors` e selecione **lista**.
+1. Na caixa de diálogo **criar uma entidade de lista** , em **Adicionar nova sublista...** , insira o nome do item de lista, como `Green`e, em seguida, adicione sinônimos.
 
-1. Selecione um item na lista recomendada para adicioná-lo como um valor normalizado ou selecione **Adicionar tudo** para adicionar todos os itens. 
-    Você pode importar valores para uma entidade de lista existente usando o seguinte formato JSON:
+    > [!div class="mx-imgBorder"]
+    > ![criar uma lista de cores como uma entidade de lista na página de detalhes da entidade.](media/how-to-add-entities/create-list-entity-of-colors.png) 
 
-    ```JSON
-    [
-        {
-            "canonicalForm": "Blue",
-            "list": [
-                "navy",
-                "royal",
-                "baby"
-            ]
-        },
-        {
-            "canonicalForm": "Green",
-            "list": [
-                "kelly",
-                "forest",
-                "avacado"
-            ]
-        }
-    ]  
-    ```
+1. Quando terminar de adicionar itens de lista e sinônimos, selecione **criar**.
 
-<a name="change-entity-type"></a>
+    Quando você terminar com um grupo de alterações no aplicativo, lembre-se de **treinar** o aplicativo. Não treine o aplicativo após uma única alteração. 
+
+    > [!NOTE]
+    > Este procedimento demonstra como criar e rotular uma entidade de lista a partir de um exemplo de expressão na página de **detalhes da intenção** . Você também pode criar a mesma entidade na página **entidades** .
+
+## <a name="add-a-role-for-an-entity"></a>Adicionar uma função para uma entidade
+
+Uma função é um subtipo nomeado de uma entidade, com base no contexto. 
+
+### <a name="add-a-role-to-distinguish-different-contexts"></a>Adicionar uma função para distinguir contextos diferentes
+
+No expressão a seguir, há dois locais, e cada um é especificado semanticamente pelas palavras, como `to` e `from`: 
+
+`Pick up the package from Seattle and deliver to New York City.`
+
+Neste procedimento, adicione `origin` e `destination` funções a uma entidade geographyV2 predefinida.
+
+1. Partir do **crie** secção, selecione **entidades** no painel esquerdo.
+
+1. Selecione **+ Adicionar entidade predefinida**. Selecione **geographyV2** e, em seguida, selecione **concluído**. Isso adiciona uma entidade predefinida ao aplicativo.
+    
+    Se chegar à conclusão que o seu padrão, ao incluir uma entidade Pattern.any, extrai as entidades incorretamente, utilize uma [lista explícita](reference-pattern-syntax.md#explicit-lists) para corrigir este problema. 
+
+1. Selecione a entidade geographyV2 pré-criados recém-adicionada na lista de entidades da página **entidades** . 
+1. Para adicionar uma nova função, selecione **+** ao lado de **não há funções adicionadas**.
+1. Na caixa de texto **função de tipo...** , insira o nome da função `Origin`, em seguida, insira. Adicione um segundo nome de função de `Destination` em seguida, digite. 
+
+    > [!div class="mx-imgBorder"]
+    > ![captura de tela da adição da função de origem à entidade local](media/how-to-add-entities//add-role-to-prebuilt-geographyv2-entity.png)
+
+    A função é adicionada à entidade predefinida, mas não é adicionada a nenhum declarações usando essa entidade. 
+
+### <a name="label-text-with-a-role-in-an-example-utterance"></a>Texto do rótulo com uma função em um exemplo de expressão
+
+1. Vá para a página de detalhes da intenção, que tem exemplo declarações que usam a função. 
+1. Para rotular com a função, selecione o rótulo da entidade (linha sólida em texto) no exemplo expressão e, em seguida, selecione **Exibir na paleta de entidades** na lista suspensa. 
+
+    > [!div class="mx-imgBorder"]
+    > ![captura de tela da seleção de exibição na paleta de entidades](media/how-to-add-entities/select-text-label-with-entity-palette-for-role.png)   
+
+    A paleta de entidades é aberta à direita. 
+
+1. Selecione a entidade e, em seguida, vá para a parte inferior da paleta e selecione a função. 
+
+    > [!div class="mx-imgBorder"]
+    > ![captura de tela da seleção de exibição na paleta de entidades](media/how-to-add-entities/select-role-from-entity-palette-entity-inspector.png)
+
+<a name="add-pattern-any-entities"></a>
+
+## <a name="add-a-patternany-entity"></a>Adicionar um padrão. qualquer entidade
+
+[Padrão. todas as](luis-concept-entity-types.md) entidades são válidas apenas em [padrões](luis-how-to-model-intent-pattern.md), não como declarações de exemplo. Este tipo de entidade ajuda LUIS encontrar o fim de entidades de comprimento variável e a escolha do word. Como esta entidade é utilizada num padrão, o LUIS sabe onde o fim da entidade é o modelo de expressão.
+
+### <a name="steps-to-create-a-patternany-entity"></a>Etapas para criar um padrão. qualquer entidade
+
+1. Na seção **Compilar** , selecione **entidades** no painel esquerdo e, em seguida, selecione **+ criar**.
+
+1. Na caixa de diálogo **escolher um tipo de entidade** , insira o nome da entidade na caixa **nome** e selecione **padrão. qualquer** como o **tipo** e, em seguida, selecione **criar**.
+
+    Depois de [criar um padrão expressão](luis-how-to-model-intent-pattern.md) usando essa entidade, a entidade é extraída com um algoritmo combinado de computador e de correspondência de texto. 
+
+### <a name="create-a-pattern-template-utterance-to-use-patternany-entity"></a>Crie um modelo de padrão expressão para usar o padrão. qualquer entidade
+
+Para utilizar a entidade de pattern.any, adicione um padrão no **padrões** na página a **melhorar o desempenho de aplicações** secção com a sintaxe de chave de abertura correto, tais como `Where is **{HumanResourcesFormTitle}** on the server?`.
+
+Se chegar à conclusão que o seu padrão, ao incluir uma entidade Pattern.any, extrai as entidades incorretamente, utilize uma [lista explícita](reference-pattern-syntax.md#explicit-lists) para corrigir este problema. 
 
 ## <a name="do-not-change-entity-type"></a>Não alterar tipo de entidade
 
-LUIS não permite que você altere o tipo da entidade porque ela não sabe o que adicionar ou remover para construir essa entidade. Para alterar o tipo, é melhor criar uma nova entidade do tipo correto com um nome ligeiramente diferente. Depois que a entidade for criada, em cada expressão, remova o nome de entidade rotulado antigo e adicione o nome da nova entidade. Depois que todos os declarações tiverem sido rerotulados, exclua a entidade antiga. 
+LUIS não permite-lhe alterar o tipo da entidade, porque ele não sabe o que adicionar ou remover para construir essa entidade. Para alterar o tipo, é melhor criar uma nova entidade do tipo correto com um nome de um pouco diferente. Assim que a entidade é criada, em cada ocorrência de pronunciação, remova o nome da entidade com nome antigo e adicionar o novo nome de entidade. Depois de tem sido relabeled todas as expressões, elimine a entidade antiga. 
 
 <a name="create-a-pattern-from-an-utterance"></a>
 
-## <a name="create-a-pattern-from-an-example-utterance"></a>Criar um padrão a partir de um exemplo de expressão
-
-Consulte [Adicionar padrão de expressão existentes na página de intenção ou entidade](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
-
-## <a name="train-your-app-after-changing-model-with-entities"></a>Treinar seu aplicativo depois de alterar o modelo com entidades
-
-Depois de adicionar, editar ou remover entidades, [treine](luis-how-to-train.md) e [publique](luis-how-to-publish-app.md) seu aplicativo para que suas alterações afetem as consultas de ponto de extremidade. 
-
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre entidades predefinidas, consulte o projeto de [texto Recognizers](https://github.com/Microsoft/Recognizers-Text) . 
+Saiba mais sobre padrões:
 
-Para obter informações sobre como a entidade aparece na resposta de consulta de ponto de extremidade JSON, consulte [extração de dados](luis-concept-data-extraction.md)
+* [Conceitos de padrões](luis-concept-patterns.md)
+* [Sintaxe de padrões](reference-pattern-syntax.md)
 
-Agora que você adicionou intenções, declarações e entidades, você tem um aplicativo LUIS básico. Saiba como [treinar](luis-how-to-train.md), [testar](luis-interactive-test.md)e [publicar](luis-how-to-publish-app.md) seu aplicativo.
+Para obter mais informações sobre entidades previamente concebidas, consulte a [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text) projeto. 
+
+Para obter informações sobre a forma como a entidade é apresentado na resposta da consulta de ponto final JSON, veja [extração de dados](luis-concept-data-extraction.md)
+
+Agora que adicionou intenções, expressões e entidades, terá uma aplicação básica do LUIS. Saiba como [treinar](luis-how-to-train.md), [testar](luis-interactive-test.md), e [publicar](luis-how-to-publish-app.md) seu aplicativo.
  

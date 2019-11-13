@@ -1,5 +1,5 @@
 ---
-title: Planejar a capacidade e o dimensionamento para a recuperação de desastres do VMware no Azure usando Azure Site Recovery | Microsoft Docs
+title: Planejar a capacidade de recuperação de desastres do VMware com o Azure Site Recovery
 description: Este artigo pode ajudá-lo a planejar a capacidade e o dimensionamento ao configurar a recuperação de desastre de VMs VMware no Azure usando Azure Site Recovery.
 author: nsoneji
 manager: garavd
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 0bf1b34295d827124198206e743bc21d5f7eb904
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747898"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961362"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planejar a capacidade e o dimensionamento para a recuperação de desastres do VMware no Azure
 
@@ -42,7 +42,7 @@ CPU | Memória | Tamanho do disco de cache | Taxa de alteração de dados | Máq
 12 vCPUs (2 soquetes * 6 núcleos \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB a 1 TB | Use para replicar 100 para computadores 150.
 16 vCPUs (2 soquetes * 8 núcleos \@ 2,5 GHz) | 32 GB | 1 TB | > 1 TB a 2 TB | Use para replicar 151 para computadores 200.
 Implante outro servidor de configuração usando um [modelo OVF](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). | | | | Implante um novo servidor de configuração se você estiver replicando mais de 200 computadores.
-Implante outro [servidor de processo](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | > 2 TB| Implante um novo servidor de processo de expansão se a taxa diária geral de alteração de dados for maior que 2 TB.
+Implante outro [servidor de processo](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | >2 TB| Implante um novo servidor de processo de expansão se a taxa diária geral de alteração de dados for maior que 2 TB.
 
 Nessas configurações:
 

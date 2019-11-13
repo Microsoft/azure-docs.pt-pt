@@ -1,6 +1,6 @@
 ---
-title: Modelo de série temporal na visualização de Azure Time Series Insights | Microsoft Docs
-description: Compreendendo Azure Time Series Insights modelo de série temporal.
+title: Modelo de série temporal-Azure Time Series Insights | Microsoft Docs
+description: Saiba mais sobre o modelo de série temporal na visualização Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c9bface359df020cea0bfff8f82e25e25efbc47
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a550643640afeefeb4cf79e35265f13557b6ffb0
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585237"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014684"
 ---
-# <a name="time-series-model"></a>Modelo de Série de Tempo
+# <a name="time-series-model-in-azure-time-series-insights-preview"></a>Modelo de série temporal na visualização Azure Time Series Insights
 
 Este artigo descreve o modelo de série temporal, os recursos e como começar a criar e atualizar seus próprios modelos no ambiente de visualização de Azure Time Series Insights.
 
@@ -211,7 +211,7 @@ Considerando os campos de instância usados na definição anterior e várias s�
 | --- | --- |
 | ID1 | "compilando" = "1000", "piso" = "10", "sala" = "55"  |
 | ID2 | "criando" = "1000", "sala" = "55" |
-| VERSÕES | "Floor" = "10" |
+| ID3 | "Floor" = "10" |
 | ID4 | "criando" = "1000", "Floor" = "10"  |
 | ID5 | Nenhum de "prédio", "andar" ou "sala" é definido. |
 
@@ -241,7 +241,7 @@ Os tipos de modelo de série temporal são definidos por **ID**, **nome**, **Des
 | ID | O UUID para o tipo. |
 | nome | Uma cadeia de caracteres usada para fornecer um nome para o tipo. |
 | descrição | Uma descrição de cadeia de caracteres para o tipo. |
-| As | Especifique as variáveis associadas ao tipo. |
+| as | Especifique as variáveis associadas ao tipo. |
 
 Os tipos estão em conformidade com o seguinte exemplo de JSON:
 

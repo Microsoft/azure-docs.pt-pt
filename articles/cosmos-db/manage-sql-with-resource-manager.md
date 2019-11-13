@@ -1,21 +1,21 @@
 ---
 title: Criar e gerenciar Azure Cosmos DB usando modelos de Azure Resource Manager
 description: Usar modelos de Azure Resource Manager para criar e configurar o Azure Cosmos DB para a API do SQL (Core)
-author: markjbrown
+author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: 5babcadee02da0ba3e112f75e8b4d1aed5f3339f
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 11/12/2019
+ms.author: thvankra
+ms.openlocfilehash: 0cb6e80bafca3bb0bfc339552facae5bd16aced4
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721085"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960537"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Gerenciar recursos de API do Azure Cosmos DB SQL (núcleo) usando modelos de Azure Resource Manager
 
-Este artigo descreve como executar operações diferentes para automatizar o gerenciamento de suas contas de Azure Cosmos DB, bancos de dados e contêineres usando modelos de Azure Resource Manager. Este artigo tem exemplos apenas para contas de API do SQL, para encontrar exemplos para outras contas de tipo de API, consulte: usar modelos do Resource Manager com a API do Azure Cosmos DB para [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), artigos da [tabela](manage-table-with-resource-manager.md) .
+Este artigo descreve como executar operações diferentes para automatizar o gerenciamento de suas contas de Azure Cosmos DB, bancos de dados e contêineres usando modelos de Azure Resource Manager. Este artigo tem exemplos apenas para contas de API do SQL, para encontrar exemplos para outras contas de tipo de API, consulte: usar modelos de Azure Resource Manager com a API de Azure Cosmos DB para [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), artigos de [tabela](manage-table-with-resource-manager.md) .
 
 como criar e gerenciar contas Cosmos DB, bancos de dados e contêineres para MongoDB, Gremlin, Cassandra e API de Tabela.
 
@@ -26,7 +26,7 @@ Crie Azure Cosmos DB recursos usando um modelo de Azure Resource Manager. Este m
 > [!NOTE]
 >
 > - Você não pode adicionar ou remover locais simultaneamente para uma conta do Azure Cosmos e modificar outras propriedades. Eles devem ser feitos como operações separadas.
-> - Os nomes de conta devem ter letras minúsculas e < caracteres 44.
+> - Os nomes de conta devem ser minúsculos e 44 ou menos caracteres.
 > - Para atualizar RU/s, envie novamente o modelo com valores de propriedade de produtividade atualizados.
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
@@ -36,7 +36,7 @@ Crie Azure Cosmos DB recursos usando um modelo de Azure Resource Manager. Este m
 
 ### <a name="deploy-via-powershell"></a>Implantar por meio do PowerShell
 
-Para implantar o modelo do Resource Manager usando o PowerShell, **Copie** o script e selecione **Experimente-** o para abrir o Azure cloud Shell. Para colar o script, clique com o botão direito do mouse no Shell e selecione **colar**:
+Para implantar o modelo de Azure Resource Manager usando o PowerShell, **Copie** o script e selecione **Experimente** para abrir o Azure cloud Shell. Para colar o script, clique com o botão direito do mouse no Shell e selecione **colar**:
 
 ```azurepowershell-interactive
 
@@ -70,11 +70,11 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-Se você optar por usar uma versão instalada localmente do PowerShell em vez do Azure cloud Shell, será necessário [instalar](/powershell/azure/install-az-ps) o módulo Azure PowerShell. Executar `Get-Module -ListAvailable Az` para localizar a versão.
+Se você optar por usar uma versão instalada localmente do PowerShell em vez de Azure Cloud Shell, precisará [instalar](/powershell/azure/install-az-ps) o módulo Azure PowerShell. Executar `Get-Module -ListAvailable Az` para localizar a versão.
 
 ### <a name="deploy-via-azure-cli"></a>Implantar via CLI do Azure
 
-Para implantar o modelo do Resource Manager usando CLI do Azure, selecione **Experimente-** o para abrir o Azure cloud Shell. Para colar o script, clique com o botão direito do mouse no Shell e selecione **colar**:
+Para implantar o modelo de Azure Resource Manager usando o CLI do Azure, selecione **Experimente-** o para abrir o Azure cloud Shell. Para colar o script, clique com o botão direito do mouse no Shell e selecione **colar**:
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -115,7 +115,7 @@ Crie um contêiner de Azure Cosmos DB com um procedimento armazenado, um gatilho
 
 ### <a name="deploy-stored-procedure-template-via-powershell"></a>Implantar modelo de procedimento armazenado por meio do PowerShell
 
-Para implantar o modelo do Resource Manager usando o PowerShell, **Copie** o script e selecione **Experimente-** o para abrir o Azure cloud Shell. Para colar o script, clique com o botão direito do mouse no Shell e selecione **colar**:
+Para implantar o modelo do Resource Manager usando o PowerShell, **Copie** o script e selecione **Experimente-** o para abrir Azure cloud Shell. Para colar o script, clique com o botão direito do mouse no Shell e selecione **colar**:
 
 ```azurepowershell-interactive
 
@@ -141,11 +141,11 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-Se você optar por usar uma versão instalada localmente do PowerShell em vez do Azure cloud Shell, será necessário [instalar](/powershell/azure/install-az-ps) o módulo Azure PowerShell. Executar `Get-Module -ListAvailable Az` para localizar a versão.
+Se você optar por usar uma versão instalada localmente do PowerShell em vez de Azure Cloud Shell, precisará [instalar](/powershell/azure/install-az-ps) o módulo Azure PowerShell. Executar `Get-Module -ListAvailable Az` para localizar a versão.
 
 ### <a name="deploy-stored-procedure-template-via-azure-cli"></a>Implantar modelo de procedimento armazenado via CLI do Azure
 
-Para implantar o modelo do Resource Manager usando CLI do Azure, selecione **Experimente-** o para abrir o Azure cloud Shell. Para colar o script, clique com o botão direito do mouse no Shell e selecione **colar**:
+Para implantar o modelo de Azure Resource Manager usando o CLI do Azure, selecione **Experimente-** o para abrir o Azure cloud Shell. Para colar o script, clique com o botão direito do mouse no Shell e selecione **colar**:
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -165,7 +165,7 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Aqui estão alguns recursos adicionais:
 

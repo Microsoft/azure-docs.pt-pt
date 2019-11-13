@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: f733e29fc5fbce764fef9a713747d6793d2ebd43
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 62f298e0efb5c54efdcd15cf470ed4640f720058
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489318"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73957847"
 ---
-# <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>Crie e gerencie ambientes reutilizáveis para treinamento e implantação com o Azure Machine Learning.
+# <a name="reuse-environments-for-training--deployment-with-azure-machine-learning"></a>Reutilize ambientes para treinamento & implantação com Azure Machine Learning.
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, saiba como criar e gerenciar [ambientes](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) de Azure Machine Learning para que você possa acompanhar e reproduzir as dependências de software de seus projetos à medida que eles evoluem.
@@ -105,7 +105,7 @@ Environment(name="myenv")
 ### <a name="conda-and-pip-specification-files"></a>Arquivos de especificação Conda e Pip
 
 Você também pode criar um ambiente de uma especificação Conda ou um arquivo de requisitos Pip.
-Use o método [from_conda_specification ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-conda-specification-name--file-path-) ou [from_pip_requirements ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-) e inclua o nome do ambiente e o caminho do arquivo do arquivo desejado no argumento do método.
+Use o [from_conda_specification ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-conda-specification-name--file-path-) ou o método [from_pip_requirements ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#from-pip-requirements-name--file-path-) e inclua o nome do ambiente e o caminho do arquivo do arquivo desejado no argumento do método.
 
 ```python
 # From a Conda specification file
@@ -252,14 +252,14 @@ build.wait_for_completion(show_output=True)
 
  O [DockerSection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) da classe `Environments` Azure Machine Learning, permite que você personalize e controle em detalhes o sistema operacional convidado no qual sua execução de treinamento é executada.
 
-Quando você `enable` Docker, o serviço cria uma imagem do Docker e cria um ambiente do Python com suas especificações dentro desse contêiner do Docker. Isso fornece isolamento e reprodução adicionais para suas execuções de treinamento.
+Quando você `enable` o Docker, o serviço cria uma imagem do Docker e cria um ambiente do Python com suas especificações dentro desse contêiner do Docker. Isso fornece isolamento e reprodução adicionais para suas execuções de treinamento.
 
 ```python
 # Creates the environment inside a Docker container.
 myenv.docker.enabled = True
 ```
 
-Uma vez criado, a imagem do Docker aparece no registro de contêiner do Azure associado ao espaço de trabalho, por padrão.  O nome do repositório tem o formato *azureml/azureml_\<uuid\>* . A parte do identificador exclusivo (*UUID*) corresponde a um hash computado da configuração do ambiente. Isso permite que o serviço determine se uma imagem correspondente ao ambiente fornecido já existe para reutilização.
+Uma vez criado, a imagem do Docker aparece no registro de contêiner do Azure associado ao espaço de trabalho, por padrão.  O nome do repositório tem a forma de *\>UUID de\<do azureml/azureml_* . A parte do identificador exclusivo (*UUID*) corresponde a um hash computado da configuração do ambiente. Isso permite que o serviço determine se uma imagem correspondente ao ambiente fornecido já existe para reutilização.
 
 Além disso, o serviço usa automaticamente uma das [imagens base](https://github.com/Azure/AzureML-Containers)baseadas em Ubuntu Linux e instala os pacotes do Python especificados. A imagem base tem versões de CPU e GPU. Azure Machine Learning detecta automaticamente qual versão usar.
 
@@ -270,7 +270,7 @@ myenv.docker.base_image_registry="your_registry_location"
 ```
 
 > [!NOTE]
-> Se você especificar `environment.python.user_managed_dependencies=False` ao usar uma imagem personalizada do Docker, o serviço criará um ambiente Conda dentro da imagem e executará a execução nesse ambiente, em vez de usar bibliotecas Python que você pode ter instalado na imagem base. Defina o parâmetro como `True` para usar seus próprios pacotes instalados.
+> Se você especificar `environment.python.user_managed_dependencies=False` ao usar uma imagem personalizada do Docker, o serviço criará um ambiente Conda dentro da imagem e executará a execução nesse ambiente, em vez de usar bibliotecas Python que você pode ter instalado na imagem de base. Defina o parâmetro como `True` para usar seus próprios pacotes instalados.
 
 ## <a name="using-environments-for-training"></a>Usando ambientes para treinamento
 
@@ -305,11 +305,11 @@ run = exp.submit(runconfig)
 
 Se você não especificar o ambiente em sua configuração de execução, o serviço criará um ambiente padrão para você quando você enviar sua execução.
 
-### <a name="train-with-an-estimator"></a>Treinar com um estimador
+### <a name="train-with-an-estimator"></a>Preparar com um avaliador que esteja
 
 Se você estiver usando um [estimador](how-to-train-ml-models.md) para treinamento, poderá simplesmente enviar a instância do estimador diretamente, pois ela já encapsula o ambiente e o destino de computação.
 
-O código a seguir usa um estimador para um treinamento de nó único executado em uma computação remota para um modelo scikit-Learn e assume um objeto de destino de computação criado anteriormente, `compute_target` e objeto datastore, `ds`.
+O código a seguir usa um estimador para um treinamento de nó único executado em uma computação remota para um modelo scikit-Learn e supõe que um objeto de destino de computação, `compute_target` e objeto de repositório de armazenamento criado anteriormente, `ds`.
 
 ```python
 from azureml.train.estimator import Estimator
@@ -359,7 +359,7 @@ service = Model.deploy(
     deployment_config = deployment_config)
 ```
 
-## <a name="example-notebooks"></a>Blocos de anotações de exemplo
+## <a name="example-notebooks"></a>Blocos de notas de exemplo
 
 Este [bloco de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) expande sobre conceitos e métodos demonstrados neste artigo.
 

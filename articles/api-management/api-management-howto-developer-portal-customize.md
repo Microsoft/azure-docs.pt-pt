@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7547db502056304307094541dcfd2474eda999d8
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: c8aa3fb124420c933e17b0e9f7e52b7f114a7f61
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620428"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012911"
 ---
 # <a name="access-and-customize-developer-portal"></a>Acessar e personalizar o portal do desenvolvedor
 
@@ -38,7 +38,7 @@ Você pode encontrar mais detalhes no portal do desenvolvedor na [visão geral d
 
 > [!WARNING]
 > O portal do desenvolvedor está sendo lançado no momento para serviços de gerenciamento de API.
-> Se o serviço for criado recentemente ou for um serviço de camada de desenvolvedor, você já deverá ter a versão mais recente. Caso contrário, você poderá ter problemas (por exemplo, com a funcionalidade de publicação). A distribuição de recursos será concluída na segunda-feira de novembro de 11, 2019. 
+> Se o serviço for criado recentemente ou for um serviço de camada de desenvolvedor, você já deverá ter a versão mais recente. Caso contrário, você poderá ter problemas (por exemplo, com a funcionalidade de publicação). Espera-se que a distribuição de recursos seja concluída até sexta-feira de 22 de novembro de 2019. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
+ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 1757faf8ab2be0b62956b6939ee068929f9275a4
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 1307e6cfca0debe7623eb775c69527a74584033d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695244"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011990"
 ---
 # <a name="list-entity"></a>Entidade de lista 
 
@@ -28,11 +28,36 @@ Uma entidade de lista não é aprendida por máquina. É uma correspondência ex
 * É um conjunto conhecido.
 * Não é alterado com frequência. Se você precisar alterar a lista com frequência ou desejar que a lista se expanda automaticamente, uma entidade simples aumentada com uma lista de frases é uma opção melhor. 
 * O conjunto não excede os [limites](luis-boundaries.md) máximos do LUIS para este tipo de entidade.
-* O texto na expressão é uma correspondência exata com um sinónimo ou o nome canónico. LUIS não usa a lista além de correspondências de texto exatas. Correspondência difusa, não diferencia maiúsculas de minúsculas, lematização, plurals e outras variações não são resolvidas com uma entidade de lista. Para gerenciar variações, considere usar um [padrão](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) com a sintaxe de texto opcional.
+* O texto na expressão é uma correspondência exata com um sinónimo ou o nome canónico. LUIS não usa a lista além de correspondências de texto exatas. Correspondência difusa, não diferencia maiúsculas de minúsculas, lematização, plurals e outras variações não são resolvidas com uma entidade de lista. Para gerenciar variações, considere usar um [padrão](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) com a sintaxe de texto opcional.
 
 ![entidade de lista](./media/luis-concept-entities/list-entity.png)
 
-## <a name="example-json"></a>JSON de exemplo
+## <a name="example-json-to-import-into-list-entity"></a>Example. JSON para importar para a entidade de lista
+
+  Você pode importar valores para uma entidade de lista existente usando o seguinte formato. JSON:
+
+  ```JSON
+  [
+      {
+          "canonicalForm": "Blue",
+          "list": [
+              "navy",
+              "royal",
+              "baby"
+          ]
+      },
+      {
+          "canonicalForm": "Green",
+          "list": [
+              "kelly",
+              "forest",
+              "avacado"
+          ]
+      }
+  ]  
+  ```
+
+## <a name="example-json-response"></a>Exemplo de resposta JSON
 
 Suponha que a aplicação tem uma lista, com o nome `Cities`, o que possibilita para variações de nomes de cidade, incluindo a cidade do aeroporto (mar-tac), código do aeroporto (SEA), código postal de zip (98101) e o código de área de telefone (206).
 
@@ -107,7 +132,7 @@ Esse é o JSON se `verbose=true` for definido na cadeia de caracteres de consult
 
 * * * 
 
-|Objeto de dados|Nome da entidade|Value|
+|Objeto de dados|Nome da entidade|Valor|
 |--|--|--|
 |Listar entidade|`Cities`|`paris`|
 

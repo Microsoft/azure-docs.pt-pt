@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 8b74621f2c5a9c91ece58c8118cd2bc952c3a464
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 0dd6c410040eea9eb4039ab5da183cc0b6799493
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809690"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005790"
 ---
-# <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>Tutorial: usando aprimoramentos de mensagens do Hub IoT do Azure (versão prévia)
+# <a name="tutorial-using-azure-iot-hub-message-enrichments"></a>Tutorial: usando aprimoramentos de mensagens do Hub IoT do Azure
 
 Os *aprimoramentos de mensagens* são a capacidade do Hub IOT de *carimbar* mensagens com informações adicionais antes que as mensagens sejam enviadas para o ponto de extremidade designado. Um motivo para usar os aprimoramentos de mensagem é incluir dados que possam ser usados para simplificar o processamento de downstream. Por exemplo, enriquecer mensagens de telemetria do dispositivo com uma marca de dispositivo de Altova pode reduzir a carga em clientes para fazer chamadas à API do dispositivo. Para obter mais informações, consulte a [visão geral dos aprimoramentos de mensagem](iot-hub-message-enrichments-overview.md).
 
@@ -42,7 +42,7 @@ Estas são as tarefas que você executará para concluir este tutorial:
 
 Baixe a [simulação do dispositivo IOT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) e descompacte-a. Esse repositório tem vários aplicativos, incluindo aquele que você usará para enviar mensagens ao Hub IoT.
 
-Esse download também contém o script para criar os recursos usados para testar os aprimoramentos de mensagens. O script está em/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli. Por enquanto, você pode examinar o script e usá-lo. Você também pode copiar o script diretamente do artigo.
+Esse download também contém o script para criar os recursos usados para testar os aprimoramentos de mensagens. O script está em/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli. azcli. Por enquanto, você pode examinar o script e usá-lo. Você também pode copiar o script diretamente do artigo.
 
 Quando estiver pronto para iniciar o teste, você usará o aplicativo de simulação de dispositivo deste download para enviar mensagens para o Hub IoT.
 
@@ -72,8 +72,8 @@ Aqui estão os recursos criados pelo script. **Aprimorado** significa que o recu
 | Nome | Valor |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
-| Nome do contêiner | Original  |
-| Nome do contêiner | enriquecida  |
+| nome do contêiner | Original  |
+| nome do contêiner | enriquecida  |
 | Nome do dispositivo IoT | Contoso-Test-Device |
 | Nome do Hub IoT | ContosoTestHubMsgEn |
 | Nome da conta de armazenamento | contosostorage |
@@ -241,7 +241,7 @@ Neste ponto, os recursos estão todos configurados e o roteamento é configurado
 
 ### <a name="view-routing-and-configure-the-message-enrichments"></a>Exibir o roteamento e configurar os aprimoramentos de mensagens
 
-1. Vá para o Hub IoT selecionando **grupos de recursos**e selecione a configuração do grupo de recursos para este tutorial (**ContosoResources_MsgEn**). Localize o Hub IoT na lista e selecione-o. Selecione **Roteamento de mensagens** para o Hub IOT.
+1. Vá para o Hub IoT selecionando **grupos de recursos**e, em seguida, selecione a configuração do grupo de recursos para este tutorial (**ContosoResources_MsgEn**). Localize o Hub IoT na lista e selecione-o. Selecione **Roteamento de mensagens** para o Hub IOT.
 
    ![Selecionar roteamento de mensagens](./media/tutorial-message-enrichments/select-iot-hub.png)
 
@@ -251,11 +251,11 @@ Neste ponto, os recursos estão todos configurados e o roteamento é configurado
 
 2. Adicione esses valores à lista para o ponto de extremidade ContosoStorageEndpointEnriched.
 
-   | Nome | Valor | Ponto de extremidade (lista suspensa) |
+   | Chave | Valor | Ponto de extremidade (lista suspensa) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   | deviceLocation | $twin. Tags. Location | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   |CustomerID | 6ce345b8-1E4A-411E-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   | DeviceLocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   |CustomerID | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
 
    > [!NOTE]
    > Se o dispositivo não tiver um "alto", o valor que você colocar aqui será marcado como uma cadeia de caracteres para o valor nos aprimoramentos da mensagem. Para ver as informações de 10 do dispositivo, vá para o Hub no portal, selecione **dispositivos IOT**, selecione o dispositivo e, em seguida, selecione **dispositivo** 10 na parte superior da página.

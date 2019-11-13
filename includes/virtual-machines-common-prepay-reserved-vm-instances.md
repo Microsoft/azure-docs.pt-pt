@@ -4,15 +4,13 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08/29/2019
-ms.openlocfilehash: 75eebdf1e7628bc9c38305b7f11d4fc69af031b9
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 29cf947d1e9d26460dc34a6417e76b68bb75e9dc
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391757"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005497"
 ---
-# <a name="save-costs-with-azure-reserved-vm-instances"></a>Economize custos com instâncias de VM reservadas do Azure
-
 Ao se comprometer com uma instância de VM reservada do Azure, você pode economizar dinheiro. O desconto de reserva é aplicado automaticamente ao número de máquinas virtuais em execução que correspondem ao escopo e aos atributos de reserva. Você não precisa atribuir uma reserva a uma máquina virtual para obter os descontos. Uma compra de instância reservada abrange apenas a parte de computação do uso da VM. Para VMs do Windows, o medidor de uso é dividido em dois medidores separados. Há um medidor de computação, que é o mesmo que o medidor do Linux e um medidor de IP do Windows. Os encargos que você vê quando faz a compra são apenas para os custos de computação. Os encargos não incluem os custos de software do Windows. Para obter mais informações sobre os custos de software, consulte [custos de software não incluídos com instâncias de VM reservadas do Azure](../articles/billing/billing-reserved-instance-windows-software-costs.md).
 
 ## <a name="determine-the-right-vm-size-before-you-buy"></a>Determinar o tamanho correto da VM antes de comprar
@@ -42,7 +40,7 @@ Quer a definição esteja ativada ou desativada, os descontos de reserva serão 
 - Conjuntos de dimensionamento de máquinas virtuais
 - Serviço de contentores
 - Implementações do Azure Batch (no modo de subscrições do utilizador)
-- Serviço Kubernetes do Azure (AKS)
+- Serviço de Kubernetes do Azure (AKS)
 - Service Fabric
 
 Quando a definição está ativada, os descontos de reserva aplicam-se automaticamente à utilização correspondente da máquina virtual quando o *ConsumedService* é qualquer um dos seguintes itens:
@@ -62,7 +60,7 @@ Analise suas informações de uso para ajudar a determinar quais reservas devem 
 
 Os dados de uso estão disponíveis no arquivo de uso e nas APIs. Use-os juntos para determinar qual reserva deve ser comprada. Verifique as instâncias de VM que têm alto uso diariamente para determinar a quantidade de reservas a serem compradas.
 
-Evite os campos subcategoria `Meter` e `Product` nos dados de uso. Eles não fazem distinção entre os tamanhos de VM que usam o armazenamento Premium. Se você usar esses campos para determinar o tamanho da VM para a compra de reserva, você poderá comprar o tamanho errado. Em seguida, você não obterá o desconto de reserva esperado. Em vez disso, consulte o campo `AdditionalInfo` em seu arquivo de uso ou API de uso para determinar o tamanho correto da VM.
+Evite a subcategoria `Meter` e `Product` campos nos dados de uso. Eles não fazem distinção entre os tamanhos de VM que usam o armazenamento Premium. Se você usar esses campos para determinar o tamanho da VM para a compra de reserva, você poderá comprar o tamanho errado. Em seguida, você não obterá o desconto de reserva esperado. Em vez disso, consulte o campo `AdditionalInfo` em seu arquivo de uso ou API de uso para determinar o tamanho correto da VM.
 
 ### <a name="purchase-restriction-considerations"></a>Considerações sobre a restrição de compra
 
@@ -90,7 +88,7 @@ Esses requisitos se aplicam à compra de uma instância de VM reservada:
 
 Para comprar uma instância:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione **Todos os serviços** > **Reservas**.
 1. Selecione **Adicionar** para comprar uma nova reserva e, em seguida, clique em **máquina virtual**.
 1. Insira os campos obrigatórios. Executando instâncias de VM que correspondem aos atributos que você selecionar qualificar para obter o desconto de reserva. O número real de suas instâncias de VM que obtêm o desconto depende do escopo e da quantidade selecionada.
@@ -100,10 +98,10 @@ Para comprar uma instância:
 |Subscrição|A assinatura usada para pagar pela reserva. O método de pagamento na assinatura é cobrado pelos custos da reserva. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou o contrato de cliente da Microsoft ou uma assinatura individual com tarifas pagas conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os encargos são deduzidos do saldo de compromisso monetário, se disponível ou cobrados como excedentes. Para uma assinatura com tarifas pagas conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.|    
 |Âmbito       |O escopo da reserva pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar: <ul><li>**Âmbito de grupo de recursos único** – aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.</li><li>**Âmbito de subscrição individual** – aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.</li><li>**Âmbito partilhado** – aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estejam no contexto de faturação. Para clientes do EA, o contexto de cobrança é o registro. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.</li></ul>|
 |Região    |A região do Azure que é coberta pela reserva.|    
-|Tamanho de VM     |O tamanho das instâncias de VM.|
+|Tamanho da VM     |O tamanho das instâncias de VM.|
 |Otimizar para     |A flexibilidade do tamanho da instância VM é selecionada por padrão. Clique em **Configurações avançadas** para alterar o valor de flexibilidade do tamanho da instância para aplicar o desconto de reserva a outras VMs no mesmo [grupo de tamanhos de VM](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md). A prioridade de capacidade prioriza a capacidade de datacenter das implementações. Ele oferece confiança adicional em sua capacidade de iniciar as instâncias de VM quando você precisar delas. A prioridade de capacidade só estará disponível quando o escopo de reserva for uma única assinatura. |
 |Termo        |Um ano ou três anos.|
-|Quantidade    |O número de instâncias que estão sendo adquiridas dentro da reserva. A quantidade é o número de instâncias de VM em execução que podem obter o desconto de cobrança. Por exemplo, se você estiver executando 10 VMs Standard_D2 no leste dos EUA, você deverá especificar Quantity como 10 para maximizar o benefício de todas as VMs em execução. |
+|Quantidade    |O número de instâncias que estão sendo adquiridas dentro da reserva. A quantidade é o número de instâncias de VM em execução que podem obter o desconto de cobrança. Por exemplo, se você estiver executando 10 VMs Standard_D2 no leste dos EUA, você deve especificar Quantity como 10 para maximizar o benefício de todas as VMs em execução. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
@@ -134,7 +132,7 @@ No entanto, você pode *trocar* uma reserva se desejar fazer alterações.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Self-service exchanges and refunds for Azure Reservations](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md) (Trocas e reembolsos self-service para Reservas do Azure).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
@@ -144,10 +142,10 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://port
 
 - Para saber como gerir uma reserva, veja [Gerir Reservas do Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
 - Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
-    - [O que são as reservas do Azure?](../articles/billing/billing-save-compute-costs-reservations.md)
+    - [O que são as Reservas do Azure?](../articles/billing/billing-save-compute-costs-reservations.md)
     - [Gerir Reservas no Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
-    - [Compreender como o desconto das reservas é aplicado](../articles/billing/billing-understand-vm-reservation-charges.md)
+    - [Compreender como o desconto de reserva é aplicado](../articles/billing/billing-understand-vm-reservation-charges.md)
     - [Compreender a utilização de reservas para uma subscrição com tarifas pay as you go](../articles/billing/billing-understand-reserved-instance-usage.md)
     - [Compreender a utilização de reservas na inscrição Enterprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
     - [Custos de software Windows não incluídos nas reservas](../articles/billing/billing-reserved-instance-windows-software-costs.md)
-    - [Azure Reservations no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros](https://docs.microsoft.com/partner-center/azure-reservations)
+    - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations) (Reservas do Azure no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros)

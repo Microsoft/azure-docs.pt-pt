@@ -1,17 +1,14 @@
 ---
 title: Resolver erros comuns
 description: Saiba como solucionar problemas de consulta de recursos do Azure com o grafo de recursos do Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: troubleshooting
-ms.service: resource-graph
-ms.openlocfilehash: 030fe26a0aa8fc4ed855fb7744e576366f4fd2e2
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e8f42650265b1ca400731365203408eeb22a4e4c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389691"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958527"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Solucionar erros usando o grafo de recursos do Azure
 
@@ -68,7 +65,7 @@ Os clientes que consultam a API REST do grafo de recursos do Azure obtêm uma re
 
 #### <a name="cause"></a>Causa
 
-A API REST do grafo de recursos do Azure só dá suporte a um `Content-Type` de **Application/JSON**. Algumas ferramentas REST ou agentes assumem o padrão de **text/plain**, que não é suportado pela API REST.
+A API REST do grafo de recursos do Azure só dá suporte a uma `Content-Type` do **aplicativo/JSON**. Algumas ferramentas REST ou agentes assumem o padrão de **text/plain**, que não é suportado pela API REST.
 
 #### <a name="resolution"></a>Resolução
 

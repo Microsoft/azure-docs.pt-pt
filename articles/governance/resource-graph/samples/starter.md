@@ -1,17 +1,14 @@
 ---
 title: Exemplos de consultas iniciais
 description: Use o grafo de recursos do Azure para executar algumas consultas iniciais, incluindo recursos de contagem, ordenação de recursos ou por uma marca específica.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
-ms.service: resource-graph
-ms.openlocfilehash: 7eef353f45d0387a45fbf8180bc49cae7975dfa9
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: f98ef101b53af4f595d31670d2af5aee66170487
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622492"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958632"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas de introdução do Azure Resource Graph
 

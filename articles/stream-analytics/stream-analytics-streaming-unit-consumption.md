@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: d9c4169176707f98181f2a479e470cf89ff2e04f
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 25105847b7134b7119252a66ac7e8502771ce5db
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988236"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961282"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Entender e ajustar as unidades de streaming
 
@@ -62,10 +62,10 @@ Observe que um trabalho com lógica de consulta complexa poderia ter uma alta ut
 
 A% de utilização de SU pode cair repentinamente em 0 por um curto período antes de voltar para os níveis esperados. Isso ocorre devido a erros transitórios ou atualizações iniciadas pelo sistema. O aumento do número de unidades de streaming para um trabalho pode não reduzir a utilização de SU% se a consulta não for [totalmente paralela](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
 
-## <a name="stateful-query-logicin-temporal-elements"></a>Lógica de consulta com estado em elementos temporais
-Um dos recursos exclusivos do trabalho Azure Stream Analytics é executar o processamento com estado, como agregações em janelas, junções temporais e funções analíticas temporais. Cada um desses operadores mantém informações de estado. O tamanho máximo da janela para esses elementos de consulta é de sete dias. 
+## <a name="stateful-query-logicin-temporal-elements"></a>Lógica de consulta com monitoração de Estado nos elementos temporais
+Um da capacidade única de trabalho do Azure Stream Analytics consiste em efetuar o processamento com monitoração de estado, tais como funções de análise temporais, associações temporais e agregados em janelas. Cada um desses operadores mantém informações de estado. O tamanho máximo da janela para esses elementos de consulta é de sete dias. 
 
-O conceito de janela temporal aparece em vários elementos de consulta Stream Analytics:
+O conceito de janela temporal é apresentado em vários elementos de consulta do Stream Analytics:
 1. Agregações em janela: GROUP BY de em cascata, salto e janelas deslizantes
 
 2. Junções temporais: INGRESSAr com a função DATEDIFF
@@ -86,7 +86,7 @@ Por exemplo, na consulta a seguir, o número associado a `clusterid` é a cardin
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-Para atenuar quaisquer problemas causados pela alta cardinalidade na consulta anterior, você pode enviar eventos para o Hub de eventos particionado por `clusterid`e escalar horizontalmente a consulta, permitindo que o sistema processe cada partição de entrada separadamente usando **Partition** conforme mostrado no exemplo a seguir:
+Para atenuar quaisquer problemas causados pela alta cardinalidade na consulta anterior, você pode enviar eventos para o Hub de eventos particionado por `clusterid`e escalar horizontalmente a consulta, permitindo que o sistema processe cada partição de entrada separadamente usando **Partition by** , conforme mostrado no exemplo abaixo:
 
    ```sql
    SELECT count(*) 
@@ -99,7 +99,7 @@ Quando a consulta estiver particionada, é espalhada por vários nós. Como resu
 As partições do hub de eventos devem ser particionadas pela chave de agrupamento para evitar a necessidade de uma etapa de redução. Para obter mais informações, consulte [visão geral dos hubs de eventos](../event-hubs/event-hubs-what-is-event-hubs.md). 
 
 ## <a name="temporal-joins"></a>Junções temporais
-A memória consumida (tamanho do estado) de uma junção temporal é proporcional ao número de eventos no espaço de manobra temporal da junção, que é a taxa de entrada do evento multiplicada pelo tamanho da sala de ondulação. Em outras palavras, a memória consumida por junções é proporcional ao intervalo de tempo DateDiff multiplicado pela taxa média de eventos.
+A memória consumida (tamanho do estado) de uma junção temporal é proporcional ao número de eventos no espaço de manobra temporal da junção, que é a taxa de entrada do evento multiplicada pelo tamanho do espaço da ondulação. Em outras palavras, a memória consumida por junções é proporcional ao intervalo de tempo DateDiff multiplicado pela taxa média de eventos.
 
 O número de eventos sem correspondência na junção afeta a utilização de memória para a consulta. A seguinte consulta está à procura de encontrar as visualizações de anúncios que geram cliques:
 

@@ -1,5 +1,5 @@
 ---
-title: Atualizar um cluster de Service Fabric do Azure | Microsoft Docs
+title: Atualizar a versão de Service Fabric do Azure de um cluster
 description: Atualize o código de Service Fabric e/ou a configuração que executa um Cluster Service Fabric, incluindo a definição do modo de atualização de cluster, a atualização de certificados, a adição de portas de aplicativo, a realização de patches de so e assim por diante. O que você pode esperar quando as atualizações são executadas?
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: atsenthi
-ms.openlocfilehash: 03fd5f2950349f0dc76021d28845e383c0ba6a64
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 067bf654928240ffe9651d4acf1933a81e631146
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599809"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013349"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Atualizar a versão Service Fabric de um cluster
 
@@ -119,7 +119,7 @@ Output:
                 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como personalizar algumas das configurações de [malha de cluster do Service Fabric](service-fabric-cluster-fabric-settings.md)
 * Saiba como [dimensionar o cluster para dentro e para fora](service-fabric-cluster-scale-up-down.md)
 * Saiba mais sobre [atualizações de aplicativos](service-fabric-application-upgrade.md)

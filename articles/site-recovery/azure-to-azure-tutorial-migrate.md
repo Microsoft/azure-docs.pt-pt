@@ -1,5 +1,5 @@
 ---
-title: Mover VMs IaaS do Azure para outra região do Azure usando o serviço de Azure Site Recovery | Microsoft Docs
+title: Mover VMs do Azure para outra região com Azure Site Recovery
 description: Use Azure Site Recovery para mover VMs IaaS do Azure de uma região do Azure para outra.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: df64575039e08292da5aed5b611ac54d625634a6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 00fc836f098f3c03afc9adebe2450f00750eb5ff
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933884"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954111"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -77,7 +77,7 @@ Neste tutorial, irá:
 
 
 
-## <a name="prepare"></a>Preparar
+## <a name="prepare"></a>Preparação
 As etapas a seguir mostram como preparar a máquina virtual para a movimentação usando Azure Site Recovery como uma solução. 
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Criar o cofre em qualquer região, exceto a região de origem
@@ -99,7 +99,7 @@ Site Recovery recupera uma lista das VMs que estão associadas à assinatura e a
 
 1. Na próxima etapa, selecione a VM que você deseja mover e, em seguida, selecione **OK**.
 1. Em **configurações**, selecione **recuperação de desastre**.
-1. Em **Configurar recuperação de desastre** > **região de destino**, selecione a região de destino para a qual você irá replicar.
+1. Em **Configurar recuperação após desastre** > **Região de destino**, selecione a região de destino para a qual irá replicar.
 1. Para este tutorial, aceite as outras predefinições.
 1. Selecione **Ativar replicação**. Esta etapa inicia um trabalho para habilitar a replicação para a VM.
 

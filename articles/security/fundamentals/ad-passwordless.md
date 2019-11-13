@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 0fbd8404e326ecc6fabef8c89991009809b1448b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 78f8b7097060f1091bfed30722c9ea456feed384
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820516"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007284"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Um mundo sem senhas com Azure Active Directory
 
@@ -24,7 +24,7 @@ Três tipos de ataques normalmente usados para comprometer as contas de usuário
 
 Este artigo é o início de sua jornada para ajudá-lo a entender e implementar soluções com senha da Microsoft e ajudá-lo a escolher entre uma ou mais das seguintes opções:
 
-* **Windows Hello para empresas**. No Windows 10, o Windows Hello para empresas substitui senhas com autenticação forte de dois fatores em PCs e dispositivos móveis. Essa autenticação consiste em um novo tipo de credencial de usuário que está vinculado a um dispositivo e usa uma biometria ou um PIN.
+* **Windows Hello para empresas**. No Windows 10, o Windows Hello para empresas substitui senhas com autenticação forte de dois fatores em PCs e dispositivos móveis. Essa autenticação consiste em um novo tipo de credencial de usuário que está vinculado a um dispositivo e usa um PIN ou um reconhecimento biométrico.
 
 * **Entrada sem senha com Microsoft Authenticator**. O aplicativo Microsoft Authenticator pode ser usado para entrar em uma conta do Azure AD sem usar uma senha. Semelhante à tecnologia do Windows Hello para empresas, o Microsoft Authenticator usa a autenticação baseada em chave para habilitar uma credencial de usuário vinculada a um dispositivo e usa uma biométrica ou um PIN.
 

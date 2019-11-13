@@ -1,17 +1,14 @@
 ---
 title: Executar sua primeira consulta usando o Gerenciador de grafo de recursos do Azure
 description: Este artigo orienta você pelas etapas para executar sua primeira consulta de portal do Azure usando o Gerenciador de grafo de recursos do Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
-ms.service: resource-graph
-ms.openlocfilehash: 14615d596c1b673a234ccef541fecfbfce9d5f27
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 9cb8fdfcc68e2ef8e19a8fce2545d2939ac13e06
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622593"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958835"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Início rápido: executar sua primeira consulta de grafo de recursos usando o Gerenciador de grafo de recursos do Azure
 

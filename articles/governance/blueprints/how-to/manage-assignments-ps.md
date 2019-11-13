@@ -1,17 +1,14 @@
 ---
 title: Como gerenciar atribuições com o PowerShell
 description: Saiba como gerenciar atribuições de plano gráfico com o módulo oficial do PowerShell para plantas oficiais do Azure, AZ. Blueprint.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/30/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: ef9674165533ef3e4887bba68507344406ca128c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 98c2173568f65d029b00ca6c8b25d2195094a5e3
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755931"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961608"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Como gerenciar atribuições com o PowerShell
 
@@ -171,7 +168,7 @@ Se a atribuição Blueprint ainda não existir, você poderá criá-la com o cmd
 
 ### <a name="example-1-provide-parameters"></a>Exemplo 1: fornecer parâmetros
 
-O exemplo a seguir cria uma nova atribuição da versão ' 1,1 ' da definição do plano gráfico ' meu plano gráfico ' buscada com `Get-AzBlueprint`, define a identidade gerenciada e o local do objeto de atribuição como ' westus2 ', bloqueia os recursos com _AllResourcesReadOnly_, e define as tabelas de hash para o **parâmetro** e **ResourceGroupParameter** em uma assinatura específica representada como `{subId}`:
+O exemplo a seguir cria uma nova atribuição da versão ' 1,1 ' da definição do plano gráfico ' meu Blueprint ' buscada com `Get-AzBlueprint`, define a identidade gerenciada e o local do objeto de atribuição como ' westus2 ', bloqueia os recursos com _AllResourcesReadOnly_e define as tabelas de hash para o **parâmetro** e **ResourceGroupParameter** na assinatura específica representada como `{subId}`:
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

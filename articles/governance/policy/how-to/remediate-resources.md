@@ -1,17 +1,14 @@
 ---
 title: Identificar recursos em não conformidade
 description: Este guia orienta você pela correção de recursos que não são compatíveis com as políticas no Azure Policy.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 219a3c56f9e4e4c9e132fa759b017fac63ade766
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 53ca21e4b8a1f3e7973706acd10601593efc3448
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977981"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959504"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Remediar recursos não compatíveis com o Azure Policy
 
@@ -25,7 +22,7 @@ Azure Policy cria uma identidade gerenciada para cada atribuição, mas deve ter
 ![Identidade gerida - função em falta](../media/remediate-resources/missing-role.png)
 
 > [!IMPORTANT]
-> Se um recurso modificado por **deployIfNotExists** ou **Modify** estiver fora do escopo da atribuição de política ou o modelo acessar propriedades em recursos fora do escopo da atribuição de política, a identidade gerenciada da atribuição deverá ser [ o acesso foi concedido manualmente](#manually-configure-the-managed-identity) ou a implantação de correção falhará.
+> Se um recurso modificado por **deployIfNotExists** ou **Modify** estiver fora do escopo da atribuição de política ou o modelo acessar propriedades em recursos fora do escopo da atribuição de política, a identidade gerenciada da atribuição deverá ser [concedida ao acesso manualmente](#manually-configure-the-managed-identity) ou a implantação de correção falhará.
 
 ## <a name="configure-policy-definition"></a>Configurar a definição de política
 
@@ -160,7 +157,7 @@ Recursos implementados através de um **tarefas de remediação** são adicionad
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>Criar uma tarefa de correção por meio do CLI do Azure
 
-Para criar uma **tarefa de correção** com CLI do Azure, use os comandos `az policy remediation`. Substitua `{subscriptionId}` pela sua ID de assinatura e `{myAssignmentId}` por sua ID de atribuição de política **deployIfNotExists** ou **Modify** .
+Para criar uma **tarefa de correção** com CLI do Azure, use os comandos `az policy remediation`. Substitua `{subscriptionId}` pela sua ID de assinatura e `{myAssignmentId}` com sua ID de atribuição de política **deployIfNotExists** ou **Modify** .
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -173,7 +170,7 @@ Para outros comandos de correção e exemplos, consulte os comandos [AZ Policy r
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>Criar uma tarefa de correção por meio do Azure PowerShell
 
-Para criar uma **tarefa de correção** com Azure PowerShell, use os comandos `Start-AzPolicyRemediation`. Substitua `{subscriptionId}` pela sua ID de assinatura e `{myAssignmentId}` por sua ID de atribuição de política **deployIfNotExists** ou **Modify** .
+Para criar uma **tarefa de correção** com Azure PowerShell, use os comandos `Start-AzPolicyRemediation`. Substitua `{subscriptionId}` pela sua ID de assinatura e `{myAssignmentId}` com sua ID de atribuição de política **deployIfNotExists** ou **Modify** .
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

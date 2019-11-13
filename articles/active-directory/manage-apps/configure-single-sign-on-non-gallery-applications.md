@@ -12,16 +12,16 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74f4e8750497fc1ae9875caeb60de65b5f6cd808
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e993ad17a07ff741ff33073304ed774dcf30203d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72896028"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961644"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configurar o logon único baseado em SAML para aplicativos que não são da Galeria
 
-Quando você [adiciona um aplicativo de galeria](add-gallery-app.md) ou um [aplicativo Web que não é da Galeria](add-non-gallery-app.md) a seus aplicativos empresariais do Azure AD, uma das opções de logon único disponíveis é o [logon único baseado em SAML](what-is-single-sign-on.md#saml-sso). Escolha SAML sempre que possível para aplicativos que se autenticam usando um dos protocolos SAML. Com o logon único do SAML, o Azure AD é autenticado no aplicativo usando a conta do Azure AD do usuário. O Azure AD comunica as informações de logon para o aplicativo por meio de um protocolo de conexão. Você pode mapear usuários para funções de aplicativo específicas com base nas regras que você define em suas declarações SAML. Este artigo descreve como configurar o logon único baseado em SAML para um aplicativo inexistente na galeria. 
+Quando você [adiciona um aplicativo de galeria](add-gallery-app.md) ou um [aplicativo Web que não é da Galeria](add-non-gallery-app.md) a seus aplicativos empresariais do Azure AD, uma das opções de logon único disponíveis é o [logon único baseado em SAML](what-is-single-sign-on.md#saml-sso). Escolha SAML sempre que possível para aplicativos que se autenticam usando um dos protocolos SAML. Com o logon único do SAML, o Azure AD é autenticado no aplicativo usando a conta do Azure AD do usuário. O Azure AD comunica as informações de início de sessão para a aplicação através de um protocolo de ligação. Você pode mapear usuários para funções de aplicativo específicas com base nas regras que você define em suas declarações SAML. Este artigo descreve como configurar o logon único baseado em SAML para um aplicativo inexistente na galeria. 
 
 > [!NOTE]
 > Adicionando um aplicativo de galeria? Encontre instruções de instalação passo a passo na [lista de tutoriais do aplicativo SaaS](../saas-apps/tutorial-list.md)
@@ -53,8 +53,8 @@ Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, consul
     | Definição de configuração básica do SAML | Iniciado pelo SP | Iniciado pelo idP | Descrição |
     |:--|:--|:--|:--|
     | **Identificador (ID da entidade)** | Necessário para algumas aplicações | Necessário para algumas aplicações | Identifica exclusivamente o aplicativo. O Azure AD envia o identificador para o aplicativo como o parâmetro Audience do token SAML. Espera-se que o aplicativo o valide. Este valor também aparece como o ID da Entidade nos metadados SAML que a aplicação fornece. *Você pode encontrar esse valor como o elemento **emissor** no **AuthnRequest** (solicitação SAML) enviado pelo aplicativo.* |
-    | **URL de resposta** | Obrigatório | Obrigatório | Especifica onde é que a aplicação espera receber o token SAML. O URL de resposta também é denominado URL do Serviço de Consumidor de Asserções (ACS). Você pode usar os campos de URL de resposta adicionais para especificar várias URLs de resposta. Por exemplo, você pode precisar de URLs de resposta adicionais para vários subdomínios. Ou, para fins de teste, você pode especificar várias URLs de resposta (host local e URLs públicas) ao mesmo tempo. |
-    | **URL de início de sessão** | Obrigatório | Não especificar | Quando um utilizador abre este URL, o fornecedor de serviços redireciona para o Azure AD para autenticar e iniciar a sessão do utilizador. O Azure AD usa a URL para iniciar o aplicativo do Office 365 ou do painel de acesso do Azure AD. Quando em branco, o Azure AD executa o logon iniciado pelo IdP quando um usuário inicia o aplicativo do Office 365, do painel de acesso do Azure AD ou da URL de SSO do Azure AD.|
+    | **URL de resposta** | Necessário | Necessário | Especifica onde é que a aplicação espera receber o token SAML. O URL de resposta também é denominado URL do Serviço de Consumidor de Asserções (ACS). Você pode usar os campos de URL de resposta adicionais para especificar várias URLs de resposta. Por exemplo, você pode precisar de URLs de resposta adicionais para vários subdomínios. Ou, para fins de teste, você pode especificar várias URLs de resposta (host local e URLs públicas) ao mesmo tempo. |
+    | **URL de início de sessão** | Necessário | Não especificar | Quando um utilizador abre este URL, o fornecedor de serviços redireciona para o Azure AD para autenticar e iniciar a sessão do utilizador. O Azure AD usa a URL para iniciar o aplicativo do Office 365 ou do painel de acesso do Azure AD. Quando em branco, o Azure AD executa o logon iniciado pelo IdP quando um usuário inicia o aplicativo do Office 365, do painel de acesso do Azure AD ou da URL de SSO do Azure AD.|
     | **Estado de retransmissão** | Opcional | Opcional | Especifica à aplicação para onde deve redirecionar o utilizador após a conclusão da autenticação. Normalmente, o valor é uma URL válida para o aplicativo. No entanto, alguns aplicativos usam esse campo de forma diferente. Para obter mais informações, contacte o fornecedor da aplicação.
     | **URL de logout** | Opcional | Opcional | Usado para enviar as respostas de logout SAML de volta para o aplicativo.
 
@@ -85,7 +85,7 @@ Quando um usuário é autenticado no aplicativo, o Azure AD emite ao aplicativo 
    >- Para modificar o manifesto do aplicativo para configurar declarações opcionais para seu aplicativo, consulte [Configurar declarações opcionais](../develop/active-directory-optional-claims.md).
    >- Para definir políticas de tempo de vida de token para tokens de atualização, tokens de acesso, tokens de sessão e tokens de ID, consulte [Configurar tempos de vida de token](../develop/active-directory-configurable-token-lifetimes.md) Ou, para restringir sessões de autenticação por meio do acesso condicional do Azure AD, consulte [recursos de gerenciamento de sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106).
 
-## <a name="step-3-manage-the-saml-signing-certificate"></a>Passo 3. Gerenciar o certificado de autenticação SAML
+## <a name="step-3-manage-the-saml-signing-certificate"></a>Passo 3: Gerenciar o certificado de autenticação SAML
 
 O Azure AD usa um certificado para assinar os tokens SAML que ele envia para o aplicativo. Você precisa desse certificado para configurar a relação de confiança entre o Azure AD e o aplicativo. Para obter detalhes sobre o formato do certificado, consulte a documentação do SAML do aplicativo. Para obter mais informações, consulte [gerenciar certificados para logon único federado](manage-certificates-for-federated-single-sign-on.md) e [Opções avançadas de assinatura de certificado no token SAML](certificate-signing-options.md).
 
@@ -120,7 +120,7 @@ No Azure AD, você pode baixar o certificado ativo no formato base64 ou RAW dire
 
 4. Se você tiver feito alterações, selecione **salvar** na parte superior da seção **certificado de autenticação SAML** . 
 
-## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Passo 4. Configurar o aplicativo para usar o Azure AD
+## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Passo 4: Configurar o aplicativo para usar o Azure AD
 
 A seção **configurar \<applicationName >** lista os valores que precisam ser configurados no aplicativo para que ele use o Azure ad como um provedor de identidade SAML. Os valores necessários variam de acordo com o aplicativo. Para obter detalhes, consulte a documentação do SAML do aplicativo. Para encontrar a documentação, vá para o cabeçalho **configurar \<nome do aplicativo >** e selecione **exibir instruções passo a passo**. A documentação é exibida na página **Configurar logon** . Essa página o orienta a preencher a **URL de logon**, o **identificador do Azure ad**e os valores de URL de **logout** no título **Configurar \<aplicativo nome >** .
 
@@ -133,7 +133,7 @@ A seção **configurar \<applicationName >** lista os valores que precisam ser c
    - O **identificador do Azure ad** é o valor do **emissor** no token SAML emitido para o aplicativo.
 2. Depois de colar todos os valores nos campos apropriados, selecione **salvar**.
 
-## <a name="step-5-validate-single-sign-on"></a>Passo 5. Validar logon único
+## <a name="step-5-validate-single-sign-on"></a>Passo 5: Validar logon único
 
 Depois de configurar seu aplicativo para usar o Azure AD como um provedor de identidade baseado em SAML, você pode testar as configurações para ver se o logon único funciona para sua conta. 
 

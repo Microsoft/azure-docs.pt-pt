@@ -1,5 +1,5 @@
 ---
-title: Como diagnosticar erros com o serviço conectado do Azure Active Directory
+title: Diagnosticar erros com Azure Active Directory serviço conectado
 description: O serviço conectado do Active Directory detectou um tipo de autenticação incompatível
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e544942029532fdbe998c36917e688d70ce4ed5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 26f25daa01288959c38520f9713d35eb975d2df2
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851983"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73941387"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnosticando erros com o serviço conectado do Azure Active Directory
 
@@ -54,7 +54,7 @@ Por fim, o serviço conectado tenta detectar versões de código de autenticaç�
 * Contas de usuário individuais
 * Contas organizacionais
 
-Para detectar a autenticação do Windows em um projeto MVC, a conexão procura `authentication` o elemento em `web.config` seu arquivo.
+Para detectar a autenticação do Windows em um projeto MVC, a conexão procura o elemento `authentication` no arquivo `web.config`.
 
 ```xml
 <configuration>
@@ -64,7 +64,7 @@ Para detectar a autenticação do Windows em um projeto MVC, a conexão procura 
 </configuration>
 ```
 
-Para detectar a autenticação do Windows em um projeto de API da Web, o serviço `IISExpressWindowsAuthentication` conectado procura o elemento no `.csproj` arquivo do seu projeto:
+Para detectar a autenticação do Windows em um projeto de API da Web, o serviço conectado procura o elemento `IISExpressWindowsAuthentication` no arquivo de `.csproj` do seu projeto:
 
 ```xml
 <Project>
@@ -74,7 +74,7 @@ Para detectar a autenticação do Windows em um projeto de API da Web, o serviç
 </Project>
 ```
 
-Para detectar a autenticação de contas de usuário individuais, o serviço conectado procura o elemento de `packages.config` pacote em seu arquivo.
+Para detectar a autenticação de contas de usuário individuais, o serviço conectado procura o elemento de pacote em seu arquivo de `packages.config`.
 
 ```xml
 <packages>
@@ -82,7 +82,7 @@ Para detectar a autenticação de contas de usuário individuais, o serviço con
 </packages>
 ```
 
-Para detectar uma forma antiga de autenticação de conta organizacional, o serviço conectado procura o seguinte elemento em`web.config`:
+Para detectar uma forma antiga de autenticação de conta organizacional, o serviço conectado procura o seguinte elemento no`web.config`:
 
 ```xml
 <configuration>

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 1059dd463529f4c357038225f2f9ef11d0092802
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a0965dc4011b449e617f6dbaeafb68bfa796b620
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679594"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953956"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurar a aceleração da GPU (unidade de processamento gráfico) para a área de trabalho virtual do Windows
 
@@ -26,17 +26,14 @@ O Azure oferece uma série de [tamanhos de máquina virtual otimizados para GPU]
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Criar um pool de hosts, provisionar sua máquina virtual e configurar um grupo de aplicativos
 
-Crie um novo pool de hosts usando uma VM do tamanho selecionado. Para obter instruções, consulte [Tutorial: Crie um pool de hosts com o Azure Marketplace @ no__t-0.
+Crie um novo pool de hosts usando uma VM do tamanho selecionado. Para obter instruções, consulte [tutorial: criar um pool de hosts com o Azure Marketplace](/azure/virtual-desktop/create-host-pools-azure-marketplace).
 
 A área de trabalho virtual do Windows dá suporte à renderização e codificação aceleradas por GPU nos seguintes sistemas operacionais:
 
 * Windows 10 versão 1511 ou mais recente
 * Windows Server 2016 ou mais recente
 
-Você também deve configurar um grupo de aplicativos ou usar o grupo de aplicativos de área de trabalho padrão (chamado "grupo de aplicativos de área de trabalho") que é criado automaticamente quando você cria um novo pool de hosts. Para obter instruções, consulte [Tutorial: Gerenciar grupos de aplicativos para a área de trabalho virtual do Windows @ no__t-0.
-
->[!NOTE]
->A área de trabalho virtual do Windows dá suporte apenas ao tipo de grupo de aplicativos "desktop" para pools de host habilitados para GPU. Não há suporte para grupos de aplicativos do tipo "RemoteApp" para pools de hosts habilitados para GPU.
+Você também deve configurar um grupo de aplicativos ou usar o grupo de aplicativos de área de trabalho padrão (chamado "grupo de aplicativos de área de trabalho") que é criado automaticamente quando você cria um novo pool de hosts. Para obter instruções, consulte [tutorial: gerenciar grupos de aplicativos para a área de trabalho virtual do Windows](/azure/virtual-desktop/manage-app-groups).
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Instalar os drivers gráficos com suporte em sua máquina virtual
 
@@ -52,7 +49,7 @@ Por padrão, aplicativos e áreas de trabalho em execução em configurações d
 
 1. Conecte-se à área de trabalho da VM usando uma conta com privilégios de administrador local.
 2. Abra o menu iniciar e digite "gpedit. msc" para abrir o editor de Política de Grupo.
-3. Navegue pela árvore para **a configuração do computador** > **modelos administrativos** **componentes do Windows** >   > **serviços de área de trabalho remota** > **host da sessão da área de trabalho remota** > **remoto Ambiente de sessão**.
+3. Navegue pela árvore para **a configuração do computador** > **modelos administrativos** > **componentes do Windows** > **serviços de área de trabalho remota** > **host da sessão da área de trabalho remota** > **ambiente de sessão remota**.
 4. Selecione política **use o adaptador gráfico padrão de hardware para todas as sessões de serviços de área de trabalho remota** e defina essa política como **habilitada** para habilitar a renderização de GPU na sessão remota.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Configurar a codificação de quadro acelerado por GPU
@@ -85,9 +82,9 @@ Para verificar se os aplicativos estão usando a GPU para renderização, tente 
 Para verificar se Área de Trabalho Remota está usando a codificação acelerada por GPU:
 
 1. Conecte-se à área de trabalho da VM usando o cliente de área de trabalho virtual do Windows.
-2. Inicie o Visualizador de Eventos e navegue até o seguinte nó: **Logs de aplicativos e serviços** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** > **operacional**
-3. Para determinar se a codificação acelerada por GPU é usada, procure a ID de evento 170. Se você vir "codificador de hardware AVC habilitado: 1 "Então, a codificação de GPU é usada.
-4. Para determinar se o modo AVC 444 é usado, procure a ID do evento 162. Se você vir "AVC disponível: 1 perfil inicial: 2048 "em seguida, AVC 444 é usado.
+2. Inicie o Visualizador de Eventos e navegue até o seguinte nó: **logs de aplicativos e serviços** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** > **operacional**
+3. Para determinar se a codificação acelerada por GPU é usada, procure a ID de evento 170. Se você vir "codificador de hardware AVC habilitado: 1", a codificação de GPU será usada.
+4. Para determinar se o modo AVC 444 é usado, procure a ID do evento 162. Se você vir "AVC disponível: 1 perfil inicial: 2048", será usado o AVC 444.
 
 ## <a name="next-steps"></a>Passos seguintes
 

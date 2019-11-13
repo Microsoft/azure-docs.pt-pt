@@ -1,5 +1,5 @@
 ---
-title: Execute o Planejador de Implantações para a recuperação de desastres do VMware usando Azure Site Recovery
+title: Execute o Planejador de Implantações para a recuperação de desastres do VMware com Azure Site Recovery
 description: Este artigo descreve como executar Planejador de Implantações do Azure Site Recovery para a recuperação de desastres do VMware no Azure.
 author: mayurigupta13
 manager: rochakm
@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 611213f6cf0f51a8b6c6f7f89a795b2daa94a38a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 044e5c5df8e0af67e4717b864de1e31fc2520408
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693204"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953286"
 ---
-# <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Executar o Planejador de Implantações do Azure Site Recovery para a recuperação de desastres do VMware no Azure
+# <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Executar o Planejador de Implantações para a recuperação de desastres do VMware
 Este artigo é o manual do utilizador do Azure Site Recovery Deployment Planner para implementações de produção de VMware para o Azure.
 
 
@@ -240,7 +240,7 @@ Recomendamos vivamente que considere o crescimento durante o planeamento da impl
 
 O relatório do Microsoft Excel gerado contém as seguintes informações:
 
-* [Resumo no local](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
+* [Resumo No Local](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [Recommendations (Recomendações)](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
 * [VM<->Storage Placement (VM<->Colocação de Armazenamento)](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [Compatible VMs (VMs Compatíveis)](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)

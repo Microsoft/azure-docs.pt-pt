@@ -1,5 +1,5 @@
 ---
-title: Instalar um servidor de destino mestre do Linux para failback em um site local | Microsoft Docs
+title: Instalar um servidor de destino mestre para failback de VM Linux com Azure Site Recovery
 description: Saiba como configurar um servidor de destino mestre do Linux para failback para um site local durante a recuperação de desastre de VMs VMware no Azure usando Azure Site Recovery.
 author: mayurigupta13
 services: site-recovery
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 5b4b3f5025edef242b87215665fd65f131157943
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 5b4d625d28584bb601905e9439c112c845219e54
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904405"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954367"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino mestre do Linux para failback
 Depois de fazer failover de suas máquinas virtuais para o Azure, você pode executar failback das máquinas virtuais para o site local. Para fazer failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para esse processo, você precisa de um servidor de destino mestre local para receber o tráfego. 
@@ -67,7 +67,7 @@ Mantenha um ISO 16.04.2 Minimal mínimo de 64 bits na unidade de DVD e inicie o 
 
 1.  Selecione **Inglês** como seu idioma preferido e, em seguida, selecione **Enter**.
     
-    ![Selecionar um idioma](./media/vmware-azure-install-linux-master-target/image1.png)
+    ![Selecione uma Linguagem](./media/vmware-azure-install-linux-master-target/image1.png)
 1. Selecione **instalar servidor Ubuntu**e, em seguida, selecione **Enter**.
 
     ![Selecione instalar servidor Ubuntu](./media/vmware-azure-install-linux-master-target/image2.png)
@@ -119,7 +119,7 @@ Mantenha um ISO 16.04.2 Minimal mínimo de 64 bits na unidade de DVD e inicie o 
      
      ![Selecione como gerenciar atualizações](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
-1.  Selecione **nenhuma** opção de atualizações automáticas na seleção para gerenciar atualizações no seu sistema e selecione **Enter**.
+1.  Selecione **nenhuma opção de atualizações automáticas** na seleção para gerenciar atualizações no seu sistema e selecione **Enter**.
 
      ![Selecione como gerenciar atualizações](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
@@ -160,7 +160,7 @@ Para obter a ID de cada disco rígido SCSI em uma máquina virtual Linux, o **di
 
 3. Selecione a guia **Opções** .
 
-4. No painel esquerdo, selecione geral **avançado** > e, em seguida, selecione o botão **parâmetros de configuração** na parte inferior direita da tela.
+4. No painel esquerdo, selecione **avançado** > **geral**e, em seguida, selecione o botão **parâmetros de configuração** na parte inferior direita da tela.
 
     ![Abrir parâmetro de configuração](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
@@ -244,7 +244,7 @@ Use as seguintes etapas para criar um disco de retenção:
 
     ![ID de vários caminhos](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formate a unidade e, em seguida, crie um sistema de arquivos na nova unidade: **mkfs\<. ext4/dev/mapper/a ID de vários caminhos do disco de retenção >** .
+3. Formate a unidade e, em seguida, crie um sistema de arquivos na nova unidade: **mkfs. ext4/dev/mapper/\<a ID de vários caminhos do disco de retenção >** .
     
     ![Sistema de ficheiros](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -261,7 +261,7 @@ Use as seguintes etapas para criar um disco de retenção:
     
     Selecione **Inserir** para começar a editar o arquivo. Crie uma nova linha e, em seguida, insira o texto a seguir. Edite a ID de vários caminhos de disco com base na ID de vários caminhos destacados do comando anterior.
 
-    **ID\<de vários caminhos do/dev/mapper/Retention disks >/mnt/Retention ext4 RW 0 0**
+    **/dev/mapper/\<a ID de vários caminhos de discos de retenção >/mnt/Retention ext4 RW 0 0**
 
     Selecione **ESC**e digite **: Wq** (gravar e sair) para fechar a janela do editor.
 
@@ -353,7 +353,7 @@ Você verá que o campo **versão** fornece o número de versão do destino mest
     * ONBOOT = Sim
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Depois que a instalação e o registro do destino mestre forem concluídos, você poderá ver o destino mestre exibido na seção **destino mestre** em **site Recovery infraestrutura**, na visão geral do servidor de configuração.
 
 Agora você pode continuar com a nova [proteção](vmware-azure-reprotect.md), seguida pelo failback.

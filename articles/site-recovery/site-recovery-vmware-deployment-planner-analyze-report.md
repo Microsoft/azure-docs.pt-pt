@@ -1,20 +1,20 @@
 ---
-title: Analisar o relatório de Planejador de Implantações do Azure Site Recovery para recuperação de desastre do VMware para o Azure | Microsoft Docs
-description: Este artigo descreve como analisar o relatório gerado pelo Planejador de Implantações do Azure Site Recovery para a recuperação de desastres do VMware no Azure.
+title: Analisar o relatório de Planejador de Implantações para a recuperação de desastres do VMware com Azure Site Recovery
+description: Este artigo descreve como analisar o relatório gerado pelo Planejador de Implantações de recuperação para a recuperação de desastres do VMware no Azure, usando Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: 4240e17320cc62dc1a0e74db2f40a452a63f2982
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: b6ac10b47a8bbc987eb1e338991100ee17eacd61
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690717"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961383"
 ---
-# <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analisar o relatório de Planejador de Implantações do Azure Site Recovery para a recuperação de desastres do VMware para o Azure
+# <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analisar o relatório de Planejador de Implantações para a recuperação de desastres do VMware para o Azure
 
 O relatório gerado pelo Microsoft Excel contém as seguintes folhas:
 ## <a name="on-premises-summary"></a>Resumo no local
@@ -112,7 +112,7 @@ Com base nesta análise, pode decidir se o número de violações de RPO de todo
 
 ![Análise de hipóteses no Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/what-if-analysis-v2a.png)
 
-### <a name="recommended-vm-batch-size-for-initial-replication"></a>Recommended VM batch size for initial replication (Tamanho de lote de VMs recomendado para a replicação inicial)
+### <a name="recommended-vm-batch-size-for-initial-replication"></a>Tamanho de lote de VMs recomendado para a replicação inicial (Tamanho de lote de VMs recomendado para a replicação inicial)
 Nesta secção, recomendamos definir o número de VMs que podem ser protegidas em paralelo, para concluir a replicação inicial em 72 horas com a largura de banda sugerida, de modo a cumprir o RPO pretendido durante 100 por cento. Este valor é configurável. Para alterá-lo durante a geração de relatórios, utilize o parâmetro *GoalToCompleteIR*.
 
 Este gráfico mostra um intervalo de valores de largura de banda e a contagem do tamanho de lotes de VMs calculado para concluir a replicação inicial em 72 horas, com base no tamanho médio das VMs detetado em todas as VMs compatíveis.
@@ -178,7 +178,7 @@ Poderá haver casos em que sabe que não pode definir uma largura de banda com m
 
 **VM Name (Nome da VM)** : o nome ou o endereço IP da VM que é utilizado em VMListFile quando é gerado um relatório. Esta coluna também apresenta os discos (VMDKs) que estão ligados às VMs. Para distinguir VMs do vCenter com nomes ou endereços IP duplicados, os nomes incluem o nome de anfitrião ESXi. O anfitrião ESXi listado é aquele em que a VM foi colocada quando a ferramenta detetou durante o período de criação de perfis.
 
-**VM Compatibility (Compatibilidade de VMs)** : os valores são **Yes (Sim)** e **Yes (Não)** \*. **Sim** \* é para instâncias nas quais a VM é uma opção para [SSDs Premium](../virtual-machines/windows/disks-types.md). Aqui, o disco de alterações a dados ou IOPS elevados com perfis criados enquadra-se na categoria P20 ou P30, mas o tamanho do mesmo faz com que seja mapeado para P10 ou P20. A conta de armazenamento decide para que tipo de disco de armazenamento premium mapear os discos com base no tamanho destes. Por exemplo:
+**VM Compatibility (Compatibilidade de VMs)** : os valores são **Yes (Sim)** e **Yes (Não)** \*. **Sim**\* é para instâncias nas quais a VM é uma opção para [SSDs Premium](../virtual-machines/windows/disks-types.md). Aqui, o disco de alterações a dados ou IOPS elevados com perfis criados enquadra-se na categoria P20 ou P30, mas o tamanho do mesmo faz com que seja mapeado para P10 ou P20. A conta de armazenamento decide para que tipo de disco de armazenamento premium mapear os discos com base no tamanho destes. Por exemplo:
 * < 128 GB é P10.
 * 128 GB a 256 GB é P15
 * 256 GB a 512 GB é P20.
@@ -232,8 +232,6 @@ Por exemplo, se as características da carga de trabalho de um disco o colocarem
 * O IOPS de origem excede o limite de IOPS suportado pelo armazenamento de 80 000 por VM.
 
 * A rotatividade média de dados excede o limite de variação de dados Site Recovery com suporte de 20 MB/s para o tamanho médio de e/s para o disco.
-
-* A média de alterações a dados excede o limite de alterações a dados suportado pelo Site Recovery de 25 MB/s para o tamanho de E/S médio para a VM (soma de todas as alterações aos discos).
 
 * O pico de alterações a dados em todos os discos na VM excede o limite máximo de pico de alterações a dados suportado pelo Site Recovery de 54 MB/s por VM.
 

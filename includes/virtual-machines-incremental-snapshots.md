@@ -8,110 +8,109 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f30518c3bfc9876cbddaf8295ff9e8b667a70200
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184243"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014538"
 ---
-# <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Criar cópias de segurança do Azure discos VM não geridos com instantâneos incrementais
 ## <a name="overview"></a>Descrição geral
-O armazenamento do Azure fornece a capacidade para tirar instantâneos de blobs. Instantâneos de capturam o estado de blob nesse ponto no tempo. Neste artigo, descrevemos um cenário no qual pode manter cópias de segurança de discos de máquinas virtuais através de instantâneos. Pode usar essa metodologia quando optar por não utilizar o serviço de recuperação e cópia de segurança do Azure e pretende criar uma estratégia de cópia de segurança personalizada para os discos da máquina virtual.
+O armazenamento do Azure fornece a capacidade de tirar instantâneos de BLOBs. Os instantâneos capturam o estado do blob nesse momento. Neste artigo, descrevemos um cenário no qual você pode manter backups de discos de máquina virtual usando instantâneos. Você pode usar essa metodologia quando optar por não usar o serviço de backup e recuperação do Azure e desejar criar uma estratégia de backup personalizada para seus discos de máquina virtual.
 
-Discos da máquina virtual do Azure são armazenados como blobs de páginas no armazenamento do Azure. Uma vez que estamos descrevendo uma estratégia de cópia de segurança para os discos da máquina virtual neste artigo, nos Referimos a instantâneos no contexto de blobs de páginas. Para obter mais informações sobre instantâneos, consulte [criar um instantâneo de um Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
+Os discos de máquina virtual do Azure são armazenados como BLOBs de páginas no armazenamento do Azure. Como estamos descrevendo uma estratégia de backup para discos de máquina virtual neste artigo, nos referimos aos instantâneos no contexto de blobs de páginas. Para saber mais sobre instantâneos, consulte [criando um instantâneo de um blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 ## <a name="what-is-a-snapshot"></a>O que é um instantâneo?
-Um instantâneo de blob é uma versão só de leitura de um blob que é capturado num ponto no tempo. Assim que tiver sido criado um instantâneo, ele possa ser lido, copiado, ou eliminado, mas não modificado. Instantâneos fornecem uma forma de fazer cópias de segurança de um blob como ela aparece num momento. Até REST 2015-04-05 de versão, tinha a capacidade de copiar instantâneos completos. Com o resto versão 2015-07-08 e superior, também pode copiar instantâneos incrementais.
+Um instantâneo de blob é uma versão somente leitura de um blob que é capturado em um ponto no tempo. Depois que um instantâneo tiver sido criado, ele poderá ser lido, copiado ou excluído, mas não modificado. Os instantâneos fornecem uma maneira de fazer backup de um blob conforme ele é exibido em um momento no tempo. Até a versão REST 2015-04-05, você tinha a capacidade de copiar instantâneos completos. Com a versão REST 2015-07-08 e superior, você também pode copiar instantâneos incrementais.
 
-## <a name="full-snapshot-copy"></a>Cópia do instantâneo completo
-Instantâneos podem ser copiados para outra conta de armazenamento como um blob para manter as cópias de segurança do base blob. Também pode copiar um instantâneo ao longo do seu blob de base, que é como restaurar o blob para uma versão anterior. Quando um instantâneo é copiado de uma conta de armazenamento para outro, ele ocupa o mesmo espaço de como o blob de página base. Por conseguinte, instantâneos de todos a copiar de uma conta de armazenamento para outro é lenta e consome espaço na conta de armazenamento de destino.
+## <a name="full-snapshot-copy"></a>Cópia de instantâneo completo
+Os instantâneos podem ser copiados para outra conta de armazenamento como um blob para manter os backups do blob de base. Você também pode copiar um instantâneo em seu blob de base, que é como restaurar o blob para uma versão anterior. Quando um instantâneo é copiado de uma conta de armazenamento para outra, ele ocupa o mesmo espaço que o blob da página de base. Portanto, copiar instantâneos inteiros de uma conta de armazenamento para outra é lento e consome muito espaço na conta de armazenamento de destino.
 
 > [!NOTE]
-> Se copiar o blob de base para outro destino, os instantâneos do blob não são copiados juntamente com ele. Da mesma forma, se substituir um blob de base com uma cópia, instantâneos associados com o blob de base não são afetados e mantenha-se intactos sob o nome de blob de base.
+> Se você copiar o blob de base para outro destino, os instantâneos do BLOB não serão copiados junto com ele. Da mesma forma, se você substituir um blob de base por uma cópia, os instantâneos associados ao blob de base não serão afetados e permanecerão intactos no nome do blob de base.
 > 
 > 
 
-### <a name="back-up-disks-using-snapshots"></a>Criar cópias de segurança utilizando instantâneos de discos
-Como uma estratégia de cópia de segurança para os discos da máquina virtual, pode tirar instantâneos periódicos do blob de página ou de disco e cópia-los para outro armazenamento de conta através de ferramentas, como [Blob de cópia](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) operação ou [AzCopy](../articles/storage/common/storage-use-azcopy.md). Pode copiar um instantâneo para um blob de página de destino com um nome diferente. O blob de página de destino resultante é um blob de página graváveis e não um instantâneo. Neste artigo, descrevemos de passos para efetuar cópias de segurança dos discos de máquina virtual através de instantâneos.
+### <a name="back-up-disks-using-snapshots"></a>Fazer backup de discos usando instantâneos
+Como uma estratégia de backup para seus discos de máquina virtual, você pode fazer instantâneos periódicos do disco ou BLOB de página e copiá-los para outra conta de armazenamento usando ferramentas como [copiar blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) operação ou [AzCopy](../articles/storage/common/storage-use-azcopy.md). Você pode copiar um instantâneo para um blob de páginas de destino com um nome diferente. O blob de páginas de destino resultante é um blob de páginas gravável e não um instantâneo. Posteriormente neste artigo, descreveremos as etapas para fazer backups de discos de máquina virtual usando instantâneos.
 
-### <a name="restore-disks-using-snapshots"></a>Restaure discos com instantâneos
-Quando chegou a hora para restaurar o disco para uma versão estável que anteriormente foram capturada em um dos instantâneos de cópia de segurança, pode copiar um instantâneo sobre o blob de página base. Depois do instantâneo é promovido para a página base de BLOBs, mantém-se o instantâneo, mas sua fonte será substituído com uma cópia que pode ser de leitura e escrita. Neste artigo, descrevemos passos para restaurar uma versão anterior do seu disco a partir do respetivo instantâneo.
+### <a name="restore-disks-using-snapshots"></a>Restaurar discos usando instantâneos
+Quando for o momento de restaurar o disco para uma versão estável que foi capturada anteriormente em um dos instantâneos de backup, você poderá copiar um instantâneo sobre o blob de página de base. Depois que o instantâneo é promovido para o blob de página de base, o instantâneo permanece, mas sua origem é substituída por uma cópia que pode ser lida e gravada. Posteriormente neste artigo, descreveremos as etapas para restaurar uma versão anterior do seu disco a partir de seu instantâneo.
 
-### <a name="implementing-full-snapshot-copy"></a>Implementar a cópia do instantâneo completo
-Pode implementar uma cópia do instantâneo completo ao fazer o seguinte,
+### <a name="implementing-full-snapshot-copy"></a>Implementando cópia de instantâneo completo
+Você pode implementar uma cópia de instantâneo completa fazendo o seguinte:
 
-* Em primeiro lugar, tire um instantâneo do base blob com o [Blob de instantâneo](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) operação.
-* Em seguida, copiar o instantâneo para uma utilização de conta de armazenamento do destino [Blob de cópia](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob).
-* Repita este processo para manter cópias de segurança dos seus BLOBs base.
+* Primeiro, tire um instantâneo do blob de base usando a operação de [blob de instantâneo](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) .
+* Em seguida, copie o instantâneo para uma conta de armazenamento de destino usando [copiar blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob).
+* Repita esse processo para manter cópias de backup de seu blob de base.
 
-## <a name="incremental-snapshot-copy"></a>Cópia do instantâneo incremental
-O novo recurso no [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) API fornece uma forma muito melhor para fazer cópias de segurança de instantâneos de seus blobs de páginas ou discos. A API devolve a lista de alterações entre o blob de base e os instantâneos, que reduz a quantidade de espaço de armazenamento utilizado na conta de cópia de segurança. A API suporta blobs de páginas no armazenamento Premium, bem como o armazenamento Standard. Com essa API, pode criar soluções de cópia de segurança mais rápidas e eficientes para VMs do Azure. Esta API estarão disponíveis na versão REST 2015-07-08 e superior.
+## <a name="incremental-snapshot-copy"></a>Cópia de instantâneo incremental
+O novo recurso na API do [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) fornece uma maneira muito melhor de fazer backup dos instantâneos dos seus discos ou BLOBs de página. A API retorna a lista de alterações entre o blob de base e os instantâneos, o que reduz a quantidade de espaço de armazenamento usado na conta de backup. A API dá suporte a blobs de página no armazenamento Premium, bem como armazenamento padrão. Usando essa API, você pode criar soluções de backup mais rápidas e mais eficientes para VMs do Azure. Essa API estará disponível com a versão REST 2015-07-08 e superior.
 
-Cópia de instantâneo incremental permite-lhe copiar de uma conta de armazenamento, para outra, a diferença entre,
+A cópia de instantâneo incremental permite copiar de uma conta de armazenamento para outra a diferença entre,
 
-* Blob de base e o respetivo instantâneo ou um
-* Qualquer dois instantâneos do base blob
+* Blob de base e seu instantâneo ou
+* Quaisquer dois instantâneos do blob de base
 
-Fornecidas que as seguintes condições são cumpridas,
+Desde que as seguintes condições sejam atendidas,
 
-* O blob foi criado em 1 de Janeiro 2016 ou posterior.
-* O blob não foi substituído com [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) ou [Blob de cópia](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) entre os dois instantâneos.
+* O blob foi criado em Jan-1-2016 ou posterior.
+* O BLOB não foi substituído por [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) ou [copia o blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) entre dois instantâneos.
 
-**Nota**: Esta funcionalidade está disponível para Blobs de páginas do Azure Standard e Premium.
+**Observação**: esse recurso está disponível para os BLOBs Premium e Standard de páginas do Azure.
 
-Quando tem uma estratégia de cópia de segurança personalizada, utilizando instantâneos de, copiar os instantâneos de uma conta de armazenamento para outro pode ser lento e pode consumir muito espaço de armazenamento. Em vez de copiar o instantâneo de todo a uma conta de armazenamento de cópia de segurança, pode escrever a diferença entre os instantâneos consecutivas para um blob de página de cópia de segurança. Dessa forma, o tempo de cópia e o espaço para armazenar cópias de segurança é substancialmente reduzido.
+Quando você tem uma estratégia de backup personalizada usando instantâneos, a cópia dos instantâneos de uma conta de armazenamento para outra pode ser lenta e pode consumir muito espaço de armazenamento. Em vez de copiar o instantâneo inteiro para uma conta de armazenamento de backup, você pode gravar a diferença entre instantâneos consecutivos em um blob de páginas de backup. Dessa forma, o tempo de cópia e o espaço para armazenar backups são substancialmente reduzidos.
 
-### <a name="implementing-incremental-snapshot-copy"></a>Implementar a cópia do instantâneo Incremental
-Pode implementar a cópia do instantâneo incremental ao fazer o seguinte,
+### <a name="implementing-incremental-snapshot-copy"></a>Implementando cópia de instantâneo incremental
+Você pode implementar a cópia de instantâneo incremental fazendo o seguinte:
 
-* Tirar um instantâneo da base blob usando [Blob de instantâneo](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
-* Copiar o instantâneo para a conta de armazenamento de cópia de segurança de destino na mesma subscrição ou qualquer outra região do Azure, utilizando [Blob de cópia](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Este é o blob de página de cópia de segurança. Tirar um instantâneo de blob de página de cópia de segurança e armazene-o na conta de cópia de segurança.
-* Tire instantâneo outro do blob base com o Blob de instantâneo.
-* Obter a diferença entre os instantâneos de primeiros e segunda da base blob usando [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Utilize o parâmetro novo **prevsnapshot**, para especificar o valor de DateTime do instantâneo que pretende obter a diferença com. Quando este parâmetro está presente, a resposta REST inclui somente as páginas que foram alteradas entre o instantâneo de destino e o instantâneo anterior, incluindo páginas claras.
-* Uso [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) para aplicar estas alterações para o blob de página de cópia de segurança.
-* Por fim, tire um instantâneo de blob de página de cópia de segurança e armazene-o na conta de armazenamento de cópia de segurança.
+* Tire um instantâneo do blob de base usando o [blob de instantâneo](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
+* Copie o instantâneo para a conta de armazenamento de backup de destino no mesmo ou em qualquer outra região do Azure usando [copiar blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Este é o blob de páginas de backup. Tire um instantâneo do blob de páginas de backup e armazene-o na conta de backup.
+* Tire outro instantâneo do blob de base usando o blob de instantâneo.
+* Obtenha a diferença entre o primeiro e o segundo instantâneos do blob de base usando [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Use o novo parâmetro **prevsnapshot**para especificar o valor de data e hora do instantâneo com o qual você deseja obter a diferença. Quando esse parâmetro estiver presente, a resposta REST incluirá apenas as páginas que foram alteradas entre o instantâneo de destino e o instantâneo anterior, incluindo páginas claras.
+* Use [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) para aplicar essas alterações ao blob de páginas de backup.
+* Por fim, tire um instantâneo do blob de páginas de backup e armazene-o na conta de armazenamento de backup.
 
-Na próxima seção, descreveremos mais detalhadamente como pode manter cópias de segurança de discos utilizando a cópia de instantâneo Incremental
+Na próxima seção, descreveremos em mais detalhes como você pode manter os backups de discos usando a cópia de instantâneo incremental
 
 ## <a name="scenario"></a>Cenário
-Nesta seção, descrevemos um cenário que envolve uma estratégia de cópia de segurança personalizada para utilizar instantâneos de discos de máquinas virtuais.
+Nesta seção, descrevemos um cenário que envolve uma estratégia de backup personalizada para discos de máquina virtual usando instantâneos.
 
-Considere uma VM do Azure de série DS com um disco de P30 de armazenamento premium ligado. O disco de P30 chamado *mypremiumdisk* são armazenados numa conta de armazenamento premium chamada *mypremiumaccount*. Uma conta de armazenamento standard denominada *mybackupstdaccount* é utilizado para armazenar a cópia de segurança de *mypremiumdisk*. Gostaríamos de manter um instantâneo dos *mypremiumdisk* a cada 12 horas.
+Considere uma VM do Azure da série DS com um disco p30 de armazenamento Premium anexado. O disco p30 chamado *mypremiumdisk* é armazenado em uma conta de armazenamento Premium chamada *mypremiumaccount*. Uma conta de armazenamento padrão chamada *mybackupstdaccount* é usada para armazenar o backup de *mypremiumdisk*. Gostaríamos de manter um instantâneo de *mypremiumdisk* a cada 12 horas.
 
-Para saber mais sobre como criar uma conta de armazenamento, veja [criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+Para saber mais sobre como criar uma conta de armazenamento, confira [criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
-Para saber mais sobre o backup das VMs do Azure, veja [cópias de segurança de VM do Azure de planear](../articles/backup/backup-azure-vms-introduction.md).
+Para saber mais sobre como fazer backup de VMs do Azure, consulte [planejar backups de VM do Azure](../articles/backup/backup-azure-vms-introduction.md).
 
-## <a name="steps-to-maintain-backups-of-a-disk-using-incremental-snapshots"></a>Passos para manter cópias de segurança de um disco com instantâneos incrementais
-Os passos seguintes descrevem como criar instantâneos de *mypremiumdisk* e manter as cópias de segurança na *mybackupstdaccount*. A cópia de segurança é um blob de página padrão chamado *mybackupstdpageblob*. O blob de página de cópia de segurança sempre reflete o estado do mesmo como o último instantâneo do *mypremiumdisk*.
+## <a name="steps-to-maintain-backups-of-a-disk-using-incremental-snapshots"></a>Etapas para manter os backups de um disco usando instantâneos incrementais
+As etapas a seguir descrevem como tirar instantâneos de *mypremiumdisk* e manter os backups em *mybackupstdaccount*. O backup é um blob de páginas padrão chamado *mybackupstdpageblob*. O blob de páginas de backup sempre reflete o mesmo estado que o último instantâneo de *mypremiumdisk*.
 
-1. Criar um instantâneo de blob de página de cópia de segurança para o seu disco de armazenamento premium, *mypremiumdisk* chamado *mypremiumdisk_ss1*.
-2. Copie este instantâneo para mybackupstdaccount como um blob de página chamado *mybackupstdpageblob*.
-3. Tirar um instantâneo *mybackupstdpageblob* chamado *mybackupstdpageblob_ss1*, com [Blob de instantâneo](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) e armazená-la no *mybackupstdaccount*.
-4. Durante a janela de cópia de segurança, criar outro instantâneo do *mypremiumdisk*, digamos *mypremiumdisk_ss2*e armazená-la no *mypremiumaccount*.
-5. Obter as alterações incrementais entre os dois instantâneos *mypremiumdisk_ss2* e *mypremiumdisk_ss1*, com [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) no *mypremiumdisk_ ss2* com o **prevsnapshot** parâmetro definido como o carimbo de hora de *mypremiumdisk_ss1*. Estas alterações incrementais de escrita para o blob de página de cópia de segurança *mybackupstdpageblob* na *mybackupstdaccount*. Se existirem intervalos eliminados nas alterações incrementais, tem de ser limpo de blob de página de cópia de segurança. Uso [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) escrever as alterações incrementais para o blob de página de cópia de segurança.
-6. Tirar um instantâneo de blob de página de cópia de segurança *mybackupstdpageblob*, denominado *mybackupstdpageblob_ss2*. Eliminar o instantâneo anterior *mypremiumdisk_ss1* da conta de armazenamento premium.
-7. Repita os passos 4 a 6 cada janela de backup. Dessa forma, pode manter cópias de segurança de *mypremiumdisk* numa conta de armazenamento standard.
+1. Crie o blob de páginas de backup para o disco de armazenamento Premium, tirando um instantâneo de *mypremiumdisk* chamado *mypremiumdisk_ss1*.
+2. Copie esse instantâneo para mybackupstdaccount como um blob de páginas chamado *mybackupstdpageblob*.
+3. Tire um instantâneo de *mybackupstdpageblob* chamado *mybackupstdpageblob_ss1*, usando o [blob de instantâneo](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) e armazená-lo em *mybackupstdaccount*.
+4. Durante a janela de backup, crie outro instantâneo de *mypremiumdisk*, digamos *mypremiumdisk_ss2*e armazene-o em *mypremiumaccount*.
+5. Obtenha as alterações incrementais entre os dois instantâneos, *mypremiumdisk_ss2* e *Mypremiumdisk_ss1*, [usando GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) em *mypremiumdisk_ss2* com o parâmetro **prevsnapshot** definido como o carimbo de data/hora de *mypremiumdisk_ss1*. Grave essas alterações incrementais no blob de páginas de backup *mybackupstdpageblob* em *mybackupstdaccount*. Se houver intervalos excluídos nas alterações incrementais, eles deverão ser apagados do blob de páginas de backup. Use [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) para gravar alterações incrementais no blob de páginas de backup.
+6. Tire um instantâneo do blob de páginas de backup *mybackupstdpageblob*, chamado *mybackupstdpageblob_ss2*. Exclua o instantâneo anterior *mypremiumdisk_ss1* da conta de armazenamento Premium.
+7. Repita as etapas 4-6 a cada janela de backup. Dessa forma, você pode manter backups do *mypremiumdisk* em uma conta de armazenamento padrão.
 
-![Fazer cópias de segurança de disco com instantâneos incrementais](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-1.png)
+![Fazer backup de disco usando instantâneos incrementais](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-1.png)
 
-## <a name="steps-to-restore-a-disk-from-snapshots"></a>Passos para restaurar um disco a partir de instantâneos
-Os seguintes passos descrevem como restaurar o disco premium, *mypremiumdisk* para um instantâneo anterior da conta de armazenamento de cópia de segurança *mybackupstdaccount*.
+## <a name="steps-to-restore-a-disk-from-snapshots"></a>Etapas para restaurar um disco a partir de instantâneos
+As etapas a seguir descrevem como restaurar o disco Premium, *mypremiumdisk* para um instantâneo anterior da conta de armazenamento de backup *mybackupstdaccount*.
 
-1. Identifica o ponto no tempo que queira restaurar o disco premium. Vamos supor que ele é instantâneo *mybackupstdpageblob_ss2*, que é armazenado na conta de armazenamento de cópia de segurança *mybackupstdaccount*.
-2. No mybackupstdaccount, promover o instantâneo *mybackupstdpageblob_ss2* como o blob de página de base de cópia de segurança nova *mybackupstdpageblobrestored*.
-3. Tirar um instantâneo de blob esta página de cópia de segurança restaurada, chamado *mybackupstdpageblobrestored_ss1*.
-4. Copiar o blob de página restaurada *mybackupstdpageblobrestored* partir *mybackupstdaccount* para *mypremiumaccount* como o novo disco premium  *mypremiumdiskrestored*.
-5. Tirar um instantâneo *mypremiumdiskrestored*, denominado *mypremiumdiskrestored_ss1* para fazer cópias de segurança incrementais futuras.
-6. Aponte a VM da série DS para o disco restaurado *mypremiumdiskrestored* e desanexar o antigo *mypremiumdisk* da VM.
-7. Iniciar o processo de cópia de segurança descrito na secção anterior para o disco restaurado *mypremiumdiskrestored*, utilizando o *mybackupstdpageblobrestored* como o blob de páginas de cópia de segurança.
+1. Identifique o ponto no tempo no qual você deseja restaurar o disco Premium. Digamos que seja um instantâneo *mybackupstdpageblob_ss2*, que é armazenado na conta de armazenamento de backup *mybackupstdaccount*.
+2. Em mybackupstdaccount, promova o instantâneo *mybackupstdpageblob_ss2* como o novo *mybackupstdpageblobrestored*de blob de página de base de backup.
+3. Faça um instantâneo desse blob de páginas de backup restaurado, chamado *mybackupstdpageblobrestored_ss1*.
+4. Copie o blob de página restaurado *mybackupstdpageblobrestored* de *mybackupstdaccount* para *mypremiumaccount* como o novo disco Premium *mypremiumdiskrestored*.
+5. Tire um instantâneo do *mypremiumdiskrestored*, chamado *mypremiumdiskrestored_ss1* para fazer backups incrementais futuros.
+6. Aponte a VM da série DS para o disco restaurado *mypremiumdiskrestored* e desanexe o antigo *mypremiumdisk* da VM.
+7. Inicie o processo de backup descrito na seção anterior para o disco restaurado *mypremiumdiskrestored*, usando o *mybackupstdpageblobrestored* como o blob de páginas de backup.
 
-![Restaurar o disco a partir de instantâneos](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-2.png)
+![Restaurar disco de instantâneos](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-2.png)
 
-## <a name="next-steps"></a>Próximos Passos
-Utilize as seguintes ligações para saber mais sobre a criação de instantâneos de um blob e planeamento da sua infraestrutura de cópia de segurança de VM.
+## <a name="next-steps"></a>Passos Seguintes
+Use os links a seguir para saber mais sobre como criar instantâneos de um blob e planejar sua infraestrutura de backup de VM.
 
-* [Criar um instantâneo de um Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
-* [Planear a sua infraestrutura de cópia de segurança de VM](../articles/backup/backup-azure-vms-introduction.md)
+* [Criando um instantâneo de um blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
+* [Planejar sua infraestrutura de backup de VM](../articles/backup/backup-azure-vms-introduction.md)
 

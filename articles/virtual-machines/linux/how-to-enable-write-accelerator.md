@@ -16,11 +16,12 @@ ms.date: 2/20/2019
 ms.author: raiye
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 5d54d082285145f99d109772a8371fcaaa3ceb8d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ee24b58b526b444bdd07826930c3d251ba4f5b80
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083209"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008896"
 ---
+# <a name="enable-write-accelerator"></a>Habilitar Acelerador de Gravação
 [!INCLUDE [how-to-enable-write-accelerator](../../../includes/virtual-machines-common-how-to-enable-write-accelerator.md)]

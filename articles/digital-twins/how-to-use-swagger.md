@@ -1,5 +1,5 @@
 ---
-title: Entenda como usar o Azure digital gêmeos Reference Swagger | Microsoft Docs
+title: Como usar a documentação do Swagger de referência-Azure digital gêmeos | Microsoft Docs
 description: Noções básicas sobre como usar a documentação de referência do Azure digital gêmeos Swagger.
 ms.author: alinast
 author: alinamstanciu
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a99693c3f88e94c093910da6ba4a305c26fe39d
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ccea63e8edee739ce6743d7638b4e5300ad07f8f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931349"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009890"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentação de referência do Swagger do Azure digital gêmeos
 

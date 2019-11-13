@@ -1,18 +1,18 @@
 ---
-title: Preparar servidores Hyper-V locais para recuperação de desastres de VMs do Hyper-V para o Azure
-description: Saiba como preparar VMs do Hyper-V locais para recuperação de desastres no Azure com o serviço Azure Site Recovery.
+title: Preparar a recuperação de desastre de VMs do Hyper-V para o Azure com Azure Site Recovery
+description: Saiba como preparar VMs do Hyper-V locais para recuperação de desastres no Azure com Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b17e42378daf51543a2664315f2971d15c288611
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: b36e4688ebd6e929a56869a6bb191d98b2f1f432
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813720"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953994"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparar servidores Hyper-V locais para recuperação de desastres no Azure
 
@@ -91,8 +91,8 @@ Para se conectar a VMs do Windows usando o RDP após o failover, permita o acess
 
 Após o failover, você pode acessar as VMs do Azure usando o mesmo endereço IP da VM local replicada ou um endereço IP diferente. [Saiba mais](concepts-on-premises-to-azure-networking.md) sobre como configurar o endereçamento IP para failover.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Configurar a recuperação de desastre para o Azure para VMs](tutorial-hyper-v-to-azure.md)
-> do Hyper-v[Configurar a recuperação de desastres para o Azure para VMs do Hyper-v em nuvens do VMM](tutorial-hyper-v-vmm-to-azure.md)
+> [Configurar a recuperação de desastres para o Azure para VMs do Hyper-v](tutorial-hyper-v-to-azure.md)
+> [Configurar a recuperação de desastres para o Azure para VMs do Hyper-v em nuvens do VMM](tutorial-hyper-v-vmm-to-azure.md)

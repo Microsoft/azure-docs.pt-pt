@@ -154,6 +154,8 @@
         - name: Implementar - API REST
           displayName: deployment
           href: resource-group-template-deploy-rest.md
+        - name: Implementação de Hipóteses
+          href: template-deploy-what-if.md
         - name: Implementar novamente depois do erro
           displayName: rollback
           href: rollback-on-error.md

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar um ambiente de visualização de Azure Time Series Insights | Microsoft Docs'
-description: Saiba como configurar seu ambiente no Azure Time Series Insights Preview.
+title: 'Tutorial: configurar um ambiente de visualização-Azure Time Series Insights | Microsoft Docs'
+description: Saiba como configurar o ambiente de visualização de Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 11/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 25571dbd87e4d01645a3a7a991588a3a943b3e4d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 2dd08af518be9b3fec84e756edf9532ef669f22f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719766"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012668"
 ---
-# <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Tutorial: configurar um ambiente de visualização de Azure Time Series Insights
+# <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Tutorial: Configurar um ambiente de pré-visualização do Azure Time Series Insights
 
 Este tutorial orienta você pelo processo de criação de um ambiente PAYG (pré-pago) de visualização de Azure Time Series Insights.
 
@@ -28,7 +28,7 @@ Neste tutorial, ficará a saber como:
 > * Crie um ambiente de visualização de Azure Time Series Insights.
 > * Conecte o ambiente de visualização de Azure Time Series Insights a um hub IoT.
 > * Execute um exemplo do Solution Accelerator para transmitir dados para o ambiente de visualização de Azure Time Series Insights.
-> * Execute a análise básica nos dados.
+> * Execute análise básica nos dados.
 > * Defina um tipo de modelo de série temporal e uma hierarquia e associe-o às suas instâncias.
 > * Use o conector de Power BI e visualize dados no Power BI.
 
@@ -73,7 +73,7 @@ Nesta seção, você criará três dispositivos simulados que enviam dados para 
 
 Esta seção descreve como criar um ambiente de visualização Azure Time Series Insights e conectá-lo ao Hub IoT criado pelo acelerador de solução IoT usando o [portal do Azure](https://portal.azure.com/).
 
-1. Entre no portal do Azure usando sua conta de assinatura.
+1. Inicie sessão no portal do Azure com a sua conta de subscrição.
 
 1. Selecione **criar um recurso** > **Internet das coisas** > **Time Series insights**.
 
@@ -380,9 +380,9 @@ Agora que você sabe como criar seu próprio ambiente de visualização Azure Ti
 Leia sobre a configuração de armazenamento Azure Time Series Insights:
 
 > [!div class="nextstepaction"]
-> [Azure Time Series Insights Visualizar o armazenamento e a entrada](./time-series-insights-update-storage-ingress.md)
+> [Armazenamento de pré-visualização do Time Series Insights do Azure e de entrada](./time-series-insights-update-storage-ingress.md)
 
-Saiba mais sobre os modelos de série temporal:
+Saiba mais sobre os modelos de série de tempo:
 
 > [!div class="nextstepaction"]
-> [Azure Time Series Insights Visualizar a modelagem de dados](./time-series-insights-update-tsm.md)
+> [Modelação de dados do Time Series Insights pré-visualização do Azure](./time-series-insights-update-tsm.md)

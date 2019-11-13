@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o agente de mobilidade em servidores para recuperação de desastre de VMs VMware e servidores físicos com Azure Site Recovery | Microsoft Docs
+title: Gerenciar o agente de mobilidade para servidores VMware/físicos com Azure Site Recovery
 description: Gerencie o agente do serviço de mobilidade para recuperação de desastre de VMs VMware e servidores físicos no Azure usando o serviço Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 0a8b3a8bcfc2aa8270d7be140a94e5b83973f3e5
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: e6e7beeb4c10098f36636aad2709e03d1a1a0fea
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972135"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953651"
 ---
-# <a name="manage-mobility-agent-on-protected-machines"></a>Gerenciar o agente de mobilidade em computadores protegidos
+# <a name="manage-the-mobility-agent"></a>Gerenciar o agente de mobilidade 
 
 Você configura o agente de mobilidade no servidor quando usa Azure Site Recovery para recuperação de desastre de VMs VMware e servidores físicos para o Azure. O agente de mobilidade coordena as comunicações entre o computador protegido, o servidor de configuração/servidor de processo de expansão e gerencia a replicação de dados. Este artigo resume as tarefas comuns para gerenciar o agente de mobilidade após sua implantação.
 
@@ -53,8 +53,8 @@ Quando você implantou o Site Recovery, para habilitar a instalação por push d
 
 Desinstale a partir da interface do usuário ou de um prompt de comando.
 
-- **Na interface do usuário**: No painel de controle do computador, selecione **programas**. Selecione **Microsoft Azure site Recovery serviço de mobilidade/desinstalação do servidor** > de destino mestre.
-- **Em um prompt de comando**: Abra uma janela de prompt de comando como administrador no computador. Execute o seguinte comando: 
+- Na **interface do usuário**: no painel de controle da máquina, selecione **programas**. Selecione **Microsoft Azure site Recovery serviço de mobilidade/servidor de destino mestre** > **desinstalar**.
+- **Em um prompt de comando**: Abra uma janela de prompt de comando como um administrador no computador. Execute o seguinte comando: 
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
     ```

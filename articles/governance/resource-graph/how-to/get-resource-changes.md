@@ -1,18 +1,14 @@
 ---
 title: Obter alterações do recurso
 description: Entenda como localizar quando um recurso foi alterado e obter uma lista das propriedades que foram alteradas.
-services: resource-graph
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
-ms.service: resource-graph
-ms.openlocfilehash: 44e7bbde40dbd4b79a6ce3735ab5a1ac81421d3b
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 25d900276518e51e80021d1fdb1ac80945eb2d5c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622565"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958768"
 ---
 # <a name="get-resource-changes"></a>Obter alterações do recurso
 
@@ -48,7 +44,7 @@ O ponto de extremidade **resourceChanges** aceita os seguintes parâmetros no co
 - **interval** \[\]necessário: uma propriedade com datas de _início_ e de _término_ para quando verificar se há um evento de alteração usando o **Z (fuso horário) Zulu**.
 - **fetchPropertyChanges** (opcional): uma propriedade booliana que define se o objeto de resposta inclui alterações de propriedade.
 
-Corpo da solicitação de exemplo:
+Corpo do pedido de exemplo:
 
 ```json
 {
@@ -167,7 +163,7 @@ O ponto de extremidade **resourceChangeDetails** requer dois parâmetros no corp
 - **ResourceId**: o recurso do Azure para comparar as alterações.
 - **ChangeId**: o evento de alteração exclusivo para o **ResourceId** coletado de **resourceChanges**.
 
-Corpo da solicitação de exemplo:
+Corpo do pedido de exemplo:
 
 ```json
 {

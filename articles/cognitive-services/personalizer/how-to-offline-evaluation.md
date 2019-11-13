@@ -1,7 +1,7 @@
 ---
 title: Como executar a avaliação offline – personalizador
 titleSuffix: Azure Cognitive Services
-description: Saiba como analisar seu loop de aprendizagem com uma avaliação offline
+description: Este artigo mostrará como usar a avaliação offline para medir a eficácia de seu aplicativo e analisar seu loop de aprendizado.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 9d7336fb933ee5e9781d15214fa3e59446aa5b6a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c2aec0db2d1f9865188f2749a0eeb765a14d04ed
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490720"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953009"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analise seu loop de aprendizagem com uma avaliação offline
 

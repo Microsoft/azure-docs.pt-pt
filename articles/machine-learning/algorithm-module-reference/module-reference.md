@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: 2da567a8f5ebd0161e41bf5a0aeb83b0d3b4ba4c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+author: peterclu
+ms.author: peterlu
+ms.date: 11/11/2019
+ms.openlocfilehash: 938286f0dafdeb11473bef1b88f876d7918e76ca
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466062"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012761"
 ---
-# <a name="algorithm--module-reference-overview"></a>Visão geral de referência do módulo & do algoritmo
+# <a name="algorithm--module-reference"></a>Referência de algoritmos e módulos
 
 Esse conteúdo de referência fornece a experiência técnica em cada um dos módulos e algoritmos de aprendizado de máquina disponíveis no designer de Azure Machine Learning (versão prévia).
 
@@ -32,9 +32,10 @@ Os módulos são organizados por funcionalidade:
 | Funcionalidade | Descrição | Módulo |
 | --- |--- | ---- |
 | Entrada e saída de dados | Mova dados de fontes de nuvem para seu pipeline. Grave os resultados ou os dados intermediários no armazenamento do Azure, em um banco de dados SQL ou Hive, durante a execução de um pipeline ou use o armazenamento em nuvem do para o Exchange data entre pipelines.  | [Importar dados](import-data.md) <br/> [Inserir dados manualmente](enter-data-manually.md) <br/>[Exportar dados](export-data.md) |
-| Transformação de dados | Operações em dados que são exclusivas do aprendizado de máquina, como normalização ou compartimentalização de dados, redução de dimensionalidade e conversão de dados entre vários formatos de arquivo.| [Adicionar colunas](add-columns.md) <br/> [Adicionar linhas](add-rows.md) <br/> [Limpar dados ausentes](clean-missing-data.md) <br/> [Converter em CSV](convert-to-csv.md) <br/> [Converter em conjunto de um](convert-to-dataset.md) <br/> [Editar metadados](edit-metadata.md) <br/> [Dados de junção](join-data.md) <br/> [Normalizar dados](normalize-data.md) <br/> [Partição e exemplo](partition-and-sample.md) <br/> [Remover linhas duplicadas](remove-duplicate-rows.md) <br/> [Selecionar transformação de colunas](select-columns-transform.md) <br/> [Selecionar colunas no conjunto de linhas](select-columns-in-dataset.md) <br/> [SMOTE](smote.md) <br/> [Dividir dados](split-data.md) |
+| Transformação de dados | Operações em dados que são exclusivas do aprendizado de máquina, como normalização ou compartimentalização de dados, redução de dimensionalidade e conversão de dados entre vários formatos de arquivo.| [Adicionar colunas](add-columns.md) <br/> [Adicionar linhas](add-rows.md) <br/> [Limpar dados ausentes](clean-missing-data.md) <br/> [Converter em CSV](convert-to-csv.md) <br/> [Converter em conjunto de um](convert-to-dataset.md) <br/> [Editar metadados](edit-metadata.md) <br/> [Dados de junção](join-data.md) <br/> [Normalizar dados](normalize-data.md) <br/> [Remover linhas duplicadas](remove-duplicate-rows.md) <br/> [Selecionar transformação de colunas](select-columns-transform.md) <br/> [Selecionar colunas no conjunto de linhas](select-columns-in-dataset.md) |
+| Amostragem | Divida os dados em um ou mais subconjuntos subconjuntos para treinar e testar modelos de aprendizado de máquina.  | [Modelo de validação cruzada](cross-validate-model.md) <br/> [Partição e exemplo](partition-and-sample.md) <br/> [SMOTE](smote.md) <br/> [Dividir dados](split-data.md) |
 | Seleção de recursos | Selecione um subconjunto de recursos relevantes e úteis a serem usados na criação de um modelo analítico. | [Seleção de recursos baseada em filtro](filter-based-feature-selection.md) <br/> [Importância do recurso de permuta](permutation-feature-importance.md) |
-| Módulos do Python e do R | Escreva o código e incorpore-o em um módulo para integrar o Python e o R ao seu pipeline. | [Criar modelo Python](create-python-model.md) <br/> [Executar script Python](execute-python-script.md)   <br/>  [Executar script R](execute-r-script.md)
+| Python e R | Escreva o código e incorpore-o em um módulo para integrar o Python e o R ao seu pipeline. | [Criar modelo Python](create-python-model.md) <br/> [Executar script Python](execute-python-script.md)   <br/>  [Executar script R](execute-r-script.md)
 | Análise de Texto | Forneça ferramentas computacionais especializadas para trabalhar com texto estruturado e não estruturado. | [Extrair N recursos de grama do texto](extract-n-gram-features-from-text.md) <br/> [Hash de recurso](feature-hashing.md) <br/> [Pré-processar texto](preprocess-text.md) |
 |  | **Algoritmos de aprendizado de máquina**: | |
 | Classificação | Prever uma classe.  Escolha entre os algoritmos binário (duas classes) ou multiclasse.| [Floresta de decisão multiclasse](multiclass-decision-forest.md) <br/> [Árvore de decisão aumentada multiclasse](multiclass-boosted-decision-tree.md) <br/> [Regressão logística multiclasse](multiclass-logistic-regression.md)  <br/> [Rede neural multiclasse](multiclass-neural-network.md) <br/> [Um vs. todas as multiclasses](one-vs-all-multiclass.md) <br/>  [Regressão logística de duas classes](two-class-logistic-regression.md)  <br/>[Perceptron média de duas classes](two-class-averaged-perceptron.md) <br/> [Árvore de decisão aumentada de duas classes](two-class-boosted-decision-tree.md)  <br/> [Floresta de decisão de duas classes](two-class-decision-forest.md)  <br/> [Rede neural de duas classes](two-class-neural-network.md) <br/> [Máquina de vetor de suporte de duas classes](two-class-support-vector-machine.md) | 
@@ -42,10 +43,10 @@ Os módulos são organizados por funcionalidade:
 | Regressão | Prever um valor. | [Regressão da árvore de decisão aumentada](boosted-decision-tree-regression.md) <br/> [Regressão de floresta de decisão](decision-forest-regression.md) <br/> [Regressão linear](linear-regression.md)  <br/> [Regressão de rede neural](neural-network-regression.md)  <br/> |
 | Recomendador | Crie modelos de recomendação. | [Avaliar Recomendador](evaluate-recommender.md) <br/> [Pontuar Recomendador SVD](score-svd-recommender.md) <br/> [Treinar Recomendador SVD](train-SVD-recommender.md) |
 |  | **Criar e avaliar modelos**: | |
-| Preparar   | Execute os dados por meio do algoritmo. | [Modelo de validação cruzada](cross-validate-model.md) <br/> [Modelo de treinamento](train-model.md)  <br/> [Treinar modelo de clustering](train-clustering-model.md) <br/>  [Ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) |
+| Preparar   | Execute os dados por meio do algoritmo. | [Modelo de treinamento](train-model.md)  <br/> [Treinar modelo de clustering](train-clustering-model.md) <br/>  [Ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) |
 | Avaliar Modelo | Meça a precisão do modelo treinado. |  [Avaliar modelo](evaluate-model.md) |
 | Classificação | Obtenha previsões do modelo que você acabou de treinar. | [Aplicar transformação](apply-transformation.md)<br/>[Atribuir dados a clusters](assign-data-to-clusters.md) <br/>[Modelo de Pontuação](score-model.md) |
-| Funções Estatísticas | Forneça uma ampla variedade de métodos numéricos relacionados à ciência de dados. | [Aplicar operação matemática](apply-math-operation.md) <br/> [Resumir dados](summarize-data.md)|
+| Funções Estatísticas | Forneça uma ampla variedade de métodos estatísticos relacionados à ciência de dados. | [Aplicar operação matemática](apply-math-operation.md) <br/> [Resumir dados](summarize-data.md)|
 
 ## <a name="error-messages"></a>Mensagens de erro
 

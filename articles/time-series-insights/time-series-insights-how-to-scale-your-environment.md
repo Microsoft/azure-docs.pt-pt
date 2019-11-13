@@ -1,6 +1,6 @@
 ---
-title: Como dimensionar seu ambiente de Azure Time Series Insights | Microsoft Docs
-description: Este artigo descreve como dimensionar seu ambiente de Azure Time Series Insights. Use o portal do Azure para adicionar ou subtrair capacidade em um SKU de preços.
+title: Como dimensionar seu ambiente-Azure Time Series Insights | Microsoft Docs
+description: Saiba como dimensionar seu ambiente de Azure Time Series Insights usando o portal do Azure.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f03f5ed75c720c9b0daf30d721ef4d2aee9749c
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: b17cdb2ec27676d5d20d6f12bad309368fe32aa3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991165"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006808"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Como dimensionar seu ambiente de Time Series Insights
 
@@ -36,11 +36,11 @@ No entanto, a alteração da SKU do tipo de preço não é permitida. Por exempl
 
 1. No menu de seu ambiente de Time Series Insights, selecione **Configurar**.
 
-   [![configurar. png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
+   [![configure.png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
 
 1. Ajuste o controle deslizante **capacidade** para selecionar a capacidade que atende aos requisitos para suas taxas de entrada e capacidade de armazenamento. Observe a **taxa de entrada**, a **capacidade de armazenamento**e a atualização de **custo estimado** dinamicamente para mostrar o impacto da alteração.
 
-   [Controle deslizante de![](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
+   [Controle deslizante de ![](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
 
    Como alternativa, você pode digitar o número do multiplicador de capacidade na caixa de texto à direita do controle deslizante.
 

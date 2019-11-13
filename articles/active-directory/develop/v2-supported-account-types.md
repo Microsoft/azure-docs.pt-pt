@@ -17,14 +17,14 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad3cd612200dc33fe37036146b00f52073403ecc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 929479f2816ef979edb26ba5aa00cf449c49b70a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852048"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73942178"
 ---
-# <a name="supported-account-types"></a>Tipos de contas suportadas
+# <a name="supported-account-types"></a>Tipos de conta suportados
 
 Este artigo explica quais tipos de contas (às vezes chamadas de públicos) têm suporte em aplicativos
 
@@ -37,11 +37,11 @@ Na nuvem pública Microsoft Azure, a maioria dos tipos de aplicativos pode conec
 - Se você estiver escrevendo um aplicativo de linha de negócios (LOB), poderá conectar usuários em sua própria organização. Esse aplicativo, às vezes, é chamado de **locatário único**.
 - Se você for um ISV, poderá escrever um aplicativo que faz logon de usuários:
 
-  - Em qualquer organização. Esse aplicativo é chamado de aplicativo Web multilocatário. Às vezes, você lerá que ele entra em usuários com suas contas corporativas ou de estudante.
+  - Em qualquer organização. Esse aplicativo é chamado de aplicativo Web **multilocatário** . Às vezes, você lerá que ele entra em usuários com suas contas corporativas ou de estudante.
   - Com suas conta Microsoft pessoais ou de trabalho ou de estudante.
   - Somente com conta Microsoft pessoais.
     > [!NOTE]
-    > Atualmente, a plataforma Microsoft Identity dá suporte a contas pessoais da Microsoft apenas registrando um aplicativo para **contas pessoais corporativas ou de estudante ou da Microsoft**e, em seguida, restringindo a entrada no código para o aplicativo, especificando uma autoridade do Azure AD, ao criar o aplicativo, `https://login.onmicrosoftonline.com/consumers`como.
+    > Atualmente, a plataforma de identidade da Microsoft dá suporte a contas pessoais da Microsoft apenas registrando um aplicativo para **contas pessoais corporativas ou de estudante ou da Microsoft**e, em seguida, restringindo a entrada no código para o aplicativo, especificando uma autoridade do Azure AD, ao criar o aplicativo, como `https://login.microsoftonline.com/consumers`.
 
 - Se você estiver escrevendo um aplicativo de negócios para consumidores, também poderá conectar usuários com suas identidades sociais, usando Azure AD B2C.
 

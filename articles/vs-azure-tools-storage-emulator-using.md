@@ -1,6 +1,6 @@
 ---
 title: Configurando e usando o emulador de armazenamento com o Visual Studio | Microsoft Docs
-description: Configurando e usando o emulador de armazenamento com o Visual Studio
+description: Configurar e usar o emulador de armazenamento, um utilitário que simula os serviços de armazenamento de BLOBs, filas e tabelas disponíveis no Azure em seu computador de desenvolvimento local.
 services: visual-studio-online
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: 08e3f5d5bb32d15b9d8d164c898d2b8d7a90108c
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: aca4bf5017a4ee23d69016b937673443c1a0e200
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969720"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73935838"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configurando e usando o emulador de armazenamento com o Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]

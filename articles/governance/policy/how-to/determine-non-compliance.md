@@ -1,17 +1,14 @@
 ---
 title: Determinar as causas da não conformidade
 description: Quando um recurso não está em conformidade, há muitos motivos possíveis. Saiba como descobrir o que causou a não conformidade.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 04/26/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 556a8029b9b5f831ac3ace7ed0fcc474fb2e262e
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 6f113080ab84fe7d159766e6543ff61b28f4ead2
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978098"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959604"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade
 
@@ -84,7 +81,7 @@ Esses detalhes explicam por que um recurso não está em conformidade no momento
 
 A matriz a seguir mapeia cada possível _motivo_ para a [condição](../concepts/definition-structure.md#conditions) responsável na definição de política:
 
-|Reason | Condição |
+|Razão | Condição |
 |-|-|
 |O valor atual deve conter o valor de destino como uma chave. |containsKey ou **não** notContainsKey |
 |O valor atual deve conter o valor de destino. |Contains ou **não** contém |
@@ -124,7 +121,7 @@ Na exibição do painel **detalhes de conformidade** , clique no link **último 
 
 A página **atribuição de convidado** exibe todos os detalhes de conformidade disponíveis. Cada linha na exibição representa uma avaliação que foi executada dentro da máquina. Na coluna **motivo** , uma frase que descreve por que a atribuição de convidado _não é compatível_ é mostrada. Por exemplo, se você estiver auditando políticas de senha, a coluna **motivo** exibiria texto, incluindo o valor atual de cada configuração.
 
-![Ver detalhes de conformidade](../media/determine-non-compliance/guestconfig-compliance-details.png)
+![Exibir detalhes de conformidade](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -191,7 +188,7 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="a-namechange-historychange-history-preview"></a>Histórico de <a name="change-history"/>Change (versão prévia)
+## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>histórico de alterações (versão prévia)
 
 Como parte de uma nova **Visualização pública**, os últimos 14 dias de histórico de alterações estão disponíveis para todos os recursos do Azure que dão suporte à [exclusão de modo completo](../../../azure-resource-manager/complete-mode-deletion.md). O histórico de alterações fornece detalhes sobre quando uma alteração foi detectada e uma _diferença visual_ para cada alteração. Uma detecção de alteração é disparada quando as propriedades do Resource Manager são adicionadas, removidas ou alteradas.
 

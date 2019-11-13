@@ -1,20 +1,20 @@
 ---
-title: Solucionar falhas de instalação por push do serviço de mobilidade ao habilitar a replicação para recuperação de desastre | Microsoft Docs
-description: Solucionar erros de instalação de serviços de mobilidade ao habilitar a replicação para recuperação de desastre
+title: Solucionar problemas de instalação por push do serviço de mobilidade com o Azure Site Recovery f
+description: Solucionar erros de instalação de serviços de mobilidade ao habilitar a replicação para recuperação de desastre com Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 09/11/2019
-ms.openlocfilehash: 4aa18379962c289f5094795988a247f4c7e35df2
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 3646499ad2104566cb82f3f26c6b55d05f84dc7d
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910644"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953783"
 ---
-# <a name="troubleshoot-mobility-service-push-installation-issues"></a>Solucionar problemas de instalação por push do serviço de mobilidade
+# <a name="troubleshoot-mobility-service-push-installation"></a>Solucionar problemas de instalação por push do serviço de mobilidade 
 
 A instalação do serviço de mobilidade é uma etapa fundamental durante a habilitação da replicação. O sucesso desta etapa depende exclusivamente da reunião de pré-requisitos e do trabalho com configurações com suporte. As falhas mais comuns que você enfrenta durante a instalação do serviço de mobilidade são devido a:
 
@@ -38,12 +38,12 @@ Quando você habilita a replicação, o Azure Site Recovery tenta instalar o age
 * Azure Site Recovery requer uma conta **raiz** ou conta de usuário com **privilégios de administrador** para executar a instalação por push. Caso contrário, a instalação por push será bloqueada no computador de origem.
   * Para Windows (**erro 95107**), verifique se a conta de usuário tem acesso administrativo, seja local ou de domínio, no computador de origem.
   * Se você não estiver usando uma conta de domínio, será necessário desabilitar o controle de acesso de usuário remoto no computador local.
-    * Para desabilitar o controle de acesso de usuário remoto, em chave do registro HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, adicione um novo DWORD: LocalAccountTokenFilterPolicy. Defina o valor como 1. Para executar esta etapa, execute o seguinte comando no prompt de comando:
+    * Para desabilitar o controle de acesso de usuário remoto, em HKEY_LOCAL_MACHINE chave do registro \SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, adicione um novo DWORD: LocalAccountTokenFilterPolicy. Defina o valor como 1. Para executar esta etapa, execute o seguinte comando no prompt de comando:
 
          `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
-  * Para o Linux (**erro 95108**), você deve escolher a conta raiz para a instalação bem-sucedida do agente de mobilidade. Além disso, os serviços do SFTP devem estar em execução. Para habilitar a autenticação de subsistema e senha do SFTP no arquivo sshd_config:
+  * Para o Linux (**erro 95108**), você deve escolher a conta raiz para a instalação bem-sucedida do agente de mobilidade. Além disso, os serviços do SFTP devem estar em execução. Para habilitar a autenticação de subsistema e senha do SFTP no arquivo de sshd_config:
     1. Entre como raiz.
-    2. Vá para o arquivo/etc/ssh/sshd_config, localize a linha que começa com PasswordAuthentication.
+    2. Vá para/etc/ssh/sshd_config arquivo, localize a linha que começa com PasswordAuthentication.
     3. Remova a marca de comentário da linha e altere o valor para Sim.
     4. Localize a linha que começa com subsistema e remova a marca de comentário da linha.
     5. Reinicie o serviço sshd.
@@ -80,7 +80,7 @@ Portanto, modifique as credenciais escolhidas seguindo as instruções fornecida
 
 ### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>Os servidores de logon não estão disponíveis no computador de origem (errorID: 95521)
 
-Esse erro ocorre quando os servidores de logon não estão disponíveis no computador de origem. A indisponibilidade de servidores de logon levará a uma falha de solicitação de logon e, portanto, o agente de mobilidade não poderá ser instalado. Para o logon bem-sucedido, verifique se os servidores de logon estão disponíveis no computador de origem e inicie o serviço de logon. Para obter instruções detalhadas, consulte a mensagem de erro KB [139410](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available) : Não há servidores de logon disponíveis no momento.
+Esse erro ocorre quando os servidores de logon não estão disponíveis no computador de origem. A indisponibilidade de servidores de logon levará a uma falha de solicitação de logon e, portanto, o agente de mobilidade não poderá ser instalado. Para o logon bem-sucedido, verifique se os servidores de logon estão disponíveis no computador de origem e inicie o serviço de logon. Para obter instruções detalhadas, consulte a mensagem de erro KB [139410](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available) : não há servidores de logon disponíveis no momento.
 
 ### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>O serviço de logon não está em execução no computador de origem (errorID: 95522)
 
@@ -97,9 +97,9 @@ Servidor de configuração/servidor de processo de expansão tenta se conectar �
 * Além disso, para a **VM do Linux**,
   * Verifique se os pacotes OpenSSH, OpenSSH-Server e OpenSSL mais recentes estão instalados.
   * Verifique e verifique se o Secure Shell (SSH) está habilitado e em execução na porta 22.
-  * Os serviços SFTP devem estar em execução. Para habilitar a autenticação de subsistema e senha do SFTP no arquivo sshd_config,
+  * Os serviços SFTP devem estar em execução. Para habilitar a autenticação de subsistema e senha do SFTP no arquivo de sshd_config,
     * Entre como raiz.
-    * Vá para o arquivo/etc/ssh/sshd_config, localize a linha que começa com PasswordAuthentication.
+    * Vá para/etc/ssh/sshd_config arquivo, localize a linha que começa com PasswordAuthentication.
     * Remova a marca de comentário da linha e altere o valor para Sim
     * Localize a linha que começa com subsistema e remova a marca de comentário da linha
     * Reinicie o serviço sshd.
@@ -121,7 +121,7 @@ Para **windows 2008 R2 e versões anteriores**,
   * Localize regras de compartilhamento de arquivos e impressoras (NB-sessão-in) e compartilhamento de arquivos e impressoras (SMB-in). Para cada regra, clique com o botão direito do mouse na regra e clique em **Habilitar Regra**.
 * Para habilitar o compartilhamento de arquivos com o Política de Grupo,
   * Vá para iniciar, digite gpmc. msc e pesquise.
-  * No painel de navegação, abra as seguintes pastas: Política de computador local, configuração do usuário, Modelos Administrativos, componentes do Windows e compartilhamento de rede.
+  * No painel de navegação, abra as seguintes pastas: política de computador local, configuração do usuário, Modelos Administrativos, componentes do Windows e compartilhamento de rede.
   * No painel de detalhes, clique duas vezes em **impedir que os usuários compartilhem arquivos dentro de seu perfil**. Para desabilitar a configuração de Política de Grupo e habilitar a capacidade do usuário de compartilhar arquivos, clique em desabilitado. Clique em OK para salvar as alterações. Para saber mais, consulte [habilitar ou desabilitar o compartilhamento de arquivos com o política de grupo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
 Para **versões posteriores**, siga as instruções fornecidas em [instalar o serviço de mobilidade para recuperação de desastre de VMs VMware e servidores físicos](vmware-azure-install-mobility-service.md) para habilitar o compartilhamento de arquivos e impressoras.
@@ -134,7 +134,7 @@ Após a verificação dos serviços de arquivo e impressora, habilite o serviço
 * Clique em alterar configurações e, em seguida, clique na guia exceções.
 * Na janela exceções, marque a caixa de seleção Instrumentação de Gerenciamento do Windows (WMI) para habilitar o tráfego WMI por meio do firewall. 
 
-Você também pode habilitar o tráfego WMI por meio do firewall no prompt de comando. Use o comando a seguir`netsh advfirewall firewall set rule group="windows management instrumentation (wmi)" new enable=yes`
+Você também pode habilitar o tráfego WMI por meio do firewall no prompt de comando. Use o seguinte comando `netsh advfirewall firewall set rule group="windows management instrumentation (wmi)" new enable=yes`
 Outros artigos de solução de problemas do WMI podem ser encontrados nos artigos a seguir.
 
 * [Teste básico do WMI](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
@@ -148,7 +148,7 @@ Para exibir a lista de sistemas operacionais e versões de kernel com suporte pe
 
 ## <a name="unsupported-boot-disk-configurations-errorid-95309-95310-95311"></a>Configurações de disco de inicialização sem suporte (errorID: 95309, 95310, 95311)
 
-### <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Volumes/partições de inicialização e sistema não são o mesmo disco (errorID: 95309)
+### <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Partições/volumes de inicialização e sistema não são o mesmo disco (errorID: 95309)
 
 Antes da versão 9,20, partições/volumes de inicialização e de sistema em discos diferentes era uma configuração sem suporte. A partir da [versão 9,20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), há suporte para essa configuração. Use a versão mais recente para esse suporte.
 
@@ -164,7 +164,7 @@ Uma máquina virtual com vários discos de inicialização não é uma [configur
 
 Antes da versão 9,20, a partição raiz ou o volume disposto em vários discos era uma configuração sem suporte. A partir da [versão 9,20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), há suporte para essa configuração. Use a versão mais recente para esse suporte.
 
-## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>Falha ao habilitar a proteção, pois o nome do dispositivo mencionado na configuração do GRUB em vez de UUID (errorID: 95320)
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>Falha ao habilitar a proteção, pois o nome do dispositivo mencionado na configuração de GRUB em vez de UUID (errorID: 95320)
 
 **Causa possível:** </br>
 Os arquivos de configuração do GRUB ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/Grub2/grub.cfg" ou "/etc/default/grub") podem conter o valor para a **raiz** dos parâmetros e **retomar** como os nomes de dispositivo reais em vez de UUID. Site Recovery determina a abordagem do UUID, pois o nome dos dispositivos pode mudar na reinicialização da VM, pois a VM pode não ser exibida com o mesmo nome no failover, resultando em problemas. Por exemplo: </br>
@@ -174,8 +174,8 @@ Os arquivos de configuração do GRUB ("/boot/grub/menu.lst", "/boot/grub/grub.c
   *linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
 
 
-- A linha a seguir é do arquivo grub **/boot/grub/menu.lst**
-  *kernel/boot/vmlinuz-3.0.101-63-Default **raiz =/dev/sda2** **retomar =/dev/sda1** Splash = Silent crashkernel = 256M-: 128M showopts VGA = 0x314*
+- A linha a seguir é do arquivo GRUB **/boot/grub/menu.lst**
+  *kernel/boot/vmlinuz-3.0.101-63-Default **root =/dev/sda2** **retomar =/dev/sda1** Splash = Silent crashkernel = 256M-: 128M showopts VGA = 0x314*
 
 Se você observar a cadeia de caracteres em negrito acima, GRUB terá nomes de dispositivo reais para os parâmetros "root" e "resume" em vez de UUID.
  
@@ -195,7 +195,7 @@ Os nomes de dispositivo devem ser substituídos pelo UUID correspondente.<br>
    *kernel/boot/vmlinuz-3.0.101-63-Default **raiz = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume = UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b** Splash = Silent crashkernel = 256M-: 128M showopts VGA = 0x314*
 3. Reiniciar a proteção novamente
 
-## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>Instalação do serviço de mobilidade concluída com aviso para reinicializar (errorID: 95265 & 95266)
+## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>Instalação do serviço de mobilidade concluída com aviso para reinicialização (errorID: 95265 & 95266)
 
 Site Recovery serviço de mobilidade tem muitos componentes, um dos quais é chamado de driver de filtro. O driver de filtro é carregado na memória do sistema somente no momento da reinicialização do sistema. Isso significa que as correções de driver de filtro só podem ser percebidas quando um novo driver de filtro é carregado; que só pode ocorrer no momento da reinicialização do sistema.
 
@@ -279,7 +279,7 @@ Contate a [equipe da plataforma Microsoft Windows](https://aka.ms/Windows_Suppor
 
 Quando o problema DCOM for resolvido, reinstale o provedor de Azure Site Recovery VSS manualmente usando o seguinte comando:
  
-**C:\Arquivos de programas (x86) \Microsoft Azure site Recovery\agent > "C:\Arquivos de programas (x86) \Microsoft Azure site Recovery\agent\InMageVSSProvider_Install.cmd**
+**C:\Arquivos de programas (x86) \Microsoft Azure site Recovery\agent > "C:\Arquivos de programas (x86) \Microsoft Azure site Recovery\agent\ InMageVSSProvider_Install. cmd**
   
 Se a consistência do aplicativo não for crítica para seus requisitos de recuperação de desastre, você poderá ignorar a instalação do provedor do VSS. 
 
@@ -293,7 +293,7 @@ Para ignorar a instalação Azure Site Recovery do provedor VSS e instalar manua
    1. Abra o diretório de instalação do serviço de mobilidade Azure Site Recovery localizado em:
    
       C:\Arquivos de programas (x86) \Microsoft Azure site Recovery\agent
-   2. Modifique o Azure Site Recovery scripts de instalação do provedor VSS **nMageVSSProvider_Install** e **InMageVSSProvider_Uninstall. cmd** para sempre ter sucesso adicionando as seguintes linhas:
+   2. Modifique os scripts de instalação do provedor de VSS Azure Site Recovery **nMageVSSProvider_Install** e **InMageVSSProvider_Uninstall. cmd** para sempre ter sucesso adicionando as seguintes linhas:
     
       ```     
       rem @echo off
@@ -305,7 +305,7 @@ Para ignorar a instalação Azure Site Recovery do provedor VSS e instalar manua
 4. Quando a instalação for bem sucedido e passar para a próxima etapa, **Configure**, remova as linhas que você adicionou.
 5. Para instalar o provedor VSS, abra um prompt de comando como administrador e execute o seguinte comando:
    
-    **C:\Arquivos de programas (x86) \Microsoft Azure site Recovery\agent > .\InMageVSSProvider_Install.cmd**
+    **C:\Arquivos de programas (x86) \Microsoft Azure site Recovery\agent >. \ InMageVSSProvider_Install. cmd**
 
 9. Verifique se o provedor VSS do ASR está instalado como um serviço nos serviços do Windows e abra o MMC do serviço de componente para verificar se o provedor VSS do ASR está listado.
 10. Se a instalação do provedor VSS continuar a falhar, trabalhe com o CX para resolver os erros de permissões no CAPI2.
@@ -316,7 +316,7 @@ Esse problema faz com que a instalação do agente de mobilidade do Azure Site R
  
 ### <a name="to-identify-the-issue"></a>Para identificar o problema
 
-No log localizado no servidor de configuração em C:\ProgramData\ASRSetupLogs\UploadedLogs\<data/hora > UA_InstallLogFile. log, você encontrará a seguinte exceção:
+No log localizado no servidor de configuração em C:\ProgramData\ASRSetupLogs\UploadedLogs\<data-hora > UA_InstallLogFile. log, você encontrará a seguinte exceção:
 
 COM+ não pôde se comunicar com o Coordenador de Transações Distribuídas da Microsoft (exceção de HRESULT: 0x8004E00F)
 
@@ -332,7 +332,7 @@ Se a instalação do agente de mobilidade falhar, examine os logs em C:\ProgramD
 Para resolver o problema:
   
 1. Usando um editor do registro, como regedit. msc, abra o registro.
-2. Abra o nó HKEY_LOCAL_MACHINE\SYSTEM.
+2. Abra o nó HKEY_LOCAL_MACHINE \SYSTEM.
 3. No nó sistema, localize os conjuntos de controles.
 4. Abra cada conjunto de controle e verifique se os seguintes drivers do Windows estão presentes:
 
@@ -344,6 +344,6 @@ Para resolver o problema:
  
 Reinstale os drivers ausentes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba como](vmware-azure-tutorial.md) configurar a recuperação de desastre para VMs VMware.

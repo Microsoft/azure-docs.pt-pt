@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: explorar o ambiente de demonstração do Azure Time Series Insights Preview | Microsoft Docs'
-description: Início rápido para entender o ambiente de demonstração do Azure Time Series Insights Preview.
+title: 'Início rápido: explorar o ambiente de demonstração de visualização-Azure Time Series Insights | Microsoft Docs'
+description: Saiba mais sobre Azure Time Series Insights Visualizar ambientes de demonstração por meio de um guia de início rápido de exemplo.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 10/24/2019
-ms.openlocfilehash: 25d6d1aa1cf7db0f448ec22ed7b5c84d840af3f5
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 61d13831ff0d8810cfdce35f86a0402cb1679ad1
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579654"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014762"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Início rápido: explorar o ambiente de demonstração do Azure Time Series Insights Preview
 

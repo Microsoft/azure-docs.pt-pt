@@ -1,5 +1,5 @@
 ---
-title: Implantação de aplicativo do Azure Service Fabric | Microsoft Docs
+title: Implantação de Service Fabric do Azure com FabricClient
 description: Use as APIs do FabricClient para implantar e remover aplicativos no Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: c04306b417c8e68f2e93c0e5e064f5873b00ddd5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cdb5ae4efbd4119422101eb8a05ce71e7b58d51f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599621"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013299"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Implantar e remover aplicativos usando o FabricClient
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ FabricClient fabricClient = new FabricClient();
 ```
 
 ## <a name="upload-the-application-package"></a>Carregar o pacote de aplicativos
-Suponha que você crie e empacote um aplicativo chamado *MyApplication* no Visual Studio. Por padrão, o nome do tipo de aplicativo listado no ApplicationManifest. xml é "myapplicationtype".  O pacote de aplicativos, que contém o manifesto do aplicativo, os manifestos do serviço e os pacotes de código/configuração/dados necessários, está localizado em *\&C:\Users lt; username&gt;\Documents\Visual Studio 2019 \ Projects\MyApplication\ MyApplication\pkg\Debug*.
+Suponha que você crie e empacote um aplicativo chamado *MyApplication* no Visual Studio. Por padrão, o nome do tipo de aplicativo listado no ApplicationManifest. xml é "myapplicationtype".  O pacote de aplicativos, que contém o manifesto do aplicativo, os manifestos do serviço e os pacotes de código/configuração/dados necessários, está localizado em *C:\Users\&lt; username&gt;\Documents\Visual Studio 2019 \ Projects\MyApplication\MyApplication\pkg\Debug*.
 
 O carregamento do pacote de aplicativos o coloca em um local acessível pelos componentes internos do Service Fabric. Service Fabric verifica o pacote de aplicativos durante o registro do pacote de aplicativos. No entanto, se você quiser verificar o pacote de aplicativos localmente (ou seja, antes de carregar), use o cmdlet [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) .
 
@@ -132,23 +132,23 @@ O ImageStoreConnectionString é encontrado no manifesto do cluster:
 Consulte [entender a cadeia de conexão do repositório de imagens](service-fabric-image-store-connection-string.md) para obter informações complementares sobre o repositório de imagens e a cadeia de conexão do repositório de imagens.
 
 ### <a name="deploy-large-application-package"></a>Implantar pacote de aplicativo grande
-Problema: [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) A API atinge o tempo limite para um pacote de aplicativo grande (ordem de GB).
+Problema: a API [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) atinge o tempo limite para um pacote de aplicativo grande (ordem de GB).
 Experimente:
-- Especifique um tempo limite maior [](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) para o método CopyApplicationPackage `timeout` com o parâmetro. Por padrão, o tempo limite é de 30 minutos.
+- Especifique um tempo limite maior para o método [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) com o parâmetro `timeout`. Por padrão, o tempo limite é de 30 minutos.
 - Verifique a conexão de rede entre o computador de origem e o cluster. Se a conexão estiver lenta, considere usar um computador com uma conexão de rede melhor.
 Se o computador cliente estiver em outra região do que o cluster, considere usar um computador cliente em uma região mais próxima ou igual à do cluster.
 - Verifique se você está atingindo a limitação externa. Por exemplo, quando o repositório de imagens é configurado para usar o armazenamento do Azure, o upload pode ser limitado.
 
-Problema: O carregamento do pacote foi concluído com êxito, mas a API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) expira. Experimente:
+Problema: o pacote de carregamento foi concluído com êxito, mas a API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) expira. Tente
 - [Compacte o pacote](service-fabric-package-apps.md#compress-a-package) antes de copiar para o repositório de imagens.
 A compactação reduz o tamanho e o número de arquivos, o que, por sua vez, reduz a quantidade de tráfego e o trabalho que o Service Fabric deve executar. A operação de upload pode ser mais lenta (especialmente se você incluir o tempo de compactação), mas registrar e cancelar o registro do tipo de aplicativo é mais rápido.
-- Especifique um tempo limite maior [](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) para a API `timeout` ProvisionApplicationAsync com o parâmetro.
+- Especifique um tempo limite maior para a API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) com o parâmetro `timeout`.
 
 ### <a name="deploy-application-package-with-many-files"></a>Implantar pacote de aplicativos com muitos arquivos
-Problema: O [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) expira para um pacote de aplicativos com muitos arquivos (ordem de milhares).
+Problema: [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) o tempo limite para um pacote de aplicativos com muitos arquivos (ordem de milhares).
 Experimente:
 - [Compacte o pacote](service-fabric-package-apps.md#compress-a-package) antes de copiar para o repositório de imagens. A compactação reduz o número de arquivos.
-- Especifique um tempo limite maior [](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) para ProvisionApplicationAsync `timeout` com o parâmetro.
+- Especifique um tempo limite maior para [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) com o parâmetro `timeout`.
 
 ## <a name="code-example"></a>Exemplo de código
 O exemplo a seguir copia um pacote de aplicativos para o repositório de imagens e provisiona o tipo de aplicativo. Em seguida, o exemplo cria uma instância do aplicativo e cria uma instância de serviço. Por fim, o exemplo remove a instância do aplicativo, cancela o provisionamento do tipo de aplicativo e exclui o pacote de aplicativos do repositório de imagens.
@@ -331,7 +331,7 @@ static void Main(string[] args)
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Atualização do aplicativo Service Fabric](service-fabric-application-upgrade.md)
 
 [Introdução à integridade Service Fabric](service-fabric-health-introduction.md)

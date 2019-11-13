@@ -1,17 +1,14 @@
 ---
 title: Saiba Azure Policy do serviço kubernetes do Azure
 description: Saiba como Azure Policy usa o rego e o agente de política aberto para gerenciar clusters no serviço kubernetes do Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 248f96b4385e97605986b53bd94fd83236ec8f08
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dbac1ee762066fb59cd57c04839666026a2bd89b
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480905"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959805"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Entender Azure Policy para o serviço kubernetes do Azure
 
@@ -34,7 +31,7 @@ Para habilitar e usar Azure Policy para AKS com o cluster AKS, execute as seguin
 
 Antes de instalar o complemento Azure Policy ou habilitar qualquer um dos recursos de serviço, sua assinatura deve habilitar o provedor de recursos **Microsoft. ContainerService** e o provedor de recursos **Microsoft. PolicyInsights** , em seguida, ser aprovada para Participe da versão prévia. Para ingressar na versão prévia, siga estas etapas na portal do Azure ou com CLI do Azure:
 
-- Portal do Azure:
+- portal do Azure:
 
   1. Registre os provedores de recursos **Microsoft. ContainerService** e **Microsoft. PolicyInsights** . Para obter as etapas, consulte [provedores de recursos e tipos](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 

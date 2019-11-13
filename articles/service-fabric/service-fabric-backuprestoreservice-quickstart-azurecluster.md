@@ -1,5 +1,5 @@
 ---
-title: Backup e restauração periódicos no Azure Service Fabric | Microsoft Docs
+title: Backup e restauração periódicos no Azure Service Fabric
 description: Use o recurso de backup e restauração periódicos do Service Fabric para habilitar o backup de dados periódicos dos dados do seu aplicativo.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: d5d87f153b5835d5d2b38f380e5c77c03a68e1b5
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 43adb9f9d9989b39faa3af705a61ae8b0626a43e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928236"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005539"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Backup e restauração periódicos no Azure Service Fabric 
 > [!div class="op_single_selector"]

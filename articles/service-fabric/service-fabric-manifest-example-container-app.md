@@ -1,5 +1,5 @@
 ---
-title: Exemplos de manifesto do aplicativo de contêiner do Azure Service Fabric | Microsoft Docs
+title: Exemplos de manifesto do aplicativo de contêiner de Service Fabric do Azure
 description: Saiba como definir configurações de manifesto de aplicativo e serviço para um aplicativo de Service Fabric de vários contêineres.
 services: service-fabric
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: pepogors
-ms.openlocfilehash: ece0b763a2dbe501b0f46d026c59e1294a448c59
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 2d79f7dbf492b9473bcff147891df308674a8cf0
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650615"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013255"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Exemplos de manifesto e aplicação e serviço de múltiplos contentores
 Veja a seguir exemplos de manifestos de aplicativo e serviço para um aplicativo Service Fabric de vários contêineres. A finalidade desses exemplos é mostrar quais configurações estão disponíveis e como usá-las. Esses manifestos de aplicativo e serviço são baseados nos manifestos de [exemplo do contêiner do Windows Server 2016](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) .
@@ -28,7 +28,7 @@ Os seguintes recursos são mostrados:
 
 |Manifesto|Funcionalidades|
 |---|---|
-|[Manifesto da aplicação](#application-manifest)| [substituir variáveis de ambiente](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [Configurar o mapeamento de porta a host do contêiner](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), configurar a [autenticação do registro de contêiner](service-fabric-get-started-containers.md#configure-container-repository-authentication), governança de [recursos](service-fabric-resource-governance.md), [definir modo de isolamento](service-fabric-get-started-containers.md#configure-isolation-mode), [especificar contêiner específico da compilação do sistema operacional imagens](service-fabric-get-started-containers.md#specify-os-build-specific-container-images) do| 
+|[Manifesto da aplicação](#application-manifest)| [substituir variáveis de ambiente](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [Configurar o mapeamento de porta a host do contêiner](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), configurar a [autenticação do registro de contêiner](service-fabric-get-started-containers.md#configure-container-repository-authentication), governança de [recursos](service-fabric-resource-governance.md), [definir modo de isolamento](service-fabric-get-started-containers.md#configure-isolation-mode), [especificar imagens de contêiner específicas da compilação do sistema operacional](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
 |[Manifesto do serviço FrontEndService](#frontendservice-service-manifest)| [definir variáveis de ambiente](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configurar um ponto de extremidade](service-fabric-get-started-containers.md#configure-communication), passar comandos para o contêiner, [importar um certificado para um contêiner](service-fabric-securing-containers.md)| 
 |[Manifesto do serviço BackEndService](#backendservice-service-manifest)|[definir variáveis de ambiente](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configurar um ponto de extremidade](service-fabric-get-started-containers.md#configure-communication), configurar o driver de [volume](service-fabric-containers-volume-logging-drivers.md)| 
 
@@ -269,7 +269,7 @@ Consulte [elementos de manifesto do aplicativo](#application-manifest-elements),
 Descreve declarativamente o tipo e a versão do aplicativo. Um ou mais manifestos de serviço dos serviços constituintes são referenciados para compor um tipo de aplicativo. As definições de configuração dos serviços constituintes podem ser substituídas usando configurações de aplicativo com parâmetros. Serviços padrão, modelos de serviço, entidades, políticas, configuração de diagnóstico e certificados também podem ser declarados no nível do aplicativo. Para obter mais informações, consulte [elemento ApplicationManifest](service-fabric-service-model-schema-elements.md#ApplicationManifestElementApplicationManifestTypeComplexType)
 
 ### <a name="parameters-element"></a>Elemento Parameters
-Declara os parâmetros que são usados neste manifesto do aplicativo. O valor desses parâmetros pode ser fornecido quando o aplicativo é instanciado e pode ser usado para substituir as definições de configuração do aplicativo ou do serviço. Para obter mais informações, consulte [elemento](service-fabric-service-model-schema-elements.md#ParametersElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType) Parameters
+Declara os parâmetros que são usados neste manifesto do aplicativo. O valor desses parâmetros pode ser fornecido quando o aplicativo é instanciado e pode ser usado para substituir as definições de configuração do aplicativo ou do serviço. Para obter mais informações, consulte [elemento Parameters](service-fabric-service-model-schema-elements.md#ParametersElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)
 
 ### <a name="parameter-element"></a>Elemento Parameter
 Um parâmetro de aplicativo a ser usado neste manifesto. O valor do parâmetro pode ser alterado durante a instanciação do aplicativo ou, se nenhum valor for fornecido, o valor padrão será usado. Para obter mais informações, consulte [elemento Parameter](service-fabric-service-model-schema-elements.md#ParameterElementanonymouscomplexTypeComplexTypeDefinedInParameterselement)
@@ -333,7 +333,7 @@ Define um serviço sem estado. Para obter mais informações, consulte [elemento
 
 ## <a name="frontendservice-service-manifest-elements"></a>Elementos do manifesto do serviço FrontEndService
 ### <a name="servicemanifest-element"></a>Elemento do inmanifest
-Descreve declarativamente o tipo de serviço e a versão. Ele lista o código, a configuração e os pacotes de dados atualizáveis independentemente que compõem um pacote de serviço para dar suporte a um ou mais tipos de serviço. Os recursos, as configurações de diagnóstico e os metadados de serviço, como o tipo de serviço, as propriedades de integridade e as métricas de balanceamento de carga, também são especificados. Para obter mais informações, consulte [elemento](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType) do inmanifest
+Descreve declarativamente o tipo de serviço e a versão. Ele lista o código, a configuração e os pacotes de dados atualizáveis independentemente que compõem um pacote de serviço para dar suporte a um ou mais tipos de serviço. Os recursos, as configurações de diagnóstico e os metadados de serviço, como o tipo de serviço, as propriedades de integridade e as métricas de balanceamento de carga, também são especificados. Para obter mais informações, consulte [elemento do Inmanifest](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType)
 
 ### <a name="servicetypes-element"></a>Elemento de tipo
 Define quais tipos de serviço são compatíveis com um CodePackage neste manifesto. Quando um serviço é instanciado em relação a um desses tipos de serviço, todos os pacotes de código declarados nesse manifesto são ativados executando seus pontos de entrada. Os tipos de serviço são declarados no nível do manifesto e não no nível do pacote de código. Para obter mais informações, consulte [elemento do tipo](service-fabric-service-model-schema-elements.md#ServiceTypesElementServiceAndServiceGroupTypesTypeComplexTypeDefinedInServiceManifestTypecomplexType) de dados
@@ -351,7 +351,7 @@ O executável especificado pelo EntryPoint normalmente é o host de serviço de 
  Para obter mais informações, consulte [elemento ContainerHost](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="imagename-element"></a>Elemento ImageName
-O repositório e a imagem https://hub.docker.com no ou no registro de contêiner do Azure. Para obter mais informações, consulte o [elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+O repositório e a imagem no https://hub.docker.com ou no registro de contêiner do Azure. Para obter mais informações, consulte o [elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### <a name="environmentvariables-element"></a>Elemento EnvironmentVariables
 Passe as variáveis de ambiente para seu contêiner ou exe.  Para obter mais informações, consulte [elemento EnvironmentVariables](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
@@ -366,7 +366,7 @@ Declara uma pasta, nomeada pelo atributo Name, que contém um arquivo Settings. 
 Declara uma pasta, nomeada pelo atributo Name, que contém arquivos de dados estáticos. Service Fabric reciclará todos os EXEs e DLLHOSTs especificados no host e os pacotes de suporte quando qualquer um dos pacotes de dados listados no manifesto do serviço for atualizado. Para obter mais informações, consulte [elemento DataPackage](service-fabric-service-model-schema-elements.md#DataPackageElementDataPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedDataPackageelement)
 
 ### <a name="resources-element"></a>Elemento resources
-Descreve os recursos usados por esse serviço, que podem ser declarados sem modificar o código compilado e alterados quando o serviço é implantado. O acesso a esses recursos é controlado por meio das seções de entidades e políticas do manifesto do aplicativo. Para obter mais informações, consulte [elemento](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType) Resources
+Descreve os recursos usados por esse serviço, que podem ser declarados sem modificar o código compilado e alterados quando o serviço é implantado. O acesso a esses recursos é controlado por meio das seções de entidades e políticas do manifesto do aplicativo. Para obter mais informações, consulte [elemento resources](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
 
 ### <a name="endpoints-element"></a>Elemento de pontos de extremidade
 Define pontos de extremidade para o serviço. Para obter mais informações, consulte [elemento de pontos de extremidade](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)
@@ -377,7 +377,7 @@ Para obter mais informações, consulte [elemento de ponto de extremidade](servi
 
 ## <a name="backendservice-service-manifest-elements"></a>Elementos do manifesto do serviço BackEndService
 ### <a name="servicemanifest-element"></a>Elemento do inmanifest
-Descreve declarativamente o tipo de serviço e a versão. Ele lista o código, a configuração e os pacotes de dados atualizáveis independentemente que compõem um pacote de serviço para dar suporte a um ou mais tipos de serviço. Os recursos, as configurações de diagnóstico e os metadados de serviço, como o tipo de serviço, as propriedades de integridade e as métricas de balanceamento de carga, também são especificados. Para obter mais informações, consulte [elemento](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType) do inmanifest
+Descreve declarativamente o tipo de serviço e a versão. Ele lista o código, a configuração e os pacotes de dados atualizáveis independentemente que compõem um pacote de serviço para dar suporte a um ou mais tipos de serviço. Os recursos, as configurações de diagnóstico e os metadados de serviço, como o tipo de serviço, as propriedades de integridade e as métricas de balanceamento de carga, também são especificados. Para obter mais informações, consulte [elemento do Inmanifest](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType)
 
 ### <a name="servicetypes-element"></a>Elemento de tipo
 Define quais tipos de serviço são compatíveis com um CodePackage neste manifesto. Quando um serviço é instanciado em relação a um desses tipos de serviço, todos os pacotes de código declarados nesse manifesto são ativados executando seus pontos de entrada. Os tipos de serviço são declarados no nível do manifesto e não no nível do pacote de código. Para obter mais informações, consulte [elemento do tipo](service-fabric-service-model-schema-elements.md#ServiceTypesElementServiceAndServiceGroupTypesTypeComplexTypeDefinedInServiceManifestTypecomplexType) de dados
@@ -395,7 +395,7 @@ O executável especificado pelo EntryPoint normalmente é o host de serviço de 
 Para obter mais informações, consulte [elemento ContainerHost](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="imagename-element"></a>Elemento ImageName
-O repositório e a imagem https://hub.docker.com no ou no registro de contêiner do Azure. Para obter mais informações, consulte o [elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+O repositório e a imagem no https://hub.docker.com ou no registro de contêiner do Azure. Para obter mais informações, consulte o [elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### <a name="commands-element"></a>Elemento Commands
 Passe uma lista delimitada por vírgulas de comandos para o contêiner. Para obter mais informações, consulte [elemento Commands](service-fabric-service-model-schema-elements.md#CommandsElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
@@ -410,7 +410,7 @@ Variável de ambiente. Para obter mais informações, consulte [elemento Environ
 Declara uma pasta, nomeada pelo atributo Name, que contém um arquivo Settings. xml. Esse arquivo contém seções de configurações de par chave-valor definidas pelo usuário que o processo pode ler de volta em tempo de execução. Durante uma atualização, se apenas a versão do ConfigPackage tiver sido alterada, o processo em execução não será reiniciado. Em vez disso, um retorno de chamada notifica o processo de que as definições de configuração foram alteradas para que possam ser recarregadas dinamicamente. Para obter mais informações, consulte [elemento ConfigPackage](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
 
 ### <a name="resources-element"></a>Elemento resources
-Descreve os recursos usados por esse serviço, que podem ser declarados sem modificar o código compilado e alterados quando o serviço é implantado. O acesso a esses recursos é controlado por meio das seções de entidades e políticas do manifesto do aplicativo. Para obter mais informações, consulte [elemento](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType) Resources
+Descreve os recursos usados por esse serviço, que podem ser declarados sem modificar o código compilado e alterados quando o serviço é implantado. O acesso a esses recursos é controlado por meio das seções de entidades e políticas do manifesto do aplicativo. Para obter mais informações, consulte [elemento resources](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
 
 ### <a name="endpoints-element"></a>Elemento de pontos de extremidade
 Define pontos de extremidade para o serviço. Para obter mais informações, consulte [elemento de pontos de extremidade](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)

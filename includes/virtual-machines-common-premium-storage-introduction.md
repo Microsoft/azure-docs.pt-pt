@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b1287f9c7e946c7b4d035b2ad6301947ffad3cea
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 86d03e980a233a60e4f3a6541462264dae0862af
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523646"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005566"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: design para alto desempenho
-
 Este artigo fornece diretrizes para a criação de aplicativos de alto desempenho usando o armazenamento Premium do Azure. Você pode usar as instruções fornecidas neste documento combinadas com as práticas recomendadas de desempenho aplicáveis às tecnologias usadas pelo seu aplicativo. Para ilustrar as diretrizes, usamos SQL Server em execução no armazenamento Premium como um exemplo em todo este documento.
 
 Enquanto abordamos os cenários de desempenho da camada de armazenamento neste artigo, você precisará otimizar a camada de aplicativo. Por exemplo, se você estiver hospedando um farm do SharePoint no armazenamento Premium do Azure, poderá usar os exemplos de SQL Server deste artigo para otimizar o servidor de banco de dados. Além disso, otimize o servidor Web do farm do SharePoint e o servidor de aplicativos para obter o máximo de desempenho.

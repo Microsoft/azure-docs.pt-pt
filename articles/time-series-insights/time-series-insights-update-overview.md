@@ -1,6 +1,6 @@
 ---
-title: 'Visão geral: Azure Time Series Insights visualização | Microsoft Docs'
-description: Visão geral de Azure Time Series Insights visualização.
+title: 'Visão geral: o que é Azure Time Series Insights versão prévia? -Azure Time Series Insights | Microsoft Docs'
+description: Saiba mais sobre as principais melhorias na versão prévia do Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 10/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 05f4c64adad184e761e2b5a01b8c033c024dbc49
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: cde846152ff183db857b8a0549fafd24700ffff9
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585260"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014750"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>O que é a Pré-visualização do Azure Time Series Insights?
 
@@ -45,7 +45,7 @@ A imagem a seguir mostra um fluxo de dados de IoT típico.
 
 [![o fluxo de dados de IoT](media/v2-update-overview/overview-one.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-## <a name="azure-time-series-insights-for-industrial-iot"></a>Azure Time Series Insights para IoT industrial
+## <a name="azure-time-series-insights-for-industrial-iot"></a>O Azure Time Series Insights para o industrial IoT
 
 O cenário de IoT é diversificado com clientes abrangendo uma variedade de segmentos do setor, incluindo manufatura, automotivo, energia, utilitários, prédios inteligentes e consultoria. Em toda a ampla variedade de mercado IoT industrial, soluções nativas de nuvem que fornecem análises abrangentes direcionadas a dados de IoT de grande escala ainda estão em evolução. 
 
@@ -83,7 +83,7 @@ Com a introdução desses principais recursos de IoT industrial, a Time Series I
 | Integração tranqüila e contínua com outras soluções de dados | Os dados em Time Series Insights armazenamento frio são [armazenados](./time-series-insights-update-storage-ingress.md) em arquivos Apache parquet de software livre. Isso permite a integração de dados com outras soluções de dados, 1ª ou terceiros, para cenários que incluem business intelligence, aprendizado de máquina avançado e análise preditiva. |
 | Exploração de dados quase em tempo real | A experiência do usuário do [Azure Time Series insights Preview Explorer](./time-series-insights-update-explorer.md) fornece visualização para todos os fluxos de dados por meio do pipeline de ingestão. Depois de conectar uma origem de evento, você pode exibir, explorar e consultar dados de evento. Dessa forma, você pode validar se um dispositivo emite dados conforme o esperado. Você também pode monitorar um ativo de IoT quanto à integridade, à produtividade e à eficácia geral. | 
 | Extensibilidade e integração | A integração do conector de Power BI Azure Time Series Insights está disponível diretamente na experiência do usuário do Gerenciador de séries temporais por meio da opção **Exportar** , permitindo que os clientes exportem as consultas de série temporal que criam em nossa experiência do usuário diretamente na área de trabalho Power BI e exiba seus gráficos de série temporal juntamente com outras análises de BI. Isso abre a porta para uma nova classe de cenários para empresas IoT industriais que investiram em Power BI fornecendo um único painel sobre análise de várias fontes de dados, incluindo série temporal de IoT. | 
-| Aplicativos personalizados criados na plataforma de Time Series Insights | Time Series Insights dá suporte ao [SDK do JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). O SDK fornece controles avançados e acesso simplificado a consultas. Use o SDK para criar aplicativos de IoT personalizados sobre Time Series Insights para atender às suas necessidades de negócios. Você também pode usar as Time Series Insights [APIs de consulta](./time-series-insights-update-tsq.md) diretamente para impulsionar dados em aplicativos de IOT personalizados. |
+| Aplicativos personalizados criados na plataforma de Time Series Insights | Time Series Insights dá suporte ao [SDK do JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). O SDK fornece controles avançados e acesso simplificado às consultas. Use o SDK para criar aplicativos de IoT personalizados sobre Time Series Insights para atender às suas necessidades de negócios. Você também pode usar as Time Series Insights [APIs de consulta](./time-series-insights-update-tsq.md) diretamente para impulsionar dados em aplicativos de IOT personalizados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -92,7 +92,7 @@ Introdução à versão prévia do Azure Time Series Insights:
 > [!div class="nextstepaction"]
 > [Guia de início rápido](./time-series-insights-update-quickstart.md)
 
-Saiba mais sobre os casos de uso:
+Saiba mais sobre casos de utilização:
 
 > [!div class="nextstepaction"]
 > [Azure Time Series Insights Visualizar casos de uso](./time-series-insights-update-use-cases.md)

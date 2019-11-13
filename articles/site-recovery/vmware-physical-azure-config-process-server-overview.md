@@ -1,18 +1,18 @@
 ---
-title: Sobre o Azure Site Recovery configuração, processo e servidores de destino mestre | Microsoft Docs
+title: Sobre Azure Site Recovery configuração/processo/servidores de destino mestre
 description: Este artigo fornece uma visão geral dos servidores de destino de configuração, processo e mestre usando ao configurar a recuperação de desastre de VMs VMware locais para o Azure com Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a70400a1d0c710b939b4dd6d157cb06e729f53cb
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ad816f39dd4182dfa41fca975c99824a5d77f860
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747814"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961314"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Sobre componentes de Site Recovery (configuração, processo, destino mestre)
 

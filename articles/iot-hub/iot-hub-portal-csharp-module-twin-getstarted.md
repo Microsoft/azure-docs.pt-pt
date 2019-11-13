@@ -1,5 +1,5 @@
 ---
-title: Introdução à identidade de módulo e ao módulo duplo do Hub IoT do Azure (portal e .NET)| Microsoft Docs
+title: Identidade do módulo do Hub IoT do Azure & module/módulo (portal e .NET)
 description: Saiba como criar a identidade de módulo e atualizar o módulo duplo com o portal e o .NET.
 author: robinsh
 manager: philmea
@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 395b1fd3301925db0607f775c6b7367979ba367b
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 289c269100eb6ab672bb8d60562c1fa77d8d091a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147423"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954606"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Introdução à identidade de módulo e ao módulo duplo do Hub IoT com o portal e o dispositivo .NET
 
@@ -56,7 +56,7 @@ Numa identidade do dispositivo, pode criar até 20 identidades de módulo. Para 
 
 1. Insira o nome *myFirstModule*. Salve a identidade do módulo.
 
-    ![Adicionar identidade de módulo](./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png)
+    ![Adicionar identidade do módulo](./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png)
 
     A nova identidade do módulo aparece na parte inferior da tela. Selecione-o para ver os detalhes de identidade do módulo.
 
@@ -82,7 +82,7 @@ Para criar um aplicativo que atualiza as propriedades relatadas do módulo de at
 
 A identidade do módulo e o módulo "/" está em visualização pública. Ele só está disponível nos SDKs do dispositivo de pré-lançamento do Hub IoT. Para instalá-lo, siga estas etapas:
 
-1. No Visual Studio, abra **ferramentas** > **Gerenciador** > de pacotes NuGet**gerenciar pacotes NuGet para solução**.
+1. No Visual Studio, abra **ferramentas** > **Gerenciador de pacotes NuGet** > **gerenciar pacotes NuGet para solução**.
 
 1. Selecione **procurar**e, em seguida, selecione **incluir pré-lançamento**. Procure *Microsoft. Azure. Devices. Client*. Selecione a versão mais recente e instale.
 
@@ -94,7 +94,7 @@ A identidade do módulo e o módulo "/" está em visualização pública. Ele s�
 
 Você precisa da cadeia de conexão do módulo para seu aplicativo de console. Siga estes passos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Navegue até o Hub IoT e selecione **dispositivos IOT**. Abra **myFirstDevice** e você verá que o **myFirstModule** foi criado com êxito.
 
@@ -183,7 +183,7 @@ Para criar seu aplicativo, siga estas etapas:
 
 Este código de exemplo mostra como obter o módulo duplo e atualizar as propriedades reportadas com o protocolo AMQP. Na pré-visualização pública, o protocolo AMQP só é suportado para operações de módulo duplo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, veja:
 

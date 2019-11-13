@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sngun
-ms.openlocfilehash: 80a0a3440a7fb5d056d1d76fb9d82931721b6e16
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 32595e561736b5f22f109d0caff1f3990300d2bc
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514215"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007335"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Conectar-se de forma privada a uma conta do Azure Cosmos usando o link privado do Azure
 
@@ -36,12 +36,12 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
     | Definição | Valor |
     | ------- | ----- |
     | Nome | Insira *MyVirtualNetwork*. |
-    | Espaço de endereços | Insira *10.1.0.0/16*. |
+    | Espaço de endereços | Enter *10.1.0.0/16*. |
     | Subscrição | Selecione a sua subscrição.|
     | Grupo de recursos | Selecione **criar novo**, insira *MyResource*e, em seguida, selecione **OK**. |
     | Localização | Selecione **WestCentralUS**.|
     | Nome da sub-rede | Insira *mysubnet*. |
-    | Sub-rede - Intervalo de endereços | Insira *10.1.0.0/24*. |
+    | Sub-rede - Intervalo de endereços | Enter *10.1.0.0/24*. |
     |||
 
 1. Deixe o restante como padrão e selecione **criar**.
@@ -64,7 +64,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
     | Imagem | Selecione **Windows Server 2019 datacenter**. |
     | Tamanho | Deixe o **DS1 v2**padrão. |
     | **CONTA DE ADMINISTRADOR** |  |
-    | Nome de utilizador | Insira um nome de usuário de sua escolha. |
+    | Nome de Utilizador | Insira um nome de usuário de sua escolha. |
     | Palavra-passe | Insira uma senha de sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirmar senha | Insira a senha novamente. |
     | **REGRAS DE PORTA DE ENTRADA** |  |
@@ -99,7 +99,7 @@ Crie uma [conta da API do SQL do Azure Cosmos](../cosmos-db/create-cosmosdb-reso
 
 ## <a name="create-a-private-endpoint-for-your-azure-cosmos-account"></a>Criar um ponto de extremidade privado para sua conta do Azure Cosmos
 
-Crie um link privado para sua conta do Azure Cosmos, conforme descrito na seção [criar um link privado usando a Portal do Azure](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-link-using-the-azure-portal) do artigo vinculado.
+Crie um link privado para sua conta do Azure Cosmos, conforme descrito na seção [criar um link privado usando a Portal do Azure](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal) do artigo vinculado.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
 
@@ -109,7 +109,7 @@ Conecte-se à VM *myVm* da Internet da seguinte maneira:
 
 1. Selecione o botão **Ligar**. Depois de selecionar o botão **conectar** , **Conecte-se à máquina virtual** é aberto.
 
-1. Selecione **baixar arquivo RDP**. O Azure cria um arquivo protocolo RDP ( *. rdp*) e o baixa em seu computador.
+1. Selecione **transferir ficheiro RDP**. O Azure cria um arquivo protocolo RDP ( *. rdp*) e o baixa em seu computador.
 
 1. Abra o arquivo *. rdp* baixado.
 

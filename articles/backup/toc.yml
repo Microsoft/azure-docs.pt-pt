@@ -20,6 +20,8 @@
   items:
     - name: Fazer cópias de segurança de VMs do Azure em escala
       href: tutorial-backup-vm-at-scale.md
+    - name: Fazer cópias de segurança de VMs do Azure com o PowerShell
+      href: tutorial-backup-azure-vm.md
     - name: Restaurar discos
       href: tutorial-restore-disk.md
     - name: Restaurar ficheiros individuais

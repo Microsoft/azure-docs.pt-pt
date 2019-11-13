@@ -3,7 +3,7 @@ title: Relatórios de atividade de início de sessão no portal do Azure Active 
 description: Introdução aos relatórios de atividade de início de sessão no portal do Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 10/28/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 553d882600203d0fa01cd876562d9ced7985d7a8
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 778353621491f912d3237900785e6dee17bf975e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043839"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014481"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -105,13 +105,13 @@ O filtro **Aplicação** permite-lhe especificar o nome da aplicação que mais 
 
 O filtro **Estado do início de sessão** permite-lhe selecionar:
 
-- Tudo
+- Todos
 - Êxito
 - Falha
 
 O filtro de **acesso condicional** permite que você selecione o status da política de CA para a entrada:
 
-- Tudo
+- Todos
 - Não aplicado
 - Êxito
 - Falha
@@ -129,7 +129,7 @@ Quando selecionar um período de tempo personalizado, pode configurar uma hora d
 Se adicionar mais campos à vista de inícios de sessão, estes campos são adicionados automaticamente à lista de filtros. Por exemplo, ao adicionar o campo **Aplicação Cliente** à sua lista, também obtém outra opção de filtro que lhe permite definir os seguintes filtros:  
 ![Atividade de entrada](./media/concept-sign-ins/12.png "Atividade de início de sessão")
 
-- **Navegador**  
+- **Browser**  
     Esse filtro mostra todos os eventos em que as tentativas de entrada foram tentadas usando fluxos de navegador.
 - **Exchange ActiveSync (com suporte)**  
     Esse filtro mostra todas as tentativas de entrada em que o protocolo EAS (Exchange ActiveSync) foi tentado a partir de plataformas com suporte, como iOS, Android e Windows Phone.
@@ -146,14 +146,14 @@ Se adicionar mais campos à vista de inícios de sessão, estes campos são adic
         Office 2013 em sua configuração padrão em que a ADAL não está habilitada e está usando MAPI ou o Office 2016 em que a ADAL foi desabilitada.
     - **POP**  
         Um cliente de email herdado usando POP3 para recuperar email.
-    - **PROTOCOLO**  
+    - **SMTP**  
         Um cliente de email herdado usando SMTP para enviar email.
 
 ## <a name="download-sign-in-activities"></a>Transferir atividades de início de sessão
 
 Clique na opção **baixar** para criar um arquivo CSV ou JSON dos registros 250.000 mais recentes. Comece com [baixar os dados de entradas](quickstart-download-sign-in-report.md) se quiser trabalhar com eles fora do portal do Azure.  
 
-![Transferência](./media/concept-sign-ins/71.png "Transferir")
+![Transferir](./media/concept-sign-ins/71.png "Transferência")
 
 > [!IMPORTANT]
 > O número de registros que você pode baixar é restrito pelo [Azure Active Directory políticas de retenção de relatório](reference-reports-data-retention.md).  
@@ -187,13 +187,13 @@ Ao clicar num item, obtém mais detalhes sobre a operação de início de sessã
 
 - ID de Utilizador
 - Utilizador
-- Nome de utilizador
+- Nome de Utilizador
 - ID da aplicação
-- Candidatura
+- Aplicação
 - Cliente
 - Localização
 - Endereço IP
-- Date
+- Data
 - MFA Necessário
 - Estado de início de sessão
 

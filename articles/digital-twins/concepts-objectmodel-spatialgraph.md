@@ -1,5 +1,5 @@
 ---
-title: Entender os modelos de objeto gêmeos do Azure e o grafo de inteligência espacial | Microsoft Docs
+title: Entender os modelos de objeto e o grafo de inteligência espacial – gêmeos digital do Azure | Microsoft Docs
 description: Utilize Azure Digital Twins para modelar relações entre pessoas, lugares e dispositivos
 ms.author: alinast
 author: alinamstanciu
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.openlocfilehash: da345c0cf039e3cc2f7f8828a0769b6e65048571
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 85fb67248a69a2726fef99ebe4749d61807631e4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930405"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010093"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Entender os modelos de objeto gêmeos digital e o grafo de inteligência espacial
 
@@ -80,8 +80,8 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
 | Nome | Substituir |
 | --- | --- |
-| YOUR_INSTANCE_NAME | O nome da sua instância de gêmeos digital |
-| YOUR_LOCATION | Em qual região do servidor sua instância está hospedada |
+| YOUR_INSTANCE_NAME | O nome da sua instância de duplos Digital |
+| YOUR_LOCATION | Qual sua instância estiver alojada num servidor a região |
 
  O formato da URL completa aparece nessa imagem.
 

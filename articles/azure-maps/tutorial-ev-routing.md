@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9cc7fc1ba8c7f55700505ea8fca0dea4f836e333
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 9628e34b752abc8d77225a612f9f6daaf02fcbf7
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243291"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010934"
 ---
 # <a name="route-electric-vehicles-by-using-azure-notebooks-python"></a>Encaminhar veículos elétricos usando Azure Notebooks (Python)
 
@@ -41,13 +41,13 @@ Para concluir este tutorial, primeiro você precisa criar uma conta do Azure Map
 
 Para criar uma assinatura de conta do Azure Maps no tipo de preço S1, siga as instruções em [gerenciar sua conta do Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account). 
 
-Para obter a chave de assinatura primária para sua conta, siga as instruções em [Pesquisar pontos de interesse próximos usando mapas do Azure](./tutorial-search-location.md#getkey) .
+Para obter a chave de assinatura primária para sua conta, siga as instruções em [criar uma conta e obter sua chave](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-and-get-your-key).
 
 ## <a name="create-an-azure-notebook"></a>Criar um bloco de anotações do Azure
 
 Para acompanhar este tutorial, você precisa criar um projeto de bloco de anotações do Azure e baixar e executar o arquivo do bloco de anotações Jupyter. O arquivo de bloco de anotações contém o código Python, que implementa o cenário neste tutorial. Para criar um projeto de bloco de anotações do Azure e carregar o documento do bloco de anotações Jupyter para ele, faça o seguinte:
 
-1. Vá para [Azure notebooks](https://notebooks.azure.com) e entre. Para obter mais informações, consulte [início rápido: entrar e definir uma ID de usuário](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
+1. Aceda a [blocos de notas do Azure](https://notebooks.azure.com) e iniciar sessão. Para obter mais informações, consulte [início rápido: entrar e definir uma ID de usuário](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
 1. Na parte superior da sua página de perfil público, selecione **meus projetos**.
 
     ![O botão meus projetos](./media/tutorial-ev-routing/myproject.png)
@@ -81,7 +81,7 @@ Para ajudá-lo a entender melhor a funcionalidade implementada no arquivo do blo
 Para executar o código no bloco de anotações, instale os pacotes no nível do projeto fazendo o seguinte:
 
 1. Baixe o arquivo [*requirements. txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) do [repositório do bloco de anotações Jupyter do Azure Maps](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)e, em seguida, carregue-o em seu projeto.
-1. No painel do projeto, selecione **configurações do projeto**. 
+1. No dashboard do projeto, selecione **definições do projeto**. 
 1. No painel **configurações do projeto** , selecione a guia **ambiente** e, em seguida, selecione **Adicionar**.
 1. Em **etapas de configuração do ambiente**, faça o seguinte:   
     a. Na primeira lista suspensa, selecione **requirements. txt**.  
@@ -281,7 +281,7 @@ display(Image(poiRangeMap))
 
 Depois de determinar todas as possíveis estações de carregamento dentro do intervalo acessível, você deseja saber quais delas podem ser atingidas em um período mínimo de tempo. 
 
-O script a seguir chama a [API de roteamento de matriz](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)do Azure Maps, que retorna para o local do veículo especificado o tempo de viagem e a distância de cada estação de cobrança. O script na próxima célula analisa a resposta para localizar a estação de cobrança acessível mais próxima em relação ao tempo.
+O script a seguir chama a [API de roteamento de matriz](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)do Azure Maps, que retorna para o local do veículo especificado o tempo de viagem e a distância de cada estação de cobrança. O script na próxima célula analisa a resposta para localizar a estação de cobrança acessível mais próxima em relação ao tempo.
 
 Para localizar a estação de cobrança acessível mais próxima que pode ser alcançada na menor quantidade de tempo, execute o script na seguinte célula:
 
@@ -395,7 +395,7 @@ Para explorar as APIs do Azure Maps que são usadas neste tutorial, consulte:
 * [Postar pesquisa dentro da geometria](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)
 * [Carregamento de dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
 * [Render-obter imagem do mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Lançar matriz de rota](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)
+* [Lançar matriz de rota](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Obter direções de rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
 Para obter uma lista completa de APIs REST do Azure Maps, consulte [APIs REST do Azure Maps](https://docs.microsoft.com/azure/azure-maps/#reference).

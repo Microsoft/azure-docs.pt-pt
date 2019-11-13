@@ -1,19 +1,18 @@
 ---
-title: Excluir discos da replicação ao configurar a recuperação após desastre com o serviço Azure Site Recovery | Documentos da Microsoft
-description: Descreve como excluir discos da VM da replicação durante a recuperação após desastre para o Azure.
+title: Excluir discos da replicação na recuperação de desastre com o Azure Site Recovery
+description: Descreve como excluir discos de VM da replicação durante a recuperação de desastre para o Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 11/12/2019
 ms.author: mayg
-ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12304067e1a92559c2313fd7382f271249a8c784
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773936"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961446"
 ---
 # <a name="exclude-disks-from-replication"></a>Excluir discos da replicação
 Este artigo descreve como excluir discos da replicação. Esta exclusão pode otimizar a largura de banda de replicação consumida ou otimizar os recursos do lado do destino que esses discos utilizam.
@@ -60,7 +59,7 @@ Para compreender a funcionalidade de exclusão de discos, consideremos dois cen�
 - Disco tempdb do SQL Server
 - Disco do ficheiro de paginação (pagefile.sys)
 
-## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exemplo 1: Excluir o disco tempdb do SQL Server
+## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exemplo 1: excluir o disco tempdb do SQL Server
 Consideremos uma máquina virtual do SQL Server que tem um tempdb que pode ser excluído.
 
 O nome do disco virtual é SalesDB.
@@ -73,7 +72,7 @@ Os discos na máquina virtual de origem são os seguintes:
 DB-Disk0-OS | DISK0 | C:\ | Disco do sistema operativo
 DB-Disk1| Disk1 | D:\ | Base de dados do sistema SQL e User Database1
 DB-Disk2 (disco excluído da proteção) | Disk2 | E:\ | Ficheiros temporários
-DB-Disk3 (disco excluído da proteção) | Disk3 | F:\ | Base de dados tempdb do SQL (caminho da pasta (F:\MSSQL\Data\) <br /> <br />Anote o caminho da pasta antes da ativação pós-falha.
+DB-Disk3 (disco excluído da proteção) | Disk3 | F:\ | Base de dados tempdb do SQL (caminho da pasta (F:\MSSQL\Data\) <br /> <br />Anote o caminho da pasta antes do failover.
 DB-Disk4 | Disk4 |G:\ |User Database2
 
 Uma vez que as alterações a dados em dois discos da máquina virtual são temporárias, enquanto proteger a máquina virtual de SalesDB, exclua Disk2 e Disk3 da replicação. O Azure Site Recovery não irá replicar esses discos. Na ativação pós-falha, os discos não estarão presentes na máquina virtual de ativação pós-falha no Azure.
@@ -83,7 +82,7 @@ Os discos na máquina virtual do Azure após a ativação pós-falha são os seg
 **Sistema operativo convidado disco#** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | ---
 DISK0 | C:\ | Disco do sistema operativo
-Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona este disco e atribui a primeira letra de unidade disponível.
+Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona esse disco e atribui a primeira letra da unidade disponível.
 Disk2 | D:\ | Base de dados do sistema SQL e User Database1
 Disk3 | G:\ | User Database2
 
@@ -147,7 +146,7 @@ No exemplo anterior, a configuração de disco da máquina virtual do Azure é a
 **Sistema operativo convidado disco#** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | ---
 DISK0 | C:\ | Disco do sistema operativo
-Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona este disco e atribui a primeira letra de unidade disponível.
+Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona esse disco e atribui a primeira letra da unidade disponível.
 Disk2 | D:\ | Base de dados do sistema SQL e User Database1
 Disk3 | G:\ | User Database2
 
@@ -163,12 +162,12 @@ BD-Disk2 (disco excluído) | Disk2 | E:\ | Ficheiros temporários
 DB-Disk3 (disco excluído) | Disk3 | F:\ | Base de dados tempdb do SQL (caminho da pasta (F:\MSSQL\Data\)
 DB-Disk4 | Disk4 | G:\ | User Database2
 
-## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Exemplo 2: Excluir o disco do ficheiro de paginação (pagefile.sys)
+## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Exemplo 2: excluir o disco do ficheiro de paginação (pagefile.sys)
 
 Consideremos uma máquina virtual que tem um disco de ficheiro de paginação que pode ser excluído.
 Existem dois casos.
 
-### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Caso 1: O ficheiro de paginação está configurado na unidade d:
+### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Caso 1: o ficheiro de paginação está configurado na unidade D:
 Segue-se a configuração do disco:
 
 **Nome do disco** | **Sistema operativo convidado disco#** | **Letra da unidade** | **Tipo de dados no disco**
@@ -197,7 +196,7 @@ Seguem-se as definições de ficheiro de paginação na máquina virtual do Azur
 
 ![Definições de ficheiro de paginação na máquina virtual do Azure](./media/hyper-v-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
 
-### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Caso 2: O ficheiro de paginação está configurado noutra unidade (que não seja a unidade d)
+### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Caso 2: o ficheiro de paginação está configurado noutra unidade (que não seja a unidade D:)
 
 Segue-se a configuração de disco da máquina virtual de origem:
 
@@ -227,5 +226,5 @@ Seguem-se as definições de ficheiro de paginação na máquina virtual do Azur
 
 ![Definições de ficheiro de paginação na máquina virtual do Azure](./media/hyper-v-exclude-disk/pagefile-on-Azure-vm-after-failover-2.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Depois da implementação estar instalada e em execução, [saiba mais](site-recovery-failover.md) sobre os diferentes tipos de ativação pós-falha.

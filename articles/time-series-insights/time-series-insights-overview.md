@@ -1,5 +1,5 @@
 ---
-title: 'Visão geral: o que é Azure Time Series Insights? | Microsoft Docs'
+title: 'Visão geral: o que é Azure Time Series Insights? -Azure Time Series Insights | Microsoft Docs'
 description: Introdução ao Azure Time Series Insights, um serviço novo para análises de dados de séries de tempo e soluções de IoT.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 15674d995036d11e1b4ec0ceda5aa4bbf4952906
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: aa15e9c50cb5cd694a7a6adad352459536292b85
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990033"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012576"
 ---
 # <a name="what-is-azure-time-series-insights"></a>O que é o Azure Time Series Insights?
 
@@ -41,7 +41,7 @@ Azure Time Series Insights captura e armazena cada novo evento como uma linha, e
 
 ### <a name="learn-more-about-azure-time-series-insights-the-cloud-based-iot-analytics-platformbr"></a>Saiba mais sobre o Azure Time Series Insights, a plataforma de análise IoT baseada em nuvem.</br>
 
-[VÍDEO de![](https://img.youtube.com/vi/GaARrFfjoss/0.jpg)](https://www.youtube.com/watch?v=GaARrFfjoss)
+[VÍDEO de ![](https://img.youtube.com/vi/GaARrFfjoss/0.jpg)](https://www.youtube.com/watch?v=GaARrFfjoss)
 
 ## <a name="primary-scenarios"></a>Cenários principais
 
@@ -65,7 +65,7 @@ Azure Time Series Insights captura e armazena cada novo evento como uma linha, e
 
    Time Series Insights expõe as APIs de consulta REST que você pode usar para criar aplicativos que usam dados de série temporal.
 
-## <a name="capabilities"></a>Funções
+## <a name="capabilities"></a>Capacidades
 
 - Comece **rapidamente**: Azure Time Series insights não exige preparação de dados antecipada, para que você possa se conectar rapidamente a milhões de eventos em seu hub IOT ou Hub de eventos. Depois de se conectar, você pode visualizar e interagir com os dados do sensor para validar rapidamente suas soluções de IoT. Você pode interagir com seus dados sem escrever código e não precisa aprender uma nova linguagem. O Time Series Insights fornece uma superfície de consulta de texto livre granular para usuários avançados e exploração de apontar e clicar.
 

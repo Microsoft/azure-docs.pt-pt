@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas do Hyper-V para a recuperação de desastres do Azure com o Azure Site Recovery | Microsoft Docs
+title: Solucionar problemas de recuperação de desastres do Hyper-V com o Azure Site Recovery
 description: Descreve como solucionar problemas de recuperação de desastres com o Hyper-V para replicação do Azure usando o Azure Site Recovery
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 2cf43f8a235b112cfcf1fc6c9dba626a5a0c9b7e
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 0a3e5c922009353e4ba9ccab12cf70ea2b5992da
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828401"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961487"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solucionar problemas de replicação e failover do Hyper-V para o Azure
 
@@ -26,7 +26,7 @@ Se você tiver problemas ao habilitar a proteção para VMs do Hyper-V, verifiqu
 1. Verifique se os hosts e as VMs do Hyper-V atendem a todos os [requisitos e pré-requisitos](hyper-v-azure-support-matrix.md).
 2. Se os servidores Hyper-V estiverem localizados em nuvens System Center Virtual Machine Manager (VMM), verifique se você preparou o [servidor do VMM](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional).
 3. Verifique se o serviço gerenciamento de máquinas virtuais do Hyper-V está em execução em hosts Hyper-V.
-4. Verifique se há problemas que aparecem no Hyper-V-VMMS\Admin entrar na VM. Esse log está localizado > em **logs de aplicativos e serviços** **Microsoft** > **Windows**.
+4. Verifique se há problemas que aparecem no Hyper-V-VMMS\Admin entrar na VM. Esse log está localizado em **logs de aplicativos e serviços** > **Microsoft** > **Windows**.
 5. Na VM convidada, verifique se o WMI está habilitado e acessível.
    - [Saiba mais sobre](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) os testes básicos do WMI.
    - [Solucionar problemas](https://aka.ms/WMiTshooting) Esses.
@@ -62,7 +62,7 @@ Resolva os problemas com replicações iniciais e contínuas da seguinte forma:
 Limitações de largura de banda de rede podem afetar a replicação. Solucione problemas da seguinte maneira:
 
 1. [Verifique](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage) se há restrições de largura de banda ou limitação em seu ambiente.
-2. Execute o [planejador de implantações](hyper-v-deployment-planner-run.md)Profiler.
+2. Execute o [planejador de implantações Profiler](hyper-v-deployment-planner-run.md).
 3. Depois de executar o criador de perfil, siga as recomendações de [armazenamento](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) e [largura de banda](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) .
 4. Verifique as [limitações de rotatividade de dados](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits). Se você vir variação de dados alta em uma VM, faça o seguinte:
    - Verifique se sua VM está marcada para ressincronização.
@@ -75,12 +75,12 @@ Limitações de largura de banda de rede podem afetar a replicação. Solucione 
 
 1. Para verificar a integridade da replicação, conecte-se ao console do Gerenciador do Hyper-V local, selecione a VM e verifique a integridade.
 
-    ![Estado de funcionamento da replicação](media/hyper-v-azure-troubleshoot/replication-health1.png)
+    ![Integridade da replicação](media/hyper-v-azure-troubleshoot/replication-health1.png)
     
 
 2. Clique em **Exibir integridade da replicação** para ver os detalhes:
 
-    - Se a replicação estiver em pausa, clique com o botão direito do mouse na VM > **replicação** > **retomar replicação**.
+    - Se a replicação estiver em pausa, clique com o botão direito do mouse na VM > **replicação** > **retomar a replicação**.
     - Se uma VM em um host Hyper-V configurada em Site Recovery migrar para um host Hyper-V diferente no mesmo cluster ou para um computador autônomo, a replicação para a VM não será afetada. Basta verificar se o novo host Hyper-V atende a todos os pré-requisitos e está configurado em Site Recovery.
 
 ## <a name="app-consistent-snapshot-issues"></a>Problemas de instantâneo consistente com o aplicativo
@@ -107,15 +107,15 @@ Um instantâneo consistente com o aplicativo é um instantâneo pontual dos dado
     ![Disco dinâmico](media/hyper-v-azure-troubleshoot/dynamic-disk.png)
     
 4. Verifique se você não tem um disco iSCSI conectado à VM. Tal não é suportado.
-5. Verifique se o serviço de backup está habilitado. Verifique se ele está habilitado > nas **configurações do Hyper-V** **Integration Services**.
+5. Verifique se o serviço de backup está habilitado. Verifique se ele está habilitado nas **configurações do Hyper-V** > **Integration Services**.
 6. Verifique se não há conflitos com aplicativos usando instantâneos VSS. Se vários aplicativos estiverem tentando obter instantâneos VSS ao mesmo tempo, poderão ocorrer conflitos. Por exemplo, se um aplicativo de backup estiver usando instantâneos VSS quando Site Recovery estiver agendado pela política de replicação para tirar um instantâneo.   
 7. Verifique se a VM está apresentando uma alta taxa de rotatividade:
     - Você pode medir a taxa diária de alteração de dados para as VMs convidadas, usando contadores de desempenho no host Hyper-V. Para medir a taxa de alteração de dados, habilite o contador a seguir. Agregue um exemplo desse valor nos discos de VM por 5-15 minutos para obter a rotatividade de VM.
-        - Categorias "Dispositivo de armazenamento virtual do Hyper-V"
-        - Neutraliza "Bytes de gravação/s"</br>
+        - Categoria: "dispositivo de armazenamento virtual do Hyper-V"
+        - Contador: "bytes de gravação/s"</br>
         - Essa taxa de rotatividade de dados aumentará ou permanecerá em um alto nível, dependendo da ocupação da VM ou de seus aplicativos.
-        - A variação média de dados do disco de origem é de 2 MB/s para o armazenamento Standard para Site Recovery. [Saiba mais](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - Além disso, você pode [verificar as metas](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)de escalabilidade de armazenamento.
+        - A variação média de dados do disco de origem é de 2 MB/s para o armazenamento Standard para Site Recovery. [Saber mais](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
+    - Além disso, você pode [verificar as metas de escalabilidade de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets).
 8. Execute o [planejador de implantações](hyper-v-deployment-planner-run.md).
 9. Examine as recomendações para [rede](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) e [armazenamento](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 
@@ -123,34 +123,34 @@ Um instantâneo consistente com o aplicativo é um instantâneo pontual dos dado
 ### <a name="vss-failing-inside-the-hyper-v-host"></a>Falha do VSS dentro do host do Hyper-V
 
 1. Verifique os logs de eventos para obter erros e recomendações do VSS:
-    - No servidor de host do Hyper-v, abra o log de eventos do administrador do Hyper-v em **Visualizador de eventos** > logs > de**aplicativos e serviços** **Microsoft** > **Windows** > **Hyper-v**  >  **Administrador**.
+    - No servidor de host do Hyper-V, abra o log de eventos do administrador do Hyper-V em **Visualizador de Eventos** > **logs de aplicativos e serviços** > **Microsoft** > **Windows** > **Hyper-V** > **admin**.
     - Verifique se há algum evento que indique falhas de instantâneo consistentes com o aplicativo.
-    - Um erro típico é: "O Hyper-V não pôde gerar o conjunto de instantâneos VSS para a máquina virtual ' XYZ ': O gravador sofreu um erro não transitório. Reiniciar o serviço VSS pode resolver problemas se o serviço não estiver respondendo. "
+    - Um erro típico é: "o Hyper-V não pôde gerar o conjunto de instantâneos VSS para a máquina virtual ' XYZ ': o gravador sofreu um erro não transitório. Reiniciar o serviço VSS pode resolver problemas se o serviço não estiver respondendo. "
 
 2. Para gerar instantâneos do VSS para a VM, verifique se os Integration Services do Hyper-V estão instalados na VM e se o serviço de integração de backup (VSS) está habilitado.
     - Verifique se os Integration Services Service/daemons do VSS estão em execução no convidado e estão em um estado **OK** .
-    - Você pode verificar isso em uma sessão elevada do PowerShell no host Hyper-V com o comando **Get-VMIntegrationService-\<VMName VMName >-Name VSS** , você também pode obter essas informações fazendo logon na VM convidada. [Saiba mais](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - Você pode verificar isso em uma sessão do PowerShell com privilégios elevados no host Hyper-V com o comando **Get-VMIntegrationService-VMName\<VMName >-Name VSS** , você também pode obter essas informações fazendo logon na VM convidada. [Saiba mais](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - Verifique se os serviços de integração de backup/VSS na VM estão em execução e em estado íntegro. Caso contrário, reinicie esses serviços e o serviço do solicitante de cópia de sombra de volume do Hyper-V no servidor de host do Hyper-V.
 
 ### <a name="common-errors"></a>Erros comuns
 
 **Código de erro** | **Mensagem** | **Detalhes**
 --- | --- | ---
-**0x800700EA** | "O Hyper-V não pôde gerar o conjunto de instantâneos VSS para a máquina virtual: Mais dados estão disponíveis. (0x800700EA). A geração do conjunto de instantâneos VSS poderá falhar se a operação de backup estiver em andamento.<br/><br/> Falha na operação de replicação para a máquina virtual: Mais dados estão disponíveis. " | Verifique se a VM tem o disco dinâmico habilitado. Tal não é suportado.
+**0x800700EA** | "O Hyper-V não pôde gerar o conjunto de instantâneos VSS para a máquina virtual: mais dados estão disponíveis. (0x800700EA). A geração do conjunto de instantâneos VSS poderá falhar se a operação de backup estiver em andamento.<br/><br/> Falha na operação de replicação da máquina virtual: mais dados estão disponíveis. " | Verifique se a VM tem o disco dinâmico habilitado. Tal não é suportado.
 **0x80070032** | "O solicitante de cópia de sombra de volume do Hyper-V falhou ao se conectar à máquina virtual <./VMname > porque a versão não corresponde à versão esperada pelo Hyper-V | Verifique se as atualizações mais recentes do Windows estão instaladas.<br/><br/> [Atualize](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) para a versão mais recente do Integration Services.
 
 
 
 ## <a name="collect-replication-logs"></a>Coletar logs de replicação
 
-Todos os eventos de replicação do Hyper-V são registrados no log do Hyper-V-VMMS\Admin, localizado em logs > de **aplicativos e serviços** **Microsoft** > **Windows**. Além disso, você pode habilitar um log analítico para o serviço de gerenciamento de máquinas virtuais do Hyper-V, da seguinte maneira:
+Todos os eventos de replicação do Hyper-V são registrados no log do Hyper-V-VMMS\Admin, localizado em **logs de aplicativos e serviços** > **o Microsoft** > **Windows**. Além disso, você pode habilitar um log analítico para o serviço de gerenciamento de máquinas virtuais do Hyper-V, da seguinte maneira:
 
-1. Tornar os logs analíticos e de depuração visíveis no Visualizador de Eventos. Para disponibilizar os logs, na Visualizador de eventos, clique em **Exibir** > **Mostrar logs analíticos e de depuração.** O log analítico aparece em **Hyper-V-VMMS**.
+1. Tornar os logs analíticos e de depuração visíveis no Visualizador de Eventos. Para disponibilizar os logs, na Visualizador de Eventos, clique em **exibir** > **Mostrar logs analíticos e de depuração.** O log analítico aparece em **Hyper-V-VMMS**.
 2. No painel **ações** , clique em **habilitar log**. 
 
     ![Habilitar log](media/hyper-v-azure-troubleshoot/enable-log.png)
     
-3. Depois de habilitado, ele aparece no **Monitor de desempenho**, como uma **sessão de rastreamento de eventos** em conjuntos de coletores de **dados**. 
+3. Depois de habilitado, ele aparece no **Monitor de desempenho**, como uma **sessão de rastreamento de eventos** em conjuntos de **coletores de dados**. 
 4. Para exibir as informações coletadas, interrompa a sessão de rastreamento desabilitando o log. Em seguida, salve o log e abra-o novamente no Visualizador de Eventos ou use outras ferramentas para convertê-lo conforme necessário.
 
 
@@ -158,10 +158,10 @@ Todos os eventos de replicação do Hyper-V são registrados no log do Hyper-V-V
 
 **Log de eventos** | **Detalhes** |
 --- | ---
-**Aplicativos e logs de serviço/Microsoft/VirtualMachineManager/servidor/administrador** (Servidor VMM) | Logs para solucionar problemas do VMM.
-**Aplicativos e logs de serviço/MicrosoftAzureRecoveryServices/replicação** (Host Hyper-V) | Logs para solucionar problemas do Serviços de Recuperação do Microsoft Azure Agent. 
-**Aplicativos e logs de serviço/Microsoft/Azure site Recovery/provedor/operacional** (Host Hyper-V)| Logs para solucionar problemas de Microsoft Azure Site Recovery de serviço.
-**Aplicativos e logs de serviço/Microsoft/Windows/Hyper-V-VMMS/admin** (Host Hyper-V) | Logs para solucionar problemas de gerenciamento de VM do Hyper-V.
+**Aplicativos e logs de serviço/Microsoft/VirtualMachineManager/servidor/administrador** (servidor VMM) | Logs para solucionar problemas do VMM.
+**Aplicativos e logs de serviço/MicrosoftAzureRecoveryServices/replicação** (host Hyper-V) | Logs para solucionar problemas do Serviços de Recuperação do Microsoft Azure Agent. 
+**Aplicativos e logs de serviço/Microsoft/Azure site Recovery/provedor/operacional** (host Hyper-V)| Logs para solucionar problemas de Microsoft Azure Site Recovery de serviço.
+**Aplicativos e logs de serviço/Microsoft/Windows/Hyper-V-VMMS/admin** (host Hyper-V) | Logs para solucionar problemas de gerenciamento de VM do Hyper-V.
 
 ### <a name="log-collection-for-advanced-troubleshooting"></a>Coleta de log para solução de problemas avançada
 

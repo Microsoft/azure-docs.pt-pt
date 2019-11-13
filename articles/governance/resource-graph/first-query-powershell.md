@@ -1,17 +1,14 @@
 ---
 title: Executar sua primeira consulta usando o PowerShell
 description: Este artigo explica os passos para ativar o módulo do Resource Graph para o Azure PowerShell e executar a primeira consulta.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: quickstart
-ms.service: resource-graph
-ms.openlocfilehash: 9e41ca2e7c6d789b3d18fa98c4845118fa6538ef
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 6aaddcfc6cae16501ba6544f9789aa3ac1d13136
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622555"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958782"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Início rápido: executar sua primeira consulta de grafo de recursos usando Azure PowerShell
 

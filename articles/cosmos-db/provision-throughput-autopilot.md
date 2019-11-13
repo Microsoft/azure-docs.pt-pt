@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e0c3c88119c3d064326442881854920b411f5ed4
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 0e9f909aba11d35307e02a98a41ffa04e36e4db2
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748386"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953134"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Criar contêineres e bancos de dados do Azure Cosmos no modo de piloto automático (versão prévia)
 
@@ -24,7 +24,7 @@ Além do provisionamento manual da taxa de transferência, agora você pode conf
 
 Você não precisa mais gerenciar manualmente a taxa de transferência provisionada ou manipular problemas de limitação de taxa. Os contêineres de Cosmos do Azure configurados no modo AutoPilot podem ser redimensionados instantaneamente em resposta à carga de trabalho sem afetar a disponibilidade, a latência, a taxa de transferência ou o desempenho da carga de trabalho globalmente. Sob alta utilização, os contêineres de Cosmos do Azure configurados no modo de piloto automático podem ser escalados ou reduzidos verticalmente sem afetar as operações em andamento.
 
-Ao configurar contêineres e bancos de dados no modo de piloto automático, você precisa especificar que a taxa de transferência máxima não `Tmax` ser excedida. Os contêineres podem ser dimensionados instantaneamente com base nas necessidades de carga de trabalho dentro do intervalo de `0.1*Tmax < T < Tmax`. Em outras palavras, os contêineres e os bancos de dados são dimensionados instantaneamente com base nas necessidades de carga de trabalho, de até 10% do valor máximo de taxa de transferência que você configurou e até o valor máximo de taxa de transferência configurado. Você pode alterar a configuração de taxa de transferência máxima (tmax) no banco de dados ou contêiner do AutoPilot em qualquer momento.
+Ao configurar contêineres e bancos de dados no modo de piloto automático, você precisa especificar que a taxa de transferência máxima não `Tmax` ser excedida. Os contêineres podem ser dimensionados instantaneamente com base nas necessidades de carga de trabalho dentro do intervalo de `0.1*Tmax < T < Tmax`. Em outras palavras, os contêineres e os bancos de dados são dimensionados instantaneamente com base nas necessidades de carga de trabalho, de até 10% do valor máximo de taxa de transferência que você configurou e até o valor máximo de taxa de transferência configurado. Você pode alterar a configuração de taxa de transferência máxima (tmax) no banco de dados ou contêiner do AutoPilot em qualquer momento. Com a opção AutoPilot, a taxa de transferência mínima de 400 RU/s por contêiner ou banco de dados não é mais aplicável.
 
 Durante a versão prévia do piloto automático, para a taxa de transferência máxima especificada no contêiner ou no banco de dados, o sistema permite operar dentro do limite de armazenamento calculado. Se o limite de armazenamento for excedido, a taxa de transferência máxima será ajustada automaticamente para um valor mais alto. Ao usar a taxa de transferência no nível do banco de dados com o modo AutoPilot, o número de contêineres permitidos em um banco de dados é calculado como: (0, 1 * taxa de transferência máxima). Por exemplo, se você provisionar 20.000 AutoPilot RU/s, o banco de dados poderá ter 20 contêineres.
 

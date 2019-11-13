@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Azure Time Series Insights Explorer | Microsoft Docs'
-description: Este guia de início rápido mostra como começar a usar o Azure Time Series Insights Explorer em seu navegador da Web para visualizar grandes volumes de dados de IoT. Visita guiada pelas principais funcionalidades num ambiente de demonstração.
+title: 'Início rápido: Azure Time Series Insights Explorer-Azure Time Series Insights | Microsoft Docs'
+description: Saiba como começar a usar o Azure Time Series Insights Explorer. Visualize grandes volumes de dados de IoT e recursos principais de Tour do seu ambiente.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 09/23/2019
-ms.openlocfilehash: 156e95c88bc3c66890ba9c8baf9b281330b60186
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 0253a46cd73679c7c2f50a1e37d26d67578e342e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990914"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006426"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Guia de introdução: Explorar o Azure Time Series Insights
 
@@ -44,7 +44,7 @@ Este início rápido do Time Series Insights Explorer oferece um tour guiado de 
 
 1. O **painel de seleção de tempo** é exibido. Utilize este painel para selecionar um intervalo de tempo para visualizar.
 
-   [painel de seleção de![tempo](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
+   [painel de seleção de ![tempo](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
 
 1. Selecione um intervalo de tempo e arraste-o na região. Em seguida, selecione **Pesquisar**.
 
@@ -54,7 +54,7 @@ Este início rápido do Time Series Insights Explorer oferece um tour guiado de 
 
    Para retornar ao **painel de seleção de tempo**, selecione a seta para baixo conforme mostrado:
 
-   [Gráfico de![](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
+   [Gráfico de ![](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
 
 1. Selecione **Adicionar** no **painel termos** para adicionar um novo termo de pesquisa.
 
@@ -66,7 +66,7 @@ Este início rápido do Time Series Insights Explorer oferece um tour guiado de 
 
    Uma grade de seus dados brutos é exibida na região que você está explorando.
 
-   [exibição de grade![](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
+   [exibição de grade ![](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
 
 ## <a name="select-and-filter-data"></a>Selecionar e filtrar dados
 

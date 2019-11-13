@@ -3,7 +3,7 @@ title: Esquema de log de entrada no Azure Monitor | Microsoft Docs
 description: Descrever o esquema de logon de entrada do Azure AD para uso no Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4259a23778db175de2a0331e692e878df39d0a07
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 98157009b5a005d1d1f9efbe2f59bac1302cdb01
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895009"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014321"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretar o esquema de logs de entrada do Azure AD no Azure Monitor
 
@@ -145,22 +145,22 @@ Este artigo descreve o esquema de logon de entrada do Azure Active Directory (AD
 
 | Nome do campo | Descrição |
 |------------|-------------|
-| Tempo | A data e a hora, em UTC. |
+| Hora | A data e a hora, em UTC. |
 | ResourceId | Esse valor é não mapeado e você pode ignorar esse campo com segurança.  |
 | OperationName | Para entradas, esse valor é sempre a *atividade de entrada*. |
-| operationVersion | A versão da API REST solicitada pelo cliente. |
+| OperationVersion | A versão da API REST solicitada pelo cliente. |
 | Categoria | Para entradas, esse valor sempre é *Sign*-in. | 
-| tenantId | O GUID do locatário que está associado aos logs. |
-| resultType | O resultado da operação de entrada pode ser *êxito* ou *falha*. | 
-| resultSignature | Contém o código de erro, se houver, para a operação de entrada. |
-| resultDescription | Fornece a descrição do erro para a operação de entrada. |
+| TenantId | O GUID do locatário que está associado aos logs. |
+| ResultType | O resultado da operação de entrada pode ser *êxito* ou *falha*. | 
+| ResultSignature | Contém o código de erro, se houver, para a operação de entrada. |
+| ResultDescription | Fornece a descrição do erro para a operação de entrada. |
 | riskDetail | riskDetail | Fornece o "motivo" por trás de um estado específico de um usuário arriscado, uma conexão ou uma detecção de risco. Os valores possíveis são: `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. O valor `none` significa que nenhuma ação foi executada no usuário ou entrar até o momento. <br>**Observação:** Os detalhes dessa propriedade exigem uma licença Azure AD Premium P2. Outras licenças retornam o valor `hidden`. |
 | riskEventTypes | riskEventTypes | Tipos de detecção de risco associados à entrada. Os valores possíveis são: `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`, `generic`e `unknownFutureValue`. |
 | riskLevelAggregated | riskLevel | Nível de risco agregado. Os valores possíveis são: `none`, `low`, `medium`, `high`, `hidden`e `unknownFutureValue`. O valor `hidden` significa que o usuário ou a entrada não foi habilitado para Azure AD Identity Protection. **Observação:** Os detalhes desta propriedade estão disponíveis somente para clientes Azure AD Premium P2. Todos os outros clientes serão retornados `hidden`. |
 | riskLevelDuringSignIn | riskLevel | Nível de risco durante a entrada. Os valores possíveis são: `none`, `low`, `medium`, `high`, `hidden`e `unknownFutureValue`. O valor `hidden` significa que o usuário ou a entrada não foi habilitado para Azure AD Identity Protection. **Observação:** Os detalhes desta propriedade estão disponíveis somente para clientes Azure AD Premium P2. Todos os outros clientes serão retornados `hidden`. |
 | risco | risco | Relata o status do usuário arriscado, de entrada ou de uma detecção de risco. Os valores possíveis são: `none`, `confirmedSafe`, `remediated`, `dismissed`, `atRisk`, `confirmedCompromised`, `unknownFutureValue`. |
-| durationMs |  Esse valor é não mapeado e você pode ignorar esse campo com segurança. |
-| callerIpAddress | O endereço IP do cliente que fez a solicitação. | 
+| DurationMs |  Esse valor é não mapeado e você pode ignorar esse campo com segurança. |
+| CallerIpAddress | O endereço IP do cliente que fez a solicitação. | 
 | CorrelationId | O GUID opcional que é passado pelo cliente. Esse valor pode ajudar a correlacionar operações do lado do cliente com operações do lado do servidor e é útil quando você está controlando logs que abrangem serviços. |
 | Identidade | A identidade do token que foi apresentado quando você fez a solicitação. Pode ser uma conta de usuário, uma conta do sistema ou uma entidade de serviço. |
 | Nível | Fornece o tipo de mensagem. Para auditoria, é sempre *informativo*. |

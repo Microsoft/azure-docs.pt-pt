@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 91dc87cd6bda93663fb4b4eae3d498ae56ba4b3e
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 5af73e166f3caa4997851ae4b17d8377550bf40a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169601"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961541"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Solução de problemas & limitações do Azure Cloud Shell
 
@@ -36,7 +36,7 @@ As resoluções conhecidas para solucionar problemas no Azure Cloud Shell inclue
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Desabilitando Cloud Shell em um ambiente de rede bloqueado
 
-- **Detalhes**: os administradores podem desejar desabilitar o acesso a Cloud Shell para seus usuários. O Cloud Shell utiliza o acesso ao domínio `ux.console.azure.com`, que pode ser negado, interrompendo qualquer acesso aos ponto de entrada de Cloud Shell, incluindo portal.azure.com, shell.azure.com, Visual Studio Code extensão de conta do Azure e docs.microsoft.com.
+- **Detalhes**: os administradores podem desejar desabilitar o acesso a Cloud Shell para seus usuários. Cloud Shell utiliza o acesso ao domínio `ux.console.azure.com`, que pode ser negado, interrompendo qualquer acesso aos ponto de entrada de Cloud Shell, incluindo portal.azure.com, shell.azure.com, Visual Studio Code extensão de conta do Azure e docs.microsoft.com.
 - **Resolução**: restrinja o acesso a `ux.console.azure.com` por meio de configurações de rede para seu ambiente. O ícone de Cloud Shell ainda existirá em portal.azure.com, mas não se conectará com êxito ao serviço.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Caixa de diálogo de armazenamento-erro: 403 RequestDisallowedByPolicy
@@ -49,7 +49,7 @@ As resoluções conhecidas para solucionar problemas no Azure Cloud Shell inclue
 - **Detalhes**: ao usar uma assinatura do Azure Active Directory, você não pode criar o armazenamento.
 - **Resolução**: Use uma assinatura do Azure capaz de criar recursos de armazenamento. As assinaturas do Azure AD não são capazes de criar recursos do Azure.
 
-### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Saída de terminal-erro: falha ao conectar terminal: o WebSocket não pode ser estabelecido. Pressione `Enter` para reconectar.
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Saída de terminal-erro: falha ao conectar terminal: o WebSocket não pode ser estabelecido. Pressione `Enter` para reconectar-se.
 - **Detalhes**: Cloud Shell requer a capacidade de estabelecer uma conexão WebSocket com a infraestrutura Cloud Shell.
 - **Resolução**: Verifique se você definiu as configurações de rede para habilitar o envio de solicitações HTTPS e solicitações WebSocket para domínios em *. console.Azure.com.
 
@@ -87,11 +87,17 @@ As resoluções conhecidas para solucionar problemas no Azure Cloud Shell inclue
 
 Azure Cloud Shell tem as seguintes limitações conhecidas:
 
+### <a name="quota-limitations"></a>Limitações de cota
+
+Azure Cloud Shell tem um limite de 20 usuários simultâneos por locatário por região. Se você tentar abrir mais sessões simultâneas do que o limite, verá um erro "usuário do locatário sobre cota". Se você tiver uma necessidade legítima de ter mais sessões abertas do que isso (por exemplo, para sessões de treinamento), entre em contato com o suporte antes do uso antecipado para solicitar um aumento de cota.
+
+O Cloud Shell é fornecido como um serviço gratuito e foi projetado para ser usado para configurar seu ambiente do Azure, não como uma plataforma de computação de uso geral. O uso automatizado excessivo pode ser considerado em violação aos termos de serviço do Azure e pode levar a Cloud Shell acesso bloqueado.
+
 ### <a name="system-state-and-persistence"></a>Estado do sistema e persistência
 
 O computador que fornece sua sessão de Cloud Shell é temporário e é reciclado depois que a sessão está inativa por 20 minutos. Cloud Shell requer que um compartilhamento de arquivos do Azure seja montado. Como resultado, sua assinatura deve ser capaz de configurar recursos de armazenamento para acessar Cloud Shell. Outras considerações incluem:
 
-- Com o armazenamento montado, somente as modificações no diretório `clouddrive` são mantidas. No bash, seu diretório `$HOME` também é persistido.
+- Com o armazenamento montado, somente as modificações dentro do diretório `clouddrive` são mantidas. No bash, seu diretório de `$HOME` também é persistido.
 - Os compartilhamentos de arquivos do Azure podem ser montados somente de dentro de sua [região atribuída](persisting-shell-storage.md#mount-a-new-clouddrive).
   - No bash, execute `env` para localizar sua região definida como `ACC_LOCATION`.
 - Os arquivos do Azure dão suporte apenas a contas de armazenamento com redundância local e de armazenamento geograficamente.
@@ -117,7 +123,7 @@ O Cloud Shell destina-se a casos de uso interativos. Como resultado, todas as se
 
 ### <a name="user-permissions"></a>Permissões de utilizador
 
-As permissões são definidas como usuários regulares sem acesso ao sudo. Qualquer instalação fora do diretório `$Home` não será persistida.
+As permissões são definidas como usuários regulares sem acesso ao sudo. Qualquer instalação fora de seu diretório `$Home` não é persistente.
 
 ## <a name="bash-limitations"></a>Limitações do bash
 
@@ -131,7 +137,7 @@ Tome cuidado ao editar. bashrc, isso pode causar erros inesperados no Cloud Shel
 
 Atualmente, `AzureAD.Standard.Preview`, uma versão de visualização do módulo baseado em .NET Standard, está disponível. Esse módulo fornece a mesma funcionalidade que `AzureAD`.
 
-### <a name="sqlserver-module-functionality"></a>funcionalidade de módulo `SqlServer`
+### <a name="sqlserver-module-functionality"></a>`SqlServer` funcionalidade do módulo
 
 O módulo `SqlServer` incluído no Cloud Shell tem apenas suporte de pré-lançamento para o PowerShell Core. Em particular, `Invoke-SqlCmd` ainda não está disponível.
 
@@ -145,7 +151,7 @@ Se o PSReadline EditMode do usuário for definido como Emacs, o usuário tentar�
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>Lacuna grande após a exibição da barra de progresso
 
-Se um comando ou uma ação do usuário exibir uma barra de progresso, como a conclusão da tecla enquanto estiver na unidade `Azure:`, é possível que o cursor não esteja definido corretamente e um intervalo apareça em que a barra de progresso foi anteriormente.
+Se um comando ou uma ação do usuário exibir uma barra de progresso, como uma guia de conclusão enquanto estiver na unidade de `Azure:`, é possível que o cursor não esteja definido corretamente e um intervalo apareça onde a barra de progresso foi anteriormente.
 
 ### <a name="random-characters-appear-inline"></a>Os caracteres aleatórios aparecem embutidos
 
@@ -160,7 +166,7 @@ Azure Cloud Shell leva seus dados pessoais seriamente, os dados capturados e arm
 ### <a name="export"></a>Exportar
 Para **Exportar** as configurações de usuário Cloud Shell salvas para você, como o Shell preferencial, o tamanho da fonte e o tipo de fonte, execute os comandos a seguir.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Iniciar Azure Cloud Shell")](https://shell.azure.com)
+1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 2. Execute os seguintes comandos no bash ou PowerShell:
 
 Raso
@@ -183,7 +189,7 @@ Para **excluir** as configurações de usuário Cloud Shell salvas para você, c
 >[!Note]
 > Se você excluir suas configurações de usuário, o compartilhamento real de arquivos do Azure não será excluído. Vá para os arquivos do Azure para concluir essa ação.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Iniciar Azure Cloud Shell")](https://shell.azure.com)
+1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 2. Execute os seguintes comandos no bash ou PowerShell:
 
 Raso

@@ -1,6 +1,6 @@
 ---
-title: Modelagem de dados na visualização de Azure Time Series Insights | Microsoft Docs
-description: Entenda a modelagem de dados na visualização Azure Time Series Insights.
+title: Modelagem de dados em ambientes de visualização – Azure Time Series Insights | Microsoft Docs
+description: Saiba mais sobre a modelagem de dados na visualização Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81c2c2af78f5f066e1b27e14fa774df04d7c5868
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: fb1bfb30d531f8b93489c8fc1dfbc6b8172339a3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063990"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006465"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelagem de dados na visualização Azure Time Series Insights
 
@@ -23,7 +23,7 @@ Este artigo descreve como trabalhar com o modelo de série temporal na visualiza
 
 Para saber mais sobre como usar a atualização, leia [Azure Time Series insights Gerenciador de visualização](./time-series-insights-update-explorer.md).
 
-## <a name="types"></a>Digita
+## <a name="types"></a>Tipos
 
 ### <a name="create-a-single-type"></a>Criar um único tipo
 
@@ -76,7 +76,7 @@ Para saber mais sobre como usar a atualização, leia [Azure Time Series insight
 
 1. Insira os detalhes da hierarquia e selecione **criar**.
 
-    [![os detalhes do hierarquia e o botão "criar"](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
+    [detalhes da hierarquia de ![e o botão "criar"](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-hierarchies"></a>Carregar em massa uma ou mais hierarquias
 
@@ -100,7 +100,7 @@ Para saber mais sobre como usar a atualização, leia [Azure Time Series insight
 
     [botão !["excluir"](media/v2-update-how-to-tsm/portal-twelve.png)](media/v2-update-how-to-tsm/portal-twelve.png#lightbox)
 
-## <a name="instances"></a>Instâncias
+## <a name="instances"></a>instâncias
 
 ### <a name="create-a-single-instance"></a>Criar uma única instância
 

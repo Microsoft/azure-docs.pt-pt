@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 789cc1d835024babb2482b2601503dbaf7247fc2
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 5b1e417ecd41f93d7919b67ebdd3faf32521d8a4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747419"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012917"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar Servidor de Backup do Azure
 
@@ -185,14 +185,14 @@ Quando o processo de extração for concluído, marque a caixa para iniciar o *S
 
     Use os seguintes valores para a configuração do SSRS:
     * Conta de serviço: ' usar conta interna ' deve ser serviço de rede
-    * URL do serviço Web: ' diretório virtual ' deve ser ReportServer_<SQLInstanceName>
-    * Banco de dados: DatabaseName deve ser ReportServer $<SQLInstanceName>
-    * URL do portal da Web: ' diretório virtual ' deve ser Reports_<SQLInstanceName>
+    * URL do serviço Web: ' diretório virtual ' deve ser ReportServer_\<SQLINSTANCENAME >
+    * Banco de dados: DatabaseName deve ser ReportServer $\<SQLINSTANCENAME >
+    * URL do portal da Web: ' diretório virtual ' deve ser Reports_\<SQLINSTANCENAME >
 
     [Saiba mais](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sobre a configuração do SSRS.
 
     > [!NOTE]
-    > O licenciamento para SQL Server usado como o banco de dados do MABS é regido pelos [termos do Microsoft Online Services](https://www.microsoft.com/en-us/licensing/product-licensing/products) (OST). De acordo com o OST, SQL Server agrupadas com MABS podem ser usadas somente como o banco de dados para MABS.
+    > O licenciamento para SQL Server usado como o banco de dados do MABS é regido pelos [termos do Microsoft Online Services](https://www.microsoft.com/licensing/product-licensing/products) (OST). De acordo com o OST, SQL Server agrupadas com MABS podem ser usadas somente como o banco de dados para MABS.
 
 4. Forneça um local para a instalação de arquivos do Backup do Microsoft Azure Server e clique em **Avançar**.
 
@@ -290,11 +290,11 @@ Depois de saber o estado da conectividade do Azure e da assinatura do Azure, voc
 
 | Estado de conectividade | Subscrição do Azure | Fazer backup no Azure | Fazer backup em disco | Restaurar do Azure | Restaurar a partir do disco |
 | --- | --- | --- | --- | --- | --- |
-| Ligada |Ativa |Permitidos |Permitidos |Permitidos |Permitidos |
-| Ligada |Fora do prazo |Parada |Parada |Permitidos |Permitidos |
+| Ligada |Ativa |Permitido |Permitido |Permitido |Permitido |
+| Ligada |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Ligada |Desprovisionada |Parada |Parada |Parado e pontos de recuperação do Azure excluídos |Parada |
-| Perda de conectividade > 15 dias |Ativa |Parada |Parada |Permitidos |Permitidos |
-| Perda de conectividade > 15 dias |Fora do prazo |Parada |Parada |Permitidos |Permitidos |
+| Perda de conectividade > 15 dias |Ativa |Parada |Parada |Permitido |Permitido |
+| Perda de conectividade > 15 dias |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Perda de conectividade > 15 dias |Desprovisionada |Parada |Parada |Parado e pontos de recuperação do Azure excluídos |Parada |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperando da perda de conectividade
@@ -336,7 +336,7 @@ Use as seguintes etapas para atualizar o MABS:
    >
    > Não sair enquanto a instância do SQL estiver sendo atualizada, a saída desinstalará a instância de relatórios SQL e, portanto, uma tentativa de atualizar novamente o MABS falhará.
 
-   Coisas importantes a observar:
+
 
    > [!IMPORTANT]
    >

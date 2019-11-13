@@ -1,5 +1,5 @@
 ---
-title: Gerenciamento de dispositivos do Azure IoT com o Cloud Explorer para Visual Studio | Microsoft Docs
+title: Gerenciamento de dispositivo IoT do Azure w/Gerenciador de nuvem do Visual Studio
 description: Use o Cloud Explorer para Visual Studio para o gerenciamento de dispositivos do Hub IoT do Azure, apresentando os métodos diretos e as opções de gerenciamento de propriedades desejadas do entrelaçamento.
 author: shizn
 ms.service: iot-hub
@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
-ms.openlocfilehash: e05ba421a4535e6e424e65a1f2271d19f9d9abf4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 6fe5a45dda6632c56b3c6714827950e25e7d26af
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048721"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953189"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Usar o Cloud Explorer para Visual Studio para gerenciamento de dispositivos do Hub IoT do Azure
 
@@ -59,7 +59,7 @@ O componente Cloud Explorer da Instalador do Visual Studio para Visual Studio 20
 
 ## <a name="sign-in-to-access-your-hub"></a>Entre para acessar seu hub
 
-1. No Visual Studio, selecione **Exibir** > **Cloud Explorer** para abrir o Cloud Explorer.
+1. No Visual Studio, selecione **exibir** > **Cloud Explorer** para abrir o Cloud Explorer.
 
 1. Selecione o ícone gerenciamento de contas para mostrar suas assinaturas.
 
@@ -79,7 +79,7 @@ Para usar métodos diretos, execute as seguintes etapas:
 
 1. Clique com o botão direito do mouse no dispositivo e selecione **invocar método direto do dispositivo**.
 
-1. Insira o nome do método e a carga em invocar o **método direto**e, em seguida, selecione **OK**.
+1. Insira o nome do método e a carga em **invocar o método direto**e, em seguida, selecione **OK**.
 
     Os resultados aparecem na **saída**.
 
@@ -91,7 +91,7 @@ Para editar um dispositivo, execute as seguintes etapas:
 
    Um arquivo **Azure-IOT-Device-entrelaça. JSON** é aberto com o conteúdo do dispositivo.
 
-1. Faça algumas edições de **marcas** ou **Propriedades.** os campos desejados para o arquivo **Azure-IOT-Device-entrelaça. JSON** .
+1. Faça algumas edições de **marcas** ou **Propriedades. os campos desejados** para o arquivo **Azure-IOT-Device-entrelaça. JSON** .
 
 1. Pressione **Ctrl + S** para atualizar o dispositivo.
 
@@ -107,7 +107,7 @@ Para enviar uma mensagem do Hub IoT para seu dispositivo, siga estas etapas:
 
    Os resultados aparecem na **saída**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você aprendeu a usar o Cloud Explorer para Visual Studio com várias opções de gerenciamento.
 

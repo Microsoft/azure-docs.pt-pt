@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f9a3c4875f01c650485034fe46f53bb5aa1fd75b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: cb7ebe5d9519f1a3967a29f4c883c420a892817f
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722644"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958010"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego do Azure Maps
 
 O mapas do Azure fornece informações de tráfego avançadas na forma de **fluxo** de tráfego e **incidentes**. Esses dados podem ser visualizados em mapas ou usados para gerar rotas mais inteligentes no fator em condições de condução real.
 
-No entanto, o Maps não tem o mesmo nível de informações e precisão para todas as regiões. A tabela a seguir fornece informações sobre o tipo de informações de tráfego que você pode solicitar de cada região: 
+No entanto, o Maps não tem o mesmo nível de informações e precisão para todos os países ou regiões. A tabela a seguir fornece informações sobre o tipo de informações de tráfego que você pode solicitar de cada país ou região: 
 
 ## <a name="americas"></a>Américas
 
@@ -31,7 +31,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |Chile     |✓         |✓         |
 |Colômbia      |✓         |✓         |
 |México     |✓         |✓         |
-|Perú       |✓         |✓         | 
+|Peru       |✓         |✓         | 
 |Estados Unidos     |✓         |✓        |
 |\+ Porto Rico     |✓         |✓         |
 |Uruguai |✓         |✓         |
@@ -83,7 +83,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |Cazaquistão    |✓         |✓        |
 |Letónia     |✓         |✓         |
 |Lesoto     |✓         |✓         |
-|Listenstaine      |✓         |✓         |
+|Liechtenstein      |✓         |✓         |
 |Lituânia     |✓         |✓         |
 |Luxemburgo     |✓         |✓         |
 |Malta     |✓         |✓         |
@@ -95,7 +95,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |\+ Açores e madeira     |✓         |✓         |
 |Roménia     |✓         |✓         |
 |Federação Russa     |✓         |✓         |
-|São Marino    |✓         |✓         |
+|São Marinho    |✓         |✓         |
 |Sérvia   |✓         |✓         |
 |Eslováquia     |✓         |✓         |
 |Eslovénia     |✓         |✓         |
@@ -132,6 +132,6 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |África do Sul     |✓         |✓         |
 |Emirados Árabes Unidos  |✓         |✓         |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre os dados de tráfego do Azure Maps, consulte as páginas de referência de [tráfego](https://docs.microsoft.com/rest/api/maps/traffic) .

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implementar o Azure Digital Twins | Microsoft Docs'
+title: 'Tutorial: implantar um grafo espacial – gêmeos digital do Azure | Microsoft Docs'
 description: Saiba como implementar a sua instância do duplos Digital do Azure e configurar os seus recursos espaciais, utilizando os passos neste tutorial.
 services: digital-twins
 ms.author: alinast
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 09/17/2019
-ms.openlocfilehash: 54afe8ea67996562c88a2ade2ec16c4eaa89cdee
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 481e38df0855eddd7e050afad0fd0220b3c66690
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949734"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014056"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Implantar o Azure digital gêmeos Preview e configurar um grafo espacial
+# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: implantar o Azure digital gêmeos Preview e configurar um grafo espacial
 
 Você pode usar o serviço de visualização do gêmeos digital do Azure para reunir pessoas, lugares e dispositivos em um sistema espacial coerente. Esta série de tutoriais demonstra como utilizar o gémeos Digital do Azure para detetar a ocupação da sala com condições ideais de qualidade de temperatura e ar. 
 
@@ -24,7 +24,7 @@ Estes tutoriais irão guiá-lo por meio de uma aplicação de consola .NET para 
 
 Aprenderá como replicar as áreas físicas e entidades no prédio como objetos digital com o serviço de duplos Digital do Azure. Irá simular eventos de dispositivos através de outra aplicação de consola. Em seguida, irá aprender a monitorizar os eventos provenientes destas áreas físicas e entidades em tempo real. 
 
-O administrador dos escritório pode utilizar estas informações para ajudar os funcionários que trabalham neste edifício a reservarem salas de reuniões com as condições ideais. Um Gestor de recursos do office pode utilizar a configuração para obter tendências de utilização dos ambientes e monitorizar as condições de trabalho para fins de manutenção.
+O administrador dos escritórios pode utilizar estas informações para ajudar os funcionários que trabalham neste edifício a reservarem salas de reuniões com as condições ideais. Um Gestor de recursos do office pode utilizar a configuração para obter tendências de utilização dos ambientes e monitorizar as condições de trabalho para fins de manutenção.
 
 No primeiro tutorial da série, vai aprender a:
 
@@ -34,7 +34,7 @@ No primeiro tutorial da série, vai aprender a:
 > * Modificar uma aplicação de exemplo duplos Digital.
 > * Aprovisione a sua criação.
 
-Estes tutoriais utilizam e modificam os mesmos exemplos que o artigo [Quickstart to find available rooms](quickstart-view-occupancy-dotnet.md) (início rápido para descobrir salas disponíveis) utiliza, para proporcionar uma cobertura mais detalhada e aprofundada dos conceitos.
+Estes tutoriais utilizam e modificam os mesmos exemplos que o artigo [Quickstart to find available rooms](quickstart-view-occupancy-dotnet.md) (Início rápido para descobrir salas disponíveis) utiliza, para proporcionar uma cobertura mais detalhada e aprofundada dos conceitos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -98,9 +98,9 @@ Na pasta de exemplo extraídos, abra o ficheiro **digital-twins-samples-csharp\d
     ```
 
 1. No Visual Studio Code, abra a [appSettings](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) de ficheiros a **ocupação-quickstart** projeto. Atualize os valores seguintes:
-   * **ClientId**: Insira a ID do aplicativo do registro do aplicativo do Azure AD. Observou este ID na secção onde [definir permissões de aplicação](#grant-permissions-to-your-app).
-   * **Locatário**: Insira a ID de diretório do seu [locatário do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Também observa que este ID na secção onde [definir permissões de aplicação](#grant-permissions-to-your-app).
-   * **BaseUrl**: Insira a URL da sua instância de gêmeos digital. Para obter essa URL, substitua os espaços reservados nesta URL pelos valores da sua instância: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Também pode obter este URL, modificando o URL da API de gestão do [a secção Implementação](#deploy-digital-twins). Substitua **swagger /** com **api/v1.0/** .
+   * **ClientId**: introduza o ID da aplicação do seu registo de aplicação do Azure AD. Observou este ID na secção onde [definir permissões de aplicação](#grant-permissions-to-your-app).
+   * **Inquilino**: introduza o ID de diretório da sua [inquilino do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Também observa que este ID na secção onde [definir permissões de aplicação](#grant-permissions-to-your-app).
+   * **BaseUrl**: introduza o URL da instância do Digital Twins. Para obter essa URL, substitua os espaços reservados nesta URL pelos valores da sua instância: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Também pode obter este URL, modificando o URL da API de gestão do [a secção Implementação](#deploy-digital-twins). Substitua **swagger /** com **api/v1.0/** .
 
 1. Ver uma lista das funcionalidades de duplos Digital que pode ser explorado utilizando o exemplo. Execute o seguinte comando:
 
@@ -132,7 +132,7 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 ```
 
-Esta função utiliza [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) na mesma pasta. Abra esse arquivo e observe a hierarquia de um edifício de escritórios: *Local*, *piso*, *área*e *salas*. Qualquer um destes espaços físicos pode ter *dispositivos* e *sensores*. Cada entrada tem um predefinidos `type` &mdash;por exemplo, piso, salas.
+Esta função utiliza [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) na mesma pasta. Abrir este ficheiro e tenha em atenção a hierarquia de um edifício de escritórios: *foro*, *piso*, *área*, e *salas*. Qualquer um destes espaços físicos pode ter *dispositivos* e *sensores*. Cada entrada tem um predefinidos `type` &mdash;por exemplo, piso, salas.
 
 O exemplo **yaml** ficheiro mostra um gráfico geográfico que utiliza o `Default` modelo de objeto de duplos Digital. Esse modelo fornece os nomes genéricos para a maioria dos tipos. Os nomes genéricos são suficientes para um edifício. Exemplos são temperatura para SensorDataType e mapeiam para SpaceBlobType. Um tipo de espaço de exemplo é sala com subtipos FocusRoom ConferenceRoom e assim por diante. 
 
@@ -144,13 +144,13 @@ Para obter mais informações sobre gráficos geográficos e modelos de objeto, 
 
 O **provisionSample.yaml** ficheiro contém os seguintes nós:
 
-- **recursos**: O nó `resources` cria um recurso do Hub IoT do Azure para se comunicar com os dispositivos na sua configuração. Um hub IoT no nó raiz do seu gráfico pode comunicar com todos os dispositivos e sensores no seu gráfico.  
+- **recursos**: O `resources` nó cria um recurso do IoT Hub do Azure para comunicar com os dispositivos em sua configuração. Um hub IoT no nó raiz do seu gráfico pode comunicar com todos os dispositivos e sensores no seu gráfico.  
 
-- **espaços**: No modelo de objeto gêmeos digital, `spaces` representa os locais físicos. Cada espaço tem um `Type` &mdash;por exemplo, região, local ou Customer&mdash;e amigável `Name`. Espaços podem pertencer a outros espaços, criação de uma estrutura hierárquica. O ficheiro de provisionSample.yaml tem um gráfico geográfico de um edifício imaginário. Tenha em atenção o aninhamento de lógico de espaços do tipo `Floor` dentro `Venue`, `Area` num chão, e `Room` nós numa área. 
+- **spaces**: no modelo de objetos do Digital Twins, `spaces` representa as localizações físicas. Cada espaço tem um `Type` &mdash;por exemplo, região, local ou Customer&mdash;e amigável `Name`. Espaços podem pertencer a outros espaços, criação de uma estrutura hierárquica. O ficheiro de provisionSample.yaml tem um gráfico geográfico de um edifício imaginário. Tenha em atenção o aninhamento de lógico de espaços do tipo `Floor` dentro `Venue`, `Area` num chão, e `Room` nós numa área. 
 
-- **dispositivos**: Os espaços podem conter `devices`, que são entidades físicas ou virtuais que gerenciam vários sensores. Por exemplo, um dispositivo pode ser um telefone do utilizador, um pod de sensor Raspberry Pi ou um gateway. No edifício imaginário do exemplo, repare que a sala denominada **Focus Room** contém um dispositivo **Raspberry Pi 3 A1**. Cada nó do dispositivo é identificado por um `hardwareId` exclusivo, que está codificado no exemplo. Para configurar este exemplo para uma produção real, substitua estes valores pelos da sua configuração.  
+- **devices**: os espaços podem conter `devices`, que são entidades físicas ou virtuais que gerem vários sensores. Por exemplo, um dispositivo pode ser um telefone do utilizador, um pod de sensor Raspberry Pi ou um gateway. No edifício imaginário do exemplo, repare que a sala denominada **Focus Room** contém um dispositivo **Raspberry Pi 3 A1**. Cada nó do dispositivo é identificado por um `hardwareId` exclusivo, que está codificado no exemplo. Para configurar este exemplo para uma produção real, substitua estes valores pelos da sua configuração.  
 
-- **sensores**: Um dispositivo pode conter vários `sensors`. Eles podem detectar e registo de alterações físicas como temperatura, o motion e o nível da bateria. Cada nó do sensor é identificado exclusivamente por um `hardwareId`, que está codificado aqui. Para um aplicativo real, substitua as utilizando os identificadores exclusivos dos sensores na sua configuração. O ficheiro de provisionSample.yaml tem dois sensores para registrar *movimento* e *CarbonDioxide*. Adicione outro sensor para registar a *Temperature* (Temperatura) ao adicionar as linhas seguintes, abaixo das do sensor CarbonDioxide. Tenha em atenção que estes são fornecidos no provisionSample.yaml como linhas Comentada. Pode remover os comentários-los ao remover o `#` caráter no início de cada linha. 
+- **Sensores**: um dispositivo pode conter vários `sensors`. Eles podem detectar e registo de alterações físicas como temperatura, o motion e o nível da bateria. Cada nó do sensor é identificado exclusivamente por um `hardwareId`, que está codificado aqui. Para um aplicativo real, substitua as utilizando os identificadores exclusivos dos sensores na sua configuração. O ficheiro de provisionSample.yaml tem dois sensores para registrar *movimento* e *CarbonDioxide*. Adicione outro sensor para registar a *Temperature* (Temperatura) ao adicionar as linhas seguintes, abaixo das do sensor CarbonDioxide. Tenha em atenção que estes são fornecidos no provisionSample.yaml como linhas Comentada. Pode remover os comentários-los ao remover o `#` caráter no início de cada linha. 
 
     ```yaml
             - dataType: Temperature
@@ -175,8 +175,8 @@ Se pretender parar a explorar duplos Digital do Azure neste momento, fique à vo
 
 1. Se necessário, elimine a aplicação de exemplo no seu computador de trabalho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber como implementar uma lógica personalizada para monitorizar as condições em seu exemplo de criação, vá para o próximo tutorial da série: 
 > [!div class="nextstepaction"]
-> [Tutorial: Provisione suas condições de trabalho de criação e monitor @ no__t-0
+> [Tutorial: Provision your building and monitor working conditions](tutorial-facilities-udf.md) (Tutorial: Aprovisionar o edifício e monitorizar as condições de funcionamento)

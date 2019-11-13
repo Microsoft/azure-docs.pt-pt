@@ -1,20 +1,19 @@
 ---
-title: Executar um teste de recuperação após desastre para máquinas no local para o Azure com o Azure Site Recovery | Microsoft Docs
-description: Saiba mais sobre como executar um teste de recuperação após desastre no local para o Azure com o Azure Site Recovery
+title: Executar uma análise de recuperação de desastre no Azure com Azure Site Recovery
+description: Saiba como executar uma análise de recuperação de desastre do local para o Azure, com Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 14ef3bf8420acf03f5c8329c6c78834dbc16ae40
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 5bd9f5316f8b8799633de8c0c84c61424c0e4f4a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814288"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954425"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Executar um teste de recuperação após desastre para o Azure
 
@@ -81,13 +80,13 @@ Execute a ativação pós-falha de teste da seguinte forma:
 
 Em alguns cenários, a ativação pós-falha requer processamento adicional, que demora cerca de oito a dez minutos a concluir. Poderá reparar em tempos de ativação pós-falha superiores para máquinas do Linux VMware, VMs VMware que não têm o serviço DHCP ativado e VMs VMware que não têm os controladores de arranque storvsc, vmbus, storflt, intelide e atapi.
 
-## <a name="connect-after-failover"></a>Ligar após a ativação pós-falha
+## <a name="connect-after-failover"></a>Conectar após o failover
 
 Se você quiser se conectar a VMs do Azure usando RDP/SSH após o failover, [Prepare-se para conectar](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover). Se você encontrar problemas de conectividade após o failover, siga o guia de [solução de problemas](site-recovery-failover-to-azure-troubleshoot.md) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Executar um failover e um failback para VMs](vmware-azure-tutorial-failover-failback.md)
-> do VMware
-> [executar um failover e um failback para VMs do Hyper-V](hyper-v-azure-failover-failback-tutorial.md)[executar um failover e um failback para computadores físicos](physical-to-azure-failover-failback.md)
+> [Execute um failover e um failback para VMs VMware](vmware-azure-tutorial-failover-failback.md)
+> [executar um failover e um failback para VMs do Hyper-V](hyper-v-azure-failover-failback-tutorial.md)
+> [executar um failover e um failback para computadores físicos](physical-to-azure-failover-failback.md)

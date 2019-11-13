@@ -1,19 +1,16 @@
 ---
 title: Criar uma definição de política personalizada
 description: Crie uma definição de política personalizada para Azure Policy para impor regras de negócio personalizadas.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 04/23/2019
 ms.topic: tutorial
-ms.service: azure-policy
-ms.openlocfilehash: 240d0fa388fbdfdd3d29d735aed708a096440740
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 1a5be5a3e81dec6f4369e6b01dcda3d5de5f6dac
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980356"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959273"
 ---
-# <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
+# <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: criar uma definição de política personalizada
 
 Uma definição de política personalizada permite que os clientes definam suas próprias regras para usar o Azure. Essas regras geralmente se aplicam:
 
@@ -178,7 +175,7 @@ Nos resultados, vemos um alias com suporte nas contas de armazenamento chamadas 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Em Azure PowerShell, o cmdlet `Get-AzPolicyAlias` é usado para pesquisar aliases de recursos. Vamos filtrar o namespace **Microsoft. Storage** com base nos detalhes que obtivemos sobre o recurso do Azure anteriormente.
+No Azure PowerShell, o cmdlet `Get-AzPolicyAlias` é usado para pesquisar aliases de recursos. Vamos filtrar o namespace **Microsoft. Storage** com base nos detalhes que obtivemos sobre o recurso do Azure anteriormente.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

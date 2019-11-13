@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: 9e1fe0e5bae462715a8cb2950cca100f0f409325
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: fa930d4ab420708e6abfdf1765703afbe20fa25e
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718723"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958266"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Integridade de back-end e logs de diagnóstico para o gateway de aplicativo
 
@@ -33,7 +33,7 @@ O gateway de aplicativo fornece a capacidade de monitorar a integridade de membr
 O relatório de integridade de back-end reflete a saída da investigação de integridade do gateway de aplicativo para as instâncias de back-end. Quando a investigação é bem-sucedida e o back-end pode receber tráfego, ele é considerado íntegro. Caso contrário, ele é considerado não íntegro.
 
 > [!IMPORTANT]
-> Se houver um NSG (grupo de segurança de rede) em uma sub-rede de gateway de aplicativo, abra os intervalos de porta 65503-65534 na sub-rede do gateway de aplicativo para o tráfego de entrada. Esse intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Estão protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados apropriados, as entidades externas, incluindo os clientes desses gateways, não poderão iniciar nenhuma alteração nesses pontos de extremidade.
+> Se houver um NSG (grupo de segurança de rede) em uma sub-rede de gateway de aplicativo, abra os intervalos de porta 65503-65534 para SKUs v1 e 65200-65535 para SKUs v2 na sub-rede do gateway de aplicativo para o tráfego de entrada. Esse intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Estão protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados apropriados, as entidades externas, incluindo os clientes desses gateways, não poderão iniciar nenhuma alteração nesses pontos de extremidade.
 
 
 ### <a name="view-back-end-health-through-the-portal"></a>Exibir a integridade do back-end por meio do portal
@@ -172,7 +172,7 @@ O log de acesso será gerado somente se você o tiver habilitado em cada instân
 |sentBytes| Tamanho do pacote enviado, em bytes.|
 |timeTaken| Período de tempo (em milissegundos) necessário para que uma solicitação seja processada e sua resposta seja enviada. Isso é calculado como o intervalo desde o momento em que o gateway de aplicativo recebe o primeiro byte de uma solicitação HTTP até a hora em que a operação de envio de resposta é concluída. É importante observar que o campo time-taken geralmente inclui a hora em que os pacotes de solicitação e resposta estão viajando pela rede. |
 |sslEnabled| Se a comunicação com os pools de back-end usava o SSL. Os valores válidos são on e off.|
-|hospedeira| O nome do host com o qual a solicitação foi enviada para o servidor de back-end. Se o nome de host de back-end estiver sendo substituído, este deverá refletir isso.|
+|host| O nome do host com o qual a solicitação foi enviada para o servidor de back-end. Se o nome de host de back-end estiver sendo substituído, este deverá refletir isso.|
 |originalHost| O nome do host com o qual a solicitação foi recebida pelo gateway de aplicativo do cliente.|
 ```json
 {
@@ -220,7 +220,7 @@ Para o gateway de aplicativo e o WAF v2, os logs mostram um pouco mais de inform
 |serverRouted| O servidor back-end para o qual o gateway de aplicativo roteia a solicitação.|
 |serverStatus| Código de status HTTP do servidor de back-end.|
 |serverResponseLatency| Latência da resposta do servidor de back-end.|
-|hospedeira| Endereço listado no cabeçalho do host da solicitação.|
+|host| Endereço listado no cabeçalho do host da solicitação.|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -298,18 +298,18 @@ O log do firewall será gerado somente se você o tiver habilitado para cada gat
 |clientIp     |   IP de origem para a solicitação.      |
 |clientPort     |  Porta de origem para a solicitação.       |
 |requestUri     | URL da solicitação recebida.       |
-|O rulesettype     | Tipo de conjunto de regras. O valor disponível é OWASP.        |
+|ruleSetType     | Tipo de conjunto de regras. O valor disponível é OWASP.        |
 |ruleSetVersion     | Versão do conjunto de regras usada. Os valores disponíveis são 2.2.9 e 3,0.     |
 |ruleId     | ID da regra do evento de gatilho.        |
 |message     | Mensagem amigável para o evento de disparo. Mais detalhes são fornecidos na seção de detalhes.        |
 |action     |  Ação executada na solicitação. Os valores disponíveis são bloqueados e permitidos.      |
 |locais     | Site para o qual o log foi gerado. Atualmente, somente global é listado porque as regras são globais.|
-|Ver     | Detalhes do evento de disparo.        |
-|detalhes. mensagem     | Descrição da regra.        |
-|detalhes. dados     | Dados específicos encontrados na solicitação que corresponderam à regra.         |
+|details     | Detalhes do evento de disparo.        |
+|details.message     | Descrição da regra.        |
+|details.data     | Dados específicos encontrados na solicitação que corresponderam à regra.         |
 |detalhes. arquivo     | Arquivo de configuração que continha a regra.        |
 |detalhes. linha     | Número de linha no arquivo de configuração que disparou o evento.       |
-|Nome do host   | Nome do host ou endereço IP do gateway de aplicativo.    |
+|nome do host   | Nome do host ou endereço IP do gateway de aplicativo.    |
 |transactionId  | ID exclusiva para uma determinada transação que ajuda a agrupar várias violações de regra que ocorreram na mesma solicitação.   |
 
 ```json

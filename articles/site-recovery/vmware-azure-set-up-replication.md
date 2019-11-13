@@ -1,5 +1,5 @@
 ---
-title: Configurar e gerenciar políticas de replicação para a recuperação de desastres do VMware no Azure com o Azure Site Recovery | Microsoft Docs
+title: Configurar políticas de replicação para a recuperação de desastres do VMware com o Azure Site Recovery | Microsoft Docs
 description: Descreve como definir as configurações de replicação para a recuperação de desastres do VMware no Azure com o Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -7,14 +7,15 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 019f9f2019619053f87a7923d656513a419d4675
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231440"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954330"
 ---
-# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Configurar e gerenciar políticas de replicação para a recuperação de desastres do VMware no Azure
+# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Configurar e gerenciar políticas de replicação para a recuperação de desastres do VMware
+
 Este artigo descreve como configurar uma política de replicação quando você Replica VMs VMware para o Azure, usando [Azure site Recovery](site-recovery-overview.md).
 
 ## <a name="create-a-policy"></a>Criar uma política
@@ -48,7 +49,7 @@ Você pode modificar uma política de replicação depois de criá-la.
 - Se você quiser associar computadores replicados a uma política de replicação diferente, será necessário desabilitar e reabilitar a proteção para os computadores relevantes.
 
 Edite uma política da seguinte maneira:
-1. Selecione **gerenciar** > **site Recovery** > **políticas de replicação**de infraestrutura.
+1. Selecione **gerenciar** > **infraestrutura de site Recovery** > **políticas de replicação**.
 2. Selecione a política de replicação que você deseja modificar.
 3. Clique em **Editar configurações**e atualize os campos tempo de retenção do ponto de recuperação/limite de RPO/frequência de instantâneos consistentes com o aplicativo, conforme necessário.
 4. Se você quiser desativar a geração de pontos de consistência do aplicativo, escolha o valor "desativado" na lista suspensa do campo **frequência do instantâneo consistente com o aplicativo**.
@@ -59,6 +60,6 @@ Edite uma política da seguinte maneira:
 ## <a name="disassociate-or-delete-a-replication-policy"></a>Desassociar ou excluir uma política de replicação
 
 1. Escolha a política de replicação.
-    a. Para dissociar a política do servidor de configuração, verifique se não há máquinas replicadas usando a política. Em seguida,clique em dissociar.
+    a. Para dissociar a política do servidor de configuração, verifique se não há máquinas replicadas usando a política. Em seguida, clique em **dissociar**.
     b. Para excluir a política, verifique se ela não está associada a um servidor de configuração. Em seguida, clique em **excluir**. Deve levar de 30-60 a minutos para excluir.
 2. Clique em **OK**.

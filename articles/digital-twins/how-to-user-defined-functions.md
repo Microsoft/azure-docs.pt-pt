@@ -1,5 +1,5 @@
 ---
-title: Como criar funções definidas pelo usuário no Azure digital gêmeos | Microsoft Docs
+title: Como criar funções definidas pelo usuário – no Azure digital gêmeos | Microsoft Docs
 description: Como criar funções definidas pelo usuário, correspondências e atribuições de função no Azure digital gêmeos.
 ms.author: alinast
 author: alinamstanciu
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5271b14ec008579d18a152a229b9768339927bb7
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 4db6f0052c92d4532917a996eda82a27d97d3063
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888849"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009574"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Como criar funções definidas pelo usuário no Azure digital gêmeos
 
@@ -71,7 +71,7 @@ Com o corpo JSON:
 
 | Valor | Substituir |
 | --- | --- |
-| YOUR_SPACE_IDENTIFIER | Em qual região do servidor sua instância está hospedada |
+| YOUR_SPACE_IDENTIFIER | Qual sua instância estiver alojada num servidor a região |
 
 ## <a name="create-a-user-defined-function"></a>Criar uma função definida Pelo utilizador
 

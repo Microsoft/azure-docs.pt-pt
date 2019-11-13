@@ -1,17 +1,14 @@
 ---
 title: Compreender o ciclo de vida de um esquema
 description: Saiba mais sobre o ciclo de vida que um plano gráfico passa e detalhes sobre cada estágio.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 07/30/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 154e66366d4a687e60d7bddd28278414e3a4ccd7
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: d071a2af985d294bc87a5363d9e7566762e0fd8a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981038"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960499"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Entender o ciclo de vida de um Azure Blueprint
 

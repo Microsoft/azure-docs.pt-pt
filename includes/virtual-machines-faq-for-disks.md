@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 95fe5471789b66c253aa21d73433f5192cd01e6b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 92aa28c131d81c41d515762ac2a346048c143790
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612152"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008581"
 ---
-# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos Premium gerenciados e não gerenciados
-
 Este artigo responde a algumas perguntas frequentes sobre o Azure Managed Disks e os discos de SSD Premium do Azure.
 
 ## <a name="managed-disks"></a>Managed Disks
@@ -350,18 +348,6 @@ Não. Mas se você exportar um VHD para uma conta de armazenamento criptografada
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Discos Premium: gerenciados e não gerenciados
 
-**Quais regiões dão suporte à capacidade de intermitência para o tamanho de disco SSD Premium aplicável?**
-
-No momento, há suporte para a capacidade de intermitência no Azure West EUA Central.
-
-**Quais regiões são 4/8/16 GiB de tamanhos de disco gerenciado (P1/P2/P3, E1/E2/E3) com suporte no?**
-
-Atualmente, há suporte para esses novos tamanhos de disco no Azure West EUA Central.
-
-**Os tamanhos de disco P1/P2/P3 têm suporte para discos não gerenciados ou BLOBs de página?**
-
-Não, só há suporte para ele no SSD Premium Managed Disks. 
-
 **Se uma VM usa uma série de tamanho que dá suporte a discos SSD Premium, como um DSv2, posso anexar discos de dados Premium e Standard?** 
 
 Sim.
@@ -391,6 +377,22 @@ O SSD local é um armazenamento temporário que é incluído com uma VM Managed 
 Não há nenhuma desvantagem do uso de TRIM em discos do Azure em discos Premium ou Standard.
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Novos tamanhos de disco: gerenciados e não gerenciados
+
+**Quais regiões dão suporte à capacidade de intermitência para o tamanho de disco SSD Premium aplicável?**
+
+No momento, há suporte para a capacidade de intermitência no Azure West EUA Central.
+
+**Quais regiões são 4/8/16 GiB de tamanhos de disco gerenciado (P1/P2/P3, E1/E2/E3) com suporte no?**
+
+Atualmente, há suporte para esses novos tamanhos de disco no Azure West EUA Central.
+
+**Os tamanhos de disco P1/P2/P3 têm suporte para discos não gerenciados ou BLOBs de página?**
+
+Não, só há suporte para os discos gerenciados do SSD Premium. 
+
+**Os tamanhos de disco E1/E2/E3 têm suporte para discos não gerenciados ou BLOBs de páginas?**
+
+Não, os discos gerenciados do SSD Standard de qualquer tamanho não podem ser usados com discos não gerenciados ou BLOBs de páginas.
 
 **Qual é o maior tamanho de disco gerenciado com suporte para discos de sistema operacional e de dados?**
 

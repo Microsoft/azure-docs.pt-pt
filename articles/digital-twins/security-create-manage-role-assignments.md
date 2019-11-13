@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 68714a06f72a522df0245d9c044bb6ff6557d52f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 45ce22f208ee31b7202705eb4e42c38bedf09a8b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949831"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013956"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Criar e gerenciar atribuições de função no gêmeos digital do Azure
 
@@ -36,10 +36,10 @@ Cada atribuição de função está de acordo com a seguinte definição:
 
 A tabela a seguir descreve cada atributo:
 
-| Atributo | Name | Requerido | Tipo | Descrição |
+| Atributo | Nome | Necessário | Tipo | Descrição |
 | --- | --- | --- | --- | --- |
 | roleId | Identificador de definição de função | Sim | Cadeia | A ID exclusiva da atribuição de função desejada. Encontre definições de função e seu identificador consultando a API do sistema ou revisando a tabela abaixo. |
-| objectId | Identificador de objeto | Sim | Cadeia | Uma ID de Azure Active Directory, ID de objeto da entidade de serviço ou nome de domínio. A que ou a quem a atribuição de função está atribuída. A atribuição de função deve ser formatada de acordo com seu tipo associado. Para o @no__tid-0 objectIdtype, objectId deve começar com o caractere de `“@”`. |
+| objectId | Identificador de objeto | Sim | Cadeia | Uma ID de Azure Active Directory, ID de objeto da entidade de serviço ou nome de domínio. A que ou a quem a atribuição de função está atribuída. A atribuição de função deve ser formatada de acordo com seu tipo associado. Para a `DomainName` objectIdtype, objectId deve começar com o caractere de `“@”`. |
 | objectIdType | Tipo de identificador de objeto | Sim | Cadeia | O tipo de identificador de objeto usado. Consulte **ObjectIdTypes com suporte** abaixo. |
 | path | Caminho do espaço | Sim | Cadeia | O caminho de acesso completo para o objeto `Space`. Um exemplo é `/{Guid}/{Guid}`. Se um identificador precisar da atribuição de função para o grafo inteiro, especifique `"/"`. Esse caractere designa a raiz, mas seu uso não é recomendado. Sempre siga o princípio de privilégios mínimos. |
 | tenantId | Identificador do locatário | Varia | Cadeia | Na maioria dos casos, uma ID de locatário Azure Active Directory. Não permitido para `DeviceId` e `TenantId` ObjectIdTypes. Necessário para `UserId` e `ServicePrincipalId` ObjectIdTypes. Opcional para o ObjectIdid DomainName. |
@@ -60,7 +60,7 @@ Anteriormente, o atributo **objectidtype** foi introduzido.
 
 O Azure digital gêmeos dá suporte a operações de *criação*, *leitura*e *exclusão* completas para atribuições de função. As operações de *atualização* são tratadas adicionando atribuições de função, removendo atribuições de função ou modificando os nós de [grafo de inteligência espacial](./concepts-objectmodel-spatialgraph.md) aos quais as atribuições de função concedem acesso.
 
-[1Role-pontos de extremidade de atribuição de @no__t](media/security-roles/roleassignments.png)](media/security-roles/roleassignments.png#lightbox)
+[pontos de extremidade de atribuição de função ![](media/security-roles/role-assignments.png)](media/security-roles/role-assignments.png#lightbox)
 
 A documentação de referência do Swagger fornecida contém mais informações sobre todos os pontos de extremidade de API, operações de solicitação e definições disponíveis.
 
@@ -112,7 +112,7 @@ Com o seguinte corpo JSON:
 
 ### <a name="retrieve-all-roles"></a>Recuperar todas as funções
 
-[funções ![System](media/security-roles/system.png)](media/security-roles/system.png#lightbox)
+[![funções do sistema](media/security-roles/system-api.png)](media/security-roles/system-api.png#lightbox)
 
 Para listar todas as funções disponíveis (definições de função), faça uma solicitação HTTP GET autenticada para:
 
@@ -163,12 +163,12 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **Valor do parâmetro** | **Necessário** |  **Tipo** |  **Descrição** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True | Cadeia |   O objectId do objectIdtype de UserId. |
-| YOUR_PATH | True | Cadeia |   O caminho escolhido para verificar o acesso. |
-| YOUR_ACCESS_TYPE |  True | Cadeia |   *Ler*, *criar*, *Atualizar*ou *excluir* |
-| YOUR_RESOURCE_TYPE | True | Cadeia |  *Dispositivo*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *Extended*, *ponto de extremidade*, *keystore*, *correspondente*, *ontologia*, *relatório*,  *RoleDefinition*, *sensor*, *SensorExtendedProperty*, *espaço*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *sistema* , *UerDefinedFunction*, *User*, *UserBlobMetadata*ou *extendeproperty* |
+| YOUR_USER_ID |  Verdadeiro | Cadeia |   O objectId do objectIdtype de UserId. |
+| YOUR_PATH | Verdadeiro | Cadeia |   O caminho escolhido para verificar o acesso. |
+| YOUR_ACCESS_TYPE |  Verdadeiro | Cadeia |   *Ler*, *criar*, *Atualizar*ou *excluir* |
+| YOUR_RESOURCE_TYPE | Verdadeiro | Cadeia |  *Dispositivo*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *Extended*, *ponto de extremidade*, *keystore*, *correspondência*, *ontologia*, *relatório*, *RoleDefinition*, *sensor*, *SensorExtendedProperty*, *espaço*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *sistema*,  *UerDefinedFunction*, *User*, *UserBlobMetadata*ou *extendeproperty* |
 
-Uma solicitação bem-sucedida retornará um booliano `true` ou `false` para indicar se o tipo de acesso foi atribuído ao usuário para o caminho e o recurso fornecidos.
+Uma solicitação bem-sucedida retornará um `true` booliano ou `false` para indicar se o tipo de acesso foi atribuído ao usuário para o caminho e o recurso especificados.
 
 ### <a name="get-role-assignments-by-path"></a>Obter atribuições de função por caminho
 
@@ -178,7 +178,7 @@ Para obter todas as atribuições de função para um caminho, faça uma solicit
 YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
-| Value | Substituir |
+| Valor | Substituir |
 | --- | --- |
 | YOUR_PATH | O caminho completo para o espaço |
 
@@ -240,7 +240,7 @@ Uma solicitação bem-sucedida retornará um status de resposta 201 junto com a 
 
 Os exemplos a seguir demonstram como configurar seu corpo JSON em vários cenários de atribuição de função comumente encontrados.
 
-* **Exemplo**: Um usuário precisa de acesso administrativo a um andar de um espaço de locatário.
+* **Exemplo**: um usuário precisa de acesso administrativo a um andar de um espaço de locatário.
 
    ```JSON
    {
@@ -252,7 +252,7 @@ Os exemplos a seguir demonstram como configurar seu corpo JSON em vários cenár
    }
    ```
 
-* **Exemplo**: Um aplicativo executa os dispositivos e sensores de simulação de cenários de teste.
+* **Exemplo**: um aplicativo executa dispositivos de simulação de cenários de teste e sensores.
 
    ```JSON
    {
@@ -264,7 +264,7 @@ Os exemplos a seguir demonstram como configurar seu corpo JSON em vários cenár
    }
     ```
 
-* **Exemplo**: Todos os usuários que fazem parte de um domínio recebem acesso de leitura para espaços, sensores e usuários. Esse acesso inclui seus objetos relacionados correspondentes.
+* **Exemplo**: todos os usuários que fazem parte de um domínio recebem acesso de leitura para espaços, sensores e usuários. Esse acesso inclui seus objetos relacionados correspondentes.
 
    ```JSON
    {

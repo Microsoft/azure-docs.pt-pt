@@ -1,5 +1,5 @@
 ---
-title: Raspberry Pi para nuvem (Node. js) – conectar o Raspberry Pi ao Hub IoT do Azure | Microsoft Docs
+title: Conectar o Raspberry Pi ao Hub IoT do Azure na nuvem (Node. js)
 description: Saiba como configurar e conectar o Raspberry Pi ao Hub IoT do Azure para o Raspberry Pi para enviar dados para a plataforma de nuvem do Azure neste tutorial.
 author: wesmc7777
 manager: philmea
@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 79e565668db661d02833d22d2ef619fc67708115
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 28897ca6f80632210032b7f800404fc921143adf
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266157"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954546"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Conectar o Raspberry Pi ao Hub IoT do Azure (Node. js)
 
@@ -118,7 +118,7 @@ Prepare o cartão microSD para a instalação da imagem Raspbian.
 
 2. Inicie o PI e entre no Raspbian usando `pi` como o nome de usuário e `raspberry` como a senha.
 
-3. Clique no ícone de Raspberry > **preferências** > **Raspberry configuração de PI**.
+3. Clique no ícone de Raspberry > **preferências** > **configuração do Raspberry Pi**.
 
    ![O menu de preferências do Raspbian](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
@@ -179,10 +179,10 @@ Ative o PI usando o cabo micro USB e a fonte de alimentação. Use o cabo Ethern
 
    **Usuários do Mac e do Ubuntu**
 
-   Use o cliente SSH interno no Ubuntu ou no macOS. Talvez seja necessário executar `ssh pi@<ip address of pi>` o para conectar o PI via SSH.
+   Use o cliente SSH interno no Ubuntu ou no macOS. Talvez seja necessário executar `ssh pi@<ip address of pi>` para conectar o PI via SSH.
 
    > [!NOTE]
-   > O nome de usuário `pi` padrão é e a `raspberry`senha é.
+   > O nome de usuário padrão é `pi` e a senha é `raspberry`.
 
 2. Instale o Node. js e o NPM em seu PI.
 
@@ -225,11 +225,11 @@ Ative o PI usando o cabo micro USB e a fonte de alimentação. Use o cabo Ethern
 
    ![Arquivo de configuração](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
-   Há dois itens neste arquivo que você pode configurar. O primeiro é `interval`, que define o intervalo de tempo (em milissegundos) entre as mensagens enviadas para a nuvem. O segundo é `simulatedData`, que é um valor booliano para se usar ou não dados de sensor simulados.
+   Há dois itens neste arquivo que você pode configurar. A primeira é `interval`, que define o intervalo de tempo (em milissegundos) entre as mensagens enviadas para a nuvem. A segunda é `simulatedData`, que é um valor booliano para se usar ou não dados de sensor simulados.
 
-   Se você **não tiver o sensor**, defina o `simulatedData` valor como `true` para fazer com que o aplicativo de exemplo crie e use dados simulados de sensor.
+   Se você **não tiver o sensor**, defina o valor `simulatedData` como `true` para fazer com que o aplicativo de exemplo crie e use dados simulados do sensor.
 
-   *Nota: O endereço I2C usado neste tutorial é 0x77 por padrão. Dependendo da sua configuração, ele também pode ser 0x76: se você encontrar um erro I2C, tente alterar o valor para 118 e ver se isso funciona melhor. Para ver qual endereço é usado pelo sensor, execute `sudo i2cdetect -y 1` em um shell no Raspberry Pi*
+   *Observação: o endereço I2C usado neste tutorial é 0x77 por padrão. Dependendo da sua configuração, ele também pode ser 0x76: se você encontrar um erro I2C, tente alterar o valor para 118 e ver se isso funciona melhor. Para ver qual endereço é usado pelo sensor, execute `sudo i2cdetect -y 1` em um shell no Raspberry Pi*
 
 2. Salve e saia digitando Control-O > Insira > Control-X.
 

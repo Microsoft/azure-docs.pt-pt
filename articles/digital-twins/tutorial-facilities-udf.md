@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Monitorizar um espaço com o Azure Digital Twins | Microsoft Docs'
+title: 'Tutorial: monitorar um espaço-gêmeos digital do Azure | Microsoft Docs'
 description: Saiba como provisionar seus recursos espaciais e monitorar as condições de trabalho com o gêmeos digital do Azure usando as etapas deste tutorial.
 services: digital-twins
 ms.author: alinast
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 09/20/2019
-ms.openlocfilehash: 74e3c46b2b1427c27923ed91846755797b8da690
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 4e7136c5689bf37e0ca1db33f4838373d59a0901
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949075"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013934"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutorial: Provisione sua criação e monitore condições de trabalho com o Azure digital gêmeos Preview
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutorial: provisionar suas condições de trabalho de criação e monitor com o Azure digital gêmeos Preview
 
 Este tutorial demonstra como usar o Azure digital gêmeos Preview para monitorar seus espaços para as condições de temperatura e o nível de conforto desejado. Depois de [Configurar o Build de exemplo](tutorial-facilities-setup.md), você pode provisionar seu edifício e executar funções personalizadas nos dados do sensor usando as etapas deste tutorial.
 
@@ -47,14 +47,14 @@ Você pode definir um conjunto de condições específicas para monitorar nos da
 
 No projeto de exemplo **ocupação-início rápido** , abra o arquivo **src\actions\provisionSample.YAML** em Visual Studio Code. Repare na secção que começa com o tipo **matchers**. Cada entrada sob esse tipo cria uma correspondência com o **nome**especificado. O correspondente monitorará um sensor do tipo **Datatypevalue**. Observe como ele se relaciona ao espaço chamado sala de *foco a1*, que tem um nó de **dispositivos** que contém alguns sensores. Para provisionar um correspondente que rastreará um desses sensores, certifique-se de que seu **tipo** de dados corresponde ao **DataType**do sensor. 
 
-Adicione o seguinte correspondente abaixo dos correspondentes existentes. Verifique se as chaves estão alinhadas e se os espaços não são substituídos por guias. Essas linhas também estão presentes no arquivo *provisionSample. YAML* como linhas comentadas. Você pode remover os comentários removendo o caractere `#` na frente de cada linha.
+Adicione o seguinte correspondente abaixo dos correspondentes existentes. Verifique se as chaves estão alinhadas e se os espaços não são substituídos por guias. Essas linhas também estão presentes no arquivo *provisionSample. YAML* como linhas comentadas. Você pode remover os comentários removendo o caractere de `#` na frente de cada linha.
 
 ```yaml
       - name: Matcher Temperature
         dataTypeValue: Temperature
 ```
 
-Esse correspondente rastreará o sensor `SAMPLE_SENSOR_TEMPERATURE` que você adicionou no [primeiro tutorial](tutorial-facilities-setup.md). 
+Esse correspondente rastreará o sensor de `SAMPLE_SENSOR_TEMPERATURE` que você adicionou no [primeiro tutorial](tutorial-facilities-setup.md). 
 
 ## <a name="create-a-user-defined-function"></a>Criar uma função definida Pelo utilizador
 
@@ -84,7 +84,7 @@ Veja também a secção com o nome **roleassignments**. Ele atribui a função d
         var temperatureThreshold = 78;
     ```
 
-    b. Adicione as seguintes linhas após a instrução que define `var motionSensor`, abaixo do comentário `// Add your sensor variable here`:
+    b. Adicione as linhas a seguir após a instrução que define `var motionSensor`, abaixo do comentário `// Add your sensor variable here`:
 
      ```JavaScript
         var temperatureSensor = otherSensors.find(function(element) {
@@ -185,7 +185,7 @@ Veja também a secção com o nome **roleassignments**. Ele atribui a função d
 
 1. Na saída na janela de comando, copie o valor de `ConnectionString`, na seção `Devices`, para a área de transferência. Você precisará desse valor para simular a conexão do dispositivo na próxima seção.
 
-    [exemplo de @no__t 1Provision](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
+    [exemplo de provisionamento de ![](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
 > [!TIP]
 > Se você receber uma mensagem de erro semelhante a "a operação de e/s foi anulada devido a uma saída de thread ou a uma solicitação de aplicativo" no meio do provisionamento, tente executar o comando novamente. Isso pode acontecer se o cliente HTTP esgotou o tempo limite de um problema de rede.
@@ -204,9 +204,9 @@ Nesta seção, você usará o projeto chamado *dispositivo-conectividade* no exe
 
 1. Abra o arquivo [appSettings. JSON](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) em seu editor e edite os seguintes valores:
 
-   a. **DeviceConnectionString**: Atribua o valor de `ConnectionString` na janela de saída da seção anterior. Copie essa cadeia de caracteres completamente, dentro das aspas, para que o simulador possa se conectar corretamente com o Hub IoT.
+   a. **DeviceConnectionString**: atribua o valor de `ConnectionString` na janela de saída da secção anterior. Copie essa cadeia de caracteres completamente, dentro das aspas, para que o simulador possa se conectar corretamente com o Hub IoT.
 
-   b. **HardwareID** na matriz de **sensores** : Como você está simulando eventos de sensores provisionados para sua instância de gêmeos digital do Azure, a ID de hardware e os nomes dos sensores nesse arquivo devem corresponder ao nó `sensors` do arquivo *provisionSample. YAML* .
+   b. **HardwareID** na matriz de **sensores** : como você está simulando eventos de sensores provisionados para sua instância de gêmeos digital do Azure, a ID de hardware e os nomes dos sensores nesse arquivo devem corresponder ao nó de `sensors` do arquivo *provisionSample. YAML* .
 
       Adicione uma nova entrada para o sensor de temperatura. O nó de **sensores** em *appSettings. JSON* deve ser semelhante ao seguinte:
 
@@ -246,7 +246,7 @@ A função definida pelo utilizador é executada sempre que a sua instância rec
 
 A janela saída mostra como a função definida pelo usuário é executada e intercepta eventos da simulação de dispositivo. 
 
-   [![Output para o UDF](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
+   [Saída de ![para o UDF](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
 
 Se a condição monitorada for atendida, a função definida pelo usuário definirá o valor do espaço com a mensagem relevante, como vimos [anteriormente](#create-a-user-defined-function). A função `GetAvailableAndFreshSpaces` imprime a mensagem no console.
 
@@ -266,7 +266,7 @@ Se pretender parar a explorar duplos Digital do Azure neste momento, fique à vo
 Agora que você provisionou seus espaços e criou uma estrutura para disparar notificações personalizadas, você pode ir para um dos seguintes tutoriais:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Receba notificações de seus espaços de gêmeos digitais do Azure usando aplicativos lógicos @ no__t-0
+> [Tutorial: Receive notifications from your Azure Digital Twins spaces using Logic Apps](tutorial-facilities-events.md) (Tutorial: Utilizar o Logic Apps para receber notificações dos seus espaços do Azure Digital Twins)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Visualize e analise eventos de seus espaços de gêmeos digitais do Azure usando Time Series Insights @ no__t-0
+> [Tutorial: Visualize and analyze events from your Azure Digital Twins spaces using Time Series Insights](tutorial-facilities-analyze.md) (Tutorial: Visualizar e analisar eventos dos seus espaços do Azure Digital Twins com o Time Series Insights)

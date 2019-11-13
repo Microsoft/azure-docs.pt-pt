@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1eef7b6505c4800acbe8aa69cf6f17eecc503aed
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 6bf8c8690977ef1036c853d8c1c01a3a366b50df
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796012"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011487"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão geral do portal do desenvolvedor do gerenciamento de API do Azure
 
@@ -27,7 +27,7 @@ Este artigo descreve as diferenças entre as versões autohospedadas e gerenciad
 
 > [!WARNING]
 > O novo portal do desenvolvedor está sendo lançado no momento nos serviços de gerenciamento de API.
-> Se o serviço for criado recentemente ou for um serviço de camada de desenvolvedor, você já deverá ter a versão mais recente. Caso contrário, você poderá ter problemas (por exemplo, com a funcionalidade de publicação). A distribuição de recursos será concluída na segunda-feira de novembro de 11, 2019.
+> Se o serviço for criado recentemente ou for um serviço de camada de desenvolvedor, você já deverá ter a versão mais recente. Caso contrário, você poderá ter problemas (por exemplo, com a funcionalidade de publicação). Espera-se que a distribuição de recursos seja concluída até sexta-feira de 22 de novembro de 2019.
 >
 > [Saiba como migrar da versão de visualização para a versão disponível](#preview-to-ga) do portal do desenvolvedor.
 

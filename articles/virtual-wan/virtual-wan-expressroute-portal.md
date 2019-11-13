@@ -1,5 +1,5 @@
 ---
-title: Use a WAN virtual do Azure para criar conexões de ExpressRoute com o Azure e ambientes locais | Microsoft Docs
+title: 'WAN virtual do Azure: criar conexões de ExpressRoute'
 description: Neste tutorial, saiba como usar a WAN virtual do Azure para criar conexões de ExpressRoute ao Azure e a ambientes locais.
 services: virtual-wan
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 8ad86280eab3041667bf9d1713ae2b4bc82a4c9e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5a394f93c5cc606c26ffa1cc64bf1d61617b05b8
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491464"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014933"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: criar uma associação de ExpressRoute usando a WAN virtual do Azure
 

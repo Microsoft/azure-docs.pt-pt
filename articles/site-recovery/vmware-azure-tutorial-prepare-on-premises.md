@@ -1,19 +1,19 @@
 ---
-title: Preparar servidores VMware no local para a recuperação após desastre de VMs de VMware para o Azure | Microsoft Docs
+title: Preparar para a recuperação de desastre de VM VMware com Azure Site Recovery
 description: Saiba como preparar servidores VMware no local para a recuperação após desastre para o Azure com o serviço Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/22/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0f62ee1a79126f456b993c7caf2de3741637f710
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: c82f8130340dfc3848159a6f88db0a304a3ab149
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147810"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953752"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware no local para a recuperação após desastre para o Azure
 
@@ -68,8 +68,8 @@ Prepare a conta da seguinte forma:
 
 Prepare um domínio ou uma conta local com permissões para instalar na VM.
 
-- **VMs do Windows**: Para instalar o em VMs do Windows, se você não estiver usando uma conta de domínio, desabilite o controle de acesso de usuário remoto no computador local. Para fazer isto, no registo > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy**, com um valor de 1.
-- **VMs do Linux**: Para instalar em VMs do Linux, prepare uma conta raiz no servidor Linux de origem.
+- **VMs do Windows**: para instalar em VMs do Windows, se não estiver a utilizar uma conta de domínio, desative o Controlo de Acesso de Utilizador Remoto no computador local. Para fazer isto, no registo > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy**, com um valor de 1.
+- **VMs do Linux**: para instalar em VMs do Linux, prepare uma conta raiz no servidor Linux de origem.
 
 
 ## <a name="check-vmware-requirements"></a>Verificar os requisitos de VMware
@@ -116,5 +116,5 @@ Se você planeja fazer failback para o site local, há vários [pré-requisitos 
 
 Configure a recuperação de desastre. Se você estiver replicando várias VMs, planeje a capacidade.
 > [!div class="nextstepaction"]
-> [Configurar a recuperação de desastres para o Azure para VMs](vmware-azure-tutorial.md)
-> do VMware[executar o planejamento de capacidade](site-recovery-deployment-planner.md).
+> [Configure a recuperação de desastres para o Azure para VMs VMware](vmware-azure-tutorial.md)
+> [executar o planejamento de capacidade](site-recovery-deployment-planner.md).

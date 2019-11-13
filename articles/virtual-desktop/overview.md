@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 058cf516fd8d10cef1e1c93e5493f8c19bdc679d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3781b71237f97cfd004805846f7c30f8cfe9b9f5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607487"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013157"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
@@ -66,19 +66,17 @@ Planejamos adicionar suporte para os seguintes SOS, portanto, verifique se você
 
 |SO|Licença necessária|
 |---|---|
-|Windows 10 Enterprise Multi-Session ou Windows 10 Enterprise|Microsoft 365 E3, e5, a3, a5, F1, negócios<br>Windows E3, e5, a3, a5|
-|Windows 7 Enterprise |Microsoft 365 E3, e5, a3, a5, F1, negócios<br>Windows E3, e5, a3, a5|
+|Windows 10 Enterprise Multi-Session ou Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|CAL (licença de acesso para cliente) do RDS com Software Assurance|
 
 Sua infraestrutura precisa dos seguintes itens para dar suporte à área de trabalho virtual do Windows:
 
 * Um [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
-* Um Active Directory do Windows Server em sincronia com o Azure Active Directory. Isso pode ser habilitado por meio de:
-  * Azure AD Connect
-  * Serviços de Domínio do Azure AD
-     >[!NOTE]
-     >Se você usar Azure AD Domain Services, os usuários deverão ser originados de Azure Active Directory. O uso de Azure AD Domain Services com usuários originados no AD do Windows Server não tem suporte no momento.
-* Uma assinatura do Azure, que contém uma rede virtual que contém ou está conectada ao Windows Server Active Directory
+* Um Active Directory do Windows Server em sincronia com o Azure Active Directory. Você pode configurar isso com um dos seguintes:
+  * Azure AD Connect (para organizações híbridas)
+  * Azure AD Domain Services (para organizações híbridas ou de nuvem)
+* Uma assinatura do Azure que contém uma rede virtual que contém ou está conectada ao Windows Server Active Directory
   
 As máquinas virtuais do Azure criadas para a área de trabalho virtual do Windows devem ser:
 
@@ -92,7 +90,7 @@ As máquinas virtuais do Azure que você cria para a área de trabalho virtual d
 
 * *. wvd.microsoft.com
 * *.blob.core.windows.net
-* *. core.windows.net
+* *.core.windows.net
 * *.servicebus.windows.net
 * prod.warmpath.msftcloudes.com
 * catalogartifact.azureedge.net
@@ -100,7 +98,7 @@ As máquinas virtuais do Azure que você cria para a área de trabalho virtual d
 >[!NOTE]
 >Abrir essas URLs é essencial para uma implantação de área de trabalho virtual do Windows confiável. Não há suporte para o bloqueio de acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs correspondem apenas aos sites e recursos da área de trabalho virtual do Windows e não incluem URLS para outros serviços como o Azure AD.
 
-A área de trabalho virtual do Windows inclui os aplicativos e as áreas de trabalho do Windows que você fornece aos usuários e à solução de gerenciamento, que é hospedada como um serviço no Azure pela Microsoft. Desktops e aplicativos podem ser implantados em máquinas virtuais (VMs) em qualquer região do Azure, e a solução de gerenciamento e os dados para essas VMs residirão no Estados Unidos (região leste dos EUA 2). Isso pode resultar na transferência de dados para o Estados Unidos.
+A área de trabalho virtual do Windows inclui os aplicativos e as áreas de trabalho do Windows que você fornece aos usuários e à solução de gerenciamento, que é hospedada como um serviço no Azure pela Microsoft. Desktops e aplicativos podem ser implantados em máquinas virtuais (VMs) em qualquer região do Azure, e a solução de gerenciamento e os dados para essas VMs residirão no Estados Unidos. Isso pode resultar na transferência de dados para o Estados Unidos.
 
 Para obter um desempenho ideal, verifique se sua rede atende aos seguintes requisitos:
 
@@ -117,7 +115,7 @@ Os seguintes Área de Trabalho Remota clientes dão suporte à área de trabalho
 
 ## <a name="supported-virtual-machine-os-images"></a>Imagens do sistema operacional da máquina virtual com suporte
 
-A área de trabalho virtual do Windows dá suporte às seguintes imagens de so:
+A área de trabalho virtual do Windows dá suporte às seguintes imagens do sistema operacional x64:
 
 * Várias sessões do Windows 10 Enterprise
 * Windows 10 Enterprise
@@ -125,6 +123,8 @@ A área de trabalho virtual do Windows dá suporte às seguintes imagens de so:
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
+
+A área de trabalho virtual do Windows não oferece suporte a imagens do sistema operacional x86 (32 bits).
 
 As opções de automação e implantação disponíveis dependem do sistema operacional e da versão que você escolher, conforme mostrado na tabela a seguir: 
 

@@ -1,7 +1,7 @@
 ---
 title: O que há de novo Reconhecimento vocal (LUIS)
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém notícias sobre Reconhecimento vocal.
+description: Este artigo é atualizado regularmente com notícias sobre os API de Reconhecimento Vocal de serviços cognitivas do Azure.
 author: diberry
 manager: nitinme
 ms.custom: experiment-luis-0519
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2e32d0f4906dea69d6eab27faca4a2e41106ed73
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 62ce0ac36223098d013cc75b7f62fc2c68e358ed
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836844"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953366"
 ---
 # <a name="whats-new-in-language-understanding"></a>O que há de novo no Reconhecimento vocal
 
