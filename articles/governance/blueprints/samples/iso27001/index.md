@@ -1,17 +1,14 @@
 ---
 title: Exemplo de esquema ISO 27001 - Descrição geral
 description: Descrição geral do exemplo de esquema ISO 27001. Este exemplo de esquema ajuda os clientes a avaliar controlos ISO 27001 específicos.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 07/22/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 8c9d657788e8fd56e37acbf8924cb28573858ead
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 2e6e3d8d1abec1262f60ca25a549f35658ed54d3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200683"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037331"
 ---
 # <a name="overview-of-the-iso-27001-blueprint-sample"></a>Descrição geral do exemplo de esquema ISO 27001
 

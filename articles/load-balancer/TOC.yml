@@ -141,27 +141,6 @@
       items:
         - name: Resolver problemas do Balanceador de Carga do Azure
           href: load-balancer-troubleshoot.md
-    - name: Artigos sobre o modelo de implementação clássica
-      items:
-        - name: Ligações de saída (clássicas)
-          href: load-balancer-outbound-connections-classic.md
-        - name: Configurar vários VIPs para o serviço em nuvem
-          href: load-balancer-multivip.md
-          items:
-            - name: Configurar o Balanceador de Carga interno para Serviços Cloud
-              href: load-balancer-get-started-ilb-classic-cloud.md
-              items:
-                - name: Configurar o Balanceador de Carga interno para Serviços Cloud (PowerShell)
-                  href: load-balancer-get-started-ilb-classic-ps.md
-                - name: Configurar o Balanceador de Carga interno para Serviços Cloud (CLI)
-                  href: load-balancer-get-started-ilb-classic-cli.md
-            - name: Configurar o Balanceador de Carga público (PowerShell clássico)
-              href: load-balancer-get-started-internet-classic-ps.md
-              items:
-                - name: Configurar o Balanceador de Carga público (Cloud clássica)
-                  href: load-balancer-get-started-internet-classic-cloud.md
-                - name: Configurar o Balanceador de Carga público (CLI clássica)
-                  href: load-balancer-get-started-internet-classic-cli.md
 - name: Referência
   items:
     - name: Exemplos de código
