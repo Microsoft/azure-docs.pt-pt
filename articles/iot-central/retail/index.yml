@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 4391789a910ddc4ea8b3091941c8a891973fe749
-  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+  ms.openlocfilehash: 637da382af333d069161b25c6fcb5666f843a855
+  ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/09/2019
-  ms.locfileid: "73889075"
+  ms.lasthandoff: 11/12/2019
+  ms.locfileid: "73957970"
 landingContent:
 - title: Criar soluções de comércio
   linkLists:
@@ -51,7 +51,7 @@ landingContent:
       url: ../preview/tutorial-connect-pnp-device.md
   - linkListType: how-to-guide
     links:
-    - text: Preparar e ligar um DevKit de IoT MX Chip
+    - text: Preparar e ligar um DevKit de IoT MXChip
       url: ../preview/howto-connect-devkit.md
     - text: Ligar outras clouds de IoT
       url: ../core/howto-build-iotc-device-bridge.md
