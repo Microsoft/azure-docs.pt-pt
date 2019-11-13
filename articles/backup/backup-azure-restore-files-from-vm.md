@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: c6b49e794011d915f8cd7b29e6317e80391f2675
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 13481788bce22876fa13080d0be34db29e2a72cb
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747380"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961588"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos do backup de máquina virtual do Azure
 
@@ -186,6 +186,7 @@ A tabela a seguir mostra a compatibilidade entre os sistemas operacionais de ser
 
 |Sistema operacional do servidor | Sistema operacional cliente compatível  |
 | --------------- | ---- |
+| Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |

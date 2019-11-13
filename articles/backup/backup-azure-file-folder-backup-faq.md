@@ -7,18 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: c30b918be5e4185d6fb4fdd2fcfc47f8dd4d25ef
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: a77227aca70a48d625f9e20fff9c9fe7df87c000
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969172"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012145"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas comuns sobre como fazer backup de arquivos e pastas
 
 Este artigo tem respostas para perguntas comuns abound fazer backup de arquivos e pastas com o agente de Serviços de Recuperação do Microsoft Azure (MARS) no serviço de [backup do Azure](backup-overview.md) .
-
-## <a name="general"></a>Geral
 
 ## <a name="configure-backups"></a>Configurar backups
 
@@ -113,11 +111,11 @@ O tamanho da pasta cache determina a quantidade de dados para a cópia de segura
 
 1. Execute este comando em um prompt de comandos com privilégios elevados para interromper o mecanismo de backup:
 
-    ```PS C:\> Net stop obengine```
+    ```Net stop obengine```
 
 2. Se você tiver configurado o backup do estado do sistema, abra o gerenciamento de disco e desmonte os discos com nomes no formato `"CBSSBVol_<ID>"`.
 3. Não mova os arquivos. Em vez disso, copie a pasta de espaço em cache para uma unidade diferente que tenha espaço suficiente.
-4. Atualize as entradas de registro a seguir com o caminho da nova pasta de cache.<br/>
+4. Atualize as entradas de registro a seguir com o caminho da nova pasta de cache.
 
     | Caminho do registo | Chave do Registo | Valor |
     | --- | --- | --- |
@@ -126,9 +124,11 @@ O tamanho da pasta cache determina a quantidade de dados para a cópia de segura
 
 5. Reinicie o mecanismo de backup em um prompt de comandos com privilégios elevados:
 
-    ```PS C:\> Net stop obengine```
+  ```command
+  Net stop obengine
 
-    ```PS C:\> Net start obengine```
+  Net start obengine
+  ```
 
 6. Execute um backup ad hoc. Depois que o backup for concluído com êxito usando o novo local, você poderá remover a pasta de cache original.
 
@@ -143,10 +143,10 @@ As seguintes localizações para a pasta da cache não são recomendadas:
 
 Os atributos ou respetivas combinações seguintes não são suportadas para a pasta de cache:
 
-* Encriptada
+* Encriptados
 * Duplicados eliminados
 * Comprimidos
-* Dispersos
+* Disperso
 * Ponto de Reanálise
 
 A pasta de cache e o VHD de metadados não têm os atributos necessários para o agente do Azure Backup.

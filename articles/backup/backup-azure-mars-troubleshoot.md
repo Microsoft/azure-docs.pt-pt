@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: dacurwin
-ms.openlocfilehash: a59ac45d157f8674374c894a280e51392038524b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: abd4e91b8fd3332191b58acf38daed06d03801be
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747406"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012841"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solucionar problemas do agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -47,7 +47,7 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
 | ---     | ---    |
 | **As credenciais do cofre não são válidas** <br/> <br/> Os arquivos de credencial do cofre podem estar corrompidos ou podem ter expirado. (Por exemplo, eles podem ter sido baixados mais de 48 horas antes do horário de registro.)| Baixe novas credenciais do cofre dos serviços de recuperação no portal do Azure. (Consulte a etapa 6 na seção [baixar o agente Mars](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) .) Em seguida, siga estas etapas, conforme apropriado: <ul><li> Se você já tiver instalado e registrado o MARS, abra o console do MMC do Backup do Microsoft Azure Agent e, em seguida, selecione **registrar servidor** no painel **ações** para concluir o registro com as novas credenciais. <br/> <li> Se a nova instalação falhar, Tente reinstalar com as novas credenciais.</ul> **Observação**: se vários arquivos de credencial de cofre tiverem sido baixados, somente o arquivo mais recente será válido nas próximas 48 horas. Recomendamos que você baixe um novo arquivo de credencial de cofre.
 | **O servidor proxy/firewall está bloqueando o registro** <br/>ou <br/>**Sem conectividade com a Internet** <br/><br/> Se o seu computador ou servidor proxy tiver conectividade limitada com a Internet e você não garantir o acesso às URLs necessárias, o registro falhará.| Siga estas etapas:<br/> <ul><li> Trabalhe com sua equipe de ti para garantir que o sistema tenha conectividade com a Internet.<li> Se você não tiver um servidor proxy, certifique-se de que a opção proxy não esteja selecionada quando você registrar o agente. [Verifique as configurações de proxy](#verifying-proxy-settings-for-windows).<li> Se você tiver um servidor de firewall/proxy, trabalhe com sua equipe de rede para garantir que essas URLs e endereços IP tenham acesso:<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Endereços IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Tente se registrar novamente depois de concluir as etapas de solução de problemas anteriores.
-| **O software antivírus está bloqueando o registro** | Se você tiver um software antivírus instalado no servidor, adicione as regras de exclusão necessárias à verificação de antivírus para esses arquivos e pastas: <br/><ul> <li> CBengine. exe <li> CSC. exe<li> A pasta de rascunho. Seu local padrão é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> A pasta bin em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
+| **O software antivírus está bloqueando o registro** | Se você tiver um software antivírus instalado no servidor, adicione as regras de exclusão necessárias à verificação de antivírus para esses arquivos e pastas: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> A pasta de rascunho. Seu local padrão é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> A pasta bin em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Recomendações adicionais
 
@@ -119,11 +119,13 @@ Se os backups agendados não forem disparados automaticamente, mas os backups ma
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- Se a política de execução do PowerShell para `LocalMachine` for definida como restrita, o cmdlet do PowerShell que dispara a tarefa de backup poderá falhar. Execute estes comandos no modo elevado para verificar e definir a política de execução como `Unrestricted` ou `RemoteSigned`:
+- Se a política de execução do PowerShell para `LocalMachine` for definida como `restricted`, o cmdlet do PowerShell que dispara a tarefa de backup poderá falhar. Execute estes comandos no modo elevado para verificar e definir a política de execução como `Unrestricted` ou `RemoteSigned`:
 
-  `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
+ ```PowerShell
+ Get-ExecutionPolicy -List
 
-  `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
+Set-ExecutionPolicy Unrestricted
+```
 
 - Verifique se não há nenhum arquivo MSOnlineBackup de módulo do PowerShell ausente ou corrompido. Se houver arquivos ausentes ou corrompidos, siga estas etapas:
 
@@ -165,9 +167,9 @@ Se a recuperação ainda falhar, reinicie o servidor ou o cliente. Se você não
 
 ## <a name="troubleshoot-cache-problems"></a>Solucionar problemas de cache
 
-A operação de backup poderá falhar se a pasta de cache (também conhecida como pasta de rascunho) estiver configurada incorretamente, se houver pré-requisitos ausentes ou tiver acesso restrito.
+A operação de backup poderá falhar se a pasta de cache (também conhecida como pasta de rascunho) estiver configurada incorretamente, tiver pré-requisitos ausentes ou tiver acesso restrito.
 
-### <a name="pre-requisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Para que as operações do agente MARS tenham sucesso, a pasta de cache precisa aderir aos requisitos a seguir:
 
@@ -192,8 +194,8 @@ Se você tiver um software antivírus instalado no servidor, adicione as regras 
 
 - A pasta de rascunho. Seu local padrão é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch
 - A pasta bin em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
-- CBengine. exe
-- CSC. exe
+- CBengine.exe
+- CSC.exe
 
 ## <a name="common-issues"></a>Problemas comuns
 
@@ -215,13 +217,13 @@ O Agente dos Serviços de Recuperação do Microsoft Azure não conseguiu aceder
 
 Mensagem de erro | Ação recomendada |
 -- | --
-O backup falhou devido ao armazenamento insuficiente no volume em que a pasta de rascunho está localizada | Para resolver esse problema, verifique as etapas abaixo e repita a operação:<br/>- [garantir que o agente Mars seja o mais recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [verificar e resolver problemas de armazenamento que afetam o espaço transitório de backup](#pre-requisites)
+O backup falhou devido ao armazenamento insuficiente no volume em que a pasta de rascunho está localizada | Para resolver esse problema, verifique as etapas abaixo e repita a operação:<br/>- [garantir que o agente Mars seja o mais recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [verificar e resolver problemas de armazenamento que afetam o espaço transitório de backup](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
 Mensagem de erro | Ação recomendada |
 -- | --
-Não é possível encontrar alterações num ficheiro. Tal pode dever-se a vários motivos. Repita a operação | Para resolver esse problema, verifique as etapas abaixo e repita a operação:<br/> - [garantir que o agente Mars seja o mais recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [verificar e resolver problemas de armazenamento que afetam o espaço transitório de backup](#pre-requisites)
+Não é possível encontrar alterações num ficheiro. Tal pode dever-se a vários motivos. Repita a operação | Para resolver esse problema, verifique as etapas abaixo e repita a operação:<br/> - [garantir que o agente Mars seja o mais recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [verificar e resolver problemas de armazenamento que afetam o espaço transitório de backup](#prerequisites)
 
 ## <a name="next-steps"></a>Passos seguintes
 

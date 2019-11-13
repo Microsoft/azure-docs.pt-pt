@@ -1,17 +1,14 @@
 ---
 title: Políticas de autor para propriedades de matriz em recursos
 description: Aprenda a criar parâmetros de matriz, criar regras para expressões de linguagem de matriz, avaliar o alias [*] e acrescentar elementos a uma matriz existente com regras de definição de Azure Policy.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/06/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 33607d790f564075623d6f61d1b7b8b70a119f98
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: f28cffcf928f9c4da6b2dae2a0811200397c1f0d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255818"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959720"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matriz nos recursos do Azure
 
@@ -19,7 +16,7 @@ Azure Resource Manager propriedades são normalmente definidas como cadeias de c
 
 - O tipo de um [parâmetro de definição](../concepts/definition-structure.md#parameters), para fornecer várias opções
 - Parte de uma [regra de política](../concepts/definition-structure.md#policy-rule) usando as condições **em** ou **notIn**
-- Parte de uma regra de política que avalia o [alias \[ @ no__t-2 @ no__t-3](../concepts/definition-structure.md#understanding-the--alias) para avaliar cenários específicos, como **None**, **any**ou **All**
+- Parte de uma regra de política que avalia o [\[\*\] alias](../concepts/definition-structure.md#understanding-the--alias) para avaliar cenários específicos, como **nenhum**, **qualquer**ou **todos**
 - No [efeito de acréscimo](../concepts/effects.md#append) para substituir ou adicionar a uma matriz existente
 
 Este artigo aborda cada uso por Azure Policy e fornece várias definições de exemplo.
@@ -104,8 +101,8 @@ Para usar essa cadeia de caracteres com cada SDK, use os seguintes comandos:
 
 ### <a name="array-conditions"></a>Condições de matriz
 
-As [condições](../concepts/definition-structure.md#conditions) de regra de política que um**tipo** de parâmetro de _matriz_
- pode ser usada com o são limitadas a `in` e `notIn`. Use a seguinte definição de política com a condição `equals` como um exemplo:
+As [condições](../concepts/definition-structure.md#conditions) de regra de política que uma _matriz_
+**tipo** de parâmetro pode ser usada com o são limitadas a `in` e `notIn`. Use a seguinte definição de política com a condição `equals` como um exemplo:
 
 ```json
 {
@@ -137,14 +134,14 @@ A tentativa de criar essa definição de política por meio do portal do Azure l
 
 - "A política ' {GUID} ' não pôde ser parametrizada devido a erros de validação. Verifique se os parâmetros da política estão definidos corretamente. O resultado da avaliação da exceção interna da expressão de linguagem ' [Parameters (' allowedLocations ')] ' é do tipo ' array ', o tipo esperado é ' String '. '. "
 
-O **tipo** de condição esperado `equals` é _cadeia de caracteres_. Como **allowedLocations** é definido como _matriz_de tipo, o mecanismo de política avalia a expressão de idioma e gera o erro. Com a condição `in` e `notIn`, o mecanismo de política espera a _matriz_ de **tipo** na expressão de idioma. Para resolver essa mensagem de erro, altere `equals` para `in` ou `notIn`.
+O **tipo** de condição esperado `equals` é _String_. Como **allowedLocations** é definido como _matriz_de tipo, o mecanismo de política avalia a expressão de idioma e gera o erro. Com a condição de `in` e `notIn`, o mecanismo de política espera a _matriz_ de **tipo** na expressão de idioma. Para resolver essa mensagem de erro, altere `equals` para `in` ou `notIn`.
 
 ### <a name="evaluating-the--alias"></a>Avaliando o alias [*]
 
-Os aliases que têm **[\*]** anexados ao seu nome indicam que o **tipo** é uma _matriz_. Em vez de avaliar o valor de toda a matriz, **[\*]** torna possível avaliar cada elemento da matriz. Há três cenários em que essa avaliação por item é útil em: nenhum, qualquer e tudo.
+Aliases com **[\*]** anexados ao seu nome indicam que o **tipo** é uma _matriz_. Em vez de avaliar o valor de toda a matriz, **[\*]** torna possível avaliar cada elemento da matriz. Há três cenários em que essa avaliação por item é útil em: nenhum, qualquer e tudo.
 
 O mecanismo de política aciona o **efeito** em **seguida** somente quando a regra **If** é avaliada como true.
-Esse fato é importante entender no contexto de como **[\*]** avalia cada elemento individual da matriz.
+Esse fato é importante entender no contexto da maneira que **[\*]** avalia cada elemento individual da matriz.
 
 A regra de política de exemplo para a tabela de cenário abaixo:
 

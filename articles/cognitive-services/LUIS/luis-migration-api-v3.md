@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 7c2866441c7439008fad27ced9b9b1dddea848ec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bb2255a9a68a499ff3e77c1fbd35081a2474cf1d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492824"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961939"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações de ponto de extremidade de previsão para v3
 
@@ -73,7 +73,7 @@ Continue a usar o ponto de extremidade de previsão da API v2 até que a V 4.7 d
 
 ## <a name="v2-api-deprecation"></a>Reprovação da API v2 
 
-A API de previsão v2 não será preterida por pelo menos 9 meses após a visualização v3, de junho de 8rd, 2020. 
+A API de previsão v2 não será preterida por pelo menos 9 meses após a visualização v3, 8 de junho de 2020. 
 
 ## <a name="endpoint-url-changes"></a>Alterações de URL de ponto de extremidade 
 
@@ -85,10 +85,10 @@ Se desejar consultar por versão, primeiro você precisará [publicar via API](h
 
 |VERSÃO DA API DE PREVISÃO|FORMA|do IdP|
 |--|--|--|
-|V2|GET|https://<b>{Region}</b>. api.cognitive.microsoft.com/luis/<b>preditiva</b>/<b>v 3.0</b>/apps/<b>{app-ID}</b>/Slots/<b>{slot-Name}</b>/Predict? Query =<b>{Query}</b>|
-|V2|Postar|https://<b>{Region}</b>. api.cognitive.microsoft.com/luis/<b>preditiva</b>/<b>v 3.0</b>/apps/<b>{app-ID}</b>/Slots/<b>{slot-Name}</b>/Predict|
+|V3|GET|https://<b>{Region}</b>. api.cognitive.microsoft.com/luis/<b>preditiva</b>/<b>v 3.0</b>/apps/<b>{app-ID}</b>/Slots/<b>{slot-Name}</b>/Predict? Query =<b>{Query}</b>|
+|V3|POST|https://<b>{Region}</b>. api.cognitive.microsoft.com/luis/<b>preditiva</b>/<b>v 3.0</b>/apps/<b>{app-ID}</b>/Slots/<b>{slot-Name}</b>/Predict|
 |V2|GET|https://<b>{Region}</b>. api.cognitive.microsoft.com/luis/<b>preditiva</b>/<b>v 3.0</b>/apps/<b>{app-ID}</b>/Versions/<b>{version-ID}</b>/Predict? consulta =<b>{Query}</b>|
-|V2|Postar|https://<b>{Region}</b>. API.cognitive.Microsoft.com/Luis/<b>predição</b><b>v 3.0</b>/apps/<b>{app-ID}</b>/Versions/<b>{version-ID}</b>/Predict|
+|V2|POST|https://<b>{Region}</b>. API.cognitive.Microsoft.com/Luis/<b>predição</b><b>v 3.0</b>/apps/<b>{app-ID}</b>/Versions/<b>{version-ID}</b>/Predict|
 
 |Valores válidos para `SLOT-NAME`|
 |--|
@@ -108,7 +108,7 @@ A API v3 tem parâmetros de cadeia de caracteres de consulta diferentes.
 |`show-all-intents`|boolean|Somente v3|false|Retorne todas as intenções com a pontuação correspondente no objeto **preditiva. retenções** . As intenções são retornadas como objetos em um objeto de `intents` pai. Isso permite o acesso programático sem a necessidade de encontrar a intenção em uma matriz: `prediction.intents.give`. Em v2, elas foram retornadas em uma matriz. |
 |`verbose`|boolean|V2 & v3|false|**Em v2**, quando definido como true, todas as intenções previstas foram retornadas. Se você precisar de todas as intenções previstas, use o parâmetro v3 de `show-all-intents`.<br><br>**No v3**, esse parâmetro fornece apenas detalhes de metadados de entidade de previsão de entidade.  |
 |`timezoneOffset`|string|V2|-|Fuso horário aplicado às entidades datetimeV2.|
-|`datetimeReference`|string|V2|-|[Fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) aplicado às entidades datetimeV2. Substitui `timezoneOffset` de v2.|
+|`datetimeReference`|string|V3|-|[Fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) aplicado às entidades datetimeV2. Substitui `timezoneOffset` de v2.|
 
 
 ### <a name="v3-post-body"></a>Corpo da POSTAgem v3
@@ -417,7 +417,7 @@ A principal finalidade é estender entidades predefinidas, mas não se limita a 
 A propriedade `resolution` pode ser um número, uma cadeia de caracteres, um objeto ou uma matriz:
 
 * Dallas
-* {"texto": "valor"}
+* {"text": "value"}
 * 12345 
 * ["a", "b", "c"]
 

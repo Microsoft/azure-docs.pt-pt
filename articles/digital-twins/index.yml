@@ -3,7 +3,7 @@ title: Documentação de Pré-visualização do Azure Digital Twins
 summary: Saiba como utilizar o Azure Digital Twins para ligar pessoas, lugares e coisas e para criar soluções de IoT com inteligência espacial. Veja o Início Rápido e os Tutoriais para monitorizar um edifício inteligente imaginário, aprender conceitos aprofundados e criar uma solução de IoT da próxima geração que modele o seu ambiente físico.
 metadata:
   title: Documentação de Pré-visualização do Azure Digital Twins - Tutoriais, Referência da API | Microsoft Docs
-  description: Utilize o Azure Digital Twins para criar soluções espaciais inteligentes.
+  description: Saiba como Utilizar o Azure Digital Twins para ligar pessoas, lugares e coisas e para criar soluções de IoT com inteligência espacial.
   services: digital-twins
   ms.service: digital-twins
   ms.subservice: digital-twins
@@ -12,12 +12,12 @@ metadata:
   author: KingdomOfEnds
   ms.author: v-adgera
   ms.date: 09/03/2019
-  ms.openlocfilehash: b5a449d09b1068dbf874828b9e65b1ac318b58fd
-  ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+  ms.openlocfilehash: 3d55dcfc4b57d0179ca6e02bae50bf3d37dc70f3
+  ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/24/2019
-  ms.locfileid: "71219725"
+  ms.lasthandoff: 11/13/2019
+  ms.locfileid: "74009305"
 landingContent:
 - title: Acerca do Azure Digital Twins
   linkLists:

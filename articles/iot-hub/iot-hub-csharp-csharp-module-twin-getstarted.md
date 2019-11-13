@@ -1,5 +1,5 @@
 ---
-title: Introdução à identidade de módulo e ao módulo duplo do Hub IoT do Azure (.NET) | Microsoft Docs
+title: Introdução c/identidade do módulo do Hub IoT do Azure & módulo d (.NET)
 description: Saiba como criar a identidade de módulo e atualizar o módulo duplo com os SDKs do IoT para .NET.
 author: chrissie926
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
-ms.openlocfilehash: abf8b18d13e2990f053dd4273645dd7b9a324c77
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: e728d0ef8f52927687d56bd1d4c64f03c53ef401
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147753"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73947670"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Introdução à identidade e módulo do módulo do Hub IoT (.NET)
 
@@ -53,11 +53,11 @@ No final deste tutorial, terá duas aplicações de consola .NET:
 
 Nesta secção, vai criar uma aplicação de consola .NET no seu dispositivo simulado que atualiza as propriedades reportadas do módulo duplo.
 
-Antes de começar, obtenha a cadeia de conexão do módulo. Inicie sessão no [portal do Azure](https://portal.azure.com/). Navegue até o Hub e selecione **dispositivos IOT**. Localize **myFirstDevice**. Selecione **myFirstDevice** para abri-lo e, em seguida, selecione **myFirstModule** para abri-lo. Em **detalhes de identidade do módulo**, copie a **cadeia de conexão (chave primária)** quando necessário no procedimento a seguir.
+Antes de começar, obtenha a cadeia de conexão do módulo. Iniciar sessão no [portal do Azure](https://portal.azure.com/). Navegue até o Hub e selecione **dispositivos IOT**. Localize **myFirstDevice**. Selecione **myFirstDevice** para abri-lo e, em seguida, selecione **myFirstModule** para abri-lo. Em **detalhes de identidade do módulo**, copie a **cadeia de conexão (chave primária)** quando necessário no procedimento a seguir.
 
    ![Detalhe do módulo no portal do Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 
-1. No Visual Studio, adicione um novo projeto à sua solução selecionando **arquivo** > **novo** > **projeto**. Em criar um novo projeto, selecione **aplicativo de console (.NET Framework)** e selecione **Avançar**.
+1. No Visual Studio, adicione um novo projeto à sua solução selecionando **arquivo** > **novo** **projeto**de > . Em criar um novo projeto, selecione **aplicativo de console (.NET Framework)** e selecione **Avançar**.
 
 1. Atribua o nome *UpdateModuleTwinReportedProperties* ao projeto. Para **solução**, selecione **Adicionar à solução**. Certifique-se de que tem a versão 4.6.1 ou posterior do .NET Framework.
 
@@ -65,7 +65,7 @@ Antes de começar, obtenha a cadeia de conexão do módulo. Inicie sessão no [p
 
 1. Selecione **criar** para criar seu projeto.
 
-1. No Visual Studio, abra **ferramentas** > **Gerenciador** > de pacotes NuGet**gerenciar pacotes NuGet para solução**. Selecione o separador **Procurar**.
+1. No Visual Studio, abra **ferramentas** > **Gerenciador de pacotes NuGet** > **gerenciar pacotes NuGet para solução**. Selecione o separador **Procurar**.
 
 1. Pesquise e selecione **Microsoft. Azure. Devices. Client**e, em seguida, selecione **instalar**.
 
@@ -151,7 +151,7 @@ Antes de começar, obtenha a cadeia de conexão do módulo. Inicie sessão no [p
 
     Este código de exemplo mostra como obter o módulo duplo e atualizar as propriedades reportadas com o protocolo AMQP. Na pré-visualização pública, o protocolo AMQP só é suportado para operações de módulo duplo.
 
-1. Opcionalmente, você pode adicionar essas instruções ao método **Main** para enviar um evento ao Hub IOT do seu módulo. Coloque essas linhas abaixo do `try catch` bloco.
+1. Opcionalmente, você pode adicionar essas instruções ao método **Main** para enviar um evento ao Hub IOT do seu módulo. Coloque essas linhas abaixo do bloco de `try catch`.
 
     ```csharp
     Byte[] bytes = new Byte[2];
@@ -174,7 +174,7 @@ Agora você pode executar os aplicativos.
 
 1. Pressione **F5** para iniciar os aplicativos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, veja:
 

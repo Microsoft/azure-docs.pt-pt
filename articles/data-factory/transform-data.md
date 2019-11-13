@@ -11,15 +11,16 @@ ms.date: 07/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 97077b9f72de8792e6aba1d72ff34b9185b2d998
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0b91d22454d6023094f269b184c845047092b4fb
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683805"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954275"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados em Azure Data Factory
 > [!div class="op_single_selector"]
+> * [Mapeando fluxo de dados](data-flow-create.md)
 > * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Pig](transform-data-using-hadoop-pig.md)  
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
@@ -34,7 +35,7 @@ ms.locfileid: "73683805"
 > * [Personalizado do .NET](transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="overview"></a>Descrição geral
-Este artigo explica as atividades de transformação de dados no Azure Data Factory que você pode usar para transformar e processar seus dados brutos em previsões e ideias. Uma atividade de transformação é executada em um ambiente de computação, como o cluster do Azure HDInsight ou um lote do Azure. Ele fornece links para artigos com informações detalhadas sobre cada atividade de transformação.
+Este artigo explica as atividades de transformação de dados no Azure Data Factory que você pode usar para transformar e processar seus dados brutos em previsões e ideias em escala. Uma atividade de transformação é executada em um ambiente de computação, como o Azure Databricks ou o Azure HDInsight. Ele fornece links para artigos com informações detalhadas sobre cada atividade de transformação.
 
 O Data Factory dá suporte às seguintes atividades de transformação de dados que podem ser adicionadas aos [pipelines](concepts-pipelines-activities.md) individualmente ou encadeadas com outra atividade.
 
@@ -49,6 +50,8 @@ O mapeamento de fluxos de dados são transformações de dados visualmente proje
 Os fluxos de dados do Wrangling no Azure Data Factory permitem que você faça uma preparação de dados sem código em escala de nuvem iterativamente. Os fluxos de dados do Wrangling integram-se ao [Power Query online](https://docs.microsoft.com/power-query/) e fazem Power Query funções M disponíveis para os dados Wrangling em escala de nuvem por meio da execução do Spark. Para obter mais informações, consulte [fluxos de dados do Wrangling](wrangling-data-flow-overview.md).
 
 ## <a name="external-transformations"></a>Transformações externas
+
+Opcionalmente, você pode codificar manualmente as transformações e gerenciar o ambiente de computação externo.
 
 ### <a name="hdinsight-hive-activity"></a>Atividade do hive do HDInsight
 A atividade do hive do HDInsight em um pipeline Data Factory executa consultas de Hive em seu próprio cluster do HDInsight baseado em Windows/Linux sob demanda. Consulte o artigo [atividade do hive](transform-data-using-hadoop-hive.md) para obter detalhes sobre essa atividade. 

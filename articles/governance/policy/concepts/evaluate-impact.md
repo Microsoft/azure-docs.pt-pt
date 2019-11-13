@@ -1,17 +1,14 @@
 ---
 title: Avaliar o impacto de uma nova política do Azure
 description: Entenda o processo a ser seguido ao introduzir uma nova política em seu ambiente do Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 2aee31d3e874f709d5ec30ed4ddc0ba0445d4130
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 6c1a3ea764aedec7de5eab1f564176eaafead70b
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980750"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959833"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Avaliar o impacto de uma nova política do Azure
 
@@ -37,7 +34,7 @@ Por esse motivo, as definições de política devem ser tão definidas e focadas
 ## <a name="audit-existing-resources"></a>Auditar recursos existentes
 
 Antes de procurar gerenciar recursos novos ou atualizados com sua nova definição de política, é melhor ver como ele avalia um subconjunto limitado de recursos existentes, como um grupo de recursos de teste. Use o [modo de imposição](./assignment-structure.md#enforcement-mode)
-_desabilitado_ (DoNotEnforce) em sua atribuição de política para impedir que o [efeito](./effects.md) do disparo ou das entradas do log de atividades seja criado.
+_desabilitado_ (DoNotEnforce) em sua atribuição de política para impedir que o [efeito](./effects.md) de disparar ou entradas do log de atividades seja criado.
 
 Esta etapa lhe dá a chance de avaliar os resultados de conformidade da nova política nos recursos existentes sem afetar o fluxo de trabalho. Verifique se nenhum recurso compatível está marcado como não compatível (_falso positivo_) e se todos os recursos que você espera que não estejam em conformidade estão marcados corretamente.
 Depois que o subconjunto inicial de recursos é validado como esperado, expanda lentamente a avaliação para todos os recursos existentes.

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9af85d8d9b181d619d8895542f142708626649d1
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 594534f64c984f4afb986d3366f388e412bde27c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620840"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961456"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -32,7 +32,7 @@ Hyper-V sem Virtual Machine Manager | Você pode executar a recuperação de des
 
 ## <a name="on-premises-servers"></a>Servidores no local
 
-**Servidor** | **Requisitos** | **Detalhes**
+**servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
 Hyper-V (em execução sem Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (incluindo a instalação do Server Core), Windows Server 2012 R2 com as atualizações mais recentes | Se você já tiver configurado o Windows Server 2012 R2 com/ou o SCVMM 2012 R2 com Azure Site Recovery e planejar atualizar o sistema operacional, siga a [documentação](upgrade-2012R2-to-2016.md) de diretrizes. 
 Hyper-V (executando com Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se Virtual Machine Manager for usado, os hosts do Windows Server 2019 deverão ser gerenciados em Virtual Machine Manager 2019. Da mesma forma, os hosts do Windows Server 2016 devem ser gerenciados no Virtual Machine Manager 2016.<br/><br/>
@@ -83,7 +83,7 @@ ELB | Sim | Sim
 Traffic Manager do Azure | Sim | Sim
 Várias NICs | Sim | Sim
 IP Reservado | Sim | Sim
-IPv6 | Sim | Sim
+IPv4 | Sim | Sim
 Reter endereço IP de origem | Sim | Sim
 Pontos de extremidade de serviço de rede virtual do Azure<br/> (sem firewalls de armazenamento do Azure) | Sim | Sim
 Redes Aceleradas | Não | Não
@@ -96,7 +96,7 @@ Redes Aceleradas | Não | Não
 NFS | ND | ND
 SMB 3.0 | Sim | Sim
 SAN (ISCSI) | Sim | Sim
-Vários caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5,7 SP4<br/><br/> EMC PowerPath DSM para CLARiiON | Sim | Sim
+Vários caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5,7 SP4, EMC PowerPath DSM para CLARiiON | Sim | Sim
 
 ## <a name="hyper-v-vm-guest-storage"></a>Armazenamento convidado de VM Hyper-V
 
@@ -105,7 +105,7 @@ Vários caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5,7 
 VMDK | ND | ND
 VHD/VHDX | Sim | Sim
 VM de geração 2 | Sim | Sim
-EFI/UEFI| Sim | Sim
+EFI/UEFI<br></br>A VM migrada no Azure será convertida automaticamente em uma VM de inicialização do BIOS. A VM deve estar executando apenas o Windows Server 2012 e posterior. O disco do sistema operacional deve ter até cinco partições ou menos e o tamanho do disco do sistema operacional deve ser inferior a 300 GB.| Sim | Sim
 Disco de cluster compartilhado | Não | Não
 Disco criptografado | Não | Não
 NFS | ND | ND
@@ -132,6 +132,7 @@ Armazenamento frio | Não | Não
 Armazenamento dinâmico| Não | Não
 Blobs de bloco | Não | Não
 Criptografia em repouso (SSE)| Sim | Sim
+Criptografia em repouso (CMK)| Não | Não
 Armazenamento Premium | Sim | Sim
 Serviço de importação/exportação | Não | Não
 Contas de armazenamento do Azure com firewall habilitado | Sim. Para armazenamento e cache de destino. | Sim. Para armazenamento e cache de destino.

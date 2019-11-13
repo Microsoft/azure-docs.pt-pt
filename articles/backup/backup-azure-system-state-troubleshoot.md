@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 71a2b73ab3570539a566f708ea8b1a41963d4e81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: eb8bf1891f5ce96507c20e196d20ae499f30fe34
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747302"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012119"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solucionar problemas de backup do estado do sistema
 
@@ -45,7 +45,7 @@ Recomendamos que você execute a validação abaixo antes de iniciar a solução
 - A Microsoft não recomenda recuperar para um hardware diferente com a recuperação do Estado do Sistema.
 - O backup de estado do sistema atualmente dá suporte a servidores Windows "locais", essa funcionalidade não está disponível para VMs do Azure.
 
-## <a name="pre-requisite"></a>Pré-requisito
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de solucionarmos problemas de backup de estado do sistema com o backup do Azure, execute a verificação de pré-requisitos abaixo.  
 
@@ -87,7 +87,7 @@ Para instalar Backup do Windows Server usando Gerenciador do Servidor, execute a
 5. Na guia **confirmação** , clique em **instalar** para iniciar o processo de instalação.
 6. Na guia **resultados** , ele exibirá a backup do Windows Server recurso foi instalado com êxito no Windows Server.
 
-    ![disso](./media/backup-azure-system-state-troubleshoot/results.jpg)
+    ![Resultado](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 ### <a name="system-volume-information-permission"></a>Permissão de informações de volume do sistema
 

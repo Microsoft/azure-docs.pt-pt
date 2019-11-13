@@ -4,14 +4,14 @@ description: Use modelos de Azure Resource Manager para criar e configurar Azure
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 11/08/2019
 ms.author: thvankra
-ms.openlocfilehash: 7c508d736c7c04cc6df2b42e0a90a2906052adbc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7b08ca98f25b079d831033b9393effd4ee4b65e3
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835523"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961860"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Modelos de Azure Resource Manager para Azure Cosmos DB
 
@@ -29,8 +29,6 @@ As tabelas a seguir incluem links para modelos de Azure Resource Manager para Az
 |**Modelo**|**Descrição**|
 |---| ---|
 |[Criar uma conta do Azure Cosmos, banco de dados, coleção](manage-mongodb-with-resource-manager.md#create-resource) | Este modelo cria uma conta usando Azure Cosmos DB API para MongoDB em duas regiões com vários mestres habilitados. A conta do Azure Cosmos terá dois contêineres que compartilham a taxa de transferência no nível do banco de dados. |
-|[Atualizar taxa de transferência (RU/s) para um banco de dados](manage-mongodb-with-resource-manager.md#database-ru-update) | Este modelo atualiza a taxa de transferência para um banco de dados em uma conta de API do MongoDB. |
-|[Atualizar taxa de transferência (RU/s) para uma coleção](manage-mongodb-with-resource-manager.md#collection-ru-update) | Este modelo atualiza a taxa de transferência para um contêiner em uma conta de API do MongoDB. |
 
 ## <a name="cassandra-api"></a>API de Cassandra
 
@@ -43,17 +41,14 @@ As tabelas a seguir incluem links para modelos de Azure Resource Manager para Az
 |**Modelo**|**Descrição**|
 |---| ---|
 |[Criar uma conta do Azure Cosmos, um banco de dados, um grafo](manage-gremlin-with-resource-manager.md#create-resource) | Este modelo cria uma conta de API do Gremlin em duas regiões com vários mestres habilitados. A conta do Azure Cosmos terá dois grafos que compartilham a taxa de transferência no nível do banco de dados. |
-|[Atualizar taxa de transferência (RU/s) para um banco de dados](manage-gremlin-with-resource-manager.md#database-ru-update) | Este modelo atualiza a taxa de transferência de um banco de dados em uma conta de API do Gremlin. |
-|[Atualizar taxa de transferência (RU/s) para um grafo](manage-gremlin-with-resource-manager.md#graph-ru-update) | Este modelo atualiza a taxa de transferência para um grafo em uma conta de API do Gremlin. |
 
 ## <a name="table-api"></a>API de Tabela
 
 |**Modelo**|**Descrição**|
 |---| ---|
 |[Criar uma conta do Azure Cosmos, tabela](manage-table-with-resource-manager.md#create-resource) | Este modelo cria uma conta de API de Tabela em duas regiões com vários mestres habilitados. A conta do Azure Cosmos terá uma única tabela. |
-|[Atualizar taxa de transferência (RU/s) para uma tabela](manage-table-with-resource-manager.md#table-ru-update) | Este modelo atualiza a taxa de transferência de uma tabela em uma conta de API de Tabela. |
 
 > [!TIP]
 > Para habilitar a taxa de transferência compartilhada ao usar API de Tabela, habilite a taxa de transferência no nível da conta no portal do Azure.
 
-Consulte a página de [referência do ARM para Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions) para obter a documentação de referência.
+Consulte [Azure Resource Manager referência para Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions) página para obter a documentação de referência.

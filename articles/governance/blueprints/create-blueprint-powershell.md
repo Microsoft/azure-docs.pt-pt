@@ -1,19 +1,16 @@
 ---
 title: Criar um plano gráfico com o PowerShell
 description: Use os planos gráficos do Azure para criar, definir e implantar artefatos usando o PowerShell.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/21/2019
 ms.topic: quickstart
-ms.service: blueprints
-ms.openlocfilehash: 6a1ef5aece030ac359e9c5811c815bec5ed57d27
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 4cc181a7e0b07448d6dd538cfb1621d1efa43a80
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978521"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960430"
 ---
-# <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Início rápido: Definir e atribuir um Azure Blueprint com o PowerShell
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Início rápido: definir e atribuir um Azure Blueprint com o PowerShell
 
 Aprender a criar e atribuir esquemas permite a definição de padrões comuns para desenvolver configurações reutilizáveis e rapidamente implementáveis com base nos modelos do Resource Manager, política, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure Blueprints para realizar algumas das tarefas comuns relacionadas com a criação, publicação e atribuição de um esquema na sua organização, tais como:
 
@@ -316,7 +313,7 @@ O valor para `{BlueprintVersion}` é uma cadeia de letras, números e hífenes (
 
 Depois que um plano gráfico é publicado usando o PowerShell, ele é atribuível a uma assinatura. Atribua o esquema que criou a uma das subscrições na hierarquia do grupo de gestão. Se o plano gráfico for salvo em uma assinatura, ele só poderá ser atribuído a essa assinatura. O parâmetro **Blueprint** especifica o plano gráfico a ser atribuído. Para fornecer parâmetros de nome, localização, identidade, bloqueio e plano gráfico, use os parâmetros correspondentes do PowerShell no cmdlet `New-AzBlueprintAssignment` ou forneça-os no arquivo JSON do parâmetro **assignmentfile** .
 
-1. Execute a implementação do esquema, atribuindo-o a uma subscrição. Como os parâmetros de **colaboradores** e **proprietários** exigem uma matriz de ObjectIDs das entidades de segurança para receber a atribuição de função, use [Azure Active Directory API do Graph](../../active-directory/develop/active-directory-graph-api.md) para coletar as ObjectIDs para uso no **assignmentfile** para seus próprios usuários, grupos ou entidades de serviço.
+1. Execute a implementação do esquema, atribuindo-o a uma subscrição. Como os parâmetros de **colaboradores** e **proprietários** exigem uma matriz de ObjectIDs das entidades de segurança para receber a atribuição de função, use [Azure Active Directory API do Graph](../../active-directory/develop/active-directory-graph-api.md) para reunir as ObjectIDs para uso no **assignmentfile** para seus próprios usuários, grupos ou entidades de serviço.
 
    - Arquivo JSON-blueprintAssignment. JSON
 
@@ -371,7 +368,7 @@ Depois que um plano gráfico é publicado usando o PowerShell, ele é atribuíve
    - Identidade gerenciada atribuída pelo usuário
 
      Uma atribuição de Blueprint também pode usar uma [identidade gerenciada atribuída pelo usuário](../../active-directory/managed-identities-azure-resources/overview.md).
-     Nesse caso, a parte de **identidade** do arquivo de atribuição JSON é alterada da seguinte maneira. Substitua `{tenantId}`, `{subscriptionId}`, `{yourRG}` e `{userIdentity}` por seu tenantid, SubscriptionId, nome do grupo de recursos e o nome da sua identidade gerenciada atribuída pelo usuário, respectivamente.
+     Nesse caso, a parte de **identidade** do arquivo de atribuição JSON é alterada da seguinte maneira. Substitua `{tenantId}`, `{subscriptionId}`, `{yourRG}`e `{userIdentity}` por seu tenantid, SubscriptionId, nome do grupo de recursos e o nome da sua identidade gerenciada atribuída pelo usuário, respectivamente.
 
      ```json
      "identity": {

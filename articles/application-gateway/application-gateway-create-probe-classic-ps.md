@@ -1,42 +1,34 @@
 ---
-title: Criar PowerShell clássico uma sonda personalizada - Gateway de aplicação do Azure - | Documentos da Microsoft
-description: Saiba como criar uma sonda personalizada para o Gateway de aplicação com o PowerShell no modelo de implementação clássica
+title: Criar uma investigação personalizada usando o PowerShell-Aplicativo Azure gateway
+description: Saiba como criar uma investigação personalizada para o gateway de aplicativo usando o PowerShell no modelo de implantação clássico
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-service-management
-ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/26/2017
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f05c6d82a00e78a4237019128db541eb63f20ba
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "58861884"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012244"
 ---
-# <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Criar uma sonda personalizada para o Gateway de aplicação do Azure (clássico) com o PowerShell
+# <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Criar uma investigação personalizada para o gateway de Aplicativo Azure (clássico) usando o PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-create-probe-portal.md)
+> * [Azure portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-Neste artigo, é possível adicionar uma sonda personalizada para um gateway de aplicação existente com o PowerShell. As pesquisas personalizadas são úteis para aplicações que têm uma página de verificação de estado de funcionamento específico ou para aplicativos que não fornecem uma resposta com êxito na aplicação web predefinida.
+Neste artigo, você adiciona uma investigação personalizada a um gateway de aplicativo existente com o PowerShell. Investigações personalizadas são úteis para aplicativos que têm uma página de verificação de integridade específica ou para aplicativos que não fornecem uma resposta bem-sucedida no aplicativo Web padrão.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Saiba como [executar estes passos com o modelo do Resource Manager](application-gateway-create-probe-ps.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Saiba como [executar estes passos com o modelo do Resource Manager](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
 
 Para criar um gateway de aplicação:
 
@@ -44,7 +36,7 @@ Para criar um gateway de aplicação:
 2. Crie um ficheiro XML de configuração ou um objeto de configuração.
 3. Confirme a configuração para o recurso de gateway de aplicação criado recentemente.
 
-### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>Criar um recurso de gateway de aplicação com uma sonda personalizada
+### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>Criar um recurso de gateway de aplicativo com uma investigação personalizada
 
 Para criar o gateway, utilize o cmdlet `New-AzureApplicationGateway`, substituindo os valores pelos seus próprios valores. Neste ponto, ainda não é contabilizada a faturação do gateway. A faturação passará a ser contabilizada num passo posterior, quando o gateway tiver sido iniciado com êxito.
 
@@ -61,13 +53,13 @@ Get-AzureApplicationGateway AppGwTest
 ```
 
 > [!NOTE]
-> O valor predefinido para *InstanceCount* é 2, com um valor máximo de 10. O valor predefinido para *GatewaySize* é Médio. Pode escolher entre pequeno, médio e grande.
+> O valor predefinido para *InstanceCount* é 2, com um valor máximo de 10. O valor predefinido para *GatewaySize* é Médio. Você pode escolher entre pequeno, médio e grande.
 > 
 > 
 
-*VirtualIPs* e *DnsName* são apresentados em branco, porque o gateway ainda não foi iniciado. Estes valores são criados assim que o gateway estiver em execução.
+*VirtualIPs* e *DnsName* são apresentados em branco, porque o gateway ainda não foi iniciado. Esses valores são criados quando o gateway está em estado de execução.
 
-### <a name="configure-an-application-gateway-by-using-xml"></a>Configurar um gateway de aplicação com XML
+### <a name="configure-an-application-gateway-by-using-xml"></a>Configurar um gateway de aplicativo usando XML
 
 No exemplo que se segue, vai utilizar um ficheiro XML para configurar todas as definições do gateway de aplicação e consolidá-las no recurso do gateway de aplicação.  
 
@@ -139,37 +131,37 @@ Copie o seguinte texto para o Bloco de Notas.
 
 Edite os valores entre parêntesis dos itens de configuração. Guarde o ficheiro com a extensão .xml.
 
-O exemplo seguinte mostra como utilizar um ficheiro de configuração para configurar o gateway de aplicação para balancear o tráfego HTTP na porta pública 80 e enviar o tráfego de rede para a porta de back-end 80 entre dois endereços IP ao utilizar uma sonda personalizada.
+O exemplo a seguir mostra como usar um arquivo de configuração para configurar o gateway de aplicativo para balancear a carga do tráfego HTTP na porta pública 80 e enviar o tráfego de rede para a porta de back-end 80 entre dois endereços IP usando uma investigação personalizada.
 
 > [!IMPORTANT]
 > O item do protocolo Http ou Https é sensível às maiúsculas e minúsculas.
 
-Um novo item de configuração \<sonda\> é adicionado ao configurar as pesquisas personalizadas.
+Um novo item de configuração \<\> de investigação é adicionado para configurar investigações personalizadas.
 
 Os parâmetros de configuração são:
 
 |Parâmetro|Descrição|
 |---|---|
-|**Nome** |Nome de referência para a sonda personalizada. |
-| **Protocolo** | Protocolo utilizado (os valores possíveis são HTTP ou HTTPS).|
-| **Host** e **caminho** | Caminho do URL completo que é invocado por gateway de aplicação para determinar o estado de funcionamento da instância. Por exemplo, se tiver um pedido de http do Web site:\//contoso.com/, em seguida, a sonda personalizada pode ser configurado para "http:\//contoso.com/path/custompath.htm" para a sonda verifica para ter uma resposta HTTP com êxito.|
-| **Intervalo** | Configura as verificações de intervalo de sonda em segundos.|
-| **Tempo limite** | Define o limite de tempo de pesquisa para uma verificação de resposta HTTP.|
-| **UnhealthyThreshold** | O número de respostas HTTP falhados necessários para sinalizar a instância de back-end como *mau estado de funcionamento*.|
+|**Nome** |Nome de referência para investigação personalizada. |
+| **Protocolo** | Protocolo usado (os valores possíveis são HTTP ou HTTPS).|
+| **Host** e **caminho** | Caminho de URL completo que é invocado pelo gateway de aplicativo para determinar a integridade da instância. Por exemplo, se você tiver um site http:\//contoso.com/, a investigação personalizada poderá ser configurada para "http:\//contoso.com/path/custompath.htm" para verificações de investigação ter uma resposta HTTP bem-sucedida.|
+| **Intervalo** | Configura as verificações de intervalo de investigação em segundos.|
+| **Cedido** | Define o tempo limite de investigação para uma verificação de resposta HTTP.|
+| **UnhealthyThreshold** | O número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como não *íntegra*.|
 
-O nome da sonda é referenciado no \<BackendHttpSettings\> configuração para atribuir o conjunto de back-end utiliza as definições de sonda personalizada.
+O nome da investigação é referenciado no \<BackendHttpSettings\> configuração para atribuir qual pool de back-end usa configurações de investigação personalizadas.
 
-## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Adicionar uma sonda personalizada para um gateway de aplicação existente
+## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Adicionar uma investigação personalizada a um gateway de aplicativo existente
 
-Alteração da configuração atual de um gateway de aplicação requer três passos: Obter o ficheiro de configuração atual do XML e modificar para ter uma sonda personalizada para configurar o gateway de aplicação com as novas definições de XML.
+A alteração da configuração atual de um gateway de aplicativo requer três etapas: obter o arquivo de configuração XML atual, modificar para ter uma investigação personalizada e configurar o gateway de aplicativo com as novas configurações de XML.
 
-1. Obter o arquivo XML usando `Get-AzureApplicationGatewayConfig`. Este cmdlet exporta o XML modificado para adicionar uma definição de sonda de configuração.
+1. Obtenha o arquivo XML usando `Get-AzureApplicationGatewayConfig`. Esse cmdlet exporta o XML de configuração a ser modificado para adicionar uma configuração de investigação.
 
    ```powershell
    Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
    ```
 
-1. Abra o ficheiro XML num editor de texto. Adicionar uma `<probe>` secção após `<frontendport>`.
+1. Abra o arquivo XML em um editor de texto. Adicione uma seção `<probe>` após `<frontendport>`.
 
    ```xml
    <Probes>
@@ -185,7 +177,7 @@ Alteração da configuração atual de um gateway de aplicação requer três pa
    </Probes>
    ```
 
-   Na secção backendHttpSettings do XML, adicione o nome da sonda, conforme mostrado no exemplo a seguir:
+   Na seção backendHttpSettings do XML, adicione o nome da investigação, conforme mostrado no exemplo a seguir:
 
    ```xml
     <BackendHttpSettings>
@@ -198,17 +190,17 @@ Alteração da configuração atual de um gateway de aplicação requer três pa
     </BackendHttpSettings>
    ```
 
-   Guarde o ficheiro XML.
+   Salve o arquivo XML.
 
-1. Atualizar a configuração do gateway de aplicação com o novo arquivo XML com `Set-AzureApplicationGatewayConfig`. Este cmdlet atualiza o gateway de aplicação com a nova configuração.
+1. Atualize a configuração do gateway de aplicativo com o novo arquivo XML usando `Set-AzureApplicationGatewayConfig`. Esse cmdlet atualiza o gateway de aplicativo com a nova configuração.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se quiser configurar a descarga de Secure Sockets Layer (SSL), veja [configurar um gateway de aplicação para descarga de SSL](application-gateway-ssl.md).
+Se você quiser configurar o descarregamento de protocolo SSL (SSL), consulte [configurar um gateway de aplicativo para descarregamento SSL](application-gateway-ssl.md).
 
 Se pretender configurar um gateway de aplicação para utilizar com um balanceador de carga interno, veja [Create an application gateway with an internal load balancer (ILB) (Criar um gateway de aplicação com um balanceador de carga interno (ILB))](application-gateway-ilb.md).
 

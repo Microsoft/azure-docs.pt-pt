@@ -1,5 +1,5 @@
 ---
-title: O Hub IoT do Azure desenvolve para dispositivos restritos usando o SDK C do Hub IoT | Microsoft Docs
+title: O Hub IoT do Azure desenvolve para dispositivos restritos usando o SDK do Hub IoT C
 description: Guia do desenvolvedor-diretrizes sobre como desenvolver usando SDKs de IoT do Azure para dispositivos restritos.
 author: robinsh
 ms.service: iot-hub
@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: robinsh
-ms.openlocfilehash: d69fe6b845d3af04e42ee91daa9359dcb9a88fc5
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a1918a99efcdcc5764140093ad422f7887ca3c88
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880972"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954703"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Desenvolver para dispositivos restritos usando o SDK do Azure IoT C
 
@@ -33,7 +33,7 @@ Siga este [Guia de instalação do SDK do c](https://github.com/Azure/azure-iot-
 
 ### <a name="remove-additional-protocol-libraries"></a>Remover bibliotecas de protocolo adicionais
 
-O SDK do C dá suporte a cinco protocolos hoje: MQTT, MQTT sobre WebSocket, AMQPs, AMQP por WebSocket e HTTPS. A maioria dos cenários requer um a dois protocolos em execução em um cliente, portanto, você pode remover a biblioteca de protocolos que você não está usando do SDK. Informações adicionais sobre como escolher o protocolo de comunicação apropriado para seu cenário podem ser encontradas em [escolher um protocolo de comunicação do Hub IOT](iot-hub-devguide-protocols.md). Por exemplo, MQTT é um protocolo leve que geralmente é mais adequado para dispositivos restritos.
+O SDK do C dá suporte a cinco protocolos hoje: MQTT, MQTT sobre WebSocket, AMQPs, AMQP sobre WebSocket e HTTPS. A maioria dos cenários requer um a dois protocolos em execução em um cliente, portanto, você pode remover a biblioteca de protocolos que você não está usando do SDK. Informações adicionais sobre como escolher o protocolo de comunicação apropriado para seu cenário podem ser encontradas em [escolher um protocolo de comunicação do Hub IOT](iot-hub-devguide-protocols.md). Por exemplo, MQTT é um protocolo leve que geralmente é mais adequado para dispositivos restritos.
 
 Você pode remover as bibliotecas AMQP e HTTP usando o seguinte comando CMake:
 
@@ -79,7 +79,7 @@ O SDK do C dá suporte a dois modelos de programação. Um conjunto tem APIs com
 
 Outro conjunto de APIs sem o índice _ll_ é chamado de camada de conveniência, em que um thread de trabalho é girado automaticamente. Por exemplo, as APIs da camada de conveniência para o cliente do dispositivo podem ser encontradas neste [arquivo de cabeçalho do cliente do dispositivo IOT](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client.h). Para dispositivos restritos em que cada thread extra pode assumir um percentual substancial de recursos do sistema, considere o uso de APIs _ll_ .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a arquitetura do SDK do Azure IoT C:
 -   [Código-fonte do SDK do Azure IoT C](https://github.com/Azure/azure-iot-sdk-c/)

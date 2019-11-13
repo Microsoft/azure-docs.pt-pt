@@ -1,23 +1,22 @@
 ---
-title: Arquitetura para recuperação de desastre do VMware/servidor físico em um site secundário com Azure Site Recovery | Microsoft Docs
+title: Arquitetura-recuperação de desastres do VMware/físico para um site secundário com Azure Site Recovery
 description: Este artigo fornece uma visão geral dos componentes e da arquitetura usados durante a recuperação de desastres de VMs VMware locais ou de servidores físicos Windows/Linux em um site VMware secundário com Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 0c00e26e6c12835db96c192400c3fe8652534dd4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: b0a46dcf8fe298494a53713f122b1bda8ce07e5e
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972118"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954581"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Arquitetura para replicação de servidor VMware/físico para um site local secundário
 
-Este artigo descreve a arquitetura e os processos usados ao configurar a recuperação de desastres, o failover e a recuperação de VMs (máquinas virtuais) VMware locais ou de servidores físicos do Windows/Linux em um site secundário do VMware usando o [Azure site Recovery ](site-recovery-overview.md).
+Este artigo descreve a arquitetura e os processos usados ao configurar a recuperação de desastres, o failover e a recuperação de VMs (máquinas virtuais) VMware locais ou de servidores físicos do Windows/Linux em um site secundário do VMware usando o [Azure site Recovery](site-recovery-overview.md).
 
 
 ## <a name="architectural-components"></a>Componentes da arquitetura
@@ -38,7 +37,7 @@ Este artigo descreve a arquitetura e os processos usados ao configurar a recuper
 2. Após a replicação inicial, o agente em cada máquina envia alterações de replicação delta para o servidor de processos.
 3. O servidor de processos otimiza os dados e transfere-o para o servidor de destino principal no site secundário. O servidor de configuração gere o processo de replicação.
 
-**Figura 6: Replicação do VMware para o VMware**
+**Figura 6: Replicação de VMware para VMware**
 
 ![VMware para VMware](./media/site-recovery-components/vmware-to-vmware.png)
 

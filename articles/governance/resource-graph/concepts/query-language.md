@@ -1,17 +1,14 @@
 ---
 title: Entender a linguagem de consulta
 description: Descreve as tabelas de gráfico de recursos e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o grafo de recursos do Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: conceptual
-ms.service: resource-graph
-ms.openlocfilehash: d0ba3195aef246ff49042f61dcec0b4397b5dde6
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: baef46f4ba6f899c2c0a1392f87006223d75a4e1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622643"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959042"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do grafo de recursos do Azure
 
@@ -71,17 +68,17 @@ Aqui está a lista de operadores de tabela KQL com suporte do grafo de recursos 
 |KQL |Consulta de exemplo de grafo de recursos |Notas |
 |---|---|---|
 |[count](/azure/kusto/query/countoperator) |[Contar cofres de chaves](../samples/starter.md#count-keyvaults) | |
-|[distinção](/azure/kusto/query/distinctoperator) |[Mostrar valores distintos para um alias específico](../samples/starter.md#distinct-alias-values) | |
-|[estender](/azure/kusto/query/extendoperator) |[Contar máquinas virtuais por tipo de SO](../samples/starter.md#count-os) | |
-|[aderir](/azure/kusto/query/joinoperator) |[Key Vault com o nome da assinatura](../samples/advanced.md#join) |Tipos de junção com suporte: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [Inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de 3 `join` em uma única consulta. Estratégias de junção personalizadas, como junção de difusão, não são permitidas. Pode ser usado em uma única tabela ou entre as tabelas de _recursos_ e _ResourceContainers_ . |
-|[limite](/azure/kusto/query/limitoperator) |[Listar todos os endereços IP públicos](../samples/starter.md#list-publicip) |Sinônimo de `take` |
+|[distinct](/azure/kusto/query/distinctoperator) |[Mostrar valores distintos para um alias específico](../samples/starter.md#distinct-alias-values) | |
+|[extend](/azure/kusto/query/extendoperator) |[Contar máquinas virtuais por tipo de SO](../samples/starter.md#count-os) | |
+|[join](/azure/kusto/query/joinoperator) |[Key Vault com o nome da assinatura](../samples/advanced.md#join) |Tipos de junção com suporte: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [Inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de 3 `join` em uma única consulta. Estratégias de junção personalizadas, como junção de difusão, não são permitidas. Pode ser usado em uma única tabela ou entre as tabelas de _recursos_ e _ResourceContainers_ . |
+|[limit](/azure/kusto/query/limitoperator) |[Listar todos os endereços IP públicos](../samples/starter.md#list-publicip) |Sinônimo de `take` |
 |[MV-expandir](/azure/kusto/query/mvexpandoperator) |[Listar Cosmos DB com locais de gravação específicos](../samples/advanced.md#mvexpand-cosmosdb) |_Limite_ máximo de 400 |
 |[Ordene](/azure/kusto/query/orderoperator) |[Listar recursos ordenados por nome](../samples/starter.md#list-resources) |Sinônimo de `sort` |
-|[projeto](/azure/kusto/query/projectoperator) |[Listar recursos ordenados por nome](../samples/starter.md#list-resources) | |
-|[Projeto-ausente](/azure/kusto/query/projectawayoperator) |[Remover colunas dos resultados](../samples/advanced.md#remove-column) | |
-|[organizar](/azure/kusto/query/sortoperator) |[Listar recursos ordenados por nome](../samples/starter.md#list-resources) |Sinônimo de `order` |
-|[resumir](/azure/kusto/query/summarizeoperator) |[Contar recursos do Azure](../samples/starter.md#count-resources) |Somente primeira página simplificada |
-|[ter](/azure/kusto/query/takeoperator) |[Listar todos os endereços IP públicos](../samples/starter.md#list-publicip) |Sinônimo de `limit` |
+|[project](/azure/kusto/query/projectoperator) |[Listar recursos ordenados por nome](../samples/starter.md#list-resources) | |
+|[project-away](/azure/kusto/query/projectawayoperator) |[Remover colunas dos resultados](../samples/advanced.md#remove-column) | |
+|[sort](/azure/kusto/query/sortoperator) |[Listar recursos ordenados por nome](../samples/starter.md#list-resources) |Sinônimo de `order` |
+|[summarize](/azure/kusto/query/summarizeoperator) |[Contar recursos do Azure](../samples/starter.md#count-resources) |Somente primeira página simplificada |
+|[take](/azure/kusto/query/takeoperator) |[Listar todos os endereços IP públicos](../samples/starter.md#list-publicip) |Sinônimo de `limit` |
 |[Início](/azure/kusto/query/topoperator) |[Mostrar as primeiras cinco máquinas virtuais por nome e por tipo de SO](../samples/starter.md#show-sorted) | |
 |[union](/azure/kusto/query/unionoperator) |[Combinar resultados de duas consultas em um único resultado](../samples/advanced.md#unionresults) |Única tabela permitida: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _tabela_. Limite de 3 `union` trechos em uma única consulta. A resolução difusa de `union` tabelas de trechos não é permitida. Pode ser usado em uma única tabela ou entre as tabelas de _recursos_ e _ResourceContainers_ . |
 |[posição](/azure/kusto/query/whereoperator) |[Mostrar recursos que contêm armazenamento](../samples/starter.md#show-storage) | |
@@ -100,7 +97,7 @@ Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser e
 
 - `$`-escape o caractere no nome da propriedade. O caractere de escape usado depende do grafo de recursos do Shell em execução.
 
-  - `\` **bash** - 
+  - **bash** - `\`
 
     Exemplo de consulta que escapa a propriedade _\$tipo_ no bash:
 
@@ -110,7 +107,7 @@ Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser e
 
   - **cmd** -não sai do caractere `$`.
 
-  -  - do **PowerShell** ``` ` ```
+  - **PowerShell** - ``` ` ```
 
     Exemplo de consulta que escapa a propriedade _\$tipo_ no PowerShell:
 

@@ -1,17 +1,14 @@
 ---
 title: Exemplos de consultas avançadas
 description: Use o grafo de recursos do Azure para executar algumas consultas avançadas, incluindo capacidade do conjunto de dimensionamento de máquinas virtuais, listagem de todas as marcas usadas e correspondência de máquinas virtuais com expressões regulares.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
-ms.service: resource-graph
-ms.openlocfilehash: 6310e13508c1c789c410f1954a2ac0dbf480a2b8
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e09db4630fd1ef8acc06538c7599feddbe991900
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622510"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958714"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas avançadas do Azure Resource Graph
 

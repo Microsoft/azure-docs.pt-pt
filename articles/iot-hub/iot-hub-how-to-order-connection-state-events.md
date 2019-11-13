@@ -1,5 +1,5 @@
 ---
-title: Solicitar eventos de conexão do dispositivo do Hub IoT do Azure usando Azure Cosmos DB | Microsoft Docs
+title: Solicitar eventos de conexão do dispositivo fr Hub IoT do Azure w/Azure Cosmos DB
 description: Este artigo descreve como ordenar e registrar eventos de conexão de dispositivo do Hub IoT do Azure usando Azure Cosmos DB para manter o estado de conexão mais recente
 services: iot-hub
 ms.service: iot-hub
@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: a020221d841682d1e18d2b728a732ec4dfc35ef3
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 210c2e74305ba99b4ac3a12625d0b7f5fc47ba43
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67988292"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954257"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Solicitar eventos de conexão do dispositivo do Hub IoT do Azure usando o Azure Cosmos DB
 
@@ -34,7 +34,7 @@ O número de sequência é uma representação de cadeia de caracteres de um nú
 
 Primeiro, crie um procedimento armazenado e configure-o para executar uma lógica que compare números de sequência de eventos de entrada e registre o evento mais recente por dispositivo no banco de dados.
 
-1. Em sua API do cosmos DB SQL, selecione **Data Explorer** > **itens** > **novo procedimento armazenado**.
+1. Em sua API do Cosmos DB SQL, selecione Data Explorer **itens** de >  > **novo procedimento armazenado**.
 
    ![Criar procedimento armazenado](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
@@ -220,7 +220,7 @@ No fluxo de trabalho do aplicativo lógico, as condições ajudam a executar aç
 
    **ID do banco de dados**: ToDoList
 
-   **ID da coleção**: Itens
+   **ID da coleção**: itens
 
    **ID do SPROC**: LatestDeviceConnectionState
 
@@ -264,7 +264,7 @@ Nesta secção, vai configurar o Hub IoT para publicar eventos à medida que est
 
    ![Criar nova subscrição de evento](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
-4. Preencha os **detalhes da assinatura do evento**: Forneça um nome descritivo e selecione **esquema de grade de eventos**.
+4. Preencha os **detalhes da assinatura do evento**: forneça um nome descritivo e selecione **esquema de grade de eventos**.
 
 5. Preencha os campos de **tipos de evento** . Na lista suspensa, selecione somente **dispositivo conectado** e **dispositivo desconectado** do menu. Clique em qualquer outro lugar na tela para fechar a lista e salvar suas seleções.
 
@@ -322,7 +322,7 @@ Você verá algo semelhante à saída a seguir que mostra os dados do sensor e a
 
    ![Executar a aplicação](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
 
-   Clique em **parar** para interromper o simulador e disparar um evento desconectado do **dispositivo** .
+   Clique em **parar** para interromper o simulador e disparar um evento **desconectado do dispositivo** .
 
 Agora você executou um aplicativo de exemplo para coletar dados de sensor e enviá-los para o Hub IoT.
 
@@ -362,7 +362,7 @@ Se não quiser perder o trabalho realizado na sua aplicação lógica, desative-
 
 Para remover uma conta de Azure Cosmos DB do portal do Azure, clique com o botão direito do mouse no nome da conta e clique em **Excluir conta**. Consulte instruções detalhadas para [excluir uma conta de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre como [reagir a eventos do Hub IOT usando a grade de eventos para disparar ações](../iot-hub/iot-hub-event-grid.md)
 

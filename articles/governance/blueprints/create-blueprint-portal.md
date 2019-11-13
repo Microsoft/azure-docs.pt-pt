@@ -1,19 +1,16 @@
 ---
 title: Criar um plano gráfico no portal
 description: Use plantas do Azure para criar, definir e implantar artefatos por meio do portal do Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/11/2019
 ms.topic: quickstart
-ms.service: blueprints
-ms.openlocfilehash: f4dc13717b65a53b90a68ac48a2281687c157edf
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 1c2d619a0383cc9542bc6dc3a5f5822f0477237c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978565"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960460"
 ---
-# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Início rápido: Definir e atribuir um plano gráfico no portal
+# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Início rápido: definir e atribuir um plano gráfico no portal
 
 Ao aprender a criar e atribuir plantas, você pode definir padrões comuns para desenvolver configurações reutilizáveis e implantáveis rapidamente com base em modelos de Azure Resource Manager, política, segurança e muito mais. Neste tutorial, você aprenderá a usar os planos gráficos do Azure para realizar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um plano gráfico em sua organização. Essas tarefas incluem:
 
@@ -43,7 +40,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
 1. Na caixa **local da definição** , selecione as reticências à direita, selecione o [grupo de gerenciamento](../management-groups/overview.md) ou a assinatura em que você deseja salvar o plano gráfico e escolha **selecionar**.
 
-1. Verifique se as informações estão corretas. Os campos **nome do plano gráfico** e **local de definição** não podem ser alterados posteriormente. Em seguida, selecione **Next: Artefatos @ no__t-0 na parte inferior da página ou na guia **artefatos** na parte superior da página.
+1. Verifique se as informações estão corretas. Os campos **nome do plano gráfico** e **local de definição** não podem ser alterados posteriormente. Em seguida, selecione **Avançar: artefatos** na parte inferior da página ou na guia **artefatos** na parte superior da página.
 
 1. Adicione uma atribuição de função no nível de assinatura:
 
@@ -167,9 +164,9 @@ Em [criar um plano gráfico](#create-a-blueprint), você não forneceu uma descr
 
 1. Na lista de plantas, clique com o botão direito do mouse no que você criou anteriormente e selecione **Editar plano gráfico**.
 
-1. Em **Descrição do plano gráfico**, forneça algumas informações sobre o plano gráfico e os artefatos que a compõem. Nesse caso, insira algo como: **Este projeto define a política de marca e a atribuição de função na assinatura, cria um resourcegroup e implanta um modelo de recurso e uma atribuição de função para esse resourcegroup.**
+1. Em **Descrição do plano gráfico**, forneça algumas informações sobre o plano gráfico e os artefatos que a compõem. Nesse caso, insira algo como: **este projeto define a política de marca e a atribuição de função na assinatura, cria um resourcegroup e implanta um modelo de recurso e uma atribuição de função para esse resourcegroup.**
 
-1. Selecione **Next: Artefatos @ no__t-0 na parte inferior da página ou na guia **artefatos** na parte superior da página.
+1. Selecione **Avançar: artefatos** na parte inferior da página ou na guia **artefatos** na parte superior da página.
 
 1. Adicione uma atribuição de função sob o grupo de recursos:
 
@@ -246,7 +243,7 @@ Depois que um plano gráfico tiver sido publicado, ele poderá ser atribuído a 
 
 1. Em **identidade gerenciada**, deixe o padrão **atribuído pelo sistema**.
 
-1. Para a atribuição de função de nível de assinatura ** [nome do aplicativo ou grupo de usuários]: Colaborador @ no__t-0, procure e selecione um usuário, aplicativo ou grupo.
+1. Para a atribuição de função ao nível da subscrição **[Grupo de utilizadores ou nome da aplicação]: Contribuidor**, procure e selecione um utilizador, uma aplicação ou um grupo.
 
 1. Para a atribuição de política de nível de assinatura, defina o **nome da marca** como **CostCenter** e o **valor da marca** como **ContosoIT**.
 

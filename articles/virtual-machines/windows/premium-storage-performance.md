@@ -1,5 +1,5 @@
 ---
-title: 'Armazenamento Premium do Azure: Design para desempenho em VMs do Windows | Microsoft Docs'
+title: 'Armazenamento Premium do Azure: design para desempenho em VMs do Windows | Microsoft Docs'
 description: Projete aplicativos de alto desempenho usando o armazenamento Premium do Azure. O armazenamento Premium oferece suporte a disco de alto desempenho e baixa latência para cargas de trabalho com uso intensivo de e/s em execução em máquinas virtuais do Azure.
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,13 +7,14 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7fbeb12f5b221685aad5cac5352318db10bd69a7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 073b0f0b0078f8e1159fad5e4eb6a70543c81700
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036271"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012369"
 ---
+# <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: design para alto desempenho
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
 
 > [!NOTE]
@@ -29,7 +30,7 @@ Antes de começar, se você for novo no armazenamento Premium, leia primeiro o [
 
 Se você pretende avaliar o benchmark de seu disco, consulte nosso artigo sobre o parâmetro de [comparação de um disco](disks-benchmarks.md).
 
-Saiba mais sobre os tipos de disco disponíveis: [Selecionar um tipo de disco](disks-types.md)  
+Saiba mais sobre os tipos de disco disponíveis: [Selecione um tipo de disco](disks-types.md)  
 
 Para SQL Server usuários, leia os artigos sobre práticas recomendadas de desempenho para SQL Server:
 

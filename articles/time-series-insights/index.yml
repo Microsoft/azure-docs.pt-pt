@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação do Azure Time Series Insights
-summary: Saiba como executar análises do IoT do Azure na cloud com o processamento de eventos totalmente gerido. Analise dados em tempo real de aplicações, sensores, dispositivos e muito mais.
+summary: Saiba como executar análises de IoT do Azure na cloud com processamento de eventos totalmente gerido através de inícios rápidos, tutoriais, exemplos de JavaScript e documentação de API REST. Analise dados em tempo real de aplicações, sensores, dispositivos e muito mais.
 metadata:
   title: Documentação do Azure Time Series Insights - Inícios Rápidos, Tutoriais, Referência da API | Microsoft Docs
-  description: Saiba como executar análises do IoT do Azure na cloud com o processamento de eventos totalmente gerido. Analise dados em tempo real de aplicações, sensores, dispositivos e muito mais.
+  description: Saiba como executar análises de IoT do Azure na cloud com processamento de eventos totalmente gerido através de inícios rápidos, tutoriais, exemplos de JavaScript e documentação de API REST.
   services: time-series-insights
   ms.service: time-series-insights
   ms.subservice: time-series-insights
@@ -12,12 +12,12 @@ metadata:
   author: KingdomOfEnds
   ms.author: v-adgera
   ms.date: 10/21/2019
-  ms.openlocfilehash: a4ef19a43ee4c38b32dc1aaf5d36b5a12c7ae61b
-  ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+  ms.openlocfilehash: bfb8ba57c57f771177782180b2133b46eb34b79e
+  ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/28/2019
-  ms.locfileid: "72990218"
+  ms.lasthandoff: 11/13/2019
+  ms.locfileid: "74014813"
 landingContent:
 - title: Acerca do Azure Time Series Insights
   linkLists:

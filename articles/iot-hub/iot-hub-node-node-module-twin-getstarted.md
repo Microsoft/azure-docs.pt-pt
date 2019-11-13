@@ -1,5 +1,5 @@
 ---
-title: Introdução à identidade do módulo do Hub IoT do Azure e ao módulo "". js "| Microsoft Docs
+title: Comece com a identidade do módulo do Hub IoT do Azure & módulo "/".
 description: Saiba como criar a identidade do módulo e atualizar o módulo/atualização usando SDKs de IoT para node. js.
 author: wesmc7777
 manager: philmea
@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 0fc676fd32c585324bac0024655765ebd628385a
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: bf80925a2dc5c6d06ba14fe1c0d72a2fc1f88d51
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165899"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953858"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Introdução à identidade do módulo do Hub IoT e ao módulo "". js "
 
@@ -56,7 +56,7 @@ Nesta seção, você cria um aplicativo node. js que cria uma identidade de disp
 
 2. Dentro desse diretório, primeiro execute **NPM init-y** para criar um Package. JSON vazio com padrões. Este é o arquivo de projeto para seu código.
 
-3. Execute **NPM install-S Azure-iothub @ no__t-1modules-Preview** para instalar o SDK do serviço dentro do subdiretório **node_modules** .
+3. Execute **NPM install-S Azure-iothub\@modules-Preview** para instalar o SDK do serviço dentro do subdiretório **node_modules** .
 
     > [!NOTE]
     > O nome de subdiretório node_modules usa o módulo do Word para significar "uma biblioteca de nós". O termo aqui não tem nada a ver com os módulos do Hub IoT.
@@ -133,7 +133,7 @@ Nesta seção, você cria um aplicativo node. js no dispositivo simulado que atu
 
    ![Detalhe do módulo no portal do Azure](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
 
-2. Da mesma forma que você fez na etapa anterior, crie um diretório para o código do dispositivo e use NPM para inicializá-lo e instalar o SDK do dispositivo (**NPM install-S Azure-IOT-Device-AMQP @ no__t-1modules-Preview**).
+2. Da mesma forma que você fez na etapa anterior, crie um diretório para o código do dispositivo e use NPM para inicializá-lo e instalar o SDK do dispositivo (**NPM install-S Azure-IOT-Device-amqp\@modules-Preview**).
 
    > [!NOTE]
    > O comando de instalação do NPM pode parecer lento. Seja paciente, ele está puxando muitos códigos do repositório de pacotes.

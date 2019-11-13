@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: raynew
-ms.openlocfilehash: 54416faa9140cf6e7c7c471e4b4c62db5f6f079b
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 19bf79cdb6bcdc0c20d47c698647383b758338db
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242934"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961322"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
@@ -20,19 +20,6 @@ O serviço de [Azure site Recovery](site-recovery-overview.md) é atualizado e a
 
 Você pode seguir e assinar Site Recovery notificações de atualização no canal de [atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery) .
 
-## <a name="update-to-servicing-stack-updatesha-2"></a>Atualizar para atualização da pilha de manutenção/SHA-2
-
-Para a recuperação de desastre de VMs do Azure para uma região secundária ou VMs VMware locais ou servidores físicos para o Azure, observe o seguinte:
-
-- Da versão 9.30. x. x (a versão esperada a partir de novembro de 2019) da extensão do serviço de mobilidade (para VMs do Azure) e do agente de serviço de mobilidade (para VMware/máquinas físicas), alguns sistemas operacionais de máquina devem estar executando a atualização da pilha de manutenção e o SHA-2. Os detalhes são mostrados na tabela a seguir.
-- Instale a atualização e o SHA-2 de acordo com a base de conhecimento vinculada. O SHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado.
-- Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
-
-**Sistema operativo** | **VM do Azure** | **VM VMware/computador físico**
---- | --- | ---
-**Windows 2008 R2 SP1** | [Atualização da pilha de manutenção](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Atualização da pilha de manutenção](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
-**Windows 2008 SP2** | [Atualização da pilha de manutenção](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Atualização da pilha de manutenção](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
-**Windows 7 SP1** | [Atualização da pilha de manutenção](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Atualização da pilha de manutenção](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419).
 
 
 ## <a name="supported-updates"></a>Atualizações com suporte
@@ -41,14 +28,61 @@ Para componentes de Site Recovery, damos suporte a versões N-4, em que N é a v
 
 **Atualização** |  **Configuração unificada** | **Ova do servidor de configuração** | **Agente de serviço de mobilidade** | **Provedor de Site Recovery** | **Agente dos serviços de recuperação**
 --- | --- | --- | --- | --- | ---
-[ROLLUP 41](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 9.29.5367.1 | 5.15000.0 | 9.29.5367.1 | 5.15000.0 | 2.0.9165.0
+[ROLLUP 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
+[ROLLUP 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
 [ROLLUP 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [ROLLUP 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 [ROLLUP 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
-[ROLLUP 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
         
 
 [Saiba mais](service-updates-how-to.md) sobre a instalação e o suporte da atualização.
+
+
+## <a name="updates-november-2019"></a>Atualizações (novembro de 2019)
+
+### <a name="update-rollup-42"></a>Pacote cumulativo de atualizações 42
+
+O [pacote cumulativo](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) de atualizações 42 fornece as seguintes atualizações.
+
+**Atualização** | **Detalhes**
+--- | ---
+**Fornecedores e agentes** | Atualizações para Site Recovery agentes e provedores (conforme detalhado no acúmulo)
+**Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos (conforme detalhado no acúmulo)
+
+
+## <a name="azure-vm-disaster-recovery"></a>Recuperação de desastre da VM do Azure
+
+Os novos recursos para a recuperação de desastres de VM do Azure são resumidos na tabela.
+
+**Funcionalidade** | **Detalhes**
+--- | ---
+**UEFI** | O Site Recovery agora dá suporte à recuperação de desastres para VMs do Azure com arquitetura de inicialização baseada em UEFI.
+**Linux** | O Site Recovery agora dá suporte a VMs do Azure executando o Linux com Azure Disk Encryption (ADE).
+**Geração 2** | Todas as VMs do Azure de geração 2 agora têm suporte para recuperação de desastre.
+**Regiões** | Agora, você pode habilitar a recuperação de desastres para VMs do Azure na região da Noruega.
+
+### <a name="vmware-to-azure-disaster-recovery"></a>VMware para recuperação após desastre do Azure
+
+Novos recursos para a recuperação de desastre do VMware para o Azure são resumidos na tabela.
+
+**Funcionalidade** | **Detalhes**
+--- | ---
+**UEFI** | O Site Recovery agora dá suporte à recuperação de desastres para VMs VMware com arquitetura de inicialização baseada em UEFI.<br/><br/> Os sistemas operacionais com suporte incluem o Windows Server 2019, o Windows Server 2016, o Windows Server 2012 R2, o Windows Server 2012, o SLES 12 SP4, o RHEL 8.
+
+## <a name="update-to-servicing-stack-updatesha-2"></a>Atualizar para atualização da pilha de manutenção/SHA-2
+
+Para a recuperação de desastre de VMs do Azure para uma região secundária ou VMs VMware locais ou servidores físicos para o Azure, observe o seguinte:
+
+- Da versão 9.30.5407.1 da extensão do serviço de mobilidade (para VMs do Azure) e do agente de serviço de mobilidade (para VMware/máquinas físicas), alguns sistemas operacionais de máquina devem estar executando a atualização da pilha de manutenção e o SHA-2. Os detalhes são mostrados na tabela a seguir.
+- Instale a atualização e o SHA-2 de acordo com a base de conhecimento vinculada. O SHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado.
+- Obtenha mais informações sobre a [atualização e os requisitos do SHA-2](https://aka.ms/SHA-2KB).
+
+**Sistema operativo** | **VM do Azure** | **VM VMware/computador físico**
+--- | --- | ---
+**Windows 2008 R2 SP1** | [Atualização da pilha de manutenção](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Atualização da pilha de manutenção](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
+**Windows 2008 SP2** | [Atualização da pilha de manutenção](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Atualização da pilha de manutenção](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
+**Windows 7 SP1** | [Atualização da pilha de manutenção](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Atualização da pilha de manutenção](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419).
+
 
 
 ## <a name="updates-october-2019"></a>Atualizações (outubro de 2019)
@@ -332,7 +366,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 --- | ---
 **Suporte para Linux** | Foi adicionado suporte para Oracle Linux 6,8 e 6,9/7.0 e para o kernel UEK5.
 **LVM** | Suporte adicionado para volumes LVM e LVM2.<br/><br/> Agora há suporte para o diretório/boot em uma partição de disco e em volumes LVM.
-**Diretórios** | O suporte foi adicionado para esses diretórios configurados como partições separadas ou sistemas de arquivos que não estão no mesmo disco do sistema:<br/><br/> /(raiz),/boot,/usr,/usr/local,/var,/etc.
+**Diretórios** | O suporte foi adicionado para esses diretórios configurados como partições separadas ou sistemas de arquivos que não estão no mesmo disco do sistema:<br/><br/> /(root), /boot, /usr, /usr/local, /var, /etc.
 **Windows Server 2008** | Suporte adicionado para discos dinâmicos.
 **Ativação pós-falha** | Tempo de failover melhorado para VMs VMware em que storvsc e vsbus não são drivers de inicialização.
 **Suporte a UEFI** | As VMs do Azure não dão suporte ao tipo de inicialização UEFI. Agora você pode migrar servidores físicos locais com UEFI para o Azure com o Site Recovery. Site Recovery migra o servidor convertendo o tipo de inicialização para BIOS antes da migração. Site Recovery anteriormente suportava essa conversão somente para VMs. O suporte está disponível para servidores físicos que executam o Windows Server 2012 ou posterior.

@@ -8,14 +8,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: ba10a6105972eddc8474841b234d2eeddc994f5d
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 9f3f98863f9a7cd0e6328ddc75b1154ee933fe0b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948926"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009239"
 ---
-# <a name="security-best-practices"></a>Melhores práticas de segurança
+# <a name="azure-digital-twins-security-best-practices"></a>Práticas recomendadas de segurança do gêmeos digital do Azure
 
 A segurança de gêmeos digital do Azure permite o acesso preciso a recursos e ações específicas em seu grafo IoT. Ele faz isso por meio de função granular e gerenciamento de permissões chamado [de controle de acesso baseado em função](./security-role-based-access-control.md).
 

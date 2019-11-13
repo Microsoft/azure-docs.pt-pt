@@ -1,19 +1,16 @@
 ---
 title: Criar um ambiente a partir de um exemplo de Blueprint
 description: Use um exemplo Blueprint para criar uma definição de plano gráfico que configura dois grupos de recursos e configura uma atribuição de função para cada.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/05/2019
 ms.topic: tutorial
-ms.service: blueprints
-ms.openlocfilehash: f3250052a7e26b5d8ef7cb1d411f9d9252089875
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: d23e9b7242c58e4da5fcfe5ef4d29d9f9df6f754
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980729"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960272"
 ---
-# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Criar um ambiente a partir de um exemplo de Blueprint
+# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: criar um ambiente a partir de um exemplo de plano gráfico
 
 Os planos gráficos de exemplo fornecem exemplos do que pode ser feito usando plantas do Azure. Cada um é um exemplo com uma intenção ou finalidade específica, mas não cria um ambiente completo por si só. Cada um é destinado a um local de partida para explorar o uso de plantas do Azure com várias combinações de artefatos, designs e parâmetros incluídos.
 
@@ -42,10 +39,10 @@ Primeiro, implemente o exemplo Blueprint. A importação cria uma nova especific
 
 1. Insira os _conceitos básicos_ do exemplo Blueprint:
 
-   - **Nome do plano gráfico**: Forneça um nome para a sua cópia do exemplo Blueprint. Para este tutorial, usaremos o nome _dois-RGS-with-role-assignments_.
-   - **Local da definição**: Use as reticências e selecione o grupo de gerenciamento ou a assinatura para salvar sua cópia do exemplo.
+   - **Nome do plano gráfico**: forneça um nome para a sua cópia do exemplo Blueprint. Para este tutorial, usaremos o nome _dois-RGS-with-role-assignments_.
+   - **Local de definição**: Use as reticências e selecione o grupo de gerenciamento ou a assinatura para salvar sua cópia do exemplo.
 
-1. Selecione a guia _artefatos_ na parte superior da página ou **Next: Artefatos @ no__t-0 na parte inferior da página.
+1. Selecione a guia _artefatos_ na parte superior da página ou **próximo: artefatos** na parte inferior da página.
 
 1. Examine a lista de artefatos que compõem o exemplo Blueprint. Este exemplo define dois grupos de recursos, com nomes de exibição de _ProdRG_ e _PreProdRG_. O nome final e o local de cada grupo de recursos são definidos durante a atribuição do Blueprint. O grupo de recursos _ProdRG_ é atribuído à função _colaborador_ e o grupo de recursos _PreProdRG_ recebe as funções _proprietário_ e _leitores_ . As funções atribuídas na definição são estáticas, mas o usuário, aplicativo ou grupo ao qual a função é atribuída é definido durante a atribuição do Blueprint.
 
@@ -81,15 +78,15 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
 
 1. Forneça os valores de parâmetro para a atribuição Blueprint:
 
-   - Noções Básicas
+   - Noções básicas
 
-     - **Subscrições**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
-     - **Nome da atribuição**: O nome é preenchido previamente para você com base no nome da definição do Blueprint.
-     - **Local**: Selecione uma região na qual a identidade gerenciada deve ser criada. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Assinaturas**: selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
+     - **Nome da atribuição**: o nome é preenchido previamente para você com base no nome da definição do Blueprint.
+     - **Local**: selecione uma região na qual a identidade gerenciada deve ser criada. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
        Para este tutorial, selecione _leste dos EUA 2_.
-     - **Versão de definição do Blueprint**: Escolha a versão publicada _1,0_ da sua cópia da definição do Blueprint de exemplo.
+     - **Versão de definição do Blueprint**: escolha a versão **publicada** _1,0_ da sua cópia da definição do Blueprint de exemplo.
 
-   - Atribuição de Bloqueio
+   - Atribuição de bloqueio
 
      Selecione o modo de bloqueio de Blueprint _somente leitura_ . Para obter mais informações, veja [bloqueio de recurso em esquemas](../concepts/resource-locking.md).
 
@@ -97,18 +94,18 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
 
      Deixe a opção padrão _atribuído pelo sistema_ . Para obter mais informações, consulte [identidades gerenciadas](../../../active-directory/managed-identities-azure-resources/overview.md).
 
-   - Parâmetros de artefacto
+   - Parâmetros de artefato
 
      Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele é definido. Esses parâmetros são [parâmetros dinâmicos](../concepts/parameters.md#dynamic-parameters) , pois eles são definidos durante a atribuição do plano gráfico. Para cada artefato, defina o valor do parâmetro como o que é definido na coluna **valor** . Para `{Your ID}`, selecione sua conta de usuário do Azure.
 
-     |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Value|Descrição|
+     |Nome do artefato|Tipo de artefato|Nome do parâmetro|Valor|Descrição|
      |-|-|-|-|-|
-     |Grupo de recursos ProdRG|Resource group|Name|ProductionRG|Define o nome do primeiro grupo de recursos.|
-     |Grupo de recursos ProdRG|Resource group|Location|EUA Oeste 2|Define o local do primeiro grupo de recursos.|
+     |Grupo de recursos ProdRG|Grupo de recursos|Nome|ProductionRG|Define o nome do primeiro grupo de recursos.|
+     |Grupo de recursos ProdRG|Grupo de recursos|Localização|EUA Oeste 2|Define o local do primeiro grupo de recursos.|
      |Contribuinte|Atribuição de função|Usuário ou grupo|{Your ID}|Define qual usuário ou grupo deve conceder a atribuição de função de _colaborador_ dentro do primeiro grupo de recursos.|
-     |Grupo de recursos PreProdRG|Resource group|Name|PreProductionRG|Define o nome do segundo grupo de recursos.|
-     |Grupo de recursos PreProdRG|Resource group|Location|EUA Oeste|Define o local do segundo grupo de recursos.|
-     |Owner|Atribuição de função|Usuário ou grupo|{Your ID}|Define qual usuário ou grupo deve conceder a atribuição de função de _proprietário_ dentro do segundo grupo de recursos.|
+     |Grupo de recursos PreProdRG|Grupo de recursos|Nome|PreProductionRG|Define o nome do segundo grupo de recursos.|
+     |Grupo de recursos PreProdRG|Grupo de recursos|Localização|EUA Oeste|Define o local do segundo grupo de recursos.|
+     |Proprietário|Atribuição de função|Usuário ou grupo|{Your ID}|Define qual usuário ou grupo deve conceder a atribuição de função de _proprietário_ dentro do segundo grupo de recursos.|
      |Leitores|Atribuição de função|Usuário ou grupo|{Your ID}|Define qual usuário ou grupo deve conceder a atribuição de função de _leitores_ dentro do segundo grupo de recursos.|
 
 1. Depois que todos os parâmetros forem inseridos, selecione **atribuir** na parte inferior da página.
@@ -147,7 +144,7 @@ A atribuição Blueprint cria e controla os artefatos definidos na definição d
 
 1. Selecione a atribuição negar e selecione a página **permissões negadas** à esquerda.
 
-   A atribuição de negação está impedindo todas as operações com a **\*** e a configuração de **ação** , mas permite acesso de leitura, excluindo **\*/ler** via **ações**.
+   A atribuição de negação está impedindo todas as operações com a configuração de **\*** e **ação** , mas permite acesso de leitura, excluindo **\*/Read** por meio de **ações**.
 
 1. No portal do Azure navegação estrutural, selecione **iam (PreProductionRG-Access Control)** . Em seguida, selecione a página **visão geral** à esquerda e, em seguida, o botão **excluir grupo de recursos** . Insira o nome _PreProductionRG_ para confirmar a exclusão e selecione **excluir** na parte inferior do painel.
 

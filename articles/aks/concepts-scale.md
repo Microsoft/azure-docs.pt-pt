@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 1972a91e1ed8a39bcd467272108e0e772116344e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 26cd2ffc12dfb93f07c2e1755a0dc41cc90da252
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472886"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961641"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicativos no serviço kubernetes do Azure (AKS)
 
@@ -81,7 +81,7 @@ Para dimensionar rapidamente seu cluster AKS, você pode integrar com ACI (inst�
 
 ![Escala de intermitência kubernetes para ACI](media/concepts-scale/burst-scaling.png)
 
-O ACI permite que você implante rapidamente instâncias de contêiner sem sobrecarga adicional de infraestrutura. Quando você se conecta com o AKS, o ACI se torna uma extensão lógica segura do seu cluster AKS. O componente Kubelet virtual é instalado no cluster AKS que apresenta ACI como um nó virtual kubernetes. Kubernetes pode então agendar pods que executam como instâncias de ACI por meio de nós virtuais, não como pods nos nós de VM diretamente no cluster AKS. Nós virtuais estão atualmente em visualização no AKS.
+O ACI permite que você implante rapidamente instâncias de contêiner sem sobrecarga adicional de infraestrutura. Quando você se conecta com o AKS, o ACI se torna uma extensão lógica segura do seu cluster AKS. O componente de [nós virtuais][virtual-nodes-cli] , que se baseia em [Kubelet virtual][virtual-kubelet], é instalado em seu cluster AKs que apresenta ACI como um nó de kubernetes virtual. Kubernetes pode então agendar pods que executam como instâncias de ACI por meio de nós virtuais, não como pods nos nós de VM diretamente no cluster AKS. Nós virtuais estão atualmente em visualização no AKS.
 
 Seu aplicativo não requer nenhuma modificação para usar nós virtuais. As implantações podem ser dimensionadas entre AKS e ACI e sem atraso, pois o dimensionamento rápido de cluster implanta novos nós em seu cluster AKS.
 
@@ -104,6 +104,7 @@ Para obter mais informações sobre os principais conceitos de kubernetes e AKS,
 - [Armazenamento kubernetes/AKS][aks-concepts-storage]
 
 <!-- LINKS - external -->
+[virtual-kubelet]: https://virtual-kubelet.io/
 
 <!-- LINKS - internal -->
 [aks-quickstart]: kubernetes-walkthrough.md
@@ -117,3 +118,4 @@ Para obter mais informações sobre os principais conceitos de kubernetes e AKS,
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-network]: concepts-network.md
+[virtual-nodes-cli]: virtual-nodes-cli.md

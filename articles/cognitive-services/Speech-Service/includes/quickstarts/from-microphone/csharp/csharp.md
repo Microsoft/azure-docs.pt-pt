@@ -8,22 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 11/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 046514191af3fa5bb9c766b5ff21cff92988e01d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4720be4f7a9d6177f7ba787c9b94350ad00c9663
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503550"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961261"
 ---
 **Escolha seu ambiente de destino**
-#### <a name="nettabdotnet"></a>[.Net](#tab/dotnet)
+
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+
 [!INCLUDE [dotnet](./dotnet.md)]
-#### <a name="unitytabunity"></a>[Unity](#tab/unity)
+
+# <a name="unitytabunity"></a>[Unity](#tab/unity)
+
 [!INCLUDE [unity](./unity.md)]
-#### <a name="uwptabuwp"></a>[UWP](#tab/uwp)
+
+# <a name="uwptabuwp"></a>[UWP](#tab/uwp)
+
 [!INCLUDE [uwp](./uwp.md)]
-#### <a name="xamarintabxaml"></a>[Xamarin](#tab/xaml)
+
+# <a name="xamarintabxaml"></a>[Xamarin](#tab/xaml)
+
 [!INCLUDE [xamarin](./xamarin.md)]
-* * *
+
+***

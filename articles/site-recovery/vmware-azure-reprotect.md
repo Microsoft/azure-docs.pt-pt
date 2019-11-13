@@ -1,5 +1,5 @@
 ---
-title: Proteger novamente as VMs do Azure para um site local durante a recuperação de desastre de VMs VMware e servidores físicos | Microsoft Docs
+title: Proteja novamente VMs VMware/servidores físicos para um site local com Azure Site Recovery
 description: Após o failover para o Azure durante a recuperação de desastre de VMs VMware e servidores físicos, saiba como fazer failback do Azure para o site local.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: mayg
-ms.openlocfilehash: cf1ccdf953781ca9b9bd17152f2cf32677997d12
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f3d5f38d940b99c6a74d784f174c91d4127353dc
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791811"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961352"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Proteger novamente e executar failback de computadores em um site local após o failover para o Azure
 
@@ -81,7 +81,7 @@ Depois de criar um servidor de destino mestre, execute as seguintes tarefas:
     - O volume de retenção padrão para Linux é/mnt/Retention.
 - Você deve adicionar uma nova unidade se estiver usando uma máquina do servidor de configuração/servidor de processo existente ou um servidor de escala ou de processo/servidor de destino mestre. A nova unidade deve atender aos requisitos anteriores. Se a unidade de retenção não estiver presente, ela não aparecerá na lista suspensa de seleção no Portal. Depois de adicionar uma unidade ao destino mestre local, levará até 15 minutos para que a unidade apareça na seleção no Portal. Você também pode atualizar o servidor de configuração se a unidade não aparecer após 15 minutos.
 - Instale as ferramentas do VMware ou as ferramentas de VM abertas no servidor de destino mestre. Sem as ferramentas, os repositórios de armazenamento no host ESXi do destino mestre não podem ser detectados.
-- Defina a configuração `disk.EnableUUID=true` nos parâmetros de configuração da máquina virtual de destino mestre no VMware. Se essa linha não existir, adicione-a. Essa configuração é necessária para fornecer um UUID consistente para o VMDK para que ele seja montado corretamente.
+- Defina a configuração de `disk.EnableUUID=true` nos parâmetros de configuração da máquina virtual de destino mestre no VMware. Se essa linha não existir, adicione-a. Essa configuração é necessária para fornecer um UUID consistente para o VMDK para que ele seja montado corretamente.
 - O host ESX no qual o destino mestre é criado deve ter pelo menos um repositório de armazenamento de sistemas de arquivos de máquina virtual (VMFS) anexado a ele. Se nenhum repositório de dados do VMFS estiver anexado, a entrada do **repositório do armazenamento** na página proteger novamente estará vazia e você não poderá continuar.
 - O servidor de destino mestre não pode ter instantâneos nos discos. Se houver instantâneos, a nova proteção e o failback falharão.
 - O destino mestre não pode ter um controlador paravirtual SCSI. O controlador só pode ser um controlador lógico LSI. Sem um controlador LSI Logic, a nova proteção falha.

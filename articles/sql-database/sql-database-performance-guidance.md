@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 6e42911d05f387ea47b56b913e9a1868100c1b3c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0dc3a121b30f33d533b1079d9c81501130487017
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821367"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009091"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ajuste manual de desempenho de consulta no banco de dados SQL do Azure
 
@@ -253,7 +253,7 @@ Se você usar uma arquitetura de expansão no banco de dados SQL do Azure, é um
 
 Para aplicativos que acessam dados usando consultas ad hoc de alto volume, frequentes, uma quantidade significativa de tempo de resposta é gasto na comunicação de rede entre a camada de aplicativo e a camada de banco de dados SQL do Azure. Mesmo quando o aplicativo e o banco de dados SQL do Azure estão no mesmo data center, a latência de rede entre os dois pode ser ampliada por um grande número de operações de acesso a dados. Para reduzir as viagens de ida e volta da rede para as operações de acesso a dados, considere usar a opção para fazer o lote das consultas ad hoc ou compilá-las como procedimentos armazenados. Se você enviar em lote as consultas ad hoc, poderá enviá-las com várias consultas como um lote grande em uma única viagem para o banco de dados SQL do Azure. Se você compilar consultas ad hoc em um procedimento armazenado, poderá obter o mesmo resultado que o lote. O uso de um procedimento armazenado também oferece o benefício de aumentar as chances de armazenar em cache os planos de consulta no banco de dados SQL do Azure para que você possa usar o procedimento armazenado novamente.
 
-Alguns aplicativos são de gravação intensiva. Às vezes, você pode reduzir a carga de e/s total em um banco de dados considerando como as gravações em lote são juntas. Geralmente, isso é tão simples quanto usar transações explícitas em vez de transações de confirmação automática em procedimentos armazenados e lotes ad hoc. Para obter uma avaliação das diferentes técnicas que você pode usar, consulte [técnicas de envio em lote para aplicativos de banco de dados SQL no Azure](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx). Experimente sua própria carga de trabalho para localizar o modelo certo para envio em lote. Lembre-se de entender que um modelo pode ter garantias de consistência transacionais ligeiramente diferentes. Encontrar a carga de trabalho certa que minimiza o uso de recursos exige a localização da combinação certa de compensações de consistência e desempenho.
+Alguns aplicativos são de gravação intensiva. Às vezes, você pode reduzir a carga de e/s total em um banco de dados considerando como as gravações em lote são juntas. Geralmente, isso é tão simples quanto usar transações explícitas em vez de transações de confirmação automática em procedimentos armazenados e lotes ad hoc. Para obter uma avaliação das diferentes técnicas que você pode usar, consulte [técnicas de envio em lote para aplicativos de banco de dados SQL no Azure](sql-database-use-batching-to-improve-performance.md). Experimente sua própria carga de trabalho para localizar o modelo certo para envio em lote. Lembre-se de entender que um modelo pode ter garantias de consistência transacionais ligeiramente diferentes. Encontrar a carga de trabalho certa que minimiza o uso de recursos exige a localização da combinação certa de compensações de consistência e desempenho.
 
 ### <a name="application-tier-caching"></a>Cache da camada de aplicativo
 

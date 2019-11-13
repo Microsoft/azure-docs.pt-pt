@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: bdcd7cbd24ca7023070585df46aa8cea7bdc70eb
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 7716fba7a16b393143ffb9c97e7203e15bc07d82
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747282"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012940"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Azure Backup Server no Azure Stack
 
@@ -124,7 +124,7 @@ Para editar a definição de replicação de armazenamento:
 
 ## <a name="download-azure-backup-server-installer"></a>Baixar o instalador do Servidor de Backup do Azure
 
-Há duas maneiras de baixar o instalador do Servidor de Backup do Azure. Você pode baixar o instalador do Servidor de Backup do Azure no [centro de download da Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55269). Você também pode baixar Servidor de Backup do Azure Installer enquanto estiver configurando um cofre dos serviços de recuperação. As etapas a seguir orientarão você no download do instalador do portal do Azure ao configurar um cofre dos serviços de recuperação.
+Há duas maneiras de baixar o instalador do Servidor de Backup do Azure. Você pode baixar o instalador do Servidor de Backup do Azure no [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=55269). Você também pode baixar Servidor de Backup do Azure Installer enquanto estiver configurando um cofre dos serviços de recuperação. As etapas a seguir orientarão você no download do instalador do portal do Azure ao configurar um cofre dos serviços de recuperação.
 
 1. Em sua máquina virtual Azure Stack, [entre na sua assinatura do Azure no portal do Azure](https://portal.azure.com/).
 2. No menu à esquerda, selecione **todos os serviços**.
@@ -326,17 +326,17 @@ A primeira cópia de backup é mantida no armazenamento anexado à máquina Serv
 
 Servidor de Backup do Azure requer conectividade com o serviço de backup do Azure para que o produto funcione com êxito. Para validar se o computador tem a conectividade com o Azure, use o cmdlet ```Get-DPMCloudConnection``` no console do Servidor de Backup do Azure PowerShell. Se a saída do cmdlet for TRUE, a conectividade existirá, caso contrário, não haverá conectividade.
 
-Ao mesmo tempo, a assinatura do Azure precisa estar em um estado íntegro. Para descobrir o estado da sua assinatura e gerenciá-la, faça logon no [portal de assinatura](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+Ao mesmo tempo, a assinatura do Azure precisa estar em um estado íntegro. Para descobrir o estado da sua assinatura e gerenciá-la, entre no portal de [assinatura](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 Depois de saber o estado da conectividade do Azure e da assinatura do Azure, você pode usar a tabela abaixo para descobrir o impacto sobre a funcionalidade de backup/restauração oferecida.
 
 | Estado de conectividade | Subscrição do Azure | Fazer backup no Azure | Fazer backup em disco | Restaurar do Azure | Restaurar a partir do disco |
 | --- | --- | --- | --- | --- | --- |
-| Ligada |Ativa |Permitidos |Permitidos |Permitidos |Permitidos |
-| Ligada |Fora do prazo |Parada |Parada |Permitidos |Permitidos |
+| Ligada |Ativa |Permitido |Permitido |Permitido |Permitido |
+| Ligada |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Ligada |Desprovisionada |Parada |Parada |Parado e pontos de recuperação do Azure excluídos |Parada |
-| Perda de conectividade > 15 dias |Ativa |Parada |Parada |Permitidos |Permitidos |
-| Perda de conectividade > 15 dias |Fora do prazo |Parada |Parada |Permitidos |Permitidos |
+| Perda de conectividade > 15 dias |Ativa |Parada |Parada |Permitido |Permitido |
+| Perda de conectividade > 15 dias |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Perda de conectividade > 15 dias |Desprovisionada |Parada |Parada |Parado e pontos de recuperação do Azure excluídos |Parada |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperando da perda de conectividade

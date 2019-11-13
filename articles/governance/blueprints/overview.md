@@ -1,17 +1,14 @@
 ---
 title: Descrição Geral do Azure Blueprints
 description: Entenda como o serviço de plantas do Azure permite criar, definir e implantar artefatos em seu ambiente do Azure.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/26/2019
 ms.topic: overview
-ms.service: blueprints
-ms.openlocfilehash: 86f58594ce1af91b19f70cbdb1114a90180e3b4f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 3005bf171c5297048978d090d0f253a8690242cd
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981716"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960329"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Visão geral do serviço de plantas do Azure
 
@@ -51,9 +48,9 @@ Uma política pode ser incluída como um dos muitos _artefatos_ em uma definiç�
 
 Um esquema é composto por _artefactos_. Atualmente, os esquemas suportam os seguintes recursos como artefactos:
 
-|Resource  | Opções de hierarquia| Descrição  |
+|Recurso  | Opções de hierarquia| Descrição  |
 |---------|---------|---------|
-|Grupos de Recursos | Subscription | Crie um novo grupo de recursos para utilização por outros artefactos no esquema.  Estes grupos de recursos de marcador de posição permitem-lhe organizar recursos exatamente da forma que pretende que sejam estruturados e fornece um limitador de âmbito para a política incluída e os artefactos de atribuição de funções, bem como modelos do Azure Resource Manager. |
+|Grupos de Recursos | Subscrição | Crie um novo grupo de recursos para utilização por outros artefactos no esquema.  Estes grupos de recursos de marcador de posição permitem-lhe organizar recursos exatamente da forma que pretende que sejam estruturados e fornece um limitador de âmbito para a política incluída e os artefactos de atribuição de funções, bem como modelos do Azure Resource Manager. |
 |Modelo Azure Resource Manager | Subscrição, Grupo de Recursos | Os modelos são utilizados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, a Configuração de Estado da Automatização do Azure ou uma área de trabalho do Log Analytics. |
 |Atribuição de Política | Subscrição, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa à subscrição à qual o esquema está atribuído. A política ou iniciativa deve estar dentro do escopo do local de definição do Blueprint. Se a política ou iniciativa tiver parâmetros, estes parâmetros são atribuídos durante a criação ou atribuição do esquema. |
 |Atribuição de Função | Subscrição, Grupo de Recursos | Adicione um utilizador ou grupo existente a uma função incorporada para garantir que as pessoas certas têm sempre o acesso adequado aos seus recursos. As atribuições de funções podem ser definidas para a subscrição completa ou aninhadas num grupo de recursos específico incluído no esquema. |
@@ -76,7 +73,7 @@ Para obter mais informações, veja [parâmetros de esquema](./concepts/paramete
 
 Quando um esquema é criado, considera-se que está no modo de **Rascunho**. Quando estiver pronto para ser atribuído, tem de ser **Publicado**. A publicação exige a definição de uma cadeia de **Versão** (letras, números e hífenes com um comprimento máximo de 20 carateres), juntamente com **Notas de alteração** opcionais. A **Versão** distingue-o de futuras alterações ao mesmo esquema e permite a atribuição de cada versão. Isto também significa que diferentes **Versões** do mesmo esquema podem ser atribuídas à mesma subscrição. Quando forem feitas alterações adicionais ao esquema, a **Versão** **Publicada** continua a existir, tal como as **Alterações não publicadas**. Quando as alterações estiverem concluídas, o esquema atualizado é **Publicado** com uma **Versão** nova e exclusiva, que agora também pode ser atribuída.
 
-## <a name="blueprint-assignment"></a>Atribuição de esquema
+## <a name="blueprint-assignment"></a>Atribuição do esquema
 
 Cada **versão** publicada de um plano gráfico pode ser atribuída (com um comprimento de nome máximo de 90 caracteres) a uma assinatura existente. No portal, o esquema utiliza como predefinição a **Versão** **Publicada** mais recentemente. Se existirem parâmetros de artefacto (ou parâmetros de esquema), os parâmetros são definidos durante o processo de atribuição.
 
@@ -125,10 +122,10 @@ As seguintes limitações existem para determinados campos:
 
 |Objeto|Campo|Caracteres permitidos|Um máximo de Comprimento|
 |-|-|-|-|
-|Blueprint|Name|letras, números, hifens e pontos|48|
-|Blueprint|Version|letras, números, hifens e pontos|20|
-|Atribuição de esquema|Name|letras, números, hifens e pontos|90|
-|Artefato do Blueprint|Name|letras, números, hifens e pontos|48|
+|Gráfico|Nome|letras, números, hifens e pontos|48|
+|Gráfico|Versão|letras, números, hifens e pontos|20|
+|Atribuição do esquema|Nome|letras, números, hifens e pontos|90|
+|Artefato do Blueprint|Nome|letras, números, hifens e pontos|48|
 
 ## <a name="video-overview"></a>Visão geral em vídeo
 

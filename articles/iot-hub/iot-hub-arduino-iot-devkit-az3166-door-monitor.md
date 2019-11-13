@@ -1,22 +1,21 @@
 ---
-title: Receber um email quando a porta for aberta usando o serviço SendGrid e o Azure Functions | Microsoft Docs
+title: Enviar email quando a porta for aberta usando Azure Functions
 description: Monitore o sensor magnético para detectar quando uma porta é aberta e use Azure Functions para enviar uma notificação por email.
 author: liydu
-manager: jeffya
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 6cbf3f906b511d9d76319f57f5508a2c584213cb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 23607b52f866bb7b0be760e49be7d62d1732d43c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484059"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954743"
 ---
-# <a name="door-monitor"></a>Monitor da porta          
+# <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitor de porta--usando Azure Functions e SendGrid, enviar email quando uma porta é aberta           
 
 O MXChip IoT DevKit contém um sensor magnético interno. Neste projeto, você detecta a presença ou a ausência de um campo magnético forte próximo – nesse caso, proveniente de um ímã pequeno e permanente.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c82cad30fcc2aa80eea52ab13f60fc0c4da33cd1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 55ba5a193e15ac4e8bd83ac046deeac1f12d61d0
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471307"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961964"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticar e autorizar utilizadores ponto a ponto no Serviço de Aplicações do Azure
 
@@ -269,7 +269,7 @@ Agora que ativou a autenticação e autorização em ambas as suas aplicações,
 
 1. Selecione **Adicionar uma permissão**e, em seguida, selecione **minhas APIs** >  **\<> de nome de aplicativo de back-end**.
 
-1. Na página **solicitar permissões de API** para o aplicativo de back-end, **selecione permissões delegadas** e **user_impersonation**, em seguida, selecione **adicionar permissões**.
+1. Na página **solicitar permissões de API** para o aplicativo de back-end, **selecione permissões delegadas** e **user_impersonation**e, em seguida, selecione **adicionar permissões**.
 
    ![API ASP.NET Core em execução no Serviço de Aplicações do Azure](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
 
@@ -401,7 +401,7 @@ $routeProvider.when("/Home", {
 }).otherwise({ redirectTo: "/Home" });
 ```
 
-A nova alteração adiciona o mapeamento `revolve` que chama `/.auth/me` e define o token de acesso. Confirma que tem o token de acesso antes de instanciar o controlador `todoListCtrl`. Dessa forma, todas as chamadas à API pelo controlador incluem o token.
+A nova alteração adiciona o mapeamento `resolve` que chama `/.auth/me` e define o token de acesso. Confirma que tem o token de acesso antes de instanciar o controlador `todoListCtrl`. Dessa forma, todas as chamadas à API pelo controlador incluem o token.
 
 ### <a name="deploy-updates-and-test"></a>Implementar as atualizações e testar
 

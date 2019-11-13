@@ -1,34 +1,29 @@
 ---
-title: Criar um gateway de aplicativo com redirecionamento de tráfego externo-CLI do Azure | Microsoft Docs
+title: Redirecionamento de tráfego externo usando Aplicativo Azure gateway de CLI
 description: Saiba como criar um gateway de aplicativo que redireciona o tráfego da Web interno para o pool apropriado usando o CLI do Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/24/2018
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: e1fb25a9d5bfe6538d081169d163d7b280733cc1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: fc955b4959bb20628463f7699a0b66ec2b89a393
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382009"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011600"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com redirecionamento externo usando o CLI do Azure
 
-Você pode usar o CLI do Azure para configurar o redirecionamento de [tráfego da Web](multiple-site-overview.md) ao criar um [Gateway de aplicativo](overview.md). Neste tutorial, você configura um ouvinte e uma regra que redireciona o tráfego da Web que chega ao gateway de aplicativo para um site externo.
+Você pode usar o CLI do Azure para configurar o [redirecionamento de tráfego da Web](multiple-site-overview.md) ao criar um [Gateway de aplicativo](overview.md). Neste tutorial, você configura um ouvinte e uma regra que redireciona o tráfego da Web que chega ao gateway de aplicativo para um site externo.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar a rede
 > * Criar um ouvinte e uma regra de redirecionamento
-> * Criar um gateway de aplicação
+> * Para criar um gateway de aplicação
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -63,9 +58,9 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
 
-Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicativo é atribuído a *myAGSubnet* e *myPublicIPAddress* que você criou anteriormente. 
+Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, sku e definições de HTTP. O gateway de aplicativo é atribuído a *myAGSubnet* e *myPublicIPAddress* que você criou anteriormente. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -93,7 +88,7 @@ A criação do gateway de aplicação pode demorar vários minutos. Depois de cr
 
 ### <a name="add-the-redirection-configuration"></a>Adicionar a configuração de redirecionamento
 
-Adicione a configuração de redirecionamento que envia o tráfego de *consoto.org da\.www* para o ouvinte de *www\.contoso.com* para o gateway de aplicativo usando [AZ Network Application-Gateway Redirect-config Create ](/cli/azure/network/application-gateway/redirect-config).
+Adicione a configuração de redirecionamento que envia o tráfego do *www\.consoto.org* ao ouvinte para *www\.contoso.com* ao gateway de aplicativo usando [AZ Network Application-Gateway Redirect-config Create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -135,10 +130,10 @@ Para obter o endereço IP público do gateway de aplicação, pode utilizar [az 
 
 Você deve ver *Bing.com* aparecem no navegador.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
 > * Configurar a rede
 > * Criar um ouvinte e uma regra de redirecionamento
-> * Criar um gateway de aplicação
+> * Para criar um gateway de aplicação

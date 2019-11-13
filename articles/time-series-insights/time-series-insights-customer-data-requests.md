@@ -1,6 +1,6 @@
 ---
-title: Recursos de solicitação de dados do cliente no Azure Time Series Insights | Microsoft Docs
-description: Resumo de Azure Time Series Insights recursos de solicitação de dados do cliente.
+title: Recursos de solicitação de dados do cliente-Azure Time Series Insights | Microsoft Docs
+description: Saiba mais sobre os recursos de solicitação de dados do cliente no Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: ba883ec3ce8f8ca4491b8576e6633ba2837bb5b2
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: d134c7cbe220e6aa6b1471b50aa23e17d09734d5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990097"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007031"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
+# <a name="summary-of-customer-data-request-features"></a>Resumo das funcionalidades de pedido de dados do cliente
 
 O Azure Time Series Insights é um serviço de nuvem gerenciado com componentes de armazenamento, análise e visualização que facilitam a ingestão, o armazenamento, a exploração e a análise de bilhões de eventos simultaneamente.
 
@@ -28,7 +28,7 @@ Para exibir, exportar e excluir dados pessoais que podem estar sujeitos a uma so
 
 Azure Time Series Insights considera dados pessoais associados a administradores e usuários do Time Series Insights. Time Series Insights armazena o Azure Active Directory objeto-ID de usuários com acesso ao ambiente. O portal do Azure exibe endereços de email do usuário, mas esses endereços de email não são armazenados no Time Series Insights, eles são pesquisados dinamicamente usando a ID do objeto Azure Active Directory no Azure Active Directory.
 
-## <a name="deleting-customer-data"></a>Excluindo dados do cliente
+## <a name="deleting-customer-data"></a>A eliminação de dados do cliente
 
 Um administrador de locatários pode excluir dados do cliente usando o portal do Azure.
 
@@ -40,7 +40,7 @@ Você também pode executar operações de exclusão em políticas de acesso usa
 
 O Time Series Insights é integrado à folha de política no portal do Azure. Tanto Time Series Insights quanto a folha de política permitem exibir, exportar e excluir dados de usuário armazenados no serviço. Qualquer ação de exclusão executada na folha de política do portal do Azure resulta na exclusão de dados do usuário no Time Series Insights. Por exemplo, se um usuário tiver uma consulta pessoal salva, essa consulta será excluída permanentemente do Time Series Insights Explorer. Se o usuário tiver uma consulta compartilhada salva, a consulta persistirá, mas as informações do usuário serão excluídas permanentemente. A nota a seguir contém instruções sobre como realizar essas tarefas.
 
-## <a name="exporting-customer-data"></a>Exportando dados do cliente
+## <a name="exporting-customer-data"></a>Exportar dados do cliente
 
 De maneira semelhante à exclusão de dados, um administrador de locatário pode exibir e exportar dados armazenados no Time Series Insights da folha de política no portal do Azure.
 
