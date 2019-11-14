@@ -367,8 +367,6 @@
               href: sql-database-temporal-tables-retention-policy.md
             - name: Autenticar aplicação
               href: sql-database-client-id-keys.md
-            - name: Mensagens de erro
-              href: sql-database-develop-error-messages.md
             - name: Criação de batches de desempenho
               href: sql-database-use-batching-to-improve-performance.md
             - name: Orientações para conectividade
@@ -835,8 +833,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Conjuntos de dados públicos
       href: sql-database-public-data-sets.md
-    - name: Resolver problemas de conectividade
-      href: 'https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/sql-database/'
     - name: Fórum do MSDN
