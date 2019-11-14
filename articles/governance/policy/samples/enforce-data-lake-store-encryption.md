@@ -1,17 +1,14 @@
 ---
 title: Exemplo – exigir criptografia para Data Lake Store
 description: Esta definição de política de exemplo requer que Data Lake Store criptografia seja habilitada.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 9cee9f2d94f822679acee0813471e271a38a38e3
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: a8ed66e9b07e1fc15c8a1a3c8c33f0e218eb62b3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977183"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74070660"
 ---
 # <a name="sample---require-data-lake-store-encryption"></a>Exemplo – exigir criptografia de Data Lake Store
 
@@ -41,7 +38,7 @@ Esta política incorporada recusa todas as contas do Data Lake Store que não te
 }
 ```
 
-Pode implementar este modelo através do [portal do Azure](#deploy-with-the-portal), do [PowerShell](#deploy-with-powershell) ou da [CLI do Azure](#deploy-with-azure-cli). Para obter a política incorporada, utilize o ID `a7ff3161-0087-490a-9ad9-ad6217f4f43a`.
+Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o [PowerShell](#deploy-with-powershell) ou a [CLI do Azure](#deploy-with-azure-cli). Para obter a política incorporada, utilize o ID `a7ff3161-0087-490a-9ad9-ad6217f4f43a`.
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 

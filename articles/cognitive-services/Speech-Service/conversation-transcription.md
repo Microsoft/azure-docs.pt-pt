@@ -1,7 +1,7 @@
 ---
 title: O que é a transcrição de conversa (versão prévia) – serviço de fala
 titleSuffix: Azure Cognitive Services
-description: A transcrição de conversa é uma solução de fala para texto que combina reconhecimento de fala, identificação do orador e atribuição de frase a cada palestrante (também conhecido como diarization) para fornecer transcrição em tempo real e/ou assíncrona de qualquer escreve. A transcrição de conversa torna as conversas inclusivas para todos, como participantes que são surdos e difíceis de ouvir.
+description: A transcrição de conversa é uma solução de fala para texto que combina reconhecimento de fala, identificação do orador e atribuição de frase a cada palestrante (também conhecido como diarization) para fornecer transcrição em tempo real e/ou assíncrona de qualquer escreve.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f4b7591d5ddb138db0abbdb673cadc6afd71f315
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0c15b053028bd707159a632c98faaea8b9954a9b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608032"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075855"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>O que é a transcrição de conversa (versão prévia)?
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Fazer o balanceamento de carga de máquinas virtuais do Windows no Azure | Microsoft Docs
+title: Tutorial – balancear a carga de máquinas virtuais do Windows no Azure
 description: Neste tutorial, vai aprender a utilizar o Azure PowerShell para criar um balanceador de carga para uma aplicação segura de elevada disponibilidade em três máquinas virtuais do Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 12/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe202712f5e269950b64046453867bd23d18a9ab
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 05a796d7bbe08f8e560c6545f3ed37c0f54b9cf9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100229"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067852"
 ---
-# <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Tutorial: Balancear a carga de máquinas virtuais do Windows no Azure para criar um aplicativo altamente disponível com Azure PowerShell
-O balanceamento de carga oferece um nível mais elevado de disponibilidade ao propagar os pedidos recebidos por várias máquinas virtuais. Neste tutorial, vai conhecer os diferentes componentes do balanceador de carga do Azure que distribuem o tráfego e oferecem elevada disponibilidade. Saiba como:
+# <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Tutorial: Fazer o balanceamento de carga de máquinas virtuais do Windows no Azure para criar uma aplicação de elevada disponibilidade com o Azure PowerShell
+O balanceamento de carga fornece um nível mais elevado de disponibilidade ao propagar os pedidos recebidos por várias máquinas virtuais. Neste tutorial, vai conhecer os diferentes componentes do balanceador de carga do Azure que distribuem o tráfego e oferecem elevada disponibilidade. Saiba como:
 
 > [!div class="checklist"]
 > * Criar um balanceador de carga do Azure
@@ -59,7 +59,7 @@ New-AzResourceGroup `
 ```
 
 ### <a name="create-a-public-ip-address"></a>Crie um endereço IP público
-Para aceder à sua aplicação na Internet, precisa de um endereço IP público para o balanceador de carga. Crie um endereço IP público com [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress). O exemplo seguinte cria um endereço IP público designado *myPublicIP* no grupo de recursos *myResourceGroupLoadBalancer*:
+Para aceder à sua aplicação na Internet, precisa de um endereço IP público para o balanceador de carga. Crie um endereço IP público com [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress). O exemplo seguinte cria um endereço IP público com o nome *myPublicIP* no grupo de recursos *myResourceGroupLoadBalancer*:
 
 ```azurepowershell-interactive
 $publicIP = New-AzPublicIpAddress `
@@ -119,7 +119,7 @@ Para aplicar a investigação de integridade, atualize o balanceador de carga co
 Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
-### <a name="create-a-load-balancer-rule"></a>Crie uma regra de balanceador de carga
+### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 É utilizada uma regra de balanceador de carga para definir a forma como o tráfego é distribuído pelas VMs. Pode definir a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Para garantir que apenas as VMs em bom estado de funcionamento recebem o tráfego, também pode definir a sonda de estado de funcionamento a utilizar.
 
 Crie uma regra de balanceador de carga com [Add-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/add-azloadbalancerruleconfig). O exemplo seguinte cria uma regra de balanceador de carga designada *myLoadBalancerRule* e faz o balanceamento de carga do tráfego no *TCP* porta *80*:
@@ -183,7 +183,7 @@ for ($i=1; $i -le 3; $i++)
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 Para melhorar a elevada disponibilidade da aplicação, coloque as VMs num conjunto de disponibilidade.
 
-Crie um conjunto de disponibilidade com [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset). O exemplo seguinte cria um conjunto de disponibilidade designado *myAvailabilitySet*:
+Crie um conjunto de disponibilidade com [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset). O exemplo seguinte cria um conjunto de disponibilidade com o nome *myAvailabilitySet*:
 
 ```azurepowershell-interactive
 $availabilitySet = New-AzAvailabilitySet `
@@ -273,7 +273,7 @@ $nic.Ipconfigurations[0].LoadBalancerBackendAddressPools=$null
 Set-AzNetworkInterface -NetworkInterface $nic
 ```
 
-Para ver o balanceador de carga a distribuir tráfego pelas duas VMs restantes que estão a executar a aplicação, pode forçar a atualização do browser. Pode agora realizar a manutenção da VM, como instalar atualizações do SO ou reiniciar.
+Para ver o balanceador de carga a distribuir tráfego pelas duas VMs restantes que estão a executar a aplicação, pode forçar a atualização do browser. Pode agora efetuar a manutenção da VM, como instalar atualizações do SO ou reiniciar.
 
 ### <a name="add-a-vm-to-the-load-balancer"></a>Adicionar uma VM ao balanceador de carga
 Depois de executar a manutenção da VM, ou se você precisar expandir a capacidade, defina a propriedade *LoadBalancerBackendAddressPools* da NIC virtual para o *BackendAddressPool* de [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer):

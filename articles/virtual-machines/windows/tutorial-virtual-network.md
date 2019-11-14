@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Criar e gerir redes virtuais do Azure para VMs do Windows | Microsoft Docs
+title: Tutorial – criar e gerenciar redes virtuais do Azure para VMs do Windows
 description: Neste tutorial, irá aprender a utilizar o Azure PowerShell para criar e gerir redes virtuais do Azure para máquinas virtuais do Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d5a780617b8f46c5ec5f00fbfc45b7d91c29a836
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 67cfb04f67e3454bde25969b634116f2871cbeb5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100200"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74064748"
 ---
-# <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e gerenciar redes virtuais do Azure para máquinas virtuais do Windows com Azure PowerShell
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas virtuais do Windows com o Azure PowerShell
 
 As máquinas virtuais do Azure utilizam a rede do Azure para a comunicação de rede interna e externa. Este tutorial mostra a implementação de duas máquinas virtuais e a configuração da rede do Azure para essas VMs Os exemplos neste tutorial pressupõem que as VMs estão hospedando um aplicativo Web com um back-end de banco de dados, no entanto, um aplicativo não é implantado no tutorial. Neste tutorial, ficará a saber como:
 

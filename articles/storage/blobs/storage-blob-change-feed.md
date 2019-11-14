@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 07123fd5701e9041ff377ea5309cf1291e737ca6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c4669809f1efa1f69081da17bf5ccbeddc39a716
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693621"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077136"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Suporte ao feed de alterações no armazenamento de BLOBs do Azure (visualização)
 
@@ -22,7 +22,7 @@ A finalidade do feed de alterações é fornecer logs de transação de todas as
 > [!NOTE]
 > O feed de alterações está em visualização pública e está disponível nas regiões **westcentralus** e **westus2** . Consulte a seção [condições](#conditions) deste artigo. Para se registrar na versão prévia, consulte a seção [registrar sua assinatura](#register) deste artigo.
 
-O feed de alterações é armazenado como [BLOBs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) em um contêiner especial em sua conta de armazenamento em custo de [preço de blob](https://azure.microsoft.com/pricing/details/storage/blobs/) padrão. Você pode controlar o período de retenção desses arquivos com base em seus requisitos (consulte as [condições](#conditions) da versão atual). Os eventos de alteração são anexados ao feed de alterações como registros na especificação de formato [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) : um formato compacto, rápido e binário que fornece estruturas de dados avançadas com esquema embutido. Esse formato é amplamente usado no ecossistema do Hadoop, Stream Analytics e Azure Data Factory.
+O feed de alterações é armazenado como [BLOBs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) em um contêiner especial em sua conta de armazenamento em custo de [preço de blob](https://azure.microsoft.com/pricing/details/storage/blobs/) padrão. Você pode controlar o período de retenção desses arquivos com base em seus requisitos (consulte as [condições](#conditions) da versão atual). Os eventos de alteração são anexados ao feed de alterações como registros na especificação de formato [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) : um formato compacto, rápido e binário que fornece estruturas de dados avançadas com esquema embutido. Este formato é bastante usado no ecossistema Hadoop, o Stream Analytics e o Azure Data Factory.
 
 Você pode processar esses logs de forma assíncrona, incremental ou completa. Qualquer número de aplicativos cliente pode ler de forma independente o feed de alterações, em paralelo e em seu próprio ritmo. Aplicativos de análise, como [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) ou [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) , podem consumir logs diretamente como arquivos Avro, o que permite processá-los em baixo custo, com alta largura de banda e sem precisar escrever um aplicativo personalizado.
 
@@ -41,9 +41,19 @@ O suporte ao feed de alterações é bem adequado para cenários que processam d
 > [!NOTE]
 > Os [eventos de armazenamento de BLOBs](storage-blob-event-overview.md) fornecem eventos one-time em tempo real que permitem que seus Azure Functions ou aplicativos reajam a alterações que ocorrem em um blob. O feed de alterações fornece um modelo de log durável e ordenado das alterações. As alterações no feed de alterações são disponibilizadas em seu feed de alterações em uma ordem de alguns minutos após a alteração. Se seu aplicativo tiver que reagir a eventos muito mais rápido do que isso, considere usar [eventos de armazenamento de BLOBs](storage-blob-event-overview.md) em vez disso. Os eventos de armazenamento de BLOBs permitem que seus Azure Functions ou aplicativos reajam eventos individuais em tempo real.
 
-## <a name="enabling-and-disabling-the-change-feed"></a>Habilitando e desabilitando o feed de alterações
+## <a name="enable-and-disable-the-change-feed"></a>Habilitar e desabilitar o feed de alterações
 
-Você precisa habilitar o feed de alterações para começar a capturar as alterações. Desabilite o feed de alterações para parar de capturar as alterações. Você pode habilitar e desabilitar as alterações usando Azure Resource Manager modelos no portal ou no PowerShell.
+Você precisa habilitar o feed de alterações em sua conta de armazenamento para começar a capturar as alterações. Desabilite o feed de alterações para parar de capturar as alterações. Você pode habilitar e desabilitar as alterações usando Azure Resource Manager modelos no portal ou no PowerShell.
+
+Aqui estão algumas coisas para ter em mente quando você habilita o feed de alterações.
+
+- Há apenas um feed de alterações para o serviço blob em cada conta de armazenamento armazenada no contêiner **$blobchangefeed** .
+
+- As alterações são capturadas somente no nível de serviço BLOB.
+
+- O feed de alterações captura *todas* as alterações para todos os eventos disponíveis que ocorrem na conta. Os aplicativos cliente podem filtrar os tipos de evento conforme necessário. (Consulte as [condições](#conditions) da versão atual).
+
+- Somente as contas de armazenamento de GPv2 e BLOB podem habilitar o feed de alterações. Atualmente, não há suporte para contas de armazenamento GPv1, contas Premium BlockBlobStorage e contas habilitadas para namespace hierárquico.
 
 ### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -55,27 +65,28 @@ Para implantar o modelo usando portal do Azure:
 
 3. Escolha **implantação de modelo**, escolha **criar**e, em seguida, escolha **criar seu próprio modelo no editor**.
 
-5. No editor de modelo, Cole o JSON a seguir. Substitua o espaço reservado `<accountName>` pelo nome da sua conta de armazenamento.
+4. No editor de modelo, Cole o JSON a seguir. Substitua o espaço reservado `<accountName>` pelo nome da sua conta de armazenamento.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {},
-    "resources": [{
-        "type": "Microsoft.Storage/storageAccounts/blobServices",
-        "apiVersion": "2019-04-01",
-        "name": "<accountName>/default",
-        "properties": {
-            "changeFeed": {
-            "enabled": true
-            }
-        } 
-     }]
-}
-```
-4. Escolha o botão **salvar** , especifique o grupo de recursos da conta e, em seguida, escolha o botão **comprar** para habilitar o feed de alterações.
+   ```json
+   {
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {},
+       "variables": {},
+       "resources": [{
+           "type": "Microsoft.Storage/storageAccounts/blobServices",
+           "apiVersion": "2019-04-01",
+           "name": "<accountName>/default",
+           "properties": {
+               "changeFeed": {
+                   "enabled": true
+               }
+           } 
+        }]
+   }
+   ```
+    
+5. Escolha o botão **salvar** , especifique o grupo de recursos da conta e, em seguida, escolha o botão **comprar** para implantar o modelo e habilitar o feed de alterações.
 
 ### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -84,7 +95,7 @@ Para implantar o modelo usando o PowerShell:
 1. Instale o PowershellGet mais recente.
 
    ```powershell
-   install-Module PowerShellGet –Repository PSGallery –Force
+   Install-Module PowerShellGet –Repository PSGallery –Force
    ```
 
 2. Feche e reabra o console do PowerShell.
@@ -95,7 +106,7 @@ Para implantar o modelo usando o PowerShell:
    Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.8.1-preview –AllowPrerelease –AllowClobber –Force
    ```
 
-4. Entre em sua assinatura do Azure com o comando `Connect-AzAccount` e siga as instruções na tela para autenticar.
+4. Inicie sessão na sua subscrição do Azure com o `Connect-AzAccount` de comando e siga na tela direções para autenticar.
 
    ```powershell
    Connect-AzAccount
@@ -109,36 +120,15 @@ Para implantar o modelo usando o PowerShell:
 
 ---
 
-Aqui estão algumas coisas para ter em mente quando você habilita o feed de alterações.
-
-- Há apenas um feed de alterações para o serviço blob em cada conta de armazenamento. 
-
-- As alterações são capturadas somente no nível de serviço BLOB.
-
-- O feed de alterações captura *todas* as alterações para todos os eventos disponíveis que ocorrem na conta. Os aplicativos cliente podem filtrar os tipos de evento conforme necessário. (Consulte as [condições](#conditions) da versão atual).
-
-- Não há suporte para contas que têm um namespace hierárquico.
-
-## <a name="consuming-the-change-feed"></a>Consumindo o feed de alterações
-
-O feed de alterações produz vários arquivos de log e metadados. Esses arquivos estão localizados no contêiner de **$blobchangefeed** da conta de armazenamento. 
-
->[!NOTE]
-> Na versão atual, o contêiner **$blobchangefeed** não é visível no Gerenciador de armazenamento ou no portal do Azure. 
-
-Os aplicativos cliente podem consumir o feed de alterações usando a biblioteca do processador do feed de alterações de BLOB que é fornecida com o SDK. 
-
-Consulte [processar logs do feed de alterações no armazenamento de BLOBs do Azure](storage-blob-change-feed-how-to.md).
-
-## <a name="understanding-change-feed-organization"></a>Entendendo a organização do feed de alterações
+## <a name="understand-change-feed-organization"></a>Entender a organização do feed de alterações
 
 <a id="segment-index"></a>
 
 ### <a name="segments"></a>Segmentos
 
-O feed de alterações é um log de alterações que é organizado em *segmentos* por **hora** (consulte [especificações](#specifications)). Isso permite que seu aplicativo cliente consuma alterações que ocorrem dentro de intervalos de tempo específicos sem precisar pesquisar em todo o log.
+O feed de alterações é um log de alterações que são organizadas em *segmentos* por **hora** , mas acrescentadas e atualizadas a cada poucos minutos. Esses segmentos são criados somente quando há eventos de alteração de BLOB que ocorrem nessa hora. Isso permite que seu aplicativo cliente consuma alterações que ocorrem dentro de intervalos de tempo específicos sem precisar pesquisar em todo o log. Para saber mais, consulte as [especificações](#specifications).
 
-Um segmento por hora disponível do feed de alterações é descrito em um arquivo de manifesto que especifica os caminhos para os arquivos do feed de alterações para esse segmento. A listagem do diretório virtual `$blobchangefeed/idx/segments/` mostra esses segmentos ordenados por tempo. O caminho do segmento descreve o início do intervalo de tempo por hora que o segmento representa. (Consulte as [especificações](#specifications)). Você pode usar essa lista para filtrar os segmentos de logs que são interessantes para você.
+Um segmento por hora disponível do feed de alterações é descrito em um arquivo de manifesto que especifica os caminhos para os arquivos do feed de alterações para esse segmento. A listagem do diretório virtual `$blobchangefeed/idx/segments/` mostra esses segmentos ordenados por tempo. O caminho do segmento descreve o início do intervalo de tempo por hora que o segmento representa. Você pode usar essa lista para filtrar os segmentos de logs que são interessantes para você.
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
@@ -150,7 +140,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 ```
 
 > [!NOTE]
-> O `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` é criado automaticamente quando você habilita o feed de alterações. Você pode ignorar esse arquivo com segurança. Ele está sempre vazio. 
+> O `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` é criado automaticamente quando você habilita o feed de alterações. Você pode ignorar esse arquivo com segurança. É um arquivo de inicialização sempre vazio. 
 
 O arquivo de manifesto de segmento (`meta.json`) mostra o caminho dos arquivos do feed de alterações para esse segmento na propriedade `chunkFilePaths`. Aqui está um exemplo de um arquivo de manifesto de segmento.
 
@@ -220,12 +210,23 @@ Aqui está um exemplo de registro de evento de alteração do arquivo do feed de
          }
   }
 }
-
 ```
+
 Para obter uma descrição de cada propriedade, consulte [esquema de evento da grade de eventos do Azure para armazenamento de BLOBs](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
 
 > [!NOTE]
 > Os arquivos do feed de alterações de um segmento não aparecem imediatamente depois que um segmento é criado. O comprimento do atraso está dentro do intervalo normal de latência de publicação do feed de alterações, que está dentro de alguns minutos da alteração.
+
+## <a name="consume-the-change-feed"></a>Consumir o feed de alterações
+
+O feed de alterações produz vários arquivos de log e metadados. Esses arquivos estão localizados no contêiner de **$blobchangefeed** da conta de armazenamento. 
+
+> [!NOTE]
+> Na versão atual, o contêiner **$blobchangefeed** não é visível no Gerenciador de armazenamento do Azure ou no portal do Azure. No momento, você não pode ver o contêiner $blobchangefeed ao chamar a API ListContainers, mas você pode chamar a API ListBlobs diretamente no contêiner para ver os BLOBs.
+
+Os aplicativos cliente podem consumir o feed de alterações usando a biblioteca do processador do feed de alterações de BLOB que é fornecida com o SDK do processador do feed de alterações. 
+
+Consulte [processar logs do feed de alterações no armazenamento de BLOBs do Azure](storage-blob-change-feed-how-to.md).
 
 <a id="specifications"></a>
 
@@ -239,9 +240,9 @@ Para obter uma descrição de cada propriedade, consulte [esquema de evento da g
 
 - Os registros de eventos de alteração são serializados no arquivo de log usando a especificação de formato [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) .
 
-- Alterar registros de eventos em que o `eventType` tem um valor de `Control` são registros internos do sistema e não refletem uma alteração nos objetos em sua conta. Você deve ignorá-los.
+- Alterar registros de eventos em que o `eventType` tem um valor de `Control` são registros internos do sistema e não refletem uma alteração nos objetos em sua conta. Você pode ignorar esses registros com segurança.
 
-- Os valores no recipiente de propriedades `storageDiagnonstics` são somente para uso interno e não são projetados para uso pelo seu aplicativo. Seus aplicativos não devem ter uma dependência contratual desses dados.
+- Os valores no recipiente de propriedades `storageDiagnonstics` são somente para uso interno e não são projetados para uso pelo seu aplicativo. Seus aplicativos não devem ter uma dependência contratual desses dados. Você pode ignorar essas propriedades com segurança.
 
 - A hora representada pelo segmento é **aproximada** com limites de 15 minutos. Portanto, para garantir o consumo de todos os registros dentro de um tempo especificado, consuma o segmento de hora anterior e próximo consecutivo.
 
@@ -275,10 +276,11 @@ Como o feed de alterações só está em visualização pública, você precisar
 
 Em um console do PowerShell, execute estes comandos:
 
-   ```powershell
-   Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-   Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-   ```
+```powershell
+Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+```
+   
 ### <a name="register-by-using-azure-cli"></a>Registrar usando CLI do Azure
 
 Em Azure Cloud Shell, execute estes comandos:
@@ -293,8 +295,8 @@ az provider register --namespace 'Microsoft.Storage'
 ## <a name="conditions-and-known-issues-preview"></a>Condições e problemas conhecidos (versão prévia)
 
 Esta seção descreve os problemas e condições conhecidos na visualização pública atual do feed de alterações.
-
-- O feed de alterações captura apenas as operações de criação, atualização, exclusão e cópia.
+- Para visualização, você deve primeiro [registrar sua assinatura](#register) para poder habilitar o feed de alterações para sua conta de armazenamento nas regiões westcentralus ou westus2. 
+- O feed de alterações captura apenas as operações de criação, atualização, exclusão e cópia. Atualizações de metadados não são capturadas no momento na visualização.
 - Alterar registros de eventos para qualquer alteração única pode aparecer mais de uma vez em seu feed de alterações.
 - Você ainda não pode gerenciar o tempo de vida dos arquivos de log do feed de alterações definindo a política de retenção baseada em tempo neles.
 - A propriedade `url` do arquivo de log está sempre vazia.

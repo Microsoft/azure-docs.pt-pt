@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 268cac453ed68903c73b597ffeff2569c13e9db7
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 741c6c1f937988dcce41603417a1bc7dc95091cb
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747079"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073985"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure com o PowerShell
 
@@ -106,18 +106,18 @@ Habilite o backup da seguinte maneira:
 
 ## <a name="start-a-backup-job"></a>Iniciar uma tarefa de cópia de segurança
 
-Os backups são executados de acordo com o agendamento especificado na política de backup. Você também pode executar um backup ad hoc:
+Os backups são executados de acordo com o agendamento especificado na política de backup. Você também pode executar um backup sob demanda:
 
 - O primeiro trabalho de backup inicial cria um ponto de recuperação completo.
 - Após o backup inicial, cada trabalho de backup cria pontos de recuperação incrementais.
 - Os pontos de recuperação incrementais são eficientes em termos de armazenamento e tempo, uma vez que só transferem as alterações feitas desde a última cópia de segurança.
 
-Para executar um backup ad hoc, use o [backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
+Para executar um backup sob demanda, use o [backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
 - Você especifica um contêiner no cofre que contém os dados de backup com [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 - Cada VM da qual vai fazer uma cópia de segurança é tratada como um item. Para iniciar um trabalho de backup, você obtém informações sobre a VM com [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
-Execute um trabalho de backup ad hoc da seguinte maneira:
+Execute um trabalho de backup sob demanda da seguinte maneira:
 
 1. Especifique o contêiner, obtenha as informações da VM e execute o backup.
 

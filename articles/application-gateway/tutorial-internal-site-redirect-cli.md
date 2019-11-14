@@ -1,23 +1,19 @@
 ---
-title: Criar um gateway de aplicativo com redirecionamento interno-CLI do Azure | Microsoft Docs
+title: Redirecionamento interno usando a CLI
+titleSuffix: Azure Application Gateway
 description: Saiba como criar um gateway de aplicativo que redireciona o tráfego da Web interno para o pool apropriado usando o CLI do Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/14/2018
 ms.author: victorh
-ms.openlocfilehash: 6a4a47f93054c4c93043b5215371b5eea7244d46
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: eea3f4bb38b0a6a796bc2ba7c8652f20ce159735
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835001"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074477"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com redirecionamento interno usando o CLI do Azure
 
@@ -27,7 +23,7 @@ Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um gateway de aplicação
+> * Para criar um gateway de aplicação
 > * Adicionar ouvintes e regra de redirecionamento
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end
 > * Criar um registo CNAME no seu domínio
@@ -38,7 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com [az group create](/cli/azure/group).
 
@@ -72,7 +68,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. 
+Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, sku e definições de HTTP. O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -221,7 +217,7 @@ Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um gateway de aplicação
+> * Para criar um gateway de aplicação
 > * Adicionar ouvintes e regra de redirecionamento
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end
 > * Criar um registo CNAME no seu domínio

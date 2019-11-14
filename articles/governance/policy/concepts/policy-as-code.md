@@ -1,20 +1,16 @@
 ---
-title: Política de design como fluxos de trabalho de código
+title: Criar fluxos de trabalho de Política como Código
 description: Aprenda a criar fluxos de trabalho para implantar suas definições de Azure Policy como código e validar automaticamente os recursos.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: e3fcb9996266af7e952538c7c92c665929bb9492
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 935616145ee32bea8c3b514c495690ce4105cb80
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518700"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072080"
 ---
-# <a name="design-policy-as-code-workflows"></a>Política de design como fluxos de trabalho de código
+# <a name="design-policy-as-code-workflows"></a>Criar fluxos de trabalho de Política como Código
 
 Conforme você progride em sua jornada com governança de nuvem, convém mudar de gerenciar manualmente cada definição de política na portal do Azure ou por meio de vários SDKs para algo mais gerenciável e repetível em escala empresarial. Duas das abordagens predominantes para gerenciar sistemas em escala na nuvem são:
 

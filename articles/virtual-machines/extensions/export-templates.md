@@ -1,5 +1,5 @@
 ---
-title: Exportando grupos de recursos do Azure que contêm extensões de VM | Microsoft Docs
+title: Exportando grupos de recursos do Azure que contêm extensões de VM
 description: Exportar modelos do Resource Manager que incluem extensões de máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
-ms.openlocfilehash: 652ed732a7fe8f08e48aba6fc4bd1b52164d1fa0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169056"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073135"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportando grupos de recursos que contêm extensões de VM
 
@@ -78,7 +78,7 @@ Quando o grupo de recursos é exportado, um único parâmetro de modelo é criad
 
 Como cada configuração protegida tem um conjunto de propriedades necessárias, uma lista dessas propriedades precisa ser coletada. Cada parâmetro da configuração de configurações protegidas pode ser encontrado no [esquema de Azure Resource Manager no GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json). Esse esquema inclui apenas os conjuntos de parâmetros para as extensões listadas na seção visão geral deste documento. 
 
-No repositório do esquema, procure a extensão desejada, para este exemplo `IaaSDiagnostics`. Depois que o `protectedSettings` objeto de extensões tiver sido localizado, anote cada parâmetro. No exemplo da `IaasDiagnostic` extensão, os parâmetros require são `storageAccountName`, `storageAccountKey`e `storageAccountEndPoint`.
+No repositório do esquema, procure a extensão desejada para este exemplo `IaaSDiagnostics`. Depois que as extensões `protectedSettings` objeto tiver sido localizado, anote cada parâmetro. No exemplo da extensão de `IaasDiagnostic`, os parâmetros require são `storageAccountName`, `storageAccountKey`e `storageAccountEndPoint`.
 
 ```json
 "protectedSettings": {
@@ -106,7 +106,7 @@ No repositório do esquema, procure a extensão desejada, para este exemplo `Iaa
 
 No modelo exportado, pesquise `protectedSettings` e substitua o objeto de configuração protegida exportado por um novo que inclua os parâmetros de extensão necessários e um valor para cada um.
 
-No exemplo da `IaasDiagnostic` extensão, a nova configuração de configuração protegida se pareceria com o exemplo a seguir:
+No exemplo da extensão de `IaasDiagnostic`, a nova configuração de configuração protegida seria semelhante ao exemplo a seguir:
 
 ```json
 "protectedSettings": {
@@ -148,9 +148,9 @@ O recurso de extensão final é semelhante ao seguinte exemplo de JSON:
 }
 ```
 
-Se você estiver usando parâmetros de modelo para fornecer valores de propriedade, eles precisam ser criados. Ao criar parâmetros de modelo para valores de configuração protegidos, certifique-se `SecureString` de usar o tipo de parâmetro para que os valores confidenciais sejam protegidos. Para obter mais informações sobre como usar parâmetros, consulte [criando modelos de Azure Resource Manager](../../resource-group-authoring-templates.md).
+Se você estiver usando parâmetros de modelo para fornecer valores de propriedade, eles precisam ser criados. Ao criar parâmetros de modelo para valores de configuração protegidos, certifique-se de usar o tipo de parâmetro `SecureString` para que os valores confidenciais sejam protegidos. Para obter mais informações sobre como usar parâmetros, consulte [criando modelos de Azure Resource Manager](../../resource-group-authoring-templates.md).
 
-No exemplo da `IaasDiagnostic` extensão, os seguintes parâmetros seriam criados na seção de parâmetros do modelo do Resource Manager.
+No exemplo da extensão de `IaasDiagnostic`, os seguintes parâmetros seriam criados na seção de parâmetros do modelo do Resource Manager.
 
 ```json
 "storageAccountName": {

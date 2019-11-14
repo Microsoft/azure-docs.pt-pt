@@ -1,19 +1,19 @@
 ---
 title: Criar uma nova oferta de SaaS no Marketplace comercial
 description: Como criar uma nova oferta de SaaS (software como serviço) para listagem ou venda no Azure Marketplace, AppSource ou por meio do programa CSP (provedor de soluções na nuvem) usando o portal do Marketplace comercial no Microsoft Partner Center.
-author: qianw211
+author: ChJenk
 manager: evansma
-ms.author: v-qiwe
+ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: 9eb283f538759f9591add4b04462de151f2cb014
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/13/2019
+ms.openlocfilehash: a6694d094d185ad70cce8c546e12f48afb69f1ae
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825556"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076950"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma nova oferta de SaaS
 
@@ -33,7 +33,6 @@ Se você selecionar outro tipo de oferta, poderá ser redirecionado para o [port
 A caixa de diálogo **nova oferta** é exibida. 
 
 ![Caixa de diálogo nova oferta](./media/new-offer-popup.png)
-
 
 ## <a name="offer-id-and-alias"></a>ID da oferta e alias
 
@@ -105,16 +104,6 @@ A tabela a seguir mostra um exemplo de quebra de custos e pagamentos para demons
 > [!NOTE]
 > **Redução da taxa de serviço do Marketplace**: para determinadas ofertas de SaaS que você publicou em nosso mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%. Para que sua oferta seja qualificada, pelo menos uma de suas ofertas deve ter sido designada pela Microsoft como sendo de revenda de IP coexistente ou em uma venda de IP.  A qualificação deve ser atendida pelo menos cinco (5) dias úteis antes do final de cada mês do calendário para receber essa taxa de serviço do Marketplace reduzida para o mês.  A taxa reduzida de serviço do Marketplace não se aplica a VMs, aplicativos gerenciados ou quaisquer outros produtos disponibilizados por meio de nosso mercado comercial.  A taxa reduzida de serviço do Marketplace só estará disponível para ofertas qualificadas para encargos de licença coletados pela Microsoft entre 1º de maio de 2019 e 30 de junho de 2020.  Após esse período, a taxa de serviço do Marketplace voltará ao seu valor normal. 
 
-
-
-
-#### <a name="csp-program-opt-in"></a>Aceitação do programa CSP
-O programa [CSP (provedor de soluções na nuvem)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) permite que as ofertas de software alcancem milhões de clientes qualificados da Microsoft com investimento mínimo em marketing e vendas.
-
-- **Canais: tornar minha oferta disponível no programa CSP** (caixa de seleção)
-
-Optar por tornar sua oferta disponível no programa CSP permite que os provedores de soluções de nuvem vendam seu produto como parte de uma solução agrupada para seus clientes. 
-
 ### <a name="list-through-microsoft"></a>Listar pela Microsoft
 
 Promova seus negócios com a Microsoft criando uma listagem do Marketplace. Selecionar para listar sua oferta somente e não realizar transações por meio da Microsoft significa que a Microsoft não participará diretamente da transação de licença de software. Não há nenhuma taxa de transação associada e o Publicador mantém 100% de quaisquer taxas de licenciamento de software coletadas do cliente. No entanto, o Publicador é responsável por dar suporte a todos os aspectos da transação de licença de software, incluindo, mas não se limitando a: preenchimento de pedido, medição, cobrança, faturamento, pagamento e coleção. 
@@ -141,7 +130,7 @@ Colete informações de contato do cliente conectando seu sistema de gerenciamen
 
 Uma test drive é uma ótima maneira de demonstrar sua oferta a clientes potenciais, fornecendo a eles a opção "tentar antes de comprar", resultando em uma maior conversão e na geração de clientes potenciais altamente qualificados. [Saiba mais sobre test drives.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-- **Habilitar um test drive** (caixa de seleção) 
+- **Habilitar um test drive** (caixa de seleção)
 
 Ao habilitar o test drive, você será solicitado a configurar um ambiente de demonstração para os clientes experimentarem sua oferta por um período de tempo fixo. 
 
@@ -331,7 +320,6 @@ Lembre-se de **salvar** antes de passar para a próxima seção!
 
 - [Práticas recomendadas para listagens de ofertas do Marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
-
 ## <a name="preview"></a>Pré-visualização
 
 A guia **Visualização** permite que você defina um **público de visualização** limitado para liberar sua oferta antes de publicar sua oferta em tempo real para o público mais amplo do Marketplace.
@@ -416,8 +404,7 @@ Para obter informações sobre as assinaturas de cliente que estão participando
 
 - **Editar mercados** (opcional)
 
-Cada plano deve estar disponível em pelo menos um mercado. Marque a caixa de seleção de qualquer local de mercado onde você gostaria de disponibilizar esse plano. Uma caixa de pesquisa e um botão para selecionar os países "impostos remetidos", no qual a Microsoft remete as vendas e o imposto sobre o uso em seu nome, estão incluídas para ajudar. 
-
+Cada plano deve estar disponível em pelo menos um mercado. Marque a caixa de seleção de qualquer local de mercado onde você gostaria de disponibilizar esse plano. Uma caixa de pesquisa e um botão para selecionar os países "impostos remetidos", no qual a Microsoft remete as vendas e o imposto sobre o uso em seu nome, estão incluídas para ajudar.
 
 Se você já tiver definido preços para seu plano em dólares de Estados Unidos (USD) e adicionar outro local de mercado, o preço do novo mercado será calculado de acordo com as tarifas de câmbio atuais. Você sempre deve examinar o preço de cada mercado antes da publicação. Os preços podem ser revisados usando o link "exportar preços (xlsx)" depois de salvar as alterações.
 
@@ -475,11 +462,15 @@ Embora o SaaS ofereça usar IDs de locatário para definir um público privado, 
 
 [!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
 
+## <a name="cloud-solution-provider-csp-reseller-audience"></a>Público do revendedor do CSP (provedor de soluções na nuvem)
+
+Optar por tornar sua oferta disponível no programa CSP permite que os provedores de soluções de nuvem vendam seu produto como parte de uma solução agrupada para seus clientes. Para obter mais informações, consulte [provedor de soluções de nuvem (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers.md).
+
 ## <a name="publish"></a>Publicar
 
-#### <a name="submit-offer-to-preview"></a>Enviar oferta para visualização
+Depois de concluir todas as seções necessárias da oferta, selecione **publicar** no canto superior direito do Portal. Você será redirecionado para a página **revisar e publicar** .
 
-Depois de concluir todas as seções necessárias da oferta, selecione **publicar** no canto superior direito do Portal. Você será redirecionado para a página **revisar e publicar** . 
+#### <a name="submit-offer-to-preview"></a>Enviar oferta para visualização
 
 Se esta for a primeira vez que você publica essa oferta, você pode:
 

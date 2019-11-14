@@ -1,5 +1,5 @@
 ---
-title: Extensão da máquina virtual do agente do observador de rede do Azure para Linux | Microsoft Docs
+title: Extensão da máquina virtual do agente do observador de rede do Azure para Linux
 description: Implante o agente do observador de rede na máquina virtual Linux usando uma extensão de máquina virtual.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: b59e4c570032bdd3341dc7d519f23f4cd86984c7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c04b27ab4a8ea53e09ca3a133d6aef6457fe1526
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084435"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073042"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do agente do observador de rede para Linux
 
 ## <a name="overview"></a>Descrição geral
 
-O observador de [rede do Azure](/azure/network-watcher/) é um serviço de monitoramento, diagnóstico e análise de desempenho de rede que permite o monitoramento de redes do Azure. A extensão da máquina virtual (VM) do agente do observador de rede é um requisito para alguns dos recursos do observador de rede em VMs do Azure, como a captura de tráfego de rede sob demanda e outras funcionalidades avançadas.
+O [observador de rede do Azure](/azure/network-watcher/) é um serviço de monitoramento, diagnóstico e análise de desempenho de rede que permite o monitoramento de redes do Azure. A extensão da máquina virtual (VM) do agente do observador de rede é um requisito para alguns dos recursos do observador de rede em VMs do Azure, como a captura de tráfego de rede sob demanda e outras funcionalidades avançadas.
 
 Este artigo detalha as plataformas com suporte e as opções de implantação para a extensão de VM do agente do observador de rede para Linux. A instalação do agente não interrompe nem exige uma reinicialização da VM. Você pode implantar a extensão em máquinas virtuais implantadas. Se a máquina virtual for implantada por um serviço do Azure, verifique a documentação do serviço para determinar se ele permite ou não instalar extensões na máquina virtual.
 
@@ -35,7 +35,7 @@ Este artigo detalha as plataformas com suporte e as opções de implantação pa
 
 A extensão do agente do observador de rede pode ser configurada para as seguintes distribuições do Linux:
 
-| Distribuição | Version |
+| Distribuição | Versão |
 |---|---|
 | Ubuntu | mais de 12 |
 | Debian | 7 e 8 |
@@ -49,7 +49,7 @@ A extensão do agente do observador de rede pode ser configurada para as seguint
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-Algumas das funcionalidades do agente do observador de rede exigem que uma VM esteja conectada à Internet. Sem a capacidade de estabelecer conexões de saída, alguns dos recursos do agente do observador de rede podem funcionar incorretamente ou ficar indisponíveis. Para obter mais informações sobre a funcionalidade do observador de rede que requer o agente, consulte a documentação do observador de[rede](/azure/network-watcher/).
+Algumas das funcionalidades do agente do observador de rede exigem que uma VM esteja conectada à Internet. Sem a capacidade de estabelecer conexões de saída, alguns dos recursos do agente do observador de rede podem funcionar incorretamente ou ficar indisponíveis. Para obter mais informações sobre a funcionalidade do observador de rede que requer o agente, consulte a[documentação do observador de rede](/azure/network-watcher/).
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -79,7 +79,7 @@ O JSON a seguir mostra o esquema para a extensão do agente do observador de red
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
-| type | NetworkWatcherAgentLinux |
+| tipo | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 
 ## <a name="template-deployment"></a>Implementação de modelos

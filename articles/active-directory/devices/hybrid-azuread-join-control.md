@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc5c85aaa3c2128b10ba2e6f9c45a66b44593202
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: d67a73ca47811e7275a6f2177573e10a09b230df
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809221"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073618"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validação controlada de associação do Azure AD híbrido
 
@@ -33,7 +33,7 @@ Para fazer uma validação controlada da junção híbrida do Azure AD em dispos
 1. Desmarque a entrada do SCP (ponto de conexão de serviço) do Active Directory (AD), se existir
 1. Definir a configuração do registro do lado do cliente para o SCP em seus computadores ingressados no domínio usando um objeto de Política de Grupo (GPO)
 1. Se você estiver usando AD FS, também deverá definir a configuração do registro do lado do cliente para o SCP no servidor de AD FS usando um GPO  
-
+1. Talvez você também precise [Personalizar as opções de sincronização](../hybrid/how-to-connect-post-installation.md#additional-tasks-available-in-azure-ad-connect) no Azure ad Connect para habilitar a sincronização do dispositivo. 
 
 
 ### <a name="clear-the-scp-from-ad"></a>Limpar o SCP do AD
@@ -82,7 +82,7 @@ Use o exemplo a seguir para criar um objeto de Política de Grupo (GPO) para imp
 Se estiver usando AD FS, primeiro você precisará configurar o SCP do lado do cliente usando as instruções mencionadas acima, mas vinculando o GPO aos seus servidores de AD FS. O objeto SCP define a origem de autoridade para objetos de dispositivo. Ele pode ser local ou Azure AD. Quando isso é configurado para AD FS, a origem dos objetos de dispositivo é estabelecida como Azure AD.
 
 > [!NOTE]
-> Se você não configurou o SCP do lado do cliente em seus servidores de AD FS, a origem das identidades do dispositivo seria considerada como local e, se você tiver o Write-back do dispositivo, AD FS começaria a excluir objetos de dispositivo do contêiner de dispositivo registrado no local após um período estipulado.
+> Se você não configurou o SCP do lado do cliente em seus servidores de AD FS, a origem das identidades do dispositivo seria considerada como local. O ADFS iniciará a exclusão de objetos de dispositivo do diretório local após o período estipulado definido no atributo "MaximumInactiveDays" do registro do dispositivo ADFS. Os objetos de registro de dispositivo do ADFS podem ser encontrados usando o [cmdlet Get-AdfsDeviceRegistration](https://docs.microsoft.com/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Validação controlada do ingresso no Azure AD híbrido em dispositivos de nível inferior do Windows
 

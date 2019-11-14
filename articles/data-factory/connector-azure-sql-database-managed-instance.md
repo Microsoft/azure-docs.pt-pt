@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 6dadb84b5323568ff736d9e39a1297515f33368c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9a70ecacdf10c985cabca8fa3ddf4314bf266afe
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681173"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075615"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiar dados de e para Instância Gerenciada do Banco de Dados SQL do Azure usando Azure Data Factory
 
 Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para Instância Gerenciada do Banco de Dados SQL do Azure. Ele se baseia no artigo [visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
-## <a name="supported-capabilities"></a>Recursos com suporte
+## <a name="supported-capabilities"></a>Capacidades suportadas
 
 Este conector de Instância Gerenciada do Banco de Dados SQL do Azure tem suporte para as seguintes atividades:
 
@@ -57,20 +57,20 @@ Para acessar o ponto de extremidade particular Instância Gerenciada do Banco de
 
 As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Azure Data Factory entidades específicas para o conector de Instância Gerenciada do Banco de Dados SQL do Azure.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
 As propriedades a seguir têm suporte para o serviço vinculado Instância Gerenciada do Banco de Dados SQL do Azure:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type deve ser definida como **AzureSqlMI**. | Sim |
-| connectionString |Esta propriedade especifica as informações de **ConnectionString** necessárias para se conectar à instância gerenciada usando a autenticação do SQL. Para obter mais informações, consulte os exemplos a seguir. <br/>A porta padrão é 1433. Se você estiver usando Instância Gerenciada do Banco de Dados SQL do Azure com um ponto de extremidade público, especifique explicitamente a porta 3342.<br>Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Você também pode colocar uma senha em Azure Key Vault. Se for a autenticação do SQL, extraia a configuração `password` da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
-| servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory ou [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
-| vários | Especifique as informações do locatário, como o nome de domínio ou a ID do locatário, sob a qual seu aplicativo reside. Recupere-o passando o mouse no canto superior direito do portal do Azure. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
+| connectionString |Esta propriedade especifica as informações de **ConnectionString** necessárias para se conectar à instância gerenciada usando a autenticação do SQL. Para obter mais informações, consulte os exemplos a seguir. <br/>A porta predefinida é 1433. Se você estiver usando Instância Gerenciada do Banco de Dados SQL do Azure com um ponto de extremidade público, especifique explicitamente a porta 3342.<br>Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Você também pode colocar uma senha em Azure Key Vault. Se for a autenticação do SQL, extraia a configuração de `password` da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
+| servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory ou [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
+| tenant | Especifique as informações do locatário, como o nome de domínio ou a ID do locatário, sob a qual seu aplicativo reside. Recupere-o passando o mouse no canto superior direito do portal do Azure. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
 | connectVia | Esse [Integration Runtime](concepts-integration-runtime.md) é usado para se conectar ao armazenamento de dados. Você pode usar um tempo de execução de integração auto-hospedado ou um tempo de execução de integração do Azure se sua instância gerenciada tiver um ponto de extremidade público e permitir que Azure Data Factory o acesse. Se não for especificado, o tempo de execução de integração do Azure padrão será usado. |Sim |
 
-Para tipos de autenticação diferentes, consulte as seguintes seções sobre pré-requisitos e exemplos de JSON, respectivamente:
+Para tipos de autenticação diferentes, consulte as secções seguintes em pré-requisitos e exemplos de JSON, respectivamente:
 
 - [Autenticação do SQL](#sql-authentication)
 - [Autenticação de token de aplicativo do Azure AD: entidade de serviço](#service-principal-authentication)
@@ -134,10 +134,10 @@ Para usar uma autenticação de token de aplicativo do Azure AD baseada na entid
 
 1. Siga as etapas para [provisionar um administrador de Azure Active Directory para seu instância gerenciada](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
-2. [Crie um aplicativo Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) do portal do Azure. Anote o nome do aplicativo e os seguintes valores que definem o serviço vinculado:
+2. [Crie um aplicativo Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) do portal do Azure. Tome nota do nome da aplicação e os valores seguintes que definem o serviço ligado:
 
     - ID da aplicação
-    - Chave do aplicativo
+    - Chave da aplicação
     - ID do inquilino
 
 3. [Crie logons](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) para a identidade gerenciada Azure data Factory. No SQL Server Management Studio (SSMS), conecte-se ao seu Instância Gerenciada usando uma conta de SQL Server que seja um **sysadmin**. No banco de dados **mestre** , execute o seguinte T-SQL:
@@ -152,7 +152,7 @@ Para usar uma autenticação de token de aplicativo do Azure AD baseada na entid
     CREATE USER [your application name] FROM EXTERNAL PROVIDER
     ```
 
-5. Conceda à identidade gerenciada Data Factory permissões necessárias como faria normalmente para usuários do SQL e outros. Execute o código a seguir. Para obter mais opções, consulte [este documento](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
+5. Conceda à identidade gerenciada Data Factory permissões necessárias como faria normalmente para usuários do SQL e outros. Execute o seguinte código. Para obter mais opções, consulte [este documento](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your application name]
@@ -187,7 +187,7 @@ Para usar uma autenticação de token de aplicativo do Azure AD baseada na entid
 }
 ```
 
-### <a name="managed-identity"></a>Identidades gerenciadas para autenticação de recursos do Azure
+### <a name="managed-identity"></a> Identidades geridas para a autenticação de recursos do Azure
 
 Um data factory pode ser associado a uma [identidade gerenciada para recursos do Azure](data-factory-service-identity.md) que representa o data Factory específico. Você pode usar essa identidade gerenciada para Instância Gerenciada do Banco de Dados SQL do Azure autenticação. A fábrica designada pode acessar e copiar dados de ou para seu banco de dado usando essa identidade.
 
@@ -207,7 +207,7 @@ Para usar a autenticação de identidade gerenciada, siga estas etapas.
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER
     ```
 
-4. Conceda à identidade gerenciada Data Factory permissões necessárias como faria normalmente para usuários do SQL e outros. Execute o código a seguir. Para obter mais opções, consulte [este documento](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
+4. Conceda à identidade gerenciada Data Factory permissões necessárias como faria normalmente para usuários do SQL e outros. Execute o seguinte código. Para obter mais opções, consulte [este documento](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your Data Factory name]
@@ -236,7 +236,7 @@ Para usar a autenticação de identidade gerenciada, siga estas etapas.
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades de DataSet
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
 Para obter uma lista completa de seções e propriedades disponíveis para uso para definir conjuntos de valores, consulte o artigo conjuntos de valores. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de Instância Gerenciada do Banco de Dados SQL do Azure DataSet.
 
@@ -245,9 +245,9 @@ Para copiar dados de e para Instância Gerenciada do Banco de Dados SQL do Azure
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do conjunto de conjuntos deve ser definida como **AzureSqlMITable**. | Sim |
-| schema | Nome do esquema. |Não para fonte, sim para coletor  |
-| tabela | Nome da tabela/exibição. |Não para fonte, sim para coletor  |
-| tableName | Nome da tabela/exibição com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Para uma nova carga de trabalho, use `schema` e `table`. | Não para fonte, sim para coletor |
+| schema | Nome do esquema. |Não para a origem, Sim para o sink  |
+| table | Nome da tabela/exibição. |Não para a origem, Sim para o sink  |
+| tableName | Nome da tabela/exibição com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Para uma nova carga de trabalho, use `schema` e `table`. | Não para a origem, Sim para o sink |
 
 **Exemplo**
 
@@ -282,8 +282,8 @@ Para copiar dados de Instância Gerenciada do Banco de Dados SQL do Azure, as pr
 |:--- |:--- |:--- |
 | tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como **SqlMISource**. | Sim |
 | sqlReaderQuery |Essa propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. |Não |
-| sqlReaderStoredProcedureName |Essa propriedade é o nome do procedimento armazenado que lê os dados da tabela de origem. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. |Não |
-| storedProcedureParameters |Esses parâmetros são para o procedimento armazenado.<br/>Os valores permitidos são pares de nome ou valor. Os nomes e maiúsculas e minúsculas dos parâmetros devem corresponder aos nomes e maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
+| sqlReaderStoredProcedureName |Essa propriedade é o nome do procedimento armazenado que lê os dados da tabela de origem. A última instrução de SQL tem de ser uma instrução SELECT no procedimento armazenado. |Não |
+| storedProcedureParameters |Esses parâmetros são para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e maiúsculas e minúsculas dos parâmetros devem corresponder aos nomes e maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
 
 **Tenha em atenção os seguintes pontos:**
 
@@ -393,7 +393,7 @@ Para copiar dados para Instância Gerenciada do Banco de Dados SQL do Azure, as 
 | sqlWriterStoredProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem em uma tabela de destino. <br/>Esse procedimento armazenado é *invocado por lote*. Para operações que são executadas apenas uma vez e não têm nada a ver com os dados de origem, por exemplo, excluir ou truncar, use a propriedade `preCopyScript`. | Não |
 | storedProcedureTableTypeParameterName |O nome do parâmetro do tipo de tabela especificado no procedimento armazenado.  |Não |
 | sqlWriterTableType |O nome do tipo de tabela a ser usado no procedimento armazenado. A atividade de cópia torna os dados que estão sendo movidos disponíveis em uma tabela temporária com esse tipo de tabela. O código de procedimento armazenado pode mesclar os dados que estão sendo copiados com os dados existentes. |Não |
-| storedProcedureParameters |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são pares de nome e valor. Os nomes e maiúsculas e minúsculas dos parâmetros devem corresponder aos nomes e maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não |
+| storedProcedureParameters |Parâmetros do procedimento armazenado.<br/>Os valores permitidos são pares de nome e valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. | Não |
 | tableOption | Especifica se a tabela do coletor deve ser criada automaticamente se não existir com base no esquema de origem. Não há suporte para a criação automática de tabela quando o coletor especifica o procedimento armazenado ou a cópia preparada está configurada na atividade de cópia. Os valores permitidos são: `none` (padrão), `autoCreate`. |Não |
 
 **Exemplo 1: acrescentar dados**
@@ -548,7 +548,7 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um Ups
     )
     ```
 
-2. No banco de dados, defina o procedimento armazenado com o mesmo nome que **SqlWriterStoredProcedureName**. Ele manipula os dados de entrada da fonte especificada e as mescla na tabela de saída. O nome do parâmetro do tipo de tabela no procedimento armazenado é o mesmo que **TableName** definido no DataSet.
+2. No banco de dados, defina o procedimento armazenado com o mesmo nome que **sqlWriterStoredProcedureName**. Ele manipula os dados de entrada da fonte especificada e as mescla na tabela de saída. O nome do parâmetro do tipo de tabela no procedimento armazenado é o mesmo que **TableName** definido no DataSet.
 
     ```sql
     CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -570,9 +570,9 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um Ups
     ```json
     "sink": {
         "type": "SqlMISink",
-        "SqlWriterStoredProcedureName": "spOverwriteMarketing",
+        "sqlWriterStoredProcedureName": "spOverwriteMarketing",
         "storedProcedureTableTypeParameterName": "Marketing",
-        "SqlWriterTableType": "MarketingType",
+        "sqlWriterTableType": "MarketingType",
         "storedProcedureParameters": {
             "category": {
                 "value": "ProductA"
@@ -588,37 +588,37 @@ Quando os dados são copiados para e de Instância Gerenciada do Banco de Dados 
 | Tipo de dados Instância Gerenciada do Banco de Dados SQL do Azure | Azure Data Factory tipo de dados provisório |
 |:--- |:--- |
 | bigint |Int64 |
-| binário |Byte [] |
-| parte |Booleano |
-| º |Cadeia de caracteres, Char [] |
+| binary |Byte[] |
+| bit |Booleano |
+| char |String, Char[] |
 | date |DateTime |
-| Horário |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
-| DateTimeOffset |DateTimeOffset |
-| Vírgula |Vírgula |
-| Atributo FILESTREAM (varbinary (max)) |Byte [] |
-| Barra |Clique |
-| image |Byte [] |
+| Datetimeoffset |DateTimeOffset |
+| decimal |decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Valor de duplo |
+| image |Byte[] |
 | int |Int32 |
-| gastar |Vírgula |
-| nchar |Cadeia de caracteres, Char [] |
-| ntext |Cadeia de caracteres, Char [] |
-| numeric |Vírgula |
-| nvarchar |Cadeia de caracteres, Char [] |
-| foto |Único |
-| rowversion |Byte [] |
+| money |decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Vírgula |
-| sql_variant |Object |
-| texto |Cadeia de caracteres, Char [] |
-| hora |Período |
-| carimbo de data/hora |Byte [] |
+| smallmoney |decimal |
+| sql_variant |Objeto |
+| texto |String, Char[] |
+| hora |TimeSpan |
+| carimbo de data/hora |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |GUID |
-| varbinary |Byte [] |
-| varchar |Cadeia de caracteres, Char [] |
-| xml |XML |
+| varbinary |Byte[] |
+| varchar |String, Char[] |
+| xml |Xml |
 
 >[!NOTE]
 > Para tipos de dados que são mapeados para o tipo provisório decimal, atualmente Azure Data Factory dá suporte à precisão de até 28. Se você tiver dados que exijam precisão maior que 28, considere converter para uma cadeia de caracteres em uma consulta SQL.

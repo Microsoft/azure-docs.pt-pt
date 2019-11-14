@@ -1,26 +1,19 @@
 ---
-title: Criar uma investigação personalizada-Aplicativo Azure gateway-portal do Azure | Microsoft Docs
+title: Criar uma investigação personalizada usando o portal
+titleSuffix: Azure Application Gateway
 description: Saiba como criar uma investigação personalizada para o gateway de aplicativo usando o portal
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 33fd5564-43a7-4c54-a9ec-b1235f661f97
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/14/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 18799d928f7239eea311aa39159bfa0b5416ca1a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 15daf47a1cb44635932311e60b3690af9ff58677
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821075"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074613"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Criar uma investigação personalizada para o gateway de aplicativo usando o portal
 
@@ -41,7 +34,7 @@ As investigações são configuradas em um processo de duas etapas por meio do P
 
 ### <a name="createprobe"></a>Inserir Propriedades da investigação
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para uma [avaliação gratuita de um mês](https://azure.microsoft.com/free)
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para uma [avaliação gratuita de um mês](https://azure.microsoft.com/free)
 
 2. No painel portal do Azure favoritos, clique em todos os recursos. Clique no gateway de aplicativo na folha todos os recursos. Se a assinatura que você selecionou já tiver vários recursos, você poderá inserir partners.contoso.net no filtro por nome... para aceder facilmente ao gateway de aplicação.
 
@@ -56,12 +49,12 @@ As investigações são configuradas em um processo de duas etapas por meio do P
    |**Nome**|customProbe|Esse valor é um nome amigável dado à investigação que é acessível no Portal.|
    |**Protocolo**|HTTP ou HTTPS | O protocolo usado pela investigação de integridade. |
    |**Anfitrião**|, contoso.com|Esse valor é o nome do host virtual (diferente do nome de host da VM) em execução no servidor de aplicativos. A investigação é enviada para (protocolo)://(nome do host):(porta de httpsetting)/urlPath.  Isso é aplicável quando o multissite é configurado no gateway de aplicativo. Se o gateway de aplicativo estiver configurado para um único site, digite ' 127.0.0.1 '.|
-   |**Escolha o nome do host nas configurações de HTTP de back-end**|Sim ou Não|Define o cabeçalho de *host* na investigação como o nome de host do recurso de back-end no pool de back-ends associado à configuração de http à qual essa investigação está associada. Especialmente necessário no caso de back-ends de vários locatários, como o serviço de aplicativo do Azure. [Saiba mais](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Escolha o nome do host nas configurações de HTTP de back-end**|Sim ou Não|Define o cabeçalho de *host* na investigação como o nome de host do recurso de back-end no pool de back-ends associado à configuração de http à qual essa investigação está associada. Especialmente necessário no caso de back-ends de vários locatários, como o serviço de aplicativo do Azure. [Saber mais](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
    |**Caminho**|/ou outro caminho|O restante da URL completa para a investigação personalizada. Um caminho válido começa com '/'. Para o caminho padrão de http:\//contoso.com apenas use '/' |
    |**Intervalo (segundos)**|30|Com que frequência a investigação é executada para verificar a integridade. Não é recomendável definir o menor que 30 segundos.|
    |**Tempo limite (segundos)**|30|A quantidade de tempo que a investigação aguarda antes de atingir o tempo limite. Se uma resposta válida não for recebida nesse período de tempo limite, a investigação será marcada como com falha. O intervalo de tempo limite precisa ser alto o suficiente para que uma chamada http possa ser feita para garantir que a página de integridade de back-end esteja disponível. Observe que o valor de tempo limite não deve ser maior que o valor de ' interval ' usado nesta configuração de investigação ou o valor de ' tempo limite de solicitação ' na configuração de HTTP que será associada a essa investigação.|
 |**Limite não íntegro**|3|Número de tentativas de falha consecutivas a serem consideradas não íntegras. O limite pode ser definido como 1 ou mais.|
-   |**Usar condições de correspondência de investigação**|Sim ou Não|Por padrão, uma resposta HTTP (S) com código de status entre 200 e 399 é considerada íntegra. Você pode alterar o intervalo aceitável de código de resposta de back-end ou corpo de resposta de back-end. [Saiba mais](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**Usar condições de correspondência de investigação**|Sim ou Não|Por padrão, uma resposta HTTP (S) com código de status entre 200 e 399 é considerada íntegra. Você pode alterar o intervalo aceitável de código de resposta de back-end ou corpo de resposta de back-end. [Saber mais](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
    |**Configurações de HTTP**|seleção da lista suspensa|A investigação será associada às configurações de HTTP selecionadas aqui e, portanto, monitorará a integridade desse pool de back-end que está associado à configuração de HTTP selecionada. Ele usará a mesma porta para a solicitação de investigação que a que está sendo usada na configuração de HTTP selecionada. Você só pode escolher essas configurações HTTP que não estão associadas a nenhuma outra investigação personalizada. <br>Observe que apenas essas configurações HTTP estão disponíveis para associação que têm o mesmo protocolo que o protocolo escolhido nesta configuração de investigação e têm o mesmo estado para a opção *escolher nome de host do back-end de configuração de http* .|
    
    > [!IMPORTANT]
@@ -90,7 +83,7 @@ As investigações são configuradas em um processo de duas etapas por meio do P
 
 ### <a name="createprobe"></a>Criar a investigação
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para uma [avaliação gratuita de um mês](https://azure.microsoft.com/free)
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para uma [avaliação gratuita de um mês](https://azure.microsoft.com/free)
 
 2. No painel portal do Azure favoritos, selecione **todos os recursos**. Selecione o gateway de aplicativo na página **todos os recursos** . Se a assinatura que você selecionou já tiver vários recursos, você poderá inserir partners.contoso.net no filtro por nome... para aceder facilmente ao gateway de aplicação.
 
@@ -105,12 +98,12 @@ As investigações são configuradas em um processo de duas etapas por meio do P
    |**Nome**|customProbe|Esse valor é um nome amigável dado à investigação que é acessível no Portal.|
    |**Protocolo**|HTTP ou HTTPS | O protocolo usado pela investigação de integridade. |
    |**Anfitrião**|, contoso.com|Esse valor é o nome do host virtual (diferente do nome de host da VM) em execução no servidor de aplicativos. A investigação é enviada para (protocolo)://(nome do host):(porta de httpsetting)/urlPath.  Isso é aplicável quando o multissite é configurado no gateway de aplicativo. Se o gateway de aplicativo estiver configurado para um único site, digite ' 127.0.0.1 '.|
-   |**Escolha o nome do host nas configurações de HTTP de back-end**|Sim ou Não|Define o cabeçalho de *host* na investigação como o nome de host do recurso de back-end no pool de back-ends associado à configuração de http à qual essa investigação está associada. Especialmente necessário no caso de back-ends de vários locatários, como o serviço de aplicativo do Azure. [Saiba mais](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Escolha o nome do host nas configurações de HTTP de back-end**|Sim ou Não|Define o cabeçalho de *host* na investigação como o nome de host do recurso de back-end no pool de back-ends associado à configuração de http à qual essa investigação está associada. Especialmente necessário no caso de back-ends de vários locatários, como o serviço de aplicativo do Azure. [Saber mais](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
    |**Caminho**|/ou outro caminho|O restante da URL completa para a investigação personalizada. Um caminho válido começa com '/'. Para o caminho padrão de http:\//contoso.com apenas use '/' |
    |**Intervalo (segundos)**|30|Com que frequência a investigação é executada para verificar a integridade. Não é recomendável definir o menor que 30 segundos.|
    |**Tempo limite (segundos)**|30|A quantidade de tempo que a investigação aguarda antes de atingir o tempo limite. Se uma resposta válida não for recebida nesse período de tempo limite, a investigação será marcada como com falha. O intervalo de tempo limite precisa ser alto o suficiente para que uma chamada http possa ser feita para garantir que a página de integridade de back-end esteja disponível. Observe que o valor de tempo limite não deve ser maior que o valor de ' interval ' usado nesta configuração de investigação ou o valor de ' tempo limite de solicitação ' na configuração de HTTP que será associada a essa investigação.|
 |**Limite não íntegro**|3|Número de tentativas de falha consecutivas a serem consideradas não íntegras. O limite pode ser definido como 1 ou mais.|
-   |**Usar condições de correspondência de investigação**|Sim ou Não|Por padrão, uma resposta HTTP (S) com código de status entre 200 e 399 é considerada íntegra. Você pode alterar o intervalo aceitável de código de resposta de back-end ou corpo de resposta de back-end. [Saiba mais](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**Usar condições de correspondência de investigação**|Sim ou Não|Por padrão, uma resposta HTTP (S) com código de status entre 200 e 399 é considerada íntegra. Você pode alterar o intervalo aceitável de código de resposta de back-end ou corpo de resposta de back-end. [Saber mais](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
 
    > [!IMPORTANT]
    > O nome do host não é o mesmo que o nome do servidor. Esse valor é o nome do host virtual em execução no servidor de aplicativos. A investigação é enviada para a porta de:(http://(nome do host) de httpsetting)/urlPath

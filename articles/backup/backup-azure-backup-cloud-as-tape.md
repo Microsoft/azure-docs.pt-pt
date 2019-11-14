@@ -7,14 +7,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/30/2017
 ms.author: dacurwin
-ms.openlocfilehash: 3be3a2e3355793a8d0b4fcaf0e7f62668f78f0c8
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 82d646cd40312765b11c711f4c63c0943c9e8555
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954884"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074332"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Mover o armazenamento de longo prazo de fita para a nuvem do Azure
+
 Os clientes do backup do Azure e do System Center Data Protection Manager podem:
 
 * Faça backup de dados em agendas que melhor atendam às necessidades da organização.
@@ -24,6 +25,7 @@ Os clientes do backup do Azure e do System Center Data Protection Manager podem:
 Este artigo explica como os clientes podem habilitar políticas de backup e retenção. Os clientes que usam fitas para atender às suas necessidades de retenção de longo prazo agora têm uma alternativa poderosa e viável com a disponibilidade desse recurso. O recurso está habilitado na versão mais recente do backup do Azure (que está disponível [aqui](https://aka.ms/azurebackup_agent)). Os clientes do System Center DPM devem atualizar, pelo menos, o DPM 2012 R2 UR5 antes de usar o DPM com o serviço de backup do Azure.
 
 ## <a name="what-is-the-backup-schedule"></a>O que é o agendamento de backup?
+
 O agendamento de backup indica a frequência da operação de backup. Por exemplo, as configurações na tela a seguir indicam que os backups são feitos diariamente às 18:00 e à meia-noite.
 
 ![Agenda diária](./media/backup-azure-backup-cloud-as-tape/dailybackupschedule.png)
@@ -33,19 +35,21 @@ Os clientes também podem agendar um backup semanal. Por exemplo, as configuraç
 ![Agenda semanal](./media/backup-azure-backup-cloud-as-tape/weeklybackupschedule.png)
 
 ## <a name="what-is-the-retention-policy"></a>O que é a política de retenção?
+
 A política de retenção especifica a duração para a qual o backup deve ser armazenado. Em vez de especificar apenas uma "política simples" para todos os pontos de backup, os clientes podem especificar políticas de retenção diferentes com base em quando o backup é feito. Por exemplo, o ponto de backup feito diariamente, que serve como um ponto de recuperação operacional, é preservado por 90 dias. O ponto de backup feito no final de cada trimestre para fins de auditoria é preservado por uma duração maior.
 
-![Política de retenção](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
+![Política de Retenção](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
 
 O número total de "pontos de retenção" especificado nesta política é 90 (pontos diários) + 40 (um a cada trimestre por 10 anos) = 130.
 
 ## <a name="example--putting-both-together"></a>Exemplo – colocando ambos juntos
+
 ![Tela de exemplo](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Política de retenção diária**: Os backups feitos diariamente são armazenados por sete dias.
-2. **Política de retenção semanal**: Os backups feitos todos os dias à meia-noite e às 18:00 sábado são preservados por quatro semanas
-3. **Política de retenção mensal**: Os backups feitos à meia-noite e 18:00 no último sábado de cada mês são preservados por 12 meses
-4. **Política de retenção anual**: Os backups feitos à meia-noite no último sábado de cada março são preservados por 10 anos
+1. **Política de retenção diária**: os backups feitos diariamente são armazenados por sete dias.
+2. **Política de retenção semanal**: os backups feitos todos os dias à meia-noite e às 18:00 sábado são preservados por quatro semanas
+3. **Política de retenção mensal**: os backups feitos à meia-noite e 18:00 no último sábado de cada mês são preservados por 12 meses
+4. **Política de retenção anual**: os backups feitos à meia-noite no último sábado de cada março são preservados por 10 anos
 
 O número total de "pontos de retenção" (pontos dos quais um cliente pode restaurar dados) no diagrama anterior é calculado da seguinte maneira:
 
@@ -61,11 +65,13 @@ O número total de pontos de recuperação é 56.
 >
 
 ## <a name="advanced-configuration"></a>Configuração avançada
+
 Ao clicar em **Modificar** na tela anterior, os clientes têm flexibilidade adicional para especificar agendamentos de retenção.
 
 ![Modificar](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
+
 Para obter mais informações sobre o backup do Azure, consulte:
 
 * [Introdução ao Azure Backup](backup-introduction-to-azure-backup.md)

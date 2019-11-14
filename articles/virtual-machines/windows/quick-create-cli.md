@@ -1,5 +1,5 @@
 ---
-title: Início rápido-criar uma VM do Windows usando o CLI do Azure | Microsoft Docs
+title: Início rápido-criar uma VM do Windows usando o CLI do Azure
 description: Neste guia de início rápido, você aprende a usar o CLI do Azure para criar uma máquina virtual do Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e6709a6efff80df01d7504db8b39f8ff5c2c5e49
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a3ad81091fa93993f71c6d65175e50f6ee216757
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088847"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073475"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Início rápido: Criar uma máquina virtual do Windows com a CLI do Azure
+# <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Guia de Início Rápido: Criar uma máquina virtual do Windows com a CLI do Azure
 
 A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este guia de início rápido mostra como utilizar a CLI do Azure para implementar uma máquina virtual (VM) no Azure que executa o Windows Server 2016. Para ver a VM em ação, estabeleça o RDP para a VM e instale o servidor Web IIS.
 
@@ -34,7 +34,7 @@ O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para execu
 
 Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **copiar** para copiar os blocos de código, Cole-o na Cloud Shell e pressione **Enter** para executá-lo.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
@@ -46,8 +46,8 @@ az group create --name myResourceGroup --location eastus
 
 Crie uma VM com [az vm create](/cli/azure/vm). O exemplo seguinte cria uma VM com o nome *myVM*. Este exemplo usa *azureuser* para um nome de usuário administrativo. 
 
-Você deve alterar o valor para `--admin-password` ou haverá falha. Altere-o [para uma senha que atenda aos requisitos de senha para](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
-)VMs do Azure. O nome de usuário e a senha serão usados posteriormente, quando você se conectar à VM.
+Você deve alterar o valor de `--admin-password` ou ele falhará. Altere-o para uma senha que atenda aos [requisitos de senha para VMs do Azure](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
+). O nome de usuário e a senha serão usados posteriormente, quando você se conectar à VM.
 
 ```azurecli-interactive
 az vm create \
@@ -99,7 +99,7 @@ Para ver a VM em ação, instale o servidor Web do IIS. Abra uma janela do Power
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Quando terminar, feche a ligação RDP à VM.
+Quando terminar, feche a ligação RDP para a VM.
 
 ## <a name="view-the-web-server-in-action"></a>Ver o servidor Web em ação
 
@@ -115,7 +115,7 @@ Quando já não for necessário, pode utilizar o comando [az group delete](/cli/
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, implementou uma máquina virtual simples, abriu uma porta de rede para o tráfego Web e instalou um servidor Web básico. Para saber mais sobre as máquinas virtuais do Azure, continue com o tutorial para VMs do Windows.
 

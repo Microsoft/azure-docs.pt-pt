@@ -1,17 +1,14 @@
 ---
 title: Exemplo de Blueprint de carga de trabalho do ISO 27001 ASE/SQL-etapas de implantação
 description: Implante as etapas do exemplo de plano gráfico de carga de trabalho do banco de dados ISO 27001 Ambiente do Serviço de Aplicativo/SQL, incluindo detalhes do parâmetro de artefato Blueprint.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 4836287f5308ffb11bf145b715dfd6f73672c038
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: edcf9920f3a65c182240da735b1883b3d67da650
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163457"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032142"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implantar a amostra do plano gráfico de carga de trabalho do banco de dados ISO 27001 Ambiente do Serviço de Aplicativo/SQL
 
@@ -116,7 +113,7 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |-|-|-|-|
 |Log Analytics Grupo de recursos|Grupo de recursos|Nome|**Locked** – concatena o **nome da organização** com `-workload-log-rg` para tornar o grupo de recursos exclusivo.|
 |Log Analytics Grupo de recursos|Grupo de recursos|Localização|**Locked** -usa o parâmetro Blueprint.|
-|Modelo de Log Analytics|Modelo do Resource Manager|Escalão de serviço|Define a camada do espaço de trabalho Log Analytics. O valor padrão é _PerNode_.|
+|Modelo de Log Analytics|Modelo do Resource Manager|Camada de serviços|Define a camada do espaço de trabalho Log Analytics. O valor padrão é _PerNode_.|
 |Modelo de Log Analytics|Modelo do Resource Manager|Retenção de log em dias|Retenção de dados em dias. O valor padrão é _365_.|
 |Modelo de Log Analytics|Modelo do Resource Manager|Localização|Região usada para criar o espaço de trabalho Log Analytics. O valor padrão é _oeste dos EUA 2_.|
 |Grupo de recursos de rede|Grupo de recursos|Nome|**Locked** – concatena o **nome da organização** com `-workload-net-rg` para tornar o grupo de recursos exclusivo.|
@@ -136,7 +133,7 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |Grupo de recursos do banco de dados SQL do Azure|Grupo de recursos|Nome|**Locked** – concatena o **nome da organização** com `-workload-azsql-rg` para tornar o grupo de recursos exclusivo.|
 |Grupo de recursos do banco de dados SQL do Azure|Grupo de recursos|Localização|**Locked** -usa o parâmetro Blueprint.|
 |Modelo de banco de dados SQL do Azure|Modelo do Resource Manager|Nome de usuário do administrador do Azure SQL Server|Nome de usuário para o SQL Server do Azure. Deve corresponder ao mesmo valor de propriedade no **modelo de Key Vault**. O valor padrão é _SQL-admin-user_.|
-|Modelo de banco de dados SQL do Azure|Modelo do Resource Manager|Senha de administrador do Azure SQL Server (Key Vault ID do recurso)|A ID de recurso do Key Vault. Use "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" e substitua `{subscriptionId}` pela sua ID de assinatura e `{orgName}` pelo plano de **nome da organização** meter.|
+|Modelo de banco de dados SQL do Azure|Modelo do Resource Manager|Senha de administrador do Azure SQL Server (Key Vault ID do recurso)|A ID de recurso do Key Vault. Use "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" e substitua `{subscriptionId}` pela sua ID de assinatura e `{orgName}` pelo parâmetro Blueprint **nome da organização** .|
 |Modelo de banco de dados SQL do Azure|Modelo do Resource Manager|Senha de administrador do Azure SQL Server (nome do Key Vault segredo)|Nome de usuário do administrador do SQL Server. Deve corresponder ao valor na propriedade de **modelo Key Vault** o **nome de usuário do administrador do Azure SQL Server**.|
 |Modelo de banco de dados SQL do Azure|Modelo do Resource Manager|Retenção de log em dias|Retenção de dados em dias. O valor padrão é _365_.|
 |Modelo de banco de dados SQL do Azure|Modelo do Resource Manager|ID do objeto de administrador do AAD|ID de objeto do AAD do usuário que será atribuído como um administrador de Active Directory. Nenhum valor padrão e não pode ser deixado em branco. Para localizar esse valor no portal do Azure, procure e selecione "usuários" em _Serviços_. Use a caixa _nome_ para filtrar o nome da conta e selecione essa conta. Na página _perfil do usuário_ , selecione o ícone "clique para copiar" ao lado da _ID do objeto_.|
@@ -152,10 +149,10 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 Agora que você analisou as etapas para implantar o exemplo de esquema de carga de trabalho do banco de dados do Ambiente do Serviço de Aplicativo/SQL ISO 27001, visite os seguintes artigos para saber mais sobre o mapeamento de arquitetura e controle:
 
 > [!div class="nextstepaction"]
-> [Iso 27001 ambiente do serviço de aplicativo/esquema de carga de trabalho do banco de dados SQL-visão geral](./index.md)
+> [Iso 27001 ambiente do serviço de aplicativo/projeto de carga de trabalho do banco de dados SQL-visão geral](./index.md)
 > [ISO 27001 ambiente do serviço de aplicativo/esquema de carga de trabalho do banco de dados SQL](./control-mapping.md)
 
-Artigos adicionais sobre plantas e como usá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

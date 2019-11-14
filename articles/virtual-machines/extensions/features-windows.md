@@ -1,5 +1,5 @@
 ---
-title: Recursos e extensões de VM do Azure para Windows | Microsoft Docs
+title: Recursos e extensões de VM do Azure para Windows
 description: Saiba quais extensões estão disponíveis para máquinas virtuais do Azure, agrupadas pelo que elas fornecem ou aperfeiçoadas.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b99e919c396ebc3ef72c046fbe3fef1261050ad
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 79c6658d2b3758eed94f273bf0b3685bbd146278
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891584"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073068"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões de máquina virtual para Windows
 

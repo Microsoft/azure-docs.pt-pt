@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: ee9594e7aa3b55f7eb6fc7ba41783708555bd15e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d33c5f75234ad7165a9062ecc3bb2a00d502f8c3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513773"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075291"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Provisionar um gateway auto-hospedado no gerenciamento de API do Azure
 
@@ -32,13 +32,14 @@ Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do 
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="provision-a-self-hosted-gateway"></a>Provisionar um gateway auto-hospedado
+## <a name="provision-a-self-hosted-gateway"></a>Aprovisionar um gateway autoalojado
 
 1. Selecione os **gateways** em **configurações**.
 2. Clique em **+ Adicionar**.
 3. Insira o **nome** e a **região** do gateway.
 > [!TIP]
 > **Region** especifica o local pretendido dos nós de gateway que serão associados a esse recurso de gateway. É semanticamente equivalente a uma propriedade semelhante associada a qualquer recurso do Azure, mas pode ser atribuído um valor de cadeia de caracteres arbitrário.
+
 4. Opcionalmente, insira uma **Descrição** do recurso de gateway.
 5. Opcionalmente, selecione **+** em **APIs** para associar uma ou mais APIs a esse recurso de gateway.
 > [!TIP]
@@ -46,6 +47,7 @@ Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do 
 
 > [!IMPORTANT]
 > Por padrão, nenhuma das APIs existentes será associada ao novo recurso de gateway. Portanto, as tentativas de chamá-las por meio do novo gateway resultarão em `404 Resource Not Found` respostas.
+
 6. Clique em **Adicionar**.
 
 Agora o recurso de gateway foi provisionado na sua instância de gerenciamento de API. Você pode continuar a implantar o gateway.

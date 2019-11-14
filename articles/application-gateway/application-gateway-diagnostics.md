@@ -1,22 +1,23 @@
 ---
-title: Monitorar logs de acesso, logs de desempenho, integridade de back-end e métricas para Aplicativo Azure gateway
+title: Integridade de back-end e logs de diagnóstico
+titleSuffix: Azure Application Gateway
 description: Saiba como habilitar e gerenciar logs de acesso e logs de desempenho para Aplicativo Azure gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: fa930d4ab420708e6abfdf1765703afbe20fa25e
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 448e5bf798f5b1c3006888f846722e54fec46ef8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958266"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075305"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Integridade de back-end e logs de diagnóstico para o gateway de aplicativo
 
-Usando Aplicativo Azure gateway, você pode monitorar os recursos das seguintes maneiras:
+Você pode monitorar Aplicativo Azure recursos de gateway das seguintes maneiras:
 
 * [Integridade de back-end](#back-end-health): o gateway de aplicativo fornece a capacidade de monitorar a integridade dos servidores nos pools de back-ends por meio do portal do Azure e do PowerShell. Você também pode encontrar a integridade dos pools de back-end por meio dos logs de diagnóstico de desempenho.
 

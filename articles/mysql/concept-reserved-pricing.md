@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: e3b4249aa9fbc31f8a6ca4a33ef8167bd076adec
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 595a96d07cc1804d3ee0830618a70557b768a3b5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609180"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067096"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelos recursos de computação do banco de dados do Azure para MySQL com capacidade reservada
 
@@ -32,12 +32,12 @@ Os detalhes sobre como clientes corporativos e clientes pagos conforme o uso sã
 
 O tamanho da reserva deve ser baseado na quantidade total de computação usada pelo servidor existente ou em breve para ser implantado em uma região específica e usando o mesmo nível de desempenho e geração de hardware.</br>
 
-Por exemplo, suponhamos que você esteja executando uma finalidade geral, um banco de dados MySQL de Gen5 – 32 vCore e duas Gen5 de memória otimizada para 16. Além disso, digamos que você planeja implantar no próximo mês uma finalidade geral adicional, Gen5 – pool elástico de 32 vCore e um servidor de banco de dados com otimização de memória, Gen5 – 16 vCore. Vamos supor que você saiba que precisará desses recursos por pelo menos 1 ano. Nesse caso, você deve comprar um vCores de 64 (2x32), reserva de 1 ano para o banco de dados único de uso geral-Gen5 e um 48 (2x16 + 16) reserva de 1 ano para a memória de banco de dados individual otimizada-Gen5
+Por exemplo, suponhamos que você esteja executando uma finalidade geral, um banco de dados MySQL de Gen5 – 32 vCore e duas Gen5 de memória otimizada para 16. Além disso, digamos que você planeja implantar no próximo mês uma finalidade geral adicional, Gen5 – servidor de banco de dados vCore de 32 e um servidor de banco de dados com otimização de memória, Gen5 – 16 vCore. Vamos supor que você saiba que precisará desses recursos por pelo menos 1 ano. Nesse caso, você deve comprar um vCores de 64 (2x32), reserva de 1 ano para o banco de dados único de uso geral-Gen5 e um 48 (2x16 + 16) reserva de 1 ano para a memória de banco de dados individual otimizada-Gen5
 
 
 ## <a name="buy-azure-database-for-mysql-reserved-capacity"></a>Comprar a capacidade reservada do banco de dados do Azure para MySQL
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Todos os serviços** > **Reservas**.
 3. Selecione **Adicionar** e, em seguida, no painel reservas de compra, selecione **banco de dados do Azure para MySQL** para comprar uma nova reserva para seus bancos de dados MySQL.
 4. Preencha os campos obrigatórios. Bancos de dados novos ou existentes que correspondem aos atributos que você selecionar qualificar para obter o desconto de capacidade reservada. O número real de seu banco de dados do Azure para servidores MySQL que obtém o desconto depende do escopo e da quantidade selecionada.
@@ -82,5 +82,5 @@ Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 * [Compreender o desconto das Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
 * [Compreender a utilização de reservas na sua subscrição Pay As You Go](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mysql)
 * [Compreender a utilização de reservas na inscrição Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [Azure Reservations no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros](https://docs.microsoft.com/partner-center/azure-reservations)
+* [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations) (Reservas do Azure no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros)
 

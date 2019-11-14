@@ -1,5 +1,5 @@
 ---
-title: Instalar o Trend Micro Deep Security em uma VM | Microsoft Docs
+title: Instalar o Trend Micro Deep Security em uma VM
 description: Este artigo descreve como instalar e configurar o Trend Micro Security em uma VM criada com o modelo de implantação clássico no Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: 14ef0a94cb8b2b735b3dc02cf5ccdcc65a6c1beb
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: a9f99d418d572c14a7cdd7975483cf39f0707cba
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168789"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072993"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Como instalar e configurar o Trend Micro Deep Security como Serviço numa VM do Windows
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -54,7 +54,7 @@ Quando chegar à folha **configurações** do assistente, execute as seguintes e
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>Instalar o agente de segurança profunda em uma VM existente
 Para instalar o agente em uma VM existente, você precisará dos seguintes itens:
 
-* O módulo Azure PowerShell, versão 0.8.2 ou mais recente, instalado no computador local. Você pode verificar a versão do Azure PowerShell que você instalou usando o comando **Get-Module Azure | Format-Table Version** . Para obter instruções e um link para a versão mais recente, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Faça logon na sua assinatura do Azure `Add-AzureAccount`usando.
+* O módulo Azure PowerShell, versão 0.8.2 ou mais recente, instalado no computador local. Você pode verificar a versão do Azure PowerShell que você instalou usando o comando **Get-Module Azure | Format-Table Version** . Para obter instruções e um link para a versão mais recente, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Faça logon em sua assinatura do Azure usando `Add-AzureAccount`.
 * O agente de VM instalado na máquina virtual de destino.
 
 Primeiro, verifique se o agente de VM já está instalado. Preencha o nome do serviço de nuvem e o nome da máquina virtual e execute os seguintes comandos em um prompt de comando Azure PowerShell de nível de administrador. Substitua tudo entre aspas, incluindo o < e > caracteres.

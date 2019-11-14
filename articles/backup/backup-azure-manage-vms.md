@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3781ac1be547f6733417c4f0cae9f3e8681ea9e8
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 800acb622a54ae922300d4c1b188f7ec19f5a95f
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969241"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074250"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerenciar backups de VM do Azure com o serviço de backup do Azure
 
@@ -34,7 +34,7 @@ Você pode gerenciar backups usando o painel e fazendo Drill down para VMs indiv
 
 Para exibir as VMs no painel do cofre:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu Hub, selecione **procurar**. Na lista de recursos, escreva **Serviços de Recuperação**. Conforme você digita, a lista é filtrada com base em sua entrada. Selecione **cofres dos serviços de recuperação**.
 
     ![Criar um cofre dos Serviços de Recuperação](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
@@ -60,7 +60,7 @@ Para exibir as VMs no painel do cofre:
 
 Para gerenciar uma política de backup:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Abra o painel do cofre.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/). Abra o painel do cofre.
 2. No bloco **itens de backup** , selecione **máquinas virtuais do Azure**.
 
     ![Abrir o bloco itens de backup](./media/backup-azure-manage-vms/contoso-vault-1606.png)
@@ -167,9 +167,9 @@ Há duas maneiras de excluir os dados de backup de uma VM:
 
 ### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Item de backup em que a fonte de dados primária não existe mais
 
-* Se as VMs do Azure configuradas para o backup do Azure forem excluídas ou movidas sem interromper a proteção, os trabalhos de backup agendados e os trabalhos de backup sob demanda (ad-hoc) falharão com o erro UserErrorVmNotFoundV2. A pré-verificação de backup será exibida como crítica somente para trabalhos de backup ad hoc com falha (trabalhos agendados com falha não são exibidos).
+* Se as VMs do Azure configuradas para o backup do Azure forem excluídas ou movidas sem interromper a proteção, os trabalhos de backup agendados e os trabalhos de backup sob demanda (ad-hoc) falharão com o erro UserErrorVmNotFoundV2. A pré-verificação de backup será exibida como crítica somente para trabalhos de backup sob demanda com falha (trabalhos agendados com falha não são exibidos).
 * Esses itens de backup permanecem ativos no sistema que aderem à política de backup e retenção definida pelo usuário. Os dados de backup para essas VMs do Azure serão mantidos de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o último ponto de recuperação) são limpos de acordo com o período de retenção definido na política de backup.
-* Os usuários são recomendados para excluir os itens de backup em que a fonte de dados primária não existe mais para evitar custos adicionais, se o item/dados de backup dos recursos de exclusão não for mais necessário, pois o último ponto de recuperação é mantido para sempre e o usuário é cobrado como de acordo com o preço de backup aplicável.
+* Os usuários são recomendados para excluir os itens de backup em que a fonte de dados primária não existe mais para evitar custos adicionais, se o item/dados de backup dos recursos de exclusão não for mais necessário, pois o último ponto de recuperação é mantido para sempre e o usuário é cobrado de acordo com o preço de backup aplicável.
 
 ## <a name="next-steps"></a>Passos seguintes
 

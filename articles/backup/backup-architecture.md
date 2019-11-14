@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: e072923c2c8b1d8e5bb281a5bcff992b25289b4d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d914c2988b5f28940021de24dcfe1183c68b15cc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888494"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074355"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup do Azure
 
@@ -134,7 +134,7 @@ As VMs do Azure precisam de acesso à Internet para comandos de controle. Se voc
     - O agente MARS usa apenas a operação de gravação do sistema Windows para capturar o instantâneo.
     - Como o agente não usa nenhum gravador VSS de aplicativo, ele não captura instantâneos consistentes com o aplicativo.
 1. Depois de tirar o instantâneo com o VSS, o agente MARS cria um VHD (disco rígido virtual) na pasta de cache que você especificou quando configurou o backup. O agente também armazena somas de verificação para cada bloco de dados.
-1. Os backups incrementais são executados de acordo com o agendamento que você especificar, a menos que você execute um backup ad hoc.
+1. Os backups incrementais são executados de acordo com o agendamento que você especificar, a menos que você execute um backup sob demanda.
 1. Em backups incrementais, os arquivos alterados são identificados e um novo VHD é criado. O VHD é compactado e criptografado e é enviado para o cofre.
 1. Após a conclusão do backup incremental, o novo VHD é mesclado com o VHD criado após a replicação inicial. Esse VHD mesclado fornece o estado mais recente a ser usado para comparação para o backup em andamento.
 
@@ -148,7 +148,7 @@ As VMs do Azure precisam de acesso à Internet para comandos de controle. Se voc
     - Com o DPM/MABS, você pode proteger volumes de backup, compartilhamentos, arquivos e pastas. Você também pode proteger o estado do sistema (bare metal) de um computador e pode proteger aplicativos específicos com configurações de backup com reconhecimento de aplicativo.
 1. Quando você configura a proteção para um computador ou aplicativo no DPM/MABS, você seleciona para fazer backup no disco local do MABS/DPM para armazenamento de curto prazo e para o Azure para proteção online. Você também especifica quando o backup para o armazenamento do DPM/MABS local deve ser executado e quando o backup online para o Azure deve ser executado.
 1. O backup do disco da carga de trabalho protegida é feito nos discos MABS/DPM locais, de acordo com o agendamento especificado.
-4. O backup dos discos do DPM/MABS é feito no cofre pelo agente MARS em execução no servidor DPM/MABS.
+1. O backup dos discos do DPM/MABS é feito no cofre pelo agente MARS em execução no servidor DPM/MABS.
 
 ![Backup de máquinas e cargas de trabalho protegidas pelo DPM ou pelo MABS](./media/backup-architecture/architecture-dpm-mabs.png)
 

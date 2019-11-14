@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Instalar aplicações numa VM do Windows no Azure | Microsoft Docs
+title: Tutorial-instalar aplicativos em uma VM do Windows no Azure
 description: Neste tutorial, vai aprender a utilizar a Extensão de Script Personalizado para executar scripts e implementar aplicações em máquinas virtuais do Windows no Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 02c038a1eefefb62dceb42e511b9a895691ef47b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 610f8efad473b5f4bed1abc6b2c063ec0ead66ed
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101726"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065355"
 ---
 # <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>Tutorial – Implementar aplicações numa máquina virtual do Windows no Azure com a Extensão de Script Personalizado
 
@@ -99,7 +99,7 @@ Em seguida, pode introduzir o endereço IP público num browser. O site é apres
 ![Site do IIS em execução](./media/tutorial-automate-vm-deployment/running-iis-website.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, automatizou a instalação do IIS numa VM. Aprendeu a:
 

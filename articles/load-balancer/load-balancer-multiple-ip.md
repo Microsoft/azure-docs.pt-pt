@@ -1,7 +1,7 @@
 ---
 title: Balanceamento de carga em várias configurações de IP-portal do Azure
-titlesuffix: Azure Load Balancer
-description: Balanceamento de carga entre as configurações de IP primário e secundário.
+titleSuffix: Azure Load Balancer
+description: Neste artigo, saiba mais sobre o balanceamento de carga nas configurações de IP primário e secundário usando o portal do Azure.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: dbf8cdd326d3e1c8f32f6dc2bd3486146993e06b
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4bf74986462ecb2659505f8a1261b9b24aba3fee
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274736"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077011"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Balanceamento de carga em várias configurações de IP usando o portal do Azure
 
@@ -48,7 +48,7 @@ Nosso exemplo de cenário pressupõe que você tenha um grupo de recursos chamad
 
 - O grupo de recursos inclui uma rede virtual chamada **myVNet**.
 - A rede **myVNet** inclui duas VMs chamadas **VM1** e **VM2**.
-- VM1 e VM2 estão no mesmo conjunto de disponibilidade chamado mydispset. 
+- VM1 e VM2 estão no mesmo conjunto de disponibilidade chamado **Mydispset**. 
 - VM1 e VM2 têm uma NIC primária chamada **VM1NIC1** e **VM2NIC1**, respectivamente. 
 - VM1 e VM2 têm cada uma NIC secundária chamada **VM1NIC2** e **VM2NIC2**, respectivamente.
 
@@ -58,7 +58,7 @@ Para obter mais informações sobre como criar VMs com várias NICs, consulte [c
 
 Conclua as etapas a seguir para obter o cenário descrito neste artigo.
 
-### <a name="step-1-configure-the-secondary-nics"></a>Passo 1: Configurar as NICs secundárias
+### <a name="step-1-configure-the-secondary-nics"></a>Etapa 1: configurar as NICs secundárias
 
 Para cada VM em sua rede virtual, adicione a configuração de IP para a NIC secundária:  
 
@@ -98,7 +98,7 @@ Crie o balanceador de carga para a configuração:
 
 O balanceador de carga começa a ser implantado. A implantação pode levar alguns minutos para ser concluída com êxito. Após a conclusão da implantação, o balanceador de carga é exibido como um recurso em seu grupo de recursos.
 
-### <a name="step-3-configure-the-front-end-ip-pool"></a>Passo 3: Configurar o pool de IPS de front-end
+### <a name="step-3-configure-the-front-end-ip-pool"></a>Etapa 3: configurar o pool de IPS de front-end
 
 Para cada site (contoso.com e fabrikam.com), configure o pool de IPS de front-end em seu balanceador de carga:
 
@@ -116,7 +116,7 @@ Para cada site (contoso.com e fabrikam.com), configure o pool de IPS de front-en
 
       Depois que os endereços IP públicos são criados, eles são exibidos sob os endereços **IP públicos** .
 
-3. <a name="step3-3"></a>No portal, selecione **mais serviços**. Na caixa filtro, digite balanceador de **carga** e, em seguida, selecione **Load Balancer**. 
+3. <a name="step3-3"></a>No portal, selecione **mais serviços**. Na caixa filtro, digite **balanceador de carga** e, em seguida, selecione **Load Balancer**. 
 
 4. Selecione o balanceador de carga (**mylb**) ao qual você deseja adicionar o pool de IPS de front-end.
 
@@ -130,11 +130,11 @@ Para cada site (contoso.com e fabrikam.com), configure o pool de IPS de front-en
 
 Depois que o pool de front-end estiver configurado, os endereços IP serão exibidos em seus parâmetros de **configuração de IP de frontend** do balanceador de carga. 
     
-### <a name="step-4-configure-the-back-end-pool"></a>Passo 4: Configurar o pool de back-ends
+### <a name="step-4-configure-the-back-end-pool"></a>Etapa 4: configurar o pool de back-ends
 
 Para cada site (contoso.com e fabrikam.com), configure o pool de endereços de back-end no balanceador de carga:
         
-1. No portal, selecione **mais serviços**. Na caixa filtro, digite balanceador de **carga** e, em seguida, selecione **Load Balancer**.
+1. No portal, selecione **mais serviços**. Na caixa filtro, digite **balanceador de carga** e, em seguida, selecione **Load Balancer**.
 
 2. Selecione o balanceador de carga (**mylb**) ao qual você deseja adicionar o pool de back-ends.
 
@@ -142,7 +142,7 @@ Para cada site (contoso.com e fabrikam.com), configure o pool de endereços de b
 
 4. Para **associado a**, selecione **conjunto de disponibilidade**.
 
-5. Para **conjunto de disponibilidade**, selecione mydispset.
+5. Para **conjunto de disponibilidade**, selecione **mydispset**.
 
 6. Adicione as configurações de IP de rede de destino para ambas as VMs: 
 
@@ -156,11 +156,11 @@ Para cada site (contoso.com e fabrikam.com), configure o pool de endereços de b
 
 Após a configuração do pool de back-end, os endereços são exibidos nas configurações do **pool de back-end** do balanceador de carga.
 
-### <a name="step-5-configure-the-health-probe"></a>Passo 5: Configurar a investigação de integridade
+### <a name="step-5-configure-the-health-probe"></a>Etapa 5: configurar a investigação de integridade
 
 Configurar uma investigação de integridade para o balanceador de carga:
 
-1. No portal, selecione **mais serviços**. Na caixa filtro, digite balanceador de **carga** e, em seguida, selecione **Load Balancer**.
+1. No portal, selecione **mais serviços**. Na caixa filtro, digite **balanceador de carga** e, em seguida, selecione **Load Balancer**.
 
 2. Selecione o balanceador de carga (**mylb**) ao qual você deseja adicionar a investigação de integridade.
 
@@ -168,7 +168,7 @@ Configurar uma investigação de integridade para o balanceador de carga:
 
 4. Digite um nome para a investigação de integridade (por exemplo, **http**). Selecione **OK**.
 
-### <a name="step-6-configure-load-balancing-rules"></a>Passo 6: Configurar regras de balanceamento de carga
+### <a name="step-6-configure-load-balancing-rules"></a>Etapa 6: configurar regras de balanceamento de carga
 
 Para cada site (contoso.com e fabrikam.com), configure as regras de balanceamento de carga:
     
@@ -180,7 +180,7 @@ Para cada site (contoso.com e fabrikam.com), configure as regras de balanceament
 
 4. Para **porta** e **porta de back-end**, mantenha o valor padrão **80**.
 
-5. Para **IP flutuante (retorno de servidor direto)** , selecione desabilitado.
+5. Para **IP flutuante (retorno de servidor direto)** , selecione **desabilitado**.
 
 6. <a name="step6-6"></a>Selecione **OK**.
 
@@ -188,10 +188,10 @@ Para cada site (contoso.com e fabrikam.com), configure as regras de balanceament
 
 Depois que as regras são configuradas, elas são exibidas nas configurações de **regras de balanceamento** de carga do balanceador de carga.
 
-### <a name="step-7-configure-dns-records"></a>Passo 7: Configurar registros DNS
+### <a name="step-7-configure-dns-records"></a>Etapa 7: Configurar registros DNS
 
 Como a última etapa, configure os registros de recursos de DNS para apontar para os respectivos endereços IP de front-end para o balanceador de carga. Você pode hospedar seus domínios no DNS do Azure. Para obter mais informações sobre como usar o DNS do Azure com o Load Balancer, consulte [usando o DNS do Azure com outros serviços do Azure](../dns/dns-for-azure-services.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre como combinar serviços de balanceamento de carga no Azure [usando serviços de balanceamento de carga no Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
 - Saiba como você pode usar diferentes tipos de logs para gerenciar e solucionar problemas do balanceador de carga em [logs de Azure monitor para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

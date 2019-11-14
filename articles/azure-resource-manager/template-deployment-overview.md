@@ -1,19 +1,19 @@
 ---
-title: Modelos do Azure Resource Manager
-description: Descreve como usar modelos de Azure Resource Manager para a implantação de recursos.
+title: Visão geral de modelos de Azure Resource Manager
+description: Descreve os benefícios que usam modelos de Azure Resource Manager para a implantação de recursos.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 96f140cfa5e6151ad53ca242d1fc87ba3397316e
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 956450e5a47e4d0e16de44b6bc72c6cb24d05889
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71300157"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074389"
 ---
-# <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
+# <a name="azure-resource-manager-templates-overview"></a>Visão geral de modelos de Azure Resource Manager
 
 Com a mudança para a nuvem, muitas equipes adotaram métodos de desenvolvimento Agile. Essas equipes iteram rapidamente. Eles precisam implantar repetidamente suas soluções na nuvem e saber que sua infraestrutura está em um estado confiável. À medida que a infraestrutura se tornou parte do processo iterativo, a divisão entre operações e desenvolvimento desapareceu. As equipes precisam gerenciar a infraestrutura e o código do aplicativo por meio de um processo unificado.
 
@@ -41,7 +41,7 @@ Se você estiver tentando decidir entre usar modelos do Resource Manager e uma d
 
 * **Implantações controladas**: no portal do Azure, você pode examinar o histórico de implantação e obter informações sobre a implantação do modelo. Você pode ver o modelo que foi implantado, os valores de parâmetro passados e todos os valores de saída. Outra infraestrutura como serviços de código não é rastreada por meio do Portal.
 
-   ![Histórico de implantação](./media/template-deployment-overview/deployment-history.png)
+   ![Histórico de implementações](./media/template-deployment-overview/deployment-history.png)
 
 * **Política como código**: [Azure Policy](../governance/policy/overview.md) é uma política como estrutura de código para automatizar a governança. Se você estiver usando políticas do Azure, a correção de política será feita em recursos sem conformidade quando implantada por meio de modelos.
 
@@ -125,5 +125,6 @@ Para obter mais informações sobre modelos aninhados, veja [Utilizar modelos li
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* Para obter um tutorial passo a passo que orienta você durante o processo de criação de um modelo, consulte [tutorial: criar e implantar seu primeiro modelo de Azure Resource Manager](template-tutorial-create-first-template.md).
 * Para obter informações sobre as propriedades em arquivos de modelo, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para saber mais sobre como exportar modelos, consulte [início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).

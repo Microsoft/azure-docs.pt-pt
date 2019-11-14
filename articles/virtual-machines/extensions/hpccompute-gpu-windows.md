@@ -1,5 +1,5 @@
 ---
-title: Extensão do driver NVIDIA GPU – VMs do Windows do Azure | Microsoft Docs
+title: Extensão do driver NVIDIA GPU – VMs do Windows do Azure
 description: Microsoft Azure extensão para instalar drivers NVIDIA GPU em VMs de computação da série N executando o Windows.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
-ms.openlocfilehash: 13a7189d9758fd6d1e7daac38e948e1b482a019b
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: c388f433327b5328483f10fbef637a6fdfd08832
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686781"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073027"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de driver NVIDIA GPU para Windows
 
@@ -35,11 +35,11 @@ Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs
 
 Esta extensão dá suporte ao seguinte OSs:
 
-| Distribuição | Version |
+| Distribuição | Versão |
 |---|---|
-| Windows 10 | Core |
-| Windows Server 2016 | Core |
-| Windows Server 2012 R2 | Core |
+| Windows 10 | Principal |
+| Windows Server 2016 | Principal |
+| Windows Server 2012 R2 | Principal |
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
@@ -69,13 +69,13 @@ O JSON a seguir mostra o esquema para a extensão.
 }
 ```
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Propriedades
 
-| Name | Valor / exemplo | Tipo de Dados |
+| Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverWindows | string |
+| tipo | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
 
@@ -163,7 +163,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | Operação bem-sucedida |
 | 1 | Operação bem-sucedida. Reinicialização necessária. |
-| 100 | Operação sem suporte ou não pôde ser concluída. | Causas possíveis: Versão do PowerShell sem suporte, o tamanho da VM não é uma VM da série N, falha ao baixar dados. Verifique os arquivos de log para determinar a causa do erro. |
+| 100 | Operação sem suporte ou não pôde ser concluída. | Possíveis causas: versão do PowerShell sem suporte, o tamanho da VM não é uma VM da série N, falha ao baixar dados. Verifique os arquivos de log para determinar a causa do erro. |
 | 240, 840 | Tempo limite da operação. | Repita a operação. |
 | -1 | Ocorreu uma exceção. | Verifique os arquivos de log para determinar a causa da exceção. |
 | -5x | Operação interrompida devido a reinicialização pendente. | Reinicialize a VM. A instalação continuará após a reinicialização. A desinstalação deve ser chamada manualmente. |

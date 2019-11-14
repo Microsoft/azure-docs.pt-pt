@@ -1,18 +1,19 @@
 ---
-title: Solução de problemas de gateway Aplicativo Azure com o serviço de aplicativo – redirecionamento para a URL do serviço de aplicativo
+title: Solucionar problemas de redirecionamento para URL do serviço de aplicativo
+titleSuffix: Azure Application Gateway
 description: Este artigo fornece informações sobre como solucionar o problema de redirecionamento quando Aplicativo Azure gateway é usado com o serviço Azure App
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: ef2bbf8804e96a3e25f053d189c6d85bfa845b0b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d43efd6dbd344f666c23b1ad4414ceb29992e996
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833183"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074487"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Solucionar problemas do serviço de aplicativo no gateway de aplicativo
 

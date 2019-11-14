@@ -3,12 +3,12 @@ title: Exemplos de consultas iniciais
 description: Use o grafo de recursos do Azure para executar algumas consultas iniciais, incluindo recursos de contagem, ordenação de recursos ou por uma marca específica.
 ms.date: 10/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: f98ef101b53af4f595d31670d2af5aee66170487
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ca7fc2ba3e952f93f85c677eb8a8a7322901c7d0
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958632"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076123"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas de introdução do Azure Resource Graph
 
@@ -250,7 +250,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 ---
 
 > [!NOTE]
-> Esteja ciente de que, embora `=~` permita a correspondência não sensível a maiúsculas e minúsculas, a utilização de propriedades (como **properties.storageProfile.osDisk.osType**) na consulta requer que a utilização de maiúsculas/minúsculas esteja correta. Se a propriedade tiver uma utilização incorreta das maiúsculas/minúsculas, poderá ainda devolver um valor, mas o agrupamento ou o resumo estarão incorretos.
+> Esteja ciente de que, embora `=~` permita a correspondência não sensível a maiúsculas e minúsculas, a utilização de propriedades (como **properties.storageProfile.osDisk.osType**) na consulta requer que a utilização de maiúsculas/minúsculas esteja correta. Se a propriedade for o caso incorreto, um valor nulo ou incorreto será retornado e o agrupamento ou resumo estaria incorreto.
 
 ## <a name="a-nameshow-storage-show-resources-that-contain-storage"></a><a name="show-storage" />mostrar recursos que contêm armazenamento
 

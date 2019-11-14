@@ -16,12 +16,12 @@ ms.date: 04/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: c9754c1d7fee5af13de6176dbf8a1ca6e57a71eb
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 3aaa99caca461d4b8e339cf4c1f7847adef4027a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213165"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076851"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnosticar notificações eliminadas nos hubs de notificação do Azure
 
@@ -33,7 +33,7 @@ Uma pergunta comum sobre os hubs de notificação do Azure é como solucionar pr
 
 Em um fluxo de notificação de envio típico, a mensagem é enviada do *back-end do aplicativo* para os hubs de notificação. Os hubs de notificação processam todos os registros. Leva em consideração as marcas configuradas e as expressões de marca para determinar os destinos. Destinos são os registros que precisam receber a notificação por push. Esses registros podem abranger qualquer uma das plataformas com suporte: Android, Baidu (dispositivos Android na China), Amazon (sistema operacional de incêndio) iOS, Windows e Windows Phone.
 
-Com os destinos estabelecidos, os hubs de notificação enviam notificações por push para o *serviço de notificação por push* para a plataforma do dispositivo. Os exemplos incluem o serviço de notificação por push da Apple (APNs) para Apple e firebase Cloud Messaging (FCM) para Google. Os hubs de notificação enviam notificações por push em vários lotes de registros. Ele é autenticado com o respectivo serviço de notificação por push, com base nas credenciais definidas na portal do Azure, em **Configurar Hub de notificação**. Em seguida, o serviço de notificação por push encaminha as notificações para os respectivos *dispositivos cliente*.
+Com os destinos estabelecidos, os hubs de notificação enviam notificações por push para o *serviço de notificação por push* para a plataforma do dispositivo. Os exemplos incluem o serviço de notificação por push da Apple (APNs) para iOS e macOS e o firebase Cloud Messaging (FCM) para dispositivos Android. Os hubs de notificação enviam notificações por push em vários lotes de registros. Ele é autenticado com o respectivo serviço de notificação por push, com base nas credenciais definidas na portal do Azure, em **Configurar Hub de notificação**. Em seguida, o serviço de notificação por push encaminha as notificações para os respectivos *dispositivos cliente*.
 
 O segmento final da entrega de notificação é entre o serviço de notificação por push da plataforma e o dispositivo. A entrega de notificação pode falhar em qualquer um dos quatro estágios do processo de notificação por push (cliente, back-end de aplicativo, hubs de notificação e serviço de notificação por push da plataforma). Para obter mais informações sobre a arquitetura dos hubs de notificação, consulte [visão geral dos hubs de notificação].
 
@@ -103,7 +103,7 @@ Cada lote é enviado para o serviço de notificação por push, que, por sua vez
 
 Nesse caso, o registro com falha é removido do banco de dados. Em seguida, repetimos a entrega de notificação para o restante dos dispositivos nesse lote.
 
-Para obter mais informações de erro sobre a tentativa de entrega com falha em relação a um registro, você pode usar [as APIs REST dos hubs de notificação por telemetria de mensagem: Obtenha telemetria](https://msdn.microsoft.com/library/azure/mt608135.aspx) de mensagens de notificação e [comentários de PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx). Para obter o código de exemplo, consulte o [exemplo enviar REST](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
+Para obter mais informações de erro sobre a tentativa de entrega com falha em relação a um registro, você pode usar as APIs REST dos hubs de notificação [por telemetria de mensagem: obter telemetria de mensagem de notificação](https://msdn.microsoft.com/library/azure/mt608135.aspx) e [comentários de PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx). Para obter o código de exemplo, consulte o [exemplo enviar REST](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
 
 ## <a name="push-notification-service-issues"></a>Problemas de serviço de notificação por push
 
@@ -115,7 +115,7 @@ Se um serviço de notificação por push tentar entregar uma notificação, mas 
 
 Cada aplicativo armazena apenas uma notificação recente. Se várias notificações forem enviadas enquanto um dispositivo estiver offline, cada nova notificação fará com que a última seja descartada. Manter apenas a notificação mais recente é chamada de *União* no APNs e *recolher* no FCM. (FCM usa uma chave de recolhimento.) Quando o dispositivo permanece offline por um longo tempo, as notificações que foram armazenadas para o dispositivo são descartadas. Para obter mais informações, consulte [visão geral de APNs] e [Sobre as mensagens FCM].
 
-Com os hubs de notificação, você pode passar uma chave de União por meio de um cabeçalho HTTP usando a API SendNotification genérica. Por exemplo, para o SDK do .NET, você `SendNotificationAsync`usaria. A API SendNotification também usa cabeçalhos HTTP que são passados como estão para o respectivo serviço de notificação por push.
+Com os hubs de notificação, você pode passar uma chave de União por meio de um cabeçalho HTTP usando a API SendNotification genérica. Por exemplo, para o SDK do .NET, você usaria `SendNotificationAsync`. A API SendNotification também usa cabeçalhos HTTP que são passados como estão para o respectivo serviço de notificação por push.
 
 ## <a name="self-diagnosis-tips"></a>Dicas de autodiagnóstico
 
@@ -125,7 +125,7 @@ Aqui estão os caminhos para diagnosticar a causa raiz das notificações descar
 
 #### <a name="push-notification-service-developer-portal"></a>Portal do desenvolvedor do serviço de notificação por push ####
 
-Verifique as credenciais no respectivo portal do desenvolvedor do serviço de notificação por push (APNs, FCM, serviço de notificação do Windows e assim por diante). Para obter mais informações, [consulte Tutorial: Envie notificações para Plataforma Universal do Windows aplicativos usando os hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification)de notificação do Azure.
+Verifique as credenciais no respectivo portal do desenvolvedor do serviço de notificação por push (APNs, FCM, serviço de notificação do Windows e assim por diante). Para obter mais informações, consulte [tutorial: enviar notificações para plataforma universal do Windows aplicativos usando os hubs de notificação do Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
 
 #### <a name="azure-portal"></a>Portal do Azure ####
 
@@ -145,22 +145,22 @@ Você pode exibir e gerenciar todos os registros em seu hub. Os registros podem 
 
 Clique com o botão direito do mouse no Hub de notificação em **Gerenciador de servidores**e selecione **diagnosticar**. 
 
-![Gerenciador de Servidores do Visual Studio: Menu diagnosticar](./media/notification-hubs-diagnosing/diagnose-menu.png)
+![Gerenciador de Servidores do Visual Studio: menu diagnosticar](./media/notification-hubs-diagnosing/diagnose-menu.png)
 
 Você verá a seguinte página:
 
-![Visual Studio: Página de diagnóstico](./media/notification-hubs-diagnosing/diagnose-page.png)
+![Visual Studio: página de diagnóstico](./media/notification-hubs-diagnosing/diagnose-page.png)
 
 Alterne para a página de **registros do dispositivo** :
 
-![Visual Studio: Registros de dispositivo](./media/notification-hubs-diagnosing/VSRegistrations.png)
+![Visual Studio: registros de dispositivo](./media/notification-hubs-diagnosing/VSRegistrations.png)
 
 Você pode usar a página de **envio de teste** para enviar uma mensagem de notificação de teste:
 
-![Visual Studio: Testar Envio](./media/notification-hubs-diagnosing/test-send-vs.png)
+![Visual Studio: enviar teste](./media/notification-hubs-diagnosing/test-send-vs.png)
 
 > [!NOTE]
-> Use o Visual Studio para editar os registros somente durante o desenvolvimento/teste e com um número limitado de registros. Se você precisar editar seus registros em massa, considere o uso da funcionalidade de registro de exportação e importação descrita [em como: Exportar e modificar registros em massa](https://msdn.microsoft.com/library/dn790624.aspx).
+> Use o Visual Studio para editar os registros somente durante o desenvolvimento/teste e com um número limitado de registros. Se você precisar editar seus registros em massa, considere o uso da funcionalidade exportar e importar Registro descrita em [como: exportar e modificar registros em massa](https://msdn.microsoft.com/library/dn790624.aspx).
 
 #### <a name="service-bus-explorer"></a>Explorador do Service Bus ####
 
@@ -183,7 +183,7 @@ Você também pode enviar notificações de teste do Visual Studio.
 Para obter mais informações sobre como usar hubs de notificação com o Visual Studio Gerenciador de Servidores, consulte estes artigos:
 
 * [Como exibir registros de dispositivo para hubs de notificação](https://docs.microsoft.com/previous-versions/windows/apps/dn792122(v=win.10))
-* [Aprofunde-se: Atualização do Visual Studio 2013 2 RC e SDK do Azure 2,3]
+* [Aprofunde-se: Visual Studio 2013 atualização 2 RC e SDK do Azure 2,3]
 * [Anunciando a versão do Visual Studio 2013 atualização 3 e o SDK do Azure 2,4]
 
 ### <a name="debug-failed-notifications-and-review-notification-outcome"></a>Depurar notificações com falha e examinar o resultado da notificação
@@ -196,7 +196,7 @@ Se a notificação não chegar ao dispositivo cliente, poderá ocorrer um erro q
 
 Para obter informações sobre erros do serviço de notificação por push, você pode usar a propriedade [EnableTestSend] . Essa propriedade é habilitada automaticamente quando você envia mensagens de teste do portal ou do cliente do Visual Studio. Você pode usar essa propriedade para ver informações detalhadas de depuração e também por meio de APIs. No momento, você pode usá-lo no SDK do .NET. Ele será adicionado a todos os SDKs do cliente eventualmente.
 
-Para usar a `EnableTestSend` Propriedade com a chamada REST, acrescente um parâmetro de cadeia de caracteres de consulta chamado *Test* ao final da chamada de envio. Por exemplo:
+Para usar a propriedade `EnableTestSend` com a chamada REST, acrescente um parâmetro de cadeia de caracteres de consulta chamado *Test* ao final da chamada de envio. Por exemplo:
 
 ```text
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
@@ -212,9 +212,9 @@ var result = await hub.SendWindowsNativeNotificationAsync(toast);
 Console.WriteLine(result.State);
 ```
 
-No final da execução, `result.State` simplesmente diz. `Enqueued` Os resultados não fornecem informações sobre o que aconteceu com sua notificação por push.
+No final da execução, `result.State` simplesmente afirma `Enqueued`. Os resultados não fornecem informações sobre o que aconteceu com sua notificação por push.
 
-Em seguida, você pode usar `EnableTestSend` a propriedade booliana. Use a `EnableTestSend` Propriedade enquanto você inicializa `NotificationHubClient` para obter um status detalhado sobre os erros do serviço de notificação por push que ocorrem quando a notificação é enviada. A chamada de envio leva tempo adicional para retornar porque primeiro ele precisa de hubs de notificação para entregar a notificação ao serviço de notificação por push.
+Em seguida, você pode usar a propriedade booleana `EnableTestSend`. Use a propriedade `EnableTestSend` enquanto você inicializa `NotificationHubClient` para obter um status detalhado sobre erros de serviço de notificação por push que ocorrem quando a notificação é enviada. A chamada de envio leva tempo adicional para retornar porque primeiro ele precisa de hubs de notificação para entregar a notificação ao serviço de notificação por push.
 
 ```csharp
     bool enableTestSend = true;
@@ -241,7 +241,7 @@ The Token obtained from the Token Provider is wrong
 Essa mensagem indica que as credenciais configuradas nos hubs de notificação são inválidas ou que há um problema com os registros no Hub. Exclua esse registro e deixe o cliente recriar o registro antes de enviar a mensagem.
 
 > [!NOTE]
-> O `EnableTestSend` uso da propriedade é muito limitado. Use essa opção somente em um ambiente de desenvolvimento/teste e com um conjunto limitado de registros. As notificações de depuração são enviadas para apenas 10 dispositivos. Também há um limite de processamento de envios de depuração, a 10 por minuto.
+> O uso da propriedade `EnableTestSend` é muito limitado. Use essa opção somente em um ambiente de desenvolvimento/teste e com um conjunto limitado de registros. As notificações de depuração são enviadas para apenas 10 dispositivos. Também há um limite de processamento de envios de depuração, a 10 por minuto.
 
 ### <a name="review-telemetry"></a>Revisar telemetria ###
 
@@ -291,7 +291,7 @@ Para obter mais informações sobre o acesso programático, consulte [acesso pro
 [Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
 [Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [View device registrations for notification hubs]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[Aprofunde-se: Atualização do Visual Studio 2013 2 RC e SDK do Azure 2,3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
+[Aprofunde-se: Visual Studio 2013 atualização 2 RC e SDK do Azure 2,3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
 [Anunciando a versão do Visual Studio 2013 atualização 3 e o SDK do Azure 2,4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
 [Programmatic telemetry access]: https://msdn.microsoft.com/library/azure/dn458823.aspx

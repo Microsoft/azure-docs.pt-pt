@@ -1,5 +1,5 @@
 ---
-title: Executar scripts personalizados em VMs do Linux no Azure | Microsoft Docs
+title: Executar scripts personalizados em VMs do Linux no Azure
 description: Automatizar tarefas de configuração de VM do Linux usando a extensão de script personalizado v2
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: akjosh
-ms.openlocfilehash: 86c05519e7027ec8b7434919bf43f9b4602b0300
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 87826b5bec4294ce45355ab0cfc4df373895563b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789962"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073233"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usar a extensão de script personalizado do Azure versão 2 com máquinas virtuais do Linux
 A extensão de script personalizado versão 2 baixa e executa scripts em máquinas virtuais do Azure. Essa extensão é útil para a configuração após a implantação, instalação de software ou qualquer outra tarefa de configuração/gerenciamento. Você pode baixar scripts do armazenamento do Azure ou outro local de Internet acessível, ou pode fornecê-los ao tempo de execução de extensão. 
@@ -70,7 +70,7 @@ A configuração de extensão de script personalizado especifica coisas como o l
 
 Você pode armazenar dados confidenciais em uma configuração protegida, que é criptografada e descriptografada apenas dentro da máquina virtual. A configuração protegida é útil quando o comando de execução inclui segredos, como uma senha.
 
-Esses itens devem ser tratados como dados confidenciais e especificados na configuração de configurações protegidas por extensões. Os dados de configuração protegidos da extensão de VM do Azure são criptografados e descriptografados somente na máquina virtual de destino.
+Esses itens devem ser tratados como dados confidenciais e especificados na configuração de configurações protegidas por extensões. Dados de definição de protegidos de extensão VM do Azure são encriptados e desencriptados apenas na máquina de virtual de destino.
 
 ```json
 {
@@ -106,19 +106,19 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/exemplo | Tipo de Dados | 
+| Nome | Valor / exemplo | Tipo de Dados | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
-| Programa | Microsoft. COMPUTE. Extensions | string |
+| publisher | Microsoft.Compute.Extensions | string |
 | tipo | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileuris (por exemplo,) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (por exemplo,) | Python MyPythonScript.py \<My-param1 > | string |
-| . | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo = | string |
+| commandToExecute (por exemplo,) | python MyPythonScript.py \<my param1 > | string |
+| . | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (por exemplo,) | false | boolean |
-| Timestamp (por exemplo,) | 123456789 | inteiro de 32 bits |
+| timestamp (por exemplo) | 123456789 | inteiro de 32 bits |
 | storageAccountName (por exemplo,) | examplestorageacct | string |
-| storageAccountKey (por exemplo,) | TmJK/1N3AbAZ3q/+ hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg = = | string |
+| storageAccountKey (por exemplo,) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>Detalhes do valor da propriedade
 * `skipDos2Unix`: (opcional, booliano) ignore a conversão dos2unix de URLs de arquivo baseadas em script ou script.
@@ -201,7 +201,7 @@ CustomScript usa o algoritmo a seguir para executar um script.
 
 
 ## <a name="template-deployment"></a>Implementação de modelos
-As extensões de VM do Azure podem ser implantadas com modelos de Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo de Azure Resource Manager para executar a extensão de script personalizado durante uma implantação de modelo de Azure Resource Manager. Um modelo de exemplo que inclui a extensão de script personalizado pode ser encontrado aqui, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo de Azure Resource Manager para executar a extensão de script personalizado durante uma implantação de modelo de Azure Resource Manager. Um modelo de exemplo que inclui a extensão de script personalizado pode ser encontrado aqui, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 
 ```json
@@ -257,7 +257,7 @@ az vm extension set \
   --protected-settings '{"fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],"commandToExecute": "./config-music.sh"}'
 ```
 
-### <a name="azure-cli-examples"></a>Exemplos de CLI do Azure
+### <a name="azure-cli-examples"></a>Exemplos da CLI do Azure
 
 #### <a name="public-configuration-with-script-file"></a>Configuração pública com arquivo de script
 

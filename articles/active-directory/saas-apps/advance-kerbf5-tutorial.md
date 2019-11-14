@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integração de SSO (logon único) com F5 | Microsoft Docs'
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com F5 | Microsoft Docs'
 description: Saiba como configurar o logon único entre Azure Active Directory e F5.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 11/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1411d64a6adc6f340b3ad49ca38ca30136bdef47
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 984fd0c7946a50922315269c87e08b1c35b74348
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104555"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074763"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com F5
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com F5
 
 Neste tutorial, você aprenderá a integrar o F5 ao Azure Active Directory (Azure AD). Ao integrar o F5 ao Azure AD, você pode:
 
@@ -89,13 +89,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , se você quiser configurar o aplicativo no modo iniciado pelo **IDP** , insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão:`https://<YourCustomFQDN>.f5.com/`
+    a. Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão: `https://<YourCustomFQDN>.f5.com/`
 
-    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão:`https://<YourCustomFQDN>.f5.com/`
+    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://<YourCustomFQDN>.f5.com/`
 
 1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://<YourCustomFQDN>.f5.com/`
+    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<YourCustomFQDN>.f5.com/`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta e a URL de logon reais. Contate a [equipe de suporte ao cliente do F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
@@ -188,9 +188,9 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
     >[!Note]
     >Você precisará da conta de delegação Kerberos a ser criada e especificada. Consulte a seção KCD (consulte o apêndice para referências de variáveis)
 
-    • Origem do nome de usuário`session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+    • Fonte de nome de usuário `session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-    • Origem do realm do usuário`session.logon.last.domain`
+    • Origem do realm do usuário `session.logon.last.domain`
 
     ![Configuração de F5 (Kerberos avançado)](./media/advance-kerbf5-tutorial/configure11.png)
 
@@ -246,17 +246,24 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 >[!Note]
 >Para obter mais detalhes, consulte [aqui](https://www.f5.com/pdf/deployment-guides/kerberos-constrained-delegation-dg.pdf)
 
-* **Passo 1: Criar uma conta de delegação**
+* **Etapa 1: criar uma conta de delegação**
 
-    * Nome de domínio de exemplo: superdemo. nome da conta Sam em tempo real: Big-ipuser
+    * Exemplo
+    ```
+    Domain Name : superdemo.live
+    Sam Account Name : big-ipuser
 
-    * New-ADUser-Name "conta de delegação do APM" host/big-ipuser.superdemo.live@superdemo.live -userPrincipalName-sAMAccountName "Big-ipuser"-PasswordNeverExpires $true habilitado $true-AccountPassword (Read-Host-assegurastring "senha! 1234")
+    New-ADUser -Name "APM Delegation Account" -UserPrincipalName host/big-ipuser.superdemo.live@superdemo.live -SamAccountName "big-ipuser" -PasswordNeverExpires $true -Enabled $true -AccountPassword (Read-Host -AsSecureString "Password!1234")
+    ```
 
-* **Passo 2: Definir o SPN (na conta de delegação do APM)**
+* **Etapa 2: definir o SPN (na conta de delegação do APM)**
 
-    *  Exemplo SetSPN – A host/Big-ipuser. superdemo. Live-ipuser ao vivo
+    *  Exemplo
+    ```
+    setspn –A host/big-ipuser.superdemo.live big-ipuser
+    ```
 
-* **Passo 3: Delegação de SPN (para a conta de serviço de aplicativo)**
+* **Etapa 3: Delegação de SPN (para a conta de serviço de aplicativo)**
 
     * Configure a delegação apropriada para a conta de delegação F5.
     * No exemplo a seguir, a conta de delegação do APM está sendo configurada para KCD para o aplicativo FRP-App1. superdemo. Live.
@@ -276,38 +283,38 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 | | |
 | -- | -- |
-| eb46b6b6. Session. SAML. Last. AssertionId | _9a4e4ddd-148f-45c4-b959-f4d148172e00 |
-| eb46b6b6. Session. SAML. Last. assertionIssueInstant  | 2019-06-16T19:18:03.054 Z |
+| eb46b6b6. Session. SAML. Last. AssertionId | `<TENANT ID>` |
+| eb46b6b6. Session. SAML. Last. assertionIssueInstant  | `<ID>` |
 | eb46b6b6. Session. SAML. Last. assertionIssuer | `https://sts.windows.net/<TENANT ID>`/ |
-| eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/Claims/authnmethodsreferences | `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` |
-| eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/identity/claims/DisplayName | user0 |
-| eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/identity/claims/identityprovider | `https://sts.windows.net/<TENANT ID>/` |
-| eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/identity/claims/objectidentifier | 90d5f0e5-8f46-4bfd-b40f-ec973d00fcb7 |
-| eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.Microsoft.com/identity/claims/tenantid | e6abffcf-4d23-4388-91c2-bfdfcbb1530c |
-| eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/EmailAddress | user0@superdemo.live |
+| eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.microsoft.com/claims/authnmethodsreferences | `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` |
+| eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.microsoft.com/identity/claims/displayname | user0 |
+| eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.microsoft.com/identity/claims/identityprovider | `https://sts.windows.net/<TENANT ID>/` |
+| eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.microsoft.com/identity/claims/objectidentifier | `<TENANT ID>` |
+| eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.microsoft.com/identity/claims/tenantid | `<TENANT ID>` |
+| eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress | `user0@superdemo.live` |
 | eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname | user0 |
-| eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/Name | user0@superdemo.live |
-| eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/Surname | 0 |
+| eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/name | `user0@superdemo.live` |
+| eb46b6b6. Session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/surname | 0 |
 | eb46b6b6. Session. SAML. Last. Audience | `https://kerbapp.superdemo.live` |
 | eb46b6b6. Session. SAML. Last. authNContextClassRef | urn: Oasis: names: TC: SAML: 2.0: AC: classes: senha |
-| eb46b6b6. Session. SAML. Last. authNInstant | 2019-06-16T19:18:00.318 Z |
-| eb46b6b6. Session. SAML. Last. Identity | user0@superdemo.live |
-| eb46b6b6. Session. SAML. Last. inresponseto | _b9c67faa63a224d7a63f4f3cbb09f78dc05fab |
-| eb46b6b6. Session. SAML. Last. nameIDValue | user0@superdemo.live |
+| eb46b6b6. Session. SAML. Last. authNInstant | `<ID>` |
+| eb46b6b6. Session. SAML. Last. Identity | `user0@superdemo.live` |
+| eb46b6b6. Session. SAML. Last. inresponseto | `<TENANT ID>` |
+| eb46b6b6. Session. SAML. Last. nameIDValue | `user0@superdemo.live` |
 | eb46b6b6. Session. SAML. Last. nameIdFormat | urn: Oasis: names: TC: SAML: 1.1: NameID-Format: emailAddress |
 | eb46b6b6. Session. SAML. Last. responseDestination | `https://kerbapp.superdemo.live/saml/sp/profile/post/acs` |
-| eb46b6b6. Session. SAML. Last. responseid | _a1eca95a-6c41-449e-bb53-1477ba106470 |
-| eb46b6b6. Session. SAML. Last. responseIssueInstant | 2019-06-16T19:18:03.070 Z |
+| eb46b6b6. Session. SAML. Last. responseid | `<TENANT ID>` |
+| eb46b6b6. Session. SAML. Last. responseIssueInstant | `<ID>` |
 | eb46b6b6. Session. SAML. Last. responseIssuer | `https://sts.windows.net/<TENANT ID>/` |
 | eb46b6b6. Session. SAML. Last. Result | 1 |
 | eb46b6b6. Session. SAML. Last. samlVersion | 2.0 |
-| eb46b6b6. Session. SAML. Last. sessionIndex | _9a4e4ddd-148f-45c4-b959-f4d148172e00 |
+| eb46b6b6. Session. SAML. Last. sessionIndex | `<TENANT ID>` |
 | eb46b6b6. Session. SAML. Last. statusvalue | urn: Oasis: names: TC: SAML: 2.0: status: êxito |
-| eb46b6b6. Session. SAML. Last. subjectConfirmDataNotOnOrAfter | 2019-06-16T19:23:03.054 Z |
+| eb46b6b6. Session. SAML. Last. subjectConfirmDataNotOnOrAfter | `<ID>` |
 | eb46b6b6. Session. SAML. Last. subjectConfirmDataRecipient | `https://kerbapp.superdemo.live/saml/sp/profile/post/acs` |
 | eb46b6b6. Session. SAML. Last. subjectConfirmMethod | urn: Oasis: names: TC: SAML: 2.0: cm: portador |
-| eb46b6b6. Session. SAML. Last. validityNotBefore | 2019-06-16T19:13:03.054 Z |
-| eb46b6b6. Session. SAML. Last. validityNotOnOrAfter | 2019-06-16T20:13:03.054 Z |
+| eb46b6b6. Session. SAML. Last. validityNotBefore | `<ID>` |
+| eb46b6b6. Session. SAML. Last. validityNotOnOrAfter | `<ID>` |
 
 ### <a name="create-f5-test-user"></a>Criar usuário de teste do F5
 

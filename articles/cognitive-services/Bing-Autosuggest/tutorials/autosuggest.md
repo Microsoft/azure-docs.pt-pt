@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Obtendo resultados de sugestões automáticas usando API de Sugestão Automática do Bing'
+title: 'Tutorial: obtendo resultados de sugestões automáticas usando API de Sugestão Automática do Bing'
 titleSuffix: Azure Cognitive Services
-description: Mostra como utilizar a Sugestão Automática do Bing.
+description: Neste tutorial, você criará uma página da Web que permite aos usuários consultar o API de Sugestão Automática do Bing e exibir os resultados da consulta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: d208187b7ba61fc0d217cef05a1bda559ca0c42b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 1408faf09ef8950fb0d86f8a036269da2963e3d4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996797"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072845"
 ---
-# <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Tutorial: Obter sugestões de pesquisa em uma página da Web
+# <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Tutorial: obter sugestões de pesquisa em uma página da Web
 
 Neste tutorial, vamos compilar uma página Web que permite que os utilizadores consultem a API de Sugestão Automática do Bing.
 
@@ -349,7 +349,7 @@ Abra a página Web no seu browser. Quando lhe for pedido, introduza a sua chave 
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Requisitos de utilização e de apresentação](../UseAndDisplayRequirements.md)

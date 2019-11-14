@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 424007c6bd34c0d582af8cd4df00ce7f5fc7fb0f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 24a9450b63ba4ed68c9c68e5054e6b02ecf7e0d0
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680149"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075577"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copiar dados de e para SQL Server usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Data Factory que você está usando:"]
@@ -26,7 +26,7 @@ ms.locfileid: "73680149"
 
 Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para um banco de SQL Server. Ele se baseia no artigo [visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
-## <a name="supported-capabilities"></a>Recursos com suporte
+## <a name="supported-capabilities"></a>Capacidades suportadas
 
 Este conector de SQL Server tem suporte para as seguintes atividades:
 
@@ -34,7 +34,7 @@ Este conector de SQL Server tem suporte para as seguintes atividades:
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 - [Atividade GetMetadata](control-flow-get-metadata-activity.md)
 
-Você pode copiar dados de um SQL Server banco de dados para qualquer armazenamento de dado de coletor com suporte. Ou então, você pode copiar dados de qualquer armazenamento de dados de origem com suporte para um SQL Server. Para obter uma lista de armazenamentos de dados com suporte como fontes ou coletores pela atividade de cópia, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
+Você pode copiar dados de um SQL Server banco de dados para qualquer armazenamento de dado de coletor com suporte. Ou então, você pode copiar dados de qualquer armazenamento de dados de origem com suporte para um SQL Server. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
 Especificamente, esse conector de SQL Server dá suporte a:
 
@@ -58,15 +58,15 @@ Não há suporte para [SQL Server Express LocalDB](https://docs.microsoft.com/sq
 
 As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas para o conector de banco de dados SQL Server.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
 As propriedades a seguir têm suporte para o serviço vinculado SQL Server:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type deve ser definida como **SqlServer**. | Sim |
-| connectionString |Especifique as informações de **ConnectionString** necessárias para se conectar ao banco de dados do SQL Server usando a autenticação do SQL ou a autenticação do Windows. Consulte os exemplos a seguir.<br/>Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Você também pode colocar uma senha em Azure Key Vault. Se for a autenticação do SQL, extraia a configuração `password` da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| Usu |Especifique um nome de usuário se você usar a autenticação do Windows. Um exemplo é **domainname\\username**. |Não |
+| connectionString |Especifique as informações de **ConnectionString** necessárias para se conectar ao banco de dados do SQL Server usando a autenticação do SQL ou a autenticação do Windows. Consulte os exemplos a seguir.<br/>Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Você também pode colocar uma senha em Azure Key Vault. Se for a autenticação do SQL, extraia a configuração de `password` da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| userName |Especifique um nome de usuário se você usar a autenticação do Windows. Um exemplo é **domainname\\username**. |Não |
 | palavra-passe |Especifique uma senha para a conta de usuário que você especificou para o nome de usuário. Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Ou, você pode [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). |Não |
 | connectVia | Esse [Integration Runtime](concepts-integration-runtime.md) é usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, o tempo de execução de integração do Azure padrão será usado. |Não |
 
@@ -149,18 +149,18 @@ As propriedades a seguir têm suporte para o serviço vinculado SQL Server:
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades de DataSet
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de SQL Server DataSet.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de SQL Server DataSet.
 
 Para copiar dados de e para um SQL Server, há suporte para as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do conjunto de conjuntos deve ser definida como **Sqlservertable**. | Sim |
-| schema | Nome do esquema. |Não para fonte, sim para coletor  |
-| tabela | Nome da tabela/exibição. |Não para fonte, sim para coletor  |
-| tableName | Nome da tabela/exibição com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Para uma nova carga de trabalho, use `schema` e `table`. | Não para fonte, sim para coletor |
+| schema | Nome do esquema. |Não para a origem, Sim para o sink  |
+| table | Nome da tabela/exibição. |Não para a origem, Sim para o sink  |
+| tableName | Nome da tabela/exibição com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Para uma nova carga de trabalho, use `schema` e `table`. | Não para a origem, Sim para o sink |
 
 **Exemplo**
 
@@ -194,14 +194,14 @@ Para copiar dados de SQL Server, defina o tipo de fonte na atividade de cópia c
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como **sqlsource**. | Sim |
-| sqlReaderQuery |Use a consulta SQL personalizada para ler os dados. Um exemplo é `select * from MyTable`. |Não |
-| sqlReaderStoredProcedureName |Essa propriedade é o nome do procedimento armazenado que lê os dados da tabela de origem. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. |Não |
-| storedProcedureParameters |Esses parâmetros são para o procedimento armazenado.<br/>Os valores permitidos são pares de nome ou valor. Os nomes e maiúsculas e minúsculas dos parâmetros devem corresponder aos nomes e maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
+| sqlReaderQuery |Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `select * from MyTable`. |Não |
+| sqlReaderStoredProcedureName |Essa propriedade é o nome do procedimento armazenado que lê os dados da tabela de origem. A última instrução de SQL tem de ser uma instrução SELECT no procedimento armazenado. |Não |
+| storedProcedureParameters |Esses parâmetros são para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e maiúsculas e minúsculas dos parâmetros devem corresponder aos nomes e maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
 
 **Pontos a serem observados:**
 
 - Se **sqlReaderQuery** for especificado para **sqlsource**, a atividade de cópia executará essa consulta em relação à fonte de SQL Server para obter os dados. Você também pode especificar um procedimento armazenado especificando **sqlReaderStoredProcedureName** e **storedprocedureparameters** se o procedimento armazenado usar parâmetros.
-- Se você não especificar **sqlReaderQuery** ou **sqlReaderStoredProcedureName**, as colunas definidas na seção "Structure" do conjunto de dados JSON serão usadas para construir uma consulta. A consulta `select column1, column2 from mytable` é executada no SQL Server. Se a definição do conjunto de dados não tiver "Structure", todas as colunas serão selecionadas na tabela.
+- Se você não especificar **sqlReaderQuery** ou **sqlReaderStoredProcedureName**, as colunas definidas na seção "Structure" do conjunto de dados JSON serão usadas para construir uma consulta. O `select column1, column2 from mytable` de consulta é executado no SQL Server. Se a definição do conjunto de dados não tiver "Structure", todas as colunas serão selecionadas na tabela.
 
 **Exemplo: usar consulta SQL**
 
@@ -306,7 +306,7 @@ Para copiar dados para SQL Server, defina o tipo de coletor na atividade de cóp
 | sqlWriterStoredProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem em uma tabela de destino. <br/>Esse procedimento armazenado é *invocado por lote*. Para operações que são executadas apenas uma vez e não têm nada a ver com os dados de origem, por exemplo, excluir ou truncar, use a propriedade `preCopyScript`. | Não |
 | storedProcedureTableTypeParameterName |O nome do parâmetro do tipo de tabela especificado no procedimento armazenado.  |Não |
 | sqlWriterTableType |O nome do tipo de tabela a ser usado no procedimento armazenado. A atividade de cópia torna os dados que estão sendo movidos disponíveis em uma tabela temporária com esse tipo de tabela. O código de procedimento armazenado pode mesclar os dados que estão sendo copiados com os dados existentes. |Não |
-| storedProcedureParameters |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são pares de nome e valor. Os nomes e maiúsculas e minúsculas dos parâmetros devem corresponder aos nomes e maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não |
+| storedProcedureParameters |Parâmetros do procedimento armazenado.<br/>Os valores permitidos são pares de nome e valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. | Não |
 | tableOption | Especifica se a tabela do coletor deve ser criada automaticamente se não existir com base no esquema de origem. Não há suporte para a criação automática de tabela quando o coletor especifica o procedimento armazenado ou a cópia preparada está configurada na atividade de cópia. Os valores permitidos são: `none` (padrão), `autoCreate`. |Não |
 
 **Exemplo 1: acrescentar dados**
@@ -461,7 +461,7 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um Ups
     )
     ```
 
-2. No banco de dados, defina o procedimento armazenado com o mesmo nome que **SqlWriterStoredProcedureName**. Ele manipula os dados de entrada da fonte especificada e as mescla na tabela de saída. O nome do parâmetro do tipo de tabela no procedimento armazenado é o mesmo que **TableName** definido no DataSet.
+2. No banco de dados, defina o procedimento armazenado com o mesmo nome que **sqlWriterStoredProcedureName**. Ele manipula os dados de entrada da fonte especificada e as mescla na tabela de saída. O nome do parâmetro do tipo de tabela no procedimento armazenado é o mesmo que **TableName** definido no DataSet.
 
     ```sql
     CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -483,9 +483,9 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um Ups
     ```json
     "sink": {
         "type": "SqlSink",
-        "SqlWriterStoredProcedureName": "spOverwriteMarketing",
+        "sqlWriterStoredProcedureName": "spOverwriteMarketing",
         "storedProcedureTableTypeParameterName": "Marketing",
-        "SqlWriterTableType": "MarketingType",
+        "sqlWriterTableType": "MarketingType",
         "storedProcedureParameters": {
             "category": {
                 "value": "ProductA"
@@ -501,37 +501,37 @@ Quando você copia dados de e para SQL Server, os seguintes mapeamentos são usa
 | Tipo de dados SQL Server | Azure Data Factory tipo de dados provisório |
 |:--- |:--- |
 | bigint |Int64 |
-| binário |Byte [] |
-| parte |Booleano |
-| º |Cadeia de caracteres, Char [] |
+| binary |Byte[] |
+| bit |Booleano |
+| char |String, Char[] |
 | date |DateTime |
-| Horário |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
-| DateTimeOffset |DateTimeOffset |
-| Vírgula |Vírgula |
-| Atributo FILESTREAM (varbinary (max)) |Byte [] |
-| Barra |Clique |
-| image |Byte [] |
+| Datetimeoffset |DateTimeOffset |
+| decimal |decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Valor de duplo |
+| image |Byte[] |
 | int |Int32 |
-| gastar |Vírgula |
-| nchar |Cadeia de caracteres, Char [] |
-| ntext |Cadeia de caracteres, Char [] |
-| numeric |Vírgula |
-| nvarchar |Cadeia de caracteres, Char [] |
-| foto |Único |
-| rowversion |Byte [] |
+| money |decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Vírgula |
-| sql_variant |Object |
-| texto |Cadeia de caracteres, Char [] |
-| hora |Período |
-| carimbo de data/hora |Byte [] |
+| smallmoney |decimal |
+| sql_variant |Objeto |
+| texto |String, Char[] |
+| hora |TimeSpan |
+| carimbo de data/hora |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |GUID |
-| varbinary |Byte [] |
-| varchar |Cadeia de caracteres, Char [] |
-| xml |XML |
+| varbinary |Byte[] |
+| varchar |String, Char[] |
+| xml |Xml |
 
 >[!NOTE]
 > Para tipos de dados que são mapeados para o tipo provisório decimal, atualmente Azure Data Factory dá suporte à precisão de até 28. Se você tiver dados que exijam precisão maior que 28, considere converter para uma cadeia de caracteres em uma consulta SQL.

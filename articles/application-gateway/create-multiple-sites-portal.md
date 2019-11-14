@@ -1,5 +1,6 @@
 ---
-title: Tutorial-criar um gateway de aplicativo que hospede vários sites usando o portal do Azure
+title: 'Tutorial: hospeda vários sites da Web usando o portal do Azure'
+titleSuffix: Azure Application Gateway
 description: Neste tutorial, você aprenderá a criar um gateway de aplicativo que hospeda vários sites usando o portal do Azure.
 services: application-gateway
 author: vhorne
@@ -7,12 +8,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: victorh
-ms.openlocfilehash: 3b6818d68b62b574e49817b574450625c231506c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ca6be666a9b77532b4f1c61f6e3391c239e82c91
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833576"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075158"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: criar e configurar um gateway de aplicativo para hospedar vários sites usando o portal do Azure
 
@@ -21,7 +22,7 @@ Você pode usar o portal do Azure para [Configurar a hospedagem de vários sites
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar um gateway de aplicação
+> * Para criar um gateway de aplicação
 > * Criar máquinas virtuais para servidores de back-end
 > * Criar pools de back-end com os servidores de back-end
 > * Criar serviços de escuta de back-end
@@ -36,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
 
 1. Selecione **criar um recurso** no menu à esquerda da portal do Azure. A **nova** janela é exibida.
 
@@ -238,7 +239,7 @@ Para remover o grupo de recursos:
 3. Na **página grupo de recursos**, selecione **excluir grupo de recursos**.
 4. Digite *myResourceGroupAG* para **digitar o nome do grupo de recursos** e, em seguida, selecione **excluir**
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o que você pode fazer com Aplicativo Azure gateway](application-gateway-introduction.md)

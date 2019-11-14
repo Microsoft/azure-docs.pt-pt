@@ -1,19 +1,19 @@
 ---
-title: Configurar a política SSL no gateway Aplicativo Azure-PowerShell
+title: Configurar a política SSL usando o PowerShell
+titleSuffix: Azure Application Gateway
 description: Este artigo fornece instruções para configurar a política SSL no gateway de Aplicativo Azure
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/3/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 5c881a42cdd6fd76c591cf12b341fd777d18baea
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 105b0b3e40e6e9433ee456914cd5babc1d17d036
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018255"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075239"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar versões de política SSL e conjuntos de codificação no gateway de aplicativo
 
@@ -23,7 +23,7 @@ Saiba como configurar versões de política SSL e conjuntos de codificação no 
 
 ## <a name="get-available-ssl-options"></a>Obter opções de SSL disponíveis
 
-O `Get-AzApplicationGatewayAvailableSslOptions` cmdlet fornece uma lista de políticas predefinidas disponíveis, pacotes de codificação disponíveis e versões de protocolo que podem ser configuradas. O exemplo a seguir mostra uma saída de exemplo da execução do cmdlet.
+O cmdlet `Get-AzApplicationGatewayAvailableSslOptions` fornece uma lista de políticas predefinidas disponíveis, conjuntos de codificação disponíveis e versões de protocolo que podem ser configuradas. O exemplo a seguir mostra uma saída de exemplo da execução do cmdlet.
 
 ```
 DefaultPolicy: AppGwSslPolicy20150501
@@ -73,9 +73,9 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-ssl-policies"></a>Listar políticas de SSL predefinidas
 
-O gateway de aplicativo vem com três políticas predefinidas que podem ser usadas. O `Get-AzApplicationGatewaySslPredefinedPolicy` cmdlet recupera essas políticas. Cada política tem versões de protocolo e conjuntos de codificação diferentes habilitados. Essas políticas predefinidas podem ser usadas para configurar rapidamente uma política SSL no seu gateway de aplicativo. Por padrão, **AppGwSslPolicy20150501** será selecionado se nenhuma política SSL específica for definida.
+O gateway de aplicativo vem com três políticas predefinidas que podem ser usadas. O cmdlet `Get-AzApplicationGatewaySslPredefinedPolicy` recupera essas políticas. Cada política tem versões de protocolo e conjuntos de codificação diferentes habilitados. Essas políticas predefinidas podem ser usadas para configurar rapidamente uma política SSL no seu gateway de aplicativo. Por padrão, **AppGwSslPolicy20150501** será selecionado se nenhuma política SSL específica for definida.
 
-A saída a seguir é um exemplo de `Get-AzApplicationGatewaySslPredefinedPolicy`execução.
+A saída a seguir é um exemplo de execução de `Get-AzApplicationGatewaySslPredefinedPolicy`.
 
 ```
 Name: AppGwSslPolicy20150501
@@ -110,7 +110,7 @@ CipherSuites:
 
 Ao configurar uma política SSL personalizada, você passa os seguintes parâmetros: PolicyType, MinProtocolVersion, CipherSuite e ApplicationGateway. Se você tentar passar outros parâmetros, receberá um erro ao criar ou atualizar o gateway de aplicativo. 
 
-O exemplo a seguir define uma política SSL personalizada em um gateway de aplicativo. Ele define a versão mínima do protocolo `TLSv1_1` para e habilita os seguintes conjuntos de codificação:
+O exemplo a seguir define uma política SSL personalizada em um gateway de aplicativo. Ele define a versão mínima do protocolo para `TLSv1_1` e habilita os seguintes conjuntos de codificação:
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256

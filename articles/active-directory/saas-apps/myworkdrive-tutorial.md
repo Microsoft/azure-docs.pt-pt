@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 03998d214c1fb977741976eca7b878d0c6b577aa
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c733873a5545bb01f03abd8178ed2f371e2dd3aa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160382"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074071"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Tutorial: integrar o MyWorkDrive ao Azure Active Directory
 
@@ -54,7 +54,7 @@ Para configurar a integração do MyWorkDrive ao Azure AD, você precisará adic
 1. Na seção **Adicionar da Galeria** , digite **MyWorkDrive** na caixa de pesquisa.
 1. Selecione **MyWorkDrive** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
 Configure e teste o SSO do Azure AD com o MyWorkDrive usando um usuário de teste chamado **Brenda Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no MyWorkDrive.
 
@@ -62,8 +62,8 @@ Para configurar e testar o SSO do Azure AD com o MyWorkDrive, conclua os seguint
 
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
 2. **[Configurar o SSO do MyWorkDrive](#configure-myworkdrive-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 5. **[Criar usuário de teste do MyWorkDrive](#create-myworkdrive-test-user)** – para ter um equivalente de Brenda Simon no MyWorkDrive que esteja vinculado à representação do usuário no Azure AD.
 6. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
@@ -96,13 +96,21 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique no botão Copiar para copiar a URL de **metadados de Federação do aplicativo** para a área de transferência.
 
-    ![O link de download do certificado](common/copy-metadataurl.png)
+    ![O link de download de certificado](common/copy-metadataurl.png)
 
 ### <a name="configure-myworkdrive-sso"></a>Configurar o SSO do MyWorkDrive
 
-1. Em uma janela diferente do navegador da Web, entre no MyWorkDrive como um administrador de segurança.
+1. Para automatizar a configuração no MyWorkDrive, você precisa instalar a **extensão do navegador de entrada seguro de meus aplicativos** clicando em **instalar a extensão**.
 
-2. No servidor MyWorkDrive no painel de administração, clique em **Enterprise** e execute as seguintes etapas:
+    ![Extensão de meus aplicativos](common/install-myappssecure-extension.png)
+
+1. Depois de adicionar a extensão ao navegador, clique em **Setup MyWorkDrive** irá direcioná-lo para o aplicativo MyWorkDrive. A partir daí, forneça as credenciais de administrador para entrar no MyWorkDrive. A extensão do navegador irá configurar automaticamente o aplicativo para você e automatizar as etapas de 3-4.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+1. Se você quiser configurar o MyWorkDrive manualmente, em uma janela diferente do navegador da Web, entre no MyWorkDrive como um administrador de segurança.
+
+1. No servidor MyWorkDrive no painel de administração, clique em **Enterprise** e execute as seguintes etapas:
 
     ![O administrador](./media/myworkdrive-tutorial/tutorial_myworkdrive_admin.png)
 
@@ -117,19 +125,19 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Para obter informações adicionais, consulte o [artigo de suporte do MyWorkDrive Azure ad](https://www.myworkdrive.com/support/saml-single-sign-on-azure-ad/).
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado Brenda Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo usuário** na parte superior da tela.
+1. Selecione **novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `Britta Simon`.  
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao MyWorkDrive.
 
@@ -137,7 +145,7 @@ Nesta seção, você permitirá que Brenda Simon use o logon único do Azure con
 1. Na lista de aplicativos, selecione **MyWorkDrive**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![O link "usuários e grupos"](common/users-groups-blade.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -149,7 +157,7 @@ Nesta seção, você permitirá que Brenda Simon use o logon único do Azure con
 
 ### <a name="create-myworkdrive-test-user"></a>Criar usuário de teste do MyWorkDrive
 
-Nesta seção, você criará um usuário chamado Brenda Simon no MyWorkDrive. Trabalhe com a [equipe de suporte do MyWorkDrive](mailto:support@myworkdrive.com) para adicionar os usuários na plataforma do MyWorkDrive. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Simon no MyWorkDrive. Trabalhe com a [equipe de suporte do MyWorkDrive](mailto:support@myworkdrive.com) para adicionar os usuários na plataforma do MyWorkDrive. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="test-sso"></a>Testar SSO
 
@@ -157,7 +165,7 @@ Ao selecionar o bloco MyWorkDrive no painel de acesso, você deverá entrar auto
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

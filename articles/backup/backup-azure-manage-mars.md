@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: 049b09f7927da2cc841130a0adeaa90768037db8
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 756fd720b468681b8ea31dc867cfdb6e44c0bb0a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903190"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075002"
 ---
 # <a name="manage-microsoft-azure-recovery-services-agent-backups-by-using-the-azure-backup-service"></a>Gerenciar backups do agente Serviços de Recuperação do Microsoft Azure usando o serviço de backup do Azure
 
@@ -39,7 +39,7 @@ Crie uma política da seguinte maneira:
     ![Itens selecionados para backup](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 6. Na página **selecionar itens para fazer backup** , clique em **Avançar**.
-7. Na página **especificar agendamento de backup** , especifique quando deseja fazer backups diários ou semanais. Clique depois em **Seguinte**.
+7. Na página **especificar agendamento de backup** , especifique quando deseja fazer backups diários ou semanais. Em seguida, clique em **Seguinte**.
 
     - Um ponto de recuperação é criado quando um backup é feito.
     - O número de pontos de recuperação criados em seu ambiente depende do seu agendamento de backup.
@@ -52,7 +52,7 @@ Crie uma política da seguinte maneira:
 
     ![Agenda semanal](./media/backup-configure-vault/week-schedule.png)
 
-10. Na página **selecionar política de retenção** , especifique como você armazena as cópias históricas dos seus dados. Clique depois em **Seguinte**.
+10. Na página **selecionar política de retenção** , especifique como você armazena as cópias históricas dos seus dados. Em seguida, clique em **Seguinte**.
 
     - As configurações de retenção especificam quais pontos de recuperação devem ser armazenados e por quanto tempo eles devem ser armazenados.
     - Por exemplo, quando você define uma configuração de retenção diária, indica que no momento especificado para a retenção diária, o último ponto de recuperação será retido para o número de dias especificado. Ou, como outro exemplo, você pode especificar uma política de retenção mensal para indicar que o ponto de recuperação criado no dia 30 de cada mês deve ser armazenado por 12 meses.
@@ -209,4 +209,4 @@ Se você interrompeu a proteção enquanto retém os dados e decidiu retomar a p
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre cenários e limitações com suporte, consulte a [matriz de suporte para Mars](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
-- Saiba mais sobre o [comportamento de retenção da política de backup ad hoc](backup-configure-vault.md#ad-hoc-backup-policy-retention-behavior).
+- Saiba mais sobre o [comportamento de retenção da política de backup sob demanda](backup-configure-vault.md#on-demand-backup-policy-retention-behavior).

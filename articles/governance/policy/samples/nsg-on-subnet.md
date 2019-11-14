@@ -1,17 +1,14 @@
 ---
 title: Exemplo – NSG x em cada sub-rede
 description: Esta definição de política de exemplo requer que um grupo de segurança de rede específico seja usado com cada sub-rede virtual.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 977deba4ee083fae5cbf24905cee84a3a0d020c4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 5e86bb60490fa6f32d3313e7c3fcf751057b3a52
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981340"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74069849"
 ---
 # <a name="sample---network-security-group-x-on-every-subnet"></a>Exemplo – grupo de segurança de rede x em cada sub-rede
 
@@ -23,11 +20,11 @@ Esta polícia requer a utilização de um grupo de segurança de rede específic
 
 [!code-json[main](../../../../policy-templates/samples/Network/enforce-nsg-on-subnet/azurepolicy.json "NSG X on every subnet")]
 
-Pode implementar este modelo através do [portal do Azure](#deploy-with-the-portal), do [PowerShell](#deploy-with-powershell) ou da [CLI do Azure](#deploy-with-azure-cli).
+Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o [PowerShell](#deploy-with-powershell) ou a [CLI do Azure](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
-[![Deploy o exemplo de política para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fenforce-nsg-on-subnet%2Fazurepolicy.json)
+[![implantar o exemplo de política no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fenforce-nsg-on-subnet%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 

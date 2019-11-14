@@ -1,7 +1,7 @@
 ---
-title: Configurar Load Balancer tempo limite de ociosidade de TCP no Azure
-titlesuffix: Azure Load Balancer
-description: Configurar Load Balancer tempo limite de ociosidade de TCP
+title: Configurar o tempo limite de TCP ocioso do balanceador de carga no Azure
+titleSuffix: Azure Load Balancer
+description: Neste artigo, saiba como configurar Azure Load Balancer tempo limite de ociosidade de TCP.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: b3df1ead7a3164ffd9a4b4acf8820d0f5b82cee3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 530bfbe85a564b3dd517e14df819586dee332a78
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274174"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076973"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Definir configurações de tempo limite de ociosidade de TCP para Azure Load Balancer
 
@@ -26,7 +26,7 @@ ms.locfileid: "68274174"
 
 Em sua configuração padrão, Azure Load Balancer tem uma configuração de tempo limite de ociosidade de 4 minutos. Se um período de inatividade for maior do que o valor de tempo limite, não haverá garantia de que a sessão TCP ou HTTP seja mantida entre o cliente e o serviço de nuvem.
 
-Quando a conexão é fechada, o aplicativo cliente pode receber a seguinte mensagem de erro: "A conexão subjacente foi fechada: Uma conexão que deveria ser mantida ativa foi fechada pelo servidor. "
+Quando a conexão é fechada, o aplicativo cliente pode receber a seguinte mensagem de erro: "a conexão subjacente foi fechada: uma conexão que deveria ser mantida ativa foi fechada pelo servidor".
 
 Uma prática comum é usar um TCP Keep-Alive. Essa prática mantém a conexão ativa por um período mais longo. Para obter mais informações, consulte estes [exemplos do .net](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Com keep-alive habilitado, os pacotes são enviados durante períodos de inatividade na conexão. Esses pacotes Keep-Alive garantem que o valor de tempo limite de ociosidade nunca seja atingido e a conexão seja mantida por um longo período.
 
@@ -113,7 +113,7 @@ As alterações de. cscfg para a configuração de tempo limite em IPs públicos
 
 ## <a name="rest-api-example"></a>Exemplo de API REST
 
-Você pode configurar o tempo limite de ociosidade de TCP usando a API de gerenciamento de serviços. Verifique se o `x-ms-version` cabeçalho está definido como versão `2014-06-01` ou posterior. Atualize a configuração dos pontos de extremidade de entrada com balanceamento de carga especificados em todas as máquinas virtuais em uma implantação.
+Você pode configurar o tempo limite de ociosidade de TCP usando a API de gerenciamento de serviços. Verifique se o cabeçalho de `x-ms-version` está definido como versão `2014-06-01` ou posterior. Atualize a configuração dos pontos de extremidade de entrada com balanceamento de carga especificados em todas as máquinas virtuais em uma implantação.
 
 ### <a name="request"></a>Pedir
 
@@ -152,7 +152,7 @@ Você pode configurar o tempo limite de ociosidade de TCP usando a API de gerenc
 </LoadBalancedEndpointList>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Visão geral do balanceador de carga interno](load-balancer-internal-overview.md)
 

@@ -1,17 +1,14 @@
 ---
 title: Exemplo – vários padrões de nome
 description: Esta definição de política de exemplo requer que o recurso corresponda a um dos padrões de nome fornecidos.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: c178c2a2ef08b5c925261488007accd72a6208f9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 3dcecbf69d4170dd851f1b2678ae0136c86c7e49
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977747"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076509"
 ---
 # <a name="sample---allow-multiple-name-patterns"></a>Exemplo – permitir vários padrões de nome
 
@@ -23,11 +20,11 @@ Permita que um dos muitos padrões de nomes seja utilizado para recursos. Especi
 
 [!code-json[main](../../../../policy-templates/samples/TextPatterns/allow-multiple-name-patterns/azurepolicy.json "allow multiple name patterns")]
 
-Pode implementar este modelo através do [portal do Azure](#deploy-with-the-portal), do [PowerShell](#deploy-with-powershell) ou da [CLI do Azure](#deploy-with-azure-cli).
+Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o [PowerShell](#deploy-with-powershell) ou a [CLI do Azure](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
-[![Deploy o exemplo de política para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FTextPatterns%2Fallow-multiple-name-patterns%2Fazurepolicy.json)
+[![implantar o exemplo de política no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FTextPatterns%2Fallow-multiple-name-patterns%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 

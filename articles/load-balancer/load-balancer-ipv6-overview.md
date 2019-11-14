@@ -1,7 +1,6 @@
 ---
-title: Visão geral do IPv6 para Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Noções básicas sobre o suporte a IPv6 para VMs com balanceamento de carga e Azure Load Balancer.
+title: Visão geral do IPv6-Azure Load Balancer
+description: Com este roteiro de aprendizagem, comece a usar o suporte a IPv6 para Azure Load Balancer e VMs com balanceamento de carga.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: b4c1fcd6a719f341dcebfd9f4efc4423241ca3dd
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 07dd3ee507f31099e32f18143d2beedf76e83c36
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147348"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077014"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Visão geral do IPv6 para Azure Load Balancer
 
 
 >[!NOTE] 
->Azure Load Balancer dá suporte a dois tipos diferentes: Basic e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre Standard Load Balancer, consulte [Standard Load Balancer visão geral](load-balancer-standard-overview.md).
+>O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre o Balanceador de Carga Standard, veja [Descrição geral do Balanceador de Carga Standard](load-balancer-standard-overview.md).
 
 Os balanceadores de carga voltados para a Internet da SKU básica podem ser implantados com um endereço IPv6. Além da conectividade IPv4, isso permite os seguintes recursos:
 
@@ -60,7 +59,7 @@ Detalhes
 
 * O serviço DNS do Azure contém registros de nome IPv4 A e IPv6 AAAA e responde com ambos os registros para o balanceador de carga. O cliente escolhe a qual endereço (IPv4 ou IPv6) se comunicará.
 * Quando uma VM inicia uma conexão com um dispositivo conectado à Internet IPv6 pública, o endereço IPv6 de origem da VM é convertido de endereço de rede (NAT) para o endereço IPv6 público do balanceador de carga.
-* As VMs que executam o sistema operacional Linux devem ser configuradas para receber um endereço IP IPv6 via DHCP. Muitas das imagens do Linux na galeria do Azure já estão configuradas para dar suporte ao IPv6 sem modificação. Para obter mais informações, consulte Configurando o [DHCPv6 para VMs Linux](load-balancer-ipv6-for-linux.md)
+* As VMs que executam o sistema operacional Linux devem ser configuradas para receber um endereço IP IPv6 via DHCP. Muitas das imagens do Linux na galeria do Azure já estão configuradas para dar suporte ao IPv6 sem modificação. Para obter mais informações, consulte [Configurando o DHCPv6 para VMs Linux](load-balancer-ipv6-for-linux.md)
 * Se você optar por usar uma investigação de integridade com o balanceador de carga, crie uma investigação de IPv4 e use-a com os pontos de extremidade IPv4 e IPv6. Se o serviço em sua VM ficar inativo, os pontos de extremidade IPv4 e IPv6 serão retirados da rotação.
 
 Limitações

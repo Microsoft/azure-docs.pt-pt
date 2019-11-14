@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: jgao
-ms.openlocfilehash: 8d2b818846eeae44ffe05b4546a333510c638621
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 4c0fd0968ce52e50a9171eecb3dfaebd1e2a4c46
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70196156"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075018"
 ---
 # <a name="use-visual-studio-code-to-create-azure-resource-manager-templates"></a>Usar Visual Studio Code para criar modelos de Azure Resource Manager
 
@@ -70,7 +70,7 @@ Ao passar o mouse sobre nomes de função, a extensão mostra a ajuda de assinat
 
 ### <a name="go-to-definition-for-variable-and-parameter-references"></a>Ir para a definição de referências de variáveis e parâmetros
 
-Você pode ir para a definição com **Ctrl + clique**ou usando o menu de contexto, conforme mostrado na captura de tela: ![Visual Studio Code extensões de ferramentas do Resource Manager vão para a definição](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-context-menu.png)
+Você pode ir para a definição com **Ctrl + clique**ou usar o menu de contexto, conforme mostrado na captura de tela: ![Visual Studio Code extensões de ferramentas do Resource Manager vão para a definição](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-context-menu.png)
 
 Você pode abrir a definição para o lado com **Ctrl + Alt + clique**.
 
@@ -121,5 +121,5 @@ Os avisos incluem:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre os modelos do Resource Manager e do Resource Manager, confira [Azure Resource Manager visão geral](./resource-group-overview.md).
-- Para percorrer um início rápido usando Visual Studio Code, consulte [início rápido: Criar modelos de Azure Resource Manager usando Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)
+- Para saber mais sobre como criar modelos de Azure Resource Manager, consulte [tutorial: criar e implantar seu primeiro modelo de Azure Resource Manager](template-tutorial-create-first-template.md).
+- Para percorrer um início rápido usando Visual Studio Code, consulte [início rápido: criar modelos de Azure Resource Manager usando Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 34a8b27442fc3f755cbe33f61857aa13d3be700b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 85d6b9e00798926bee2d5050767ba47512fc9e86
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012826"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074120"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Fazer backup e restaurar bancos de dados SQL em VMs do Azure com o PowerShell
 
@@ -460,7 +460,7 @@ $endDate = (Get-Date).AddDays(60).ToUniversalTime()
 Backup-AzRecoveryServicesBackupItem -Item $bkpItem -BackupType Full -EnableCompression -VaultId $targetVault.ID -ExpiryDateTimeUTC $endDate
 ````
 
-O comando backup adhoc retorna um trabalho a ser acompanhado.
+O comando backup sob demanda retorna um trabalho a ser acompanhado.
 
 ````powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -541,13 +541,13 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 É importante observar que o backup do Azure controla apenas os trabalhos disparados pelo usuário no backup do SQL. Os backups agendados (incluindo backups de log) não são visíveis no portal/PowerShell. No entanto, se algum trabalho agendado falhar, um [alerta de backup](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) será gerado e exibido no Portal. [Use Azure monitor](backup-azure-monitoring-use-azuremonitor.md) para acompanhar todos os trabalhos agendados e outras informações relevantes.
 
-Os usuários podem acompanhar operações disparadas por usuário/adhoc com o JobID que é retornado na [saída](#on-demand-backup) de trabalhos assíncronos, como backup. Use o cmdlet [Get-AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) do PS para acompanhar o trabalho e seus detalhes.
+Os usuários podem controlar as operações disparadas por usuário/sob demanda com o JobID que é retornado na [saída](#on-demand-backup) de trabalhos assíncronos, como backup. Use o cmdlet [Get-AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) do PS para acompanhar o trabalho e seus detalhes.
 
 ````powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID
 ````
 
-Para obter a lista de trabalhos adhoc e seus status do serviço de backup do Azure, use o cmdlet [Get-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJob?view=azps-1.5.0) do PS. O exemplo a seguir retorna todos os trabalhos SQL em andamento.
+Para obter a lista de trabalhos sob demanda e seus status do serviço de backup do Azure, use o cmdlet [Get-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJob?view=azps-1.5.0) do PS. O exemplo a seguir retorna todos os trabalhos SQL em andamento.
 
 ```powershell
 Get-AzRecoveryServicesBackupJob -Status InProgress -BackupManagementType AzureWorkload
@@ -570,4 +570,4 @@ Por exemplo, vamos supor que um AG do SQL tem dois nós: ' SQL-Server-0 ' e ' SQ
 
 SQL-Server-0, SQL-Server-1 também será listado como "AzureVMAppContainer" quando os [contêineres de backup forem listados](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0).
 
-Basta buscar o banco de dados SQL relevante para [habilitar o backup](#configuring-backup) e os [cmdlets do PS](#restore-sql-dbs) de backup e restauração [ad hoc](#on-demand-backup) são idênticos.
+Basta buscar o banco de dados SQL relevante para [habilitar o backup](#configuring-backup) e os [CMDLETs do PS](#restore-sql-dbs) de backup e restauração [sob demanda](#on-demand-backup) são idênticos.

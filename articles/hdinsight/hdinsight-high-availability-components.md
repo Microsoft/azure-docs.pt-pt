@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 8aeef72c23f3ed40a7f187c976c67c2ae117189a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 38fb45fd339b5e2c7cab6f66a1ed6c0df73fb29e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958482"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74069631"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Serviços de alta disponibilidade com suporte do Azure HDInsight
 
@@ -123,7 +123,7 @@ O segundo quorum Zookeeper é independente do primeiro quorum, portanto, o Activ
 
 Os clusters HDInsight com base no Apache Hadoop 2,4 ou superior oferecem suporte à alta disponibilidade do ResourceManager YARN. Há dois ResourceManagers, RM1 e RM2, em execução no cabeçalho 0 e no cabeçalho 1, respectivamente. Como NameNode, o ResourceManager YARN também é configurado para failover automático. Outro ResourceManager é automaticamente optado por estar ativo quando o ResourceManager ativo atual fica inativo ou sem resposta.
 
-O ResourceManager YARN usa seu *ActiveStandbyElector* incorporado como um detector de falha e elector de líder. Diferentemente do HDFS NodeManager, o ResourceManager YARN não precisa de um daemon ZKFC separado. O ResourceManager ativo grava seus Estados no Apache Zookeeper.
+O ResourceManager YARN usa seu *ActiveStandbyElector* incorporado como um detector de falha e elector de líder. Diferentemente do HDFS NameNode, o ResourceManager YARN não precisa de um daemon ZKFC separado. O ResourceManager ativo grava seus Estados no Apache Zookeeper.
 
 A alta disponibilidade do ResourceManager YARN é independente do NameNode e de outros serviços de HA do HDInsight. O ResourceManager ativo pode não ser executado no cabeçalho ativo ou no cabeçalho em que o NameNode ativo está em execução. Para obter mais informações sobre a alta disponibilidade de ResourceManager do YARN, consulte [alta disponibilidade de ResourceManager](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: b88983b4941143e5323ee795908cb332bdd79817
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fa2876b88a520480813ebfb8af8219d53c32057a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678423"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075550"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -38,13 +38,13 @@ Um tempo de execução de integração precisa ser associado a cada armazenament
 
 Para copiar dados de uma origem para um coletor, o serviço que executa a atividade de cópia executa estas etapas:
 
-1. Lê dados de um armazenamento de dados de origem.
+1. Lê os dados de um arquivo de dados de origem.
 2. Executa a serialização/desserialização, a compactação/descompactação, o mapeamento de coluna e assim por diante. Ele executa essas operações com base na configuração do conjunto de dados de entrada, no conjunto de informações de saída e na atividade de cópia.
-3. Grava dados no repositório de dados de coletor/destino.
+3. Escreve dados para o arquivo de dados de sink/destino.
 
 ![Descrição geral da atividade de cópia](media/copy-activity-overview/copy-activity-overview.png)
 
-## <a name="supported-data-stores-and-formats"></a>Formatos e armazenamentos de dados com suporte
+## <a name="supported-data-stores-and-formats"></a>Formatos e arquivos de dados suportados
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
 
@@ -52,20 +52,7 @@ Para copiar dados de uma origem para um coletor, o serviço que executa a ativid
 
 Você pode usar a atividade de cópia para copiar arquivos como estão entre dois armazenamentos de dados baseados em arquivo. Nesse caso, os dados são copiados com eficiência sem nenhuma serialização ou desserialização.
 
-A atividade de cópia também pode ler e gravar em arquivos nestes formatos:
-- Texto
-- JSON
-- Avro
-- ORC
-- Parquet
-
-A atividade de cópia pode compactar e descompactar arquivos com estes codecs: 
-- Gzip
-- Deflate
-- Bzip2
-- ZipDeflate
-
-Para obter mais informações, consulte [formatos de arquivo e compactação com suporte](supported-file-formats-and-compression-codecs.md).
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
 Por exemplo, você pode executar as seguintes atividades de cópia:
 
@@ -77,7 +64,7 @@ Por exemplo, você pode executar as seguintes atividades de cópia:
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-O serviço que habilita a atividade de cópia está disponível globalmente nas regiões e geografias listados em [locais de tempo de execução de integração do Azure](concepts-integration-runtime.md#integration-runtime-location). A topologia disponível globalmente garante uma movimentação de dados eficiente que geralmente evita saltos entre regiões. Consulte [produtos por região](https://azure.microsoft.com/regions/#services) para verificar a disponibilidade de data Factory e a movimentação de dados em uma região específica.
+O serviço que habilita a atividade de cópia está disponível globalmente nas regiões e geografias listados em [locais de tempo de execução de integração do Azure](concepts-integration-runtime.md#integration-runtime-location). A topologia globalmente disponível garante que o movimento de dados eficiente que normalmente evita saltos entre regiões. Consulte [produtos por região](https://azure.microsoft.com/regions/#services) para verificar a disponibilidade de data Factory e a movimentação de dados em uma região específica.
 
 ## <a name="configuration"></a>Configuração
 
@@ -85,11 +72,11 @@ Para usar a atividade de cópia no Azure Data Factory, você precisa:
 
 1. **Crie serviços vinculados para o armazenamento de dados de origem e o armazenamento de dados do coletor.** Consulte a seção "Propriedades do serviço vinculado" do artigo do conector para obter informações de configuração e propriedades com suporte. Você pode encontrar a lista de conectores com suporte na seção [armazenamentos de dados e formatos com suporte](#supported-data-stores-and-formats) deste artigo.
 2. **Crie conjuntos de valores para a origem e o coletor.** Consulte as seções "Propriedades do conjunto de dados" dos artigos do conector de origem e do coletor para obter informações de configuração e propriedades com suporte.
-3. **Crie um pipeline com a atividade de cópia.** A próxima seção fornece um exemplo.
+3. **Crie um pipeline com a atividade de cópia.** A secção seguinte fornece um exemplo.
 
 ### <a name="syntax"></a>Sintaxe
 
-O modelo a seguir de uma atividade de cópia contém uma lista completa de propriedades com suporte. Especifique aqueles que se ajustam ao seu cenário.
+O modelo a seguir de uma atividade de cópia contém uma lista completa de propriedades com suporte. Especifique os que se adequam ao seu cenário.
 
 ```json
 "activities":[
@@ -142,12 +129,12 @@ O modelo a seguir de uma atividade de cópia contém uma lista completa de propr
 | Propriedade | Descrição | Necessário? |
 |:--- |:--- |:--- |
 | tipo | Para uma atividade de cópia, defina como `Copy` | Sim |
-| informações | Especifique o conjunto de dados que você criou que aponta para a origem. A atividade de cópia dá suporte a apenas uma única entrada. | Sim |
-| produz | Especifique o conjunto de dados que você criou que aponta para o coletor. A atividade de cópia dá suporte a apenas uma única saída. | Sim |
+| inputs | Especifique o conjunto de dados que você criou que aponta para a origem. A atividade de cópia dá suporte a apenas uma única entrada. | Sim |
+| outputs | Especifique o conjunto de dados que você criou que aponta para o coletor. A atividade de cópia dá suporte a apenas uma única saída. | Sim |
 | typeProperties | Especifique as propriedades para configurar a atividade de cópia. | Sim |
 | source | Especifique o tipo de origem da cópia e as propriedades correspondentes para recuperar dados.<br/><br/>Para obter mais informações, consulte a seção "Propriedades da atividade de cópia" no artigo do conector listado em [formatos e armazenamentos de dados com suporte](#supported-data-stores-and-formats). | Sim |
-| Coletar | Especifique o tipo de coletor de cópia e as propriedades correspondentes para gravar dados.<br/><br/>Para obter mais informações, consulte a seção "Propriedades da atividade de cópia" no artigo do conector listado em [formatos e armazenamentos de dados com suporte](#supported-data-stores-and-formats). | Sim |
-| Translator | Especifique mapeamentos de coluna explícitos da origem para o coletor. Essa propriedade se aplica quando o comportamento de cópia padrão não atende às suas necessidades.<br/><br/>Para obter mais informações, consulte [mapeamento de esquema na atividade de cópia](copy-activity-schema-and-type-mapping.md). | Não |
+| sink | Especifique o tipo de coletor de cópia e as propriedades correspondentes para gravar dados.<br/><br/>Para obter mais informações, consulte a seção "Propriedades da atividade de cópia" no artigo do conector listado em [formatos e armazenamentos de dados com suporte](#supported-data-stores-and-formats). | Sim |
+| translator | Especifica mapeamentos de colunas explícita de origem para o sink. Essa propriedade se aplica quando o comportamento de cópia padrão não atende às suas necessidades.<br/><br/>Para obter mais informações, consulte [mapeamento de esquema na atividade de cópia](copy-activity-schema-and-type-mapping.md). | Não |
 | dataIntegrationUnits | Especifique uma medida que represente a quantidade de energia que o [tempo de execução de integração do Azure](concepts-integration-runtime.md) usa para a cópia de dados. Essas unidades eram anteriormente conhecidas como DMU (unidades de movimentação de dados de nuvem). <br/><br/>Para obter mais informações, consulte [unidades de integração de dados](copy-activity-performance.md#data-integration-units). | Não |
 | parallelCopies | Especifique o paralelismo que você deseja que a atividade de cópia use ao ler dados da origem e gravar dados no coletor.<br/><br/>Para obter mais informações, consulte [cópia paralela](copy-activity-performance.md#parallel-copy). | Não |
 | enableStaging<br/>stagingSettings | Especifique se deseja preparar os dados provisórios no armazenamento de BLOBs em vez de copiar dados diretamente da origem para o coletor.<br/><br/>Para obter informações sobre cenários úteis e detalhes de configuração, consulte [cópia em etapas](copy-activity-performance.md#staged-copy). | Não |
@@ -178,21 +165,21 @@ Selecione o botão **detalhes** na coluna **ações** para ver os detalhes de ex
 **Exemplo: copiar do banco de dados SQL do Azure para o Azure SQL data warehouse com cópia em etapas**
 ![monitorar detalhes da execução da atividade](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
 
-### <a name="monitor-programmatically"></a>Monitorar programaticamente
+### <a name="monitor-programmatically"></a>Monitorizar de forma programática
 
 Os detalhes de execução da atividade de cópia e as características de desempenho também são retornados na seção **resultado da execução da atividade de cópia** > **saída** . A seguir está uma lista completa de propriedades que podem ser retornadas. Você verá apenas as propriedades que são aplicáveis ao seu cenário de cópia. Para obter informações sobre como monitorar as execuções de atividade, consulte [monitorar uma execução de pipeline](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
 | Nome da propriedade  | Descrição | Unidade |
 |:--- |:--- |:--- |
-| DataRead | Quantidade de dados lidos da origem. | Valor Int64, em bytes |
-| Gravado em | Quantidade de dados gravados no coletor. | Valor Int64, em bytes |
-| filesRead | Número de arquivos copiados durante a cópia do armazenamento de arquivos. | Valor Int64 (sem unidade) |
-| filesWritten | Número de arquivos copiados durante a cópia para o armazenamento de arquivos. | Valor Int64 (sem unidade) |
-| sourcePeakConnections | Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados de origem durante a execução da atividade de cópia. | Valor Int64 (sem unidade) |
-| sinkPeakConnections | Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados do coletor durante a execução da atividade de cópia. | Valor Int64 (sem unidade) |
-| rowsRead | Número de linhas lidas da origem (não aplicável à cópia binária). | Valor Int64 (sem unidade) |
-| rowsCopied | Número de linhas copiadas para o coletor (não aplicável para cópia binária). | Valor Int64 (sem unidade) |
-| rowsSkipped | Número de linhas incompatíveis que foram ignoradas. Você pode habilitar linhas incompatíveis para serem ignoradas definindo `enableSkipIncompatibleRow` como true. | Valor Int64 (sem unidade) |
+| dataRead | Quantidade de dados lidos da origem. | Valor Int64, em bytes |
+| dataWritten | Quantidade de dados gravados no coletor. | Valor Int64, em bytes |
+| filesRead | Número de arquivos copiados durante a cópia do armazenamento de arquivos. | Valor Int64 (nenhuma unidade) |
+| filesWritten | Número de arquivos copiados durante a cópia para o armazenamento de arquivos. | Valor Int64 (nenhuma unidade) |
+| sourcePeakConnections | Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados de origem durante a execução da atividade de cópia. | Valor Int64 (nenhuma unidade) |
+| sinkPeakConnections | Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados do coletor durante a execução da atividade de cópia. | Valor Int64 (nenhuma unidade) |
+| rowsRead | Número de linhas lidas da origem (não aplicável à cópia binária). | Valor Int64 (nenhuma unidade) |
+| rowsCopied | Número de linhas copiadas para o coletor (não aplicável para cópia binária). | Valor Int64 (nenhuma unidade) |
+| rowsSkipped | Número de linhas incompatíveis que foram ignoradas. Você pode habilitar linhas incompatíveis para serem ignoradas definindo `enableSkipIncompatibleRow` como true. | Valor Int64 (nenhuma unidade) |
 | copyDuration | Duração da execução da cópia. | Valor Int32, em segundos |
 | Taxa de transferência | Taxa de transferência de dados. | Número de ponto flutuante, em KBps |
 | sourcePeakConnections | Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados de origem durante a execução da atividade de cópia. | Valor Int32 (nenhuma unidade) |
@@ -200,12 +187,12 @@ Os detalhes de execução da atividade de cópia e as características de desemp
 | sqlDwPolyBase | Se o polybase é usado quando os dados são copiados para SQL Data Warehouse. | Booleano |
 | redshiftUnload | Se o UNLOAD é usado quando os dados são copiados do redshift. | Booleano |
 | hdfsDistcp | Se DistCp é usado quando os dados são copiados do HDFS. | Booleano |
-| effectiveIntegrationRuntime | O tempo de execução de integração (IR) ou tempos de execução usados para ativar a atividade de execução, no formato `<IR name> (<region if it's Azure IR>)`. | Texto (cadeia de caracteres) |
-| usedDataIntegrationUnits | As unidades de integração de dados efetivas durante a cópia. | Valor Int32 |
-| usedParallelCopies | O parallelCopies efetivo durante a cópia. | Valor Int32 |
-| redirectRowPath | Caminho para o log de linhas incompatíveis ignoradas no armazenamento de BLOBs que você configurou na propriedade `redirectIncompatibleRowSettings`. Consulte [tolerância a falhas](#fault-tolerance) posteriormente neste artigo. | Texto (cadeia de caracteres) |
-| executionDetails | Mais detalhes sobre os estágios pelos quais a atividade de cópia passa e as etapas correspondentes, durações, configurações e assim por diante. Não recomendamos que você analise esta seção porque ela pode ser alterada.<br/><br/>Data Factory também relata as durações detalhadas (em segundos) gastas em vários estágios em `detailedDurations`. As durações dessas etapas são exclusivas. Somente as durações que se aplicam à execução da atividade de cópia fornecida são exibidas:<br/>**Duração do enfileiramento** (`queuingDuration`): a quantidade de tempo antes que a atividade de cópia realmente seja iniciada no Integration Runtime. Se você usar um IR auto-hospedado e esse valor for grande, verifique a capacidade e o uso do IR e aumente ou reduza de acordo com sua carga de trabalho. <br/>**Duração da cópia prévia do script** (`preCopyScriptDuration`): o tempo decorrido entre quando a atividade de cópia começa no ir e quando a atividade de cópia termina de executar o script de pré-cópia no repositório de dados do coletor. Aplica-se quando você configura o script de pré-cópia. <br/>**Tempo até o primeiro byte** (`timeToFirstByte`): o tempo decorrido entre o fim da etapa anterior e a hora em que o ir recebe o primeiro byte do armazenamento de dados de origem. Aplica-se a fontes não baseadas em arquivo. Se esse valor for grande, verifique e otimize a consulta ou o servidor.<br/>**Duração da transferência** (`transferDuration`): o tempo decorrido entre o fim da etapa anterior e a hora em que o ir transfere todos os dados da origem para o coletor. | Array |
-| perfRecommendation | Copiar dicas de ajuste de desempenho. Consulte [desempenho e ajuste](#performance-and-tuning) para obter detalhes. | Array |
+| effectiveIntegrationRuntime | O tempo de execução de integração (IR) ou tempos de execução usados para ativar a atividade de execução, no formato `<IR name> (<region if it's Azure IR>)`. | Texto (cadeia) |
+| usedDataIntegrationUnits | As unidades de integração de dados em vigor durante a cópia. | Valor Int32 |
+| usedParallelCopies | O parallelCopies em vigor durante a cópia. | Valor Int32 |
+| redirectRowPath | Caminho para o log de linhas incompatíveis ignoradas no armazenamento de BLOBs que você configurou na propriedade `redirectIncompatibleRowSettings`. Consulte [tolerância a falhas](#fault-tolerance) posteriormente neste artigo. | Texto (cadeia) |
+| executionDetails | Mais detalhes sobre os estágios pelos quais a atividade de cópia passa e as etapas correspondentes, durações, configurações e assim por diante. Não recomendamos que você analise esta seção porque ela pode ser alterada.<br/><br/>Data Factory também relata as durações detalhadas (em segundos) gastas em vários estágios em `detailedDurations`. As durações dessas etapas são exclusivas. Somente as durações que se aplicam à execução da atividade de cópia fornecida são exibidas:<br/>**Duração do enfileiramento** (`queuingDuration`): a quantidade de tempo antes que a atividade de cópia realmente seja iniciada no Integration Runtime. Se você usar um IR auto-hospedado e esse valor for grande, verifique a capacidade e o uso do IR e aumente ou reduza de acordo com sua carga de trabalho. <br/>**Duração da cópia prévia do script** (`preCopyScriptDuration`): o tempo decorrido entre quando a atividade de cópia começa no ir e quando a atividade de cópia termina de executar o script de pré-cópia no repositório de dados do coletor. Aplica-se quando você configura o script de pré-cópia. <br/>**Tempo até o primeiro byte** (`timeToFirstByte`): o tempo decorrido entre o fim da etapa anterior e a hora em que o ir recebe o primeiro byte do armazenamento de dados de origem. Aplica-se a fontes não baseadas em arquivo. Se esse valor for grande, verifique e otimize a consulta ou o servidor.<br/>**Duração da transferência** (`transferDuration`): o tempo decorrido entre o fim da etapa anterior e a hora em que o ir transfere todos os dados da origem para o coletor. | Matriz |
+| perfRecommendation | Copiar dicas de ajuste de desempenho. Consulte [desempenho e ajuste](#performance-and-tuning) para obter detalhes. | Matriz |
 
 ```json
 "output": {
@@ -252,7 +239,7 @@ Os detalhes de execução da atividade de cópia e as características de desemp
 }
 ```
 
-## <a name="schema-and-data-type-mapping"></a>Mapeamento de tipo de dados e esquema
+## <a name="schema-and-data-type-mapping"></a>Esquema e o mapeamento de tipo de dados
 
 Consulte [mapeamento de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md) para obter informações sobre como a atividade de cópia mapeia os dados de origem para o coletor.
 
@@ -276,7 +263,7 @@ Neste exemplo, durante uma execução de cópia, Data Factory rastreia uma alta 
 Data Factory permite copiar incrementalmente dados Delta de um armazenamento de dados de origem para um armazenamento de dados de coletor. Para obter detalhes, consulte [tutorial: copiar dados incrementalmente](tutorial-incremental-copy-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte os seguintes guias de início rápido, tutoriais e exemplos:
+Consulte os seguintes inícios rápidos, tutoriais e amostras:
 
 - [Copiar dados de um local para outro na mesma conta de armazenamento de BLOBs do Azure](quickstart-create-data-factory-dot-net.md)
 - [Copiar dados do armazenamento de BLOBs do Azure para o banco de dados SQL do Azure](tutorial-copy-data-dot-net.md)

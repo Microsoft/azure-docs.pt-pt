@@ -1,5 +1,5 @@
 ---
-title: Monitorar eventos agendados para suas VMs do Windows no Azure | Microsoft Docs
+title: Monitorar eventos agendados para suas VMs do Windows no Azure
 description: Saiba como monitorar suas máquinas virtuais do Azure para eventos agendados.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: d090fb52beb266f006e69688c09f66412f1fe8c2
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1cda07c18e4f5ef2a8c00b6a275f22ecc0935751
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376203"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073321"
 ---
 # <a name="monitoring-scheduled-events"></a>Eventos Agendados de monitoramento
 
@@ -61,7 +61,7 @@ New-AzVm `
 
 Baixe o arquivo. zip de instalação do projeto do [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
 
-Conecte-se ao **myCollectorVM** e copie o arquivo. zip para a máquina virtual e Extraia todos os arquivos. Em sua VM, abra um prompt do PowerShell. Mova o prompt para a pasta que contém `SchService.ps1`, por exemplo: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>` e configure o serviço.
+Conecte-se ao **myCollectorVM** e copie o arquivo. zip para a máquina virtual e Extraia todos os arquivos. Em sua VM, abra um prompt do PowerShell. Mova o prompt para a pasta que contém `SchService.ps1`, por exemplo: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`e configure o serviço.
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -157,7 +157,7 @@ Depois que os eventos forem enviados para Log Analytics, você poderá executar 
 
     ![Salvar a consulta](./media/notifications/save-query.png)
 
-1. Selecione **nova regra de alerta**. 
+1. Selecione **Nova regra de alerta**. 
 1. Na página **criar regra** , deixe `collectorworkspace` como o **recurso**.
 1. Em **condição**, selecione a entrada *sempre que a pesquisa de logs do cliente for <login undefined>* . A página **Configurar lógica de sinal** será aberta.
 1. Em **valor do limite**, insira *0* e, em seguida, selecione **concluído**.

@@ -1,5 +1,5 @@
 ---
-title: Criar uma máquina virtual SQL Server no Azure PowerShell (clássico) | Microsoft Docs
+title: Criar uma VM SQL Server clássica (PowerShell)
 description: Fornece etapas e scripts do PowerShell para criar uma VM do Azure com SQL Server imagens da Galeria de máquinas virtuais. Este tópico usa o modo de implantação clássico.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,19 +14,20 @@ ms.workload: iaas-sql-server
 ms.date: 08/07/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a4c7c29736cdd80ef7ebe413a377aba630d61858
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8757b634b76867a2d5ccce3dcfdc9d66ef25c25e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101875"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032742"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Provisionar uma máquina virtual SQL Server usando Azure PowerShell (clássico)
 
 Este artigo fornece etapas sobre como criar uma máquina virtual SQL Server no Azure usando os cmdlets do PowerShell.
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
 
 Para a versão do Resource Manager deste tópico, consulte [provisionar um SQL Server máquina virtual usando o Azure PowerShell Resource Manager](../sql/virtual-machines-windows-ps-sql-create.md).
 
@@ -77,7 +78,7 @@ Sua máquina virtual SQL Server será hospedada em um serviço de nuvem que resi
    ```
 
    > [!NOTE]
-   > Se você precisar de uma nova conta de armazenamento, primeiro crie um nome de conta de armazenamento com todas as letras minúsculas com o comando New-AzureStorageAccount, como no exemplo a seguir:`New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
+   > Se você precisar de uma nova conta de armazenamento, primeiro crie um nome de conta de armazenamento com todas as letras minúsculas com o comando New-AzureStorageAccount, como no exemplo a seguir: `New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
 
 4. Atribua o nome da conta de armazenamento de destino ao **$staccount**. Em seguida, use **set-AzureSubscription** para definir a assinatura e a conta de armazenamento atual.
 
@@ -196,12 +197,12 @@ New-AzureVM –ServiceName $svcname -VMs $vm1
 
 Depois de fazer logon no computador com a área de trabalho remota, configure SQL Server com base nas instruções em [etapas para configurar a conectividade de SQL Server em uma VM do Azure](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você pode encontrar instruções adicionais para provisionar máquinas virtuais com o PowerShell na [documentação de máquinas virtuais](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Em muitos casos, a próxima etapa é migrar seus bancos de dados para essa nova SQL Server VM. Para obter diretrizes de migração de banco de dados, consulte [migrando um banco de dados para SQL Server em uma VM do Azure](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 
-Se você também estiver interessado em usar o portal do Azure para criar máquinas virtuais do SQL, consulte Provisionando [uma máquina virtual SQL Server no Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md). Observe que o tutorial que orienta você pelo portal cria VMs usando o modelo do Resource Manager recomendado, em vez do modelo clássico usado neste tópico do PowerShell.
+Se você também estiver interessado em usar o portal do Azure para criar máquinas virtuais do SQL, consulte [Provisionando uma máquina virtual SQL Server no Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md). Observe que o tutorial que orienta você pelo portal cria VMs usando o modelo do Resource Manager recomendado, em vez do modelo clássico usado neste tópico do PowerShell.
 
 Além desses recursos, recomendamos que você revise [outros tópicos relacionados à execução de SQL Server em máquinas virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

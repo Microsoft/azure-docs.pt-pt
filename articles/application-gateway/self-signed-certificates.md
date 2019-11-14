@@ -1,5 +1,6 @@
 ---
-title: Gerar um certificado autoassinado de Aplicativo Azure gateway com uma autoridade de certificação raiz Personalizada
+title: Gerar um certificado autoassinado com uma autoridade de certificação raiz Personalizada
+titleSuffix: Azure Application Gateway
 description: Saiba como gerar um certificado autoassinado de Aplicativo Azure gateway com uma autoridade de certificação raiz Personalizada
 services: application-gateway
 author: vhorne
@@ -7,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 84a46e66bb6c36950a84fbeb2dacc3a8d6bcc241
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fb3d2e70d9485c63d6de156abe9d192afa818814
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833375"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075077"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Gerar um certificado autoassinado de Aplicativo Azure gateway com uma autoridade de certificação raiz Personalizada
 
@@ -23,7 +24,7 @@ O gateway de aplicativo confia no certificado do site por padrão se ele é assi
 > [!NOTE]
 > Os certificados autoassinados não são confiáveis por padrão e podem ser difíceis de manter. Além disso, eles podem usar hash desatualizado e conjuntos de codificação que podem não ser fortes. Para obter mais segurança, adquira um certificado assinado por uma autoridade de certificação conhecida.
 
-Neste artigo, você aprenderá a:
+Neste artigo, ficará a saber como:
 
 - Criar sua própria autoridade de certificação personalizada
 - Criar um certificado autoassinado assinado por sua autoridade de certificação personalizada

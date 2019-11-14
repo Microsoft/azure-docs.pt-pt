@@ -1,7 +1,6 @@
 ---
 title: Resolver problemas do Balanceador de Carga do Azure
-titlesuffix: Azure Load Balancer
-description: Solucionar problemas conhecidos com o Azure Load Balancer
+description: Saiba como solucionar problemas conhecidos com o Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: chadmath
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 4e0e3cf6067467947bcb799a915a93d1bb342ea1
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: d1c10fa8267131f13d3148ace6c97218a18fd494
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154930"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076912"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas do Balanceador de Carga do Azure
 
@@ -29,7 +28,7 @@ Esta página fornece informações de solução de problemas comuns de Azure Loa
 - As VMs por trás da Load Balancer não estão respondendo às investigações de integridade 
 - As VMs por trás da Load Balancer não estão respondendo ao tráfego na porta configurada
 
-## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Sintomas As VMs por trás da Load Balancer não estão respondendo às investigações de integridade
+## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Sintoma: as VMs por trás da Load Balancer não estão respondendo a investigações de integridade
 Para que os servidores de back-end participem do conjunto de balanceadores de carga, eles devem passar na verificação de investigação. Para obter mais informações sobre investigações de integridade, consulte [noções básicas sobre investigações de Load Balancer](load-balancer-custom-probe-overview.md). 
 
 As VMs do pool de back-end Load Balancer podem não estar respondendo às investigações devido a qualquer um dos seguintes motivos: 
@@ -55,7 +54,7 @@ Se a VM estiver íntegra, mas não estiver respondendo à investigação, então
 3. Se o estado da porta não estiver listado como **ouvindo**, configure a porta apropriada. 
 4. Como alternativa, selecione outra porta, que está listada como **escuta**, e atualize a configuração do balanceador de carga de acordo.              
 
-### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Causa 3: O firewall ou um grupo de segurança de rede está bloqueando a porta nas VMs do pool de back-end do balanceador de carga  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Causa 3: o firewall ou um grupo de segurança de rede está bloqueando a porta nas VMs do pool de back-end do balanceador de carga  
 Se o firewall na VM estiver bloqueando a porta de investigação, ou se um ou mais grupos de segurança de rede configurados na sub-rede ou na VM, não estiver permitindo que a investigação alcance a porta, a VM não poderá responder à investigação de integridade.          
 
 **Validação e resolução**
@@ -66,7 +65,7 @@ Se o firewall na VM estiver bloqueando a porta de investigação, ou se um ou ma
 * Se qualquer uma dessas regras estiver bloqueando o tráfego de investigação, remova e reconfigure as regras para permitir o tráfego de investigação.  
 * Teste se a VM agora começou a responder às investigações de integridade. 
 
-### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>Causa 4: Outras configurações incorretas no Load Balancer
+### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>Causa 4: outras configurações incorretas no Load Balancer
 Se todas as causas anteriores parecerem ser validadas e resolvidas corretamente, e a VM de back-end ainda não responder à investigação de integridade, teste manualmente a conectividade e colete alguns rastreamentos para entender a conectividade.
 
 **Validação e resolução**
@@ -81,7 +80,7 @@ Se todas as causas anteriores parecerem ser validadas e resolvidas corretamente,
     - Verifique se os pacotes de investigação estão sendo forçados para outro destino (possivelmente por meio de configurações de UDR) antes de atingir o balanceador de carga. Isso pode fazer com que o tráfego nunca chegue à VM de back-end. 
 * Altere o tipo de investigação (por exemplo, HTTP para TCP) e configure a porta correspondente nas ACLs de grupos de segurança de rede e no firewall para validar se o problema é com a configuração de resposta de investigação. Para obter mais informações sobre configuração de investigação de integridade, consulte [configuração de investigação de integridade de balanceamento de carga do ponto de extremidade](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
 
-## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Sintomas VMs por trás de Load Balancer não estão respondendo ao tráfego na porta de dados configurada
+## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Sintoma: VMs por trás de Load Balancer não estão respondendo ao tráfego na porta de dados configurada
 
 Se uma VM do pool de back-end estiver listada como íntegra e responder às investigações de integridade, mas ainda não estiver participando do balanceamento de carga ou não estiver respondendo ao tráfego de dados, isso pode ser devido a qualquer uma das seguintes razões: 
 * Load Balancer VM do pool de back-end não está escutando na porta de dados 
@@ -95,11 +94,11 @@ Se uma VM não responder ao tráfego de dados, talvez seja porque a porta de des
 **Validação e resolução**
 
 1. Faça logon na VM de back-end. 
-2. Abra um prompt de comando e execute o seguinte comando para validar se há um aplicativo escutando na porta de  dados: netstat-a 
+2. Abra um prompt de comando e execute o seguinte comando para validar se há um aplicativo escutando na porta de dados:  netstat-a 
 3. Se a porta não estiver listada com o estado "ouvindo", configure a porta do ouvinte apropriada 
 4. Se a porta estiver marcada como ouvindo, verifique o aplicativo de destino nessa porta para obter os possíveis problemas. 
 
-### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Causa 2: O grupo de segurança de rede está bloqueando a porta na VM do pool de back-end Load Balancer  
+### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Causa 2: o grupo de segurança de rede está bloqueando a porta na VM do pool de back-end Load Balancer  
 
 Se um ou mais grupos de segurança de rede configurados na sub-rede ou na VM estiver bloqueando o IP ou a porta de origem, a VM não poderá responder.
 
@@ -110,7 +109,7 @@ Se um ou mais grupos de segurança de rede configurados na sub-rede ou na VM est
 * Se alguma das regras estiver bloqueando o tráfego, remova e reconfigure essas regras para permitir o tráfego de dados.  
 * Teste se a VM agora começou a responder às investigações de integridade.
 
-### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>Causa 3: Acessando o Load Balancer da mesma VM e interface de rede 
+### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>Causa 3: acessando a Load Balancer da mesma VM e interface de rede 
 
 Se seu aplicativo hospedado na VM de back-end de um Load Balancer estiver tentando acessar outro aplicativo hospedado na mesma VM de back-end na mesma interface de rede, será um cenário sem suporte e falhará. 
 
@@ -118,7 +117,7 @@ Se seu aplicativo hospedado na VM de back-end de um Load Balancer estiver tentan
 * Configure VMs de pool de back-end separadas por aplicativo. 
 * Configure o aplicativo em VMs de NIC dupla para que cada aplicativo estivesse usando sua própria interface de rede e endereço IP. 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Causa 4: Acessando o front-end Load Balancer interno da VM do pool de back-end Load Balancer participante
+### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Causa 4: acessando o front-end interno de Load Balancer da VM do pool de back-end Load Balancer participante
 
 Se uma Load Balancer interna for configurada em uma VNet e uma das VMs de back-end do participante estiver tentando acessar o frontend interno de Load Balancer, poderão ocorrer falhas quando o fluxo for mapeado para a VM de origem. Não há suporte para esse cenário. Reveja as [limitações](load-balancer-overview.md#limitations) de uma discussão detalhada.
 

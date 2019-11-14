@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Proteger um servidor Web Windows com certificados SSL no Azure | Microsoft Docs
+title: Tutorial – proteger um servidor Web do Windows com certificados SSL no Azure
 description: Neste tutorial, vai aprender a utilizar o Azure PowerShell para proteger uma máquina virtual Windows que executa o servidor Web ISS com certificados SSL armazenados no Azure Key Vault.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bf4c21616da0b27fb253bbbd24a6bf4e9acd0bf3
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 6fd60993582fb4d7c052ffff2f492739153229e6
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300051"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067761"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Tutorial: Proteger um servidor Web numa máquina virtual Windows no Azure com certificados SSL armazenados no Key Vault
 
@@ -37,10 +37,10 @@ Para proteger servidores Web, pode ser utilizado um certificado SSL (Secure Sock
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 O Azure Key Vault salvaguarda as chaves criptográficas e os segredos, como certificados ou palavras-passe. O Key Vault ajuda a simplificar o processo de gestão de chaves e permite-lhe manter o controlo das chaves que acedem a esses certificados. Pode criar um certificado autoassinado no Key Vault ou carregar um certificado fidedigno que já possui.
 
 Em vez de utilizar uma imagem de VM personalizada, que inclua certificados integrados, pode inserir certificados numa VM em execução. Este processo garante que são instalados os certificados mais atualizados num servidor Web durante a implementação. Se renovar ou substituir um certificado, também não tem de criar uma nova imagem de VM personalizada. Os certificados mais recentes são inseridos automaticamente à medida que cria VMs adicionais. Durante todo o processo, os certificados nunca saem da plataforma do Azure nem são expostos num script, histórico de linha de comandos ou modelo.
@@ -82,7 +82,7 @@ Add-AzKeyVaultCertificate `
 ```
 
 
-## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 Definir um nome de utilizador e palavra-passe de administrador para a VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```azurepowershell-interactive

@@ -1,17 +1,14 @@
 ---
 title: Exemplo – nenhuma tabela de rotas definida pelo usuário
 description: Esta definição de política de exemplo proíbe que redes virtuais sejam implantadas com uma tabela de rotas definida pelo usuário.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 783ee6916b4ecfb792a7b86cdd84aee08de223f5
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 2cc5b78a774a9c50c31738e5043b20d7a4cd59b8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976922"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74069940"
 ---
 # <a name="sample---no-user-defined-route-table"></a>Exemplo – nenhuma tabela de rotas definida pelo usuário
 
@@ -23,11 +20,11 @@ Esta política proíbe a implementação de redes virtuais numa tabela de rotas 
 
 [!code-json[main](../../../../policy-templates/samples/Network/no-route-table-in-ER-Network/azurepolicy.json "No User Defined Route Table")]
 
-Pode implementar este modelo através do [portal do Azure](#deploy-with-the-portal), do [PowerShell](#deploy-with-powershell) ou da [CLI do Azure](#deploy-with-azure-cli).
+Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o [PowerShell](#deploy-with-powershell) ou a [CLI do Azure](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
-[![Deploy o exemplo de política para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fno-route-table-in-ER-Network%2Fazurepolicy.json)
+[![implantar o exemplo de política no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fno-route-table-in-ER-Network%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 

@@ -1,6 +1,6 @@
 ---
-title: Exemplo do PowerShell - balancear carga de tráfego para VMs de elevada disponibilidade - Azure
-titlesuffix: Azure Load Balancer
+title: Balancear a carga do tráfego para VMs para HA-Azure PowerShell
+titleSuffix: Azure Load Balancer
 description: Este Exemplo de Script do Azure PowerShell mostra como efetuar o balanceamento de carga de tráfego para VMs para elevada disponibilidade
 services: load-balancer
 documentationcenter: load-balancer
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
-ms.openlocfilehash: 956a67897fa08fdd2c0d602ba514fcf58fabc292
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: ccc9ed364ce7ec5b18d04a71a8215675f7876b81
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273520"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075915"
 ---
-# <a name="azure-powershell-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Exemplo de script do PowerShell do Azure: Balancear carga de tráfego para VMs de elevada disponibilidade
+# <a name="azure-powershell-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Exemplo de script do Azure PowerShell: efetuar o balanceamento de carga de tráfego para VMs para elevada disponibilidade
 
 Este exemplo de script do Azure PowerShell cria tudo o que é preciso para executar várias máquinas virtuais do Windows configuradas numa configuração de elevada disponibilidade e com balanceamento de carga. Depois de executar o script, terá três máquinas virtuais, associadas a um Conjunto de Disponibilidade do Azure e acessíveis através de um Balanceador de Carga do Azure.
 
@@ -52,7 +52,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede e sub-rede virtual do Azure. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)  | Cria um endereço IP público com um endereço IP estático e um nome DNS associado. |
 | [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer)  | Cria um balanceador de carga do Azure. |
-| [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) | Cria uma sonda do balanceador de carga. Uma sonda do balanceador de carga serve para monitorizar cada VM no conjunto de balanceadores de carga. Se qualquer VM ficar inacessível, o tráfego não é encaminhado para a VM. |
+| [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) | Cria uma sonda do balanceador de carga. Uma sonda do balanceador de carga é utilizada para monitorizar cada VM no conjunto de balanceadores de carga. Se qualquer VM ficar inacessível, o tráfego não é encaminhado para a VM. |
 | [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) | Cria uma regra de balanceador de carga. Neste exemplo, é criada uma regra para a porta 80. À medida que o tráfego HTTP chega ao balanceador de carga, é encaminhado para a porta 80 de uma das VMs no conjunto de balanceadores de carga. |
 | [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) | Cria uma regra de Tradução de Endereços de Rede (NAT) do balanceador de carga.  As regras NAT mapeiam uma porta do balanceador de carga para uma porta numa VM. Neste exemplo, é criada uma regra NAT para o tráfego SSH para cada VM no conjunto de balanceadores de carga.  |
 | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | Cria um grupo de segurança de rede (NSG), que é um limite de segurança entre a Internet e a máquina virtual. |
@@ -63,7 +63,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [New-AzVM](/powershell/module/az.compute/new-azvm)  | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 

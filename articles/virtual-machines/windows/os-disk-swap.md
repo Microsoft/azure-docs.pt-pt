@@ -1,5 +1,5 @@
 ---
-title: Trocar o disco do sistema operacional para uma VM do Azure com o PowerShell | Microsoft Docs '
+title: Trocar o disco do sistema operacional para uma VM do Azure com o PowerShell '
 description: Altere o disco do sistema operacional usado por uma máquina virtual do Azure usando o PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 50428f8f28a4211c54e7e3e9ee19421197490666
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ec66892804f3c2d1f831168a2955f2498462cbf3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749293"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033016"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>Alterar o disco do sistema operacional usado por uma VM do Azure usando o PowerShell
 
@@ -60,6 +60,6 @@ Start-AzVM -Name $vm.Name -ResourceGroupName myResourceGroup
 
 ```
 
-**Passos seguintes?**
+**Passos seguintes**
 
 Para criar uma cópia de um disco, consulte [instantâneo de um disco](snapshot-copy-managed-disk.md).

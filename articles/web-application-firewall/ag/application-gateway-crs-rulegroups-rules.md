@@ -1,18 +1,19 @@
 ---
-title: Regras e grupos de regras CRS do firewall do aplicativo Web do gateway Aplicativo Azure
+title: Regras e grupos de regras do CRS
+titleSuffix: Azure Web Application Firewall
 description: Esta página fornece informações sobre regras e grupos de regras CRS do firewall do aplicativo Web.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/31/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 59e4203ca219802a95a09761b90c00a039b47631
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0303f09e5e704a18576bf50d1f00007f7f86f320
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516971"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075364"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regras e grupos de regras CRS do firewall do aplicativo Web
 
@@ -55,7 +56,7 @@ O CRS 3,1 inclui 13 grupos de regras, conforme mostrado na tabela a seguir. Cada
 |**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](#crs943-31)**|Proteger contra ataques de fixação da de sessão|
 |**[SOLICITAÇÃO-944-APLICATIVO-ATAQUE-SESSÃO-JAVA](#crs944-31)**|Proteger contra ataques JAVA|
 
-### <a name="owasp-crs-30"></a>OWASP CRS 3,0
+### <a name="owasp-crs-30"></a>OWASP CRS 3.0
 
 O CRS 3,0 inclui 12 grupos de regras, conforme mostrado na tabela a seguir. Cada grupo contém várias regras, que podem ser desabilitadas.
 
@@ -99,20 +100,20 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 ### <a name="general-31"></a> <p x-ms-format-detection="none">Geral</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |200004|Limite de várias partes sem correspondência possível.|
 
 ### <a name="crs911-31"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-911-MÉTODO-IMPOSIÇÃO</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |911100|O método não é permitido pela política|
 
 
 ### <a name="crs913-31"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-913-VERIFICAÇÃO DE DETECÇÃO</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |913100|Encontrado agente de usuário associado ao verificador de segurança|
 |913101|Encontrado agente de usuário associado ao cliente HTTP genérico/script|
@@ -123,7 +124,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 ### <a name="crs920-31"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-920-PROTOCOLO-IMPOSIÇÃO</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |920100|Linha de solicitação HTTP inválida|
 |920120|Tentativa de ignorar dados de várias partes/formulário|
@@ -173,9 +174,9 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |920470|Cabeçalho Content-Type ilegal|
 |920480|Restringir o parâmetro charset dentro do cabeçalho Content-Type|
 
-### <a name="crs921-31"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-921-PROTOCOLO-ATAQUE</p>
+### <a name="crs921-31"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |921110|Ataque de indesejada de solicitação HTTP|
 |921120|Ataque de divisão de resposta HTTP|
@@ -187,18 +188,18 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |921170|Poluição de parâmetro HTTP|
 |921180|Poluição de parâmetro HTTP (% {TX. 1})|
 
-### <a name="crs930-31"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-930-APLICATIVO-ATAQUE-LFI</p>
+### <a name="crs930-31"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |930100|Ataque de percurso de caminho (/.. /)|
 |930110|Ataque de percurso de caminho (/.. /)|
 |930120|Tentativa de acesso ao arquivo do sistema operacional|
 |930130|Tentativa de acesso de arquivo restrito|
 
-### <a name="crs931-31"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-931-APLICATIVO-ATAQUE-RFI</p>
+### <a name="crs931-31"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |931100|Possível ataque de inclusão de arquivo remoto (RFI) = parâmetro de URL usando endereço IP|
 |931110|Possível ataque de RFI (inclusão de arquivo remoto) = nome de parâmetro vulnerável RFI comum usado com carga de URL|
@@ -207,7 +208,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 ### <a name="crs932-31"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-932-APLICATIVO-ATAQUE-RCE</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |932100|Execução de comando remoto: injeção de comando Unix|
 |932105|Execução de comando remoto: injeção de comando Unix|
@@ -225,7 +226,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 ### <a name="crs933-31"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-933-APLICATIVO-ATAQUE-PHP</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |933100|Ataque de injeção de PHP = marca de abertura/fechamento encontrada|
 |933110|Ataque de injeção de PHP = carregamento de arquivo de script PHP encontrado|
@@ -242,9 +243,9 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |933180|Ataque de injeção de PHP = chamada de função de variável encontrada|
 |933190|Ataque de injeção de PHP: marca de fechamento de PHP encontrada|
 
-### <a name="crs941-31"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-941-APLICATIVO-ATAQUE-XSS</p>
+### <a name="crs941-31"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |941100|Ataque XSS detectado via libinjection|
 |941101|Ataque XSS detectado via libinjection|
@@ -254,7 +255,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |941150|Filtro XSS-categoria 5 = atributos HTML não permitidos|
 |941160|NoScript XSS InjectionChecker: injeção de HTML|
 |941170|NoScript XSS InjectionChecker: injeção de atributo|
-|941180|Palavras-chave da lista negra do validador de nós|
+|941180|Palavras-chave da lista de bloqueios do validador de nós|
 |941190|XSS usando folhas de estilo|
 |941200|XSS usando quadros VML|
 |941210|XSS usando JavaScript ofuscado|
@@ -274,9 +275,9 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |941350|Codificação UTF-7 IE XSS-ataque detectado.|
 
 
-### <a name="crs942-31"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-942-APLICATIVO-ATAQUE-SQLI</p>
+### <a name="crs942-31"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |942100|Ataque de injeção de SQL detectado via libinjection|
 |942110|Ataque de injeção de SQL: teste de injeção comum detectado|
@@ -296,7 +297,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |942251|Detecta a existência de injeçãos|
 |942260|Detecta tentativas de bypass de autenticação SQL básica 2/3|
 |942270|Procurando por injeção básica de SQL. Cadeia de caracteres de ataque comum para MySQL Oracle e outros|
-|942280|Detecta postgres pg_sleep injeção, WAITFOR DELAY ataques e tentativas de desligamento de banco de dados|
+|942280|Detecta postgres injeção de pg_sleep, WAITFOR atrasa ataques e tentativas de desligamento de banco de dados|
 |942290|Localiza tentativas básicas de injeção SQL do MongoDB|
 |942300|Detecta comentários do MySQL, condições e as injeções de p (a) de r|
 |942310|Detecta tentativas de injeção de SQL encadeadas 2/2|
@@ -323,9 +324,9 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |942480|Ataque de injeção de SQL|
 |942490|Detecta sondagens de injeção SQL clássicas 3/3|
 
-### <a name="crs943-31"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-943-APLICATIVO-ATAQUE-SESSÃO-FIXAÇÃO DA</p>
+### <a name="crs943-31"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |943100|Possível ataque de fixação da de sessão = definindo valores de cookie em HTML|
 |943110|Possível ataque de fixação da de sessão = nome de parâmetro de SessionID com referenciador fora do domínio|
@@ -333,32 +334,32 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 ### <a name="crs944-31"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-944-APLICATIVO-ATAQUE-SESSÃO-JAVA</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |944120|Execução de carga possível e execução de comando remoto|
 |944130|Classes Java suspeitas|
 |944200|Exploração da desserialização do Java Apache Commons|
 
-# <a name="owasp-30tabowasp30"></a>[OWASP 3,0](#tab/owasp30)
+# <a name="owasp-30tabowasp30"></a>[OWASP 3.0](#tab/owasp30)
 
 ## <a name="owasp30"></a>Conjuntos de regras
 
 ### <a name="general-30"></a> <p x-ms-format-detection="none">Geral</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |200004|Limite de várias partes sem correspondência possível.|
 
 ### <a name="crs911-30"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-911-MÉTODO-IMPOSIÇÃO</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |911100|O método não é permitido pela política|
 
 
 ### <a name="crs913-30"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-913-VERIFICAÇÃO DE DETECÇÃO</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |913100|Encontrado agente de usuário associado ao verificador de segurança|
 |913110|Cabeçalho de solicitação encontrado associado ao verificador de segurança|
@@ -368,7 +369,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 ### <a name="crs920-30"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-920-PROTOCOLO-IMPOSIÇÃO</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |920100|Linha de solicitação HTTP inválida|
 |920130|Falha ao analisar o corpo da solicitação.|
@@ -412,9 +413,9 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |920274|Caractere inválido nos cabeçalhos de solicitação (fora do conjunto muito estrito)|
 |920460|Caracteres de escape anormal|
 
-### <a name="crs921-30"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-921-PROTOCOLO-ATAQUE</p>
+### <a name="crs921-30"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |921100|Ataque de indesejada de solicitação HTTP.|
 |921110|Ataque de indesejada de solicitação HTTP|
@@ -427,18 +428,18 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |921170|Poluição de parâmetro HTTP|
 |921180|Poluição de parâmetro HTTP (% @ {TX. 1})|
 
-### <a name="crs930-30"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-930-APLICATIVO-ATAQUE-LFI</p>
+### <a name="crs930-30"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |930100|Ataque de percurso de caminho (/.. /)|
 |930110|Ataque de percurso de caminho (/.. /)|
 |930120|Tentativa de acesso ao arquivo do sistema operacional|
 |930130|Tentativa de acesso de arquivo restrito|
 
-### <a name="crs931-30"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-931-APLICATIVO-ATAQUE-RFI</p>
+### <a name="crs931-30"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |931100|Possível ataque de inclusão de arquivo remoto (RFI) = parâmetro de URL usando endereço IP|
 |931110|Possível ataque de RFI (inclusão de arquivo remoto) = nome de parâmetro vulnerável RFI comum usado com carga de URL|
@@ -447,7 +448,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 ### <a name="crs932-30"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-932-APLICATIVO-ATAQUE-RCE</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |932120|Execução de comando remoto = comando do Windows PowerShell encontrado|
 |932130|Execução de comando remoto = expressão de shell do UNIX encontrada|
@@ -458,7 +459,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 ### <a name="crs933-30"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-933-APLICATIVO-ATAQUE-PHP</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |933100|Ataque de injeção de PHP = marca de abertura/fechamento encontrada|
 |933110|Ataque de injeção de PHP = carregamento de arquivo de script PHP encontrado|
@@ -472,16 +473,16 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |933161|Ataque de injeção de PHP = chamada de função PHP de valor baixo encontrada|
 |933111|Ataque de injeção de PHP = carregamento de arquivo de script PHP encontrado|
 
-### <a name="crs941-30"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-941-APLICATIVO-ATAQUE-XSS</p>
+### <a name="crs941-30"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |941100|Ataque XSS detectado via libinjection|
 |941110|Filtro XSS-categoria 1 = vetor de marca de script|
 |941130|Filtro XSS-categoria 3 = vetor de atributo|
 |941140|Filtro XSS-categoria 4 = vetor de URI de JavaScript|
 |941150|Filtro XSS-categoria 5 = atributos HTML não permitidos|
-|941180|Palavras-chave da lista negra do validador de nós|
+|941180|Palavras-chave da lista de bloqueios do validador de nós|
 |941190|XSS usando folhas de estilo|
 |941200|XSS usando quadros VML|
 |941210|XSS usando JavaScript ofuscado|
@@ -499,9 +500,9 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |941350|Codificação UTF-7 IE XSS-ataque detectado.|
 |941320|Possível ataque de XSS detectado-manipulador de marca HTML|
 
-### <a name="crs942-30"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-942-APLICATIVO-ATAQUE-SQLI</p>
+### <a name="crs942-30"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |942100|Ataque de injeção de SQL detectado via libinjection|
 |942110|Ataque de injeção de SQL: teste de injeção comum detectado|
@@ -531,9 +532,9 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |942251|Detecta a existência de injeçãos|
 |942460|Alerta de detecção de anomalias de metacaracteres – caracteres repetitivos que não são palavras|
 
-### <a name="crs943-30"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-943-APLICATIVO-ATAQUE-SESSÃO-FIXAÇÃO DA</p>
+### <a name="crs943-30"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |943100|Possível ataque de fixação da de sessão = definindo valores de cookie em HTML|
 |943110|Possível ataque de fixação da de sessão = nome de parâmetro de SessionID com referenciador fora do domínio|
@@ -545,7 +546,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 ### <a name="crs20"></a>crs_20_protocol_violations
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |960911|Linha de solicitação HTTP inválida|
 |981227|Erro do Apache = URI inválido na solicitação.|
@@ -571,7 +572,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 ### <a name="crs21"></a>crs_21_protocol_anomalies
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |960008|Solicitação ausente de cabeçalho de host|
 |960007|Cabeçalho de host vazio|
@@ -584,7 +585,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 ### <a name="crs23"></a>crs_23_request_limits
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |960209|Nome de argumento muito longo|
 |960208|Valor de argumento muito longo|
@@ -593,9 +594,9 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |960342|Tamanho de arquivo carregado muito grande|
 |960343|Tamanho total de arquivos carregados muito grande|
 
-### <a name="crs30"></a>crs_30_http_policy
+### <a name="crs30"></a> crs_30_http_policy
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |960032|O método não é permitido pela política|
 |960010|O tipo de conteúdo da solicitação não é permitido pela política|
@@ -605,7 +606,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 ### <a name="crs35"></a>crs_35_bad_robots
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |990002|Solicitação indica que um verificador de segurança verificou o site|
 |990901|Solicitação indica que um verificador de segurança verificou o site|
@@ -614,7 +615,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 ### <a name="crs40"></a>crs_40_generic_attacks
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |960024|Alerta de detecção de anomalias de metacaracteres – caracteres repetitivos que não são palavras|
 |950008|Injeção de marcas do ColdFusion não documentadas|
@@ -641,9 +642,9 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |958976|Ataque de injeção de PHP|
 |958977|Ataque de injeção de PHP|
 
-### <a name="crs41sql"></a>crs_41_sql_injection_attacks
+### <a name="crs41sql"></a> crs_41_sql_injection_attacks
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |981231|Sequência de comentário SQL detectada.|
 |981260|Codificação hexadecimal do SQL identificada|
@@ -678,9 +679,9 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |981253|Detecta injeções de função/procedimento armazenado MySQL e PostgreSQL|
 |981251|Detecta a injeção de UDF MySQL e outras tentativas de manipulação de dados/estrutura|
 
-### <a name="crs41xss"></a>crs_41_xss_attacks
+### <a name="crs41xss"></a> crs_41_xss_attacks
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |973336|Filtro XSS-categoria 1 = vetor de marca de script|
 |973338|Filtro XSS-categoria 3 = vetor de URI do JavaScript|
@@ -785,13 +786,13 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 
 ### <a name="crs42"></a>crs_42_tight_security
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |950103|Ataque de percurso de caminho|
 
 ### <a name="crs45"></a>crs_45_trojans
 
-|ruleId|Descrição|
+|RuleId|Descrição|
 |---|---|
 |950110|Acesso ao Backdoor|
 |950921|Acesso ao Backdoor|

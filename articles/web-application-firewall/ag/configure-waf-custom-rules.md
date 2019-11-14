@@ -1,18 +1,19 @@
 ---
-title: Configurar o Firewall do aplicativo Web v2 nas regras personalizadas do gateway de aplicativo usando Azure PowerShell
+title: Configurar regras personalizadas de v2 usando o PowerShell
+titleSuffix: Azure Web Application Firewall
 description: Saiba como configurar regras personalizadas do WAF v2 usando o Azure PowerShell
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 8c307ac5553c2c333425b6c14b9b4da4a6582f62
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 48f45629b82e63dfc3f098b68e1be2523a3a0e5c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516802"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075392"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Configurar o Firewall do aplicativo Web V2 no gateway de aplicativo com uma regra personalizada usando Azure PowerShell
 
@@ -49,7 +50,7 @@ $location = "East US"
 $appgwName = "WAFCustomRules"
 ```
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 ```azurepowershell
 $resourceGroup = New-AzResourceGroup -Name $rgname -Location $location

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integração de SSO (logon único) com Lesson.ly | Microsoft Docs'
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o Lesson.ly | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Lesson.ly.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 10/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b038eca3d4e6beb6b1d226a4a7b1e20bfe3bb55a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: fa22b46dabcc5c8b2db5997ffc9b2f2480846d6f
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121418"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074643"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lessonly"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com Lesson.ly
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lessonly"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Lesson.ly
 
 Neste tutorial, você aprenderá a integrar o Lesson.ly com o Azure Active Directory (Azure AD). Ao integrar o Lesson.ly ao Azure AD, você pode:
 
@@ -65,10 +65,10 @@ Configure e teste o SSO do Azure AD com o Lesson.ly usando um usuário de teste 
 Para configurar e testar o SSO do Azure AD com o Lesson.ly, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
 1. **[Configurar o SSO do Lesson.ly](#configure-lessonly-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    1. **[Criar usuário de teste do Lesson.ly](#create-lessonly-test-user)** – para ter um equivalente de B. Simon em Lesson.ly que esteja vinculado à representação do usuário no Azure AD.
+    * **[Criar usuário de teste do Lesson.ly](#create-lessonly-test-user)** – para ter um equivalente de B. Simon em Lesson.ly que esteja vinculado à representação do usuário no Azure AD.
 1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
@@ -83,15 +83,28 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://<companyname>.lessonly.com/signin`
+    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<companyname>.lessonly.com/signin`
 
     > [!NOTE]
     > Ao referenciar um nome genérico, o **CompanyName** precisa ser substituído por um nome real.
 
-    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão:`https://<companyname>.lessonly.com/auth/saml/metadata`
+    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.lessonly.com/auth/saml/metadata`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do Lessonly.com](mailto:support@lessonly.com) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+
+1. O aplicativo Lesson.ly espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+
+    ![image](common/default-attributes.png)
+
+1. Além de acima, o aplicativo Lesson.ly espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seus requisitos.
+
+    | Nome | Atributo de origem|
+    | ---------------  | ----------------|
+    | urn:oid:2.5.4.42 | user.givenname |
+    | urn:oid:2.5.4.4  | User. sobrenome |
+    | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+    | urn:oid:1.3.6.1.4.1.5923.1.1.1.10 | User. ObjectId |
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -137,7 +150,7 @@ Para configurar o logon único no lado do **Lesson.ly** , é necessário enviar 
 
 ### <a name="create-lessonly-test-user"></a>Criar usuário de teste do Lesson.ly
 
-O objetivo desta seção é criar um usuário chamado Brenda Simon no Lessonly.com. O Lessonly.com dá suporte ao provisionamento just-in-time, que está habilitado por padrão.
+O objetivo desta seção é criar um usuário chamado B. Simon em Lessonly.com. O Lessonly.com dá suporte ao provisionamento just-in-time, que está habilitado por padrão.
 
 Não há nenhum item de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o Lessonly.com, caso ele ainda não exista.
 

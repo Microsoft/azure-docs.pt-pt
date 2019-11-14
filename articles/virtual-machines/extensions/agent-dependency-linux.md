@@ -1,5 +1,5 @@
 ---
-title: Extensão de máquina virtual de dependência Azure Monitor para Linux | Microsoft Docs
+title: Extensão de máquina virtual de dependência Azure Monitor para Linux
 description: Implante o Azure Monitor agente de dependência na máquina virtual Linux usando uma extensão de máquina virtual.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 416b0c89105f97514efdfcc859a630d78f7ba7f5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 46b0ddeeb70e263723b657ef3150dc5548fcc742
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084840"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073878"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual de dependência Azure Monitor para Linux
 
@@ -73,11 +73,11 @@ O JSON a seguir mostra o esquema para a extensão do agente de dependência de V
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Name | Valor/exemplo |
+| Nome | Valor/exemplo |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
-| type | DependencyAgentLinux |
+| tipo | DependencyAgentLinux |
 | typeHandlerVersion | 9.5 |
 
 ## <a name="template-deployment"></a>Implementação de modelos
@@ -86,7 +86,7 @@ Você pode implantar extensões de VM do Azure com modelos de Azure Resource Man
 
 O JSON para uma extensão de máquina virtual pode ser aninhado dentro do recurso de máquina virtual. Ou você pode colocá-lo no nível raiz ou superior de um modelo JSON do Resource Manager. O posicionamento do JSON afeta o valor do nome do recurso e do tipo. Para obter mais informações, consulte [defina o nome e tipo para recursos subordinados](../../azure-resource-manager/child-resource-name-type.md).
 
-O exemplo a seguir pressupõe que a extensão do agente de dependência está aninhada dentro do recurso de máquina virtual. Quando você Aninha o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
+O exemplo a seguir pressupõe que a extensão do agente de dependência está aninhada dentro do recurso de máquina virtual. Quando você Aninha o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
 
 
 ```json

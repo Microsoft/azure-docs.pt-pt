@@ -1,6 +1,6 @@
 ---
-title: 'Backup do Azure: Criar cofres dos serviços de recuperação'
-description: Criando cofres dos serviços de recuperação que armazenam os backups e os pontos de recuperação
+title: 'Backup do Azure: criar cofres dos serviços de recuperação'
+description: Neste artigo, saiba como criar cofres dos serviços de recuperação que armazenam os backups e os pontos de recuperação.
 ms.reviewer: sogup
 author: dcurwin
 manager: carmonm
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: d13aff40d735e98e7745358f8caddcd8cdc20727
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 30e2f8812b14f27b57ef22e30aea89f19fa56e58
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688548"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074886"
 ---
 # <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -43,9 +43,9 @@ Para criar um cofre dos Serviços de Recuperação:
     ![Configurar o cofre dos serviços de recuperação](./media/backup-create-rs-vault/create-new-vault-dialog.png)
 
    - **Nome**: Insira um nome amigável para identificar o cofre. O nome deve ser exclusivo para a assinatura do Azure. Especifique um nome que tenha pelo menos dois, mas não mais de 50 caracteres. O nome deve começar com uma letra e consistir apenas em letras, números e hifens.
-   - **Assinatura**: Escolha a assinatura a ser usada. Se você for membro de apenas uma assinatura, verá esse nome. Se você não tiver certeza de qual assinatura usar, use a assinatura padrão (sugerida). Há várias opções somente se sua conta corporativa ou de estudante estiver associada a mais de uma assinatura do Azure.
+   - **Assinatura**: escolha a assinatura a ser usada. Se você for membro de apenas uma assinatura, verá esse nome. Se você não tiver certeza de qual assinatura usar, use a assinatura padrão (sugerida). Há várias opções somente se sua conta corporativa ou de estudante estiver associada a mais de uma assinatura do Azure.
    - **Grupo de recursos**: Use um grupo de recursos existente ou crie um novo. Para ver a lista de grupos de recursos disponíveis em sua assinatura, selecione **usar existente**e, em seguida, selecione um recurso na caixa de listagem suspensa. Para criar um novo grupo de recursos, selecione **criar novo** e insira o nome. Para obter informações completas sobre grupos de recursos, consulte [Azure Resource Manager visão geral](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
-   - **Local**: Selecione a região geográfica para o cofre. Para criar um cofre para proteger as máquinas virtuais, o cofre **deve** estar na mesma região que as máquinas virtuais.
+   - **Local**: selecione a região geográfica para o cofre. Para criar um cofre para proteger as máquinas virtuais, o cofre **deve** estar na mesma região que as máquinas virtuais.
 
       > [!IMPORTANT]
       > Se você não tiver certeza do local da VM, feche a caixa de diálogo. Vá para a lista de máquinas virtuais no Portal. Se você tiver máquinas virtuais em várias regiões, crie um cofre de serviços de recuperação em cada região. Crie o cofre no primeiro local antes de criar o cofre para outro local. Não é necessário especificar contas de armazenamento para armazenar os dados de backup. O cofre dos serviços de recuperação e o serviço de backup do Azure lidam com isso automaticamente.
@@ -76,9 +76,9 @@ O backup do Azure manipula automaticamente o armazenamento para o cofre. Você p
    - Saiba mais sobre a redundância [geográfica](../storage/common/storage-redundancy-grs.md) e [local](../storage/common/storage-redundancy-lrs.md) .
 
 > [!NOTE]
-> A alteração do **tipo de replicação de armazenamento** (com redundância local/geograficamente) para um cofre dos serviços de recuperação deve ser feita antes de configurar backups no cofre. Depois de configurar o backup, a opção para modificar é desabilitada e você não pode alterar o **tipo de replicação de armazenamento**. 
+> A alteração do **tipo de replicação de armazenamento** (com redundância local/geograficamente) para um cofre dos serviços de recuperação deve ser feita antes de configurar backups no cofre. Depois de configurar o backup, a opção para modificar é desabilitada e você não pode alterar o **tipo de replicação de armazenamento**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais](backup-azure-recovery-services-vault-overview.md) Cofres dos serviços de recuperação.
 [Saiba mais](backup-azure-delete-vault.md) Excluir cofres dos serviços de recuperação.

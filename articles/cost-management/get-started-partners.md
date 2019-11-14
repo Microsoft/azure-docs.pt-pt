@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 611b3e608d9b0de9423c861ec70e9fc2e7ad67d5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: cd3efbea7b194da54bc1d9bebd1cc77987bd9dea
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720746"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072342"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introdução ao gerenciamento de custos do Azure para parceiros
 
-O gerenciamento de custos do Azure está disponível nativamente para parceiros que integraram seus clientes a um contrato de clientes da Microsoft. Este artigo explica como os parceiros usam os recursos de [Gerenciamento de custos do Azure](https://docs.microsoft.com/azure/cost-management/) . Ele também descreve como os parceiros permitem o acesso de gerenciamento de custos para seus clientes. Os clientes podem usar os recursos de gerenciamento de custos quando habilitados pelo parceiro CSP.
+O gerenciamento de custos do Azure está disponível nativamente para parceiros que integraram seus clientes a um contrato de cliente da Microsoft e compraram um plano do Azure. Este artigo explica como os parceiros usam os recursos de [Gerenciamento de custos do Azure](https://docs.microsoft.com/azure/cost-management/) . Ele também descreve como os parceiros permitem o acesso de gerenciamento de custos para seus clientes. Os clientes podem usar os recursos de gerenciamento de custos quando habilitados pelo parceiro CSP.
 
 Os parceiros CSP usam o gerenciamento de custos para:
 

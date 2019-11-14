@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault extensão de VM para Linux | Microsoft Docs
+title: Azure Key Vault extensão de VM para Linux
 description: Implante um agente executando a atualização automática de certificados de Key Vault em máquinas virtuais usando uma extensão de máquina virtual.
 services: virtual-machines-linux
 author: msmbaldwin
@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 5991d3d2197822b239b946de66f020dd258f835a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2de8a072aec66c2c087541ed9620f3dbdc137ee9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584369"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073008"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual Key Vault para Linux
 
@@ -29,7 +29,7 @@ A extensão de VM Key Vault dá suporte a essas distribuições do Linux:
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão de VM Key Vault. A extensão não requer configurações protegidas. todas as suas configurações são consideradas informações sem impacto de segurança. A extensão requer uma lista de segredos monitorados, a frequência de sondagem e o repositório de certificados de destino. Especificamente:  
+O JSON a seguir mostra o esquema para a extensão de VM Key Vault. A extensão não requer configurações protegidas. todas as suas configurações são consideradas informações sem impacto de segurança. A extensão requer uma lista de segredos monitorados, a frequência de sondagem e o repositório de certificados de destino. Mais concretamente:  
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -66,10 +66,10 @@ O JSON a seguir mostra o esquema para a extensão de VM Key Vault. A extensão n
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/exemplo | Tipo de Dados |
+| Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| Programa | Microsoft. Azure. keyvault. EDP | string |
+| publisher | Microsoft. Azure. keyvault. EDP | string |
 | tipo | KeyVaultForLinux | string |
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | string |
@@ -82,7 +82,7 @@ O JSON a seguir mostra o esquema para a extensão de VM Key Vault. A extensão n
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-As extensões de VM do Azure podem ser implantadas com modelos de Azure Resource Manager. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem a atualização pós-implantação de certificados. A extensão pode ser implantada em VMs individuais ou conjuntos de dimensionamento de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelo. 
+Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem a atualização pós-implantação de certificados. A extensão pode ser implantada em VMs individuais ou conjuntos de dimensionamento de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelo. 
 
 A configuração JSON para uma extensão de máquina virtual deve ser aninhada dentro do fragmento de recurso de máquina virtual do modelo, especificamente `"resources": []` objeto para o modelo de máquina virtual e no caso do conjunto de dimensionamento de máquinas virtuais em `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` objeto.
 
@@ -158,7 +158,7 @@ O Azure PowerShell pode ser usado para implantar a extensão de VM Key Vault em 
     
     ```
 
-## <a name="azure-cli-deployment"></a>Implantação de CLI do Azure
+## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
 
 O CLI do Azure pode ser usado para implantar a extensão de VM Key Vault em uma máquina virtual existente ou em um conjunto de dimensionamento de máquinas virtuais. 
  
@@ -190,7 +190,7 @@ Esteja ciente das seguintes restrições/requisitos:
     - A política de acesso Key Vault está definida para a identidade VM/VMSS usando o MSI
 
 
-## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
+## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
@@ -208,4 +208,4 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione obter suporte. Para obter informações sobre como usar o suporte do Azure, leia as [perguntas frequentes sobre suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).

@@ -1,19 +1,20 @@
 ---
-title: Início Rápido - Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure | Microsoft Docs
+title: 'Início rápido: tráfego direto da Web usando o portal'
+titleSuffix: Azure Application Gateway
 description: Saiba como usar o portal do Azure para criar um gateway de Aplicativo Azure que direciona o tráfego da Web para máquinas virtuais em um pool de back-end.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 07/17/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 781203cec8d85abd74aa439b5595e8d00ed36745
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4f5a20f80ea8eafa73cbef394dcfdde75087326b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961676"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074567"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure
 

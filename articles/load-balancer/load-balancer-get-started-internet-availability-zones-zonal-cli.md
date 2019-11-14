@@ -1,6 +1,6 @@
 ---
-title: Criar um Load Balancer com front-end zonal-CLI do Azure
-titlesuffix: Azure Load Balancer
+title: Criar um balanceador de carga com front-end zonal-CLI do Azure
+titleSuffix: Azure Load Balancer
 description: Saiba como criar um Standard Load Balancer com front-end zonal usando CLI do Azure
 services: load-balancer
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: allensu
-ms.openlocfilehash: 663567f6e3b078c1cb2afc60c3aaa9fcfb7af4dd
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 620e4456e86a8610819495bd490353a3a5681738
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275248"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076093"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Criar um Standard Load Balancer com front-end zonal usando CLI do Azure
 
@@ -34,7 +34,7 @@ Se optar por instalar e utilizar a CLI localmente, certifique-se de que instalou
 > Suporte para zonas de disponibilidade está disponível para os recursos do Azure selecionados e regiões e famílias de tamanhos VM. Para obter mais informações sobre como começar a utilizar e quais recursos do Azure, regiões e famílias de tamanhos VM pode experimentar com as zonas de disponibilidade, consulte [descrição geral das zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Para obter suporte, pode contactar-nos no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) ou [abrir um pedido de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Crie um grupo de recursos com o seguinte comando:
 
@@ -77,7 +77,7 @@ az network lb rule create --resource-group myResourceGroupZLB --lb-name myLoadBa
   --backend-pool-name myBackEndPool --probe-name myHealthProbe
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [zonas de disponibilidade e o Balanceador de carga Standard](load-balancer-standard-availability-zones.md).
 
 

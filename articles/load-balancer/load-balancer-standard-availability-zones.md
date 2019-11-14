@@ -1,7 +1,7 @@
 ---
 title: Standard Load Balancer e Zonas de Disponibilidade do Azure
-titlesuffix: Azure Load Balancer
-description: Balanceador de Carga Standard e Zonas de Disponibilidade
+titleSuffix: Azure Load Balancer
+description: Com este roteiro de aprendizagem, comece a usar o Azure Standard Load Balancer e Zonas de Disponibilidade.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 925e7857d337f7f2fd501e4e4467c05952b0da65
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 63a7db6e7078df978f47a6d53ea82df83c22c800
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882952"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076990"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Balanceador de Carga Standard e Zonas de Disponibilidade
 
@@ -151,7 +151,7 @@ O balanceamento de carga entre zonas é a capacidade de Load Balancer alcançar 
 
 Você precisa tomar cuidado para construir seu cenário de uma maneira que expressa uma noção de zonas de disponibilidade. Por exemplo, você precisa garantir a implantação de sua máquina virtual em uma única zona ou em várias zonas e alinhar os recursos de back-end zonal e frontend zonal para a mesma região.  Se você cruzar zonas de disponibilidade com apenas recursos de zona, o cenário funcionará, mas talvez não tenha um modo de falha clara em relação às zonas de disponibilidade. 
 
-### <a name="backend"></a>Back-end
+### <a name="backend"></a>End
 
 Load Balancer funciona com instâncias de máquinas virtuais.  Eles podem ser autônomos, conjuntos de disponibilidade ou conjuntos de dimensionamento de máquinas virtuais.  Qualquer instância de máquina virtual em uma única rede virtual pode fazer parte do pool de back-end, independentemente de ser ou não garantida a uma zona ou a qual zona foi garantida.
 
@@ -165,7 +165,7 @@ As mesmas propriedades com redundância de zona e zonas se aplicam a [conexões 
 
 O algoritmo de prealocação de porta SNAT é o mesmo com ou sem zonas de disponibilidade.
 
-### <a name="health-probes"></a>Sondas de estado de funcionamento
+### <a name="health-probes"></a>Sondas do estado de funcionamento
 
 Suas definições de investigação de integridade existentes permanecem como estão sem zonas de disponibilidade.  No entanto, expandimos o modelo de integridade em um nível de infraestrutura. 
 
@@ -214,7 +214,7 @@ Não há nenhuma orientação geral de que uma é uma opção melhor do que a ou
 
 - Embora o plano de dados seja totalmente redundante pela zona (a menos que a garantia zonal tenha sido especificada), as operações do plano de controle não são totalmente redundantes por zona.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre o [zonas de disponibilidade](../availability-zones/az-overview.md)
 - Saiba mais sobre o [Balanceador de Carga Standard](load-balancer-standard-overview.md)
 - Saiba como [balancear a carga de VMs em uma zona usando um Standard Load Balancer com um front-end zonal](load-balancer-standard-public-zonal-cli.md)

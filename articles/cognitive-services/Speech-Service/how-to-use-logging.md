@@ -1,7 +1,7 @@
 ---
 title: Log do SDK de fala – serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Habilite o registro em log no SDK de fala.
+description: Saiba mais sobre como habilitar o registro em log no SDKC++de C#fala (, Python, Objective-C, Java).
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: 31ff21e33860f75d91d01e80e3ee77bd7192f780
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 58f6c97ac819947f84735bc0bc4c125b43db58dc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559483"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075789"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Habilitar o registro em log no SDK de fala
 
@@ -24,9 +24,9 @@ O registro em log no arquivo é um recurso opcional para o SDK de fala. Durante 
 > [!NOTE]
 > O registro em log está disponível desde o Speech SDK versão 1.4.0 em todas as linguagens de programação SDK de fala com suporte, com exceção do JavaScript.
 
-## <a name="sample"></a>Exemplo
+## <a name="sample"></a>Sample
 
-O nome do arquivo de log é especificado em um objeto de configuração. Considerando o `SpeechConfig` como um exemplo e supondo que você criou uma instância chamada `config`:
+O nome do arquivo de log é especificado em um objeto de configuração. Pegar o `SpeechConfig` como um exemplo e pressupondo que você tenha criado uma instância chamada `config`:
 
 ```csharp
 config.SetProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
@@ -51,7 +51,7 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 Você pode criar um reconhecedor a partir do objeto de configuração. Isso habilitará o registro em log para todos os reconhecedores.
 
 > [!NOTE]
-> Se você criar um `SpeechSynthesizer` do objeto de configuração, ele não habilitará o registro em log. No entanto, se o `SpeechSynthesizer`registro em log estiver habilitado, você também receberá diagnósticos do.
+> Se você criar um `SpeechSynthesizer` a partir do objeto de configuração, ele não habilitará o registro em log. No entanto, se o registro em log estiver habilitado, você também receberá diagnósticos do `SpeechSynthesizer`.
 
 ## <a name="create-a-log-file-on-different-platforms"></a>Criar um arquivo de log em diferentes plataformas
 
@@ -79,7 +79,7 @@ File logFile = new File(dir, "logfile.txt");
 config.setProperty(PropertyId.Speech_LogFilename, logFile.getAbsolutePath());
 ```
 
-O código acima salvará um arquivo de log no armazenamento externo na raiz de um diretório específico do aplicativo. Um usuário pode acessar o arquivo com o Gerenciador de arquivos (geralmente `Android/data/ApplicationName/logfile.txt`em). O arquivo será excluído quando o aplicativo for desinstalado.
+O código acima salvará um arquivo de log no armazenamento externo na raiz de um diretório específico do aplicativo. Um usuário pode acessar o arquivo com o Gerenciador de arquivos (geralmente em `Android/data/ApplicationName/logfile.txt`). O arquivo será excluído quando o aplicativo for desinstalado.
 
 Você também precisa solicitar `WRITE_EXTERNAL_STORAGE` permissão no arquivo de manifesto:
 
@@ -104,7 +104,7 @@ NSString *filePath = [
 [speechConfig setPropertyTo:filePath byId:SPXSpeechLogFilename];
 ```
 
-Para acessar um arquivo criado, adicione as propriedades abaixo à `Info.plist` lista de propriedades do aplicativo:
+Para acessar um arquivo criado, adicione as propriedades abaixo à lista de propriedades de `Info.plist` do aplicativo:
 
 ```xml
 <key>UIFileSharingEnabled</key>
@@ -115,7 +115,7 @@ Para acessar um arquivo criado, adicione as propriedades abaixo à `Info.plist` 
 
 Mais sobre o sistema de arquivos do iOS está disponível [aqui](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Explore nossos exemplos no GitHub](https://aka.ms/csspeech/samples)

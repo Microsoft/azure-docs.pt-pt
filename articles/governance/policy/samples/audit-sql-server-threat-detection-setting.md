@@ -1,17 +1,14 @@
 ---
 title: Exemplo – detecção de ameaças no nível do servidor de auditoria
 description: Esta definição de política de exemplo audita as políticas de alerta de segurança do SQL Server se essas políticas não estiverem definidas para o estado especificado.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 0c5cfe2d30668102a356224b5efd141746ab0866
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 8eeb557426ef2eaca855c30f1bce14ee2b7681f4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254760"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74071220"
 ---
 # <a name="sample---audit-server-level-threat-detection-setting"></a>Exemplo – configuração de detecção de ameaças no nível do servidor de auditoria
 
@@ -27,9 +24,9 @@ Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
-[![Deploy o exemplo de política para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FSQL%2Faudit-sql-server-threat-detection%2Fazurepolicy.json)
+[![implantar o exemplo de política no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FSQL%2Faudit-sql-server-threat-detection%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>Implementar com o Powershell
+## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -48,7 +45,7 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
+## <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -68,4 +65,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Reveja mais exemplos nas [amostras do Azure Policy](index.md)
+- Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

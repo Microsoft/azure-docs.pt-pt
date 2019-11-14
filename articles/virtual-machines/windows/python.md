@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar uma VM do Windows no Azure usando Python | Microsoft Docs
+title: Criar e gerenciar uma VM do Windows no Azure usando o Python
 description: Aprenda a usar o Python para criar e gerenciar uma VM do Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: fcbf4e054359534f924b401f2f42e1d4c33890be
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1686e86600fb28165ae44e7ca6c0c406dfa26d72
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102485"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065605"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Criar e gerenciar VMs do Windows no Azure usando o Python
 
@@ -39,8 +39,8 @@ Leva cerca de 20 minutos para executar essas etapas.
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
 1. Se você ainda não fez isso, instale o [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selecione **desenvolvimento do Python** na página cargas de trabalho e clique em **instalar**. No resumo, você pode ver que o **Python 3 64-bit (3.6.0)** é selecionado automaticamente para você. Se você já tiver instalado o Visual Studio, poderá adicionar a carga de trabalho do Python usando o inicializador do Visual Studio.
-2. Depois de instalar e iniciar o Visual Studio, clique em **arquivo** > **novo** > **projeto**.
-3. Clique **em modelos** > Python aplicativo Python, digite myPythonProject para o nome do projeto, selecione o local do projeto e clique em OK. > 
+2. Depois de instalar e iniciar o Visual Studio, clique em **arquivo** > **novo** **projeto**de > .
+3. Clique em **modelos** > **Python** > **aplicativo python**, digite *myPythonProject* para o nome do projeto, selecione o local do projeto e clique em **OK**.
 
 ## <a name="install-packages"></a>Instalar pacotes
 
@@ -439,7 +439,7 @@ Você pode interromper uma máquina virtual e manter todas as suas configuraçõ
         compute_client.virtual_machines.power_off(GROUP_NAME, VM_NAME)
     ```
 
-    Se você quiser desalocar a máquina virtual, altere a chamada power_off para este código:
+    Se você quiser desalocar a máquina virtual, altere a chamada de power_off para este código:
 
     ```python
     compute_client.virtual_machines.deallocate(GROUP_NAME, VM_NAME)
@@ -570,7 +570,7 @@ Como você é cobrado pelos recursos usados no Azure, é sempre uma boa prática
     Deve levar cerca de cinco minutos para que esse aplicativo de console seja executado completamente do início ao fim. Pode levar vários minutos depois que o aplicativo for concluído antes que todos os recursos e o grupo de recursos sejam excluídos.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Se ocorreram problemas com a implementação, um passo seguinte será ver [Troubleshooting resource group deployments with Azure portal (Resolução de problemas com implementações do grupo de recursos com o portal do Azure)](../../resource-manager-troubleshoot-deployments-portal.md)
 - Saiba mais sobre a [biblioteca do Azure Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)

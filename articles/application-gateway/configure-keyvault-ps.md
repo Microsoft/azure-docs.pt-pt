@@ -1,18 +1,19 @@
 ---
-title: Configurar a terminação SSL com certificados de Key Vault usando Azure PowerShell
+title: Configurar terminação SSL com certificados Key Vault-PowerShell
+titleSuffix: Azure Application Gateway
 description: Saiba como você pode integrar Aplicativo Azure gateway com Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/22/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: b7408d6169e1cf42bcda8855a19076c739d086dd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c40c4cf9f25ce17bc7042191324aeb864696995f
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000999"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074588"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configurar a terminação SSL com certificados de Key Vault usando Azure PowerShell
 
@@ -22,7 +23,7 @@ Para obter mais informações, consulte [terminação SSL com certificados Key V
 
 Este artigo mostra como usar um script de Azure PowerShell para integrar o cofre de chaves ao seu gateway de aplicativo para certificados de terminação SSL.
 
-Este artigo requer Azure PowerShell módulo versão 1.0.0 ou posterior. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Para executar os comandos neste artigo, você também precisará criar uma conexão com o Azure executando `Connect-AzAccount`.
+Este artigo requer Azure PowerShell módulo versão 1.0.0 ou posterior. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Para executar os comandos neste artigo, você também precisa criar uma conexão com o Azure executando `Connect-AzAccount`.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -138,6 +139,6 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
   -SslCertificates $sslCert01 -AutoscaleConfiguration $autoscaleConfig
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre terminação SSL](ssl-overview.md)

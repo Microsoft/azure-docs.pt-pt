@@ -1,18 +1,19 @@
 ---
-title: Introdução ao firewall do aplicativo Web do Azure no gateway de Aplicativo Azure
+title: Introdução ao firewall do aplicativo Web do Azure
+titleSuffix: Azure Web Application Firewall
 description: Este artigo fornece uma visão geral do WAF (firewall do aplicativo Web) no gateway de aplicativo
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/05/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 6d073648dc908cbbe40962f7ba079abcfe85ce45
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 4ba2772ffb89809c2262880385207a12c74882cc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607291"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067152"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Firewall do aplicativo Web do Azure no gateway de Aplicativo Azure
 
@@ -198,7 +199,7 @@ O WAF do gateway de aplicativo fornece relatórios detalhados sobre cada ameaça
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Preços da SKU da WAF do Gateway de Aplicação
 
-Os modelos de preços são diferentes para as SKUs WAF_v1 e WAF_v2. Consulte a página de [preços do gateway de aplicativo](https://azure.microsoft.com/pricing/details/application-gateway/) para saber mais. 
+Os modelos de preços são diferentes para as SKUs de WAF_v1 e WAF_v2. Consulte a página de [preços do gateway de aplicativo](https://azure.microsoft.com/pricing/details/application-gateway/) para saber mais. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

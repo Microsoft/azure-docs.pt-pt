@@ -1,5 +1,5 @@
 ---
-title: Usar Azure Policy para restringir a instalação da extensão de VM | Microsoft Docs
+title: Usar Azure Policy para restringir a instalação da extensão de VM
 description: Use Azure Policy para restringir implantações de extensão de VM.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 20099bb32a1984be0bfbbaaa4e7bc6cd4481a806
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 113736198f40510981c80909c862282fa07ac68d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174026"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073774"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Usar Azure Policy para restringir a instalação de extensões em VMs Linux
 
@@ -115,7 +115,7 @@ az policy definition create \
 
 ## <a name="assign-the-policy"></a>Atribuir a política
 
-Este exemplo atribui a política a um grupo de recursos usando a [atribuição de política AZ Create](/cli/azure/policy/assignment). Qualquer VM criada no grupo de recursos MyResource Group não será capaz de instalar o acesso de VM do Linux ou as extensões de script personalizado para Linux. O grupo de recursos deve existir antes que você possa atribuir a política.
+Este exemplo atribui a política a um grupo de recursos usando a [atribuição de política AZ Create](/cli/azure/policy/assignment). Qualquer VM criada no grupo de recursos **MyResource** Group não será capaz de instalar o acesso de VM do Linux ou as extensões de script personalizado para Linux. O grupo de recursos deve existir antes que você possa atribuir a política.
 
 Use a [lista de contas AZ](/cli/azure/account?view=azure-cli-latest) para obter sua ID de assinatura a ser usada no lugar do exemplo.
 

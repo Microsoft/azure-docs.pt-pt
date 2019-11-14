@@ -1,7 +1,7 @@
 ---
 title: Perguntas frequentes – LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém respostas para perguntas frequentes sobre o Reconhecimento vocal (LUIS).
+description: Este artigo contém respostas para perguntas mais frequentes sobre a compreensão de idiomas (LUIS).
 author: diberry
 manager: nitinme
 ms.custom: seodec18
@@ -11,62 +11,62 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 5824b835b3debb33386c0d1f86581c6bb91b14ae
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: c7e34b816f33c5286557dfc5d58711128ff68437
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904200"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075889"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Reconhecimento vocal (FAQ)
 
-Este artigo contém respostas para perguntas frequentes sobre o Reconhecimento vocal (LUIS).
+Este artigo contém respostas para perguntas mais frequentes sobre a compreensão de idiomas (LUIS).
 
 ## <a name="whats-new"></a>Novidades
 
-[Saiba mais](whats-new.md) sobre as novidades do reconhecimento vocal.
+[Saiba mais](whats-new.md) sobre as novidades do reconhecimento vocal (Luis).
 
 <a name="luis-authoring"></a>
 
 ## <a name="authoring"></a>Criação
 
 ### <a name="what-are-the-luis-best-practices"></a>Quais são as práticas recomendadas do LUIS?
-Comece com o [ciclo de criação](luis-concept-app-iteration.md)e leia as [práticas recomendadas](luis-concept-best-practices.md).
+Começar com o [ciclo de criação](luis-concept-app-iteration.md), em seguida, leia o [melhores práticas](luis-concept-best-practices.md).
 
-### <a name="what-is-the-best-way-to-start-building-my-app-in-luis"></a>Qual é a melhor maneira de começar a criar meu aplicativo no LUIS?
+### <a name="what-is-the-best-way-to-start-building-my-app-in-luis"></a>O que é a melhor maneira de começar a criar meu aplicativo em LUIS?
 
-A melhor maneira de criar seu aplicativo é por meio de um [processo incremental](luis-concept-app-iteration.md).
+A melhor forma de criar a sua aplicação é por meio de um [processo incremental](luis-concept-app-iteration.md).
 
-### <a name="what-is-a-good-practice-to-model-the-intents-of-my-app-should-i-create-more-specific-or-more-generic-intents"></a>O que é uma boa prática para modelar as intenções do meu aplicativo? Devo criar tentativas mais específicas ou mais genéricas?
+### <a name="what-is-a-good-practice-to-model-the-intents-of-my-app-should-i-create-more-specific-or-more-generic-intents"></a>O que é uma boa prática para modelar dos objetivos do meu aplicativo? Deve criar objetivos mais genéricos ou mais específicos?
 
-Escolha as intenções que não são tão gerais quanto serem sobrepostas, mas não tão específica que torna difícil para LUIS distinguir entre tentativas semelhantes. A criação de intenções específicas discriminadas é uma das práticas recomendadas para a modelagem LUIS.
+Escolha os objetivos que não são tão gerais como para ser sobrepostos, mas não tão específica que ela torna difícil para o LUIS distinguir entre os objetivos semelhantes. Criar discriminative objetivos específicos é uma das práticas recomendadas para LUIS de modelagem.
 
-### <a name="is-it-important-to-train-the-none-intent"></a>É importante treinar a intenção de nenhum?
+### <a name="is-it-important-to-train-the-none-intent"></a>É importante preparar a intenção None?
 
-Sim, é bom treinar sua intenção de **nenhum** com mais declarações à medida que você adiciona mais rótulos a outras intenções. Uma boa taxa é 1 ou 2 rótulos adicionados a **nenhum** para cada 10 rótulos adicionados a uma intenção. Essa taxa impulsiona a potência discriminada do LUIS.
+Sim, é bom preparar sua **None** intenção com mais expressões com à medida que adiciona mais etiquetas para outros objetivos. Uma boa razão é 1 ou 2 etiquetas adicionadas ao **None** para todas as etiquetas de 10 adicionadas a um objetivo. Este rácio aumenta o poder discriminative do LUIS.
 
-### <a name="how-can-i-correct-spelling-mistakes-in-utterances"></a>Como posso corrigir erros de ortografia no declarações?
+### <a name="how-can-i-correct-spelling-mistakes-in-utterances"></a>Como pode corrigir os erros de ortografia em expressões com?
 
-Consulte o tutorial da [API V7 verificação ortográfica do Bing](luis-tutorial-bing-spellcheck.md) . O LUIS impõe os limites impostos pela API de Verificação Ortográfica do Bing v7.
+Consulte a [Bing ortográfica verificar a API V7](luis-tutorial-bing-spellcheck.md) tutorial. LUIS impõe limites impostos pelo Bing ortográfica verificar a API V7.
 
-### <a name="how-do-i-edit-my-luis-app-programmatically"></a>Como fazer editar meu aplicativo LUIS de forma programática?
-Para editar seu aplicativo LUIS de forma programática, use a [API de criação](https://go.microsoft.com/fwlink/?linkid=2092087). Consulte [chamar a API de criação do Luis](./luis-quickstart-node-add-utterance.md) e [COMPILAR um aplicativo Luis programaticamente usando node. js](./luis-tutorial-node-import-utterances-csv.md) para obter exemplos de como chamar a API de criação. A API de criação requer que você use uma [chave de criação](luis-concept-keys.md#azure-resources-for-luis) em vez de uma chave de ponto de extremidade. A criação programática permite até 1 milhão chamadas por mês e cinco transações por segundo. Para obter mais informações sobre as chaves que você usa com o LUIS, consulte [gerenciar chaves](./luis-concept-keys.md).
+### <a name="how-do-i-edit-my-luis-app-programmatically"></a>Como faço para editar a minha aplicação LUIS por meio de programação?
+Para editar a sua aplicação do LUIS programaticamente, utilize o [criação API](https://go.microsoft.com/fwlink/?linkid=2092087). Ver [LUIS chamar a API de criação](./luis-quickstart-node-add-utterance.md) e [criar uma aplicação do LUIS por meio de programação com node. js](./luis-tutorial-node-import-utterances-csv.md) para obter exemplos de como chamar a API de criação. A API de criação é necessário utilizar um [chave de criação](luis-concept-keys.md#azure-resources-for-luis) em vez de uma chave de ponto final. A criação programática permite até 1 000 000 chamadas por mês e cinco transações por segundo. Para obter mais informações sobre as chaves a utilizar com os LUIS, consulte [gerir chaves](./luis-concept-keys.md).
 
-### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Onde está o recurso padrão que fornece correspondência de expressão regular?
-O **recurso de padrão** anterior está atualmente preterido, substituído por **[padrões](luis-concept-patterns.md)** .
+### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Qual é a funcionalidade padrão que fornecia a expressão regular que corresponda?
+Anterior **funcionalidade de padrão** atualmente é preterido, substituídos pelos  **[padrões](luis-concept-patterns.md)** .
 
-### <a name="how-do-i-use-an-entity-to-pull-out-the-correct-data"></a>Como fazer usar uma entidade para extrair os dados corretos?
-Confira [entidades](luis-concept-entity-types.md) e [extração de dados](luis-concept-data-extraction.md).
+### <a name="how-do-i-use-an-entity-to-pull-out-the-correct-data"></a>Como utilizo uma entidade para extrair os dados corretos?
+Ver [entidades](luis-concept-entity-types.md) e [extração de dados](luis-concept-data-extraction.md).
 
-### <a name="should-variations-of-an-example-utterance-include-punctuation"></a>Se as variações de um exemplo expressão incluem Pontuação?
-Adicione as diferentes variações como exemplo declarações à intenção ou adicione o padrão do expressão de exemplo com a [sintaxe para ignorar](luis-concept-patterns.md#pattern-syntax) a pontuação.
+### <a name="should-variations-of-an-example-utterance-include-punctuation"></a>Variações de uma expressão de exemplo devem incluir a pontuação?
+Adicione as diferentes variações como expressões de exemplo para a intenção ou adicionar o padrão de expressão de exemplo com o [sintaxe para ignorar](luis-concept-patterns.md#pattern-syntax) a pontuação.
 
-### <a name="does-luis-currently-support-cortana"></a>O LUIS atualmente dá suporte à Cortana?
+### <a name="does-luis-currently-support-cortana"></a>O LUIS suporta atualmente Cortana?
 
-Aplicativos predefinidos da Cortana foram preteridos em 2017. Eles não têm mais suporte.
+Cortana criados previamente as aplicações foram preteridas em 2017. Já não são suportadas.
 
-### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Como fazer transferir a propriedade de um aplicativo LUIS?
-Para transferir um aplicativo LUIS para uma assinatura diferente do Azure, exporte o aplicativo LUIS e importe-o usando uma nova conta. Atualize a ID do aplicativo LUIS no aplicativo cliente que a chama. O novo aplicativo pode retornar pontuações de LUIS ligeiramente diferentes do aplicativo original.
+### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Como transferir a propriedade de uma aplicação do LUIS?
+Para transferir uma aplicação do LUIS para uma subscrição do Azure diferente, exportar a aplicação do LUIS e importe-o utilizando uma conta nova. Atualize o ID da aplicação LUIS no aplicativo cliente que chama-lo. A nova aplicação poderá devolver as LUIS ligeiramente diferente pontuações da aplicação original.
 
 ### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Uma entidade predefinida é marcada em um exemplo de expressão em vez de minha entidade personalizada. Como fazer corrigir isso? 
 
@@ -88,7 +88,7 @@ Consulte [Azure Active Directory recursos](luis-how-to-collaborate.md#azure-acti
 
 ## <a name="endpoint"></a>Ponto Final
 
-### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>Recebi um código de status de erro HTTP 403. Como fazer corrigi-lo?
+### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>Recebi um código de status de erro HTTP 403. Como posso corrigi-lo?
 
 Você obtém códigos de status de erro 403 e 429 ao exceder as transações por segundo ou transações por mês para o tipo de preço. Aumente seu tipo de preço ou use [contêineres](luis-container-howto.md)de reconhecimento vocal.
 
@@ -101,7 +101,7 @@ As soluções para esse erro incluem:
 * No [portal do Azure](https://portal.azure.com), em seu recurso de reconhecimento vocal, no **tipo de preço gerenciamento de recursos->** , altere o tipo de preço para uma camada mais alta do TPS. Você não precisa fazer nada no portal de Reconhecimento vocal se o recurso já estiver atribuído ao seu aplicativo Reconhecimento vocal.
 *  Se seu uso exceder o tipo de preço mais alto, adicione mais recursos Reconhecimento vocal com um balanceador de carga na frente deles. O [contêiner reconhecimento vocal](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
 
-### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>Recebi um código de status de erro HTTP 429. Como fazer corrigi-lo?
+### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>Recebi um código de status de erro HTTP 429. Como posso corrigi-lo?
 
 Você obtém códigos de status de erro 403 e 429 ao exceder as transações por segundo ou transações por mês para o tipo de preço. Aumente seu tipo de preço ou use [contêineres](luis-container-howto.md)de reconhecimento vocal.
 
@@ -113,29 +113,29 @@ As soluções incluem:
 * Se seu uso exceder o tipo de preço mais alto, adicione mais recursos Reconhecimento vocal com um balanceador de carga na frente deles. O [contêiner reconhecimento vocal](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
 * Você pode portar suas solicitações de aplicativo cliente com uma [política de repetição](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que você mesmo implementa quando obtém esse código de status. 
 
-### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Minha consulta de ponto de extremidade retornou resultados inesperados. O que devo fazer?
+### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Minha consulta de ponto final devolvidos resultados inesperados. O que devo fazer?
 
-Resultados de previsão de consulta inesperados são baseados no estado do modelo publicado. Para corrigir o modelo, talvez seja necessário alterar o modelo, treinar e publicar novamente. 
+Resultados da predição de consulta inesperada baseiam-se sobre o estado do modelo publicado. Para corrigir o modelo, talvez seja necessário alterar o modelo, treinar e publicar novamente. 
 
-A correção do modelo começa com o [aprendizado ativo](luis-how-to-review-endpoint-utterances.md).
+Como corrigir o modelo começa com [aprendizagem ativa](luis-how-to-review-endpoint-utterances.md).
 
-Você pode remover o treinamento não determinístico atualizando a [API de configurações de versão do aplicativo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) para usar todos os dados de treinamento.
+Pode remover o treinamento determinística ao atualizar o [aplicação API de definições de versão](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) para utilizar todos os dados de treinamento.
 
-Examine as [práticas recomendadas](luis-concept-best-practices.md) para obter outras dicas. 
+Reveja os [melhores práticas](luis-concept-best-practices.md) para outras sugestões. 
 
-### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>Por que o LUIS adiciona espaços à consulta ou no meio de palavras?
-LUIS [cria tokens](luis-glossary.md#token) expressão com base na [cultura](luis-language-support.md#tokenization). O valor original e o valor de token estão disponíveis para [extração de dados](luis-concept-data-extraction.md#tokenized-entity-returned).
+### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>Porquê o LUIS adiciona espaços para a consulta em torno ou no meio de palavras?
+LUIS [divide](luis-glossary.md#token) a expressão com base na [cultura](luis-language-support.md#tokenization). O valor original e o valor tokenized estão disponíveis para [extração de dados](luis-concept-data-extraction.md#tokenized-entity-returned).
 
-### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Como fazer criar e atribuir uma chave de ponto de extremidade LUIS?
-[Crie a chave do ponto de extremidade](luis-how-to-azure-subscription.md) no Azure para seu nível de [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) . [Atribua a chave](luis-how-to-azure-subscription.md) na página de **[recursos do Azure](luis-how-to-azure-subscription.md)** . Não há uma API correspondente para esta ação. Em seguida, você deve alterar a solicitação HTTP para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-concept-keys.md).
+### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Como criar e atribuir um LUIS chave de ponto final?
+[Criar a chave de ponto final](luis-how-to-azure-subscription.md) no Azure para a sua [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) nível. [Atribua a chave](luis-how-to-azure-subscription.md) na página de **[recursos do Azure](luis-how-to-azure-subscription.md)** . Não há nenhuma API correspondente para esta ação. Em seguida, tem de alterar o pedido HTTP para o ponto final para [utilizar a nova chave de ponto final](luis-concept-keys.md).
 
-### <a name="how-do-i-interpret-luis-scores"></a>Como fazer interpretar pontuações de LUIS?
-O sistema deve usar a tentativa de pontuação mais alta, independentemente de seu valor. Por exemplo, uma pontuação abaixo de 0,5 (menos de 50%) Não significa necessariamente que LUIS tem pouca confiança. Fornecer mais dados de treinamento pode ajudar a aumentar a [Pontuação](luis-concept-prediction-score.md) da intenção mais provável.
+### <a name="how-do-i-interpret-luis-scores"></a>Como posso interpretar as pontuações de LUIS?
+O sistema deve utilizar a intenção de classificação mais elevada, independentemente de seu valor. Por exemplo, uma pontuação inferior a 0,5 (menos de 50%) não significa necessariamente que o LUIS tem confiança baixa. Para disponibilizar formação mais dados podem ajudar a aumentar a [pontuação](luis-concept-prediction-score.md) da intenção mais prováveis.
 
-### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Por que não vejo meus acertos de ponto de extremidade no painel do meu aplicativo?
-Os acertos totais de ponto de extremidade no painel do aplicativo são atualizados periodicamente, mas as métricas associadas à sua chave de ponto de extremidade LUIS no portal do Azure são atualizadas com mais frequência.
+### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Por que motivo não vejo minhas acertos de ponto final no Dashboard da minha aplicação?
+As visitas de ponto de extremidade total no Dashboard da sua aplicação são atualizadas periodicamente, mas as métricas associadas à sua chave de ponto final de LUIS no portal do Azure são atualizadas com mais frequência.
 
-Se você não vir os acertos de ponto de extremidade atualizados no painel, entre no portal do Azure, localize o recurso associado à sua chave de ponto de extremidade LUIS e abra as **métricas** para selecionar a métrica **total de chamadas** . Se a chave do ponto de extremidade for usada para mais de um aplicativo LUIS, a métrica no portal do Azure mostrará o número agregado de chamadas de todos os aplicativos LUIS que o utilizam.
+Se você não vir os acertos de ponto de extremidade atualizados no painel, entre no portal do Azure, localize o recurso associado à sua chave de ponto de extremidade LUIS e abra as **métricas** para selecionar a métrica **total de chamadas** . Se a chave de ponto final é utilizada para mais do que uma aplicação do LUIS, a métrica no portal do Azure mostra o número agregado de chamadas de todas as aplicações de LUIS utilização-lo.
 
 ### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>Há um comando do PowerShell que obtém a cota do ponto de extremidade?
 
@@ -147,64 +147,64 @@ Você pode usar um comando do PowerShell para ver a cota do ponto de extremidade
 Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
 ``` 
 
-### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Meu aplicativo LUIS estava funcionando ontem, mas hoje estou recebendo erros 403. Eu não alterei o aplicativo. Como fazer corrigi-lo?
+### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>A minha aplicação LUIS estava trabalhando ontem, mas hoje em dia, eu tenho 403 erros. Eu não alterou a aplicação. Como posso corrigi-lo?
 Siga estas [instruções](#how-do-i-create-and-assign-a-luis-endpoint-key) para criar uma chave de ponto de extremidade Luis e atribuí-la ao aplicativo. Em seguida, você deve alterar a solicitação HTTP do aplicativo cliente para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-concept-keys.md). Se você criou um novo recurso em uma região diferente, altere também a região da solicitação de cliente HTTP.
 
-### <a name="how-do-i-secure-my-luis-endpoint"></a>Como fazer proteger meu ponto de extremidade LUIS?
-Consulte [protegendo o ponto de extremidade](luis-concept-keys.md#securing-the-endpoint).
+### <a name="how-do-i-secure-my-luis-endpoint"></a>Como posso proteger meu ponto de final do LUIS?
+Ver [proteger o ponto final](luis-concept-keys.md#securing-the-endpoint).
 
-## <a name="working-within-luis-limits"></a>Trabalhando em limites de LUIS
+## <a name="working-within-luis-limits"></a>Trabalhar dentro dos limites de LUIS
 
-### <a name="what-is-the-maximum-number-of-intents-and-entities-that-a-luis-app-can-support"></a>Qual é o número máximo de tentativas e entidades às quais um aplicativo LUIS pode dar suporte?
-Consulte a referência de [limites](luis-boundaries.md) .
+### <a name="what-is-the-maximum-number-of-intents-and-entities-that-a-luis-app-can-support"></a>O que é o número máximo de intenções e entidades que pode oferecer suporte a uma aplicação do LUIS?
+Consulte a [limites](luis-boundaries.md) referência.
 
-### <a name="i-want-to-build-a-luis-app-with-more-than-the-maximum-number-of-intents-what-should-i-do"></a>Quero criar um aplicativo LUIS com mais do que o número máximo de tentativas. O que devo fazer?
+### <a name="i-want-to-build-a-luis-app-with-more-than-the-maximum-number-of-intents-what-should-i-do"></a>Quero criar uma aplicação de LUIS com mais do que o número máximo de objetivos. O que devo fazer?
 
-Consulte [práticas recomendadas para tentativas](luis-concept-intent.md#if-you-need-more-than-the-maximum-number-of-intents).
+Ver [melhores práticas para objetivos](luis-concept-intent.md#if-you-need-more-than-the-maximum-number-of-intents).
 
-### <a name="i-want-to-build-an-app-in-luis-with-more-than-the-maximum-number-of-entities-what-should-i-do"></a>Quero criar um aplicativo em LUIS com mais do que o número máximo de entidades. O que devo fazer?
+### <a name="i-want-to-build-an-app-in-luis-with-more-than-the-maximum-number-of-entities-what-should-i-do"></a>Quero criar uma aplicação no LUIS com mais do que o número máximo de entidades. O que devo fazer?
 
-Veja [as práticas recomendadas para entidades](luis-concept-entity-types.md#if-you-need-more-than-the-maximum-number-of-entities)
+Consulte [melhores práticas para entidades](luis-concept-entity-types.md#if-you-need-more-than-the-maximum-number-of-entities)
 
-### <a name="what-are-the-limits-on-the-number-and-size-of-phrase-lists"></a>Quais são os limites do número e do tamanho das listas de frases?
-Para obter o comprimento máximo de uma [lista de frases](./luis-concept-feature.md), consulte a referência de [limites](luis-boundaries.md) .
+### <a name="what-are-the-limits-on-the-number-and-size-of-phrase-lists"></a>Apresenta uma lista quais são os limites no número e tamanho de frase?
+Para o comprimento máximo de um [lista de frase](./luis-concept-feature.md), consulte a [limites](luis-boundaries.md) referência.
 
-### <a name="what-are-the-limits-on-example-utterances"></a>Quais são os limites do exemplo declarações?
-Consulte a referência de [limites](luis-boundaries.md) .
+### <a name="what-are-the-limits-on-example-utterances"></a>Quais são os limites em expressões de exemplo?
+Consulte a [limites](luis-boundaries.md) referência.
 
 ## <a name="testing-and-training"></a>Teste e treinamento
 
-### <a name="i-see-some-errors-in-the-batch-testing-pane-for-some-of-the-models-in-my-app-how-can-i-address-this-problem"></a>Vejo alguns erros no painel de teste do lote para alguns dos modelos em meu aplicativo. Como posso resolver esse problema?
+### <a name="i-see-some-errors-in-the-batch-testing-pane-for-some-of-the-models-in-my-app-how-can-i-address-this-problem"></a>Posso ver alguns erros no lote painel de teste para alguns dos modelos em meu aplicativo. Como posso solucionar esse problema?
 
-Os erros indicam que há alguma discrepância entre seus rótulos e as previsões de seus modelos. Para resolver o problema, execute uma ou ambas as tarefas a seguir:
-* Para ajudar a LUIS a melhorar a discriminação entre as intenções, adicione mais rótulos.
-* Para ajudar a LUIS a aprender mais rapidamente, adicione recursos de lista de frases que introduzem vocabulário específico de domínio.
+Os erros indicam que não há alguma discrepância entre as etiquetas e as previsões de seus modelos. Para resolver o problema, efetue uma ou ambas das seguintes tarefas:
+* Para ajudar a melhorar discrimination entre os objetivos do LUIS, adicione mais etiquetas.
+* Para ajudar a LUIS aprende mais depressa, adicione funcionalidades de lista de frase que apresentam o vocabulário específicas de domínio.
 
-Consulte o tutorial de [teste em lote](luis-tutorial-batch-testing.md) .
+Consulte a [testes de Batch](luis-tutorial-batch-testing.md) tutorial.
 
-### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>Quando um aplicativo é exportado e, em seguida, reimportado para um novo aplicativo (com uma nova ID de aplicativo), as pontuações de previsão de LUIS são diferentes. Por que isso acontece?
+### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>Quando uma aplicação é exportada, em seguida, novamente importada para uma nova aplicação (com um novo ID de aplicação), as pontuações de predição de LUIS são diferentes. Por que isso acontece?
 
-Consulte [diferenças de previsão entre cópias do mesmo aplicativo](luis-concept-prediction-score.md#review-intents-with-similar-scores).
+Ver [diferenças de predição entre cópias da mesma aplicação](luis-concept-prediction-score.md#review-intents-with-similar-scores).
 
-### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Alguns declarações vão para a intenção errada depois de fazer alterações no meu aplicativo. O problema parece desaparecer aleatoriamente. Como fazer corrigi-lo? 
+### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Algumas expressões com até a intenção de errado depois que fiz alterações para a minha aplicação. O problema parece sumir aleatoriamente. Como posso corrigi-lo? 
 
-Confira [treinar com todos os dados](luis-how-to-train.md#train-with-all-data).
+Ver [Train com todos os dados](luis-how-to-train.md#train-with-all-data).
 
-## <a name="app-publishing"></a>Publicação de aplicativo
+## <a name="app-publishing"></a>Publicação de aplicações
 
-### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>Qual é a ID de locatário na janela "adicionar uma chave ao seu aplicativo"?
-No Azure, um locatário representa o cliente ou a organização que está associada a um serviço. Localize sua ID de locatário no portal do Azure na caixa **ID de diretório** selecionando **Azure Active Directory** > **gerenciar** > **Propriedades**.
+### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>O que é o ID de inquilino na janela "Adicionar uma chave à sua aplicação"?
+No Azure, um inquilino representa o cliente ou de uma organização que está associada um serviço. Encontrar o seu ID de inquilino no portal do Azure no **ID de diretório** caixa selecionando **Azure Active Directory** > **gerir**  >  **Propriedades**.
 
-![ID do locatário no portal do Azure](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
+![ID do inquilino no portal do Azure](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
 <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
 <a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
 
 
-### <a name="why-are-there-more-endpoint-keys-assigned-to-my-app-than-i-assigned"></a>Por que há mais chaves de ponto de extremidade atribuídas ao meu aplicativo do que eu atribuí?
-Cada aplicativo LUIS tem a chave de criação/iniciante na lista de pontos de extremidade como uma conveniência. Essa chave permite apenas algumas ocorrências de ponto de extremidade para que você possa experimentar o LUIS.  
+### <a name="why-are-there-more-endpoint-keys-assigned-to-my-app-than-i-assigned"></a>Por que há mais chaves de ponto final atribuídas à minha aplicação que atribuí?
+Cada aplicação LUIS tem a chave de criação/starter na lista de ponto de extremidade como uma conveniência. Esta chave permite apenas alguns cliques de ponto final para que pode experimentar o LUIS.  
 
-Se seu aplicativo existia antes de o LUIS ter sido disponibilizado (GA), as chaves de ponto de extremidade LUIS em sua assinatura serão atribuídas automaticamente. Isso foi feito para facilitar a migração do GA. Todas as novas chaves de ponto de extremidade LUIS no portal do Azure _não_ são atribuídas automaticamente a Luis.
+Se a sua aplicação existia antes do LUIS foi em disponibilidade geral (GA), as chaves de ponto final do LUIS na sua subscrição são atribuídas automaticamente. Isso foi feito para facilitar a migração de disponibilidade geral. Quaisquer novas chaves de ponto final de LUIS no portal do Azure são _não_ atribuída automaticamente aos LUIS.
 
 ## <a name="key-management"></a>Gestão de chaves
 
@@ -212,7 +212,7 @@ Se seu aplicativo existia antes de o LUIS ter sido disponibilizado (GA), as chav
 
 Consulte [criação e consulta de chaves de ponto de extremidade de previsão em Luis](luis-concept-keys.md) para saber mais sobre as diferenças entre a chave de criação e a chave de tempo de execução de previsão. 
 
-### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Recebi um erro de ausência de cota. Como fazer corrigi-lo? 
+### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Recebi um erro de ausência de cota. Como posso corrigi-lo? 
 
 Consulte corrigir o código de status HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) e [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) para saber mais.
 
@@ -224,43 +224,43 @@ Consulte corrigir o código de status HTTP [403](#i-received-an-http-403-error-s
 
 As chaves de criação estão disponíveis no portal do LUIS após [a migração para a experiência de chave de criação](luis-migration-authoring.md).  
 
-## <a name="app-management"></a>Gerenciamento de aplicativos
+## <a name="app-management"></a>Gestão de aplicações
 
-### <a name="how-do-i-download-a-log-of-user-utterances"></a>Como fazer baixar um log do usuário declarações?
-Por padrão, seu aplicativo LUIS registra declarações de usuários. Para baixar um log de declarações que os usuários enviam para seu aplicativo LUIS, vá para **meus aplicativos**e selecione o aplicativo. Na barra de ferramentas contextual, selecione **Exportar logs de ponto de extremidade**. O log é formatado como um arquivo CSV (valores separados por vírgula).
+### <a name="how-do-i-download-a-log-of-user-utterances"></a>Como posso transferir um log de expressões de utilizador?
+Por predefinição, a sua aplicação LUIS regista expressões com dos utilizadores. Para transferir um log das expressões com que os utilizadores enviar para a sua aplicação LUIS, aceda a **as minhas aplicações**e selecione a aplicação. Na barra de ferramentas contextual, selecione **exportar registos de ponto final**. O registo é formatado como um ficheiro de valores separados por vírgulas (CSV).
 
-### <a name="how-can-i-disable-the-logging-of-utterances"></a>Como posso desabilitar o registro em log de declarações?
-Você pode desativar o registro em log do usuário declarações definindo `log=false` na URL do ponto de extremidade que seu aplicativo cliente usa para consultar o LUIS. No entanto, desativar o registro desabilita a capacidade do seu aplicativo LUIS de sugerir declarações ou melhorar o desempenho com base no [aprendizado ativo](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Se você definir `log=false` devido a questões de privacidade de dados, não poderá baixar um registro desses usuários declarações de LUIS ou usar esses declarações para melhorar seu aplicativo.
+### <a name="how-can-i-disable-the-logging-of-utterances"></a>Como posso desativar o registo de expressões com?
+Pode desativar o registo de expressões do utilizador através da definição `log=false` no URL do ponto final que a aplicação cliente utiliza para consulta LUIS. No entanto, a desativação do registo desativa a capacidade da sua aplicação LUIS para sugerir discursos ou melhorar o desempenho com base no [aprendizagem ativa](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Se definir `log=false` devido a problemas de privacidade de dados, não é possível transferir um registo dessas expressões de utilizador do LUIS ou utilizar essas expressões de com para melhorar a sua aplicação.
 
-O registro em log é o único armazenamento de declarações.
+O registo é o armazenamento apenas de expressões.
 
-### <a name="why-dont-i-want-all-my-endpoint-utterances-logged"></a>Por que não quero que todos os meus pontos de extremidade declarações registrados?
-Se você estiver usando seu log para análise de previsão, não Capture declarações de teste em seu log.
+### <a name="why-dont-i-want-all-my-endpoint-utterances-logged"></a>Por que não quero que todos os meus expressões com ponto final com sessão iniciadas?
+Se estiver a utilizar o início de sessão para análise de previsão, não capture expressões de teste no seu registo.
 
 ## <a name="data-management"></a>Gestão de dados
 
-### <a name="can-i-delete-data-from-luis"></a>Posso excluir dados do LUIS?
+### <a name="can-i-delete-data-from-luis"></a>Pode eliminar dados do LUIS?
 
-* Você sempre pode excluir o exemplo declarações usado para treinar o LUIS. Se você excluir um exemplo de expressão de seu aplicativo LUIS, ele será removido do serviço Web LUIS e não estará disponível para exportação.
-* Você pode excluir declarações da lista de usuários declarações que o LUIS sugere na página **revisar declarações do ponto de extremidade** . Excluir declarações dessa lista impede que eles sejam sugeridos, mas não os exclui dos logs.
-* Se você excluir uma conta, todos os aplicativos serão excluídos, juntamente com seus declarações de exemplo e logs. Os dados são retidos nos servidores por 60 dias antes de serem excluídos permanentemente.
+* Pode sempre eliminar as expressões de exemplo usadas para treinar o LUIS. Se eliminar uma expressão de exemplo da sua aplicação LUIS, ele é removido do serviço web LUIS e não está disponível para exportação.
+* Pode eliminar expressões com na lista de expressões de utilizador que LUIS sugere no **rever expressões de ponto final** página. A eliminar expressões com desta lista evita que sejam sendo sugerida, mas não a eliminá-los a partir de registos.
+* Se eliminar uma conta, todas as aplicações são eliminadas, juntamente com os seus registos e as expressões de exemplo. Os dados são mantidos nos servidores durante 60 dias antes de ser eliminado permanentemente.
 
-### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>Como a Microsoft gerencia dados que envio para o LUIS?
+### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>Como a Microsoft gere dados de que envio para o LUIS?
 
-A [central de confiabilidade](https://www.microsoft.com/trustcenter) explica nossos compromissos e suas opções de gerenciamento de dados e acesso nos serviços do Azure.
+O [Centro de fidedignidade](https://www.microsoft.com/trustcenter) explica nossos compromissos e as opções de gestão de dados e de acesso nos serviços do Azure.
 
-## <a name="language-and-translation-support"></a>Suporte à linguagem e tradução
+## <a name="language-and-translation-support"></a>Suporte de idioma e de tradução
 
-### <a name="i-have-an-app-in-one-language-and-want-to-create-a-parallel-app-in-another-language-what-is-the-easiest-way-to-do-so"></a>Tenho um aplicativo em uma linguagem e desejamos criar um aplicativo paralelo em outro idioma. Qual é a maneira mais fácil de fazer isso?
-1. Exporte seu aplicativo.
-2. Traduza o declarações rotulado no arquivo JSON do aplicativo exportado para o idioma de destino.
-3. Talvez seja necessário alterar os nomes das intenções e entidades ou deixá-las como estão.
-4. Por fim, importe o aplicativo para ter um aplicativo LUIS no idioma de destino.
+### <a name="i-have-an-app-in-one-language-and-want-to-create-a-parallel-app-in-another-language-what-is-the-easiest-way-to-do-so"></a>Tenho uma aplicação numa linguagem e pretende criar uma aplicação paralela em outro idioma. O que é a maneira mais fácil de fazê-lo?
+1. Exporte a sua aplicação.
+2. Traduza as expressões etiquetadas no ficheiro JSON da aplicação exportado para o idioma de destino.
+3. Poderá ter de alterar os nomes dos objetivos e entidades ou deixá-los como estão.
+4. Por fim, importe a aplicação tenha uma aplicação do LUIS no idioma de destino.
 
-## <a name="app-notification"></a>Notificação do aplicativo
+## <a name="app-notification"></a>Notificação de aplicação
 
-### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>Por que eu recebi um email dizendo que estou quase sem cota?
-Sua chave de criação/início é permitida apenas 1000 consultas de ponto de extremidade por mês. Crie uma chave de ponto de extremidade LUIS (gratuita ou paga) e use essa chave ao fazer consultas de ponto de extremidade. Se estiver fazendo consultas de ponto de extremidade de um bot ou outro aplicativo cliente, você precisará alterar a chave do ponto de extremidade LUIS.
+### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>Por que recebi uma mensagem de e-mail dizendo, estou quase fora da quota?
+A chave de criação/starter só é permitida a 1000 consulta o ponto final de um mês. Crie uma chave de ponto final do LUIS (gratuita ou paga) e utilizar essa chave ao efetuar consultas de ponto final. Se estiver a efetuar consultas de ponto final de um bot ou outra aplicação de cliente, terá de alterar a chave de ponto final de LUIS lá.
 
 ## <a name="bots"></a>Bots
 
@@ -269,7 +269,7 @@ Sua chave de criação/início é permitida apenas 1000 consultas de ponto de ex
 O primeiro problema é isolar se o problema está relacionado a LUIS ou acontece fora do middleware LUIS. 
 
 #### <a name="resolve-issue-in-luis"></a>Resolver o problema em LUIS
-Passe o mesmo expressão para LUIS do [ponto de extremidade Luis](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). Se você receber um erro, resolva o problema em LUIS até que o erro não seja mais retornado. Os erros comuns incluem:
+Passe o mesmo expressão para LUIS do [ponto de extremidade Luis](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). Se você receber um erro, resolva o problema em LUIS até que o erro não seja mais retornado. Erros comuns incluem:
 
 * `Out of call volume quota. Quota will be replenished in <time>.`-esse problema indica que você precisa alterar de uma chave de criação para uma [chave de ponto de extremidade](luis-how-to-azure-subscription.md) ou você precisa alterar as camadas de [serviço](luis-how-to-azure-subscription.md#change-pricing-tier). 
 
@@ -291,15 +291,15 @@ Se você estiver usando o serviço de bot do Azure e o problema é que o **teste
 
 Para saber mais sobre a depuração local de um bot, consulte [depurar um bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
 
-## <a name="integrating-luis"></a>Integração do LUIS
+## <a name="integrating-luis"></a>Integrar o LUIS
 
-### <a name="where-is-my-luis-app-created-during-the-azure-web-app-bot-subscription-process"></a>Onde meu aplicativo LUIS é criado durante o processo de assinatura de bot do aplicativo Web do Azure?
-Se você selecionar um modelo LUIS e selecionar o botão **selecionar** no painel modelo, o painel do lado esquerdo será alterado para incluir o tipo de modelo e perguntará em qual região criar o modelo Luis. No entanto, o processo de bot do aplicativo Web não cria uma assinatura do LUIS.
+### <a name="where-is-my-luis-app-created-during-the-azure-web-app-bot-subscription-process"></a>Em que a minha aplicação LUIS é criada durante o processo de subscrição de bot de aplicação web do Azure?
+Se selecionar um modelo do LUIS e selecionar a **selecione** botão no painel de modelo, o painel da esquerda é alterado para incluir o tipo de modelo e pede-lhe em que região para criar o modelo do LUIS. O processo de bot de aplicação web não cria, no entanto, uma subscrição do LUIS.
 
-![Região de bot do aplicativo Web do modelo LUIS](./media/luis-faq/web-app-bot-location.png)
+![Região do LUIS modelo web app bot](./media/luis-faq/web-app-bot-location.png)
 
-### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>Quais regiões do LUIS dão suporte à espriming de fala do bot Framework?
-Só há suporte para a [priming de fala](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) em aplicativos Luis na instância central (EUA).
+### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>Que regiões do LUIS suportam priming de voz de Bot Framework?
+[Priming de voz](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) apenas é suportada para aplicações de LUIS na instância da central (E.U.A.).
 
 ## <a name="api-programming-strategies"></a>Estratégias de programação de API
 
@@ -307,11 +307,11 @@ Só há suporte para a [priming de fala](https://docs.microsoft.com/bot-framewor
 
 Use o exemplo LUIS para [localizar a região](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) programaticamente usando C# o ou o Node. js. 
 
-## <a name="luis-service"></a>Serviço LUIS
+## <a name="luis-service"></a>Serviço de LUIS
 
-### <a name="is-language-understanding-luis-available-on-premises-or-in-private-cloud"></a>O é Reconhecimento vocal (LUIS) disponível localmente ou na nuvem privada?
+### <a name="is-language-understanding-luis-available-on-premises-or-in-private-cloud"></a>Compreensão de idiomas (LUIS) disponível no local ou na nuvem privada?
 
-Sim, você pode usar o [contêiner](luis-container-howto.md) Luis para esses cenários se tiver a conectividade necessária para medir o uso. 
+Sim, pode utilizar o LUIS [contentor](luis-container-howto.md) para estes cenários, se tiver a conectividade necessária para medir a utilização. 
 
 ## <a name="migrating-to-the-next-version"></a>Migrando para a próxima versão
 
@@ -336,5 +336,5 @@ Vídeos:
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o LUIS, consulte os seguintes recursos:
-* [Stack Overflow perguntas marcadas com LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [Fórum do LUIS (serviços inteligentes) do MSDN Reconhecimento vocal](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)
+* [Perguntas de estouro de pilha etiquetadas com os LUIS](https://stackoverflow.com/questions/tagged/luis)
+* [Fórum de (LUIS) de serviços de compreensão inteligentes de idiomas do MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)

@@ -1,5 +1,5 @@
 ---
-title: Otimizar o desempenho nas máquinas virtuais da série Lsv2 do Azure – armazenamento | Microsoft Docs
+title: Otimizar o desempenho nas máquinas virtuais da série Lsv2 do Azure – armazenamento
 description: Saiba como otimizar o desempenho da sua solução nas máquinas virtuais da série Lsv2.
 services: virtual-machines-windows
 author: laurenhughes
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 5728afe8195a8f25e5aafcb815b0c61558b32547
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a14e38cd93e7d6273282e209db8ce83ec99f16db
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101791"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068170"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais da série Lsv2
 
@@ -39,7 +39,7 @@ As VMs da série Lsv2 usam processadores de servidor AMD EYPC™ com base na mic
 
 * Os usuários do Lsv2 não devem confiar nas informações NUMA do dispositivo (todas as 0) relatadas de dentro da VM para unidades de dados para decidir a afinidade NUMA para seus aplicativos. A maneira recomendada para melhor desempenho é distribuir cargas de trabalho entre CPUs, se possível. 
 
-* A profundidade máxima de fila com suporte por par de filas de e/s para o dispositivo NVMe de VM Lsv2 é 1024 (vs. Limite do Amazon i3 QD 32). Os usuários do Lsv2 devem limitar suas cargas de trabalho de benchmark (sintéticas) para a profundidade da fila 1024 ou inferior para evitar o disparo de condições completas da fila, o que pode reduzir o desempenho.
+* A profundidade máxima de fila com suporte por par de filas de e/s para o dispositivo de Lsv2 VM NVMe é 1024 (vs. Amazon i3 QD 32 limite). Os usuários do Lsv2 devem limitar suas cargas de trabalho de benchmark (sintéticas) para a profundidade da fila 1024 ou inferior para evitar o disparo de condições completas da fila, o que pode reduzir o desempenho.
 
 ## <a name="utilizing-local-nvme-storage"></a>Utilizando o armazenamento de NVMe local
 

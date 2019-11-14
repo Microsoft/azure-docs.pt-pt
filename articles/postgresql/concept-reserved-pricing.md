@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 5a95350b8ac846f6db5288d1328d049f3e1c1aa8
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 795ca6f1ee45f11fe44f9c14efda1d3463dc9e7c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609596"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076814"
 ---
 # <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelo banco de dados do Azure para PostgreSQL recursos de computação com capacidade reservada
 
@@ -35,12 +35,12 @@ Os detalhes sobre como clientes corporativos e clientes pagos conforme o uso sã
 
 O tamanho da reserva deve ser baseado na quantidade total de computação usada pelos servidores existentes ou em breve para serem implantados em uma região específica e usando o mesmo nível de desempenho e geração de hardware.</br>
 
-Por exemplo, vamos supor que você esteja executando uma finalidade geral, o banco de dados PostgreSQL de Gen5 – 32 vCore e dois bancos de dados com otimização de memória, Gen5 – 16 vCores PostgreSQL. Além disso, digamos que você planeja implantar no próximo mês uma finalidade geral adicional, Gen5 – pool elástico de 32 vCore e um servidor de banco de dados com otimização de memória, Gen5 – 16 vCore. Vamos supor que você saiba que precisará desses recursos por pelo menos 1 ano. Nesse caso, você deve comprar um vCores de 64 (2x32), reserva de 1 ano para o banco de dados único de uso geral-Gen5 e um 48 (2x16 + 16) reserva de 1 ano para a memória de banco de dados individual otimizada-Gen5
+Por exemplo, vamos supor que você esteja executando uma finalidade geral, o banco de dados PostgreSQL de Gen5 – 32 vCore e dois bancos de dados com otimização de memória, Gen5 – 16 vCores PostgreSQL. Além disso, digamos que você planeja implantar no próximo mês uma finalidade geral adicional, Gen5 – servidor de banco de dados vCore de 32 e um servidor de banco de dados com otimização de memória, Gen5 – 16 vCore. Vamos supor que você saiba que precisará desses recursos por pelo menos 1 ano. Nesse caso, você deve comprar um vCores de 64 (2x32), reserva de 1 ano para o banco de dados único de uso geral-Gen5 e um 48 (2x16 + 16) reserva de 1 ano para a memória de banco de dados individual otimizada-Gen5
 
 
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Comprar a capacidade reservada do banco de dados do Azure para PostgreSQL
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Todos os serviços** > **Reservas**.
 3. Selecione **Adicionar** e, em seguida, no painel reservas de compra, selecione **banco de dados do Azure para PostgreSQL** para comprar uma nova reserva para seus bancos de dados PostgreSQL.
 4. Preencha os campos obrigatórios. Bancos de dados novos ou existentes que correspondem aos atributos que você selecionar qualificar para obter o desconto de capacidade reservada. O número real de seus servidores do banco de dados do Azure para PostgreSQL que obtém o desconto depende do escopo e da quantidade selecionada.
@@ -85,4 +85,4 @@ Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 * [Compreender o desconto das Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
 * [Compreender a utilização de reservas na sua subscrição Pay As You Go](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-postgresql)
 * [Compreender a utilização de reservas na inscrição Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [Azure Reservations no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros](https://docs.microsoft.com/partner-center/azure-reservations)
+* [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations) (Reservas do Azure no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros)

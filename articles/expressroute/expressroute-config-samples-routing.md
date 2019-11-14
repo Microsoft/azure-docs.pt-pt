@@ -1,5 +1,5 @@
 ---
-title: Exemplos de configuração de router - Azure ExpressRoute | Documentos da Microsoft
+title: 'Azure ExpressRoute: exemplos de configuração do roteador'
 description: Esta página fornece exemplos de configuração de router para os routers Cisco e Juniper.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 2d7fb060896de8df266489451a11ba343760c747
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c37dadeb669fb88f858b5487379828a8dddec6c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367477"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076669"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Exemplos de configuração de router para configurar e gerir o encaminhamento
 Esta página fornece interface e exemplos de configuração de encaminhamento para Cisco IOS-XE e os routers da série de Juniper MX ao trabalhar com o ExpressRoute. Estes destinam-se para ser amostras para obter orientações apenas e não pode ser usados como está. Pode trabalhar com o fornecedor para propor as configurações apropriadas para a sua rede. 
@@ -33,7 +32,7 @@ Exemplos de configuração de router abaixo se aplicam a todos os peerings. Revi
 ## <a name="cisco-ios-xe-based-routers"></a>IOS-XE da Cisco com routers base
 Os exemplos nesta secção aplicam-se para qualquer router com a família de SO IOS XE.
 
-### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configuração de interfaces e interfaces secundárias
+### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configurando interfaces e subinterfaces
 Vai precisar de uma interface de sub-rotina por peering em cada router que se liga à Microsoft. Uma interface de sub-rotina pode ser identificada com um ID de VLAN ou um par empilhado de IDs de VLAN e um endereço IP.
 
 **Definição de interface de Dot1Q**
@@ -52,7 +51,7 @@ Este exemplo fornece a definição de interface secundária para uma interface d
      encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
      ip address <IPv4_Address><Subnet_Mask>
 
-### <a name="2-setting-up-ebgp-sessions"></a>2. Como configurar sessões de eBGP
+### <a name="2-setting-up-ebgp-sessions"></a>2. Configurando sessões eBGP
 Tem de configurar uma sessão de BGP com a Microsoft para cada peering. O exemplo abaixo permite-lhe configurar uma sessão BGP com a Microsoft. Se o endereço de IPv4 que utilizou para a sua interface de sub-rotina a.b.c. d, o endereço IP do vizinhos de BGP (Microsoft) será a.b.c.d+1. O último octeto de endereço IPv4 dos vizinhos de BGP será sempre um número par.
 
     router bgp <Customer_ASN>
@@ -64,7 +63,7 @@ Tem de configurar uma sessão de BGP com a Microsoft para cada peering. O exempl
      exit-address-family
     !
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Configuração de prefixos a anunciar durante a sessão de BGP
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Configurando prefixos a serem anunciados na sessão BGP
 Pode configurar o router para anunciar prefixos selecionados à Microsoft. Pode fazê-lo com o exemplo abaixo.
 
     router bgp <Customer_ASN>
@@ -77,7 +76,7 @@ Pode configurar o router para anunciar prefixos selecionados à Microsoft. Pode 
      exit-address-family
     !
 
-### <a name="4-route-maps"></a>4. Mapas de rotas
+### <a name="4-route-maps"></a>4. mapas de rota
 Pode utilizar mapas de rotas e apresenta uma lista de prefixo para prefixos de filtro propagados na sua rede. Pode utilizar o exemplo abaixo para realizar a tarefa. Certifique-se de que tem de configurar de listas de prefixo adequado.
 
     router bgp <Customer_ASN>
@@ -98,7 +97,7 @@ Pode utilizar mapas de rotas e apresenta uma lista de prefixo para prefixos de f
 ## <a name="juniper-mx-series-routers"></a>Routers da série de Juniper MX
 Os exemplos nesta secção aplicam-se todos os routers série Juniper MX.
 
-### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configuração de interfaces e interfaces secundárias
+### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configurando interfaces e subinterfaces
 
 **Definição de interface de Dot1Q**
 
@@ -133,7 +132,7 @@ Este exemplo fornece a definição de interface secundária para uma interface d
         }                                   
     }                           
 
-### <a name="2-setting-up-ebgp-sessions"></a>2. Como configurar sessões de eBGP
+### <a name="2-setting-up-ebgp-sessions"></a>2. Configurando sessões eBGP
 Tem de configurar uma sessão de BGP com a Microsoft para cada peering. O exemplo abaixo permite-lhe configurar uma sessão BGP com a Microsoft. Se o endereço de IPv4 que utilizou para a sua interface de sub-rotina a.b.c. d, o endereço IP do vizinhos de BGP (Microsoft) será a.b.c.d+1. O último octeto de endereço IPv4 dos vizinhos de BGP será sempre um número par.
 
     routing-options {
@@ -149,7 +148,7 @@ Tem de configurar uma sessão de BGP com a Microsoft para cada peering. O exempl
         }                                   
     }
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Configuração de prefixos a anunciar durante a sessão de BGP
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Configurando prefixos a serem anunciados na sessão BGP
 Pode configurar o router para anunciar prefixos selecionados à Microsoft. Pode fazê-lo com o exemplo abaixo.
 
     policy-options {
@@ -174,7 +173,7 @@ Pode configurar o router para anunciar prefixos selecionados à Microsoft. Pode 
     }
 
 
-### <a name="4-route-maps"></a>4. Mapas de rotas
+### <a name="4-route-maps"></a>4. mapas de rota
 Pode utilizar mapas de rotas e apresenta uma lista de prefixo para prefixos de filtro propagados na sua rede. Pode utilizar o exemplo abaixo para realizar a tarefa. Certifique-se de que tem de configurar de listas de prefixo adequado.
 
     policy-options {
@@ -204,6 +203,6 @@ Pode utilizar mapas de rotas e apresenta uma lista de prefixo para prefixos de f
         }                                   
     }
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 Veja [FAQ do ExpressRoute](expressroute-faqs.md) para obter mais detalhes.
 

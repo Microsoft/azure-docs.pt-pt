@@ -1,18 +1,19 @@
 ---
-title: Visão geral de back-ends de vários locatários, como Azure App Service, com Aplicativo Azure gateway
+title: Back-ends de vários locatários
+titleSuffix: Azure Application Gateway
 description: Esta página fornece uma descrição geral do suporte de Gateway de Aplicação para back-ends multi-inquilino.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 66e4a578e3f443f4cbc3f6e5467cf9a86adf05fe
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: efa2885ce0534c5d78bb08bbf24da59850f6ea22
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297053"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075183"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Suporte do gateway de aplicativo para back-ends de vários locatários, como o serviço de aplicativo
 

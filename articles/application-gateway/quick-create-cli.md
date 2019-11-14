@@ -1,21 +1,22 @@
 ---
-title: Início Rápido - Direcionar tráfego da Web com o Gateway de Aplicação do Azure - CLI do Azure | Microsoft Docs
+title: 'Início rápido: tráfego direto da Web usando a CLI'
+titleSuffix: Azure Application Gateway
 description: Saiba como usar o CLI do Azure para criar um gateway de Aplicativo Azure que direciona o tráfego da Web para máquinas virtuais em um pool de back-end.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 07/19/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: dd68f4a565c28f1dbac7e94442a8f8231af01328
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: de1f30d949509ab48999d0080ccc4df74321ce01
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314901"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075206"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Início rápido: Tráfego direto da Web com Aplicativo Azure gateway-CLI do Azure
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - CLI do Azure
 
 Este guia de início rápido mostra como usar CLI do Azure para criar um gateway de aplicativo.  Depois de criar o gateway de aplicativo, você o testará para verificar se ele está funcionando corretamente. Com o gateway de Aplicativo Azure, você direciona o tráfego da Web do aplicativo para recursos específicos atribuindo ouvintes a portas, criando regras e adicionando recursos a um pool de back-end. Este artigo usa uma configuração simples com um IP de front-end público, um ouvinte básico para hospedar um único site no gateway de aplicativo, duas máquinas virtuais usadas para o pool de back-end e uma regra de roteamento de solicitação básica.
 
@@ -29,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Se você optar por instalar e usar a CLI localmente, execute CLI do Azure versão 2.0.4 ou posterior. Para localizar a versão, execute **AZ--Version**. Para obter informações sobre como instalar ou atualizar, consulte [instalar CLI do Azure]( /cli/azure/install-azure-cli).
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>Grupo de recursos
 
 No Azure, você aloca recursos relacionados a um grupo de recursos. Crie um grupo de recursos usando [AZ Group Create](/cli/azure/group#az-group-create). 
 
@@ -159,11 +160,11 @@ az network application-gateway create \
 
 Pode levar até 30 minutos para que o Azure crie o gateway de aplicativo. Depois de criado, você pode exibir as seguintes configurações na seção **configurações** da página do **Gateway de aplicativo** :
 
-- **appGatewayBackendPool**: Localizado na página **pools de back-end** . Ele especifica o pool de back-end necessário.
-- **appGatewayBackendHttpSettings**: Localizado na página **configurações de http** . Ele especifica que o gateway de aplicativo usa a porta 80 e o protocolo HTTP para comunicação.
-- **appGatewayHttpListener**: Localizado na **página ouvintes**. Ele especifica o ouvinte padrão associado ao **appGatewayBackendPool**.
-- **appGatewayFrontendIP**: Localizado na página **configurações de IP de front-end** . Ele atribui *myAGPublicIPAddress* ao **appGatewayHttpListener**.
-- **rule1**: Localizado na página **regras** . Ele especifica a regra de roteamento padrão associada a **appGatewayHttpListener**.
+- **appGatewayBackendPool**: localizado na página **pools de back-end** . Ele especifica o pool de back-end necessário.
+- **appgatewaybackendhttp**: localizado na página de **configurações de http** . Ele especifica que o gateway de aplicativo usa a porta 80 e o protocolo HTTP para comunicação.
+- **appGatewayHttpListener**: localizado na **página ouvintes**. Ele especifica o ouvinte padrão associado ao **appGatewayBackendPool**.
+- **appGatewayFrontendIP**: localizado na página **configurações de IP de front-end** . Ele atribui *myAGPublicIPAddress* ao **appGatewayHttpListener**.
+- **rule1**: localizado na página **regras** . Ele especifica a regra de roteamento padrão associada a **appGatewayHttpListener**.
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
@@ -191,7 +192,7 @@ Quando você não precisar mais dos recursos criados com o gateway de aplicativo
 az group delete --name myResourceGroupAG
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Gerir o tráfego da Web com um gateway de aplicação com a CLI do Azure](./tutorial-manage-web-traffic-cli.md)

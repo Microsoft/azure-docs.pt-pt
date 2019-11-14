@@ -1,21 +1,22 @@
 ---
-title: Tutorial-criar um gateway de aplicativo com redirecionamento baseado em caminho de URL-CLI do Azure
+title: 'Tutorial: redirecionamento baseado em caminho de URL usando a CLI'
+titleSuffix: Azure Application Gateway
 description: Neste tutorial, você aprenderá a criar um gateway de aplicativo com tráfego redirecionado baseado em caminho de URL usando o CLI do Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 7/30/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b2a06e47eec52d860aecdd2d9b57310cce5aeb27
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 23ddbdc62b2592a8fbfb7cdccaca52cbfe9aee62
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315938"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074430"
 ---
-# <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial: Criar um gateway de aplicativo com o redirecionamento baseado em caminho de URL usando o CLI do Azure
+# <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial:Criar um gateway de aplicação com o redirecionamento com base no caminho do URL, com a CLI do Azure
 
 Pode utilizar a CLI do Azure para configurar [regras de encaminhamento com base no caminho do URL](tutorial-url-route-cli.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, vai criar conjuntos de back-end através de [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Em seguida, vai criar regras de encaminhamento de URL que asseguram que o tráfego da Web é redirecionado para o conjunto de back-end adequado.
 
@@ -23,7 +24,7 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um gateway de aplicação
+> * Para criar um gateway de aplicação
 > * Adicionar serviços de escuta e regras de encaminhamento
 > * Criar conjuntos de dimensionamento de máquinas virtuais para conjuntos de back-end
 
@@ -39,7 +40,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com [az group create](/cli/azure/group).
 
@@ -75,9 +76,9 @@ az network public-ip create \
   --sku Standard
 ```
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
 
-Utilize [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação denominado myAppGateway. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicativo é atribuído a *myAGSubnet* e *myPublicIPAddress* que você criou anteriormente.
+Utilize [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação denominado myAppGateway. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, sku e definições de HTTP. O gateway de aplicativo é atribuído a *myAGSubnet* e *myPublicIPAddress* que você criou anteriormente.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -283,7 +284,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Para obter o endereço IP público do gateway de aplicação, utilize [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copie o endereço IP público e cole-o na barra de endereço do browser. `http://40.121.222.19`Como, `http://40.121.222.19:8080/images/test.htm`,, `http://40.121.222.19:8080/video/test.htm`ou. `http://40.121.222.19:8081/images/test.htm`
+Para obter o endereço IP público do gateway de aplicação, utilize [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copie o endereço IP público e cole-o na barra de endereço do browser. Como, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm`ou `http://40.121.222.19:8081/images/test.htm`.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -295,15 +296,15 @@ az network public-ip show \
 
 ![Testar o URL base no gateway de aplicação](./media/tutorial-url-redirect-cli/application-gateway-nginx.png)
 
-Altere a URL para http://&lt;IP-address&gt;: 8080/images/test.html, substituindo seu endereço IP &lt;por IP-&gt;address e você verá algo semelhante ao exemplo a seguir:
+Altere a URL para http://&lt;endereço IP&gt;: 8080/images/test.html, substituindo seu endereço IP para &lt;&gt;de endereço IP e você deverá ver algo semelhante ao exemplo a seguir:
 
 ![Testar o URL de imagens no gateway de aplicação](./media/tutorial-url-redirect-cli/application-gateway-nginx-images.png)
 
-Altere a URL para http://&lt;IP-address&gt;: 8080/Video/Test.html, substituindo seu endereço IP &lt;por IP-&gt;address e você verá algo semelhante ao exemplo a seguir:
+Altere a URL para http://&lt;endereço IP&gt;: 8080/video/test.html, substituindo seu endereço IP para &lt;&gt;de endereço IP e você deverá ver algo semelhante ao exemplo a seguir:
 
 ![Testar o URL de vídeo no gateway de aplicação](./media/tutorial-url-redirect-cli/application-gateway-nginx-video.png)
 
-Agora, altere a URL para http://&lt;IP-address&gt;: 8081/images/test.htm, substituindo seu endereço IP &lt;para endereço&gt;IP e você deverá ver o tráfego Redirecionado de volta para o pool de back-end de imagens em http://&lt;endereço&gt;IP: 8080/imagens.
+Agora, altere a URL para http://&lt;endereço IP&gt;: 8081/images/test.htm, substituindo seu endereço IP para &lt;&gt;de endereço IP e você deverá ver o tráfego Redirecionado de volta para o pool de back-end de imagens em http://&lt;endereço IP&gt;: 8080/images.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

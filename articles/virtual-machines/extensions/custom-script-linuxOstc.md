@@ -1,5 +1,5 @@
 ---
-title: Executar scripts personalizados em VMs do Linux no Azure | Microsoft Docs
+title: Executar scripts personalizados em VMs do Linux no Azure
 description: Automatizar tarefas de configuração de VM do Linux usando a extensão de script personalizado v1
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: e5ef1bde9420104b596c22837048b054f918b3cc
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b7dbabf5be8b1f223f6e39f294b9d7022b83c4f8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092634"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073171"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Usar a extensão de script personalizado do Azure versão 1 com máquinas virtuais do Linux
 
@@ -37,9 +37,9 @@ Há duas extensões de script personalizado do Linux:
 
 * Versão 2-Microsoft. Azure. Extensions. CustomScript
 
-Altere as implantações novas e existentes para usar a nova versão ([Microsoft. Azure. Extensions. CustomScript](custom-script-linux.md)) em vez disso. A nova versão destina-se a ser uma substituição de soltura. Portanto, a migração é tão fácil quanto alterar o nome e a versão, você não precisa alterar sua configuração de extensão.
+Altere as implantações novas e existentes para usar a nova versão ([Microsoft. Azure. Extensions. CustomScript](custom-script-linux.md)) em vez disso. A nova versão destina-se a ser uma substituição completa. Assim sendo, a migração é tão fácil como alterar o nome e a versão. Não precisa de alterar a configuração da extensão.
 
-### <a name="operating-system"></a>Sistema operativo
+### <a name="operating-system"></a>Sistema Operativo
 
 Distribuições do Linux com suporte:
 
@@ -69,11 +69,11 @@ Se o seu script estiver em um servidor local, talvez ainda seja necessário abri
 * Verifique se os scripts não exigem entrada do usuário quando eles são executados.
 * Há 90 minutos permitidos para o script ser executado; qualquer coisa resultará em um provisionamento com falha da extensão.
 * Não coloque reinicializações dentro do script, isso causará problemas com outras extensões que estão sendo instaladas e após a reinicialização, a extensão não continuará após a reinicialização. 
-* Se tiver um script que cause um reinício, instale aplicações e execute scripts, etc. Você deve agendar a reinicialização usando um trabalho cron ou usando ferramentas como DSC, ou chefe, Puppet Extensions.
+* Se você tiver um script que causará uma reinicialização, instale aplicativos e execute scripts, etc. Você deve agendar a reinicialização usando um trabalho cron ou usando ferramentas como DSC, ou chefe, Puppet Extensions.
 * A extensão só executará um script uma vez, se você quiser executar um script em cada inicialização, poderá usar a [imagem de inicialização de nuvem](../linux/using-cloud-init.md) e usar um módulo de [scripts por inicialização](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) . Como alternativa, você pode usar o script para criar uma unidade de serviço do sistema.
 * Se você quiser agendar quando um script será executado, use a extensão para criar um trabalho cron.
 * Quando o script estiver em execução, verá apenas um estado de extensão "em transição" no portal ou na CLI do Azure. Se você quiser atualizações de status mais frequentes de um script em execução, será necessário criar sua própria solução.
-* A extensão de script personalizado não dá suporte nativo a servidores proxy, no entanto, você pode usar uma ferramenta de transferência de arquivo que dá suportea servidores proxy em seu script, como ondulação.
+* A extensão de script personalizado não dá suporte nativo a servidores proxy, no entanto, você pode usar uma ferramenta de transferência de arquivo que dá suporte a servidores proxy em seu script, como *ondulação*.
 * Lembre-se de locais de diretório não padrão dos quais seus scripts ou comandos podem depender, têm lógica para lidar com isso.
 
 ## <a name="extension-schema"></a>Esquema de extensão
@@ -121,14 +121,14 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft. OSTCExtensions | Cadeia de caracteres |
-| type | CustomScriptForLinux | Cadeia de caracteres |
+| publisher | Microsoft. OSTCExtensions | string |
+| tipo | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
 | fileuris (por exemplo,) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (por exemplo,) | Python MyPythonScript.py \<My-param1\> | Cadeia de caracteres |
+| commandToExecute (por exemplo,) | Python MyPythonScript.py \<My-param1\> | string |
 | enableInternalDNSCheck | true | boolean |
-| storageAccountName (por exemplo,) | examplestorageacct | Cadeia de caracteres |
-| storageAccountKey (por exemplo,) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | Cadeia de caracteres |
+| storageAccountName (por exemplo,) | examplestorageacct | string |
+| storageAccountKey (por exemplo,) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>Detalhes do valor da propriedade
 
@@ -260,7 +260,7 @@ az vm extension set
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Quando a extensão de script personalizado é executada, o script é criado ou baixado em um diretório semelhante ao exemplo a seguir. A saída do comando também é salva nesse diretório nos `stdout` arquivos `stderr` e.
+Quando a extensão de script personalizado é executada, o script é criado ou baixado em um diretório semelhante ao exemplo a seguir. A saída do comando também é salva nesse diretório em arquivos `stdout` e `stderr`.
 
 ```bash
 /var/lib/waagent/Microsoft.OSTCExtensions.CustomScriptForLinux-<version>/download/1
@@ -295,7 +295,7 @@ Alguns pontos a serem observados:
 
 1. Habilitar é quando o comando começa a ser executado.
 1. O download está relacionado ao download do pacote de extensão CustomScript do Azure, não aos arquivos de script especificados em fileuris.
-1. Você também pode ver em qual arquivo de log ele está gravando`/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
+1. Você também pode ver em qual arquivo de log ele está gravando `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 A próxima etapa é verificar o arquivo de log, este é o formato:
 

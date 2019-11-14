@@ -1,5 +1,5 @@
 ---
-title: Como marcar um recurso de VM do Windows no Azure | Microsoft Docs
+title: Como marcar um recurso de VM do Windows no Azure
 description: Saiba mais sobre como marcar uma máquina virtual do Windows criada no Azure usando o modelo de implantação do Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: f6f3a4be21eee6a9e07a4ae11a530dd9dd50c81c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 52f8dbfc8665fce832eaa60e204273368ae7485d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749160"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068204"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Como marcar uma máquina virtual do Windows no Azure
 Este artigo descreve diferentes maneiras de marcar uma máquina virtual do Windows no Azure por meio do modelo de implantação do Resource Manager. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou em um grupo de recursos. Atualmente, o Azure dá suporte a até 15 marcas por recurso e grupo de recursos. As marcas podem ser colocadas em um recurso no momento da criação ou adicionadas a um recurso existente. Observe que as marcas têm suporte apenas para recursos criados por meio do modelo de implantação do Resource Manager. Se você quiser marcar uma máquina virtual do Linux, consulte [como marcar uma máquina virtual do Linux no Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

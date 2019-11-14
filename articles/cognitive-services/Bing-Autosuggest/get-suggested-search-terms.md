@@ -1,7 +1,7 @@
 ---
 title: O que é a Sugestão Automática do Bing?
 titleSuffix: Azure Cognitive Services
-description: Saiba como utilizar a API de Sugestão Automática do Bing.
+description: O API de Sugestão Automática do Bing retorna uma lista de consultas sugeridas com base na cadeia de caracteres de consulta parcial na caixa de pesquisa.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 13606fa5a58106575648a39e5074507f5d3bf471
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 5b1e4cc8dfc89d6dcc5d29a368e089402b284352
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405382"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072877"
 ---
 # <a name="what-is-bing-autosuggest"></a>O que é a Sugestão Automática do Bing?
 
@@ -35,7 +35,7 @@ O API de Sugestão Automática do Bing é um serviço Web RESTful, fácil de cha
 2. Envie uma solicitação para essa API cada vez que um usuário digitar um novo caractere na caixa de pesquisa do seu aplicativo.
 3. Processe a resposta da API ao analisar a mensagem JSON devolvida.
 
-Normalmente, você chamaria essa API toda vez que o usuário digitar um novo caractere na caixa de pesquisa do seu aplicativo. À medida que mais caracteres forem inseridos, a API retornará consultas de pesquisa sugeridas mais relevantes. Por exemplo, as sugestões que a API pode retornar para um `s` único provavelmente serão menos relevantes do que aquelas para `sail`.
+Normalmente, você chamaria essa API toda vez que o usuário digitar um novo caractere na caixa de pesquisa do seu aplicativo. À medida que mais caracteres forem inseridos, a API retornará consultas de pesquisa sugeridas mais relevantes. Por exemplo, as sugestões que a API pode retornar para um único `s` provavelmente serão menos relevantes do que aquelas para `sail`.
 
 O exemplo a seguir mostra uma caixa de pesquisa suspensa com os termos de consulta sugeridos do API de Sugestão Automática do Bing.
 
@@ -43,7 +43,7 @@ O exemplo a seguir mostra uma caixa de pesquisa suspensa com os termos de consul
 
 Quando um usuário seleciona uma sugestão na lista suspensa, você pode usá-la para começar a Pesquisar com uma das APIs de Pesquisa do Bing ou ir diretamente para a página resultados da pesquisa do Bing.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a trabalhar rapidamente com o seu primeiro pedido, veja [Fazer a Primeira Consulta](quickstarts/csharp.md).
 

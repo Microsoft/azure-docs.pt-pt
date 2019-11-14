@@ -1,7 +1,7 @@
 ---
 title: Sugerindo termos de pesquisa com o API de Sugestão Automática do Bing
 titleSuffix: Azure Cognitive Services
-description: Saiba como utilizar a API de Sugestão Automática do Bing.
+description: Este artigo discute o conceito de sugestão de termos de consulta usando o API de Sugestão Automática do Bing e o impacto do comprimento da consulta em relevância.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: cee4f68b734f0c2bec9fd629986ba7f6559f207e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 060dbd29ee4ddb78e8ae9b2ed4e7814da3c4eebf
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882448"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072895"
 ---
 # <a name="suggesting-query-terms"></a>Sugerir termos de consulta
 
-Normalmente, você chamaria o API de Sugestão Automática do Bing cada vez que um usuário digitasse um novo caractere na caixa de pesquisa do seu aplicativo. A exatidão da cadeia de consulta afeta a relevância dos termos de consulta sugeridos devolvidos pela API. Quanto mais completa for a cadeia de consulta, mais relevante será a lista de termos de consulta sugeridos. Por exemplo, as sugestões que a API pode retornar para `s` provavelmente serão menos relevantes do que as consultas que `sailing dinghies`retorna.
+Normalmente, você chamaria o API de Sugestão Automática do Bing cada vez que um usuário digitasse um novo caractere na caixa de pesquisa do seu aplicativo. A exatidão da cadeia de consulta afeta a relevância dos termos de consulta sugeridos devolvidos pela API. Quanto mais completa for a cadeia de consulta, mais relevante será a lista de termos de consulta sugeridos. Por exemplo, as sugestões que a API pode retornar para `s` provavelmente serão menos relevantes do que as consultas que retorna para `sailing dinghies`.
 
 ## <a name="example-request"></a>Pedido de exemplo
 
@@ -55,6 +55,6 @@ O exemplo a seguir mostra uma caixa de pesquisa suspensa com os termos de consul
 
 Se o utilizador selecionar uma consulta sugerida na lista pendente, utilizará o termo de consulta no campo `query` para chamar a [API de Pesquisa na Web do Bing](../../bing-web-search/search-the-web.md) e apresentar os resultados. Em alternativa, pode utilizar o URL no campo `url` para direcionar o utilizador para a página de resultados da pesquisa do Bing.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que é o API de Sugestão Automática do Bing?](../get-suggested-search-terms.md)

@@ -1,17 +1,14 @@
 ---
 title: Exemplo de Blueprint do NIST SP 800-53 R4-etapas de implantação
 description: Implante as etapas para a amostra do NIST SP 800-53 R4 Blueprint, incluindo detalhes do parâmetro de artefato do Blueprint.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 0cd13ab0c7bfa25911eaa4c0b0441ca0936b1e08
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 9923e2923c57224cadfa471753d8c90b98855607
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163081"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037299"
 ---
 # <a name="deploy-the-nist-sp-800-53-r4-blueprint-sample"></a>Implantar a amostra do NIST SP 800-53 R4 Blueprint
 
@@ -102,12 +99,12 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |\[visualização\]: auditar controles do NIST SP 800-53 R4 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de usuários que devem ser incluídos no grupo de administradores de VM do Windows|Uma lista de membros separados por ponto e vírgula que deve ser incluída no grupo local Administradores. Por exemplo: administrador; myusuário1; myUser2|
 |\]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de dimensionamento de VM do Linux (VMSS)|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
 |\]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[\]|
-|\]de visualização de \[: implantar o agente de Log Analytics para VMs Linux|Atribuição de política|Espaço de trabalho Log Analytics para VMs Linux|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
-|\]de visualização de \[: implantar o agente de Log Analytics para VMs Linux|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[\]|
+|\[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux|Atribuição de política|Espaço de trabalho Log Analytics para VMs Linux|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
+|\[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[\]|
 |\]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows|Atribuição de política|Log Analytics espaço de trabalho para VMSS (conjuntos de dimensionamento de VMs do Windows)|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
 |\]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[\]|
-|\]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows|Atribuição de política|Espaço de trabalho Log Analytics para VMs do Windows|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
-|\]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[\]|
+|\[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Espaço de trabalho Log Analytics para VMs do Windows|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
+|\[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[\]|
 |Implantar a proteção avançada contra ameaças em contas de armazenamento|Atribuição de política|Efeito|As informações sobre os efeitos da política podem ser encontradas em [entender Azure Policy efeitos](../../../policy/concepts/effects.md)|
 |Implantar a auditoria em servidores SQL|Atribuição de política|O valor em dias do período de retenção (0 indica retenção ilimitada)|Dias de retenção (opcional, 180 dias se não especificado)|
 |Implantar a auditoria em servidores SQL|Atribuição de política|Nome do grupo de recursos para a conta de armazenamento para auditoria do SQL Server|A auditoria grava eventos de banco de dados em um log de auditoria na sua conta de armazenamento do Azure (uma conta de armazenamento será criada em cada região em que um SQL Server é criado e será compartilhado por todos os servidores nessa região). Importante-para uma operação adequada de auditoria, não exclua ou renomeie o grupo de recursos ou as contas de armazenamento.|
@@ -122,7 +119,7 @@ Agora que você analisou as etapas para implantar a amostra do NIST SP 800-53 R4
 > [NIST sp 800-53 R4 Blueprint-visão geral](./index.md)
 > [NIST SP 800-53 R4 Blueprint – mapeamento de controle](./control-mapping.md)
 
-Artigos adicionais sobre plantas e como usá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

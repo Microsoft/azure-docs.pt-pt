@@ -1,5 +1,5 @@
 ---
-title: Adicionar monitoramento & diagnóstico a uma máquina virtual do Azure | Microsoft Docs
+title: Adicionar monitoramento & diagnóstico a uma máquina virtual do Azure
 description: Use um modelo de Azure Resource Manager para criar uma nova máquina virtual do Windows com a extensão de diagnóstico do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ba8fdba3b7283185920432b5b096b80b2e32021
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2490c3de60e0deac6a1a4ddc5abc95cb46e240b2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092546"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073849"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usar monitoramento e diagnóstico com uma VM do Windows e modelos de Azure Resource Manager
 A extensão Diagnóstico do Azure fornece os recursos de monitoramento e diagnóstico em uma máquina virtual do Azure baseada no Windows. Você pode habilitar esses recursos na máquina virtual incluindo a extensão como parte do modelo de Azure Resource Manager. Consulte [criando modelos de Azure Resource Manager com extensões de VM](../windows/template-description.md#extensions) para obter mais informações sobre como incluir qualquer extensão como parte de um modelo de máquina virtual. Este artigo descreve como você pode adicionar a extensão de Diagnóstico do Azure a um modelo de máquina virtual do Windows.  
@@ -109,7 +109,7 @@ O trecho de JSON da extensão de diagnóstico acima pressupõe dois parâmetros 
 > 
 
 ## <a name="diagnostics-configuration-variables"></a>Variáveis de configuração de diagnóstico
-O trecho de JSON da extensão de diagnóstico anterior define uma variável AccountId para simplificar a obtenção da chave de conta de armazenamento para o armazenamento de diagnóstico:   
+O trecho de JSON da extensão de diagnóstico anterior define uma variável *AccountId* para simplificar a obtenção da chave de conta de armazenamento para o armazenamento de diagnóstico:   
 
 ```json
 "accountid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',parameters('existingdiagnosticsStorageResourceGroup'), '/providers/','Microsoft.Storage/storageAccounts/', parameters('existingdiagnosticsStorageAccountName'))]"
@@ -131,7 +131,7 @@ O exemplo a seguir descreve o XML de configuração de diagnóstico que coleta c
 O nó XML de definição de métricas na configuração acima é um elemento de configuração importante, pois define como os contadores de desempenho definidos anteriormente no XML no nó *PerformanceCounter* são agregados e armazenados. 
 
 > [!IMPORTANT]
-> Essas métricas orientam os gráficos de monitoramento e alertas no portal do Azure.  O nó de métricas com ResourceId e **MetricAggregation** deve ser incluído na configuração de diagnóstico para sua VM se você quiser ver os dados de monitoramento de VM no portal do Azure. 
+> Essas métricas orientam os gráficos de monitoramento e alertas no portal do Azure.  O nó de **métricas** com *ResourceId* e **MetricAggregation** deve ser incluído na configuração de diagnóstico para sua VM se você quiser ver os dados de monitoramento de VM no portal do Azure. 
 > 
 > 
 
@@ -144,9 +144,9 @@ O exemplo a seguir mostra o XML para definições de métricas:
 </Metrics>
 ```
 
-O atributo ResourceId identifica exclusivamente a máquina virtual em sua assinatura. Certifique-se de usar as funções Subscription () e resourcegroup () para que o modelo atualize automaticamente esses valores com base na assinatura e no grupo de recursos que você está implantando.
+O atributo *ResourceId* identifica exclusivamente a máquina virtual em sua assinatura. Certifique-se de usar as funções Subscription () e resourcegroup () para que o modelo atualize automaticamente esses valores com base na assinatura e no grupo de recursos que você está implantando.
 
-Se você estiver criando várias máquinas virtuais em um loop, será necessário preencher o valor ResourceId com uma função copyIndex () para diferenciar corretamente cada VM individual. O valor de *xmlCfg* pode ser atualizado para dar suporte a isso da seguinte maneira:  
+Se você estiver criando várias máquinas virtuais em um loop, será necessário preencher o valor *ResourceId* com uma função copyIndex () para diferenciar corretamente cada VM individual. O valor de *xmlCfg* pode ser atualizado para dar suporte a isso da seguinte maneira:  
 
 ```json
 "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
@@ -157,26 +157,26 @@ O valor MetricAggregation de *PT1M* e *PT1H* significam uma agregação em um mi
 ## <a name="wadmetrics-tables-in-storage"></a>Tabelas WADMetrics no armazenamento
 A configuração de métricas acima gera tabelas em sua conta de armazenamento de diagnóstico com as seguintes convenções de nomenclatura:
 
-* **WADMetrics**: Prefixo padrão para todas as tabelas WADMetrics
-* **PT1H** ou **PT1M**: Significa que a tabela contém dados agregados em 1 hora ou 1 minuto
-* **P10D**: Significa que a tabela conterá dados por 10 dias a partir do momento em que a tabela começou a coletar dados
-* **V2S**: Constante de cadeia de caracteres
-* **aaaammdd**: A data em que a tabela começou a coletar dados
+* **WADMetrics**: prefixo padrão para todas as tabelas WADMetrics
+* **PT1H** ou **PT1M**: significa que a tabela contém dados agregados em 1 hora ou 1 minuto
+* **P10D**: significa que a tabela conterá dados por 10 dias a partir do momento em que a tabela começou a coletar dados
+* **V2s**: constante de cadeia de caracteres
+* **aaaammdd**: a data na qual a tabela começou a coletar dados
 
 Exemplo: *WADMetricsPT1HP10DV2S20151108* contém dados de métrica agregados em uma hora por 10 dias a partir de 11 de novembro de 2015    
 
 Cada tabela WADMetrics contém as seguintes colunas:
 
-* **PartitionKey**: A chave de partição é construída com base no valor ResourceId para identificar exclusivamente o recurso da VM. Por exemplo: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
-* **RowKey**: Segue o formato `<Descending time tick>:<Performance Counter Name>`. O cálculo da marcação de tempo decrescente é de tiques de tempo máximos menos a hora do início do período de agregação. Por exemplo, se o período de exemplo começou em 10-Nov-2015 e 00:00Hrs UTC, o cálculo seria `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`:. Para o contador de desempenho bytes disponíveis de memória, a chave de linha será semelhante a:`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
-* **CounterName**: É o nome do contador de desempenho. Isso corresponde ao *especificador* de coincidência definido na configuração XML.
-* **Máximo**: O valor máximo do contador de desempenho durante o período de agregação.
-* **Mínimo**: O valor mínimo do contador de desempenho durante o período de agregação.
-* **Total**: A soma de todos os valores do contador de desempenho relatados durante o período de agregação.
-* **Contagem**: O número total de valores relatados para o contador de desempenho.
-* **Média**: O valor médio (total/contagem) do contador de desempenho durante o período de agregação.
+* **PartitionKey**: a chave de partição é construída com base no valor *ResourceId* para identificar exclusivamente o recurso da VM. Por exemplo: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
+* **RowKey**: segue o formato `<Descending time tick>:<Performance Counter Name>`. O cálculo da marcação de tempo decrescente é de tiques de tempo máximos menos a hora do início do período de agregação. Por exemplo, se o período de exemplo começou em 10-Nov-2015 e 00:00Hrs UTC, o cálculo seria: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Para o contador de desempenho bytes disponíveis de memória, a chave de linha será semelhante a: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
+* **CounterName**: é o nome do contador de desempenho. Isso corresponde ao *especificador* de coincidência definido na configuração XML.
+* **Máximo**: o valor máximo do contador de desempenho durante o período de agregação.
+* **Mínimo**: o valor mínimo do contador de desempenho durante o período de agregação.
+* **Total**: a soma de todos os valores do contador de desempenho relatados no período de agregação.
+* **Contagem**: o número total de valores relatados para o contador de desempenho.
+* **Média**: o valor médio (total/contagem) do contador de desempenho durante o período de agregação.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter um modelo de exemplo completo de uma máquina virtual do Windows com extensão de diagnóstico, consulte [201-VM-Monitoring-Diagnostics-Extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * Implantar o modelo de Azure Resource Manager usando a [Azure PowerShell](../windows/ps-template.md) ou a [linha de comando do Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * Saiba mais sobre a [criação de modelos de Azure Resource Manager](../../resource-group-authoring-templates.md)

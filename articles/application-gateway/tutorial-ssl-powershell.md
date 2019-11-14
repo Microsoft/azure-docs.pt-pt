@@ -1,19 +1,20 @@
 ---
-title: Criar um gateway de aplicação com a terminação SSL - Azure PowerShell
+title: Terminação SSL usando o PowerShell
+titleSuffix: Azure Application Gateway
 description: Saiba como criar um gateway de aplicação e adicionar um certificado para terminação SSL com o Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 7/31/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 70447e01fc248e889662c5ec15cb65b1c0cc4848
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 2ce5b8472fe10b51cff34677c9ce5a89888bdc01
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688089"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075067"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Criar um gateway de aplicação com a terminação SSL, com o Azure PowerShell
 
@@ -64,7 +65,7 @@ Export-PfxCertificate `
   -Password $pwd
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos do Azure chamado *myResourceGroupAG* com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 
@@ -100,7 +101,7 @@ $pip = New-AzPublicIpAddress `
   -Sku Standard
 ```
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e a porta de front-end
 
@@ -146,7 +147,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 É necessário um serviço de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste exemplo, vai criar um serviço de escuta básico que escuta o tráfego HTTPS no URL de raiz. 
 
-Crie um objeto de certificado usando [New-AzApplicationGatewaySslCertificate](/powershell/module/az.network/new-azapplicationgatewaysslcertificate) e, em seguida, crie um ouvinte chamado *mydefaultListener* usando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) com a configuração de front-end, a porta de frontend e certificado que você criou anteriormente. É necessária uma regra para o serviço de escuta saber qual o conjunto de back-end a utilizar para o tráfego de entrada. Crie uma regra básica chamada *rule1* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Crie um objeto de certificado usando [New-AzApplicationGatewaySslCertificate](/powershell/module/az.network/new-azapplicationgatewaysslcertificate) e, em seguida, crie um ouvinte chamado *mydefaultListener* usando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) com a configuração de front-end, a porta de frontend e o certificado que você criou anteriormente. É necessária uma regra para o serviço de escuta saber qual o conjunto de back-end a utilizar para o tráfego de entrada. Crie uma regra básica chamada *rule1* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```powershell
 $pwd = ConvertTo-SecureString `
@@ -176,7 +177,7 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway-with-the-certificate"></a>Criar o gateway de aplicação com o certificado
 
-Agora que você criou os recursos de suporte necessários, especifique os parâmetros para o gateway de aplicativo denominado *myAppGateway* usando [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)e, em seguida, crie-o usando [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway) com o Certificate.
+Agora que você criou os recursos de suporte necessários, especifique os parâmetros para o gateway de aplicativo denominado *myAppGateway* usando [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)e, em seguida, crie-o usando [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway) com o certificado.
 
 ### <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
