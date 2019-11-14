@@ -1,5 +1,5 @@
 ---
-title: Regiões do Azure para VMs do Windows | Microsoft Docs
+title: Regiões do Azure para VMs do Windows
 description: Saiba mais sobre as regiões para executar máquinas virtuais do Windows no Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 2379ef2d828d5660aee2a8a2e4c019375764a0ab
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 940db64aabcf218b0f8211c90d735269c65d36a9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008452"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073421"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Regiões para máquinas virtuais no Azure
 [!INCLUDE [virtual-machines-common-regions](../../../includes/virtual-machines-common-regions.md)]

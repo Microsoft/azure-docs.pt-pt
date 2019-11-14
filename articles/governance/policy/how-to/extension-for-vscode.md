@@ -1,17 +1,14 @@
 ---
 title: Extensão de Azure Policy para Visual Studio Code
 description: Saiba como usar a extensão de Azure Policy para Visual Studio Code para pesquisar aliases do Gerenciador de recursos.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 20af29c40ec13add90294e28d64f0166acc95319
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cbc0e14ed70fbacc297126aef58cd722d2235a3d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514813"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072042"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usar extensão de Azure Policy para Visual Studio Code
 
@@ -77,7 +74,7 @@ Para avaliar os recursos e os aliases de pesquisa, você deve se conectar à sua
 
 1. Siga as instruções de entrada para entrar no Azure. Depois que você estiver conectado, o nome da sua conta do Azure será mostrado na barra de status na parte inferior da janela de Visual Studio Code.
 
-## <a name="select-subscriptions"></a>Selecionar assinaturas
+## <a name="select-subscriptions"></a>Selecionar subscrições
 
 Quando você entra pela primeira vez, somente os recursos e as políticas de assinatura padrão são carregados pela extensão de Azure Policy. Para adicionar ou remover assinaturas da exibição de recursos e políticas, siga estas etapas:
 

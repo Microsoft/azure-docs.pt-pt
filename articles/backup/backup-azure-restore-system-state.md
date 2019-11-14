@@ -1,5 +1,5 @@
 ---
-title: 'Backup do Azure: Restaurar o estado do sistema para um Windows Server'
+title: 'Backup do Azure: restaurar o estado do sistema para um Windows Server'
 description: Explicação passo a passo para restaurar o estado do sistema do Windows Server de um backup no Azure.
 ms.reviewer: saurse
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: dacurwin
-ms.openlocfilehash: beac49585239a1ecc15588a6c8160bc34c84c6ad
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 5fc9eb5a85b5ce834060f3f35e89ebc2acea2244
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210311"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074215"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o estado do sistema para o Windows Server
 
@@ -25,8 +25,8 @@ Este artigo explica como restaurar backups de estado do sistema do Windows Serve
 
 2. Aplique os arquivos de estado do sistema restaurados a um Windows Server.
 
-
 ## <a name="recover-system-state-files-to-the-same-server"></a>Recuperar arquivos de estado do sistema para o mesmo servidor
+
 As etapas a seguir explicam como reverter a configuração do Windows Server para um estado anterior. Reverter a configuração do servidor para um estado conhecido e estável pode ser extremamente valioso. As etapas a seguir restauram o estado do sistema do servidor de um cofre dos serviços de recuperação.
 
 1. Abra o snap-in **Microsoft Azure Backup**. Se você não souber onde o snap-in foi instalado, pesquise **backup do Microsoft Azure**no computador ou no servidor.
@@ -73,9 +73,9 @@ Se o seu Windows Server estiver corrompido ou inacessível e você quiser restau
 
 A terminologia usada nestas etapas inclui:
 
-- *Computador de origem* – o computador original do qual o backup foi feito e que não está disponível no momento.
-- *Máquina de destino* – o computador no qual os dados estão sendo recuperados.
-- *Cofre de exemplo* – o cofre dos serviços de recuperação no qual o *computador de origem* e o *computador de destino* estão registrados. <br/>
+* *Computador de origem* – o computador original do qual o backup foi feito e que não está disponível no momento.
+* *Máquina de destino* – o computador no qual os dados estão sendo recuperados.
+* *Cofre de exemplo* – o cofre dos serviços de recuperação no qual o *computador de origem* e o *computador de destino* estão registrados. <br/>
 
 > [!NOTE]
 > Os backups extraídos de um computador não podem ser restaurados em um computador que executa uma versão anterior do sistema operacional. Por exemplo, os backups extraídos de um computador Windows Server 2016 não podem ser restaurados para o Windows Server 2012 R2. No entanto, o inverso é possível. Você pode usar backups do Windows Server 2012 R2 para restaurar o Windows Server 2016.
@@ -115,9 +115,6 @@ A terminologia usada nestas etapas inclui:
 
 13. Para concluir o processo de recuperação, use a seção a seguir para [aplicar os arquivos de estado do sistema restaurados em um Windows Server](#apply-restored-system-state-on-a-windows-server).
 
-
-
-
 ## <a name="apply-restored-system-state-on-a-windows-server"></a>Aplicar o estado do sistema restaurado em um Windows Server
 
 Depois de recuperar o estado do sistema como arquivos usando o agente dos serviços de recuperação do Azure, use o utilitário Backup do Windows Server para aplicar o estado do sistema recuperado ao Windows Server. O utilitário Backup do Windows Server já está disponível no servidor. As etapas a seguir explicam como aplicar o estado do sistema recuperado.
@@ -147,7 +144,7 @@ Depois de recuperar o estado do sistema como arquivos usando o agente dos servi�
 
     ![Selecione se deseja recuperar do servidor local ou de outro](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
 
-7. Insira o caminho para o diretório *WindowsImageBackup* ou escolha a unidade local que contém esse diretório (por exemplo, D:\WindowsImageBackup), recuperado como parte da recuperação dos arquivos de estado do sistema usando o agente dos serviços de recuperação do Azure e clique em **Avançar** .
+7. Insira o caminho para o diretório *WindowsImageBackup* ou escolha a unidade local que contém esse diretório (por exemplo, D:\WindowsImageBackup), recuperado como parte da recuperação dos arquivos de estado do sistema usando o agente dos serviços de recuperação do Azure e clique em **Avançar**.
 
     ![caminho para o arquivo compartilhado](./media/backup-azure-restore-system-state/ss-recovery-remote-folder.png)
 
@@ -167,7 +164,6 @@ O backup de estado do sistema inclui dados de Active Directory. Use as etapas a 
 
 1. Reinicie o controlador de domínio em Modo de Restauração dos Serviços de Diretório (DSRM).
 2. Siga as etapas [aqui](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) para usar backup do Windows Server cmdlets para recuperar AD DS.
-
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Solucionar problemas de restauração do estado do sistema com falha
 
@@ -192,6 +188,7 @@ Se o processo anterior de aplicação do estado do sistema não for concluído c
     ```cmd
     Wbadmin get versions -backuptarget:<Volume where WindowsImageBackup folder is copied>:
     ```
+
     ![obter versões de backup do estado do sistema](./media/backup-azure-restore-system-state/winre-4.png)
 
 6. Execute o comando a seguir para obter todos os volumes disponíveis no backup.
@@ -207,9 +204,9 @@ Se o processo anterior de aplicação do estado do sistema não for concluído c
     ```cmd
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
+
      ![obter versões de backup do estado do sistema](./media/backup-azure-restore-system-state/winre-6.png)
 
+## <a name="next-steps"></a>Passos seguintes
 
-
-## <a name="next-steps"></a>Passos Seguintes
 * Agora que você recuperou seus arquivos e pastas, você pode [gerenciar seus backups](backup-azure-manage-windows-server.md).

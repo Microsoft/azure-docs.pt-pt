@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 48d58ac303a843c627067c9a0287628c35b65f66
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 15bf955d6055ed91b486d34cf9d805de34e9f8f5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019074"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074832"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Azure Backup Server
 
@@ -27,19 +27,19 @@ O Servidor de Backup do Azure V2 e posterior dá suporte a Armazenamento de Back
 
 O servidor de backup v2 ou posterior aceita volumes de armazenamento. Quando você adiciona um volume, o servidor de backup formata o volume para o ReFS (sistema de arquivos resiliente), que Armazenamento de Backup Moderno requer. Para adicionar um volume e expandi-lo mais tarde, se necessário, sugerimos que você use este fluxo de trabalho:
 
-1.  Configure o servidor de backup em uma VM.
-2.  Criar um volume em um disco virtual em um pool de armazenamento:
-    1.  Adicione um disco a um pool de armazenamento e crie um disco virtual com layout simples.
-    2.  Adicione discos adicionais e estenda o disco virtual.
-    3.  Crie volumes no disco virtual.
-3.  Adicione os volumes ao servidor de backup.
-4.  Configure o armazenamento com reconhecimento de carga de trabalho.
+1. Configure o servidor de backup em uma VM.
+2. Criar um volume em um disco virtual em um pool de armazenamento:
+    1. Adicione um disco a um pool de armazenamento e crie um disco virtual com layout simples.
+    2. Adicione discos adicionais e estenda o disco virtual.
+    3. Crie volumes no disco virtual.
+3. Adicione os volumes ao servidor de backup.
+4. Configure o armazenamento com reconhecimento de carga de trabalho.
 
 ## <a name="create-a-volume-for-modern-backup-storage"></a>Criar um volume para Armazenamento de Backup Moderno
 
 O uso do servidor de backup v2 ou posterior com volumes como armazenamento em disco pode ajudá-lo a manter o controle do armazenamento. Um volume pode ser um único disco. No entanto, se você quiser estender o armazenamento no futuro, crie um volume a partir de um disco criado usando espaços de armazenamento. Isso pode ajudar se você quiser expandir o volume para armazenamento de backup. Esta seção oferece as práticas recomendadas para a criação de um volume com essa configuração.
 
-1. Em Gerenciador do servidor, > selecione **serviços de arquivo e armazenamento** **volumes** > pools de**armazenamento**. Em **discos físicos**, selecione **novo pool de armazenamento**.
+1. Em Gerenciador do Servidor, selecione **serviços de arquivo e armazenamento** > **volumes** > **pools de armazenamento**. Em **discos físicos**, selecione **novo pool de armazenamento**.
 
     ![Criar um novo pool de armazenamento](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
@@ -75,7 +75,7 @@ Com o armazenamento com reconhecimento de carga de trabalho, você pode selecion
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Você pode configurar o armazenamento com reconhecimento de carga de trabalho usando o cmdlet do PowerShell Update-DPMDiskStorage, que atualiza as propriedades de um volume no pool de armazenamento em um Servidor de Backup do Azure. 
+Você pode configurar o armazenamento com reconhecimento de carga de trabalho usando o cmdlet do PowerShell Update-DPMDiskStorage, que atualiza as propriedades de um volume no pool de armazenamento em um Servidor de Backup do Azure.
 
 Sintaxe
 
@@ -84,6 +84,7 @@ Sintaxe
 ```powershell
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
+
 A captura de tela a seguir mostra o cmdlet Update-DPMDiskStorage na janela do PowerShell.
 
 ![O comando Update-DPMDiskStorage na janela do PowerShell](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
@@ -92,8 +93,8 @@ As alterações feitas usando o PowerShell são refletidas no servidor de backup
 
 ![Discos e volumes no Console do Administrador](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
-
 ## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Migrar armazenamento herdado para Armazenamento de Backup Moderno
+
 Depois de atualizar para o ou instalar o servidor de backup V2 e atualizar o sistema operacional para o Windows Server 2016, atualize seus grupos de proteção para usar Armazenamento de Backup Moderno. Por padrão, os grupos de proteção não são alterados. Eles continuam a funcionar como foram inicialmente configurados.
 
 A atualização de grupos de proteção para usar Armazenamento de Backup Moderno é opcional. Para atualizar o grupo de proteção, interrompa a proteção de todas as fontes de dados usando a opção manter dados. Em seguida, adicione as fontes de dados a um novo grupo de proteção.
@@ -116,15 +117,16 @@ Se você quiser usar o armazenamento herdado com o servidor de backup, talvez se
 
 Para adicionar armazenamento em disco:
 
-1. No console do administrador, selecione **Gerenciamento** > **armazenamento em disco** > **Adicionar**.
+1. No Console do Administrador, selecione >  de gerenciamento **armazenamento em disco** > **Adicionar**.
 
     ![Caixa de diálogo Adicionar Armazenamento em Disco](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
-4. Na caixa de diálogo **adicionar armazenamento em disco** , selecione **adicionar discos**.
+2. Na caixa de diálogo **adicionar armazenamento em disco** , selecione **adicionar discos**.
 
-5. Na lista de discos disponíveis, selecione os discos que você deseja adicionar, selecione **Adicionar**e, em seguida, selecione **OK**.
+3. Na lista de discos disponíveis, selecione os discos que você deseja adicionar, selecione **Adicionar**e, em seguida, selecione **OK**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
+
 Depois de instalar o servidor de backup, saiba como preparar o servidor ou começar a proteger uma carga de trabalho.
 
 - [Preparar cargas de trabalho do servidor de backup](backup-azure-microsoft-azure-backup.md)

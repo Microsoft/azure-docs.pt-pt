@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: e4683547a7c305da3d3a3bc7a7d6a50f21ad46f2
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: e600fdb882294d14bb9f9216ac8d621ba5254170
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614390"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074717"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solucionar problemas SQL Server backup de banco de dados usando o backup do Azure
 
@@ -31,7 +31,7 @@ Para configurar a proteção para um banco de dados SQL Server em uma máquina v
 
 | Gravidade | Descrição | Possíveis causas | Ação recomendada |
 |---|---|---|---|
-| Aviso | As configurações atuais deste banco de dados não dão suporte a determinados tipos de backup presentes na política associada. | <li>Somente uma operação de backup de banco de dados completa pode ser executada no banco de dados mestre. Nenhum backup diferencial nem backup de log de transações é possível. </li> <li>Qualquer banco de dados no modelo de recuperação simples não permite o backup de logs de transações.</li> | Modifique as configurações do banco de dados de modo que haja suporte para todos os tipos de backup na política. Ou altere a política atual para incluir apenas os tipos de backup com suporte. Caso contrário, os tipos de backup sem suporte serão ignorados durante o backup agendado, ou o trabalho de backup falhará para backup ad hoc.
+| Aviso | As configurações atuais deste banco de dados não dão suporte a determinados tipos de backup presentes na política associada. | <li>Somente uma operação de backup de banco de dados completa pode ser executada no banco de dados mestre. Nenhum backup diferencial nem backup de log de transações é possível. </li> <li>Qualquer banco de dados no modelo de recuperação simples não permite o backup de logs de transações.</li> | Modifique as configurações do banco de dados de modo que haja suporte para todos os tipos de backup na política. Ou altere a política atual para incluir apenas os tipos de backup com suporte. Caso contrário, os tipos de backup sem suporte serão ignorados durante o backup agendado ou o trabalho de backup falhará para o backup sob demanda.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -50,7 +50,7 @@ Para configurar a proteção para um banco de dados SQL Server em uma máquina v
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| A cadeia de registos está quebrada. | O backup do banco de dados ou da VM é feito por meio de outra solução de backup, que trunca a cadeia de logs.|<ul><li>Verifique se outra solução ou script de backup está em uso. Nesse caso, pare a outra solução de backup. </li><li>Se o backup foi um backup de log ad hoc, dispare um backup completo para iniciar uma nova cadeia de logs. Para backups de log agendados, nenhuma ação é necessária porque o serviço de backup do Azure irá disparar automaticamente um backup completo para corrigir esse problema.</li>|
+| A cadeia de registos está quebrada. | O backup do banco de dados ou da VM é feito por meio de outra solução de backup, que trunca a cadeia de logs.|<ul><li>Verifique se outra solução ou script de backup está em uso. Nesse caso, pare a outra solução de backup. </li><li>Se o backup foi um backup de log sob demanda, dispare um backup completo para iniciar uma nova cadeia de logs. Para backups de log agendados, nenhuma ação é necessária porque o serviço de backup do Azure irá disparar automaticamente um backup completo para corrigir esse problema.</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
@@ -62,7 +62,7 @@ Para configurar a proteção para um banco de dados SQL Server em uma máquina v
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| O primeiro backup completo está ausente para esta fonte de dados. | O backup completo está ausente para o banco de dados. Backups diferenciais e de log são pais para um backup completo, portanto, certifique-se de fazer backups completos antes de disparar backups diferenciais ou de log. | Disparar um backup completo ad hoc.   |
+| O primeiro backup completo está ausente para esta fonte de dados. | O backup completo está ausente para o banco de dados. Backups diferenciais e de log são pais para um backup completo, portanto, certifique-se de fazer backups completos antes de disparar backups diferenciais ou de log. | Disparar um backup completo sob demanda.   |
 
 ### <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 

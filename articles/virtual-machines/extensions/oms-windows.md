@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor extensão da máquina virtual para Windows | Microsoft Docs
+title: Extensão de máquina virtual Azure Monitor para Windows
 description: Implante o agente de Log Analytics na máquina virtual do Windows usando uma extensão de máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2019
 ms.author: akjosh
-ms.openlocfilehash: fe8bafcb63c1a27b905bdc339c07d30c9f0a5982
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: c9fd62e57d131fb21e657c53914f9cd5349107ec
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168923"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073666"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extensão de máquina virtual Azure Monitor para Windows
 
@@ -88,12 +88,12 @@ O JSON a seguir mostra o esquema para a extensão do agente de Log Analytics. A 
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
-| type | MicrosoftMonitoringAgent |
+| tipo | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceid (por exemplo, *) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
-\*O workspaceid é chamado consumidorid na API do Log Analytics.
+\* workspaceid é chamado consumidorid na API do Log Analytics.
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
@@ -159,7 +159,7 @@ Quando coloca a extensão de JSON na raiz do modelo, o nome do recurso inclui um
 
 ## <a name="powershell-deployment"></a>Implantação do PowerShell
 
-O `Set-AzVMExtension` comando pode ser usado para implantar a extensão de máquina virtual do agente de log Analytics em uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam ser armazenadas em uma tabela de hash do PowerShell. 
+O comando `Set-AzVMExtension` pode ser usado para implantar a extensão de máquina virtual do agente de Log Analytics em uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam ser armazenadas em uma tabela de hash do PowerShell. 
 
 ```powershell
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}

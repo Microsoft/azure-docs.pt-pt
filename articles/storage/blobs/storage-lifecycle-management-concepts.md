@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 5cf4689534a813d778c25a7a712b983aafe6f5a9
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 41e1228d127ddbbf0749036fc6f0129da1208bc7
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881592"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077124"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida do Armazenamento de Blobs do Azure
 
@@ -47,7 +47,7 @@ O recurso de gerenciamento do ciclo de vida está disponível em todas as regiõ
 Você pode adicionar, editar ou remover uma política usando qualquer um dos seguintes métodos:
 
 * [Portal do Azure](https://portal.azure.com)
-* [O Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
+* [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
 * [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [APIs REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
 
@@ -65,7 +65,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
 
 #### <a name="azure-portal-list-view"></a>Exibição de lista de portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **todos os recursos** e, em seguida, selecione sua conta de armazenamento.
 
@@ -86,7 +86,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
 9. Selecione **Adicionar** para adicionar a nova política.
 
 #### <a name="azure-portal-code-view"></a>Exibição de código portal do Azure
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **todos os recursos** e, em seguida, selecione sua conta de armazenamento.
 
@@ -230,9 +230,9 @@ Uma política é uma coleção de regras:
 
 Cada regra na política tem vários parâmetros:
 
-| Nome do parâmetro | Tipo de parâmetro | Notas | Obrigatório |
+| Nome do parâmetro | Tipo de parâmetro | Notas | Necessário |
 |----------------|----------------|-------|----------|
-| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra diferencia maiúsculas de minúsculas.  Ele deve ser exclusivo dentro de uma política. | Verdadeiro |
+| `name`         | Cadeia |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra diferencia maiúsculas de minúsculas.  Ele deve ser exclusivo dentro de uma política. | Verdadeiro |
 | `enabled`      | Booleano | Um booliano opcional para permitir que uma regra seja temporariamente desabilitada. O valor padrão será true se não estiver definido. | Falso | 
 | `type`         | Um valor de enumeração | O tipo válido atual é `Lifecycle`. | Verdadeiro |
 | `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | Verdadeiro |
@@ -299,7 +299,7 @@ O gerenciamento do ciclo de vida dá suporte a camadas e exclusão de BLOBs e ex
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Suporte a BLOBs atualmente na camada quente         | Não suportado |
 | tierToArchive | Suporte a BLOBs atualmente na camada quente ou fria | Não suportado |
-| delete        | Suportadas                                   | Suportadas     |
+| delete        | Suportado                                   | Suportado     |
 
 >[!NOTE]
 >Se você definir mais de uma ação no mesmo BLOB, o gerenciamento do ciclo de vida aplicará a ação menos dispendiosa ao blob. Por exemplo, a ação `delete` é mais barata que a ação `tierToArchive`. A ação `tierToArchive` é mais barata que a ação `tierToCool`.
@@ -431,6 +431,9 @@ Para dados que são modificados e acessados regularmente durante todo o seu temp
 
 **Eu criei uma nova política, por que as ações não são executadas imediatamente?**  
 A plataforma executa a política de ciclo de vida uma vez por dia. Depois de configurar uma política, pode levar até 24 horas para que algumas ações sejam executadas pela primeira vez.  
+
+**Se eu atualizar uma política existente, quanto tempo levará para que as ações sejam executadas?**  
+A política atualizada leva até 24 horas para entrar em vigor. Depois que a política estiver em vigor, poderá levar até 24 horas para que as ações sejam executadas. Portanto, a política pode levar até 48 horas para ser executada.   
 
 **Eu resalimentava manualmente um blob arquivado, como impedir que ele fosse movido de volta para a camada de arquivamento temporariamente?**  
 Quando um blob é movido de uma camada de acesso para outra, sua hora da última modificação não é alterada. Se você reidratar manualmente um blob arquivado na camada quente, ele seria movido de volta para a camada de arquivo pelo mecanismo de gerenciamento do ciclo de vida. Desabilite a regra que afeta esse blob temporariamente para impedir que ele seja arquivado novamente. Habilite novamente a regra quando o blob puder ser movido com segurança de volta para a camada de arquivo morto. Você também poderá copiar o blob para outro local se ele precisar permanecer na camada quente ou fria permanentemente.

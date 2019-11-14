@@ -1,5 +1,5 @@
 ---
-title: Tutorial – monitorar máquinas virtuais do Windows no Azure | Microsoft Docs
+title: Tutorial-monitorar máquinas virtuais do Windows no Azure
 description: Neste tutorial, você aprenderá a monitorar o desempenho e os componentes de aplicativos descobertos em execução nas máquinas virtuais do Windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: a2f4083841c801db3edf1b2838b8d3271b700731
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 13e5cc9ee45cf230668ef7a7cbe85b6437044643
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71680065"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74064760"
 ---
-# <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorar uma máquina virtual do Windows no Azure
+# <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutorial: monitorar uma máquina virtual do Windows no Azure
 
 O monitoramento do Azure usa agentes para coletar dados de inicialização e de desempenho de VMs do Azure, armazenar esses dados no armazenamento do Azure e torná-los acessíveis por meio do portal, do módulo Azure PowerShell e do CLI do Azure. O monitoramento avançado é fornecido com o Azure Monitor para VMs coletando métricas de desempenho, descobrir componentes de aplicativos instalados na VM e inclui gráficos de desempenho e mapa de dependências.
 
@@ -30,9 +30,9 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Ativar diagnósticos de arranque numa VM
-> * Ver diagnóstico de arranque
+> * Ver diagnósticos de arranque
 > * Ver métricas de anfitrião da VM
-> * Ativar o Azure Monitor para VMs
+> * Habilitar Azure Monitor para VMs
 > * Exibir métricas de desempenho da VM
 > * Criar um alerta
 
@@ -62,7 +62,7 @@ New-AzVm `
 
 Demora alguns minutos até que os recursos e a VM sejam criados.
 
-## <a name="view-boot-diagnostics"></a>Ver diagnóstico de arranque
+## <a name="view-boot-diagnostics"></a>Ver diagnósticos de arranque
 
 À medida que as máquinas virtuais do Windows arrancam, o agente de diagnóstico de arranque captura a saída de ecrã que pode ser utilizada para fins de resolução de problemas. Esta capacidade está ativada por predefinição. As capturas de tela capturadas são armazenadas em uma conta de armazenamento do Azure, que também é criada por padrão.
 
@@ -126,7 +126,7 @@ O exemplo seguinte cria um alerta para a utilização média da CPU.
 
 2. Clique em **Regras de alerta** no painel da VM e, em seguida, clique em **Adicionar alerta de métrica** na parte superior do painel de alertas.
 
-3. Indique um **Nome** para o alerta, como *myAlertRule*
+3. Forneça um **Nome** para o alerta, como *myAlertRule*
 
 4. Para acionar um alerta quando a percentagem da CPU excede 1.0 durante cinco minutos, mantenha todas as outras predefinições selecionadas.
 
@@ -143,7 +143,7 @@ Neste tutorial, você configurou e exibiu o desempenho de sua VM. Aprendeu a:
 > * Ativar diagnósticos de arranque na VM
 > * Ver diagnósticos de arranque
 > * Ver métricas de anfitrião
-> * Ativar o Azure Monitor para VMs
+> * Habilitar Azure Monitor para VMs
 > * Ver métricas da VM
 > * Criar um alerta
 

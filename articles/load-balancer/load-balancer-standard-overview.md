@@ -1,7 +1,7 @@
 ---
 title: O que é o Azure Standard Load Balancer?
 titlesuffix: Azure Load Balancer
-description: Visão geral dos recursos do Azure Standard Load Balancer
+description: Com este roteiro de aprendizagem, comece com uma visão geral dos recursos do Azure Standard Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: allensu
-ms.openlocfilehash: 8eb8134452685add53b9dc339437ac262ecc8a9f
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c14cf572410d02892aa8a2b3e9f0f42fce46d411
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274387"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068781"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Visão geral do Azure Standard Load Balancer
 
@@ -68,7 +68,7 @@ Ao considerar como projetar seu pool de back-end, você pode criar o número mí
   
 Standard Load Balancer adiciona suporte para [investigações de integridade https](load-balancer-custom-probe-overview.md#httpprobe) (investigação http com wrapper TLS) para monitorar com precisão seus aplicativos HTTPS.  
 
-Além disso, quando todo o pool de [](load-balancer-custom-probe-overview.md#probedown)back-end é investigado, Standard Load Balancer permite que todas as conexões TCP estabelecidas continuem. (Basic Load Balancer encerrará todas as conexões TCP para todas as instâncias).
+Além disso, quando todo o pool de back-end é [investigado](load-balancer-custom-probe-overview.md#probedown), Standard Load Balancer permite que todas as conexões TCP estabelecidas continuem. (Basic Load Balancer encerrará todas as conexões TCP para todas as instâncias).
 
 Examine [Load Balancer investigações de integridade](load-balancer-custom-probe-overview.md) para obter detalhes.
 
@@ -127,7 +127,7 @@ O Load Balancer dá suporte a cenários de entrada e saída.  Standard Load Bala
 
 O SNAT (conversão de endereços de rede de origem) é usado para mapear endereços IP privados e internos em sua rede virtual para endereços IP públicos em Load Balancer front-ends.
 
-Standard Load Balancer introduz um novo algoritmo para um [algoritmo de SNAT mais robusto, escalonável](load-balancer-outbound-connections.md#snat) e previsível e permite novas capacidades, remove a ambiguidade e força configurações explícitas em vez de efeitos colaterais. Essas alterações são necessárias para permitir que novos recursos surjam. 
+Standard Load Balancer introduz um novo algoritmo para um [algoritmo de SNAT mais robusto, escalonável e previsível](load-balancer-outbound-connections.md#snat) e permite novas capacidades, remove a ambiguidade e força configurações explícitas em vez de efeitos colaterais. Essas alterações são necessárias para permitir que novos recursos surjam. 
 
 Estes são os principais princípios a serem lembrados ao trabalhar com Standard Load Balancer:
 
@@ -229,15 +229,15 @@ Para obter as informações de preços do Balanceador de Carga Standard, aceda �
 - [As operações de movimentação de assinatura](../azure-resource-manager/resource-group-move-resources.md) não têm suporte para recursos SKU lb e Pip padrão.
 - As funções de Web Worker sem uma VNet e outros serviços de plataforma da Microsoft podem ser acessíveis quando apenas um Standard Load Balancer interno é usado devido a um efeito colateral de como os serviços de VNet e outros serviços de plataforma funcionam. Você não deve confiar nele como o próprio serviço ou a plataforma subjacente pode ser alterada sem aviso prévio. Você deve sempre supor que precisará criar a [conectividade de saída](load-balancer-outbound-connections.md) explicitamente, se desejado, ao usar apenas um Standard Load balancer interno.
 - O Balanceador de Carga é um produto TCP ou UDP para balanceamento de carga e encaminhamento de portas para estes dois protocolos IP específicos.  As regras de balanceamento de carga e as regras NAT de entrada são suportadas para TCP e UDP, mas não para os outros protocolos IP, incluindo o ICMP. O Balanceador de Carga não termina, não responde nem interage com o payload dos fluxos UDP ou TCP. Não é um proxy. A validação bem-sucedida da conectividade com um front-end deve ocorrer em banda com o mesmo protocolo usado em um balanceamento de carga ou em uma regra NAT de entrada (TCP ou UDP) _e_ pelo menos uma de suas máquinas virtuais deve gerar uma resposta para que um cliente Veja uma resposta de um front-end.  Não receber uma resposta em banda do front-end Load Balancer indica que nenhuma máquina virtual foi capaz de responder.  Não é possível interagir com um front-end Load Balancer sem uma máquina virtual capaz de responder.  Isto também se aplica às ligações de saída, em que o [SNAT de máscara de rede](load-balancer-outbound-connections.md#snat) só é suportado para TCP e UDP; qualquer outro protocolo IP, incluindo ICMP, falhará.  Para mitigar o problema, atribua um endereço IP público ao nível da instância.
-- Ao contrário dos balanceadores de carga públicos que fornecem [conexões de saída](load-balancer-outbound-connections.md) ao fazer a transição de endereços IP privados dentro da rede virtual para endereços IP públicos, os balanceadores de carga internos não convertem conexões originadas de saída para o front-end de um Load Balancer interno, pois ambos estão no espaço de endereço IP privado.  Isso evita o potencial de esgotamento de SNAT dentro do espaço de endereço IP interno exclusivo em que a conversão não é necessária.  O efeito colateral é que, se um fluxo de saída de uma VM no pool de back-end tentar um fluxo para o front-end da Load Balancer interna em que o pool reside _e_ for mapeado de volta para si mesmo, ambas as pernas do fluxo não corresponderão e o fluxo falhará.  Se o fluxo não foi mapeado de volta para a mesma VM no pool de back-end que criou o fluxo para o front-end, o fluxo terá sucesso.   Quando o fluxo mapeia de volta para si mesmo, o fluxo de saída parece originar da VM para o front-end e o fluxo de entrada correspondente parece originar-se da VM para si mesmo. Do ponto de vista do SO convidado, as partes de entrada e saída do mesmo fluxo não correspondem dentro da máquina virtual. A pilha TCP não reconhecerá essas partes do fluxo como fazendo parte do mesmo fluxo, pois a origem e o destino não correspondem.  Quando o fluxo é mapeado para qualquer outra VM no pool de back-end, as metades do fluxo serão correspondidas e a VM poderá responder com êxito ao fluxo.  O sintoma para esse cenário é o tempo limite de conexão intermitente. Há várias soluções alternativas comuns para alcançar esse cenário de forma confiável (os fluxos de origem de um pool de back-end para os pools de back-ends respectivos Load Balancer front-end) que incluem a inserção de um proxy de terceiros por trás da carga interna O balanceador ou o [uso de regras de estilo DSR](load-balancer-multivip-overview.md).  Embora possa utilizar um balanceador de carga público para mitigar o problema, o cenário resultante é propenso a [esgotamento de SNAT](load-balancer-outbound-connections.md#snat) e deve ser evitado, salvo se for gerido cuidadosamente.
+- Ao contrário dos balanceadores de carga públicos que fornecem [conexões de saída](load-balancer-outbound-connections.md) ao fazer a transição de endereços IP privados dentro da rede virtual para endereços IP públicos, os balanceadores de carga internos não convertem conexões originadas de saída para o front-end de um Load balancer interno, pois ambos estão no espaço de endereço IP privado.  Isso evita o potencial de esgotamento de SNAT dentro do espaço de endereço IP interno exclusivo em que a conversão não é necessária.  O efeito colateral é que, se um fluxo de saída de uma VM no pool de back-end tentar um fluxo para o front-end da Load Balancer interna em que o pool reside _e_ for mapeado de volta para si mesmo, ambas as pernas do fluxo não corresponderão e o fluxo falhará.  Se o fluxo não foi mapeado de volta para a mesma VM no pool de back-end que criou o fluxo para o front-end, o fluxo terá sucesso.   Quando o fluxo mapeia de volta para si mesmo, o fluxo de saída parece originar da VM para o front-end e o fluxo de entrada correspondente parece originar-se da VM para si mesmo. Do ponto de vista do SO convidado, as partes de entrada e saída do mesmo fluxo não correspondem dentro da máquina virtual. A pilha TCP não reconhecerá essas partes do fluxo como fazendo parte do mesmo fluxo, pois a origem e o destino não correspondem.  Quando o fluxo é mapeado para qualquer outra VM no pool de back-end, as metades do fluxo serão correspondidas e a VM poderá responder com êxito ao fluxo.  O sintoma para esse cenário é o tempo limite de conexão intermitente. Há várias soluções alternativas comuns para alcançar esse cenário de forma confiável (originando fluxos de um pool de back-end para os pools de back-ends respectivos Load Balancer front-end) que incluem a inserção de um proxy de terceiros atrás do Load Balancer interno ou o [uso de regras de estilo DSR](load-balancer-multivip-overview.md).  Embora possa utilizar um balanceador de carga público para mitigar o problema, o cenário resultante é propenso a [esgotamento de SNAT](load-balancer-outbound-connections.md#snat) e deve ser evitado, salvo se for gerido cuidadosamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre como usar [Standard Load Balancer e zonas de disponibilidade](load-balancer-standard-availability-zones.md).
 - Saiba mais sobre [investigações de integridade](load-balancer-custom-probe-overview.md).
 - Saiba mais sobre [zonas de disponibilidade](../availability-zones/az-overview.md).
 - Saiba mais sobre o [diagnóstico de Standard Load Balancer](load-balancer-standard-diagnostics.md).
-- Saiba mais sobre as métricas multidimensionais [com suporte](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) para diagnósticos no [Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+- Saiba mais sobre as [métricas multidimensionais com suporte](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) para diagnósticos no [Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 - Aprenda a usar [Balanceador de carga para ligações de saída](load-balancer-outbound-connections.md).
 - Saiba mais sobre [as regras de saída](load-balancer-outbound-rules-overview.md).
 - Saiba mais sobre a [redefinição de TCP em ociosidade](load-balancer-tcp-reset.md).

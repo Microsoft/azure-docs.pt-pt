@@ -9,17 +9,18 @@ ms.topic: conceptual
 ms.date: 11/22/2018
 ms.author: dacurwin
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: e9c7d5f79f2af77554122b607aeae470a1145954
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 6f00b51cc5ac23aa8d1d39202ca79a9f5d762cbc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827280"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074814"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notas de versão do Backup do Microsoft Azure Server
+
 Este artigo fornece os problemas conhecidos e as soluções alternativas para o Backup do Microsoft Azure Server (MABS) v3.
 
-##  <a name="backup-and-recovery-fails-for-clustered-workloads"></a>Falha de backup e recuperação para cargas de trabalho clusterizadas
+## <a name="backup-and-recovery-fails-for-clustered-workloads"></a>Falha de backup e recuperação para cargas de trabalho clusterizadas
 
 **Descrição:** Falha de backup/restauração para fontes de dados clusterizadas, como cluster do Hyper-V ou cluster do SQL (SQL Always On) ou o Exchange no DAG (grupo de disponibilidade de banco de dados) depois de atualizar MABS v2 para MABS v3.
 
@@ -52,29 +53,28 @@ Este artigo fornece os problemas conhecidos e as soluções alternativas para o 
     GO
 ```
 
-
-##  <a name="upgrade-to-mabs-v3-fails-in-russian-locale"></a>A atualização para o MABS v3 falha na localidade russa
+## <a name="upgrade-to-mabs-v3-fails-in-russian-locale"></a>A atualização para o MABS v3 falha na localidade russa
 
 **Descrição:** A atualização do MABS v2 para o MABS V3 na localidade russa falha com um código de erro **4387**.
 
 **Solução alternativa:** Execute as seguintes etapas para atualizar para o MABS v3 usando o pacote de instalação do russo:
 
-1.  [Faça backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) de seu banco de dados SQL e desinstale o mAbs v2 (opte por manter os dados protegidos durante a desinstalação).
-2.  Atualize para o SQL 2017 (Enterprise) e desinstale o Reporting como parte da atualização.
+1. [Faça backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) de seu banco de dados SQL e desinstale o mAbs v2 (opte por manter os dados protegidos durante a desinstalação).
+2. Atualize para o SQL 2017 (Enterprise) e desinstale o Reporting como parte da atualização.
 3. [Instalar](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) o SQL Server Reporting Services (SSRS).
-4.  [Instalar](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o SQL Server Management Studio (SSMS).
-5.  Configure o relatório usando os parâmetros conforme documentado na [configuração do SSRS com o SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
-6.  [Instalar](backup-azure-microsoft-azure-backup.md) o MABS V3.
+4. [Instalar](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o SQL Server Management Studio (SSMS).
+5. Configure o relatório usando os parâmetros conforme documentado na [configuração do SSRS com o SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
+6. [Instalar](backup-azure-microsoft-azure-backup.md) o MABS V3.
 7. [Restaurar](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL usando o SSMS e execute a ferramenta de sincronização do DPM, conforme descrito [aqui](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
-8.  Atualize a propriedade ' DataBaseVersion ' na tabela dbo. tbl _DLS_GlobalSetting usando o seguinte comando:
+8. Atualize a propriedade ' DataBaseVersion ' na tabela dbo. tbl_DLS_GlobalSetting usando o seguinte comando:
+
 ```sql
         UPDATE dbo.tbl_DLS_GlobalSetting
         set PropertyValue = '13.0.415.0'
         where PropertyName = 'DatabaseVersion'
 ```
 
-9.  Inicie o serviço MSDPM.
-
+9. Inicie o serviço MSDPM.
 
 ## <a name="next-steps"></a>Passos seguintes
 

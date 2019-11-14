@@ -1,22 +1,22 @@
 ---
-title: Tutorial – criar e implantar seu primeiro modelo de Azure Resource Manager
-description: Descreve as etapas para criar seu primeiro modelo de Azure Resource Manager. Você aprende sobre a sintaxe do arquivo de modelo e como implantar uma conta de armazenamento.
+title: Tutorial – criar & implantar o modelo de Azure Resource Manager
+description: Crie seu primeiro modelo de Azure Resource Manager. No tutorial, você aprenderá sobre a sintaxe do arquivo de modelo e como implantar uma conta de armazenamento.
 author: mumian
 manager: carmonmills
 ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e84c3bfa5a5f43ec652f12d70718ab63bd7a19e5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 463f9a54648a9e6950f839bd856ccf42bc66dca0
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029545"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074361"
 ---
-# <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Tutorial: Criar e implementar o seu primeiro modelo do Azure Resource Manager
+# <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Tutorial: criar e implantar seu primeiro modelo de Azure Resource Manager
 
-Este tutorial apresenta os modelos do Resource Manager. Ele mostra como criar um modelo inicial e implantá-lo no Azure. Você aprenderá sobre a estrutura do modelo e as ferramentas necessárias para trabalhar com modelos. Leva cerca de **12 minutos** para concluir este tutorial, mas o tempo real varia de acordo com o número de ferramentas que você precisa instalar.
+Este tutorial apresenta Azure Resource Manager modelos. Ele mostra como criar um modelo inicial e implantá-lo no Azure. Você aprenderá sobre a estrutura do modelo e as ferramentas necessárias para trabalhar com modelos. Leva cerca de **12 minutos** para concluir este tutorial, mas o tempo real varia de acordo com o número de ferramentas que você precisa instalar.
 
 Este tutorial é o primeiro de uma série. À medida que avança pela série, você modifica o modelo inicial passo a passo até explorar todas as partes principais de um modelo do Resource Manager. Esses elementos são os blocos de construção para modelos muito mais complexos. Esperamos que o final da série você tenha certeza de criar seus próprios modelos e esteja pronto para automatizar suas implantações com modelos.
 
@@ -69,9 +69,9 @@ Ok, você está pronto para começar a aprender sobre modelos.
 
     O arquivo JSON tem estes elementos:
 
-    - **$Schema**: Especifica o local do arquivo de esquema JSON. O arquivo de esquema descreve as propriedades que estão disponíveis em um modelo. Por exemplo, o esquema define **recursos** como uma das propriedades válidas para um modelo. Não se preocupe que a data do esquema é 2015-01-01. Essa versão de esquema está atualizada e inclui todos os recursos mais recentes. A data do esquema não foi alterada porque não houve alterações significativas desde sua introdução.
-    - **contentVersion**: Especifica a versão do modelo (como 1.0.0.0). Você pode fornecer qualquer valor para este elemento. Use esse valor para documentar alterações significativas em seu modelo. Ao implantar recursos usando o modelo, esse valor pode ser usado para garantir que o modelo correto esteja sendo usado.
-    - **recursos**: Contém os recursos que você deseja implantar ou atualizar. Atualmente, ele está vazio, mas você adicionará recursos mais tarde.
+    - **$Schema**: especifica o local do arquivo de esquema JSON. O arquivo de esquema descreve as propriedades que estão disponíveis em um modelo. Por exemplo, o esquema define **recursos** como uma das propriedades válidas para um modelo. Não se preocupe que a data do esquema é 2015-01-01. Essa versão de esquema está atualizada e inclui todos os recursos mais recentes. A data do esquema não foi alterada porque não houve alterações significativas desde sua introdução.
+    - **contentVersion**: especifica a versão do modelo (como 1.0.0.0). Você pode fornecer qualquer valor para este elemento. Use esse valor para documentar alterações significativas em seu modelo. Ao implantar recursos usando o modelo, esse valor pode ser usado para garantir que o modelo correto esteja sendo usado.
+    - **recursos**: contém os recursos que você deseja implantar ou atualizar. Atualmente, ele está vazio, mas você adicionará recursos mais tarde.
 
 1. Guarde o ficheiro.
 
@@ -158,7 +158,7 @@ O comando de implantação retorna resultados. Procure `ProvisioningState` para 
 
 Você pode verificar a implantação explorando o grupo de recursos do portal do Azure.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 1. No menu à esquerda, selecione **grupos de recursos**.
 

@@ -1,5 +1,5 @@
 ---
-title: Extensão do chefe para VMs do Azure | Microsoft Docs
+title: Extensão do chefe para VMs do Azure
 description: Implante o cliente chefe em uma máquina virtual usando a extensão de VM chefe.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: e82a5fefcc7f582df65d945735d9840fc3e49829
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 2b69a17c7f9de62187d9dc99f7c1d5c5b74c25ad
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169143"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073194"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão de VM chefe para Linux e Windows
 
@@ -36,7 +36,7 @@ A extensão de VM chefe requer que a máquina virtual de destino esteja conectad
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão de VM chefe. A extensão requer no mínimo a URL do servidor chefe, o nome do cliente de validação e a chave de validação para o servidor chefe; esses valores podem ser encontrados no `knife.rb` arquivo no Starter-Kit. zip que é baixado quando você instala o [chefe Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) ou um [servidor chefe](https://downloads.chef.io/chef-server)autônomo. Como a chave de validação deve ser tratada como dados confidenciais, ela deve ser configurada no elemento **protectedSettings** , o que significa que ela só será descriptografada na máquina virtual de destino.
+O JSON a seguir mostra o esquema para a extensão de VM chefe. A extensão requer no mínimo a URL do servidor chefe, o nome do cliente de validação e a chave de validação para o servidor chefe; esses valores podem ser encontrados no arquivo de `knife.rb` no Starter-Kit. zip que é baixado quando você instala o [chefe Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) ou um [servidor chefe](https://downloads.chef.io/chef-server)autônomo. Como a chave de validação deve ser tratada como dados confidenciais, ela deve ser configurada no elemento **protectedSettings** , o que significa que ela só será descriptografada na máquina virtual de destino.
 
 ```json
 {
@@ -67,26 +67,26 @@ O JSON a seguir mostra o esquema para a extensão de VM chefe. A extensão reque
 
 ### <a name="core-property-values"></a>Valores de propriedade de núcleo
 
-| Name | Valor / exemplo | Tipo de Dados
+| Nome | Valor / exemplo | Tipo de Dados
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (data) |
-| publisher | `Chef.Bootstrap.WindowsAzure` | Cadeia de caracteres |
-| type | `LinuxChefClient`(Linux), `ChefClient` (Windows) | Cadeia de caracteres |
+| publisher | `Chef.Bootstrap.WindowsAzure` | string |
+| tipo | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
 | typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>Definições
 
-| Name | Valor / exemplo | Tipo de Dados | Obrigatório?
+| Nome | Valor / exemplo | Tipo de Dados | Necessário?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | S |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | Cadeia de caracteres | S |
-| configurações/runlist | `recipe[mycookbook::default]` | Cadeia de caracteres | S |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | S |
+| configurações/runlist | `recipe[mycookbook::default]` | string | S |
 
 ### <a name="protected-settings"></a>Configurações protegidas
 
-| Name | Exemplo | Tipo de Dados | Obrigatório?
+| Nome | Exemplo | Tipo de Dados | Necessário?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | Cadeia de caracteres | S |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
 
 <!--
 ### Linux-specific settings
@@ -110,7 +110,7 @@ A configuração do JSON para uma extensão de máquina virtual pode ser aninhad
 
 ## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
 
-O CLI do Azure pode ser usado para implantar a extensão de VM chefe em uma VM existente. Substitua o **validation_key** pelo conteúdo da sua chave de validação (este arquivo como uma `.pem` extensão).  Substitua **validation_client_name**, **chef_server_url** e **run_list** `knife.rb` por esses valores do arquivo no kit do iniciante.
+O CLI do Azure pode ser usado para implantar a extensão de VM chefe em uma VM existente. Substitua o **validation_key** pelo conteúdo da sua chave de validação (esse arquivo como uma extensão `.pem`).  Substitua **validation_client_name**, **chef_server_url** e **run_list** com esses valores do arquivo `knife.rb` no kit do iniciante.
 
 ```azurecli
 az vm extension set \

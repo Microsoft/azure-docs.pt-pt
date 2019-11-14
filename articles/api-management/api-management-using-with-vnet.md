@@ -10,17 +10,17 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/13/2019
 ms.author: apimpm
-ms.openlocfilehash: cc4426ee1bb13eaf66e664c261c51f8893fdf10b
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 4a188a8de4f1cbf9d5bc20f7e514e3f5a2c752dc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129777"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074617"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o gerenciamento de API do Azure com redes virtuais
-As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede roteável que não seja da Internet para a qual você controla o acesso. Essas redes podem ser conectadas às suas redes locais usando várias tecnologias de VPN. Para saber mais sobre as redes virtuais do Azure, comece com as informações aqui: [Visão geral da rede virtual do Azure](../virtual-network/virtual-networks-overview.md).
+As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Essas redes podem ser conectadas às suas redes locais usando várias tecnologias de VPN. Para saber mais sobre as redes virtuais do Azure, comece com as informações aqui: [visão geral da rede virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
 O gerenciamento de API do Azure pode ser implantado dentro da rede virtual (VNET), para que possa acessar os serviços de back-end na rede. O portal do desenvolvedor e o gateway de API podem ser configurados para serem acessíveis da Internet ou apenas dentro da rede virtual.
 
@@ -84,7 +84,7 @@ Para executar as etapas descritas neste artigo, você deve ter:
 ## <a name="enable-vnet-powershell"> </a>Habilitar conexão VNET usando cmdlets do PowerShell
 Você também pode habilitar a conectividade VNET usando os cmdlets do PowerShell
 
-* **Criar um serviço de gerenciamento de API dentro de uma VNET**: Use o cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) para criar um serviço de gerenciamento de API do Azure dentro de uma VNET.
+* **Criar um serviço de gerenciamento de API dentro de uma vnet**: Use o cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) para criar um serviço de gerenciamento de API do Azure dentro de uma vnet.
 
 * **Implantar um serviço de gerenciamento de API existente dentro de uma VNET**: Use o cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) para mover um serviço de gerenciamento de API do Azure existente dentro de uma rede virtual.
 
@@ -96,26 +96,26 @@ Depois que o serviço de gerenciamento de API estiver conectado à VNET, o acess
 ## <a name="network-configuration-issues"> </a>Problemas comuns de configuração de rede
 Veja a seguir uma lista de problemas comuns de configuração incorreta que podem ocorrer durante a implantação do serviço de gerenciamento de API em uma rede virtual.
 
-* **Configuração do servidor DNS personalizado**: O serviço de gerenciamento de API depende de vários serviços do Azure. Quando o gerenciamento de API é hospedado em uma VNET com um servidor DNS personalizado, ele precisa resolver os nomes de host desses serviços do Azure. Siga [este](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) guia sobre a configuração de DNS personalizada. Consulte a tabela portas abaixo e outros requisitos de rede para referência.
+* **Configuração do servidor DNS personalizado**: o serviço de gerenciamento de API depende de vários serviços do Azure. Quando o gerenciamento de API é hospedado em uma VNET com um servidor DNS personalizado, ele precisa resolver os nomes de host desses serviços do Azure. Siga [este](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) guia sobre a configuração de DNS personalizada. Consulte a tabela portas abaixo e outros requisitos de rede para referência.
 
 > [!IMPORTANT]
 > Se você planeja usar um servidor DNS personalizado para a VNET, você deve configurá-lo **antes** de implantar um serviço de gerenciamento de API nele. Caso contrário, você precisa atualizar o serviço de gerenciamento de API sempre que alterar o (s) servidor (es) DNS executando a [operação aplicar configuração de rede](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
-* **Portas necessárias para o gerenciamento de API**: O tráfego de entrada e de saída na sub-rede na qual o gerenciamento de API é implantado pode ser controlado usando o [grupo de segurança de rede][Network Security Group]. Se qualquer uma dessas portas estiver indisponível, o gerenciamento de API poderá não funcionar corretamente e poderá se tornar inacessível. Ter uma ou mais dessas portas bloqueadas é outro problema comum de configuração incorreta ao usar o gerenciamento de API com uma VNET.
+* **Portas necessárias para o gerenciamento de API**: tráfego de entrada e de saída na sub-rede na qual o gerenciamento de API é implantado pode ser controlado usando o [grupo de segurança de rede][Network Security Group]. Se qualquer uma dessas portas estiver indisponível, o gerenciamento de API poderá não funcionar corretamente e poderá se tornar inacessível. Ter uma ou mais dessas portas bloqueadas é outro problema comum de configuração incorreta ao usar o gerenciamento de API com uma VNET.
 
 <a name="required-ports"></a> Quando uma instância de serviço de gerenciamento de API é hospedada em uma VNET, as portas na tabela a seguir são usadas.
 
-| Porta (s) de origem/destino | Direction          | Protocolo de transporte |   [Marcas de serviço](../virtual-network/security-overview.md#service-tags) <br> Origem/destino   | Finalidade (*)                                                 | Tipo de rede virtual |
+| Porta (s) de origem/destino | Direção          | Protocolo de transporte |   [Marcas de serviço](../virtual-network/security-overview.md#service-tags) <br> Origem/destino   | Finalidade (*)                                                 | Tipo de rede virtual |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Entrada            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicação do cliente com o gerenciamento de API                      | Externo             |
 | * / 3443                     | Entrada            | TCP                | ApiManagement/VIRTUAL_NETWORK       | Ponto de extremidade de gerenciamento para portal do Azure e PowerShell         | Interno de & externo  |
 | * / 80, 443                  | Saída           | TCP                | VIRTUAL_NETWORK/armazenamento             | **Dependência no armazenamento do Azure**                             | Interno de & externo  |
 | * / 80, 443                  | Saída           | TCP                | VIRTUAL_NETWORK/AzureActiveDirectory | Azure Active Directory (quando aplicável)                   | Interno de & externo  |
 | * / 1433                     | Saída           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acesso aos pontos de extremidade do SQL Azure**                           | Interno de & externo  |
-| * / 5672                     | Saída           | TCP                | VIRTUAL_NETWORK/EventHub            | Dependência de log para política do hub de eventos e agente de monitoramento | Interno de & externo  |
+| */5671, 5672, 443          | Saída           | TCP                | VIRTUAL_NETWORK/EventHub            | Dependência de log para política do hub de eventos e agente de monitoramento | Interno de & externo  |
 | * / 445                      | Saída           | TCP                | VIRTUAL_NETWORK/armazenamento             | Dependência no compartilhamento de arquivos do Azure para GIT                      | Interno de & externo  |
 | * / 1886                     | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Necessário para publicar o status de integridade para Resource Health          | Interno de & externo  |
-| */443                     | Saída           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publicar logs e métricas de diagnóstico                        | Interno de & externo  |
+| */443                     | Saída           | TCP                | VIRTUAL_NETWORK/AzureMonitor         | Publicar logs e métricas de diagnóstico                        | Interno de & externo  |
 | */25                       | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Conectar-se à retransmissão de SMTP para enviar emails                    | Interno de & externo  |
 | */587                      | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Conectar-se à retransmissão de SMTP para enviar emails                    | Interno de & externo  |
 | * / 25028                    | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Conectar-se à retransmissão de SMTP para enviar emails                    | Interno de & externo  |
@@ -125,25 +125,25 @@ Veja a seguir uma lista de problemas comuns de configuração incorreta que pode
 >[!IMPORTANT]
 > As portas para as quais a *finalidade* é **negrito** são necessárias para que o serviço de gerenciamento de API seja implantado com êxito. No entanto, bloquear as outras portas causará degradação na capacidade de usar e monitorar o serviço em execução.
 
-+ **Funcionalidade SSL**: Para habilitar a criação e validação da cadeia de certificados SSL, o serviço de gerenciamento de API precisa de conectividade de rede de saída para ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. Essa dependência não é necessária, se qualquer certificado que você carregar no gerenciamento de API contiver a cadeia completa para a raiz da autoridade de certificação.
++ **Funcionalidade SSL**: para habilitar a criação e validação da cadeia de certificados SSL, o serviço de gerenciamento de API precisa de conectividade de rede de saída para ocsp.msocsp.com, mscrl.microsoft.com e CRL.Microsoft.com. Essa dependência não é necessária, se qualquer certificado que você carregar no gerenciamento de API contiver a cadeia completa para a raiz da autoridade de certificação.
 
-+ **Acesso ao DNS**: O acesso de saída na porta 53 é necessário para a comunicação com servidores DNS. Se um servidor DNS personalizado existir na outra extremidade de um gateway de VPN, o servidor DNS deverá estar acessível a partir da sub-rede que hospeda o gerenciamento de API.
++ **Acesso ao DNS**: o acesso de saída na porta 53 é necessário para a comunicação com servidores DNS. Se um servidor DNS personalizado existir na outra extremidade de um gateway de VPN, o servidor DNS deverá estar acessível a partir da sub-rede que hospeda o gerenciamento de API.
 
-+ **Monitoramento de integridade e métricas**: Conectividade de rede de saída para pontos de extremidade de monitoramento do Azure, que são resolvidas nos seguintes domínios:
++ **Monitoramento de integridade e métricas**: conectividade de rede de saída para pontos de extremidade de monitoramento do Azure, que são resolvidas nos seguintes domínios:
 
     | Ambiente do Azure | Pontos Finais                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Público do Azure      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com em `East US 2` que é eastus2.warm.ingestion.msftcloudes.com</li></ul> |
+    | Público do Azure      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com em que `East US 2` é eastus2.warm.ingestion.msftcloudes.com</li></ul> |
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
-+ **Retransmissão de SMTP**: Conectividade de rede de saída para a retransmissão de SMTP, que resolve sob `smtpi-co1.msn.com`o `smtpi-ch1.msn.com`host `smtpi-db3.msn.com`, `smtpi-sin.msn.com` ,, e`ies.global.microsoft.com`
++ **Retransmissão de SMTP**: conectividade de rede de saída para a retransmissão de SMTP, que resolve na `smtpi-co1.msn.com`do host, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` e `ies.global.microsoft.com`
 
-+ **Portal do desenvolvedor captcha**: Conectividade de rede de saída para o captcha do portal do desenvolvedor, que resolve nos `client.hip.live.com` hosts `partner.hip.live.com`e.
++ **Portal do desenvolvedor captcha**: conectividade de rede de saída para o captcha do portal do desenvolvedor, que resolve nos hosts `client.hip.live.com` e `partner.hip.live.com`.
 
-+ **Diagnóstico de portal do Azure**: Para habilitar o fluxo de logs de diagnóstico de portal do Azure ao usar a extensão de gerenciamento de API de dentro de uma rede virtual `dc.services.visualstudio.com` , é necessário o acesso de saída para a porta 443. Isso ajuda a solucionar problemas que você pode enfrentar ao usar a extensão.
++ **Diagnóstico de portal do Azure**: para habilitar o fluxo de logs de diagnóstico do portal do Azure ao usar a extensão de gerenciamento de API de dentro de uma rede virtual, é necessário ter acesso de saída para `dc.services.visualstudio.com` na porta 443. Isso ajuda a solucionar problemas que você pode enfrentar ao usar a extensão.
 
-+ **Forçar o túnel de tráfego para o firewall local usando a rota expressa ou a solução de virtualização de rede**: Uma configuração de cliente comum é definir sua própria rota padrão (0.0.0.0/0), que força todo o tráfego da sub-rede delegada do gerenciamento de API para fluir por um firewall local ou para uma solução de virtualização de rede. Esse fluxo de tráfego invariavelmente interrompe a conectividade com o gerenciamento de API do Azure porque o tráfego de saída é bloqueado localmente ou NAT para um conjunto de endereços irreconhecível que não funciona mais com vários pontos de extremidade do Azure. A solução exige que você faça algumas coisas:
++ **Forçar o túnel de tráfego para o firewall local usando a rota expressa ou a solução de virtualização de rede**: uma configuração de cliente comum é definir sua própria rota padrão (0.0.0.0/0) que força todo o tráfego da sub-rede delegada do gerenciamento de API para fluir por um firewall local ou para um dispositivo de rede virtual. Esse fluxo de tráfego invariavelmente interrompe a conectividade com o gerenciamento de API do Azure porque o tráfego de saída é bloqueado localmente ou NAT para um conjunto de endereços irreconhecível que não funciona mais com vários pontos de extremidade do Azure. A solução exige que você faça algumas coisas:
 
   * Habilite os pontos de extremidade de serviço na sub-rede em que o serviço de gerenciamento de API está implantado. Os [pontos de extremidade de serviço][ServiceEndpoints] precisam ser habilitados para SQL do Azure, armazenamento do Azure, EventHub do Azure e ServiceBus do Azure. Habilitar pontos de extremidade diretamente da sub-rede delegada do gerenciamento de API para esses serviços permite que eles usem o Microsoft Azure rede de backbone fornecendo roteamento ideal para o tráfego de serviço. Se você usar pontos de extremidade de serviço com um gerenciamento de API em túnel forçado, o tráfego dos serviços do Azure acima não será forçado em túnel. O outro tráfego de dependência do serviço de gerenciamento de API é forçado e não pode ser perdido ou o serviço de gerenciamento de API não funcionaria corretamente.
     
@@ -151,7 +151,7 @@ Veja a seguir uma lista de problemas comuns de configuração incorreta que pode
     
      | Ambiente do Azure | Endereços IP de gerenciamento                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Público do Azure      | 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 52.159.16.255/32, 40.82.157.167/32, 51.137.136.0/32, 40.81.185.8/32, 40.81.47.216/32, 51.145.56.125/32, 40.81.89.24/32, 52.224.186.99/32, 51.145.179.78/32, 52.140.238.179/32, 40.66.60.111/32, 52.139.80.117/32, 20.46.144.85/32, 191.233.24.179/32, 40.90.185.46/32, 102.133.130.197/32, 52.139.20.34/32, 40.80.232.185/32, 13.71.49.1/32, 13.64.39.16/32, 20.40.160.107/32, 20.37.52.67/32, 20.44.33.246/32, 13.86.102.66/32, 20.40.125.155/32, 51.143.127.203/32, 52.253.225.124/32, 52.253.159.160/32, 20.188.77.119/32, 20.44.72.3/32, 52.142.95.35/32, 52.139.152.27/32, 20.39.80.2/32, 51.107.96.8/ 32, 20.39.99.81/32, 20.37.81.41/32, 51.107.0.91/32, 102.133.0.79/32, 51.116.96.0/32, 51.116.0.0/32 |
+    | Público do Azure      | 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 52.159.16.255/32, 40.82.157.167/32, 51.137.136.0/32, 40.81.185.8/32, 40.81.47.216/32, 51.145.56.125/32, 40.81.89.24/32, 52.224.186.99/32, 51.145.179.78/32, 52.140.238.179/32, 40.66.60.111/32, 52.139.80.117/32, 20.46.144.85/32, 191.233.24.179/32, 40.90.185.46/32, 102.133.130.197/32, 52.139.20.34/32, 40.80.232.185/32, 13.71.49.1/32, 13.64.39.16/32, 20.40.160.107/32, 20.37.52.67/32, 20.44.33.246/32, 13.86.102.66/32, 20.40.125.155/32, 51.143.127.203/32, 52.253.225.124/32, 52.253.159.160/32, 20.188.77.119/32, 20.44.72.3/32, 52.142.95.35/32, 52.139.152.27/32, 20.39.80.2/32, 51.107.96.8/32, 20.39.99.81/32, 20.37.81.41/32, 51.107.0.91/32, 102.133.0.79/32, 51.116.96.0/32, 51.116.0.0/32 |
     | Azure Government  | 52.127.42.160/32, 52.127.34.192/32 |
     | Azure China       | 139.217.51.16/32, 139.217.171.176/32 |
 
@@ -162,7 +162,7 @@ Veja a seguir uma lista de problemas comuns de configuração incorreta que pode
       - Portal do desenvolvedor CAPTCHA
 
 ## <a name="troubleshooting"> </a>Solução de problemas
-* **Configuração inicial**: Quando a implantação inicial do serviço de gerenciamento de API em uma sub-rede não é realizada com sucesso, é aconselhável primeiro implantar uma máquina virtual na mesma sub-rede. Na próxima área de trabalho remota na máquina virtual e valide se há conectividade com um de cada recurso abaixo em sua assinatura do Azure
+* **Configuração inicial**: quando a implantação inicial do serviço de gerenciamento de API em uma sub-rede não é realizada com sucesso, é aconselhável primeiro implantar uma máquina virtual na mesma sub-rede. Na próxima área de trabalho remota na máquina virtual e valide se há conectividade com um de cada recurso abaixo em sua assinatura do Azure
     * Blob de armazenamento do Azure
     * Base de Dados SQL do Azure
     * Tabela de armazenamento do Azure
@@ -170,9 +170,9 @@ Veja a seguir uma lista de problemas comuns de configuração incorreta que pode
   > [!IMPORTANT]
   > Depois de validar a conectividade, certifique-se de remover todos os recursos implantados na sub-rede antes de implantar o gerenciamento de API na sub-rede.
 
-* **Atualizações incrementais**: Ao fazer alterações em sua rede, consulte [API do NetworkStatus](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/networkstatus)para verificar se o serviço de gerenciamento de API não perdeu o acesso a nenhum dos recursos críticos dos quais ele depende. O status de conectividade deve ser atualizado a cada 15 minutos.
+* **Atualizações incrementais**: ao fazer alterações em sua rede, consulte [API NetworkStatus](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/networkstatus)para verificar se o serviço de gerenciamento de API não perdeu o acesso a nenhum dos recursos críticos dos quais ele depende. O status de conectividade deve ser atualizado a cada 15 minutos.
 
-* **Links de navegação de recursos**: Ao implantar na sub-rede vnet do estilo do Resource Manager, o gerenciamento de API reserva a sub-rede, criando um link de navegação de recurso. Se a sub-rede já contiver um recurso de um provedor diferente, a implantação **falhará**. Da mesma forma, ao mover um serviço de gerenciamento de API para uma sub-rede diferente ou excluí-lo, removeremos esse link de navegação do recurso.
+* **Links de navegação de recursos**: ao implantar na sub-rede vnet do estilo do Resource Manager, o gerenciamento de API reserva a sub-rede, criando um link de navegação de recurso. Se a sub-rede já contiver um recurso de um provedor diferente, a implantação **falhará**. Da mesma forma, ao mover um serviço de gerenciamento de API para uma sub-rede diferente ou excluí-lo, removeremos esse link de navegação do recurso.
 
 ## <a name="subnet-size"></a> Requisito de tamanho de sub-rede
 O Azure reserva alguns endereços IP dentro de cada sub-rede e esses endereços não podem ser usados. O primeiro e o último endereços IP das sub-redes são reservados para a conformidade do protocolo, juntamente com mais três endereços usados para os serviços do Azure. Para obter mais informações, consulte [existem restrições sobre como usar endereços IP dentro dessas sub-redes?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)

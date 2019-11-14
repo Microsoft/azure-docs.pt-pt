@@ -1,17 +1,14 @@
 ---
 title: Exemplo-auditoria SQL Server configurações de auditoria
 description: Esta definição de política de exemplo audita as configurações de auditoria do SQL Server com auditIfNotExists.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: c548d1e0e9f21f482a0cfc4b19c482e040d7f298
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 5a0d758bd96937ca443d434b76d22aaefc618687
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980359"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74069800"
 ---
 # <a name="sample---audit-sql-server-audit-settings"></a>Exemplo – auditar configurações de auditoria do SQL Server
 
@@ -45,11 +42,11 @@ Esta política incorporada fará uma auditoria ao SQL Server para verificar se a
 }
 ```
 
-Pode implementar este modelo através do [portal do Azure](#deploy-with-the-portal), do [PowerShell](#deploy-with-powershell) ou da [CLI do Azure](#deploy-with-azure-cli). Para obter a política incorporada, utilize o ID `a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9`.
+Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o [PowerShell](#deploy-with-powershell) ou a [CLI do Azure](#deploy-with-azure-cli). Para obter a política incorporada, utilize o ID `a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9`.
 
 ## <a name="parameters"></a>Parâmetros
 
-Para transmitir o valor do parâmetro, utilize o seguinte formato:
+Para passar o valor do parâmetro, utilize o seguinte formato:
 
 ```json
 {"setting": {"value":"enabled"}}

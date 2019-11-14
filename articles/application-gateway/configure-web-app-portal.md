@@ -1,24 +1,25 @@
 ---
-title: Gerenciar o tráfego para aplicativos multilocatários, como aplicativos Web do serviço de aplicativo com Aplicativo Azure gateway-Portal
+title: Gerenciar o tráfego para aplicativos multilocatários usando o portal
+titleSuffix: Azure Application Gateway
 description: Este artigo fornece orientação sobre como configurar os aplicativos Web do serviço Azure App como membros no pool de back-end em um gateway de aplicativo novo ou existente.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: dee4859c57172a703517848510a31b70ff1f24cd
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 0ec417b3c7a025d2d05bdd74ec683a2891c3b0de
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "68370424"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075167"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurar o serviço de aplicativo com o gateway de aplicativo
 
 Como o serviço de aplicativo é um serviço multilocatário em vez de uma implantação dedicada, ele usa o cabeçalho de host na solicitação de entrada para resolver a solicitação para o ponto de extremidade correto do serviço de aplicativo. Normalmente, o nome DNS do aplicativo que, por sua vez, é o nome DNS associado ao gateway de aplicativo que o serviço de aplicativo, é diferente do nome de domínio do serviço de aplicativo de back-end. Portanto, o cabeçalho de host na solicitação original recebida pelo gateway de aplicativo não é o mesmo que o nome de host do serviço de back-end. Por isso, a menos que o cabeçalho de host na solicitação do gateway de aplicativo para o back-end seja alterado para o nome de host do serviço de back-end, os back-ends de vários locatários não poderão resolver a solicitação para o ponto de extremidade correto.
 
-O gateway de aplicativo fornece uma `Pick host name from backend address` opção chamada que substitui o cabeçalho de host na solicitação pelo nome de host do back-end quando a solicitação é roteada do gateway de aplicativo para o back-end. Esse recurso habilita o suporte para back-ends de vários locatários, como o serviço de aplicativo do Azure e o gerenciamento de API. 
+O gateway de aplicativo fornece uma opção chamada `Pick host name from backend address` que substitui o cabeçalho de host na solicitação pelo nome de host do back-end quando a solicitação é roteada do gateway de aplicativo para o back-end. Esse recurso habilita o suporte para back-ends de vários locatários, como o serviço de aplicativo do Azure e o gerenciamento de API. 
 
 Neste artigo, vai aprender a:
 
@@ -29,8 +30,8 @@ Neste artigo, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Gateway de aplicativo: Se você não tiver um gateway de aplicativo existente, consulte como [criar um gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-- Serviço de aplicativo: Se você não tiver um serviço de aplicativo existente, consulte a [documentação do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/).
+- Gateway de aplicativo: se você não tiver um gateway de aplicativo existente, consulte como [criar um gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+- Serviço de aplicativo: se você não tiver um serviço de aplicativo existente, consulte a [documentação do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/).
 
 ## <a name="add-app-service-as-backend-pool"></a>Adicionar serviço de aplicativo como pool de back-end
 
@@ -60,11 +61,11 @@ Neste artigo, vai aprender a:
    > [!NOTE]
    > Se você selecionar HTTPS, não será necessário carregar nenhum certificado de autenticação ou certificado raiz confiável para a lista de permissões de back-end do serviço de aplicativo, pois o serviço de aplicativo é um serviço do Azure confiável.
 
-4. Marque a caixa para **uso do serviço de aplicativo** . Observe que os `Create a probe with pick host name from backend address` comutadores `Pick host name from backend address` e serão habilitados automaticamente.`Pick host name from backend address` substituirá o cabeçalho de host na solicitação pelo nome do host do back-end quando a solicitação for roteada do gateway de aplicativo para o back-end.  
+4. Marque a caixa para **uso do serviço de aplicativo** . Observe que as opções `Create a probe with pick host name from backend address` e `Pick host name from backend address` serão habilitadas automaticamente.`Pick host name from backend address` substituirá o cabeçalho de host na solicitação pelo nome do host do back-end quando a solicitação for roteada do gateway de aplicativo para o back-end.  
 
-   `Create a probe with pick host name from backend address`criará automaticamente uma investigação de integridade e a associará a essa configuração de HTTP. Você não precisa criar nenhuma outra investigação de integridade para essa configuração de HTTP. Você pode verificar se uma nova investigação com o nome <HTTP Setting name> <Unique GUID> foi adicionada na lista de investigações de integridade e se ela já tem a opção `Pick host name from backend http settings enabled`.
+   `Create a probe with pick host name from backend address` criará automaticamente uma investigação de integridade e a associará a essa configuração de HTTP. Você não precisa criar nenhuma outra investigação de integridade para essa configuração de HTTP. Você pode verificar se uma nova investigação com o nome <HTTP Setting name><Unique GUID> foi adicionada na lista de investigações de integridade e já tem a opção `Pick host name from backend http settings enabled`.
 
-   Se você já tiver uma ou mais configurações de http que estão sendo usadas para o serviço de aplicativo e se essas configurações de http usarem o mesmo protocolo que o que você está usando no que você está criando, `Create a probe with pick host name from backend address` em vez da opção, você obterá uma lista suspensa para selecionar um dos c investigações personalizadas. Isso ocorre porque, como já existe uma configuração HTTP com o serviço de aplicativo, por isso, também existe uma investigação de integridade que tem `Pick host name from backend http settings enabled` a opção. Escolha essa investigação personalizada na lista suspensa.
+   Se você já tiver uma ou mais configurações HTTP que estão sendo usadas para o serviço de aplicativo e se essas configurações de HTTP usarem o mesmo protocolo que o que você está usando no que você está criando, em vez da opção `Create a probe with pick host name from backend address`, você obterá uma lista suspensa para selecionar uma das investigações personalizadas. Isso ocorre porque, como já existe uma configuração HTTP com o serviço de aplicativo, por isso, também existe uma investigação de integridade que tem a opção `Pick host name from backend http settings enabled`. Escolha essa investigação personalizada na lista suspensa.
 
 5. Clique em **OK** para criar a configuração de http.
 
@@ -90,7 +91,7 @@ Neste artigo, vai aprender a:
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Configuração adicional no caso de redirecionamento para o caminho relativo do serviço de aplicativo
 
-Quando o serviço de aplicativo envia uma resposta de redirecionamento para o cliente para redirecionar para seu caminho relativo (por exemplo, um redirecionamento de contoso.azurewebsites.net/path1 para contoso.azurewebsites.net/path2), ele usa o mesmo nome de host no cabeçalho de local de sua resposta como aquela na solicitação recebida do gateway de aplicativo. Portanto, o cliente fará a solicitação diretamente para contoso.azurewebsites.net/path2 em vez de passar pelo gateway de aplicativo (contoso.com/path2). Ignorar o gateway de aplicativo não é desejável.
+Quando o serviço de aplicativo envia uma resposta de redirecionamento para o cliente para redirecionar para seu caminho relativo (por exemplo, um redirecionamento de contoso.azurewebsites.net/path1 para contoso.azurewebsites.net/path2), ele usa o mesmo nome de host no cabeçalho de local de sua resposta como aquele na solicitação recebida do gateway de aplicativo. Portanto, o cliente fará a solicitação diretamente para contoso.azurewebsites.net/path2 em vez de passar pelo gateway de aplicativo (contoso.com/path2). Ignorar o gateway de aplicativo não é desejável.
 
 Se, em seu caso de uso, houver cenários em que o serviço de aplicativo precisará enviar uma resposta de redirecionamento para o cliente, execute as [etapas adicionais para regravar o cabeçalho de local](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration).
 

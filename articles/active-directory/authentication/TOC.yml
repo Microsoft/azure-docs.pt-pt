@@ -139,8 +139,6 @@
           href: howto-authentication-passwordless-security-key.md
         - name: Windows 10 sem palavra-passe
           href: howto-authentication-passwordless-security-key-windows.md
-        - name: Sem palavra-passe no local
-          href: howto-authentication-passwordless-security-key-on-premises.md
         - name: Início de sessão no telefone sem palavra-passe
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello para empresas

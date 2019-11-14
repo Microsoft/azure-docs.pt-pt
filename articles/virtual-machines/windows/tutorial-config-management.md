@@ -1,5 +1,5 @@
 ---
-title: Tutorial – gerenciar a configuração de máquina virtual do Windows no Azure | Microsoft Docs
+title: Tutorial – gerenciar a configuração de máquina virtual do Windows no Azure
 description: Neste tutorial, você aprenderá a identificar alterações e gerenciar atualizações de pacote em uma máquina virtual do Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 13a9534920f936287109a451b542c81a007c3a4c
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: d97323f1916ee46e6b1f8d4ca8723b950baca39c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027906"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74064806"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: monitorar alterações e atualizar uma máquina virtual do Windows no Azure
 
@@ -40,7 +40,7 @@ Para abrir qualquer bloco de código no Cloud Shell, basta selecionar **experime
 
 Você também pode abrir Cloud Shell em uma guia separada do navegador acessando [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **copiar** para copiar blocos de código, Cole-os na guia Cloud Shell e selecione a tecla Enter para executar o código.
 
-## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
 Para configurar a monitorização e a gestão de atualizações do Azure neste tutorial, precisa de uma VM do Windows no Azure.
 

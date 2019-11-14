@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3777aecea5e25b33a7010ad90887829406e491ae
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: a02d9f42242b9a762c58ef65a798ff6ab8f53914
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210162"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074801"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Executar uma instalação autônoma do Servidor de Backup do Azure
 
@@ -55,11 +55,12 @@ Essas etapas não se aplicam se você estiver instalando o Servidor de Backup do
 
 Você pode usar esses sinalizadores para a instalação:</br>
 **/f**:. ini caminho do arquivo</br>
-**/l**: Caminho do log</br>
-**/i**: Caminho da instalação</br>
-**/x**: Caminho de desinstalação</br>
+**/l**: caminho do log</br>
+**/i**: caminho de instalação</br>
+**/x**: caminho de desinstalação</br>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
+
 Depois de instalar o servidor de backup, saiba como preparar o servidor ou começar a proteger uma carga de trabalho.
 
 - [Preparar cargas de trabalho do servidor de backup](backup-azure-microsoft-azure-backup.md)

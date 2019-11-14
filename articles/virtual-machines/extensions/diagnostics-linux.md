@@ -1,5 +1,5 @@
 ---
-title: Computação do Azure-extensão de diagnóstico do Linux | Microsoft Docs
+title: Computação do Azure-extensão de diagnóstico do Linux
 description: Como configurar a extensão de diagnóstico Linux do Azure (LAD) para coletar métricas e eventos de log de VMs Linux em execução no Azure.
 services: virtual-machines-linux
 author: abhijeetgaiha
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: 63008de6d29790333764f4dcca27b8dc03cedbdb
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: b8a5a344f2f1d8280ca60169786e72a0e1dd291e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838182"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073155"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usar a extensão de diagnóstico do Linux para monitorar as métricas e os logs
 
@@ -53,9 +53,9 @@ A configuração que pode ser baixada é apenas um exemplo; Modifique-o de acord
 
 * **Agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens da galeria do Linux de VM do Azure inclui a versão 2.2.7 ou posterior. Execute `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver executando uma versão mais antiga do agente convidado, siga [estas instruções](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para atualizá-la.
 * **CLI do Azure**. [Configure o ambiente de CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu computador.
-* O comando wget, se você ainda não o tiver: Execute `sudo apt-get install wget`.
+* O comando wget, se você ainda não o tiver: execute `sudo apt-get install wget`.
 * Uma assinatura do Azure existente e uma conta de armazenamento existente dentro dela para armazenar os dados.
-* A lista de distribuições do Linux com suporte está ativada https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
+* A lista de distribuições do Linux com suporte está em https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
 ### <a name="sample-installation"></a>Instalação de exemplo
 
@@ -111,7 +111,7 @@ Recommendations
   * Em Azure Resource Manager VMs do modelo de implantação, inclua ' "autoUpgradeMinorVersion": true ' no modelo de implantação de VM.
 * Use uma conta de armazenamento nova/diferente para o LAD 3,0. Há várias incompatibilidades pequenas entre LAD 2,3 e LAD 3,0 que fazem o compartilhamento de uma conta problemática:
   * O LAD 3,0 armazena eventos de syslog em uma tabela com um nome diferente.
-  * As cadeias de caracteres `builtin` de metaespecificadores para métricas diferem no Lad 3,0.
+  * As cadeias de caracteres de metaespecificadores para métricas de `builtin` diferem no LAD 3,0.
 
 ## <a name="protected-settings"></a>Configurações protegidas
 
@@ -127,11 +127,11 @@ Esse conjunto de informações de configuração contém informações confidenc
 }
 ```
 
-Name | Value
+Nome | Valor
 ---- | -----
 storageAccountName | O nome da conta de armazenamento na qual os dados são gravados pela extensão.
-storageAccountEndPoint | adicional O ponto de extremidade que identifica a nuvem na qual a conta de armazenamento existe. Se essa configuração estiver ausente, LAD usa como padrão a nuvem pública do Azure `https://core.windows.net`,. Para usar uma conta de armazenamento no Azure Alemanha, no Azure governamental ou no Azure China, defina esse valor adequadamente.
-storageAccountSasToken | Um [token SAS de conta](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) para serviços de BLOB e`ss='bt'`tabela (), aplicável a contêineres`srt='co'`e objetos (), que concede permissões de adicionar, criar, listar,`sp='acluw'`atualizar e gravar (). *Não* inclua o ponto de interrogação (?) à esquerda.
+storageAccountEndPoint | adicional O ponto de extremidade que identifica a nuvem na qual a conta de armazenamento existe. Se essa configuração estiver ausente, LAD usa como padrão a nuvem pública do Azure, `https://core.windows.net`. Para usar uma conta de armazenamento no Azure Alemanha, no Azure governamental ou no Azure China, defina esse valor adequadamente.
+storageAccountSasToken | Um [token SAS de conta](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) para serviços de BLOB e tabela (`ss='bt'`), aplicável a contêineres e objetos (`srt='co'`), que concede permissões de adicionar, criar, listar, atualizar e gravar (`sp='acluw'`). *Não* inclua o ponto de interrogação (?) à esquerda.
 mdsdHttpProxy | adicional Informações de proxy HTTP necessárias para habilitar a extensão para se conectar à conta de armazenamento e ao ponto de extremidade especificados.
 sinksConfig | adicional Detalhes de destinos alternativos para os quais as métricas e os eventos podem ser entregues. Os detalhes específicos de cada coletor de dados com suporte na extensão são abordados nas seções a seguir.
 
@@ -165,10 +165,10 @@ Copie a SAS gerada para o campo storageAccountSasToken; remover o ponto de inter
 
 Essa seção opcional define destinos adicionais para os quais a extensão envia as informações coletadas. A matriz "Sink" contém um objeto para cada coletor de dados adicional. O atributo "Type" determina os outros atributos no objeto.
 
-Elemento | Value
+Elemento | Valor
 ------- | -----
-name | Uma cadeia de caracteres usada para fazer referência a esse coletor em outro lugar na configuração da extensão.
-type | O tipo de coletor que está sendo definido. Determina os outros valores (se houver) em instâncias deste tipo.
+nome | Uma cadeia de caracteres usada para fazer referência a esse coletor em outro lugar na configuração da extensão.
+tipo | O tipo de coletor que está sendo definido. Determina os outros valores (se houver) em instâncias deste tipo.
 
 A versão 3,0 da extensão de diagnóstico do Linux dá suporte a dois tipos de coletor: EventHub e JsonBlob.
 
@@ -187,9 +187,9 @@ A versão 3,0 da extensão de diagnóstico do Linux dá suporte a dois tipos de 
 
 A entrada "sasURL" contém a URL completa, incluindo o token SAS, para o Hub de eventos no qual os dados devem ser publicados. LAD exige um nome SAS de uma política que habilita a declaração de envio. Um exemplo:
 
-* Criar um namespace de hubs de eventos chamado`contosohub`
-* Criar um hub de eventos no namespace chamado`syslogmsgs`
-* Criar uma política de acesso compartilhado no Hub de eventos `writer` chamado que habilita a declaração de envio
+* Crie um namespace de hubs de eventos chamado `contosohub`
+* Crie um hub de eventos no namespace chamado `syslogmsgs`
+* Criar uma política de acesso compartilhado no Hub de eventos chamada `writer` que habilita a declaração de envio
 
 Se você tiver criado uma SAS boa até meia-noite UTC em 1º de janeiro de 2018, o valor de sasURL poderá ser:
 
@@ -215,7 +215,7 @@ Os dados direcionados para um coletor JsonBlob são armazenados em BLOBs no arma
 
 ## <a name="public-settings"></a>Configurações públicas
 
-Essa estrutura contém vários blocos de configurações que controlam as informações coletadas pela extensão. Cada configuração é opcional. Se você especificar `ladCfg`, também deverá especificar. `StorageAccount`
+Essa estrutura contém vários blocos de configurações que controlam as informações coletadas pela extensão. Cada configuração é opcional. Se você especificar `ladCfg`, também deverá especificar `StorageAccount`.
 
 ```json
 {
@@ -227,7 +227,7 @@ Essa estrutura contém vários blocos de configurações que controlam as inform
 }
 ```
 
-Elemento | Value
+Elemento | Valor
 ------- | -----
 StorageAccount | O nome da conta de armazenamento na qual os dados são gravados pela extensão. Deve ter o mesmo nome que o especificado nas [Configurações protegidas](#protected-settings).
 mdsdHttpProxy | adicional O mesmo que nas [Configurações protegidas](#protected-settings). O valor público é substituído pelo valor particular, se definido. Coloque as configurações de proxy que contêm um segredo, como uma senha, nas [Configurações protegidas](#protected-settings).
@@ -248,12 +248,12 @@ Os elementos restantes são descritos detalhadamente nas seções a seguir.
 }
 ```
 
-Essa estrutura opcional controla a coleta de métricas e logs para entrega para o serviço de métricas do Azure e para outros coletores de dados. Você deve especificar um `performanceCounters` ou `syslogEvents` ambos. Você deve especificar a `metrics` estrutura.
+Essa estrutura opcional controla a coleta de métricas e logs para entrega para o serviço de métricas do Azure e para outros coletores de dados. Você deve especificar `performanceCounters` ou `syslogEvents` ou ambos. Você deve especificar a estrutura de `metrics`.
 
-Elemento | Value
+Elemento | Valor
 ------- | -----
-eventVolume | adicional Controla o número de partições criadas na tabela de armazenamento. Deve ser um de `"Large"`, `"Medium"`ou `"Small"`. Se não for especificado, o valor padrão `"Medium"`será.
-sampleRateInSeconds | adicional O intervalo padrão entre a coleção de métricas brutas (não agregadas). A menor taxa de amostra com suporte é de 15 segundos. Se não for especificado, o valor padrão `15`será.
+eventVolume | adicional Controla o número de partições criadas na tabela de armazenamento. Deve ser uma das `"Large"`, `"Medium"`ou `"Small"`. Se não for especificado, o valor padrão será `"Medium"`.
+sampleRateInSeconds | adicional O intervalo padrão entre a coleção de métricas brutas (não agregadas). A menor taxa de amostra com suporte é de 15 segundos. Se não for especificado, o valor padrão será `15`.
 
 #### <a name="metrics"></a>metrics
 
@@ -267,7 +267,7 @@ sampleRateInSeconds | adicional O intervalo padrão entre a coleção de métric
 }
 ```
 
-Elemento | Value
+Elemento | Valor
 ------- | -----
 resourceId | A ID de recurso Azure Resource Manager da VM ou do conjunto de dimensionamento de máquinas virtuais ao qual a VM pertence. Essa configuração também deverá ser especificada se qualquer coletor JsonBlob for usado na configuração.
 scheduledTransferPeriod | A frequência na qual as métricas de agregação devem ser computadas e transferidas para as métricas do Azure, expressas como um intervalo de tempo de 8601. O menor período de transferência é de 60 segundos, ou seja, PT1M. Você deve especificar pelo menos um scheduledTransferPeriod.
@@ -307,34 +307,34 @@ Esta seção opcional controla a coleção de métricas. As amostras brutas são
 * último valor coletado
 * contagem de amostras brutas usadas para calcular a agregação
 
-Elemento | Value
+Elemento | Valor
 ------- | -----
-coletores | adicional Uma lista separada por vírgulas de nomes de coletores para os quais o LAD envia resultados de métrica agregados. Todas as métricas agregadas são publicadas em cada coletor listado. Consulte [sinksConfig](#sinksconfig). Exemplo: `"EHsink1, myjsonsink"`.
-type | Identifica o provedor real da métrica.
+Coletores | adicional Uma lista separada por vírgulas de nomes de coletores para os quais o LAD envia resultados de métrica agregados. Todas as métricas agregadas são publicadas em cada coletor listado. Consulte [sinksConfig](#sinksconfig). Exemplo: `"EHsink1, myjsonsink"`.
+tipo | Identifica o provedor real da métrica.
 Classe | Junto com "Counter", identifica a métrica específica dentro do namespace do provedor.
 counter | Junto com "Class", identifica a métrica específica dentro do namespace do provedor.
 counterSpecifier | Identifica a métrica específica no namespace de métricas do Azure.
-condition | adicional Seleciona uma instância específica do objeto ao qual a métrica se aplica ou seleciona a agregação em todas as instâncias desse objeto. Para obter mais informações, consulte `builtin` as definições de métrica.
+condition | adicional Seleciona uma instância específica do objeto ao qual a métrica se aplica ou seleciona a agregação em todas as instâncias desse objeto. Para obter mais informações, consulte as definições de métrica de `builtin`.
 sampleRate | É 8601 intervalo que define a taxa na qual as amostras brutas para essa métrica são coletadas. Se não estiver definido, o intervalo de coleta será definido pelo valor de [sampleRateInSeconds](#ladcfg). A taxa de amostra mais curta suportada é 15 segundos (PT15S).
 unidade | Deve ser uma destas cadeias de caracteres: "Count", "bytes", "Seconds", "percent", "CountPerSecond", "BytesPerSecond", "milissegundo". Define a unidade para a métrica. Os consumidores dos dados coletados esperam que os valores de dados coletados correspondam a essa unidade. LAD ignora esse campo.
 displayName | O rótulo (no idioma especificado pela configuração de localidade associada) a ser anexado a esses dados nas métricas do Azure. LAD ignora esse campo.
 
-O possível especificador é um identificador arbitrário. Os consumidores de métricas, como o portal do Azure recurso de criação de gráficos e alertas, usam o coespecificador como a "chave" que identifica uma métrica ou uma instância de uma métrica. Para `builtin` métricas, recomendamos que você use valores de especificador de `/builtin/`mesmo valor que comecem com. Se você estiver coletando uma instância específica de uma métrica, recomendamos anexar o identificador da instância ao valor de metaespecificador. Alguns exemplos:
+O possível especificador é um identificador arbitrário. Os consumidores de métricas, como o portal do Azure recurso de criação de gráficos e alertas, usam o coespecificador como a "chave" que identifica uma métrica ou uma instância de uma métrica. Para `builtin` métricas, recomendamos que você use valores de especificador de mesmo valor que comecem com `/builtin/`. Se você estiver coletando uma instância específica de uma métrica, recomendamos anexar o identificador da instância ao valor de metaespecificador. Alguns exemplos:
 
-* `/builtin/Processor/PercentIdleTime`-Tempo ocioso médio em todas as vCPUs
-* `/builtin/Disk/FreeSpace(/mnt)`-Espaço livre para o sistema de arquivos/mnt
-* `/builtin/Disk/FreeSpace`-Espaço livre em média em todos os sistemas de filemontados
+* `/builtin/Processor/PercentIdleTime`-média de tempo ocioso em todas as vCPUs
+* `/builtin/Disk/FreeSpace(/mnt)`-espaço livre para o sistema de arquivos/mnt
+* `/builtin/Disk/FreeSpace`-espaço livre médio em todos os sistemas de filemontados
 
 Nem LAD nem a portal do Azure espera que o valor de metaespecificador corresponda a qualquer padrão. Seja consistente na forma como você constrói valores de especificadores.
 
-Quando você especifica `performanceCounters`, o Lad sempre grava dados em uma tabela no armazenamento do Azure. Você pode ter os mesmos dados gravados em BLOBs JSON e/ou hubs de eventos, mas não pode desabilitar o armazenamento de dados em uma tabela. Todas as instâncias da extensão de diagnóstico configuradas para usar o mesmo nome de conta de armazenamento e ponto de extremidade adicionam suas métricas e logs à mesma tabela. Se muitas VMs estiverem gravando na mesma partição de tabela, o Azure poderá limitar as gravações nessa partição. A configuração eventVolume faz com que as entradas sejam distribuídas entre 1 (pequena), 10 (média) ou 100 (grande) partições diferentes. Normalmente, "médio" é suficiente para garantir que o tráfego não seja limitado. O recurso de métricas do Azure do portal do Azure usa os dados nesta tabela para produzir grafos ou disparar alertas. O nome da tabela é a concatenação dessas cadeias de caracteres:
+Quando você especifica `performanceCounters`, o LAD sempre grava dados em uma tabela no armazenamento do Azure. Você pode ter os mesmos dados gravados em BLOBs JSON e/ou hubs de eventos, mas não pode desabilitar o armazenamento de dados em uma tabela. Todas as instâncias da extensão de diagnóstico configuradas para usar o mesmo nome de conta de armazenamento e ponto de extremidade adicionam suas métricas e logs à mesma tabela. Se muitas VMs estiverem gravando na mesma partição de tabela, o Azure poderá limitar as gravações nessa partição. A configuração eventVolume faz com que as entradas sejam distribuídas entre 1 (pequena), 10 (média) ou 100 (grande) partições diferentes. Normalmente, "médio" é suficiente para garantir que o tráfego não seja limitado. O recurso de métricas do Azure do portal do Azure usa os dados nesta tabela para produzir grafos ou disparar alertas. O nome da tabela é a concatenação dessas cadeias de caracteres:
 
 * `WADMetrics`
 * O "scheduledTransferPeriod" para os valores agregados armazenados na tabela
 * `P10DV2S`
 * Uma data, no formato "aaaammdd", que muda a cada 10 dias
 
-Os exemplos `WADMetricsPT1HP10DV2S20170410` incluem `WADMetricsPT1MP10DV2S20170609`e.
+Os exemplos incluem `WADMetricsPT1HP10DV2S20170410` e `WADMetricsPT1MP10DV2S20170609`.
 
 #### <a name="syslogevents"></a>syslogEvents
 
@@ -353,18 +353,18 @@ Essa seção opcional controla a coleção de eventos de log do syslog. Se a se�
 
 A coleção syslogEventConfiguration tem uma entrada para cada recurso de syslog de seu interesse. Se minSeverity for "NONE" para um recurso específico, ou se esse recurso não aparecer no elemento, nenhum evento desse recurso será capturado.
 
-Elemento | Value
+Elemento | Valor
 ------- | -----
-coletores | Uma lista separada por vírgulas de nomes de coletores nos quais os eventos de log individuais são publicados. Todos os eventos de log que correspondem às restrições em syslogEventConfiguration são publicados em cada coletor listado. Exemplo: "EHforsyslog"
-facilityName | Um nome de instalação de syslog (como "\_usuário de log" ou\_"log LOCAL0"). Consulte a seção "instalação" da [página do manual do syslog](http://man7.org/linux/man-pages/man3/syslog.3.html) para obter a lista completa.
-minSeverity | Um nível de severidade do syslog (como "\_log Err" ou "\_log info"). Consulte a seção "nível" da [página do manual do syslog](http://man7.org/linux/man-pages/man3/syslog.3.html) para obter a lista completa. A extensão captura eventos enviados para a instalação no nível especificado ou acima dele.
+Coletores | Uma lista separada por vírgulas de nomes de coletores nos quais os eventos de log individuais são publicados. Todos os eventos de log que correspondem às restrições em syslogEventConfiguration são publicados em cada coletor listado. Exemplo: "EHforsyslog"
+facilityName | Um nome de instalação de syslog (por exemplo, "LOG\_usuário" ou "LOG\_LOCAL0"). Consulte a seção "instalação" da [página do manual do syslog](http://man7.org/linux/man-pages/man3/syslog.3.html) para obter a lista completa.
+minSeverity | Um nível de severidade de syslog (como "LOG\_ERR" ou "LOG\_INFO"). Consulte a seção "nível" da [página do manual do syslog](http://man7.org/linux/man-pages/man3/syslog.3.html) para obter a lista completa. A extensão captura eventos enviados para a instalação no nível especificado ou acima dele.
 
-Quando você especifica `syslogEvents`, o Lad sempre grava dados em uma tabela no armazenamento do Azure. Você pode ter os mesmos dados gravados em BLOBs JSON e/ou hubs de eventos, mas não pode desabilitar o armazenamento de dados em uma tabela. O comportamento de particionamento para essa tabela é o mesmo descrito para `performanceCounters`o. O nome da tabela é a concatenação dessas cadeias de caracteres:
+Quando você especifica `syslogEvents`, o LAD sempre grava dados em uma tabela no armazenamento do Azure. Você pode ter os mesmos dados gravados em BLOBs JSON e/ou hubs de eventos, mas não pode desabilitar o armazenamento de dados em uma tabela. O comportamento de particionamento para essa tabela é o mesmo descrito para `performanceCounters`. O nome da tabela é a concatenação dessas cadeias de caracteres:
 
 * `LinuxSyslog`
 * Uma data, no formato "aaaammdd", que muda a cada 10 dias
 
-Os exemplos `LinuxSyslog20170410` incluem `LinuxSyslog20170609`e.
+Os exemplos incluem `LinuxSyslog20170410` e `LinuxSyslog20170609`.
 
 ### <a name="perfcfg"></a>perfCfg
 
@@ -382,13 +382,13 @@ Esta seção opcional controla a execução de consultas [OMI](https://github.co
 ]
 ```
 
-Elemento | Value
+Elemento | Valor
 ------- | -----
 espaço de nomes | adicional O namespace OMI no qual a consulta deve ser executada. Se não for especificado, o valor padrão será "root/SCX", implementado pelos [provedores de plataforma cruzada do System Center](https://github.com/Microsoft/SCXcore).
-query | A consulta OMI a ser executada.
+consulta | A consulta OMI a ser executada.
 table | adicional A tabela de armazenamento do Azure, na conta de armazenamento designada (consulte [Configurações protegidas](#protected-settings)).
-frequency | adicional O número de segundos entre a execução da consulta. O valor padrão é 300 (5 minutos); o valor mínimo é 15 segundos.
-coletores | adicional Uma lista separada por vírgulas de nomes de coletores adicionais para os quais os resultados brutos da métrica de exemplo devem ser publicados. Nenhuma agregação dessas amostras brutas é computada pela extensão ou pelas métricas do Azure.
+frequência | adicional O número de segundos entre a execução da consulta. O valor padrão é 300 (5 minutos); o valor mínimo é 15 segundos.
+Coletores | adicional Uma lista separada por vírgulas de nomes de coletores adicionais para os quais os resultados brutos da métrica de exemplo devem ser publicados. Nenhuma agregação dessas amostras brutas é computada pela extensão ou pelas métricas do Azure.
 
 A "tabela" ou "coletores" ou ambos devem ser especificados.
 
@@ -406,11 +406,11 @@ Controla a captura de arquivos de log. O LAD captura novas linhas de texto confo
 ]
 ```
 
-Elemento | Value
+Elemento | Valor
 ------- | -----
 file | O nome do caminho completo do arquivo de log a ser monitorado e capturado. O PathName deve nomear um único arquivo; Ele não pode nomear um diretório nem conter curingas.
 table | adicional A tabela de armazenamento do Azure, na conta de armazenamento designada (conforme especificado na configuração protegida), na qual novas linhas da "parte final" do arquivo são gravadas.
-coletores | adicional Uma lista separada por vírgulas de nomes de coletores adicionais para os quais as linhas de log são enviadas.
+Coletores | adicional Uma lista separada por vírgulas de nomes de coletores adicionais para os quais as linhas de log são enviadas.
 
 A "tabela" ou "coletores" ou ambos devem ser especificados.
 
@@ -440,7 +440,7 @@ PercentPrivilegedTime | De tempo não ocioso, o percentual gasto no modo privile
 
 Os primeiros quatro contadores devem somar 100%. Os últimos três contadores também somam 100%; Eles subdividem a soma de PercentProcessorTime, PercentIOWaitTime e PercentInterruptTime.
 
-Para obter uma única métrica agregada em todos os processadores, `"condition": "IsAggregate=TRUE"`defina. Para obter uma métrica para um processador específico, como o segundo processador lógico de uma VM de quatro vCPU, defina `"condition": "Name=\\"1\\""`. Os números de processador lógico estão no `[0..n-1]`intervalo.
+Para obter uma única métrica agregada em todos os processadores, defina `"condition": "IsAggregate=TRUE"`. Para obter uma métrica para um processador específico, como o segundo processador lógico de uma VM de quatro vCPU, defina `"condition": "Name=\\"1\\""`. Os números de processador lógicos estão no intervalo `[0..n-1]`.
 
 ### <a name="builtin-metrics-for-the-memory-class"></a>métricas internas para a classe de memória
 
@@ -498,9 +498,9 @@ ReadsPerSecond | Operações de leitura por segundo
 WritesPerSecond | Operações de gravação por segundo
 TransfersPerSecond | Operações de leitura ou gravação por segundo
 
-Os valores agregados em todos os sistemas de arquivos podem ser `"condition": "IsAggregate=True"`obtidos pela configuração. Os valores para um sistema de arquivos montado específico, como "/mnt", podem ser obtidos pela `"condition": 'Name="/mnt"'`configuração. 
+Valores agregados em todos os sistemas de arquivos podem ser obtidos pela definição de `"condition": "IsAggregate=True"`. Os valores para um sistema de arquivos montado específico, como "/mnt", podem ser obtidos com a configuração de `"condition": 'Name="/mnt"'`. 
 
-**NOTA**: Se estiver usando o portal do Azure em vez de JSON, o formulário de campo de condição correto será Name = '/mnt '
+**Observação**: se estiver usando o portal do Azure em vez de JSON, o formulário de campo de condição correto será Name = '/mnt '
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>métricas internas para a classe de disco
 
@@ -519,7 +519,7 @@ ReadBytesPerSecond | Número de bytes lidos por segundo
 WriteBytesPerSecond | Número de bytes gravados por segundo
 BytesPerSecond | Número de bytes lidos ou gravados por segundo
 
-Os valores agregados em todos os discos podem ser obtidos `"condition": "IsAggregate=True"`pela configuração. Para obter informações para um dispositivo específico (por exemplo,/dev/sdf1), defina `"condition": "Name=\\"/dev/sdf1\\""`.
+Valores agregados em todos os discos podem ser obtidos pela definição de `"condition": "IsAggregate=True"`. Para obter informações para um dispositivo específico (por exemplo,/dev/sdf1), defina `"condition": "Name=\\"/dev/sdf1\\""`.
 
 ## <a name="installing-and-configuring-lad-30-via-cli"></a>Instalando e Configurando o LAD 3,0 via CLI
 
@@ -529,7 +529,7 @@ Supondo que suas configurações protegidas estejam no arquivo PrivateConfig. JS
 az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Azure.Diagnostics '3.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json
 ```
 
-O comando pressupõe que você esteja usando o modo de gerenciamento de recursos do Azure (ARM) do CLI do Azure. Para configurar o Lad para VMs do modelo de implantação clássica (ASM), alterne para o modo`azure config mode asm`"ASM" () e omita o nome do grupo de recursos no comando. Para obter mais informações, consulte a [documentação da CLI de plataforma cruzada](https://docs.microsoft.com/azure/xplat-cli-connect).
+O comando pressupõe que você esteja usando o modo de gerenciamento de recursos do Azure (ARM) do CLI do Azure. Para configurar o LAD para VMs do modelo de implantação clássica (ASM), alterne para o modo "ASM" (`azure config mode asm`) e omita o nome do grupo de recursos no comando. Para obter mais informações, consulte a [documentação da CLI de plataforma cruzada](https://docs.microsoft.com/azure/xplat-cli-connect).
 
 ## <a name="an-example-lad-30-configuration"></a>Um exemplo de configuração do LAD 3,0
 
@@ -589,10 +589,10 @@ Essas configurações particulares são configuradas:
 
 Essas configurações públicas fazem com que o LAD:
 
-* Carregar a porcentagem de tempo do processador e as métricas de espaço em disco usadas `WADMetrics*` para a tabela
-* Carregar mensagens do recurso de syslog "usuário" e "informações" de severidade `LinuxSyslog*` para a tabela
-* Carregar resultados brutos da consulta OMI (PercentProcessorTime e PercentIdleTime) na `LinuxCPU` tabela nomeada
-* Carregar linhas acrescentadas no arquivo `/var/log/myladtestlog` para a `MyLadTestLog` tabela
+* Carregar a porcentagem de tempo do processador e as métricas de espaço em disco usadas para a tabela de `WADMetrics*`
+* Carregar mensagens do recurso de syslog "usuário" e "informações" de gravidade para a tabela de `LinuxSyslog*`
+* Carregar resultados brutos da consulta OMI (PercentProcessorTime e PercentIdleTime) na tabela `LinuxCPU` nomeada
+* Carregar linhas acrescentadas no arquivo `/var/log/myladtestlog` à tabela `MyLadTestLog`
 
 Em cada caso, os dados também são carregados em:
 
@@ -688,7 +688,7 @@ Use o portal do Azure para exibir dados de desempenho ou definir alertas:
 
 ![image](./media/diagnostics-linux/graph_metrics.png)
 
-Os `performanceCounters` dados sempre são armazenados em uma tabela de armazenamento do Azure. As APIs de armazenamento do Azure estão disponíveis para várias linguagens e plataformas.
+Os dados de `performanceCounters` sempre são armazenados em uma tabela de armazenamento do Azure. As APIs de armazenamento do Azure estão disponíveis para várias linguagens e plataformas.
 
 Os dados enviados aos coletores do JsonBlob são armazenados em BLOBs na conta de armazenamento denominada nas [Configurações protegidas](#protected-settings). Você pode consumir os dados de BLOB usando qualquer API de armazenamento de BLOBs do Azure.
 

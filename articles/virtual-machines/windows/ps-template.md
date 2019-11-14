@@ -1,5 +1,5 @@
 ---
-title: Criar uma VM do Windows a partir de um modelo no Azure | Microsoft Docs
+title: Criar uma VM do Windows a partir de um modelo no Azure
 description: Use um modelo do Resource Manager e o PowerShell para criar facilmente uma nova VM do Windows.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e1f50753f155d1583de3a1e8426975e1b0d6aee
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 99e292930414ae027c9cbbf3a901d550041899d2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102523"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065553"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Criar uma máquina virtual do Windows a partir de um modelo do Resource Manager
 
@@ -60,7 +60,7 @@ New-AzResourceGroupDeployment `
 
 Se você optar por instalar e usar o PowerShell localmente em vez do Azure cloud Shell, este tutorial exigirá o módulo Azure PowerShell. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver executando o PowerShell localmente, terá também de executar `Connect-AzAccount` para criar uma ligação com o Azure.
 
-No exemplo anterior, você especificou um modelo armazenado no GitHub. Você também pode baixar ou criar um modelo e especificar o caminho local com o `--template-file` parâmetro.
+No exemplo anterior, você especificou um modelo armazenado no GitHub. Você também pode baixar ou criar um modelo e especificar o caminho local com o parâmetro `--template-file`.
 
 Aqui estão alguns recursos adicionais:
 
@@ -72,7 +72,7 @@ Aqui estão alguns recursos adicionais:
 
 O último comando do PowerShell do script anterior mostra o nome da máquina virtual. Para se conectar à máquina virtual, consulte [como se conectar e entrar em uma máquina virtual do Azure que executa o Windows](./connect-logon.md).
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 - Se houver problemas com a implantação, você poderá dar uma olhada em [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 - Saiba como criar e gerenciar uma máquina virtual em [criar e gerenciar VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

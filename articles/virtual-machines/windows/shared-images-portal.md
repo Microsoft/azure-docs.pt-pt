@@ -1,5 +1,5 @@
 ---
-title: Criar imagens compartilhadas da máquina virtual do Azure para Windows usando o portal | Microsoft Docs
+title: Criar imagens compartilhadas da máquina virtual do Azure para Windows usando o portal
 description: Saiba como usar portal do Azure para criar e compartilhar imagens de máquinas virtuais.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 8dac15a39355f3faf749327431423629fa6ce09b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 0823942964f2bdb9f943d6eb778a3132574af0f7
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903660"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065536"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Criar uma galeria de imagens compartilhada usando o portal do Azure
 

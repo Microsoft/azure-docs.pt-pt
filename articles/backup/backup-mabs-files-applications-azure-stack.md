@@ -1,5 +1,5 @@
 ---
-title: Fazer backup de arquivos em VMs Azure Stack
+title: Fazer backup de arquivos em VMs Azure Stack-backup do Azure
 description: Use o backup do Azure para fazer backup e recuperar Azure Stack arquivos e aplicativos para seu ambiente de Azure Stack.
 ms.reviewer: adigan
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dacurwin
-ms.openlocfilehash: d9e7aaca99e551e17e8b4be5ef6146a19e44355f
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: dc498e08509280b0dcd19cb1556a3c5a152f6d97
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210221"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074099"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Fazer cópias de segurança de ficheiros e aplicações no Azure Stack
 
@@ -45,7 +45,7 @@ Para configurar Servidor de Backup do Azure proteger arquivos em máquinas virtu
 
     ![O assistente de novo grupo de proteção é aberto](./media/backup-mabs-files-applications-azure-stack/4-opening-screen-choose-servers.png)
 
-3. Na tela **selecionar membros do grupo** , clique **+** para expandir a lista de subitens. Para todos os itens que você deseja proteger, marque a caixa de seleção. Depois que todos os itens tiverem sido selecionados, clique em **Avançar**.
+3. Na tela **selecionar membros do grupo** , clique em **+** para expandir a lista de subitens. Para todos os itens que você deseja proteger, marque a caixa de seleção. Depois que todos os itens tiverem sido selecionados, clique em **Avançar**.
 
     ![O assistente de novo grupo de proteção é aberto](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
@@ -55,7 +55,7 @@ Para configurar Servidor de Backup do Azure proteger arquivos em máquinas virtu
 
     ![O assistente de novo grupo de proteção é aberto](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
-    Para selecionar **eu quero proteção online**, primeiro você deve selecionar **desejo proteção de curto prazo usando:** Disco. O Servidor de Backup do Azure não se protege à fita, portanto o disco é a única opção para proteção de curto prazo.
+    Para selecionar **desejo proteção online**, primeiro você deve selecionar **desejo proteção de curto prazo usando:** disco. O Servidor de Backup do Azure não se protege à fita, portanto o disco é a única opção para proteção de curto prazo.
 
 5. Na tela **especificar objetivos de curto prazo** , escolha por quanto tempo manter os pontos de recuperação salvos em disco e quando salvar backups incrementais. Clique em **Seguinte**.
 

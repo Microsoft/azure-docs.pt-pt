@@ -1,26 +1,23 @@
 ---
 title: Amostras-cofres de chave sem pontos de extremidade de vNet
 description: Esta definição de política de exemplo audita Key Vault cofres para detectar instâncias que não têm pontos de extremidade de serviço de rede virtual.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/26/2019
-ms.author: dacoulte
-ms.openlocfilehash: 7bcbcdf68b3c8f882a1e0fbb9953fea575f96556
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 078a781ca96df421d52179f5e8d25650def8a2f3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255720"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076208"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Amostras-Key Vault cofres sem pontos de extremidade de rede virtual
 
-Essa política audita para Key Vault cofres que não têm pontos de extremidade de rede virtual. Use o para impor seus requisitos de segurança. Para obter mais informações, consulte [pontos de extremidade de serviço de rede virtual no Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
+Este exemplo de como [integrar Key Vault com Azure Policy](../../../key-vault/azure-policy.md) auditorias para cofres de chaves que não têm pontos de extremidade de rede virtual. Use o para impor seus requisitos de segurança. Para obter mais informações, consulte [pontos de extremidade de serviço de rede virtual no Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
 
 Pode implementar esta política de exemplo com:
 
 - O [portal do Azure](#azure-portal)
-- [O Azure PowerShell](#azure-powershell)
+- [Azure PowerShell](#azure-powershell)
 - [CLI do Azure](#azure-cli)
 - [API REST](#rest-api)
 
@@ -49,8 +46,8 @@ Esta definição de política de exemplo não tem parâmetros definidos.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-[![Deploy o exemplo de política para o azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
-[![Deploy o exemplo de política para o Azure gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
+[![implantar o exemplo de política no azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
+[![implantar o exemplo de política para o Azure gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -97,7 +94,7 @@ Os scripts de implementação e remoção utilizam os seguintes comandos. Cada c
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-### <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
+### <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
 
 ```azurecli-interactive
 # Create the Policy Definition (Subscription scope)
@@ -136,7 +133,7 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 Existem várias ferramentas que podem ser utilizadas para interagir com a API REST do Gestor de Recursos, como o [ARMClient](https://github.com/projectkudu/ARMClient) ou o PowerShell.
 
-### <a name="deploy-with-rest-api"></a>Implementar com API REST
+### <a name="deploy-with-rest-api"></a>Implementar com a API REST
 
 - Crie a Definição de Política (âmbito da Subscrição). Utilize o JSON [definição de política](#policy-definition) para o Corpo do Pedido.
 
@@ -187,4 +184,5 @@ Existem várias ferramentas que podem ser utilizadas para interagir com a API RE
 ## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os [exemplos do Azure Policy](index.md) adicionais
+- Saiba como [integrar o Azure Key Vault com Azure Policy](../../../key-vault/azure-policy.md).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md)

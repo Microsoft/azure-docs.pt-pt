@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: a77227aca70a48d625f9e20fff9c9fe7df87c000
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c65c04a67b92642d3664293dd666236919142f12
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012145"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074197"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas comuns sobre como fazer backup de arquivos e pastas
 
@@ -130,7 +130,7 @@ O tamanho da pasta cache determina a quantidade de dados para a cópia de segura
   Net start obengine
   ```
 
-6. Execute um backup ad hoc. Depois que o backup for concluído com êxito usando o novo local, você poderá remover a pasta de cache original.
+6. Execute um backup sob demanda. Depois que o backup for concluído com êxito usando o novo local, você poderá remover a pasta de cache original.
 
 ### <a name="where-should-the-cache-folder-be-located"></a>Onde a pasta de cache deve ser localizada?
 

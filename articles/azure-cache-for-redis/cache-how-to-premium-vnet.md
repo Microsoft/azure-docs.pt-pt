@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: ec21c26c705dab94b15c1f76be5e62207b9f206f
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 6fc17f08db5951a3d693c7a5e3d5556d848d2efb
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815675"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075051"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar o suporte de rede virtual para um cache Premium do Azure para Redis
 O cache do Azure para Redis tem diferentes ofertas de cache, que fornecem flexibilidade na escolha do tamanho e dos recursos do cache, incluindo recursos da camada Premium, como clustering, persistência e suporte à rede virtual. Uma VNet é uma rede privada na nuvem. Quando um cache do Azure para instância Redis é configurado com uma VNet, ele não é publicamente endereçável e só pode ser acessado de máquinas virtuais e aplicativos na VNet. Este artigo descreve como configurar o suporte de rede virtual para um cache do Azure Premium para instância Redis.
@@ -39,7 +39,7 @@ O suporte à VNet (rede virtual) é configurado no **novo cache do Azure para a 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Depois de selecionar um tipo de preço premium, você pode configurar a integração VNet Redis selecionando uma VNet que esteja na mesma assinatura e local que o cache. Para usar uma nova VNet, crie-a primeiro seguindo as etapas em [criar uma rede virtual usando o portal do Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) ou [criar uma rede virtual (clássica) usando o portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e, em seguida, retorne para a folha **novo cache do Azure para Redis** para criar e configure seu cache Premium.
+Depois de selecionar um tipo de preço premium, você pode configurar a integração VNet Redis selecionando uma VNet que esteja na mesma assinatura e local que o cache. Para usar uma nova VNet, crie-a primeiro seguindo as etapas em [criar uma rede virtual usando o portal do Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) ou [criar uma rede virtual (clássica) usando o portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e, em seguida, retorne para a folha **novo cache do Azure para Redis** para criar e configurar seu cache Premium.
 
 Para configurar a VNet para o novo cache, clique em **rede virtual** na folha **novo cache do Azure para Redis** e selecione a VNet desejada na lista suspensa.
 
@@ -104,16 +104,17 @@ Quando o cache do Azure para Redis é hospedado em uma VNet, as portas nas tabel
 
 #### <a name="outbound-port-requirements"></a>Requisitos de porta de saída
 
-Há sete requisitos de porta de saída.
+Há nove requisitos de porta de saída.
 
 - Todas as conexões de saída para a Internet podem ser feitas por meio de um dispositivo de auditoria local do cliente.
 - Três das portas roteiam o tráfego para os pontos de extremidade do Azure que atendem ao armazenamento do Azure e ao DNS do Azure.
 - Os intervalos de porta restantes e para comunicações de sub-rede Redis internas. Nenhuma regra de NSG de sub-rede é necessária para comunicações internas de sub-rede Redis.
 
-| Porta (s) | Direction | Protocolo de transporte | Objetivo | IP local | IP remoto |
+| Porta (s) | Direção | Protocolo de transporte | Objetivo | IP local | IP remoto |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Saída |TCP |Dependências do Redis no armazenamento do Azure/PKI (Internet) | (Sub-rede Redis) |* |
-| 53 |Saída |TCP/UDP |Dependências do Redis no DNS (Internet/VNet) | (Sub-rede Redis) | 168.63.129.16 e 169.254.169.254 <sup>1</sup> e qualquer servidor DNS personalizado para a sub-rede <sup>3</sup> |
+| 443 | Saída | TCP | Dependência Redis em Azure Key Vault | (Sub-rede Redis) | AzureKeyVault <sup>1</sup> |
+| 53 |Saída |TCP/UDP |Dependências do Redis no DNS (Internet/VNet) | (Sub-rede Redis) | 168.63.129.16 e 169.254.169.254 <sup>2</sup> e qualquer servidor DNS personalizado para a sub-rede <sup>3</sup> |
 | 8443 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) | (Sub-rede Redis) |
 | 10221-10231 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) | (Sub-rede Redis) |
 | 20226 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
@@ -121,7 +122,9 @@ Há sete requisitos de porta de saída.
 | 15000-15999 |Saída |TCP |Comunicações internas para Redis e replicação geográfica | (Sub-rede Redis) |(Sub-rede Redis) (Sub-rede par de réplica geográfica) |
 | 6379-6380 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
 
-<sup>1</sup> esses endereços IP pertencentes à Microsoft são usados para resolver a VM do host que serve o DNS do Azure.
+<sup>1</sup> você pode usar a marca de serviço ' AzureKeyVault ' com grupos de segurança de rede do Resource Manager.
+
+<sup>2</sup> esses endereços IP pertencentes à Microsoft são usados para resolver a VM do host que serve o DNS do Azure.
 
 <sup>3</sup> não é necessário para sub-redes sem servidor DNS personalizado ou caches Redis mais recentes que ignoram o DNS personalizado.
 
@@ -133,18 +136,18 @@ Se você estiver usando a replicação geocompleta entre caches em redes virtuai
 
 Há oito requisitos de intervalo de porta de entrada. As solicitações de entrada nesses intervalos são de entrada de outros serviços hospedados na mesma VNET ou internas para as comunicações de sub-rede Redis.
 
-| Porta (s) | Direction | Protocolo de transporte | Objetivo | IP local | IP remoto |
+| Porta (s) | Direção | Protocolo de transporte | Objetivo | IP local | IP remoto |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Entrada |TCP |Comunicação do cliente com o Redis, balanceamento de carga do Azure | (Sub-rede Redis) | (Sub-rede Redis), rede virtual, Azure Load Balancer <sup>2</sup> |
+| 6379, 6380 |Entrada |TCP |Comunicação do cliente com o Redis, balanceamento de carga do Azure | (Sub-rede Redis) | (Sub-rede Redis), rede virtual, Azure Load Balancer <sup>1</sup> |
 | 8443 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
-| 8500 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Sub-rede Redis) |Balanceador de Carga do Azure |
+| 8500 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Sub-rede Redis) |Azure Load Balancer |
 | 10221-10231 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis), Azure Load Balancer |
 | 13000-13999 |Entrada |TCP |Comunicação de cliente com clusters Redis, balanceamento de carga do Azure | (Sub-rede Redis) |Rede virtual, Azure Load Balancer |
 | 15000-15999 |Entrada |TCP |Comunicação de cliente com clusters Redis, balanceamento de carga do Azure e replicação geográfica | (Sub-rede Redis) |Rede virtual, Azure Load Balancer (sub-rede par de réplica geográfica) |
-| 16001 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Sub-rede Redis) |Balanceador de Carga do Azure |
+| 16001 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Sub-rede Redis) |Azure Load Balancer |
 | 20226 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
 
-<sup>2</sup> você pode usar a marca de serviço ' AzureLoadBalancer ' (Gerenciador de recursos) (ou ' AZURE_LOADBALANCER ' para clássico) para criar as regras de NSG.
+<sup>1</sup> você pode usar a marca de serviço ' AzureLoadBalancer ' (Gerenciador de recursos) (ou ' AZURE_LOADBALANCER ' para clássico) para criar as regras de NSG.
 
 #### <a name="additional-vnet-network-connectivity-requirements"></a>Requisitos adicionais de conectividade de rede de VNET
 
@@ -170,7 +173,7 @@ Depois que os requisitos de porta são configurados conforme descrito na seção
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
-    Se a ferramenta `tcping` relatar que a porta está aberta, o cache estará disponível para conexão de clientes na VNET.
+    Se a ferramenta de `tcping` relatar que a porta está aberta, o cache estará disponível para conexão de clientes na VNET.
 
   - Outra maneira de testar é criar um cliente de cache de teste (que pode ser um aplicativo de console simples usando StackExchange. Redis) que se conecta ao cache e adiciona e recupera alguns itens do cache. Instale o aplicativo cliente de exemplo em uma VM que está na mesma VNET que o cache e execute-o para verificar a conectividade com o cache.
 
@@ -189,7 +192,7 @@ Evite usar o endereço IP semelhante à seguinte cadeia de conexão:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-Se não for possível resolver o nome DNS, algumas bibliotecas de cliente incluem opções de configuração como `sslHost`, fornecidas pelo cliente StackExchange. Redis. Isso permite que você substitua o nome do host usado para validação de certificado. Por exemplo:
+Se não for possível resolver o nome DNS, algumas bibliotecas de cliente incluem opções de configuração como `sslHost` que é fornecida pelo cliente StackExchange. Redis. Isso permite que você substitua o nome do host usado para validação de certificado. Por exemplo:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 
@@ -254,4 +257,3 @@ Saiba como usar mais recursos de cache Premium.
 [redis-cache-vnet-ip]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-ip.png
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
-

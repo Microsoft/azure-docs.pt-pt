@@ -1,7 +1,7 @@
 ---
 title: Disponibilidade do cenário-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Referência para regiões do serviço de fala.
+description: O SDK de fala apresenta muitos cenários em uma ampla variedade de linguagens de programação e ambientes. Nem todos os cenários estão disponíveis em todas as linguagens de programação ou todos os ambientes ainda. Listada abaixo está a disponibilidade de cada cenário.
 services: cognitive-services
 author: chrisbasoglu
 manager: xdh
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 6ec31df7cef8391728eae7845f64f55bb1c6466a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 02632e5bc84c7406ce3a42eb4be71cf6aaf75c15
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491340"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075765"
 ---
 # <a name="scenario-availability"></a>Disponibilidade do cenário
 
-O SDK do serviço de fala apresenta muitos cenários em uma ampla variedade de linguagens de programação e ambientes.  Nem todos os cenários estão atualmente disponíveis em todas as linguagens de programação ou todos os ambientes ainda.  Listada abaixo está a disponibilidade de cada cenário.
+O SDK de fala apresenta muitos cenários em uma ampla variedade de linguagens de programação e ambientes. Nem todos os cenários estão disponíveis em todas as linguagens de programação ou todos os ambientes ainda. Listada abaixo está a disponibilidade de cada cenário.
 
 - **Reconhecimento de fala (SR), lista de frases, intenção, tradução e contêineres locais**
   - Todas as linguagens de programação/ambientes em que há um link de seta <img src="media/index/link.jpg" height="15" width="15"></img> na tabela de início rápido [aqui](https://aka.ms/csspeech).

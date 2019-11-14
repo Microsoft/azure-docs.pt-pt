@@ -1,5 +1,5 @@
 ---
-title: Guia de Início Rápido – Criar uma VM do Windows com o Azure PowerShell | Microsoft Docs
+title: Início rápido-criar uma VM do Windows com Azure PowerShell
 description: Neste guia de início rápido, irá aprender a utilizar o Azure PowerShell para criar uma máquina virtual do Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0a8e6ab04cbb1c5a3ef9be299a08380912aad7ef
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 607ad17af42b88737d8ca4ebc379504d9b0b40df
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088804"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073444"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Início rápido: Criar uma máquina virtual do Windows no Azure com o PowerShell
+# <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Início Rápido: Criar uma máquina virtual do Windows no Azure com o PowerShell
 
 O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este guia de início rápido mostra como utilizar o módulo do Azure PowerShell para implementar uma máquina virtual (VM) no Azure que executa o Windows Server 2016. Você também usará o RDP para a VM e instalará o servidor Web do IIS, para mostrar a VM em ação.
 
@@ -45,7 +45,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-Crie uma VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Forneça nomes para cada um dos recursos e o `New-AzVM` cmdlet criará se eles ainda não existirem.
+Crie uma VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Forneça nomes para cada um dos recursos e o cmdlet `New-AzVM` criará se eles ainda não existirem.
 
 Quando solicitado, forneça um nome de usuário e senha a serem usados como credenciais de entrada para a VM:
 
@@ -89,7 +89,7 @@ Para ver a VM em ação, instale o servidor Web do IIS. Abra uma janela do Power
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Quando terminar, feche a ligação RDP à VM.
+Quando terminar, feche a ligação RDP para a VM.
 
 ## <a name="view-the-web-server-in-action"></a>Ver o servidor Web em ação
 

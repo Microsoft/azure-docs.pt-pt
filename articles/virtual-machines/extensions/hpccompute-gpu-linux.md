@@ -1,5 +1,5 @@
 ---
-title: Extensão do driver NVIDIA GPU – VMs Linux do Azure | Microsoft Docs
+title: Extensão do driver NVIDIA GPU – VMs Linux do Azure
 description: Microsoft Azure extensão para instalar drivers NVIDIA GPU em VMs de computação da série N executando o Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 83646c0b11bf558f667b29271a27d31e5489c157
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 6ea61acfc2db3c8f1f5c9c0ac8da8f19897d441e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174013"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073731"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão de driver NVIDIA GPU para Linux
 
@@ -26,8 +26,8 @@ ms.locfileid: "71174013"
 
 Essa extensão instala drivers NVIDIA GPU em VMs da série N do Linux. Dependendo da família de VMs, a extensão instala os drivers CUDA ou GRID. Ao instalar os drivers NVIDIA usando essa extensão, você estará aceitando e concordando com os termos do [contrato de licença de usuário final da NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante o processo de instalação, a VM pode ser reiniciada para concluir a configuração do driver.
 
-As instruções sobre a instalação manual dos drivers e as versões atuais com suporte [estão](
-https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup)disponíveis aqui.
+As instruções sobre a instalação manual dos drivers e as versões atuais com suporte estão disponíveis [aqui](
+https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
 Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs da série N do Windows](hpccompute-gpu-windows.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -36,7 +36,7 @@ Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs
 
 Essa extensão dá suporte aos seguintes distribuições de sistema operacional, dependendo do suporte de driver para a versão específica do sistema operacional.
 
-| Distribuição | Version |
+| Distribuição | Versão |
 |---|---|
 | Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
 | Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6 |
@@ -70,24 +70,24 @@ O JSON a seguir mostra o esquema para a extensão.
 }
 ```
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Propriedades
 
-| Name | Valor / exemplo | Tipo de Dados |
+| Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverLinux | string |
+| tipo | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Definições
 
 Todas as configurações são opcionais. O comportamento padrão é não atualizar o kernel se não for necessário para a instalação do driver, instalar o driver mais recente com suporte e o kit de ferramentas do CUDA (conforme aplicável).
 
-| Name | Descrição | Default Value | Valores válidos | Tipo de Dados |
+| Nome | Descrição | Valor Predefinido | Valores válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
-| updateOS | Atualizar o kernel mesmo se não for necessário para a instalação do driver | false | true, false | boolean |
-| driverVersion | NV Versão do driver de grade<br> NC/ND: Versão do kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | latest | GRADE "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA "10.0.130", "9.2.88", "9.1.85" | string |
-| installCUDA | Instale o kit de ferramentas do CUDA. Somente relevante para VMs da série NC/ND. | true | true, false | boolean |
+| updateOS | Atualizar o kernel mesmo se não for necessário para a instalação do driver | false | VERDADEIRO, FALSO | boolean |
+| driverVersion | NV: versão do driver de grade<br> NC/ND: versão do kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | mais recente | GRADE: "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| installCUDA | Instale o kit de ferramentas do CUDA. Somente relevante para VMs da série NC/ND. | true | VERDADEIRO, FALSO | boolean |
 
 
 ## <a name="deployment"></a>Implementação
@@ -175,7 +175,7 @@ Resultado da execução de extensão é registado para o ficheiro seguinte:
 
 ### <a name="exit-codes"></a>Códigos de saída
 
-| Código de Saída | Significado | Ação possível |
+| Código de saída | Significado | Ação possível |
 | :---: | --- | --- |
 | 0 | Operação bem-sucedida |
 | 1 | Uso incorreto da extensão | Verificar log de saída de execução |

@@ -1,5 +1,5 @@
 ---
-title: Extensão de script personalizado do Azure para Windows | Microsoft Docs
+title: Extensão de script personalizado do Azure para Windows
 description: Automatizar tarefas de configuração de VM do Windows usando a extensão de script personalizado
 services: virtual-machines-windows
 manager: carmonm
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: c0c160d9fc2fcfb8da004d02baae1dd410620cbb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b3c355219fcbebc5fda38c33d6eb7f9126b3b2b8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204197"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073829"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para Windows
 
@@ -28,7 +28,7 @@ Este documento fornece detalhes sobre como usar a extensão de script personaliz
 > [!NOTE]  
 > Não use a extensão de script personalizado para executar Update-AzVM com a mesma VM que seu parâmetro, pois ela aguardará por si mesma.  
 
-### <a name="operating-system"></a>Sistema operativo
+### <a name="operating-system"></a>Sistema Operativo
 
 A extensão de script personalizado para Windows será executada no OSs de extensão com suporte da extensão, para obter mais informações, consulte os [sistemas operacionais com suporte da extensão do Azure](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems).
 
@@ -109,14 +109,14 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute | Cadeia de caracteres |
-| type | CustomScriptExtension | Cadeia de caracteres |
+| publisher | Microsoft.Compute | string |
+| tipo | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
 | fileuris (por exemplo,) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp (por exemplo) | 123456789 | inteiro de 32 bits |
-| commandToExecute (por exemplo,) | PowerShell-ExecutionPolicy Unrestricted-File configure-Music-app. ps1 | Cadeia de caracteres |
-| storageAccountName (por exemplo,) | examplestorageacct | Cadeia de caracteres |
-| storageAccountKey (por exemplo,) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | Cadeia de caracteres |
+| commandToExecute (por exemplo,) | PowerShell-ExecutionPolicy Unrestricted-File configure-Music-app. ps1 | string |
+| storageAccountName (por exemplo,) | examplestorageacct | string |
+| storageAccountKey (por exemplo,) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 >[!NOTE]
 >Esses nomes de propriedade diferenciam maiúsculas de minúsculas. Para evitar problemas de implantação, use os nomes conforme mostrado aqui.
@@ -125,8 +125,8 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 
 * `commandToExecute`: (**Required**, String) o script de ponto de entrada a ser executado. Use esse campo se o comando contiver segredos, como senhas, ou se os fileuris forem confidenciais.
 * `fileUris`: (opcional, matriz de cadeia de caracteres) as URLs para os arquivos a serem baixados.
-* `timestamp`(opcional, número inteiro de 32 bits) Use este campo somente para disparar uma nova execução do script alterando o valor desse campo.  Qualquer valor inteiro é aceitável; Ele deve ser diferente do valor anterior.
-* `storageAccountName`: (opcional, Cadeia de caracteres) o nome da conta de armazenamento. Se você especificar credenciais de armazenamento, `fileUris` todas deverão ser URLs para BLOBs do Azure.
+* `timestamp` (opcional, número inteiro de 32 bits) Use este campo somente para disparar uma nova execução do script alterando o valor desse campo.  Qualquer valor inteiro é aceitável; Ele deve ser diferente do valor anterior.
+* `storageAccountName`: (opcional, Cadeia de caracteres) o nome da conta de armazenamento. Se você especificar credenciais de armazenamento, todos os `fileUris` devem ser URLs para BLOBs do Azure.
 * `storageAccountKey`: (opcional, Cadeia de caracteres) a chave de acesso da conta de armazenamento
 
 Os valores a seguir podem ser definidos em configurações públicas ou protegidas, a extensão rejeitará qualquer configuração na qual os valores abaixo estejam definidos nas configurações pública e protegida.
@@ -141,12 +141,12 @@ As configurações públicas são enviadas em texto não criptografado para a VM
 
 Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON, que é detalhado na seção anterior, pode ser usado em um modelo de Azure Resource Manager para executar a extensão de script personalizado durante a implantação. Os exemplos a seguir mostram como usar a extensão de script personalizado:
 
-* [Tutorial: Implantar extensões de máquina virtual com modelos de Azure Resource Manager](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
+* [Tutorial: implantar extensões de máquina virtual com modelos de Azure Resource Manager](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
 * [Implantar um aplicativo de duas camadas no Windows e no banco de BD SQL do Azure](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## <a name="powershell-deployment"></a>Implantação do PowerShell
 
-O `Set-AzVMCustomScriptExtension` comando pode ser usado para adicionar a extensão de script personalizado a uma máquina virtual existente. Para obter mais informações, consulte [set-AzVMCustomScriptExtension](/powershell/module/az.compute/set-azvmcustomscriptextension).
+O comando `Set-AzVMCustomScriptExtension` pode ser usado para adicionar a extensão de script personalizado a uma máquina virtual existente. Para obter mais informações, consulte [set-AzVMCustomScriptExtension](/powershell/module/az.compute/set-azvmcustomscriptextension).
 
 ```powershell
 Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
@@ -161,7 +161,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="using-multiple-scripts"></a>Usando vários scripts
 
-Neste exemplo, você tem três scripts que são usados para criar seu servidor. O **commandToExecute** chama o primeiro script e, em seguida, você tem opções sobre como os outros são chamados. Por exemplo, você pode ter um script mestre que controla a execução, com o tratamento de erros, o registro em log e o gerenciamento de estado corretos. Os scripts são baixados no computador local para execução. Por exemplo, `1_Add_Tools.ps1` em você chamaria `2_Add_Features.ps1` adicionando `.\2_Add_Features.ps1` ao script e repetiria esse processo para os outros scripts que você definir em `$settings`.
+Neste exemplo, você tem três scripts que são usados para criar seu servidor. O **commandToExecute** chama o primeiro script e, em seguida, você tem opções sobre como os outros são chamados. Por exemplo, você pode ter um script mestre que controla a execução, com o tratamento de erros, o registro em log e o gerenciamento de estado corretos. Os scripts são baixados no computador local para execução. Por exemplo, no `1_Add_Tools.ps1` você chamaria `2_Add_Features.ps1` adicionando `.\2_Add_Features.ps1` ao script e repetiria esse processo para os outros scripts definidos no `$settings`.
 
 ```powershell
 $fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
@@ -273,17 +273,17 @@ Os arquivos especificados são baixados para a seguinte pasta na máquina virtua
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
 
-em `<n>` que é um inteiro decimal, que pode ser alterado entre as execuções da extensão.  O `1.*` valor corresponde ao valor atual `typeHandlerVersion` real da extensão.  Por exemplo, o diretório real pode ser `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
+onde `<n>` é um inteiro decimal, que pode ser alterado entre as execuções da extensão.  O valor de `1.*` corresponde ao valor real, `typeHandlerVersion` atual da extensão.  Por exemplo, o diretório real pode ser `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
 
-Ao executar o `commandToExecute` comando, a extensão define esse diretório (por exemplo, `...\Downloads\2`) como o diretório de trabalho atual. Esse processo permite o uso de caminhos relativos para localizar os arquivos baixados por `fileURIs` meio da propriedade. Consulte a tabela abaixo para obter exemplos.
+Ao executar o comando `commandToExecute`, a extensão define esse diretório (por exemplo, `...\Downloads\2`) como o diretório de trabalho atual. Esse processo permite o uso de caminhos relativos para localizar os arquivos baixados por meio da propriedade `fileURIs`. Consulte a tabela abaixo para obter exemplos.
 
-Como o caminho de download absoluto pode variar ao longo do tempo, é melhor optar por caminhos de script/arquivo relativos `commandToExecute` na cadeia de caracteres, sempre que possível. Por exemplo:
+Como o caminho de download absoluto pode variar ao longo do tempo, é melhor optar por caminhos de script/arquivo relativos na cadeia de caracteres de `commandToExecute`, sempre que possível. Por exemplo:
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
-As informações de caminho após o primeiro segmento de URI são mantidas para `fileUris` os arquivos baixados por meio da lista de propriedades.  Conforme mostrado na tabela a seguir, os arquivos baixados são mapeados em subdiretórios de download para refletir `fileUris` a estrutura dos valores.  
+As informações de caminho após o primeiro segmento de URI são mantidas para os arquivos baixados por meio da lista de propriedades `fileUris`.  Conforme mostrado na tabela a seguir, os arquivos baixados são mapeados em subdiretórios de download para refletir a estrutura dos valores de `fileUris`.  
 
 #### <a name="examples-of-downloaded-files"></a>Exemplos de arquivos baixados
 

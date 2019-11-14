@@ -11,12 +11,12 @@ metadata:
   author: ypitsch
   ms.author: v-meravi
   ms.date: 11/04/2019
-  ms.openlocfilehash: b8ea3e631df062bb1e8671f2755d0d8ec089e41f
-  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.openlocfilehash: 80cd9b2e6fde34daf6126ba8e14cf9f5c0b7c627
+  ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73508810"
+  ms.lasthandoff: 11/14/2019
+  ms.locfileid: "74076826"
 landingContent:
 - title: Acerca do Peering Service
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
       url: about.md
   - linkListType: concept
     links:
-    - text: Localização e parceiros
+    - text: Localizações e parceiros
       url: location-partners.md
     - text: Ligações
       url: connection.md

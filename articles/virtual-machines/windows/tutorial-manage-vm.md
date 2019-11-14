@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Criar e gerir VMs do Windows com o Azure PowerShell | Microsoft Docs
+title: Tutorial – criar e gerenciar VMs do Windows com o Azure PowerShell
 description: Neste tutorial, vai aprender a utilizar o Azure PowerShell para criar e gerir VMs do Windows no Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0c60cd335e9d280d59fd872d1d0724f2eabd3afb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c48d5e514d854568043d001a22411b6a67f79e6a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101583"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067815"
 ---
-# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Criar e gerenciar VMs do Windows com o Azure PowerShell
+# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Criar e gerir VMs do Windows com o Azure PowerShell
 
 As máquinas virtuais do Azure proporcionam um ambiente informático totalmente configurável e flexível. Este tutorial abrange tarefas de implementação básicas de máquinas virtuais (VM) do Azure, como selecionar um tamanho de VM, selecionar uma imagem de VM e implementar uma VM. Saiba como:
 
@@ -180,7 +180,7 @@ O tamanho da VM determina a quantidade de recursos de computação, como CPU, GP
 
 A tabela seguinte categoriza tamanhos em casos de utilização.  
 
-| Type                     | Tamanhos comuns           |    Descrição       |
+| Tipo                     | Tamanhos comuns           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Fins gerais](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU-para-memória equilibrada. Ideal para desenvolvimento/teste e aplicações e soluções de dados pequenas a médias.  |
 | [Com otimização de computação](sizes-compute.md)   | Fsv2          | CPU-para-memória elevada. É adequado para aplicações de tráfego médio, dispositivos de rede e processos em lote.        |
@@ -189,7 +189,7 @@ A tabela seguinte categoriza tamanhos em casos de utilização.
 | [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | VMs especializadas destinadas a composição gráfica e edição de vídeo exigentes.       |
 | [Elevado desempenho](sizes-hpc.md) | H        | As nossas mais poderosas VMs com CPU, com interfaces de rede de alto débito (RDMA) opcionais. |
 
-### <a name="find-available-vm-sizes"></a>Encontrar todos os tamanhos de VM disponíveis
+### <a name="find-available-vm-sizes"></a>Localizar todos os tamanhos de VM disponíveis
 
 Para ver uma lista de tamanhos de VM disponíveis em uma região específica, use o comando [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) .
 
@@ -248,7 +248,7 @@ Uma VM do Azure pode ter um de vários estados de energia.
 | A parar | A máquina virtual está sendo interrompida. |
 | Parada | A VM está parada. As máquinas virtuais no estado de paragem continuam a incorrer em custos de computação.  |
 | A desalocar | A VM está sendo desalocada. |
-| Desalocado | Indica que a VM é removida do hipervisor, mas ainda está disponível no plano de controle. As máquinas virtuais no estado `Deallocated` não incorrem em custos de computação. |
+| Desalocada | Indica que a VM é removida do hipervisor, mas ainda está disponível no plano de controle. As máquinas virtuais no estado `Deallocated` não incorrem em custos de computação. |
 | - | O estado de energia da VM é desconhecido. |
 
 
@@ -303,7 +303,7 @@ Remove-AzResourceGroup `
    -Force
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu sobre a criação e gestão básica de VMs, como:
 

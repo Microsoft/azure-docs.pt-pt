@@ -1,17 +1,14 @@
 ---
 title: Exemplo – auditar a criptografia de dados transparente no SQL
 description: Esta definição de política de exemplo audita se o banco de dados SQL não tem a criptografia de data transparente habilitada.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 4027ad28b6589872dd2f52961710c4db95a257e7
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 60f617445c33de524cf71b0c81514bf93b3592d4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254789"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74069724"
 ---
 # <a name="sample---audit-sql-database-encryption"></a>Exemplo – criptografia do banco de dados SQL de auditoria
 
@@ -29,7 +26,7 @@ Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o
 
 Ao atribuir uma política, selecione **Auditar o estado da encriptação de dados transparente** nas definições incorporadas disponíveis.
 
-## <a name="deploy-with-powershell"></a>Implementar com o Powershell
+## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -47,7 +44,7 @@ Execute o seguinte comando para remover a atribuição de política.
 Remove-AzPolicyAssignment -Name "SQL TDE Audit" -Scope <scope>
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
+## <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -65,4 +62,4 @@ az policy assignment delete --name "SQL TDE Audit" --resource-group myResourceGr
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Reveja mais exemplos nas [amostras do Azure Policy](index.md)
+- Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

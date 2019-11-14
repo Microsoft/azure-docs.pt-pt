@@ -1,5 +1,5 @@
 ---
-title: 'Ligar uma rede virtual a um circuito do ExpressRoute: CLI: Azure| Microsoft Docs'
+title: 'Azure ExpressRoute: vincular uma VNet ao circuito: CLI'
 description: Este artigo mostra-lhe como ligar redes virtuais (VNets) para circuitos do ExpressRoute com o modelo de implementação do Resource Manager e a CLI.
 services: expressroute
 author: cherylmc
@@ -7,14 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.reviewer: anzaman
-ms.custom: seodec18
-ms.openlocfilehash: d858c83fb6669e5348b4256931e080656be0ebad
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a8814030e6c4345227ec05ea1554104e0b21efbc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621065"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076548"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Ligar uma rede virtual a um circuito do ExpressRoute com a CLI
 
@@ -155,10 +153,10 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 O intervalo de *RoutingWeight* é 0 para 32000. O valor predefinido é 0.
 
 ## <a name="configure-expressroute-fastpath"></a>Configurar o ExpressRoute FastPath 
-Pode ativar [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) se o seu circuito do ExpressRoute no [ExpressRoute Direct](expressroute-erdirect-about.md) e o gateway de virtual newtork estiver Ultra desempenho ou ErGw3AZ. FastPath melhora preformance de caminho de dados, como pacotes por segundo e conexões por segundo entre a sua rede no local e a rede virtual. 
+Você pode habilitar o [Expressroute FastPath](expressroute-about-virtual-network-gateways.md) se o circuito do expressroute estiver no [expressroute Direct](expressroute-erdirect-about.md) e seu gateway de válida virtual for ultra performance ou ErGw3AZ. O FastPath melhora a preformação do caminho de dados, como pacotes por segundo e conexões por segundo entre sua rede local e sua rede virtual. 
 
 > [!NOTE] 
-> Se já tiver uma ligação de rede virtual, mas não ativou a FastPath terá de eliminar a ligação de rede virtual e criar um novo. 
+> Se você já tiver uma conexão de rede virtual, mas não tiver habilitado FastPath, precisará excluir a conexão de rede virtual e criar uma nova. 
 > 
 >  
 
@@ -167,6 +165,6 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações acerca do ExpressRoute, veja as [FAQs do ExpressRoute](expressroute-faqs.md).

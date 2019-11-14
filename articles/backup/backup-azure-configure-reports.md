@@ -8,14 +8,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: 293af600f4bd58efe8383d019ca3d17f724f242c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 757e12f97f95ef856643820e47113521d840f10d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933339"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074981"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
+
 Este artigo mostra as etapas a serem seguidas para configurar relatórios para o backup do Azure usando um cofre dos serviços de recuperação. Ele também mostra como acessar relatórios usando Power BI. Depois de concluir essas etapas, você pode ir diretamente para Power BI para exibir, personalizar e criar relatórios.
 
 > [!IMPORTANT]
@@ -26,24 +27,27 @@ Baixe o aplicativo mais recente (versão 1,8) para evitar esse problema.
 >
 
 ## <a name="supported-scenarios"></a>Cenários suportados
+
 - Os relatórios de backup do Azure têm suporte para backup de máquina virtual do Azure e backup de arquivo e pasta para a nuvem usando o agente de serviços de recuperação do Azure.
 - Não há suporte para relatórios do banco de dados SQL do Azure, compartilhamentos de arquivos do Azure, Data Protection Manager e servidor de backup do Azure no momento.
 - Você pode exibir relatórios em cofres e assinaturas, se a mesma conta de armazenamento estiver configurada para cada um dos cofres. A conta de armazenamento selecionada deve estar na mesma região que o cofre dos serviços de recuperação.
-- A frequência da atualização agendada para os relatórios é de 24 horas em Power BI. Você também pode executar uma atualização ad hoc dos relatórios no Power BI. Nesse caso, os dados mais recentes na conta de armazenamento do cliente são usados para renderizar relatórios.
+- A frequência da atualização agendada para os relatórios é de 24 horas em Power BI. Você também pode executar uma atualização sob demanda dos relatórios no Power BI. Nesse caso, os dados mais recentes na conta de armazenamento do cliente são usados para renderizar relatórios.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 - Crie uma [conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md) para configurá-la para relatórios. Essa conta de armazenamento é usada para armazenar dados relacionados a relatórios.
 - [Crie uma conta de Power bi](https://powerbi.microsoft.com/landing/signin/) para exibir, personalizar e criar seus próprios relatórios usando o portal de Power bi.
-- Registre o provedor de recursos **Microsoft.** insights, se ainda não estiver registrado. Use as assinaturas para a conta de armazenamento e o cofre dos serviços de recuperação para que os dados de relatório possam fluir para a conta de armazenamento. Para fazer essa etapa, vá para a Portal do Azure, selecione**provedores de recursos**de **assinatura** > e verifique se este provedor está registrado.
+- Registre o provedor de recursos **Microsoft. insights**, se ainda não estiver registrado. Use as assinaturas para a conta de armazenamento e o cofre dos serviços de recuperação para que os dados de relatório possam fluir para a conta de armazenamento. Para fazer essa etapa, vá para o portal do Azure, selecione **assinatura** > **provedores de recursos**e verifique se esse provedor está registrado.
 
 ## <a name="configure-storage-account-for-reports"></a>Configurar a conta de armazenamento para relatórios
+
 Siga estas etapas para configurar a conta de armazenamento para um cofre dos serviços de recuperação usando o portal do Azure. Essa é uma configuração única. Depois que a conta de armazenamento é configurada, você pode ir diretamente para Power BI para exibir o aplicativo de modelo e usar relatórios.
 
 1. Se você já tiver um cofre dos serviços de recuperação aberto, vá para a próxima etapa. Se você não tiver um cofre dos serviços de recuperação aberto, na portal do Azure, selecione **todos os serviços**.
 
-   * Na lista de recursos, insira **serviços de recuperação**.
-   * À medida que começa a escrever, a lista filtra com base na sua entrada. Quando você vir **cofres dos serviços de recuperação**, selecione-o.
-   * É apresentada a lista dos cofres dos Serviços de Recuperação. Na lista dos cofres dos Serviços de Recuperação, selecione um cofre.
+   - Na lista de recursos, insira **serviços de recuperação**.
+   - À medida que começa a escrever, a lista filtra com base na sua entrada. Quando você vir **cofres dos serviços de recuperação**, selecione-o.
+   - É apresentada a lista dos cofres dos Serviços de Recuperação. Na lista dos cofres dos Serviços de Recuperação, selecione um cofre.
 
      O dashboard do cofre selecionado é aberto.
 2. Na lista de itens que aparece no cofre, na seção **monitoramento e relatórios** , selecione **relatórios de backup** para configurar a conta de armazenamento para relatórios.
@@ -76,6 +80,7 @@ Siga estas etapas para configurar a conta de armazenamento para um cofre dos ser
 >
 
 ## <a name="view-reports-in-power-bi"></a>Exibir relatórios no Power BI
+
 Depois de configurar uma conta de armazenamento para relatórios usando um cofre dos serviços de recuperação, leva cerca de 24 horas para que os dados do relatório comecem a fluir. Após 24 horas de configuração de uma conta de armazenamento, siga estas etapas para exibir relatórios em Power BI.
 Se você quiser personalizar e compartilhar o relatório, crie um espaço de trabalho e execute as seguintes etapas
 
@@ -87,7 +92,7 @@ Se você quiser personalizar e compartilhar o relatório, crie um espaço de tra
       ![Obter aplicativo de modelo](./media/backup-azure-configure-reports/template-app-get.png)
 4. Insira o nome da conta de armazenamento que foi configurada na etapa 5 anterior e selecione **Avançar**.
 
-    ![Introduza o nome da conta de armazenamento](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
+    ![Introduza o nome da conta de armazenamento](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)
 5. Usando o método de autenticação "chave", insira a chave da conta de armazenamento para esta conta de armazenamento. Para [Exibir e copiar as chaves de acesso de armazenamento](../storage/common/storage-account-manage.md#access-keys), acesse sua conta de armazenamento no portal do Azure.
 
      ![Inserir conta de armazenamento](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
@@ -112,16 +117,17 @@ Se você quiser personalizar e compartilhar o relatório, crie um espaço de tra
 
       ![Guias de relatórios de backup do Azure](./media/backup-azure-configure-reports/reports-tab-view.png)
 
-
 ## <a name="troubleshooting-errors"></a>Resolução de erros
+
 | Detalhes do Erro | Resolução |
 | --- | --- |
-| Depois de configurar a conta de armazenamento para relatórios de backup, a **conta de armazenamento** ainda mostrará **não configurado**. | Se você tiver configurado uma conta de armazenamento com êxito, seus dados de relatório fluirão no apesar desse problema. Para resolver esse problema, vá para o portal do Azure e selecione **todos os serviços** > **configurações** > de diagnóstico**cofre** > de serviços de recuperação**Editar configuração**. Exclua a configuração previamente configurada e crie uma nova configuração na mesma folha. Desta vez, na caixa **nome** , selecione **serviço**. Agora, a conta de armazenamento configurada é exibida. |
+| Depois de configurar a conta de armazenamento para relatórios de backup, a **conta de armazenamento** ainda mostrará **não configurado**. | Se você tiver configurado uma conta de armazenamento com êxito, seus dados de relatório fluirão no apesar desse problema. Para resolver esse problema, vá para o portal do Azure e selecione **todos os serviços** > **configurações de diagnóstico** > **cofre dos serviços de recuperação** > **Editar configuração**. Exclua a configuração previamente configurada e crie uma nova configuração na mesma folha. Desta vez, na caixa **nome** , selecione **serviço**. Agora, a conta de armazenamento configurada é exibida. |
 |Depois de importar o aplicativo de modelo de backup do Azure no Power BI, uma mensagem de erro "404-contêiner não encontrado" será exibida. | Conforme mencionado anteriormente, você deve aguardar 24 horas depois de configurar relatórios no cofre dos serviços de recuperação para vê-los corretamente no Power BI. Se você tentar acessar os relatórios antes de 24 horas, essa mensagem de erro será exibida porque os dados completos ainda não estão presentes para mostrar relatórios válidos. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
+
 Depois de configurar a conta de armazenamento e importar o aplicativo de modelo de backup do Azure, as próximas etapas são personalizar relatórios e usar um modelo de dados de relatório para criar relatórios. Para obter mais informações, consulte os artigos a seguir.
 
-* [Usar um modelo de dados de relatório de backup do Azure](backup-azure-reports-data-model.md)
-* [Filtrar relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
-* [Criar relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+- [Usar um modelo de dados de relatório de backup do Azure](backup-azure-reports-data-model.md)
+- [Filtrar relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+- [Criar relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

@@ -1,17 +1,14 @@
 ---
 title: Exemplo – impor marca e valor em grupos de recursos
 description: Esta definição de política de exemplo requer uma marca e um valor em um grupo de recursos.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/31/2019
-ms.author: dacoulte
-ms.openlocfilehash: 5f4af5ee88ad491e7864e82afc337801e47f2204
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 1a4bf9d27971b149e3df422987f58d0f184181c2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255773"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076279"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>Exemplo – aplicar marca e seu valor em grupos de recursos
 
@@ -20,7 +17,7 @@ Esta política requer uma etiqueta e um valor num grupo de recursos. Especifica 
 Pode implementar esta política de exemplo com:
 
 - O [portal do Azure](#azure-portal)
-- [O Azure PowerShell](#azure-powershell)
+- [Azure PowerShell](#azure-powershell)
 - [CLI do Azure](#azure-cli)
 - [API REST](#rest-api)
 
@@ -51,8 +48,8 @@ O JSON que define os parâmetros da política, utilizado pela CLI do Azure e o A
 
 |Nome |Tipo |Campo |Descrição |
 |---|---|---|---|
-|tagName |String |etiquetas |Nome da etiqueta, como costCenter|
-|tagValue |String |etiquetas |Valor da etiqueta, como headquarter|
+|tagName |Cadeia |etiquetas |Nome da etiqueta, como costCenter|
+|tagValue |Cadeia |etiquetas |Valor da etiqueta, como headquarter|
 
 Ao criar uma atribuição através do PowerShell ou da CLI do Azure, os valores do parâmetro podem ser transmitidos como JSON numa cadeia ou através de um ficheiro com o `-PolicyParameter` (PowerShell) ou a `--params` (CLI do Azure).
 O PowerShell também suporta `-PolicyParameterObject`, o que exige passar ao cmdlet um Nome/Valor hashtable em que **Nome** é o nome do parâmetro e **Valor** é o valor único ou a matriz de valores a ser transmitida durante a atribuição.
@@ -72,8 +69,8 @@ No parâmetro deste exemplo, um _tagName_ de **costCenter** e um _tagValue_ de *
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-[![Deploy o exemplo de política para o azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
-[![Deploy o exemplo de política para o Azure gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
+[![implantar o exemplo de política no azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
+[![implantar o exemplo de política para o Azure gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FResourceGroup%2Fenforce-resourceGroup-tags%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -123,7 +120,7 @@ Os scripts de implementação e remoção utilizam os seguintes comandos. Cada c
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-### <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
+### <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
 
 ```azurecli-interactive
 # Create the Policy Definition (Subscription scope)
@@ -166,7 +163,7 @@ Existem várias ferramentas que podem ser utilizadas para interagir com a API RE
 
 ## <a name="rest-api"></a>API REST
 
-### <a name="deploy-with-rest-api"></a>Implementar com API REST
+### <a name="deploy-with-rest-api"></a>Implementar com a API REST
 
 - Crie a Definição de Política (âmbito da Subscrição). Utilize o JSON [definição de política](#policy-definition) para o Corpo do Pedido.
 

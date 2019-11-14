@@ -1,5 +1,5 @@
 ---
-title: Solucionando problemas de falhas de extensão de VM do Windows | Microsoft Docs
+title: Solucionando problemas de falhas de extensão de VM do Windows
 description: Saiba como solucionar problemas de falhas de extensão de VM do Windows do Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: 6108b3c8d4f4c5c93bc2543042294bc8167d4dd9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bc99a9c9e9ff985730ec97dbacd1d7c1de06a45e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084296"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073659"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Solucionando problemas de falhas de extensão de VM do Windows do Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -61,7 +61,7 @@ Segue-se o resultado do exemplo:
 ## <a name="troubleshooting-extension-failures"></a>Solucionando problemas de falhas de extensão
 ### <a name="rerun-the-extension-on-the-vm"></a>Executar novamente a extensão na VM
 Se você estiver executando scripts na VM usando a extensão de script personalizado, às vezes, você pode encontrar um erro em que a VM foi criada com êxito, mas o script falhou. Sob essas condições, a maneira recomendada de se recuperar desse erro é remover a extensão e executar novamente o modelo novamente.
-Nota: No futuro, essa funcionalidade seria aprimorada para remover a necessidade de desinstalar a extensão.
+Observação: no futuro, essa funcionalidade seria aprimorada para remover a necessidade de desinstalar a extensão.
 
 #### <a name="remove-the-extension-from-azure-powershell"></a>Remover a extensão de Azure PowerShell
     Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"

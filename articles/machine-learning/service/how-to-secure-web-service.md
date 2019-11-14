@@ -11,39 +11,39 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 00731d3520c98c3fd770dc411f6c5c940555fbe5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
-ms.translationtype: HT
+ms.openlocfilehash: f6a6f50a86dc58299a1c1b5994dd1d19cc915e6c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048590"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076885"
 ---
-# <a name="use-ssl-to-secure-a--through-azure-machine-learning"></a>Usar SSL para proteger um por meio de Azure Machine Learning
+# <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Usar SSL para proteger um serviço Web por meio do Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Este artigo mostra como proteger um que é implantado por meio de Azure Machine Learning.
+Este artigo mostra como proteger um serviço Web que é implantado por meio de Azure Machine Learning.
 
-Você usa [https](https://en.wikipedia.org/wiki/HTTPS) para restringir o acesso a s e proteger os dados que os clientes enviam. O HTTPS ajuda a proteger as comunicações entre um cliente e um criptografando as comunicações entre os dois. A criptografia usa [TLS (Transport Layer Security)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Às vezes, o TLS ainda é referido como *protocolo SSL* (SSL), que era o PREDECESSOR do TLS.
+Você usa [https](https://en.wikipedia.org/wiki/HTTPS) para restringir o acesso aos serviços da Web e proteger os dados que os clientes enviam. O HTTPS ajuda a proteger as comunicações entre um cliente e um serviço Web criptografando as comunicações entre os dois. A criptografia usa [TLS (Transport Layer Security)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Às vezes, o TLS ainda é referido como *protocolo SSL* (SSL), que era o PREDECESSOR do TLS.
 
 > [!TIP]
-> O SDK do Azure Machine Learning usa o termo "SSL" para propriedades relacionadas a comunicações seguras. Isso não significa que seu não use *TLS*. SSL é apenas um termo mais reconhecido.
+> O SDK do Azure Machine Learning usa o termo "SSL" para propriedades relacionadas a comunicações seguras. Isso não significa que o serviço Web não usa *TLS*. SSL é apenas um termo mais reconhecido.
 
 O TLS e o SSL dependem de *certificados digitais*, que ajudam com a criptografia e a verificação de identidade. Para obter mais informações sobre como os certificados digitais funcionam, consulte o tópico da Wikipédia [infraestrutura de chave pública](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
 > [!WARNING]
-> Se você não usar HTTPS para o, os dados enviados de e para o serviço poderão estar visíveis para outras pessoas na Internet.
+> Se você não usar HTTPS para o serviço Web, os dados enviados de e para o serviço poderão estar visíveis para outras pessoas na Internet.
 >
 > O HTTPS também permite que o cliente Verifique a autenticidade do servidor ao qual ele está se conectando. Esse recurso protege os clientes contra ataques [Man-in-the-Middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) .
 
-Esse é o processo geral para proteger um:
+Esse é o processo geral para proteger um serviço Web:
 
 1. Obtenha um nome de domínio.
 
 2. Obter um certificado digital.
 
-3. Implante ou atualize o com SSL habilitado.
+3. Implante ou atualize o serviço Web com SSL habilitado.
 
-4. Atualize o DNS para apontar para o.
+4. Atualize o DNS para apontar para o serviço web.
 
 > [!IMPORTANT]
 > Se estiver implantando no AKS (serviço kubernetes do Azure), você poderá comprar seu próprio certificado ou usar um certificado fornecido pela Microsoft. Se você usar um certificado da Microsoft, não precisará obter um nome de domínio ou certificado SSL. Para obter mais informações, consulte a seção [habilitar SSL e implantar](#enable) deste artigo.
@@ -52,7 +52,7 @@ Há pequenas diferenças quando você protege os s entre os [destinos de implant
 
 ## <a name="get-a-domain-name"></a>Obter um nome de domínio
 
-Se você ainda não possui um nome de domínio, compre um de um *registrador de nome de domínio*. O processo e o preço são diferentes entre os registradores. O registrador fornece ferramentas para gerenciar o nome de domínio. Use essas ferramentas para mapear um FQDN (nome de domínio totalmente qualificado) (como www\.contoso.com) para o endereço IP que hospeda seu.
+Se você ainda não possui um nome de domínio, compre um de um *registrador de nome de domínio*. O processo e o preço são diferentes entre os registradores. O registrador fornece ferramentas para gerenciar o nome de domínio. Você usa essas ferramentas para mapear um FQDN (nome de domínio totalmente qualificado) (como www\.contoso.com) para o endereço IP que hospeda o serviço Web.
 
 ## <a name="get-an-ssl-certificate"></a>Obter um certificado SSL
 
@@ -61,7 +61,7 @@ Há várias maneiras de obter um certificado SSL (certificado digital). O mais c
 * R **certificado**. O certificado deve conter a cadeia de certificados completa e deve ser "codificado por PEM".
 * R **chave**. A chave também deve ser codificada por PEM.
 
-Ao solicitar um certificado, você deve fornecer o FQDN do endereço que planeja usar para o (por exemplo, www\.contoso.com). O endereço que é carimbado no certificado e o endereço que os clientes usam são comparados para verificar a identidade do. Se esses endereços não corresponderem, o cliente receberá uma mensagem de erro.
+Ao solicitar um certificado, você deve fornecer o FQDN do endereço que planeja usar para o serviço Web (por exemplo, www\.contoso.com). O endereço que é carimbado no certificado e o endereço que os clientes usam são comparados para verificar a identidade do serviço Web. Se esses endereços não corresponderem, o cliente receberá uma mensagem de erro.
 
 > [!TIP]
 > Se a autoridade de certificação não puder fornecer o certificado e a chave como arquivos codificados por PEM, você poderá usar um utilitário como o [OpenSSL](https://www.openssl.org/) para alterar o formato.
@@ -76,7 +76,7 @@ Para implantar (ou reimplantar) o serviço com SSL habilitado, defina o parâmet
 ### <a name="deploy-on-aks-and-field-programmable-gate-array-fpga"></a>Implantar em AKS e FPGA (matriz de portão programável por campo)
 
   > [!NOTE]
-  > As informações nesta seção também se aplicam quando você implanta um seguro para o designer. Se você não estiver familiarizado com o uso do SDK do Python, consulte [o que é o SDK do Azure Machine Learning para Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+  > As informações nesta seção também se aplicam quando você implanta um serviço Web seguro para o designer. Se você não estiver familiarizado com o uso do SDK do Python, consulte [o que é o SDK do Azure Machine Learning para Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 Ao implantar no AKS, você pode criar um novo cluster do AKS ou anexar um existente. Para obter mais informações sobre como criar ou anexar um cluster, consulte [implantar um modelo em um cluster do serviço kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md).
   
@@ -145,7 +145,7 @@ Para obter mais informações, consulte [AciWebservice. deploy_configuration ()]
 
 ## <a name="update-your-dns"></a>Atualizar o seu DNS
 
-Em seguida, você deve atualizar o DNS para apontar para o.
+Em seguida, tem de atualizar o DNS para apontar para o serviço web.
 
 + **Para instâncias de contêiner:**
 
@@ -160,7 +160,7 @@ Em seguida, você deve atualizar o DNS para apontar para o.
 
   Atualize o DNS do endereço IP público do cluster AKS na guia **configuração** em **configurações** no painel esquerdo. (Consulte a imagem a seguir.) O endereço IP público é um tipo de recurso que é criado no grupo de recursos que contém os nós do agente AKS e outros recursos de rede.
 
-  [![Azure Machine Learning: protegendo s com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
+  [![Azure Machine Learning: protegendo serviços Web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-ssl-certificate"></a>Atualizar o certificado SSL
 
@@ -257,5 +257,5 @@ aks_target.update(update_config)
 
 ## <a name="next-steps"></a>Passos seguintes
 Aprenda a:
-+ [Consumir um modelo de aprendizado de máquina implantado como um](how-to-consume-web-service.md)
++ [Consumir um modelo de aprendizado de máquina implantado como um serviço Web](how-to-consume-web-service.md)
 + [Executar experimentos e inferências com segurança dentro de uma rede virtual do Azure](how-to-enable-virtual-network.md)

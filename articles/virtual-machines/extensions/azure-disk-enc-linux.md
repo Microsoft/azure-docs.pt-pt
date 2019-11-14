@@ -1,5 +1,5 @@
 ---
-title: Azure Disk Encryption para Linux | Microsoft Docs
+title: Azure Disk Encryption para Linux
 description: Implanta Azure Disk Encryption para Linux em uma máquina virtual usando uma extensão de máquina virtual.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 1801ca8bd59153de81ef680253da229e2bd4a338
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4fa7f7d1419a8cd1006a632ba67587ab3434bf5a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597876"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073800"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption para Linux (Microsoft. Azure. Security. AzureDiskEncryptionForLinux)
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Azure Disk Encryption aproveita o subsistema DM-cript no Linux para fornecer criptografia de disco completa em [distribuições do Linux do Azure](https://aka.ms/adelinux).  Essa solução é integrada com Azure Key Vault para gerenciar chaves de criptografia de disco e segredos.
 
@@ -132,33 +132,33 @@ Usando `AADClientCertificate`:
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/exemplo | Tipo de Dados |
+| Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Programa | Microsoft. Azure. Security | string |
+| publisher | Microsoft.Azure.Security | string |
 | tipo | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 0,1, 1,1 | int |
-| (esquema 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Volume | 
-| (esquema 0,1) AADClientSecret | palavra-passe | string |
-| (esquema 0,1) AADClientCertificate | digitais | string |
-| DiskFormatQuery | {"dev_path": "", "Name": "", "file_system": ""} | Dicionário JSON |
-| EncryptionOperation | Enableencryption e, EnableEncryptionFormatAll | string | 
-| KeyEncryptionAlgorithm | ' RSA-OAEP ', ' RSA-OAEP-256 ', ' RSA1_5 ' | string |
-| keyEncryptionKeyURL | url | string |
+| typeHandlerVersion | 0.1, 1,1 | int |
+| (esquema 0.1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (esquema 0.1) AADClientSecret | palavra-passe | string |
+| (esquema 0.1) AADClientCertificate | thumbprint | string |
+| DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dicionário JSON |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
+| KeyEncryptionKeyURL | url | string |
 | adicional KeyVaultURL | url | string |
-| Senha | palavra-passe | string | 
-| sequenceVersion | uniqueidentifier | string |
-| volumeType | SO, dados, todos | string |
+| Passphrase | palavra-passe | string | 
+| SequenceVersion | uniqueidentifier | string |
+| VolumeType | OS, Data, All | string |
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
 Para obter um exemplo de implantação de modelo, consulte [habilitar a criptografia em uma VM Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
 
-## <a name="azure-cli-deployment"></a>Implantação de CLI do Azure
+## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
 
 As instruções podem ser encontradas na documentação mais recente do [CLI do Azure](/cli/azure/vm/encryption?view=azure-cli-latest). 
 
-## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
+## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
@@ -166,7 +166,7 @@ Para solução de problemas, consulte o [Guia de solução de problemas Azure Di
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/community/). Como alternativa, você pode arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione obter suporte. Para obter informações sobre como usar o suporte do Azure, leia as [perguntas frequentes sobre suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

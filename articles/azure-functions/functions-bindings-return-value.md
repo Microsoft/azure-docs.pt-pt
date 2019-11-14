@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 1ea7ec0444ba80d3494afba77ad9d7fdabd5f982
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8dd5a4d9d869c879ed402c5450690f0a691e1d2c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086412"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074407"
 ---
 # <a name="using-the-azure-function-return-value"></a>Usando o valor de retorno da função do Azure
 
@@ -23,21 +23,13 @@ Este artigo explica como os valores de retorno funcionam dentro de uma função.
 Em idiomas que têm um valor de retorno, você pode associar uma [Associação de saída](./functions-triggers-bindings.md#binding-direction) de função ao valor de retorno:
 
 * Em uma C# biblioteca de classes, aplique o atributo de associação de saída ao valor de retorno do método.
-* Em outros idiomas, defina a `name` Propriedade em *Function. JSON* como `$return`.
+* Em outros idiomas, defina a propriedade `name` em *Function. JSON* como `$return`.
 
 Se houver várias associações de saída, use o valor de retorno para apenas uma delas.
 
-No C# e C# script, maneiras alternativas de enviar dados a uma associação de saída `out` são parâmetros e [objetos de coletor](functions-reference-csharp.md#writing-multiple-output-values).
+No C# e C# script, maneiras alternativas de enviar dados para uma associação de saída são `out` parâmetros e [objetos do coletor](functions-reference-csharp.md#writing-multiple-output-values).
 
-Consulte o exemplo específico de linguagem que mostra o uso do valor de retorno:
-
-* [C#](#c-example)
-* [Script do c# (.csx)](#c-script-example)
-* [F#](#f-example)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
-
-## <a name="c-example"></a>C#exemplo
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Aqui está C# o código que usa o valor de retorno para uma associação de saída, seguido por um exemplo assíncrono:
 
@@ -63,7 +55,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-## <a name="c-script-example"></a>C#exemplo de script
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
 Aqui está a associação de saída no arquivo *Function. JSON* :
 
@@ -96,7 +88,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-## <a name="f-example"></a>F#exemplo
+# <a name="ftabfsharp"></a>[F#](#tab/fsharp)
 
 Aqui está a associação de saída no arquivo *Function. JSON* :
 
@@ -118,7 +110,7 @@ let Run(input: WorkItem, log: ILogger) =
     json
 ```
 
-## <a name="javascript-example"></a>Exemplo de JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Aqui está a associação de saída no arquivo *Function. JSON* :
 
@@ -141,7 +133,7 @@ module.exports = function (context, input) {
 }
 ```
 
-## <a name="python-example"></a>Exemplo de Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 Aqui está a associação de saída no arquivo *Function. JSON* :
 
@@ -164,7 +156,9 @@ def main(input: azure.functions.InputStream) -> str:
     })
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+---
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Manipular erros de associação de Azure Functions](./functions-bindings-errors.md)

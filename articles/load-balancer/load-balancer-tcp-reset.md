@@ -1,7 +1,7 @@
 ---
 title: Load Balancer redefinição de TCP on Idle no Azure
-titlesuffix: Azure Load Balancer
-description: Load Balancer com pacotes bidirecionais TCP RST no tempo limite de ociosidade
+titleSuffix: Azure Load Balancer
+description: Com este artigo, saiba mais sobre Azure Load Balancer com pacotes TCP RST bidirecionais no tempo limite de ociosidade.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: allensu
-ms.openlocfilehash: 8485f4b6e8d4ff55de4930b3cfb7a07802cf1d41
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b37253f37043d902d33504b99401781eb1c761c5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274164"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075926"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer com a redefinição de TCP on Idle (visualização pública)
+# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Balanceador de Carga com Reposição de TCP quando Inativo (Pré-visualização Pública)
 
 Você pode usar [Standard Load Balancer](load-balancer-standard-overview.md) para criar um comportamento de aplicativo mais previsível para seus cenários habilitando a redefinição de TCP em ociosidade para uma determinada regra. O comportamento padrão de Load Balancer é descartar os fluxos silenciosamente quando o tempo limite de ociosidade de um fluxo for atingido.  Habilitar esse recurso fará com que Load Balancer envie redefinições TCP bidirecionais (pacote TCP RST) no tempo limite de ociosidade.  Isso informará os pontos de extremidade do aplicativo que a conexão atingiu o tempo limite e não é mais utilizável.  Os pontos de extremidade podem estabelecer imediatamente uma nova conexão, se necessário.
 
@@ -76,7 +76,7 @@ Disponível em todas as regiões.
 - O portal não pode ser usado para configurar ou exibir a redefinição de TCP.  Utilize modelos, REST API, Az CLI 2.0 ou PowerShell.
 - TCP RST é enviado somente durante a conexão TCP no estado estabelecido.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [Balanceador de carga Standard](load-balancer-standard-overview.md).
 - Saiba mais sobre [as regras de saída](load-balancer-outbound-rules-overview.md).

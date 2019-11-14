@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 2b1d3167828f2c2c49bb22580222fbd0e54d31d8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 53d7cb125f59491190aadb07755954ade78356fa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813195"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075530"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análise para o mercado comercial no Partner Center
 
-Saiba como acessar relatórios analíticos no Microsoft Partner Center para monitorar vendas, avaliar o desempenho e otimizar suas ofertas no Marketplace. Como parceiro, você pode monitorar suas listagens de ofertas usando os grafos de visualização e insight de dados com suporte do Partner Center e encontrar maneiras de maximizar suas vendas. As ferramentas de análise aprimoradas permitem que você atue nos resultados de desempenho e mantenha relações melhores com seus clientes e revendedores. 
+Saiba como acessar relatórios analíticos no Microsoft Partner Center para monitorar vendas, avaliar o desempenho e otimizar suas ofertas no Marketplace. Como parceiro, você pode monitorar suas listagens de ofertas usando os grafos de visualização e insight de dados com suporte do Partner Center e encontrar maneiras de maximizar suas vendas. As ferramentas de análise aprimoradas permitem que você atue nos resultados de desempenho e mantenha relações melhores com seus clientes e revendedores.
 
 Para acessar as ferramentas de análise do Partner Center, abra o painel **[analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** em Marketplace comercial.
 
@@ -141,7 +141,7 @@ O gráfico de **tipo de licença Orders by Marketplace** exibe uma contagem de p
 - **Cobrado por meio do Azure**: a Microsoft cobra os clientes em seu nome quando você opta [por vender sua oferta pela Microsoft](./create-new-saas-offer.md#sell-through-microsoft) com esse tipo de licença. Os tipos de pagamento incluem pré-pago por cartão de crédito ou faturamento empresarial.
 - **Traga sua própria licença**: a Microsoft não cobra os clientes pelo uso desse tipo de oferta do Marketplace. Listado como **[obter agora (gratuito)](./create-new-saas-offer.md#get-it-now-free)** no Marketplace.
 - **Gratuito**: a Microsoft não cobra os clientes pelo uso desse tipo de oferta do Marketplace. Listado como **[avaliação gratuita](./create-new-saas-offer.md##free-trial-listing)** no Marketplace.
-- **Microsoft as revendedores**: representa as ofertas vendidas por revendedores da Microsoft como parte do **[programa CSP (provedor de soluções na nuvem)](./create-new-saas-offer.md#csp-program-opt-in)** .
+- **Microsoft as revendedores**: representa as ofertas vendidas por revendedores da Microsoft como parte do **[programa CSP (provedor de soluções na nuvem)](./create-new-saas-offer.md)** .
 
 ![Partner Center analisar pedidos por tipo de licença](./media/analyze-license-type.png)
 
@@ -234,7 +234,7 @@ Você receberá uma notificação pop-up e um email contendo um link para o pain
 
 ### <a name="dictionary-of-data-terms"></a>Dicionário de termos de dados
 
-| Nome do atributo | Relatórios | Definição|
+| Nome de atributo | Relatórios | Definição|
 |---|---|---|
 | Tipo de licença do Azure | Cliente, pedido | O tipo de contrato de licenciamento usado pelos clientes para comprar o Azure. Também conhecido como canal |
 | Tipo de licença do Azure: provedor de soluções na nuvem | Cliente, pedido | O cliente final adquiri o Azure e seu Marketplace oferece por meio de seu provedor de soluções na nuvem, que atua como seu revendedor.|

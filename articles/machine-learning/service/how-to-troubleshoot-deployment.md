@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb0f373000d09cb387fb73eec344997381fe45d1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: dab79f1d63a20e12f148766db5fcc3fc313a1f3a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961667"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076900"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solução de problemas Azure Machine Learning implantação do serviço kubernetes do Azure e instâncias de contêiner do Azure
 
@@ -164,12 +164,12 @@ Para evitar esse problema, recomendamos uma das seguintes abordagens:
 
 ## <a name="debug-locally"></a>Depurar localmente
 
-Se você encontrar problemas ao implantar um modelo para ACI ou AKS, tente implantá-lo como um local. Usar um local torna mais fácil solucionar problemas. A imagem do Docker que contém o modelo é baixada e iniciada no sistema local.
+Se você encontrar problemas ao implantar um modelo para ACI ou AKS, tente implantá-lo como um serviço Web local. Usar um serviço Web local torna mais fácil solucionar problemas. A imagem do Docker que contém o modelo é baixada e iniciada no sistema local.
 
 > [!WARNING]
-> Não há suporte para implantações locais em cenários de produção.
+> Não há suporte para implantações de serviço Web local para cenários de produção.
 
-Para implantar localmente, modifique seu código para usar `LocalWebservice.deploy_configuration()` para criar uma configuração de implantação. Em seguida, use `Model.deploy()` para implantar o serviço. O exemplo a seguir implanta um modelo (contido na variável `model`) como um local:
+Para implantar localmente, modifique seu código para usar `LocalWebservice.deploy_configuration()` para criar uma configuração de implantação. Em seguida, use `Model.deploy()` para implantar o serviço. O exemplo a seguir implanta um modelo (contido na variável `model`) como um serviço Web local:
 
 ```python
 from azureml.core.model import InferenceConfig, Model
@@ -180,14 +180,14 @@ inference_config = InferenceConfig(runtime="python",
                                    entry_script="score.py",
                                    conda_file="myenv.yml")
 
-# Create a local deployment, using port 8890 for the  endpoint
+# Create a local deployment, using port 8890 for the web service endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 # Deploy the service
 service = Model.deploy(
     ws, "mymodel", [model], inference_config, deployment_config)
 # Wait for the deployment to complete
 service.wait_for_deployment(True)
-# Display the port that the  is available on
+# Display the port that the web service is available on
 print(service.port)
 ```
 
@@ -297,7 +297,7 @@ Há duas coisas que podem ajudar a evitar códigos de status 503:
     > [!IMPORTANT]
     > Essa alteração não faz com que as réplicas sejam criadas *mais rapidamente*. Em vez disso, eles são criados em um limite de utilização mais baixo. Em vez de aguardar até que o serviço seja 70% utilizado, alterar o valor para 30% faz com que as réplicas sejam criadas quando ocorre uma utilização de 30%.
     
-    Se o já estiver usando as réplicas máximas atuais e você ainda estiver vendo os códigos de status 503, aumente o valor `autoscale_max_replicas` para aumentar o número máximo de réplicas.
+    Se o serviço Web já estiver usando as réplicas máximas atuais e você ainda estiver vendo os códigos de status 503, aumente o valor `autoscale_max_replicas` para aumentar o número máximo de réplicas.
 
 * Altere o número mínimo de réplicas. Aumentar as réplicas mínimas fornece um pool maior para lidar com os picos de entrada.
 
@@ -333,7 +333,7 @@ Em alguns casos, talvez seja necessário depurar interativamente o código Pytho
 > [!IMPORTANT]
 > Esse método de depuração não funciona ao usar `Model.deploy()` e `LocalWebservice.deploy_configuration` para implantar um modelo localmente. Em vez disso, você deve criar uma imagem usando a classe [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) . 
 
-As implantações locais exigem uma instalação de Docker em funcionamento no sistema local. Para obter mais informações sobre como usar o Docker, consulte a [documentação do Docker](https://docs.docker.com/).
+As implantações de serviço Web local exigem uma instalação de Docker em funcionamento no sistema local. Para obter mais informações sobre como usar o Docker, consulte a [documentação do Docker](https://docs.docker.com/).
 
 ### <a name="configure-development-environment"></a>Configurar o ambiente de desenvolvimento
 

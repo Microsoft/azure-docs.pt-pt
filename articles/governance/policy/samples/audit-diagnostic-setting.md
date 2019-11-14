@@ -1,17 +1,14 @@
 ---
 title: Exemplo – configuração de diagnóstico de auditoria
 description: Esta definição de política de exemplo audita se as configurações de diagnóstico não estão habilitadas para os tipos de recursos especificados.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: b71876195ffd3993b49794835781e8ccbd1648d3
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 5940fcc86221d4089609ac2d0828b0c710de7fbc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977466"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076409"
 ---
 # <a name="sample---audit-diagnostic-setting"></a>Exemplo – configuração de diagnóstico de auditoria
 
@@ -23,11 +20,11 @@ Esta política incorporada audita se as definições de diagnóstico não estão
 
 [!code-json[main](../../../../policy-templates/samples/Monitoring/audit-diagnostic-setting/azurepolicy.json "Audit diagnostic setting")]
 
-Pode implementar este modelo através do [portal do Azure](#deploy-with-the-portal), do [PowerShell](#deploy-with-powershell) ou da [CLI do Azure](#deploy-with-azure-cli). Para obter a política incorporada, utilize o ID `7f89b1eb-583c-429a-8828-af049802c1d9`.
+Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o [PowerShell](#deploy-with-powershell) ou a [CLI do Azure](#deploy-with-azure-cli). Para obter a política incorporada, utilize o ID `7f89b1eb-583c-429a-8828-af049802c1d9`.
 
 ## <a name="parameters"></a>Parâmetros
 
-Para transmitir o valor do parâmetro, utilize o seguinte formato:
+Para passar o valor do parâmetro, utilize o seguinte formato:
 
 ```json
 {"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}

@@ -1,5 +1,5 @@
 ---
-title: Visão geral do agente de VM Linux do Azure | Microsoft Docs
+title: Visão geral do agente de VM Linux do Azure
 description: Saiba como instalar e configurar o agente do Linux (waagent) para gerenciar a interação da sua máquina virtual com o controlador de malha do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8bc28c7454296f32dda09894ad3dca2f4fae99b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169155"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073857"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Compreendendo e usando o agente Linux do Azure
 
@@ -60,7 +60,7 @@ O agente do Microsoft Azure Linux (waagent) gerencia o provisionamento do Linux 
 * **Extensão de VM**
   
   * Injetar componente criado pela Microsoft e por parceiros na VM do Linux (IaaS) para habilitar a automação de software e configuração
-  * Implementação de referência de extensão de VM em[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Implementação de referência de extensão de VM no [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Comunicação
 O fluxo de informações da plataforma para o agente ocorre por meio de dois canais:
@@ -72,7 +72,7 @@ O fluxo de informações da plataforma para o agente ocorre por meio de dois can
 Os sistemas a seguir foram testados e são conhecidos por trabalhar com o agente Linux do Azure:
 
 > [!NOTE]
-> Essa lista pode ser diferente da lista oficial de sistemas com suporte na plataforma Microsoft Azure, conforme descrito aqui:[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Essa lista pode ser diferente da lista oficial de sistemas com suporte na plataforma Microsoft Azure, conforme descrito aqui: [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -107,12 +107,12 @@ Consulte a documentação no repositório do [agente Linux do Azure no GitHub](h
 
 ## <a name="command-line-options"></a>Opções de linha de comando
 ### <a name="flags"></a>Sinalizadores
-* extensa Aumentar o detalhamento do comando especificado
-* aplicação Ignorar a confirmação interativa para alguns comandos
+* verbose: aumentar o detalhamento do comando especificado
+* forçar: ignorar a confirmação interativa para alguns comandos
 
 ### <a name="commands"></a>Comandos
-* Ajuda: Lista os comandos e sinalizadores com suporte.
-* desprovisionar Tente limpar o sistema e torná-lo adequado para reprovisionamento. A seguinte operação exclui:
+* ajuda: lista os comandos e sinalizadores com suporte.
+* desprovisionar: tentativa de limpar o sistema e torná-lo adequado para reprovisionamento. A seguinte operação exclui:
   
   * Todas as chaves de host SSH (se o provisionamento. RegenerateSshHostKeyPair for ' y ' no arquivo de configuração)
   * Configuração de nameserver em/etc/resolv.conf
@@ -125,11 +125,11 @@ Consulte a documentação no repositório do [agente Linux do Azure no GitHub](h
 > 
 > 
 
-* desprovisionar + usuário: Executa tudo em-desprovision (acima) e também exclui a última conta de usuário provisionada (Obtida de/var/lib/waagent) e dados associados. Esse parâmetro é ao desprovisionar uma imagem que foi provisionada anteriormente no Azure para que possa ser capturada e reutilizada.
-* Versão: Exibe a versão do waagent
-* serialconsole: Configura o GRUB para marcar ttyS0 (a primeira porta serial) como o console de inicialização. Isso garante que os logs de inicialização do kernel sejam enviados para a porta serial e disponibilizados para depuração.
-* demonstração Execute waagent como um daemon para gerenciar a interação com a plataforma. Esse argumento é especificado para waagent no script de inicialização waagent.
-* Comece Executar waagent como um processo em segundo plano
+* desprovisionar + usuário: executa tudo em-desprovision (acima) e também exclui a última conta de usuário provisionada (Obtida de/var/lib/waagent) e dados associados. Esse parâmetro é ao desprovisionar uma imagem que foi provisionada anteriormente no Azure para que possa ser capturada e reutilizada.
+* versão: exibe a versão do waagent
+* serialconsole: configura o GRUB para marcar ttyS0 (a primeira porta serial) como o console de inicialização. Isso garante que os logs de inicialização do kernel sejam enviados para a porta serial e disponibilizados para depuração.
+* daemon: execute waagent como um daemon para gerenciar a interação com a plataforma. Esse argumento é especificado para waagent no script de inicialização waagent.
+* Iniciar: executar o waagent como um processo em segundo plano
 
 ## <a name="configuration"></a>Configuração
 Um arquivo de configuração (/etc/waagent.conf) controla as ações de waagent. O seguinte mostra um exemplo de arquivo de configuração:
@@ -170,7 +170,7 @@ Default: y
 Isso permite que o usuário habilite ou desabilite a funcionalidade de provisionamento no agente. Os valores válidos são "y" ou "n". Se o provisionamento estiver desabilitado, as chaves de usuário e o host SSH na imagem serão preservados e qualquer configuração especificada na API de provisionamento do Azure será ignorada.
 
 > [!NOTE]
-> O `Provisioning.Enabled` parâmetro assume como padrão "n" imagens de nuvem do Ubuntu que usam Cloud-init para provisionamento.
+> O parâmetro `Provisioning.Enabled` usa como padrão "n" em imagens de nuvem do Ubuntu que usam Cloud-init para provisionamento.
 > 
 > 
 
@@ -343,6 +343,6 @@ As imagens de nuvem do Ubuntu utilizam [Cloud-init](https://launchpad.net/ubuntu
 
 * Para obter mais informações, consulte os seguintes recursos para configurar o ponto de montagem de disco do recurso e o espaço de permuta nas imagens de nuvem do Ubuntu durante o provisionamento:
   
-  * [Ubuntu Wiki: Configurar partições de permuta](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Wiki do Ubuntu: configurar partições de permuta](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Injetando dados personalizados em uma máquina virtual do Azure](../windows/classic/inject-custom-data.md)
 
