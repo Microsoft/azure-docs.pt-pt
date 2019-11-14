@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Script da CLI do Azure – Criar um disco gerido a partir de um instantâneo | Microsoft Docs
+title: Exemplo do Script da CLI do Azure – Criar um disco gerido a partir de um instantâneo
 description: Exemplo do Script da CLI do Azure – Criar um disco gerido a partir de um instantâneo
 services: virtual-machines-windows
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 8178f05b83b6128717790cc348865c32ea77d59b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5060dc81196acec65001910751498fbd8513936e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318109"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039970"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>Criar um disco gerido a partir de um instantâneo com a CLI
 
@@ -44,8 +44,8 @@ Este script utiliza os seguintes comandos para criar um disco gerido a partir de
 | [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Obtém todas as propriedades de um instantâneo através do nome e das propriedades do grupo de recursos do instantâneo. A propriedade do ID é utilizada para criar o disco gerido.  |
 | [az disk create](https://docs.microsoft.com/cli/azure/disk) | Cria um disco gerido com o ID de um instantâneo gerido |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
-Máquina virtual adicionais e exemplos de script da CLI de discos geridos podem ser encontrados no [documentação de VM do Windows Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Exemplos adicionais de script da CLI de máquina virtual e discos gerenciados podem ser encontrados na [documentação da VM do Windows do Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

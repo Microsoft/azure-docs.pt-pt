@@ -1,18 +1,18 @@
 ---
-title: Tutorial-criar um gateway de aplicativo com um firewall do aplicativo Web-portal do Azure
+title: 'Tutorial: criar usando o portal-Firewall do aplicativo Web'
 description: Neste tutorial, você aprenderá a criar um gateway de aplicativo com um firewall do aplicativo Web usando o portal do Azure.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: d439703f1637282c73cd960923733460502c55bc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 68a9f051bf3d59cbf32377cb503e9ded0a54d5e9
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501709"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049227"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Tutorial: criar um gateway de aplicativo com um firewall do aplicativo Web usando o portal do Azure
 
@@ -38,7 +38,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
 
 Para que o Azure se comunique entre os recursos, ele precisa de uma rede virtual. Você pode criar uma nova rede virtual ou usar uma existente. Neste exemplo, você cria uma nova rede virtual. Pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicação. As instâncias do gateway de aplicativo são criadas em sub-redes separadas. Você cria duas sub-redes neste exemplo: uma para o gateway de aplicativo e outra para os servidores de back-end.
 
@@ -218,7 +218,7 @@ Para este artigo, o gateway de aplicativo usa uma conta de armazenamento para ar
 1. Para *grupo de recursos*, selecione **myResourceGroupAG** para o grupo de recursos.
 1. Digite *myagstore1* para o nome da conta de armazenamento.
 1. Aceite os valores padrão para as outras configurações e, em seguida, selecione **revisar + criar**.
-1. Examine as configurações e, em seguida, selecione **criar**.
+1. Reveja as definições e, em seguida, selecione **criar**.
 
 ### <a name="configure-diagnostics"></a>Configurar o diagnóstico
 

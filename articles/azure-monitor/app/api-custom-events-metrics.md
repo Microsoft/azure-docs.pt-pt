@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: 8bb144c78c5346f3351a6ada779a808410dbb30d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5f138314fd536d0264f8d40e1ac78da954c19e74
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73667994"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74030702"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para métricas e eventos personalizados
 
@@ -150,7 +150,7 @@ A telemetria está disponível na tabela de `customEvents` no [Application insig
 
 Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em operação, a propriedade ItemCount mostrará um valor maior que 1. Por exemplo, itemCount = = 10 significa que de 10 chamadas para trackEvent (), o processo de amostragem só transmitirá um deles. Para obter uma contagem correta de eventos personalizados, você deve, portanto, usar um código como `customEvents | summarize sum(itemCount)`.
 
-## <a name="getmetric"></a>Getmetric
+## <a name="getmetric"></a>GetMetric
 
 ### <a name="examples"></a>Exemplos
 
@@ -643,16 +643,16 @@ finally
 
 ```java
 boolean success = false;
-long startTime = System.currentTimeMillis();
+Instant startTime = Instant.now();
 try {
     success = dependency.call();
 }
 finally {
-    long endTime = System.currentTimeMillis();
-    long delta = endTime - startTime;
+    Instant endTime = Instant.now();
+    Duration delta = Duration.between(startTime, endTime);
     RemoteDependencyTelemetry dependencyTelemetry = new RemoteDependencyTelemetry("My Dependency", "myCall", delta, success);
-    telemetry.setTimeStamp(startTime);
-    telemetry.trackDependency(dependencyTelemetry);
+    RemoteDependencyTelemetry.setTimeStamp(startTime);
+    RemoteDependencyTelemetry.trackDependency(dependencyTelemetry);
 }
 ```
 
@@ -1189,7 +1189,7 @@ Para determinar por quanto tempo os dados são mantidos, consulte [retenção de
 * [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Pacotes do Windows Server](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [SDK Java](https://github.com/Microsoft/ApplicationInsights-Java)
-* [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
+* [SDK Node.js](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [SDK JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
 

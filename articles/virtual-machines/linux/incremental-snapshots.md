@@ -1,5 +1,5 @@
 ---
-title: Usar instantâneos incrementais para backup e recuperação de discos de VM Linux do Azure não gerenciados | Microsoft Docs
+title: Usar instantâneos incrementais para backup e recuperação de discos de VM Linux do Azure não gerenciados
 description: Crie uma solução personalizada para backup e recuperação de seus discos de máquina virtual Linux do Azure usando instantâneos incrementais.
 services: virtual-machines-linux
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: aungoo
 ms.subservice: disks
-ms.openlocfilehash: 8afa618fe32a5bc0b6b64bbabfbbdf6258edfab3
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 67e17aba2f2068ebcff50e37489d4528fb52d89a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014595"
+ms.locfileid: "74036086"
 ---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Fazer backup de discos de VM não gerenciados do Azure com instantâneos incrementais
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]

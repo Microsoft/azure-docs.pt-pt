@@ -1,6 +1,6 @@
 ---
-title: CLI do Azure de exemplo - criar uma VM do Azure com o Azure Monitor | Documentos da Microsoft
-description: CLI do Azure de exemplo - criar uma VM do Azure com a VM do Windows Server 2016 e o Azure Monitor.
+title: CLI do Azure amostra – criar uma VM do Azure em execução Azure Monitor
+description: CLI do Azure amostra-crie uma VM do Azure executando a VM do Windows Server 2016 e Azure Monitor.
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc,seodec18
-ms.openlocfilehash: e5bee7a2b9d203909ccd11c4485ecc850688f4ff
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 77c5996a11b5223778bf0efbe33250f0db9f74f3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708221"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039916"
 ---
-# <a name="monitor-a-vm-with-azure-monitor-logs"></a>Monitorizar uma VM com os registos do Azure Monitor
+# <a name="monitor-a-vm-with-azure-monitor-logs"></a>Monitorar uma VM com logs de Azure Monitor
 
 Este script cria uma Máquina Virtual do Azure, instala o agente do Log Analytics e inscreve o sistema com uma área de trabalho do Log Analytics. Assim que o script tiver sido executado, a máquina virtual estará visível no Azure Monitor.
 
@@ -54,7 +54,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Executa uma extensão da VM em relação a uma máquina virtual. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar uma máquina virtual do Azure C# usando | Microsoft Docs
+title: Criar e gerenciar uma máquina virtual do Azure usando oC#
 description: Use C# e Azure Resource Manager para implantar uma máquina virtual e todos os seus recursos de suporte.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: c6d092889deec934f1db1f1c93c06aa0dc217df5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe838ade7a65161efaeb60b9e4d8de17a7080da1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079600"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032791"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Criar e gerenciar VMs do Windows no Azure usandoC# #
 
@@ -40,13 +40,13 @@ Leva cerca de 20 minutos para executar essas etapas.
 
 1. Se você ainda não fez isso, instale o [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selecione **.net desktop Development** na página cargas de trabalho e clique em **instalar**. No resumo, você pode ver que **.NET Framework ferramentas de desenvolvimento 4-4,6** são selecionadas automaticamente para você. Se você já tiver instalado o Visual Studio, poderá adicionar a carga de trabalho do .NET usando o iniciador do Visual Studio.
 2. No Visual Studio, clique em **Ficheiro** > **Novo** > **Projeto**.
-3. No**Visual C#**  **modelos** > , selecione **aplicativo de console (.NET Framework)** , digite *myDotnetProject* para o nome do projeto, selecione o local do projeto e clique em **OK**.
+3. Em **modelos** > **Visual C#** , selecione **aplicativo de console (.NET Framework)** , digite *myDotnetProject* para o nome do projeto, selecione o local do projeto e clique em **OK**.
 
 ## <a name="install-the-package"></a>Instalar o pacote
 
 Os pacotes NuGet são a maneira mais fácil de instalar as bibliotecas necessárias para concluir essas etapas. Para obter as bibliotecas de que você precisa no Visual Studio, siga estas etapas:
 
-1. Clique em **ferramentas** > **Gerenciador de pacotes NuGet**e em **console do Gerenciador de pacotes**.
+1. Clique em **ferramentas** > **Gerenciador de pacotes NuGet**e clique em **console do Gerenciador de pacotes**.
 2. Digite este comando no console:
 
     ```
@@ -59,7 +59,7 @@ Antes de iniciar esta etapa, verifique se você tem acesso a uma [entidade de se
 
 ### <a name="create-the-authorization-file"></a>Criar o arquivo de autorização
 
-1. Em Gerenciador de soluções, clique com o botão direito do mouse em *myDotnetProject* > **Adicionar** > **novo item**e selecione **arquivo de texto** em *itens visuais C#* . Nomeie o arquivo *azureauth. Properties*e clique em **Adicionar**.
+1. Em Gerenciador de Soluções, clique com o botão direito do mouse em *myDotnetProject* > **Adicionar** > **novo item**e, em seguida, selecione **arquivo de texto** em *itens visuais C#* . Nomeie o arquivo *azureauth. Properties*e clique em **Adicionar**.
 2. Adicione estas propriedades de autorização:
 
     ```
@@ -73,7 +73,7 @@ Antes de iniciar esta etapa, verifique se você tem acesso a uma [entidade de se
     graphURL=https://graph.windows.net/
     ```
 
-    **&lt;&gt;** Substitua **&lt;Subscription-ID&gt;** pelo seu identificador de assinatura, ID do aplicativo pelo identificador do aplicativo Active Directory, **&lt;chave de autenticação com&gt;** a chave do aplicativo e  **&lt;a ID&gt; do locatário** com o identificador do locatário.
+    Substitua **&lt;&gt;de ID de assinatura** pelo seu identificador de assinatura, **&lt;id de aplicativo&gt;** com o identificador de aplicativo Active Directory, **&lt;chave de autenticação**&gt;com a chave de aplicativo e **&lt;&gt;de ID de locatário** com o identificador de locatário.
 
 3. Salve o arquivo azureauth. Properties. 
 4. Defina uma variável de ambiente no Windows chamada AZURE_AUTH_LOCATION com o caminho completo para o arquivo de autorização que você criou. Por exemplo, o seguinte comando do PowerShell pode ser usado:
@@ -393,6 +393,6 @@ Deve levar cerca de cinco minutos para que esse aplicativo de console seja execu
 
 2. Antes de pressionar **Enter** para iniciar a exclusão de recursos, você pode levar alguns minutos para verificar a criação dos recursos no portal do Azure. Clique no status de implantação para ver informações sobre a implantação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Aproveite o uso de um modelo para criar uma máquina virtual usando as informações em [implantar uma máquina virtual do Azure usando C# o e um modelo do Resource Manager](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Saiba mais sobre como usar as [bibliotecas do Azure para .net](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet).

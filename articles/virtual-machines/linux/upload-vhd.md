@@ -1,5 +1,5 @@
 ---
-title: Carregar ou copiar uma VM Linux personalizada com CLI do Azure | Microsoft Docs
+title: Carregar ou copiar uma VM Linux personalizada com CLI do Azure
 description: Carregar ou copiar uma máquina virtual personalizada usando o modelo de implantação do Gerenciador de recursos e o CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 6cc01266bb6e7f122868257e8a5b9e88e78dddea
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 95486208f52b2faa2fbb3db5bf1ef968c330dab6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553494"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034292"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Criar uma VM do Linux de um disco personalizado com o CLI do Azure
 
@@ -51,7 +51,7 @@ Para concluir as etapas a seguir, você precisará de:
 
 - Verifique se você tem as [CLI do Azure](/cli/azure/install-az-cli2) mais recentes instaladas e se está conectado a uma conta do Azure com [AZ login](/cli/azure/reference-index#az-login).
 
-Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo pelos seus próprios valores, como `myResourceGroup`, `mystorageaccount` e `mydisks`.
+Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo pelos seus próprios valores, como `myResourceGroup`, `mystorageaccount`e `mydisks`.
 
 <a id="prepimage"> </a>
 

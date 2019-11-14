@@ -1,5 +1,5 @@
 ---
-title: Tamanhos de VM Linux do Azure-computação acelerada | Microsoft Docs
+title: Tamanhos de VM Linux do Azure-computação acelerada
 description: Lista os diferentes tamanhos otimizados para GPU disponíveis para máquinas virtuais Linux no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como taxa de transferência de armazenamento e largura de banda de rede para tamanhos desta série.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/11/2019
 ms.author: jonbeck
-ms.openlocfilehash: ed8af91701a5ed77636bb86e8798981f37546f23
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 983e85dc0ebefb27804c0f3a794360def6050ba9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082138"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034913"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tamanhos de máquina virtual otimizada para GPU
 
@@ -37,7 +37,7 @@ Se você optar por instalar os drivers NVIDIA GPU manualmente, consulte [instala
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
-* Você não deve instalar o X Server ou outros sistemas que `Nouveau` usam o driver em VMs do Ubuntu NC. Antes de instalar os drivers NVIDIA GPU, você precisa desabilitar `Nouveau` o driver.  
+* Você não deve instalar o X Server ou outros sistemas que usam o driver de `Nouveau` em VMs do Ubuntu NC. Antes de instalar os drivers NVIDIA GPU, você precisa desabilitar o driver `Nouveau`.  
 
 ## <a name="other-sizes"></a>Outros tamanhos
 - [Fins gerais](sizes-general.md)

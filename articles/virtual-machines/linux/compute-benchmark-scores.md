@@ -1,5 +1,5 @@
 ---
-title: Calcular pontuações de parâmetro de comparação para VMs Linux do Azure | Microsoft Docs
+title: Calcular pontuações de parâmetro de comparação para VMs Linux do Azure
 description: Compare as pontuações de benchmark de computação Comark para VMs do Azure que executam o Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: d91535c6f0daeac58a3005d94e19cbba3e781ebf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 234c4b0493a4f03ed89162318090d57621740cb0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083843"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036699"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Calcular pontuações de parâmetro de comparação para VMs Linux
 As pontuações de benchmark de cocomentário a seguir mostram o desempenho de computação para a lista de VMs de alto desempenho do Azure executando o Ubuntu. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -410,7 +410,7 @@ As pontuações de benchmark de cocomentário a seguir mostram o desempenho de c
 ## <a name="about-coremark"></a>Sobre Comark
 Os números do Linux foram computados com a execução de [Comark](https://www.eembc.org/coremark/faq.php) no Ubuntu. O Comark foi configurado com o número de threads definido como o número de CPUs virtuais e a simultaneidade definida como PThreads. O número de destino de iterações foi ajustado com base no desempenho esperado para fornecer um tempo de execução de pelo menos 20 segundos (geralmente muito mais). A pontuação final representa o número de iterações concluídas dividido pelo número de segundos necessário para executar o teste. Cada teste foi executado pelo menos sete vezes em cada VM. Datas de execução de teste mostradas acima. Testes executados em várias VMs nas regiões públicas do Azure em que a VM tinha suporte na data de execução. Séries Basic A e B (expansível) não mostradas porque o desempenho é variável. A série N não é mostrada, pois ela é centrada em GPU e o Comark não mede o desempenho da GPU.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para obter capacidades de armazenamento, detalhes de disco e considerações adicionais para escolher entre tamanhos de VM, consulte [tamanhos de máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Para executar os scripts de cocomentário em VMs do Linux, baixe o [pacote de script](https://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip)de Comark.
+* Para executar os scripts de cocomentário em VMs do Linux, baixe o [pacote de script de Comark](https://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
 

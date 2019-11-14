@@ -1,6 +1,6 @@
 ---
-title: Estender o suporte para SQL Server 2008 e SQL Server 2008 R2 com o Azure
-description: Saiba como estender o suporte para SQL Server 2008 e SQL Server 2008 R2 migrando sua instância de SQL Server para o Azure ou comprando o suporte estendido para manter as instâncias locais.
+title: Estender o suporte para SQL Server 2008 & 2008 R2
+description: Estenda o suporte para SQL Server 2008 e SQL Server 2008 R2 migrando sua instância de SQL Server para o Azure ou comprando o suporte estendido para manter as instâncias locais.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -13,12 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 93e0032cd283eda034519ca29a0e1cf501b5cde6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d1b3961b61d45718e726b31ec406445b202a0adf
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100459"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034178"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Estender o suporte para SQL Server 2008 e SQL Server 2008 R2 com o Azure
 
@@ -37,7 +38,7 @@ Os clientes que estiverem no SQL Server 2008 precisarão instalar automaticament
 As imagens implantadas por meio do Azure Marketplace vêm com a extensão IaaS do SQL pré-instalada. A extensão de IaaS do SQL é um requisito para licenciamento flexível e aplicação de patch automatizada. Os clientes que implantam VMs autoinstaladas precisarão instalar manualmente a extensão SQL IaaS. A extensão de IaaS do SQL não tem suporte no Windows Server 2008.
 
 > [!NOTE]
-> Embora o SQL Server **criar** e **gerenciar** as folhas funcionem com a imagem do SQL Server 2008 R2 no portal do Azure, _não há suporte para_os seguintes recursos: Backups automáticos, integração de Azure Key Vault, serviços de R e configuração de armazenamento.
+> Embora o SQL Server **criar** e **gerenciar** as folhas funcionem com a imagem do SQL Server 2008 R2 no portal do Azure, _não há suporte para_os seguintes recursos: backups automáticos, integração de Azure Key Vault, serviços de R e configuração de armazenamento.
 
 ## <a name="licensing"></a>Licenciamento
 As implantações pré-pagas SQL Server 2008 R2 podem converter em [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
@@ -55,7 +56,7 @@ Para migrações em massa, recomendamos o serviço [Azure site Recovery](/azure/
 
 SQL Server requer instantâneos de Azure Site Recovery consistentes com o aplicativo para garantir a recuperação. Azure Site Recovery dá suporte a instantâneos consistentes com o aplicativo com um intervalo mínimo de 1 hora. O RPO (objetivo de ponto de recuperação) mínimo possível para SQL Server com migrações de Azure Site Recovery é de 1 hora. O RTO (objetivo de tempo de recuperação) é 2 horas mais SQL Server tempo de recuperação.
 
-### <a name="database-migration-service"></a>Serviço de Migração de Base de Dados
+### <a name="database-migration-service"></a>Serviço de Migração de Bases de Dados
 
 O [serviço de migração de banco de dados](/azure/dms/dms-overview) é uma opção para clientes se eles estiverem migrando do local para uma VM do Azure atualizando SQL Server para a versão 2012 ou posterior.
 
@@ -63,9 +64,9 @@ O [serviço de migração de banco de dados](/azure/dms/dms-overview) é uma op�
 
 As soluções de recuperação de desastre para SQL Server de EOS em uma VM do Azure são as seguintes:
 
-- **Backups de SQL Server**: Use o backup do Azure para ajudar a proteger seu SQL Server de EOS contra ransomware, exclusão acidental e corrupção. Atualmente, a solução está em versão prévia para SQL Server de EOS e dá suporte a SQL Server 2008 e 2008 R2 em execução no Windows 2008 R2 SP1. Para obter mais detalhes, consulte [Este artigo](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#support-for-sql-server-2008-and-sql-server-2008-r2).
-- **Envio de logs**: Você pode criar uma réplica de envio de logs em outra zona ou em uma região do Azure com restaurações contínuas para reduzir o RTO. Você precisa configurar manualmente o envio de logs.
-- **Azure Site Recovery**: Você pode replicar sua VM entre zonas e regiões por meio de replicação Azure Site Recovery. SQL Server requer instantâneos consistentes com o aplicativo para garantir a recuperação em caso de desastre. O Azure Site Recovery oferece um RPO mínimo de 1 hora e um RTO de 2 horas (mais SQL Server tempo de recuperação) para a recuperação de desastres de EOS SQL Server.
+- **Backups de SQL Server**: Use o backup do Azure para ajudar a proteger seus SQL Server de EOS contra ransomware, exclusão acidental e corrupção. Atualmente, a solução está em versão prévia para SQL Server de EOS e dá suporte a SQL Server 2008 e 2008 R2 em execução no Windows 2008 R2 SP1. Para obter mais detalhes, consulte [Este artigo](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#support-for-sql-server-2008-and-sql-server-2008-r2).
+- **Envio de logs**: você pode criar uma réplica de envio de logs em outra zona ou em uma região do Azure com restaurações contínuas para reduzir o RTO. Você precisa configurar manualmente o envio de logs.
+- **Azure site Recovery**: você pode replicar sua VM entre zonas e regiões por meio da replicação Azure site Recovery. SQL Server requer instantâneos consistentes com o aplicativo para garantir a recuperação em caso de desastre. O Azure Site Recovery oferece um RPO mínimo de 1 hora e um RTO de 2 horas (mais SQL Server tempo de recuperação) para a recuperação de desastres de EOS SQL Server.
 
 ## <a name="security-patching"></a>Aplicação de patch de segurança
 As atualizações de segurança estendidas para VMs SQL Server são entregues por meio dos canais de Microsoft Update após a SQL Server VM ter sido registrada com o [provedor de recursos](virtual-machines-windows-sql-register-with-resource-provider.md)de VM do SQL. Os patches podem ser baixados manual ou automaticamente.

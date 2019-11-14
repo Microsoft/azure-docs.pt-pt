@@ -1,6 +1,6 @@
 ---
-title: Início rápido - gerir máquinas virtuais do Linux no Azure com o Ansible | Documentos da Microsoft
-description: Neste guia de introdução, saiba como gerir uma máquina virtual do Linux no Azure com o Ansible
+title: Início rápido-gerenciar máquinas virtuais do Linux no Azure usando o Ansible
+description: Neste guia de início rápido, saiba como gerenciar uma máquina virtual do Linux no Azure usando o Ansible
 keywords: ansible, azure, devops, bash, cloudshell, manual de procedimentos, bash
 ms.topic: quickstart
 ms.service: ansible
@@ -8,16 +8,16 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: c4878902425a26086ad77647ea06568f2110ccfe
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: fb6c4c7c6f90aa4fb9ac566433c62690e51db20d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668626"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037034"
 ---
-# <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>Início rápido: Gerir máquinas virtuais do Linux no Azure com o Ansible
+# <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>Início rápido: gerenciar máquinas virtuais do Linux no Azure usando o Ansible
 
-O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Neste artigo, vai utilizar playbooks do Ansible para iniciar e parar uma máquina virtual Linux. 
+O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Neste artigo, você usa um guia estratégico do Ansible para iniciar e parar uma máquina virtual do Linux. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -26,13 +26,13 @@ O Ansible permite-lhe automatizar a implementação e a configuração de recurs
 
 ## <a name="stop-a-virtual-machine"></a>Parar uma máquina virtual
 
-Nesta secção, vai utilizar o Ansible para desalocar a máquina de virtual (parar) do Azure.
+Nesta seção, você usará Ansible para desalocar (parar) uma máquina virtual do Azure.
 
-1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Iniciar sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Abra o [Cloud Shell](/azure/cloud-shell/overview).
 
-1. Crie um ficheiro denominado `azure-vm-stop.yml`e abra-o no editor:
+1. Crie um arquivo chamado `azure-vm-stop.yml`e abra-o no editor:
 
     ```azurecli-interactive
     code azure-vm-stop.yml
@@ -52,17 +52,17 @@ Nesta secção, vai utilizar o Ansible para desalocar a máquina de virtual (par
             allocated: no
     ```
 
-1. Substitua a `{{ resource_group_name }}` e `{{ vm_name }}` marcadores de posição pelos seus valores.
+1. Substitua os espaços reservados `{{ resource_group_name }}` e `{{ vm_name }}` pelos valores.
 
-1. Guarde o ficheiro e saia do editor.
+1. Salve o arquivo e saia do editor.
 
-1. Executar o playbook com o `ansible-playbook` comando:
+1. Execute o guia estratégico usando o comando `ansible-playbook`:
 
     ```bash
     ansible-playbook azure-vm-stop.yml
     ```
 
-1. Depois de executar o playbook, ver um resultado semelhante para os seguintes resultados:
+1. Depois de executar o guia estratégico, você verá uma saída semelhante aos seguintes resultados:
 
     ```bash
     PLAY [Stop Azure VM] ********************************************************
@@ -79,13 +79,13 @@ Nesta secção, vai utilizar o Ansible para desalocar a máquina de virtual (par
 
 ## <a name="start-a-virtual-machine"></a>Iniciar uma máquina virtual
 
-Nesta secção, vai utilizar o Ansible para iniciar uma máquina de virtual do Azure de (parada) desalocada.
+Nesta seção, você usará Ansible para iniciar uma máquina virtual do Azure desalocada (parada).
 
-1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Iniciar sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Abra o [Cloud Shell](/azure/cloud-shell/overview).
 
-1. Crie um ficheiro denominado `azure-vm-start.yml`e abra-o no editor:
+1. Crie um arquivo chamado `azure-vm-start.yml`e abra-o no editor:
 
     ```azurecli-interactive
     code azure-vm-start.yml
@@ -104,17 +104,17 @@ Nesta secção, vai utilizar o Ansible para iniciar uma máquina de virtual do A
             name: {{ vm_name }}
     ```
 
-1. Substitua a `{{ resource_group_name }}` e `{{ vm_name }}` marcadores de posição pelos seus valores.
+1. Substitua os espaços reservados `{{ resource_group_name }}` e `{{ vm_name }}` pelos valores.
 
-1. Guarde o ficheiro e saia do editor.
+1. Salve o arquivo e saia do editor.
 
-1. Executar o playbook com o `ansible-playbook` comando:
+1. Execute o guia estratégico usando o comando `ansible-playbook`:
 
     ```bash
     ansible-playbook azure-vm-start.yml
     ```
 
-1. Depois de executar o playbook, ver um resultado semelhante para os seguintes resultados:
+1. Depois de executar o guia estratégico, você verá uma saída semelhante aos seguintes resultados:
 
     ```bash
     PLAY [Start Azure VM] ********************************************************
@@ -129,7 +129,7 @@ Nesta secção, vai utilizar o Ansible para iniciar uma máquina de virtual do A
     localhost                  : ok=2    changed=1    unreachable=0    failed=0
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
-> [Tutorial: Gerir os inventários dinâmicos do Azure com o Ansible](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)
+> [Tutorial: gerenciar inventários dinâmicos do Azure usando o Ansible](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)

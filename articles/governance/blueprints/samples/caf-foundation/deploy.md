@@ -1,18 +1,14 @@
 ---
 title: Exemplo de Blueprint do CAF Foundation – implantar etapas
 description: Implante as etapas do exemplo do CAF Foundation Blueprint.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
-ms.service: blueprints
-ms.custom: fasttrack-new
-ms.openlocfilehash: a7daf460e65c294b464f9a5deb5d9676b762c5f7
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: ad5d7ce2fb895032f9ae5d19ee6d2978830ccc89
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163583"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038485"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Implantar a estrutura de adoção do Microsoft Cloud para a amostra do Azure Foundation Blueprint
 
@@ -110,7 +106,7 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |SKUs de máquina virtual permitidas|Atribuição de política|Policy_Allowed-VMs-SKUs|SKUs de máquina virtual permitidas|
 |Anexar marca CostCenter a grupos de recursos|Atribuição de política|Policy_CostCenter_Tag|Anexar a marca CostCenter e seu valor do grupo de recursos|
 |Tipos de recursos que você não deseja permitir em seu ambiente|Atribuição de política|_Allowed de política-tipos de recurso|Quais recursos do Azure você deseja permitir em seu ambiente|
-|Implantar Key Vault|Modelo do Resource Manager|KV-AccessPolicy|**Bloqueado** -o grupo ou o usuário do Azure ad <Object ID> para conceder permissões ao no Key Vault|
+|Implantar Key Vault|Modelo do Resource Manager|KV-AccessPolicy|**Bloqueado** -o grupo ou usuário do Azure ad <Object ID> para conceder permissões ao no Key Vault|
 |Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_DataRetention|**Bloqueado** -número de dias que os dados serão retidos no log Analytics|
 |Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_Location|**Bloqueado** -região usada ao estabelecer o espaço de trabalho|
 
@@ -121,7 +117,7 @@ Agora que você analisou as etapas para implantar a amostra do CAF Foundation Bl
 > [!div class="nextstepaction"]
 > [CAF Foundation Blueprint – visão geral](./index.md)
 
-Artigos adicionais sobre plantas e como usá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

@@ -1,5 +1,5 @@
 ---
-title: Visão geral dos hosts dedicados do Azure para máquinas virtuais | Microsoft Docs
+title: Visão geral dos hosts dedicados do Azure para máquinas virtuais
 description: Saiba mais sobre como os hosts dedicados do Azure podem ser usados para implantar máquinas virtuais.
 services: virtual-machines-windows
 author: cynthn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 011bfeb337f3c04b2d9041abedac50affe1f86b0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: cfcc8aeb3d1cc1f199b19abc16cc54db416a307e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977251"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033385"
 ---
-# <a name="preview-azure-dedicated-hosts"></a>Pré-visualização: Hosts dedicados do Azure
+# <a name="preview-azure-dedicated-hosts"></a>Versão prévia: hosts dedicados do Azure
 
 O host dedicado do Azure é um serviço que fornece servidores físicos capazes de hospedar uma ou mais máquinas virtuais-dedicadas a uma assinatura do Azure. Os hosts dedicados são os mesmos servidores físicos usados em nossos data centers, fornecidos como um recurso. Você pode provisionar hosts dedicados em uma região, zona de disponibilidade e domínio de falha. Em seguida, você pode posicionar VMs diretamente em seus hosts provisionados, em qualquer configuração que melhor atenda às suas necessidades.
 
@@ -27,7 +27,7 @@ O host dedicado do Azure é um serviço que fornece servidores físicos capazes 
 
 [!INCLUDE [virtual-machines-common-dedicated-hosts](../../../includes/virtual-machines-common-dedicated-hosts.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Você pode implantar um host dedicado usando [Azure PowerShell](dedicated-hosts-powershell.md), o [portal](dedicated-hosts-portal.md)e o [CLI do Azure](../linux/dedicated-hosts-cli.md).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Configurar filtros de rota para o emparelhamento da Microsoft: Azure ExpressRoute-Portal | Microsoft Docs'
+title: 'ExpressRoute: filtros de rota-emparelhamento da Microsoft: portal do Azure'
 description: Este artigo descreve como configurar filtros de rota para peering da Microsoft com o portal do Azure.
 services: expressroute
 author: ganesr
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 07/01/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: c49b1fa1e2e8421146f5d5012de983c14934c23c
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 0b8e06ad5688374e5ab4aaa72d8485e6da797afe
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122944"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037446"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurar filtros de rota para o emparelhamento da Microsoft: Portal do Azure
+# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurar filtros de rota para peering da Microsoft: portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal do Azure](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
@@ -71,21 +71,21 @@ Antes de iniciar a configuração, certifique-se de que cumpre os seguintes crit
  - Tem de ter um peering da Microsoft Active Directory. Siga as instruções apresentadas em [criar e modificar a configuração de peering](expressroute-howto-routing-portal-resource-manager.md)
 
 
-## <a name="prefixes"></a>Etapa 1: Obter uma lista de prefixos e valores de comunidade BGP
+## <a name="prefixes"></a>Passo 1: Obter uma lista de prefixos e valores de Comunidade do BGP
 
-### <a name="1-get-a-list-of-bgp-community-values"></a>1. Obter uma lista de valores de Comunidade do BGP
+### <a name="1-get-a-list-of-bgp-community-values"></a>1. obter uma lista de valores de comunidade BGP
 
 Valores de Comunidade do BGP associados aos serviços acessíveis através do peering da Microsoft está disponível na [requisitos de encaminhamento do ExpressRoute](expressroute-routing.md) página.
 
-### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Fazer uma lista dos valores que pretende utilizar
+### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. faça uma lista dos valores que você deseja usar
 
 Faça uma lista de [valores de comunidade BGP](expressroute-routing.md#bgp) que você deseja usar no filtro de rota. 
 
-## <a name="filter"></a>Etapa 2: Criar um filtro de rota e uma regra de filtro
+## <a name="filter"></a>Passo 2: Criar um filtro de rota e uma regra de filtro
 
 Um filtro de rota pode ter apenas uma regra e, a regra tem de ser do tipo "Permitir". Esta regra pode ter uma lista de valores de Comunidade do BGP associados a ele.
 
-### <a name="1-create-a-route-filter"></a>1. Criar um filtro de rota
+### <a name="1-create-a-route-filter"></a>1. criar um filtro de rota
 Pode criar um filtro de rota ao selecionar a opção para criar um novo recurso. Clique em **criar um recurso** > **rede** > **RouteFilter**, conforme mostrado na imagem seguinte:
 
 ![Criar um filtro de rota](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
@@ -94,7 +94,7 @@ Tem de colocar o filtro de rota num grupo de recursos.
 
 ![Criar um filtro de rota](./media/how-to-routefilter-portal/CreateRouteFilter.png)
 
-### <a name="2-create-a-filter-rule"></a>2. Criar uma regra de filtro
+### <a name="2-create-a-filter-rule"></a>2. criar uma regra de filtro
 
 Pode adicionar e atualizar as regras, selecionando o guia de regra de gerenciar para o filtro de rota.
 
@@ -106,7 +106,7 @@ Você pode selecionar os serviços aos quais deseja se conectar na lista suspens
 ![Criar um filtro de rota](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
-## <a name="attach"></a>Etapa 3: Anexar o filtro de rota a um circuito de ExpressRoute
+## <a name="attach"></a>Passo 3: Ligar o filtro de rota para um circuito do ExpressRoute
 
 Você pode anexar o filtro de rota a um circuito selecionando o botão "Adicionar circuito" e selecionando o circuito do ExpressRoute na lista suspensa.
 
@@ -148,7 +148,7 @@ Pode eliminar um filtro de rota ao selecionar o botão de eliminação.
 
 ![Criar um filtro de rota](./media/how-to-routefilter-portal/DeleteRouteFilter.png) 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter mais informações acerca do ExpressRoute, veja as [FAQs do ExpressRoute](expressroute-faqs.md).
 

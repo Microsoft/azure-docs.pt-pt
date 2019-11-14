@@ -1,5 +1,5 @@
 ---
-title: Explicação de exemplo de infraestrutura do Azure | Microsoft Docs
+title: Instruções de infraestrutura do Azure de exemplo
 description: Saiba mais sobre as principais diretrizes de design e implementação para implantar uma infraestrutura de exemplo no Azure.
 documentationcenter: ''
 services: virtual-machines-linux
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71b0dd15d183f3209c7424c537dde1e3df29d097
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cf63db18dac5fa202bbf339723c6555c4acb2ca2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083129"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036038"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Instruções de infraestrutura do Azure de exemplo para VMs do Linux
 Este artigo explica como criar uma infraestrutura de aplicativo de exemplo. Nós detalhamos a criação de uma infraestrutura para um armazenamento online simples que reúne todas as diretrizes e decisões sobre convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e balanceadores de carga, e realmente implantando suas VMs (máquinas virtuais).
@@ -60,7 +60,7 @@ Todos os itens acima seguem estas convenções de nomenclatura:
 ## <a name="azure-subscriptions-and-accounts"></a>Contas e assinaturas do Azure
 A Adventure Works Cycles está usando sua assinatura corporativa, chamada de assinatura do Adventure Works Enterprise, para fornecer cobrança para essa carga de trabalho de ti.
 
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 O Adventure Works Cycles determinou que eles devem usar o Azure Managed Disks. Ao criar VMs, ambas as camadas de armazenamento disponíveis de armazenamento são usadas:
 
 * **Armazenamento padrão** para servidores Web, servidores de aplicativos e controladores de domínio e seus discos de dados.
@@ -72,13 +72,13 @@ Como a rede virtual não precisa de conectividade contínua com a rede local dos
 Eles criaram uma rede virtual somente em nuvem com as seguintes configurações usando o portal do Azure:
 
 * Nome: AZOS-USE-VN01
-* Local EUA Leste 2
+* Local: leste dos EUA 2
 * Espaço de endereço de rede virtual: 10.0.0.0/8
 * Primeira sub-rede:
-  * Nome: Front-End
+  * Nome: FrontEnd
   * Espaço de endereço: 10.0.1.0/24
 * Segunda sub-rede:
-  * Nome: BackEnd
+  * Nome: back-end
   * Espaço de endereço: 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade

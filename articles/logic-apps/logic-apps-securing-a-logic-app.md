@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 2177ba8b3864e8d453a097b391a18ebbbb5baa11
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 57bea93fd03dc19caa1ce29a34a40bc3cff06209
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499930"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039063"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados no aplicativo lógico do Azure
 
@@ -36,7 +36,7 @@ Aqui estão as maneiras como você pode proteger o acesso a esse tipo de gatilho
 
 * [Gerar assinaturas de acesso compartilhado](#sas)
 * [Restringir endereços IP de entrada](#restrict-inbound-ip-addresses)
-* [Adicionar Azure Active Directory, OAuth ou outra segurança](#add-authentication)
+* [Adicionar Azure Active Directory OAuth ou outra segurança](#add-authentication)
 
 <a name="sas"></a>
 
@@ -163,9 +163,9 @@ Se você [automatizar a implantação para aplicativos lógicos usando modelos d
 
 <a name="add-authentication"></a>
 
-### <a name="add-azure-active-directory-oauth-or-other-security"></a>Adicionar Azure Active Directory, OAuth ou outra segurança
+### <a name="add-azure-active-directory-oauth-or-other-security"></a>Adicionar Azure Active Directory OAuth ou outra segurança
 
-Para adicionar mais protocolos de autorização ao seu aplicativo lógico, considere usar o serviço de [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md) . Esse serviço ajuda você a expor seu aplicativo lógico como uma API e oferece monitoramento, segurança, política e documentação avançados para qualquer ponto de extremidade. O gerenciamento de API pode expor um ponto de extremidade público ou privado para seu aplicativo lógico. Você pode usar Azure Active Directory, OAuth, certificado ou outros padrões de segurança para autorizar o acesso a esse ponto de extremidade. Quando o gerenciamento de API recebe uma solicitação, o serviço envia a solicitação para seu aplicativo lógico, também fazendo todas as transformações ou restrições necessárias ao longo do caminho. Para permitir que apenas o gerenciamento de API dispare seu aplicativo lógico, você pode usar as configurações de intervalo de IP de entrada do aplicativo lógico.
+Para adicionar mais protocolos de autorização ao seu aplicativo lógico, considere usar o serviço de [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md) . Esse serviço ajuda você a expor seu aplicativo lógico como uma API e oferece monitoramento, segurança, política e documentação avançados para qualquer ponto de extremidade. O gerenciamento de API pode expor um ponto de extremidade público ou privado para seu aplicativo lógico. Para autorizar o acesso a esse ponto de extremidade, você pode usar [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), [certificado de cliente](#client-certificate-authentication)ou outros padrões de segurança para autorizar o acesso a esse ponto de extremidade. Quando o gerenciamento de API recebe uma solicitação, o serviço envia a solicitação para seu aplicativo lógico, também fazendo todas as transformações ou restrições necessárias ao longo do caminho. Para permitir que apenas o gerenciamento de API dispare seu aplicativo lógico, você pode usar as configurações de intervalo de IP de entrada do aplicativo lógico.
 
 <a name="secure-operations"></a>
 
@@ -361,7 +361,7 @@ Aqui estão algumas [considerações a serem examinadas](#obfuscation-considerat
 
 Se você implantar em ambientes diferentes, considere a possibilidade de parametrização dos valores na definição do fluxo de trabalho que variam de acordo com esses ambientes. Dessa forma, você pode evitar dados embutidos em código usando um [modelo de Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md) para implantar seu aplicativo lógico, proteger dados confidenciais definindo parâmetros protegidos e passar esses dados como entradas separadas por meio dos [parâmetros do modelo](../azure-resource-manager/template-parameters.md) usando um [arquivo de parâmetro](../azure-resource-manager/resource-manager-parameter-files.md).
 
-Por exemplo, se você autenticar ações HTTP com [Azure Active Directory](#azure-active-directory-oauth-authentication), poderá definir e proteger os parâmetros que aceitam a ID do cliente e o segredo do cliente que são usados para autenticação. Para definir esses parâmetros em seu aplicativo lógico, use a seção `parameters` na definição de fluxo de trabalho do aplicativo lógico e modelo do Resource Manager para implantação. Para ocultar os valores de parâmetro que você não deseja mostrar ao editar seu aplicativo lógico ou exibir o histórico de execução, defina os parâmetros usando o tipo de `securestring` ou `secureobject` e use a codificação conforme necessário. Parâmetros que têm esse tipo não são retornados com a definição de recurso e não são acessíveis ao exibir o recurso após a implantação. Para acessar esses valores de parâmetro durante o tempo de execução, use a `@parameters('<parameter-name>')` expressão dentro de sua definição de fluxo de trabalho. Essa expressão é avaliada apenas em tempo de execução e é descrita pela [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md).
+Por exemplo, se você autenticar ações HTTP com [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), poderá definir e proteger os parâmetros que aceitam a ID do cliente e o segredo do cliente que são usados para autenticação. Para definir esses parâmetros em seu aplicativo lógico, use a seção `parameters` na definição de fluxo de trabalho do aplicativo lógico e modelo do Resource Manager para implantação. Para ocultar os valores de parâmetro que você não deseja mostrar ao editar seu aplicativo lógico ou exibir o histórico de execução, defina os parâmetros usando o tipo de `securestring` ou `secureobject` e use a codificação conforme necessário. Parâmetros que têm esse tipo não são retornados com a definição de recurso e não são acessíveis ao exibir o recurso após a implantação. Para acessar esses valores de parâmetro durante o tempo de execução, use a `@parameters('<parameter-name>')` expressão dentro de sua definição de fluxo de trabalho. Essa expressão é avaliada apenas em tempo de execução e é descrita pela [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > Se você usar um parâmetro em um cabeçalho ou corpo de solicitação, esse parâmetro poderá ser visível quando você exibir o histórico de execução do aplicativo lógico e a solicitação HTTP de saída. Certifique-se de também definir suas políticas de acesso de conteúdo adequadamente. Você também pode usar [ofuscação](#obfuscate) para ocultar entradas e saídas em seu histórico de execução. Os cabeçalhos de autorização nunca são visíveis por meio de entradas ou saídas. Portanto, se um segredo for usado lá, esse segredo não será recuperável.
@@ -573,7 +573,17 @@ Aqui estão algumas maneiras que você pode proteger pontos de extremidade que r
 
 * Adicionar autenticação a solicitações de saída.
 
-  Quando você trabalha com um gatilho ou uma ação baseada em HTTP que faz chamadas de saída, como HTTP, HTTP + Swagger ou webhook, você pode adicionar autenticação à solicitação enviada pelo seu aplicativo lógico. Por exemplo, você pode usar a autenticação básica, autenticação de certificado de cliente, [Active Directory Autenticação OAuth](../active-directory/develop/about-microsoft-identity-platform.md) ou uma identidade gerenciada. Para obter mais informações, consulte [Adicionar autenticação a chamadas de saída](#add-authentication-outbound) mais adiante neste tópico.
+  Quando você trabalha com um gatilho ou uma ação baseada em HTTP que faz chamadas de saída, como HTTP, HTTP + Swagger ou webhook, você pode adicionar autenticação à solicitação enviada pelo seu aplicativo lógico. Por exemplo, você pode usar esses tipos de autenticação:
+
+  * [Autenticação básica](#basic-authentication)
+
+  * [Autenticação de certificado de cliente](#client-certificate-authentication)
+
+  * [Active Directory Autenticação OAuth](#azure-active-directory-oauth-authentication)
+
+  * [Autenticação de identidade gerenciada](#managed-identity-authentication)
+  
+  Para obter mais informações, consulte [Adicionar autenticação a chamadas de saída](#add-authentication-outbound) mais adiante neste tópico.
 
 * Restringir o acesso de endereços IP do aplicativo lógico.
 
@@ -617,7 +627,7 @@ Se a opção [básica](../active-directory-b2c/active-directory-b2c-custom-rest-
 
 | Propriedade (Designer) | Propriedade (JSON) | Necessário | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticação** | `type` | Sim | Básica | O tipo de autenticação a ser usado |
+| **Autenticação** | `type` | Sim | Básico | O tipo de autenticação a ser usado |
 | **Nome de Utilizador** | `username` | Sim | <> *de nome de usuário*| O nome de usuário para autenticar o acesso ao ponto de extremidade de serviço de destino |
 | **Palavra-passe** | `password` | Sim | <*senha*> | A senha para autenticar o acesso ao ponto de extremidade de serviço de destino |
 ||||||
@@ -650,7 +660,7 @@ Se a opção de [certificado de cliente](../active-directory/authentication/acti
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | **Certificado do cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a ser usado para certificados de cliente protocolo SSL (SSL). Embora haja suporte para certificados autoassinados, não há suporte para certificados autoassinados para SSL. |
 | **Pfx** | `pfx` | Sim | <*Encoded-pfx-File-content*> | O conteúdo codificado em Base64 de um arquivo de troca de informações pessoais (PFX) |
-| **Palavra-passe** | `password`| Sim | <*password-for-pfx-file*> | A senha para acessar o arquivo PFX |
+| **Palavra-passe** | `password`| Consulte a descrição | <*password-for-pfx-file*> | A senha para acessar o arquivo PFX. <p><p>**Observação**: esse valor de propriedade é necessário quando você trabalha no designer de aplicativo lógico e *não* é necessário quando trabalha no modo de exibição de código. |
 |||||
 
 Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo de Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em tempo de execução. Esta definição de ação HTTP de exemplo especifica o `type` de autenticação como `ClientCertificate` e usa a [função Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:
@@ -687,15 +697,15 @@ Se a opção [Active Directory OAuth](../active-directory/develop/about-microsof
 
 | Propriedade (Designer) | Propriedade (JSON) | Necessário | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticação** | `type` | Sim | **Active Directory OAuth** <br>ou <br>`ActiveDirectoryOAuth` | O tipo de autenticação a ser usado. Os aplicativos lógicos atualmente seguem o [protocolo OAuth 2,0](../active-directory/develop/v2-overview.md). |
-| **Vários** | `tenant` | Sim | > <*ID do locatário* | A ID de locatário para o locatário do Azure AD |
+| **Autenticação** | `type` | Sim | **Active Directory OAuth** <br>ou <br>`ActiveDirectoryOAuth` | O tipo de autenticação a utilizar. Os aplicativos lógicos atualmente seguem o [protocolo OAuth 2,0](../active-directory/develop/v2-overview.md). |
+| **Vários** | `tenant` | Sim | <*tenant-ID*> | A ID de locatário para o locatário do Azure AD |
 | **Platéia** | `audience` | Sim | <> de *recurso a autorização* | O recurso que você deseja usar para autorização, por exemplo, `https://management.core.windows.net/` |
-| **ID do cliente** | `clientId` | Sim | <> *de ID do cliente* | A ID do cliente para o aplicativo que solicita autorização |
+| **ID do cliente** | `clientId` | Sim | <*client-ID*> | A ID do cliente para o aplicativo que solicita autorização |
 | **Tipo de credencial** | `credentialType` | Sim | Certificado <br>ou <br>Segredo | O tipo de credencial que o cliente usa para solicitar autorização. Essa propriedade e o valor não aparecem na definição subjacente do aplicativo lógico, mas determina as propriedades que aparecem para o tipo de credencial selecionado. |
 | **Segredo** | `secret` | Sim, mas apenas para o tipo de credencial "segredo" | <> *de segredo do cliente* | O segredo do cliente para solicitar autorização |
 | **Pfx** | `pfx` | Sim, mas somente para o tipo de credencial "certificado" | <*Encoded-pfx-File-content*> | O conteúdo codificado em Base64 de um arquivo de troca de informações pessoais (PFX) |
 | **Palavra-passe** | `password` | Sim, mas somente para o tipo de credencial "certificado" | <*password-for-pfx-file*> | A senha para acessar o arquivo PFX |
-| **Autoridades** | `authority` | Não | URL de < *-para-Authority-token-emissor*> | A URL para a autoridade que fornece o token de autenticação. Por padrão, esse valor é `https://login.windows.net`. <p>**Observação**: para tornar essa propriedade visível no designer, no gatilho ou na ação, abra a lista **Adicionar novo parâmetro** e selecione **autoridade**. |
+| **Autoridades** | `authority` | Não | <*URL-for-authority-token-issuer*> | A URL para a autoridade que fornece o token de autenticação. Por padrão, esse valor é `https://login.windows.net`. <p>**Observação**: para tornar essa propriedade visível no designer, no gatilho ou na ação, abra a lista **Adicionar novo parâmetro** e selecione **autoridade**. |
 |||||
 
 Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo de Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em tempo de execução. Esta definição de ação HTTP de exemplo especifica o `type` de autenticação como `ActiveDirectoryOAuth`, o tipo de credencial como `Secret`e usa a [função Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:

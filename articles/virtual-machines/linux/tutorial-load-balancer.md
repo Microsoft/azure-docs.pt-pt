@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Fazer o balanceamento de carga de máquinas virtuais do Linux no Azure | Microsoft Docs
+title: Tutorial – balancear a carga de máquinas virtuais Linux no Azure
 description: Neste tutorial, vai aprender a utilizar a CLI do Azure para criar um balanceador de carga para uma aplicação segura de elevada disponibilidade em três máquinas virtuais do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d5bfe25499bc2c4e7dc4c07d9811fa0227d347d7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: daad74ae5f046edb1b4bf6eef547c963e52593f5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300832"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034438"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Tutorial: Fazer o balanceamento de carga de máquinas virtuais do Linux no Azure para criar uma aplicação de elevada disponibilidade com a CLI do Azure
 
@@ -38,7 +38,7 @@ O balanceamento de carga fornece um nível mais elevado de disponibilidade ao pr
 
 Este tutorial usa a CLI dentro do [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimente** na parte superior de qualquer bloco de código.
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial precisará que execute a versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="azure-load-balancer-overview"></a>Descrição geral do balanceador de carga do Azure
 Um balanceador de carga do Azure é um balanceador de carga de Camada 4 (TCP, UDP) que fornece elevada disponibilidade ao distribuir o tráfego de entrada entre VMs em bom estado de funcionamento. Uma sonda de estado de funcionamento do balanceador de carga monitoriza uma porta especificada em cada VM e apenas distribui o tráfego para uma VM operacional.
@@ -60,7 +60,7 @@ az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### <a name="create-a-public-ip-address"></a>Crie um endereço IP público
-Para aceder à sua aplicação na Internet, precisa de um endereço IP público para o balanceador de carga. Criar um endereço IP público com [az network public-ip create](/cli/azure/network/public-ip). O exemplo seguinte cria um endereço IP público designado *myPublicIP* no grupo de recursos *myResourceGroupLoadBalancer*:
+Para aceder à sua aplicação na Internet, precisa de um endereço IP público para o balanceador de carga. Criar um endereço IP público com [az network public-ip create](/cli/azure/network/public-ip). O exemplo seguinte cria um endereço IP público com o nome *myPublicIP* no grupo de recursos *myResourceGroupLoadBalancer*:
 
 ```azurecli-interactive 
 az network public-ip create \
@@ -218,7 +218,7 @@ runcmd:
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 Para melhorar a elevada disponibilidade da aplicação, coloque as VMs num conjunto de disponibilidade. Para obter mais informações sobre conjuntos de disponibilidade, veja o tutorial anterior [Como criar máquinas virtuais de elevada disponibilidade](tutorial-availability-sets.md).
 
-Crie um conjunto de disponibilidade com [az vm availability-set create](/cli/azure/vm/availability-set). O exemplo seguinte cria um conjunto de disponibilidade designado *myAvailabilitySet*:
+Crie um conjunto de disponibilidade com [az vm availability-set create](/cli/azure/vm/availability-set). O exemplo seguinte cria um conjunto de disponibilidade com o nome *myAvailabilitySet*:
 
 ```azurecli-interactive 
 az vm availability-set create \
@@ -243,7 +243,7 @@ for i in `seq 1 3`; do
 done
 ```
 
-Existem tarefas em segundo plano que continuam em execução após a CLI do Azure o devolver à linha de comandos. O parâmetro `--no-wait` não aguarda a conclusão de todas as tarefas. Poderão ser necessários mais alguns minutos antes de poder aceder à aplicação. A sonda de estado de funcionamento do balanceador de carga deteta automaticamente quando a aplicação está em execução em cada VM. Assim que a aplicação estiver em execução, a regra de balanceador de carga começa a distribuir o tráfego.
+Existem tarefas em segundo plano que continuam a ser executadas após a CLI do Azure devolver o utilizador à linha de comandos. O parâmetro `--no-wait` não aguarda a conclusão de todas as tarefas. Pode demorar mais alguns minutos antes de poder aceder à aplicação. A sonda de estado de funcionamento do balanceador de carga deteta automaticamente quando a aplicação está em execução em cada VM. Assim que a aplicação estiver em execução, a regra de balanceador de carga começa a distribuir o tráfego.
 
 
 ## <a name="test-load-balancer"></a>Testar o balanceador de carga

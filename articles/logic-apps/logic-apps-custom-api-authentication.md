@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: ecec237eab42cf434ab8627ebdf9b1e34f3ab3f1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fb9f986c2711e0cbc8ac3facd073f1a72f46043d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838137"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039132"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteger chamadas para APIs personalizadas de aplicativos lógicos do Azure
 
@@ -202,8 +202,8 @@ Abra a definição do aplicativo lógico na exibição de código, vá para a de
 
 | Propriedade | Necessário | Descrição | 
 | -------- | -------- | ----------- | 
-| vários | Sim | O GUID para o locatário do Azure AD | 
-| platéia | Sim | O GUID para o recurso de destino que você deseja acessar, que é a ID do cliente da identidade do aplicativo para seu aplicativo Web ou aplicativo de API | 
+| tenant | Sim | O GUID para o locatário do Azure AD | 
+| audience | Sim | O GUID para o recurso de destino que você deseja acessar, que é a ID do cliente da identidade do aplicativo para seu aplicativo Web ou aplicativo de API | 
 | clientId | Sim | O GUID para o cliente que solicita acesso, que é a ID do cliente da identidade do aplicativo para seu aplicativo lógico | 
 | segredo | Sim | A chave ou a senha da identidade do aplicativo para o cliente que está solicitando o token de acesso | 
 | tipo | Sim | O tipo de autenticação. Para a autenticação ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
@@ -251,12 +251,12 @@ Na seção **autorização** , inclua estas propriedades:
 } 
 ```
 
-| Propriedade | Necessário | Descrição | 
-| -------- | -------- | ----------- | 
-| tipo | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. | 
-| palavra-passe | Sim | A senha para acessar o certificado do cliente (arquivo PFX) | 
-| pfx | Sim | O conteúdo codificado na base64 do certificado do cliente (arquivo PFX) | 
-|||| 
+| Propriedade | Necessário | Descrição |
+| -------- | -------- | ----------- |
+| `type` | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. |
+| `password` | Não | A senha para acessar o certificado do cliente (arquivo PFX) |
+| `pfx` | Sim | O conteúdo codificado na base64 do certificado do cliente (arquivo PFX) |
+||||
 
 <a name="basic"></a>
 

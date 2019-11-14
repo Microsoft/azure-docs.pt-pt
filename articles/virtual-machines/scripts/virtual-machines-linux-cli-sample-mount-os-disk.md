@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Script da CLI do Azure – Montar o disco do sistema operativo | Microsoft Docs
+title: Exemplo do Script da CLI do Azure – Montar o disco do sistema operativo
 description: Exemplo do Script da CLI do Azure – Montar o disco do sistema operativo
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5d534b66f95078d853f67aa40a014c599a3853da
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 292d67dafa768c82041a2cae8e6d888ee5d9050b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709419"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037598"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>Resolver problemas de um disco do sistema operativo de VMs
 
@@ -47,7 +47,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk) | Anexa um disco a uma máquina virtual. |
 | [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm) | Devolve os endereços IP de uma máquina virtual. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

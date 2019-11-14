@@ -1,5 +1,5 @@
 ---
-title: Anexar um disco de dados a uma VM do Linux | Microsoft Docs
+title: Anexar um disco de dados a uma VM do Linux
 description: Use o portal para anexar um disco de dados novo ou existente a uma VM do Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f63648f63d6154b89f641cdc4d2657e0396a8c66
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 78604a4f6fd5a6bcd21d0adc80c1c60278068836
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036367"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037056"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Usar o portal para anexar um disco de dados a uma VM do Linux 
 Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM do Windows no portal do Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -33,7 +33,7 @@ Antes de anexar discos à sua VM, examine estas dicas:
 
 
 ## <a name="find-the-virtual-machine"></a>Localizar a máquina virtual
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu à esquerda, clique em **máquinas virtuais**.
 3. Selecione a máquina virtual na lista.
 4. Para a página máquinas virtuais, em **Essentials**, clique em **discos**.
@@ -103,13 +103,13 @@ Se você estiver usando um disco existente que contém dados, pule para montar o
 > [!NOTE]
 > É recomendável que você use as versões mais recentes do fdisk ou parcialmente disponíveis para seu distribuição.
 
-Particione o disco com `fdisk`. Se o tamanho do disco for 2 tebibytes (TIB) ou maior, você deverá usar o particionamento GPT, que poderá `parted` usar para executar o particionamento GPT. Se o tamanho do disco estiver em 2TiB, você poderá usar o particionamento MBR ou GPT. Transforme-o em um disco primário na partição 1 e aceite os outros padrões. O exemplo a seguir inicia `fdisk` o processo em */dev/sdc*:
+Particione o disco com `fdisk`. Se o tamanho do disco for 2 tebibytes (TiB) ou maior, você deverá usar o particionamento GPT, poderá usar `parted` para executar o particionamento GPT. Se o tamanho do disco estiver em 2TiB, você poderá usar o particionamento MBR ou GPT. Transforme-o em um disco primário na partição 1 e aceite os outros padrões. O exemplo a seguir inicia o processo de `fdisk` em */dev/sdc*:
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-Use o `n` comando para adicionar uma nova partição. Neste exemplo, também escolhemos `p` para uma partição primária e aceitamos o restante dos valores padrão. A saída será semelhante ao exemplo a seguir:
+Use o comando `n` para adicionar uma nova partição. Neste exemplo, também escolhemos `p` para uma partição primária e aceitamos o restante dos valores padrão. A saída será semelhante ao exemplo a seguir:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -153,7 +153,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-Agora, grave um sistema de arquivos na partição com o `mkfs` comando. Especifique o tipo de sistema de arquivos e o nome do dispositivo. O exemplo a seguir cria um sistema de arquivos *ext4* na partição */dev/sdc1* que foi criada nas etapas anteriores:
+Agora, grave um sistema de arquivos na partição com o comando `mkfs`. Especifique o tipo de sistema de arquivos e o nome do dispositivo. O exemplo a seguir cria um sistema de arquivos *ext4* na partição */dev/sdc1* que foi criada nas etapas anteriores:
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
@@ -184,7 +184,7 @@ Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 ### <a name="mount-the-disk"></a>Montar o disco
-Crie um diretório para montar o sistema de arquivos `mkdir`usando. O exemplo a seguir cria um diretório em */DataDrive*:
+Crie um diretório para montar o sistema de arquivos usando `mkdir`. O exemplo a seguir cria um diretório em */DataDrive*:
 
 ```bash
 sudo mkdir /datadrive
@@ -196,7 +196,7 @@ Use `mount` para montar o sistema de arquivos. O exemplo a seguir monta a parti�
 sudo mount /dev/sdc1 /datadrive
 ```
 
-Para garantir que a unidade seja remontada automaticamente após uma reinicialização, ela deve ser adicionada ao arquivo */etc/fstab* . Também é altamente recomendável que o UUID (identificador universal exclusivo) seja usado em */etc/fstab* para se referir à unidade em vez de apenas ao nome do dispositivo (como, */dev/sdc1*). Se o sistema operacional detectar um erro de disco durante a inicialização, usar o UUID evita que o disco incorreto seja montado em um determinado local. Em seguida, os discos de dados restantes seriam atribuídos a essas mesmas IDs de dispositivo. Para localizar o UUID da nova unidade, use o `blkid` utilitário:
+Para garantir que a unidade seja remontada automaticamente após uma reinicialização, ela deve ser adicionada ao arquivo */etc/fstab* . Também é altamente recomendável que o UUID (identificador universal exclusivo) seja usado em */etc/fstab* para se referir à unidade em vez de apenas ao nome do dispositivo (como, */dev/sdc1*). Se o sistema operacional detectar um erro de disco durante a inicialização, usar o UUID evita que o disco incorreto seja montado em um determinado local. Em seguida, os discos de dados restantes seriam atribuídos a essas mesmas IDs de dispositivo. Para localizar o UUID da nova unidade, use o utilitário `blkid`:
 
 ```bash
 sudo -i blkid
@@ -235,12 +235,12 @@ Alguns kernels do Linux dão suporte a operações de corte/desmapeamento para d
 
 Há duas maneiras de habilitar o suporte a corte em sua VM Linux. Como de costume, consulte sua distribuição para obter a abordagem recomendada:
 
-* Use a `discard` opção mount em */etc/fstab*, por exemplo:
+* Use a opção de montagem `discard` em */etc/fstab*, por exemplo:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* Em alguns casos, a `discard` opção pode ter implicações de desempenho. Como alternativa, você pode executar o `fstrim` comando manualmente na linha de comando ou adicioná-lo ao crontab para ser executado regularmente:
+* Em alguns casos, a opção `discard` pode ter implicações de desempenho. Como alternativa, você pode executar o comando `fstrim` manualmente na linha de comando ou adicioná-lo ao crontab para ser executado regularmente:
   
     **Ubuntu**
   
@@ -256,5 +256,5 @@ Há duas maneiras de habilitar o suporte a corte em sua VM Linux. Como de costum
     sudo fstrim /datadrive
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Você também pode [anexar um disco de dados](add-disk.md) usando o CLI do Azure.

@@ -1,5 +1,5 @@
 ---
-title: Red Hat Enterprise Linux imagens no Azure | Microsoft Docs
+title: Red Hat Enterprise Linux imagens no Azure
 description: Saiba mais sobre as imagens de Red Hat Enterprise Linux no Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: c11ce31913baa8c638e94bdf92ef622cd8899e03
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: eaabe9da20c22dd3e4d924887adcbc7081857e91
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764309"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035121"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Red Hat Enterprise Linux imagens no Azure
 Este artigo descreve as imagens disponíveis do Red Hat Enterprise Linux (RHEL) no Azure Marketplace, juntamente com as políticas relacionadas à sua nomenclatura e retenção.
@@ -42,7 +42,7 @@ az vm image list --publisher RedHat --all
 ## <a name="naming-convention"></a>Convenção de nomenclatura
 As imagens de VM no Azure são organizadas por editor, oferta, SKU e versão. A combinação de Publisher: oferta: SKU: Version é a imagem URN e identifica exclusivamente a imagem a ser usada.
 
-Por exemplo, `RedHat:RHEL:7-RAW:7.6.2018103108` refere-se a uma imagem de partição bruta do RHEL 7,6 criada em 31 de outubro de 2018.
+Por exemplo, `RedHat:RHEL:7-RAW:7.6.2018103108` se refere a uma imagem de partição bruta do RHEL 7,6 criada em 31 de outubro de 2018.
 
 Uma amostra de como criar uma VM RHEL 7,6 é mostrada abaixo.
 ```azurecli-interactive
@@ -64,7 +64,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 ### <a name="current-naming-convention"></a>Convenção de nomenclatura atual
 Todas as imagens RHEL atualmente publicadas usam o modelo pago conforme o uso e estão conectadas à [RHUI (infraestrutura de atualização do Red Hat) no Azure](https://aka.ms/rhui-update). Uma nova Convenção de nomenclatura foi adotada para imagens da família RHEL 7 nas quais o esquema de particionamento de disco (RAW, LVM) é especificado na SKU em vez da versão. A versão da imagem RHEL conterá 7-RAW ou 7-LVM. A nomenclatura da família RHEL 6 não foi alterada no momento.
 
-Haverá 2 tipos de SKUs de imagem do RHEL 7 nesta Convenção de nomenclatura: SKUs que listam a versão secundária e SKUs que não têm. Se você quiser usar uma SKU 7-RAW ou 7-LVM, poderá especificar a versão secundária do RHEL que deseja implantar na versão. Se você escolher a versão "mais recente", será provisionada a versão secundária mais recente do RHEL.
+Haverá 2 tipos de SKUs de imagem RHEL 7 nesta Convenção de nomenclatura: SKUs que listam a versão secundária e SKUs que não têm. Se você quiser usar uma SKU 7-RAW ou 7-LVM, poderá especificar a versão secundária do RHEL que deseja implantar na versão. Se você escolher a versão "mais recente", será provisionada a versão secundária mais recente do RHEL.
 
 >[!NOTE]
 > No RHEL for SAP conjunto de imagens, a versão do RHEL permanece fixa. Dessa forma, sua Convenção de nomenclatura inclui uma versão específica na SKU.
@@ -88,7 +88,7 @@ Por exemplo, você pode ver as seguintes imagens do RHEL 7,4 disponíveis:
 RedHat:RHEL:7-RAW:7.4.2018010506
 RedHat:RHEL:7.4:7.4.2019041718
 ```
-Nesse caso, `RedHat:RHEL:7.4:7.4.2019041718` será anexado a repositórios do eus por padrão e `RedHat:RHEL:7-RAW:7.4.2018010506` será anexado a repositórios não eus por padrão.
+Nesse caso, os `RedHat:RHEL:7.4:7.4.2019041718` serão anexados aos repositórios do EUS por padrão e `RedHat:RHEL:7-RAW:7.4.2018010506` serão anexados a repositórios não EUS por padrão.
 
 ### <a name="for-customers-that-dont-want-to-use-eus-images"></a>Para clientes que não desejam usar imagens EUS:
 Se você não quiser usar uma imagem conectada ao EUS por padrão, implante usando uma imagem que não contenha um número de versão secundário na SKU.
@@ -106,7 +106,7 @@ Versão secundária |Exemplo de imagem EUS              |Status do EUS          
 RHEL 7,4      |RedHat:RHEL:7.4:7.4.2019041718 | As imagens publicadas em abril de 2019 e posteriores serão EUS por padrão|
 RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | As imagens publicadas em junho de 2019 e posteriores serão EUS por padrão |
 RHEL 7,6      |RedHat:RHEL:7.6:7.6.2019052206 | As imagens publicadas podem ser 2019 e posteriores serão EUS por padrão  |
-RHEL 8,0      |N/A                            | Nenhum EUS disponível no Red Hat                               |
+RHEL 8,0      |N/D                            | Nenhum EUS disponível no Red Hat                               |
 
 
 ## <a name="list-of-rhel-images-available"></a>Lista de imagens RHEL disponíveis
@@ -160,6 +160,6 @@ Atualizamos apenas a versão secundária atual em uma determinada família de im
 ## <a name="image-retention-policy"></a>Política de retenção de imagem
 Nossa política atual é manter todas as imagens publicadas anteriormente. Reservamos o direito de remover imagens que são conhecidas por causar problemas de qualquer tipo. Por exemplo, imagens com configurações incorretas devido a atualizações de componentes ou plataformas subsequentes podem ser removidas. As imagens que podem ser removidas seguirão a política atual do Marketplace para fornecer notificações de até 30 dias antes da remoção da imagem.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre a infraestrutura de atualização do Red Hat [aqui](https://aka.ms/rhui-update).
 * Informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL podem ser encontradas na página [ciclo de vida Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata) .

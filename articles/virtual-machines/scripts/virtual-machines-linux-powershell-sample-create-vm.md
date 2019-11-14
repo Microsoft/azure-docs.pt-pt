@@ -1,5 +1,5 @@
 ---
-title: Exemplo de Script do Azure PowerShell - Criar uma VM do Linux | Microsoft Docs
+title: Exemplo de Script do Azure PowerShell - Criar uma VM do Linux
 description: Exemplo de Script do Azure PowerShell - Criar uma VM do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c61f09920eb85c7a2608795c8a3e1c5798c2ea8a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: bd627cb0d735f2f69111234cd5d4099f03e200d5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749882"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040027"
 ---
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>Criar uma máquina virtual totalmente configurada com o PowerShell
 

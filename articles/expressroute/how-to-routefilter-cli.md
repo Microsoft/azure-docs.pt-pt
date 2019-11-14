@@ -1,5 +1,5 @@
 ---
-title: 'Configurar filtros de rota para o emparelhamento da Microsoft – ExpressRoute: CLI do Azure | Microsoft Docs'
+title: 'ExpressRoute: filtros de rota-emparelhamento da Microsoft: CLI do Azure'
 description: Este artigo descreve como configurar filtros de rota para Peering da Microsoft com a CLI do Azure
 services: expressroute
 author: anzaman
@@ -7,14 +7,14 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: f60bf8de33cd9552bf7c903f4c8921d50e911643
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c3c50a005e119890fb17fcf7b3114a747bbe34bf
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123341"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033417"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurar filtros de rota para o emparelhamento da Microsoft: CLI do Azure
+# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurar filtros de rota para peering da Microsoft: CLI do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](how-to-routefilter-portal.md)
@@ -90,24 +90,24 @@ Selecione a subscrição para o qual pretende criar um circuito do ExpressRoute.
 az account set --subscription "<subscription ID>"
 ```
 
-## <a name="prefixes"></a>Etapa 1: Obter uma lista de prefixos e valores de comunidade BGP
+## <a name="prefixes"></a>Passo 1: Obter uma lista de prefixos e valores de Comunidade do BGP
 
-### <a name="1-get-a-list-of-bgp-community-values"></a>1. Obter uma lista de valores de Comunidade do BGP
+### <a name="1-get-a-list-of-bgp-community-values"></a>1. obter uma lista de valores de comunidade BGP
 
 Utilize o cmdlet seguinte para obter a lista de valores de Comunidade do BGP associados aos serviços acessíveis através do peering da Microsoft e a lista de prefixos associadas a eles:
 
 ```azurecli-interactive
 az network route-filter rule list-service-communities
 ```
-### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Fazer uma lista dos valores que pretende utilizar
+### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. faça uma lista dos valores que você deseja usar
 
 Faça uma lista de valores de Comunidade do BGP que pretende utilizar no filtro de rota.
 
-## <a name="filter"></a>Etapa 2: Criar um filtro de rota e uma regra de filtro
+## <a name="filter"></a>Passo 2: Criar um filtro de rota e uma regra de filtro
 
 Um filtro de rota pode ter apenas uma regra e, a regra tem de ser do tipo "Permitir". Esta regra pode ter uma lista de valores de Comunidade do BGP associados a ele.
 
-### <a name="1-create-a-route-filter"></a>1. Criar um filtro de rota
+### <a name="1-create-a-route-filter"></a>1. criar um filtro de rota
 
 Primeiro, crie o filtro de rota. O comando `az network route-filter create` cria apenas um recurso de filtro de rota. Depois de criar o recurso, tem, em seguida, criar uma regra e anexá-lo para o objeto de filtro de rota. Execute o seguinte comando para criar um recurso de filtro de rota:
 
@@ -115,7 +115,7 @@ Primeiro, crie o filtro de rota. O comando `az network route-filter create` cria
 az network route-filter create -n MyRouteFilter -g MyResourceGroup
 ```
 
-### <a name="2-create-a-filter-rule"></a>2. Criar uma regra de filtro
+### <a name="2-create-a-filter-rule"></a>2. criar uma regra de filtro
 
 Execute o seguinte comando para criar uma nova regra:
  
@@ -123,7 +123,7 @@ Execute o seguinte comando para criar uma nova regra:
 az network route-filter rule create --filter-name MyRouteFilter -n CRM --communities 12076:5040 --access Allow -g MyResourceGroup
 ```
 
-## <a name="attach"></a>Etapa 3: Anexar o filtro de rota a um circuito de ExpressRoute
+## <a name="attach"></a>Passo 3: Ligar o filtro de rota para um circuito do ExpressRoute
 
 Execute o seguinte comando para anexar o filtro de rota ao circuito do ExpressRoute:
 
@@ -165,6 +165,6 @@ Só é possível eliminar um filtro de rota, se não está ligado a qualquer cir
 az network route-filter delete -n MyRouteFilter -g MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações acerca do ExpressRoute, veja as [FAQs do ExpressRoute](expressroute-faqs.md).

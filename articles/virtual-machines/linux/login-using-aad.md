@@ -1,5 +1,5 @@
 ---
-title: Faça logon em uma VM do Linux com credenciais de Azure Active Directory | Microsoft Docs
+title: Fazer logon em uma VM do Linux com credenciais de Azure Active Directory
 description: Saiba como criar e configurar uma VM do Linux para entrar usando Azure Active Directory autenticação.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: b473844f1507285e0052ca1f8de00f6ca3207e6f
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a67d3a9fb74b1a4f07fc4995c268bb40a84834f7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327085"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035932"
 ---
-# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Pré-visualização: Faça logon em uma máquina virtual Linux no Azure usando a autenticação Azure Active Directory
+# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Versão prévia: faça logon em uma máquina virtual Linux no Azure usando Azure Active Directory autenticação
 
 Para melhorar a segurança das VMs (máquinas virtuais) do Linux no Azure, você pode integrar com a autenticação do Azure Active Directory (AD). Quando você usa a autenticação do Azure AD para VMs do Linux, controla e aplica centralmente políticas que permitem ou negam o acesso às VMs. Este artigo mostra como criar e configurar uma VM do Linux para usar a autenticação do Azure AD.
 
@@ -48,7 +48,7 @@ Há muitos benefícios em usar a autenticação do Azure AD para fazer logon em 
 
 No momento, há suporte para as seguintes distribuições do Linux durante a versão prévia deste recurso:
 
-| Distribuição | Version |
+| Distribuição | Versão |
 | --- | --- |
 | CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
@@ -106,8 +106,8 @@ O *provisioningState* de *Succeeded* é mostrado depois que a extensão é insta
 
 A política do RBAC (controle de acesso baseado em função) do Azure determina quem pode fazer logon na VM. Duas funções RBAC são usadas para autorizar o logon da VM:
 
-- **Logon de administrador da máquina virtual**: Os usuários com essa função atribuída podem fazer logon em uma máquina virtual do Azure com privilégios de administrador do Windows ou de usuário raiz do Linux.
-- **Logon de usuário da máquina virtual**: Os usuários com essa função atribuída podem fazer logon em uma máquina virtual do Azure com privilégios de usuário regulares.
+- **Logon de administrador de máquina virtual**: os usuários com essa função atribuída podem fazer logon em uma máquina virtual do Azure com privilégios de administrador do Windows ou de usuário raiz do Linux.
+- **Logon de usuário da máquina virtual**: os usuários com essa função atribuída podem fazer logon em uma máquina virtual do Azure com privilégios de usuário regulares.
 
 > [!NOTE]
 > Para permitir que um usuário faça logon na VM por meio de SSH, você deve atribuir a função de logon de *administrador de máquina* virtual ou de *usuário de máquina virtual* . Um usuário do Azure com as funções de *proprietário* ou *colaborador* atribuídas a uma VM não tem privilégios automaticamente para fazer logon na VM por SSH.
@@ -139,7 +139,7 @@ Primeiro, exiba o endereço IP público de sua VM com [AZ VM show](/cli/azure/vm
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Faça logon na máquina virtual Linux do Azure usando suas credenciais do Azure AD. O `-l` parâmetro permite que você especifique seu próprio endereço de conta do Azure AD. Substitua a conta de exemplo pela sua. Os endereços de conta devem ser inseridos em letras minúsculas. Substitua o endereço IP de exemplo pelo endereço IP público da sua VM do comando anterior.
+Faça logon na máquina virtual Linux do Azure usando suas credenciais do Azure AD. O parâmetro `-l` permite especificar seu próprio endereço de conta do Azure AD. Substitua a conta de exemplo pela sua. Os endereços de conta devem ser inseridos em letras minúsculas. Substitua o endereço IP de exemplo pelo endereço IP público da sua VM do comando anterior.
 
 ```azurecli-interactive
 ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
@@ -149,20 +149,20 @@ Você será solicitado a entrar no Azure AD com um código de uso único em [htt
 
 Quando solicitado, insira suas credenciais de logon do Azure AD na página de logon. 
 
-A seguinte mensagem é mostrada no navegador da Web quando você se autenticou com êxito:`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+A seguinte mensagem é mostrada no navegador da Web quando você se autenticou com êxito: `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
 Feche a janela do navegador, retorne ao prompt do SSH e pressione a tecla **Enter** . 
 
-Agora você está conectado à máquina virtual Linux do Azure com as permissões de função atribuídas, como *usuário da VM* ou *administrador da VM*. Se sua conta de usuário for atribuída à função de *logon de administrador da máquina virtual* , você poderá usar `sudo` o para executar comandos que exigem privilégios de raiz.
+Agora você está conectado à máquina virtual Linux do Azure com as permissões de função atribuídas, como *usuário da VM* ou *administrador da VM*. Se sua conta de usuário for atribuída à função de *logon de administrador de máquina virtual* , você poderá usar `sudo` para executar comandos que exigem privilégios de raiz.
 
 ## <a name="sudo-and-aad-login"></a>Logon do sudo e do AAD
 
-Na primeira vez que você executar o sudo, você será solicitado a autenticar uma segunda vez. Se você não quiser que o autentique novamente para executar o sudo, poderá editar o arquivo `/etc/sudoers.d/aad_admins` do sudoers e substituir essa linha:
+Na primeira vez que você executar o sudo, você será solicitado a autenticar uma segunda vez. Se você não quiser que o autentique novamente para executar o sudo, poderá editar o arquivo sudoers `/etc/sudoers.d/aad_admins` e substituir esta linha:
 
 ```bash
 %aad_admins ALL=(ALL) ALL
 ```
-com esta linha:
+Com esta linha:
 
 ```bash
 %aad_admins ALL=(ALL) NOPASSWD:ALL
@@ -173,7 +173,7 @@ com esta linha:
 
 Alguns erros comuns ao tentar usar SSH com as credenciais do Azure AD não incluem nenhuma função RBAC atribuída e prompts repetidos para entrar. Use as seções a seguir para corrigir esses problemas.
 
-### <a name="access-denied-rbac-role-not-assigned"></a>Acesso negado: Função RBAC não atribuída
+### <a name="access-denied-rbac-role-not-assigned"></a>Acesso negado: função RBAC não atribuída
 
 Se você vir o seguinte erro no prompt do SSH, verifique se você configurou as políticas de RBAC para a VM que concede ao usuário o *logon de administrador da máquina virtual* ou a função de *logon de usuário da máquina virtual* :
 

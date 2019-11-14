@@ -1,5 +1,5 @@
 ---
-title: Infraestrutura de atualização do Red Hat | Documentos da Microsoft
+title: Infraestrutura de Atualização do Red Hat
 description: Saiba mais sobre a infraestrutura de atualização do Red Hat para instâncias de Red Hat Enterprise Linux a pedido no Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: 6b332af53f421230b3fb5401e525bd77c5e87ed9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b19ccad5254418092446aaf781d49fa7edf0e4f4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081392"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034309"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de atualização do Red Hat a pedido Red Hat Enterprise para VMs do Linux no Azure
  [Infraestrutura de atualização do Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que os fornecedores de cloud, como o Azure, para espelhar o conteúdo do repositório alojado no Red Hat, criar repositórios personalizados com específica do Azure, conteúdo e disponibilizá-lo para VMs do utilizador final.
@@ -40,13 +40,13 @@ Informações sobre as políticas de suporte do Red Hat para todas as versões d
 
 ## <a name="image-update-behavior"></a>Comportamento de atualização de imagem
 
-A partir de abril de 2019, o Azure oferece imagens RHEL que estão conectadas a repositórios EUS (suporte de atualização estendida) por padrão e imagens RHEL que são conectadas aos repositórios regulares (não EUS) por padrão. Mais detalhes sobre o RHEL EUS estão disponíveis na documentação do [ciclo de vida da versão](https://access.redhat.com/support/policy/updates/errata) do Red Hat e na [documentação do eus](https://access.redhat.com/articles/rhel-eus). O comportamento padrão de `sudo yum update` variará dependendo de qual imagem RHEL provisionada, como imagens diferentes estão conectadas a repositórios diferentes.
+A partir de abril de 2019, o Azure oferece imagens RHEL que estão conectadas a repositórios EUS (suporte de atualização estendida) por padrão e imagens RHEL que são conectadas aos repositórios regulares (não EUS) por padrão. Mais detalhes sobre o RHEL EUS estão disponíveis na documentação do [ciclo de vida da versão](https://access.redhat.com/support/policy/updates/errata) do Red Hat e na [documentação do eus](https://access.redhat.com/articles/rhel-eus). O comportamento padrão de `sudo yum update` variará dependendo de qual imagem do RHEL você provisionou, como imagens diferentes estão conectadas a repositórios diferentes.
 
-Para obter uma lista de imagens completa `az vm image list --publisher redhat --all` , execute usando o CLI do Azure.
+Para obter uma lista de imagens completa, execute `az vm image list --publisher redhat --all` usando o CLI do Azure.
 
 ### <a name="images-connected-to-non-eus-repositories"></a>Imagens conectadas a repositórios não EUS
 
-Se você provisionar uma VM de uma imagem RHEL conectada a repositórios não EUS, você será atualizado para a versão secundária mais recente do RHEL quando executar `sudo yum update`. Por exemplo, se você provisionar uma VM de uma imagem RHEL 7,4 PAYG `sudo yum update`e executar, você acabará com uma VM RHEL 7,7 (a versão secundária mais recente na família RHEL7).
+Se você provisionar uma VM de uma imagem RHEL que está conectada a repositórios não EUS, você será atualizado para a versão secundária mais recente do RHEL quando executar `sudo yum update`. Por exemplo, se você provisionar uma VM de uma imagem RHEL 7,4 PAYG e executar `sudo yum update`, você acabará com uma VM RHEL 7,7 (a versão secundária mais recente na família RHEL7).
 
 As imagens que estão conectadas a repositórios não EUS não conterá um número de versão secundário na SKU. O SKU é o terceiro elemento no URN (nome completo da imagem). Por exemplo, todas as imagens a seguir são anexadas a repositórios não EUS:
 
@@ -108,7 +108,7 @@ Use as instruções a seguir para bloquear uma VM RHEL para uma versão secundá
     ```
 
     >[!NOTE]
-    > A instrução acima bloqueará a liberação secundária do RHEL para a versão secundária atual. Insira uma versão secundária específica se você pretende atualizar e bloquear para uma versão secundária posterior que não seja a mais recente. Por exemplo, `echo 7.5 > /etc/yum/vars/releasever` bloqueará sua versão do RHEL para RHEL 7,5
+    > A instrução acima bloqueará a liberação secundária do RHEL para a versão secundária atual. Insira uma versão secundária específica se você pretende atualizar e bloquear para uma versão secundária posterior que não seja a mais recente. Por exemplo, `echo 7.5 > /etc/yum/vars/releasever` bloqueará a versão do RHEL para RHEL 7,5
 
 1. Atualizar sua VM RHEL
     ```bash
@@ -167,13 +167,13 @@ Se estiver a utilizar uma configuração de rede para restringir mais o acesso d
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Atualizar o certificado de cliente do RHUI expirado numa VM
 
-Se você estiver usando uma imagem de VM RHEL mais antiga, por exemplo, RHEL 7,4 (Urn `RedHat:RHEL:7.4:7.4.2018010506`de imagem:), você terá problemas de conectividade para RHUI devido a um certificado de cliente SSL agora expirado. O erro que você vê pode ser semelhante a _"o par SSL rejeitou seu certificado como expirado"_ ou _"erro: Não é possível recuperar os metadados do repositório (repomd. xml) para o repositório:... Verifique seu caminho e tente novamente "_ . Para resolver esse problema, atualize o pacote do cliente RHUI na VM usando o seguinte comando:
+Se você estiver usando uma imagem de VM RHEL mais antiga, por exemplo, RHEL 7,4 (URN de imagem: `RedHat:RHEL:7.4:7.4.2018010506`), você terá problemas de conectividade para RHUI devido a um certificado de cliente SSL agora expirado. O erro que você vê pode parecer _"o par SSL rejeitou seu certificado como expirado"_ ou _"erro: não é possível recuperar os metadados do repositório (repomd. xml) para o repositório:... Verifique seu caminho e tente novamente "_ . Para resolver esse problema, atualize o pacote do cliente RHUI na VM usando o seguinte comando:
 
 ```bash
 sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 ```
 
-Como alternativa, a `sudo yum update` execução também pode atualizar o pacote de certificado do cliente (dependendo da versão do RHEL), apesar dos erros de "certificado SSL expirado" que você verá para outros repositórios. Se essa atualização for bem-sucedida, a conectividade normal com outros repositórios do RHUI deverá ser restaurada, portanto, você poderá executar `sudo yum update` com êxito.
+Como alternativa, a execução de `sudo yum update` também pode atualizar o pacote de certificado do cliente (dependendo da versão do RHEL), apesar dos erros de "certificado SSL expirado" que você verá para outros repositórios. Se essa atualização for bem-sucedida, a conectividade normal com outros repositórios do RHUI deverá ser restaurada, portanto, você poderá executar `sudo yum update` com êxito.
 
 Se você encontrar um erro 404 ao executar um `yum update`, tente o seguinte para atualizar o cache yum:
 ```bash
@@ -213,7 +213,7 @@ Este procedimento é fornecido apenas para referência. Imagens RHEL PAYG já te
   yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
   ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para criar uma VM do Red Hat Enterprise Linux a partir de uma imagem de PAYG do Azure Marketplace e utilizar RHUI alojado no Azure, vá para o [do Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).
 * Para saber mais sobre as imagens do Red Hat no Azure, vá para a [página de documentação](./rhel-images.md).
 * Informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL podem ser encontradas na página [ciclo de vida Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata) .

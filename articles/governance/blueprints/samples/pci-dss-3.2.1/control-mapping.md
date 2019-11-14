@@ -1,18 +1,14 @@
 ---
 title: Exemplo de mapeamento de controle do PCI-DSS v 3.2.1 Blueprint
 description: Controle o mapeamento do exemplo de planejamento de plano de segurança de dados do setor de cartão de pagamento Standard v 3.2.1 para Azure Policy e RBAC.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: c1e04cb2bfd5ae532b556ed53d585aae90c312e6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d3e72f923ea3d752d829731d1f741bda090ae9fd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163057"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037273"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapeamento de controle do exemplo de especificação técnica PCI-DSS v 3.2.1
 
@@ -34,8 +30,8 @@ Este projeto ajuda você a gerenciar e controlar redes atribuindo [Azure Policy]
 
 Este projeto ajuda a reforçar a política com o uso de controles de cryptograph atribuindo definições de [Azure Policy](../../../policy/overview.md) que impõem controles cryptograph específicos e auditam o uso de configurações de criptografia fracas. Entender onde os recursos do Azure podem ter configurações criptográficas não ideais pode ajudá-lo a tomar medidas corretivas para garantir que os recursos sejam configurados de acordo com sua política de segurança de informações. Especificamente, as políticas atribuídas por este projeto exigem Transparent Data Encryption em bancos de dados SQL; auditar criptografia ausente em contas de armazenamento e variáveis de conta de automação. Também há políticas que abordam conexões inseguras de auditoria para contas de armazenamento, aplicativos de funções, WebApp, aplicativos de API e cache Redis e auditoria de comunicação não criptografada Service Fabric.
 
-- Aplicativo de funções só deve ser acessível via HTTPS
-- O aplicativo Web só deve ser acessível via HTTPS
+- Função de aplicação só deve estar acessível através de HTTPS
+- Aplicação Web só deve estar acessível através de HTTPS
 - O aplicativo de API só deve ser acessível via HTTPS
 - Transparent Data Encryption em bancos de dados SQL devem ser habilitadas
 - A criptografia de disco deve ser aplicada em máquinas virtuais
@@ -48,7 +44,7 @@ Este projeto ajuda a reforçar a política com o uso de controles de cryptograph
 
 ## <a name="51-62-66-and-1121-vulnerability-scanning-and-system-updates"></a>5,1, 6,2, 6,6 e 11.2.1 de verificação de vulnerabilidade e atualizações do sistema
 
-Este projeto ajuda a gerenciar as vulnerabilidades do sistema de informações atribuindo [Azure Policy](../../../policy/overview.md) definições que monitoram atualizações de sistema ausentes, vulnerabilidades do sistema operacional, vulnerabilidades de SQL e vulnerabilidades de máquina virtual no Azure Central de segurança. A central de segurança do Azure fornece recursos de relatório que permitem que você tenha informações em tempo real sobre o estado de segurança dos recursos do Azure implantados.
+Este projeto ajuda a gerenciar as vulnerabilidades do sistema de informações atribuindo [Azure Policy](../../../policy/overview.md) definições que monitoram atualizações de sistema ausentes, vulnerabilidades do sistema operacional, vulnerabilidades de SQL e vulnerabilidades de máquina virtual na central de segurança do Azure. A central de segurança do Azure fornece recursos de relatório que permitem que você tenha informações em tempo real sobre o estado de segurança dos recursos do Azure implantados.
 
 - Monitorar Endpoint Protection ausentes na central de segurança do Azure
 - Implantar a extensão padrão do Microsoft Iaasantimalware da para Windows Server
@@ -67,7 +63,7 @@ Ter apenas um proprietário de assinatura do Azure não permite redundância adm
 
 ## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3,2, 7.2.1, 8.3.1. a e 8.3.1. b gerenciamento de direitos de acesso privilegiado
 
-Este projeto ajuda a restringir e controlar direitos de acesso privilegiado atribuindo definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário, gravação e/ou leitura e contas de funcionário com permissões de proprietário e/ou gravação que não têm autenticação multifator habilitada. O Azure implementa o RBAC (controle de acesso baseado em função) para gerenciar quem tem acesso aos recursos do Azure. Entender onde as regras personalizadas do RBAC são implementadas pode ajudá-lo a verificar a necessidade e a implementação adequada, pois as regras personalizadas de RBAC são propensas a erros. Esse projeto também atribui definições de [Azure Policy](../../../policy/overview.md) para auditar o uso da autenticação Azure Active Directory para servidores SQL. Usar Azure Active Directory autenticação simplifica o gerenciamento de permissões e centraliza o gerenciamento de identidades de usuários de banco de dados e outras  
+Este projeto ajuda a restringir e controlar direitos de acesso privilegiado atribuindo definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário, gravação e/ou leitura e contas de funcionário com permissões de proprietário e/ou gravação que não têm a autenticação multifator habilitada. O Azure implementa o RBAC (controle de acesso baseado em função) para gerenciar quem tem acesso aos recursos do Azure. Entender onde as regras personalizadas do RBAC são implementadas pode ajudá-lo a verificar a necessidade e a implementação adequada, pois as regras personalizadas de RBAC são propensas a erros. Esse projeto também atribui definições de [Azure Policy](../../../policy/overview.md) para auditar o uso da autenticação Azure Active Directory para servidores SQL. Usar Azure Active Directory autenticação simplifica o gerenciamento de permissões e centraliza o gerenciamento de identidades de usuários de banco de dados e outras  
 serviços.
  
 - Contas externas com permissões de proprietário devem ser removidas da sua assinatura
@@ -134,7 +130,7 @@ Agora que você analisou o mapeamento de controle do plano gráfico PCI-DSS v 3.
 > [PCI-DSS v 3.2.1 Blueprint-visão geral](./index.md)
 > [PCI-DSS v 3.2.1 Blueprint – implantar etapas](./deploy.md)
 
-Artigos adicionais sobre plantas e como usá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

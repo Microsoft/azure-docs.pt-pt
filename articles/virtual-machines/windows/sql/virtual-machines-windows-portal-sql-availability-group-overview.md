@@ -1,5 +1,5 @@
 ---
-title: Grupos de disponibilidade SQL Server-máquinas virtuais do Azure-visão geral | Microsoft Docs
+title: Visão geral dos grupos de disponibilidade
 description: Este artigo apresenta SQL Server grupos de disponibilidade em máquinas virtuais do Azure.
 services: virtual-machines
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: d89e25b6a39649bb8421fd32b8842c3c76807268
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8119990ab4ab4a918e325976092100086a547aa4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102155"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037486"
 ---
-# <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introdução ao SQL Server grupos de disponibilidade Always On em máquinas virtuais do Azure #
+# <a name="introducing-sql-server-availability-groups-on-azure-virtual-machines"></a>Apresentando SQL Server grupos de disponibilidade em máquinas virtuais do Azure
 
 Este artigo apresenta SQL Server grupos de disponibilidade em máquinas virtuais do Azure. 
 
@@ -31,7 +32,7 @@ O diagrama ilustra as partes de um grupo de disponibilidade SQL Server completo 
 
 ![Grupo de Disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-A principal diferença para um grupo de disponibilidade em máquinas virtuais do Azure é que as máquinas virtuais do Azure exigem um balanceador de [carga](../../../load-balancer/load-balancer-overview.md). O balanceador de carga mantém os endereços IP para o ouvinte do grupo de disponibilidade. Se você tiver mais de um grupo de disponibilidade, cada grupo exigirá um ouvinte. Um balanceador de carga pode dar suporte a vários ouvintes.
+A principal diferença para um grupo de disponibilidade em máquinas virtuais do Azure é que as máquinas virtuais do Azure exigem um [balanceador de carga](../../../load-balancer/load-balancer-overview.md). O balanceador de carga mantém os endereços IP para o ouvinte do grupo de disponibilidade. Se você tiver mais de um grupo de disponibilidade, cada grupo exigirá um ouvinte. Um balanceador de carga pode dar suporte a vários ouvintes.
 
 Além disso, em um cluster de failover convidado da VM IaaS do Azure, recomendamos uma única NIC por servidor (nó de cluster) e uma única sub-rede. As redes do Azure têm redundância físicas, as quais tornam desnecessários NICs e sub-redes adicionais num cluster convidado da VM IaaS do Azure. Embora o relatório de validação do cluster emita um aviso de que os nós apenas são acessíveis numa única rede, este aviso pode ser ignorado com segurança nos clusters de ativação pós-falha convidados da VM IaaS do Azure. 
 
@@ -71,6 +72,6 @@ Você também pode criar as máquinas virtuais por conta própria sem o modelo. 
 
 - [Criar Always On grupo de disponibilidade para melhorar a disponibilidade e a recuperação de desastre](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Configurar um grupo de disponibilidade SQL Server Always On em máquinas virtuais do Azure em regiões diferentes](virtual-machines-windows-portal-sql-availability-group-dr.md)

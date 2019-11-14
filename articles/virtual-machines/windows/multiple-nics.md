@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar VMs do Windows no Azure que usam várias NICs | Microsoft Docs
+title: Criar e gerenciar VMs do Windows no Azure que usam várias NICs
 description: Saiba como criar e gerenciar uma VM do Windows que tem várias NICs anexadas usando Azure PowerShell ou modelos do Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: f7f4e65253e0fc160da4d343115e9115abfab808
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 0e826442c816f83c875b907bbf3054793ebb382a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749307"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033136"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Criar e gerenciar uma máquina virtual do Windows que tenha várias NICs
 As VMs (máquinas virtuais) no Azure podem ter várias NICs (placas de interface de rede) virtuais conectadas a elas. Um cenário comum é ter diferentes sub-redes para conectividade de front-end e back-end. Você pode associar várias NICs em uma VM a várias sub-redes, mas essas sub-redes devem residir na mesma rede virtual (vNet). Este artigo fornece detalhes sobre como criar uma VM que tenha várias NICs anexadas a ela. Você também aprenderá a adicionar ou remover NICs de uma VM existente. Diferentes [tamanhos de VM](sizes.md) dão suporte a um número variável de NICs, portanto, dimensione sua VM adequadamente.

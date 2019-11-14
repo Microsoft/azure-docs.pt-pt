@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b0fa4dbc336067ee3e3b2baa49ec872f65a3154b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d3fe578444b99cc7f8c762ae9e96766ca10aa305
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933520"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039676"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurar a recuperação após desastre para VMs de Hyper-V para um site no local secundário
 
@@ -27,10 +27,10 @@ Este artigo mostra-lhe como configurar a recuperação após desastre para um si
 > * Configurar os ambientes de origem e de destino da replicação 
 > * Configurar o mapeamento de rede 
 > * Criar uma política de replicação
-> * Ativar replicação para uma VM
+> * Ativar a replicação para uma VM
 
 > [!WARNING]
-> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](scvmm-site-recovery-deprecation.md) antes de continuar.
+> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](site-to-site-deprecation.md) antes de continuar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -118,7 +118,7 @@ Selecione o servidor do VMM e a cloud de destino:
 1. Clique em **Preparar a infraestrutura** > **Destino** e selecione o servidor do VMM de destino.
 2. São apresentadas as clouds do VMM que estão sincronizadas com o Site Recovery. Selecione a cloud de destino.
 
-   ![Visar](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
+   ![Destino](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
 ## <a name="set-up-a-replication-policy"></a>Configurar uma política de replicação

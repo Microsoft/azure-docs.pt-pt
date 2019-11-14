@@ -1,6 +1,6 @@
 ---
-title: Associar o seu dispositivo de trabalho à rede da sua organização - Azure Active Directory | Documentos da Microsoft
-description: Saiba como associar o seu dispositivo de trabalho para a rede da sua organização.
+title: Ingresse seu dispositivo de trabalho na rede-AD da sua organização
+description: Saiba como unir seu dispositivo de trabalho à rede da sua organização.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,107 +13,107 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62faa47c116cceb941f575a9f76052e8bc57f036
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b122d70179f22c91028c8343b23d74cc616b1f76
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243278"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028533"
 ---
-# <a name="join-your-work-device-to-your-organizations-network"></a>Associar o seu dispositivo de trabalho para a rede da sua organização
-Associe o seu dispositivo de Windows 10 pertencentes à trabalho à rede da sua organização para que possa aceder a recursos potencialmente restritos.
+# <a name="join-your-work-device-to-your-organizations-network"></a>Ingresse seu dispositivo de trabalho na rede da sua organização
+Ingresse seu dispositivo Windows 10 de Propriedade do seu trabalho na rede da sua organização para que você possa acessar recursos potencialmente restritos.
 
-## <a name="what-happens-when-you-join-your-device"></a>O que acontece quando associar o seu dispositivo
-Enquanto estiver ingressando em seu dispositivo Windows 10 para a rede da sua organização, irão ocorrer as seguintes ações:
+## <a name="what-happens-when-you-join-your-device"></a>O que acontece quando você ingressa em seu dispositivo
+Enquanto você estiver ingressando seu dispositivo Windows 10 na rede da sua organização, as seguintes ações ocorrerão:
 
-- Windows regista o dispositivo à rede da sua organização, permitindo-lhe aceder aos recursos com a sua conta pessoal. Depois do dispositivo estiver registado, Windows, em seguida, junta-se o dispositivo à rede, pelo que pode utilizar a sua organização nome de utilizador e palavra-passe para iniciar sessão e aceder aos recursos restritos.
+- O Windows registra seu dispositivo na rede da sua organização, permitindo que você acesse seus recursos usando sua conta pessoal. Depois que o dispositivo é registrado, o Windows, em seguida, une seu dispositivo à rede, para que você possa usar o nome de usuário e a senha da sua organização para entrar e acessar recursos restritos.
 
-- Opcionalmente, com base nas opções da sua organização, poderá ser-lhe pedido para configurar a verificação de dois passos através de um [multi-factor Authentication](multi-factor-authentication-end-user-first-time.md) ou [informações de segurança](user-help-security-info-overview.md).
+- Opcionalmente, com base nas opções da sua organização, você pode ser solicitado a configurar a verificação em duas etapas por meio da [autenticação multifator](multi-factor-authentication-end-user-first-time.md) ou das [informações de segurança](user-help-security-info-overview.md).
 
-- Opcionalmente, com base nas opções da sua organização, poderá ser automaticamente inscritos na gestão de dispositivos móveis, como o Microsoft Intune. Para mais informações sobre como inscrever-se no Microsoft Intune, veja [inscrever o seu dispositivo no Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
+- Opcionalmente, com base nas opções da sua organização, você pode ser registrado automaticamente no gerenciamento de dispositivo móvel, como Microsoft Intune. Para obter mais informações sobre o registro em Microsoft Intune, consulte [registrar seu dispositivo no Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
 
-- Vai passar pelo processo de início de sessão, com o início de sessão automático, com a sua conta organizacional.
+- Você passará pelo processo de entrada, usando a entrada automática com sua conta institucional.
 
-## <a name="to-join-a-brand-new-windows-10-device"></a>Para associar um dispositivo Windows 10 novo em folha
-Se o dispositivo está totalmente novo e não foi configurado ainda, pode percorrer o processo do Windows de caixa experiência original (OOBE) para associar o seu dispositivo à rede.
+## <a name="to-join-a-brand-new-windows-10-device"></a>Para ingressar em uma marca-novo dispositivo Windows 10
+Se seu dispositivo tiver uma marca nova e ainda não tiver sido configurado, você poderá passar pelo processo OOBE (Windows out of Box Experience) para ingressar seu dispositivo na rede.
 
-1. Iniciar o seu dispositivo novo e iniciar o processo OOBE.
+1. Inicie o novo dispositivo e inicie o processo OOBE.
 
-2. Sobre o **iniciar sessão com a Microsoft** ecrã, escreva o seu e-mail profissional ou escolar.
+2. Na tela **entrar com a conta da Microsoft** , digite seu endereço de email corporativo ou de estudante.
 
-    ![Inicie sessão no ecrã com endereço de e-mail](./media/user-help-join-device-on-network/join-device-oobe-signin.png)
+    ![Tela de entrada com endereço de email](./media/user-help-join-device-on-network/join-device-oobe-signin.png)
 
-3. Sobre o **a palavra-passe** ecrã, escreva a palavra-passe.
+3. Na tela **Insira sua senha** , digite sua senha.
 
-    ![Introduza o seu ecrã de palavra-passe](./media/user-help-join-device-on-network/join-device-oobe-password.png)
+    ![Insira sua tela de senha](./media/user-help-join-device-on-network/join-device-oobe-password.png)
 
-4. No seu dispositivo móvel, aprove o seu dispositivo para que ele pode aceder à sua conta. 
+4. Em seu dispositivo móvel, aprove seu dispositivo para que ele possa acessar sua conta. 
 
-    ![Ecrã de notificação por telemóvel](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
+    ![Tela de notificação móvel](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
 
-5. Conclua o processo OOBE, incluindo as definições de privacidade de configuração e configurar o Windows Hello (se necessário).
+5. Conclua o processo OOBE, incluindo a definição de suas configurações de privacidade e a configuração do Windows Hello (se necessário).
 
-    O dispositivo está agora associado à rede da sua organização.
+    Seu dispositivo agora está ingressado na rede da sua organização.
 
-## <a name="to-make-sure-youre-joined"></a>Para garantir que são associadas
-Pode tornar-se de que está associado ao observar as suas definições.
+## <a name="to-make-sure-youre-joined"></a>Para certificar-se de que você está associado
+Você pode certificar-se de que você está associado examinando suas configurações.
 
-1. Open **configurações**e, em seguida, selecione **contas**.
+1. Abra **configurações**e, em seguida, selecione **contas**.
 
-    ![Contas no ecrã de definições](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
+    ![Contas na tela de configurações](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selecione **acesso profissional ou escolar**e certifique-se de ver o texto que diz algo como: **ligado  *\<your_organization >* do Azure AD**.
+2. Selecione **acesso corporativo ou de estudante**e verifique se você vê texto que diz algo como, **conectado a *\<your_organization >* Azure ad**.
 
-    ![Aceder ao ecrã escolar ou profissional com a conta de contoso ligados](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
+    ![Acessar a tela corporativa ou de estudante com a conta contoso conectada](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
 
-## <a name="to-join-an-already-configured-windows-10-device"></a>Para associar um dispositivo Windows 10 já configurado
-Se já teve o seu dispositivo por um tempo e ele já está foi configurado, pode seguir estes passos para associar o seu dispositivo à rede.
+## <a name="to-join-an-already-configured-windows-10-device"></a>Para ingressar em um dispositivo do Windows 10 já configurado
+Se você tiver seu dispositivo por algum tempo e ele já tiver sido configurado, você poderá seguir estas etapas para ingressar seu dispositivo na rede.
 
-1. Open **configurações**e, em seguida, selecione **contas**.
+1. Abra **configurações**e, em seguida, selecione **contas**.
 
-2. Selecione **acesso profissional ou escolar**e, em seguida, selecione **Connect**.
+2. Selecione **acesso corporativo ou de estudante**e, em seguida, selecione **conectar**.
 
-    ![Acesso profissional ou escolar e ligações do Connect](./media/user-help-join-device-on-network/join-device-access-work-school-connect.png)
+    ![Acessar links corporativos ou de estudante e conectar](./media/user-help-join-device-on-network/join-device-access-work-school-connect.png)
 
-3. Sobre o **configurar uma conta escolar ou profissional** ecrã, selecione **associar este dispositivo ao Azure Active Directory**.
+3. Na tela **Configurar uma conta corporativa ou de estudante** , selecione **Adicionar este dispositivo a Azure Active Directory**.
 
-    ![Configurar um trabalho ou escolar ecrã de conta](./media/user-help-join-device-on-network/join-device-setup-join-aad.png)
+    ![Configurar uma tela de conta corporativa ou de estudante](./media/user-help-join-device-on-network/join-device-setup-join-aad.png)
 
-4. Sobre o **vamos ajudá-lo a entrar** ecrã, escreva o seu endereço de e-mail (por exemplo, alain@contoso.com) e, em seguida, selecione **seguinte**.
+4. Na tela **vamos** entrar, digite seu endereço de email (por exemplo, alain@contoso.com) e, em seguida, selecione **Avançar**.
 
-    ![Vamos ajudá-lo a sessão iniciada no ecrã](./media/user-help-join-device-on-network/join-device-setup-get-signed-in.png)
+    ![Vamos entrar na tela](./media/user-help-join-device-on-network/join-device-setup-get-signed-in.png)
 
-5. Sobre o **introduzir palavra-passe** ecrã, escreva a palavra-passe e, em seguida, selecione **iniciar sessão**.
+5. Na tela **digitar senha** , digite sua senha e, em seguida, selecione **entrar**.
 
-    ![Introduza a palavra-passe](./media/user-help-join-device-on-network/join-device-setup-password.png)
+    ![Inserir senha](./media/user-help-join-device-on-network/join-device-setup-password.png)
 
-6. No seu dispositivo móvel, aprove o seu dispositivo para que ele pode aceder à sua conta. 
+6. Em seu dispositivo móvel, aprove seu dispositivo para que ele possa acessar sua conta. 
 
-    ![Ecrã de notificação por telemóvel](./media/user-help-join-device-on-network/join-device-setup-mobile.png)
+    ![Tela de notificação móvel](./media/user-help-join-device-on-network/join-device-setup-mobile.png)
 
-7. Sobre o **certificar-se de que esta é a sua organização** ecrã, reveja as informações para se certificar de que é adequada e, em seguida, selecione **associar**.
+7. Na tela Verifique **se esta é a sua organização** , examine as informações para verificar se ela está correta e, em seguida, selecione **ingressar**.
 
-    ![Certifique-se de que este é o ecrã de verificação da organização](./media/user-help-join-device-on-network/join-device-setup-confirm.png)
+    ![Verifique se esta é a tela de verificação da sua organização](./media/user-help-join-device-on-network/join-device-setup-confirm.png)
 
-8. Sobre o **tudo pronto** ecrã, clique em **feito**.
+8. Na tela **você está** pronto, clique em **concluído**.
 
-    ![É o ecrã de conjunto de todos os](./media/user-help-join-device-on-network/join-device-setup-finish.png)
+    ![Você está pronto para todas as telas](./media/user-help-join-device-on-network/join-device-setup-finish.png)
 
-## <a name="to-make-sure-youre-joined"></a>Para garantir que são associadas
-Pode tornar-se de que está associado ao observar as suas definições.
+## <a name="to-make-sure-youre-joined"></a>Para certificar-se de que você está associado
+Você pode certificar-se de que você está associado examinando suas configurações.
 
-1. Open **configurações**e, em seguida, selecione **contas**.
+1. Abra **configurações**e, em seguida, selecione **contas**.
 
-    ![Contas no ecrã de definições](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
+    ![Contas na tela de configurações](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selecione **acesso profissional ou escolar**e certifique-se de ver o texto que diz algo como: **ligado  *\<your_organization >* do Azure AD**.
+2. Selecione **acesso corporativo ou de estudante**e verifique se você vê texto que diz algo como, **conectado a *\<your_organization >* Azure ad**.
 
-    ![Aceder ao ecrã escolar ou profissional com a conta de contoso ligados](./media/user-help-join-device-on-network/join-device-setup-verify.png)
+    ![Acessar a tela corporativa ou de estudante com a conta contoso conectada](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 
-## <a name="next-steps"></a>Passos Seguintes
-Depois de associar o seu dispositivo à rede da sua organização, deve ser capaz de aceder a todos os seus recursos através do seu trabalho ou escolar informações da conta.
+## <a name="next-steps"></a>Passos seguintes
+Depois de ingressar seu dispositivo na rede da sua organização, você deve ser capaz de acessar todos os seus recursos usando suas informações de conta corporativa ou de estudante.
 
-- Se a organização quer que Registre seu dispositivo pessoal, como o seu telemóvel, veja [registar o seu dispositivo pessoal na rede da sua organização](user-help-register-device-on-network.md).
+- Se sua organização quiser que você registre seu dispositivo pessoal, como seu telefone, consulte [registrar seu dispositivo pessoal na rede da sua organização](user-help-register-device-on-network.md).
 
-- Se sua organização for gerenciada através do Microsoft Intune e se tiver perguntas sobre a inscrição, início de sessão ou quaisquer outros problemas com o Intune, consulte a [conteúdo de ajuda de utilizador do Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).
+- Se sua organização for gerenciada usando Microsoft Intune e você tiver dúvidas sobre o registro, a entrada ou qualquer outro problema relacionado ao Intune, consulte o [conteúdo da ajuda do usuário do Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).

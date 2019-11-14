@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: bac784ea3050111184e2908fe5656a1d16545a99
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 8d7db428d7f71383abf5425d7cc1ddbbab3b7a52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231027"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037883"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os serviços de mídia do Azure v3
 
@@ -27,7 +27,7 @@ Os serviços de mídia do Azure permitem que você forneça eventos ao vivo para
 - Uma câmera que é usada para capturar o evento ao vivo.<br/>Para ideias de instalação, confira [configuração simples e portátil de monitoração de vídeo de eventos]( https://link.medium.com/KNTtiN6IeT).
 
     Se você não tiver acesso a uma câmera, as ferramentas como [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) poderão ser usadas para gerar um feed ao vivo de um arquivo de vídeo.
-- Um codificador de vídeo ao vivo que converte sinais de uma câmera (ou outro dispositivo, como um laptop) em um feed de contribuição enviado aos serviços de mídia. O feed de contribuição pode incluir sinais relacionados a anúncios, como marcadores SCTE-35.<br/>Para obter uma lista de codificadores de transmissão ao vivo recomendados, consulte codificadores de [transmissão ao vivo](recommended-on-premises-live-encoders.md). Além disso, confira este blog: [Produção de transmissão ao vivo com Obs](https://link.medium.com/ttuwHpaJeT).
+- Um codificador de vídeo ao vivo que converte sinais de uma câmera (ou outro dispositivo, como um laptop) em um feed de contribuição enviado aos serviços de mídia. O feed de contribuição pode incluir sinais relacionados a anúncios, como marcadores SCTE-35.<br/>Para obter uma lista de codificadores de transmissão ao vivo recomendados, consulte [codificadores de transmissão ao vivo](recommended-on-premises-live-encoders.md). Além disso, confira este blog: [produção de transmissão ao vivo com Obs](https://link.medium.com/ttuwHpaJeT).
 - Componentes nos serviços de mídia, que permitem ingerir, Visualizar, empacotar, registrar, criptografar e transmitir o evento ao vivo para seus clientes ou para uma CDN para uma distribuição adicional.
 
 Este artigo fornece uma visão geral e diretrizes de transmissão ao vivo com os serviços de mídia e links para outros artigos relevantes.
@@ -61,13 +61,20 @@ Ao usar o evento de passagem **ao vivo**, você depende de seu codificador ao vi
 
 ![codificação em direto](./media/live-streaming/live-encoding.svg)
 
-Ao usar a codificação de nuvem com os serviços de mídia, você configuraria seu codificador ao vivo local para enviar um vídeo de taxa de bits única como o feed de contribuição (até 32Mbps agregado) para o evento ao vivo (usando o protocolo de entrada RTMP ou MP4 fragmentado). O evento ao vivo codifica o fluxo de taxa de bits única de entrada em [fluxos de vídeo de taxa](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) de bits múltipla em resoluções diferentes para melhorar a entrega e disponibilizá-lo para entrega a dispositivos de reprodução por meio de protocolos padrão do setor, como MPEG-Dash, Apple HTTP Live Streaming (HLS) e Microsoft Smooth Streaming. 
+Ao usar a codificação de nuvem com os serviços de mídia, você configuraria seu codificador ao vivo local para enviar um vídeo de taxa de bits única como o feed de contribuição (até 32Mbps agregado) para o evento ao vivo (usando o protocolo de entrada RTMP ou MP4 fragmentado). O evento ao vivo codifica o fluxo de taxa de bits única de entrada em [fluxos de vídeo de taxa](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) de bits múltipla em diferentes resoluções para melhorar a entrega e o disponibiliza para entrega a dispositivos de reprodução por meio de protocolos padrão do setor, como MPEG-Dash, Apple http Live streaming (hls) e Microsoft Smooth streaming. 
+
+### <a name="live-transcription"></a>Transcrição ao vivo
+
+A transcrição ao vivo é um recurso que você pode usar com eventos ao vivo que são de passagem ou codificação ativa. Para obter mais informações, consulte [transcrição ao vivo](live-transcription.md). Quando esse recurso é habilitado, o serviço usa o recurso de [conversão de fala em texto](../../cognitive-services/speech-service/speech-to-text.md) de serviços cognitivas para transcrever as palavras faladas no áudio de entrada em texto. Esse texto é disponibilizado para entrega junto com vídeo e áudio em protocolos MPEG-DASH e HLS.
+
+> [!NOTE]
+> Atualmente, a transcrição ao vivo está disponível como um recurso de visualização no oeste dos EUA 2.
 
 ## <a name="live-streaming-workflow"></a>Fluxo de trabalho de transmissão ao vivo
 
 Para entender o fluxo de trabalho de transmissão ao vivo nos serviços de mídia v3, você precisa primeiro examinar e entender os seguintes conceitos: 
 
-- [Streaming Endpoints](streaming-endpoint-concept.md) (Pontos Finais de Transmissão em Fluxo)
+- [Streaming Endpoints](streaming-endpoint-concept.md) (Pontos finais de transmissão em fluxo)
 - [Live Events and Live Outputs](live-events-outputs-concept.md) (Eventos em Direto e Saídas em Direto)
 - [Streaming Locators](streaming-locators-concept.md) (Localizadores de Transmissão em Fluxo)
 
@@ -83,13 +90,13 @@ Para entender o fluxo de trabalho de transmissão ao vivo nos serviços de mídi
 6. Crie uma **saída ao vivo** e use o nome do ativo que você criou para que o fluxo possa ser arquivado no ativo.
 
     As saídas ao vivo começam na criação e param quando excluídas. Ao excluir a saída ao vivo, você não está excluindo o ativo subjacente e o conteúdo no ativo.
-7. Crie um **localizador de streaming** com os tipos de [política de streaming internos](streaming-policy-concept.md).
+7. Crie um **localizador de streaming** com os [tipos de política de streaming internos](streaming-policy-concept.md).
 
     Para publicar a saída ao vivo, você deve criar um localizador de streaming para o ativo associado. 
 8. Liste os caminhos no **localizador de streaming** para recuperar as URLs a serem usadas (elas são determinísticas).
 9. Obtenha o nome do host para o **ponto de extremidade de streaming** (origem) do qual você deseja transmitir.
 10. Combine a URL da etapa 8 com o nome do host na etapa 9 para obter a URL completa.
-11. Se você quiser parar de tornar seu **evento ao vivo** visível, será necessário parar de transmitir o evento e excluir o localizador de **streaming**.
+11. Se você quiser parar de tornar seu **evento ao vivo** visível, será necessário parar de transmitir o evento e excluir o **localizador de streaming**.
 12. Se terminar a transmissão em fluxo de eventos e pretende limpar os recursos aprovisionados anteriormente, siga o procedimento seguinte.
 
     * Termine o envio da transmissão em fluxo do codificador.
@@ -106,14 +113,14 @@ O ativo no qual a saída ao vivo está sendo arquivada torna-se automaticamente 
 - [Codificadores ao vivo recomendados](recommended-on-premises-live-encoders.md)
 - [Using a cloud DVR](live-event-cloud-dvr.md) (Utilizar um DVR na cloud)
 - [Comparação de recursos de tipos de eventos ao vivo](live-event-types-comparison.md)
-- [States and billing](live-event-states-billing.md) (Estados e faturação)
+- [Estados e faturação](live-event-states-billing.md)
 - [Latência](live-event-latency.md)
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, envie comentários, obtenha atualizações
 
 Confira o artigo [da Comunidade dos serviços de mídia do Azure](media-services-community.md) para ver diferentes maneiras que você pode fazer perguntas, fornecer comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tutorial de transmissão ao vivo](stream-live-tutorial-with-api.md)
 * [Diretrizes de migração para mudar dos serviços de mídia v2 para v3](migrate-from-v2-to-v3.md)

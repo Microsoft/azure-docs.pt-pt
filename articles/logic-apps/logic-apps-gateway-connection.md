@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: e0354f96036cce968e6b6909a18f97ff48347eda
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 356eab6122272162f20e1516a9ef7f4ea0127084
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796259"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049058"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais de aplicativos lógicos do Azure
 
@@ -28,7 +28,7 @@ Este artigo mostra como criar seu recurso de gateway do Azure para um [Gateway i
 Para obter informações sobre como usar o gateway com outros serviços, consulte estes artigos:
 
 * [Gateway de dados local do Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Automatizar o gateway de dados local de energia](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Automatizar o gateway de dados local de energia](/power-automate/gateway-reference)
 * [Gateway de dados local do Microsoft Power apps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Azure Analysis Services Gateway de dados local](../analysis-services/analysis-services-gateway.md)
 

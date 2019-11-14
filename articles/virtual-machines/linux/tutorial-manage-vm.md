@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Criar e gerir VMs do Linux com a CLI do Azure | Microsoft Docs
+title: Tutorial – criar e gerenciar VMs Linux com o CLI do Azure
 description: Neste tutorial, vai aprender a utilizar a CLI do Azure para criar e gerir VMs do Linux no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 11c12058229a2eadfdc3834d311c085c2365b17d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b7660d2bcb6f2bb8b738ed92401937c0b988fef2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300785"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034424"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: Criar e Gerir VMs do Linux com a CLI do Azure
 
@@ -35,7 +35,7 @@ As máquinas virtuais do Azure proporcionam um ambiente informático totalmente 
 
 Este tutorial usa a CLI dentro do [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimente** na parte superior de qualquer bloco de código.
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial precisará que execute a versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
@@ -159,12 +159,12 @@ A tabela seguinte categoriza tamanhos em casos de utilização.
 | [Fins gerais](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU-para-memória equilibrada. Ideal para desenvolvimento/teste e aplicações e soluções de dados pequenas a médias.  |
 | [Com otimização de computação](sizes-compute.md)   | Fsv2          | CPU-para-memória elevada. É adequado para aplicações de tráfego médio, dispositivos de rede e processos em lote.        |
 | [Com otimização de memória](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Memória-para-núcleo elevada. É ideal para bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
-| [Com otimização de armazenamento](sizes-storage.md)      | Lsv2, ls              | Débito e E/S de disco elevados. Ideal para bases de dados de Macrodados, SQL e NoSQL.                                                         |
+| [Com otimização de armazenamento](sizes-storage.md)      | Lsv2, Ls              | Débito e E/S de disco elevados. Ideal para bases de dados de Macrodados, SQL e NoSQL.                                                         |
 | [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | VMs especializadas destinadas a composição gráfica e edição de vídeo exigentes.       |
 | [Elevado desempenho](sizes-hpc.md) | H        | As nossas mais poderosas VMs com CPU, com interfaces de rede de alto débito (RDMA) opcionais. |
 
 
-### <a name="find-available-vm-sizes"></a>Encontrar todos os tamanhos de VM disponíveis
+### <a name="find-available-vm-sizes"></a>Localizar todos os tamanhos de VM disponíveis
 
 Para ver uma lista de tamanhos de VM disponíveis numa região específica, utilize o comando [az vm list-sizes](/cli/azure/vm). 
 
@@ -251,11 +251,11 @@ Uma VM do Azure pode ter um de vários estados de energia. Este estado represent
 
 ### <a name="power-states"></a>Estados de energia
 
-| Estado de Energia | Descrição
+| Estado de energia | Descrição
 |----|----|
-| A Iniciar | Indica que a máquina virtual está a iniciar. |
+| A iniciar | Indica que a máquina virtual está a iniciar. |
 | A executar | Indica que a máquina virtual está em execução. |
-| A Parar | Indica que a máquina virtual está a ser parada. | 
+| A parar | Indica que a máquina virtual está a ser parada. | 
 | Parada | Indica que a máquina virtual está parada. As máquinas virtuais no estado de paragem continuam a incorrer em custos de computação.  |
 | A desalocar | Indica que a máquina virtual está a ser desalocada. |
 | Desalocada | Indica que a máquina virtual foi removida do hipervisor, mas continua disponível no painel de controlo. As máquinas virtuais no estado Desalocada não incorrem em custos de computação. |

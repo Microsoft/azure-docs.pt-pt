@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Elevada disponibilidade para VMs do Linux no Azure | Microsoft Docs
+title: Tutorial-alta disponibilidade para VMs do Linux no Azure
 description: Neste tutorial, vai aprender a utilizar a CLI do Azure para implementar máquinas virtuais altamente disponíveis em Conjuntos de Disponibilidade
 documentationcenter: ''
 services: virtual-machines-linux
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 10458e3c5f1e4dc9034206470fdfec19e13417fb
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: cd0366a0029ccc4816308e280ac93b7c724bb82a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299446"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034614"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e implementar máquinas virtuais altamente disponíveis com a CLI do Azure
 
@@ -35,7 +35,7 @@ Neste tutorial, ficará a saber como:
 
 Este tutorial usa a CLI dentro do [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimente** na parte superior de qualquer bloco de código.
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial precisará que execute a versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="high-availability-in-azure-overview"></a>Visão geral da alta disponibilidade no Azure
 A alta disponibilidade no Azure pode ser criada de várias maneiras diferentes. Duas opções que você tem são conjuntos de disponibilidade e zonas de disponibilidade. Usando conjuntos de disponibilidade, suas VMs serão protegidas contra falhas que podem ocorrer em um datacenter. Isso inclui falhas de hardware e falhas de software do Azure. Usando zonas de disponibilidade, suas VMs serão colocadas em infraestrutura fisicamente separada sem recursos compartilhados e, portanto, serão protegidas de falhas de datacenter inteiras.

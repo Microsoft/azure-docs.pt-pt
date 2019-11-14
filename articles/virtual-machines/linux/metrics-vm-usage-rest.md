@@ -1,6 +1,6 @@
 ---
-title: Obter dados de utilização de Máquina Virtual do Azure com a API REST | Documentos da Microsoft
-description: Utilize as APIs de REST do Azure para recolher métricas de utilização de uma Máquina Virtual.
+title: Obter dados de uso da máquina virtual do Azure usando a API REST
+description: Use as APIs REST do Azure para coletar métricas de utilização para uma máquina virtual.
 services: virtual-machines
 author: rloutlaw
 ms.reviewer: routlaw
@@ -10,22 +10,22 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 53e93d20f4a8c4877374d8242521ca97d481e15d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 523b81e53f2b0622b237993dbd88fb9492079c86
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667458"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035816"
 ---
-# <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obter métrica de utilização de Máquina Virtual com a API REST
+# <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obter métricas de uso da máquina virtual usando a API REST
 
-Este exemplo mostra como obter a utilização da CPU para um [Máquina Virtual do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/monitor) utilizando o [API REST do Azure](/rest/api/azure/).
+Este exemplo mostra como recuperar o uso da CPU para uma [máquina virtual do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/monitor) usando a [API REST do Azure](/rest/api/azure/).
 
-Estão disponíveis na documentação de referência completa e exemplos adicionais para a API REST da [referência de REST do Azure Monitor](/rest/api/monitor). 
+A documentação de referência completa e exemplos adicionais para a API REST estão disponíveis na [referência REST do Azure monitor](/rest/api/monitor). 
 
 ## <a name="build-the-request"></a>Criar o pedido
 
-Utilize o seguinte pedido GET para recolher os [métrica percentagem de CPU](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines) de uma Máquina Virtual
+Use a seguinte solicitação GET para coletar a [métrica percentual de CPU](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftcomputevirtualmachines) de uma máquina virtual
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
@@ -33,32 +33,32 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="request-headers"></a>Cabeçalhos do pedido
 
-Os seguintes cabeçalhos são necessários: 
+Os seguintes cabeçalhos são obrigatórios: 
 
 |Cabeçalho do pedido|Descrição|  
 |--------------------|-----------------|  
 |*Content-Type:*|Necessário. Definido como `application/json`.|  
-|*Authorization:*|Necessário. Definido como válido `Bearer` [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|*Authorization:*|Necessário. Definido com um `Bearer` [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |  
 
 ### <a name="uri-parameters"></a>Parâmetros do URI
 
 | Nome | Descrição |
 | :--- | :---------- |
-| subscriptionId | O ID de subscrição que identifica uma subscrição do Azure. Se tiver várias subscrições, veja [trabalhar com várias subscrições](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
-| resourceGroupName | O nome do grupo de recursos do Azure associado com o recurso. Pode obter este valor de API do Gestor de recursos do Azure, CLI ou o portal. |
-| vmname | O nome da Máquina Virtual do Azure. |
-| metricnames | Lista separada por vírgulas de válido [métricas de Balanceador de carga](/azure/load-balancer/load-balancer-standard-diagnostics). |
-| versão de API | A versão de API a utilizar para o pedido.<br /><br /> Este documento abrange a api-version `2018-01-01`, incluído no URL acima.  |
-| TimeSpan | Com o seguinte formato de cadeias de caracteres `startDateTime_ISO/endDateTime_ISO` que define o intervalo de tempo das métricas de retornado. Este parâmetro opcional é definido para devolver uma dias de dados no exemplo. |
+| subscriptionId | A ID da assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| resourceGroupName | O nome do grupo de recursos do Azure associado ao recurso. Você pode obter esse valor da API Azure Resource Manager, da CLI ou do Portal. |
+| vmname | O nome da máquina virtual do Azure. |
+| metricnames | Lista separada por vírgulas de [métricas de Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics)válidas. |
+| api-version | A versão da API a ser usada para a solicitação.<br /><br /> Este documento aborda a versão de API `2018-01-01`, incluída na URL acima.  |
+| TimeSpan | Cadeia de caracteres com o seguinte formato `startDateTime_ISO/endDateTime_ISO` que define o intervalo de tempo das métricas retornadas. Esse parâmetro opcional é definido para retornar o valor de dados de um dia no exemplo. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Corpo do pedido
 
-O corpo do pedido não é necessária para esta operação.
+Nenhum corpo de solicitação é necessário para esta operação.
 
 ## <a name="handle-the-response"></a>Processar a resposta
 
-Código de estado 200 é retornado quando a lista de valores de métrica é devolvida com êxito. Uma lista completa dos códigos de erro está disponível na [documentação de referência](/rest/api/monitor/metrics/list#errorresponse).
+O código de status 200 é retornado quando a lista de valores de métrica é retornada com êxito. Uma lista completa de códigos de erro está disponível na [documentação de referência](/rest/api/monitor/metrics/list#errorresponse).
 
 ## <a name="example-response"></a>Resposta de exemplo 
 

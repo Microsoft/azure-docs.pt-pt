@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 444868f1716ae55f1851e50c057b172f5e3eb3d1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4a1b5f804986d2bda85980d01cdaaa130d86b50d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961401"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039741"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Executar uma análise de DR para VMs do Hyper-V para um site secundário
 
@@ -22,7 +22,7 @@ Este artigo descreve como fazer uma análise de DR (recuperação de desastre) p
 Você executa um failover de teste para validar sua estratégia de replicação e executa uma análise de recuperação de desastre sem qualquer perda de dados ou tempo de inatividade. Um failover de teste não tem nenhum impacto sobre a replicação em andamento ou em seu ambiente de produção. 
 
 > [!WARNING]
-> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](scvmm-site-recovery-deprecation.md) antes de continuar.
+> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](site-to-site-deprecation.md) antes de continuar.
 
 
 ## <a name="how-do-test-failovers-work"></a>Como funcionam os failovers de teste?

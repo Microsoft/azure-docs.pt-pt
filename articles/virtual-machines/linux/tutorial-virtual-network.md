@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Criar e gerir redes virtuais do Azure para VMs do Linux | Microsoft Docs
+title: Tutorial – criar e gerenciar redes virtuais do Azure para VMs do Linux
 description: Neste tutorial, vai aprender a utilizar a CLI do Azure para criar e gerir redes virtuais do Azure para máquinas virtuais do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b2255e75843f4ddadd44e7780054de4fc45e6449
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d6624b9d5d77a8552584049463b63738bbf17627
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300724"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034354"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas virtuais do Linux com a CLI do Azure
 
@@ -30,12 +30,12 @@ As máquinas virtuais do Azure utilizam a rede do Azure para a comunicação de 
 > * Criar uma rede virtual e uma sub-rede
 > * Crie um endereço IP público
 > * Criar uma VM de front-end
-> * Proteja o tráfego de rede
+> * Proteger o tráfego de rede
 > * Criar uma VM de back-end
 
 Este tutorial usa a CLI dentro do [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimente** na parte superior de qualquer bloco de código.
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial precisará que execute a versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="vm-networking-overview"></a>Descrição geral do funcionamento em rede de VMs
 
@@ -146,7 +146,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-## <a name="secure-network-traffic"></a>Proteja o tráfego de rede
+## <a name="secure-network-traffic"></a>Proteger o tráfego de rede
 
 Os grupos de segurança de rede (NSG) contêm uma lista de regras de segurança que permitem ou negam o tráfego de rede para recursos ligados a Redes Virtuais do Azure (VNet). Os NSGs podem ser associados a sub-redes ou a interfaces de rede individuais. Quando um NSG é associado uma interface de rede, aplica apenas a VM associada. Quando um NSG é associado a uma sub-rede, as regras são aplicadas a todos os recursos ligados à mesma. 
 
@@ -298,7 +298,7 @@ Neste tutorial, criou e protegeu redes do Azure relacionadas com máquinas virtu
 > * Criar uma rede virtual e uma sub-rede
 > * Crie um endereço IP público
 > * Criar uma VM de front-end
-> * Proteja o tráfego de rede
+> * Proteger o tráfego de rede
 > * Criar a VM de back-end
 
 Avance para o tutorial seguinte para aprender a proteger os dados nas máquinas virtuais com o Azure Backup. 

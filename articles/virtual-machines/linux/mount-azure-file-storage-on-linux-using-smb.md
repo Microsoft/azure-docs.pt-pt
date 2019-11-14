@@ -1,5 +1,5 @@
 ---
-title: Montar o armazenamento de arquivos do Azure em VMs Linux usando SMB | Microsoft Docs
+title: Montar o armazenamento de arquivos do Azure em VMs Linux usando SMB
 description: Como montar o armazenamento de arquivos do Azure em VMs Linux usando SMB com o CLI do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: effe1169fb531abd3fe8a206f2baf83380fcd28f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 0918cfda81be93982c1ca6eccce0c116ac65ca28
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828402"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035663"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montar o armazenamento de arquivos do Azure em VMs Linux usando SMB
 
@@ -31,7 +31,7 @@ Mover arquivos de uma VM para uma montagem SMB hospedada no armazenamento de arq
 Este guia requer que você esteja executando o CLI do Azure versão 2.0.4 ou posterior. Execute **az --version** para descobrir a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Crie um grupo de recursos chamado *MyResource* Group no local *leste dos EUA* .
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Crie uma nova conta de armazenamento, dentro do grupo de recursos que você criou, usando [AZ Storage Account Create](/cli/azure/storage/account). Este exemplo cria uma conta de armazenamento denominada *mySTORAGEACCT @ no__t-1random number >* e coloca o nome dessa conta de armazenamento na variável **STORAGEACCT**. Os nomes de conta de armazenamento devem ser exclusivos, usando `$RANDOM` acrescenta um número ao final para torná-lo exclusivo.
+Crie uma nova conta de armazenamento, dentro do grupo de recursos que você criou, usando [AZ Storage Account Create](/cli/azure/storage/account). Este exemplo cria uma conta de armazenamento denominada *mySTORAGEACCT\<número aleatório >* e coloca o nome dessa conta de armazenamento na variável **STORAGEACCT**. Os nomes de conta de armazenamento devem ser exclusivos, usando `$RANDOM` acrescenta um número ao final para torná-lo exclusivo.
 
 ```bash
 STORAGEACCT=$(az storage account create \

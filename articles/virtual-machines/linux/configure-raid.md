@@ -1,5 +1,5 @@
 ---
-title: Configurar o RAID de software em uma máquina virtual que executa o Linux | Microsoft Docs
+title: Configurar o RAID de software em uma máquina virtual que executa o Linux
 description: Saiba como usar o mdadm para configurar o RAID no Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: d0658af090d9a3f39bee69f5103a78a329fe189c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bc53ed3e3a7fd988464b9100df654920d5589596
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083797"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036669"
 ---
 # <a name="configure-software-raid-on-linux"></a>Configurar o RAID de Software no Linux
 É um cenário comum usar o RAID de software em máquinas virtuais Linux no Azure para apresentar vários discos de dados anexados como um único dispositivo RAID. Normalmente, isso pode ser usado para melhorar o desempenho e permitir uma melhor taxa de transferência em comparação com o uso de apenas um único disco.
@@ -48,7 +48,7 @@ Dois ou mais discos de dados vazios são necessários para configurar um disposi
 ## <a name="create-the-disk-partitions"></a>Criar as partições de disco
 Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partição de disco será chamada de/dev/sdc1.
 
-1. Comece `fdisk` a começar a criar partições
+1. Iniciar `fdisk` para começar a criar partições
 
     ```bash
     sudo fdisk /dev/sdc
@@ -89,7 +89,7 @@ Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partiç
     Using default value 1
     ```
 
-1. Selecione o tamanho da partição, por exemplo, digite ' + 10G ' para criar uma partição de 10 gigabytes. Ou então, `<enter>` pressione criar uma única partição que abranja toda a unidade:
+1. Selecione o tamanho da partição, por exemplo, digite ' + 10G ' para criar uma partição de 10 gigabytes. Ou então, pressione `<enter>` criar uma única partição que abranja toda a unidade:
 
     ```bash   
     Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
@@ -112,7 +112,7 @@ Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partiç
     ```
 
 ## <a name="create-the-raid-array"></a>Criar a matriz RAID
-1. O exemplo a seguir irá "distribuir" (RAID nível 0) três partições localizadas em três discos de dados separados (sdc1, sdd1, sde1).  Depois de executar esse comando, um novo dispositivo RAID chamado **/dev/md127** será criado. Observe também que, se esses discos de dados fizerem parte de outra matriz RAID expirada, poderá ser necessário `--force` adicionar o parâmetro `mdadm` ao comando:
+1. O exemplo a seguir irá "distribuir" (RAID nível 0) três partições localizadas em três discos de dados separados (sdc1, sdd1, sde1).  Depois de executar esse comando, um novo dispositivo RAID chamado **/dev/md127** será criado. Observe também que, se esses discos de dados fizerem parte de outra matriz RAID expirada, poderá ser necessário adicionar o parâmetro `--force` ao comando `mdadm`:
 
     ```bash  
     sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
@@ -154,7 +154,7 @@ Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partiç
     ```bash
     sudo mkdir /data
     ```
-1. Ao editar/etc/fstab, o **UUID** deve ser usado para fazer referência ao sistema de arquivos em vez do nome do dispositivo.  Use o `blkid` utilitário para determinar o UUID para o novo sistema de arquivos:
+1. Ao editar/etc/fstab, o **UUID** deve ser usado para fazer referência ao sistema de arquivos em vez do nome do dispositivo.  Use o utilitário `blkid` para determinar o UUID para o novo sistema de arquivos:
 
     ```bash   
     sudo /sbin/blkid
@@ -184,7 +184,7 @@ Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partiç
 
     Se esse comando resultar em uma mensagem de erro, verifique a sintaxe no arquivo/etc/fstab.
    
-    Em seguida, `mount` execute o comando para garantir que o sistema de arquivos esteja montado:
+    Em seguida, execute o comando `mount` para garantir que o sistema de arquivos esteja montado:
 
     ```bash   
     mount
@@ -196,7 +196,7 @@ Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partiç
    
     **configuração do fstab**
    
-    Muitas distribuições incluem os parâmetros `nobootwait` de `nofail` montagem ou que podem ser adicionados ao arquivo/etc/fstab. Esses parâmetros permitem falhas durante a montagem de um sistema de arquivos específico e permitem que o sistema Linux continue a inicialização mesmo que não seja possível montar corretamente o sistema de arquivos RAID. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
+    Muitas distribuições incluem os parâmetros de montagem `nobootwait` ou `nofail` que podem ser adicionados ao arquivo/etc/fstab. Esses parâmetros permitem falhas durante a montagem de um sistema de arquivos específico e permitem que o sistema Linux continue a inicialização mesmo que não seja possível montar corretamente o sistema de arquivos RAID. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
    
     Exemplo (Ubuntu):
 
@@ -208,24 +208,24 @@ Neste exemplo, criamos uma única partição de disco em/dev/sdc. A nova partiç
    
     Além dos parâmetros acima, o parâmetro de kernel "`bootdegraded=true`" pode permitir que o sistema seja inicializado mesmo que o RAID seja percebido como danificado ou degradado, por exemplo, se uma unidade de dados for removida inadvertidamente da máquina virtual. Por padrão, isso também pode resultar em um sistema não inicializável.
    
-    Consulte a documentação da sua distribuição sobre como editar corretamente os parâmetros do kernel. Por exemplo, em muitas distribuições (CentOS, Oracle Linux, SLES 11), esses parâmetros podem ser adicionados manualmente ao arquivo`/boot/grub/menu.lst`"".  No Ubuntu, esse parâmetro pode ser adicionado à `GRUB_CMDLINE_LINUX_DEFAULT` variável em "/etc/default/grub".
+    Consulte a documentação da sua distribuição sobre como editar corretamente os parâmetros do kernel. Por exemplo, em muitas distribuições (CentOS, Oracle Linux, SLES 11), esses parâmetros podem ser adicionados manualmente ao arquivo "`/boot/grub/menu.lst`".  No Ubuntu, esse parâmetro pode ser adicionado à variável `GRUB_CMDLINE_LINUX_DEFAULT` em "/etc/default/grub".
 
 
 ## <a name="trimunmap-support"></a>Suporte para APARAr/cancelar mapeamento
 Alguns kernels do Linux dão suporte a operações de corte/desmapeamento para descartar blocos não utilizados no disco. Essas operações são úteis principalmente no armazenamento Standard para informar ao Azure que as páginas excluídas não são mais válidas e podem ser descartadas. A descartação de páginas pode economizar custos se você criar arquivos grandes e, em seguida, excluí-los.
 
 > [!NOTE]
-> O RAID não poderá emitir comandos de descarte se o tamanho da parte da matriz for definido como menor que o padrão (512KB). Isso ocorre porque a granularidade do desmapeamento no host também é 512KB. Se você tiver modificado o tamanho da parte da matriz por `--chunk=` meio do parâmetro de mdadm, as solicitações de corte/desmapeamento poderão ser ignoradas pelo kernel.
+> O RAID não poderá emitir comandos de descarte se o tamanho da parte da matriz for definido como menor que o padrão (512KB). Isso ocorre porque a granularidade do desmapeamento no host também é 512KB. Se você tiver modificado o tamanho da parte da matriz por meio do parâmetro `--chunk=` do mdadm, as solicitações de corte/desmapeamento poderão ser ignoradas pelo kernel.
 
 Há duas maneiras de habilitar o suporte a corte em sua VM Linux. Como de costume, consulte sua distribuição para obter a abordagem recomendada:
 
-- Use a `discard` opção de montagem `/etc/fstab`em, por exemplo:
+- Use a opção de montagem `discard` em `/etc/fstab`, por exemplo:
 
     ```bash
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2
     ```
 
-- Em alguns casos, `discard` a opção pode ter implicações de desempenho. Como alternativa, você pode executar o `fstrim` comando manualmente na linha de comando ou adicioná-lo ao crontab para ser executado regularmente:
+- Em alguns casos, a opção `discard` pode ter implicações de desempenho. Como alternativa, você pode executar o comando `fstrim` manualmente na linha de comando ou adicioná-lo ao crontab para ser executado regularmente:
 
     **Ubuntu**
 

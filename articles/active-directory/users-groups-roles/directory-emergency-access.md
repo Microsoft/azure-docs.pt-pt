@@ -1,10 +1,11 @@
 ---
-title: Gerenciar contas de administrador de acesso de emergência-Azure Active Directory | Microsoft Docs
+title: Gerenciar contas de administrador de acesso de emergência-Azure AD | Microsoft Docs
 description: Este artigo descreve como usar contas de acesso de emergência para ajudar a evitar que seja bloqueado inadvertidamente da organização do Azure Active Directory (Azure AD).
 services: active-directory
 author: markwahl-msft
+manager: daveba
 ms.author: curtand
-ms.date: 09/09/2019
+ms.date: 11/08/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -12,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04016df86a9bed06f2cbb79d459b10486a9b7d67
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 80ab7e0603f63fb395832b0da887916dc032c3bf
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772450"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028135"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerenciar contas de acesso de emergência no Azure AD
 
@@ -38,7 +39,7 @@ Uma organização pode precisar usar uma conta de acesso de emergência nas segu
 
 ## <a name="create-emergency-access-accounts"></a>Criar contas de acesso de emergência
 
-Crie duas ou mais contas de acesso de emergência. Essas contas devem ser contas somente em nuvem que usam o \*domínio. onmicrosoft.com e que não são federadas ou sincronizadas de um ambiente local.
+Crie duas ou mais contas de acesso de emergência. Essas contas devem ser contas somente em nuvem que usam o domínio \*. onmicrosoft.com e que não são federadas ou sincronizadas de um ambiente local.
 
 Ao configurar essas contas, os requisitos a seguir devem ser atendidos:
 
@@ -51,7 +52,7 @@ Ao configurar essas contas, os requisitos a seguir devem ser atendidos:
 
 Para reduzir o risco de um ataque resultante de uma senha comprometida, o AD do Azure recomenda que você exija a autenticação multifator para todos os usuários individuais. Esse grupo inclui administradores e todos os outros (por exemplo, gerentes financeiros) cuja conta comprometida teria um impacto significativo.
 
-No entanto, pelo menos uma das suas contas de acesso de emergência não deve ter o mesmo mecanismo de autenticação multifator que suas outras contas não emergenciais. Isso inclui soluções de autenticação multifator de terceiros. Se você tiver uma política de acesso condicional para exigir a [autenticação multifator para cada administrador](../authentication/howto-mfa-userstates.md) do Azure AD e outros aplicativos SaaS (software como serviço) conectados, deverá excluir as contas de acesso de emergência desse requisito e configurar em vez disso, um mecanismo diferente. Além disso, você deve verificar se as contas não têm uma política de autenticação multifator por usuário.
+No entanto, pelo menos uma das suas contas de acesso de emergência não deve ter o mesmo mecanismo de autenticação multifator que suas outras contas não emergenciais. Isso inclui soluções de autenticação multifator de terceiros. Se você tiver uma política de acesso condicional para exigir a [autenticação multifator para cada administrador](../authentication/howto-mfa-userstates.md) do Azure AD e outros aplicativos SaaS (software como serviço) conectados, você deverá excluir contas de acesso de emergência desse requisito e configurar um mecanismo diferente. Além disso, você deve verificar se as contas não têm uma política de autenticação multifator por usuário.
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Exclua pelo menos uma conta das políticas de acesso condicional
 
@@ -100,8 +101,8 @@ As organizações devem monitorar a atividade de entrada e de log de auditoria d
 
     1. Em **lógica de alerta**, insira o seguinte:
 
-        - Com base em: Número de resultados
-        - Operador Maior que
+        - Com base em: número de resultados
+        - Operador: maior que
         - Valor do limite: 0
 
     1. Em **avaliado com base em**, selecione o **período (em minutos)** para o tempo que você deseja que a consulta seja executada e a **frequência (em minutos)** para a frequência com que você deseja que a consulta seja executada. A frequência deve ser menor ou igual ao período.

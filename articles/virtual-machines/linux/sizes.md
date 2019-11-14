@@ -1,5 +1,5 @@
 ---
-title: Tamanhos de VM do Linux no Azure | Microsoft Docs
+title: Tamanhos de VM do Linux no Azure
 description: Lista os diferentes tamanhos disponíveis para máquinas virtuais do Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,20 +12,20 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/08/2019
+ms.date: 11/06/2019
 ms.author: jonbeck
-ms.openlocfilehash: 034d322b31b2704e5f9351912f46c2b0ccb0e8b8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 668e87050809da24a3bcedd7c388e37db2215ff0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100817"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034824"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamanhos das máquinas virtuais do Linux no Azure
 Este artigo descreve os tamanhos e as opções disponíveis para as máquinas virtuais do Azure que você pode usar para executar seus aplicativos e cargas de trabalho do Linux. Ele também fornece considerações de implantação a serem consideradas quando você pretende usar esses recursos. Este artigo também está disponível para [máquinas virtuais do Windows](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
-| Type                     | Tamanhos           |    Descrição       |
+| Tipo                     | Tamanhos           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Fins gerais](sizes-general.md)          | B, Dsv3, Dv3, Dasv3, Dav3, DSv2, Dv2, Av2, DC  | Relação CPU/memória equilibrada. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. |
 | [Com otimização de computação](sizes-compute.md)        | Fsv2           | Relação CPU/memória elevada. Ideal para servidores Web com tráfego médio, aplicações de rede, processos em lote e servidores de aplicações.        |
@@ -56,9 +56,9 @@ Saiba mais sobre como as [unidades de computação do Azure (ACU)](acu.md) podem
 
 ## <a name="benchmark-scores"></a>Pontuações de referência
 
-Saiba mais sobre o desempenho de computação para VMs do Linux usando as pontuações de [comparação](compute-benchmark-scores.md)de cocomentário.
+Saiba mais sobre o desempenho de computação para VMs do Linux usando as [pontuações de comparação de cocomentário](compute-benchmark-scores.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os diferentes tamanhos de VM que estão disponíveis:
 - [Fins gerais](sizes-general.md)

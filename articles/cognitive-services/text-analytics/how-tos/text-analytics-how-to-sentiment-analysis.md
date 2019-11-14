@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: a930a22472dd4329c555539704747af9a2359c33
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f7a62d1d2b695726421ba990d0f118eb3ae199da
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837153"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031466"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exemplo: detectar sentimentos com Análise de Texto
 
@@ -36,7 +36,7 @@ A análise de sentimentos é realizada em todo o documento em vez de extrair sen
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>Visualização pública do Análise de Sentimento v3
 
-A [próxima versão do análise de sentimento](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c9) agora está disponível para visualização pública. Ele fornece melhorias significativas na precisão e nos detalhes da categorização e da Pontuação de texto da API.
+A [próxima versão do análise de sentimento](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) agora está disponível para visualização pública. Ele fornece melhorias significativas na precisão e nos detalhes da categorização e da Pontuação de texto da API.
 
 > [!NOTE]
 > * O formato de solicitação e [os limites de dados](../overview.md#data-limits) do análise de sentimento v3 são os mesmos da versão anterior.
@@ -276,7 +276,7 @@ Neste artigo, você aprendeu os conceitos e o fluxo de trabalho para análise de
 + A solicitação POST é para um ponto de extremidade `/sentiment` usando uma [chave de acesso personalizada e um ponto de extremidade](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para sua assinatura.
 + A saída de resposta, que consiste em uma pontuação de sentimentos para cada ID do documento, pode ser transmitida para qualquer aplicativo que aceite JSON. Aplicativos de exemplo incluem Excel e Power BI, para citar alguns.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
  [Perguntas](../text-analytics-resource-faq.md) frequentes [sobre análise de texto visão geral](../overview.md)</br>
  [Página de produto da Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759712)

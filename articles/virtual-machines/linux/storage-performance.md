@@ -1,5 +1,5 @@
 ---
-title: Otimizar o desempenho nas máquinas virtuais da série Lsv2 do Azure – armazenamento | Microsoft Docs
+title: Otimizar o desempenho nas máquinas virtuais da série Lsv2 do Azure – armazenamento
 description: Saiba como otimizar o desempenho da sua solução nas máquinas virtuais da série Lsv2.
 services: virtual-machines-linux
 author: laurenhughes
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: ea64a4274eda947aebf0f693657c17a120bec560
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8d99f63ae084b4f1dae3c0125420eaecf5655e2d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081792"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034759"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais da série Lsv2
 
@@ -37,7 +37,7 @@ As VMs da série Lsv2 usam processadores de servidor AMD EYPC™ com base na mic
 
 ## <a name="tips-to-maximize-performance"></a>Dicas para maximizar o desempenho
 
-* Se você estiver carregando um GuestOS Linux personalizado para sua carga de trabalho, observe que a rede acelerada estará desativada por padrão. Se você pretende habilitar a rede acelerada, habilite-a no momento da criação da VM para obter o melhor desempenho.
+* Se você estiver carregando um GuestOS Linux personalizado para sua carga de trabalho, observe que a rede acelerada estará **desativada** por padrão. Se você pretende habilitar a rede acelerada, habilite-a no momento da criação da VM para obter o melhor desempenho.
 
 * O hardware que alimenta as VMs da série Lsv2 utiliza dispositivos NVMe com oito pares de fila de e/s (QP). Cada fila de e/s do dispositivo NVMe é, na verdade, um par: uma fila de envio e uma fila de conclusão. O driver NVMe é configurado para otimizar a utilização desses oito QPs de e/s distribuindo e/s em uma agenda round robin. Para obter o desempenho máximo, execute oito trabalhos por dispositivo para fazer a correspondência.
 
@@ -45,7 +45,7 @@ As VMs da série Lsv2 usam processadores de servidor AMD EYPC™ com base na mic
 
 * Os usuários do Lsv2 não devem confiar nas informações NUMA do dispositivo (todas as 0) relatadas de dentro da VM para unidades de dados para decidir a afinidade NUMA para seus aplicativos. A maneira recomendada para melhor desempenho é distribuir cargas de trabalho entre CPUs, se possível.
 
-* A profundidade máxima de fila com suporte por par de filas de e/s para o dispositivo NVMe de VM Lsv2 é 1024 (vs. Limite do Amazon i3 QD 32). Os usuários do Lsv2 devem limitar suas cargas de trabalho de benchmark (sintéticas) para a profundidade da fila 1024 ou inferior para evitar o disparo de condições completas da fila, o que pode reduzir o desempenho.
+* A profundidade máxima de fila com suporte por par de filas de e/s para o dispositivo de Lsv2 VM NVMe é 1024 (vs. Amazon i3 QD 32 limite). Os usuários do Lsv2 devem limitar suas cargas de trabalho de benchmark (sintéticas) para a profundidade da fila 1024 ou inferior para evitar o disparo de condições completas da fila, o que pode reduzir o desempenho.
 
 ## <a name="utilizing-local-nvme-storage"></a>Utilizando o armazenamento de NVMe local
 
@@ -93,11 +93,11 @@ Para saber mais sobre as opções de backup de dados no armazenamento local, con
 * **Uma única falha de disco de NVMe fará com que todas as VMs no host falhem?**  
    Se uma falha de disco for detectada no nó de hardware, o hardware estará em um estado de falha. Quando isso ocorre, todas as VMs no nó são automaticamente desalocadas e movidas para um nó íntegro. Para VMs da série Lsv2, isso significa que os dados do cliente no nó com falha também serão apagados com segurança e precisarão ser recriados pelo cliente no novo nó. Conforme observado, antes que a migração ao vivo se torne disponível no Lsv2, os dados no nó com falha serão movidos proativamente com as VMs à medida que forem transferidas para outro nó.
 
-* **É necessário fazer ajustes no rq_affinity para obter o desempenho?**  
-   A configuração rq_affinity é um pequeno ajuste ao usar as operações máximas de entrada/saída por segundo (IOPS) absolutas. Depois que todo o resto estiver funcionando bem, tente definir rq_affinity como 0 para ver se ele faz uma diferença.
+* **É necessário fazer ajustes para rq_affinity o desempenho?**  
+   A configuração de rq_affinity é um ajuste secundário ao usar o máximo de operações de entrada/saída absolutas por segundo (IOPS). Depois que tudo estiver funcionando bem, tente definir rq_affinity como 0 para ver se isso faz diferença.
 
 * **Preciso alterar as configurações de blk_mq?**  
-   RHEL/CentOS 7. x usa o BLK-MQ automaticamente para os dispositivos NVMe. Não são necessárias alterações de configuração ou configurações. A configuração scsi_mod. Use _blk_mq é somente para SCSI e foi usada durante a versão prévia do Lsv2 porque os dispositivos NVMe estavam visíveis nas VMs convidadas como dispositivos SCSI. Atualmente, os dispositivos NVMe são visíveis como dispositivos NVMe, portanto, a configuração SCSI BLK-MQ é irrelevante.
+   RHEL/CentOS 7. x usa o BLK-MQ automaticamente para os dispositivos NVMe. Não são necessárias alterações de configuração ou configurações. A configuração scsi_mod. use_blk_mq é apenas para SCSI e foi usada durante a visualização do Lsv2 porque os dispositivos NVMe estavam visíveis nas VMs convidadas como dispositivos SCSI. Atualmente, os dispositivos NVMe são visíveis como dispositivos NVMe, portanto, a configuração SCSI BLK-MQ é irrelevante.
 
 * **Preciso alterar "fio"?**  
    Para obter o máximo de IOPS com uma ferramenta de medição de desempenho como ' fio ' nos tamanhos de VM L64v2 e L80v2, defina "rq_affinity" como 0 em cada dispositivo NVMe.  Por exemplo, essa linha de comando definirá "rq_affinity" como zero para todos os 10 dispositivos NVMe em uma VM L80v2:
@@ -106,7 +106,7 @@ Para saber mais sobre as opções de backup de dados no armazenamento local, con
    for i in `seq 0 9`; do echo 0 >/sys/block/nvme${i}n1/queue/rq_affinity; done
    ```
 
-   Observe também que o melhor desempenho é obtido quando a e/s é feita diretamente para cada um dos dispositivos de NVMe brutos sem particionamento, nenhum sistema de arquivos, nenhuma configuração de RAID 0, etc. Antes de iniciar uma sessão de teste, verifique se a configuração está em um estado novo/limpo `blkdiscard` conhecido executando em cada um dos dispositivos NVMe.
+   Observe também que o melhor desempenho é obtido quando a e/s é feita diretamente para cada um dos dispositivos de NVMe brutos sem particionamento, nenhum sistema de arquivos, nenhuma configuração de RAID 0, etc. Antes de iniciar uma sessão de teste, verifique se a configuração está em um estado novo/limpo conhecido executando `blkdiscard` em cada um dos dispositivos NVMe.
    
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,5 +1,5 @@
 ---
-title: Converter o armazenamento do Azure Managed disks de Standard para Premium ou Premium para Standard | Microsoft Docs
+title: Converter o armazenamento do Azure Managed disks de Standard para Premium ou Premium para Standard
 description: Como converter o armazenamento do Azure Managed disks de Standard para Premium ou Premium para Standard usando o CLI do Azure.
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 59293ac300b6774b55d3909773b110f14bb43119
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: abd3c7112a70850d137f77d28e83c60916a96ea3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696085"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036627"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Converter o armazenamento do Azure Managed disks de Standard para Premium ou Premium para Standard
 
-Há quatro tipos de disco de discos gerenciados do Azure: Azure ultra SSDs (visualização), SSD Premium, SSD padrão e HDD Standard. Você pode alternar entre os três tipos de disco de GA (SSD Premium, SSD padrão e HDD padrão) com base em suas necessidades de desempenho. Você ainda não é capaz de mudar de ou para um ultra SSD, você deve implantar um novo.
+Há quatro tipos de disco de discos gerenciados do Azure: ultra SSDs do Azure (visualização), SSD Premium, SSD padrão e HDD padrão. Você pode alternar entre os três tipos de disco de GA (SSD Premium, SSD padrão e HDD padrão) com base em suas necessidades de desempenho. Você ainda não é capaz de mudar de ou para um ultra SSD, você deve implantar um novo.
 
 Não há suporte para essa funcionalidade em discos não gerenciados. Mas você pode [converter facilmente um disco não gerenciado em um disco gerenciado](convert-unmanaged-to-managed-disks.md) para poder alternar entre tipos de disco.
 
@@ -131,7 +131,7 @@ az vm start --ids $vmId
 
 Siga estes passos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione a VM na lista de **máquinas virtuais**.
 3. Se a VM não estiver parada, selecione **parar** na parte superior do painel **visão geral** da VM e aguarde a interrupção da VM.
 4. No painel da VM, selecione **discos** no menu.
@@ -142,6 +142,6 @@ Siga estes passos.
 
 A atualização do tipo de disco é instantânea. Você pode reiniciar a VM após a conversão.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Faça uma cópia somente leitura de uma VM usando instantâneos [](snapshot-copy-managed-disk.md).
+Faça uma cópia somente leitura de uma VM usando [instantâneos](snapshot-copy-managed-disk.md).

@@ -1,5 +1,5 @@
 ---
-title: Configurar o LVM em uma máquina virtual que executa o Linux | Microsoft Docs
+title: Configurar o LVM em uma máquina virtual que executa o Linux
 description: Saiba como configurar o LVM no Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: szark
 ms.subservice: disks
-ms.openlocfilehash: 1ab545edf9b45e37082509452a858a154b361251
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f2774f0037d2655071b605c0cbcdf8122e66f6e7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083822"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036671"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Configurar o LVM em uma VM do Linux no Azure
 Este documento explicará como configurar o LVM (Gerenciador de volumes lógicos) em sua máquina virtual do Azure. O LVM pode ser usado no disco do sistema operacional ou nos discos de dados em VMs do Azure, no entanto, por padrão, a maioria das imagens de nuvem não terá o LVM configurado no disco do sistema operacional. As etapas a seguir se concentrarão na configuração do LVM para seus discos de dados.
@@ -66,7 +66,7 @@ Normalmente, você desejará começar com dois ou mais discos de dados vazios ao
     ```
 
 ## <a name="configure-lvm"></a>Configurar LVM
-Neste guia, vamos supor que você tenha anexado três discos de dados, aos `/dev/sdc` `/dev/sdd` quais vamos nos referir e `/dev/sde`. Esses caminhos podem não corresponder aos nomes de caminho de disco em sua VM. Você pode executar '`sudo fdisk -l`' ou um comando semelhante para listar os discos disponíveis.
+Neste guia, vamos supor que você tenha anexado três discos de dados, aos quais vamos nos referir como `/dev/sdc`, `/dev/sdd` e `/dev/sde`. Esses caminhos podem não corresponder aos nomes de caminho de disco em sua VM. Você pode executar '`sudo fdisk -l`' ou um comando semelhante para listar os discos disponíveis.
 
 1. Preparar os volumes físicos:
 
@@ -77,7 +77,7 @@ Neste guia, vamos supor que você tenha anexado três discos de dados, aos `/dev
     Physical volume "/dev/sde" successfully created
     ```
 
-2. Crie um grupo de volumes. Neste exemplo, estamos chamando o grupo `data-vg01`de volumes:
+2. Crie um grupo de volumes. Neste exemplo, estamos chamando o grupo de volumes `data-vg01`:
 
     ```bash    
     sudo vgcreate data-vg01 /dev/sd[cde]
@@ -98,11 +98,11 @@ Neste guia, vamos supor que você tenha anexado três discos de dados, aos `/dev
     ```
    
    > [!NOTE]
-   > Com o uso `-t ext3` de SLES11 em vez de ext4. O SLES11 só dá suporte ao acesso somente leitura a sistemas de ext4.
+   > Com SLES11, use `-t ext3` em vez de ext4. O SLES11 só dá suporte ao acesso somente leitura a sistemas de ext4.
 
 ## <a name="add-the-new-file-system-to-etcfstab"></a>Adicionar o novo sistema de arquivos a/etc/fstab
 > [!IMPORTANT]
-> A edição inadequada `/etc/fstab` do arquivo pode resultar em um sistema não inicializável. Se não tiver certeza, consulte a documentação da distribuição para obter informações sobre como editar corretamente esse arquivo. Também é recomendável que um backup do `/etc/fstab` arquivo seja criado antes da edição.
+> A edição inadequada do arquivo de `/etc/fstab` pode resultar em um sistema não inicializável. Se não tiver certeza, consulte a documentação da distribuição para obter informações sobre como editar corretamente esse arquivo. Também é recomendável que um backup do arquivo de `/etc/fstab` seja criado antes da edição.
 
 1. Crie o ponto de montagem desejado para o novo sistema de arquivos, por exemplo:
 
@@ -124,17 +124,17 @@ Neste guia, vamos supor que você tenha anexado três discos de dados, aos `/dev
     ```bash    
     /dev/data-vg01/data-lv01  /data  ext4  defaults  0  2
     ```   
-    Em seguida, salve e `/etc/fstab`feche.
+    Em seguida, salve e feche `/etc/fstab`.
 
-4. Teste se a `/etc/fstab` entrada está correta:
+4. Teste se a entrada de `/etc/fstab` está correta:
 
     ```bash    
     sudo mount -a
     ```
 
-    Se esse comando resultar em uma mensagem de erro, verifique a sintaxe `/etc/fstab` no arquivo.
+    Se esse comando resultar em uma mensagem de erro, verifique a sintaxe no arquivo `/etc/fstab`.
    
-    Em seguida, `mount` execute o comando para garantir que o sistema de arquivos esteja montado:
+    Em seguida, execute o comando `mount` para garantir que o sistema de arquivos esteja montado:
 
     ```bash    
     mount
@@ -142,9 +142,9 @@ Neste guia, vamos supor que você tenha anexado três discos de dados, aos `/dev
     /dev/mapper/data--vg01-data--lv01 on /data type ext4 (rw)
     ```
 
-5. Adicional Parâmetros de inicialização FailSafe em`/etc/fstab`
+5. Adicional Parâmetros de inicialização FailSafe no `/etc/fstab`
    
-    Muitas distribuições incluem os parâmetros `nobootwait` de `nofail` montagem ou que `/etc/fstab` podem ser adicionados ao arquivo. Esses parâmetros permitem falhas durante a montagem de um sistema de arquivos específico e permitem que o sistema Linux continue a inicialização mesmo que não seja possível montar corretamente o sistema de arquivos RAID. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
+    Muitas distribuições incluem os parâmetros de montagem `nobootwait` ou `nofail` que podem ser adicionados ao arquivo `/etc/fstab`. Esses parâmetros permitem falhas durante a montagem de um sistema de arquivos específico e permitem que o sistema Linux continue a inicialização mesmo que não seja possível montar corretamente o sistema de arquivos RAID. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
    
     Exemplo (Ubuntu):
 
@@ -157,13 +157,13 @@ Alguns kernels do Linux dão suporte a operações de corte/desmapeamento para d
 
 Há duas maneiras de habilitar o suporte a corte em sua VM Linux. Como de costume, consulte sua distribuição para obter a abordagem recomendada:
 
-- Use a `discard` opção de montagem `/etc/fstab`em, por exemplo:
+- Use a opção de montagem `discard` em `/etc/fstab`, por exemplo:
 
     ```bash 
     /dev/data-vg01/data-lv01  /data  ext4  defaults,discard  0  2
     ```
 
-- Em alguns casos, `discard` a opção pode ter implicações de desempenho. Como alternativa, você pode executar o `fstrim` comando manualmente na linha de comando ou adicioná-lo ao crontab para ser executado regularmente:
+- Em alguns casos, a opção `discard` pode ter implicações de desempenho. Como alternativa, você pode executar o comando `fstrim` manualmente na linha de comando ou adicioná-lo ao crontab para ser executado regularmente:
 
     **Ubuntu**
 

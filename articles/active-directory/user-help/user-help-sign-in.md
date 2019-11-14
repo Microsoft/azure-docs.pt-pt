@@ -1,5 +1,5 @@
 ---
-title: Entrar com a verificação em duas etapas ou informações de segurança-Azure Active Directory | Microsoft Docs
+title: Entrar usando suas informações de autenticação de identidade-Azure AD
 description: Saiba mais sobre como entrar usando os vários métodos de verificação de identidade em informações de segurança.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.date: 07/18/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b20ea1131ceda0527ed35d1a1082d05f25da6bac
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1c79e82680ae81137ee4164e88e62235f934565a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382280"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028516"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Entrar usando a verificação em duas etapas ou informações de segurança
 
@@ -95,6 +95,6 @@ Se, por alguma razão, você não conseguir usar seu método de entrada primári
 
 - Saiba mais sobre a verificação em duas etapas no artigo [visão geral da verificação em duas etapas](user-help-two-step-verification-overview.md) .
 
-- Redefinir sua senha se você a tiver perdido ou esquecido, no portal de redefinição de [senha](https://passwordreset.microsoftonline.com/)
+- Redefinir sua senha se você a tiver perdido ou esquecido, no [portal de redefinição de senha](https://passwordreset.microsoftonline.com/)
 
 - Obtenha dicas de solução de problemas e ajuda para problemas de conexão no artigo [não é possível entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) .

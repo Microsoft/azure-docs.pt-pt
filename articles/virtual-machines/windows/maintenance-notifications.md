@@ -1,5 +1,5 @@
 ---
-title: Tratamento de notificações de manutenção para VMs do Windows no Azure | Microsoft Docs
+title: Tratamento de notificações de manutenção para VMs do Windows no Azure
 description: Exibir notificações de manutenção para máquinas virtuais do Windows em execução no Azure e iniciar a manutenção de autoatendimento.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: 2e7f51ecb948764f6ac4c3e7a52dc14ef5d00741
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6e269e9b21fe16a1d77b4e1f714517f91fa531d4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749365"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039198"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Lidando com notificações de manutenção planejada para máquinas virtuais do Windows
 

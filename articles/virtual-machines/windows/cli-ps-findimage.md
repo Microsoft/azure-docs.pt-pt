@@ -1,5 +1,5 @@
 ---
-title: Selecionar imagens de VM do Windows no Azure | Microsoft Docs
+title: Selecionar imagens de VM do Windows no Azure
 description: Use Azure PowerShell para determinar o editor, a oferta, a SKU e a versão das imagens de VM do Marketplace.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 32264fc6c58dd1cb6c1514af1c07391ab0e9193d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2388b51c8103b6bcbae0c32d3c4d78a176caf282
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749579"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039542"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Localizar imagens de VM do Windows no Azure Marketplace com Azure PowerShell
 
@@ -35,14 +35,14 @@ Você também pode procurar imagens e ofertas disponíveis usando a vitrine do [
 
 Esta tabela mostra um subconjunto de SKUs disponíveis para os editores e ofertas indicadas.
 
-| Publicador | Oferta | SKU |
+| Publicador | Oferta | Sku |
 |:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2019-datacenter |
 | MicrosoftWindowsServer |WindowsServer |2019-datacenter-Core |
-| MicrosoftWindowsServer |WindowsServer |2019-datacenter-com-contêineres |
+| MicrosoftWindowsServer |WindowsServer |2019-Datacenter-with-Containers |
 | MicrosoftWindowsServer |WindowsServer |2016-datacenter |
-| MicrosoftWindowsServer |WindowsServer |2016-Datacenter-servidor-núcleo |
-| MicrosoftWindowsServer |WindowsServer |2016-datacenter-com-contêineres |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter-with-Containers |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |

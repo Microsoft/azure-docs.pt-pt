@@ -1,5 +1,5 @@
 ---
-title: Criar FQDN para uma VM do Linux no portal do Azure | Microsoft Docs
+title: Criar FQDN para uma VM do Linux no portal do Azure
 description: Saiba como criar um nome de domínio totalmente qualificado, ou FQDN, para uma máquina virtual baseada no Resource Manager no portal do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7309f4be43c6b653f261e5de5fbe3e638e83294
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3d30f5a60bf19e9185d992b973414f58942f9954
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082432"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035300"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Criar um nome de domínio totalmente qualificado no portal do Azure para uma VM do Linux
 
@@ -33,7 +33,7 @@ Este artigo pressupõe que você já criou uma VM. Se necessário, você pode [c
 
 Agora você pode se conectar remotamente à VM usando esse nome DNS, como com `ssh azureuser@mydns.westus.cloudapp.azure.com`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora que sua VM tem um IP público e um nome DNS, você pode implantar estruturas de aplicativo ou serviços comuns, como Nginx, MongoDB, Docker, etc.
 
 Você também pode ler mais sobre como [usar o Gerenciador de recursos](../../azure-resource-manager/resource-group-overview.md) para obter dicas sobre como criar suas implantações do Azure.

@@ -1,6 +1,6 @@
 ---
-title: Exemplos do Azure PowerShell para o Gestor de tráfego | Documentos da Microsoft
-description: Exemplos do Azure PowerShell para o Gestor de tráfego
+title: Exemplos de Azure PowerShell para o Gerenciador de tráfego | Microsoft Docs
+description: Com este exemplo, use Azure PowerShell para implantar e configurar o Gerenciador de tráfego do Azure.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: asudbring
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: allensu
-ms.openlocfilehash: b82cfe77ceead51dd78fc595eb0d504d91c7780d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0ad345e8fb72c0068a507318c0954a0f9512188e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051016"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037216"
 ---
-# <a name="azure-powershell-samples-for-traffic-manager"></a>Exemplos do Azure PowerShell para o Gestor de tráfego
+# <a name="azure-powershell-samples-for-traffic-manager"></a>Exemplos de Azure PowerShell para o Gerenciador de tráfego
 
-A tabela seguinte inclui ligações para scripts de Gestor de tráfego criados com o Azure PowerShell.
+A tabela a seguir inclui links para scripts do Gerenciador de tráfego criados usando Azure PowerShell.
 
-|Cargo  |Descrição |
+|Título  |Descrição |
 |---------|---------|
-|[Direcionar o tráfego entre várias regiões para aplicações de elevada disponibilidade](./scripts/traffic-manager-powershell-websites-high-availability.md)   |    Cria dois planos de serviço de aplicações, duas aplicações web, um perfil do Gestor de tráfego e dois pontos de extremidade de Gestor de tráfego.     |
+|[Direcionar o tráfego entre várias regiões para alta disponibilidade de aplicativos](./scripts/traffic-manager-powershell-websites-high-availability.md)   |    Cria dois planos do serviço de aplicativo, dois aplicativos Web, um perfil do Gerenciador de tráfego e dois pontos de extremidade do Gerenciador de tráfego.     |
 |    |         |
 

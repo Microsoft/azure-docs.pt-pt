@@ -1,6 +1,6 @@
 ---
-title: Copiar uma VM do Linux com a CLI do Azure | Documentos da Microsoft
-description: Saiba como criar uma cópia da sua VM do Linux do Azure com a CLI do Azure e o Managed Disks.
+title: Copiar uma VM do Linux usando CLI do Azure
+description: Saiba como criar uma cópia de sua VM Linux do Azure usando CLI do Azure e Managed Disks.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,31 +14,31 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 5a77152aea00ca094a78dc0173d48bc8e276cce5
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: a6a8b766efdc781df1fea29da81dc48090875ad7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668064"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036579"
 ---
-# <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Criar uma cópia de uma VM do Linux com a CLI do Azure e o Managed Disks
+# <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Criar uma cópia de uma VM do Linux usando CLI do Azure e Managed Disks
 
-Este artigo mostra-lhe como criar uma cópia da sua máquina virtual do Azure (VM) em execução no Linux com a CLI do Azure e o modelo de implementação Azure Resource Manager. 
+Este artigo mostra como criar uma cópia de sua VM (máquina virtual) do Azure executando o Linux usando o CLI do Azure e o modelo de implantação de Azure Resource Manager. 
 
-Também pode [carregar e criar uma VM a partir de um VHD](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Você também pode [carregar e criar uma VM de um VHD](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 -   Instale a [CLI do Azure](/cli/azure/install-az-cli2).
 
--   Iniciar sessão numa conta do Azure com [início de sessão az](/cli/azure/reference-index#az-login).
+-   Entre em uma conta do Azure com [AZ login](/cli/azure/reference-index#az-login).
 
--   Tem uma VM do Azure para utilizar como origem para obter uma cópia.
+-   Ter uma VM do Azure para usar como a origem da sua cópia.
 
 ## <a name="stop-the-source-vm"></a>Parar a VM de origem
 
-Desaloque a VM de origem, utilizando [az vm deallocate](/cli/azure/vm#az-vm-deallocate).
-O exemplo seguinte desaloca a VM com o nome *myVM* no grupo de recursos *myResourceGroup*:
+Desaloque a VM de origem usando [AZ VM DEALLOCATE](/cli/azure/vm#az-vm-deallocate).
+O exemplo a seguir Desaloca a VM chamada *myVM* no grupo de recursos *MyResource*Group:
 
 ```azurecli
 az vm deallocate \
@@ -48,11 +48,11 @@ az vm deallocate \
 
 ## <a name="copy-the-source-vm"></a>Copiar a VM de origem
 
-Para copiar uma VM, crie uma cópia do disco rígido virtual subjacente. Este processo cria um disco de rígido virtual (VHD) especializado, como um disco gerido, que contém a mesma configuração e definições da VM de origem.
+Para copiar uma VM, você cria uma cópia do disco rígido virtual subjacente. Esse processo cria um VHD (disco rígido virtual) especializado como um disco gerenciado que contém a mesma configuração e configurações que a VM de origem.
 
 Para mais informações sobre Managed Disks do Azure, veja [Azure Managed Disks Overview (Descrição geral dos Managed Disks do Azure)](../windows/managed-disks-overview.md). 
 
-1.  Lista de cada VM e o nome do seu sistema operativo do disco com [lista de VMS de az](/cli/azure/vm#az-vm-list). O exemplo seguinte lista todas as VMs no grupo de recursos chamado *myResourceGroup*:
+1.  Liste cada VM e o nome de seu disco do sistema operacional com [AZ VM List](/cli/azure/vm#az-vm-list). O exemplo a seguir lista todas as VMs no grupo de recursos chamado *MyResource*Group:
     
     ```azurecli
     az vm list -g myResourceGroup \
@@ -68,14 +68,14 @@ Para mais informações sobre Managed Disks do Azure, veja [Azure Managed Disks 
     myVM    myDisk
     ```
 
-1.  Copie o disco ao criar um novo disco gerido e utilizando [criar disco de az](/cli/azure/disk#az-disk-create). O exemplo seguinte cria um disco chamado *myCopiedDisk* do disco gerido com o nome *myDisk*:
+1.  Copie o disco criando um novo disco gerenciado e usando [AZ Disk Create](/cli/azure/disk#az-disk-create). O exemplo a seguir cria um disco chamado *myCopiedDisk* do disco gerenciado chamado *MyDisk*:
 
     ```azurecli
     az disk create --resource-group myResourceGroup \
          --name myCopiedDisk --source myDisk
     ``` 
 
-1.  Verifique se os discos geridos agora no grupo de recursos, utilizando [lista de disco de az](/cli/azure/disk#az-disk-list). O exemplo seguinte lista os discos geridos no grupo de recursos com o nome *myResourceGroup*:
+1.  Verifique os discos gerenciados agora em seu grupo de recursos usando [AZ Disk List](/cli/azure/disk#az-disk-list). O exemplo a seguir lista os discos gerenciados no grupo de recursos chamado *MyResource*Group:
 
     ```azurecli
     az disk list --resource-group myResourceGroup --output table
@@ -84,13 +84,13 @@ Para mais informações sobre Managed Disks do Azure, veja [Azure Managed Disks 
 
 ## <a name="set-up-a-virtual-network"></a>Configurar uma rede virtual
 
-Os seguintes passos opcionais criam uma nova rede virtual, sub-rede, endereço IP público e cartão de interface de rede virtual (NIC).
+As etapas opcionais a seguir criam uma nova rede virtual, sub-rede, endereço IP público e NIC (placa de interface de rede virtual).
 
-Se estiver a copiar uma VM para fins de implementações adicionais de resolução de problemas, pode não querer utilizar uma VM numa rede virtual existente.
+Se você estiver copiando uma VM para fins de solução de problemas ou implantações adicionais, talvez não queira usar uma VM em uma rede virtual existente.
 
-Se quiser criar uma infraestrutura de rede virtual para as suas VMs copiados, siga os passos seguintes. Se não quiser criar uma rede virtual, avance para o [criar uma VM](#create-a-vm).
+Se você quiser criar uma infraestrutura de rede virtual para suas VMs copiadas, siga as próximas etapas. Se você não quiser criar uma rede virtual, pule para [criar uma VM](#create-a-vm).
 
-1.  Criar a rede virtual, utilizando [vnet de rede de az criar](/cli/azure/network/vnet#az-network-vnet-create). O exemplo seguinte cria uma rede virtual denominada *myVnet* e uma sub-rede denominada *mySubnet*:
+1.  Crie a rede virtual usando [AZ Network vnet Create](/cli/azure/network/vnet#az-network-vnet-create). O exemplo a seguir cria uma rede virtual chamada *myVnet* e uma sub-rede chamada *mysubnet*:
 
     ```azurecli
     az network vnet create --resource-group myResourceGroup \
@@ -100,7 +100,7 @@ Se quiser criar uma infraestrutura de rede virtual para as suas VMs copiados, si
         --subnet-prefix 192.168.1.0/24
     ```
 
-1.  Criar um IP público utilizando [criar a rede de az public-ip](/cli/azure/network/public-ip#az-network-public-ip-create). O exemplo seguinte cria um IP público com o nome *myPublicIP* com o nome DNS *mypublicdns*. (Como o nome DNS tem de ser exclusivo, fornecer um nome exclusivo.)
+1.  Crie um IP público usando [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create). O exemplo a seguir cria um IP público chamado *myPublicIP* com o nome DNS de *mypublicdns*. (Como o nome DNS deve ser exclusivo, forneça um nome exclusivo.)
 
     ```azurecli
     az network public-ip create --resource-group myResourceGroup \
@@ -108,8 +108,8 @@ Se quiser criar uma infraestrutura de rede virtual para as suas VMs copiados, si
         --allocation-method static --idle-timeout 4
     ```
 
-1.  Criar com a NIC [nic da rede de az criar](/cli/azure/network/nic#az-network-nic-create).
-    O exemplo seguinte cria um NIC com o nome *myNic* que está anexada a *mySubnet* sub-rede:
+1.  Crie a NIC usando [AZ Network NIC Create](/cli/azure/network/nic#az-network-nic-create).
+    O exemplo a seguir cria uma NIC chamada *myNic* que está anexada à sub-rede *mysubnet* :
 
     ```azurecli
     az network nic create --resource-group myResourceGroup \
@@ -120,9 +120,9 @@ Se quiser criar uma infraestrutura de rede virtual para as suas VMs copiados, si
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
-Criar uma VM utilizando [az vm criar](/cli/azure/vm#az-vm-create).
+Crie uma VM usando [AZ VM Create](/cli/azure/vm#az-vm-create).
 
-Especifique o disco gerido copiado para utilizar como o disco do SO (`--attach-os-disk`), da seguinte forma:
+Especifique o disco gerenciado copiado para usar como o disco do sistema operacional (`--attach-os-disk`), da seguinte maneira:
 
 ```azurecli
 az vm create --resource-group myResourceGroup \
@@ -131,6 +131,6 @@ az vm create --resource-group myResourceGroup \
     --attach-os-disk myCopiedDisk
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber como utilizar a CLI do Azure para gerir a sua nova VM, veja [comandos da CLI do Azure para o Azure Resource Manager](../azure-cli-arm-commands.md).
+Para saber como usar CLI do Azure para gerenciar sua nova VM, consulte [CLI do Azure comandos para o Azure Resource Manager](../azure-cli-arm-commands.md).

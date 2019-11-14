@@ -1,5 +1,5 @@
 ---
-title: Introdução com Cloud Foundry em Microsoft Azure | Microsoft Docs
+title: Introdução com Cloud Foundry no Microsoft Azure
 description: Executar Cloud Foundry OSS ou Pivotal no Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: d91ad0bea7f79dd67edd4f0bb9e06a37a0f86bea
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 447550d2f6bca570869c9fa93724e4dbaba02132
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091929"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036811"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry no Azure
 
@@ -63,7 +63,7 @@ Se você estiver usando a Cloud Foundry dinâmica, o Service Broker também esta
 
 Cloud Foundry é adequado para o desenvolvimento de software ágil, incluindo o uso de CI (integração contínua) e o CD (entrega contínua). Se você usar Azure DevOps Services para gerenciar seus projetos e desejar configurar um pipeline de CI/CD direcionado Cloud Foundry, você poderá usar a [extensão de Build de Azure DevOps Services Cloud Foundry](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). O plug-in torna simples configurar e automatizar implantações para Cloud Foundry, seja em execução no Azure ou em outro ambiente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Implantar Cloud Foundry dinâmicos do Azure Marketplace](https://azure.microsoft.com/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
 - [Implantar um aplicativo para Cloud Foundry no Azure](./cloudfoundry-deploy-your-first-app.md)

@@ -1,5 +1,5 @@
 ---
-title: Criar e carregar um VHD de Red Hat Enterprise Linux para uso no Azure | Microsoft Docs
+title: Criar e carregar um VHD Red Hat Enterprise Linux para uso no Azure
 description: Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contém um sistema operacional Red Hat Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: szark
-ms.openlocfilehash: aef25e79d99c6c7434123df76e85e605b22fde51
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7c03271dc5fda5cee0b210370a965a45a6a7ef42
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082255"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035164"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em Red Hat para o Azure
 Neste artigo, você aprenderá a preparar uma máquina virtual Red Hat Enterprise Linux (RHEL) para uso no Azure. As versões do RHEL abordadas neste artigo são 6.7 + e 7.1 +. Os hipervisores para preparação abordados neste artigo são Hyper-V, máquina virtual baseada em kernel (KVM) e VMware. Para obter mais informações sobre os requisitos de qualificação para participar do programa de acesso à nuvem do Red Hat, consulte o [site de acesso à nuvem do Red Hat](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e [executando o RHEL no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Para obter maneiras de automatizar a criação de imagens RHEL, consulte o [Construtor de imagens do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
@@ -49,12 +49,12 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
    
         # sudo rpm -e --nodeps NetworkManager
 
-1. Crie ou edite `/etc/sysconfig/network` o arquivo e adicione o seguinte texto:
+1. Crie ou edite o arquivo de `/etc/sysconfig/network` e adicione o seguinte texto:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-1. Crie ou edite `/etc/sysconfig/network-scripts/ifcfg-eth0` o arquivo e adicione o seguinte texto:
+1. Crie ou edite o arquivo de `/etc/sysconfig/network-scripts/ifcfg-eth0` e adicione o seguinte texto:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -92,10 +92,10 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
     
         rhgb quiet crashkernel=auto
     
-    A inicialização gráfica e silenciosa não são úteis em um ambiente de nuvem onde queremos que todos os logs sejam enviados para a porta serial.  Você pode deixar a `crashkernel` opção configurada se desejar. Observe que esse parâmetro reduz a quantidade de memória disponível na máquina virtual por 128 MB ou mais. Essa configuração pode ser problemática em tamanhos menores de máquina virtual.
+    A inicialização gráfica e silenciosa não são úteis em um ambiente de nuvem onde queremos que todos os logs sejam enviados para a porta serial.  Você pode deixar a opção `crashkernel` configurada se desejar. Observe que esse parâmetro reduz a quantidade de memória disponível na máquina virtual por 128 MB ou mais. Essa configuração pode ser problemática em tamanhos menores de máquina virtual.
 
 
-1. Verifique se o servidor SSH (Secure Shell) está instalado e configurado para iniciar no momento da inicialização, que geralmente é o padrão. Modifique/etc/ssh/sshd_config para incluir a seguinte linha:
+1. Verifique se o servidor SSH (Secure Shell) está instalado e configurado para iniciar no momento da inicialização, que geralmente é o padrão. Modifique sshd_config/etc/ssh/para incluir a seguinte linha:
 
         ClientAliveInterval 180
 
@@ -140,12 +140,12 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
 
 1. Clique em **conectar** para abrir uma janela de console para a máquina virtual.
 
-1. Crie ou edite `/etc/sysconfig/network` o arquivo e adicione o seguinte texto:
+1. Crie ou edite o arquivo de `/etc/sysconfig/network` e adicione o seguinte texto:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-1. Crie ou edite `/etc/sysconfig/network-scripts/ifcfg-eth0` o arquivo e adicione o seguinte texto:
+1. Crie ou edite o arquivo de `/etc/sysconfig/network-scripts/ifcfg-eth0` e adicione o seguinte texto:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -164,7 +164,7 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Modifique a linha de inicialização do kernel em sua configuração do grub para incluir parâmetros de kernel adicionais para o Azure. Para fazer essa modificação, abra `/etc/default/grub` em um editor de texto e edite `GRUB_CMDLINE_LINUX` o parâmetro. Por exemplo:
+1. Modifique a linha de inicialização do kernel em sua configuração do grub para incluir parâmetros de kernel adicionais para o Azure. Para fazer essa modificação, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -172,7 +172,7 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
    
         rhgb quiet crashkernel=auto
    
-    A inicialização gráfica e silenciosa não são úteis em um ambiente de nuvem onde queremos que todos os logs sejam enviados para a porta serial. Você pode deixar a `crashkernel` opção configurada se desejar. Observe que esse parâmetro reduz a quantidade de memória disponível na máquina virtual em 128 MB ou mais, o que pode ser problemático em tamanhos menores de máquina virtual.
+    A inicialização gráfica e silenciosa não são úteis em um ambiente de nuvem onde queremos que todos os logs sejam enviados para a porta serial. Você pode deixar a opção `crashkernel` configurada se desejar. Observe que esse parâmetro reduz a quantidade de memória disponível na máquina virtual em 128 MB ou mais, o que pode ser problemático em tamanhos menores de máquina virtual.
 
 1. Depois de concluir a edição `/etc/default/grub`, execute o seguinte comando para recompilar a configuração do grub:
 
@@ -194,7 +194,7 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
 
 1. Não crie espaço de permuta no disco do sistema operacional.
 
-    O agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à máquina virtual depois que a máquina virtual é provisionada no Azure. Observe que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente Linux do Azure na etapa anterior, modifique os seguintes parâmetros de `/etc/waagent.conf` forma apropriada:
+    O agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à máquina virtual depois que a máquina virtual é provisionada no Azure. Observe que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente Linux do Azure na etapa anterior, modifique os seguintes parâmetros no `/etc/waagent.conf` adequadamente:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -243,12 +243,12 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
 
 1. Crie uma máquina virtual no KVM a partir da imagem do qcow2. Defina o tipo de disco como **qcow2**e defina o modelo de dispositivo de interface de rede virtual como **virtio**. Em seguida, inicie a máquina virtual e entre como raiz.
 
-1. Crie ou edite `/etc/sysconfig/network` o arquivo e adicione o seguinte texto:
+1. Crie ou edite o arquivo de `/etc/sysconfig/network` e adicione o seguinte texto:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-1. Crie ou edite `/etc/sysconfig/network-scripts/ifcfg-eth0` o arquivo e adicione o seguinte texto:
+1. Crie ou edite o arquivo de `/etc/sysconfig/network-scripts/ifcfg-eth0` e adicione o seguinte texto:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -282,7 +282,7 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
     
         rhgb quiet crashkernel=auto
     
-    A inicialização gráfica e silenciosa não são úteis em um ambiente de nuvem onde queremos que todos os logs sejam enviados para a porta serial. Você pode deixar a `crashkernel` opção configurada se desejar. Observe que esse parâmetro reduz a quantidade de memória disponível na máquina virtual em 128 MB ou mais, o que pode ser problemático em tamanhos menores de máquina virtual.
+    A inicialização gráfica e silenciosa não são úteis em um ambiente de nuvem onde queremos que todos os logs sejam enviados para a porta serial. Você pode deixar a opção `crashkernel` configurada se desejar. Observe que esse parâmetro reduz a quantidade de memória disponível na máquina virtual em 128 MB ou mais, o que pode ser problemático em tamanhos menores de máquina virtual.
 
 
 1. Adicione os módulos do Hyper-V ao initramfs:  
@@ -303,7 +303,7 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
 
         # chkconfig sshd on
 
-    Modifique/etc/ssh/sshd_config para incluir as seguintes linhas:
+    Modifique sshd_config/etc/ssh/para incluir as seguintes linhas:
 
         PasswordAuthentication yes
         ClientAliveInterval 180
@@ -394,12 +394,12 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
 
 1. Crie uma máquina virtual no KVM a partir da imagem do qcow2. Defina o tipo de disco como **qcow2**e defina o modelo de dispositivo de interface de rede virtual como **virtio**. Em seguida, inicie a máquina virtual e entre como raiz.
 
-1. Crie ou edite `/etc/sysconfig/network` o arquivo e adicione o seguinte texto:
+1. Crie ou edite o arquivo de `/etc/sysconfig/network` e adicione o seguinte texto:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-1. Crie ou edite `/etc/sysconfig/network-scripts/ifcfg-eth0` o arquivo e adicione o seguinte texto:
+1. Crie ou edite o arquivo de `/etc/sysconfig/network-scripts/ifcfg-eth0` e adicione o seguinte texto:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -418,7 +418,7 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Modifique a linha de inicialização do kernel em sua configuração do grub para incluir parâmetros de kernel adicionais para o Azure. Para fazer essa configuração, abra `/etc/default/grub` em um editor de texto e edite `GRUB_CMDLINE_LINUX` o parâmetro. Por exemplo:
+1. Modifique a linha de inicialização do kernel em sua configuração do grub para incluir parâmetros de kernel adicionais para o Azure. Para fazer essa configuração, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -426,7 +426,7 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
    
         rhgb quiet crashkernel=auto
    
-    A inicialização gráfica e silenciosa não são úteis em um ambiente de nuvem onde queremos que todos os logs sejam enviados para a porta serial. Você pode deixar a `crashkernel` opção configurada se desejar. Observe que esse parâmetro reduz a quantidade de memória disponível na máquina virtual em 128 MB ou mais, o que pode ser problemático em tamanhos menores de máquina virtual.
+    A inicialização gráfica e silenciosa não são úteis em um ambiente de nuvem onde queremos que todos os logs sejam enviados para a porta serial. Você pode deixar a opção `crashkernel` configurada se desejar. Observe que esse parâmetro reduz a quantidade de memória disponível na máquina virtual em 128 MB ou mais, o que pode ser problemático em tamanhos menores de máquina virtual.
 
 1. Depois de concluir a edição `/etc/default/grub`, execute o seguinte comando para recompilar a configuração do grub:
 
@@ -450,7 +450,7 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
 
         # systemctl enable sshd
 
-    Modifique/etc/ssh/sshd_config para incluir as seguintes linhas:
+    Modifique sshd_config/etc/ssh/para incluir as seguintes linhas:
 
         PasswordAuthentication yes
         ClientAliveInterval 180
@@ -469,7 +469,7 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
 
 1. Não crie espaço de permuta no disco do sistema operacional.
 
-    O agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à máquina virtual depois que a máquina virtual é provisionada no Azure. Observe que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente Linux do Azure na etapa anterior, modifique os seguintes parâmetros de `/etc/waagent.conf` forma apropriada:
+    O agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à máquina virtual depois que a máquina virtual é provisionada no Azure. Observe que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente Linux do Azure na etapa anterior, modifique os seguintes parâmetros no `/etc/waagent.conf` adequadamente:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -540,7 +540,7 @@ Esta seção pressupõe que você já tenha instalado uma máquina virtual RHEL 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-1. Crie ou edite `/etc/sysconfig/network-scripts/ifcfg-eth0` o arquivo e adicione o seguinte texto:
+1. Crie ou edite o arquivo de `/etc/sysconfig/network-scripts/ifcfg-eth0` e adicione o seguinte texto:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -568,7 +568,7 @@ Esta seção pressupõe que você já tenha instalado uma máquina virtual RHEL 
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-1. Modifique a linha de inicialização do kernel em sua configuração do grub para incluir parâmetros de kernel adicionais para o Azure. Para fazer isso, abra `/etc/default/grub` em um editor de texto e edite `GRUB_CMDLINE_LINUX` o parâmetro. Por exemplo:
+1. Modifique a linha de inicialização do kernel em sua configuração do grub para incluir parâmetros de kernel adicionais para o Azure. Para fazer isso, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
    
@@ -576,7 +576,7 @@ Esta seção pressupõe que você já tenha instalado uma máquina virtual RHEL 
    
         rhgb quiet crashkernel=auto
    
-    A inicialização gráfica e silenciosa não são úteis em um ambiente de nuvem onde queremos que todos os logs sejam enviados para a porta serial. Você pode deixar a `crashkernel` opção configurada se desejar. Observe que esse parâmetro reduz a quantidade de memória disponível na máquina virtual em 128 MB ou mais, o que pode ser problemático em tamanhos menores de máquina virtual.
+    A inicialização gráfica e silenciosa não são úteis em um ambiente de nuvem onde queremos que todos os logs sejam enviados para a porta serial. Você pode deixar a opção `crashkernel` configurada se desejar. Observe que esse parâmetro reduz a quantidade de memória disponível na máquina virtual em 128 MB ou mais, o que pode ser problemático em tamanhos menores de máquina virtual.
 
 1. Adicione os módulos do Hyper-V ao initramfs:
 
@@ -600,7 +600,7 @@ Esta seção pressupõe que você já tenha instalado uma máquina virtual RHEL 
 
 1. Não crie espaço de permuta no disco do sistema operacional.
 
-    O agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à máquina virtual depois que a máquina virtual é provisionada no Azure. Observe que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente Linux do Azure na etapa anterior, modifique os seguintes parâmetros de `/etc/waagent.conf` forma apropriada:
+    O agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à máquina virtual depois que a máquina virtual é provisionada no Azure. Observe que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente Linux do Azure na etapa anterior, modifique os seguintes parâmetros no `/etc/waagent.conf` adequadamente:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -652,12 +652,12 @@ Esta seção pressupõe que você já tenha instalado uma máquina virtual RHEL 
 
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-vmware"></a>Preparar uma máquina virtual RHEL 7 do VMware
-1. Crie ou edite `/etc/sysconfig/network` o arquivo e adicione o seguinte texto:
+1. Crie ou edite o arquivo de `/etc/sysconfig/network` e adicione o seguinte texto:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-1. Crie ou edite `/etc/sysconfig/network-scripts/ifcfg-eth0` o arquivo e adicione o seguinte texto:
+1. Crie ou edite o arquivo de `/etc/sysconfig/network-scripts/ifcfg-eth0` e adicione o seguinte texto:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -676,7 +676,7 @@ Esta seção pressupõe que você já tenha instalado uma máquina virtual RHEL 
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Modifique a linha de inicialização do kernel em sua configuração do grub para incluir parâmetros de kernel adicionais para o Azure. Para fazer essa modificação, abra `/etc/default/grub` em um editor de texto e edite `GRUB_CMDLINE_LINUX` o parâmetro. Por exemplo:
+1. Modifique a linha de inicialização do kernel em sua configuração do grub para incluir parâmetros de kernel adicionais para o Azure. Para fazer essa modificação, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -684,7 +684,7 @@ Esta seção pressupõe que você já tenha instalado uma máquina virtual RHEL 
    
         rhgb quiet crashkernel=auto
    
-    A inicialização gráfica e silenciosa não são úteis em um ambiente de nuvem onde queremos que todos os logs sejam enviados para a porta serial. Você pode deixar a `crashkernel` opção configurada se desejar. Observe que esse parâmetro reduz a quantidade de memória disponível na máquina virtual em 128 MB ou mais, o que pode ser problemático em tamanhos menores de máquina virtual.
+    A inicialização gráfica e silenciosa não são úteis em um ambiente de nuvem onde queremos que todos os logs sejam enviados para a porta serial. Você pode deixar a opção `crashkernel` configurada se desejar. Observe que esse parâmetro reduz a quantidade de memória disponível na máquina virtual em 128 MB ou mais, o que pode ser problemático em tamanhos menores de máquina virtual.
 
 1. Depois de concluir a edição `/etc/default/grub`, execute o seguinte comando para recompilar a configuração do grub:
 
@@ -716,7 +716,7 @@ Esta seção pressupõe que você já tenha instalado uma máquina virtual RHEL 
 
 1. Não crie espaço de permuta no disco do sistema operacional.
 
-    O agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à máquina virtual depois que a máquina virtual é provisionada no Azure. Observe que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente Linux do Azure na etapa anterior, modifique os seguintes parâmetros de `/etc/waagent.conf` forma apropriada:
+    O agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à máquina virtual depois que a máquina virtual é provisionada no Azure. Observe que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente Linux do Azure na etapa anterior, modifique os seguintes parâmetros no `/etc/waagent.conf` adequadamente:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -926,7 +926,7 @@ Recriar initramfs:
 
         # dracut -f -v
 
-Para obter mais detalhes, consulte as informações sobre a recriação de [initramfs](https://access.redhat.com/solutions/1958).
+Para obter mais detalhes, consulte as informações sobre a [recriação de initramfs](https://access.redhat.com/solutions/1958).
 
 ## <a name="next-steps"></a>Passos seguintes
 Agora você está pronto para usar seu Red Hat Enterprise Linux disco rígido virtual para criar novas máquinas virtuais no Azure. Se esta for a primeira vez que você está carregando o arquivo. vhd no Azure, consulte [criar uma VM do Linux a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).

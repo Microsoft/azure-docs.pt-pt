@@ -1,5 +1,5 @@
 ---
-title: Configurar Azure Key Vault para VMs do Linux | Microsoft Docs
+title: Configurar Azure Key Vault para VMs Linux
 description: Como configurar Key Vault para uso com uma máquina virtual Azure Resource Manager com o CLI do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: kasing
-ms.openlocfilehash: cbc8b6be09fcf4232636b580dc0c62482b83bd60
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 25ef1d43af9d37cebde4a28479010776cc148b6d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002168"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035940"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>Como configurar Key Vault para máquinas virtuais com o CLI do Azure
 
@@ -29,21 +29,21 @@ Na pilha de Azure Resource Manager, os segredos/certificados são modelados como
 Para executar essas etapas, você precisará do [CLI do Azure](/cli/azure/install-az-cli2) mais recente instalado e conectado a uma conta do Azure usando [AZ login](/cli/azure/reference-index).
 
 ## <a name="create-a-key-vault"></a>Criar um Key Vault
-Crie um cofre de chaves e atribua a política de implantação com [AZ keyvault Create](/cli/azure/keyvault). O exemplo a seguir cria um cofre de `myKeyVault` chaves chamado `myResourceGroup` no grupo de recursos:
+Crie um cofre de chaves e atribua a política de implantação com [AZ keyvault Create](/cli/azure/keyvault). O exemplo a seguir cria um cofre de chaves chamado `myKeyVault` no grupo de recursos `myResourceGroup`:
 
 ```azurecli
 az keyvault create -l westus -n myKeyVault -g myResourceGroup --enabled-for-deployment true
 ```
 
 ## <a name="update-a-key-vault-for-use-with-vms"></a>Atualizar um Key Vault para uso com VMs
-Defina a política de implantação em um cofre de chaves existente com [AZ keyvault Update](/cli/azure/keyvault). O seguinte atualiza o cofre de chaves `myKeyVault` chamado no `myResourceGroup` grupo de recursos:
+Defina a política de implantação em um cofre de chaves existente com [AZ keyvault Update](/cli/azure/keyvault). O seguinte atualiza o cofre de chaves chamado `myKeyVault` no grupo de recursos `myResourceGroup`:
 
 ```azurecli
 az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true
 ```
 
 ## <a name="use-templates-to-set-up-key-vault"></a>Usar modelos para configurar Key Vault
-Ao usar um modelo, você precisa definir a `enabledForDeployment` `true` Propriedade como para o recurso de Key Vault da seguinte maneira:
+Ao usar um modelo, você precisa definir a propriedade `enabledForDeployment` como `true` para o recurso de Key Vault da seguinte maneira:
 
 ```json
 {

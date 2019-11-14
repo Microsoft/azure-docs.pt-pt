@@ -1,5 +1,5 @@
 ---
-title: Implantar hosts dedicados do Azure usando o portal do Azure | Microsoft Docs
+title: Implantar hosts dedicados do Azure usando o portal do Azure
 description: Implante VMs em hosts dedicados usando o portal do Azure.
 services: virtual-machines-linux
 author: cynthn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 03d8b5353a2dc9840c8231978243e7f94a5bff56
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 296c43c7c1345c67cc5b83749272e56c122ee535
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700395"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036429"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-portal"></a>Pré-visualização: Implantar VMs em hosts dedicados usando o portal
+# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-portal"></a>Versão prévia: implantar VMs em hosts dedicados usando o portal
 
 Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMS). 
 
@@ -37,15 +37,15 @@ Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md
 
     ![Conta de administrador](./media/quick-create-portal/administrator-account.png)
 
-1. Em **regras** > de porta de entrada**portas públicas de entrada**, escolha **permitir portas selecionadas** e, em seguida, selecione **SSH (22)** na lista suspensa. 
-1. Na parte superior da página, selecione a guia **avançado** e, na seção **host** , selecione *myhost* Group para o **grupo** de hosts e myhost para o **host**. 
-    ![Selecionar grupo de hosts e host](./media/dedicated-hosts-portal/advanced.png)
+1. Em **regras de porta de entrada** > **portas de entrada públicas**, escolha **permitir portas selecionadas** e, em seguida, selecione **SSH (22)** na lista suspensa. 
+1. Na parte superior da página, selecione a guia **avançado** e, na seção **host** , selecione *myhost* Group para o **grupo de hosts** e *myhost* para o **host**. 
+    ![selecionar grupo de hosts e host](./media/dedicated-hosts-portal/advanced.png)
 1. Mantenha as restantes predefinições e, em seguida, selecione o botão **Rever + criar** na parte inferior da página.
 1. Quando você vir a mensagem a validação foi aprovada, selecione **criar**.
 
 Irá demorar alguns minutos até a VM ser implementada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações, consulte a visão geral dos [hosts dedicados](dedicated-hosts.md) .
 

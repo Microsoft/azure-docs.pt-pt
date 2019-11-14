@@ -1,5 +1,5 @@
 ---
-title: 'Verificar conectividade – guia de solução de problemas do ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: verificar conectividade-guia de solução de problemas'
 description: Esta página fornece instruções sobre como solucionar problemas e validar a conectividade de ponta a ponta de um circuito do ExpressRoute.
 services: expressroute
 author: rambk
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: c5001e884047fc6078faf3a8de0e45b7e30e1038
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 833e7788a5b17b12ad883f705d56f660c2f1d832
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580308"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033796"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificar a conectividade do ExpressRoute
 Este artigo ajuda você a verificar e solucionar problemas de conectividade do ExpressRoute. O ExpressRoute estende uma rede local para a nuvem da Microsoft por meio de uma conexão privada que é normalmente facilitada por um provedor de conectividade. A conectividade do ExpressRoute tradicionalmente envolve três zonas de rede distintas, da seguinte maneira:
@@ -289,7 +289,7 @@ Um exemplo de saída do comando para um emparelhamento não existente é:
     StatusCode: 400
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações ou ajuda, confira os links a seguir:
+Para obter mais informações ou ajuda, veja as ligações seguintes:
 
 - [Suporte da Microsoft][Support]
 - [Criar e modificar um circuito ExpressRoute][CreateCircuit]

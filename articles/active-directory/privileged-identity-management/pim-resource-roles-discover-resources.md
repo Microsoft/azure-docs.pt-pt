@@ -1,25 +1,25 @@
 ---
-title: Descobrir recursos do Azure para gerenciar em Azure Active Directory de Privileged Identity Management | Microsoft Docs
+title: Descobrir recursos do Azure para gerenciar no PIM – Azure AD | Microsoft Docs
 description: Saiba como descobrir recursos do Azure para gerenciar no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7e401426e1c9448caaae28648abce481f426d38
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 87da43100c7494937ddc842e0f903ba3a360959e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895694"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022895"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Descubra os recursos do Azure para gerenciar no Privileged Identity Management
 
@@ -29,7 +29,7 @@ Ao configurar o Privileged Identity Management para recursos do Azure pela prime
 
 ## <a name="discover-resources"></a>Descobrir recursos
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Abra **Azure ad Privileged Identity Management**.
 

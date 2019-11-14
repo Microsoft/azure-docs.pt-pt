@@ -1,5 +1,5 @@
 ---
-title: Trocar o disco do sistema operacional de uma VM do Azure usando a CLI | Microsoft Docs '
+title: Trocar o disco do sistema operacional para uma VM do Azure usando a CLI '
 description: Altere o disco do sistema operacional usado por uma máquina virtual do Azure usando a CLI.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 7b5f8a47b2b9c3692698b2ec6a7e5bc470b86a18
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bfbe47fb68ffe7cee1ee2f9f7b94b418d8da2a1d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091676"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035336"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Alterar o disco do sistema operacional usado por uma VM do Azure usando a CLI
 
@@ -52,7 +52,7 @@ az vm stop \
 ```
 
 
-Use [AZ VM Update](/cli/azure/vm#az-vm-update) com a ID de recurso completa do novo disco para o `--osdisk` parâmetro 
+Use [AZ VM Update](/cli/azure/vm#az-vm-update) com a ID de recurso completa do novo disco para o parâmetro `--osdisk` 
 
 ```azurecli-interactive 
 az vm update \
@@ -70,6 +70,6 @@ az vm start \
 ```
 
    
-**Passos seguintes?**
+**Passos seguintes**
 
 Para criar uma cópia de um disco, consulte [instantâneo de um disco](snapshot-copy-managed-disk.md).

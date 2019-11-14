@@ -1,5 +1,5 @@
 ---
-title: Implantar hosts dedicados do Azure usando a CLI | Microsoft Docs
+title: Implantar hosts dedicados do Azure usando a CLI
 description: Implante VMs em hosts dedicados usando o CLI do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/29/2019
 ms.author: cynthn
-ms.openlocfilehash: 0c060e2ab94c0a57d4d4dc897702e115cfabd9a0
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ece9967321cfca44b102d78722f0df3d8f980bdb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827285"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036409"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Pré-visualização: Implantar VMs em hosts dedicados usando o CLI do Azure
+# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Versão prévia: implantar VMs em hosts dedicados usando o CLI do Azure
  
 
 Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMS). 
@@ -45,7 +45,7 @@ az group create --name myDHResourceGroup --location eastus
  
 ## <a name="create-a-host-group"></a>Criar um grupo de hosts 
 
-Um **grupo** de hosts é um recurso que representa uma coleção de hosts dedicados. Você cria um grupo de hosts em uma região e uma zona de disponibilidade e adiciona hosts a ele. Ao planejar a alta disponibilidade, há opções adicionais. Você pode usar uma ou ambas as opções a seguir com seus hosts dedicados: 
+Um **grupo de hosts** é um recurso que representa uma coleção de hosts dedicados. Você cria um grupo de hosts em uma região e uma zona de disponibilidade e adiciona hosts a ele. Ao planejar a alta disponibilidade, há opções adicionais. Você pode usar uma ou ambas as opções a seguir com seus hosts dedicados: 
 - Alcance entre várias zonas de disponibilidade. Nesse caso, é necessário ter um grupo de hosts em cada uma das zonas que você deseja usar.
 - Alcance entre vários domínios de falha que são mapeados para racks físicos. 
  
@@ -239,7 +239,7 @@ Você pode exportar um modelo se agora quiser criar um ambiente de desenvolvimen
 az group export --name myDHResourceGroup > myDHResourceGroup.json 
 ```
 
-Este comando cria o `myDHResourceGroup.json` arquivo no diretório de trabalho atual. Ao criar um ambiente a partir desse modelo, você será solicitado a fornecer todos os nomes de recursos. Você pode preencher esses nomes no arquivo de modelo adicionando o `--include-parameter-default-value` parâmetro `az group export` ao comando. Edite o modelo JSON para especificar os nomes dos recursos ou crie um arquivo Parameters. JSON que especifique os nomes dos recursos.
+Esse comando cria o arquivo de `myDHResourceGroup.json` no diretório de trabalho atual. Ao criar um ambiente a partir desse modelo, você será solicitado a fornecer todos os nomes de recursos. Você pode preencher esses nomes no arquivo de modelo adicionando o parâmetro `--include-parameter-default-value` ao comando `az group export`. Edite o modelo JSON para especificar os nomes dos recursos ou crie um arquivo Parameters. JSON que especifique os nomes dos recursos.
  
 Para criar um ambiente a partir de seu modelo, use [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create).
 
@@ -278,7 +278,7 @@ Você também pode excluir o grupo de recursos inteiro em um único comando. Iss
 az group delete -n myDHResourceGroup 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações, consulte a visão geral dos [hosts dedicados](dedicated-hosts.md) .
 

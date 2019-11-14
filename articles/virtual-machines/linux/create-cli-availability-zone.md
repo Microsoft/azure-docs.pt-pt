@@ -1,5 +1,5 @@
 ---
-title: Criar uma VM do Linux zoneada com o CLI do Azure | Microsoft Docs
+title: Criar uma VM do Linux zoneada com o CLI do Azure
 description: Criar uma VM do Linux em uma zona de disponibilidade com o CLI do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: e732693a63b3c866dc767e98bbe298474286f178
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 1cb8222b5e7bf2efee36673f9b80738500345754
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173885"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036567"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Criar uma máquina virtual do Linux em uma zona de disponibilidade com o CLI do Azure
 
@@ -75,13 +75,13 @@ O grupo de recursos é especificado ao criar ou modificar uma VM, que pode ser v
 
 Crie uma máquina virtual com o comando [az vm create](/cli/azure/vm). 
 
-Ao criar uma máquina virtual, várias opções estão disponíveis, como a imagem do sistema operativo, as credenciais administrativas e o dimensionamento do disco. Neste exemplo, é criada uma máquina virtual com o nome *myVM* a executar o Servidor Ubuntu. A VM é criada na zona de disponibilidade *1*. Por padrão, a VM é criada no tamanho *Standard_DS1_v2* .
+Ao criar uma máquina virtual, várias opções estão disponíveis, como a imagem do sistema operativo, as credenciais administrativas e o dimensionamento do disco. Neste exemplo, é criada uma máquina virtual com o nome *myVM* a executar o Servidor Ubuntu. A VM é criada na zona de disponibilidade *1*. Por padrão, a VM é criada no tamanho do *Standard_DS1_v2* .
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
-A criação da VM pode demorar alguns minutos. Quando a VM tiver sido criada, a CLI do Azure produz informações sobre a VM. Anote o `zones` valor, que indica a zona de disponibilidade em que a VM está em execução. 
+A criação da VM pode demorar alguns minutos. Quando a VM tiver sido criada, a CLI do Azure produz informações sobre a VM. Anote o valor `zones`, que indica a zona de disponibilidade em que a VM está em execução. 
 
 ```azurecli 
 {

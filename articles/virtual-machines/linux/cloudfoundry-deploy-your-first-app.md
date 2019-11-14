@@ -1,5 +1,5 @@
 ---
-title: Implante seu primeiro aplicativo para Cloud Foundry em Microsoft Azure | Microsoft Docs
+title: Implante seu primeiro aplicativo para Cloud Foundry em Microsoft Azure
 description: Implantar um aplicativo para Cloud Foundry no Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: c4088e593ca7d48a3e7a5c1a6699f316b57fff31
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b1f9ab5289a41aacb5514e954f1ca01f6ad66152
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083948"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036834"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Implante seu primeiro aplicativo para Cloud Foundry em Microsoft Azure
 
@@ -31,17 +31,17 @@ ms.locfileid: "70083948"
 Há várias opções para criar um ambiente de Cloud Foundry no Azure:
 
 - Use a [oferta de Cloud Foundry dinâmica][pcf-azuremarketplace] no Azure Marketplace para criar um ambiente padrão que inclui o PCF Ops Manager e o Service Broker do Azure. Você pode encontrar [instruções completas][pcf-azuremarketplace-pivotaldocs] para implantar a oferta do Marketplace na documentação do Pivotal.
-- Crie um ambiente personalizado implantando a [Cloud Foundry dinâmica manualmente][pcf-custom].
+- Crie um ambiente personalizado [implantando a Cloud Foundry dinâmica manualmente][pcf-custom].
 - [Implante os pacotes de Cloud Foundry de código-fonte aberto diretamente][oss-cf-bosh] Configurando um diretor de [Bosh](https://bosh.io) , uma VM que coordena a implantação do ambiente de Cloud Foundry.
 
 > [!IMPORTANT] 
-> Se você estiver implantando o PCF do Azure Marketplace, anote o SYSTEMDOMAINURL e as credenciais de administrador necessárias para acessar o Pivotal apps Manager, ambos descritos no guia de implantação do Marketplace. Eles são necessários para concluir este tutorial. Para implantações do Marketplace, o SYSTEMDOMAINURL está no https://system formato. *IP-address*. cf.pcfazure.com.
+> Se você estiver implantando o PCF do Azure Marketplace, anote o SYSTEMDOMAINURL e as credenciais de administrador necessárias para acessar o Pivotal apps Manager, ambos descritos no guia de implantação do Marketplace. Eles são necessários para concluir este tutorial. Para implantações do Marketplace, o SYSTEMDOMAINURL está no formato https://system. *IP-address*. cf.pcfazure.com.
 
 ## <a name="connect-to-the-cloud-controller"></a>Conectar-se ao controlador de nuvem
 
 O controlador de nuvem é o ponto de entrada primário para um ambiente de Cloud Foundry para implantar e gerenciar aplicativos. A API do controlador de nuvem principal (CCAPI) é uma API REST, mas pode ser acessada por meio de várias ferramentas. Nesse caso, interagimos com ele por meio da [CLI do Cloud Foundry][cf-cli]. Você pode instalar a CLI no Linux, no MacOS ou no Windows, mas se preferir não instalá-lo, ele estará disponível pré-instalado no [Azure cloud Shell][cloudshell-docs].
 
-Para fazer logon, preceda `api` o SYSTEMDOMAINURL que você obteve da implantação do Marketplace. Como a implantação padrão usa um certificado autoassinado, você também deve incluir a `skip-ssl-validation` opção.
+Para fazer logon, preceda `api` SYSTEMDOMAINURL que você obteve na implantação do Marketplace. Como a implantação padrão usa um certificado autoassinado, você também deve incluir a opção `skip-ssl-validation`.
 
 ```bash
 cf login -a https://api.SYSTEMDOMAINURL --skip-ssl-validation
@@ -97,7 +97,7 @@ mvn clean package
 
 ### <a name="deploy-the-application-with-cf-push"></a>Implantar o aplicativo com o CF push
 
-Você pode implantar a maioria dos aplicativos para Cloud Foundry `push` usando o comando:
+Você pode implantar a maioria dos aplicativos para Cloud Foundry usando o comando `push`:
 
 ```bash
 cf push
@@ -112,7 +112,7 @@ Para ver o aplicativo Hello-Spring-Cloud, abra a URL fornecida no seu navegador:
 ![Interface do usuário padrão para Hello Spring Cloud][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> Para saber mais sobre o que acontece `cf push`durante, consulte [como os aplicativos são preparados][cf-push-docs] na documentação do Cloud Foundry.
+> Para saber mais sobre o que acontece durante a `cf push`, consulte [como os aplicativos são preparados][cf-push-docs] na documentação do Cloud Foundry.
 
 ## <a name="view-application-logs"></a>Exibir logs de aplicativo
 
@@ -124,7 +124,7 @@ cf logs hello-spring-cloud
 
 Por padrão, o comando logs usa *cauda*, que mostra os novos logs conforme eles são gravados. Para ver novos logs aparecerem, atualize o aplicativo Hello-Spring-Cloud no navegador.
 
-Para exibir os logs que já foram gravados, adicione `recent` a opção:
+Para exibir os logs que já foram gravados, adicione a opção `recent`:
 
 ```bash
 cf logs --recent hello-spring-cloud
@@ -132,16 +132,16 @@ cf logs --recent hello-spring-cloud
 
 ## <a name="scale-the-application"></a>Dimensionar o aplicativo
 
-Por padrão, `cf push` o cria apenas uma única instância do seu aplicativo. Para garantir a alta disponibilidade e habilitar o scale out para maior taxa de transferência, geralmente você desejará executar mais de uma instância de seus aplicativos. Você pode expandir facilmente os aplicativos já implantados `scale` usando o comando:
+Por padrão, `cf push` cria apenas uma única instância do seu aplicativo. Para garantir a alta disponibilidade e habilitar o scale out para maior taxa de transferência, geralmente você desejará executar mais de uma instância de seus aplicativos. Você pode expandir facilmente os aplicativos já implantados usando o comando `scale`:
 
 ```bash
 cf scale -i 2 hello-spring-cloud
 ```
 
-A execução `cf app` do comando no aplicativo mostra que Cloud Foundry está criando outra instância do aplicativo. Depois que o aplicativo for iniciado, Cloud Foundry iniciará automaticamente o tráfego de balanceamento de carga para ele.
+A execução do comando `cf app` no aplicativo mostra que Cloud Foundry está criando outra instância do aplicativo. Depois que o aplicativo for iniciado, Cloud Foundry iniciará automaticamente o tráfego de balanceamento de carga para ele.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Leia a documentação do Cloud Foundry][cloudfoundry-docs]
 - [Configurar o plug-in Azure DevOps Services para Cloud Foundry][vsts-plugin]

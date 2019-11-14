@@ -1,5 +1,5 @@
 ---
-title: Ligar a uma VM do Windows Server | Microsoft Docs
+title: Conectar-se a uma VM do Windows Server
 description: Saiba como se conectar e entrar em uma VM do Windows usando o portal do Azure e o modelo de implantação do Gerenciador de recursos.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 6566ce4b9cec9ff09666e734625f15033c85127b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 43b6d541cfb3d2e5bd583223d9d93921982c65e0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749565"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039446"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows
 Irá utilizar o botão **Ligar** no Portal do Azure para iniciar uma sessão de Ambiente de Trabalho Remoto (RDP) a partir de um ambiente de trabalho do Windows. Primeiro, conecte-se à máquina virtual e, em seguida, faça logon.
@@ -35,7 +35,7 @@ Para se conectar a uma VM do Windows de um Mac, será necessário instalar um cl
 2. Abra o arquivo RDP baixado e selecione **conectar** quando solicitado. 
 2. Você receberá um aviso de que o arquivo de `.rdp` é de um Publicador desconhecido. Isto era esperado. Na janela **conexão de área de trabalho remota** , selecione **conectar** para continuar.
    
-    ![Captura de ecrã de um aviso sobre um publicador desconhecido.](./media/connect-logon/rdp-warn.png)
+    ![Captura de ecrã de um aviso sobre um editor desconhecido.](./media/connect-logon/rdp-warn.png)
 3. Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar uma conta diferente**. Insira as credenciais para uma conta na máquina virtual e, em seguida, selecione **OK**.
    
      **Conta local**: geralmente é o nome de usuário e a senha da conta local que você especificou quando criou a máquina virtual. Neste caso, o domínio é o nome da máquina virtual e é introduzido como *nomedavm*&#92;*nomedeutilizador*.  

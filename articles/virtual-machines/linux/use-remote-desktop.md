@@ -1,5 +1,5 @@
 ---
-title: Usar Área de Trabalho Remota para uma VM do Linux no Azure | Microsoft Docs
+title: Usar Área de Trabalho Remota para uma VM do Linux no Azure
 description: Saiba como instalar e configurar o Área de Trabalho Remota (xrdp) para se conectar a uma VM do Linux no Azure usando ferramentas gráficas
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 96f1f98f95bb726864553c81245e250cf907fb05
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 8631b05bc42df86ef6865bf2a07c0e3deaaad2fe
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961548"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034285"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalar e configurar Área de Trabalho Remota para se conectar a uma VM do Linux no Azure
 As VMs (máquinas virtuais) do Linux no Azure geralmente são gerenciadas na linha de comando usando uma conexão SSH (Secure Shell). Quando for novo no Linux ou para cenários de solução de problemas rápidos, o uso da área de trabalho remota pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de área de trabalho ([Xfce](https://www.xfce.org)) e uma área de trabalho remota ([xrdp](https://www.xrdp.org)) para sua VM Linux usando o modelo de implantação do Gerenciador de recursos.
@@ -34,7 +34,7 @@ Este artigo requer uma VM do Ubuntu 18, 4 LTS existente no Azure. Se você preci
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Instalar um ambiente de área de trabalho em sua VM Linux
 A maioria das VMs do Linux no Azure não tem um ambiente de área de trabalho instalado por padrão. As VMs do Linux são normalmente gerenciadas usando conexões SSH em vez de um ambiente de área de trabalho. Há vários ambientes de área de trabalho no Linux que você pode escolher. Dependendo de sua escolha de ambiente de área de trabalho, pode consumir de um a 2 GB de espaço em disco e levar de 5 a 10 minutos para instalar e configurar todos os pacotes necessários.
 
-O exemplo a seguir instala o ambiente de área de trabalho leve do [xfce4](https://www.xfce.org/) em uma VM do Ubuntu 18, 4 LTS. Os comandos para outras distribuições variam ligeiramente ( `yum` use para instalar em Red Hat Enterprise Linux e configurar `selinux` as regras apropriadas, `zypper` ou use para instalar no Suse, por exemplo).
+O exemplo a seguir instala o ambiente de área de trabalho leve do [xfce4](https://www.xfce.org/) em uma VM do Ubuntu 18, 4 LTS. Os comandos para outras distribuições variam ligeiramente (use `yum` para instalar em Red Hat Enterprise Linux e configurar as regras de `selinux` apropriadas, ou use `zypper` para instalar no SUSE, por exemplo).
 
 Primeiro, SSH para sua VM. O exemplo a seguir conecta-se à VM chamada *MyVM.westus.cloudapp.Azure.com* com o nome de usuário de *azureuser*. Use seus próprios valores:
 
@@ -44,7 +44,7 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 
 Se você estiver usando o Windows e precisar de mais informações sobre o uso do SSH, consulte [como usar chaves SSH com o Windows](ssh-from-windows.md).
 
-Em seguida, instale o `apt` Xfce usando da seguinte maneira:
+Em seguida, instale o Xfce usando `apt` da seguinte maneira:
 
 ```bash
 sudo apt-get update
@@ -106,7 +106,7 @@ Se o cliente RDP local usar NLA (autenticação de nível de rede), talvez seja 
 
 
 ## <a name="troubleshoot"></a>Resolução de problemas
-Se você não puder se conectar à sua VM do Linux usando um cliente `netstat` área de trabalho remota, use em sua VM do Linux para verificar se sua VM está escutando conexões RDP da seguinte maneira:
+Se você não puder se conectar à sua VM do Linux usando um cliente Área de Trabalho Remota, use `netstat` em sua VM Linux para verificar se sua VM está escutando conexões RDP da seguinte maneira:
 
 ```bash
 sudo netstat -plnt | grep rdp
@@ -136,7 +136,7 @@ Outras distribuições do Linux, como Red Hat Enterprise Linux e SUSE, podem ter
 Se você não receber nenhuma resposta em seu cliente de área de trabalho remota e não vir nenhum evento no log do sistema, esse comportamento indicará que o tráfego da área de trabalho remota não poderá acessar a VM. Examine as regras do grupo de segurança de rede para garantir que você tenha uma regra para permitir o TCP na porta 3389. Para obter mais informações, consulte [solucionar problemas de conectividade do aplicativo](../windows/troubleshoot-app-connection.md).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre como criar e usar chaves SSH com VMs do Linux, consulte [criar chaves SSH para VMs do Linux no Azure](mac-create-ssh-keys.md).
 
 Para obter informações sobre como usar o SSH do Windows, consulte [como usar chaves SSH com o Windows](ssh-from-windows.md).

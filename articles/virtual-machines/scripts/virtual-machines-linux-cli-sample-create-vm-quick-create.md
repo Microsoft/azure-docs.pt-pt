@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Script da CLI do Azure - Criar rapidamente uma VM do Linux | Microsoft Docs
+title: Exemplo do Script da CLI do Azure - Criar rapidamente uma VM do Linux
 description: Exemplo do Script da CLI do Azure - Criar rapidamente uma VM do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fb7280c842b4f2fc4e763fadd9bea077fc5eeeb9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 918a2724580e5c20de6f83d03dbd8e9593e84e2e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709487"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037723"
 ---
 # <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
@@ -53,7 +53,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao grupo de segurança de rede. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

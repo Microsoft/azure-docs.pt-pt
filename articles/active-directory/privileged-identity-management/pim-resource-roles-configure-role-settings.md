@@ -1,26 +1,26 @@
 ---
-title: Definir configurações de função de recurso do Azure no Privileged Identity Management-Azure Active Directory | Microsoft Docs
+title: Definir configurações de função de recurso do Azure no PIM – Azure AD | Microsoft Docs
 description: Saiba como definir as configurações de função de recurso do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f322fed83f89fea64c8d834dd0c72ab9c279c11
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: a302e723aa898a62bc43ecb38343bcf026dc769e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895803"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022942"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Definir configurações de função de recurso do Azure no Privileged Identity Management
 

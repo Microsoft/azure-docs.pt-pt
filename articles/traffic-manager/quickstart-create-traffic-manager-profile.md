@@ -1,5 +1,5 @@
 ---
-title: Início Rápido - Criar um perfil do Gestor de Tráfego para elevada disponibilidade de aplicações através do portal do Azure
+title: 'Início rápido: criar um perfil para HA de aplicativos-portal do Azure-Gerenciador de tráfego do Azure'
 description: Este artigo de início rápido descreve como criar um perfil do Gestor de Tráfego para compilar aplicações Web de elevada disponibilidade.
 services: traffic-manager
 author: asudbring
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: allensu
-ms.openlocfilehash: 1f7fd3398c24eb82b1a2308f3b52df382c0aab7e
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b6a015c7462f082d5114a51d83cfacb0c550b026
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68224679"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032703"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Início rápido: Criar um perfil do Gerenciador de tráfego usando o portal do Azure
+# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Início rápido: criar um perfil do Gerenciador de tráfego usando o portal do Azure
 
 Este guia de início rápido descreve como criar um perfil do Gerenciador de tráfego que fornece alta disponibilidade para seu aplicativo Web.
 
@@ -29,32 +29,32 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para este guia de início rápido, você precisará de duas instâncias de um aplicativo Web implantado em duas regiões diferentes do Azure (*leste dos EUA* e *Europa Ocidental*). Cada um servirá como pontos de extremidade primários e de failover para o Gerenciador de tráfego.
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso** >  > **aplicativo Web**.
+1. No lado superior esquerdo da tela, selecione **criar um recurso** > **Web** > **aplicativo Web**.
 
 1. Em **criar um aplicativo Web**, digite ou selecione os seguintes valores na guia **noções básicas** :
 
-   -  > **Grupo de recursos**de assinatura: Selecione **criar novo** e digite **myResourceGroupTM1**.
-   -  > **Nome**dos detalhes da instância: Digite *myWebAppEastUS*.
-   -  > **Publicação**de detalhes da instância: Selecione **código**.
-   -  > Pilha de detalhes da instância em**tempo de execução**: Selecione **ASP.NET v 4.7**
-   -  > **Sistema operacional**de detalhes da instância: Selecione **Windows**.
-   -  > **Região**de detalhes da instância:  Selecione **E.U.A. Leste**.
-   -  > Plano**do Windows do plano do serviço de aplicativo (leste dos EUA)** : Selecione **criar novo** e digite **myAppServicePlanEastUS**
-   -  > **SKU e tamanho**do plano do serviço de aplicativo: Selecione **Standard S1**.
+   -  > **grupo de recursos**de **assinatura** : selecione **criar novo** e digite **myResourceGroupTM1**.
+   - **Detalhes da instância** > **nome**: digite *myWebAppEastUS*.
+   - **Detalhes da instância** > **publicar**: selecione o **código**.
+   - **Detalhes da instância** > **pilha de tempo de execução**: selecione **ASP.NET v 4.7**
+   - **Detalhes da instância** > **sistema operacional**: selecione **Windows**.
+   - **Detalhes da instância** > **região**: selecione **leste dos EUA**.
+   - **Plano do serviço de aplicativo** > **plano do Windows (leste dos EUA)** : selecione **criar novo** e digite **myAppServicePlanEastUS**
+   - **Plano do serviço de aplicativo** > **SKU e tamanho**: selecione **Standard S1**.
    
-3. Selecione a guia **monitoramento** ou selecione **Avançar: monitoramento**.  Em **monitoramento**, defina **Application insights** > **habilitar Application insights** como **não**.
+3. Selecione a guia **monitoramento** ou selecione **Avançar: monitoramento**.  Em **monitoramento**, defina **Application Insights** > **habilitar Application insights** como **não**.
 
 4. Selecione **revisar e criar**
 
 5. Examine as configurações e clique em **criar**.  Quando o aplicativo Web é implantado com êxito, ele cria um site padrão.
 
-6. Siga as etapas para criar um segundo aplicativo Web chamado *myWebAppWestEurope*, com um nome de **grupo de recursos** de *myResourceGroupTM2*, uma **região** de *Europa Ocidental*, um nome de plano do **serviço de aplicativo** de  **myAppServicePlanWestEurope**e todas as outras configurações são as mesmas que *myWebAppEastUS*.
+6. Siga as etapas para criar um segundo aplicativo Web chamado *myWebAppWestEurope*, com um nome de **grupo de recursos** de *myResourceGroupTM2*, uma **região** de *Europa Ocidental*, um nome de plano do **serviço de aplicativo** de **myAppServicePlanWestEurope**e todas as outras configurações como *myWebAppEastUS*.
 
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gestor de Tráfego
 
@@ -67,9 +67,9 @@ Crie um perfil do Gerenciador de tráfego que direcione o tráfego do usuário c
     | --------| ----- |
     | Nome | Insira um nome exclusivo para o seu perfil do Gerenciador de tráfego.|
     | Método de encaminhamento | Selecione **prioridade**.|
-    | Subscription | Selecione a assinatura à qual você deseja que o perfil do Gerenciador de tráfego seja aplicado. |
-    | Resource group | Selecione *myResourceGroupTM1*.|
-    | Location |Essa configuração refere-se ao local do grupo de recursos. Ele não tem nenhum efeito no perfil do Gerenciador de tráfego que será implantado globalmente.|
+    | Subscrição | Selecione a assinatura à qual você deseja que o perfil do Gerenciador de tráfego seja aplicado. |
+    | Grupo de recursos | Selecione *myResourceGroupTM1*.|
+    | Localização |Essa configuração refere-se ao local do grupo de recursos. Ele não tem nenhum efeito no perfil do Gerenciador de tráfego que será implantado globalmente.|
 
 3. Selecione **Criar**.
 
@@ -82,26 +82,26 @@ Adicione o Website em *E.U.A. Leste* como o ponto final principal para encaminha
 3. No **perfil do Gerenciador de tráfego**, na seção **configurações** , selecione **pontos de extremidade**e, em seguida, selecione **Adicionar**.
 4. Insira ou selecione essas configurações:
 
-    | Definição | Value |
+    | Definição | Valor |
     | ------- | ------|
-    | Type | Selecione **ponto de extremidade do Azure**. |
+    | Tipo | Selecione **ponto de extremidade do Azure**. |
     | Nome | Insira *myPrimaryEndpoint*. |
     | Tipo de recurso de destino | Selecione **serviço de aplicativo**. |
-    | Recurso de destino |  > Selecione **escolher um serviço de aplicativo** **leste dos EUA**. |
-    | Priority | Selecione **1**. Todo o tráfego vai para esse ponto de extremidade quando ele está íntegro. |
+    | Recurso de destino | Selecione **escolher um serviço de aplicativo** > **leste dos EUA**. |
+    | Prioridade | Selecione **1**. Todo o tráfego vai para esse ponto de extremidade quando ele está íntegro. |
 
     ![Captura de tela de onde você adiciona um ponto de extremidade ao seu perfil do Gerenciador de tráfego.](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png)
 
 5. Selecione **OK**.
 6. Para criar um ponto de extremidade de failover para sua segunda região do Azure, repita as etapas 3 e 4 com estas configurações:
 
-    | Definição | Value |
+    | Definição | Valor |
     | ------- | ------|
-    | Type | Selecione **ponto de extremidade do Azure**. |
+    | Tipo | Selecione **ponto de extremidade do Azure**. |
     | Nome | Insira *myFailoverEndpoint*. |
     | Tipo de recurso de destino | Selecione **serviço de aplicativo**. |
-    | Recurso de destino |  > Selecione **escolher um serviço de aplicativo** **Europa Ocidental**. |
-    | Priority | Selecione **2**. Todo o tráfego vai para esse ponto de extremidade de failover se o ponto de extremidade primário não estiver íntegro. |
+    | Recurso de destino | Selecione **escolher um serviço de aplicativo** > **Europa Ocidental**. |
+    | Prioridade | Selecione **2**. Todo o tráfego vai para esse ponto de extremidade de failover se o ponto de extremidade primário não estiver íntegro. |
 
 7. Selecione **OK**.
 
@@ -141,7 +141,7 @@ O ponto de extremidade primário não está disponível, portanto, você foi enc
 
 Quando terminar, exclua os grupos de recursos, aplicativos Web e todos os recursos relacionados. Para fazer isso, selecione cada item individual no painel e selecione **excluir** na parte superior de cada página.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou um perfil do Gerenciador de tráfego. Ele permite que você direcione o tráfego do usuário para aplicativos Web de alta disponibilidade. Para saber mais sobre o tráfego de roteamento, continue para os tutoriais do Gerenciador de tráfego.
 

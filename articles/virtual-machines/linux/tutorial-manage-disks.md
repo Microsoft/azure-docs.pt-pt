@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Gerir discos do Azure com a CLI do Azure | Microsoft Docs
+title: Tutorial - Gerir discos do Azure com a CLI do Azure
 description: Neste tutorial, vai aprender a utilizar a CLI do Azure para criar e gerir discos do Azure para máquinas virtuais
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 9f4aec031d9ba8a162b022541c6e4cb35ce976a0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9042bece9b9a4c914941d65d615045cf365b67b6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081498"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034377"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial - Gerir discos do Azure com a CLI do Azure
 
@@ -110,7 +110,7 @@ az vm disk attach \
     --new
 ```
 
-## <a name="prepare-data-disks"></a>Preparar dados de discos
+## <a name="prepare-data-disks"></a>Preparar discos de dados
 
 Depois de um disco ser exposto à máquina virtual, o sistema operativo tem de ser configurado para utilizar o disco. O exemplo seguinte mostra como configurar manualmente um disco. Este processo também pode ser automatizado através da inicialização da cloud, que é abordada num [tutorial posterior](./tutorial-automate-vm-deployment.md).
 
@@ -256,7 +256,7 @@ az vm disk attach \
    --name $datadisk
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu sobre os tópicos de discos de VM, como:
 

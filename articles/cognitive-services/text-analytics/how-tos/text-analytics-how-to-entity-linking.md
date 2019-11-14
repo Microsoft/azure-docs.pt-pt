@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 11/12/2019
 ms.author: aahi
-ms.openlocfilehash: b139f473bb20dbecde75c3b08dd92371849f096e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 5933c7ec56ded971e4daf96ea6d4302c04921f2f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835671"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031433"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
@@ -33,7 +33,7 @@ O NER (reconhecimento de entidade nomeada) é a capacidade de identificar difere
 
 ## <a name="named-entity-recognition-v3-public-preview"></a>Visualização pública de reconhecimento de entidade nomeada v3
 
-A [próxima versão do reconhecimento de entidade nomeada](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c7/console) agora está disponível para visualização pública. Ele fornece atualizações para vinculação de entidade e reconhecimento de entidade nomeada. 
+A [próxima versão do reconhecimento de entidade nomeada]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) agora está disponível para visualização pública. Ele fornece atualizações para vinculação de entidade e reconhecimento de entidade nomeada. 
 
 :::row:::
     :::column span="":::
@@ -104,7 +104,7 @@ Vinculação de entidade
 | Pessoa        | \* N/A         | "Jeff", "Bill Gates"     |
 | Localização      | \* N/A         | "Redmond, Washington", "Paris"  |
 | Organização  | \* N/A         | "Microsoft"   |
-| Quantidade      | Number        | "6", "seis"     |
+| Quantidade      | Número        | "6", "six"     |
 | Quantidade      | Percentagem    | "50%", "cinquenta por cento"|
 | Quantidade      | Ordinal       | "2.º", "segundo"     |
 | Quantidade      | Idade           | "dia de 90 dias antigos", "30 anos de idade"    |
@@ -112,7 +112,7 @@ Vinculação de entidade
 | Quantidade      | Dimensão     | "10 milhas", "40 cm"     |
 | Quantidade      | Temperatura   | "32 graus"    |
 | DateTime      | \* N/A         | "18:30 4 de fevereiro de 2012"      |
-| DateTime      | Date          | "2 de maio de 2017", "02/05/2017"   |
+| DateTime      | Data          | "2 de maio de 2017", "02/05/2017"   |
 | DateTime      | Hora          | "8:00", "8:00"  |
 | DateTime      | DateRange     | "2 a 5 de maio"    |
 | DateTime      | TimeRange     | "18:00 às 19:00"     |

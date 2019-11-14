@@ -1,5 +1,5 @@
 ---
-title: Erros comuns durante a migração do clássico para Azure Resource Manager | Microsoft Docs
+title: Erros comuns durante a migração da implementação Clássica para a implementação Azure Resource Manager
 description: Este artigo cataloga os erros e as atenuações mais comuns durante a migração de recursos de IaaS do gerenciamento de serviços do Azure para a pilha de Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 40c6e85dc9976a2304cfbb29cee7f575d7aaecf1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e448559bbf0179cc6d5003d89f3f9b108f8ebb2d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005730"
+ms.locfileid: "74033279"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Erros comuns durante a migração da implementação Clássica para a implementação Azure Resource Manager
 [!INCLUDE [virtual-machines-common-migration-errors](../../../includes/virtual-machines-common-classic-resource-manager-migration-common-errors.md)]

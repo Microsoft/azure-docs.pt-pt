@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo de monitoramento de qualidade de água com o Azure IoT Central
+title: Criar um aplicativo de monitoramento de qualidade de água no Azure IoT Central
 description: Saiba como criar um aplicativo de monitoramento de qualidade de água usando os modelos de aplicativo IoT Central do Azure.
 author: miriambrus
 ms.author: miriamb
@@ -8,261 +8,250 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 51c84410de39516312d2058eeda575023dbe32ab
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: bfa5234d17db32c459b5ff1d0252a65a5ba99a72
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890773"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039518"
 ---
-# <a name="tutorial-create-a-water-quality-monitoring-application-in-iot-central"></a>Tutorial: criar um aplicativo de monitoramento de qualidade de água no IoT Central
+# <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutorial: criar um aplicativo de monitoramento de qualidade de água no Azure IoT Central
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Este tutorial orienta você a criar um aplicativo de monitoramento de qualidade de água IoT Central do Azure do modelo de aplicativo de monitoramento de qualidade de água IoT Central. 
+Este tutorial orienta você pela criação de um aplicativo de monitoramento de qualidade de água no Azure IoT Central. Você cria o aplicativo no modelo de aplicativo de **monitoramento de qualidade de água** IOT central do Azure.
 
-Neste tutorial, você aprenderá a: 
+Neste tutorial, irá aprender a:
 
 > [!div class="checklist"]
-> * Use o modelo de **monitoramento de qualidade de água** do Azure IOT central para criar seu aplicativo de monitoramento de qualidade de água
-> * Explorar e personalizar o painel do operador 
-> * Explorar o modelo de dispositivo do monitor de qualidade de água
-> * Explorar dispositivos simulados
-> * Explorar e configurar regras
-> * Configurar trabalhos
-> * Personalizar a identidade visual do aplicativo usando o autorizações
-
+> * Use o modelo de **monitoramento de qualidade de água** para criar um aplicativo de monitoramento de qualidade de água.
+> * Explore e personalize um painel do operador.
+> * Explore um modelo de dispositivo de monitoramento de qualidade de água.
+> * Explore os dispositivos simulados.
+> * Explore e configure regras.
+> * Configurar trabalhos.
+> * Personalize a identidade visual do aplicativo usando o rótulo branco.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisará de:
--  Uma assinatura do Azure é recomendada. Se você não tiver uma assinatura do Azure, poderá criar uma na [página de inscrição do Azure](https://aka.ms/createazuresubscription).
+Recomendamos que você tenha uma assinatura do Azure para concluir este tutorial. Se você não tiver uma assinatura do Azure, poderá criar uma na [página de inscrição do Azure](https://aka.ms/createazuresubscription).
 
+## <a name="create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Criar um aplicativo de monitoramento de qualidade de água no Azure IoT Central
 
-## <a name="create-water-quality-monitoring-app-in-iot-central"></a>Criar aplicativo de monitoramento de qualidade de água no IoT Central
+Nesta seção, você usa o modelo de **monitoramento de qualidade de água** do Azure IOT central para criar um aplicativo de monitoramento de qualidade de água.
 
-Nesta seção, usaremos o **modelo de monitoramento de qualidade de água** do Azure IOT central para criar seu aplicativo de monitoramento de qualidade de água no IOT central.
+1. Vá para o [Home Page de IOT central do Azure](https://aka.ms/iotcentral).
 
+    Se você tiver uma assinatura do Azure, entre com as credenciais usadas para acessá-la. Caso contrário, entre com uma conta Microsoft:
 
-Para criar um novo aplicativo de monitoramento de qualidade de água do Azure IoT Central:  
+    ![Entre na sua conta da organização](./media/tutorial-waterqualitymonitoring/sign-in.png)
 
-1. Navegue até o site [do Azure IOT central Home Page](https://aka.ms/iotcentral) .
+1. Selecione **criar** no painel da extrema esquerda da IOT central do Azure e selecione a guia **governo** . O painel governamental mostra vários modelos de aplicativos do governo.
 
-      Se você tiver uma assinatura do Azure, entre com as credenciais usadas para acessá-la, caso contrário, entre usando uma conta Microsoft:
+    ![Modelos de aplicativos do governo](./media/tutorial-waterqualitymonitoring/iotcentral-government-tab-overview1.png)
 
-    ![Introduza a sua conta da organização](./media/tutorial-waterqualitymonitoring/sign-in.png)
+1. Selecione o modelo de aplicativo de **monitoramento de qualidade de água** . Este modelo de aplicativo inclui um modelo de dispositivo de qualidade de água, dispositivos simulados, um painel de operador e regras de monitoramento pré-configuradas.
 
-2. Clique em **Compilar** no painel esquerdo e selecione a guia **governo** . A página do governo exibe vários modelos de aplicativos do governo.
+1. Selecione **criar aplicativo**. O **novo** painel do aplicativo é aberto e mostra os seguintes elementos:
 
-    ![Criar modelos de aplicativo do governo](./media/tutorial-waterqualitymonitoring/iotcentral-government-tab-overview1.png)
+    * **Nome do aplicativo**: por padrão, o nome do aplicativo é o **monitoramento de qualidade de água** seguido por uma cadeia de caracteres de ID exclusiva que o Azure IOT central gera. Se desejar, você pode inserir um nome de exibição ou alterar o nome do aplicativo mais tarde.
+    * **URL**: você pode inserir qualquer URL que desejar ou alterar o valor da URL mais tarde.
+    * Se você tiver uma assinatura do Azure, insira valores para **diretório**, **assinatura do Azure**e **região**. Se você não tiver uma assinatura, poderá ativar a **avaliação gratuita de 7 dias** e concluir as informações de contato necessárias.
 
+    Para obter mais informações sobre diretórios e assinaturas, consulte o guia de início rápido [criar um aplicativo](../core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) .
 
-1. Selecione o modelo de aplicativo de **monitoramento de qualidade de água** . Este modelo inclui modelo de dispositivo de qualidade de água de exemplo, dispositivo simulado, painel de operador e regras de monitoramento pré-configuradas.    
+1. Selecione o botão **criar** na parte inferior esquerda da página.
 
-2. Clique em **criar aplicativo**, que abrirá o formulário de criação de **novo aplicativo** com os seguintes campos:
-    * **Nome do aplicativo**. Por padrão, o aplicativo usa o *monitoramento de qualidade de água* seguido por uma cadeia de caracteres de ID exclusiva que IOT central gera. Opcionalmente, escolha um nome de aplicativo amigável. Você pode alterar o nome do aplicativo mais tarde também.
-    * **URL** – opcionalmente, você pode escolher a URL desejada. Você também pode alterar a URL mais tarde. 
-    * Se você tiver uma assinatura do Azure, insira seu *diretório, a assinatura do Azure e a região*. Se você não tiver uma assinatura, poderá habilitar a **avaliação gratuita de 7 dias** e concluir as informações de contato necessárias.  
+    ![A página novo aplicativo do IoT Central do Azure](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1.png)
 
-    Para obter mais informações sobre as subscrições e diretórios, veja [criar uma aplicação de início rápido](../preview/quick-deploy-iot-central.md).
+Agora você criou um aplicativo de monitoramento de qualidade de água usando o modelo de **monitoramento de qualidade de água** do Azure IOT central.
 
-5. Clique no botão **criar** na parte inferior da página. 
+Seu novo aplicativo vem com esses componentes pré-configurados:
 
-    ![Página da Aplicação do Azure IoT Central](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1.png)
+* Painéis do operador
+* Modelos de dispositivo de monitoramento de qualidade aquático
+* Dispositivos de monitoramento de qualidade de água simulados
+* Regras e trabalhos
+* Identidade visual que usa rotulagem branca
 
+Você pode modificar seu aplicativo a qualquer momento.
 
-6. Agora você criou um aplicativo de monitoramento de qualidade de água usando o **modelo de monitoramento de qualidade de água**IOT central do Azure. 
+Em seguida, explore o aplicativo e faça algumas personalizações.
 
-Seu aplicativo recém-criado vem com pré-configurado:
-* Painéis de exemplo de operador
-* Exemplo de modelos de dispositivo de monitor de qualidade de água predefinidos
-* Dispositivos de monitor de qualidade de água simulados
-* Regras e trabalhos pré-configurados
-* Identidade visual de amostra usando o rótulo branco 
+## <a name="explore-and-customize-the-operator-dashboard"></a>Explorar e personalizar o painel do operador
 
-É seu aplicativo e você pode modificá-lo a qualquer momento. Agora vamos explorar o aplicativo e fazer algumas personalizações.  
+Depois de criar o aplicativo, o painel do **painel de qualidade de água da Wide World** é aberto.
 
+   ![O painel de monitoramento de qualidade da água](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-dashboard1.png)
 
-## <a name="explore-and-customize-operator-dashboard"></a>Explorar e personalizar o painel do operador 
-Depois de criar o aplicativo, você é levado para o **painel de monitoramento de qualidade de água de água larga**.
+Como um construtor, você pode criar e personalizar modos de exibição no painel para uso por operadores. Mas antes de tentar personalizar o, primeiro Explore o painel.
 
+Todos os dados mostrados no painel são baseados em dados de dispositivo simulados, que são discutidos na próxima seção.
 
-   ![Painel de monitoramento de qualidade de água](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-dashboard1.png)
+O painel inclui os seguintes tipos de blocos:
 
-Como um construtor, você pode criar e personalizar modos de exibição no painel para operadores. Antes de tentar personalizar o, vamos explorar o painel. 
+* **Bloco de imagem do utilitário de água Wide World**: o primeiro bloco no canto superior esquerdo do painel é uma imagem que mostra o utilitário fictício chamado Wide World. Você pode personalizar o bloco para usar sua própria imagem ou pode remover o bloco.
 
-Todos os dados exibidos no painel baseiam-se em dados de dispositivo simulados, que serão explorados na próxima seção. 
+* **Média de blocos de KPI pH**: blocos de KPI como **média pH nos últimos 30 minutos** estão na parte superior do painel do painel. Você pode personalizar blocos de KPI e definir cada um com um tipo e intervalo de tempo diferentes.
 
-O painel consiste em diferentes tipos de blocos:
+* **Mapa da área de monitoramento da água**: o Azure IOT central usa mapas do Azure, que você pode definir diretamente em seu aplicativo para mostrar a localização do dispositivo. Você também pode mapear informações de local de seu aplicativo para seu dispositivo e, em seguida, usar o Azure Maps para mostrar as informações em um mapa. Focalize o mapa e experimente os controles.
 
-* **Bloco de imagem do utilitário de água Wide World**: o primeiro bloco no painel é um bloco de imagem de um utilitário de água fictícia "Wide World aquático". Você pode personalizar o bloco e colocar sua própria imagem ou removê-la. 
+* **Gráfico de mapa de calor médio de distribuição pH**: você pode selecionar gráficos de visualização diferentes para mostrar a telemetria do dispositivo da maneira mais apropriada para seu aplicativo.
 
-* **Bloco médio de KPI do pH**: você pode ver que há blocos de KPI na parte superior **média da pH nos últimos 30 minutos**. Você pode personalizar os blocos de KPI e definir como um tipo e intervalo de tempo diferentes.
+* **Gráfico de linhas dos indicadores de qualidade crítica**: você pode visualizar a telemetria do dispositivo plotada como um gráfico de linhas em um intervalo de tempo.  
 
-*  **Mapa da área de monitoramento da água**: IOT central usa mapas do Azure, que você pode definir diretamente em seu aplicativo e exibir o local do dispositivo. Você também pode mapear informações de localização para seu dispositivo a partir do aplicativo e pode usar mapas do Azure para exibi-lo em um mapa. Tente focalizar o mapa e experimentar os controles sobre o mapa. 
+* **Gráfico de barras de concentração de agentes químicos**: você pode visualizar a telemetria de dispositivo em um gráfico de barras.
 
-* **Gráfico de calor de distribuição pH médio**: você pode escolher gráficos de visualização diferentes para exibir dados de telemetria do dispositivo da maneira mais apropriada para seu aplicativo. Calor 
+* **Botão de ação**: o painel inclui um bloco para ações que um operador pode iniciar diretamente do painel de monitoramento. Redefinir as propriedades de um dispositivo é um exemplo dessas ações.
 
-* **Gráfico de linhas dos indicadores de qualidade crítica**: você pode visualizar um ou vários dispositivos telemetrias plotados como um gráfico de linhas em um intervalo de tempo desejado.  
+* **Blocos de lista de propriedades**: o painel tem vários blocos de propriedade que representam informações de limite, informações de integridade do dispositivo e informações de manutenção.
 
-* **Gráfico de barras de concentração de agentes químicos**: você pode visualizar um ou vários dados de telemetria de dispositivo em um gráfico de barras como no exemplo. 
+### <a name="customize-the-dashboard"></a>Personalizar o painel
 
-* **Botão de ação**: o painel inclui um exemplo de um bloco de ação que um operador pode iniciar diretamente do painel de monitoramento, como iniciar uma ação para redefinir as propriedades do dispositivo. 
+Como um construtor, você pode personalizar modos de exibição no painel para uso por operadores.
 
-* **Blocos de lista de propriedades**: o painel tem vários blocos de propriedades representando informações de limite, informações de integridade do dispositivo e informações de manutenção. 
+1. Selecione **Editar** para personalizar o painel do **painel de qualidade de água Wide World** . Você pode personalizar o painel selecionando comandos no menu **Editar** . Depois que o painel estiver no modo de edição, você poderá adicionar novos blocos ou pode configurar os arquivos existentes.
 
+    ![Editar seu painel](./media/tutorial-waterqualitymonitoring/edit-dashboard.png)
 
-### <a name="customize-dashboard"></a>Personalizar o painel 
+1. Selecione **+ novo** para criar um novo painel que você pode configurar. Você pode ter vários painéis e pode navegar entre eles no menu painel.
 
-Como um construtor, você pode personalizar modos de exibição no Dashboard para operadores. 
-1. Clique em **Editar** para personalizar o **painel de monitoramento de qualidade de água Wide World**. Você pode personalizar o painel clicando no menu **Editar** . Depois que o painel estiver no modo de **edição** , você poderá adicionar novos blocos ou pode configurar
+## <a name="explore-a-water-quality-monitoring-device-template"></a>Explorar um modelo de dispositivo de monitoramento de qualidade de água
 
-    ![Editar painel](./media/tutorial-waterqualitymonitoring/edit-dashboard.png)
+Um modelo de dispositivo no Azure IoT Central define os recursos de um dispositivo. Os recursos disponíveis são telemetria, propriedades e comandos. Como um construtor, você pode definir modelos de dispositivo no Azure IoT Central que representam os recursos dos dispositivos conectados. Você também pode criar dispositivos simulados para testar seu aplicativo e modelo de dispositivo.
 
-2. Clique em **+ novo** para criar um novo painel e configurar do zero. Você pode ter vários painéis e pode navegar entre seus painéis no menu painel.
-
-## <a name="explore-water-quality-monitor-device-template"></a>Explorar o modelo de dispositivo do monitor de qualidade de água
-Um modelo de dispositivo no Azure IoT Central define a capacidade de um dispositivo, que pode ser telemetria, propriedades e comandos. Como um construtor, você pode definir modelos de dispositivo no IoT Central que representam a capacidade dos dispositivos que serão conectados. No IoT Central, você também pode criar dispositivos simulados para testar seu aplicativo e modelo de dispositivo. 
- 
-
-O aplicativo de **monitoramento de qualidade aquático** criado a partir do modelo de aplicativo é fornecido com um modelo de dispositivo de monitor de qualidade de água de referência.
+O aplicativo de monitoramento de qualidade de água criado vem com um modelo de dispositivo de monitoramento de qualidade de água.
 
 Para exibir o modelo de dispositivo:
 
-1.  Clique em **modelos de dispositivo** no painel de navegação à esquerda do seu aplicativo no IOT central. 
-2. Na lista modelos de dispositivo, você verá **Monitor de qualidade de água**. Abra clicando no nome.
+1. Selecione **modelos de dispositivo** no painel mais à esquerda do seu aplicativo no Azure IOT central.
+1. Na lista de modelos de dispositivo, selecione **Monitor de qualidade de água**. Esse modelo de dispositivo é aberto.
 
-    ![Modelo de dispositivo](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate.png)
+    ![O modelo de dispositivo](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate.png)
 
-### <a name="customizing-the-device-template"></a>Personalizando o modelo de dispositivo
+### <a name="customize-the-device-template"></a>Personalizar o modelo de dispositivo
 
-Tente personalizar o seguinte:
-1. Navegue até **Personalizar** no menu modelo de dispositivo
-2. Localizar o tipo de telemetria `Temperature`
-3. Atualizar o **nome de exibição** de `Temperature` para `Reported temperature`
-4. Atualizar unidade de medida ou definir valor *mínimo* e *valor máximo*
-5. **Salvar** as alterações 
+Pratique Personalizando as seguintes configurações de modelo de dispositivo:
 
-#### <a name="add-a-cloud-property"></a>Adicionar uma propriedade de nuvem 
-1. Navegue até a **propriedade de nuvem** no menu modelo de dispositivo
-2. Adicione uma nova propriedade de nuvem clicando em **+ Adicionar Propriedade de nuvem**. No IoT Central, você pode adicionar uma propriedade que é relevante para o dispositivo, mas que não se espera que seja enviada por um dispositivo. Por exemplo, uma propriedade de nuvem pode ser um limite de alerta específico para área de instalação, informações de ativo ou informações de manutenção etc. 
-3. **Salvar** as alterações 
- 
-### <a name="views"></a>Vistas 
-O modelo de dispositivo de monitor de qualidade de água vem com exibições predefinidas. Explore as exibições e você pode fazer atualizações. As exibições definem como os operadores verão os dados do dispositivo, mas também inserindo as propriedades da nuvem. 
+1. No menu modelo de dispositivo, selecione **Personalizar**.
+1. Vá para o tipo de telemetria de **temperatura** .
+1. Altere o valor do **nome de exibição** para **temperatura relatada**.
+1. Altere a unidade de medida ou defina valor **mínimo** e **valor máximo**.
+1. Selecione **Guardar**.
+
+#### <a name="add-a-cloud-property"></a>Adicionar uma propriedade de nuvem
+
+1. No menu modelo de dispositivo, selecione **propriedade de nuvem**.
+1. Para adicionar uma nova propriedade de nuvem, selecione **+ Adicionar Propriedade de nuvem**. No Azure IoT Central, você pode adicionar uma propriedade que é relevante para um dispositivo, mas que não deveria ser enviada pelo dispositivo. Um exemplo de tal propriedade é um limite de alerta específico para a área de instalação, informações de ativo ou informações de manutenção.
+1. Selecione **Guardar**.
+
+### <a name="explore-views"></a>Explorar exibições
+
+O modelo de dispositivo de monitoramento de qualidade de água vem com exibições predefinidas. As exibições definem como os operadores veem os dados do dispositivo e definem as propriedades da nuvem. Explore as exibições e pratique a realização de alterações.
 
   ![Exibições de modelo de dispositivo](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate-views.png)
 
-### <a name="publish"></a>Publicar 
+### <a name="publish-the-device-template"></a>Publicar o modelo de dispositivo
 
-Se você fez alterações, certifique-se de **publicar** o modelo de dispositivo. 
+Se você fizer alterações, certifique-se de selecionar **publicar** para publicar o modelo de dispositivo.
 
+### <a name="create-a-new-device-template"></a>Criar um novo modelo de dispositivo
 
-### <a name="create-a-new-device-template"></a>Criar um novo modelo de dispositivo 
-1. Selecione **+ novo** para criar um novo modelo de dispositivo e siga o processo de criação. 
-2. Crie um modelo de dispositivo personalizado do zero ou você pode escolher um modelo de dispositivo no catálogo de dispositivos do Azure. 
-
+1. Selecione **+ novo** para criar um novo modelo de dispositivo e siga o processo de criação.
+1. Crie um modelo de dispositivo personalizado ou escolha um modelo de dispositivo no catálogo de dispositivos do Azure IoT.
 
 ## <a name="explore-simulated-devices"></a>Explorar dispositivos simulados
 
-O aplicativo de **monitoramento de qualidade aquático** criado a partir do modelo de aplicativo tem dois dispositivos simulados mapeados para o modelo de dispositivo de monitor de qualidade de água. 
+O aplicativo de monitoramento de qualidade de água criado no modelo de aplicativo tem dois dispositivos simulados. Esses dispositivos são mapeados para o modelo de dispositivo de monitoramento de qualidade de água.
 
-### <a name="to-view-the-devices"></a>Para exibir os dispositivos:
-1. Navegue até o **dispositivo** no painel de navegação IOT central esquerdo. 
+### <a name="view-the-devices"></a>Exibir os dispositivos
+
+1. Selecione **dispositivos** no painel mais à esquerda do seu aplicativo.
 
    ![Dispositivos](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devices.png)
 
+1. Selecione um dispositivo simulado.
 
-2. Selecione e clique em um dispositivo simulado 
+    ![Selecionar o dispositivo 1](./media/tutorial-waterqualitymonitoring/waterqualitymonitor-device1.png)
 
-    ![Dispositivo 1](./media/tutorial-waterqualitymonitoring/waterqualitymonitor-device1.png)
-
-3. Na guia **Propriedades de nuvem** , tente atualizar o valor de `Acidity (pH) Threshold` de `8` para `9`. 
-4. Explore a guia **Propriedades do dispositivo** e a guia painel do **dispositivo** . 
+1. Na guia **Propriedades da nuvem** , altere o valor do **limite de Acid (pH)** de **8** para **9**.
+1. Explore a guia **Propriedades do dispositivo** e a guia painel do **dispositivo** .
 
 > [!NOTE]
-> Observe que todas as guias foram configuradas nos **modos de exibição de modelo de dispositivo**.
-
+> Todas as guias foram configuradas em **exibições de modelo de dispositivo**.
 
 ### <a name="add-new-devices"></a>Adicionar novos dispositivos
-Você pode adicionar novos dispositivos clicando em **+ novo** na guia **dispositivos** . 
 
+Na guia **dispositivos** , selecione **+ novo** para adicionar um novo dispositivo.
 
 ## <a name="explore-and-configure-rules"></a>Explorar e configurar regras
 
-No Azure IoT Central você pode criar regras para monitorar automaticamente a telemetria do dispositivo e disparar uma ação quando uma ou mais condições forem atendidas. As ações podem incluir o envio de notificações por email ou o acionamento de uma ação Microsoft Flow ou uma ação de webhook para enviar dados a outros serviços.
+No Azure IoT Central, você pode criar regras que monitoram automaticamente a telemetria do dispositivo. Essas regras disparam uma ação quando qualquer uma de suas condições são atendidas. Uma ação possível é enviar notificações por email. Outras possibilidades incluem uma ação Microsoft Flow ou uma ação de webhook para enviar dados a outros serviços.
 
-O aplicativo de **monitoramento de qualidade de água** que você criou modelo tem duas regras pré-configuradas.
+O aplicativo de monitoramento de qualidade de água criado tem duas regras pré-configuradas.
 
-### <a name="to-view-rules"></a>Para exibir regras:
-1. Navegue até **regras** no painel de navegação IOT central esquerdo. 
+### <a name="view-rules"></a>Exibir regras
+
+1. Selecione **regras** no painel mais à esquerda do seu aplicativo.
 
    ![Regras](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-rules.png)
 
+1. Selecione o **alerta pH alto**, que é uma das regras pré-configuradas no aplicativo.
 
-2. Selecione e clique no **alerta pH alto** , que é uma das regras pré-configuradas no aplicativo. 
+   ![A regra de alerta pH alto](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-highphalert.png)
 
-     ![Alerta pH alto](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-highphalert.png)
+   A regra de **alerta pH alto** está configurada para verificar se a pH (condição de Acid) é maior que 8.
 
-    A regra de `High pH alert` está configurada para verificar a condição `Acidity (pH) is greater than 8`.
+Em seguida, adicione uma ação de email à regra:
 
-Agora, vamos criar uma ação de email.
+1. Selecione **+ email**.
+1. Na caixa **nome de exibição** , digite o **alerta pH alto**.
+1. Na caixa **para** , insira o endereço de email associado à sua conta de IOT central do Azure.
+1. Opcionalmente, insira uma observação para incluir no texto do email.
+1. Selecione **concluído** para concluir a ação.
+1. Selecione **salvar** para salvar e ativar a nova regra.
 
-Para adicionar uma ação à regra:
-
-1. Selecione **+ email**. 
-2.  Insira o *alerta pH alto* como o **nome de exibição** amigável para a ação.
-3. Insira o endereço de email associado à sua conta de IoT Central no **para**. 
-4. Opcionalmente, insira uma observação a ser incluída no texto do email.
-5. Selecione **concluído** para concluir a ação.
-6. Selecione **salvar** para salvar e ativar a nova regra. 
-
-Em alguns minutos, você deverá receber emails quando a **condição** configurada for atendida.
+Em alguns minutos, você deverá receber emails quando a condição configurada for atendida.
 
 > [!NOTE]
-> O aplicativo enviará um email toda vez que uma condição for atendida. **Desabilite** a regra para parar de receber emails da regra automatizada. 
+> O aplicativo envia email cada vez que uma condição é atendida. Selecione **desabilitar** para que uma regra pare de receber emails automatizados dessa regra.
   
-Para criar uma nova regra: 
-1. Selecione **+ novo** nas **regras** do painel de navegação esquerdo.
+Para criar uma nova regra, selecione **regras** no painel da extrema esquerda do seu aplicativo e, em seguida, selecione **+ novo**.
 
 ## <a name="configure-jobs"></a>Configurar trabalhos
 
-No IoT Central, os trabalhos permitem que você acione atualizações de propriedades de dispositivo ou de nuvem em vários dispositivos. Além das propriedades, você também pode usar trabalhos para disparar comandos de dispositivo em vários dispositivos. IoT Central automatizará o fluxo de trabalho para você. 
+Com os trabalhos de IoT Central do Azure, você pode disparar atualizações para propriedades de dispositivo ou de nuvem em vários dispositivos. Você também pode usar trabalhos para disparar comandos de dispositivo em vários dispositivos. O Azure IoT Central automatiza o fluxo de trabalho para você.
 
-1. Vá para **trabalhos** no painel de navegação à esquerda. 
-2. Clique em **+ novo** e configure um ou mais trabalhos. 
+1. Selecione **trabalhos** no painel da extrema esquerda do seu aplicativo.
+1. Selecione **+ novo** e configure um ou mais trabalhos.
 
+## <a name="customize-your-application"></a>Personalizar seu aplicativo
 
-## <a name="customize-your-application"></a>Personalizar seu aplicativo 
 Como um construtor, você pode alterar várias configurações para personalizar a experiência do usuário em seu aplicativo.
 
-1. Selecione **administração > personalizar seu aplicativo**.
-2. Use o botão **alterar** para escolher uma imagem a ser carregada como o **logotipo do aplicativo**.
-3.  Use o botão **alterar** para escolher uma imagem de **ícone do navegador** que será exibida nas guias do navegador.
-4. Você também pode substituir as cores padrão do **navegador** adicionando códigos de cores hexadecimais HTML.
-5. Além disso, altere o **tema** clicando nas **configurações** na manchete.
+1. Selecione **administração** > **personalizar seu aplicativo**.
+1. Em **logotipo do aplicativo**, selecione **alterar** para escolher a imagem a ser carregada como o logotipo.
+1. Em **ícone do navegador**, selecione **alterar** para escolher a imagem que aparece nas guias do navegador.
+1. Em **cores do navegador**, você pode substituir os valores padrão por códigos de cor hexadecimais HTML.
+1. Selecione **configurações** para alterar o valor do **tema**.
 
-   ![O Azure IoT Central personalizar seu aplicativo](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-customize-your-application1.png)
+   ![Personalizar seu aplicativo](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-customize-your-application1.png)
 
-### <a name="to-update-the-application-image"></a>Para atualizar a imagem do aplicativo:
+### <a name="update-the-application-image"></a>Atualizar a imagem do aplicativo
 
-6.  Selecione **administração > configurações do aplicativo**.
+1. Selecione **administração** > **configurações do aplicativo**.
 
-7. Use o botão **selecionar imagem** para escolher uma imagem a ser carregada como a imagem do aplicativo. 
+1. Use o botão **selecionar imagem** para escolher uma imagem a ser carregada como a imagem do aplicativo.
 
-
-  
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não pretende usar este aplicativo, exclua seu aplicativo com as seguintes etapas:
+Se você não for continuar a usar seu aplicativo, exclua o aplicativo com as seguintes etapas:
 
-1. Abra a guia Administração no painel esquerdo do seu aplicativo IoT Central.
-2. Selecione Configurações do aplicativo e clique no botão excluir na parte inferior da página.
+1. Abra a guia **Administração** no painel mais à esquerda do seu aplicativo.
+1. Selecione **configurações do aplicativo** e selecione o botão **excluir** .
 
-    ![Eliminar aplicação](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app1.png)        
-
-
+    ![Excluir seu aplicativo](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app1.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre os [conceitos de monitoramento de qualidade de água](./concepts-waterqualitymonitoring-architecture.md)
+* Saiba mais sobre os [conceitos de monitoramento de qualidade da água](./concepts-waterqualitymonitoring-architecture.md).

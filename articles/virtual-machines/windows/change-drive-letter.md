@@ -1,5 +1,5 @@
 ---
-title: 'Tornar a unidade D: de uma VM um disco de dados | Microsoft Docs'
+title: 'Tornar a unidade D: de uma VM um disco de dados '
 description: 'Descreve como alterar as letras das unidades de uma VM do Windows para que você possa usar a unidade D: como uma unidade de dados.'
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 846bb7a5ea6c3f363a2811cf3feb30e37ff30504
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 491e7b7be084017cc370fe431c3175ac5b2673f9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079864"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033660"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Usar a unidade D: como uma unidade de dados em uma VM do Windows
 Se seu aplicativo precisar usar a unidade D para armazenar dados, siga estas instruções para usar uma letra de unidade diferente para o disco temporário. Nunca use o disco temporário para armazenar dados que você precisa manter.
@@ -39,7 +39,7 @@ Primeiro, você precisará anexar o disco de dados à máquina virtual. Para faz
 5. Selecione a guia **avançado** .
 6. Na seção **memória virtual** , selecione **alterar**.
 7. Selecione a unidade **C** e clique em **tamanho gerenciado pelo sistema** e, em seguida, clique em **definir**.
-8. Selecione a unidade **D** e clique em **nenhum arquivo** de paginação e, em seguida, clique em **definir**.
+8. Selecione a unidade **D** e clique em **nenhum arquivo de paginação** e, em seguida, clique em **definir**.
 9. Clique em aplicar. Você receberá um aviso de que o computador precisa ser reiniciado para que as alterações entrem em vigor.
 10. Reinicie a máquina virtual.
 
@@ -57,11 +57,11 @@ Primeiro, você precisará anexar o disco de dados à máquina virtual. Para faz
 3. Na seção **desempenho** , selecione **configurações**.
 4. Selecione a guia **avançado** .
 5. Na seção **memória virtual** , selecione **alterar**.
-6. Selecione a unidade do sistema operacional **C** e clique em **nenhum arquivo** de paginação e clique em **definir**.
+6. Selecione a unidade do sistema operacional **C** e clique em **nenhum arquivo de paginação** e clique em **definir**.
 7. Selecione a unidade de armazenamento temporário **T** e clique em **tamanho gerenciado pelo sistema** e, em seguida, clique em **definir**.
 8. Clique em **Aplicar**. Você receberá um aviso de que o computador precisa ser reiniciado para que as alterações entrem em vigor.
 9. Reinicie a máquina virtual.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Você pode aumentar o armazenamento disponível para sua máquina virtual [anexando um disco de dados adicional](attach-managed-disk-portal.md).
 

@@ -1,17 +1,14 @@
 ---
 title: Exemplo de plano gráfico de benchmark do CIS Microsoft Azure Foundation-mapeamento de recomendação
 description: Mapeamento de recomendação do exemplo de plano de referência do CIS Microsoft Azure Foundations para Azure Policy.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/01/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 6549cf030772d805b063510b9931968027639511
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 7974a5f9e5ccca41cdaa838cf05e3861dbae1b8d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583129"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038430"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapeamento de recomendação da amostra Blueprint de benchmark do Microsoft Azure Foundations do CIS
 
@@ -352,7 +349,7 @@ Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.
 
 Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os aplicativos Web sejam acessíveis somente em conexões seguras.
 
-- O aplicativo Web só deve ser acessível via HTTPS
+- Aplicação Web só deve estar acessível através de HTTPS
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -362,7 +359,7 @@ Agora que você analisou o mapeamento de controle do plano de referência do CIS
 > [Cis Microsoft Azure Foundations plano de referência Blueprint-visão geral](./index.md)
 > [cis Microsoft Azure fundamentos de benchmark-etapas de implantação](./deploy.md)
 
-Artigos adicionais sobre plantas e como usá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

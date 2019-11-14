@@ -1,5 +1,5 @@
 ---
-title: Configurar um ouvinte externo para Always On grupos de disponibilidade | Microsoft Docs
+title: Configurar um ouvinte externo para grupos de disponibilidade
 description: Este tutorial orienta você pelas etapas de criação de um ouvinte de grupo de disponibilidade Always On no Azure que é acessível externamente usando o endereço IP virtual público do serviço de nuvem associado.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 78881830d4e558daaad6e1929b30287e2731fb1b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d2dce6875ec39810a81bb5ae454d953a7b7ab0a9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100403"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032710"
 ---
-# <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configurar um ouvinte externo para Always On grupos de disponibilidade no Azure
+# <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configurar um ouvinte externo para grupos de disponibilidade em VMs SQL Server do Azure
 > [!div class="op_single_selector"]
 > * [Ouvinte interno](../classic/ps-sql-int-listener.md)
 > * [Ouvinte externo](../classic/ps-sql-ext-listener.md)
@@ -31,7 +32,7 @@ ms.locfileid: "70100403"
 Este tópico mostra como configurar um ouvinte para um Always On grupo de disponibilidade que é acessível externamente na Internet. Isso é possibilitado pela associação do endereço **IP virtual público (VIP)** do serviço de nuvem com o ouvinte.
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássico. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
 
 Seu grupo de disponibilidade pode conter réplicas somente locais, somente Azure ou abranger localmente e o Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões usando várias redes virtuais (VNets). As etapas a seguir pressupõem que você já [configurou um grupo de disponibilidade](../classic/portal-sql-alwayson-availability-groups.md) , mas não configurou um ouvinte.
 
@@ -47,7 +48,7 @@ Observe as seguintes diretrizes sobre o ouvinte do grupo de disponibilidade no A
 ## <a name="determine-the-accessibility-of-the-listener"></a>Determinar a acessibilidade do ouvinte
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Este artigo se concentra na criação de um ouvinte que usa o **balanceamento de carga externo**. Se você quiser um ouvinte privado para sua rede virtual, consulte a versão deste artigo que fornece as etapas para configurar um ouvinte [com ILB](../classic/ps-sql-int-listener.md)
+Este artigo se concentra na criação de um ouvinte que usa o **balanceamento de carga externo**. Se você quiser um ouvinte privado para sua rede virtual, consulte a versão deste artigo que fornece as etapas para configurar um [ouvinte com ILB](../classic/ps-sql-int-listener.md)
 
 ## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Criar pontos de extremidade de VM com balanceamento de carga com retorno de servidor direto
 O balanceamento de carga externo usa o endereço IP virtual público do serviço de nuvem que hospeda suas VMs. Portanto, você não precisa criar ou configurar o balanceador de carga nesse caso.
@@ -126,10 +127,10 @@ Para acessar o ouvinte de fora da rede virtual, você deve usar o balanceamento 
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-Ao contrário do exemplo anterior, a autenticação do SQL deve ser usada, porque o chamador não pode usar a autenticação do Windows pela Internet. Para obter mais informações, [consulte Always on grupo de disponibilidade na VM do Azure: Cenários](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)de conectividade de cliente. Ao usar a autenticação do SQL, certifique-se de criar o mesmo logon em ambas as réplicas. Para obter mais informações sobre como solucionar problemas de logons com grupos de disponibilidade, consulte [como mapear logons ou usar o usuário de banco de dados SQL independente para se conectar a outras réplicas e mapear para bancos de dados de disponibilidade](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
+Ao contrário do exemplo anterior, a autenticação do SQL deve ser usada, porque o chamador não pode usar a autenticação do Windows pela Internet. Para obter mais informações, consulte [Always on grupo de disponibilidade na VM do Azure: cenários de conectividade de cliente](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). Ao usar a autenticação do SQL, certifique-se de criar o mesmo logon em ambas as réplicas. Para obter mais informações sobre como solucionar problemas de logons com grupos de disponibilidade, consulte [como mapear logons ou usar o usuário de banco de dados SQL independente para se conectar a outras réplicas e mapear para bancos de dados de disponibilidade](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
 Se as réplicas de Always On estiverem em sub-redes diferentes, os clientes deverão especificar **MultisubnetFailover = true** na cadeia de conexão. Isso resulta em tentativas de conexão paralelas para réplicas em sub-redes diferentes. Observe que esse cenário inclui uma implantação de grupo de disponibilidade entre regiões Always On.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
 

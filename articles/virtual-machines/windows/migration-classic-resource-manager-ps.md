@@ -1,5 +1,5 @@
 ---
-title: Migrar para o Gerenciador de recursos com o PowerShell | Microsoft Docs
+title: Migrar para o Gerenciador de recursos com o PowerShell
 description: Este artigo percorre a migração de recursos de IaaS com suporte da plataforma, como máquinas virtuais (VMs), redes virtuais (VNETs) e contas de armazenamento de clássico para Azure Resource Manager (ARM) usando comandos Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 01d5670add82291cb91264ab41fcd312a338840c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 99650b090a84fd417fca5bbeb1ce3f58d32729bb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749336"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033214"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migrar recursos de IaaS do clássico para o Azure Resource Manager usando Azure PowerShell
 Estas etapas mostram como usar Azure PowerShell comandos para migrar recursos de IaaS (infraestrutura como serviço) do modelo de implantação clássico para o modelo de implantação de Azure Resource Manager.
@@ -58,7 +58,7 @@ Para obter instruções de instalação, consulte [como instalar e configurar o 
 ## <a name="step-3-ensure-that-you-are-an-administrator-for-the-subscription-in-azure-portal"></a>Etapa 3: Verifique se você é um administrador da assinatura no portal do Azure
 Para executar essa migração, você deve ser adicionado como um coadministrador para a assinatura no [portal do Azure](https://portal.azure.com).
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. No menu Hub, selecione **assinatura**. Se você não o vir, selecione **todos os serviços**.
 3. Localize a entrada de assinatura apropriada e, em seguida, examine o campo **minha função** . Para um coadministrador, o valor deve ser _administrador da conta_.
 

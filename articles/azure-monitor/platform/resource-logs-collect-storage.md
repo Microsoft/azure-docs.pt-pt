@@ -8,18 +8,23 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 8a1802f0f24ba5ccad3ec1c45f3baa29dfe6909f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 306f6cb0b50b7befcbf51e6164a5da887d35616e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262560"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74030882"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Arquivar logs de recursos do Azure para a conta de armazenamento
 [Os logs de recursos](resource-logs-overview.md) no Azure fornecem dados avançados e frequentes sobre a operação interna de um recurso do Azure. Este artigo descreve como coletar logs de recursos para uma conta de armazenamento do Azure para reter dados para arquivamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Você precisará [criar uma conta de armazenamento do Azure](../../storage/common/storage-quickstart-create-account.md) se ainda não tiver uma. A conta de armazenamento não precisa estar na mesma assinatura que o recurso que envia logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
+
+
+> [!IMPORTANT]
+> Atualmente, não há suporte para contas de Azure Data Lake Storage Gen2 como destino para configurações de diagnóstico, embora elas possam estar listadas como uma opção válida na portal do Azure.
+
 
 Você não deve usar uma conta de armazenamento existente que tenha outros dados de não monitoramento armazenados nele para que você possa controlar melhor o acesso aos dados de monitoramento. No entanto, se você também estiver arquivando o [log de atividades](activity-logs-overview.md) em uma conta de armazenamento, poderá optar por usar essa mesma conta de armazenamento para manter todos os dados de monitoramento em um local central.
 

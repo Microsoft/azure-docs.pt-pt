@@ -1,5 +1,5 @@
 ---
-title: Implantar a plataforma de contêiner OpenShift 3,11 no Azure | Microsoft Docs
+title: Implantar a plataforma de contêiner OpenShift 3,11 no Azure
 description: Implante a plataforma de contêiner OpenShift 3,11 no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 4320105c5411e8a01ff6c69bf7d87057c786d092
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 56607de57939be769b1951f0eee9078c46d610c0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392751"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035452"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implantar a plataforma de contêiner OpenShift 3,11 no Azure
 
@@ -30,7 +30,7 @@ Você pode usar um dos vários métodos para implantar a plataforma de contêine
 - Outra opção é usar a [oferta do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
 Para todas as opções, é necessária uma assinatura do Red Hat. Durante a implantação, a instância de Red Hat Enterprise Linux é registrada na assinatura do Red Hat e anexada à ID do pool que contém os direitos para a plataforma de contêiner OpenShift.
-Verifique se você tem um nome de usuário, senha e ID de pool válidos do RHSM (Red Hat Subscription Manager). Você pode usar uma chave de ativação, ID da organização e ID do pool. Você pode verificar essas informações conectando-se a https://access.redhat.com.
+Verifique se você tem um nome de usuário, senha e ID de pool válidos do RHSM (Red Hat Subscription Manager). Você pode usar uma chave de ativação, ID da organização e ID do pool. Você pode verificar essas informações entrando em https://access.redhat.com.
 
 
 ## <a name="deploy-using-the-openshift-container-platform-resource-manager-311-template"></a>Implantar usando o modelo do Gerenciador de recursos da plataforma de contêiner OpenShift 3,11
@@ -248,9 +248,9 @@ Versões diferentes podem ter parâmetros diferentes, portanto, verifique os par
 
 ### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy. Arquivo Parameters. JSON explicado
 
-| Propriedade | Descrição | Opções válidas | Valor padrão |
+| Propriedade | Descrição | Opções válidas | Valor Predefinido |
 |----------|-------------|---------------|---------------|
-| `_artifactsLocation`  | URL para artefatos (JSON, scripts, etc.) |  |  https: \//RAW. githubusercontent. com/Microsoft/openshift-container – plataforma/mestre  |
+| `_artifactsLocation`  | URL para artefatos (JSON, scripts, etc.) |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | Região do Azure para implantar recursos |  |  |
 | `masterVmSize` | Tamanho da VM mestre. Selecione um dos tamanhos de VM permitidos listados no arquivo azuredeploy. JSON |  | Standard_E2s_v3 |
 | `infraVmSize` | Tamanho da VM de infraestrutura. Selecione um dos tamanhos de VM permitidos listados no arquivo azuredeploy. JSON |  | Standard_D4s_v3 |
@@ -287,7 +287,7 @@ Versões diferentes podem ter parâmetros diferentes, portanto, verifique os par
 | `routingSubDomainType` | Se definido como ' nipio ', `routingSubDomain` usará nip.io.  Use ' Custom ' se você tiver seu próprio domínio que deseja usar para roteamento | nipio <br> Personalizar | nipio |
 | `routingSubDomain` | O nome DNS do curinga que você deseja usar para roteamento se selecionou ' personalizado ' para `routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Selecione se deseja usar uma rede virtual existente ou criar uma nova rede virtual | pré-existente <br> novo | novo |
-| `virtualNetworkResourceGroupName` | Nome do grupo de recursos para a nova rede virtual se você selecionou ' novo ' para `virtualNetworkNewOrExisting` |  | resourcegroup (). Name |
+| `virtualNetworkResourceGroupName` | Nome do grupo de recursos para a nova rede virtual se você selecionou ' novo ' para `virtualNetworkNewOrExisting` |  | resourceGroup().name |
 | `virtualNetworkName` | O nome da nova rede virtual a ser criada se você selecionou ' novo ' para `virtualNetworkNewOrExisting` |  | openshiftvnet |
 | `addressPrefixes` | Prefixo de endereço da nova rede virtual |  | 10.0.0.0/14 |
 | `masterSubnetName` | O nome da sub-rede mestre |  | mastersubnet |
@@ -300,9 +300,9 @@ Versões diferentes podem ter parâmetros diferentes, portanto, verifique os par
 | `existingInfraSubnetReference` | Referência completa à sub-rede existente para nós de infraestrutura. Não é necessário se estiver criando uma nova vNet/sub-rede |  |  |
 | `existingCnsSubnetReference` | Referência completa para a sub-rede existente para nós do CNS. Não é necessário se estiver criando uma nova vNet/sub-rede |  |  |
 | `existingNodeSubnetReference` | Referência completa para a sub-rede existente para nós de computação. Não é necessário se estiver criando uma nova vNet/sub-rede |  |  |
-| `masterClusterType` | Especifique se o cluster usa nós mestres privados ou públicos. Se privado for escolhido, os nós mestres não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no `masterPrivateClusterIp` | publicada <br> Pessoal | publicada |
+| `masterClusterType` | Especifique se o cluster usa nós mestres privados ou públicos. Se privado for escolhido, os nós mestres não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no `masterPrivateClusterIp` | publicada <br> privado | publicada |
 | `masterPrivateClusterIp` | Se nós mestres privados forem selecionados, um endereço IP privado deverá ser especificado para ser usado pelo balanceador de carga interno para nós mestres. Esse IP estático deve estar dentro do bloco CIDR para a sub-rede mestre e ainda não está em uso. Se os nós mestres públicos forem selecionados, esse valor não será usado, mas ainda deverá ser especificado |  | 10.1.0.200 |
-| `routerClusterType` | Especifique se o cluster usa nós de infraestrutura privada ou pública. Se privado for escolhido, os nós de infra-estrutura não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no `routerPrivateClusterIp` | publicada <br> Pessoal | publicada |
+| `routerClusterType` | Especifique se o cluster usa nós de infraestrutura privada ou pública. Se privado for escolhido, os nós de infra-estrutura não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no `routerPrivateClusterIp` | publicada <br> privado | publicada |
 | `routerPrivateClusterIp` | Se os nós de infraestrutura privada forem selecionados, um endereço IP privado deverá ser especificado para ser usado pelo balanceador de carga interno para os nós de infraestrutura. Esse IP estático deve estar dentro do bloco CIDR para a sub-rede mestre e ainda não está em uso. Se os nós de infraestrutura pública forem selecionados, esse valor não será usado, mas ainda deverá ser especificado |  | 10.2.0.200 |
 | `routingCertType` | Usar certificado personalizado para o domínio de roteamento ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> Personalizar | selfsigned |
 | `masterCertType` | Usar certificado personalizado para o domínio mestre ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> Personalizar | selfsigned |

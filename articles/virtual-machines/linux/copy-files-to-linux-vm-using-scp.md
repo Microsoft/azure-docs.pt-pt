@@ -1,5 +1,5 @@
 ---
-title: Mover arquivos de e para VMs Linux do Azure com o SCP | Microsoft Docs
+title: Mover arquivos de e para VMs Linux do Azure com o SCP
 description: Mova arquivos de e para uma VM do Linux com segurança no Azure usando o SCP e um par de chaves SSH.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 56b264b61976607a3afdaa7a6ec7dc5da2091aba
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: d78a8e59a55718048df2022cec75c7a2b56f1a6b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173934"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036588"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Mover arquivos de e para uma VM do Linux usando o SCP
 
@@ -48,9 +48,9 @@ Como exemplos, movemos um arquivo de configuração do Azure para uma VM do Linu
 
 ## <a name="ssh-key-pair-authentication"></a>Autenticação do par de chaves SSH
 
-O SCP usa SSH para a camada de transporte. O SSH manipula a autenticação no host de destino e move o arquivo em um túnel criptografado fornecido por padrão com o SSH. Para autenticação SSH, nomes de acessadores e senhas podem ser usados. No entanto, a autenticação SSH pública e a chave privada são recomendadas como uma prática recomendada de segurança. Depois que o SSH tiver autenticado a conexão, o SCP começará a copiar o arquivo. Usando uma chave pública `~/.ssh/config` e privada de SSH configurada corretamente, a conexão de SCP pode ser estabelecida usando apenas um nome de servidor (ou endereço IP). Se você tiver apenas uma chave SSH, o SCP a procurará no `~/.ssh/` diretório e a usará por padrão para fazer logon na VM.
+O SCP usa SSH para a camada de transporte. O SSH manipula a autenticação no host de destino e move o arquivo em um túnel criptografado fornecido por padrão com o SSH. Para autenticação SSH, nomes de acessadores e senhas podem ser usados. No entanto, a autenticação SSH pública e a chave privada são recomendadas como uma prática recomendada de segurança. Depois que o SSH tiver autenticado a conexão, o SCP começará a copiar o arquivo. Usando uma `~/.ssh/config` corretamente configurada e as chaves públicas e privadas do SSH, a conexão do SCP pode ser estabelecida usando apenas um nome de servidor (ou endereço IP). Se você tiver apenas uma chave SSH, o SCP a procurará no diretório `~/.ssh/` e a usará por padrão para fazer logon na VM.
 
-Para obter mais informações sobre como `~/.ssh/config` configurar suas chaves pública e privada SSH, consulte [criar chaves SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para obter mais informações sobre como configurar suas chaves `~/.ssh/config` e SSH pública e privada, consulte [criar chaves SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="scp-a-file-to-a-linux-vm"></a>SCP um arquivo para uma VM do Linux
 
@@ -72,7 +72,7 @@ O comando a seguir copia os arquivos no diretório */Home/azureuser/logs/* na VM
 scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
-O `-r` sinalizador da CLI instrui o SCP a copiar recursivamente os arquivos e diretórios do ponto do diretório listado no comando.  Observe também que a sintaxe de linha de comando é semelhante a `cp` um comando de cópia.
+O sinalizador `-r` CLI instrui o SCP a copiar recursivamente os arquivos e diretórios do ponto do diretório listado no comando.  Observe também que a sintaxe de linha de comando é semelhante a um comando de cópia `cp`.
 
 ## <a name="next-steps"></a>Passos seguintes
 

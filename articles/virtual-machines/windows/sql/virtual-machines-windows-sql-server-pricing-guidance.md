@@ -1,10 +1,9 @@
 ---
-title: Gerenciar custos com eficiência para SQL Server em máquinas virtuais do Azure | Microsoft Docs
+title: Diretrizes de preço & gerenciar custos
 description: Fornece as práticas recomendadas para escolher o modelo de preços certo SQL Server máquina virtual.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -15,14 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 604f18fe2fbf4d8b4f3778817455d92a2811620b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 076d6fc387aaee85a1cd407fa48e7347ff185ef4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028623"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038863"
 ---
-# <a name="pricing-guidance-for-sql-server-azure-vms"></a>Diretrizes de preços para SQL Server VMs do Azure
+# <a name="pricing-guidance-for-azure-sql-server-vms"></a>Diretrizes de preços para VMs de SQL Server do Azure
 
 Este artigo fornece diretrizes de preços para [SQL Server máquinas virtuais](virtual-machines-windows-sql-server-iaas-overview.md) no Azure. Há várias opções que afetam o custo, e é importante escolher a imagem certa que equilibra os custos com os requisitos de negócios.
 
@@ -58,7 +58,7 @@ Se você tiver uma carga de trabalho de produção não leve, use uma das seguin
 |-----|-----|
 | Web | Sites pequenos |
 | Standard | Cargas de trabalho pequenas a médias |
-| Empresarial | Cargas de trabalho grandes ou de missão crítica|
+| Enterprise | Cargas de trabalho grandes ou de missão crítica|
 
 Você tem duas opções para pagar SQL Server licenciamento para essas edições: *pague por uso* ou *traga sua própria licença (BYOL)* .
 

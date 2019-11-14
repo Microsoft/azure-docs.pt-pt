@@ -1,5 +1,5 @@
 ---
-title: Exemplo de CLI do Azure – criar uma zona DNS e um registro para um nome de domínio
+title: Criar uma zona DNS e um registro para um nome de domínio-CLI do Azure-DNS do Azure
 description: Este exemplo de script da CLI do Azure mostra como criar e registar uma zona DNS para um nome de domínio
 services: dns
 author: vhorne
@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: 691eeebf61ffd4ea7bee6b5ac6c60cafb076e11d
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 8ae4e8c515b658ac3f0bb4eb0d88706814993355
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156227"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037159"
 ---
-# <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Exemplo de script CLI do Azure: Criar uma zona e registo DNS
+# <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Exemplo de script da CLI do Azure: Criar e registar uma zona DNS
 
 Este exemplo de script da CLI do Azure cria e regista uma zona DNS para um nome de domínio. 
 

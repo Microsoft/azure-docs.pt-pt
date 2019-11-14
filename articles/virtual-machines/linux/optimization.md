@@ -1,5 +1,5 @@
 ---
-title: Otimizar sua VM do Linux no Azure | Microsoft Docs
+title: Otimizar a VM do Linux no Azure
 description: Conheça algumas dicas de otimização para garantir que você configurou sua VM Linux para obter um desempenho ideal no Azure
 keywords: máquina virtual Linux, máquina virtual Linux, máquina virtual Ubuntu
 services: virtual-machines-linux
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: eb5ef067d4c9be4debd1bdc98ac4eb57a89d1100
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ea0d284b8220e4f8bc7bc1b91684654b32da7065
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091688"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035378"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar a VM do Linux no Azure
 Criar uma VM (máquina virtual) do Linux é fácil de fazer na linha de comando ou no Portal. Este tutorial mostra como garantir que você o configurou para otimizar seu desempenho na plataforma Microsoft Azure. Este tópico usa uma VM do servidor Ubuntu, mas você também pode criar uma máquina virtual Linux usando [suas próprias imagens como modelos](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -37,9 +37,9 @@ Com base no tamanho da VM, você pode anexar até 16 discos adicionais em uma s�
 
 Para obter o IOps mais alto em discos de armazenamento Premium em que suas configurações de cache foram definidas como **ReadOnly** ou **None**, você deve desabilitar as **barreiras** ao montar o sistema de arquivos no Linux. Você não precisa de barreiras porque as gravações para os discos de backup do armazenamento Premium são duráveis para essas configurações de cache.
 
-* Se você usar o **reiserFS**, desabilite as barreiras usando `barrier=none` a opção de montagem (para `barrier=flush`habilitar as barreiras, use)
-* Se você usar **ext3/ext4**, desabilite as barreiras usando a `barrier=0` opção de montagem (para habilitar `barrier=1`as barreiras, use)
-* Se você usar o **xfs**, desabilite as barreiras usando `nobarrier` a opção de montagem (para habilitar as `barrier`barreiras, use a opção)
+* Se você usar o **reiserFS**, desabilite as barreiras usando a opção de montagem `barrier=none` (para habilitar as barreiras, use `barrier=flush`)
+* Se você usar **ext3/ext4**, desabilite as barreiras usando a opção de montagem `barrier=0` (para habilitar as barreiras, use `barrier=1`)
+* Se você usar o **xfs**, desabilite as barreiras usando a opção de montagem `nobarrier` (para habilitar as barreiras, use a opção `barrier`)
 
 ## <a name="unmanaged-storage-account-considerations"></a>Considerações sobre a conta de armazenamento não gerenciado
 A ação padrão quando você cria uma VM com o CLI do Azure é usar o Managed Disks do Azure.  Esses discos são tratados pela plataforma do Azure e não exigem nenhuma preparação ou local para armazená-los.  Discos não gerenciados exigem uma conta de armazenamento e têm algumas considerações de desempenho adicionais.  Para mais informações sobre discos geridos, veja [Managed Disks Overview (Descrição geral dos Managed Disks)](../windows/managed-disks-overview.md).  A seção a seguir descreve as considerações de desempenho somente quando você usa discos não gerenciados.  Novamente, a solução de armazenamento padrão e recomendada é usar discos gerenciados.
@@ -59,14 +59,14 @@ Em imagens de nuvem do Ubuntu, você deve usar Cloud-init para configurar a part
 
 Para imagens sem suporte a Cloud-init, as imagens de VM implantadas do Azure Marketplace têm um agente Linux de VM integrado com o sistema operacional. Esse agente permite que a VM interaja com vários serviços do Azure. Supondo que você tenha implantado uma imagem padrão do Azure Marketplace, você precisaria fazer o seguinte para configurar corretamente suas configurações de arquivo de permuta do Linux:
 
-Localize e modifique duas entradas no arquivo **/etc/waagent.conf** . Eles controlam a existência de um arquivo de permuta dedicado e o tamanho do arquivo de permuta. Os parâmetros que você precisa verificar são `ResourceDisk.EnableSwap` e`ResourceDisk.SwapSizeMB` 
+Localize e modifique duas entradas no arquivo **/etc/waagent.conf** . Eles controlam a existência de um arquivo de permuta dedicado e o tamanho do arquivo de permuta. Os parâmetros que você precisa verificar são `ResourceDisk.EnableSwap` e `ResourceDisk.SwapSizeMB` 
 
 Para habilitar um disco habilitado corretamente e o arquivo de permuta montado, verifique se os parâmetros têm as seguintes configurações:
 
 * ResourceDisk.EnableSwap=Y
 * ResourceDisk. SwapSizeMB = {tamanho em MB para atender às suas necessidades} 
 
-Depois de fazer a alteração, você precisará reiniciar o waagent ou reiniciar a VM do Linux para refletir essas alterações.  Você sabe que as alterações foram implementadas e um arquivo de permuta foi criado quando você usa `free` o comando para exibir o espaço livre. O exemplo a seguir tem um arquivo de permuta de 512 MB criado como resultado da modificação do arquivo **waagent. conf** :
+Depois de fazer a alteração, você precisará reiniciar o waagent ou reiniciar a VM do Linux para refletir essas alterações.  Você sabe que as alterações foram implementadas e um arquivo de permuta foi criado quando você usa o comando `free` para exibir o espaço livre. O exemplo a seguir tem um arquivo de permuta de 512 MB criado como resultado da modificação do arquivo **waagent. conf** :
 
 ```bash
 azuseruser@myVM:~$ free
@@ -125,11 +125,11 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Usando o RAID de software para obter e/Ops mais altas
-Se suas cargas de trabalho exigirem mais IOps do que um único disco pode fornecer, você precisará usar uma configuração de RAID de software de vários discos. Como o Azure já executa a resiliência de disco na camada de malha local, você obtém o nível mais alto de desempenho de uma configuração de distribuição RAID-0.  Provisione e crie discos no ambiente do Azure e anexe-os à sua VM do Linux antes de particionar, Formatar e montar as unidades.  Mais detalhes sobre como configurar uma instalação de RAID de software em sua VM do Linux no Azure podem ser encontrados no documento Configurando o **[RAID de software no Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
+Se suas cargas de trabalho exigirem mais IOps do que um único disco pode fornecer, você precisará usar uma configuração de RAID de software de vários discos. Como o Azure já executa a resiliência de disco na camada de malha local, você obtém o nível mais alto de desempenho de uma configuração de distribuição RAID-0.  Provisione e crie discos no ambiente do Azure e anexe-os à sua VM do Linux antes de particionar, Formatar e montar as unidades.  Mais detalhes sobre como configurar uma instalação de RAID de software em sua VM do Linux no Azure podem ser encontrados no documento **[Configurando o RAID de software no Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
 Como alternativa a uma configuração de RAID tradicional, você também pode optar por instalar o LVM (Gerenciador de volumes lógicos) para configurar um número de discos físicos em um único volume de armazenamento lógico distribuído. Nessa configuração, leituras e gravações são distribuídas para vários discos contidos no grupo de volumes (semelhante a RAID0). Por motivos de desempenho, é provável que você queira distribuir seus volumes lógicos para que as leituras e gravações utilizem todos os discos de dados anexados.  Mais detalhes sobre como configurar um volume lógico distribuído em sua VM do Linux no Azure podem ser encontrados no documento **[Configurar o LVM em uma VM do Linux no Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 Lembre-se, assim como em todas as discussões sobre otimização, você precisa executar testes antes e depois de cada alteração para medir o impacto que a alteração tem.  A otimização é um processo passo a passo que tem resultados diferentes em máquinas diferentes em seu ambiente.  O que funciona para uma configuração pode não funcionar para outros.
 
 Alguns links úteis para recursos adicionais:

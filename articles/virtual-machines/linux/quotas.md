@@ -1,5 +1,5 @@
 ---
-title: cotas do vCPU para o Azure | Microsoft Docs
+title: cotas do vCPU para o Azure
 description: Saiba mais sobre as cotas do vCPU para o Azure.
 keywords: ''
 services: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: add0170c016b1a8226424ccf9b25cfde3a4c196f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 04ab96058650e6165a745b48f4c0fc213c2f9412
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091426"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035175"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quotas de vCPU de máquina virtual
 
@@ -61,8 +61,8 @@ Standard Storage Managed Disks                 5    10000
 Premium Storage Managed Disks                  5    10000
 ```
 
-## <a name="reserved-vm-instances"></a>Instâncias Reservadas da VM
-As instâncias de VM reservadas, que têm o escopo de uma única assinatura sem flexibilidade de tamanho de VM, adicionarão um novo aspecto às cotas de vCPU. Esses valores descrevem o número de instâncias do tamanho declarado que devem ser implantáveis na assinatura. Eles funcionam como um espaço reservado no sistema de cotas para garantir que a cota seja reservada para garantir que as reservas do Azure sejam implantáveis na assinatura. Por exemplo, se uma assinatura específica tiver 10 reservas Standard_D1, o limite de usos para as reservas de Standard_D1 será 10. Isso fará com que o Azure Verifique se há sempre pelo menos 10 vCPUs disponíveis na cota de vCPUs regional total a ser usada para instâncias de Standard_D1 e se há pelo menos 10 vCPUs disponíveis na cota de vCPU da família D padrão a ser usada para instâncias de Standard_D1.
+## <a name="reserved-vm-instances"></a>Instâncias de VM Reservada
+As instâncias de VM reservadas, que têm o escopo de uma única assinatura sem flexibilidade de tamanho de VM, adicionarão um novo aspecto às cotas de vCPU. Esses valores descrevem o número de instâncias do tamanho declarado que devem ser implantáveis na assinatura. Eles funcionam como um espaço reservado no sistema de cotas para garantir que a cota seja reservada para garantir que as reservas do Azure sejam implantáveis na assinatura. Por exemplo, se uma assinatura específica tiver 10 Standard_D1 reservas, o limite de usos para as reservas de Standard_D1 será 10. Isso fará com que o Azure Verifique se há sempre pelo menos 10 vCPUs disponíveis na cota de vCPUs regional total a ser usada para Standard_D1 instâncias e se há pelo menos 10 vCPUs disponíveis na cota de vCPU da família D padrão para serem usadas para Standard_D1 instâncias.
 
 Se um aumento de cota for necessário para comprar uma única assinatura RI, você poderá [solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) em sua assinatura.
 

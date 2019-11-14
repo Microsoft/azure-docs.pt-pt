@@ -1,5 +1,5 @@
 ---
-title: Implantação de máquina virtual do Azure com chefe | Microsoft Docs
+title: Implantação de máquina virtual do Azure com chefe
 description: Saiba como usar o chefe para realizar a implantação e a configuração de máquinas virtuais automatizadas no Microsoft Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 07/09/2019
 ms.author: diviso
-ms.openlocfilehash: 5cbf53da5a0af0a511350b9f30153e2fefe72dcf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 58642cdbf164523390d5e4925290b43f6c05549b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080109"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039552"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatizar a implementação de máquinas virtuais do Azure com o Chef
 
@@ -36,7 +36,7 @@ O diagrama a seguir ilustra a arquitetura chefe de alto nível.
 
 ![][2]
 
-O chefe tem três componentes principais de arquitetura: Servidor chefe, cliente chefe (nó) e estação de trabalho chefe.
+O chefe tem três componentes principais de arquitetura: chefe Server, cliente chefe (nó) e estação de trabalho chefe.
 
 O servidor chefe é o ponto de gerenciamento e há duas opções para o servidor chefe: uma solução hospedada ou uma solução local.
 
@@ -97,17 +97,17 @@ Depois que sua organização for criada, baixe o kit do iniciante.
 > Se você receber um aviso avisando que suas chaves serão redefinidas, não haverá problema em continuar, pois não há nenhuma infraestrutura existente configurada como ainda.
 >
 
-Este arquivo zip do Starter Kit contém os arquivos de configuração da sua organização e `.chef` a chave do usuário no diretório.
+Este arquivo zip do Starter Kit contém os arquivos de configuração da sua organização e a chave do usuário no diretório `.chef`.
 
-O `organization-validator.pem` deve ser baixado separadamente, pois é uma chave privada e as chaves privadas não devem ser armazenadas no servidor chefe. No [chefe gerenciar](https://manage.chef.io/), vá para a seção Administração e selecione "redefinir chave de validação", que fornece um arquivo para download separado. Salve o arquivo em c:\chef.
+O `organization-validator.pem` deve ser baixado separadamente, porque é uma chave privada e as chaves privadas não devem ser armazenadas no servidor chefe. No [chefe gerenciar](https://manage.chef.io/), vá para a seção Administração e selecione "redefinir chave de validação", que fornece um arquivo para download separado. Salve o arquivo em c:\chef.
 
 ### <a name="configuring-your-chef-workstation"></a>Configurando sua estação de trabalho do chefe
 
 Extraia o conteúdo do chef-Starter. zip para c:\chef.
 
-Copie todos os arquivos em\.chef-starter\chef-repo chefe para seu diretório c:\chef.
+Copie todos os arquivos em chef-starter\chef-repo\.chefe para seu diretório c:\chef.
 
-Copie o `organization-validator.pem` arquivo para c:\chef, se ele for salvo em c:\Downloads
+Copie o arquivo `organization-validator.pem` para c:\chef, se ele for salvo em c:\Downloads
 
 O diretório agora deve ser semelhante ao exemplo a seguir.
 
@@ -193,9 +193,9 @@ knife[:azure_client_secret] = "#1234p$wdchef19"
 Em seguida, [Baixe e instale](https://downloads.chef.io/chef-workstation/) a estação de trabalho chefe.
 Instale a estação de trabalho chefe o local padrão. Essa instalação pode levar alguns minutos.
 
-Na área de trabalho, você verá um "PowerShell de PV", que é um ambiente carregado com a ferramenta que você precisará para interagir com os produtos chefe. O PowerShell em PV disponibiliza novos comandos ad hoc, `chef-run` como também comandos tradicionais da CLI do chefe, `chef`como. Consulte a versão instalada da estação de trabalho do chefe e as `chef -v`ferramentas do chefe com. Você também pode verificar a versão da estação de trabalho selecionando "sobre a estação de trabalho do chefe" no aplicativo chefe Workstation.
+Na área de trabalho, você verá um "PowerShell de PV", que é um ambiente carregado com a ferramenta que você precisará para interagir com os produtos chefe. O PowerShell de PV disponibiliza novos comandos ad hoc, como `chef-run`, bem como comandos tradicionais da CLI do chefe, como `chef`. Consulte a versão instalada da estação de trabalho do chefe e as ferramentas do chefe com `chef -v`. Você também pode verificar a versão da estação de trabalho selecionando "sobre a estação de trabalho do chefe" no aplicativo chefe Workstation.
 
-`chef --version`deve retornar algo como:
+`chef --version` deve retornar algo como:
 
 ```
 Chef Workstation: 0.4.2
@@ -277,7 +277,7 @@ Execute o seguinte comando para gerar o modelo:
 
     chef generate template webserver Default.htm
 
-Navegue até o `C:\chef\cookbooks\webserver\templates\default\Default.htm.erb` arquivo. Edite o arquivo adicionando um código HTML simples "Olá, Mundo" e, em seguida, salve o arquivo.
+Navegue até o arquivo de `C:\chef\cookbooks\webserver\templates\default\Default.htm.erb`. Edite o arquivo adicionando um código HTML simples "Olá, Mundo" e, em seguida, salve o arquivo.
 
 ## <a name="upload-the-cookbook-to-the-chef-server"></a>Carregar o manual no servidor chefe
 Nesta etapa, você faz uma cópia do manual criado no computador local e o carrega no servidor hospedado do chefe. Uma vez carregado, o manual aparece na guia **política** .
@@ -309,7 +309,7 @@ Um exemplo do comando é exibido em seguida.
     -r "recipe[webserver]"
 
 
-O exemplo acima criará uma máquina virtual Standard_DS2_v2 com o Windows Server 2016 instalado na região oeste dos EUA. Substitua suas variáveis específicas e execute.
+O exemplo acima criará um Standard_DS2_v2 máquina virtual com o Windows Server 2016 instalado na região oeste dos EUA. Substitua suas variáveis específicas e execute.
 
 > [!NOTE]
 > Por meio da linha de comando, também estou automatizando minhas regras de filtro de rede de ponto de extremidade usando o parâmetro – TCP-Endpoint Points. Abri as portas 80 e 3389 para fornecer acesso à página da Web e à sessão RDP.

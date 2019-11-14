@@ -1,31 +1,31 @@
 ---
-title: Adicionar usuários licenciados individualmente ao licenciamento baseado em grupo-Azure Active Directory | Microsoft Docs
+title: Adicionar usuários com licenças diretas ao licenciamento de grupo-Azure AD | Microsoft Docs
 description: Como migrar de licenças de usuário individuais para licenciamento baseado em grupo usando o Azure Active Directory
 services: active-directory
 keywords: Licenciamento do Azure AD
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/26/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29ec9c05a7e7d594c64a450fe64e5bb0e0d1b7d0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 6c06d81f2f3f6cee781889d05ae08a1fd125df52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034741"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025687"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Como migrar usuários com licenças individuais para grupos para licenciamento
 
-Você pode ter licenças existentes implantadas para usuários nas organizações por meio de "atribuição direta"; ou seja, usando scripts do PowerShell ou outras ferramentas para atribuir licenças de usuário individuais. Antes de começar a usar o licenciamento baseado em grupo para gerenciar licenças em sua organização, você pode usar esse plano de migração para substituir diretamente as soluções existentes com o licenciamento baseado em grupo.
+Você pode ter licenças existentes implantadas para usuários nas organizações por meio de atribuição direta; ou seja, usando scripts do PowerShell ou outras ferramentas para atribuir licenças de usuário individuais. Antes de começar a usar o licenciamento baseado em grupo para gerenciar licenças em sua organização, você pode usar esse plano de migração para substituir diretamente as soluções existentes com o licenciamento baseado em grupo.
 
 A coisa mais importante a ser lembrada é que você deve evitar uma situação em que a migração para o licenciamento baseado em grupo fará com que os usuários percam temporariamente suas licenças atualmente atribuídas. Qualquer processo que possa resultar na remoção de licenças deve ser evitado para remover o risco de usuários perderem o acesso a serviços e seus dados.
 

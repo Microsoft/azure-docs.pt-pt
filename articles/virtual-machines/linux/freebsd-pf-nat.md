@@ -1,5 +1,5 @@
 ---
-title: Use o filtro de pacote do FreeBSD para criar um firewall no Azure | Microsoft Docs
+title: Use o filtro de pacote do FreeBSD para criar um firewall no Azure
 description: Saiba como implantar um firewall NAT usando o PF do FreeBSD no Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 8f06762fd84767ac4c6dfce67d547a1f311afcba
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5daceeb2c8f2497288c7891dbe3fb3e0771b2ed5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083231"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036105"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Como usar o filtro de pacotes do FreeBSD para criar um firewall seguro no Azure
 Este artigo apresenta como implantar um firewall NAT usando o filtro de empacotador do FreeBSD por meio do modelo de Azure Resource Manager para o cenário de servidor Web comum.
@@ -34,13 +34,13 @@ O modelo de Azure Resource Manager configurar uma máquina virtual FreeBSD que e
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>Implantar por meio do CLI do Azure
-Você precisa das [CLI do Azure](/cli/azure/install-az-cli2) mais recentes instaladas e conectadas a uma conta do Azure usando [AZ login](/cli/azure/reference-index). Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um nome `myResourceGroup` de grupo `West US` de recursos no local.
+Você precisa das [CLI do Azure](/cli/azure/install-az-cli2) mais recentes instaladas e conectadas a uma conta do Azure usando [AZ login](/cli/azure/reference-index). Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um nome de grupo de recursos `myResourceGroup` no `West US` local.
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Em seguida, implante o modelo [PF-FreeBSD-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) com [AZ Group Deployment Create](/cli/azure/group/deployment). Baixe [azuredeploy. Parameters. JSON](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) no mesmo caminho e defina seus próprios valores de recurso, `adminPassword`como `networkPrefix`, e `domainNamePrefix`. 
+Em seguida, implante o modelo [PF-FreeBSD-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) com [AZ Group Deployment Create](/cli/azure/group/deployment). Baixe [azuredeploy. Parameters. JSON](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) no mesmo caminho e defina seus próprios valores de recurso, como `adminPassword`, `networkPrefix`e `domainNamePrefix`. 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \
@@ -48,13 +48,13 @@ az group deployment create --resource-group myResourceGroup --name myDeploymentN
     --parameters '@azuredeploy.parameters.json' --verbose
 ```
 
-Após cerca de cinco minutos, você receberá as informações `"provisioningState": "Succeeded"`de. Em seguida, você pode usar SSH para a VM de front-end (NAT) ou acessar o servidor Web Nginx em um navegador usando o endereço IP público ou FQDN da VM de front-end (NAT). O exemplo a seguir lista o endereço IP público e FQDN atribuído à VM de front-end (NAT `myResourceGroup` ) no grupo de recursos. 
+Após cerca de cinco minutos, você receberá as informações de `"provisioningState": "Succeeded"`. Em seguida, você pode usar SSH para a VM de front-end (NAT) ou acessar o servidor Web Nginx em um navegador usando o endereço IP público ou FQDN da VM de front-end (NAT). O exemplo a seguir lista o endereço IP público e FQDN atribuído à VM de front-end (NAT) no grupo de recursos `myResourceGroup`. 
 
 ```azurecli
 az network public-ip list --resource-group myResourceGroup
 ```
     
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Deseja configurar seu próprio NAT no Azure? Software livre, gratuito, mas eficiente? Em seguida, o PF é uma boa opção. Usando o modelo [PF-FreeBSD-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup), você só precisa de cinco minutos para configurar um firewall NAT com balanceamento de carga Round Robin usando o PF do FreeBSD no Azure para um cenário de servidor Web comum. 
 
 Se você quiser aprender a oferta do FreeBSD no Azure, consulte [introdução ao FreeBSD no Azure](freebsd-intro-on-azure.md).

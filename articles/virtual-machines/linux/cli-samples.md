@@ -1,5 +1,5 @@
 ---
-title: Exemplos da CLI do Azure | Microsoft Docs
+title: Exemplos da CLI do Azure
 description: Exemplos da CLI do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 57de195ad70930389e28885e1016d11fb870e6fb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: eda3154bb921a46bbe3b768713d4e72f1cc45d5f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092084"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036854"
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>Exemplos de CLI do Azure para máquinas virtuais do Linux
 

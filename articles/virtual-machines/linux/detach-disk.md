@@ -1,5 +1,5 @@
 ---
-title: Desanexar um disco de dados de uma VM do Linux-Azure | Microsoft Docs
+title: Desanexar um disco de dados de uma VM do Linux-Azure
 description: Saiba como desanexar um disco de dados de uma máquina virtual no Azure usando CLI do Azure ou o portal do Azure.
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e026617db4da58c12a454000f6d97f8b6843e95d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: f8a0790169b17ad7755386f9bdd4f9372efc83e7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695872"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036376"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Linux
 
@@ -91,7 +91,7 @@ sudo umount /dev/sdc1 /datadrive
 
 ## <a name="detach-a-data-disk-using-azure-cli"></a>Desanexar um disco de dados usando CLI do Azure 
 
-Este exemplo desanexa o disco *myDataDisk* da VM denominada *MyVM* nomyresourceproperties.
+Este exemplo desanexa o disco *myDataDisk* da VM denominada *MyVM* no *myresourceproperties*.
 
 ```azurecli
 az vm disk detach \
@@ -109,7 +109,7 @@ O disco permanece no armazenamento, mas não está mais anexado a uma máquina v
 2. Selecione a máquina virtual que tem o disco de dados que você deseja desanexar e clique em **parar** para desalocar a VM.
 3. No painel máquina virtual, selecione **discos**.
 4. Na parte superior do painel **discos** , selecione **Editar**.
-5. No painel **discos** , na extrema direita do disco de dados que você deseja desanexar, clique no botão desanexar ![imagem](./media/detach-disk/detach.png) do botão desanexar.
+5. No painel **discos** , na extrema direita do disco de dados que você deseja desanexar, clique na imagem do botão desanexar ![](./media/detach-disk/detach.png) botão desanexar.
 5. Depois que o disco for removido, clique em salvar na parte superior do painel.
 6. No painel máquina virtual, clique em **visão geral** e, em seguida, clique no botão **Iniciar** na parte superior do painel para reiniciar a VM.
 

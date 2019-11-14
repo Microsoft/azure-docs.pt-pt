@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar uma máquina virtual do Azure usando Java | Microsoft Docs
+title: Criar e gerenciar uma máquina virtual do Azure usando o Java
 description: Use Java e Azure Resource Manager para implantar uma máquina virtual e todos os seus recursos de suporte.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: fa6c5115663d770f561764356129448af878668b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bf0f2928bd7cbac08a2a887481f19b3acb99f6fa
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103028"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039726"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Criar e gerenciar VMs do Windows no Azure usando o Java
 
@@ -51,7 +51,7 @@ Leva cerca de 20 minutos para executar essas etapas.
 
 ## <a name="add-dependencies"></a>Adicionar dependências
 
-1. Na pasta, abra o `pom.xml` arquivo e adicione a configuração de Build ao &lt;projeto&gt; para habilitar a criação de seu aplicativo: `testAzureApp`
+1. Na pasta `testAzureApp`, abra o arquivo `pom.xml` e adicione a configuração de Build a &lt;&gt; do projeto para habilitar a criação de seu aplicativo:
 
     ```xml
     <build>
@@ -133,14 +133,14 @@ Antes de iniciar esta etapa, verifique se você tem acesso a uma [entidade de se
     graphURL=https://graph.windows.net/
     ```
 
-    **&lt;&gt;** Substitua **&lt;Subscription-ID&gt;** pelo seu identificador de assinatura, ID do aplicativo pelo identificador do aplicativo Active Directory, **&lt;chave de autenticação com&gt;** a chave do aplicativo e  **&lt;a ID&gt; do locatário** com o identificador do locatário.
+    Substitua **&lt;&gt;de ID de assinatura** pelo seu identificador de assinatura, **&lt;id de aplicativo&gt;** com o identificador de aplicativo Active Directory, **&lt;chave de autenticação**&gt;com a chave de aplicativo e **&lt;&gt;de ID de locatário** com o identificador de locatário.
 
 2. Guarde o ficheiro.
 3. Defina uma variável de ambiente chamada AZURE_AUTH_LOCATION no Shell com o caminho completo para o arquivo de autenticação.
 
 ### <a name="create-the-management-client"></a>Criar o cliente de gerenciamento
 
-1. Abra o `App.java` arquivo em `src\main\java\com\fabrikam` e verifique se esta instrução do pacote está na parte superior:
+1. Abra o arquivo `App.java` em `src\main\java\com\fabrikam` e verifique se essa instrução do pacote está na parte superior:
 
     ```java
     package com.fabrikam.testAzureApp;
@@ -470,6 +470,6 @@ Deve levar cerca de cinco minutos para que esse aplicativo de console seja execu
 2. Antes de pressionar **Enter** para iniciar a exclusão de recursos, você pode levar alguns minutos para verificar a criação dos recursos no portal do Azure. Clique no status de implantação para ver informações sobre a implantação.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre como usar as [bibliotecas do Azure para Java](https://docs.microsoft.com/java/azure/java-sdk-azure-overview).
 

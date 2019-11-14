@@ -1,5 +1,5 @@
 ---
-title: Implantar a oferta de Marketplace autogerenciado da plataforma de contêiner OpenShift 3,11 no Azure | Microsoft Docs
+title: Implantar a oferta de Marketplace autogerenciado da plataforma de contêiner OpenShift 3,11 no Azure
 description: Implante a oferta do Marketplace automanaged do OpenShift contêiner Platform 3,11 no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: d5028ff6378fec5939aee3218071fe6f4eb1e843
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 20a17e52064c5beb09ce4db5815ddd6faf7cbcba
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791619"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035525"
 ---
 # <a name="configure-prerequisites"></a>Configurar pré-requisitos
 

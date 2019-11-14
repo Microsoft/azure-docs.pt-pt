@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre VMs do Windows no Azure | Microsoft Docs
+title: Perguntas frequentes sobre as VMs do Windows no Azure
 description: Fornece respostas para algumas das perguntas mais comuns sobre máquinas virtuais do Windows criadas com o modelo do Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 95b7644ab8e0254a53eb4a0872a5af98a0894aec
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0ebf4049827a4abd9cfcb2eda354d0c796cbdbdb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839227"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039177"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Perguntas frequentes sobre Máquinas Virtuais do Windows
 Este artigo aborda algumas perguntas comuns sobre as máquinas virtuais do Windows criadas no Azure usando o modelo de implantação do Resource Manager. Para a versão do Linux deste tópico, consulte perguntas frequentes [sobre máquinas virtuais do Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -116,12 +116,12 @@ As seguintes senhas não são permitidas:
     <tr>
         <td>abc@123</td>
         <td>ILOVEYOU!</td>
-        <td>P @ $ $w 0rd</td>
+        <td>P@$$w0rd</td>
         <td>P@ssw0rd</td>
         <td>P@ssword123</td>
     </tr>
     <tr>
-        <td>$word PA $</td>
+        <td>Pa$$word</td>
         <td>pass@word1</td>
         <td>La!</td>
         <td>Password1</td>

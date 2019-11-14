@@ -1,5 +1,5 @@
 ---
-title: Entre em suas contas usando o Microsoft Authenticator app-Azure Active Directory | Microsoft Docs
+title: Entrar usando o aplicativo Microsoft Authenticator – Azure AD
 description: Use o aplicativo Microsoft Authenticator para entrar em sua conta corporativa ou de estudante ou em suas contas pessoais da Microsoft e não Microsoft, usando a verificação de dois fatores ou a entrada pelo telefone.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9af3549984bd29a6e896e498bf4a2e6c67d7e0e2
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4cf9b92793d6c769751590dd0a375cbc8894759c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616020"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028976"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Entre em suas contas usando o aplicativo Microsoft Authenticator
 
@@ -52,7 +52,7 @@ A entrada pelo telefone só está disponível em dispositivos iOS e Android que 
 
 - Abra o aplicativo Microsoft Authenticator, vá para sua conta corporativa ou de estudante e ative a entrada pelo telefone:
 
-    - **Se você vir esse ícone ![de](media/user-help-auth-app-sign-in/icon.png)ícone mostrando que está configurado.** Se esse ícone aparecer ao lado do nome de sua conta corporativa ou de estudante, isso significa que você já configurou a entrada pelo telefone para a conta. Você pode ser solicitado a adicionar notificações por push para sua conta, para que você possa ser notificado sobre solicitações de autenticação fora do aplicativo.
+    - **Se você vir esse ícone ![ícone mostrando que você está configurado](media/user-help-auth-app-sign-in/icon.png).** Se esse ícone aparecer ao lado do nome de sua conta corporativa ou de estudante, isso significa que você já configurou a entrada pelo telefone para a conta. Você pode ser solicitado a adicionar notificações por push para sua conta, para que você possa ser notificado sobre solicitações de autenticação fora do aplicativo.
 
     - **Se você estiver usando o aplicativo para verificação de dois fatores.** Se já estiver usando o aplicativo e a verificação de dois fatores, você poderá escolher a seta suspensa ao lado do nome da conta e, em seguida, selecionar **Habilitar entrada pelo telefone**.
 
@@ -85,7 +85,7 @@ Você pode ativar a entrada pelo telefone para seus conta Microsoft pessoais, co
 
 - Abra o aplicativo Microsoft Authenticator, vá para sua conta Microsoft pessoal e ative a entrada pelo telefone:
 
-    - **Se você vir esse ícone ![de](media/user-help-auth-app-sign-in/icon.png)ícone mostrando que está configurado.** Se esse ícone aparecer ao lado do nome da sua conta, isso significa que você já configurou a entrada pelo telefone para a conta. Você pode ser solicitado a adicionar notificações por push para sua conta, para que você possa ser notificado sobre solicitações de autenticação fora do aplicativo.
+    - **Se você vir esse ícone ![ícone mostrando que você está configurado](media/user-help-auth-app-sign-in/icon.png).** Se esse ícone aparecer ao lado do nome da sua conta, isso significa que você já configurou a entrada pelo telefone para a conta. Você pode ser solicitado a adicionar notificações por push para sua conta, para que você possa ser notificado sobre solicitações de autenticação fora do aplicativo.
 
     - **Se você estiver usando o aplicativo para verificação de dois fatores.** Se já estiver usando o aplicativo e a verificação de dois fatores, você poderá escolher a seta suspensa ao lado do nome da conta e, em seguida, selecionar **Habilitar entrada pelo telefone**.
 
@@ -101,7 +101,7 @@ Você pode ativar a entrada pelo telefone para seus conta Microsoft pessoais, co
 
 ## <a name="sign-in-using-two-factor-verification-for-your-account"></a>Entre usando a verificação de dois fatores para sua conta
 
-O método de verificação padrão de dois fatores exige que você insira seu nome de usuário e senha no dispositivo no qual você está fazendo logon e, em seguida, escolha se o aplicativo de Microsoft Authenticator envia uma notificação ou se você prefere copiar a verificação associada código da tela **contas** do aplicativo Microsoft Authenticator. Você ativa a verificação de dois fatores para sua conta como parte do processo para adicionar a conta ao aplicativo Microsoft Authenticator.
+O método de verificação padrão de dois fatores exige que você insira seu nome de usuário e senha no dispositivo no qual você está fazendo logon e, em seguida, escolha se o aplicativo de Microsoft Authenticator envia uma notificação ou se você prefere copiar o código de verificação associado da tela **contas** do aplicativo Microsoft Authenticator. Você ativa a verificação de dois fatores para sua conta como parte do processo para adicionar a conta ao aplicativo Microsoft Authenticator.
 
 >[!Note]
 >Se você não vir sua conta corporativa ou de estudante ou sua conta pessoal na tela **contas** do aplicativo Microsoft Authenticator, isso significa que você não adicionou a conta ao aplicativo Microsoft Authenticator. Para adicionar sua conta, consulte [adicionar sua conta corporativa ou de estudante](user-help-auth-app-add-work-school-account.md) ou [adicionar suas contas pessoais](user-help-auth-app-add-personal-ms-account.md).
@@ -120,9 +120,9 @@ Para as etapas necessárias para entrar em seu trabalho ou escola ou sua conta p
 | Por que não posso usar mais de uma conta corporativa ou de estudante para entrar no telefone? | Um telefone deve ser registrado para uma única conta corporativa ou de estudante. Se você quiser ativar a entrada pelo telefone para uma conta corporativa ou de estudante diferente, deverá primeiro cancelar o registro do dispositivo antigo por meio da página **configurações** . |
 | Posso entrar no meu computador usando meu telefone? | Para o seu computador, é recomendável entrar usando o Windows Hello no Windows 10. O Windows Hello permite que você use sua face, impressão digital ou PIN para entrar. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Se você estiver tendo problemas para obter seu código de verificação para seu conta Microsoft pessoal, consulte a seção Solucionando problemas de **código de verificação** do artigo [conta Microsoft informações de segurança & códigos de verificação](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) .
+- Se você estiver tendo problemas para obter seu código de verificação para seu conta Microsoft pessoal, consulte a seção **Solucionando** problemas de código de verificação do artigo [conta Microsoft informações de segurança & códigos de verificação](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) .
 
 - Se você tiver mais perguntas gerais sobre o aplicativo, consulte as [perguntas frequentes Microsoft Authenticator](user-help-auth-app-faq.md)
 

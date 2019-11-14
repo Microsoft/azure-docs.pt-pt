@@ -1,5 +1,5 @@
 ---
-title: Exemplo de Script do Azure PowerShell - Criar um NLB de VMs do Windows | Microsoft Docs
+title: Exemplo de Script do Azure PowerShell - Criar um NLB de VMs do Windows
 description: Exemplo de Script do Azure PowerShell - Criar um NLB de VMs do Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 92f437a175228ab75287bdbcf6da31b2786bcbd4
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f06d88e94c795955f7c9a0f5cdfea4e06c403a05
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748726"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038845"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Balanceamento de carga do tráfego entre máquinas virtuais de elevada disponibilidade
 

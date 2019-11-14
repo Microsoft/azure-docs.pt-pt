@@ -1,5 +1,5 @@
 ---
-title: Instalação do driver de GPU da série N do Azure para Linux | Microsoft Docs
+title: Instalação do driver de GPU da série N do Azure para Linux
 description: Como configurar Drivers NVIDIA GPU para VMs da série N que executam o Linux no Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3abc221295a90dfbf7e46e3bd5bff1c8c0937162
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 6ebc991d54ef902eb653cf2d99b2f74f18551568
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035012"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035632"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar drivers NVIDIA GPU em VMs da série N executando Linux
 
@@ -321,7 +321,7 @@ Se o driver estiver instalado, você verá uma saída semelhante à seguinte. Ob
  
 
 ### <a name="x11-server"></a>Servidor X11
-Se você precisar de um servidor X11 para conexões remotas a uma VM NV ou NVv2, o [x11vnc](http://www.karlrunge.com/x11vnc/) é recomendado porque permite a aceleração de hardware de gráficos. O BusID do dispositivo M60 deve ser adicionado manualmente ao arquivo de configuração do X11 (geralmente, `etc/X11/xorg.conf`). Adicione uma seção `"Device"` semelhante à seguinte:
+Se você precisar de um servidor X11 para conexões remotas a uma VM NV ou NVv2, o [x11vnc](http://www.karlrunge.com/x11vnc/) é recomendado porque permite a aceleração de hardware de gráficos. O BusID do dispositivo M60 deve ser adicionado manualmente ao arquivo de configuração do X11 (geralmente, `etc/X11/xorg.conf`). Adicione uma seção de `"Device"` semelhante à seguinte:
  
 ```
 Section "Device"
@@ -357,7 +357,7 @@ else
 fi
 ```
 
-Em seguida, crie uma entrada para o script de atualização em `/etc/rc.d/rc3.d` para que o script seja invocado como raiz na inicialização.
+Em seguida, crie uma entrada para o script de atualização no `/etc/rc.d/rc3.d` para que o script seja invocado como raiz na inicialização.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

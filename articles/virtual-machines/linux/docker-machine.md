@@ -1,6 +1,6 @@
 ---
-title: Utilizar o Docker Machine para criar anfitriões do Linux no Azure | Documentos da Microsoft
-description: Descreve como utilizar o Docker Machine para criar anfitriões do Docker no Azure.
+title: Usar o computador do Docker para criar hosts Linux no Azure
+description: Descreve como usar a máquina do Docker para criar hosts do Docker no Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 1e946f82cf7dfcec0a6ff451012e6f5f0ac6e955
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 6b7f26d4554cc5ab1450ac3a8cf927b2338f8ea2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671557"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036256"
 ---
-# <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Como utilizar o Docker Machine para criar anfitriões no Azure
-Este artigo fornece detalhes sobre como usar [Docker Machine](https://docs.docker.com/machine/) para criar anfitriões no Azure. O `docker-machine` comando cria uma máquina virtual (VM) do Linux no Azure, em seguida, instala o Docker. Em seguida, pode gerir os anfitriões do Docker no Azure com as mesmas ferramentas locais e fluxos de trabalho. Para utilizar uma máquina docker no Windows 10, tem de utilizar bash do Linux.
+# <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Como usar a máquina do Docker para criar hosts no Azure
+Este artigo fornece detalhes sobre como usar a [máquina do Docker](https://docs.docker.com/machine/) para criar hosts no Azure. O comando `docker-machine` cria uma VM (máquina virtual) do Linux no Azure e instala o Docker. Em seguida, você pode gerenciar os hosts do Docker no Azure usando as mesmas ferramentas e fluxos de trabalho locais. Para usar a máquina Docker no Windows 10, você deve usar o bash do Linux.
 
-## <a name="create-vms-with-docker-machine"></a>Criar VMs com o Docker Machine
-Em primeiro lugar, obtenha o seu ID de subscrição do Azure com [show de conta de az](/cli/azure/account) da seguinte forma:
+## <a name="create-vms-with-docker-machine"></a>Criar VMs com o computador Docker
+Primeiro, obtenha sua ID de assinatura do Azure com [AZ Account show](/cli/azure/account) da seguinte maneira:
 
 ```azurecli
 sub=$(az account show --query "id" -o tsv)
 ```
 
-Criar VMs de anfitrião do Docker no Azure com `docker-machine create` especificando *azure* como o driver. Para obter mais informações, consulte o [documentação de controlador do Docker Azure](https://docs.docker.com/machine/drivers/azure/)
+Você cria VMs de host do Docker no Azure com `docker-machine create` especificando o *Azure* como o driver. Para obter mais informações, consulte a [documentação do driver do Docker Azure](https://docs.docker.com/machine/drivers/azure/)
 
-O exemplo seguinte cria uma VM com o nome *myVM*, com base no plano de "Standard D2 v2", que cria uma conta de utilizador com o nome *azureuser*e abra a porta *80* no anfitrião de VM. Siga todos os pedidos para iniciar sessão na sua conta do Azure e conceder permissões de Docker Machine para criar e gerir os recursos.
+O exemplo a seguir cria uma VM chamada *myVM*, com base no plano "Standard D2 v2", cria uma conta de usuário chamada *azureuser*e abre a porta *80* na VM do host. Siga os prompts para fazer logon em sua conta do Azure e conceder permissões de máquina do Docker para criar e gerenciar recursos.
 
 ```bash
 docker-machine create -d azure \
@@ -44,7 +44,7 @@ docker-machine create -d azure \
     myvm
 ```
 
-O resultado será semelhante ao seguinte exemplo:
+A saída é semelhante ao exemplo a seguir:
 
 ```bash
 Creating CA: /Users/user/.docker/machine/certs/ca.pem
@@ -77,8 +77,8 @@ Docker is up and running!
 To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env myvm
 ```
 
-## <a name="configure-your-docker-shell"></a>Configurar a shell de Docker
-Para ligar ao seu anfitrião do Docker no Azure, defina as definições de ligação adequado. Conforme observado no final da saída, ver as informações de ligação para o anfitrião do Docker da seguinte forma: 
+## <a name="configure-your-docker-shell"></a>Configurar o Shell do Docker
+Para se conectar ao host do Docker no Azure, defina as configurações de conexão apropriadas. Conforme observado no final da saída, exiba as informações de conexão para o host do Docker da seguinte maneira: 
 
 ```bash
 docker-machine env myvm
@@ -95,10 +95,10 @@ export DOCKER_MACHINE_NAME="machine"
 # eval $(docker-machine env myvm)
 ```
 
-Para definir as definições de ligação, pode optar por executar o comando de configuração sugerido (`eval $(docker-machine env myvm)`), ou pode definir manualmente as variáveis de ambiente. 
+Para definir as configurações de conexão, você pode executar o comando de configuração sugerido (`eval $(docker-machine env myvm)`) ou pode definir as variáveis de ambiente manualmente. 
 
-## <a name="run-a-container"></a>Executar um contentor
-Para ver um contentor em ação, permite executar um servidor de Web NGINX básico. Criar um contentor com `docker run` e expor a porta 80 para tráfego web da seguinte forma:
+## <a name="run-a-container"></a>Executar um contêiner
+Para ver um contêiner em ação, vamos executar um servidor webNGINX básico. Crie um contêiner com `docker run` e expor a porta 80 para o tráfego da Web da seguinte maneira:
 
 ```bash
 docker run -d -p 80:80 --restart=always nginx
@@ -117,24 +117,24 @@ Status: Downloaded newer image for nginx:latest
 675e6056cb81167fe38ab98bf397164b01b998346d24e567f9eb7a7e94fba14a
 ```
 
-Vista de execução de contentores com `docker ps`. O resultado de exemplo seguinte mostra o contentor de NGINX em execução com a porta 80 expostos:
+Exibir contêineres em execução com `docker ps`. A saída de exemplo a seguir mostra o contêiner NGINX em execução com a porta 80 exposta:
 
 ```bash
 CONTAINER ID    IMAGE    COMMAND                   CREATED          STATUS          PORTS                          NAMES
 d5b78f27b335    nginx    "nginx -g 'daemon off"    5 minutes ago    Up 5 minutes    0.0.0.0:80->80/tcp, 443/tcp    festive_mirzakhani
 ```
 
-## <a name="test-the-container"></a>Testar o contentor
-Obtenha o endereço IP público de anfitrião do Docker da seguinte forma:
+## <a name="test-the-container"></a>Testar o contêiner
+Obtenha o endereço IP público do host do Docker da seguinte maneira:
 
 
 ```bash
 docker-machine ip myvm
 ```
 
-Para ver o contentor em ação, abra um browser e introduza o endereço IP público que anotou na saída do comando anterior:
+Para ver o contêiner em ação, abra um navegador da Web e insira o endereço IP público anotado na saída do comando anterior:
 
-![Contentor de ngnix em execução](./media/docker-machine/nginx.png)
+![Executando o contêiner Ngnix](./media/docker-machine/nginx.png)
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter exemplos sobre como utilizar o Docker Compose, consulte [introdução ao Docker e ao Compose no Azure](docker-compose-quickstart.md).
+## <a name="next-steps"></a>Passos seguintes
+Para obter exemplos de como usar Docker Compose, consulte Introdução [ao Docker e ao Compose no Azure](docker-compose-quickstart.md).
