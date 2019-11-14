@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f05e732e11fb9cd88d4671528d551c68e448a8d7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 025c60485625a4ab4d2e29b1e81d8574f6187b93
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685476"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049121"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Diretrizes para criar tabelas distribuídas no Azure SQL Data Warehouse
 Recomendações para a criação de tabelas distribuídas por hash e de Round Robin no Azure SQL Data Warehouse.
@@ -60,7 +60,7 @@ Considere usar a distribuição Round Robin para sua tabela nos seguintes cenár
 
 - Ao começar como um ponto de partida simples, pois ele é o padrão
 - Se não houver nenhuma chave de junção óbvia
-- Se não houver boa coluna candidata para a distribuição de hash da tabela
+- Se não houver uma boa coluna candidata para a distribuição de hash da tabela
 - Se a tabela não compartilhar uma chave de junção comum com outras tabelas
 - Se a junção for menos significativa do que outras junções na consulta
 - Quando a tabela é uma tabela de preparo temporária

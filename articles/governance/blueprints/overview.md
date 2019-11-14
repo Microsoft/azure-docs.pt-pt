@@ -3,12 +3,12 @@ title: Descrição Geral do Azure Blueprints
 description: Entenda como o serviço de plantas do Azure permite criar, definir e implantar artefatos em seu ambiente do Azure.
 ms.date: 08/26/2019
 ms.topic: overview
-ms.openlocfilehash: 3005bf171c5297048978d090d0f253a8690242cd
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: dadb7568a720d23f58d23896e84b3155ed2f12f4
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960329"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048293"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Visão geral do serviço de plantas do Azure
 
@@ -51,7 +51,7 @@ Um esquema é composto por _artefactos_. Atualmente, os esquemas suportam os seg
 |Recurso  | Opções de hierarquia| Descrição  |
 |---------|---------|---------|
 |Grupos de Recursos | Subscrição | Crie um novo grupo de recursos para utilização por outros artefactos no esquema.  Estes grupos de recursos de marcador de posição permitem-lhe organizar recursos exatamente da forma que pretende que sejam estruturados e fornece um limitador de âmbito para a política incluída e os artefactos de atribuição de funções, bem como modelos do Azure Resource Manager. |
-|Modelo Azure Resource Manager | Subscrição, Grupo de Recursos | Os modelos são utilizados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, a Configuração de Estado da Automatização do Azure ou uma área de trabalho do Log Analytics. |
+|Modelo Azure Resource Manager | Subscrição, Grupo de Recursos | Modelos, incluindo modelos aninhados e vinculados, são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, a Configuração de Estado da Automatização do Azure ou uma área de trabalho do Log Analytics. |
 |Atribuição de Política | Subscrição, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa à subscrição à qual o esquema está atribuído. A política ou iniciativa deve estar dentro do escopo do local de definição do Blueprint. Se a política ou iniciativa tiver parâmetros, estes parâmetros são atribuídos durante a criação ou atribuição do esquema. |
 |Atribuição de Função | Subscrição, Grupo de Recursos | Adicione um utilizador ou grupo existente a uma função incorporada para garantir que as pessoas certas têm sempre o acesso adequado aos seus recursos. As atribuições de funções podem ser definidas para a subscrição completa ou aninhadas num grupo de recursos específico incluído no esquema. |
 
@@ -114,7 +114,7 @@ As seguintes funções internas estão disponíveis:
 Se estas funções incorporadas não se adaptarem às suas necessidades de segurança, considere criar uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> Se estiver usando uma identidade gerenciada atribuída pelo sistema, a entidade de serviço para plantas do Azure exigirá a função de **proprietário** na assinatura atribuída para habilitar a implantação. Se utilizar o portal, esta função é automaticamente concedida e revogada para a implementação. Se utilizar a API REST, esta função tem de ser concedida manualmente, mas continua a ser revogada automaticamente depois de concluída a implementação. Se estiver usando uma identidade gerenciada atribuída pelo usuário, somente o usuário que criar a atribuição Blueprint precisará de permissões de **proprietário** .
+> Se estiver usando uma identidade gerenciada atribuída pelo sistema, a entidade de serviço para plantas do Azure exigirá a função de **proprietário** na assinatura atribuída para habilitar a implantação. Se utilizar o portal, esta função é automaticamente concedida e revogada para a implementação. Se utilizar a API REST, esta função tem de ser concedida manualmente, mas continua a ser revogada automaticamente depois de concluída a implementação. Se você estiver usando uma identidade gerenciada atribuída pelo usuário, somente o usuário que criar a atribuição Blueprint precisará da permissão `Microsoft.Blueprint/blueprintAssignments/write`, que está incluída nas funções internas do operador de **proprietário** e do **plano gráfico** .
 
 ## <a name="naming-limits"></a>Limites de nomenclatura
 

@@ -1,5 +1,5 @@
 ---
-title: Configurar o roteamento de tráfego de sub-rede-Gerenciador de tráfego do Azure
+title: 'Tutorial: configurar o roteamento de tráfego de sub-rede-Gerenciador de tráfego do Azure'
 description: Este artigo explica como configurar o Gestor de Tráfego para encaminhar o tráfego de sub-redes do utilizador para pontos finais específicos.
 services: traffic-manager
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: allensu
-ms.openlocfilehash: 79a8712dbe54446214f3c094a1377efea4defcce
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c2fbb4a85347c8ee68376069474add865cc06c43
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014577"
+ms.locfileid: "74048816"
 ---
-# <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Direcionar tráfego para pontos finais específicos com base na sub-rede do utilizador com o Gestor de Tráfego
+# <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutorial: direcionar o tráfego para pontos de extremidade específicos com base na sub-rede do usuário usando o Gerenciador de tráfego
 
 Este artigo descreve como configurar o método de encaminhamento do tráfego da sub-rede. O método de encaminhamento do tráfego da **Sub-rede** permite-lhe mapear um conjunto de intervalos de endereços IP para pontos finais específicos e quando um pedido é recebido pelo Gestor de Tráfego, este inspeciona o IP de origem do pedido e devolve o ponto final associado ao mesmo.
 

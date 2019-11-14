@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Script da CLI do Azure – Criar uma VM do Linux com o NLB | Microsoft Docs
+title: Exemplo do Script da CLI do Azure – Criar uma VM do Linux com o NLB
 description: Exemplo do Script da CLI do Azure – Criar uma VM do Linux com o NLB
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2e9b536ae6c7056348ac964a2c85ccd698a80ae4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 858151a0803ba86aeca91f35e3e6f30394bf8ea8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709372"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040261"
 ---
 # <a name="create-a-highly-available-vm"></a>Criar uma VM de elevada disponibilidade
 
@@ -63,7 +63,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

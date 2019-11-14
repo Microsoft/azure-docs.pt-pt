@@ -1,18 +1,19 @@
 ---
-title: Criar um gateway de aplicativo com regras de roteamento com base em caminho de URL-Azure PowerShell | Microsoft Docs
+title: Regras de roteamento com base em caminho de URL usando o PowerShell
+titleSuffix: Azure Application Gateway
 description: Saiba como criar regras de roteamento com base em caminho de URL para um gateway de aplicativo e um conjunto de dimensionamento de máquinas virtuais usando Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: ebe09e2c10bed1779d9189755f66bbea9bca1d43
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: e7934ba0b33bff7ffb8e89e7b56c5b998a232289
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306263"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048057"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Criar um gateway de aplicativo com regras de roteamento com base em caminho de URL usando Azure PowerShell
 
@@ -35,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo Azure PowerShell. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos do Azure usando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
@@ -67,7 +68,7 @@ $pip = New-AzPublicIpAddress `
   -AllocationMethod Dynamic
 ```
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e a porta de front-end
 
@@ -345,7 +346,7 @@ for ($i=1; $i -le 3; $i++)
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Você pode usar [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço IP público do gateway de aplicativo. Copie o endereço IP público e cole-o na barra de endereço do browser. Como, `http://52.168.55.24` `http://52.168.55.24:8080/images/test.htm`, ou .`http://52.168.55.24:8080/video/test.htm`
+Você pode usar [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço IP público do gateway de aplicativo. Copie o endereço IP público e cole-o na barra de endereço do browser. Como, `http://52.168.55.24`, `http://52.168.55.24:8080/images/test.htm`ou `http://52.168.55.24:8080/video/test.htm`.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -353,15 +354,15 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Testar o URL base no gateway de aplicação](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-Altere a URL para `http://<ip-address>:8080/video/test.htm`, substituindo o endereço IP para `<ip-address>`e você verá algo semelhante ao exemplo a seguir:
+Altere a URL para `http://<ip-address>:8080/video/test.htm`, substituindo seu endereço IP por `<ip-address>`, e você deverá ver algo semelhante ao exemplo a seguir:
 
 ![Testar o URL de imagens no gateway de aplicação](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
-Altere a URL para `http://<ip-address>:8080/video/test.htm` e você verá algo semelhante ao exemplo a seguir:
+Altere a URL para `http://<ip-address>:8080/video/test.htm` e você verá algo parecido com o exemplo a seguir:
 
 ![Testar o URL de vídeo no gateway de aplicação](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-video.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a:
 

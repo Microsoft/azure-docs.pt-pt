@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Criar um Azure Resource Manager modelo de balanceador de carga padrão'
-titlesuffix: Azure Load Balancer
+title: 'Início rápido: criar um balanceador de carga padrão-modelo do Azure'
+titleSuffix: Azure Load Balancer
 description: Este guia de início rápido mostra como criar um balanceador de carga padrão usando o modelo de Azure Resource Manager.
 services: load-balancer
 documentationcenter: na
@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 09/20/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: ab55583d72297f2a1c72bac21e4414919f31b91b
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 884ba1106e7b68fefaf91ee4e25cacd05bf96fc0
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161407"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048753"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Início rápido: Criar um balanceador de carga padrão para balancear a carga de VMs usando Azure Resource Manager modelo
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Início rápido: criar um balanceador de carga padrão para balancear a carga de VMs usando Azure Resource Manager modelo
 
 O balanceamento de carga oferece um nível mais elevado de disponibilidade e dimensionamento ao propagar os pedidos recebidos por múltiplas máquinas virtuais (VMs). Este guia de início rápido mostra como implantar um modelo de Azure Resource Manager que cria um balanceador de carga padrão para balancear a carga de VMs. O uso do modelo do Resource Manager leva menos etapas em comparação com outros métodos de implantação.
 
@@ -76,7 +76,7 @@ Para encontrar mais modelos relacionados ao Azure Load Balancer, consulte modelo
 
 1. Insira os valores.
 
-   A implantação de modelo cria três zonas de disponibilidade. As zonas de disponibilidade têm suporte apenas em [determinadas regiões](../availability-zones/az-overview.md). Use uma das regiões com suporte. Se você não tiver certeza,digite centralus.
+   A implantação de modelo cria três zonas de disponibilidade. As zonas de disponibilidade têm suporte apenas em [determinadas regiões](../availability-zones/az-overview.md). Use uma das regiões com suporte. Se você não tiver certeza, digite **centralus**.
 
    O nome do grupo de recursos é o nome do projeto com **RG** acrescentado. Você precisa do nome do grupo de recursos na próxima seção.
 
@@ -88,7 +88,7 @@ Azure PowerShell é usado para implantar o modelo. Além de Azure PowerShell, vo
 
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 1. Selecione **grupos de recursos** no painel esquerdo.
 

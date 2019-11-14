@@ -1,5 +1,5 @@
 ---
-title: Usar o CLI do Azure para configurar um grupo de disponibilidade Always On para SQL Server em uma VM do Azure
+title: Configurar um grupo de disponibilidade (CLI do Azure)
 description: Use o CLI do Azure para criar o cluster de failover do Windows, o ouvinte do grupo de disponibilidade e o balanceador de carga interno em uma VM SQL Server no Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 58174704051709a720950ac51591a1d53b9d01bb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: a6600af353daf2bfa7b49196f48ba5b60e6c45fb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100568"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022370"
 ---
 # <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Usar o CLI do Azure para configurar um grupo de disponibilidade Always On para SQL Server em uma VM do Azure
 Este artigo descreve como usar o [CLI do Azure](/cli/azure/sql/vm?view=azure-cli-latest/) para implantar um cluster de failover do Windows, adicionar SQL Server VMs ao cluster e criar o balanceador de carga interno e o ouvinte para um grupo de disponibilidade Always on. A implantação do grupo de disponibilidade Always On ainda é feita manualmente por meio de SQL Server Management Studio (SSMS). 
@@ -34,10 +35,10 @@ Para automatizar a configuração de um grupo de disponibilidade Always On usand
 ## <a name="permissions"></a>Permissões
 Você precisa das seguintes permissões de conta para configurar o grupo de disponibilidade Always On usando o CLI do Azure: 
 
-- Uma conta de usuário de domínio existente que tenha a permissão **criar objeto de computador** no domínio. Por exemplo, uma conta de administrador de domínio normalmente tem permissão suficiente (por account@domain.comexemplo:). _Essa conta também deve fazer parte do grupo de Administradores local em cada VM para criar o cluster._
+- Uma conta de usuário de domínio existente que tenha a permissão **criar objeto de computador** no domínio. Por exemplo, uma conta de administrador de domínio normalmente tem permissão suficiente (por exemplo: account@domain.com). _Essa conta também deve fazer parte do grupo de Administradores local em cada VM para criar o cluster._
 - A conta de usuário de domínio que controla o serviço de SQL Server. 
  
-## <a name="step-1-create-a-storage-account-as-a-cloud-witness"></a>Passo 1: Criar uma conta de armazenamento como uma testemunha em nuvem
+## <a name="step-1-create-a-storage-account-as-a-cloud-witness"></a>Etapa 1: criar uma conta de armazenamento como uma testemunha de nuvem
 O cluster precisa de uma conta de armazenamento para atuar como a testemunha de nuvem. Você pode usar qualquer conta de armazenamento existente ou pode criar uma nova conta de armazenamento. Se você quiser usar uma conta de armazenamento existente, pule para a próxima seção. 
 
 O trecho de código a seguir cria a conta de armazenamento: 
@@ -53,7 +54,7 @@ az storage account create -n <name> -g <resource group name> -l <region ex:eastu
 >[!TIP]
 > Você poderá ver o erro `az sql: 'vm' is not in the 'az sql' command group` se estiver usando uma versão desatualizada do CLI do Azure. Baixe a [versão mais recente do CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) para passar por esse erro.
 
-## <a name="step-2-define-windows-failover-cluster-metadata"></a>Passo 2: Definir metadados do cluster de failover do Windows
+## <a name="step-2-define-windows-failover-cluster-metadata"></a>Etapa 2: definir os metadados do cluster de failover do Windows
 O grupo de comando CLI do Azure [AZ SQL VM Group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) gerencia os metadados do serviço WSFC (cluster de failover do Windows Server) que hospeda o grupo de disponibilidade. Os metadados do cluster incluem o domínio Active Directory, as contas de cluster, as contas de armazenamento a serem usadas como a testemunha de nuvem e a versão SQL Server. Use [AZ SQL VM Group Create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) para definir os metadados do WSFC para que, quando a primeira SQL Server VM for adicionada, o cluster seja criado conforme definido. 
 
 O trecho de código a seguir define os metadados para o cluster:
@@ -73,8 +74,8 @@ az sql vm group create -n <cluster name> -l <region ex:eastus> -g <resource grou
   --storage-account '<ex:https://cloudwitness.blob.core.windows.net/>'
 ```
 
-## <a name="step-3-add-sql-server-vms-to-the-cluster"></a>Passo 3: Adicionar SQL Server VMs ao cluster
-Adicionar a primeira SQL Server VM ao cluster cria o cluster. O comando [AZ SQL VM Add-to-Group](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) cria o cluster com o nome fornecido anteriormente, instala a função de cluster nas VMs SQL Server e as adiciona ao cluster. Usos subsequentes do `az sql vm add-to-group` comando adicione mais SQL Server VMs ao cluster recém-criado. 
+## <a name="step-3-add-sql-server-vms-to-the-cluster"></a>Etapa 3: Adicionar SQL Server VMs ao cluster
+Adicionar a primeira SQL Server VM ao cluster cria o cluster. O comando [AZ SQL VM Add-to-Group](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) cria o cluster com o nome fornecido anteriormente, instala a função de cluster nas VMs SQL Server e as adiciona ao cluster. Usos subsequentes do comando `az sql vm add-to-group` adicionar mais SQL Server VMs ao cluster recém-criado. 
 
 O trecho de código a seguir cria o cluster e adiciona a primeira SQL Server VM a ele: 
 
@@ -90,15 +91,15 @@ az sql vm add-to-group -n <VM1 Name> -g <Resource Group Name> --sqlvm-group <clu
 az sql vm add-to-group -n <VM2 Name> -g <Resource Group Name> --sqlvm-group <cluster name> `
   -b <bootstrap account password> -p <operator account password> -s <service account password>
 ```
-Use este comando para adicionar qualquer outra VM SQL Server ao cluster. Modifique somente o `-n` parâmetro para o nome da VM SQL Server. 
+Use este comando para adicionar qualquer outra VM SQL Server ao cluster. Modifique somente o parâmetro `-n` para o nome da VM SQL Server. 
 
-## <a name="step-4-create-the-availability-group"></a>Passo 4: Criar o grupo de disponibilidade
+## <a name="step-4-create-the-availability-group"></a>Etapa 4: criar o grupo de disponibilidade
 Crie manualmente o grupo de disponibilidade como faria normalmente, usando [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell)ou [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
 >[!IMPORTANT]
 > *Não* crie um ouvinte neste momento porque isso é feito por meio do CLI do Azure nas seções a seguir.  
 
-## <a name="step-5-create-the-internal-load-balancer"></a>Passo 5: Criar o balanceador de carga interno
+## <a name="step-5-create-the-internal-load-balancer"></a>Etapa 5: criar o balanceador de carga interno
 
 O ouvinte do grupo de disponibilidade Always On requer uma instância interna do Azure Load Balancer. O balanceador de carga interno fornece um endereço IP "flutuante" para o ouvinte do grupo de disponibilidade que permite failover e reconexão mais rápidos. Se as SQL Server VMs em um grupo de disponibilidade fizerem parte do mesmo conjunto de disponibilidade, você poderá usar um balanceador de carga básico. Caso contrário, você precisa usar um balanceador de carga padrão.  
 
@@ -119,17 +120,17 @@ az network lb create --name sqlILB -g <resource group name> --sku Standard `
 >[!IMPORTANT]
 > O recurso de IP público para cada VM SQL Server deve ter um SKU Standard para ser compatível com o Load Balancer padrão. Para determinar a SKU do recurso IP público da VM, vá para **grupo de recursos**, selecione o recurso de **endereço IP público** para a VM SQL Server desejada e localize o valor em **SKU** no painel **visão geral** .  
 
-## <a name="step-6-create-the-availability-group-listener"></a>Passo 6: Criar o ouvinte do grupo de disponibilidade
+## <a name="step-6-create-the-availability-group-listener"></a>Etapa 6: criar o ouvinte do grupo de disponibilidade
 Depois de criar manualmente o grupo de disponibilidade, você pode criar o ouvinte usando [AZ SQL VM AG-Listener](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create). 
 
-A *ID de recurso de sub-rede* é o `/subnets/<subnetname>` valor de acrescentado à ID de recurso do recurso de rede virtual. Para identificar a ID de recurso de sub-rede:
+A *ID de recurso de sub-rede* é o valor de `/subnets/<subnetname>` acrescentado à ID de recurso do recurso de rede virtual. Para identificar a ID de recurso de sub-rede:
    1. Vá para o grupo de recursos na [portal do Azure](https://portal.azure.com). 
    1. Selecione o recurso de rede virtual. 
    1. Selecione **Propriedades** no painel **configurações** . 
-   1. Identifique a ID de recurso para a rede virtual e `/subnets/<subnetname>` acrescente ao final dela para criar a ID de recurso de sub-rede. Por exemplo:
-      - A ID do recurso de rede virtual é:`/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
-      - O nome da sub-rede é:`default`
-      - Portanto, a ID de recurso de sub-rede é:`/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`
+   1. Identifique a ID de recurso para a rede virtual e acrescente `/subnets/<subnetname>` ao final dela para criar a ID de recurso de sub-rede. Por exemplo:
+      - A ID do recurso de rede virtual é: `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
+      - O nome da sub-rede é: `default`
+      - Portanto, a ID de recurso de sub-rede é: `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`
 
 
 O trecho de código a seguir cria o ouvinte do grupo de disponibilidade:
@@ -211,7 +212,7 @@ O melhor método é excluí-lo por meio do provedor de recursos da VM do SQL usa
 az sql vm group ag-listener delete --group-name <cluster name> --name <listener name > --resource-group <resource group name>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, veja os artigos seguintes: 
 

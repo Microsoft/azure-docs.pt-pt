@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Script da CLI do Azure - Reiniciar VMs | Microsoft Docs
+title: Exemplo de script CLI do Azure-reinicialização de VMs
 description: Exemplo do Script da CLI do Azure - Reiniciar VMs por etiqueta e ID
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 78e646887a0e595589b9d0cc794029dcd4be91ca
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 5545fc07bd7b30225bcaf01eee8f10a141cd8d57
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841410"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040254"
 ---
 # <a name="restart-vms"></a>Reiniciar VMs
 
@@ -61,7 +61,7 @@ Duas delas estão marcadas.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Provision the VMs")]
 
-### <a name="wait"></a>Aguardar
+### <a name="wait"></a>Wait
 
 Este script verifica o estado de aprovisionamento a cada 20 segundos até que as três VMs estejam aprovisionadas ou falhe o aprovisionamento de uma delas.
 
@@ -94,7 +94,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az vm restart](https://docs.microsoft.com/cli/azure/vm) | Reinicia as VMs. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

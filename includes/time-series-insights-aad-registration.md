@@ -9,24 +9,16 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 09/24/2019
-ms.openlocfilehash: 7e67b9e1c611d14b78db53f8662fb4e1f493a8df
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 1ed57e30273c9ba3feb110e0e5acbd3bcc7ffd40
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990173"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74062915"
 ---
-> [!IMPORTANT]
-> * O novo **Azure Active Directory** > folha **registros de aplicativo** substitui a folha herdada **Azure Active Directory** > **registros de aplicativo (herdada)** 2019.
-> * Registros de aplicativo criados ou exibidos na folha herdada serão exibidos automaticamente na folha novo.
-> * Para obter informações abrangentes sobre como migrar para a nova experiência de registro de Azure App, leia o [Guia de treinamento de registros de Azure app](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide) e [Azure Active Directory início rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
-
 1. Na [portal do Azure](https://ms.portal.azure.com/), selecione **Azure Active Directory** > **registros de aplicativo** > **novo registro**.
 
    [![novo registro de aplicativo no Azure Active Directory](media/time-series-insights-aad-registration/active-directory-new-application-registration.png)](media/time-series-insights-aad-registration/active-directory-new-application-registration.png#lightbox)
-
-   > [!TIP]
-   > O novo painel de registro do aplicativo Azure Active Directory permite que você filtre os aplicativos exibidos selecionando **aplicativos pertencentes**.
 
     Seu aplicativo será listado aqui depois que você registrá-lo.
 

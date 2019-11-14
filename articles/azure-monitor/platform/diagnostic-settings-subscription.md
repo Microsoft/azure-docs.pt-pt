@@ -7,12 +7,12 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 10/31/2019
-ms.openlocfilehash: 9f8783dc6d3c14b086364639b60273dbae626cee
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 6104a8b01cc9fca5ff8de973e7fc2af77cda8515
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587982"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048213"
 ---
 # <a name="collect-azure-activity-log-with-diagnostic-settings-preview"></a>Coletar log de atividades do Azure com configurações de diagnóstico (versão prévia)
 O [log de atividades do Azure](activity-logs-overview.md) é um [log de plataforma](platform-logs-overview.md) que fornece informações sobre eventos de nível de assinatura que ocorreram no Azure. Até agora, você criou um perfil de log para enviar entradas do log de atividades a [um hub de eventos ou uma conta de armazenamento](activity-log-export.md) e usou um conector para coletá-las em um [espaço de trabalho log Analytics](activity-log-collect.md).
@@ -22,6 +22,8 @@ Agora você pode configurar a coleta do log de atividades do Azure usando as mes
 - Método consistente para coletar todos os logs de plataforma.
 - Coletar log de atividades entre várias assinaturas e locatários.
 - Filtrar coleção para coletar somente logs para categorias específicas.
+- Coletar todas as categorias de log de atividades. Algumas categorias não são coletadas usando o método anterior.
+- Latência mais rápida para a ingestão de logs. O método anterior tem aproximadamente 15 minutos de latência enquanto as configurações de diagnóstico adicionam apenas cerca de 1 minuto.
 
 ## <a name="considerations"></a>Considerações
 Considere os seguintes detalhes da coleta de log de atividades usando configurações de diagnóstico antes de habilitar esse recurso.

@@ -1,23 +1,20 @@
 ---
-title: Criar um gateway de aplicação com a terminação de SSL - CLI do Azure | Documentos da Microsoft
+title: Terminação SSL usando Aplicativo Azure gateway de CLI
 description: Saiba como criar um gateway de aplicação e adicionar um certificado para terminação SSL com a CLI do Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 188c252064028ccecc0fd4fe231cda190d2b4c08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d1decdda096fb902ff605205d7193e1264e5170
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66135166"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048004"
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Criar um gateway de aplicação com a terminação de SSL com a CLI do Azure
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Criar um gateway de aplicativo com terminação SSL usando o CLI do Azure
 
 Pode utilizar a CLI do Azure para criar um [gateway de aplicação](application-gateway-introduction.md) com um certificado para [terminação SSL](application-gateway-backend-ssl.md) que utiliza um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que foram adicionadas ao conjunto de back-end predefinido do gateway de aplicação.
 
@@ -51,7 +48,7 @@ openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.cr
 
 Introduza a palavra-passe para o certificado. Neste exemplo, *Azure123456!* é a palavra-passe utilizada.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com [az group create](/cli/azure/group).
 
@@ -85,7 +82,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. 
+Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, sku e definições de HTTP. 
 
 O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. Neste exemplo, vai associar o certificado que criou e a respetiva palavra-passe quando criar o gateway de aplicação. 
 
@@ -167,7 +164,7 @@ Para aceitar o aviso de segurança se tiver utilizado um certificado autoassinad
 
 ![Testar o URL base no gateway de aplicação](./media/application-gateway-ssl-cli/application-gateway-nginx.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
@@ -177,4 +174,4 @@ Neste tutorial, ficou a saber como:
 > * Criar um gateway de aplicação com o certificado
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
 
-Para saber mais sobre os gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.
+Para saber mais sobre gateways de aplicativo e seus recursos associados, continue para os artigos de instruções.

@@ -1,25 +1,25 @@
 ---
-title: Concluir uma revisão de acesso das funções do Azure AD no PIM-Azure Active Directory | Microsoft Docs
+title: Concluir a revisão de acesso das funções do Azure AD no PIM – Azure AD | Microsoft Docs
 description: Saiba como concluir uma revisão de acesso das funções do Azure AD no Azure AD Privileged Identity Management (PIM) e exibir os resultados
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 197abc0642d6abf1278a75c2101c195cafeb53b2
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: fe2d85d605b9ee418a5709ddcdb448c56be1d918
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809139"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022287"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Concluir uma revisão de acesso das funções do Azure AD no Privileged Identity Management
 
@@ -45,7 +45,7 @@ Se uma revisão de acesso for configurada para que os usuários se revisem, o bo
 
 Todas as revisões de acesso têm uma data de término, mas você pode usar o botão **parar** para concluí-la antecipadamente. Se algum usuário não tiver sido revisado neste momento, ele não será capaz de interromper a revisão. Não é possível reiniciar uma revisão após sua interrupção.
 
-### <a name="apply"></a>Registe-se
+### <a name="apply"></a>Aplicar
 
 Após a conclusão de uma revisão de acesso, porque você atingiu a data de término ou a interrompeu manualmente, o botão **aplicar** implementa o resultado da revisão. Se o acesso de um usuário foi negado na revisão, essa é a etapa que removerá sua atribuição de função.  
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5d2770c3f51c05354ff331fe8de723fb6ebd5c65
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f37c54699329f43a5bbdd5c4543ae3a7b2166f5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498417"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048839"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 Sincronização de Arquivos do Azure conecta seus servidores locais a arquivos do Azure, habilitando a sincronização de vários sites e recursos de camadas de nuvem. Como tal, um servidor local deve estar conectado à Internet. Um administrador de ti precisa decidir o melhor caminho para o servidor acessar os serviços de nuvem do Azure.
@@ -22,9 +22,9 @@ Este artigo fornecerá informações sobre requisitos específicos e opções di
 ## <a name="overview"></a>Descrição geral
 Sincronização de Arquivos do Azure atua como um serviço de orquestração entre o Windows Server, o compartilhamento de arquivos do Azure e vários outros serviços do Azure para sincronizar dados, conforme descrito em seu grupo de sincronização. Para que Sincronização de Arquivos do Azure funcionem corretamente, você precisará configurar seus servidores para se comunicar com os seguintes serviços do Azure:
 
-- Armazenamento do Azure
+- Storage do Azure
 - Azure File Sync
-- Gestor de Recursos do Azure
+- Azure Resource Manager
 - Serviços de autenticação
 
 > [!Note]  
@@ -94,9 +94,9 @@ A tabela a seguir descreve os domínios necessários para a comunicação:
 | **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Qualquer chamada de usuário (como o PowerShell) vai para/por essa URL, incluindo a chamada de registro de servidor inicial. |
 | **Azure Active Directory** | https://login.windows.net<br>https://login.microsoftonline.com | https://login.microsoftonline.us | Azure Resource Manager chamadas devem ser feitas por um usuário autenticado. Para ter sucesso, essa URL é usada para autenticação de usuário. |
 | **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Como parte da implantação de Sincronização de Arquivos do Azure, uma entidade de serviço no Azure Active Directory da assinatura será criada. Essa URL é usada para isso. Essa entidade de segurança é usada para delegar um conjunto mínimo de direitos ao serviço de Sincronização de Arquivos do Azure. O usuário que executa a configuração inicial do Sincronização de Arquivos do Azure deve ser um usuário autenticado com privilégios de proprietário da assinatura. |
-| **Armazenamento do Azure** | &ast;. core.windows.net | &ast;. core.usgovcloudapi.net | Quando o servidor baixa um arquivo, o servidor executa essa movimentação de dados com mais eficiência ao conversar diretamente com o compartilhamento de arquivos do Azure na conta de armazenamento. O servidor tem uma chave SAS que permite apenas o acesso de compartilhamento de arquivos direcionado. |
-| **Azure File Sync** | &ast;. one.microsoft.com<br>&ast;. afs.azure.net | &ast;. afs.azure.us | Após o registro inicial do servidor, o servidor recebe uma URL regional para a instância do serviço de Sincronização de Arquivos do Azure nessa região. O servidor pode usar a URL para se comunicar de forma direta e eficiente com a instância que manipula sua sincronização. |
-| **PKI da Microsoft** | https://www.microsoft.com/pki/mscorp<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp<br><http://ocsp.msocsp.com> | Depois que o agente de Sincronização de Arquivos do Azure estiver instalado, a URL PKI será usada para baixar os certificados intermediários necessários para se comunicar com o serviço Sincronização de Arquivos do Azure e o compartilhamento de arquivos do Azure. A URL OCSP é usada para verificar o status de um certificado. |
+| **Storage do Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quando o servidor baixa um arquivo, o servidor executa essa movimentação de dados com mais eficiência ao conversar diretamente com o compartilhamento de arquivos do Azure na conta de armazenamento. O servidor tem uma chave SAS que permite apenas o acesso de compartilhamento de arquivos direcionado. |
+| **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;. afs.azure.net | &ast;.afs.azure.us | Após o registro inicial do servidor, o servidor recebe uma URL regional para a instância do serviço de Sincronização de Arquivos do Azure nessa região. O servidor pode usar a URL para se comunicar de forma direta e eficiente com a instância que manipula sua sincronização. |
+| **PKI da Microsoft** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Depois que o agente de Sincronização de Arquivos do Azure estiver instalado, a URL PKI será usada para baixar os certificados intermediários necessários para se comunicar com o serviço Sincronização de Arquivos do Azure e o compartilhamento de arquivos do Azure. A URL OCSP é usada para verificar o status de um certificado. |
 
 > [!Important]
 > Ao permitir o tráfego para &ast;. one.microsoft.com, o tráfego para mais do que apenas o serviço de sincronização é possível no servidor. Há muito mais serviços da Microsoft disponíveis em subdomínios.
@@ -114,24 +114,24 @@ Para fins de BCDR (continuidade dos negócios e recuperação de desastre), voc�
 | Público | Leste do Canadá | https:\//kailani-cae.one.microsoft.com | Canadá Central | https:\//tm-kailani.cae.one.microsoft.com |
 | Público | Índia Central | https:\//kailani-cin.one.microsoft.com | Sul da Índia | https:\//tm-kailani-cin.one.microsoft.com |
 | Público | EUA Central | https:\//kailani-cus.one.microsoft.com | EUA Leste 2 | https:\//tm-kailani-cus.one.microsoft.com |
-| Público | Ásia Oriental | https:\//kailani11.one.microsoft.com | Sudeste Asiático | https:\//tm-kailani11.one.microsoft.com |
-| Público | EUA Leste | https:\//kailani1.one.microsoft.com | Oeste dos E.U.A. | https:\//tm-kailani1.one.microsoft.com |
+| Público | Ásia Oriental | https:\//kailani11.one.microsoft.com | Sudeste asiático | https:\//tm-kailani11.one.microsoft.com |
+| Público | EUA Leste | https:\//kailani1.one.microsoft.com | EUA Oeste | https:\//tm-kailani1.one.microsoft.com |
 | Público | EUA Leste 2 | https:\//kailani-ess.one.microsoft.com | EUA Central | https:\//tm-kailani-ess.one.microsoft.com |
-| Público | Este do Japão | https:\//japaneast01.afs.azure.net | Oeste do Japão | https:\//tm-japaneast01.afs.azure.net |
-| Público | Oeste do Japão | https:\//japanwest01.afs.azure.net | Este do Japão | https:\//tm-japanwest01.afs.azure.net |
+| Público | Leste do Japão | https:\//japaneast01.afs.azure.net | Oeste do Japão | https:\//tm-japaneast01.afs.azure.net |
+| Público | Oeste do Japão | https:\//japanwest01.afs.azure.net | Leste do Japão | https:\//tm-japanwest01.afs.azure.net |
 | Público | Coreia do Sul Central | https:\//koreacentral01.afs.azure.net/ | Coreia do Sul | https:\//tm-koreacentral01.afs.azure.net/ |
 | Público | Coreia do Sul | https:\//koreasouth01.afs.azure.net/ | Coreia do Sul Central | https:\//tm-koreasouth01.afs.azure.net/ |
-| Público | E.U.A. Centro-Norte | https:\//northcentralus01.afs.azure.net | EUA Centro-Sul | https:\//tm-northcentralus01.afs.azure.net |
-| Público | Europa do Norte | https:\//kailani7.one.microsoft.com | Europa Ocidental | https:\//tm-kailani7.one.microsoft.com |
-| Público | EUA Centro-Sul | https:\//southcentralus01.afs.azure.net | E.U.A. Centro-Norte | https:\//tm-southcentralus01.afs.azure.net |
+| Público | EUA Centro-Norte | https:\//northcentralus01.afs.azure.net | EUA Centro-Sul | https:\//tm-northcentralus01.afs.azure.net |
+| Público | Europa do Norte | https:\//kailani7.one.microsoft.com | Europa ocidental | https:\//tm-kailani7.one.microsoft.com |
+| Público | EUA Centro-Sul | https:\//southcentralus01.afs.azure.net | EUA Centro-Norte | https:\//tm-southcentralus01.afs.azure.net |
 | Público | Sul da Índia | https:\//kailani-sin.one.microsoft.com | Índia Central | https:\//tm-kailani-sin.one.microsoft.com |
-| Público | Sudeste Asiático | https:\//kailani10.one.microsoft.com | Ásia Oriental | https:\//tm-kailani10.one.microsoft.com |
-| Público | Sul do Reino Unido | https:\//kailani-uks.one.microsoft.com | Reino Unido Oeste | https:\//tm-kailani-uks.one.microsoft.com |
-| Público | Reino Unido Oeste | https:\//kailani-ukw.one.microsoft.com | Sul do Reino Unido | https:\//tm-kailani-ukw.one.microsoft.com |
-| Público | E.U.A. Centro-Oeste | https:\//westcentralus01.afs.azure.net | EUA Oeste 2 | https:\//tm-westcentralus01.afs.azure.net |
-| Público | Europa Ocidental | https:\//kailani6.one.microsoft.com | Europa do Norte | https:\//tm-kailani6.one.microsoft.com |
-| Público | Oeste dos E.U.A. | https:\//kailani.one.microsoft.com | EUA Leste | https:\//tm-kailani.one.microsoft.com |
-| Público | EUA Oeste 2 | https:\//westus201.afs.azure.net | E.U.A. Centro-Oeste | https:\//tm-westus201.afs.azure.net |
+| Público | Sudeste asiático | https:\//kailani10.one.microsoft.com | Ásia Oriental | https:\//tm-kailani10.one.microsoft.com |
+| Público | Reino Unido Sul | https:\//kailani-uks.one.microsoft.com | Reino Unido Oeste | https:\//tm-kailani-uks.one.microsoft.com |
+| Público | Reino Unido Oeste | https:\//kailani-ukw.one.microsoft.com | Reino Unido Sul | https:\//tm-kailani-ukw.one.microsoft.com |
+| Público | EUA Centro-Oeste | https:\//westcentralus01.afs.azure.net | EUA Oeste 2 | https:\//tm-westcentralus01.afs.azure.net |
+| Público | Europa ocidental | https:\//kailani6.one.microsoft.com | Europa do Norte | https:\//tm-kailani6.one.microsoft.com |
+| Público | EUA Oeste | https:\//kailani.one.microsoft.com | EUA Leste | https:\//tm-kailani.one.microsoft.com |
+| Público | EUA Oeste 2 | https:\//westus201.afs.azure.net | EUA Centro-Oeste | https:\//tm-westus201.afs.azure.net |
 | Governo | Gov (US) - Arizona | https:\//usgovarizona01.afs.azure.us | Gov (US) - Texas | https:\//tm-usgovarizona01.afs.azure.us |
 | Governo | Gov (US) - Texas | https:\//usgovtexas01.afs.azure.us | Gov (US) - Arizona | https:\//tm-usgovtexas01.afs.azure.us |
 

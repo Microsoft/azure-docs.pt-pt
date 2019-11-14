@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: ebed5c8dbe5001e9beab17bdbff41610277143b2
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 67d685684c5227377a0f8a7e822a06e785a69d89
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514704"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034051"
 ---
 # <a name="azcopy-make"></a>azcopy make
 
@@ -26,6 +26,13 @@ Crie um contêiner ou compartilhamento de arquivo representado pela URL de recur
 ```azcopy
 azcopy make [resourceURL] [flags]
 ```
+
+## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
+
+- [Introdução ao AzCopy](storage-use-azcopy-v10.md)
+- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
+- [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
+- [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Exemplos
 
@@ -47,6 +54,6 @@ azcopy make "https://[account-name].[blob,file,dfs].core.windows.net/[top-level-
 |--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
 |--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [azcopy](storage-ref-azcopy.md)

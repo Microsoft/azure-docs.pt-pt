@@ -1,26 +1,25 @@
 ---
-title: Delegar permissões de gerenciamento e criação de administrador de aplicativos-Azure Active Directory | Microsoft Docs
+title: Delegar o gerenciamento de administração de aplicativo permidades-Azure AD | Microsoft Docs
 description: Conceder permissões para o gerenciamento de acesso do aplicativo no Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d5a29ca7ed4eb23c2e0edd4d39cc2920e779acb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 461ee1fc73448f16ba68850d6137fb396c658abd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025507"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024863"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegar permissões de registro de aplicativo no Azure Active Directory
 
@@ -61,8 +60,8 @@ Em alguns casos, os aplicativos empresariais criados na Galeria de aplicativos i
 
 ### <a name="to-assign-an-owner-to-an-enterprise-application"></a>Para atribuir um proprietário a um aplicativo empresarial
 
-1. Entre em [sua organização do Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) Com uma conta qualificada para o administrador de aplicativos ou o administrador de aplicativos de nuvem para a organização.
-1. Na [página Registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) Para a organização, selecione um aplicativo para abrir a página Visão geral do aplicativo.
+1. Entre em [sua organização do Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta qualificada para o administrador de aplicativos ou o administrador de aplicativos de nuvem para a organização.
+1. Na [página Registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) da organização, selecione um aplicativo para abrir a página Visão geral do aplicativo.
 1. Selecione **proprietários** para ver a lista de proprietários do aplicativo.
 1. Selecione **Adicionar** para selecionar um ou mais proprietários a serem adicionados ao aplicativo.
 
@@ -75,8 +74,8 @@ Em alguns casos, os aplicativos empresariais criados na Galeria de aplicativos i
 
 O Azure AD tem um conjunto de funções de administrador internas para conceder acesso para gerenciar a configuração no Azure AD para todos os aplicativos. Essas funções são a maneira recomendada para conceder aos especialistas de ti acesso para gerenciar as amplas permissões de configuração de aplicativo sem conceder acesso para gerenciar outras partes do Azure AD não relacionadas à configuração do aplicativo.
 
-- Administrador do aplicativo: Os usuários nessa função podem criar e gerenciar todos os aspectos de aplicativos empresariais, registros de aplicativos e configurações de proxy de aplicativo. Essa função também concede a capacidade de consentir com permissões delegadas e permissões de aplicativo, exceto Microsoft Graph e Azure AD Graph. Os usuários atribuídos a essa função não são adicionados como proprietários ao criar novos registros de aplicativo ou aplicativos empresariais.
-- Administrador de aplicativos de nuvem: Os usuários nessa função têm as mesmas permissões que a função Administrador de aplicativos, excluindo a capacidade de gerenciar o proxy de aplicativo. Os usuários atribuídos a essa função não são adicionados como proprietários ao criar novos registros de aplicativo ou aplicativos empresariais.
+- Administrador de aplicativos: os usuários nessa função podem criar e gerenciar todos os aspectos de aplicativos empresariais, registros de aplicativos e configurações de proxy de aplicativo. Essa função também concede a capacidade de consentir com permissões delegadas e permissões de aplicativo, exceto Microsoft Graph e Azure AD Graph. Os usuários atribuídos a essa função não são adicionados como proprietários ao criar novos registros de aplicativo ou aplicativos empresariais.
+- Administrador de aplicativos de nuvem: os usuários nessa função têm as mesmas permissões que a função de administrador de aplicativos, excluindo a capacidade de gerenciar o proxy de aplicativo. Os usuários atribuídos a essa função não são adicionados como proprietários ao criar novos registros de aplicativo ou aplicativos empresariais.
 
 Para obter mais informações e exibir a descrição dessas funções, consulte [funções disponíveis](directory-assign-admin-roles.md#available-roles).
 

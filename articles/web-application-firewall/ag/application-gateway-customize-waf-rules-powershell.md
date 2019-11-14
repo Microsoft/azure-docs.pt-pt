@@ -1,20 +1,21 @@
 ---
-title: Personalizar regras de firewall do aplicativo Web no gateway Aplicativo Azure-PowerShell
+title: Personalizar regras usando o PowerShell
+titleSuffix: Azure Web Application Firewall
 description: Este artigo fornece informações sobre como personalizar as regras de firewall do aplicativo Web no gateway de aplicativo com o PowerShell.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/23/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: 2930204cd322f3a8ba25eb6f3455a51f1d3d2ee9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 55eea15da8c3a10b0421ff1576082d6b42fc7c56
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516958"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048514"
 ---
-# <a name="customize-web-application-firewall-rules-through-powershell"></a>Personalizar as regras de firewall do aplicativo Web por meio do PowerShell
+# <a name="customize-web-application-firewall-rules-using-powershell"></a>Personalizar regras de firewall do aplicativo Web usando o PowerShell
 
 O WAF (firewall do aplicativo Web) Aplicativo Azure Gateway fornece proteção para aplicativos Web. Essas proteções são fornecidas pelo CRS (conjunto de regras principais) do OWASP (projeto de segurança de aplicativo Web aberto). Algumas regras podem causar falsos positivos e bloquear o tráfego real. Por esse motivo, o gateway de aplicativo fornece a capacidade de personalizar grupos de regras e regras. Para obter mais informações sobre grupos de regras e regras específicas, consulte [lista de regras e grupos de regras CRS de firewall do aplicativo Web](application-gateway-crs-rulegroups-rules.md).
 

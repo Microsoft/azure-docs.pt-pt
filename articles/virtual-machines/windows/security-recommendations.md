@@ -6,15 +6,15 @@ author: barclayn
 manager: RKarlin
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 09/19/2019
+ms.date: 11/13/2019
 ms.author: barclayn
 ms.custom: security-recommendations
-ms.openlocfilehash: 7f4177a9fd0ceba019606f9336e4eae66ae7d7b1
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: abc84aa616af704a71321037e725513d33ce33c4
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178081"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048559"
 ---
 # <a name="security-recommendations-for-windows-virtual-machines-in-azure"></a>Recomendações de segurança para máquinas virtuais do Windows no Azure
 

@@ -6,15 +6,15 @@ author: barclayn
 manager: RKarlin
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 11/13/2019
 ms.author: barclayn
 ms.custom: security-recommendations
-ms.openlocfilehash: c7a313a73af7969fc203ee00644901539890f7a6
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 69698c5e24e3d4a03f4cbb15adac0b470d13b0ba
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174164"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049201"
 ---
 # <a name="security-recommendations-for-linux-virtual-machines-in-azure"></a>Recomendações de segurança para máquinas virtuais do Linux no Azure
 

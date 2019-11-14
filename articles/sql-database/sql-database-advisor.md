@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
-ms.date: 12/19/2018
-ms.openlocfilehash: fb7ba90724a98a34adf4aa279eefc8e3d7a63bf3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/12/2019
+ms.openlocfilehash: a113ea3fd4828a498d1f53ea7604df7bc8588eb5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811391"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048413"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recomendações de desempenho para o banco de dados SQL
 
@@ -25,6 +25,17 @@ O banco de dados SQL do Azure aprende e se adapta ao seu aplicativo. Ele fornece
 > [!TIP]
 > O [ajuste automático](sql-database-automatic-tuning.md) é o método recomendado para ajustar automaticamente alguns dos problemas de desempenho de banco de dados mais comuns. As [informações de desempenho de consulta](sql-database-query-performance.md) são o método recomendado para as necessidades básicas de monitoramento de desempenho do banco de dados SQL do Azure. [Análise de SQL do Azure](../azure-monitor/insights/azure-sql.md) é o método recomendado para o monitoramento avançado do desempenho do banco de dados em grande escala, com inteligência interna para a solução de problemas de desempenho automatizado.
 >
+
+## <a name="performance-recommendations-options"></a>Opções de recomendações de desempenho
+
+As opções de recomendação de desempenho disponíveis do banco de dados SQL do Azure são:
+
+| Recomendação de desempenho | Banco de dados individual e suporte a banco de dados em pool | Suporte a banco de dados de instância |
+| :----------------------------- | ----- | ----- |
+| **Criar recomendações de índice** – recomenda a criação de índices que podem melhorar o desempenho da carga de trabalho. | Sim | Não | 
+| **Recomendações de drop index** – recomenda a remoção de índices redundantes e duplicados diariamente, exceto índices exclusivos, e índices que não foram usados por um longo período (> 90 dias). Observe que essa opção não é compatível com aplicativos que usam a alternância de partição e dicas de índice. Não há suporte para a remoção de índices não utilizados para as camadas de serviço Premium e Comercialmente Crítico. | Sim | Não |
+| **Parametrizar consultas recomendações (visualização)** – recomenda parametrização forçadas em casos em que você tem uma ou mais consultas que estão constantemente sendo recompiladas, mas terminam com o mesmo plano de execução de consulta. | Sim | Não |
+| **Corrigir recomendações de problemas de esquema (versão prévia)** – as recomendações para correção de esquema aparecem quando o serviço do banco de dados SQL observa uma anomalia no número de erros SQL relacionados ao esquema que estão ocorrendo no banco de dados SQL. Atualmente, a Microsoft está preterindo recomendações "corrigir problema de esquema". | Sim | Não |
 
 ## <a name="create-index-recommendations"></a>Criar recomendações de índice
 O banco de dados SQL monitora continuamente as consultas que estão em execução e identifica os índices que podem melhorar o desempenho. Depois que houver confiança suficiente de que um determinado índice está ausente, uma nova recomendação **criar índice** será criada.
@@ -50,8 +61,7 @@ Além de detectar índices ausentes, o banco de dados SQL analisa continuamente 
 
 As recomendações de drop index também passam pela verificação após a implementação. Se o desempenho melhorar, o relatório de impacto estará disponível. Se o desempenho degradar, a recomendação será revertida.
 
-
-## <a name="parameterize-queries-recommendations"></a>Recomendações de parametrização de consultas
+## <a name="parameterize-queries-recommendations-preview"></a>Recomendações de parametrização de consultas (versão prévia)
 As recomendações de *parametrização de consultas* aparecem quando você tem uma ou mais consultas que estão constantemente sendo recompiladas, mas terminam com o mesmo plano de execução de consulta. Essa condição cria uma oportunidade de aplicar parametrização forçada. A parametrização forçada, por sua vez, permite que os planos de consulta sejam armazenados em cache e reutilizados no futuro, o que melhora o desempenho e reduz o uso de recursos. 
 
 Cada consulta emitida em SQL Server inicialmente precisa ser compilada para gerar um plano de execução. Cada plano gerado é adicionado ao cache de planos. As execuções subsequentes da mesma consulta podem reutilizar esse plano do cache, o que elimina a necessidade de compilação adicional. 
@@ -85,7 +95,7 @@ A recomendação "corrigir problema do esquema" aparece quando o serviço do ban
 | 2812 |Não foi possível encontrar o procedimento armazenado ' * '. |
 | 8144 |O procedimento ou a função * tem muitos argumentos especificados. |
 
-## <a name="custom-applications"></a>Aplicativos personalizados
+## <a name="custom-applications"></a>Aplicações personalizadas
 
 Os desenvolvedores podem considerar o desenvolvimento de aplicativos personalizados usando recomendações de desempenho para o banco de dados SQL do Azure. Todas as recomendações listadas no portal para um banco de dados podem ser acessadas por meio da API [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) .
 

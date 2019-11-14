@@ -1,10 +1,10 @@
 ---
-title: Estender ou renovar atribuições de função de recurso do Azure em Privileged Identity Management Azure Active Directory | Microsoft Docs
+title: Renovar atribuições de função de recurso do Azure no PIM – Azure AD | Microsoft Docs
 description: Saiba como estender ou renovar atribuições de função de recurso do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edfe6a545aa9acae8045e9c9756fc2711504d75d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 577c028582bc3b23d13e71522bb83db558065ee2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895559"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022902"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-privileged-identity-management"></a>Estender ou renovar atribuições de função de recurso do Azure no Privileged Identity Management
 
@@ -43,7 +43,7 @@ As etapas a seguir descrevem o processo de solicitação, resolução ou adminis
 
 ### <a name="self-extend-expiring-assignments"></a>Estender automaticamente as atribuições de expiração
 
-Os usuários ou grupos atribuídos a uma função podem estender as atribuições de função que expiram diretamente da guia **qualificada** ou **ativa** na página **minhas funções** de um recurso e na página **minhas funções** de nível superior do portal de Privileged Identity Management . Os usuários ou grupos podem solicitar a extensão de funções qualificadas e ativas (atribuídas) que expiram nos próximos 14 dias.
+Os usuários ou grupos atribuídos a uma função podem estender as atribuições de função de expiração diretamente da guia **qualificada** ou **ativa** na página **minhas funções** de um recurso e na página **minhas funções** de nível superior do portal de Privileged Identity Management. Os usuários ou grupos podem solicitar a extensão de funções qualificadas e ativas (atribuídas) que expiram nos próximos 14 dias.
 
 ![Recursos do Azure – página minhas funções listando funções qualificadas com uma coluna de ação](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-ui.png)
 

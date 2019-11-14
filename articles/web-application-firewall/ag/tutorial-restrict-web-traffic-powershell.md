@@ -1,18 +1,19 @@
 ---
-title: Restringir o tráfego da Web com um firewall do aplicativo Web-Azure PowerShell
+title: Restringir o tráfego da Web usando o PowerShell
+titleSuffix: Azure Web Application Firewall
 description: Saiba como restringir o tráfego da Web com um firewall do aplicativo Web em um gateway de aplicativo usando Azure PowerShell.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/21/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.topic: overview
-ms.openlocfilehash: b96065b6551f604cfd817a00e6a39cec37c71377
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.topic: conceptual
+ms.openlocfilehash: a57c5b155f7ab00f781236cfceea59a4277ff06a
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502283"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046282"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Habilitar o Firewall do aplicativo Web usando o Azure PowerShell
 
@@ -36,9 +37,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o Azure PowerShell módulo versão 1.0.0 ou posterior. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar `Login-AzAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o Azure PowerShell módulo versão 1.0.0 ou posterior. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver executando o PowerShell localmente, terá também de executar `Login-AzAccount` para criar uma ligação com o Azure.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos do Azure usando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
@@ -74,7 +75,7 @@ $pip = New-AzPublicIpAddress `
   -Sku Standard
 ```
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
 
 Nesta seção, você cria recursos que dão suporte ao gateway de aplicativo e, finalmente, os cria e um WAF. Os recursos que criar incluem:
 

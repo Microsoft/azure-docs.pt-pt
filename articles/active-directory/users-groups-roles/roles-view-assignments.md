@@ -1,24 +1,24 @@
 ---
-title: Exibir permissões de função de administrador no centro de administração-Azure Active Directory | Microsoft Docs
+title: Exibir atribuições de função personalizadas no portal do AD do Azure | Microsoft Docs
 description: Agora você pode ver e gerenciar membros de uma função de administrador do Azure AD no centro de administração do Azure AD.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbe3b0218b73649d40f27d17ee2c7de2853c6b7c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d989a515a1a3c1dc12ca357a3ab2126e78800ffa
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025546"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024425"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Exibir atribuições de função personalizadas no Azure Active Directory
 
@@ -31,7 +31,7 @@ Este artigo descreve como exibir funções personalizadas que você atribuiu no 
 
 Este procedimento descreve a exibição de atribuições de uma função com escopo de toda a organização.
 
-1. Entre no centro de [Administração do Azure AD](https://aad.portal.azure.com) Com permissões de administrador de função privilegiada ou de administrador global na organização do Azure AD.
+1. Entre no centro de [Administração do Azure AD](https://aad.portal.azure.com) com permissões de administrador de função com privilégios ou de administrador global na organização do Azure AD.
 1. Selecione **Azure Active Directory**, selecione **funções e administradores**e, em seguida, selecione uma função para abri-la e exibir suas propriedades.
 1. Selecione **atribuições** para exibir as atribuições da função.
 
@@ -104,7 +104,7 @@ HTTP/1.1 200 OK
 
 Esta seção descreve a exibição de atribuições de uma função com escopo de aplicativo único. Este recurso está atualmente em visualização pública.
 
-1. Entre no centro de [Administração do Azure AD](https://aad.portal.azure.com) Com permissões de administrador de função privilegiada ou de administrador global na organização do Azure AD.
+1. Entre no centro de [Administração do Azure AD](https://aad.portal.azure.com) com permissões de administrador de função com privilégios ou de administrador global na organização do Azure AD.
 1. Selecione **registros de aplicativo**e, em seguida, selecione o registro do aplicativo para exibir suas propriedades. Talvez seja necessário selecionar **todos os aplicativos** para ver a lista completa de registros de aplicativo na sua organização do Azure AD.
 
     ![Criar ou editar registros de aplicativo na página Registros de aplicativo](./media/roles-create-custom/appreg-all-apps.png)

@@ -3,16 +3,16 @@ title: Práticas recomendadas para usar Power BI para consultar e Visualizar dad
 description: Neste artigo, você aprenderá as práticas recomendadas para usar Power BI para consultar e Visualizar dados de Data Explorer do Azure.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 39fab02ebc3a80e0aae34a86a1a6b7f3f46c96f3
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: db1d530c9cab77ae612c83a0d4f52478fb9ee270
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286742"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024023"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Práticas recomendadas para usar Power BI para consultar e Visualizar dados de Data Explorer do Azure
 
@@ -46,14 +46,14 @@ A seção a seguir inclui dicas e truques para usar a linguagem de consulta Kust
 
 ### <a name="complex-queries-in-power-bi"></a>Consultas complexas no Power BI
 
-Consultas complexas são mais facilmente expressas em Kusto do que em Power Query. Eles devem ser implementados como [funções Kusto](/azure/kusto/query/functions)e invocados em Power bi. Esse método é necessário ao usar o **DirectQuery** com instruções `let` em sua consulta Kusto. Como Power BI une duas consultas e as instruções `let` não podem ser usadas com o operador `join`, podem ocorrer erros de sintaxe. Portanto, salve cada parte da junção como uma função Kusto e permita que Power BI ingresse essas duas funções juntas.
+Consultas complexas são mais facilmente expressas em Kusto do que em Power Query. Eles devem ser implementados como [funções Kusto](/azure/kusto/query/functions)e invocados em Power bi. Esse método é necessário ao usar o **DirectQuery** com instruções `let` em sua consulta Kusto. Como Power BI une duas consultas e `let` instruções não podem ser usadas com o operador de `join`, podem ocorrer erros de sintaxe. Portanto, salve cada parte da junção como uma função Kusto e permita que Power BI ingresse essas duas funções juntas.
 
 ### <a name="how-to-simulate-a-relative-date-time-operator"></a>Como simular um operador de data/hora relativo
 
 Power BI não contém um operador de data/hora *relativo* , como `ago()`.
-Para simular `ago()`, use uma combinação de funções `DateTime.FixedLocalNow()` e `#duration` Power BI.
+Para simular `ago()`, use uma combinação de `DateTime.FixedLocalNow()` e `#duration` funções Power BI.
 
-Em vez desta consulta usando o operador `ago()`:
+Em vez desta consulta usando o operador de `ago()`:
 
 ```kusto
     StormEvents | where StartTime > (now()-5d)
@@ -74,11 +74,11 @@ in
 
 As consultas Kusto retornam, por padrão, até 500.000 linhas ou 64 MB, conforme descrito em [limites de consulta](/azure/kusto/concepts/querylimits). Você pode substituir esses padrões usando **as opções avançadas** na janela de conexão do **Data Explorer do Azure (Kusto)** :
 
-![opções avançadas](media/power-bi-best-practices/advanced-options.png)
+![Opções avançadas](media/power-bi-best-practices/advanced-options.png)
 
 Essas opções emitem [instruções SET](/azure/kusto/query/setstatement) com sua consulta para alterar os limites de consulta padrão:
 
-  * **Limitar o número de registros do resultado da consulta** gera um `set truncationmaxrecords`
+  * O **número de registros de resultados de consulta Limit** gera um `set truncationmaxrecords`
   * O **tamanho dos dados do resultado da consulta de limite em bytes** gera um `set truncationmaxsize`
   * **Desabilitar o truncamento do conjunto de resultados** gera um `set notruncation`
 
@@ -90,7 +90,7 @@ Você pode usar [parâmetros de consulta](/azure/kusto/query/queryparametersstat
 
 Use um parâmetro de consulta para filtrar informações na consulta e otimizar o desempenho da consulta.
  
-Na janela **editar consultas** , @no__t **página inicial**-2**Editor avançado**
+Na janela **editar consultas** , > **página inicial** **Editor avançado**
 
 1. Localize a seguinte seção da consulta:
 
@@ -106,7 +106,7 @@ Na janela **editar consultas** , @no__t **página inicial**-2**Editor avançado*
 
 1. Substitua a parte relevante da consulta pelo parâmetro. Divida a consulta em várias partes e as concatene novamente usando um e comercial (&), juntamente com o parâmetro.
 
-   Por exemplo, na consulta acima, pegaremos a parte `State == 'ALABAMA'` e a dividiremos em: `State == '` e `'` e colocaremos o parâmetro `State` entre eles:
+   Por exemplo, na consulta acima, vamos pegar o `State == 'ALABAMA'` parte e dividi-lo em: `State == '` e `'` e colocaremos o parâmetro de `State` entre eles:
    
     ```kusto
     "StormEvents | where State == '" & State & "' | take 100"
@@ -140,7 +140,7 @@ Você pode usar um parâmetro de consulta em qualquer etapa de consulta que ofer
 
 O Power BI inclui um Agendador de atualização de dados que pode emitir consultas periodicamente em uma fonte de dados. Esse mecanismo não deve ser usado para agendar comandos de controle para Kusto porque Power BI assume que todas as consultas são somente leitura.
 
-### <a name="power-bi-can-send-only-short-lt2000-characters-queries-to-kusto"></a>Power BI pode enviar somente consultas curtas (&lt;2000 caracteres) para Kusto
+### <a name="power-bi-can-send-only-short-lt2000-characters-queries-to-kusto"></a>Power BI pode enviar somente consultas curtas (&lt;caracteres 2000) para Kusto
 
 Se a execução de uma consulta no Power BI resultar no seguinte erro: _"DataSource. Error: Web. Contents falhou ao obter conteúdo de..."_ a consulta provavelmente tem mais de 2000 caracteres. Power BI usa **PowerQuery** para consultar o Kusto emitindo uma solicitação HTTP Get que codifica a consulta como parte do URI que está sendo recuperado. Portanto, as consultas Kusto emitidas por Power BI são limitadas ao comprimento máximo de um URI de solicitação (2000 caracteres, menos deslocamento pequeno). Como alternativa, você pode definir uma [função armazenada](/azure/kusto/query/schema-entities/stored-functions) em Kusto e ter Power bi usar essa função na consulta.
 

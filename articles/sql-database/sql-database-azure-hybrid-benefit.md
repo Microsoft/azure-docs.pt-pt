@@ -8,20 +8,22 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/08/2019
-ms.openlocfilehash: 17252f6544ee56647315dc44ace4db3e3abe9726
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/13/2019
+ms.openlocfilehash: 4aab699ff0141b648066fae0de445c4467be7509
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821880"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048399"
 ---
 # <a name="azure-hybrid-benefit"></a>Benefício Híbrido do Azure
 
-Na camada de computação provisionada do modelo de compra baseado em vCore, você pode trocar suas licenças existentes por tarifas com desconto no banco de dados SQL usando [benefício híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Esse benefício do Azure permite que você economize até 30% no banco de dados SQL do Azure usando suas licenças de SQL Server locais com o Software Assurance.
+Na camada de computação provisionada do modelo de compra baseado em vCore, você pode trocar suas licenças existentes por tarifas com desconto no banco de dados SQL usando [benefício híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Esse benefício do Azure permite que você economize até 30% no banco de dados SQL do Azure usando suas licenças de SQL Server locais com o Software Assurance. 
+
+> [!NOTE]
+> Alterar para Benefício Híbrido do Azure não requer nenhum tempo de inatividade.
 
 ![refere](./media/sql-database-service-tiers/pricing.png)
-
 
 ## <a name="choose-a-license-model"></a>Escolher um modelo de licença
 
@@ -40,8 +42,8 @@ Você pode escolher ou alterar seu modelo de licenciamento usando o portal do Az
 
   - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
   - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
-  - [AZ SQL mi Create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
-  - [atualização do AZ SQL mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+  - [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
+  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
 
 - Para definir ou atualizar o tipo de licença usando a API REST:
 
@@ -49,8 +51,6 @@ Você pode escolher ou alterar seu modelo de licenciamento usando o portal do Az
   - [Bancos de dados-atualização](https://docs.microsoft.com/rest/api/sql/databases/update)
   - [Instâncias gerenciadas – criar ou atualizar](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
   - [Instâncias gerenciadas-atualizar](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
-
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

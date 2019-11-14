@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 6fa7ee6663aae24451af195de4a8225c7a6b351e
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 24b9b120240ffc6f7dd2252d12c9f8af2bcfafbc
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647138"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049180"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detectar descompasso de dados (versão prévia) em conjuntos
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -146,8 +146,8 @@ Essas configurações são para o pipeline monitor do conjunto de DataSet agenda
 | ------- | ----------- | ---- | ------- |
 | Ativar | Habilitar ou desabilitar a agenda no pipeline do monitor de conjunto de um | Desabilite-o para analisar dados históricos com a configuração de aterramento. Ele pode ser habilitado após a criação do monitor de conjunto de um. | Sim | 
 | Latência | Tempo, em horas, leva para que os dados cheguem no DataSet. Por exemplo, se demorar três dias para que os dados cheguem no BD SQL que meu DataSet encapsula, defina a latência como 72. | Não pode ser alterado após a criação do monitor de conjunto de um | Não | 
-| Endereços de email | Endereços de email para alertas com base na violação do limite de porcentagem de descompasso de dados. | Os emails são enviados por meio de Azure Monitor. | Sim | 
-| Os | Limite de porcentagem de descompasso de dados para alerta de email. | Alertas e eventos adicionais podem ser definidos em muitas outras métricas no recurso de Application Insights associado do espaço de trabalho. | Sim | 
+| Endereços de e-mail | Endereços de email para alertas com base na violação do limite de porcentagem de descompasso de dados. | Os emails são enviados por meio de Azure Monitor. | Sim | 
+| Limiar | Limite de porcentagem de descompasso de dados para alerta de email. | Alertas e eventos adicionais podem ser definidos em muitas outras métricas no recurso de Application Insights associado do espaço de trabalho. | Sim | 
 
 ### <a name="backfill-settings"></a>Configurações de aterramento
 
@@ -179,7 +179,7 @@ O monitor do conjunto de resultados resultante será exibido na lista. Selecione
 
 ### <a name="from-python-sdk"></a>Do SDK do Python
 
-Consulte a [documentação de referência do SDK do Python sobre descompasso de dados](https://aka.ms/datadriftapi) para obter detalhes completos. 
+Consulte a [documentação de referência do SDK do Python sobre descompasso de dados](/python/api/azureml-datadrift/azureml.datadrift) para obter detalhes completos. 
 
 Veja a seguir um exemplo de criação de um monitor de conjunto de um DataSet usando o SDK do Python
 
@@ -321,7 +321,7 @@ Colunas ou recursos, no conjunto de linhas, são classificados como categóricos
 | Tipo de recurso | Data type | Condição | Limitações | 
 | ------------ | --------- | --------- | ----------- |
 | Categórico | Cadeia de caracteres, bool, int, float | O número de valores exclusivos no recurso é menor que 100 e menor que 5% do número de linhas. | NULL é tratado como sua própria categoria. | 
-| Numéricos | int, float | De um tipo de dados numérico e não atende às condições de um recurso categórico. | Recurso Descartado se > 15% dos valores forem nulos. | 
+| Numérica | int, float | De um tipo de dados numérico e não atende às condições de um recurso categórico. | Recurso Descartado se > 15% dos valores forem nulos. | 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,23 +1,18 @@
 ---
-title: Criar um gateway de aplicativo com Hospedagem de vários sites-CLI do Azure | Microsoft Docs
+title: Hospedagem de vários sites usando a CLI-Aplicativo Azure gateway
 description: Saiba como criar um gateway de aplicativo que hospede vários sites usando o CLI do Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: ce5701d4125123798c6b6a654e4fa4a4887778a3
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 5edc2e5228146aee913027a83e495d94c003e237
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717270"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047342"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Criar um gateway de aplicativo com Hospedagem de vários sites usando o CLI do Azure
 
@@ -27,7 +22,7 @@ Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um gateway de aplicação
+> * Para criar um gateway de aplicação
 > * Criar ouvintes e regras de roteamento
 > * Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
 > * Criar um registo CNAME no seu domínio
@@ -40,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com [az group create](/cli/azure/group).
 
@@ -74,7 +69,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. 
+Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, sku e definições de HTTP. O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -235,13 +230,13 @@ Altere o endereço para o outro domínio, e deverá ver algo semelhante ao segui
 
 ![Testar o site fabrikam no gateway de aplicação](./media/tutorial-multisite-cli/application-gateway-nginxtest2.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um gateway de aplicação
+> * Para criar um gateway de aplicação
 > * Criar ouvintes e regras de roteamento
 > * Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
 > * Criar um registo CNAME no seu domínio

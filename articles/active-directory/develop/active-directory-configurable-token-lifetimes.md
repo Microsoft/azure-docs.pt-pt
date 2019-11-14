@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23cdf7887d6d0812a9e991580e2095b603a4b4df
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 021d0c19ecc4bf63861bf95d99b6ba6b8e910220
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473954"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046560"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (versão prévia)
 
@@ -53,11 +53,11 @@ Os clientes usam tokens de acesso para acessar um recurso protegido. Um token de
 
 ### <a name="saml-tokens"></a>Tokens SAML
 
-Os tokens SAML são usados por muitos aplicativos SAAS baseados na Web e são obtidos usando o ponto de extremidade do protocolo SAML2 do Azure Active Directory.  Eles também são consumidos por aplicativos que usam o WS-Federation.    O tempo de vida padrão do token é de 1 hora. Depois do e dos aplicativos, a perspectiva do período de validade do token é especificada pelo valor NotOnOrAfter das condições de <... > elemento no token.  Após o período de validade do token, o cliente deve iniciar uma nova solicitação de autenticação, que geralmente será satisfeita sem a entrada interativa como resultado do token de sessão de logon único (SSO).
+Os tokens SAML são usados por muitos aplicativos SAAS baseados na Web e são obtidos usando o ponto de extremidade do protocolo SAML2 do Azure Active Directory. Eles também são consumidos por aplicativos que usam o WS-Federation. O tempo de vida padrão do token é de 1 hora. Da perspectiva de um aplicativo, o período de validade do token é especificado pelo valor NotOnOrAfter do elemento `<conditions …>` no token. Após o término do período de validade do token, o cliente deve iniciar uma nova solicitação de autenticação, que geralmente será satisfeita sem a entrada interativa como resultado do token de sessão de logon único (SSO).
 
-O valor de NotOnOrAfter pode ser alterado usando o parâmetro AccessTokenLifetime em um TokenLifetimePolicy.  Ele será definido para o tempo de vida configurado na política, se houver, além de um fator de distorção de relógio de cinco minutos.
+O valor de NotOnOrAfter pode ser alterado usando o parâmetro `AccessTokenLifetime` em uma `TokenLifetimePolicy`. Ele será definido para o tempo de vida configurado na política, se houver, além de um fator de distorção de relógio de cinco minutos.
 
-Observe que o NotOnOrAfter de confirmação da entidade especificado no elemento <SubjectConfirmationData> não é afetado pela configuração de tempo de vida do token. 
+Observe que o NotOnOrAfter de confirmação da entidade especificado no elemento `<SubjectConfirmationData>` não é afetado pela configuração de tempo de vida do token. 
 
 ### <a name="refresh-tokens"></a>Tokens de atualização
 
@@ -95,10 +95,10 @@ Uma política de tempo de vida de token é um tipo de objeto de política que co
 | --- | --- | --- | --- | --- | --- |
 | Tempo de vida do token de acesso |AccessTokenLifetime<sup>2</sup> |Tokens de acesso, tokens de ID, tokens de SAML2 |1 hora |10 minutos |1 dia |
 | Tempo máximo inativo de token de atualização |MaxInactiveTime |Tokens de atualização |90 dias |10 minutos |90 dias |
-| Idade máxima de token de atualização de fator único |MaxAgeSingleFactor |Tokens de atualização (para qualquer usuário) |Until-revogado |10 minutos |Até-revogado<sup>1</sup> |
-| Idade máxima de token de atualização multifator |MaxAgeMultiFactor |Tokens de atualização (para qualquer usuário) |Until-revogado |10 minutos |Até-revogado<sup>1</sup> |
-| Idade máxima de token de sessão de fator único |MaxAgeSessionSingleFactor |Tokens de sessão (persistentes e não persistentes) |Until-revogado |10 minutos |Até-revogado<sup>1</sup> |
-| Idade máxima de token de sessão multifator |MaxAgeSessionMultiFactor |Tokens de sessão (persistentes e não persistentes) |Until-revogado |10 minutos |Até-revogado<sup>1</sup> |
+| Idade máxima de token de atualização de fator único |MaxAgeSingleFactor |Tokens de atualização (para qualquer usuário) |Until-revogado |10 minutos |Until-revoked<sup>1</sup> |
+| Idade máxima de token de atualização multifator |MaxAgeMultiFactor |Tokens de atualização (para qualquer usuário) |Until-revogado |10 minutos |Until-revoked<sup>1</sup> |
+| Idade máxima de token de sessão de fator único |MaxAgeSessionSingleFactor |Tokens de sessão (persistentes e não persistentes) |Until-revogado |10 minutos |Until-revoked<sup>1</sup> |
+| Idade máxima de token de sessão multifator |MaxAgeSessionMultiFactor |Tokens de sessão (persistentes e não persistentes) |Until-revogado |10 minutos |Until-revoked<sup>1</sup> |
 
 * <sup>1</sup>365 dias é o comprimento máximo explícito que pode ser definido para esses atributos.
 * <sup>2</sup> Para garantir que o cliente Web do Microsoft Teams funcione, é recomendável manter o AccessTokenLifetime a mais de 15 minutos para o Microsoft Teams.
@@ -124,7 +124,7 @@ Para obter mais informações sobre a relação entre objetos de aplicativo e ob
 
 A validade de um token é avaliada no momento em que o token é usado. A política com a prioridade mais alta no aplicativo que está sendo acessado entra em vigor.
 
-Todos os TimeSpans usados aqui são formatados de C# acordo com o objeto [TimeSpan](/dotnet/api/system.timespan) -D. hh: mm: SS.  Portanto, 80 dias e 30 minutos seriam `80.00:30:00`.  O D à esquerda pode ser Descartado se for zero, então 90 minutos seria `00:90:00`.  
+Todos os TimeSpans usados aqui são formatados de C# acordo com o objeto [TimeSpan](/dotnet/api/system.timespan) -D. hh: mm: SS.  Portanto, 80 dias e 30 minutos seriam `80.00:30:00`.  O D à esquerda pode ser Descartado se for zero, portanto, 90 minutos seria `00:90:00`.  
 
 > [!NOTE]
 > Aqui está um cenário de exemplo.
@@ -194,7 +194,7 @@ Reduzir a idade máxima força os usuários a se autenticarem com mais frequênc
 Reduzir a idade máxima força os usuários a se autenticarem com mais frequência. Como a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos que você defina essa propriedade com um valor igual ou menor que a propriedade idade máxima de token de sessão multifator.
 
 ### <a name="multi-factor-session-token-max-age"></a>Idade máxima de token de sessão multifator
-**Cadeia de caracteres:** MaxAgeSessionMultiFactor
+**String:** MaxAgeSessionMultiFactor
 
 **Afeta:** Tokens de sessão (persistentes e não persistentes)
 
@@ -367,7 +367,7 @@ Neste exemplo, você cria algumas políticas para saber como o sistema de priori
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-3. Defina o sinalizador `IsOrganizationDefault` como false:
+3. Defina o sinalizador de `IsOrganizationDefault` como false:
 
     ```powershell
     Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false

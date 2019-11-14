@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 87dbd7ab4d75150d09a8c26db50ce2e3b1a085db
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 1ddb947e9bcbdde655b5c83cffb67e8fc13d9d0e
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930245"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048683"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Conectar um aplicativo cliente genérico ao seu aplicativo de IoT Central do Azure (Node. js)
 
@@ -30,7 +30,9 @@ Para executar os passos descritos neste artigo é necessário o seguinte:
 
 ## <a name="create-a-device-template"></a>Criar um modelo de dispositivo
 
-No aplicativo IoT Central do Azure, você precisa de um modelo de dispositivo com as seguintes medidas, propriedades do dispositivo, configurações e comandos:
+No aplicativo IoT Central do Azure, você precisa de um modelo de dispositivo com as seguintes medidas, propriedades do dispositivo, configurações e comandos.
+
+Para obter mais informações sobre nomes de propriedade válidos, consulte [marcas e formato de propriedades](../../iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format).
 
 ### <a name="telemetry-measurements"></a>Medições de telemetria
 
@@ -89,7 +91,7 @@ Adicione as seguintes propriedades de dispositivo na página **Propriedades** :
 
 | Nome a Apresentar        | Nome do Campo        | Data type |
 | ------------------- | ----------------- | --------- |
-| Número de série       | serialNumber      | texto      |
+| Número de Série       | serialNumber      | texto      |
 | Fabricante do dispositivo | manufacturer      | texto      |
 
 Insira os nomes de campo exatamente como mostrado na tabela no modelo de dispositivo. Se os nomes de campo não corresponderem aos nomes de propriedade no código de dispositivo correspondente, as propriedades não poderão ser exibidas no aplicativo.

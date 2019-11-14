@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ab0d3aac6944e331223d91eb98b50b3308be12c3
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 567110b2e0429930720abf6af5f2727e4ad9d3bb
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797637"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048266"
 ---
 # <a name="troubleshooting"></a>Resolução de problemas
 
@@ -251,7 +251,7 @@ No painel do grupo de recursos, procure a conta de armazenamento (datahublogs...
 
 **Significado**: a configuração de registro de aplicativo do Azure ad não aconteceu corretamente.  
 
-**Ação corretiva**: peça ao administrador de ti (com acesso de leitura de locatário) para usar nosso [script](https://aka.ms/PPCreateAADappregistration) para gerar a criação do registro de aplicativo do Azure AD. Esse script também cuidará automaticamente das etapas de configuração. como  
+**Ação corretiva**: peça ao administrador de ti (com acesso de leitura de locatário) para usar nosso [script](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) para gerar a criação do registro de aplicativo do Azure AD. Esse script também cuidará automaticamente das etapas de configuração.
 
 **Erro**: não foi possível criar o novo Active Directory aplicativo "fictícioname" neste locatário: já existe outro objeto com o mesmo valor para URIs de identificador de propriedade
 

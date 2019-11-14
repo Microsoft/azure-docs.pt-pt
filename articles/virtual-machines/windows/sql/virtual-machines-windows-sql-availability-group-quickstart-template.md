@@ -1,5 +1,5 @@
 ---
-title: Use os modelos de início rápido do Azure para configurar um grupo de disponibilidade Always On para SQL Server em uma VM do Azure
+title: Configurar o grupo de disponibilidade (modelo de início rápido do Azure)
 description: Use os modelos de início rápido do Azure para criar o cluster de failover do Windows, ingressar SQL Server VMs no cluster, criar o ouvinte e configurar o balanceador de carga interno no Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,14 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2b44b51da11bc1c51fcbc60992a9b5b870daf02e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: edf810dfc975eebaf261eac7b89106c9e29c759c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100588"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022388"
 ---
-# <a name="use-azure-quickstart-templates-to-configure-an-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Use os modelos de início rápido do Azure para configurar um grupo de disponibilidade Always On para SQL Server em uma VM do Azure
+# <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-an-azure-vm"></a>Usar modelos de início rápido do Azure para configurar um grupo de disponibilidade para SQL Server em uma VM do Azure
 Este artigo descreve como usar os modelos de início rápido do Azure para automatizar parcialmente a implantação de uma configuração Always On grupo de disponibilidade para SQL Server máquinas virtuais no Azure. Dois modelos de início rápido do Azure são usados neste processo: 
 
    | Modelo | Descrição |
@@ -43,11 +44,11 @@ Para automatizar a configuração de um grupo de disponibilidade Always On usand
 ## <a name="permissions"></a>Permissões
 As permissões a seguir são necessárias para configurar o grupo de disponibilidade Always On usando modelos de início rápido do Azure: 
 
-- Uma conta de usuário de domínio existente que tenha a permissão **criar objeto de computador** no domínio.  Por exemplo, uma conta de administrador de domínio normalmente tem permissão suficiente (por account@domain.comexemplo:). _Essa conta também deve fazer parte do grupo de Administradores local em cada VM para criar o cluster._
+- Uma conta de usuário de domínio existente que tenha a permissão **criar objeto de computador** no domínio.  Por exemplo, uma conta de administrador de domínio normalmente tem permissão suficiente (por exemplo: account@domain.com). _Essa conta também deve fazer parte do grupo de Administradores local em cada VM para criar o cluster._
 - A conta de usuário de domínio que controla o serviço de SQL Server. 
 
 
-## <a name="step-1-create-the-failover-cluster-and-join-sql-server-vms-to-the-cluster-by-using-a-quickstart-template"></a>Passo 1: Criar o cluster de failover e ingressar SQL Server VMs no cluster usando um modelo de início rápido 
+## <a name="step-1-create-the-failover-cluster-and-join-sql-server-vms-to-the-cluster-by-using-a-quickstart-template"></a>Etapa 1: criar o cluster de failover e ingressar SQL Server VMs no cluster usando um modelo de início rápido 
 Depois que as VMs do SQL Server tiverem sido registradas com o provedor de recursos da VM do SQL, você poderá ingressar suas VMs do SQL Server no *SqlVirtualMachineGroups*. Esse recurso define os metadados do cluster de failover do Windows. Os metadados incluem a versão, a edição, o nome de domínio totalmente qualificado, Active Directory contas para gerenciar o cluster e o serviço de SQL Server e a conta de armazenamento como a testemunha de nuvem. 
 
 Adicionar SQL Server VMs ao grupo de recursos *SqlVirtualMachineGroups* Inicializa o serviço de cluster de failover do Windows para criar o cluster e une essas SQL Server VMs a esse cluster. Esta etapa é automatizada com o modelo de início rápido **101-SQL-VM-AG-setup** . Você pode implementá-lo usando as seguintes etapas:
@@ -57,7 +58,7 @@ Adicionar SQL Server VMs ao grupo de recursos *SqlVirtualMachineGroups* Iniciali
 
    A tabela a seguir mostra os valores necessários para o modelo: 
 
-   | **Campo** | Value |
+   | **Campo** | Valor |
    | --- | --- |
    | **Subscrição** |  A assinatura em que existem suas VMs SQL Server. |
    |**Grupo de recursos** | O grupo de recursos onde residem suas VMs SQL Server. | 
@@ -65,29 +66,29 @@ Adicionar SQL Server VMs ao grupo de recursos *SqlVirtualMachineGroups* Iniciali
    | **Lista de VMs existentes** | As VMs SQL Server que você deseja participar do grupo de disponibilidade e fazem parte desse novo cluster. Separe esses valores com uma vírgula e um espaço (por exemplo: *SQLVM1, SQLVM2*). |
    | **Versão do SQL Server** | A versão SQL Server de suas VMs SQL Server. Selecione-o na lista suspensa. Atualmente, há suporte apenas para imagens SQL Server 2016 e SQL Server 2017. |
    | **Nome de domínio totalmente qualificado existente** | O FQDN existente para o domínio no qual o SQL Server VMs residem. |
-   | **Conta de domínio existente** | Uma conta de usuário de domínio existente que tenha a permissão **Create Computer Object** no domínio como o [CNO](/windows-server/failover-clustering/prestage-cluster-adds) é criada durante a implantação do modelo. Por exemplo, uma conta de administrador de domínio normalmente tem permissão suficiente (por account@domain.comexemplo:). *Essa conta também deve fazer parte do grupo de Administradores local em cada VM para criar o cluster.*| 
+   | **Conta de domínio existente** | Uma conta de usuário de domínio existente que tenha a permissão **Create Computer Object** no domínio como o [CNO](/windows-server/failover-clustering/prestage-cluster-adds) é criada durante a implantação do modelo. Por exemplo, uma conta de administrador de domínio normalmente tem permissão suficiente (por exemplo: account@domain.com). *Essa conta também deve fazer parte do grupo de Administradores local em cada VM para criar o cluster.*| 
    | **Senha da conta de domínio** | A senha da conta de usuário de domínio mencionada anteriormente. | 
-   | **Conta de serviço do SQL existente** | A conta de usuário de domínio que controla o [serviço de SQL Server](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) durante a implantação do grupo account@domain.comde disponibilidade (por exemplo:). |
+   | **Conta de serviço do SQL existente** | A conta de usuário de domínio que controla o [serviço de SQL Server](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) durante a implantação do grupo de disponibilidade (por exemplo: account@domain.com). |
    | **Senha do serviço SQL** | A senha usada pela conta de usuário do domínio que controla o serviço de SQL Server. |
    | **Nome da testemunha de nuvem** | Uma nova conta de armazenamento do Azure que será criada e usada para a testemunha de nuvem. Você pode modificar esse nome. |
-   | **\_Localização de artefatos** | Esse campo é definido por padrão e não deve ser modificado. |
-   | **\_Token SAS de localização de artefatos** | Esse campo é intencionalmente deixado em branco. |
+   | **Localização de artefatos \_** | Esse campo é definido por padrão e não deve ser modificado. |
+   | **Token SAS do local \_artefatos** | Esse campo é intencionalmente deixado em branco. |
    | &nbsp; | &nbsp; |
 
 1. Se você concordar com os termos e condições, marque a caixa de seleção **eu concordo com os termos e condições declarados acima** . Em seguida, selecione **comprar** para concluir a implantação do modelo de início rápido. 
-1. Para monitorar sua implantação, selecione a implantação no ícone de Bell de **notificações** na faixa de navegação superior ou vá para o **grupo de recursos** na portal do Azure. Selecione implantações em **configurações**e escolha a implantação do **Microsoft. Template** . 
+1. Para monitorar sua implantação, selecione a implantação no ícone de Bell de **notificações** na faixa de navegação superior ou vá para o **grupo de recursos** na portal do Azure. Selecione **implantações** em **configurações**e escolha a implantação do **Microsoft. Template** . 
 
 >[!NOTE]
 > As credenciais fornecidas durante a implantação do modelo são armazenadas apenas para o comprimento da implantação. Após a conclusão da implantação, essas senhas são removidas. Você será solicitado a fornecê-las novamente se adicionar mais SQL Server VMs ao cluster. 
 
 
-## <a name="step-2-manually-create-the-availability-group"></a>Passo 2: Criar manualmente o grupo de disponibilidade 
+## <a name="step-2-manually-create-the-availability-group"></a>Etapa 2: criar manualmente o grupo de disponibilidade 
 Crie manualmente o grupo de disponibilidade como faria normalmente, usando [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell)ou [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
 >[!IMPORTANT]
 > *Não* crie um ouvinte neste momento, porque o modelo de início rápido **101-SQL-VM-aglistener-setup** faz isso automaticamente na etapa 4. 
 
-## <a name="step-3-manually-create-the-internal-load-balancer"></a>Passo 3: Criar manualmente o balanceador de carga interno
+## <a name="step-3-manually-create-the-internal-load-balancer"></a>Etapa 3: criar manualmente o balanceador de carga interno
 O ouvinte do grupo de disponibilidade Always On requer uma instância interna do Azure Load Balancer. O balanceador de carga interno fornece um endereço IP "flutuante" para o ouvinte do grupo de disponibilidade que permite failover e reconexão mais rápidos. Se as SQL Server VMs em um grupo de disponibilidade fizerem parte do mesmo conjunto de disponibilidade, você poderá usar um balanceador de carga básico. Caso contrário, você precisa usar um balanceador de carga padrão. 
 
 > [!IMPORTANT]
@@ -101,17 +102,17 @@ Você só precisa criar o balanceador de carga interno. Na etapa 4, o modelo de 
 4. Na folha **Load Balancer** , selecione **criar**.
 5. Na caixa de diálogo **criar balanceador de carga** , configure o balanceador de carga da seguinte maneira:
 
-   | Definição | Value |
+   | Definição | Valor |
    | --- | --- |
-   | **Name** |Insira um nome de texto que represente o balanceador de carga. Por exemplo, digite **sqlLB**. |
-   | **Tipo** |**Interno**: A maioria das implementações usa um balanceador de carga interno, que permite que os aplicativos na mesma rede virtual se conectem ao grupo de disponibilidade.  </br> **Externo**: Permite que os aplicativos se conectem ao grupo de disponibilidade por meio de uma conexão de Internet pública. |
+   | **Nome** |Insira um nome de texto que represente o balanceador de carga. Por exemplo, digite **sqlLB**. |
+   | **Tipo** |**Interno**: a maioria das implementações usa um balanceador de carga interno, que permite que os aplicativos na mesma rede virtual se conectem ao grupo de disponibilidade.  </br> **Externo**: permite que os aplicativos se conectem ao grupo de disponibilidade por meio de uma conexão de Internet pública. |
    | **Rede virtual** | Selecione a rede virtual na qual as instâncias do SQL Server estão. |
    | **Sub-rede** | Selecione a sub-rede na qual as instâncias de SQL Server estão. |
    | **Atribuição de endereço IP** |**Auto-estática** |
    | **Endereço IP privado** | Especifique um endereço IP disponível da sub-rede. |
    | **Subscrição** |Se você tiver várias assinaturas, esse campo poderá ser exibido. Selecione a assinatura que você deseja associar a este recurso. Normalmente, é a mesma assinatura que todos os recursos para o grupo de disponibilidade. |
    | **Grupo de recursos** |Selecione o grupo de recursos no qual as instâncias do SQL Server estão. |
-   | **Location** |Selecione o local do Azure no qual as instâncias do SQL Server estão. |
+   | **Localização** |Selecione o local do Azure no qual as instâncias do SQL Server estão. |
    | &nbsp; | &nbsp; |
 
 6. Selecione **Criar**. 
@@ -120,7 +121,7 @@ Você só precisa criar o balanceador de carga interno. Na etapa 4, o modelo de 
 >[!IMPORTANT]
 > O recurso de IP público para cada VM SQL Server deve ter um SKU Standard para ser compatível com o Load Balancer padrão. Para determinar a SKU do recurso IP público da VM, vá para **grupo de recursos**, selecione o recurso de **endereço IP público** para a VM SQL Server e localize o valor em **SKU** no painel **visão geral** . 
 
-## <a name="step-4-create-the-availability-group-listener-and-configure-the-internal-load-balancer-by-using-the-quickstart-template"></a>Passo 4: Criar o ouvinte do grupo de disponibilidade e configurar o balanceador de carga interno usando o modelo de início rápido
+## <a name="step-4-create-the-availability-group-listener-and-configure-the-internal-load-balancer-by-using-the-quickstart-template"></a>Etapa 4: criar o ouvinte do grupo de disponibilidade e configurar o balanceador de carga interno usando o modelo de início rápido
 
 Crie o ouvinte do grupo de disponibilidade e configure o balanceador de carga interno automaticamente usando o modelo de início rápido **101-SQL-VM-aglistener-setup** . O modelo provisiona o recurso Microsoft. SqlVirtualMachine/SqlVirtualMachineGroups/AvailabilityGroupListener. O modelo de início rápido **101-SQL-VM-aglistener-setup** , por meio do provedor de recursos de VM do SQL, executa as seguintes ações:
 
@@ -139,7 +140,7 @@ Para configurar o balanceador de carga interno e criar o ouvinte do grupo de dis
 
    A tabela a seguir mostra os valores necessários para o modelo: 
 
-   | **Campo** | Value |
+   | **Campo** | Valor |
    | --- | --- |
    |**Grupo de recursos** | O grupo de recursos no qual o SQL Server VMs e o grupo de disponibilidade existem. | 
    |**Nome do cluster de failover existente** | O nome do cluster ao qual suas VMs SQL Server estão unidas. |
@@ -154,7 +155,7 @@ Para configurar o balanceador de carga interno e criar o ouvinte do grupo de dis
    | &nbsp; | &nbsp; |
 
 1. Se você concordar com os termos e condições, marque a caixa de seleção **eu concordo com os termos e condições declarados acima** . Selecione **comprar** para concluir a implantação do modelo de início rápido. 
-1. Para monitorar sua implantação, selecione a implantação no ícone de Bell de **notificações** na faixa de navegação superior ou vá para o **grupo de recursos** na portal do Azure. Selecione implantações em **configurações**e escolha a implantação do **Microsoft. Template** . 
+1. Para monitorar sua implantação, selecione a implantação no ícone de Bell de **notificações** na faixa de navegação superior ou vá para o **grupo de recursos** na portal do Azure. Selecione **implantações** em **configurações**e escolha a implantação do **Microsoft. Template** . 
 
 >[!NOTE]
 >Se a sua implantação falhar no meio, você precisará [remover manualmente o ouvinte recém-criado usando o](#remove-the-availability-group-listener) PowerShell antes de reimplantar o modelo de início rápido **101-SQL-VM-aglistener-setup** . 
@@ -173,7 +174,7 @@ Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<r
 ## <a name="common-errors"></a>Erros comuns
 Esta seção aborda alguns problemas conhecidos e sua possível resolução. 
 
-### <a name="availability-group-listener-for-availability-group-ag-name-already-exists"></a>O ouvinte de grupo de disponibilidade\<do grupo de disponibilidade ' AG-Name > ' já existe
+### <a name="availability-group-listener-for-availability-group-ag-name-already-exists"></a>O ouvinte do grupo de disponibilidade '\<AG-Name > ' já existe
 O grupo de disponibilidade selecionado usado no modelo de início rápido do Azure para o ouvinte do grupo de disponibilidade já contém um ouvinte. Ele está fisicamente dentro do grupo de disponibilidade ou seus metadados permanecem dentro do provedor de recursos da VM do SQL. Remova o ouvinte usando o [PowerShell](#remove-the-availability-group-listener) antes de reimplantar o modelo de início rápido **101-SQL-VM-aglistener-setup** . 
 
 ### <a name="connection-only-works-from-primary-replica"></a>A conexão só funciona da réplica primária
@@ -203,7 +204,7 @@ Depois de fazer essas alterações, tente implantar o modelo de início rápido 
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, veja os artigos seguintes: 
 

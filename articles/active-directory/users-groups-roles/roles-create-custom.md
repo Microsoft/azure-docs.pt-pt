@@ -1,24 +1,24 @@
 ---
-title: Criar e atribuir uma função personalizada no controle de acesso baseado em função do Azure AD – Azure Active Directory | Microsoft Docs
+title: Criar funções personalizadas no controle de acesso baseado em função do AD do Azure | Microsoft Docs
 description: Crie e atribua funções personalizadas do Azure AD com o escopo de recursos em Azure Active Directory recursos.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1a5aee1be7580956c32947e9bda7e2928a006c3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c2cb19c82f8c19bf87eeef755adb5756b2452512
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026396"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025277"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Criar e atribuir uma função personalizada no Azure Active Directory
 
@@ -30,8 +30,8 @@ As funções personalizadas podem ser criadas na guia [funções e administrador
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Criar uma nova função personalizada para conceder acesso para gerenciar registros de aplicativo
 
-1. Entre no centro de [Administração do Azure AD](https://aad.portal.azure.com) Com permissões de administrador de função privilegiada ou de administrador global na organização do Azure AD.
-1. Selecione **Azure Active Directory** **funções e administradores**do  >   > **nova função personalizada**.
+1. Entre no centro de [Administração do Azure AD](https://aad.portal.azure.com) com permissões de administrador de função com privilégios ou de administrador global na organização do Azure AD.
+1. Selecione **Azure Active Directory** > **funções e administradores** > **nova função personalizada**.
 
    ![Criar ou editar funções da página funções e administradores](./media/roles-create-custom/new-custom-role.png)
 
@@ -44,7 +44,7 @@ As funções personalizadas podem ser criadas na guia [funções e administrador
 
       ![Selecione as permissões para uma função personalizada na guia permissões](./media/roles-create-custom/permissions-tab.png)
 
-   1. Em seguida, digite "básico" na barra de pesquisa, selecione a permissão `microsoft.directory/applications/basic/update` e clique em **Avançar**.
+   1. Em seguida, insira "básico" na barra de pesquisa, selecione a permissão `microsoft.directory/applications/basic/update` e clique em **Avançar**.
 1. Na guia **revisar + criar** , examine as permissões e selecione **criar**.
 
 Sua função personalizada aparecerá na lista de funções disponíveis a serem atribuídas.
@@ -122,7 +122,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
     ```
 
-    Body
+    Corpo
 
     ``` HTTP
    {
@@ -151,7 +151,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
     ```
 
-    Body
+    Corpo
 
     ``` HTTP
    {

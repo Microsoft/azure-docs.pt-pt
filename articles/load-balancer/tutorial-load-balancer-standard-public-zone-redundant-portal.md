@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: VMs de Balanceador de carga entre zonas de disponibilidade - portal do Azure'
+title: 'Tutorial: balancear carga de VMs entre zonas de disponibilidade-portal do Azure'
 titlesuffix: Azure Load Balancer
 description: Este tutorial demonstra como criar um Balanceador de Carga Standard com front-end com redundância entre zonas para balancear a carga de VMs em múltiplas zonas de disponibilidade, através do portal do Azure
 services: load-balancer
@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 5b024321a18c6dec4f56a7cbc12c5a8fa748f903
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 2079ec95b582ed724583112f7af4865af66eef9d
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273482"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048875"
 ---
-# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Balancear carga de VMs por zonas de disponibilidade com um balanceador de carga Standard com o portal do Azure
+# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: VMs de balanceamento de carga em múltiplas zonas de disponibilidade com um Balanceador de Carga Standard, através do portal do Azure
 
-O balanceamento de carga oferece um nível mais elevado de disponibilidade ao propagar os pedidos recebidos por várias máquinas virtuais. Este tutorial mostra a criação de um Standard Balanceador de carga público de carregamento faz o balanceamento de VMs por zonas de disponibilidade. Isto ajuda a proteger as aplicações e os dados de uma falha pouco provável ou da perda de um datacenter completo. Com a redundância de zona, uma ou mais zonas de disponibilidade podem falhar e o caminho de dados mantém-se desde que uma zona na região permaneça em bom estado de funcionamento. Saiba como:
+O balanceamento de carga fornece um nível mais elevado de disponibilidade ao propagar os pedidos recebidos por várias máquinas virtuais. Este tutorial percorre como criar uma Standard Load Balancer pública que balanceia a carga de VMs entre zonas de disponibilidade. Isto ajuda a proteger as aplicações e os dados de uma falha pouco provável ou da perda de um datacenter completo. Com a redundância de zona, uma ou mais zonas de disponibilidade podem falhar e o caminho de dados mantém-se desde que uma zona na região permaneça em bom estado de funcionamento. Saiba como:
 
 > [!div class="checklist"]
 > * Criar um Balanceador de Carga Standard
@@ -50,19 +50,19 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Ao criar um novo IP público durante a criação do balanceador de carga, é automaticamente configurado como uma versão de SKU Standard e tem também com redundância entre zonas automaticamente.
 
 1. No canto superior esquerdo do ecrã, clique em **Criar um recurso** > **Rede** > **Balanceador de Carga**.
-2. Na **Noções básicas** separador da **criar Balanceador de carga** página, introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **rever + criar**:
+2. Na guia **noções básicas** da página **criar balanceador de carga** , insira ou selecione as informações a seguir, aceite os padrões para as configurações restantes e, em seguida, selecione **revisar + criar**:
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
-    | Subscription               | Selecione a sua subscrição.    |    
-    | Resource group         | Selecione **criar novo** e escreva *MyResourceGroupLBAZ* na caixa de texto.|
+    | Subscrição               | Selecione a sua subscrição.    |    
+    | Grupo de recursos         | Selecione **criar novo** e digite *MyResourceGroupLBAZ* na caixa de texto.|
     | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
-    | Type          | Selecione **público**.                                        |
+    | Tipo          | Selecione **público**.                                        |
     | SKU           | Selecione **padrão**.                          |
     | Endereço IP público | Selecione **Criar novo**. |
-    | Nome do endereço IP público              | Tipo *myPublicIP* na caixa de texto.   |
-    |Zona de disponibilidade| Selecione **redundância de zona**.    |
+    | Nome do endereço IP público              | Digite *myPublicIP* na caixa de texto.   |
+    |Zona de disponibilidade| Selecione a **zona com redundância**.    |
    
 
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
@@ -132,7 +132,7 @@ Crie máquinas virtuais em diferentes zonas (zona 1, zona 2 e zona 3) na região
 4. Introduza estes valores para as definições de VM:
     - *zone 1* - na zona onde colocar a VM.
     -  *myVNet* - certifique-se de que está selecionado como a rede virtual.
-    - *myBackendSubnet* - certifique-se de que está selecionado como a sub-rede.
+    - *myBackendSubnet* - certifique-se de que está selecionado como sub-rede.
     - *myNetworkSecurityGroup* - no nome do grupo de segurança de rede (firewall).
 5. Clique em **Desativado** para desativar o diagnóstico de arranque.
 6. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **Criar**.
@@ -201,7 +201,7 @@ Para permitir ao balanceador de carga monitorizar o estado da aplicação, pode 
 
    ![Adicionar uma sonda](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
 
-### <a name="create-a-load-balancer-rule"></a>Crie uma regra de balanceador de carga
+### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 
 É utilizada uma regra de balanceador de carga para definir a forma como o tráfego é distribuído pelas VMs. Pode definir a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Crie uma regra de balanceador de carga *myLoadBalancerRuleWeb* para escutar na porta 80 no front-end *FrontendLoadBalancer* e enviar o tráfego de rede com balanceamento de carga para o conjunto de endereços de back-end *myBackEndPool* também através da porta 80. 
 
@@ -231,6 +231,6 @@ Para ver o balanceador de carga a distribuir tráfego nas VMs ao longo da zona, 
 
 Quando já não for necessário, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para tal, selecione o grupo de recursos que contém o balanceador de carga e clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais o [Balanceador de Carga Standard](load-balancer-standard-overview.md).

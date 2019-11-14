@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/25/2019
 ms.author: aahi
-ms.openlocfilehash: 5a06e26e5f1640024e343c714db3df134422115c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 29850cb9cb40eae0829b5d8c2b58b5f9518f18d5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488623"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021160"
 ---
 A versão 3 do API de Análise de Texto permite que você escolha o modelo de Análise de Texto usado em seus dados. Use o parâmetro opcional `model-version` para selecionar uma versão do modelo em suas solicitações. Se esse parâmetro não for especificado, a API usará como padrão `latest`, a versão mais recente do modelo estável.
 
@@ -25,8 +25,8 @@ Cada resposta dos pontos de extremidade v3 inclui um campo `model-version` espec
 
 ```json
 {
-    “documents”: […]
-    “errors”: []
-    “model-version”: “2019-10-01”
+    "documents": […]
+    "errors": []
+    "model-version": "2019-10-01"
 }
 ```

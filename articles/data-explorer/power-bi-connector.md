@@ -3,16 +3,16 @@ title: Visualizar dados usando o conector de Data Explorer do Azure para Power B
 description: 'Neste artigo, você aprenderá a usar uma das três opções para visualizar dados no Power BI: o conector do Power BI para o Data Explorer do Azure.'
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: a2ec179321c5d9cb6e9627e397fcb6ae09dc82ed
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 361ea6ed76207e8e9721f64df61738b6cd9631dc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349137"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024221"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualizar dados usando o conector de Data Explorer do Azure para Power BI
 
@@ -44,7 +44,7 @@ Primeiro, você se conecta ao cluster de ajuda do Data Explorer do Azure e, em s
 
     **Definição** | **Valor** | **Descrição do campo**
     |---|---|---|
-    | Cluster | *https://help.kusto.windows.net* | A URL para o cluster de ajuda. Para outros clusters, a URL está no formato *https://\<ClusterName @ no__t-2. @no__t -3Region\>.kusto.windows.net*. |
+    | Cluster | *https://help.kusto.windows.net* | A URL para o cluster de ajuda. Para outros clusters, a URL está no formato *https://\<clustername\>.\<região\>. Kusto.Windows.net*. |
     | Base de Dados | Deixar em branco | Um banco de dados hospedado no cluster ao qual você está se conectando. Selecionaremos isso em uma etapa posterior. |
     | Nome da tabela | Deixar em branco | Uma das tabelas no banco de dados ou uma consulta como <code>StormEvents \| take 1000</code>. Selecionaremos isso em uma etapa posterior. |
     | Opções avançadas | Deixar em branco | Opções para suas consultas, como tamanho do conjunto de resultados. |
@@ -69,7 +69,7 @@ Primeiro, você se conecta ao cluster de ajuda do Data Explorer do Azure e, em s
 
 1. Na tela **navegador** , expanda o banco de dados de **exemplos** , selecione **StormEvents** e **Editar**.
 
-    ![Selecionar a tabela](media/power-bi-connector/select-table.png)
+    ![selecionar tabela](media/power-bi-connector/select-table.png)
 
     A tabela abre-se no Editor do Power Query, onde pode editar linhas e colunas antes de importar os dados.
 

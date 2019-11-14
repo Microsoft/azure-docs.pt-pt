@@ -1,11 +1,10 @@
 ---
-title: Delegar funções menos privilegiadas por tarefa do administrador-Azure Active Directory | Microsoft Docs
+title: Delegar funções por tarefa de administrador-Azure Active Directory | Microsoft Docs
 description: Funções a delegar para tarefas de identidade no Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
@@ -15,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5933fdd9932bd8c13ab0f231d677ce06112662ed
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: b8ccd98553b06ef3fcd2241c8223889c0a86e331
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169762"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024660"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administrador no Azure Active Directory
 
@@ -167,17 +166,17 @@ Atualizar Associação de grupo | Proprietário do grupo ([consulte a documenta�
 Atualizar proprietários do grupo | Proprietário do grupo ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador do usuário
 Atualizar propriedades do grupo | Proprietário do grupo ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador do usuário
 
-## <a name="identity-protection"></a>Proteção de Identidade
+## <a name="identity-protection"></a>Identity Protection
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Configurar notificações de alerta| Administrador de segurança | 
-Configurar e habilitar ou desabilitar a política de MFA| Administrador de segurança | 
-Configurar e habilitar ou desabilitar a política de risco de entrada| Administrador de segurança | 
-Configurar e habilitar ou desabilitar a política de risco do usuário | Administrador de segurança | 
-Configurar resumos semanais | Administrador de segurança| 
-Ignorar todas as detecções de risco | Administrador de segurança | 
-Corrigir ou ignorar vulnerabilidade | Administrador de segurança | 
+Configurar notificações de alerta| Administrador de Segurança | 
+Configurar e habilitar ou desabilitar a política de MFA| Administrador de Segurança | 
+Configurar e habilitar ou desabilitar a política de risco de entrada| Administrador de Segurança | 
+Configurar e habilitar ou desabilitar a política de risco do usuário | Administrador de Segurança | 
+Configurar resumos semanais | Administrador de Segurança| 
+Ignorar todas as detecções de risco | Administrador de Segurança | 
+Corrigir ou ignorar vulnerabilidade | Administrador de Segurança | 
 Ler todas as configurações | Leitor de segurança | 
 Ler todas as detecções de riscos | Leitor de segurança | 
 Vulnerabilidades de leitura | Leitor de segurança | 
@@ -251,7 +250,7 @@ Configurar notificação | Administrador Global |
 Configurar a integração local | Administrador Global |
 Configurar propriedades de redefinição de senha | Administrador do usuário | Administrador Global
 Configurar o registro | Administrador Global |
-Ler todas as configurações | Administrador de segurança | Administrador do usuário |
+Ler todas as configurações | Administrador de Segurança | Administrador do usuário |
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
@@ -316,7 +315,7 @@ Ler entradas arriscadas | Leitor de segurança |
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Dispensar todos os eventos | Administrador de segurança | 
+Dispensar todos os eventos | Administrador de Segurança | 
 Ler todas as configurações | Leitor de segurança | 
 Ler usuários sinalizados para risco | Leitor de segurança | 
 
@@ -328,7 +327,7 @@ Adicionar usuário à função de diretório | Administrador de função com pri
 Adicionar usuário ao grupo | Administrador do usuário | 
 Atribuir licença | Administrador de licenças | Administrador do usuário
 Criar usuário convidado | Convite do convidado | Administrador do usuário
-Criar usuário | Administrador do usuário | 
+Criar utilizador | Administrador do usuário | 
 Excluir usuários | Administrador do usuário | 
 Invalidar tokens de atualização de administradores limitados (consulte a documentação) | Administrador do usuário | 
 Invalidar tokens de atualização de não-administradores (consulte a documentação) | Administrador de senha | Administrador do usuário

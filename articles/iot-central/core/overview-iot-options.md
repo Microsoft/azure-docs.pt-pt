@@ -9,22 +9,22 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: f57d36f6f24aab44d13ea07d8706bf40b7dcf552
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2ec6e1d00d331a7bb8dd7182dd4b0c91dd3d25a7
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958162"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049096"
 ---
 # <a name="compare-azure-iot-central-and-azure-iot-options"></a>Comparar as opções do Azure IoT Central e do Azure IoT
 
 Microsoft Azure IoT Central e o Azure IoT oferecem várias opções para a criação de uma solução de IoT. Essas opções são apropriadas para diferentes conjuntos de requisitos do cliente:
 
-* O [Azure IOT central](overview-iot-central.md) é uma solução de SaaS (software como serviço) que usa uma abordagem baseada em modelo para ajudá-lo a criar soluções de IOT de nível empresarial sem a necessidade de conhecimento no desenvolvimento da solução de nuvem.
+* O [Azure IOT central](overview-iot-central.md) é uma plataforma de aplicativo IOT que usa uma abordagem baseada em modelo para ajudá-lo a criar soluções de IOT de nível empresarial sem a necessidade de conhecimento no desenvolvimento da solução de nuvem.
 
 * Os [aceleradores de solução do Azure IOT](https://docs.microsoft.com/azure/iot-accelerators/) são uma coleção de nível empresarial de [Solution Accelerators](../../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) criada na plataforma como um serviço (PaaS) do Azure que ajuda a acelerar o desenvolvimento de soluções de IOT personalizadas.
 
-## <a name="azure-iot-hub"></a>Hub IoT do Azure
+## <a name="azure-iot-hub"></a>Azure IoT Hub
 
 O Hub IoT é a principal PaaS do Azure que o Azure IoT Central e os aceleradores de soluções do Azure IoT utilizam. O Hub IoT dá suporte a comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos IoT e uma solução de nuvem. O Hub IoT ajuda a atender aos desafios de implementação de IoT, como:
 
@@ -42,7 +42,7 @@ A tabela seguinte resume as principais diferenças entre os aceleradores de solu
 |     | Azure IoT Central | Aceleradores de soluções do Azure IoT |
 | --- | ----------- | --------- |
 | Utilização principal                      | Acelerar o tempo de colocação no mercado para soluções de IoT simples que não necessitam de personalização avançada do serviço.                                                    | Acelerar o desenvolvimento de uma solução de IoT personalizada que precisa da máxima flexibilidade.                                                                                                                             |
-| Acesso aos serviços PaaS subjacentes | SaaS. Como é uma solução totalmente gerenciada, os serviços subjacentes não são expostos.                                                                                            | Tem acesso aos serviços do Azure subjacentes para geri-los ou substituí-los, conforme necessário.                                                                                                                    |
+| Acesso aos serviços PaaS subjacentes | Como é uma solução totalmente gerenciada, os serviços subjacentes não são expostos.                                                                                            | Tem acesso aos serviços do Azure subjacentes para geri-los ou substituí-los, conforme necessário.                                                                                                                    |
 | Flexibilidade                        | Média. Pode utilizar a experiência de utilizador baseada no browser incorporado para personalizar o modelo de solução e os aspetos da IU. A infraestrutura não é personalizável porque os diferentes componentes não estão expostos. | Elevada. O código para os microserviços é de software livre, e você pode modificá-lo de qualquer forma que você vir adequado. Além disso, pode personalizar a infraestrutura de implementação.                                               |
 | Nível de competência                        | Baixo. Precisa de competências de modelação para personalizar a solução. Não são necessárias competências de codificação.                                                                          | Médio-alto. Você precisa de habilidades Java ou .NET para personalizar o back-end da solução. Precisa de competências em JavaScript para personalizar a visualização.                                                                       |
 | Experiência de introdução             | Modelos de aplicativo e modelos de dispositivo fornecem modelos predefinidos. Pode ser implementado em segundos.                                                                                                  | As soluções pré-configuradas implementam cenários de IoT comuns. Pode ser implementado em segundos.                                                                                                                            |

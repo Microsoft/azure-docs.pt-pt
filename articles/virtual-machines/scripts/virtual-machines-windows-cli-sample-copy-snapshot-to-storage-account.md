@@ -1,5 +1,5 @@
 ---
-title: Exemplo da CLI do Azure – copiar um instantâneo para um armazenamento de conta noutra região | Documentos da Microsoft
+title: CLI do Azure exemplo – copiar um instantâneo para uma conta de armazenamento em outra região
 description: Azure CLI exemplo do Script - exportar/copiar o instantâneo como VHD para uma conta de armazenamento na região idêntica ou diferente.
 services: virtual-machines-windows
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 9a1e0058e440f9cea60361a8b6b64dd4c7ab789b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e9ba52357703238c35d31823462d9ff3bd04c87
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307466"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040050"
 ---
 # <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>Exportar/copiar um instantâneo para uma conta de armazenamento numa região diferente com a CLI
 
@@ -50,4 +50,4 @@ Este script utiliza os seguintes comandos para gerar o URI de SAS para um instan
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
-Máquina virtual adicionais e exemplos de script da CLI de discos geridos podem ser encontrados no [documentação de VM do Windows Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Exemplos adicionais de script da CLI de máquina virtual e discos gerenciados podem ser encontrados na [documentação da VM do Windows do Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

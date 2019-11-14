@@ -1,23 +1,19 @@
 ---
-title: Criar um gateway de aplicativo com Hospedagem de vários sites-Azure PowerShell | Microsoft Docs
+title: Hospedagem de vários sites usando o PowerShell
+titleSuffix: Azure Application Gateway
 description: Saiba como criar um gateway de aplicativo que hospede vários sites usando o Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: e96579d52752f75b864c430ea0334a544606998c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 449095c92c30638b25836a2c7803176f7f0512e5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835582"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048071"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>Criar um gateway de aplicativo com Hospedagem de vários sites usando Azure PowerShell
 
@@ -27,7 +23,7 @@ Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um gateway de aplicação
+> * Para criar um gateway de aplicação
 > * Criar ouvintes e regras de roteamento
 > * Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
 > * Criar um registo CNAME no seu domínio
@@ -42,7 +38,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo Azure PowerShell versão 1.0.0 ou posterior. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos do Azure usando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
@@ -74,7 +70,7 @@ $pip = New-AzPublicIpAddress `
   -AllocationMethod Dynamic
 ```
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e a porta de front-end
 
@@ -274,7 +270,7 @@ Neste artigo, você aprendeu a:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um gateway de aplicação
+> * Para criar um gateway de aplicação
 > * Criar ouvintes e regras de roteamento
 > * Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
 > * Criar um registo CNAME no seu domínio

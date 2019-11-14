@@ -1,18 +1,19 @@
 ---
-title: Certificados necessários para back-ends de lista de permissões no gateway Aplicativo Azure
-description: Este artigo fornece exemplos de como um certificado SSL pode ser convertido em um certificado de autenticação e um certificado raiz confiável que são necessários para instâncias de back-end de lista de permissões no gateway Aplicativo Azure
+title: Certificados necessários para permitir servidores de back-end
+titleSuffix: Azure Application Gateway
+description: Este artigo fornece exemplos de como um certificado SSL pode ser convertido em um certificado de autenticação e um certificado raiz confiável que são necessários para permitir instâncias de back-end no gateway Aplicativo Azure
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: ae1ac3df3da4e5c25e5538f0e8cc4cd12f9186c6
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 48944c513bd075e3859503fdadc4001261dc8c4a
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774779"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048178"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Criar certificados para permitir o back-end com Aplicativo Azure gateway
 
@@ -51,7 +52,7 @@ Em seu certificado SSL, exporte o arquivo. cer de chave pública (não a chave p
 
    ![Base-64 codificado](./media/certificates-for-backend-authentication/base64.png)
 
-5. Para o **arquivo a ser**exportado, **navegue** até o local para o qual você deseja exportar o certificado. Em **Nome do ficheiro**, atribua um nome ao ficheiro de certificado. Clique depois em **Seguinte**.
+5. Para o **arquivo a ser exportado**, **navegue** até o local para o qual você deseja exportar o certificado. Em **Nome do ficheiro**, atribua um nome ao ficheiro de certificado. Clique depois em **Seguinte**.
 
    ![Procurar](./media/certificates-for-backend-authentication/browse.png)
 
@@ -65,7 +66,7 @@ Em seu certificado SSL, exporte o arquivo. cer de chave pública (não a chave p
 
    O certificado exportado é semelhante a este:
 
-   ![Exportado](./media/certificates-for-backend-authentication/exported.png)
+   ![Port](./media/certificates-for-backend-authentication/exported.png)
 
 8. Se você abrir o certificado exportado usando o bloco de notas, verá algo semelhante a este exemplo. A seção em azul contém as informações que são carregadas no gateway de aplicativo. Se você abrir seu certificado com o bloco de notas e ele não for semelhante a este, normalmente isso significa que você não o exportou usando o X. 509 codificado em base-64 (. CER) formato. Além disso, se você quiser usar um editor de texto diferente, entenda que alguns editores podem introduzir formatação não intencional em segundo plano. Isso pode criar problemas ao carregar o texto desse certificado para o Azure.
 
@@ -103,7 +104,7 @@ As etapas a seguir ajudam a exportar o arquivo. cer para seu certificado:
 
 6. Neste ponto, você extraiu os detalhes do certificado raiz do certificado de back-end. Você verá o **Assistente para exportação de certificados**. Agora, use as etapas 2-9 mencionadas na seção **exportar o certificado de autenticação de um certificado de back-end (para SKU v1)** acima para exportar o certificado raiz confiável no X. 509 codificado em Base-64 (. CER) formato.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora você tem o certificado de autenticação/certificado raiz confiável em X. 509 codificado em base-64 (. CER) formato. Você pode adicionar isso ao gateway de aplicativo para colocar em lista de permissões os servidores de back-end para criptografia SSL de ponta a ponta. Consulte [como configurar a criptografia SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 

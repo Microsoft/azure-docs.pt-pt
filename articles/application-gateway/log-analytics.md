@@ -1,43 +1,44 @@
 ---
-title: Utilizar o Azure Log Analytics para examinar registos de Firewall de aplicações da Web de Gateway de aplicação
-description: Este artigo mostra-lhe como pode utilizar o Azure Log Analytics para examinar registos de Firewall de aplicações da Web de Gateway de aplicação
+title: Examinar logs do WAF usando o Azure Log Analytics
+titleSuffix: Azure Application Gateway
+description: Este artigo mostra como você pode usar o Azure Log Analytics para examinar os logs de firewall do aplicativo Web do gateway de aplicativo
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 7/10/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: aa867e33ef0faa96b6a66a9075a3a5b8b0b0bca4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9fe4462a71852e5f66268f798f6f0418f2dd39c4
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712179"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048104"
 ---
-# <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-logs"></a>Utilizar o Log Analytics para examinar registos de Firewall de aplicação de Web de Gateway de aplicação
+# <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-logs"></a>Utilizar o Log Analytics para examinar os Registos da Firewall de Aplicações Web do Gateway de Aplicação
 
-Depois da WAF do Gateway de aplicação está operacional, pode ativar os registos para inspecionar o que está acontecendo com cada solicitação. Informações de conceder de registos de firewall para quais WAF é avaliar, correspondência e a bloquear. Com o Log Analytics, pode examinar os dados contidos nos registos de firewall para dar informações ainda mais. Para obter mais informações sobre como criar uma área de trabalho do Log Analytics, consulte [criar uma área de trabalho do Log Analytics no portal do Azure](../azure-monitor/learn/quick-create-workspace.md). Para obter mais informações sobre consultas de registo, consulte [descrição geral do registo de consultas no Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Depois que o WAF do gateway de aplicativo estiver operacional, você poderá habilitar os logs para inspecionar o que está acontecendo com cada solicitação. Os logs de firewall fornecem informações sobre o que o WAF está avaliando, correspondendo e bloqueando. Com Log Analytics, você pode examinar os dados nos logs do firewall para fornecer ainda mais informações. Para obter mais informações sobre como criar um espaço de trabalho Log Analytics, consulte [criar um espaço de trabalho log Analytics no portal do Azure](../azure-monitor/learn/quick-create-workspace.md). Para obter mais informações sobre consultas de log, consulte [visão geral das consultas de log no Azure monitor](../azure-monitor/log-query/log-query-overview.md).
 
-## <a name="import-waf-logs"></a>Importar registos WAF
+## <a name="import-waf-logs"></a>Importar logs do WAF
 
-Para importar os seus registos de firewall para o Log Analytics, consulte [estado de funcionamento do Back-end, registos de diagnóstico e métricas para o Gateway de aplicação](application-gateway-diagnostics.md#diagnostic-logging). Quando tiver os registos de firewall na sua área de trabalho do Log Analytics, pode ver os dados, escrever consultas, criar visualizações e adicioná-las ao dashboard do portal.
+Para importar os logs de firewall para o Log Analytics, consulte [integridade de back-end, logs de diagnóstico e métricas para o gateway de aplicativo](application-gateway-diagnostics.md#diagnostic-logging). Quando você tiver os logs de firewall em seu espaço de trabalho do Log Analytics, poderá exibir dados, gravar consultas, criar visualizações e adicioná-las ao painel do Portal.
 
-## <a name="explore-data-with-examples"></a>Explorar os dados com exemplos
+## <a name="explore-data-with-examples"></a>Explorar dados com exemplos
 
-Para ver os dados não processados no log de firewall, pode executar a seguinte consulta:
+Para exibir os dados brutos no log do firewall, você pode executar a seguinte consulta:
 
 ```
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.NETWORK" and Category == "ApplicationGatewayFirewallLog"
 ```
 
-Isso terá um aspeto semelhante à seguinte consulta:
+Isso será semelhante à seguinte consulta:
 
-![Consulta do log Analytics](media/log-analytics/log-query.png)
+![Consulta de Log Analytics](media/log-analytics/log-query.png)
 
-Pode desagregar os dados e plotar gráficos ou criar visualizações a partir daqui. Consulte as seguintes consultas como um ponto de partida:
+Você pode fazer uma busca detalhada nos dados e plotar grafos ou criar visualizações aqui. Consulte as seguintes consultas como um ponto de partida:
 
-### <a name="matchedblocked-requests-by-ip"></a>Pedidos de correspondido/bloqueado por IP
+### <a name="matchedblocked-requests-by-ip"></a>Solicitações de correspondência/bloqueadas por IP
 
 ```
 AzureDiagnostics
@@ -46,7 +47,7 @@ AzureDiagnostics
 | render timechart
 ```
 
-### <a name="matchedblocked-requests-by-uri"></a>Pedidos de correspondido/bloqueado pelo URI
+### <a name="matchedblocked-requests-by-uri"></a>Solicitações de correspondência/bloqueadas por URI
 
 ```
 AzureDiagnostics
@@ -65,7 +66,7 @@ AzureDiagnostics
 | render timechart
 ```
 
-### <a name="top-five-matched-rule-groups"></a>Principais cinco grupos de regras correspondentes
+### <a name="top-five-matched-rule-groups"></a>Cinco principais grupos de regras correspondentes
 
 ```
 AzureDiagnostics
@@ -75,12 +76,12 @@ AzureDiagnostics
 | render piechart
 ```
 
-## <a name="add-to-your-dashboard"></a>Adicionar ao dashboard
+## <a name="add-to-your-dashboard"></a>Adicionar ao seu painel
 
-Depois de criar uma consulta, pode adicioná-lo ao seu dashboard.  Selecione o **afixar ao dashboard** no canto superior direito da área de trabalho de análise de registo. Com as consultas anteriores de quatro afixadas a um dashboard de exemplo, isto é os dados que pode ver rapidamente:
+Depois de criar uma consulta, você pode adicioná-la ao seu painel.  Selecione **fixar no painel** no canto superior direito do espaço de trabalho do log Analytics. Com as quatro consultas anteriores fixadas em um painel de exemplo, esses são os dados que você pode ver em um relance:
 
 ![Dashboard](media/log-analytics/dashboard.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Estado de funcionamento do back-end, registos de diagnóstico e métricas para o Gateway de aplicação](application-gateway-diagnostics.md)
+[Integridade de back-end, logs de diagnóstico e métricas para o gateway de aplicativo](application-gateway-diagnostics.md)

@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas relacionados com o erro "não pode aceder aí a partir daqui" - Azure Active Directory | Documentos da Microsoft
-description: Resolver problemas relacionados com os possíveis motivos pelos quais esteja tirando a mensagem de erro "não pode aceder aí a partir daqui".
+title: Correções para o erro "você não pode chegar lá daqui" – Azure AD
+description: Encontre possíveis correções por que você está recebendo a mensagem de erro "você não pode chegar lá daqui".
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -14,60 +14,61 @@ ms.author: lizross
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d6385343ed26e5043e1491529fd2454caff4d04
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473808"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028565"
 ---
-# <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Razões possíveis para a mensagem de erro "não pode aceder aí a partir daqui"
-Ao aceder a aplicações web internas ou serviços da sua organização, poderá receber uma mensagem de erro que diz **não pode aceder aí a partir daqui**. Esta mensagem indica que sua organização colocou uma política que está a impedir o seu dispositivo de acesso a recursos da sua organização. Enquanto acabar, poderá ter de contactar o suporte técnico para corrigir este problema, aqui estão algumas coisas que pode tentar primeiro.
+# <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Possíveis correções para a mensagem de erro "você não pode chegar lá daqui"
 
-## <a name="make-sure-youre-using-a-supported-browser"></a>Certifique-se de que está a utilizar um browser suportado
-Se obtiver a **não pode aceder aí a partir daqui** mensagem a indicar que está a tentar aceder a sites da sua organização a partir de um browser não suportado, verifique qual navegador o que está a executar.
+Ao acessar os aplicativos Web ou serviços internos da sua organização, você pode receber uma mensagem de erro dizendo que **não pode chegar lá daqui**. Essa mensagem significa que sua organização colocou uma política em vigor que impede que o dispositivo acesse os recursos da sua organização. Embora você possa acabar precisando entrar em contato com a assistência técnica para corrigir esse problema, aqui estão algumas coisas que você pode tentar primeiro.
 
-![Mensagem de erro relacionados com o suporte de browser](media/user-help-device-remediation/browser-version.png)
+## <a name="make-sure-youre-using-a-supported-browser"></a>Verifique se você está usando um navegador com suporte
+Se você receber a mensagem **você não pode chegar lá daqui** , dizendo que está tentando acessar os sites de sua organização em um navegador sem suporte, verifique qual navegador você está executando.
 
-Para corrigir este problema, tem de instalar e executar um browser suportado, com base no seu sistema operativo. Se estiver a utilizar o Windows 10, browsers suportados incluem o Microsoft Edge, Internet Explorer e Google Chrome. Se estiver a utilizar um sistema operacional diferente, pode verificar a lista completa de [browsers suportados](../conditional-access/technical-reference.md#supported-browsers).
+![Mensagem de erro relacionada ao suporte do navegador](media/user-help-device-remediation/browser-version.png)
 
-## <a name="make-sure-youre-using-a-supported-operating-system"></a>Certifique-se de que está a utilizar um sistema operativo suportado
-Certifique-se de que está a executar uma versão suportada do sistema operacional, incluindo:
+Para corrigir esse problema, você deve instalar e executar um navegador com suporte, com base no seu sistema operacional. Se você estiver usando o Windows 10, os navegadores com suporte incluem Microsoft Edge, Internet Explorer e Google Chrome. Se você estiver usando um sistema operacional diferente, poderá verificar a lista completa de [navegadores com suporte](../conditional-access/technical-reference.md#supported-browsers).
 
-- **Windows Client.** Windows 7 ou posterior.
+## <a name="make-sure-youre-using-a-supported-operating-system"></a>Verifique se você está usando um sistema operacional com suporte
+Verifique se você está executando uma versão com suporte do sistema operacional, incluindo:
+
+- **Cliente do Windows.** Windows 7 ou posterior.
 
 - **Windows Server.** Windows Server 2008 R2 ou posterior.
 
 - **macOS.** macOS X ou posterior
 
-- **Android e iOS.** Versão mais recente de sistemas operativos móveis Android e iOS
+- **Android e iOS.** Versão mais recente dos sistemas operacionais móveis Android e iOS
 
-Para corrigir este problema, tem de instalar e executar um sistema operativo suportado.
+Para corrigir esse problema, você deve instalar e executar um sistema operacional com suporte.
 
-## <a name="make-sure-your-device-is-joined-to-your-network"></a>Certifique-se de que o seu dispositivo está associado à sua rede
-Se obtiver a **não pode aceder aí a partir daqui** mensagem a indicar que o dispositivo está fora de conformidade com a política de acesso da sua organização, certifique-se de se associar o seu dispositivo à rede da sua organização.
+## <a name="make-sure-your-device-is-joined-to-your-network"></a>Verifique se o dispositivo ingressou em sua rede
+Se você receber a mensagem **você não pode chegar lá daqui** , informando que o dispositivo está fora de conformidade com a política de acesso da sua organização, verifique se você ingressou no dispositivo na rede da sua organização.
 
-![Mensagem de erro relacionados com esteja na sua rede](media/user-help-device-remediation/network-version.png)
+![Mensagem de erro relacionada se você está em sua rede](media/user-help-device-remediation/network-version.png)
 
-### <a name="to-check-whether-your-device-is-joined-to-your-network"></a>Para verificar se o seu dispositivo está associado à sua rede
-1. Inicie sessão no Windows com a sua conta escolar ou profissional. Por exemplo, alain@contoso.com.
+### <a name="to-check-whether-your-device-is-joined-to-your-network"></a>Para verificar se o dispositivo está ingressado em sua rede
+1. Entre no Windows usando sua conta corporativa ou de estudante. Por exemplo, alain@contoso.com.
 
-2. Ligar à rede da sua organização através de uma rede privada virtual (VPN) ou DirectAccess.
+2. Conecte-se à rede da sua organização por meio de uma VPN (rede virtual privada) ou DirectAccess.
 
-3. Quando estiver ligado, prima a **logótipo do Windows principais + L** bloquear o dispositivo.
+3. Depois de se conectar, pressione a **tecla com o logotipo do Windows + L** para bloquear seu dispositivo.
 
-4. Desbloqueie o dispositivo com a sua ou conta escolar e, em seguida, tente aceder à aplicação problemática ou serviço novamente.
+4. Desbloqueie seu dispositivo usando sua conta corporativa ou de estudante e tente acessar o aplicativo ou serviço problemático novamente.
 
-    Se vir a **não pode aceder aí a partir daqui** mensagem de erro mais uma vez, selecione a **obter mais detalhes** associar e, em seguida, contacte o suporte técnico com os detalhes.
+    Se você vir a mensagem de erro **não é possível obter aqui aqui** , selecione o link **mais detalhes** e entre em contato com a assistência técnica com os detalhes.
 
-### <a name="to-join-your-device-to-your-network"></a>Para associar o seu dispositivo à sua rede
-Se o dispositivo não está associado à rede da sua organização, pode fazer uma das duas coisas:
+### <a name="to-join-your-device-to-your-network"></a>Para unir seu dispositivo à sua rede
+Se o dispositivo não tiver ingressado na rede da sua organização, você poderá executar uma das duas ações a seguir:
 
-- **Associe o seu dispositivo de trabalho.** Associe o seu dispositivo de Windows 10 pertencentes à trabalho à rede da sua organização para que possa aceder a recursos potencialmente restritos. Para obter mais informações e instruções passo a passo, consulte [associar o seu dispositivo de trabalho para a rede da sua organização](user-help-join-device-on-network.md).
+- **Ingresse no seu dispositivo de trabalho.** Ingresse seu dispositivo Windows 10 de Propriedade do seu trabalho na rede da sua organização para que você possa acessar recursos potencialmente restritos. Para obter mais informações e instruções passo a passo, consulte [ingressar seu dispositivo de trabalho na rede da sua organização](user-help-join-device-on-network.md).
 
-- **Registe o seu dispositivo pessoal para o trabalho.** Registe o seu dispositivo pessoal, normalmente, um telefone ou tablet, na rede da sua organização. Depois do dispositivo estiver registado, pode aceder a recursos restritos da sua organização. Para obter mais informações e instruções passo a passo, consulte [registar o seu dispositivo pessoal na rede da sua organização](user-help-register-device-on-network.md).
+- **Registre seu dispositivo pessoal para o trabalho.** Registre seu dispositivo pessoal, normalmente um telefone ou Tablet, na rede da sua organização. Depois que o dispositivo é registrado, ele pode acessar os recursos restritos da sua organização. Para obter mais informações e instruções passo a passo, consulte [registrar seu dispositivo pessoal na rede da sua organização](user-help-register-device-on-network.md).
 
-## <a name="next-steps"></a>Passos Seguintes
-- [O que é o portal MyApps?](active-directory-saas-access-panel-introduction.md)
+## <a name="next-steps"></a>Passos seguintes
+- [O que é o portal do myapps?](active-directory-saas-access-panel-introduction.md)
 
 - [Iniciar sessão com o telemóvel em vez da palavra-passe](user-help-auth-app-sign-in.md)

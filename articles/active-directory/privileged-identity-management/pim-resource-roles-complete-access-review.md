@@ -1,26 +1,26 @@
 ---
-title: Concluir uma revisão de acesso das funções de recurso do Azure no Privileged Identity Management-Azure Active Directory | Microsoft Docs
-description: Saiba como concluir uma revisão de acesso das funções de recurso do Azure no Azure AD Privileged Identity Management (PIM).
+title: Concluir a revisão de acesso das funções de recurso do Azure no PIM – Azure AD | Microsoft Docs
+description: Saiba como concluir uma revisão de acesso das funções de recurso do Azure Privileged Identity Management em Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6761d1d6aea796e0cca708676f69c47328642cc2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 9e45249245aaab97070b7e774d4b6bab6827bdc9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895814"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021988"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Concluir uma revisão de acesso das funções de recurso do Azure no Privileged Identity Management
 
@@ -52,7 +52,7 @@ Todas as revisões de acesso têm uma data de término. Selecione **parar** para
 
 Você pode redefinir uma revisão de acesso para remover todas as decisões que são feitas nela. Depois de redefinir uma revisão de acesso, todos os usuários serão marcados como não revisados novamente.
 
-### <a name="apply"></a>Registe-se
+### <a name="apply"></a>Aplicar
 
 Após a conclusão de uma revisão de acesso, selecione **aplicar** para implementar o resultado da revisão. Se o acesso de um usuário tiver sido negado na revisão, essa etapa removerá sua atribuição de função.  
 

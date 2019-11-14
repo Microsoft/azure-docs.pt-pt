@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Criar um Standard Load Balancer-Azure PowerShell'
-titlesuffix: Azure Load Balancer
-description: Este início rápido mostra como criar um Balanceador de Carga Standard com o PowerShell
+title: 'Início rápido: criar um Standard Load Balancer-Azure PowerShell'
+titleSuffix: Azure Load Balancer
+description: Este guia de início rápido mostra como criar um Standard Load Balancer usando Azure PowerShell
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 0e00728e091a7d7d96cb624135519b17524d2227
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b387df5049fff2cb17e8d0758f1cf5fd8f0d0853
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274112"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049113"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Início rápido: Criar um Standard Load Balancer usando Azure PowerShell
+# <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Início rápido: criar um Standard Load Balancer usando Azure PowerShell
 
 Este início rápido mostra-lhe como criar um Balanceador de Carga Standard com o Azure PowerShell. Para testar o balanceador de carga, implante três máquinas virtuais (VMs) executando o Windows Server e equilibre o balanceamento de carga de um aplicativo Web entre as VMs. Para saber mais sobre o Balanceador de Carga Standard, veja [O que é o Balanceador de Carga Standard](load-balancer-standard-overview.md).
 
@@ -33,7 +33,7 @@ Este início rápido mostra-lhe como criar um Balanceador de Carga Standard com 
 
 Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 5.4.1 ou posterior do módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Antes de criar o balanceador de carga, você deve criar um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupSLB* no local *eastus* :
 
@@ -62,7 +62,7 @@ Nesta seção, você configura o IP de front-end e o pool de endereços de back-
 
 ### <a name="create-front-end-ip"></a>Criar IP de front-end
 
-Crie um IP de front-end com [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). O exemplo a seguir cria uma configuração de IP de front  -end chamada myfrontend e anexa o endereço *myPublicIP* :
+Crie um IP de front-end com [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). O exemplo a seguir cria uma configuração de IP de front-end chamada *myfrontend* e anexa o endereço *myPublicIP* :
 
 ```azurepowershell
 $feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEndPool' -PublicIpAddress $publicIp
@@ -90,7 +90,7 @@ $probe = New-AzLoadBalancerProbeConfig `
  -RequestPath / -IntervalInSeconds 360 -ProbeCount 5
 ```
 
-### <a name="create-a-load-balancer-rule"></a>Crie uma regra de balanceador de carga
+### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 É utilizada uma regra de balanceador de carga para definir a forma como o tráfego é distribuído pelas VMs. Pode definir a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Para garantir que apenas as VMs em bom estado de funcionamento recebem o tráfego, também pode definir a sonda de estado de funcionamento a utilizar.
 
 Crie uma regra de balanceador de carga com [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). O exemplo seguinte cria uma regra de balanceador de carga designada *myLoadBalancerRule* e faz o balanceamento de carga do tráfego no *TCP* porta *80*:
@@ -354,7 +354,7 @@ Quando não for mais necessário, você pode usar o comando [Remove-AzResourceGr
 Remove-AzResourceGroup -Name myResourceGroupSLB
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de introdução, criou um Balanceador de Carga Standard, anexou VMs ao mesmo, configurou a regra de tráfego do balanceador de carga, a sonda de estado de funcionamento e, em seguida, testou o balanceador de carga. Para saber mais sobre o Balanceador de Carga do Azure, avance para os tutoriais do Balanceador de Carga do Azure.
 

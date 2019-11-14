@@ -4,12 +4,12 @@ ms.service: service-bus
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
-ms.openlocfilehash: b150cad22528234286fa7939bf7055e8312ed361
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 3086d15ba541aa7f08f983dac4bc363f43248a9e
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229250"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74062918"
 ---
 ## <a name="webapi-project"></a>Projeto WebAPI
 1. No Visual Studio, abra o projeto **AppBackend** que você criou no tutorial **notificar usuários** .
@@ -36,10 +36,11 @@ ms.locfileid: "68229250"
 
             public Notification CreateNotification(string payload)
             {
-                var notification = new Notification() {
-                Id = notifications.Count,
-                Payload = payload,
-                Read = false
+                var notification = new Notification
+                {
+                    Id = notifications.Count,
+                    Payload = payload,
+                    Read = false
                 };
 
                 notifications.Add(notification);
@@ -88,8 +89,8 @@ ms.locfileid: "68229250"
         }
 
 
-Observe que o `Post` método agora não envia uma notificação do sistema. Ele envia uma notificação bruta que contém apenas a ID de notificação e não qualquer conteúdo confidencial. Além disso, lembre-se de comentar a operação de envio para as plataformas para as quais você não tem credenciais configuradas em seu hub de notificação, pois elas resultarão em erros.
+Observe que o método `Post` agora não envia uma notificação do sistema. Ele envia uma notificação bruta que contém apenas a ID de notificação e não qualquer conteúdo confidencial. Além disso, lembre-se de comentar a operação de envio para as plataformas para as quais você não tem credenciais configuradas em seu hub de notificação, pois elas resultarão em erros.
 
 1. Agora vamos implantar novamente esse aplicativo em um site do Azure para torná-lo acessível de todos os dispositivos. Clique com o botão direito do rato no projeto **AppBackend** e selecione **Publicar**.
-2. Selecione site do Azure como seu destino de publicação. Entre com sua conta do Azure e selecione um site novo ou existente e anote a propriedade **URL de destino** na guia **conexão** . Vamos referir-nos a este URL como o *ponto final do seu back-end* mais adiante neste tutorial. Clique em **Publicar**.
+2. Selecione site do Azure como seu destino de publicação. Entre com sua conta do Azure e selecione um site novo ou existente e anote a propriedade **URL de destino** na guia **conexão** . Iremos nos referir a essa URL como seu *ponto de extremidade de back-end* posteriormente neste tutorial. Clique em **Publicar**.
 

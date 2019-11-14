@@ -1,6 +1,6 @@
 ---
-title: Verifique as definições do Gestor de tráfego do Azure
-description: Este artigo irá ajudá-lo a verificar as definições do Gestor de tráfego.
+title: Verificar as configurações do Gerenciador de tráfego do Azure
+description: Neste artigo, saiba como verificar as configurações do Traffic Manager e testar o método de roteamento de tráfego.
 services: traffic-manager
 author: asudbring
 ms.service: traffic-manager
@@ -10,64 +10,64 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: allensu
-ms.openlocfilehash: 19ef08a40d0a84aecb070e71bbb8c9b6a88ae059
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ad74e5c51d5939218ebb546993d416b3df1cd04b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070931"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023512"
 ---
 # <a name="verify-traffic-manager-settings"></a>Verificar definições do Gestor de Tráfego
 
-Para testar as definições do Gestor de tráfego, tem de ter vários clientes, em vários locais, a partir da qual pode executar seus testes. Em seguida, inclua os pontos finais de seu perfil do Gestor de tráfego baixo um de cada vez.
+Para testar as configurações do Traffic Manager, você precisa ter vários clientes, em vários locais, dos quais você pode executar seus testes. Em seguida, traga os pontos de extremidade em seu perfil do Gerenciador de tráfego um de cada vez.
 
-* Defina o valor de TTL de DNS baixa, para que as alterações serão propagadas rapidamente (por exemplo, 30 segundos).
-* Sabe os endereços IP dos seus serviços cloud do Azure e o Web sites no perfil de que se estiver a testar.
-* Utilize as ferramentas que permitem resolver um nome DNS para um endereço IP e apresentar esse endereço.
+* Defina o valor de TTL do DNS como baixo para que as alterações se propaguem rapidamente (por exemplo, 30 segundos).
+* Conheça os endereços IP dos seus serviços de nuvem e sites do Azure no perfil que você está testando.
+* Use ferramentas que permitem resolver um nome DNS para um endereço IP e exibir esse endereço.
 
-Verificado para ver que os nomes DNS resolver endereços IP dos pontos finais no seu perfil. Os nomes devem resolver de maneira consistente com o método de encaminhamento de tráfego definido no perfil do Gestor de tráfego. Pode usar as ferramentas, como **nslookup** ou **aprofundar** para resolver nomes DNS.
+Você está verificando se os nomes DNS são resolvidos para endereços IP dos pontos de extremidade em seu perfil. Os nomes devem ser resolvidos de maneira consistente com o método de roteamento de tráfego definido no perfil do Gerenciador de tráfego. Você pode usar as ferramentas como **nslookup** ou **aprofundar** -se para resolver nomes DNS.
 
-Os exemplos seguintes ajudar a testar o perfil do Traffic Manager.
+Os exemplos a seguir ajudam você a testar seu perfil do Gerenciador de tráfego.
 
-### <a name="check-traffic-manager-profile-using-nslookup-and-ipconfig-in-windows"></a>Verifique o perfil do Gestor de tráfego com nslookup e ipconfig no Windows
+### <a name="check-traffic-manager-profile-using-nslookup-and-ipconfig-in-windows"></a>Verificar o perfil do Gerenciador de tráfego usando Nslookup e ipconfig no Windows
 
-1. Abra um comando ou a linha de comandos do Windows PowerShell como administrador.
-2. Tipo de `ipconfig /flushdns` para liberar o cache do resolvedor DNS.
-3. Digite `nslookup <your Traffic Manager domain name>`. Por exemplo, o seguinte comando verifica o nome de domínio com o prefixo *myapp.contoso*
+1. Abra um prompt de comando ou do Windows PowerShell como administrador.
+2. Digite `ipconfig /flushdns` para liberar o cache do resolvedor de DNS.
+3. Digite `nslookup <your Traffic Manager domain name>`. Por exemplo, o comando a seguir verifica o nome de domínio com o prefixo *MyApp. contoso*
 
         nslookup myapp.contoso.trafficmanager.net
 
     Um resultado típico mostra as seguintes informações:
 
-    + O nome DNS e endereço IP do servidor DNS que está sendo acessado para resolver este nome de domínio do Gestor de tráfego.
-    + O nome de domínio do Gestor de tráfego escritas na linha de comando após a "nslookup" e o endereço IP ao qual o domínio do Gestor de tráfego é resolvido. O segundo endereço IP é a importante para verificar. Ele deve corresponder a um público endereço IP virtual (VIP) para um dos serviços cloud ou Web sites no perfil do Gestor de tráfego que está a testar.
+    + O nome DNS e o endereço IP do servidor DNS que está sendo acessado para resolver esse nome de domínio do Traffic Manager.
+    + O nome de domínio do Traffic Manager que você digitou na linha de comando após "nslookup" e o endereço IP para o qual o domínio do Traffic Manager é resolvido. O segundo endereço IP é o importante a ser verificado. Ele deve corresponder a um endereço VIP (IP virtual) público para um dos serviços de nuvem ou sites no perfil do Gerenciador de tráfego que você está testando.
 
-## <a name="how-to-test-the-failover-traffic-routing-method"></a>Como testar o método de encaminhamento de tráfego de ativação pós-falha
+## <a name="how-to-test-the-failover-traffic-routing-method"></a>Como testar o método de roteamento de tráfego de failover
 
-1. Deixe todos os pontos finais de cópia de segurança.
-2. Utilizar um único cliente, pedido de resolução DNS para o seu nome de domínio da empresa com o nslookup ou um utilitário semelhante.
-3. Certifique-se de que o endereço IP resolvido corresponde ao ponto final primário.
-4. Interromper o seu ponto final primário ou remova o ficheiro de monitorização, de modo que o Gestor de tráfego pensa que o aplicativo está desativado.
-5. Aguarde que o DNS Time-to-Live (TTL) do perfil do Gestor de tráfego mais de dois minutos adicionais. Por exemplo, se o valor de TTL de DNS é de 300 segundos (5 minutos), tem de aguardar sete minutos.
-6. Esvaziar a DNS cliente cache e o pedido de resolução de DNS com nslookup. No Windows, pode esvaziar a cache DNS com o comando ipconfig /flushdns.
-7. Certifique-se de que o endereço IP resolvido corresponde ao seu ponto final secundário.
-8. Repita o processo, por sua vez interrupções cada ponto de extremidade. Certifique-se de que o DNS retorna o endereço IP do ponto de extremidade seguinte na lista. Quando todos os pontos finais para baixo, deve obter novamente o endereço IP do ponto final primário.
+1. Deixe todos os pontos de extremidade ativos.
+2. Usando um único cliente, solicite a resolução de DNS para o nome de domínio da sua empresa usando Nslookup ou um utilitário semelhante.
+3. Verifique se o endereço IP resolvido corresponde ao ponto de extremidade primário.
+4. Desative seu ponto de extremidade primário ou remova o arquivo de monitoramento para que o Gerenciador de tráfego pense que o aplicativo está inoperante.
+5. Aguarde a TTL (vida útil) do DNS do perfil do Traffic Manager mais dois minutos adicionais. Por exemplo, se a TTL do DNS for de 300 segundos (5 minutos), você deverá aguardar por sete minutos.
+6. Libere o cache do cliente DNS e solicite a resolução de DNS usando Nslookup. No Windows, você pode liberar o cache DNS com o comando ipconfig/flushdns.
+7. Verifique se o endereço IP resolvido corresponde ao seu ponto de extremidade secundário.
+8. Repita o processo, desativando cada ponto de extremidade por vez. Verifique se o DNS retorna o endereço IP do próximo ponto de extremidade na lista. Quando todos os pontos de extremidade estiverem inativos, você deverá obter o endereço IP do ponto de extremidade primário novamente.
 
-## <a name="how-to-test-the-weighted-traffic-routing-method"></a>Como testar o método de encaminhamento de tráfego ponderada
+## <a name="how-to-test-the-weighted-traffic-routing-method"></a>Como testar o método de roteamento de tráfego ponderado
 
-1. Deixe todos os pontos finais de cópia de segurança.
-2. Utilizar um único cliente, pedido de resolução DNS para o seu nome de domínio da empresa com o nslookup ou um utilitário semelhante.
-3. Certifique-se de que o endereço IP resolvido corresponde a um dos seus pontos finais.
-4. Libere o cache de cliente DNS e repita os passos 2 e 3 para cada ponto de extremidade. Deverá ver endereços IP diferentes devolvidos para cada um dos seus pontos de extremidade.
+1. Deixe todos os pontos de extremidade ativos.
+2. Usando um único cliente, solicite a resolução de DNS para o nome de domínio da sua empresa usando Nslookup ou um utilitário semelhante.
+3. Verifique se o endereço IP resolvido corresponde a um de seus pontos de extremidade.
+4. Libere o cache do cliente DNS e repita as etapas 2 e 3 para cada ponto de extremidade. Você deverá ver endereços IP diferentes retornados para cada um dos seus pontos de extremidade.
 
-## <a name="how-to-test-the-performance-traffic-routing-method"></a>Como testar o método de encaminhamento de tráfego de desempenho
+## <a name="how-to-test-the-performance-traffic-routing-method"></a>Como testar o método de roteamento de tráfego de desempenho
 
-Para testar com eficiência um método de encaminhamento de tráfego de desempenho, tem de ter clientes localizados em diferentes partes do mundo. Pode criar clientes em diferentes regiões do Azure que podem ser utilizados para testar seus serviços. Se tiver uma rede global, pode iniciar sessão para os clientes em outras partes do mundo remotamente e executar seus testes a partir daí.
+Para testar efetivamente um método de roteamento de tráfego de desempenho, você deve ter clientes localizados em diferentes partes do mundo. Você pode criar clientes em diferentes regiões do Azure que podem ser usadas para testar seus serviços. Se você tiver uma rede global, poderá entrar remotamente em clientes em outras partes do mundo e executar seus testes a partir daí.
 
-Em alternativa, existem gratuito baseado na web pesquisa de DNS e aprofundar os serviços disponíveis. Algumas dessas ferramentas dão-lhe a capacidade de verificar a resolução de nomes DNS de vários locais em todo o mundo. Fazer uma pesquisa no "Pesquisa de DNS" para obter exemplos. Serviços de terceiros, como Gomez ou apresentação podem ser utilizados para confirmar que os perfis de estão a distribuir o tráfego, conforme o esperado.
+Como alternativa, há serviços gratuitos de pesquisa de DNS baseados na Web e de busca. Algumas dessas ferramentas oferecem a capacidade de verificar a resolução de nomes DNS de vários locais em todo o mundo. Faça uma pesquisa em "pesquisa de DNS" para obter exemplos. Serviços de terceiros, como Gomez ou palestras, podem ser usados para confirmar que os perfis estão distribuindo o tráfego conforme o esperado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Sobre métodos de encaminhamento de tráfego do Gestor de tráfego](traffic-manager-routing-methods.md)
+* [Sobre métodos de roteamento de tráfego do Traffic Manager](traffic-manager-routing-methods.md)
 * [Considerações de desempenho para o Gestor de Tráfego](traffic-manager-performance-considerations.md)
 * [Resolução de problemas do estado degradado do Gestor de Tráfego](traffic-manager-troubleshooting-degraded.md)

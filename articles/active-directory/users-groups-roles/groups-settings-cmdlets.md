@@ -1,34 +1,34 @@
 ---
-title: Definir configurações de grupo usando o PowerShell-Azure Active Directory | Microsoft Docs
+title: Definir configurações de grupo usando o PowerShell-Azure AD | Microsoft Docs
 description: Como gerenciar as configurações de grupos usando cmdlets Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18fbaad8ce15ab4eb9a08d5edc273098e7fb372e
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 6a1b900d4a67390ae867d770c3b984c43fd501b5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263959"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026758"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para configurar definições de grupo
-Este artigo contém instruções para usar os cmdlets do PowerShell do Azure Active Directory (AD do Azure) para criar e atualizar grupos. Esse conteúdo se aplica somente a grupos do Office 365 (às vezes chamados de grupos unificados). 
+
+Este artigo contém instruções para usar os cmdlets do PowerShell do Azure Active Directory (AD do Azure) para criar e atualizar grupos. Esse conteúdo se aplica somente a grupos do Office 365 (às vezes chamados de grupos unificados).
 
 > [!IMPORTANT]
 > Algumas configurações exigem uma licença Azure Active Directory Premium P1. Para obter mais informações, consulte a tabela de [configurações de modelo](#template-settings) .
 
-Para obter mais informações sobre como impedir que usuários não administradores criem grupos de segurança, defina @ no__t-0, conforme descrito em [set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
+Para obter mais informações sobre como impedir que usuários não administradores criem grupos de segurança, defina `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` conforme descrito em [set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 As configurações de grupos do Office 365 são definidas usando um objeto Settings e um objeto Settingstemplate. Inicialmente, você não vê nenhum objeto de configuração em seu diretório, porque seu diretório está configurado com as configurações padrão. Para alterar as configurações padrão, você deve criar um novo objeto de configurações usando um modelo de configurações. Os modelos de configurações são definidos pela Microsoft. Há vários modelos de configurações diferentes. Para definir as configurações de grupo do Office 365 para seu diretório, use o modelo chamado "Group. Unified". Para definir as configurações de grupo do Office 365 em um único grupo, use o modelo chamado "Group. Unified. Guest". Este modelo é usado para gerenciar o acesso de convidado a um grupo do Office 365. 
 

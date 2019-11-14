@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Script da CLI do Azure – Encriptar uma VM do Linux | Microsoft Docs
+title: Exemplo do Script da CLI do Azure – Encriptar uma VM do Linux
 description: Exemplo do Script da CLI do Azure – Encriptar uma VM do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 16bbd4031c851a950af0f3c0fe98ebdd24b183df
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 26d453adb4ded59de162fda0ae62322399fa4d9a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709441"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040281"
 ---
 # <a name="encrypt-a-linux-virtual-machine-in-azure"></a>Encriptar uma máquina virtual do Linux no Azure
 
@@ -59,7 +59,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, o Azu
 | [az vm encryption show](https://docs.microsoft.com/cli/azure/vm/encryption) | Mostra o estado do processo de encriptação da VM. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

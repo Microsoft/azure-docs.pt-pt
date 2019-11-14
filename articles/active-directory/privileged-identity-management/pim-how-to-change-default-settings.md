@@ -1,25 +1,25 @@
 ---
-title: Definir as configurações de função do Azure AD no Privileged Identity Management-Azure Active Directory | Microsoft Docs
+title: Definir as configurações de função do Azure AD no PIM – Azure AD | Microsoft Docs
 description: Saiba como definir as configurações de função do Azure AD no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cff298e24ac185767e6290e396818ccece7b9b55
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: ee99a8e75fe8da85b1cf82623ed110991db24b66
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809146"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021804"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Definir as configurações de função do Azure AD no Privileged Identity Management
 

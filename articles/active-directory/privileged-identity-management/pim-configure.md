@@ -1,5 +1,5 @@
 ---
-title: O que é Privileged Identity Management? -Azure Active Directory | Microsoft Docs
+title: O que é Privileged Identity Management? -Azure AD | Microsoft Docs
 description: Fornece uma visão geral de Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 04/09/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ae9429920a4d3a6bac8830d6add2782276850d7
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 578f45a7bc870874319a8238c7c8c50bf7a37998
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595347"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023030"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -85,7 +85,7 @@ Para entender melhor Privileged Identity Management e sua documentação, você 
 | Termo ou conceito | Categoria de atribuição de função | Descrição |
 | --- | --- | --- |
 | direito | Tipo | Uma atribuição de função que exige que um usuário execute uma ou mais ações para usar a função. Se um usuário se tornou qualificado para uma função, isso significa que eles podem ativar a função quando precisam executar tarefas privilegiadas. Não há nenhuma diferença no acesso dado a alguém com uma atribuição de funções qualificada e permanente. A única diferença é que algumas pessoas não precisam desse acesso o tempo todo. |
-| activo | Tipo | Uma atribuição de função que não exige que um usuário execute qualquer ação para usar a função. Os usuários atribuídos como ativos têm os privilégios atribuídos à função. |
+| ativo | Tipo | Uma atribuição de função que não exige que um usuário execute qualquer ação para usar a função. Os usuários atribuídos como ativos têm os privilégios atribuídos à função. |
 | ativar |  | O processo de executar uma ou mais ações para usar uma função à qual um usuário está qualificado. As ações podem incluir a execução de uma verificação de MFA (autenticação multifator), o fornecimento de uma justificativa de negócios ou a solicitação de aprovação de aprovadores designados. |
 | associada | Estado | Um usuário que tem uma atribuição de função ativa. |
 | ativado | Estado | Um usuário que tem uma atribuição de função qualificada, executou as ações para ativar a função e agora está ativo.  Depois de ativado, o usuário pode usar a função para um período de tempo pré-configurado antes de precisar ativá-lo novamente. |

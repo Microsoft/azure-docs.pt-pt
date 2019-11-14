@@ -8,14 +8,18 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 68bf455bbdfb6d2d45c5eccc60c3ad8ce40d3247
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 33302d7252c56badfed1dc7adea6a4f7cbf961b6
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515778"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048259"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportar o log de atividades do Azure para o armazenamento ou hubs de eventos do Azure
+
+> [!NOTE]
+> Agora você pode coletar o log de atividades em um espaço de trabalho Log Analytics usando uma configuração de diagnóstico semelhante a como você coleta logs de recursos. Consulte [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](activity-log-collect.md).
+
 O [log de atividades do Azure](activity-logs-overview.md) fornece informações sobre eventos no nível da assinatura que ocorreram em sua assinatura do Azure. Além de exibir o log de atividades no portal do Azure ou copiá-lo para um espaço de trabalho Log Analytics onde ele pode ser analisado com outros dados coletados pelo Azure Monitor, você pode criar um perfil de log para arquivar o log de atividades em uma conta de armazenamento do Azure ou transmiti-lo para um  Hub de eventos.
 
 ## <a name="archive-activity-log"></a>Log de atividades de arquivamento
@@ -35,7 +39,7 @@ A conta de armazenamento não precisa estar na mesma assinatura que a assinatura
 > [!NOTE]
 >  Atualmente, não é possível arquivar dados em uma conta de armazenamento que esteja atrás de uma rede virtual protegida.
 
-### <a name="event-hubs"></a>Hubs de Eventos
+### <a name="event-hubs"></a>Event Hubs
 Se você estiver enviando o log de atividades para um hub de eventos, você precisará [criar um hub de eventos](../../event-hubs/event-hubs-create.md) se ainda não tiver um. Se você tiver transmitido anteriormente eventos do log de atividades para esse namespace de hubs de eventos, esse Hub de eventos será reutilizado.
 
 A política de acesso compartilhado define as permissões que o mecanismo de streaming tem. O streaming para hubs de eventos requer permissões de gerenciar, enviar e escutar. Você pode criar ou modificar políticas de acesso compartilhado para o namespace de hubs de eventos na portal do Azure na guia Configurar para seu namespace de hubs de eventos.
@@ -55,9 +59,9 @@ O perfil de log define o seguinte.
 
 **Quais regiões (locais) devem ser exportadas.** Você deve incluir todos os locais, pois muitos eventos no log de atividades são eventos globais.
 
-**Por quanto tempo o log de atividades deve ser retido em uma conta de armazenamento.** Uma retenção de zero dias significa que os logs são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 365.
+**Por quanto tempo o log de atividades deve ser retido em uma conta de armazenamento.** A retenção de zero dias significa que os registos são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 365.
 
-Se as políticas de retenção forem definidas, mas o armazenamento de logs em uma conta de armazenamento estiver desabilitado, as políticas de retenção não terão nenhum efeito. As políticas de retenção são aplicadas por dia, portanto, no final de um dia (UTC), os logs do dia que estão além da política de retenção são excluídos. Por exemplo, se você tivesse uma política de retenção de um dia, no início do dia, hoje os logs do dia antes de ontem seriam excluídos. O processo de exclusão começa à meia-noite UTC, mas observe que pode levar até 24 horas para que os logs sejam excluídos da sua conta de armazenamento.
+Se as políticas de retenção forem definidas, mas o armazenamento de logs em uma conta de armazenamento estiver desabilitado, as políticas de retenção não terão nenhum efeito. Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além de retenção de política são eliminadas. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento.
 
 
 > [!IMPORTANT]
@@ -107,7 +111,7 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | Propriedade | Obrigatório | Descrição |
+    | Propriedade | Necessário | Descrição |
     | --- | --- | --- |
     | Nome |Sim |Nome do seu perfil de log. |
     | StorageAccountId |Não |ID de recurso da conta de armazenamento em que o log de atividades deve ser salvo. |
@@ -150,13 +154,13 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | Propriedade | Obrigatório | Descrição |
+    | Propriedade | Necessário | Descrição |
     | --- | --- | --- |
     | nome |Sim |Nome do seu perfil de log. |
-    | ID da conta de armazenamento |Sim |ID de recurso da conta de armazenamento na qual os logs de atividade devem ser salvos. |
-    | locais |Sim |Lista separada por espaços de regiões para as quais você gostaria de coletar eventos do log de atividades. Você pode exibir uma lista de todas as regiões para sua assinatura usando `az account list-locations --query [].name`. |
-    | dias |Sim |Número de dias pelos quais os eventos devem ser retidos, entre 1 e 365. Um valor de zero armazenará os logs indefinidamente (para sempre).  Se for zero, o parâmetro Enabled deverá ser definido como false. |
-    |Habilitado | Sim |True ou false.  Usado para habilitar ou desabilitar a política de retenção.  Se for true, o parâmetro Days deverá ser um valor maior que 0.
+    | storage-account-id |Sim |ID de recurso da conta de armazenamento na qual os logs de atividade devem ser salvos. |
+    | locations |Sim |Lista separada por espaços de regiões para as quais você gostaria de coletar eventos do log de atividades. Você pode exibir uma lista de todas as regiões para sua assinatura usando `az account list-locations --query [].name`. |
+    | days |Sim |Número de dias pelos quais os eventos devem ser retidos, entre 1 e 365. Um valor de zero armazenará os logs indefinidamente (para sempre).  Se for zero, o parâmetro Enabled deverá ser definido como false. |
+    |enabled | Sim |VERDADEIRO ou FALSO.  Usado para habilitar ou desabilitar a política de retenção.  Se for true, o parâmetro Days deverá ser um valor maior que 0.
     | categories |Sim |Lista separada por espaços de categorias de eventos que devem ser coletadas. Os valores possíveis são gravação, exclusão e ação. |
 
 
@@ -236,8 +240,8 @@ Os elementos neste JSON são descritos na tabela a seguir.
 | callerIpAddress |Endereço IP do usuário que realizou a operação, declaração de UPN ou declaração de SPN com base na disponibilidade. |
 | correlationId |Geralmente um GUID no formato de cadeia de caracteres. Eventos que compartilham uma CorrelationId pertencem à mesma ação Uber. |
 | identidade |Blob JSON que descreve a autorização e as declarações. |
-| nesse |Blob de propriedades RBAC do evento. Geralmente inclui as propriedades "Action", "role" e "Scope". |
-| Geral |Nível do evento. Um dos seguintes valores: _crítico_, _erro_, _aviso_, _informativo_e _detalhado_ |
+| authorization |Blob de propriedades RBAC do evento. Geralmente inclui as propriedades "Action", "role" e "Scope". |
+| level |Nível do evento. Um dos seguintes valores: _crítico_, _erro_, _aviso_, _informativo_e _detalhado_ |
 | localização |Região em que o local ocorreu (ou global). |
 | propriedades |Conjunto de pares de `<Key, Value>` (ou seja, dicionário) que descreve os detalhes do evento. |
 

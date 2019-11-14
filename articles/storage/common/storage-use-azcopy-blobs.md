@@ -8,12 +8,12 @@ ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 78e3f1d4f457e041d386ac7754d089b8b3635b08
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f5aafbb22ecbff416d90aa5b98eb027c33872b35
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686648"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048547"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferir dados com o armazenamento de BLOBs e AzCopy
 
@@ -49,7 +49,7 @@ Para obter documentos de referência detalhados, consulte [Make azcopy](storage-
 
 Você pode usar o comando [azcopy Copy](storage-ref-azcopy-copy.md) para carregar arquivos e diretórios do seu computador local.
 
-Esta seção contém os seguintes exemplos:
+Esta secção contém os exemplos seguintes:
 
 > [!div class="checklist"]
 > * Carregar um ficheiro
@@ -143,7 +143,7 @@ As opções `--include-pattern` e `--exclude-pattern` se aplicam somente a nomes
 
 Você pode usar o comando [azcopy Copy](storage-ref-azcopy-copy.md) para baixar BLOBs, diretórios e contêineres em seu computador local.
 
-Esta seção contém os seguintes exemplos:
+Esta secção contém os exemplos seguintes:
 
 > [!div class="checklist"]
 > * Transferir um ficheiro
@@ -237,7 +237,7 @@ O AzCopy usa [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page
 > - Você precisa acrescentar um token SAS a cada URL de origem. Se você fornecer credenciais de autorização usando o Azure Active Directory (AD), poderá omitir o token SAS somente da URL de destino.
 >-  As contas de armazenamento de blob de blocos Premium não dão suporte a camadas de acesso. Omita a camada de acesso de um blob da operação de cópia definindo o `s2s-preserve-access-tier` como `false` (por exemplo: `--s2s-preserve-access-tier=false`).
 
-Esta seção contém os seguintes exemplos:
+Esta secção contém os exemplos seguintes:
 
 > [!div class="checklist"]
 > * Copiar um blob para outra conta de armazenamento
@@ -275,7 +275,7 @@ Para obter documentos de referência detalhados, consulte [cópia azcopy](storag
 
 |    |     |
 |--------|-----------|
-| **Sintaxe** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/?<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/' --recursive'` |
+| **Sintaxe** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/?<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/' --recursive` |
 | **Exemplo** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
 
 ## <a name="synchronize-files"></a>Sincronizar arquivos

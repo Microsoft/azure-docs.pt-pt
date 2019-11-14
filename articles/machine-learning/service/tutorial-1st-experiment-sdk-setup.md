@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 59844c5989abb03bbe5134c83c9653290c17d0a9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: b2434102e0355d5c26c501588c360f74eb98404d
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582482"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049146"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: introdução à criação de seu primeiro experimento do ML com o SDK do Python
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -81,7 +81,7 @@ Você conclui as seguintes etapas de configuração e execução do experimento 
 
 1. Na barra superior, selecione uma VM de notebook a ser usada para executar o bloco de anotações. Essas VMs são pré-configuradas com tudo o que você precisa para executar Azure Machine Learning. Você pode selecionar uma VM criada por qualquer usuário do seu espaço de trabalho. 
 
-1. Se nenhuma VM for encontrada, selecione **+ Adicionar computação** para criar a máquina virtual.
+1. Se nenhuma máquina virtual for encontrada, selecione **+ Adicionar VM** para criar a VM. 
 
     1. Ao criar uma VM, forneça um nome.  O nome deve ter entre 2 e 16 caracteres. Os caracteres válidos são letras, dígitos e caractere e também devem ser exclusivos em sua assinatura do Azure.
 

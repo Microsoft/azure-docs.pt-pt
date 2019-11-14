@@ -1,6 +1,6 @@
 ---
-title: Criar um Standard Load Balancer com front-end zonal usando CLI do Azure
-titlesuffix: Azure Load Balancer
+title: Standard Load Balancer com front-end zonal-CLI do Azure
+titleSuffix: Azure Load Balancer
 description: Saiba como criar um Standard Load Balancer público com frontend de endereço IP público de zona usando CLI do Azure
 services: load-balancer
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: allensu
-ms.openlocfilehash: 7da41456a4f4bb88d402d27b42b31f6d4adfa7f6
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 5e6dd06cf43b0eb5389597dcedbc323f4c035333
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274302"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048349"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Criar um Standard Load Balancer com front-end zonal usando CLI do Azure
 
@@ -36,7 +36,7 @@ Se optar por instalar e utilizar a CLI localmente, certifique-se de que instalou
 > [!NOTE]
 >  Suporte para zonas de disponibilidade está disponível para os recursos do Azure selecionados e regiões e famílias de tamanhos VM. Para obter mais informações sobre como começar a utilizar e quais recursos do Azure, regiões e famílias de tamanhos VM pode experimentar com as zonas de disponibilidade, consulte [descrição geral das zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Para obter suporte, pode contactar-nos no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) ou [abrir um pedido de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
@@ -249,7 +249,7 @@ Em seguida, pode introduzir o endereço IP público num browser. Não se esqueç
 
 Para ver o balanceador de carga distribuir o tráfego para as VMs na zona 1 que estão executando seu aplicativo, você pode forçar a atualização do navegador da Web.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais o [Balanceador de Carga Standard](./load-balancer-standard-overview.md).
 
 

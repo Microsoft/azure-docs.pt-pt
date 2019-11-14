@@ -1,11 +1,11 @@
 ---
 title: Criar um Load Balancer com front-end com redundância de zona-portal do Azure
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Saiba como criar um balanceador de carga Standard público com frontend de endereço IP público com redundância de zona com o portal do Azure
 services: load-balancer
 documentationcenter: na
 author: asudbring
-manager: twooley
+manager: kumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: allensu
-ms.openlocfilehash: a875fc3446944b8a39f43b29440ab1d7179b847d
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4896030b1980defc79ff7a7ccd24ee22202ce167
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275069"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049075"
 ---
 #  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Criar um balanceador de carga Standard com o front-end com redundância de zona com o portal do Azure
 
@@ -46,7 +46,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     > O público IP criado neste passo é do Standard SKU e é com redundância de zona por predefinição. 
 8. Sob **localização**, selecione **e.u.a. Leste 2**e, em seguida, clique em **OK**. Em seguida, o balanceador de carga inicia a implementação e demora alguns minutos a concluir a implementação com êxito.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [zonas de disponibilidade e o Balanceador de carga Standard](load-balancer-standard-availability-zones.md).
 
 

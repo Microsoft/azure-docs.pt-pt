@@ -1,18 +1,18 @@
 ---
-title: Migrar Aplicativo Azure gateway e firewall do aplicativo Web da v1 para a v2
+title: Migrar do gateway v1 para v2-Aplicativo Azure
 description: Este artigo mostra como migrar Aplicativo Azure gateway e o Firewall do aplicativo Web da v1 para a v2
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/10/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: e32443e01e8b44ff5a891afc76378a53b13d7ddd
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 75d041f8ef0d6593a5ff1c696777b68c5f513bf5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833312"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047627"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrar Aplicativo Azure gateway e firewall do aplicativo Web da v1 para a v2
 
