@@ -539,11 +539,11 @@
           items:
             - name: Microsoft.Azure.Storage.Common (versão 11.x)
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
-            - name: Azure.Storage.Common (versão 12.x - pré-visualização)
+            - name: Azure.Storage.Common (versão 12.x)
               href: 'https://www.nuget.org/packages/Azure.Storage.Common/'
             - name: Microsoft.Azure.Storage.Blob (versão 11.x)
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/'
-            - name: Azure.Storage.Blob (versão 12.x - pré-visualização)
+            - name: Azure.Storage.Blob (versão 12.x)
               href: 'https://www.nuget.org/packages/Azure.Storage.Blobs/'
             - name: Gestor de Configuração do Azure
               href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
@@ -557,7 +557,7 @@
               items:
                 - name: Biblioteca de cliente do Armazenamento do Azure
                   items:
-                    - name: Versão 12.x (pré-visualização)
+                    - name: Versão 12.x
                       href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage'
                     - name: Versão 11.x e anteriores
                       href: 'https://github.com/Azure/azure-storage-net'
@@ -567,19 +567,19 @@
                   href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage'
             - name: Java
               items:
-                - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 12.x (pré-visualização)'
+                - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 12.x'
                   href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage'
                 - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 8.x e anteriores'
                   href: 'https://github.com/Azure/azure-storage-java'
             - name: Node.js
               items:
-                - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 12.x (pré-visualização)'
+                - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 12.x'
                   href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage'
                 - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 10.x'
                   href: 'https://github.com/Azure/azure-storage-node'
             - name: Python
               items:
-                - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 12.x (pré-visualização)'
+                - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 12.x'
                   href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage'
                 - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 2.1'
                   href: 'https://github.com/Azure/azure-storage-python'
@@ -754,7 +754,7 @@
             - name: Fornecedor de Recursos de Armazenamento
               href: /java/api/overview/azure/storage/management
         - name: JavaScript (versão 12.x)
-          href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+          href: /javascript/api/@azure/storage-blob/
         - name: Python (versão 12.x)
           href: /python/api/azure-storage-blob/
         - name: REST

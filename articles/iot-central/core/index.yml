@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Documentação do Azure IoT Central
-summary: O Azure IoT Central é uma solução SaaS (software como um serviço) totalmente gerida que facilita a ligação, a monitorização e a gestão de recursos de IoT à escala. O Azure IoT Central simplifica a configuração inicial da sua solução de IoT e reduz a carga de gestão, custos operacionais e a sobrecarga de um projeto habitual de IoT. Saiba como criar, personalizar, gerir e utilizar uma aplicação do Azure IoT Central com os nossos inícios rápidos e tutoriais.
+summary: O Azure IoT Central é uma plataforma de aplicações IoT que simplifica a criação de soluções de IoT. O Azure IoT Central simplifica a configuração inicial da sua solução de IoT e reduz a carga de gestão, custos operacionais e a sobrecarga de um projeto habitual de IoT. Saiba como criar, personalizar, gerir e utilizar uma aplicação do Azure IoT Central com os nossos inícios rápidos e tutoriais.
 metadata:
   title: Documentação do Azure IoT Central
-  description: O Azure IoT Central é uma solução SaaS (software como um serviço) totalmente gerida que facilita a ligação, a monitorização e a gestão de recursos de IoT à escala. O Azure IoT Central simplifica a configuração inicial da sua solução de IoT e reduz a carga de gestão, custos operacionais e a sobrecarga de um projeto habitual de IoT. Saiba como criar, personalizar, gerir e utilizar uma aplicação do Azure IoT Central com os nossos inícios rápidos e tutoriais.
+  description: O Azure IoT Central é uma plataforma de aplicações IoT que simplifica a criação de soluções de IoT. O Azure IoT Central simplifica a configuração inicial da sua solução de IoT e reduz a carga de gestão, custos operacionais e a sobrecarga de um projeto habitual de IoT. Saiba como criar, personalizar, gerir e utilizar uma aplicação do Azure IoT Central com os nossos inícios rápidos e tutoriais.
   services: iot-central
   ms.service: iot-central
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: ff8f5772880f047bbe0b0d798c944b38da486468
-  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+  ms.openlocfilehash: 78c6bd6a652a889e0fc212235d487b87f5869b1a
+  ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/09/2019
-  ms.locfileid: "73888802"
+  ms.lasthandoff: 11/13/2019
+  ms.locfileid: "74048973"
 landingContent:
 - title: Acerca do Azure IoT Central
   linkLists:

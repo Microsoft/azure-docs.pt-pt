@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentação da gestão de utilizadores empresariais - Azure Active Directory
+title: Documentação da gestão de utilizadores empresariais - Azure AD
 summary: Os serviços de gestão de utilizadores do Azure AD, como grupos e atribuições de função de administrador ajudam, a concluir as suas principais tarefas de forma mais rápida. Atribua licenças, atribua acesso à aplicação a grupos ou utilizadores ou delegue permissões para distribuir tarefas de gestão de identidades.
 metadata:
   title: Documentação de utilizadores, grupos, funções e licenças do Azure Active Directory
@@ -7,17 +7,17 @@ metadata:
   services: active-directory
   ms.service: active-directory
   ms.subservice: users-groups-roles
-  manager: mtillman
+  manager: daveba
   ms.topic: landing-page
-  ms.date: 08/28/2019
+  ms.date: 11/08/2019
   author: curtand
   ms.author: curtand
-  ms.openlocfilehash: db210331e07ec1b23c3300a5a5a972570be5b591
-  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+  ms.openlocfilehash: 2e7a21395059a73047678aa02ff8119511597b74
+  ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/09/2019
-  ms.locfileid: "73885813"
+  ms.lasthandoff: 11/13/2019
+  ms.locfileid: "74026413"
 landingContent:
 - title: Sobre utilizadores, grupos, funções e licenças
   linkLists:

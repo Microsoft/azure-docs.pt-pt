@@ -138,6 +138,8 @@
         - name: Mudança de tempo e Direto para VOD
           displayName: 'archive, dvr'
           href: live-event-cloud-dvr.md
+        - name: Transcrição em direto
+          href: live-transcription.md
         - name: Comparação de funcionalidades
           href: live-event-types-comparison.md
         - name: Estados e faturação

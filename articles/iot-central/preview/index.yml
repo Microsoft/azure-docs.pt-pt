@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Documentação do Azure IoT Central (funcionalidades de pré-visualização)
-summary: O Azure IoT Central é uma solução SaaS (software como um serviço) totalmente gerida que facilita a ligação, a monitorização e a gestão de recursos de IoT à escala. O Azure IoT Central simplifica a configuração inicial da sua solução de IoT e reduz a carga de gestão, custos operacionais e a sobrecarga de um projeto habitual de IoT. Saiba como criar, personalizar, gerir e utilizar uma aplicação do Azure IoT Central com os nossos inícios rápidos e tutoriais.
+summary: O Azure IoT Central é uma plataforma de aplicações IoT que simplifica a criação de soluções de IoT. O Azure IoT Central simplifica a configuração inicial da sua solução de IoT e reduz a carga de gestão, custos operacionais e a sobrecarga de um projeto habitual de IoT. Saiba como criar, personalizar, gerir e utilizar uma aplicação do Azure IoT Central com os nossos inícios rápidos e tutoriais.
 metadata:
   title: Documentação do Azure IoT Central
-  description: O Azure IoT Central é uma solução SaaS (software como um serviço) totalmente gerida que facilita a ligação, a monitorização e a gestão de recursos de IoT à escala. O Azure IoT Central simplifica a configuração inicial da sua solução de IoT e reduz a carga de gestão, custos operacionais e a sobrecarga de um projeto habitual de IoT. Saiba como criar, personalizar, gerir e utilizar uma aplicação do Azure IoT Central com os nossos inícios rápidos e tutoriais.
+  description: O Azure IoT Central é uma plataforma de aplicações IoT que simplifica a criação de soluções de IoT. O Azure IoT Central simplifica a configuração inicial da sua solução de IoT e reduz a carga de gestão, custos operacionais e a sobrecarga de um projeto habitual de IoT. Saiba como criar, personalizar, gerir e utilizar uma aplicação do Azure IoT Central com os nossos inícios rápidos e tutoriais.
   services: iot-central
   ms.service: iot-central
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 90faa0b7422814011096a10164a6f2bdfceba4d5
-  ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+  ms.openlocfilehash: 97a378eaab323391ccfcc0b03f337f6693a2a761
+  ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/12/2019
-  ms.locfileid: "73929850"
+  ms.lasthandoff: 11/13/2019
+  ms.locfileid: "74048329"
 landingContent:
 - title: Sobre o Azure IoT Central (funcionalidades de pré-visualização)
   linkLists:
