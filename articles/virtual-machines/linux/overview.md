@@ -1,5 +1,5 @@
 ---
-title: Descrição Geral das VMs do Linux no Azure | Microsoft Docs
+title: Visão geral das VMs do Linux no Azure
 description: Descreve os serviços de Computação, Armazenamento e de Rede do Azure com as máquinas virtuais do Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 14ed21efec47e15663724bd782ad931903fb8f13
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: dc0145e23b940f6aca9021186254b966592f343d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082428"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035346"
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
 O Microsoft Azure é uma coleção crescente de serviços na cloud pública, incluindo análises, máquinas virtuais, bases de dados e capacidades móveis, Web, de rede e de armazenamento,&mdash;ideal para alojar as suas soluções.  O Microsoft Azure fornece uma plataforma informática dimensionável que lhe permite pagar apenas aquilo que utiliza, quando quer utilizar, sem que precise de investir em hardware no local.  O Azure está sempre pronto quando precisa de aumentar as suas soluções vertical e horizontalmente até atingir a dimensão de que necessita para satisfazer as necessidades dos seus clientes.
@@ -109,7 +109,7 @@ Uma forma fácil de criar máquinas virtuais do Linux no portal Web do Azure é 
 A VM está agora em execução no Azure e já pode iniciar sessão.  A utilização de palavras-passe para iniciar sessão através de SSH é insegura e demorada.  A utilização de chaves SSH é a forma mais segura e mais rápida de iniciar sessão.  Quando cria uma VM do Linux com o portal ou a CLI, tem duas opções de autenticação.  Se escolher uma palavra-passe para SSH, o Azure configura a VM de modo a permitir inícios de sessão através de palavra-passe.  Se optar por utilizar uma chave pública SSH, o Azure configura a VM para permitir apenas inícios de sessão através de chaves SSH e desativa os inícios de sessão com palavra-passe. Para proteger a VM do Linux mediante a permissão de apenas inícios de sessão com chave SSH, utilize a opção de chave SSH pública durante a criação da mesma no portal ou na CLI.
 
 ## <a name="related-azure-components"></a>Componentes do Azure relacionados
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 * [Introdução ao Armazenamento do Microsoft Azure](../../storage/common/storage-introduction.md)
 * [Add a disk to a Linux VM using the azure-cli](add-disk.md) (Adicionar um disco a uma VM do Linux com a CLI do Azure)
 * [How to attach a data disk to a Linux VM in the Azure portal](attach-disk-portal.md) (Como anexar um disco de dados a uma VM do Linux no portal do Azure)

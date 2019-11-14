@@ -1,6 +1,6 @@
 ---
-title: Proteja e utilizar as políticas nas suas VMs do Linux no Azure | Documentos da Microsoft
-description: Saiba mais sobre políticas de segurança e para Linux e máquinas virtuais no Azure.
+title: Proteger e usar políticas em suas VMs do Linux no Azure
+description: Saiba mais sobre segurança e políticas para Linux e máquinas virtuais no Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 6f884d46db34dda5f3812efb3418bffdf3165941
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9cd31d39d2881aebf83d5b40aa826433de5d0993
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708318"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035067"
 ---
-# <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Proteja e utilizar as políticas em máquinas virtuais no Azure
+# <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Proteger e usar políticas em máquinas virtuais no Azure
 
 [!INCLUDE [virtual-machines-security-policy](../../../includes/virtual-machines-security-policy.md)]
 

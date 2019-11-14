@@ -1,5 +1,5 @@
 ---
-title: Criar um ambiente Linux completo com a CLI clássica do Azure | Microsoft Docs
+title: Criar um ambiente Linux completo com a CLI clássica do Azure
 description: Criar armazenamento, uma VM do Linux, uma rede virtual e uma sub-rede, um balanceador de carga, uma NIC, um IP público e um grupo de segurança de rede, tudo do zero usando a CLI clássica do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: aaf91aa81be5fc4c5944dde804798a61ceffc5a6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1ee89ce18600685f3f82bfb49d4d8ecbaf192b04
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083706"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036519"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Criar um ambiente Linux completo com a CLI clássica do Azure
 Neste artigo, criamos uma rede simples com um balanceador de carga e um par de VMs que são úteis para o desenvolvimento e a computação simples. Percorremos o comando Process pelo comando, até que você tenha duas VMs Linux em funcionamento para as quais você pode se conectar de qualquer lugar na Internet. Em seguida, você pode passar para redes e ambientes mais complexos.
@@ -32,7 +32,7 @@ O ambiente contém:
 * Um balanceador de carga com uma regra de balanceamento de carga na porta 80.
 * Regras de NSG (grupo de segurança de rede) para proteger sua VM contra tráfego indesejado.
 
-Para criar esse ambiente personalizado, você precisa da [CLI clássica do Azure](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) mais recente no modo do`azure config mode arm`Gerenciador de recursos (). Você também precisa de uma ferramenta de análise de JSON. Este exemplo usa [JQ](https://stedolan.github.io/jq/).
+Para criar esse ambiente personalizado, você precisa da [CLI clássica do Azure](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) mais recente no modo do Gerenciador de recursos (`azure config mode arm`). Você também precisa de uma ferramenta de análise de JSON. Este exemplo usa [JQ](https://stedolan.github.io/jq/).
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versões CLI para concluir a tarefa
@@ -51,7 +51,7 @@ Verifique se você tem [a CLI clássica do Azure](../../cli-install-nodejs.md?to
 azure config mode arm
 ```
 
-Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo pelos seus próprios valores. Os nomes de parâmetro `myResourceGroup`de `mystorageaccount`exemplo incluem `myVM`, e.
+Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo pelos seus próprios valores. Os nomes de parâmetro de exemplo incluem `myResourceGroup`, `mystorageaccount`e `myVM`.
 
 Crie o grupo de recursos. O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização `westeurope`:
 
@@ -65,7 +65,7 @@ Verifique o grupo de recursos usando o analisador JSON:
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Crie a conta de armazenamento. O exemplo a seguir cria uma conta de `mystorageaccount`armazenamento denominada. (O nome da conta de armazenamento deve ser exclusivo, portanto, forneça seu próprio nome exclusivo.)
+Crie a conta de armazenamento. O exemplo a seguir cria uma conta de armazenamento chamada `mystorageaccount`. (O nome da conta de armazenamento deve ser exclusivo, portanto, forneça seu próprio nome exclusivo.)
 
 ```azurecli
 azure storage account create -g myResourceGroup -l westeurope \
@@ -78,14 +78,14 @@ Verifique a conta de armazenamento usando o analisador JSON:
 azure storage account show -g myResourceGroup mystorageaccount --json | jq '.'
 ```
 
-Criar a rede virtual. O exemplo a seguir cria uma rede virtual `myVnet`chamada:
+Criar a rede virtual. O exemplo a seguir cria uma rede virtual chamada `myVnet`:
 
 ```azurecli
 azure network vnet create -g myResourceGroup -l westeurope\
   -n myVnet -a 192.168.0.0/16
 ```
 
-Crie uma sub-rede. O exemplo a seguir cria uma sub-rede `mySubnet`chamada:
+Crie uma sub-rede. O exemplo a seguir cria uma sub-rede chamada `mySubnet`:
 
 ```azurecli
 azure network vnet subnet create -g myResourceGroup \
@@ -98,34 +98,34 @@ Verifique a rede virtual e a sub-rede usando o analisador JSON:
 azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
-Crie um IP público. O exemplo a seguir cria um IP público `myPublicIP` chamado com o nome DNS `mypublicdns`de. (O nome DNS deve ser exclusivo, portanto, forneça seu próprio nome exclusivo.)
+Crie um IP público. O exemplo a seguir cria um IP público chamado `myPublicIP` com o nome DNS de `mypublicdns`. (O nome DNS deve ser exclusivo, portanto, forneça seu próprio nome exclusivo.)
 
 ```azurecli
 azure network public-ip create -g myResourceGroup -l westeurope \
   -n myPublicIP  -d mypublicdns -a static -i 4
 ```
 
-Crie o balanceador de carga. O exemplo a seguir cria um balanceador de `myLoadBalancer`carga chamado:
+Crie o balanceador de carga. O exemplo a seguir cria um balanceador de carga chamado `myLoadBalancer`:
 
 ```azurecli
 azure network lb create -g myResourceGroup -l westeurope -n myLoadBalancer
 ```
 
-Crie um pool de IPS de front-end para o balanceador de carga e associe o IP público. O exemplo a seguir cria um pool de IPS de front `mySubnetPool`-end chamado:
+Crie um pool de IPS de front-end para o balanceador de carga e associe o IP público. O exemplo a seguir cria um pool de IPS de front-end chamado `mySubnetPool`:
 
 ```azurecli
 azure network lb frontend-ip create -g myResourceGroup -l myLoadBalancer \
   -i myPublicIP -n myFrontEndPool
 ```
 
-Crie o pool de IPS de back-end para o balanceador de carga. O exemplo a seguir cria um pool de IPS de back `myBackEndPool`-end chamado:
+Crie o pool de IPS de back-end para o balanceador de carga. O exemplo a seguir cria um pool de IPS de back-end chamado `myBackEndPool`:
 
 ```azurecli
 azure network lb address-pool create -g myResourceGroup -l myLoadBalancer \
   -n myBackEndPool
 ```
 
-Crie regras de NAT (conversão de endereços de rede) de entrada SSH para o balanceador de carga. O exemplo a seguir cria duas regras de balanceador `myLoadBalancerRuleSSH1` de `myLoadBalancerRuleSSH2`carga e:
+Crie regras de NAT (conversão de endereços de rede) de entrada SSH para o balanceador de carga. O exemplo a seguir cria duas regras de balanceador de carga, `myLoadBalancerRuleSSH1` e `myLoadBalancerRuleSSH2`:
 
 ```azurecli
 azure network lb inbound-nat-rule create -g myResourceGroup -l myLoadBalancer \
@@ -134,7 +134,7 @@ azure network lb inbound-nat-rule create -g myResourceGroup -l myLoadBalancer \
   -n myLoadBalancerRuleSSH2 -p tcp -f 4223 -b 22
 ```
 
-Crie as regras NAT de entrada da Web para o balanceador de carga. O exemplo a seguir cria uma regra de balanceador `myLoadBalancerRuleWeb`de carga chamada:
+Crie as regras NAT de entrada da Web para o balanceador de carga. O exemplo a seguir cria uma regra de balanceador de carga chamada `myLoadBalancerRuleWeb`:
 
 ```azurecli
 azure network lb rule create -g myResourceGroup -l myLoadBalancer \
@@ -142,7 +142,7 @@ azure network lb rule create -g myResourceGroup -l myLoadBalancer \
   -t myFrontEndPool -o myBackEndPool
 ```
 
-Crie a investigação de integridade do balanceador de carga. O exemplo a seguir cria uma investigação TCP `myHealthProbe`chamada:
+Crie a investigação de integridade do balanceador de carga. O exemplo a seguir cria uma investigação TCP chamada `myHealthProbe`:
 
 ```azurecli
 azure network lb probe create -g myResourceGroup -l myLoadBalancer \
@@ -155,9 +155,9 @@ Verifique o balanceador de carga, os pools de IPS e as regras de NAT usando o an
 azure network lb show -g myResourceGroup -n myLoadBalancer --json | jq '.'
 ```
 
-Crie a primeira NIC (placa de interface de rede). Substitua as `#####-###-###` seções com sua própria ID de assinatura do Azure. Sua ID de assinatura é observada na saída de **JQ** quando você examina os recursos que está criando. Você também pode exibir sua ID de assinatura `azure account list`com.
+Crie a primeira NIC (placa de interface de rede). Substitua as seções `#####-###-###` pela sua própria ID de assinatura do Azure. Sua ID de assinatura é observada na saída de **JQ** quando você examina os recursos que está criando. Você também pode exibir sua ID de assinatura com `azure account list`.
 
-O exemplo a seguir cria uma NIC `myNic1`chamada:
+O exemplo a seguir cria uma NIC chamada `myNic1`:
 
 ```azurecli
 azure network nic create -g myResourceGroup -l westeurope \
@@ -166,7 +166,7 @@ azure network nic create -g myResourceGroup -l westeurope \
   -e "/subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH1"
 ```
 
-Crie a segunda NIC. O exemplo a seguir cria uma NIC `myNic2`chamada:
+Crie a segunda NIC. O exemplo a seguir cria uma NIC chamada `myNic2`:
 
 ```azurecli
 azure network nic create -g myResourceGroup -l westeurope \
@@ -182,14 +182,14 @@ azure network nic show myResourceGroup myNic1 --json | jq '.'
 azure network nic show myResourceGroup myNic2 --json | jq '.'
 ```
 
-Crie o grupo de segurança de rede. O exemplo a seguir cria um grupo de segurança `myNetworkSecurityGroup`de rede chamado:
+Crie o grupo de segurança de rede. O exemplo a seguir cria um grupo de segurança de rede chamado `myNetworkSecurityGroup`:
 
 ```azurecli
 azure network nsg create -g myResourceGroup -l westeurope \
   -n myNetworkSecurityGroup
 ```
 
-Adicione duas regras de entrada para o grupo de segurança de rede. O exemplo a seguir cria duas regras `myNetworkSecurityGroupRuleSSH` e `myNetworkSecurityGroupRuleHTTP`:
+Adicione duas regras de entrada para o grupo de segurança de rede. O exemplo a seguir cria duas regras, `myNetworkSecurityGroupRuleSSH` e `myNetworkSecurityGroupRuleHTTP`:
 
 ```azurecli
 azure network nsg rule create -p tcp -r inbound -y 1000 -u 22 -c allow \
@@ -211,13 +211,13 @@ azure network nic set -g myResourceGroup -o myNetworkSecurityGroup -n myNic1
 azure network nic set -g myResourceGroup -o myNetworkSecurityGroup -n myNic2
 ```
 
-Crie o conjunto de disponibilidade. O exemplo a seguir cria um conjunto de `myAvailabilitySet`disponibilidade chamado:
+Crie o conjunto de disponibilidade. O exemplo a seguir cria um conjunto de disponibilidade chamado `myAvailabilitySet`:
 
 ```azurecli
 azure availset create -g myResourceGroup -l westeurope -n myAvailabilitySet
 ```
 
-Crie a primeira VM do Linux. O exemplo a seguir cria uma VM `myVM1`chamada:
+Crie a primeira VM do Linux. O exemplo a seguir cria uma VM chamada `myVM1`:
 
 ```azurecli
 azure vm create \
@@ -235,7 +235,7 @@ azure vm create \
     --admin-username azureuser
 ```
 
-Crie a segunda VM do Linux. O exemplo a seguir cria uma VM `myVM2`chamada:
+Crie a segunda VM do Linux. O exemplo a seguir cria uma VM chamada `myVM2`:
 
 ```azurecli
 azure vm create \
@@ -275,7 +275,7 @@ Verifique se você tem [a CLI clássica do Azure](../../cli-install-nodejs.md?to
 azure config mode arm
 ```
 
-Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo pelos seus próprios valores. Os nomes de parâmetro `myResourceGroup`de `mystorageaccount`exemplo incluem `myVM`, e.
+Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo pelos seus próprios valores. Os nomes de parâmetro de exemplo incluem `myResourceGroup`, `mystorageaccount`e `myVM`.
 
 ## <a name="create-resource-groups-and-choose-deployment-locations"></a>Criar grupos de recursos e escolher locais de implantação
 Os grupos de recursos do Azure são entidades de implantação lógica que contêm informações de configuração e metadados para habilitar o gerenciamento lógico de implantações de recursos. O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização `westeurope`:
@@ -303,7 +303,7 @@ info:    group create command OK
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 Você precisa de contas de armazenamento para seus discos de VM e para quaisquer discos de dados adicionais que deseja adicionar. Você cria contas de armazenamento quase imediatamente depois de criar grupos de recursos.
 
-Aqui, usamos o `azure storage account create` comando, passando o local da conta, o grupo de recursos que o controla e o tipo de suporte de armazenamento desejado. O exemplo a seguir cria uma conta de `mystorageaccount`armazenamento denominada:
+Aqui, usamos o comando `azure storage account create`, passando o local da conta, o grupo de recursos que o controla e o tipo de suporte de armazenamento desejado. O exemplo a seguir cria uma conta de armazenamento chamada `mystorageaccount`:
 
 ```azurecli
 azure storage account create \  
@@ -321,7 +321,7 @@ info:    Executing command storage account create
 info:    storage account create command OK
 ```
 
-Para examinar nosso grupo de recursos usando o `azure group show` comando, vamos usar a ferramenta [JQ](https://stedolan.github.io/jq/) junto com a `--json` opção CLI do Azure. (Você pode usar **jsawk** ou qualquer biblioteca de idiomas que preferir para analisar o JSON.)
+Para examinar nosso grupo de recursos usando o comando `azure group show`, vamos usar a ferramenta [JQ](https://stedolan.github.io/jq/) juntamente com a opção `--json` CLI do Azure. (Você pode usar **jsawk** ou qualquer biblioteca de idiomas que preferir para analisar o JSON.)
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -383,7 +383,7 @@ info:    storage container list command OK
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Criar uma rede virtual e uma sub-rede
-Em seguida, será necessário criar uma rede virtual em execução no Azure e uma sub-rede na qual você possa criar suas VMs. O exemplo a seguir cria uma rede virtual `myVnet` chamada com `192.168.0.0/16` o prefixo de endereço:
+Em seguida, será necessário criar uma rede virtual em execução no Azure e uma sub-rede na qual você possa criar suas VMs. O exemplo a seguir cria uma rede virtual chamada `myVnet` com o prefixo de endereço `192.168.0.0/16`:
 
 ```azurecli
 azure network vnet create --resource-group myResourceGroup --location westeurope \
@@ -407,7 +407,7 @@ data:      192.168.0.0/16
 info:    network vnet create command OK
 ```
 
-Novamente, vamos usar a opção--JSON de `azure group show` e `jq` para ver como estamos criando nossos recursos. Agora temos um `storageAccounts` recurso e um `virtualNetworks` recurso.  
+Novamente, vamos usar a opção--JSON de `azure group show` e `jq` para ver como estamos criando nossos recursos. Agora temos um recurso de `storageAccounts` e um recurso de `virtualNetworks`.  
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -452,7 +452,7 @@ Saída:
 }
 ```
 
-Agora, vamos criar uma sub-rede na `myVnet` rede virtual na qual as VMs são implantadas. Usamos o `azure network vnet subnet create` comando, junto com os recursos que já criamos: o `myResourceGroup` grupo de recursos e a `myVnet` rede virtual. No exemplo a seguir, adicionamos a sub-rede chamada `mySubnet` com o prefixo de endereço de `192.168.1.0/24`sub-rede:
+Agora, vamos criar uma sub-rede na rede virtual `myVnet` na qual as VMs são implantadas. Usamos o comando `azure network vnet subnet create`, juntamente com os recursos que já criamos: o grupo de recursos `myResourceGroup` e a rede virtual `myVnet`. No exemplo a seguir, adicionamos a sub-rede chamada `mySubnet` com o prefixo de endereço de sub-rede `192.168.1.0/24`:
 
 ```azurecli
 azure network vnet subnet create --resource-group myResourceGroup \
@@ -475,7 +475,7 @@ data:
 info:    network vnet subnet create command OK
 ```
 
-Como a sub-rede está logicamente dentro da rede virtual, procuramos as informações de sub-rede com um comando ligeiramente diferente. O comando que usamos é `azure network vnet show`, mas continuamos examinando a saída JSON usando. `jq`
+Como a sub-rede está logicamente dentro da rede virtual, procuramos as informações de sub-rede com um comando ligeiramente diferente. O comando que usamos é `azure network vnet show`, mas continuamos examinando a saída JSON usando `jq`.
 
 ```azurecli
 azure network vnet show myResourceGroup myVnet --json | jq '.'
@@ -513,7 +513,7 @@ Saída:
 ```
 
 ## <a name="create-a-public-ip-address"></a>Crie um endereço IP público
-Agora, vamos criar o endereço IP público (PIP) que atribuímos ao balanceador de carga. Ele permite que você se conecte às suas VMs da Internet usando o `azure network public-ip create` comando. Como o endereço padrão é dinâmico, criamos uma entrada DNS nomeada no domínio **cloudapp.Azure.com** usando a `--domain-name-label` opção. O exemplo a seguir cria um IP público `myPublicIP` chamado com o nome DNS `mypublicdns`de. Como o nome DNS deve ser exclusivo, você fornece seu próprio nome DNS exclusivo:
+Agora, vamos criar o endereço IP público (PIP) que atribuímos ao balanceador de carga. Ele permite que você se conecte às suas VMs da Internet usando o comando `azure network public-ip create`. Como o endereço padrão é dinâmico, criamos uma entrada DNS nomeada no domínio **cloudapp.Azure.com** usando a opção `--domain-name-label`. O exemplo a seguir cria um IP público chamado `myPublicIP` com o nome DNS de `mypublicdns`. Como o nome DNS deve ser exclusivo, você fornece seu próprio nome DNS exclusivo:
 
 ```azurecli
 azure network public-ip create --resource-group myResourceGroup \
@@ -539,7 +539,7 @@ data:    FQDN                            : mypublicdns.westeurope.cloudapp.azure
 info:    network public-ip create command OK
 ```
 
-O endereço IP público também é um recurso de nível superior, para que você possa vê- `azure group show`lo com.
+O endereço IP público também é um recurso de nível superior, para que você possa vê-lo com `azure group show`.
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -617,7 +617,7 @@ Saída:
 ```
 
 ## <a name="create-a-load-balancer-and-ip-pools"></a>Criar um balanceador de carga e pools de IPS
-Quando você cria um balanceador de carga, ele permite que você distribua o tráfego entre várias VMs. Ele também fornece redundância para seu aplicativo executando várias VMs que respondem às solicitações do usuário em caso de manutenção ou cargas pesadas. O exemplo a seguir cria um balanceador de `myLoadBalancer`carga chamado:
+Quando você cria um balanceador de carga, ele permite que você distribua o tráfego entre várias VMs. Ele também fornece redundância para seu aplicativo executando várias VMs que respondem às solicitações do usuário em caso de manutenção ou cargas pesadas. O exemplo a seguir cria um balanceador de carga chamado `myLoadBalancer`:
 
 ```azurecli
 azure network lb create --resource-group myResourceGroup --location westeurope \
@@ -640,7 +640,7 @@ info:    network lb create command OK
 
 Nosso balanceador de carga está razoavelmente vazio, então vamos criar alguns pools de IPS. Queremos criar dois pools de IPS para nosso balanceador de carga, um para o front-end e outro para o back-end. O pool de IPS de front-end é visível publicamente. Também é o local para o qual atribuímos o PIP que criamos anteriormente. Em seguida, usamos o pool de back-ends como um local para que as nossas VMs se conectem. Dessa forma, o tráfego pode fluir pelo balanceador de carga para as VMs.
 
-Primeiro, vamos criar nosso pool de IPS de front-end. O exemplo a seguir cria um pool de front- `myFrontEndPool`end chamado:
+Primeiro, vamos criar nosso pool de IPS de front-end. O exemplo a seguir cria um pool de front-end chamado `myFrontEndPool`:
 
 ```azurecli
 azure network lb frontend-ip create --resource-group myResourceGroup \
@@ -662,9 +662,9 @@ data:    Public IP address id            : /subscriptions/guid/resourceGroups/my
 info:    network lb mySubnet-ip create command OK
 ```
 
-Observe como usamos a `--public-ip-name` opção para passar o `myPublicIP` que criamos anteriormente. A atribuição do endereço IP público ao balanceador de carga permite que você alcance suas VMs pela Internet.
+Observe como usamos a opção `--public-ip-name` para passar o `myPublicIP` que criamos anteriormente. A atribuição do endereço IP público ao balanceador de carga permite que você alcance suas VMs pela Internet.
 
-Em seguida, vamos criar nosso segundo pool de IPS, desta vez para nosso tráfego de back-end. O exemplo a seguir cria um pool de back- `myBackEndPool`end chamado:
+Em seguida, vamos criar nosso segundo pool de IPS, desta vez para nosso tráfego de back-end. O exemplo a seguir cria um pool de back-end chamado `myBackEndPool`:
 
 ```azurecli
 azure network lb address-pool create --resource-group myResourceGroup \
@@ -728,7 +728,7 @@ Saída:
 ```
 
 ## <a name="create-load-balancer-nat-rules"></a>Criar regras NAT do balanceador de carga
-Para obter o tráfego que flui pelo balanceador de carga, precisamos criar regras de NAT (conversão de endereços de rede) que especifiquem ações de entrada ou de saída. Você pode especificar o protocolo a ser usado e mapear portas externas para portas internas, conforme desejado. Para nosso ambiente, vamos criar algumas regras que permitem o SSH por meio de nosso balanceador de carga para nossas VMs. Configuramos as portas TCP 4222 e 4223 para direcionar para a porta TCP 22 em nossas VMs (que criamos mais tarde). O exemplo a seguir cria uma regra `myLoadBalancerRuleSSH1` chamada para mapear a porta TCP 4222 para a porta 22:
+Para obter o tráfego que flui pelo balanceador de carga, precisamos criar regras de NAT (conversão de endereços de rede) que especifiquem ações de entrada ou de saída. Você pode especificar o protocolo a ser usado e mapear portas externas para portas internas, conforme desejado. Para nosso ambiente, vamos criar algumas regras que permitem o SSH por meio de nosso balanceador de carga para nossas VMs. Configuramos as portas TCP 4222 e 4223 para direcionar para a porta TCP 22 em nossas VMs (que criamos mais tarde). O exemplo a seguir cria uma regra chamada `myLoadBalancerRuleSSH1` para mapear a porta TCP 4222 para a porta 22:
 
 ```azurecli
 azure network lb inbound-nat-rule create --resource-group myResourceGroup \
@@ -756,7 +756,7 @@ data:    mySubnet IP configuration id    : /subscriptions/guid/resourceGroups/my
 info:    network lb inbound-nat-rule create command OK
 ```
 
-Repita o procedimento para a segunda regra NAT para SSH. O exemplo a seguir cria uma regra `myLoadBalancerRuleSSH2` chamada para mapear a porta TCP 4223 para a porta 22:
+Repita o procedimento para a segunda regra NAT para SSH. O exemplo a seguir cria uma regra chamada `myLoadBalancerRuleSSH2` para mapear a porta TCP 4223 para a porta 22:
 
 ```azurecli
 azure network lb inbound-nat-rule create --resource-group myResourceGroup \
@@ -764,7 +764,7 @@ azure network lb inbound-nat-rule create --resource-group myResourceGroup \
   --frontend-port 4223 --backend-port 22
 ```
 
-Vamos também continuar e criar uma regra NAT para a porta TCP 80 para o tráfego da Web, vinculando a regra a nossos pools de IPS. Se vincularmos a regra a um pool de IPS, em vez de conectar a regra às nossas VMs individualmente, poderemos adicionar ou remover VMs do pool de IPS. O balanceador de carga ajusta automaticamente o fluxo de tráfego. O exemplo a seguir cria uma regra `myLoadBalancerRuleWeb` chamada para mapear a porta TCP 80 para a porta 80:
+Vamos também continuar e criar uma regra NAT para a porta TCP 80 para o tráfego da Web, vinculando a regra a nossos pools de IPS. Se vincularmos a regra a um pool de IPS, em vez de conectar a regra às nossas VMs individualmente, poderemos adicionar ou remover VMs do pool de IPS. O balanceador de carga ajusta automaticamente o fluxo de tráfego. O exemplo a seguir cria uma regra chamada `myLoadBalancerRuleWeb` para mapear a porta TCP 80 para a porta 80:
 
 ```azurecli
 azure network lb rule create --resource-group myResourceGroup \
@@ -796,7 +796,7 @@ info:    network lb rule create command OK
 ```
 
 ## <a name="create-a-load-balancer-health-probe"></a>Criar uma sonda de estado de funcionamento do balanceador de carga
-Uma investigação de integridade verifica periodicamente as VMs que estão atrás de nosso balanceador de carga para verificar se estão operando e respondendo às solicitações conforme definido. Caso contrário, eles serão removidos da operação para garantir que os usuários não estejam sendo direcionados a eles. Você pode definir verificações personalizadas para a investigação de integridade, juntamente com intervalos e valores de tempo limite. Para obter mais informações sobre investigações de integridade, consulte [Load Balancer investigações](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). O exemplo a seguir cria uma investigação de integridade TCP `myHealthProbe`chamada:
+Uma investigação de integridade verifica periodicamente as VMs que estão atrás de nosso balanceador de carga para verificar se estão operando e respondendo às solicitações conforme definido. Caso contrário, eles serão removidos da operação para garantir que os usuários não estejam sendo direcionados a eles. Você pode definir verificações personalizadas para a investigação de integridade, juntamente com intervalos e valores de tempo limite. Para obter mais informações sobre investigações de integridade, consulte [Load Balancer investigações](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). O exemplo a seguir cria uma investigação de integridade TCP chamada `myHealthProbe`:
 
 ```azurecli
 azure network lb probe create --resource-group myResourceGroup \
@@ -955,11 +955,11 @@ Saída:
 ```
 
 ## <a name="create-an-nic-to-use-with-the-linux-vm"></a>Criar uma NIC para usar com a VM do Linux
-As NICs estão programaticamente disponíveis porque você pode aplicar regras ao seu uso. Você também pode ter mais de um. No comando a `azure network nic create` seguir, você conecta a NIC ao pool de IPS de back-end de carga e a associa à regra NAT para permitir o tráfego SSH.
+As NICs estão programaticamente disponíveis porque você pode aplicar regras ao seu uso. Você também pode ter mais de um. No comando `azure network nic create` a seguir, você conecta a NIC ao pool de IPS de back-end de carga e a associa à regra NAT para permitir o tráfego SSH.
 
-Substitua as `#####-###-###` seções com sua própria ID de assinatura do Azure. Sua ID de assinatura é observada na saída `jq` de quando você examina os recursos que está criando. Você também pode exibir sua ID de assinatura `azure account list`com.
+Substitua as seções `#####-###-###` pela sua própria ID de assinatura do Azure. Sua ID de assinatura é observada na saída de `jq` quando você examina os recursos que está criando. Você também pode exibir sua ID de assinatura com `azure account list`.
 
-O exemplo a seguir cria uma NIC `myNic1`chamada:
+O exemplo a seguir cria uma NIC chamada `myNic1`:
 
 ```azurecli
 azure network nic create --resource-group myResourceGroup --location westeurope \
@@ -995,7 +995,7 @@ data:
 info:    network nic create command OK
 ```
 
-Você pode ver os detalhes examinando o recurso diretamente. Examine o recurso usando o `azure network nic show` comando:
+Você pode ver os detalhes examinando o recurso diretamente. Examine o recurso usando o comando `azure network nic show`:
 
 ```azurecli
 azure network nic show myResourceGroup myNic1 --json | jq '.'
@@ -1043,7 +1043,7 @@ Saída:
 }
 ```
 
-Agora, criamos a segunda NIC, conectando-se ao nosso pool de IPS de back-end novamente. Desta vez, a segunda regra NAT permite o tráfego SSH. O exemplo a seguir cria uma NIC `myNic2`chamada:
+Agora, criamos a segunda NIC, conectando-se ao nosso pool de IPS de back-end novamente. Desta vez, a segunda regra NAT permite o tráfego SSH. O exemplo a seguir cria uma NIC chamada `myNic2`:
 
 ```azurecli
 azure network nic create --resource-group myResourceGroup --location westeurope \
@@ -1053,14 +1053,14 @@ azure network nic create --resource-group myResourceGroup --location westeurope 
 ```
 
 ## <a name="create-a-network-security-group-and-rules"></a>Criar um grupo de segurança de rede e regras
-Agora, criamos um grupo de segurança de rede e as regras de entrada que regem o acesso à NIC. Um grupo de segurança de rede pode ser aplicado a uma NIC ou sub-rede. Você define regras para controlar o fluxo de tráfego de entrada e saída de suas VMs. O exemplo a seguir cria um grupo de segurança `myNetworkSecurityGroup`de rede chamado:
+Agora, criamos um grupo de segurança de rede e as regras de entrada que regem o acesso à NIC. Um grupo de segurança de rede pode ser aplicado a uma NIC ou sub-rede. Você define regras para controlar o fluxo de tráfego de entrada e saída de suas VMs. O exemplo a seguir cria um grupo de segurança de rede chamado `myNetworkSecurityGroup`:
 
 ```azurecli
 azure network nsg create --resource-group myResourceGroup --location westeurope \
   --name myNetworkSecurityGroup
 ```
 
-Vamos adicionar a regra de entrada para o NSG para permitir conexões de entrada na porta 22 (para dar suporte ao SSH). O exemplo a seguir cria uma regra `myNetworkSecurityGroupRuleSSH` chamada para permitir TCP na porta 22:
+Vamos adicionar a regra de entrada para o NSG para permitir conexões de entrada na porta 22 (para dar suporte ao SSH). O exemplo a seguir cria uma regra chamada `myNetworkSecurityGroupRuleSSH` para permitir TCP na porta 22:
 
 ```azurecli
 azure network nsg rule create --resource-group myResourceGroup \
@@ -1069,7 +1069,7 @@ azure network nsg rule create --resource-group myResourceGroup \
   --name myNetworkSecurityGroupRuleSSH
 ```
 
-Agora, vamos adicionar a regra de entrada para o NSG para permitir conexões de entrada na porta 80 (para dar suporte ao tráfego da Web). O exemplo a seguir cria uma regra `myNetworkSecurityGroupRuleHTTP` chamada para permitir TCP na porta 80:
+Agora, vamos adicionar a regra de entrada para o NSG para permitir conexões de entrada na porta 80 (para dar suporte ao tráfego da Web). O exemplo a seguir cria uma regra chamada `myNetworkSecurityGroupRuleHTTP` para permitir TCP na porta 80:
 
 ```azurecli
 azure network nsg rule create --resource-group myResourceGroup \
@@ -1097,7 +1097,7 @@ azure network nic set --resource-group myResourceGroup --name myNic2 \
 ```
 
 ## <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
-Os conjuntos de disponibilidade ajudam a distribuir suas VMs entre domínios de falha e domínios de atualização. Vamos criar um conjunto de disponibilidade para suas VMs. O exemplo a seguir cria um conjunto de `myAvailabilitySet`disponibilidade chamado:
+Os conjuntos de disponibilidade ajudam a distribuir suas VMs entre domínios de falha e domínios de atualização. Vamos criar um conjunto de disponibilidade para suas VMs. O exemplo a seguir cria um conjunto de disponibilidade chamado `myAvailabilitySet`:
 
 ```azurecli
 azure availset create --resource-group myResourceGroup --location westeurope
@@ -1113,16 +1113,16 @@ Leia mais sobre como [gerenciar a disponibilidade de VMs](manage-availability.md
 ## <a name="create-the-linux-vms"></a>Criar as VMs do Linux
 Você criou os recursos de armazenamento e rede para dar suporte a VMs acessíveis pela Internet. Agora, vamos criar essas VMs e protegê-las com uma chave SSH que não tem uma senha. Nesse caso, vamos criar uma VM do Ubuntu com base no LTS mais recente. Localizamos essas informações de imagem usando `azure vm image list`, conforme descrito em [localizando imagens de VM do Azure](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Selecionamos uma imagem usando o comando `azure vm image list westeurope canonical | grep LTS`. Nesse caso, usamos `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. Para o último campo, passamos `latest` para que, no futuro, sempre obtenhamos a compilação mais recente. (A cadeia de caracteres que `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`usamos é).
+Selecionamos uma imagem usando o comando `azure vm image list westeurope canonical | grep LTS`. Nesse caso, usamos `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. Para o último campo, passamos `latest` de modo que, no futuro, sempre obteremos o Build mais recente. (A cadeia de caracteres que usamos é `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
 
-Esta próxima etapa é familiar a qualquer pessoa que já tenha criado um par de chaves pública e privada do ssh RSA no Linux ou Mac usando **ssh-keygen-t RSA-b 2048**. Se você não tiver pares de chaves de certificado em seu `~/.ssh` diretório, poderá criá-los:
+Esta próxima etapa é familiar a qualquer pessoa que já tenha criado um par de chaves pública e privada do ssh RSA no Linux ou Mac usando **ssh-keygen-t RSA-b 2048**. Se você não tiver pares de chaves de certificado em seu diretório `~/.ssh`, poderá criá-los:
 
-* Automaticamente, usando a `azure vm create --generate-ssh-keys` opção.
+* Automaticamente, usando a opção `azure vm create --generate-ssh-keys`.
 * Manualmente, usando [as instruções para criá-las por conta própria](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Como alternativa, você pode usar o `--admin-password` método para autenticar suas conexões SSH após a criação da VM. Normalmente, esse método é menos seguro.
+Como alternativa, você pode usar o método `--admin-password` para autenticar suas conexões SSH após a criação da VM. Normalmente, esse método é menos seguro.
 
-Criamos a VM reunindo todos os nossos recursos e informações junto com `azure vm create` o comando:
+Criamos a VM reunindo todos os nossos recursos e informações com o comando `azure vm create`:
 
 ```azurecli
 azure vm create \
@@ -1205,7 +1205,7 @@ azure vm create \
   --admin-username azureuser
 ```
 
-E agora você pode usar o `azure vm show myResourceGroup myVM1` comando para examinar o que você criou. Neste ponto, você está executando suas VMs do Ubuntu por trás de um balanceador de carga no Azure que você pode entrar somente com o par de chaves SSH (porque as senhas estão desabilitadas). Você pode instalar o Nginx ou o http, implantar um aplicativo Web e ver o fluxo de tráfego por meio do balanceador de carga para ambas as VMs.
+E agora você pode usar o comando `azure vm show myResourceGroup myVM1` para examinar o que você criou. Neste ponto, você está executando suas VMs do Ubuntu por trás de um balanceador de carga no Azure que você pode entrar somente com o par de chaves SSH (porque as senhas estão desabilitadas). Você pode instalar o Nginx ou o http, implantar um aplicativo Web e ver o fluxo de tráfego por meio do balanceador de carga para ambas as VMs.
 
 ```azurecli
 azure vm show --resource-group myResourceGroup --name myVM1
@@ -1276,7 +1276,7 @@ Agora que você criou esse ambiente, e se quiser criar um ambiente de desenvolvi
 azure group export --name myResourceGroup
 ```
 
-Este comando cria o `myResourceGroup.json` arquivo no diretório de trabalho atual. Ao criar um ambiente a partir desse modelo, você será solicitado a fornecer todos os nomes de recursos, incluindo os nomes do balanceador de carga, interfaces de rede ou VMs. Você pode preencher esses nomes no arquivo de modelo adicionando o `-p` parâmetro ou `--includeParameterDefaultValue` ao `azure group export` comando que foi mostrado anteriormente. Edite o modelo JSON para especificar os nomes dos recursos ou [crie um arquivo Parameters. JSON](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que especifique os nomes dos recursos.
+Esse comando cria o arquivo de `myResourceGroup.json` no diretório de trabalho atual. Ao criar um ambiente a partir desse modelo, você será solicitado a fornecer todos os nomes de recursos, incluindo os nomes do balanceador de carga, interfaces de rede ou VMs. Você pode preencher esses nomes no arquivo de modelo adicionando o parâmetro `-p` ou `--includeParameterDefaultValue` ao comando `azure group export` que foi mostrado anteriormente. Edite o modelo JSON para especificar os nomes dos recursos ou [crie um arquivo Parameters. JSON](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que especifique os nomes dos recursos.
 
 Para criar um ambiente a partir do seu modelo:
 
@@ -1287,5 +1287,5 @@ azure group deployment create --resource-group myNewResourceGroup \
 
 Talvez você queira ler [mais sobre como implantar a partir de modelos](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Saiba mais sobre como atualizar ambientes de forma incremental, use o arquivo de parâmetros e acesse modelos de um único local de armazenamento.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora você está pronto para começar a trabalhar com vários componentes de rede e VMs. Você pode usar este ambiente de exemplo para criar seu aplicativo usando os componentes principais introduzidos aqui.

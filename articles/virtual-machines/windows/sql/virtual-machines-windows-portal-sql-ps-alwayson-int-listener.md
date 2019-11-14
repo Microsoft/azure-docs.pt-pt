@@ -1,5 +1,5 @@
 ---
-title: Configurar ouvintes do grupo de disponibilidade Always On – Microsoft Azure | Microsoft Docs
+title: Configurar ouvintes de grupo de disponibilidade & balanceador de carga (PowerShell)
 description: Configure os ouvintes do grupo de disponibilidade no modelo de Azure Resource Manager, usando um balanceador de carga interno com um ou mais endereços IP.
 services: virtual-machines
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: 7d6427e88960ec3ff550affb1624dd82e561a6bb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 83910c2209b5d3d3d67578ae41afb902bc885171
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102181"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037461"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurar um ou mais ouvintes de grupo de disponibilidade Always On-Resource Manager
 Este tópico mostra como:
@@ -57,7 +58,7 @@ Se você estiver restringindo o acesso com um grupo de segurança de rede do Azu
 
 ## <a name="determine-the-load-balancer-sku-required"></a>Determinar o SKU do balanceador de carga necessário
 
-O [Azure Load](../../../load-balancer/load-balancer-overview.md) Balancer está disponível em 2 SKUs: Basic & Standard. O balanceador de carga padrão é recomendado. Se as máquinas virtuais estiverem em um conjunto de disponibilidade, o Load Balancer básico será permitido. O balanceador de carga padrão requer que todos os endereços IP da VM usem endereços IP padrão.
+O [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) está disponível em 2 SKUs: Basic & Standard. O balanceador de carga padrão é recomendado. Se as máquinas virtuais estiverem em um conjunto de disponibilidade, o Load Balancer básico será permitido. O balanceador de carga padrão requer que todos os endereços IP da VM usem endereços IP padrão.
 
 O modelo atual da [Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para um grupo de disponibilidade usa um balanceador de carga básico com endereços IP básicos.
 
@@ -67,13 +68,13 @@ Os exemplos neste artigo especificam um balanceador de carga padrão. Nos exempl
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
-Para criar um balanceador de carga básico, `-sku Standard` remova da linha que cria o balanceador de carga. Por exemplo:
+Para criar um balanceador de carga básico, remova `-sku Standard` da linha que cria o balanceador de carga. Por exemplo:
 
 ```powershell
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
 ```
 
-## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script de exemplo: Criar um balanceador de carga interno com o PowerShell
+## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script de exemplo: criar um balanceador de carga interno com o PowerShell
 
 > [!NOTE]
 > Se você criou seu grupo de disponibilidade com o [modelo da Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), o balanceador de carga interno já foi criado.
@@ -128,7 +129,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a>Script de exemplo: Adicionar um endereço IP a um balanceador de carga existente com o PowerShell
+## <a name="Add-IP"></a>Script de exemplo: adicionar um endereço IP a um balanceador de carga existente com o PowerShell
 Para usar mais de um grupo de disponibilidade, adicione um endereço IP adicional ao balanceador de carga. Cada endereço IP requer sua própria regra de balanceamento de carga, porta de investigação e porta frontal.
 
 A porta de front-end é a porta que os aplicativos usam para se conectar à instância de SQL Server. Os endereços IP para diferentes grupos de disponibilidade podem usar a mesma porta de front-end.
@@ -188,7 +189,7 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. Inicie o SQL Server Management Studio e conecte-se à réplica primária.
 
-1. Navegue até **alta disponibilidade** | AlwaysOn**grupos** | de disponibilidade ouvintes do**grupo de disponibilidade**. 
+1. Navegue até **alta disponibilidade AlwaysOn** | **grupos de disponibilidade** | **ouvintes do grupo de disponibilidade**. 
 
 1. Agora você deve ver o nome do ouvinte que você criou em Gerenciador de Cluster de Failover. Clique com o botão direito do mouse no nome do ouvinte e clique em **Propriedades**.
 

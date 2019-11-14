@@ -1,5 +1,5 @@
 ---
-title: Criar e carregar uma imagem de VM OpenBSD no Azure | Microsoft Docs
+title: Criar e carregar uma imagem de VM OpenBSD no Azure
 description: Saiba como criar e carregar um VHD (disco rígido virtual) que contém o sistema operacional OpenBSD para criar uma máquina virtual do Azure por meio do CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 53acab4128d01c92c54c8c01a5e611d313e617d4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ee15836906eef0b9205691f9a6003cea0b9fae80
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083566"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036457"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Criar e carregar uma imagem de disco OpenBSD no Azure
 Este artigo mostra como criar e carregar um VHD (disco rígido virtual) que contém o sistema operacional OpenBSD. Depois de carregá-lo, você pode usá-lo como sua própria imagem para criar uma VM (máquina virtual) no Azure por meio do CLI do Azure.
@@ -55,7 +55,7 @@ Na VM em que você instalou o sistema operacional OpenBSD 6,1, que adicionou o s
     echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
     ```
    
-4. Por padrão, o `root` usuário é desabilitado em máquinas virtuais no Azure. Os usuários podem executar comandos com privilégios elevados usando o `doas` comando na VM OpenBSD. O doas é habilitado por padrão. Para obter mais informações, consulte [doas. conf](https://man.openbsd.org/doas.conf.5). 
+4. Por padrão, o usuário `root` está desabilitado em máquinas virtuais no Azure. Os usuários podem executar comandos com privilégios elevados usando o comando `doas` na VM OpenBSD. O doas é habilitado por padrão. Para obter mais informações, consulte [doas. conf](https://man.openbsd.org/doas.conf.5). 
 
 5. Instale e configure os pré-requisitos para o agente do Azure da seguinte maneira:
 
@@ -148,7 +148,7 @@ az storage blob upload \
 
 
 ## <a name="create-vm-from-your-vhd"></a>Criar VM a partir de seu VHD
-Você pode criar uma VM com um [script de exemplo](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) ou diretamente com [AZ VM Create](/cli/azure/vm). Para especificar o VHD OpenBSD que você carregou, use `--image` o parâmetro da seguinte maneira:
+Você pode criar uma VM com um [script de exemplo](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) ou diretamente com [AZ VM Create](/cli/azure/vm). Para especificar o VHD OpenBSD que você carregou, use o parâmetro `--image` da seguinte maneira:
 
 ```azurecli
 az vm create \

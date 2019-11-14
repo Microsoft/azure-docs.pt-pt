@@ -1,5 +1,5 @@
 ---
-title: Configurar o PostgreSQL em uma VM do Linux | Microsoft Docs
+title: Configurar o PostgreSQL em uma VM Linux
 description: Saiba como instalar e configurar o PostgreSQL em uma máquina virtual do Linux no Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 7fc8cb7c07dd27cd42dc4c6a7e0a576f0efe04e0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f6d521c7003583228990c80a90c1454821f584d3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091728"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035271"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalar e configurar o PostgreSQL no Azure
 PostgreSQL é um banco de dados avançado de código aberto semelhante ao Oracle e ao DB2. Ele inclui recursos prontos para a empresa, como conformidade total de ACID, processamento transacional confiável e controle de simultaneidade de várias versões. Ele também dá suporte a padrões como SQL ANSI e SQL/MED (incluindo wrappers de dados externos para Oracle, MySQL, MongoDB e muitos outros). Ele é altamente extensível com suporte para mais de 12 linguagens de procedimentos, iniciar e superíndicees, suporte a dados espaciais e vários recursos semelhantes a NoSQL para aplicativos JSON ou com valor de chave.
@@ -91,7 +91,7 @@ Conecte-se à VM Linux criada por meio de uma recriação. Se esta for a primeir
    > Por motivos de segurança, o PostgreSQL usa um usuário não raiz para inicializar, iniciar ou desligar o banco de dados.
    > 
    > 
-4. Edite o arquivo *bash_profile* inserindo os comandos abaixo. Essas linhas serão adicionadas ao final do arquivo *bash_profile* :
+4. Edite o arquivo *bash_profile* inserindo os comandos abaixo. Essas linhas serão adicionadas ao final do arquivo de *bash_profile* :
    
         cat >> ~/.bash_profile <<EOF
         export PGPORT=1999
@@ -105,7 +105,7 @@ Conecte-se à VM Linux criada por meio de uma recriação. Se esta for a primeir
         alias rm='rm -i'
         alias ll='ls -lh'
         EOF
-5. Execute o arquivo *bash_profile* :
+5. Execute o arquivo de *bash_profile* :
    
         $ source .bash_profile
 6. Valide a instalação usando o seguinte comando:

@@ -1,5 +1,5 @@
 ---
-title: Tutorial-monitorar máquinas virtuais do Linux no Azure | Microsoft Docs
+title: Tutorial-monitorar máquinas virtuais do Linux no Azure
 description: Neste tutorial, você aprenderá a monitorar o desempenho e os componentes de aplicativos descobertos em execução nas máquinas virtuais Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 9c6458eea2b1352e7d13ea6691eac4498182ecd3
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: eb3f73f3ceb27bec05d4e2e88877ea398de7cdf5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "71680079"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034369"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Tutorial: monitorar uma máquina virtual do Linux no Azure
 
@@ -42,7 +42,7 @@ O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para execu
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial precisará que execute a versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="create-vm"></a>Criar VM
 
@@ -129,13 +129,13 @@ Para habilitar o monitoramento de sua VM do Azure com o Azure Monitor para VMs:
 
 1. No portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
 
-2. Na página VM, na seção **monitoramento** , selecione **insights (versão prévia)** .
+2. Na página de VM, na **monitorização** secção, selecione **Insights (pré-visualização)** .
 
-3. Na página **insights (versão prévia)** , selecione **experimentar agora**.
+3. Sobre o **Insights (pré-visualização)** página, selecione **Experimente agora o**.
 
-    ![Habilitar Azure Monitor para VMs para uma VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Ativar o Azure Monitor para as VMs para uma VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
 
-4. Na página de **integração do Azure monitor insights** , se você tiver um espaço de trabalho log Analytics existente na mesma assinatura, selecione-o na lista suspensa.  
+4. Sobre o **integração de informações do Azure Monitor** página, se tiver um existentes do Log Analytics área de trabalho na mesma subscrição, selecione-o na lista pendente.  
 
     A lista seleciona o espaço de trabalho padrão e o local onde a VM é implantada na assinatura. 
 
@@ -144,7 +144,7 @@ Para habilitar o monitoramento de sua VM do Azure com o Azure Monitor para VMs:
 
 Depois de habilitar o monitoramento, talvez seja necessário aguardar vários minutos para poder exibir as métricas de desempenho da VM.
 
-![Habilitar o processamento de implantação de monitoramento de Azure Monitor para VMs](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+![Ativar o Azure Monitor para monitorização de processamento da implementação de VMs](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
 
 ## <a name="view-vm-performance-metrics"></a>Exibir métricas de desempenho da VM
 
@@ -152,7 +152,7 @@ Azure Monitor para VMs inclui um conjunto de gráficos de desempenho que visam v
 
 1. No portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
 
-2. Na página VM, na seção **monitoramento** , selecione **insights (versão prévia)** .
+2. Na página de VM, na **monitorização** secção, selecione **Insights (pré-visualização)** .
 
 3. Selecione a guia **desempenho** .
 
@@ -168,7 +168,7 @@ O exemplo seguinte cria um alerta para a utilização média da CPU.
 
 2. Clique em **Regras de alerta** no painel da VM e, em seguida, clique em **Adicionar alerta de métrica** na parte superior do painel de alertas.
 
-3. Indique um **Nome** para o alerta, como *myAlertRule*
+3. Forneça um **Nome** para o alerta, como *myAlertRule*
 
 4. Para acionar um alerta quando a percentagem da CPU excede 1.0 durante cinco minutos, mantenha todas as outras predefinições selecionadas.
 

@@ -1,17 +1,14 @@
 ---
 title: Exemplo de plano gráfico de benchmark do CIS Microsoft Azure Foundation-etapas de implantação
 description: Implante as etapas para o CIS Microsoft Azure Foundations plano de referência Blueprint, incluindo detalhes do parâmetro artefato do Blueprint.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/14/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 2c270d228d806c5715819ea380f2c5f9967fbd38
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e33a7788d9d7a13cb7f8df3f6663bf009b685169
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73586573"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038379"
 ---
 # <a name="deploy-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Implantar a amostra de plano de referência do CIS Microsoft Azure Foundations
 

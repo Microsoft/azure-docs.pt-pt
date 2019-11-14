@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Visualize os dados a partir do Explorador de dados do Azure no Power BI'
+title: 'Tutorial: Visualizar dados do Azure Data Explorer no Power BI'
 description: Neste tutorial, vai aprender a ligar ao Azure Data Explorer com o Power BI e a visualizar os seus dados.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 70a06b75db9ff49222c2de4aa78519b32d863478
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec1579792a6e247bf49946bb8609a626154fbd46
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775026"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037364"
 ---
-# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Tutorial: Visualize os dados a partir do Explorador de dados do Azure no Power BI
+# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Tutorial: Visualizar dados do Azure Data Explorer no Power BI
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Power BI é uma solução de análise de negócios que lhe permite visualizar os seus dados e partilhar os resultados na sua organização. Neste tutorial, vai aprender primeiro a compor elementos visuais no Azure Data Explorer. Depois, vai ligar ao Azure Data Explorer com o Power BI, criar um relatório com base nos dados de exemplo e publicar o relatório no serviço Power BI.
 
@@ -35,9 +35,9 @@ Além das subscrições do Azure e do Power BI, precisa do seguinte para conclu
 
 * [Um cluster e uma base de dados de teste](create-cluster-database-portal.md)
 
-* [Dados de exemplo os StormEvents](ingest-sample-data.md). [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
+* [Os dados de exemplo do StormEvents](ingest-sample-data.md). [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (selecionar **transferência gratuita**)
+* [Power bi desktop](https://powerbi.microsoft.com/get-started/) (selecione **Download gratuito**)
 
 ## <a name="render-visuals-in-azure-data-explorer"></a>Compor elementos visuais no Azure Data Explorer
 
@@ -81,17 +81,17 @@ Agora, é altura de analisar o Power BI, mas pode fazer muito mais coisas com o
 
 Agora, ligue-se ao Azure Data Explorer no Power BI Desktop.
 
-1. No Power BI Desktop sobre a **home page** separador, selecione **obter dados** , em seguida, **mais**.
+1. Em Power BI Desktop na guia **início** , selecione **obter dados** e **mais**.
 
     ![Obter dados](media/visualize-power-bi/get-data-more.png)
 
-1. Procure *Explorador de dados do Azure*, selecione **Explorador de dados do Azure (Beta)**, em seguida, **Connect**.
+1. Pesquise *Data Explorer do Azure*, selecione **Data Explorer do Azure (beta)** e **Conecte-se**.
 
     ![Pesquisar e obter dados](media/visualize-power-bi/search-get-data.png)
 
 1. No ecrã **Conetor de pré-visualização**, selecione **Continuar**.
 
-1. No ecrã seguinte, introduza o nome do seu cluster de teste e a base de dados. O cluster deverá estar no formato `https://<ClusterName>.<Region>.kusto.windows.net`. Introduza *StormEvents* para o nome da tabela. Deixe todas as outras opções com os valores predefinidos e selecione **OK**.
+1. Na próxima tela, insira o nome do seu cluster de teste e do banco de dados. O cluster deverá estar no formato `https://<ClusterName>.<Region>.kusto.windows.net`. Introduza *StormEvents* para o nome da tabela. Deixe todas as outras opções com os valores predefinidos e selecione **OK**.
 
     ![Opções do cluster, da base de dados e da tabela](media/visualize-power-bi/cluster-database-table.png)
 
@@ -219,13 +219,13 @@ Se não quiser manter o relatório que criou, basta eliminar o ficheiro *storm-e
 
 1. Em **A minha área de trabalho**, desloque-se para baixo até **RELATÓRIOS** e localize **storm-events**.
 
-1. Selecione as reticências (**...**) junto a **storm-events** e, em seguida, selecione **REMOVER**.
+1. Selecione as reticências ( **...** ) junto a **storm-events** e, em seguida, selecione **REMOVER**.
 
     ![Remover relatório](media/visualize-power-bi/remove-report.png)
 
 1. Confirme a remoção.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Escrever consultas](write-queries.md)

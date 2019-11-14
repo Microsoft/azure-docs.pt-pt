@@ -1,5 +1,5 @@
 ---
-title: Plataforma de contêiner OpenShift 3,11 em tarefas de pós-implantação do Azure | Microsoft Docs
+title: Plataforma de contêiner OpenShift 3,11 em tarefas de pós-implantação do Azure
 description: Tarefas adicionais para depois que um cluster da plataforma de contêiner OpenShift 3,11 foi implantado.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: c1e04f048c081da4777045e5bee43991c95b4625
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d3008e2e2d720b67fcf0846c27d2fed1ef7db307
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392777"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035499"
 ---
 # <a name="post-deployment-tasks"></a>Tarefas pós-implantação
 

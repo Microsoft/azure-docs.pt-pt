@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre VMs do Linux no Azure | Microsoft Docs
+title: Perguntas frequentes sobre VMs do Linux no Azure
 description: Fornece respostas para algumas das perguntas mais comuns sobre máquinas virtuais do Linux criadas com o modelo do Resource Manager.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: e7c577e28b30e68020532049affba59f355341cf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 107f2376df7eb767953b32b3447937e24869894c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838495"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036173"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Perguntas frequentes sobre Máquinas Virtuais do Linux
 Este artigo aborda algumas perguntas comuns sobre as máquinas virtuais do Linux criadas no Azure usando o modelo de implantação do Resource Manager. Para obter a versão do Windows deste tópico, consulte perguntas frequentes [sobre máquinas virtuais do Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -95,10 +95,10 @@ As seguintes senhas não são permitidas:
 <table>
     <tr>
         <td style="text-align:center">abc@123</td>
-        <td style="text-align:center">P @ $ $w 0rd</td>
+        <td style="text-align:center">P@$$w0rd</td>
         <td style="text-align:center">P@ssw0rd</td>
         <td style="text-align:center">P@ssword123</td>
-        <td style="text-align:center">$word PA $</td>
+        <td style="text-align:center">Pa$$word</td>
     </tr>
     <tr>
         <td style="text-align:center">pass@word1</td>

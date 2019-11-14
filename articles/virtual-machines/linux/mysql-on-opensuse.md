@@ -1,5 +1,5 @@
 ---
-title: Instalar o MySQL em uma VM OpenSUSE no Azure | Microsoft Docs
+title: Instalar o MySQL em uma VM OpenSUSE no Azure
 description: Saiba como instalar o MySQL em uma máquina virtual OpenSUSE Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 223a5a5b77ded9eb26a5cf3f0003bc9d393615db
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d5f2ef2d82cbcced6202ad2c09f23dd734d373b3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300856"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035589"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instalar o MySQL numa máquina virtual com o OpenSUSE Linux no Azure
 
 O [MySQL](https://www.mysql.com) é um popular banco de dados SQL de software livre. Este tutorial mostra como criar uma máquina virtual executando o OpenSUSE Linux e, em seguida, instalar o MySQL.
 
 
-Se optar por instalar e usar a CLI localmente, precisa da versão 2.0 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>Criar uma máquina virtual executando o OpenSUSE Linux
 
@@ -36,7 +36,7 @@ Primeiro, crie um grupo de recursos. Neste exemplo, o grupo de recursos é denom
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Crie a VM. Neste exemplo, a VM é denominada *myVM* e o tamanho da VM é *Standard_D2s_v3*, mas você deve escolher o [tamanho da VM](sizes.md) que você considera mais apropriado para sua carga de trabalho.
+Crie a VM. Neste exemplo, a VM é denominada *myVM* e o tamanho da vm é *Standard_D2s_v3*, mas você deve escolher o [tamanho da VM](sizes.md) que você considera mais apropriado para sua carga de trabalho.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -102,7 +102,7 @@ sudo reboot
 
 ## <a name="mysql-password"></a>Senha do MySQL
 
-Após a instalação, a senha raiz do MySQL fica vazia por padrão. Execute o script **MySQL @ no__t-1secure @ no__t-2installation** para proteger o MySQL. O script solicita que você altere a senha raiz do MySQL, remova as contas de usuário anônimos, desabilite a entrada raiz remota, remova os bancos de dados de teste e recarregue a tabela de privilégios. 
+Após a instalação, a senha raiz do MySQL fica vazia por padrão. Execute o script de **instalação do mysql\_secure\_** para proteger o MySQL. O script solicita que você altere a senha raiz do MySQL, remova as contas de usuário anônimos, desabilite a entrada raiz remota, remova os bancos de dados de teste e recarregue a tabela de privilégios. 
 
 Depois que o servidor for reinicializado, use o ssh para a VM novamente.
 
@@ -137,7 +137,7 @@ O ponto-e-vírgula (;) no final da linha, é crucial para encerrar o comando.
 ## <a name="create-a-database"></a>Criar uma base de dados
 
 
-Crie um banco de dados e conceda as permissões de usuário `mysqluser`.
+Crie um banco de dados e conceda as permissões de usuário do `mysqluser`.
 
 ```sql
 CREATE DATABASE testdatabase;

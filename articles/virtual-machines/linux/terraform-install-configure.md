@@ -1,5 +1,5 @@
 ---
-title: Instalar e configurar o Terraform para provisionar recursos do Azure | Microsoft Docs
+title: Instalar e configurar o Terraform para provisionar recursos do Azure
 description: Saiba como instalar e configurar o Terraform para criar recursos do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: cd3c8d7d862788f626356b4cfcdccccca36227b3
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: efba440448ac912b7656eeab017eef947ab25e95
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168733"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034689"
 ---
 # <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Instalar e configurar o Terraform para provisionar recursos do Azure
  
@@ -35,7 +35,7 @@ O Terraform é instalado por padrão no [Cloud Shell](/azure/terraform/terraform
 
 Para instalar o Terraform, [Baixe](https://www.terraform.io/downloads.html) o pacote apropriado para seu sistema operacional em um diretório de instalação separado. O download contém um único arquivo executável, para o qual você também deve definir um caminho global. Para obter instruções sobre como definir o caminho no Linux e no Mac, vá para [esta página da Web](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux). Para obter instruções sobre como definir o caminho no Windows, vá para [esta página da Web](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows).
 
-Verifique a configuração do caminho com `terraform` o comando. Uma lista de opções de Terraform disponíveis é mostrada, como na seguinte saída de exemplo:
+Verifique a configuração do caminho com o comando `terraform`. Uma lista de opções de Terraform disponíveis é mostrada, como na seguinte saída de exemplo:
 
 ```console
 azureuser@Azure:~$ terraform
@@ -52,7 +52,7 @@ Se você tiver várias assinaturas do Azure, primeiro consulte sua conta com a [
 az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
-Para usar uma assinatura selecionada, defina a assinatura para esta sessão com o [conjunto de contas AZ](/cli/azure/account#az-account-set). Defina a `SUBSCRIPTION_ID` variável de ambiente para manter o valor do campo `id` retornado da assinatura que você deseja usar:
+Para usar uma assinatura selecionada, defina a assinatura para esta sessão com o [conjunto de contas AZ](/cli/azure/account#az-account-set). Defina a variável de ambiente `SUBSCRIPTION_ID` para conter o valor do campo de `id` retornado da assinatura que você deseja usar:
 
 ```azurecli-interactive
 az account set --subscription="${SUBSCRIPTION_ID}"
@@ -64,7 +64,7 @@ Agora você pode criar uma entidade de serviço para uso com Terraform. Use [AZ 
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
-Seus `appId`, `password`, e`sp_name`sãoretornados. `tenant` Anote o e `appId` `password`o.
+Seus `appId`, `password`, `sp_name`e `tenant` são retornados. Anote as `appId` e `password`.
 
 ## <a name="configure-terraform-environment-variables"></a>Configurar variáveis de ambiente Terraform
 

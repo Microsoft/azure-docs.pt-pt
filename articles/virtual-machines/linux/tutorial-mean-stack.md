@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Criar uma pilha MEAN numa máquina virtual do Linux no Azure | Microsoft Docs
+title: Tutorial – criar uma pilha média em uma máquina virtual do Linux no Azure
 description: Neste tutorial, vai aprender a criar uma pilha MongoDB, Express, AngularJS e Node.js (MEAN) numa VM do Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5a1d1f738d8f32777bc4a6ea7d04fb0abf2accf7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 50ccf0d6db5a50f7dd89732bc870ced6bcf1c2d7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300801"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034392"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Criar uma pilha MongoDB, Express, AngularJS e Node.js (MEAN) numa máquina virtual do Linux no Azure
 
@@ -36,7 +36,7 @@ Este tutorial mostra como criar uma pilha MongoDB, Express, AngularJS e Node.js 
 
 Este tutorial usa a CLI dentro do [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimente** na parte superior de qualquer bloco de código.
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial precisará que execute a versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Criar uma VM do Linux
@@ -323,7 +323,7 @@ O [AngularJS](https://angularjs.org) fornece uma arquitetura Web para criar vist
     nodejs server.js
     ```
 
-2. Abra um browser Web no endereço que registou para a VM. Por exemplo, *http: \//13.72.77.9:3300*. Deverá ver algo semelhante à seguinte página:
+2. Abra um browser Web no endereço que registou para a VM. Por exemplo, *http:\//13.72.77.9:3300*. Deverá ver algo semelhante à seguinte página:
 
     ![Registo de livros](media/tutorial-mean/meanstack-init.png)
 

@@ -1,75 +1,75 @@
 ---
-title: Ligar ao Explorador de dados do Azure com o ODBC
-description: Neste artigo, irá aprender a configurar uma ligação de base de dados ODBC (Open Connectivity) ao Explorador de dados do Azure.
+title: Conectar-se ao Azure Data Explorer com o ODBC
+description: Neste artigo, você aprenderá a configurar uma conexão ODBC (conectividade aberta de banco de dados) com o Azure Data Explorer.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/30/2019
-ms.openlocfilehash: 65795b5b4dea8d2cdeecf5f78f9de751f275dac0
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 1b2e7a79eb932f5b971dda1d5d51b650789394db
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537590"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034020"
 ---
-# <a name="connect-to-azure-data-explorer-with-odbc"></a>Ligar ao Explorador de dados do Azure com o ODBC
+# <a name="connect-to-azure-data-explorer-with-odbc"></a>Conectar-se ao Azure Data Explorer com o ODBC
 
-Abrir a conectividade da base de dados ([ODBC](/sql/odbc/reference/odbc-overview)) é uma interface de programação de aplicativos amplamente aceita (API) para acesso de base de dados. Utilize o ODBC para ligar ao Explorador de dados do Azure a partir de aplicações que não têm um conector dedicado.
+[ODBC](/sql/odbc/reference/odbc-overview)(Open Database Connectivity) é uma API (interface de programação de aplicativo) amplamente aceita para acesso ao banco de dados. Use o ODBC para se conectar ao Azure Data Explorer de aplicativos que não têm um conector dedicado.
 
-Em segundo plano, os aplicativos chamar funções na interface do ODBC, que são implementadas nos módulos específicos do banco de dados chamados *drivers*. O Explorador de dados do Azure suporta um subconjunto do protocolo de comunicação do SQL Server ([MS-TDS](/azure/kusto/api/tds/)), por isso, ele pode usar o controlador ODBC para o SQL Server.
+Nos bastidores, os aplicativos chamam funções na interface ODBC, que são implementados em módulos específicos de banco de dados chamados *drivers*. O Azure Data Explorer dá suporte a um subconjunto do protocolo[MS-TDS](/azure/kusto/api/tds/)(SQL Server Communication Protocol), para que ele possa usar o driver ODBC para SQL Server.
 
-Utilizar o seguinte vídeo, pode aprender criar uma ligação de ODBC. 
+Usando o vídeo a seguir, você pode aprender a criar uma conexão ODBC. 
 
 > [!VIDEO https://www.youtube.com/embed/qA5wxhrOwog]
 
-Em alternativa, pode [configurar a origem de dados ODBC](#configure-the-odbc-data-source) conforme detalhado abaixo. 
+Como alternativa, você pode [Configurar a fonte de dados ODBC](#configure-the-odbc-data-source) conforme detalhado abaixo. 
 
-Neste artigo, irá aprender a utilizar o controlador ODBC do SQL Server, para que possa ligar ao Azure Data Explorer a partir de qualquer aplicação que suporte o ODBC. 
+Neste artigo, você aprenderá a usar o driver ODBC SQL Server, para que possa se conectar ao Azure Data Explorer de qualquer aplicativo que ofereça suporte a ODBC. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário o seguinte:
+Você precisa do seguinte:
 
-* [Microsoft ODBC Driver para SQL Server versão 17.2.0.1 ou posterior](/sql/connect/odbc/download-odbc-driver-for-sql-server) do seu sistema operativo.
+* [Microsoft ODBC driver for SQL Server versão 17.2.0.1 ou posterior](/sql/connect/odbc/download-odbc-driver-for-sql-server) para seu sistema operacional.
 
-## <a name="configure-the-odbc-data-source"></a>Configurar a origem de dados ODBC
+## <a name="configure-the-odbc-data-source"></a>Configurar a fonte de dados ODBC
 
-Siga estes passos para configurar uma origem de dados ODBC com o controlador ODBC para o SQL Server.
+Siga estas etapas para configurar uma fonte de dados ODBC usando o driver ODBC para SQL Server.
 
-1. No Windows, procure *origens de dados de ODBC*e abra a aplicação de ambiente de trabalho de origens de dados de ODBC.
+1. No Windows, pesquise *fontes de dados ODBC*e abra o aplicativo de área de trabalho fontes de dados ODBC.
 
 1. Selecione **Adicionar**.
 
     ![Adicionar origem de dados](media/connect-odbc/add-data-source.png)
 
-1. Selecione **controlador ODBC 17 para SQL Server** , em seguida, **concluir**.
+1. Selecione o **driver ODBC 17 para SQL Server** , em seguida, **concluir**.
 
-    ![Selecione o controlador](media/connect-odbc/select-driver.png)
+    ![Selecionar driver](media/connect-odbc/select-driver.png)
 
-1. Introduza um nome e descrição para a ligação e o cluster que pretende ligar-se, em seguida, selecione **seguinte**. O cluster URL deve estar no formato  *\<ClusterName\>.\< Região\>. kusto.windows.net*.
+1. Insira um nome e uma descrição para a conexão e o cluster ao qual você deseja se conectar e, em seguida, selecione **Avançar**. A URL do cluster deve estar no formato *\<clustername\>.\<região\>. Kusto.Windows.net*.
 
     ![Selecionar servidor](media/connect-odbc/select-server.png)
 
-1. Selecione **integrada do Active Directory** , em seguida, **próxima**.
+1. Selecione **Active Directory integrado** e depois **Avançar**.
 
     ![Active Directory integrado](media/connect-odbc/active-directory-integrated.png)
 
-1. Selecione a base de dados com os dados de exemplo, em seguida, **seguinte**.
+1. **Em seguida, selecione**o banco de dados com os exemplos de dado.
 
-    ![Banco de dados de alteração padrão](media/connect-odbc/change-default-database.png)
+    ![Alterar banco de dados padrão](media/connect-odbc/change-default-database.png)
 
-1. No ecrã seguinte, deixe todas as opções, como o padrão é em seguida, selecione **concluir**.
+1. Na próxima tela, deixe todas as opções como padrões e selecione **concluir**.
 
-1. Selecione **origem de dados de teste**.
+1. Selecione **testar fonte de dados**.
 
-    ![Origem de dados de teste](media/connect-odbc/test-data-source.png)
+    ![Fonte de dados de teste](media/connect-odbc/test-data-source.png)
 
-1. Certifique-se de que o teste foi concluída com êxito em seguida, selecione **OK**. Se o teste não teve êxito, verifique os valores que especificou nas etapas anteriores e certifique-se de que tem permissões suficientes para ligar ao cluster.
+1. Verifique se o teste foi bem-sucedido e selecione **OK**. Se o teste não tiver sido bem sucedido, verifique os valores que você especificou nas etapas anteriores e verifique se você tem permissões suficientes para se conectar ao cluster.
 
-    ![Teste foi concluída com êxito](media/connect-odbc/test-succeeded.png)
+    ![Teste bem-sucedido](media/connect-odbc/test-succeeded.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Ligar ao Explorador de dados do Azure a partir Tableau](tableau.md)
+* [Conectar-se ao Azure Data Explorer do tableau](tableau.md)

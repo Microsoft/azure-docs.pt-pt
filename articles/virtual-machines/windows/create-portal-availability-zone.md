@@ -1,5 +1,5 @@
 ---
-title: Criar uma VM do Windows zoneada com o portal do Azure | Microsoft Docs
+title: Criar uma VM do Windows zoneada com o portal do Azure
 description: Criar uma VM do Windows em uma zona de disponibilidade com o portal do Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 90c6f7106cbc885c513d47bf80a7b1ec218d8c6c
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: c6f843693ccfa16f9b31027ba370242e0462b138
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168550"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033883"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Criar uma máquina virtual do Windows em uma zona de disponibilidade com o portal do Azure
 
@@ -60,7 +60,7 @@ Quando a VM é implantada em uma zona de disponibilidade, um disco gerenciado pa
 
 Você pode confirmar as configurações de zona para esses recursos no Portal.  
 
-1. Clique em **grupos de recursos** e no nome do grupo de recursos da VM, como MyResource Group.
+1. Clique em **grupos de recursos** e no nome do grupo de recursos da VM, como *MyResource*Group.
 
 2. Clique no nome do recurso de disco. A página **visão geral** inclui detalhes sobre o local e a zona de disponibilidade do recurso.
 

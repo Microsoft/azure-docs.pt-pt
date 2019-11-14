@@ -6,21 +6,21 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
-ms.date: 08/06/2018
+ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 44f45c53a12c7ac73c3de3f2734f024cb9bc6dd5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: fa1179e55a4826450d30351be0a905efb059780b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899987"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031020"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Criar perfil de aplicativos Web em execução em uma máquina virtual do Azure ou em um conjunto de dimensionamento de máquinas virtuais usando Application Insights Profiler
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Você também pode implantar o Aplicativo Azure insights Profiler nesses serviços:
-* [App Service do Azure](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de Aplicações do Azure](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
@@ -89,15 +89,15 @@ Ainda não temos uma maneira de definir o coletor de Application Insights Profil
 
     ![Verificar se a extensão WAD está instalada][wadextension]
 
-1. Localize a extensão de diagnóstico de VM para sua VM. Expanda seu grupo de recursos, Microsoft. Compute virtualMachines, nome da máquina virtual e extensões.  
+2. Localize a extensão de diagnóstico de VM para sua VM. Vá para [https://resources.azure.com](https://resources.azure.com). Expanda seu grupo de recursos, Microsoft. Compute virtualMachines, nome da máquina virtual e extensões.  
 
     ![Navegue até WAD config no Azure Resource Explorer][azureresourceexplorer]
 
-1. Adicione o coletor de Application Insights Profiler ao nó SinksConfig em WadCfg. Se você ainda não tiver uma seção SinksConfig, talvez seja necessário adicionar uma. Certifique-se de especificar o Application Insights apropriado iKey em suas configurações. Você precisará alternar o modo de gerenciadores para leitura/gravação no canto superior direito e pressionar o botão "Editar" azul.
+3. Adicione o coletor de Application Insights Profiler ao nó SinksConfig em WadCfg. Se você ainda não tiver uma seção SinksConfig, talvez seja necessário adicionar uma. Certifique-se de especificar o Application Insights apropriado iKey em suas configurações. Você precisará alternar o modo de gerenciadores para leitura/gravação no canto superior direito e pressionar o botão "Editar" azul.
 
     ![Adicionar coletor de Application Insights Profiler][resourceexplorersinksconfig]
 
-1. Quando terminar de editar a configuração, pressione ' put '. Se Put for bem-sucedido, uma marca de seleção verde aparecerá no meio da tela.
+4. Quando terminar de editar a configuração, pressione ' put '. Se Put for bem-sucedido, uma marca de seleção verde aparecerá no meio da tela.
 
     ![Enviar solicitação Put para aplicar alterações][resourceexplorerput]
 

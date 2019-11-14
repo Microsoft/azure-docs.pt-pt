@@ -1,17 +1,14 @@
 ---
 title: Exemplo de plano de controle de esquema ISO 27001
 description: Mapeamento de controle do exemplo de plano gráfico ISO 27001. Cada controle é mapeado para uma ou mais políticas do Azure que auxiliam na avaliação.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 07/22/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: f187bf5a77f756bbc6293a14e1873d13788d3929
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 6d77573a37c27aba96bace1f6d228ac892b0ecd9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162472"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038342"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapeamento de controle da amostra do plano gráfico ISO 27001
 
@@ -50,7 +47,7 @@ Compreender os recursos que estão em violação dessas políticas pode ajudá-l
 
 ## <a name="a923-management-of-privileged-access-rights"></a>A. 9.2.3 gerenciamento de direitos de acesso privilegiado
 
-Este projeto ajuda a restringir e controlar direitos de acesso privilegiado atribuindo quatro definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou gravação e contas com permissões de proprietário e/ou gravação que não têm autenticação multifator habilitada. O Azure implementa o RBAC (controle de acesso baseado em função) para gerenciar quem tem acesso aos recursos do Azure. Esse projeto também atribui três definições de Azure Policy para auditar o uso da autenticação Azure Active Directory para servidores SQL e Service Fabric. Usar Azure Active Directory autenticação permite o gerenciamento de permissões simplificado e o gerenciamento centralizado de identidades de usuários de banco de dados e outros serviços da Microsoft. Esse projeto também atribui uma definição de Azure Policy para auditar o uso de regras personalizadas de RBAC. Entender onde as regras personalizadas do RBAC são implementadas pode ajudá-lo a verificar a necessidade e a implementação adequada, pois as regras personalizadas de RBAC são propensas a erros.
+Este projeto ajuda a restringir e controlar direitos de acesso privilegiado atribuindo quatro definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou gravação e contas com permissões de proprietário e/ou gravação que não têm a autenticação multifator habilitada. O Azure implementa o RBAC (controle de acesso baseado em função) para gerenciar quem tem acesso aos recursos do Azure. Esse projeto também atribui três definições de Azure Policy para auditar o uso da autenticação Azure Active Directory para servidores SQL e Service Fabric. Usar Azure Active Directory autenticação permite o gerenciamento de permissões simplificado e o gerenciamento centralizado de identidades de usuários de banco de dados e outros serviços da Microsoft. Esse projeto também atribui uma definição de Azure Policy para auditar o uso de regras personalizadas de RBAC. Entender onde as regras personalizadas do RBAC são implementadas pode ajudá-lo a verificar a necessidade e a implementação adequada, pois as regras personalizadas de RBAC são propensas a erros.
 
 - \]de visualização de \[: auditar contas com permissões de proprietário que não são habilitadas para MFA em uma assinatura
 - \[\]de visualização: contas de auditoria com permissões de gravação que não são habilitadas para MFA em uma assinatura
@@ -173,7 +170,7 @@ O controle de aplicativo adaptável é uma solução da central de segurança do
 
 ## <a name="a1261-management-of-technical-vulnerabilities"></a>A. 12.6.1 gerenciamento de vulnerabilidades técnicas
 
-Este projeto ajuda a gerenciar as vulnerabilidades do sistema de informações atribuindo cinco definições de [Azure Policy](../../../policy/overview.md) que monitoram atualizações de sistema ausentes, vulnerabilidades de sistema operacional, vulnerabilidades de SQL e vulnerabilidades de máquina virtual no Central de segurança do Azure. A central de segurança do Azure fornece recursos de relatório que permitem que você tenha informações em tempo real sobre o estado de segurança dos recursos do Azure implantados.
+Este projeto ajuda a gerenciar as vulnerabilidades do sistema de informações atribuindo cinco definições de [Azure Policy](../../../policy/overview.md) que monitoram atualizações de sistema ausentes, vulnerabilidades de sistema operacional, vulnerabilidades de SQL e vulnerabilidades de máquina virtual na central de segurança do Azure. A central de segurança do Azure fornece recursos de relatório que permitem que você tenha informações em tempo real sobre o estado de segurança dos recursos do Azure implantados.
 
 - \]de visualização de \[: monitorar Endpoint Protection ausente na central de segurança do Azure
 - \]de visualização de \[: monitorar atualizações de sistema ausentes na central de segurança do Azure
@@ -208,10 +205,10 @@ O plano gráfico ajuda a garantir que a transferência de informações com os s
 Agora que você analisou o mapeamento de controle do plano gráfico ISO 27001, visite os artigos a seguir para saber mais sobre a arquitetura e como implantar esse exemplo:
 
 > [!div class="nextstepaction"]
-> [Especificação técnica do iso 27001-visão geral](./index.md)
-> [ISO 27001 Blueprint-etapas de implantação](./deploy.md)
+> [Especificação técnica iso 27001-visão geral](./index.md)
+> [especificação técnica ISO 27001 – implantar etapas](./deploy.md)
 
-Artigos adicionais sobre plantas e como usá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

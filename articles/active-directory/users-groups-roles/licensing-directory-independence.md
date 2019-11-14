@@ -1,54 +1,53 @@
 ---
-title: Características de vários inquilinos interação - Azure Active Directory | Documentos da Microsoft
-description: Gerir os seus inquilinos de inquilino do Azure Active, compreendendo os seus inquilinos como recursos totalmente independentes
+title: Características de uma interação de locatário múltiplo – Azure AD | Microsoft Docs
+description: Gerencie seus locatários de locatários ativos do Azure compreendendo seus locatários como recursos totalmente independentes
 services: active-tenant
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45f48b6d8ef29d14606f18d4ccee77bd742a670a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0ce791ee3536b9ab07605787209e59b7e5d60126
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60470077"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026300"
 ---
-# <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Compreender como vários inquilinos do Azure Active Directory interagem
+# <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Entender como vários locatários Azure Active Directory interagem
 
-No Azure Active Directory (Azure AD), cada inquilino é um recurso totalmente independente: um elemento de rede que é logicamente independente dos outros inquilinos que gere. Não existe nenhuma relação principal-subordinado entre inquilinos. Essa independência entre inquilinos inclui independência de recursos, independência administrativa e independência de sincronização.
+No Azure Active Directory (AD do Azure), cada locatário é um recurso totalmente independente: um ponto que é logicamente independente dos outros locatários que você gerencia. Não há nenhuma relação pai-filho entre locatários. Essa independência entre locatários inclui independência de recursos, independência administrativa e independência de sincronização.
 
 ## <a name="resource-independence"></a>Independência de recursos
-* Se criar ou eliminar um recurso num inquilino, que não tem impacto em nenhum outro recurso no outro inquilino, com a exceção parcial dos utilizadores externos. 
-* Se utilizar um dos seus nomes de domínio com um inquilino, não pode ser utilizado com nenhum outro inquilino.
+* Se você criar ou excluir um recurso em um locatário, ele não afetará nenhum recurso em outro locatário, com a exceção parcial de usuários externos. 
+* Se você usar um de seus nomes de domínio com um locatário, ele não poderá ser usado com nenhum outro locatário.
 
 ## <a name="administrative-independence"></a>Independência administrativa
-Se um usuário não administrativo do inquilino "Contoso" Criar um inquilino de teste 'Test', em seguida:
+Se um usuário não administrativo do locatário "contoso" criar um locatário de teste "Test", então:
 
-* Por predefinição, o utilizador que cria um inquilino é adicionado como um utilizador externo no inquilino novo e atribuído a função de administrador global desse inquilino.
-* Os administradores do inquilino "Contoso" tem sem privilégios administrativos diretos para o inquilino "Teste", a menos que um administrador de "Teste" lhes concede esses privilégios. No entanto, os administradores de "Contoso" podem controlar o acesso ao inquilino "Teste" se elas controlam a conta de utilizador que criou "Teste".
-* Se adicionar ou remover uma função de administrador para um usuário num inquilino, a alteração não afeta as funções de administrador que o utilizador tem noutro inquilino.
+* Por padrão, o usuário que cria um locatário é adicionado como um usuário externo nesse novo locatário e atribuiu a função de administrador global nesse locatário.
+* Os administradores do locatário ' contoso ' não têm privilégios administrativos diretos para o locatário ' teste ', a menos que um administrador de ' teste ' especificamente conceda a eles esses privilégios. No entanto, os administradores de ' contoso ' podem controlar o acesso ao locatário ' test ' se controlam a conta de usuário que criou ' test '.
+* Se você adicionar/remover uma função de administrador para um usuário em um locatário, a alteração não afetará as funções de administrador que o usuário tem em outro locatário.
 
 ## <a name="synchronization-independence"></a>Independência de sincronização
-Pode configurar cada inquilino do Azure AD independentemente para sincronização de uma única instância de qualquer um dos dados:
+Você pode configurar cada locatário do Azure AD independentemente para obter dados sincronizados de uma única instância de:
 
-* A ferramenta do Azure AD Connect, para sincronizar dados com uma única floresta do AD.
-* O conector para o Forefront Identity Manager, para sincronizar dados com um ou mais florestas no local e/ou origens de dados não pertencente ao Azure AD de inquilino do Active Directory do Azure.
+* A ferramenta de Azure AD Connect, para sincronizar dados com uma única floresta do AD.
+* O conector de locatário ativo do Azure para o Forefront Identity Manager, para sincronizar dados com uma ou mais florestas locais e/ou fontes de dados não Azure AD.
 
-## <a name="add-an-azure-ad-tenant"></a>Adicionar um inquilino do Azure AD
-Para adicionar um inquilino do Azure AD no portal do Azure, inicie sessão no [do portal do Azure](https://portal.azure.com) com uma conta que seja administrador global do Azure AD e, no lado esquerdo, selecione **New**.
+## <a name="add-an-azure-ad-tenant"></a>Adicionar um locatário do Azure AD
+Para adicionar um locatário do Azure AD no portal do Azure, entre no [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do Azure AD e, à esquerda, selecione **novo**.
 
 > [!NOTE]
-> Ao contrário de outros recursos do Azure, os inquilinos não são recursos subordinados de uma subscrição do Azure. Se a sua subscrição do Azure é cancelada ou expirada, pode continuar a aceder os dados do inquilino com o Azure PowerShell, a Graph API do Azure ou o Centro de administração do Microsoft 365. Também pode [associar outra subscrição ao inquilino de](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+> Ao contrário de outros recursos do Azure, seus locatários não são recursos filho de uma assinatura do Azure. Se sua assinatura do Azure for cancelada ou expirada, você ainda poderá acessar os dados do locatário usando Azure PowerShell, o API do Graph do Azure ou o centro de administração do Microsoft 365. Você também pode [associar outra assinatura ao locatário](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
 >
 
-## <a name="next-steps"></a>Passos Seguintes
-Para uma ampla visão geral de problemas de licenciamento do Azure AD e as melhores práticas, consulte [o que é inquilino do Azure ativa o licenciamento?](../fundamentals/active-directory-licensing-whatis-azure-portal.md).
+## <a name="next-steps"></a>Passos seguintes
+Para obter uma ampla visão geral dos problemas de licenciamento do Azure AD e das práticas recomendadas, consulte [o que é o licenciamento de locatário ativo do Azure?](../fundamentals/active-directory-licensing-whatis-azure-portal.md).

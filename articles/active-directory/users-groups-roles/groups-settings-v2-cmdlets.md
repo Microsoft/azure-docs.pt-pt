@@ -1,31 +1,31 @@
 ---
-title: Exemplos do PowerShell para gerenciar grupos e Visualizar write-back de grupo no local-Azure Active Directory | Microsoft Docs
+title: Exemplos do PowerShell v2 para gerenciamento de grupos – Azure AD | Microsoft Docs
 description: Esta página fornece exemplos do PowerShell para ajudá-lo a gerenciar seus grupos no Azure Active Directory
 keywords: Azure AD, Azure Active Directory, PowerShell, grupos, gerenciamento de grupo
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e22baabda901a34f624cf27c25037ff3ba94e90
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1aa696ccaecc24df700315962c1f01f3a298c56c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381853"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026698"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets Azure Active Directory versão 2 para gerenciamento de grupo
 
 > [!div class="op_single_selector"]
-> * [Azure portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
-> * [PowerShell](groups-settings-v2-cmdlets.md)
+> - [Portal do Azure](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+> - [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
 
@@ -191,7 +191,7 @@ Agora, se encontrarmos o grupo novamente, veremos que a propriedade Description 
     SecurityEnabled              : True
 ```
 
-## <a name="delete-groups"></a>Eliminar grupos
+## <a name="delete-groups"></a>Excluir grupos
 
 Para excluir grupos de seu diretório, use o cmdlet Remove-AzureADGroup da seguinte maneira:
 
@@ -199,7 +199,7 @@ Para excluir grupos de seu diretório, use o cmdlet Remove-AzureADGroup da segui
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 ```
 
-## <a name="manage-group-membership"></a>Gerir associação a um grupo
+## <a name="manage-group-membership"></a>Gerenciar associação de grupo
 
 ### <a name="add-members"></a>Adicionar membros
 
@@ -312,13 +312,13 @@ Quando um grupo é criado, determinados pontos de extremidade permitem que o usu
   
 * abuso
 * ADM
-* administrador
+* administradores
 * hostname
 * majordomo
 * postmaster
-* básica
+* Básica
 * segura
-* Segurança
+* security
 * SSL-administrador
 * webmaster
 
@@ -332,7 +332,7 @@ Para obter mais detalhes, consulte a documentação para o [serviço de sincroni
 
 O Write-back do grupo do Office 365 é um recurso de visualização pública do Azure Active Directory (Azure AD) e está disponível com qualquer plano de licença pago do Azure AD. Para obter informações legais sobre visualizações, consulte [termos de uso suplementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você pode encontrar mais Azure Active Directory documentação do PowerShell em [Azure Active Directory cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0).
 

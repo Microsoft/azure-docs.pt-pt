@@ -1,24 +1,24 @@
 ---
 title: Visualizar dados do Azure Data Explorer usando o Grafana
-description: Neste "como", você aprenderá a configurar o Azure Data Explorer como uma fonte de dados para Grafana e, em seguida, Visualizar dados de um cluster de exemplo.
+description: Neste artigo, você aprende a configurar o Azure Data Explorer como uma fonte de dados para Grafana e, em seguida, Visualizar dados de um cluster de exemplo.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 6/30/2019
-ms.openlocfilehash: f1eb9fb0d81d1e9cdf3dd8628a6d7ad1f0ccce92
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/13/2019
+ms.openlocfilehash: a1c52007ea86ca0812c4a73a92ce81db6ddadc7b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581861"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037975"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualizar dados do Azure Data Explorer no Grafana
 
 O Grafana é uma plataforma de análise que permite consultar e Visualizar dados e, em seguida, criar e compartilhar dashboards com base em suas visualizações. O Grafana fornece um *plug-in*do data Explorer do Azure, que permite que você se conecte e visualize dados do data Explorer do Azure. Neste artigo, você aprende a configurar o Azure Data Explorer como uma fonte de dados para Grafana e, em seguida, Visualizar dados de um cluster de exemplo.
 
-Usando o vídeo a seguir, você pode aprender a usar o plug-in do Azure Data Explorer do Grafana, configurar o Data Explorer do Azure como uma fonte de dados para Grafana e, em seguida, Visualizar dados. 
+Use o vídeo a seguir para saber como usar o plug-in do Data Explorer do Azure do Grafana, configurar o Data Explorer do Azure como uma fonte de dados para Grafana e, em seguida, Visualizar dados. 
 
 > [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
 
@@ -26,7 +26,7 @@ Como alternativa, você pode [Configurar a fonte de dados](#configure-the-data-s
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará do seguinte para concluir este procedimento:
+Você precisará do seguinte para concluir este artigo:
 
 * [Grafana versão 5.3.0 ou posterior](https://docs.grafana.org/installation/) para seu sistema operacional
 
@@ -58,15 +58,15 @@ Com a entidade de serviço atribuída à função de *visualizadores* , agora vo
 
     | Interface do usuário do amGrafana | Portal do Azure | CLI do Azure |
     | --- | --- | --- |
-    | ID da assinatura | ID DA ASSINATURA | SubscriptionId |
-    | ID do locatário | ID do diretório | vários |
+    | ID da subscrição | ID DA ASSINATURA | SubscriptionId |
+    | ID do locatário | ID do diretório | tenant |
     | ID do cliente | ID da aplicação | appId |
     | Segredo do cliente | Palavra-passe | palavra-passe |
     | | | |
 
 1. Selecione **salvar & teste**.
 
-    Se o teste for bem-sucedido, vá para a próxima seção. Se você encontrar problemas, verifique os valores especificados em Grafana e examine as etapas anteriores.
+    Se o teste for bem-sucedido, vá para a próxima seção. Se você tiver problemas, verifique os valores especificados em Grafana e examine as etapas anteriores.
 
 ## <a name="visualize-data"></a>Visualizar os dados
 
@@ -111,8 +111,26 @@ Agora que você concluiu a configuração do Azure Data Explorer como uma fonte 
 
 1. No menu superior, selecione o ícone salvar: ![Ícone salvar](media/grafana/save-icon.png).
 
+## <a name="create-alerts"></a>Criar alertas
+
+1. No painel inicial, selecione **alertas** > **canais de notificação** para criar um novo canal de notificação
+
+    ![criar canal de notificação](media/grafana/create-notification-channel.png)
+
+1. Crie um novo **canal de notificação**e, em seguida, **salve**.
+
+    ![Criar novo canal de notificação](media/grafana/new-notification-channel-adx.png)
+
+1. No **painel**, selecione **Editar** na lista suspensa.
+
+    ![Selecione Editar no painel](media/grafana/edit-panel-4-alert.png)
+
+1. Selecione o ícone de sino de alerta para abrir o painel **alerta** . Selecione **criar alerta**. Preencha as propriedades a seguir no painel **alerta** .
+
+    ![Propriedades do alerta](media/grafana/alert-properties.png)
+
+1. Selecione o ícone **salvar painel** para salvar as alterações.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Escrever consultas do Azure Data Explorer](write-queries.md)
-
-* [Tutorial: Visualizar dados do Azure Data Explorer no Power BI](visualize-power-bi.md)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Fazer uma cópia de segurança de máquinas virtuais do Linux no portal do Azure | Microsoft Docs
+title: Tutorial – fazer backup de máquinas virtuais do Linux no portal do Azure
 description: Neste tutorial, irá aprender a utilizar o portal do Azure para proteger as máquinas virtuais do Linux com o Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 890d4ab0dcbaa814b4ce3365025e4c35e4ba4c6b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2a53086b959f5b93d17d307a59682a44fe1f33a8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103545"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034588"
 ---
-# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Fazer backup e restaurar arquivos para máquinas virtuais do Linux no Azure
+# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Fazer uma cópia de segurança e restaurar ficheiros de máquinas virtuais do Linux no Azure
 
 Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. O Azure Backup cria pontos de recuperação que são armazenados em cofres de recuperação georredundantes. Quando restaura a partir de um ponto de recuperação, pode restaurar a VM completa ou ficheiros específicos. Este artigo explica como restaurar um ficheiro único para uma VM Linux com nginx. Se ainda não tiver uma VM para utilizar, pode criar uma com o [Início rápido do Linux](quick-create-cli.md). Neste tutorial, ficará a saber como:
 
@@ -43,7 +43,7 @@ Quando a transferência de dados estiver concluída, o instantâneo é removido 
 ## <a name="create-a-backup"></a>Criar uma cópia de segurança
 Crie uma cópia de segurança diária agendada para um Cofre dos Serviços de Recuperação:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu do lado esquerdo, selecione **Máquinas virtuais**. 
 3. Na lista, selecione uma VM da qual pretende criar uma cópia de segurança.
 4. No painel da VM, na secção **Definições**, clique em **Cópia de Segurança**. O painel **Ativar cópia de segurança** abre.
@@ -93,8 +93,8 @@ Neste exemplo, mostramos como recuperar a página Web do nginx predefinida /var/
 7. Na lista, selecione a VM.
 8. No painel da VM, na secção **Definições**, clique em **Cópia de Segurança**. O painel **Cópia de Segurança** abre. 
 9. No menu na parte superior do painel, selecione **Recuperação de Ficheiros**. O painel **Recuperação de Ficheiros** abre.
-10. Na **etapa 1: Selecione ponto**de recuperação, selecione um ponto de recuperação na lista suspensa.
-11. Na **etapa 2: Baixe o script para procurar e recuperar**arquivos, clique no botão **baixar executável** . Guarde o ficheiro transferido no computador local.
+10. Em **Passo 1: selecionar o ponto de recuperação**, selecione um ponto de recuperação na lista pendente.
+11. Em **Passo 2: descarregar o script para procurar e recuperar ficheiros**, clique no botão **Transferir Executável**. Guarde o ficheiro transferido no computador local.
 7. Clique em **Transferir script** para transferir o ficheiro de script localmente.
 8. Abra uma linha de comandos Bash e escreva o seguinte, substituindo *Linux_myVM_05-05-2017.sh* pelo caminho e nome de ficheiro corretos para o script que transferiu, *azureuser* pelo nome de utilizador para a VM e *13.69.75.209* pelo endereço IP público para a VM.
     
@@ -155,10 +155,10 @@ Neste exemplo, mostramos como recuperar a página Web do nginx predefinida /var/
 
     ![Página Web do nginx predefinida](./media/tutorial-backup-vms/nginx-working.png)
 
-18. No computador local, volte para a guia do navegador para o portal do Azure e na **etapa 3: Desmonte os discos após a** recuperação clique no botão desmontar **discos** . Caso se esqueça de executar este passo, a ligação para o ponto de montagem é fechada automaticamente após 12 horas. Após essas 12 horas, terá de transferir um novo script para criar uma novo ponto de montagem.
+18. No seu computador local, volte ao separador do browser relativo ao portal do Azure e, em **Passo 3: desmontar os discos depois da recuperação**, clique no botão **Desmontar Discos**. Caso se esqueça de executar este passo, a ligação para o ponto de montagem é fechada automaticamente após 12 horas. Após essas 12 horas, terá de transferir um novo script para criar uma novo ponto de montagem.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

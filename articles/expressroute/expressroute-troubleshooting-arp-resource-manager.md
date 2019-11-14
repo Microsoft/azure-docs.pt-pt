@@ -1,5 +1,5 @@
 ---
-title: 'Obter tabelas ARP-solução de problemas – ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: obter tabelas ARP-solução de problemas'
 description: Esta página fornece instruções sobre como obter as tabelas ARP para um circuito do ExpressRoute
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: e35020923405ec072ac9c42093752ec5a9290824
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2410465052bd9ff83090c6f7122ffab2855af1d0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748157"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033439"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Obtendo tabelas ARP no modelo de implantação do Gerenciador de recursos
 > [!div class="op_single_selector"]
@@ -173,10 +173,10 @@ ou
 * Você não verá uma tabela ARP mostrada para um emparelhamento se houver problemas no lado da Microsoft. 
 * Abra um tíquete de suporte com [o suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Especifique que você tem um problema com conectividade de camada 2. 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 * Validar as configurações de camada 3 para o circuito do ExpressRoute
   * Obter o resumo da rota para determinar o estado das sessões BGP 
   * Obter tabela de rotas para determinar quais prefixos são anunciados no ExpressRoute
 * Validar a transferência de dados revisando bytes de entrada/saída
-* Abra um tíquete de suporte com [o suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se você ainda estiver enfrentando problemas.
+* Abra um pedido de suporte [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se ainda ocorrerem problemas.
 

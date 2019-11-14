@@ -1,10 +1,10 @@
 ---
-title: Exibir histórico de auditoria para funções do Azure AD no PIM-Azure Active Directory | Microsoft Docs
+title: Exibir relatório de auditoria para funções do Azure AD no PIM – Azure AD | Microsoft Docs
 description: Saiba como exibir o histórico de auditoria das funções do Azure AD no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aa1c5121c723148884584ca3f00522c1c459859
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 7c4a157d8d5bcd281ca9fee488e58c455034e898
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808993"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022069"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Exibir histórico de auditoria para funções do Azure AD no PIM
 
@@ -43,9 +43,9 @@ Siga estas etapas para exibir o histórico de auditoria para funções do Azure 
 
     Na parte inferior da página, é exibida uma tabela com informações sobre cada ação no histórico de auditoria disponível. As colunas têm os seguintes significados:
 
-    | Column | Descrição |
+    | Coluna | Descrição |
     | --- | --- |
-    | Tempo | Quando a ação ocorreu. |
+    | Hora | Quando a ação ocorreu. |
     | Solicitante | Usuário que solicitou a ativação ou alteração da função. Se o valor for **sistema do Azure**, verifique o histórico de auditoria do Azure para obter mais informações. |
     | Ação | Ações tomadas pelo solicitante. As ações podem incluir atribuir, Cancelar atribuição, ativar, desativar ou AddedOutsidePIM. |
     | Membro | Usuário que está ativando ou atribuído a uma função. |

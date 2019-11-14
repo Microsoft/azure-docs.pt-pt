@@ -1,30 +1,29 @@
 ---
-title: Tomada de administrador de um diretório não gerenciado-Azure Active Directory | Microsoft Docs
-description: Como assumir um nome de domínio DNS em um diretório não gerenciado (locatário de sombra) em Azure Active Directory.
+title: Tomada de administrador de um diretório não gerenciado – Azure AD | Microsoft Docs
+description: Como assumir um nome de domínio DNS em uma organização não gerenciada do Azure AD (locatário de sombra).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 08/01/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44276c911768f588064245c37a1284adeda8138f
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 7a0697e151c50b9722fef908eeb2c7498503b8c0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315728"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027377"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assuma um diretório não gerenciado como administrador no Azure Active Directory
 
-Este artigo descreve duas maneiras de assumir um nome de domínio DNS em um diretório não gerenciado no Azure Active Directory (AD do Azure). Quando um utilizador autónomo se inscreve num serviço cloud que utiliza o Azure AD, é adicionado a um diretório do Azure AD não gerido, com base no domínio do respetivo e-mail Para obter mais informações sobre a inscrição de autoatendimento ou "viral" para um serviço, consulte [o que é a inscrição de autoatendimento para Azure Active Directory?](directory-self-service-signup.md)
+Este artigo descreve duas maneiras de assumir um nome de domínio DNS em um diretório não gerenciado no Azure Active Directory (AD do Azure). Quando um utilizador autónomo se inscreve num serviço cloud que utiliza o Azure AD, é adicionado a um diretório do Azure AD não gerido, com base no domínio do respetivo e-mail Para obter mais informações sobre a inscrição de autoatendimento ou "viral" para um serviço, consulte [o que é inscrição de autoatendimento para Azure Active Directory?](directory-self-service-signup.md)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Decidir como você deseja assumir um diretório não gerenciado
 Durante o processo de obtenção do controlo administrativo, pode provar a propriedade, conforme descrito em [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md) (Adicionar um nome de domínio personalizado ao Azure AD). As secções seguintes explicam a experiência de administração mais detalhadamente, mas pode ver este resumo:
@@ -58,7 +57,7 @@ Quando você concluir as etapas anteriores, agora será o administrador global d
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Adicionando o nome de domínio a um locatário gerenciado no Azure AD
 
 1. Abra o [centro de administração do Microsoft 365](https://admin.microsoft.com).
-2. Selecione a guia **usuários** e crie uma nova conta de usuário com um nome como o *usuário\@fourthcoffeexyz.onmicrosoft.com* que não usa o nome de domínio personalizado. 
+2. Selecione a guia **usuários** e crie uma nova conta de usuário com um nome como *usuário\@fourthcoffeexyz.onmicrosoft.com* que não usa o nome de domínio personalizado. 
 3. Verifique se a nova conta de usuário tem privilégios de administrador global para o locatário do Azure AD.
 4. Abra a guia **domínios** no centro de administração Microsoft 365, selecione o nome de domínio e selecione **remover**. 
   
@@ -73,7 +72,7 @@ Quando você concluir as etapas anteriores, agora será o administrador global d
    ![domínio verificado como adicionado ao Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Qualquer usuário do Power BI ou serviço de Rights Management do Azure que tenha licenças atribuídas no locatário do Office 365 deverá salvar seus painéis se o nome de domínio for removido. Eles devem entrar com um nome de usuário como *o\@usuário fourthcoffeexyz.onmicrosoft.com* , em vez de *usuário\@fourthcoffee. xyz*.
+> Qualquer usuário do Power BI ou serviço de Rights Management do Azure que tenha licenças atribuídas no locatário do Office 365 deverá salvar seus painéis se o nome de domínio for removido. Eles devem entrar com um nome de usuário como *usuário\@fourthcoffeexyz.onmicrosoft.com* em vez de *usuário\@fourthcoffee. xyz*.
 
 ## <a name="external-admin-takeover"></a>Tomada de administrador externo
 
@@ -83,7 +82,7 @@ Quando você verifica a propriedade do nome de domínio, o Azure AD remove o nom
 
 - Utilizadores
 - Subscrições
-- Atribuições de licenças
+- Atribuições de licença
 
 ### <a name="support-for-external-admin-takeover"></a>Suporte para tomada de administrador externo
 O tomada de administrador externo tem suporte pelo seguinte serviços online:
@@ -114,7 +113,7 @@ Embora o RMS para indivíduos seja projetado para dar suporte à autenticação 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Cmdlets do PowerShell do Azure AD para a opção ForceTakeover
 Você pode ver esses cmdlets usados no [exemplo do PowerShell](#powershell-example).
 
-Cmdlet | Utilização
+cmdlet | Utilização
 ------- | -------
 `connect-msolservice` | Quando solicitado, entre no seu locatário gerenciado.
 `get-msoldomain` | Mostra os nomes de domínio associados ao locatário atual.

@@ -1,28 +1,27 @@
 ---
-title: Associação de grupo dinâmico adicionar remover usuários-tutorial-Azure Active Directory
+title: Adicionar usuários a um grupo dinâmico-tutorial-Azure AD | Microsoft Docs
 description: Neste tutorial, via utilizar grupos com regras de adesão de utilizador para adicionar ou remover utilizadores automaticamente.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1429841ca1376d67c7372f36bd35694afd4cd7ce
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 382f3b59142aee7ddfbec4aceb153a174874ac1a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102633"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027113"
 ---
-# <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adicionar ou remover membros do grupo automaticamente
+# <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adicionar ou remover membros de grupos automaticamente
 
 No Azure Active Directory (Azure AD), pode adicionar ou remover de forma automática utilizadores de grupos de segurança ou de grupos do Office 365, para que não o tenha de fazer manualmente. Sempre que as propriedades de um utilizador ou dispositivo são alteradas, o Azure AD avalia todas as regras do grupo dinâmico no seu inquilino para ver essa alteração deve adicionar ou remover os membros.
 
@@ -46,7 +45,7 @@ Primeiro, vai criar um grupo para os utilizadores convidados que pertençam todo
 
 1. Entre no portal do Azure (https://portal.azure.com) com uma conta que seja o administrador global do seu locatário.
 2. Selecione **Azure Active Directory** > **Grupos** > **Novo grupo**.
-   ![Selecione o comando para iniciar um novo grupo](./media/groups-dynamic-tutorial/new-group.png)
+   ![selecionar o comando para iniciar um novo grupo](./media/groups-dynamic-tutorial/new-group.png)
 3. No painel **Grupo**:
   
    * Selecione **segurança** como o tipo de grupo.
@@ -96,7 +95,7 @@ Talvez o que tenha em mente seja atribuir todos os utilizadores convidados aos s
 1. Selecione **Azure Active Directory** > **Grupos**. Selecione o nome do grupo **Todos os utilizadores** para abri-lo.
 1. Selecione **Regras de adesão dinâmica**, limpe o texto completo da regra e selecione **Guardar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 > [!div class="checklist"]

@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Script da CLI do Azure - Criar uma VM com o WordPress | Microsoft Docs
+title: Exemplo do Script da CLI do Azure - Criar uma VM com o WordPress
 description: Exemplo do Script da CLI do Azure - Criar uma VM com o WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1956ade75bab3d819c92ce7bc7be966c1a23d708
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: b25dde1ee36d325585be427dbef04fb39755473e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709463"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037587"
 ---
 # <a name="create-a-vm-with-wordpress"></a>Criar uma VM com o WordPress
 
@@ -55,7 +55,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az vm extension set](https://docs.microsoft.com/cli/azure/vm) | Adicione a Extensão do Script Personalizado à máquina virtual que invoca um script para instalar o WordPress. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

@@ -1,6 +1,6 @@
 ---
-title: Hierarquia de país/região utilizada pelo tipo de encaminhamento geográfico de Gestor de tráfego do Azure | Documentos da Microsoft
-description: Este artigo apresenta uma lista de hierarquia de país/região utilizada pelo tipo de encaminhamento geográfico de Gestor de tráfego do Azure
+title: Hierarquia de país/região usada pelo roteamento geográfico – Gerenciador de tráfego do Azure
+description: Este artigo lista a hierarquia de país/região usada pelo tipo de roteamento geográfico do Gerenciador de tráfego do Azure
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
@@ -12,267 +12,267 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: allensu
-ms.openlocfilehash: d16529e966fb2e16d1012f4aa0aafcff204a3093
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 13f4101c17d78a59e8cde724863d237ba888e6a4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071169"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037213"
 ---
-# <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarquia de país/região utilizada pelo Gestor de tráfego do Azure para o método de encaminhamento de tráfego geográfico
+# <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarquia de país/região usada pelo Gerenciador de tráfego do Azure para o método de roteamento de tráfego geográfico
 
-Este artigo apresenta uma lista de países e regiões utilizados pelas **Geographic** no Gestor de tráfego do Azure de método de encaminhamento de tráfego. Também pode obter essa informação programaticamente ao chamar o [API do REST do Gestor de tráfego do Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
+Este artigo lista os países e regiões usados pelo método de roteamento de tráfego **geográfico** no Gerenciador de tráfego do Azure. Você também pode obter essas informações programaticamente chamando a [API REST do Gerenciador de tráfego do Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
-- WORLD(World)
+- MUNDO (mundo)
 
-    - Geo-eu(Europe)
+    - GEO-EU (Europa)
 
-        - AD(Andorra)
+        - AD (Andorra)
 
-        - Al(Albania)
+        - AL (Albânia)
 
-        - AT(Austria)
+        - AT (Áustria)
 
-        - AX (Ilhas Alanda)
+        - AX (Ilhas Åland)
 
         - BA (Bósnia e Herzegovina)
 
-        - BE(Belgium)
+        - SER (Bélgica)
 
-        - BG(Bulgaria)
+        - BG (Bulgária)
 
-        - BY(Belarus)
+        - POR (Belarus)
 
-        - CH(Switzerland)
+        - CH (Suíça)
 
-        - CY(Cyprus)
+        - CY (Chipre)
 
-        - CZ (República Checa)
+        - CZ (República Tcheca)
 
-        - DE(Germany)
+        - DE (Alemanha)
 
         - DK(Denmark)
 
-        - EE(Estonia)
+        - EE (Estônia)
 
-        - ES(Spain)
+        - ES (Espanha)
 
-        - Fi(Finland)
+        - FI (Finlândia)
 
-        - FO (Ilhas Faroé)
+        - FO (Ilhas Faroés)
 
-        - FR(France)
+        - FR (França)
 
         - GB (Reino Unido)
 
-        - GG(Guernsey)
+        - GG (Guernsey)
 
-        - GI(Gibraltar)
+        - GI (Gibraltar)
 
-        - Gr(Greece)
+        - GR (Grécia)
 
-        - HR(Croatia)
+        - HR (Croácia)
 
-        - HU(Hungary)
+        - HU (Hungria)
 
-        - IE(Ireland)
+        - IE (Irlanda)
 
-        - Mensagens Instantâneas (ilha de Man)
+        - IM (ilha de Man)
 
-        - IS(Iceland)
+        - É (Islândia)
 
-        - IT(Italy)
+        - TI (Itália)
 
-        - Je(Jersey)
+        - JE (Jersey)
 
-        - LI(Liechtenstein)
+        - LI (Liechtenstein)
 
-        - LT(Lithuania)
+        - LT (Lituânia)
 
-        - LU(Luxembourg)
+        - LU (Luxemburgo)
 
-        - LV(Latvia)
+        - LV (Letônia)
 
         - MC(Monaco)
 
-        - MD(Moldova)
+        - MD (Moldova)
 
-        - ME(Montenegro)
+        - Eu (Montenegro)
 
-        - MK (Norte Macedónia)
+        - MK (nordeste da Macedônia)
 
         - MT(Malta)
 
-        - NL(Netherlands)
+        - NL (Países Baixos)
 
-        - NO(Norway)
+        - Não (Noruega)
 
-        - PL(Poland)
+        - PL (Polônia)
 
-        - PT(Portugal)
+        - PT (Portugal)
 
-        - RO(Romania)
+        - RO (Romênia)
 
-        - RS(Serbia)
+        - RS (Sérvia)
 
-        - RU(Russia)
+        - RU (Rússia)
 
-        - Se(Sweden)
+        - SE (Suécia)
 
-        - SI(Slovenia)
+        - SI (Eslovênia)
 
-        - SJ(Svalbard)
+        - SJ (Svalbard)
 
-        - SK(Slovakia)
+        - SK (Eslováquia)
 
-        - SM (são marinho)
+        - SM (San Marino)
 
-        - UA(Ukraine)
+        - UA (Ucrânia)
             - Região de Crimeia
 
-        - Avaliação de vulnerabilidades (cidade do Vaticano)
+        - VA (cidade do Vaticano)
 
-        - XJ(Jan Mayen)
+        - XJ (Jan Mayen)
 
         - XK(Kosovo)
 
-    - Georreplicação-ME(Middle East)
+    - GEO-ME (Oriente Médio)
 
-        - AE (Unidos Árabes Unidos)
+        - AE (Emirados Árabes Unidos)
 
-        - BH(Bahrain)
+        - BH (Bahrein)
 
-        - IL(Israel)
+        - IL (Israel)
 
-        - IQ(Iraq)
+        - IQ (Iraque)
 
-        - Ir(Iran)
+        - IR (Irã)
 
-        - JO(Jordan)
+        - JO (Jordânia)
 
-        - KW(Kuwait)
+        - KW (Kuwait)
 
-        - LB(Lebanon)
+        - LB (Líbano)
 
-        - OM(Oman)
+        - OM (Omã)
 
-        - PS (Autoridade Palestiniana)
+        - PS (Autoridade Palestina)
 
-        - QA(Qatar)
+        - P e r (catar)
 
-        - SY(Syria)
+        - SY (Síria)
 
         - SA (Arábia Saudita)
 
-        - TR(Turkey)
+        - TR (Turquia)
 
-        - YE(Yemen)
+        - YE (Iêmen)
 
-    - Georreplicação-NA(North America / Central America / Caribbean)
+    - Área geográfica (América do Norte/América Central/Caribe)
 
         - AG (Antígua e Barbuda)
 
-        - Ai(Anguilla)
+        - IA (Anguila)
 
-        - AW(Aruba)
+        - AW (Aruba)
 
         - BB(Barbados)
 
-        - BL (são Bartolomeu)
+        - BL (São Bartolomeu)
 
-        - BM(bermuda)
+        - BM (Bermuda)
 
-        - BQ(Bonaire)
+        - BQ (Bonaire)
 
-        - BS(Bahamas)
+        - BS (Bahamas)
 
-        - BZ(Belize)
+        - POR (Belize)
 
-        - CA(Canada)
+        - CA (Canadá)
 
-            - CA-AB(Alberta)
+            - CA-AB (Alberta)
 
-            - AC BC(British Columbia)
+            - CA-BC (Colúmbia Britânica)
 
-            - CA-MB(Manitoba)
+            - CA-MB (Manitoba)
 
-            - AC NB(New Brunswick)
+            - CA-NB (novo Brunswick)
 
-            - AC NL(Newfoundland and Labrador)
+            - CA-NL (Newfoundland e Labrador)
 
-            - AC NS(Nova Scotia)
+            - CA-NS (Nova Escócia)
 
-            - AC NT(Northwest Territories)
+            - CA-NT (territórios do noroeste)
 
-            - CA-NU(Nunavut)
+            - CA-NU (Nunavut)
 
-            - CA-on(Ontario)
+            - CA-ativado (Ontário)
 
-            - AC PE(Prince Edward Island)
+            - CA-PE (ilha do Príncipe Edward)
 
-            - CA-QC(Québec)
+            - CA-QC (Québec)
 
-            - CA-SK(Saskatchewan)
+            - CA-SK (Saskatchewan)
 
-            - AC YT(Yukon Territory)
+            - CA-YT (território do Yukon)
 
-        - CR(Costa Rica)
+        - CR (Costa Rica)
 
-        - Cu(cuba)
+        - CU (Cuba)
 
-        - CW(CuraÃ§ao)
+        - PV (CuraÃ § ao)
 
         - DM(Dominica)
 
         - FAZER (República Dominicana)
 
-        - GD(grenada)
+        - GD (Granada)
 
-        - GL(Greenland)
+        - GL (Groenlândia)
 
-        - GP(Guadeloupe)
+        - GP (Guadalupe)
 
-        - GT(Guatemala)
+        - GT (Guatemala)
 
-        - HN(Honduras)
+        - HN (Honduras)
 
-        - HT(Haiti)
+        - HT (Haiti)
 
-        - JM(Jamaica)
+        - JM (Jamaica)
 
-        - KN (são Cristóvão e Neves)
+        - KN (São Cristóvão e Névis)
 
-        - KY (Ilhas Caimão)
+        - KY (Ilhas Cayman)
 
         - LC (Santa Lúcia)
 
-        - MF(Saint Martin)
+        - MF (Saint Martin)
 
-        - MQ(Martinique)
+        - MQ (Martinica)
 
-        - MS(Montserrat)
+        - MS (Montserrat)
 
-        - MX(Mexico)
+        - MX (México)
 
-        - Ni(Nicaragua)
+        - NI (Nicarágua)
 
-        - Pa(Panama)
+        - PA (Panamá)
 
-        - PM (são Pedro e Miquelão)
+        - PM (São Pedro e Miquelon)
 
         - PR (Porto Rico)
 
         - SV(El Salvador)
 
-        - SX(Sint Maarten)
+        - SX (Santo Maarten)
 
-        - TC (Ilhas Turcas e Caicos)
+        - TC (Ilhas Turks e Caicos)
 
-        - TT (Trindade e Tobago)
+        - TT (Trinidad e Tobago)
 
-        - HUM (ESTADOS UNIDOS Ilhas distantes)
+        - UM (territórios insulares dos EUA)
 
-        - US(United States)
+        - US (Estados Unidos)
 
             - US-AK(Alaska)
 
@@ -280,393 +280,393 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
             - US-AR(Arkansas)
 
-            - US-AZ(Arizona)
+            - EUA-AZ (Arizona)
 
-            - US-CA(California)
+            - EUA-CA (Califórnia)
 
-            - US-CO(Colorado)
+            - EUA-CO (Colorado)
 
-            - US-CT(Connecticut)
+            - US-CT (Connecticut)
 
-            - DC(District of Columbia) dos EUA
+            - US-DC (distrito de Colúmbia)
 
-            - US-DE(Delaware)
+            - EUA-DE (Delaware)
 
-            - US-FL(Florida)
+            - US-FL (Flórida)
 
-            - US-GA(Georgia)
+            - US-GA (Geórgia)
 
-            - US-HI(Hawaii)
+            - US-HI (Havaí)
 
-            - US-IA(Iowa)
+            - EUA-IA (Iowa)
 
-            - US-ID(Idaho)
+            - US-ID (Idaho)
 
-            - US-il(Illinois)
+            - US-IL (Illinois)
 
-            - US-IN(Indiana)
+            - EUA-em (Indiana)
 
             - US-KS(Kansas)
 
             - US-KY(Kentucky)
 
-            - US-LA(Louisiana)
+            - US-LA (Louisiana)
 
             - US-MA(Massachusetts)
 
-            - US-MD(Maryland)
+            - US-MD (Maryland)
 
-            - US-me(Maine)
+            - US-ME (Maine)
 
-            - US-MI(Michigan)
+            - US-MI (Michigan)
 
             - US-MN(Minnesota)
 
-            - US-MO(Missouri)
+            - US-MO (Missouri)
 
             - US-MS(Mississippi)
 
-            - US-MT(Montana)
+            - US-MT (Montana)
 
-            - NC(North Carolina) dos EUA
+            - US-NC (Carolina do Norte)
 
-            - ND(North Dakota) dos EUA
+            - US-ND (Dakota do Norte)
 
-            - US-NE(Nebraska)
+            - US-NE (Nebraska)
 
-            - US-NH(New Hampshire)
+            - US-NH (novo Hampshire)
 
-            - US-NJ(New Jersey)
+            - EUA-NJ (Nova Jersey)
 
-            - NM(New Mexico) dos EUA
+            - US-NM (Novo México)
 
             - US-NV(Nevada)
 
-            - NY(New York) dos EUA
+            - US-NY (Nova York)
 
-            - US-OH(Ohio)
+            - EUA – OH (Ohio)
 
-            - US-OK(Oklahoma)
+            - EUA-OK (Oklahoma)
 
-            - US-OR(Oregon)
+            - EUA-ou (Oregon)
 
-            - US-Pa(Pennsylvania)
+            - US-PA (Pensilvânia)
 
-            - US-RI(Rhode Island)
+            - EUA-RI (Ilha Rhode)
 
-            - SC(South Carolina) dos EUA
+            - US-SC (Carolina do Sul)
 
-            - SD(South Dakota) dos EUA
+            - US-SD (Dakota do Sul)
 
             - US-TN(Tennessee)
 
             - US-TX(Texas)
 
-            - US-UT(Utah)
+            - US-UT (Utah)
 
-            - US-VA(Virginia)
+            - US-VA (Virgínia)
 
-            - US-VT(Vermont)
+            - US-VT (Vermont)
 
             - US-WA(Washington)
 
             - US-WI(Wisconsin)
 
-            - US-WV(West Virginia)
+            - US-WV (Virgínia Ocidental)
 
             - US-WY(Wyoming)
 
-        - VC (são Vicente e Granadinas)
+        - VC (São Vicente e Granadinas)
 
-        - VG (Ilhas Virgens de British)
+        - VG (Ilhas Virgens Britânicas)
 
-        - VI (ESTADOS UNIDOS Ilhas Virgens)
+        - VI (Ilhas Virgens dos EUA)
 
         - XE (Santo Eustáquio)
 
         - XS(Saba)
 
-    - Geo-as(Asia)
+    - GEO-AS (Ásia)
 
-        - AF(Afghanistan)
+        - AF (Afeganistão)
 
-        - AM(Armenia)
+        - AM (Armênia)
 
-        - AZ(Azerbaijan)
+        - AZ (Azerbaijão)
 
-        - BD(Bangladesh)
+        - BD (Bangladesh)
 
         - BN(Brunei)
 
-        - BT(Bhutan)
+        - BT (Butão)
 
-        - CC (Ilhas dos Cocos (Keeling))
+        - CC (Ilhas Cocos (Keeling))
 
         - CN(China)
 
-        - CX (Ilha do Natal)
+        - CX (Ilha Christmas)
 
-        - GE(Georgia)
+        - GE (Geórgia)
 
         - HK (RAE de Hong Kong)
 
-        - ID(Indonesia)
+        - ID (Indonésia)
 
-        - IN(India)
+        - IN (Índia)
 
-        - E/s (território britânico do Oceano)
+        - E/s (território britânico do Oceano Índico)
 
-        - JP(Japan)
+        - JP (Japão)
 
-        - KG(Kyrgyzstan)
+        - KG (Quirguistão)
 
-        - KH(Cambodia)
+        - KH (Camboja)
 
         - KP (Coreia do Norte)
 
-        - KR(Korea)
+        - KR (Coreia)
 
-        - KZ(Kazakhstan)
+        - KZ (Cazaquistão)
 
-        - LA(Laos)
+        - LA (Laos)
 
         - LK(Sri Lanka)
 
-        - MM(Myanmar)
+        - MM (Myanmar)
 
-        - Mn(Mongolia)
+        - MN (Mongólia)
 
-        - MÊS (RAE de Macau)
+        - MO (RAE de Macau)
 
-        - MV(Maldives)
+        - MV (Maldivas)
 
-        - My(Malaysia)
+        - MY (Malásia)
 
-        - NP(Nepal)
+        - NP (Nepal)
 
-        - PH(Philippines)
+        - PH (Filipinas)
 
-        - PK(Pakistan)
+        - CP (Paquistão)
 
-        - SG(Singapore)
+        - SG (Cingapura)
 
-        - TH(Thailand)
+        - TH (Tailândia)
 
-        - TJ(Tajikistan)
+        - TJ (Tadjiquistão)
 
-        - TL(Timor_Leste)
+        - TL (Timor_Leste)
 
-        - TM(Turkmenistan)
+        - TM (Turcomenistão)
 
-        - TW(Taiwan)
+        - TW (Taiwan)
 
-        - UZ(Uzbekistan)
+        - UZ (Uzbequistão)
 
-        - VN(Vietnam)
+        - VN (Vietnã)
 
-    - Geo-AF(Africa)
+    - GEO-AF (África)
 
         - AO(Angola)
 
-        - BF(Burkina Faso)
+        - BF (Burquina Faso)
 
-        - BI(Burundi)
+        - BI (Burundi)
 
-        - BJ(Benin)
+        - BJ (Benin)
 
         - BV (Ilha Bouvet)
 
-        - BW(Botswana)
+        - BW (Botsuana)
 
         - CD(Congo (RDC))
 
-        - CF (República Centro Africana)
+        - CF (República Centro-Africana)
 
-        - CI (Côte d'Ivoire)
+        - CI (Côte d' Ivoire)
 
-        - CM(Cameroon)
+        - CM (Camarões)
 
-        - CV(Cabo Verde)
+        - CV (cabo verde)
 
         - DJ(Djibouti)
 
-        - DZ(Algeria)
+        - DZ (Argélia)
 
-        - EG(Egypt)
+        - Por exemplo (Egito)
 
-        - ER(Eritrea)
+        - ER (Eritreia)
 
-        - ET(Ethiopia)
+        - ET (Etiópia)
 
-        - GA(Gabon)
+        - GA (Gabão)
 
-        - GH(Ghana)
+        - GH (Gana)
 
-        - GM(Gambia)
+        - GM (Gâmbia)
 
-        - GN(Guinea)
+        - GN (Guiné)
 
         - GQ (Guiné Equatorial)
 
-        - GW(Guinea_Bissau)
+        - GW (Guinea_Bissau)
 
-        - KE(Kenya)
+        - KE (Quênia)
 
-        - KM(Comoros)
+        - KM (Ilhas Comores)
 
-        - LR(Liberia)
+        - LR (Libéria)
 
-        - LS(Lesotho)
+        - LS (Lesoto)
 
-        - LY(Libya)
+        - LY (Líbia)
 
-        - Ma(Morocco)
+        - MA (Marrocos)
 
         - MG(Madagascar)
 
-        - ML(Mali)
+        - ML (Mali)
 
-        - MR(Mauritania)
+        - MR (Mauritânia)
 
-        - MU(Mauritius)
+        - MU (Maurício)
 
-        - MW(Malawi)
+        - MW (Malaui)
 
-        - MZ(Mozambique)
+        - MZ (Moçambique)
 
-        - NA(Namibia)
+        - NA (Namíbia)
 
-        - NE(niger)
+        - NE (Níger)
 
-        - NG(Nigeria)
+        - NG (Nigéria)
 
-        - Re(Réunion)
+        - RE (Réunion)
 
-        - RW(RWANDA)
+        - RW (Ruanda)
 
-        - SC(Seychelles)
+        - SC (Seychelles)
 
-        - SD(Sudan)
+        - SD (Sudão)
 
-        - SH (Santa Helena, Ascensão e Tristão da Cunha)
+        - SH (Santa Helena, ascensão, Tristão da Cunha)
 
         - SL (Serra Leoa)
 
-        - SN(Senegal)
+        - SN (Senegal)
 
-        - SO(Somalia)
+        - Então (Somália)
 
         - SS (Sudão do Sul)
 
         - ST (São Tomé e Príncipe)
 
-        - SZ(Swaziland)
+        - SZ (Suazilândia)
 
-        - TD(chad)
+        - TD (Chade)
 
-        - TF (Territórios Austrais Franceses)
+        - TF (territórios franceses do Sul)
 
-        - TG(Togo)
+        - TG (Togo)
 
-        - TN(Tunisia)
+        - TN (Tunísia)
 
-        - TZ(Tanzania)
+        - TZ (Tanzânia)
 
-        - UG(Uganda)
+        - UG (Uganda)
 
-        - YT(Mayotte)
+        - YT (Mayotte)
 
         - ZA (África do Sul)
 
-        - ZM(Zambia)
+        - ZM (Zâmbia)
 
         - ZW(Zimbabwe)
 
-    - GEO-AN(Antarctica)
+    - GEO-um (Antártica)
 
-        - AQ(Antarctica)
+        - AQ (Antártica)
 
-    - Georreplicação-SA(South America)
+    - GEO-SA (América do Sul)
 
-        - AR(Argentina)
+        - AR (Argentina)
 
-        - BO(Bolivia)
+        - BO (Bolívia)
 
-        - BR(Brazil)
+        - BR (Brasil)
 
-        - CL(Chile)
+        - CL (Chile)
 
-        - Co(Colombia)
+        - CO (Colômbia)
 
-        - EC(Ecuador)
+        - EC (Equador)
 
         - FK (Ilhas Falkland [Malvinas])
 
-        - GF (Guiana Francesa)
+        - GF (Guiana francesa)
 
-        - GS (Geórgia do Sul e Ilhas de Sandwich do Sul)
+        - GS (Ilhas Geórgia do Sul e Sandwich do Sul)
 
-        - Gy(Guyana)
+        - GY (Guiana)
 
-        - PE(Peru)
+        - PE (Peru)
 
-        - PY(PARAGUAY)
+        - PY (Paraguai)
 
-        - SR(Suriname)
+        - SR (Suriname)
 
-        - UY(Uruguay)
+        - UY (Uruguai)
 
         - VE(Venezuela)
 
-    - Georreplicação-AP(Australia / Pacific)
+    - GEO-AP (Austrália/Pacífico)
 
-        - AS(American Samoa)
+        - COMO (Samoa Americana)
 
-        - AU(Australia)
+        - AU (Austrália)
 
-            - AU ACT(Australian Capital Territory)
+            - AU-ACT (território da capital australiana)
 
-            - AU NSW(New South Wales)
+            - AU-NSW (Novo Gales do Sul)
 
-            - AU NT(Northern Territory)
+            - AU-NT (território do Norte)
 
-            - AU-QLD(Queensland)
+            - AU-QLD (Queensland)
 
-            - AU SA(South Australia)
+            - AU-SA (sul da Austrália)
 
-            - AU-tas(Tasmania)
+            - AU-TAS (Tasmânia)
 
-            - AU-VIC(Victoria)
+            - AU-VIC (Victoria)
 
-            - AU WA(Western Australia)
+            - AU-WA (Austrália Ocidental)
 
-        - K (Ilhas Cook)
+        - CK (Ilhas Cook)
 
         - FJ(Fiji)
 
-        - FM(Micronesia)
+        - FM (Micronésia)
 
-        - Gu(Guam)
+        - GU (Guam)
 
         - HM (Ilhas Heard e McDonald)
 
-        - Ki(Kiribati)
+        - KI (KIRIBATI)
 
         - MH (Ilhas Marshall)
 
-        - Pacote de gestão (Ilhas Marianas do Norte)
+        - MP (Ilhas Marianas do Norte)
 
-        - NC (Nova Caledónia)
+        - NC (Nova Caledônia)
 
-        - NF (ilha de Norfolk)
+        - NF (Ilha Norfolk)
 
-        - NR(Nauru)
+        - NR (NAURU)
 
-        - NU(Niue)
+        - NU (Niue)
 
         - NZ (Nova Zelândia)
 
-        - PF (Polinésia Francesa)
+        - PF (Polinésia francesa)
 
         - PG (Papua-Nova Guiné)
 
@@ -674,11 +674,11 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
         - PW(Palau)
 
-        - SB (Ilhas de Salomão)
+        - SB (Ilhas Salomão)
 
-        - TK(Tokelau)
+        - TK (TOKELAU)
 
-        - TO(Tonga)
+        - A (Tonga)
 
         - TV(Tuvalu)
 
@@ -688,6 +688,6 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
         - WS(Samoa)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [no Gestor de tráfego do Azure de método de encaminhamento de tráfego geográfico](traffic-manager-routing-methods.md#geographic).
+- Saiba mais sobre o [método de roteamento de tráfego geográfico no Gerenciador de tráfego do Azure](traffic-manager-routing-methods.md#geographic).

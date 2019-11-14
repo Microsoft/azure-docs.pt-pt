@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: c1b7f81c62217d9e113f3293a8f351d908a6a576
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b90e5ccf38e95d33c4b5b6f3b8da0e91a4facb5a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887275"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023745"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Criar configuração de diagnóstico para coletar logs e métricas de plataforma no Azure
 [Os logs de plataforma](resource-logs-overview.md) no Azure fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e a plataforma do Azure da qual dependem. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para coletar logs de plataforma para destinos diferentes.
@@ -42,7 +42,8 @@ Os logs de plataforma podem ser enviados para os destinos na tabela a seguir. A 
 | [Conta de armazenamento do Azure](resource-logs-collect-storage.md) | O arquivamento de logs em uma conta de armazenamento do Azure é útil para auditoria, análise estática ou backup. |
 
 
-
+> [!IMPORTANT]
+> Atualmente, não há suporte para contas de Azure Data Lake Storage Gen2 como destino para configurações de diagnóstico, embora elas possam estar listadas como uma opção válida na portal do Azure.
 
 ## <a name="create-diagnostic-settings-in-azure-portal"></a>Criar configurações de diagnóstico no portal do Azure
 Você pode definir as configurações de diagnóstico no portal do Azure no menu Azure Monitor ou no menu do recurso.
@@ -55,13 +56,13 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
 
     ![Definições de diagnóstico](media/diagnostic-settings/menu-resource.png)
 
-2. Se não houver configurações no recurso que você selecionou, será solicitado que você crie uma configuração. Clique em **Ativar diagnósticos**.
+2. Se não existem definições existem no recurso que selecionou, lhe for pedido para criar uma definição. Clique em **Ativar diagnósticos**.
 
-   ![Adicionar configuração de diagnóstico-sem configurações existentes](media/diagnostic-settings/add-setting.png)
+   ![Adicionar definição de diagnóstico - sem definições existentes](media/diagnostic-settings/add-setting.png)
 
    Se houver configurações existentes no recurso, você verá uma lista de configurações já configuradas. Clique em **Adicionar configuração de diagnóstico** para adicionar uma nova configuração ou **Editar configuração** para editar uma existente. Cada configuração não pode ter mais de um de cada um dos tipos de destino.
 
-   ![Adicionar configuração de diagnóstico-configurações existentes](media/diagnostic-settings/edit-setting.png)
+   ![Adicionar definição de diagnóstico - existente definições](media/diagnostic-settings/edit-setting.png)
 
 3. Dê um nome à sua configuração se ela ainda não tiver uma.
 4. Marque a caixa para cada destino para enviar os logs. Clique em **Configurar** para especificar suas configurações, conforme descrito na tabela a seguir.
@@ -72,9 +73,9 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
     | Conta de armazenamento | Nome da conta de armazenamento. |
     | Espaço de nomes do hub de eventos | O namespace em que o Hub de eventos é criado (se esta for a primeira vez que os logs de streaming) ou transmitido (se já houver recursos que estão transmitindo essa categoria de log para esse namespace).
     | Nome do hub de eventos | Opcionalmente, especifique um nome de Hub de eventos para enviar todos os dados na configuração. Se você não especificar um nome, um hub de eventos será criado para cada categoria de log. Se você estiver enviando várias categorias, talvez queira especificar um nome para limitar o número de hubs de eventos criados. Consulte [limites e cotas dos hubs de eventos do Azure](../../event-hubs/event-hubs-quotas.md) para obter detalhes. |
-    | Nome da política do hub de eventos | Define as permissões que o mecanismo de streaming tem. |
+    | Nome de política do hub de eventos | Define as permissões que o mecanismo de streaming tem. |
 
-    ![Adicionar configuração de diagnóstico-configurações existentes](media/diagnostic-settings/setting-details.png)
+    ![Adicionar definição de diagnóstico - existente definições](media/diagnostic-settings/setting-details.png)
 
 5. Marque a caixa para cada uma das categorias de dados a serem enviadas aos destinos especificados. Se você tiver selecionado a opção para **arquivar em uma conta de armazenamento**, também precisará especificar o [período de retenção](resource-logs-collect-storage.md#data-retention).
 

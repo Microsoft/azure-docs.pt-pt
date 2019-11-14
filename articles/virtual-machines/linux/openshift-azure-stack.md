@@ -1,5 +1,5 @@
 ---
-title: Implantar OpenShift no Azure Stack | Microsoft Docs
+title: Implantar OpenShift no Azure Stack
 description: Implantar OpenShift no Azure Stack.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 97529118d420813cf638f211bdd5559068802c95
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d6c73b8cd33aa85793a2ce839410065e03b97be7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390659"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035538"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Implantar a plataforma de contêiner OpenShift ou OKD no Azure Stack
 
@@ -45,7 +45,7 @@ Se estiver usando o modelo do Resource Manager, selecione o Branch apropriado (a
 ```
 
 Para todas as opções, é necessária uma assinatura do Red Hat. Durante a implantação, a instância de Red Hat Enterprise Linux é registrada na assinatura do Red Hat e anexada à ID do pool que contém os direitos para a plataforma de contêiner OpenShift.
-Verifique se você tem um nome de usuário, senha e ID de pool válidos do RHSM (Red Hat Subscription Manager). Como alternativa, você pode usar uma chave de ativação, ID da organização e ID do pool.  Você pode verificar essas informações conectando-se a https://access.redhat.com.
+Verifique se você tem um nome de usuário, senha e ID de pool válidos do RHSM (Red Hat Subscription Manager). Como alternativa, você pode usar uma chave de ativação, ID da organização e ID do pool.  Você pode verificar essas informações entrando em https://access.redhat.com.
 
 ## <a name="azure-stack-prerequisites"></a>Pré-requisitos de Azure Stack
 

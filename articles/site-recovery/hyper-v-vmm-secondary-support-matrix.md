@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 7711ebaaddccd68d4322c1d3ebdd049a57bc709b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 76b34e11bba00105792ac5163c5163184c185e09
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686163"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039611"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V em um site secundário
 
@@ -22,7 +22,7 @@ Este artigo resume o que tem suporte quando você usa o serviço de [Azure site 
 > Você só pode replicar para um site secundário quando seus hosts Hyper-V são gerenciados em nuvens do VMM.
 
 > [!WARNING]
-> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](scvmm-site-recovery-deprecation.md) antes de continuar.
+> Observe que o suporte a ASR para usar a configuração do SCVMM em conta em breve será preterido e, portanto, recomendamos que você leia os detalhes de [substituição](site-to-site-deprecation.md) antes de continuar.
 
 
 ## <a name="host-servers"></a>Servidores host
@@ -59,7 +59,7 @@ Somente computadores Linux com o seguinte armazenamento podem ser replicados:
 Agrupamento do host NIC | Sim 
 Host-VLAN | Sim 
 Host-IPv4 | Sim 
-Host-IPv6 | Não 
+Host - IPv6 | Não 
 VM convidada-agrupamento NIC | Não
 VM convidada-IPv4 | Sim
 VM convidada-IPv6 | Não
@@ -109,7 +109,7 @@ Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de ou e
 
 O provedor coordena as comunicações entre os servidores do VMM. 
 
-**Mais recente** | **Atualizações**
+**Latest** | **Atualizações**
 --- | --- 
 5.1.19 ([disponível no portal](https://aka.ms/downloaddra) | [Recursos e correções mais recentes](https://support.microsoft.com/kb/3155002)
 

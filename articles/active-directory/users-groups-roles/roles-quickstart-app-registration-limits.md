@@ -1,26 +1,26 @@
 ---
-title: Conceda uma permissão individual para exceder as restrições em registros de aplicativo-Azure Active Directory | Microsoft Docs
-description: Atribua uma função personalizada para conceder registros de aplicativo irrestrito no Active Directory do Azure AD.
+title: Remover limites na criação de registros de aplicativo-Azure AD | Microsoft Docs
+description: Atribuir uma função personalizada para conceder registros de aplicativo irrestrito no Azure AD Active Directory
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c91de3de743d168bea207f27fb162486ea625a63
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 12803e2f65e17155e8bbcaf4842789adc101b0dd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026280"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024398"
 ---
-# <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Início rápido: Conceder permissão para criar registros de aplicativo ilimitados
+# <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Início rápido: conceder permissão para criar registros de aplicativo ilimitados
 
 Neste guia de início rápido, você criará uma função personalizada com permissão para criar um número ilimitado de registros de aplicativo e, em seguida, atribuir essa função a um usuário. O usuário atribuído pode usar o portal do Azure AD, o Azure AD PowerShell, o Azure AD API do Graph ou a API Microsoft Graph para criar registros de aplicativos. Diferentemente da função de desenvolvedor de aplicativo interna, essa função personalizada concede a capacidade de criar um número ilimitado de registros de aplicativo. A função de desenvolvedor de aplicativos concede a capacidade, mas o número total de objetos criados é limitado a 250 para evitar atingir [a cota de objetos de todo o diretório](directory-service-limits-restrictions.md).
 
@@ -32,7 +32,7 @@ A função menos privilegiada necessária para criar e atribuir funções person
 
 ## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>Criar uma nova função personalizada usando o portal do AD do Azure
 
-1. Entre no centro de [Administração do Azure AD](https://aad.portal.azure.com) Com permissões de administrador de função privilegiada ou de administrador global na organização do Azure AD.
+1. Entre no centro de [Administração do Azure AD](https://aad.portal.azure.com) com permissões de administrador de função com privilégios ou de administrador global na organização do Azure AD.
 1. Selecione **Azure Active Directory**, selecione **funções e administradores**e, em seguida, selecione **nova função personalizada**.
 
     ![Criar ou editar funções da página funções e administradores](./media/roles-create-custom/new-custom-role.png)
@@ -49,7 +49,7 @@ A função menos privilegiada necessária para criar e atribuir funções person
 
 ### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Atribuir a função a um usuário usando o portal do Azure AD
 
-1. Entre no centro de [Administração do Azure AD](https://aad.portal.azure.com) Com permissões de administrador de função privilegiada ou de administrador global em sua organização do Azure AD.
+1. Entre no centro de [Administração do Azure AD](https://aad.portal.azure.com) com permissões de administrador de função com privilégios ou de administrador global em sua organização do Azure AD.
 1. Selecione **Azure Active Directory** e, em seguida, selecione **funções e administradores**.
 1. Selecione a função criador de registro de aplicativo e selecione **Adicionar atribuição**.
 1. Selecione o usuário desejado e clique em **selecionar** para adicionar o usuário à função.
@@ -63,8 +63,8 @@ E já está! Neste guia de início rápido, você criou com êxito uma função 
 
 Há duas permissões disponíveis para conceder a capacidade de criar registros de aplicativo, cada um com um comportamento diferente.
 
-- Microsoft. Directory/Applications/createAsOwner: A atribuição dessa permissão faz com que o criador seja adicionado como o primeiro proprietário do registro do aplicativo criado, e o registro do aplicativo criado será contabilizado na cota de objetos criados do 250 do criador.
-- Microsoft. Directory/applicationPolicies/Create: A atribuição dessa permissão faz com que o criador não seja adicionado como o primeiro proprietário do registro do aplicativo criado, e o registro do aplicativo criado não será contabilizado na cota de objetos criados do 250 do criador. Use essa permissão com cuidado, pois não há nada impedindo que o destinatário crie registros de aplicativo até que a cota de nível de diretório seja atingida. Se ambas as permissões forem atribuídas, essa permissão terá precedência.
+- Microsoft. Directory/Applications/createAsOwner: a atribuição desses resultados de permissão no criador que está sendo adicionado como o primeiro proprietário do registro do aplicativo criado, e o registro do aplicativo criado será contado na cota de objetos criados do 250 do criador.
+- Microsoft. Directory/applicationPolicies/Create: a atribuição desses resultados de permissão no criador não será adicionada como o primeiro proprietário do registro do aplicativo criado, e o registro do aplicativo criado não contará na cota de objetos criados do 250 do criador. Use essa permissão com cuidado, pois não há nada impedindo que o destinatário crie registros de aplicativo até que a cota de nível de diretório seja atingida. Se ambas as permissões forem atribuídas, essa permissão terá precedência.
 
 ## <a name="create-a-custom-role-using-azure-ad-powershell"></a>Criar uma função personalizada usando o PowerShell do Azure AD
 
@@ -141,7 +141,7 @@ POST
 https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
 ```
 
-Body
+Corpo
 
 ```HTTP
 {
@@ -178,7 +178,7 @@ POST
 https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
-Body
+Corpo
 
 ``` HTTP
 {

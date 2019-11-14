@@ -1,12 +1,12 @@
 ---
-title: Os utilizadores, grupos, licenciamento e descrição geral de funções - Azure Active Directory | Documentos da Microsoft
+title: Visão geral de usuários, grupos, licenciamento e funções – Azure AD | Microsoft Docs
 description: A relação entre utilizadores e licenças atribuídas, funções de administrador, adesão a grupos no Azure Active Directory
 keywords: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.author: curtand
 ms.reviewer: vincesm
-ms.date: 01/28/2019
+ms.date: 11/08/2019
 ms.topic: overview
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2053ad07e555cc04cea714524141068f1404796
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a647f4a5f051ec89bb82b6e7f89dcb677c95371
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083898"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027744"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Utilizadores, grupos, licenciamento e funções para grandes organizações
 
@@ -52,7 +52,7 @@ Muitas organizações grandes querem opções para que os seus utilizadores obte
 
  Nome da função | Resumo das permissões
  --------- | -------------------
- **Administrador de Aplicações** | Pode adicionar e gerir aplicações empresariais e registos de aplicações, e configurar as definições de proxy de aplicações. Administradores da aplicação podem ver as políticas de acesso condicional e de dispositivos, mas não geri-los.
+ **Administrador de Aplicações** | Pode adicionar e gerir aplicações empresariais e registos de aplicações, e configurar as definições de proxy de aplicações. Os administradores de aplicativos podem exibir dispositivos e políticas de acesso condicional, mas não gerenciá-los.
  **Administrador de Aplicações na Cloud** | Pode adicionar e gerir aplicações empresariais e registos de aplicações empresariais. Esta função tem todas as permissões do administrador do aplicações, exceto que não é possível gerir as definições de proxy de aplicações.
 **Programador de Aplicações** | Pode adicionar e atualizar os registos de aplicações, mas não pode gerir aplicações empresariais nem configurar um proxy de aplicação.
 
@@ -70,7 +70,7 @@ O Azure AD também oferece um controle granular dos dados que fluem entre a apli
 * Iniciar e parar o serviço de aprovisionamento do Azure AD para uma aplicação, limpar a cache de ou reiniciar o serviço
 * Ver o **Relatório de atividades de aprovisionamento** que fornece um registo de todos os utilizadores e grupos criados, atualizados e removidos entre o Azure AD e a aplicação, e o **relatório de erros de aprovisionamento** que fornece mensagens de erro mais detalhadas
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se for um administrador principiante do Azure AD, conheça os princípios básicos em [Noções Básicas do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/index).
 

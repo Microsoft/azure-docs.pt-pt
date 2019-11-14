@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 8b4ab0e44f2432056c9c94061c59c99c89a6407d
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 9bfe88c34c78d18f2f5aefb8ae6946b9786030ad
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513413"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023503"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -35,7 +35,14 @@ O comando de sincronização difere do comando de cópia de várias maneiras:
 2. Ao sincronizar entre diretórios virtuais, adicione uma barra à direita no caminho (consulte exemplos) se houver um blob com o mesmo nome de um dos diretórios virtuais.
 3. Se o sinalizador ' deleteDestination ' for definido como true ou prompt, a sincronização excluirá arquivos e blobs no destino que não estão presentes na origem.
 
-### <a name="advanced"></a>Segurança
+## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
+
+- [Introdução ao AzCopy](storage-use-azcopy-v10.md)
+- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
+- [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
+- [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
+
+### <a name="advanced"></a>Avançado
 
 Se você não especificar uma extensão de arquivo, o AzCopy detectará automaticamente o tipo de conteúdo dos arquivos ao carregar do disco local, com base na extensão de arquivo ou no conteúdo (se nenhuma extensão for especificada).
 
@@ -48,7 +55,7 @@ A tabela de pesquisa interna é pequena, mas no UNIX, ela é aumentada pelos arq
 No Windows, os tipos de MIME são extraídos do registro.
 
 ```azcopy
-azcopy sync [flags]
+azcopy sync <source> <destination> [flags]
 ```
 
 ## <a name="examples"></a>Exemplos
@@ -152,6 +159,6 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 |--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
 |--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [azcopy](storage-ref-azcopy.md)

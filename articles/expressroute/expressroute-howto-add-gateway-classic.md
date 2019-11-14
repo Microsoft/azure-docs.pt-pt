@@ -1,5 +1,5 @@
 ---
-title: 'Configure um gateway de VNet para ExpressRoute - clássico: O Azure PowerShell | Documentos da Microsoft'
+title: 'Azure ExpressRoute: adicionar um gateway a uma VNet: clássico'
 description: Configurar um gateway de VNet para uma implementação clássica VNet com o PowerShell para uma configuração de ExpressRoute do modelo.
 services: expressroute
 author: charwen
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 101e03d07a15e9058ef236a575251b052017db32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 75c2b400a2caf4e5f2e14589fc007bb506b46338
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60365154"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031863"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Configurar um gateway de rede virtual para o ExpressRoute com o PowerShell (clássico)
 > [!div class="op_single_selector"]
@@ -36,6 +36,6 @@ Certifique-se de que instalou os cmdlets do PowerShell do Azure necessários par
 
 [!INCLUDE [expressroute-gateway-classic-ps](../../includes/expressroute-gateway-classic-ps-include.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Depois de ter criado o gateway de VNet, pode ligar a VNet a um circuito do ExpressRoute. Ver [ligar uma rede Virtual a um circuito de ExpressRoute](expressroute-howto-linkvnet-classic.md).
 

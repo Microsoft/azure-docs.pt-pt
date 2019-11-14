@@ -1,17 +1,14 @@
 ---
 title: Exemplo de mapeamento de controle do FedRAMP moderado Blueprint
 description: Mapeamento de controle da amostra do plano gráfico FedRAMP moderado. Cada controle é mapeado para uma ou mais políticas do Azure que auxiliam na avaliação.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/31/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 35b2e524298b1b34bae3903c842577b1683b9a93
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1bf87ef1b5116b086797b8521268bd4575970925
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581389"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032350"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Mapeamento de controle do exemplo de plano gráfico moderado do FedRAMP
 
@@ -73,7 +70,7 @@ Este projeto ajuda você a monitorar e controlar o acesso remoto atribuindo defi
 - Auditar o acesso irrestrito à rede para contas de armazenamento
 - A depuração remota deve ser desativada para o aplicativo de API
 - A depuração remota deve ser desativada para Aplicativo de funções
-- A depuração remota deve ser desativada para o aplicativo Web
+- Depuração remota deve ser desativada para a aplicação Web
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>Resposta AU-5 para falhas de processamento de auditoria
 
@@ -90,11 +87,11 @@ Este projeto ajuda a garantir que os eventos do sistema sejam registrados por me
 
 - \[visualização\]: auditoria Log Analytics implantação do agente – imagem da VM (SO) não listada
 - \[visualização\]: auditoria Log Analytics implantação do agente em VMSS-imagem da VM (SO) não listada
-- \[visualização\]: Log Analytics do espaço de trabalho de auditoria para VM – relatar incompatibilidade
+- \[Pré-visualização\]: auditar a área de trabalho do Log Analytics para VM - erro de correspondência de relatório
 - \]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)
-- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
+- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux
 - \]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
-- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
+- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows
 - Definição de diagnóstico de auditoria
 - A auditoria no SQL Server deve ser habilitada
 - A segurança de dados avançada deve ser habilitada em suas instâncias gerenciadas
@@ -215,10 +212,10 @@ Este projeto ajuda a proteger a confidencialidade e a integridade das informaç�
 - O aplicativo de API só deve ser acessível via HTTPS
 - Auditar servidores Web do Windows que não estão usando protocolos de comunicação segura
 - Implantar requisitos para auditar servidores Web do Windows que não usam protocolos de comunicação segura
-- Aplicativo de funções só deve ser acessível via HTTPS
+- Função de aplicação só deve estar acessível através de HTTPS
 - Somente conexões seguras para o cache Redis devem ser habilitadas
 - A transferência segura para contas de armazenamento deve ser habilitada
-- O aplicativo Web só deve ser acessível via HTTPS
+- Aplicação Web só deve estar acessível através de HTTPS
 
 ## <a name="sc-28-1-protection-of-information-at-rest--cryptographic-protection"></a>SC-28 (1) proteção de informações em repouso | Proteção criptográfica
 
@@ -265,11 +262,11 @@ Este projeto ajuda você a monitorar o sistema ao auditar e impor o registro em 
 
 - \[visualização\]: auditoria Log Analytics implantação do agente – imagem da VM (SO) não listada
 - \[visualização\]: auditoria Log Analytics implantação do agente em VMSS-imagem da VM (SO) não listada
-- \[visualização\]: Log Analytics do espaço de trabalho de auditoria para VM – relatar incompatibilidade
+- \[Pré-visualização\]: auditar a área de trabalho do Log Analytics para VM - erro de correspondência de relatório
 - \]de visualização do \[: implantar o agente de Log Analytics para conjuntos de dimensionamento de VM do Linux (VMSS)
-- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
+- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux
 - \]de visualização de \[: implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
-- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
+- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows
 - A segurança de dados avançada deve ser habilitada em suas instâncias gerenciadas
 - A segurança de dados avançada deve estar ativada nos seus servidores SQL
 - Implantar a segurança de dados avançada em servidores SQL
@@ -289,7 +286,7 @@ Agora que você analisou o mapeamento de controle do plano gráfico moderado do 
 > [FedRAMP moderado Blueprint-visão geral](./index.md)
 > [FodRAMP moderado Blueprint – etapas de implantação](./deploy.md)
 
-Artigos adicionais sobre plantas e como usá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

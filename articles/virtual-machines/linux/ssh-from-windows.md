@@ -1,5 +1,5 @@
 ---
-title: Usar chaves SSH com Windows para VMs Linux | Microsoft Docs
+title: Utilizar chaves SSH com Windows para VMs do Linux
 description: Saiba como gerar e usar chaves SSH em um computador Windows para se conectar a uma máquina virtual Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: e8e63f2c916153b5d43267869d7bc5be8fa646c0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e01fb23bbf1720f7d8df9c269373c1b8dc3ec75c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081984"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034812"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Como usar chaves SSH com o Windows no Azure
 
@@ -43,21 +43,21 @@ Outros clientes SSH do Windows comuns que você pode instalar localmente estão 
 
 Você também pode usar os utilitários SSH disponíveis no bash no [Azure cloud Shell](../../cloud-shell/overview.md). 
 
-* Acesse Cloud Shell no navegador da Web [https://shell.azure.com](https://shell.azure.com) em ou no [portal do Azure](https://portal.azure.com). 
+* Acesse Cloud Shell no seu navegador da Web em [https://shell.azure.com](https://shell.azure.com) ou no [portal do Azure](https://portal.azure.com). 
 * Acesse Cloud Shell como um terminal de dentro do Visual Studio Code instalando a [extensão de conta do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 ## <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
-As seções a seguir descrevem duas opções para criar um par de chaves SSH no Windows. Você pode usar um comando do Shell`ssh-keygen`() ou uma ferramenta de GUI (puttygen). Observe também que, ao usar o PowerShell para criar uma chave, carregue a chave pública como o formato SSH. com (SECSH). Ao usar a CLI, converta a chave no formato OpenSSH antes de carregar. 
+As seções a seguir descrevem duas opções para criar um par de chaves SSH no Windows. Você pode usar um comando do Shell (`ssh-keygen`) ou uma ferramenta GUI (PuTTYgen). Observe também que, ao usar o PowerShell para criar uma chave, carregue a chave pública como o formato SSH. com (SECSH). Ao usar a CLI, converta a chave no formato OpenSSH antes de carregar. 
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>Criar chaves SSH com ssh-keygen
 
-Se você executar um shell de comando no Windows que dá suporte a ferramentas de cliente SSH (ou usar Azure cloud Shell), crie um par de `ssh-keygen` chaves SSH usando o comando. Digite o comando a seguir e responda aos prompts. Se um par de chaves SSH existir no local escolhido, esses arquivos serão substituídos. 
+Se você executar um shell de comando no Windows que dá suporte a ferramentas de cliente SSH (ou usar Azure Cloud Shell), crie um par de chaves SSH usando o comando `ssh-keygen`. Digite o comando a seguir e responda aos prompts. Se um par de chaves SSH existir no local escolhido, esses arquivos serão substituídos. 
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-Para obter mais informações, consulte as etapas [rápidas](mac-create-ssh-keys.md) ou [detalhadas](create-ssh-keys-detailed.md) para criar chaves SSH usando `ssh-keygen`o.
+Para obter mais informações, consulte as etapas [rápidas](mac-create-ssh-keys.md) ou [detalhadas](create-ssh-keys-detailed.md) para criar chaves SSH usando `ssh-keygen`.
 
 ### <a name="create-ssh-keys-with-puttygen"></a>Criar chaves SSH com PuTTYgen
 
@@ -81,7 +81,7 @@ Para criar um par de chaves SSH RSA com PuTTYgen:
 
     ![Salvar arquivo de chave privada de saída](./media/ssh-from-windows/save-ppk-file.png)
 
-    Se você quiser salvar a chave privada no formato OpenSSH, o formato de chave privada usado por muitos clientes ssh, selecione conversões > **Exportar chave OpenSSH**.
+    Se você quiser salvar a chave privada no formato OpenSSH, o formato de chave privada usado por muitos clientes SSH, selecione **conversões** > **chave OpenSSH de exportação**.
 
 ## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Fornecer uma chave pública SSH ao implantar uma VM
 
@@ -117,7 +117,7 @@ Se você instalou o [pacote de download](https://www.chiark.greenend.org.uk/~sgt
 
     ![Abrir nova conexão de saída](./media/ssh-from-windows/putty-new-connection.png)
 
-3. Selecione a categoria de**autenticação** **SSH** > de **conexão** > . Navegue até e selecione sua chave privada de saída (arquivo. PPK):
+3. Selecione a > **conexão** > a categoria de **autenticação** **SSH** . Navegue até e selecione sua chave privada de saída (arquivo. PPK):
 
     ![Selecione sua chave privada de saída para autenticação](./media/ssh-from-windows/putty-auth-dialog.png)
 

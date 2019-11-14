@@ -1,5 +1,5 @@
 ---
-title: Criar e carregar um VHD de Oracle Linux | Microsoft Docs
+title: Criar e carregar um VHD de Oracle Linux
 description: Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contém um sistema operacional Oracle Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: ede12520fc6db089aea2d22b02dc32e72496830c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 16f3bc9e70f8fac6ab28318e1654742a2c3b76a1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082461"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035376"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Preparar uma máquina virtual do Oracle Linux para o Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -36,7 +36,7 @@ Este artigo pressupõe que você já tenha instalado um sistema operacional Orac
 * O NUMA não tem suporte para tamanhos maiores de VM devido a um bug nas versões de kernel do Linux abaixo de 2.6.37. Esse problema afeta principalmente as distribuições usando o kernel upstream Red Hat 2.6.32. A instalação manual do agente Linux do Azure (waagent) desabilitará automaticamente o NUMA na configuração do GRUB para o kernel do Linux. Mais informações sobre isso podem ser encontradas nas etapas abaixo.
 * Não configure uma partição de permuta no disco do sistema operacional. O agente do Linux pode ser configurado para criar um arquivo de permuta no disco de recursos temporário.  Mais informações sobre isso podem ser encontradas nas etapas abaixo.
 * Todos os VHDs no Azure devem ter um tamanho virtual alinhado a 1 MB. Ao converter de um disco bruto para VHD, você deve garantir que o tamanho do disco bruto seja um múltiplo de 1MB antes da conversão. Consulte [notas de instalação do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
-* Verifique se o `Addons` repositório está habilitado. Edite o `/etc/yum.repos.d/public-yum-ol6.repo`arquivo (Oracle Linux 6) `/etc/yum.repos.d/public-yum-ol7.repo`ou (Oracle Linux 7) e altere a linha `enabled=0` para `enabled=1` em **[ol6_addons]** ou **[ol7_addons]** neste arquivo.
+* Verifique se o repositório de `Addons` está habilitado. Edite o arquivo `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) ou `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7) e altere a `enabled=0` de linha para `enabled=1` em **[ol6_addons]** ou **[ol7_addons]** neste arquivo.
 
 ## <a name="oracle-linux-64"></a>Oracle Linux 6.4 +
 Você deve concluir as etapas de configuração específicas no sistema operacional para que a máquina virtual seja executada no Azure.
@@ -47,12 +47,12 @@ Você deve concluir as etapas de configuração específicas no sistema operacio
    
         # sudo rpm -e --nodeps NetworkManager
    
-    **Nota:** Se o pacote ainda não estiver instalado, esse comando falhará com uma mensagem de erro. Isto era esperado.
-4. Crie um arquivo chamado **Network** no `/etc/sysconfig/` diretório que contém o seguinte texto:
+    **Observação:** Se o pacote ainda não estiver instalado, esse comando falhará com uma mensagem de erro. Isto era esperado.
+4. Crie um arquivo chamado **Network** no diretório `/etc/sysconfig/` que contém o seguinte texto:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
-5. Crie um arquivo chamado **ifcfg-eth0** no `/etc/sysconfig/network-scripts/` diretório que contém o seguinte texto:
+5. Crie um arquivo chamado **ifcfg-eth0** no diretório `/etc/sysconfig/network-scripts/` que contém o seguinte texto:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -83,7 +83,7 @@ Você deve concluir as etapas de configuração específicas no sistema operacio
    
    A inicialização gráfica e silenciosa não são úteis em um ambiente de nuvem onde queremos que todos os logs sejam enviados para a porta serial.
    
-   A `crashkernel` opção pode ser deixada configurada se desejado, mas observe que esse parâmetro reduzirá a quantidade de memória disponível na VM por 128 MB ou mais, o que pode ser um problema nos tamanhos de VM menores.
+   A opção `crashkernel` pode ser deixada configurada se desejado, mas observe que esse parâmetro reduzirá a quantidade de memória disponível na VM por 128MB ou mais, o que pode ser um problema nos tamanhos de VM menores.
 10. Verifique se o servidor SSH está instalado e configurado para iniciar no momento da inicialização.  Normalmente, isso é o padrão.
 11. Instale o agente Linux do Azure executando o comando a seguir. A versão mais recente é 2.0.15.
     
@@ -121,11 +121,11 @@ Preparar uma máquina virtual Oracle Linux 7 para o Azure é muito semelhante ao
 
 1. No Gerenciador do Hyper-V, selecione a máquina virtual.
 2. Clique em **conectar** para abrir uma janela de console para a máquina virtual.
-3. Crie um arquivo chamado **Network** no `/etc/sysconfig/` diretório que contém o seguinte texto:
+3. Crie um arquivo chamado **Network** no diretório `/etc/sysconfig/` que contém o seguinte texto:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
-4. Crie um arquivo chamado **ifcfg-eth0** no `/etc/sysconfig/network-scripts/` diretório que contém o seguinte texto:
+4. Crie um arquivo chamado **ifcfg-eth0** no diretório `/etc/sysconfig/network-scripts/` que contém o seguinte texto:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -147,7 +147,7 @@ Preparar uma máquina virtual Oracle Linux 7 para o Azure é muito semelhante ao
    
         # sudo yum clean all
         # sudo yum -y update
-9. Modifique a linha de inicialização do kernel em sua configuração do grub para incluir parâmetros de kernel adicionais para o Azure. Para fazer isso, abra "/etc/default/grub" em um editor de texto e `GRUB_CMDLINE_LINUX` edite o parâmetro, por exemplo:
+9. Modifique a linha de inicialização do kernel em sua configuração do grub para incluir parâmetros de kernel adicionais para o Azure. Para fazer isso, abra "/etc/default/grub" em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`, por exemplo:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -157,7 +157,7 @@ Preparar uma máquina virtual Oracle Linux 7 para o Azure é muito semelhante ao
    
    A inicialização gráfica e silenciosa não são úteis em um ambiente de nuvem onde queremos que todos os logs sejam enviados para a porta serial.
    
-   A `crashkernel` opção pode ser deixada configurada se desejado, mas observe que esse parâmetro reduzirá a quantidade de memória disponível na VM por 128 MB ou mais, o que pode ser um problema nos tamanhos de VM menores.
+   A opção `crashkernel` pode ser deixada configurada se desejado, mas observe que esse parâmetro reduzirá a quantidade de memória disponível na VM por 128MB ou mais, o que pode ser um problema nos tamanhos de VM menores.
 10. Quando terminar de Editar "/etc/default/grub" por acima, execute o seguinte comando para recompilar a configuração do grub:
     
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
@@ -182,6 +182,6 @@ Preparar uma máquina virtual Oracle Linux 7 para o Azure é muito semelhante ao
         # logout
 15. Clique em **ação-> desligar** no Gerenciador do Hyper-V. Seu VHD do Linux agora está pronto para ser carregado no Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora você está pronto para usar seu Oracle Linux. VHD para criar novas máquinas virtuais no Azure. Se esta for a primeira vez que você está carregando o arquivo. vhd no Azure, consulte [criar uma VM do Linux a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).
 

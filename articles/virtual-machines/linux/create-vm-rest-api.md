@@ -1,5 +1,5 @@
 ---
-title: Criar uma máquina virtual Linux com a API REST do Azure | Microsoft Docs
+title: Criar uma máquina virtual Linux com a API REST do Azure
 description: Saiba como criar uma máquina virtual do Linux no Azure que usa Managed Disks e autenticação SSH com a API REST do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 9851305bdaa2f214e0d00eda3235068cac2ea980
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c1010bf4bde01920449e9252de563d79bfc61997
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083483"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036434"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Criar uma máquina virtual Linux que usa a autenticação SSH com a API REST
 
@@ -35,7 +35,7 @@ Antes de criar e enviar a solicitação, será necessário:
 
 * O `{subscription-id}` para sua assinatura
   * Se você tiver várias assinaturas, consulte [trabalhando com várias assinaturas](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
-* Um `{resourceGroupName}` que você criou antecipadamente
+* Um `{resourceGroupName}` que você criou antes do tempo
 * Uma [interface de rede virtual](../../virtual-network/virtual-network-network-interface.md) no mesmo grupo de recursos
 * Um par de chaves SSH (você pode [gerar um novo](mac-create-ssh-keys.md) se não tiver um)
 
@@ -47,14 +47,14 @@ Para criar ou atualizar uma máquina virtual, use a seguinte operação *Put* :
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2017-12-01
 ```
 
-`{subscription-id}` Além dos `api-version=2017-12-01`parâmetros e `{resourceGroupName}` , você precisará especificar o `{vmName}` (`api-version` é opcional, mas este artigo foi testado com)
+Além dos parâmetros `{subscription-id}` e `{resourceGroupName}`, você precisará especificar o `{vmName}` (`api-version` é opcional, mas este artigo foi testado com `api-version=2017-12-01`)
 
-Os seguintes cabeçalhos são necessários:
+Os seguintes cabeçalhos são obrigatórios:
 
-| Cabeçalho da solicitação   | Descrição |
+| Cabeçalho do pedido   | Descrição |
 |------------------|-----------------|
-| *Tipo de conteúdo:*  | Necessário. Defina como `application/json`. |
-| *Authorization:* | Necessário. Defina como um token `Bearer` de [acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)válido. |
+| *Content-Type:*  | Necessário. Definido como `application/json`. |
+| *Authorization:* | Necessário. Definido com um `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
 
 Para obter informações gerais sobre como trabalhar com solicitações da API REST, consulte [componentes de uma solicitação/resposta da API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -62,16 +62,16 @@ Para obter informações gerais sobre como trabalhar com solicitações da API R
 
 As seguintes definições comuns são usadas para criar um corpo de solicitação:
 
-| Name                       | Requerido | Tipo                                                                                | Descrição  |
+| Nome                       | Necessário | Tipo                                                                                | Descrição  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| location                   | True     | Cadeia de caracteres                                                                              | Localização do recurso. |
-| name                       |          | Cadeia de caracteres                                                                              | Nome para a máquina virtual. |
+| localização                   | Verdadeiro     | string                                                                              | Localização do recurso. |
+| nome                       |          | string                                                                              | Nome para a máquina virtual. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Especifica as configurações de hardware para a máquina virtual. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Especifica as configurações de armazenamento para os discos de máquina virtual. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Especifica as configurações do sistema operacional para a máquina virtual. |
 | properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | Especifica as interfaces de rede da máquina virtual. |
 
-Um corpo de solicitação de exemplo está abaixo. Certifique-se de especificar o nome da VM `{computerName}` nos `{name}` parâmetros e, o nome da `networkInterfaces`interface de rede que você criou, seu nome de `adminUsername` usuário `path`no e e a parte *pública* do seu ssh par de chaves (localizado em, por exemplo `~/.ssh/id_rsa.pub`,) `keyData`em. Outros parâmetros que você pode querer modificar incluem `location` e `vmSize`.  
+Um corpo de solicitação de exemplo está abaixo. Certifique-se de especificar o nome da VM nos parâmetros `{computerName}` e `{name}`, o nome da interface de rede que você criou em `networkInterfaces`, seu nome de usuário em `adminUsername` e `path`e a parte *pública* do seu par de chaves SSH (localizada em, por exemplo, `~/.ssh/id_rsa.pub`) no `keyData`. Outros parâmetros que talvez você queira modificar incluem `location` e `vmSize`.  
 
 ```json
 {
@@ -136,7 +136,7 @@ Você pode usar o cliente de sua preferência para enviar essa solicitação HTT
 
 Há duas respostas bem-sucedidas para a operação criar ou atualizar uma máquina virtual:
 
-| Name        | Tipo                                                                              | Descrição |
+| Nome        | Tipo                                                                              | Descrição |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 criado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Criado     |

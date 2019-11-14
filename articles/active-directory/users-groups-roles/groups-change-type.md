@@ -1,66 +1,65 @@
 ---
-title: Alterar o tipo de associação de grupo estático para dinâmico - Azure Active Directory | Documentos da Microsoft
+title: Alterar a associação de grupo estático para dinâmico – Azure AD | Microsoft Docs
 description: Como criar regras de associação para preencher automaticamente os grupos e uma referência de regra.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd753ca4994975302a0bc6fede61964f80196d7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 34451fcc4597f77464e5e9566613e21e9fecdbc6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60472076"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027319"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Alterar a associação de grupo estático para dinâmico no Azure Active Directory
 
-Pode alterar a associação de um grupo de estático para dinâmico (ou vice-versa) no Azure Active Directory (Azure AD). O Azure AD mantém o mesmo nome do grupo e o ID no sistema, para que todas as referências existentes para o grupo ainda são válidas. Se criar um novo grupo em vez disso, terá de atualizar essas referências. Associação de grupo dinâmico elimina gestão sobrecarga adicionar e remover usuários. Este artigo mostra-lhe como converter os grupos existentes de estático para a associação de grupo dinâmica através do Centro de administração do Azure AD ou cmdlets do PowerShell.
+Você pode alterar a associação de um grupo de estático para dinâmico (ou vice-versa) no Azure Active Directory (Azure AD). O Azure AD mantém o mesmo nome e ID do grupo no sistema, de modo que todas as referências existentes ao grupo ainda são válidas. Se você criar um novo grupo em vez disso, precisará atualizar essas referências. A associação de grupo dinâmico elimina a sobrecarga de gerenciamento adicionando e removendo usuários. Este artigo mostra como converter grupos existentes de associação estática para dinâmica usando o centro de administração do Azure AD ou cmdlets do PowerShell.
 
 > [!WARNING]
-> Quando a alteração um grupo estático existente para um grupo dinâmico, todos os membros existentes são removidos do grupo e, em seguida, a regra de associação é processada para adicionar novos membros. Se o grupo é utilizado para controlar o acesso a aplicações ou recursos, lembre-se de que os membros originais poderão perder o acesso até que a regra de associação é totalmente processada.
+> Ao alterar um grupo estático existente para um grupo dinâmico, todos os membros existentes são removidos do grupo e, em seguida, a regra de associação é processada para adicionar novos membros. Se o grupo for usado para controlar o acesso a aplicativos ou recursos, lembre-se de que os membros originais podem perder o acesso até que a regra de associação seja totalmente processada.
 >
-> Recomendamos que teste a nova regra de associação com antecedência para se certificar de que a nova associação no grupo é conforme esperado.
+> Recomendamos que você teste a nova regra de associação antecipadamente para verificar se a nova associação no grupo está conforme o esperado.
 
-## <a name="change-the-membership-type-for-a-group"></a>Alterar o tipo de associação para um grupo
+## <a name="change-the-membership-type-for-a-group"></a>Alterar o tipo de associação de um grupo
 
-1. Inicie sessão para o [Centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global ou um administrador de utilizadores no seu inquilino.
+1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta que seja um administrador global ou um administrador de usuário em seu locatário.
 2. Selecione **grupos**.
-3. Partir do **todos os grupos** lista, abra o grupo que pretende alterar.
-4. Selecione **propriedades**.
-5. Sobre o **propriedades** página para o grupo, selecione um **tipo de associação** de atribuído (estático), dinâmica de utilizador ou dispositivo dinâmico, consoante o tipo de associação pretendido. Para a associação dinâmica, pode usar o construtor de regra para selecionar as opções para uma regra simples ou escreve uma regra de associação. 
+3. Na lista **todos os grupos** , abra o grupo que você deseja alterar.
+4. Selecione **Propriedades**.
+5. Na página **Propriedades** do grupo, selecione um tipo de **Associação** de um dispositivo atribuído (estático), de usuário dinâmico ou dinâmico, dependendo do tipo de associação desejado. Para associação dinâmica, você pode usar o construtor de regras para selecionar opções para uma regra simples ou escrever uma regra de associação por conta própria. 
 
-Os seguintes passos são um exemplo da alteração de um grupo de estático para a filiação dinâmica para um grupo de utilizadores.
+As etapas a seguir são um exemplo de alteração de um grupo de associação estática para dinâmica para um grupo de usuários.
 
-1. No **propriedades** página para o seu grupo selecionado, selecione um **tipo de associação** de **utilizador dinâmico**, em seguida, selecione Sim na caixa de diálogo que explica as alterações ao grupo associação para continuar. 
+1. Na página **Propriedades** do grupo selecionado, selecione um tipo de **Associação** de **usuário dinâmico**e, em seguida, selecione Sim na caixa de diálogo explicando as alterações na associação de grupo para continuar. 
   
-   ![Selecione o tipo de associação do utilizador dinâmico](./media/groups-change-type/select-group-to-convert.png)
+   ![Selecionar tipo de associação de usuário dinâmico](./media/groups-change-type/select-group-to-convert.png)
   
-2. Selecione **adicionar consulta dinâmica**e, em seguida, forneça a regra.
+2. Selecione **Adicionar consulta dinâmica**e, em seguida, forneça a regra.
   
-   ![Introduza a regra para o grupo dinâmico](./media/groups-change-type/enter-rule.png)
+   ![Insira a regra para o grupo dinâmico](./media/groups-change-type/enter-rule.png)
   
-3. Depois de criar a regra, selecione **adicionar consulta** na parte inferior da página.
-4. Selecione **salvar** sobre o **propriedades** página para o grupo guardar as alterações. O **tipo de associação** do grupo é atualizada imediatamente na lista do grupo.
+3. Depois de criar a regra, selecione **Adicionar consulta** na parte inferior da página.
+4. Selecione **salvar** na página de **Propriedades** do grupo para salvar as alterações. O **tipo de associação** do grupo é atualizado imediatamente na lista de grupos.
 
 > [!TIP]
-> Grupo conversão poderá falhar se a regra de associação que introduziu estava incorreta. É apresentada uma notificação no canto superior direito do portal que contém uma explicação de por que a regra não pode ser aceitos pelo sistema. Lê-lo cuidadosamente para compreender a forma como pode ajustar a regra para que seja válido. Para obter exemplos da sintaxe de regra e uma lista completa de propriedades suportadas, operadores e valores para uma regra de associação, consulte [regras de associação dinâmica para grupos no Azure Active Directory](groups-dynamic-membership.md).
+> A conversão de grupo poderá falhar se a regra de associação que você inseriu estava incorreta. Uma notificação é exibida no canto superior direito do portal que contém uma explicação de por que a regra não pode ser aceita pelo sistema. Leia com atenção para entender como você pode ajustar a regra para torná-la válida. Para obter exemplos de sintaxe de regra e uma lista completa de propriedades, operadores e valores com suporte para uma regra de associação, consulte [regras de associação dinâmica para grupos no Azure Active Directory](groups-dynamic-membership.md).
 
-## <a name="change-membership-type-for-a-group-powershell"></a>Alterar o tipo de associação para um grupo (PowerShell)
+## <a name="change-membership-type-for-a-group-powershell"></a>Alterar o tipo de associação de um grupo (PowerShell)
 
 > [!NOTE]
-> Para alterar as propriedades de grupo dinâmico, terá de utilizar os cmdlets do **a versão de pré-visualização** [Azure AD PowerShell versão 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Pode instalar a pré-visualização dos [galeria do PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
+> Para alterar as propriedades do grupo dinâmico, você precisará usar cmdlets da **versão prévia do PowerShell do** [Azure ad versão 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Você pode instalar a versão prévia do [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
 
-Eis um exemplo das funções que mudar o gerenciamento da associação de um grupo existente. Neste exemplo, é tomar cuidado para manipular a propriedade GroupTypes e preservar os valores que não estão relacionadas com associação de grupo dinâmica corretamente.
+Aqui está um exemplo de funções que alternam o gerenciamento de associação em um grupo existente. Neste exemplo, é necessário ter cuidado para manipular corretamente a propriedade GroupTypes e preservar quaisquer valores que não estejam relacionados à associação dinâmica.
 
 ```powershell
 #The moniker for dynamic groups as used in the GroupTypes property of a group object
@@ -116,9 +115,9 @@ Para tornar um grupo dinâmico:
 ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Estes artigos fornecem informações adicionais sobre os grupos no Azure Active Directory.
+Esses artigos fornecem informações adicionais sobre grupos no Azure Active Directory.
 
 * [Ver grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Criar um novo grupo e adicionar membros](../fundamentals/active-directory-groups-create-azure-portal.md)

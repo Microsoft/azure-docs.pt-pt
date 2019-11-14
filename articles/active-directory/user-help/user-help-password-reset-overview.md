@@ -1,5 +1,5 @@
 ---
-title: Visão geral de redefinir sua própria senha corporativa ou de estudante-Azure Active Directory | Microsoft Docs
+title: Visão geral de redefinir sua própria senha corporativa ou de estudante-Azure AD
 description: Uma lista de links para artigos sobre como registrar e redefinir sua senha corporativa ou de estudante sem assistência ao administrador.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15fbc526822f3b6659bc190ee67c6c17ff96b067
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 57d14ac3cbce6880604ad44b6aa71998ed061c10
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160613"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028495"
 ---
 # <a name="reset-your-own-work-or-school-password-overview"></a>Visão geral de redefinir sua própria senha corporativa ou de estudante
 
@@ -34,5 +34,5 @@ Para obter informações detalhadas e instruções sobre como registrar sua cont
 
 |Artigo |Descrição |
 |------|------------|
-| [Registrar para redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md) ] Instruções sobre como verificar seus métodos de autenticação e inscrever-se para redefinição de senha de autoatendimento para que você possa redefinir sua própria senha.|
-| [Redefinir sua senha](active-directory-passwords-update-your-own-password.md) ] Instruções sobre como redefinir ou desbloquear sua senha para uma conta corporativa ou de estudante.|
+| [Registar-se na reposição personalizada de palavra-passe](active-directory-passwords-reset-register.md) | Instruções sobre como verificar seus métodos de autenticação e inscrever-se para redefinição de senha de autoatendimento para que você possa redefinir sua própria senha. |
+| [Repor a palavra-passe](active-directory-passwords-update-your-own-password.md) | Instruções sobre como redefinir ou desbloquear sua senha para uma conta corporativa ou de estudante. |

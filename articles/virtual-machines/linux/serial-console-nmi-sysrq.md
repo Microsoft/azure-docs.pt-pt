@@ -1,5 +1,5 @@
 ---
-title: Console serial do Azure para chamadas SysRq e NMI | Microsoft Docs
+title: Console serial do Azure para chamadas SysRq e NMI
 description: Usando o console serial para chamadas SysRq e NMI em máquinas virtuais do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 81fb9f99f4f7e4f77b39855445639369f65f0966
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5eba50e7cfc00c081622972ca09f305b34c19c47
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091320"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035001"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Usar o console serial para chamadas SysRq e NMI
 
 ## <a name="system-request-sysrq"></a>Solicitação do sistema (SysRq)
 Um SysRq é uma sequência de chaves compreendidas pelo kernel do sistema operacional Linux, que pode disparar um conjunto de ações predefinidas. Esses comandos são frequentemente usados quando a solução de problemas ou recuperação de máquina virtual não puder ser executada por meio da administração tradicional (por exemplo, se a VM não estiver respondendo). Usar o recurso SysRq do console serial do Azure imitará o pressionamento da tecla SysRq e dos caracteres inseridos em um teclado físico.
 
-Depois que a sequência SysRq for entregue, a configuração do kernel controlará como o sistema responde. Para obter informações sobre como habilitar e desabilitar o SysRq, consulte o *Guia de administração do SysRq* [redução](https://aka.ms/linuxsysrq)de [texto](https://aka.ms/kernelorgsysreqdoc) | .  
+Depois que a sequência SysRq for entregue, a configuração do kernel controlará como o sistema responde. Para obter informações sobre como habilitar e desabilitar o SysRq, consulte o [texto](https://aka.ms/kernelorgsysreqdoc) do *Guia de administração do SysRq* | [redução](https://aka.ms/linuxsysrq).  
 
 O console serial do Azure pode ser usado para enviar um SysRq para uma máquina virtual do Azure usando o ícone de teclado na barra de comandos mostrada abaixo.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
-Escolher "Enviar comando SysRq" abrirá uma caixa de diálogo, que fornecerá opções de SysRq comuns ou aceitará uma sequência de comandos SysRq inseridos na caixa de diálogo.  Isso permite que a série de SysRq execute uma operação de alto nível, como uma reinicialização segura usando `REISUB`:.
+Escolher "Enviar comando SysRq" abrirá uma caixa de diálogo, que fornecerá opções de SysRq comuns ou aceitará uma sequência de comandos SysRq inseridos na caixa de diálogo.  Isso permite que a série de SysRq execute uma operação de alto nível, como uma reinicialização segura usando: `REISUB`.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
@@ -59,16 +59,16 @@ No guia do administrador do SysRq acima:
 |``e``  |   Envie um SIGTERM para todos os processos, exceto para init.
 |``f``  |   Chamará a Killer de OOM para eliminar um processo de exagero de memória, mas não entrará em pânico se nada puder ser eliminado.
 |``g``  |   Usado por KGDB (depurador de kernel)
-|``h``  |   Exibirá a ajuda (qualquer outra chave do que aquelas listadas aqui também exibirá ``h`` a ajuda, mas é fácil de lembrar:-)
+|``h``  |   Exibirá a ajuda (qualquer outra chave do que aquelas listadas aqui também exibirá a ajuda, mas ``h`` é fácil de lembrar:-)
 |``i``  |    Envie um SIGKILL para todos os processos, exceto para init.
 |``j``  |    Forçosamente "apenas descongelar" – sistemas de filecongelado pelo FIFREEZE IOCTL.
-|``k``  |    A SAK (chave de acesso seguro) elimina todos os programas no console virtual atual. NOTA: Consulte os comentários importantes abaixo na seção SAK.
+|``k``  |    A SAK (chave de acesso seguro) elimina todos os programas no console virtual atual. Observação: Veja os comentários importantes abaixo na seção SAK.
 |``l``  |    Mostra um rastreamento inativo de pilha para todas as CPUs ativas.
 |``m``  |    O irá despejar informações de memória atuais no seu console.
 |``n``  |    Usado para tornar as tarefas RT mais interessantes
 |``o``  |    O desligará o sistema (se configurado e tiver suporte).
 |``p``  |    O despejará os registros e os sinalizadores atuais em seu console.
-|``q``  |    Despejará por listas de CPU de todos os hrtimers armado (mas não de temporizadores de timer_list regulares) e informações detalhadas sobre todos os dispositivos clockevent.
+|``q``  |    Despejará por listas de CPU de todos os hrtimers armado (mas não timer_list temporizadores regulares) e informações detalhadas sobre todos os dispositivos clockevent.
 |``r``  |    Desativa o modo RAW do teclado e o define como XLATE.
 |``s``  |    Tentará sincronizar todos os sistemas de sistema montados.
 |``t``  |    Despejará uma lista de tarefas atuais e suas informações em seu console.
@@ -79,7 +79,7 @@ No guia do administrador do SysRq acima:
 |``x``  |    Usado pela interface xmon em plataformas PPC/PowerPC. Mostrar registros de PMU globais em sparc64. Despeja todas as entradas de TLB em MIPS.
 |``y``  |    Mostrar registros de CPU globais [SPARC-64 específico]
 |``z``  |    Despejar o buffer ftrace
-|``0``-``9`` | Define o nível de log do console, controlando quais mensagens de kernel serão impressas no console. (``0``por exemplo, o faria para que apenas mensagens de emergência, como panes ou OPAS, o tornem para o console.)
+|``0``-``9`` | Define o nível de log do console, controlando quais mensagens de kernel serão impressas no console. (``0``, por exemplo, faria isso para que apenas mensagens de emergência, como PANEs ou Ops, o façam para o seu console.)
 
 ### <a name="distribution-specific-documentation"></a>Documentação específica da distribuição ###
 Para obter a documentação específica de distribuição em SysRq e as etapas para configurar o Linux para criar um despejo de memória ao receber um comando de "falha" de SysRq, consulte os links abaixo:
@@ -110,7 +110,7 @@ Para sistemas Linux que dão suporte a sysctl para configurar parâmetros de ker
 1. Reinicializando ou atualizando sysctl executando <br>
     `sysctl -p`
 
-Para obter mais informações sobre as configurações de kernel `unknown_nmi_panic`do `panic_on_io_nmi`Linux, `panic_on_unrecovered_nmi`incluindo, e, consulte: [Documentação para/proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Para obter a documentação específica de distribuição sobre NMI e as etapas para configurar o Linux para criar um despejo de memória ao receber um NMI, consulte os links abaixo:
+Para obter mais informações sobre as configurações de kernel do Linux, incluindo `unknown_nmi_panic`, `panic_on_io_nmi`e `panic_on_unrecovered_nmi`, consulte: [documentação para/proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Para obter a documentação específica de distribuição sobre NMI e as etapas para configurar o Linux para criar um despejo de memória ao receber um NMI, consulte os links abaixo:
  
 ### <a name="ubuntu"></a>Ubuntu 
  - [Despejo de memória do kernel](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
@@ -126,7 +126,7 @@ Para obter mais informações sobre as configurações de kernel `unknown_nmi_pa
 ### <a name="coreos"></a>CoreOS 
 - [Coletando logs de falhas](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * A página principal de documentação do Linux do console serial está localizada [aqui](serial-console.md).
 * Usar o console serial para inicializar no [grub e entrar no modo de usuário único](serial-console-grub-single-user-mode.md)
 * O console serial também está disponível para VMs do [Windows](../windows/serial-console.md)

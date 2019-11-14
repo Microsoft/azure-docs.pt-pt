@@ -1,66 +1,66 @@
 ---
-title: Resolver erros de Gateway inválido do Azure Application Gateway (502)
-description: Saiba como resolver erros de 502 Gateway de aplicação
+title: Solucionar erros de gateway inválidos-Aplicativo Azure gateway
+description: Saiba como solucionar problemas de erros do Application Gateway 502
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/25/2019
+ms.date: 11/14/2019
 ms.author: amsriva
-ms.openlocfilehash: 2a1c7e480e896da6852949c9d765d17290e4e9ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: baf1eccdd6fe910bd98e8b39ef29b7bd8e88a7d5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64697169"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048146"
 ---
-# <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Resolução de problemas de erros de gateway inválido no Gateway de aplicação
+# <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solucionando problemas de erros de gateway inválidos no gateway de aplicativo
 
-Saiba como resolver erros de gateway inválido (502) recebidos ao utilizar o Gateway de aplicação do Azure.
+Saiba como solucionar problemas de erros de gateway inválidos (502) recebidos ao usar o gateway de Aplicativo Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Descrição geral
 
-Depois de configurar um gateway de aplicação, um dos erros que poderá ver é "erro de servidor: 502 - o Servidor Web recebeu uma resposta inválida enquanto funcionava como um servidor de gateway ou proxy". Este erro pode acontecer pelos seguintes motivos principais:
+Depois de configurar um gateway de aplicativo, um dos erros que você pode ver é "erro de servidor: 502-o servidor Web recebeu uma resposta inválida ao atuar como um gateway ou servidor proxy". Esse erro pode ocorrer pelos seguintes motivos principais:
 
-* NSG, o UDR ou o DNS personalizado está a bloquear o acesso para membros do conjunto de back-end.
-* VMs ou instâncias do conjunto de dimensionamento de máquina virtual de back-end não estão a responder para a sonda de estado de funcionamento padrão.
-* Configuração inválida ou incorreta de sondas de estado de funcionamento personalizados.
-* O Azure do Gateway de aplicação [conjunto de back-end não está configurado ou está vazio](#empty-backendaddresspool).
-* Nenhuma das VMs ou instâncias num [conjunto de dimensionamento de máquina virtual estão em bom estado](#unhealthy-instances-in-backendaddresspool).
-* [Problemas de conectividade ou limite de tempo do pedido](#request-time-out) com pedidos de utilizador.
+* NSG, UDR ou DNS personalizado está bloqueando o acesso aos membros do pool de back-end.
+* As VMs de back-end ou as instâncias do conjunto de dimensionamento de máquinas virtuais não estão respondendo à investigação de integridade padrão.
+* Configuração inválida ou incorreta de investigações de integridade personalizadas.
+* O pool de [back-end do Gateway aplicativo Azure não está configurado ou vazio](#empty-backendaddresspool).
+* Nenhuma das VMs ou instâncias no [conjunto de dimensionamento de máquinas virtuais está íntegra](#unhealthy-instances-in-backendaddresspool).
+* [Tempo limite de solicitação ou problemas de conectividade](#request-time-out) com solicitações do usuário.
 
-## <a name="network-security-group-user-defined-route-or-custom-dns-issue"></a>Problema de DNS personalizado, rota definida pelo utilizador ou grupo de segurança de rede
+## <a name="network-security-group-user-defined-route-or-custom-dns-issue"></a>Grupo de segurança de rede, rota definida pelo usuário ou problema de DNS personalizado
 
 ### <a name="cause"></a>Causa
 
-Se o acesso ao back-end estiver bloqueado devido a um NSG, o UDR ou o DNS personalizado, instâncias de gateway de aplicação não é possível alcançar o conjunto de back-end. Isso faz com que as falhas de pesquisa, resultando em 502 erros.
+Se o acesso ao back-end for bloqueado por causa de um DNS NSG, UDR ou personalizado, as instâncias do gateway de aplicativo não poderão alcançar o pool de back-end. Isso causa falhas de investigação, resultando em erros 502.
 
-O NSG/UDR podem estar presente na sub-rede de gateway de aplicação ou a sub-rede onde as VMs de aplicação estão implementadas.
+O NSG/UDR pode estar presente na sub-rede do gateway de aplicativo ou na sub-rede em que as VMs de aplicativo são implantadas.
 
-Da mesma forma, a presença de um DNS personalizado na VNet também pode causar problemas. Um FQDN utilizado para membros do agrupamento de back-end poderá não resolver corretamente pelo servidor DNS configurado do utilizador para a VNet.
+Da mesma forma, a presença de um DNS personalizado na VNet também poderia causar problemas. Um FQDN usado para membros do pool de back-end pode não ser resolvido corretamente pelo servidor DNS configurado pelo usuário para a VNet.
 
 ### <a name="solution"></a>Solução
 
-Valide a configuração de NSG, UDR e DNS ao efetuar os seguintes passos:
+Valide a configuração de NSG, UDR e DNS percorrendo as seguintes etapas:
 
-* Verifique os NSGs associados com a sub-rede do gateway de aplicação. Certifique-se de que a comunicação com o back-end não está bloqueada.
-* Verifique a que UDR associado à sub-rede de gateway de aplicação. Certifique-se de que o UDR não é direcionar o tráfego para fora da sub-rede de back-end. Por exemplo, verificar para o encaminhamento para aplicações virtuais ou rotas predefinidas que está a ser anunciadas para a sub-rede do gateway de aplicação através do ExpressRoute/VPN de rede.
+* Verifique NSGs associado à sub-rede do gateway de aplicativo. Verifique se a comunicação com o back-end não está bloqueada.
+* Verifique UDR associado à sub-rede do gateway de aplicativo. Verifique se o UDR não está direcionando o tráfego para fora da sub-rede de back-end. Por exemplo, verifique o roteamento para dispositivos virtuais de rede ou rotas padrão sendo anunciadas para a sub-rede do gateway de aplicativo via ExpressRoute/VPN.
 
 ```azurepowershell
 $vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
 Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
-* Verifique NSG em vigor e a rota com a VM de back-end
+* Verificar NSG e rotear em vigor com a VM de back-end
 
 ```azurepowershell
 Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
 Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
 ```
 
-* Verifique a presença de DNS personalizado na VNet. DNS pode ser verificado ao observar a detalhes das propriedades na saída da VNet.
+* Verifique a presença do DNS personalizado na VNet. O DNS pode ser verificado examinando os detalhes das propriedades de VNet na saída.
 
 ```json
 Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName 
@@ -70,71 +70,71 @@ DhcpOptions            : {
                            ]
                          }
 ```
-Se estiver presente, certifique-se de que o servidor DNS pode resolver FQDN o membro de conjunto de back-end corretamente.
+Se estiver presente, verifique se o servidor DNS pode resolver corretamente o FQDN do membro do pool de back-end.
 
-## <a name="problems-with-default-health-probe"></a>Problemas com a sonda de estado de funcionamento predefinida
+## <a name="problems-with-default-health-probe"></a>Problemas com a investigação de integridade padrão
 
 ### <a name="cause"></a>Causa
 
-502 erros também podem ser indicadores freqüentes que a sonda de estado de funcionamento predefinido não é possível contactar a VMs de back-end.
+502 erros também podem ser indicadores frequentes que a investigação de integridade padrão não pode alcançar VMs de back-end.
 
-Quando uma instância de gateway de aplicação é aprovisionada, este configura automaticamente uma sonda de estado de funcionamento padrão para cada BackendAddressPool usando propriedades do BackendHttpSetting. Sem intervenção do utilizador tem de definir esta pesquisa. Especificamente, quando uma regra de balanceamento de carga estiver configurada, é efetuada uma associação entre um BackendHttpSetting e um BackendAddressPool. Uma pesquisa predefinida está configurada para cada um dessas associações e o gateway de aplicação é iniciada uma ligação de verificação periódica do Estado de funcionamento para cada instância no BackendAddressPool nas portas especificada no elemento BackendHttpSetting. 
+Quando uma instância do gateway de aplicativo é provisionada, ela configura automaticamente uma investigação de integridade padrão para cada BackendAddressPool usando as propriedades de BackendHttpSetting. Nenhuma entrada do usuário é necessária para definir essa investigação. Especificamente, quando uma regra de balanceamento de carga é configurada, uma associação é feita entre um BackendHttpSetting e um BackendAddressPool. Uma investigação padrão é configurada para cada uma dessas associações e o gateway de aplicativo inicia uma conexão de verificação de integridade periódica para cada instância no BackendAddressPool na porta especificada no elemento BackendHttpSetting. 
 
-A tabela seguinte lista os valores associados a sonda de estado de funcionamento predefinida:
+A tabela a seguir lista os valores associados à investigação de integridade padrão:
 
-| Propriedade de pesquisa | Value | Descrição |
+| Propriedade de investigação | Valor | Descrição |
 | --- | --- | --- |
-| URL de sonda |`http://127.0.0.1/` |Caminho do URL |
-| Interval |30 |Intervalo de sonda em segundos |
-| Tempo limite |30 |Tempo limite de sonda em segundos |
-| Limiar de mau estado de funcionamento |3 |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
+| URL de investigação |`http://127.0.0.1/` |Caminho da URL |
+| Intervalo |30 |Intervalo de investigação em segundos |
+| Tempo limite |30 |Tempo limite de investigação em segundos |
+| Limite não íntegro |3 |Contagem de repetição de investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir o limite não íntegro. |
 
 ### <a name="solution"></a>Solução
 
-* Certifique-se de que um site predefinido está configurado e está à escuta em 127.0.0.1.
-* Se BackendHttpSetting especificar uma porta diferente da 80, o site predefinido deve ser configurado para escutar nessa porta.
-* A chamada para `http://127.0.0.1:port` deverá devolver um código de resultado HTTP de 200. Este deve ser devolvido dentro do período de tempo limite de 30 segundos.
-* Certifique-se de que a porta configurada está aberta e que não há regras de firewall ou grupos de segurança do Azure rede, que bloqueia o tráfego de entrada ou de saída na porta configurada.
-* Se as VMs clássicas do Azure ou serviço em nuvem é utilizado com um FQDN ou um IP público, certifique-se de que o correspondente [ponto final](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) é aberto.
-* Se a VM é configurada através do Azure Resource Manager e estiver fora da VNet em que o gateway de aplicação é implementado, uma [grupo de segurança de rede](../virtual-network/security-overview.md) tem de ser configurado para permitir o acesso a porta pretendida.
+* Verifique se um site padrão está configurado e escutando em 127.0.0.1.
+* Se BackendHttpSetting especificar uma porta diferente de 80, o site padrão deverá ser configurado para escutar nessa porta.
+* A chamada para `http://127.0.0.1:port` deve retornar um código de resultado HTTP de 200. Isso deve ser retornado dentro do período de tempo limite de 30 segundos.
+* Verifique se a porta configurada está aberta e se não há regras de firewall ou grupos de segurança de rede do Azure, que bloqueiam o tráfego de entrada ou saída na porta configurada.
+* Se as VMs clássicas do Azure ou o serviço de nuvem forem usados com um FQDN ou um IP público, verifique se o [ponto de extremidade](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) correspondente está aberto.
+* Se a VM estiver configurada via Azure Resource Manager e estiver fora da VNet em que o gateway de aplicativo está implantado, um [grupo de segurança de rede](../virtual-network/security-overview.md) deverá ser configurado para permitir o acesso na porta desejada.
 
-## <a name="problems-with-custom-health-probe"></a>Problemas com a sonda de estado de funcionamento personalizados
+## <a name="problems-with-custom-health-probe"></a>Problemas com a investigação de integridade personalizada
 
 ### <a name="cause"></a>Causa
 
-Sondas de estado de funcionamento personalizadas permitem maior flexibilidade para a predefinição de comportamento de pesquisa. Ao utilizar sondas personalizadas, pode configurar o intervalo de pesquisa, o URL, o caminho para testar e quantos respostas com falhas para aceitar antes de os marcar a instância de conjunto de back-end como mau estado de funcionamento.
+As investigações de integridade personalizadas permitem flexibilidade adicional para o comportamento de investigação padrão. Ao usar investigações personalizadas, você pode configurar o intervalo de investigação, a URL, o caminho a ser testado e quantas respostas com falha aceitar antes de marcar a instância do pool de back-end como não íntegra.
 
 As seguintes propriedades adicionais são adicionadas:
 
-| Propriedade de pesquisa | Descrição |
+| Propriedade de investigação | Descrição |
 | --- | --- |
-| Name |Nome da sonda. Este nome é utilizado para fazer referência a sonda nas definições de HTTP de back-end. |
-| Protocol |Protocolo utilizado para enviar a sonda. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
-| Host |Nome de anfitrião para enviar a sonda. Aplicável apenas quando vários sites está configurada no gateway de aplicação. Isso é diferente do nome de anfitrião VM. |
-| Caminho |Caminho relativo da sonda. O caminho válido começa com "/". A sonda é enviada ao \<protocolo\>://\<anfitrião\>:\<porta\>\<caminho\> |
-| Interval |Intervalo de sonda em segundos. Este é o intervalo de tempo entre dois sondas consecutivos. |
-| Tempo limite |Sonda de tempo limite em segundos. Se não for recebida uma resposta de válida dentro deste período de tempo limite, a sonda está marcada como falhado. |
-| Limiar de mau estado de funcionamento |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
+| Nome |Nome da investigação. Esse nome é usado para fazer referência à investigação nas configurações de HTTP de back-end. |
+| Protocolo |Protocolo usado para enviar a investigação. A investigação usa o protocolo definido nas configurações de HTTP de back-end |
+| Anfitrião |Nome do host para enviar a investigação. Aplicável somente quando vários sites estão configurados no gateway de aplicativo. Isso é diferente do nome de host da VM. |
+| Caminho |Caminho relativo da investigação. O caminho válido começa com '/'. A investigação é enviada para \<protocolo\>://\<host\>:\<porta\>caminho \<\> |
+| Intervalo |Intervalo de investigação em segundos. Esse é o intervalo de tempo entre duas investigações consecutivas. |
+| Tempo limite |Tempo limite de investigação em segundos. Se uma resposta válida não for recebida dentro desse período de tempo limite, a investigação será marcada como com falha. |
+| Limite não íntegro |Contagem de repetição de investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir o limite não íntegro. |
 
 ### <a name="solution"></a>Solução
 
-Verifique se a sonda de estado de funcionamento personalizado está configurada corretamente, como a tabela anterior. Além dos passos de resolução de problemas anteriores, certifique-se também o seguinte:
+Valide se a investigação de integridade personalizada está configurada corretamente como a tabela anterior. Além das etapas de solução de problemas anteriores, verifique também o seguinte:
 
-* Certifique-se de que a sonda está especificada corretamente, de acordo a [guia](application-gateway-create-probe-ps.md).
-* Se o gateway de aplicação está configurado para um único site, por predefinição, o anfitrião o nome deve ser especificado como `127.0.0.1`, a menos que caso contrário, configuradas na sonda personalizada.
-* Certifique-se de que uma chamada para http://\<host\>:\<porta\>\<caminho\> devolve um código de resultado HTTP de 200.
-* Certifique-se de que intervalo de tempo limite e UnhealtyThreshold estão dentro dos intervalos aceitáveis.
-* Se utilizar uma sonda HTTPS, certifique-se de que o servidor de back-end não requer SNI ao configurar um certificado de contingência no próprio servidor de back-end.
+* Verifique se a investigação foi especificada corretamente de acordo com o [guia](application-gateway-create-probe-ps.md).
+* Se o gateway de aplicativo estiver configurado para um único site, por padrão, o nome do host deverá ser especificado como `127.0.0.1`, a menos que configurado de outra forma na investigação personalizada.
+* Verifique se uma chamada para http://\<host\>:\<porta\>caminho \<\> retorna um código de resultado HTTP 200.
+* Certifique-se de que intervalo, tempo limite e UnhealtyThreshold estão dentro dos intervalos aceitáveis.
+* Se estiver usando uma investigação HTTPS, certifique-se de que o servidor back-end não exija SNI Configurando um certificado de fallback no próprio servidor back-end.
 
-## <a name="request-time-out"></a>Limite de tempo do pedido
+## <a name="request-time-out"></a>Tempo limite da solicitação
 
 ### <a name="cause"></a>Causa
 
-Quando é recebido um pedido de utilizador, o gateway de aplicação aplica as regras configuradas para o pedido e a encaminha para uma instância de conjunto de back-end. Ele aguarda um intervalo configurável de tempo para uma resposta a partir da instância de back-end. Por predefinição, é este intervalo **20** segundos. Se o gateway de aplicação não recebeu uma resposta da aplicação de back-end neste intervalo, o pedido de utilizador obtém um erro de 502.
+Quando uma solicitação de usuário é recebida, o gateway de aplicativo aplica as regras configuradas à solicitação e a roteia para uma instância de pool de back-end. Ele aguarda um intervalo configurável de tempo para uma resposta da instância de back-end. Por padrão, esse intervalo é de **20** segundos. Se o gateway de aplicativo não receber uma resposta do aplicativo de back-end nesse intervalo, a solicitação do usuário receberá um erro 502.
 
 ### <a name="solution"></a>Solução
 
-Gateway de aplicação permite-lhe configurar esta definição através de BackendHttpSetting, que pode ser aplicado, em seguida, para conjuntos diferentes. Diferentes conjuntos de back-end podem ter diferente BackendHttpSetting e um limite de tempo do pedido diferentes configurados.
+O gateway de aplicativo permite que você defina essa configuração por meio do BackendHttpSetting, que pode ser aplicado a diferentes pools. Diferentes pools de back-end podem ter BackendHttpSetting diferentes e um tempo limite de solicitação diferente configurado.
 
 ```azurepowershell
     New-AzApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
@@ -144,17 +144,17 @@ Gateway de aplicação permite-lhe configurar esta definição através de Backe
 
 ### <a name="cause"></a>Causa
 
-Se o gateway de aplicação não tem VMs ou conjunto de dimensionamento de máquina virtual configurado no conjunto de endereços de back-end, ele não é possível encaminhar qualquer solicitação do cliente e envia um erro de gateway inválido.
+Se o gateway de aplicativo não tiver VMs ou um conjunto de dimensionamento de máquinas virtuais configurado no pool de endereços de back-end, ele não poderá rotear nenhuma solicitação de cliente e enviará um erro de gateway inadequado.
 
 ### <a name="solution"></a>Solução
 
-Certifique-se de que o conjunto de endereços de back-end não está vazio. Isso pode ser feito através do PowerShell, CLI ou do portal.
+Verifique se o pool de endereços de back-end não está vazio. Isso pode ser feito por meio do PowerShell, da CLI ou do Portal.
 
 ```azurepowershell
 Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
-A saída do cmdlet anterior deve conter o conjunto de endereços de back-end não vazia. O exemplo seguinte mostra dois conjuntos de devolvido que estão configurado com um FQDN ou um endereços IP para o VMs de back-end. O estado de aprovisionamento do BackendAddressPool deve ser "com êxito".
+A saída do cmdlet anterior deve conter um pool de endereços de back-end não vazio. O exemplo a seguir mostra dois pools retornados que são configurados com um FQDN ou endereços IP para as VMs de back-end. O estado de provisionamento de BackendAddressPool deve ser ' Succeeded '.
 
 BackendAddressPoolsText:
 
@@ -182,17 +182,17 @@ BackendAddressPoolsText:
 }]
 ```
 
-## <a name="unhealthy-instances-in-backendaddresspool"></a>Instâncias de mau estado de funcionamento no BackendAddressPool
+## <a name="unhealthy-instances-in-backendaddresspool"></a>Instâncias não íntegras em BackendAddressPool
 
 ### <a name="cause"></a>Causa
 
-Se todas as instâncias de BackendAddressPool estiverem em mau estado de funcionamento, o gateway de aplicação não tem qualquer back-end para encaminhar o pedido de utilizador para. Isso também pode ser o caso quando as instâncias de back-end estão em bom estadas, mas não tem a aplicação necessária implementada.
+Se todas as instâncias de BackendAddressPool não estiverem íntegras, o gateway de aplicativo não terá nenhum back-end para rotear a solicitação do usuário para. Esse também pode ser o caso quando as instâncias de back-end estão íntegras, mas não têm o aplicativo necessário implantado.
 
 ### <a name="solution"></a>Solução
 
-Certifique-se de que as instâncias estão em bom estadas e a aplicação está configurada corretamente. Verifique se as instâncias de back-end podem responder a um ping a partir de outra VM na mesma VNet. Se configurado com um ponto final público, certifique-se de que um pedido de navegador para o aplicativo web é serviceable na.
+Verifique se as instâncias estão íntegras e se o aplicativo está configurado corretamente. Verifique se as instâncias de back-end podem responder a um ping de outra VM na mesma VNet. Se configurado com um ponto de extremidade público, verifique se uma solicitação de navegador para o aplicativo Web é de serviço.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se os passos anteriores não resolverem o problema, abra um [pedido de suporte](https://azure.microsoft.com/support/options/).
+Se as etapas anteriores não resolverem o problema, abra um [tíquete de suporte](https://azure.microsoft.com/support/options/).
 

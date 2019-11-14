@@ -1,6 +1,6 @@
 ---
-title: Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Saiba mais sobre as limitações e problemas conhecidos com o Azure Data Lake Storage Gen2
+title: Problemas conhecidos com geração 2 de armazenamento do Azure Data Lake | Documentos da Microsoft
+description: Saiba mais sobre as limitações e problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 95f2dbdbb34ff349d14be430b4e5a4fa84df0f5a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 78693dceaac119279b1c1d06a6c3a18cc4fdb485
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581494"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033947"
 ---
-# <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com o Azure Data Lake Storage Gen2
+# <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
 
 Este artigo lista os recursos e as ferramentas que ainda não têm suporte ou que só têm suporte parcial com contas de armazenamento que têm um namespace hierárquico (Azure Data Lake Storage Gen2).
 
@@ -57,7 +57,7 @@ A tabela a seguir lista todos os outros recursos e ferramentas que ainda não t�
 | **Políticas de gerenciamento do ciclo de vida do armazenamento de BLOBs** | Há suporte para todas as camadas de acesso. A camada de acesso de arquivamento está em visualização no momento. Ainda não há suporte para a exclusão de instantâneos de BLOB. |
 | **CDN (rede de distribuição de conteúdo) do Azure** | Ainda não tem suporte|
 | **Azure Search** |Com suporte (visualização)|
-| **Explorador do Armazenamento do Azure** | Suporte específico à versão <br><br>Use somente a versão `1.6.0` ou superior. <br>A versão `1.6.0` está disponível como um [Download gratuito](https://azure.microsoft.com/features/storage-explorer/).|
+| **Explorador do Armazenamento do Azure** | Suporte específico à versão <br><br>Use somente as versões `1.6.0` por meio de `1.10.0`. <br> A versão `1.10.0` está disponível como um [Download gratuito](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). A versão `1.11.0` ainda não tem suporte.|
 | **ACLs de contêiner de BLOB** |Ainda não tem suporte|
 | **Blobfuse** |Ainda não tem suporte|
 | **Domínios personalizados** |Ainda não tem suporte|

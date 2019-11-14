@@ -1,26 +1,25 @@
 ---
-title: Gerenciamento de unidades administrativas (versão prévia)-Azure Active Directory | Microsoft Docs
+title: Gerenciamento de unidades administrativas (visualização)-Azure AD | Microsoft Docs
 description: Usando unidades administrativas para delegação mais granular de permissões no Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 08/01/2019
+ms.date: 11/13/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b61186a876af90c812ec7faf41fa9f5b14bf4e
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 3c4958975a080a98fb900bf317229ba9eda795d5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336928"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028418"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Gerenciamento de unidades administrativas no Azure Active Directory (versão prévia)
 
@@ -40,7 +39,7 @@ O uso de unidades administrativas requer uma licença de Azure Active Directory 
 
 Nesta versão de visualização, a única maneira de criar e gerenciar unidades administrativas é usar o módulo Azure Active Directory para cmdlets do Windows PowerShell, conforme descrito em [trabalhando com unidades administrativas](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)
 
-Para obter mais informações sobre requisitos de software e como instalar o módulo do Azure AD, e para obter informações de referência sobre os cmdlets de módulo do Azure AD para gerenciar unidades administrativas, incluindo sintaxe, descrições de parâmetros e exemplos, consulte [Azure active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
+Para obter mais informações sobre requisitos de software e como instalar o módulo do Azure AD, e para obter informações de referência sobre os cmdlets de módulo do Azure AD para gerenciar unidades administrativas, incluindo sintaxe, descrições de parâmetros e exemplos, consulte [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
 ## <a name="next-steps"></a>Passos seguintes
 

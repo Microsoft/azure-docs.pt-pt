@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f782c5abe611086baae5d2ad71bc38516039a231
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 3470e27f64a672db0165b0132996db91a1447c08
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796056"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033969"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Acesso de vários protocolos no Azure Data Lake Storage
 
@@ -47,10 +47,11 @@ Os itens que aparecem nesta tabela serão alterados ao longo do tempo, pois o su
 
 |Recurso de armazenamento de BLOBs | Nível de suporte |
 |---|---|
-|[Camada de acesso fria](storage-blob-storage-tiers.md)|Disponível para o público geral|
-|SDKs de BLOB |Disponível para o público geral|
-|[PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Disponível para o público geral|
-|[CLI](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Disponível para o público geral|
+|[Camada de acesso fria](storage-blob-storage-tiers.md)|Disponível em geral|
+|SDKs de BLOB |Disponível em geral|
+|APIs REST de BLOB|Geralmente disponível|
+|[PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Disponível em geral|
+|[CLI](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Disponível em geral|
 |[Registos de diagnóstico](../common/storage-analytics-logging.md)| Pré-visualização|
 |[Políticas de gerenciamento do ciclo de vida](storage-lifecycle-management-concepts.md)| Pré-visualização|
 |[Notificações por meio da grade de eventos do Azure](data-lake-storage-events.md)|Pré-visualização|
@@ -74,11 +75,11 @@ Assim como a lista de recursos de armazenamento de BLOBs com suporte, os itens q
 
 |Serviço do Azure | Nível de suporte |
 |---|---|
-|[Azure Data Box](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|Disponível para o público geral|
-|[Captura de hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|Disponível para o público geral|
-|[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Disponível para o público geral|
-|[Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|Disponível para o público geral|
-|[Aplicativos lógicos](https://azure.microsoft.com/services/logic-apps/)|Disponível para o público geral|
+|[Azure Data Box](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|Disponível em geral|
+|[Captura de hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|Disponível em geral|
+|[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Disponível em geral|
+|[Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|Disponível em geral|
+|[Aplicativos lógicos](https://azure.microsoft.com/services/logic-apps/)|Disponível em geral|
 |[Pesquisa Cognitiva do Azure](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|Pré-visualização|
 
 Para obter a lista completa de suporte a ecossistema do Azure para Data Lake Storage Gen2, consulte [integrar Azure data Lake Storage com os serviços do Azure](data-lake-storage-integrate-with-azure-services.md).

@@ -1,27 +1,28 @@
 ---
-title: Configurar um ouvinte ILB para grupos de disponibilidade Always On no Azure | Microsoft Docs
-description: Este tutorial usa recursos criados com o modelo de implantação clássico e cria um ouvinte de grupo de disponibilidade Always On no Azure que usa um balanceador de carga interno.
+title: Configurar um ouvinte de ILB para grupos de disponibilidade (clássico)
+description: Este tutorial usa recursos criados com o modelo de implantação clássico e cria um ouvinte de grupo de disponibilidade Always On no para uma VM SQL Server no Azure que usa um balanceador de carga interno.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
-ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
+ms.assetid: 291288a0-740b-4cfa-af62-053218beba77j
 ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: ca8adf4f9ce221533240e6c797f1fb01dacf6e8d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 29aaedeafb3995cc09e221d2e049dd538808904a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101914"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032663"
 ---
-# <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configurar um ouvinte ILB para grupos de disponibilidade Always On no Azure
+# <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configurar um ouvinte de ILB para grupos de disponibilidade em VMs SQL Server do Azure
 > [!div class="op_single_selector"]
 > * [Ouvinte interno](../classic/ps-sql-int-listener.md)
 > * [Ouvinte externo](../classic/ps-sql-ext-listener.md)
@@ -57,7 +58,7 @@ Crie um ponto de extremidade com balanceamento de carga para cada VM que hospeda
 
 2. Clique na guia **pontos de extremidade** para cada VM.
 
-3. Verifique se o **nome** e a **porta pública** do ponto de extremidade do ouvinte que você deseja usar ainda não estão em uso. No exemplo nesta seção, o nome é myEndpointe a porta é *1433*.
+3. Verifique se o **nome** e a **porta pública** do ponto de extremidade do ouvinte que você deseja usar ainda não estão em uso. No exemplo nesta seção, o nome é *myEndpoint*e a porta é *1433*.
 
 4. No seu cliente local, baixe e instale o módulo mais recente do [PowerShell](https://azure.microsoft.com/downloads/).
 
@@ -66,7 +67,7 @@ Crie um ponto de extremidade com balanceamento de carga para cada VM que hospeda
 
 6. Execute `Get-AzurePublishSettingsFile`. Esse cmdlet direciona você para um navegador para baixar um arquivo de configurações de publicação em um diretório local. Suas credenciais de logon podem ser solicitadas para sua assinatura do Azure.
 
-7. Execute o seguinte `Import-AzurePublishSettingsFile` comando com o caminho do arquivo de configurações de publicação que você baixou:
+7. Execute o comando `Import-AzurePublishSettingsFile` a seguir com o caminho do arquivo de configurações de publicação que você baixou:
 
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
 
@@ -77,7 +78,7 @@ Crie um ponto de extremidade com balanceamento de carga para cada VM que hospeda
         (Get-AzureVNetConfig).XMLConfiguration
 9. Observe o nome da *sub-rede* da sub-rede que contém as VMs que hospedam as réplicas. Esse nome é usado no parâmetro $SubnetName no script.
 
-10. Observe o nome do *VirtualNetworkSite* e o *AddressPrefix* inicial da sub-rede que contém as VMs que hospedam as réplicas. Procure um endereço IP disponível passando os dois valores para o `Test-AzureStaticVNetIP` comando e examinando o *AvailableAddresses*. Por exemplo, se a rede virtual for nomeada *MyVNet* e tiver um intervalo de endereços de sub-rede que começa em *172.16.0.128*, o seguinte comando listará os endereços disponíveis:
+10. Observe o nome do *VirtualNetworkSite* e o *AddressPrefix* inicial da sub-rede que contém as VMs que hospedam as réplicas. Procure um endereço IP disponível passando os dois valores para o comando `Test-AzureStaticVNetIP` e examinando o *AvailableAddresses*. Por exemplo, se a rede virtual for nomeada *MyVNet* e tiver um intervalo de endereços de sub-rede que começa em *172.16.0.128*, o seguinte comando listará os endereços disponíveis:
 
         (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 11. Selecione um dos endereços disponíveis e use-o no parâmetro $ILBStaticIP do script na próxima etapa.
@@ -164,5 +165,5 @@ Crie o ouvinte do grupo de disponibilidade em duas etapas. Primeiro, crie o recu
 ## <a name="test-the-availability-group-listener-within-the-same-virtual-network"></a>Testar o ouvinte do grupo de disponibilidade (dentro da mesma rede virtual)
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]

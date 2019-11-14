@@ -1,5 +1,5 @@
 ---
-title: Migrar do AWS e de outras plataformas para Managed Disks no Azure | Microsoft Docs
+title: Migrar do AWS e de outras plataformas para Managed Disks no Azure
 description: Crie VMs no Azure usando VHDs carregados de outras nuvens, como AWS ou outras plataformas de virtualização, e aproveite o Azure Managed Disks.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4611efa8767094ea8f92dac584a5610811947620
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: dbce2969ccb508c2bf3ee33730d0b112caa45c9e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102579"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033052"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrar de Amazon Web Services (AWS) e outras plataformas para Managed Disks no Azure
 
@@ -54,7 +54,7 @@ Esta seção ajuda você a tomar a melhor decisão sobre tipos de disco e VM.
 
 Se você estiver planejando a migração de discos não gerenciados para o Managed disks, você deve estar ciente de que os usuários com a função [colaborador da máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) não poderão alterar o tamanho da VM (pois eles poderiam ser previamente convertidos). Isso ocorre porque as VMs com discos gerenciados exigem que o usuário tenha a permissão Microsoft. Compute/disks/Write nos discos do sistema operacional.
 
-### <a name="location"></a>Location
+### <a name="location"></a>Localização
 
 Escolha um local onde o Azure Managed Disks está disponível. Se você estiver migrando para o Managed Disks Premium, verifique também se o armazenamento Premium está disponível na região em que você planeja migrar. Consulte [Serviços do Azure por região](https://azure.microsoft.com/regions/#services) para obter informações atualizadas sobre locais disponíveis.
 
@@ -96,6 +96,6 @@ Por padrão, a política de cache de disco é *somente leitura* para todos os di
 Examine os [preços de Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/). O preço do Managed Disks Premium é o mesmo que os discos não gerenciados Premium. Mas os preços para Managed Disks padrão são diferentes dos discos não gerenciados padrão.
 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 - Antes de carregar qualquer VHD no Azure, você deve seguir [preparar um VHD do Windows ou VHDX para carregar no Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

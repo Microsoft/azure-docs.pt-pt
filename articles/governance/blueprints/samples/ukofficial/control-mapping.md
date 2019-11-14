@@ -1,18 +1,14 @@
 ---
 title: Exemplos do NHS & oficial do Reino Unido no Reino Unido – mapeamento de controle
 description: Mapeamento de controle dos exemplos do plano gráfico do Reino Unido e do Reino Unido NHS. Cada controle é mapeado para uma ou mais políticas do Azure que auxiliam na avaliação.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: e86c7040e94553b032b565e282639047a1ed8750
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5ba7cf481276b236c9299e660acb9668feeea683
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162953"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037771"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapeamento de controle dos exemplos do plano gráfico do Reino Unido e do Reino Unido NHS
 
@@ -48,7 +44,7 @@ Entender onde os recursos do Azure podem ter configurações criptográficas nã
 
 ## <a name="52-vulnerability-management"></a>5,2 gerenciamento de vulnerabilidades
 
-Este projeto ajuda você a gerenciar as vulnerabilidades do sistema de informações atribuindo definições de [Azure Policy](../../../policy/overview.md) que monitoram a proteção de ponto de extremidade ausente, atualizações do sistema ausentes, vulnerabilidades do sistema operacional, vulnerabilidades do SQL e virtual vulnerabilidades do computador. Esses insights fornecem informações em tempo real sobre o estado de segurança de seus recursos implantados e podem ajudá-lo a priorizar as ações de correção.
+Este projeto ajuda a gerenciar as vulnerabilidades do sistema de informações atribuindo [Azure Policy](../../../policy/overview.md) definições que monitoram a proteção de ponto de extremidade ausente, atualizações do sistema ausentes, vulnerabilidades do sistema operacional, vulnerabilidades do SQL e vulnerabilidades da máquina virtual. Esses insights fornecem informações em tempo real sobre o estado de segurança de seus recursos implantados e podem ajudá-lo a priorizar as ações de correção.
 
 - Monitorar Endpoint Protection ausentes na central de segurança do Azure
 - As atualizações do sistema devem ser instaladas em seus computadores
@@ -67,7 +63,7 @@ Este projeto ajuda a proteger os ativos do sistema de informações atribuindo d
 
 ## <a name="9-secure-user-management--10-identity-and-authentication"></a>9 gerenciamento seguro de usuários/10 identidade e autenticação
 
-O Azure implementa o RBAC (controle de acesso baseado em função) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode revisar quem tem acesso aos recursos do Azure e suas permissões. Este projeto ajuda a restringir e controlar os direitos de acesso atribuindo definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou permissões de leitura/gravação e contas com permissão de proprietário, leitura e/ou gravação que não têm vários fatores autenticação habilitada.
+O Azure implementa o RBAC (controle de acesso baseado em função) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode revisar quem tem acesso aos recursos do Azure e suas permissões. Este projeto ajuda a restringir e controlar os direitos de acesso atribuindo definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou permissões de leitura/gravação e contas com permissão de proprietário, leitura e/ou gravação que não têm a autenticação multifator habilitada.
 
 - A MFA deve ser habilitada em contas com permissões de proprietário em sua assinatura
 - A MFA deve ser habilitada para contas com permissões de gravação em sua assinatura
@@ -124,7 +120,7 @@ Além de usar mais de 25 políticas para o gerenciamento de usuários seguro apr
 
 ## <a name="12-secure-service-administration"></a>12 administração segura de serviços
 
-O Azure implementa o RBAC (controle de acesso baseado em função) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode revisar quem tem acesso aos recursos do Azure e suas permissões. Este projeto ajuda a restringir e controlar direitos de acesso privilegiado atribuindo cinco definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou gravação e contas com o proprietário e/ou permissões de gravação que não têm autenticação multifator habilitada.
+O Azure implementa o RBAC (controle de acesso baseado em função) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode revisar quem tem acesso aos recursos do Azure e suas permissões. Este projeto ajuda a restringir e controlar direitos de acesso privilegiado atribuindo cinco definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou gravação e contas com o proprietário e/ou permissões de gravação que não têm a autenticação multifator habilitada.
 
 Os sistemas usados para administração de um serviço de nuvem terão acesso altamente privilegiado a esse serviço. Seu comprometimento teria um impacto significativo, incluindo os meios para ignorar os controles de segurança e roubar ou manipular grandes volumes de dados. Os métodos usados pelos administradores do provedor de serviços para gerenciar o serviço operacional devem ser projetados para atenuar qualquer risco de exploração que possa prejudicar a segurança do serviço. Se esse princípio não for implementado, um invasor poderá ter meios para ignorar os controles de segurança e roubar ou manipular grandes volumes de dados.
 
@@ -156,8 +152,8 @@ Este projeto ajuda a garantir que os eventos do sistema sejam registrados por me
 - A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
 - Definição de diagnóstico de auditoria
 - Auditar configurações de auditoria no nível do SQL Server
-- \]de visualização de \[: implantar o agente de Log Analytics para VMs Linux
-- \]de visualização do \[: implantar o agente de Log Analytics para VMs do Windows
+- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Linux
+- \[Pré-visualização\]: implementar o agente de análise de registo para VMs do Windows
 - Implantar o observador de rede quando redes virtuais forem criadas
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -165,10 +161,10 @@ Este projeto ajuda a garantir que os eventos do sistema sejam registrados por me
 Agora que você analisou o mapeamento de controle dos planos gráficos do Reino Unido e do Reino Unido NHS, visite os artigos a seguir para saber mais sobre a visão geral e como implantar este exemplo:
 
 > [!div class="nextstepaction"]
-> [Plantas NHSis do Reino Unido e do Reino Unido-visão geral](./index.md)
-> [ru Official e plantas de NHS do Reino Unido-etapas de implantação](./deploy.md)
+> [Plantas oficiais do Reino Unido e do Reino Unido do NHS-visão geral](./index.md)
+> plantas oficiais do Reino [Unido e do Reino Unido NHS-implantar etapas](./deploy.md)
 
-Artigos adicionais sobre plantas e como usá-los:
+Artigos adicionais sobre esquemas e como os utilizar:
 
 - Saiba mais sobre o [ciclo de vida do esquema](../../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../../concepts/parameters.md).

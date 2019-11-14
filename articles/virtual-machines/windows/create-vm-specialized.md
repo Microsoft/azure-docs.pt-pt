@@ -1,5 +1,5 @@
 ---
-title: Criar uma VM do Windows de um VHD especializado no Azure | Microsoft Docs
+title: Criar uma VM do Windows de um VHD especializado no Azure
 description: Crie uma nova VM do Windows anexando um disco gerenciado especializado como o disco do sistema operacional usando o modelo de implantação do Gerenciador de recursos.
 services: virtual-machines-windows
 author: cynthn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: be773779b25a32a5904012ae31950b18c33341dc
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: ac18056f9bfdf22c55b5effac810b8c24ab4d81d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553425"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033863"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Criar uma VM do Windows a partir de um disco especializado usando o PowerShell
 
@@ -226,7 +226,7 @@ Para habilitar a comunicação com a máquina virtual na rede virtual, você pre
 
 ### <a name="set-the-vm-name-and-size"></a>Definir o nome e o tamanho da VM
 
-Este exemplo define o nome da VM como *myVM* e o tamanho da VM como *Standard_A2*.
+Este exemplo define o nome da VM como *myVM* e o tamanho da vm como *Standard_A2*.
 
 ```powershell
 $vmName = "myVM"
@@ -267,7 +267,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Verifique se a VM foi criada
-Você deve ver a VM recém-criada na [portal do Azure](https://portal.azure.com) em **procurar** **máquinas virtuais** >  ou usando os comandos do PowerShell a seguir.
+Você deve ver a VM recém-criada na [portal do Azure](https://portal.azure.com) em **procurar** > **máquinas virtuais**ou usando os comandos do PowerShell a seguir.
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup

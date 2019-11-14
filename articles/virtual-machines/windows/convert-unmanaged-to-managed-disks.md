@@ -1,17 +1,17 @@
 ---
-title: Converter uma máquina virtual do Windows de discos não gerenciados em discos gerenciados – Azure Managed Disks | Microsoft Docs
+title: Converter uma máquina virtual do Windows de discos não gerenciados em discos gerenciados – Azure Managed Disks
 description: Como converter uma VM do Windows de discos não gerenciados em discos gerenciados usando o PowerShell no modelo de implantação do Gerenciador de recursos
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 64ff47f1dc4b06d1407497adf41981c670ea9064
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 92f70cbfcf261c218ea43b159ed49126f7b2ecd5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749527"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033907"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual do Windows de discos não gerenciados em discos gerenciados
 

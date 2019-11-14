@@ -1,6 +1,6 @@
 ---
-title: Registar dispositivos pessoais na rede da organização - Azure Active Directory | Documentos da Microsoft
-description: Saiba como registar o seu dispositivo pessoal na rede da sua organização para que possa aceder a recursos protegidos da sua organização.
+title: Registrar dispositivos pessoais na rede de uma organização-Azure AD
+description: Saiba como registrar seu dispositivo pessoal na rede da sua organização para que você possa acessar os recursos protegidos da sua organização.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -14,63 +14,63 @@ ms.author: lizross
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 041c8bb6b4de2bbe2cbeb4c1a89e452239ae57bd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 879fa55df422e6039c6830e25e43637fc31b8037
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473699"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028491"
 ---
-# <a name="register-your-personal-device-on-your-organizations-network"></a>Registar o seu dispositivo pessoal na rede da sua organização
-Registe o seu dispositivo pessoal (normalmente, um telefone ou tablet) na rede da sua organização. Depois do dispositivo estiver registado, será capaz de acessar recursos restritos da sua organização.
+# <a name="register-your-personal-device-on-your-organizations-network"></a>Registrar seu dispositivo pessoal na rede da sua organização
+Registre seu dispositivo pessoal (normalmente um telefone ou Tablet) na rede da sua organização. Depois que o dispositivo for registrado, ele poderá acessar os recursos restritos da sua organização.
 
 >[!Note]
->Este artigo utiliza um dispositivo Windows para fins de demonstração, mas também pode registar dispositivos com iOS, Android ou macOS.
+>Este artigo usa um dispositivo Windows para fins de demonstração, mas você também pode registrar dispositivos que executam iOS, Android ou macOS.
 
-## <a name="what-happens-when-you-register-your-device"></a>O que acontece quando registar o seu dispositivo
-Enquanto estiver a registar o dispositivo na rede da sua organização, irão ocorrer as seguintes ações:
+## <a name="what-happens-when-you-register-your-device"></a>O que acontece quando você registra seu dispositivo
+Enquanto você estiver registrando seu dispositivo na rede da sua organização, as seguintes ações ocorrerão:
 
-- Windows regista o dispositivo na rede da sua organização.
+- O Windows registra seu dispositivo na rede da sua organização.
 
-- Opcionalmente, com base nas opções da sua organização, poderá ser-lhe pedido para configurar a verificação de dois passos através de um [multi-factor Authentication](multi-factor-authentication-end-user-first-time.md) ou [informações de segurança](user-help-security-info-overview.md).
+- Opcionalmente, com base nas opções da sua organização, você pode ser solicitado a configurar a verificação em duas etapas por meio da [autenticação multifator](multi-factor-authentication-end-user-first-time.md) ou das [informações de segurança](user-help-security-info-overview.md).
 
-- Opcionalmente, com base nas opções da sua organização, poderá ser automaticamente inscritos na gestão de dispositivos móveis, como o Microsoft Intune. Para mais informações sobre como inscrever-se no Microsoft Intune, veja [inscrever o seu dispositivo no Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
+- Opcionalmente, com base nas opções da sua organização, você pode ser registrado automaticamente no gerenciamento de dispositivo móvel, como Microsoft Intune. Para obter mais informações sobre o registro em Microsoft Intune, consulte [registrar seu dispositivo no Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
 
-- Vai passar pelo processo de início de sessão, com o nome de utilizador e palavra-passe para a sua conta escolar ou profissional.
+- Você passará pelo processo de entrada, usando o nome de usuário e a senha para sua conta corporativa ou de estudante.
 
-## <a name="to-register-your-windows-device"></a>Para registar o seu dispositivo Windows
+## <a name="to-register-your-windows-device"></a>Para registrar seu dispositivo Windows
 
-Siga estes passos para registar o seu dispositivo pessoal na sua rede.
+Siga estas etapas para registrar seu dispositivo pessoal em sua rede.
 
-1. Open **configurações**e, em seguida, selecione **contas**.
+1. Abra **configurações**e, em seguida, selecione **contas**.
 
-    ![Contas no ecrã de definições](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
+    ![Contas na tela de configurações](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Selecione **acesso profissional ou escolar**e, em seguida, selecione **Connect** partir os **acesso profissional ou escolar** ecrã.
+2. Selecione **acesso corporativo ou de estudante**e, em seguida, selecione **conectar** na tela **acessar o trabalho ou a escola** .
 
-    ![Aceder ao ecrã escolar ou profissional com a opção Connect realçada](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
+    ![Acessar a tela corporativa ou de estudante com a opção conectar realçada](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
-3. Sobre o **adicionar uma conta escolar ou profissional** ecrã, escreva o endereço de e-mail para a sua conta escolar ou profissional e, em seguida, selecione **próxima**. Por exemplo, alain@contoso.com.
+3. Na tela **Adicionar uma conta corporativa ou de estudante** , digite seu endereço de email para sua conta corporativa ou de estudante e, em seguida, selecione **Avançar**. Por exemplo, alain@contoso.com.
 
-4. Inicie sessão na sua conta profissional ou escolar e, em seguida, selecione **iniciar sessão**.
+4. Entre em sua conta corporativa ou de estudante e, em seguida, selecione **entrar**.
 
-5. Conclua o processo de registo, incluindo aprovar o pedido de verificação de identidade (se usar a verificação de dois passos) e configurar o Windows Hello (se necessário).
+5. Conclua o restante do processo de registro, incluindo aprovar sua solicitação de verificação de identidade (se você usar a verificação em duas etapas) e configurar o Windows Hello (se necessário).
 
-## <a name="to-verify-that-youre-registered"></a>Para verificar que está registado
-Pode tornar-se de que é registrado ao observar as suas definições.
+## <a name="to-verify-that-youre-registered"></a>Para verificar se você está registrado
+Você pode verificar se está registrado examinando suas configurações.
 
-1. Open **configurações**e, em seguida, selecione **contas**.
+1. Abra **configurações**e, em seguida, selecione **contas**.
 
-    ![Contas no ecrã de definições](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
+    ![Contas na tela de configurações](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Selecione **acesso profissional ou escolar**e certifique-se vir a sua conta escolar ou profissional.
+2. Selecione **acesso corporativo ou de estudante**e verifique se você vê sua conta corporativa ou de estudante.
 
-    ![Aceder ao ecrã escolar ou profissional com a conta de contoso ligados](./media/user-help-register-device-on-network/register-device-setup-verify.png)
+    ![Acessar a tela corporativa ou de estudante com a conta contoso conectada](./media/user-help-register-device-on-network/register-device-setup-verify.png)
 
-## <a name="next-steps"></a>Passos Seguintes
-Depois de registar o seu dispositivo pessoal à rede da sua organização, deverá conseguir aceder à maioria dos seus recursos.
+## <a name="next-steps"></a>Passos seguintes
+Depois de registrar seu dispositivo pessoal na rede da sua organização, você deve ser capaz de acessar a maioria dos seus recursos.
 
-- Se a organização pretende a associar o seu dispositivo de trabalho, consulte [associar o seu dispositivo de trabalho para a rede da sua organização](user-help-join-device-on-network.md).
+- Se sua organização quiser que você ingresse em seu dispositivo de trabalho, consulte [ingressar seu dispositivo de trabalho na rede da sua organização](user-help-join-device-on-network.md).
 
 
 

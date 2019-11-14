@@ -1,5 +1,5 @@
 ---
-title: Usar imagens de cliente do Windows no Azure | Microsoft Docs
+title: Usar imagens de cliente do Windows no Azure
 description: Como usar os benefícios da assinatura do Visual Studio para implantar o Windows 7, Windows 8 ou Windows 10 no Azure para cenários de desenvolvimento/teste
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: dbb771351ee774a7fea33e5aaad3ae4d0c70f8b1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 812e6d251943d4418666f221ad8b5d2b6e501736
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079909"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039506"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Usar o cliente do Windows no Azure para cenários de desenvolvimento/teste
 Você pode usar o Windows 7, o Windows 8 ou o Windows 10 Enterprise (x64) no Azure para cenários de desenvolvimento/teste, desde que você tenha uma assinatura apropriada do Visual Studio (anteriormente conhecido como MSDN). Este artigo descreve os requisitos de qualificação para a execução do Windows 7, Windows 8.1, Windows 10 Enterprise no Azure e o uso das seguintes imagens da galeria do Azure.
@@ -26,8 +26,8 @@ Você pode usar o Windows 7, o Windows 8 ou o Windows 10 Enterprise (x64) no Azu
 ![Detalhes da imagem do portal do Azure](./media/client-images/windows-client-msdn-images.png) 
 
 > [!NOTE]
-> Para imagem do Windows 10 pro e Windows 10 pro N na galeria do Azure, consulte [como implantar o Windows 10 no Azure com](windows-desktop-multitenant-hosting-deployment.md)
->detalhes de imagem de hospedagem multilocatário do Rights![pro da portal do Azure](./media/client-images/windows-client-pro-images.png) 
+> Para a imagem do Windows 10 pro e do Windows 10 pro N na galeria do Azure, consulte [como implantar o Windows 10 no Azure com direitos de hospedagem multilocatário](windows-desktop-multitenant-hosting-deployment.md)
+>detalhes da imagem do ![Pro da portal do Azure](./media/client-images/windows-client-pro-images.png) 
 >
 
 ## <a name="subscription-eligibility"></a>Qualificação da assinatura
@@ -40,14 +40,14 @@ A tabela a seguir detalha as IDs de oferta qualificadas para implantar o Windows
 
 | Nome da Oferta | Número da oferta | Imagens de cliente disponíveis |
 |:--- |:---:|:---:|
-| [Desenvolvimento/Teste Pago Conforme o Uso](https://azure.microsoft.com/offers/ms-azr-0023p/) |0023P |Windows 10 |
-| [Assinantes do Visual Studio Enterprise (MPN)](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P |Windows 10 |
+| [Pay As You Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/) |0023P |Windows 10 |
+| [Subscritores do Visual Studio Enterprise (MPN)](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P |Windows 10 |
 | [Assinantes do Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |0059P |Windows 10 |
 | [Assinantes do Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P |Windows 10 |
 | [Visual Studio Premium com MSDN (benefício)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |
 | [Assinantes do Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |Windows 10 |
 | [Assinantes do Visual Studio Enterprise (BizSpark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |Windows 10 |
-| [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P |Windows 10 |
+| [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## <a name="check-your-azure-subscription"></a>Verifique sua assinatura do Azure
 Se você não souber sua ID de oferta, poderá obtê-la por meio do portal do Azure de uma destas duas maneiras:  
@@ -62,6 +62,6 @@ Você também pode exibir a ID da oferta na [guia ' assinaturas '](https://accou
 
 ![Detalhes da ID da oferta do portal de conta do Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora você pode implantar suas VMs usando o [PowerShell](quick-create-powershell.md), [modelos do Resource Manager](ps-template.md)ou o [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 

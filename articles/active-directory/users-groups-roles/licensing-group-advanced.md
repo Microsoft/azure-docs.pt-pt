@@ -1,26 +1,26 @@
 ---
-title: Cenários adicionais de licenciamento baseado em grupo-Azure Active Directory | Microsoft Docs
+title: Cenários adicionais de licenciamento baseado em grupo-Azure AD | Microsoft Docs
 description: Mais cenários para Azure Active Directory licenciamento baseado em grupo
 services: active-directory
 keywords: Licenciamento do Azure AD
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/27/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cfdb8b979d20b77bcbf2f6b0d17855dfa0ac817
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034117"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025952"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e problemas conhecidos usando grupos para gerenciar o licenciamento no Azure Active Directory
 
@@ -28,7 +28,7 @@ Use as informações e exemplos a seguir para obter uma compreensão mais avanç
 
 ## <a name="usage-location"></a>Local de uso
 
-Alguns serviços Microsoft não estão disponíveis em todas as localizações. Antes que uma licença possa ser atribuída a um usuário, o administrador precisa especificar a propriedade **local de uso** no usuário. No [portal do Azure](https://portal.azure.com), você pode especificar o local de uso nas **configurações**de **perfil** do **usuário** &gt; &gt;.
+Alguns serviços Microsoft não estão disponíveis em todas as localizações. Antes que uma licença possa ser atribuída a um usuário, o administrador precisa especificar a propriedade **local de uso** no usuário. No [portal do Azure](https://portal.azure.com), você pode especificar o local de uso nas **configurações**do **perfil** de &gt; do **usuário** &gt;.
 
 Para a atribuição de licença de grupo, todos os usuários sem um local de uso especificado herdam o local do diretório. Se você tiver usuários em vários locais, certifique-se de refletir isso corretamente em seus recursos de usuário antes de adicionar usuários a grupos com licenças.
 
@@ -70,7 +70,7 @@ Para este exemplo, modifique um usuário e defina seu extensionAttribute1 com o 
 
 Um usuário pode ser membro de vários grupos com licenças. Aqui estão algumas coisas a serem consideradas:
 
-- Várias licenças para o mesmo produto podem se sobrepor e fazem com que todos os serviços habilitados sejam aplicados ao usuário. O exemplo a seguir mostra dois grupos de licenciamento: Os *serviços de base E3* contêm os serviços de base para implantar primeiro, para todos os usuários. E os *Serviços estendidos do E3* contêm serviços adicionais (Sway e planejador) para implantar somente para alguns usuários. Neste exemplo, o usuário foi adicionado a ambos os grupos:
+- Várias licenças para o mesmo produto podem se sobrepor e fazem com que todos os serviços habilitados sejam aplicados ao usuário. O exemplo a seguir mostra dois grupos de licenciamento: os *serviços de base E3* contêm os serviços de base para implantar primeiro, para todos os usuários. E os *Serviços estendidos do E3* contêm serviços adicionais (Sway e planejador) para implantar somente para alguns usuários. Neste exemplo, o usuário foi adicionado a ambos os grupos:
 
   ![Captura de tela de serviços habilitados](./media/licensing-group-advanced/view-enabled-services.png)
 
@@ -112,7 +112,7 @@ Aqui está um exemplo de como esse processo pode ser:
 
 3. Vá para a folha [**Azure Active Directory > licenças > todos os produtos**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) e selecione *Office 365 Enterprise E5*e, em seguida, selecione **grupos licenciados** para exibir uma lista de todos os grupos com esse produto.
 
-4. Clique no grupo que você deseja examinar (nesse caso, *O365 E5-Exchange somente*). Isso abrirá a guia **licenças** . Clicar na licença E5 abrirá uma folha listando todos os serviços habilitados.
+4. Clique no grupo que você deseja examinar (nesse caso, *O365 E5-Exchange somente*). Isso abrirá a guia **licenças** . clicar na licença E5 abrirá uma folha listando todos os serviços habilitados.
    > [!NOTE]
    > O serviço de *Microsoft Stream* foi adicionado e habilitado automaticamente neste grupo, além do serviço *Exchange Online* :
 
@@ -179,7 +179,7 @@ Quando uma licença for alterada em um grupo, o Azure AD começará a aplicar as
    > ```
 
 3. Para ver o log completo de como um grupo foi processado, incluindo todas as alterações de usuário, defina os seguintes filtros:
-   - **Iniciado por (ator)** : "Licenciamento baseado em grupo do Microsoft Azure AD"
+   - **Iniciado por (ator)** : "licenciamento baseado em grupo do Microsoft Azure AD"
    - **Intervalo de datas** (opcional): intervalo personalizado para quando você sabe que um grupo específico iniciou e concluiu o processamento
 
 Essa saída de exemplo mostra o início do processamento, todas as alterações resultantes do usuário e o término do processamento.
@@ -193,7 +193,7 @@ Essa saída de exemplo mostra o início do processamento, todas as alterações 
 
 Não é possível excluir um grupo com uma licença ativa atribuída. Um administrador pode excluir um grupo que não percebe que ele fará com que as licenças sejam removidas dos usuários. por esse motivo, exigimos que todas as licenças sejam removidas do grupo primeiro, antes que ele possa ser excluído.
 
-Ao tentar excluir um grupo no portal do Azure, você poderá ver uma notificação de erro como esta: falha na exclusão do grupo ![Screenshot @ no__t-1
+Ao tentar excluir um grupo no portal do Azure, você poderá ver uma notificação de erro assim: ![falha na exclusão do grupo de captura de tela](./media/licensing-group-advanced/groupdeletionfailed.png)
 
 Vá para a guia **licenças** no grupo e veja se há licenças atribuídas. Em caso afirmativo, remova essas licenças e tente excluir o grupo novamente.
 

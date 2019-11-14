@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Script da CLI do Azure – Criar uma VM do Linux com o NGINX | Microsoft Docs
+title: Exemplo do Script da CLI do Azure – Criar uma VM do Linux com o NGINX
 description: Exemplo do Script da CLI do Azure – Criar uma VM do Linux com o NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f1ed8b2d943a377fc868344cffffff931bb6fba1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4e3e24565375f68b4b5bdf1dfb0b16bb280aa417
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709614"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039477"
 ---
 # <a name="create-a-vm-with-nginx"></a>Criar uma VM com o NGINX
 
@@ -69,7 +69,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Adiciona e executa uma extensão da máquina virtual para uma VM. Neste exemplo, é utilizada a extensão de script personalizado para instalar o NGINX.|
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
