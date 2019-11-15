@@ -1,5 +1,5 @@
 ---
-title: 'Configurar o MACsec-ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: configurar o MACsec'
 description: Este artigo ajuda você a configurar o MACsec para proteger as conexões entre os roteadores de borda e os roteadores de borda da Microsoft.
 services: expressroute
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 081c448ff09148668dbe5e244e80421a47d77152
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 626302845dfb4b19deb921675601818b35ab8edb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748270"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083553"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Configurar o MACsec em portas diretas do ExpressRoute
 
@@ -26,7 +26,7 @@ Antes de iniciar a configuração, confirme o seguinte:
 * Você criou um [recurso de porta direta do ExpressRoute](expressroute-howto-erdirect.md).
 * Se você quiser executar o PowerShell localmente, verifique se a versão mais recente do Azure PowerShell está instalada em seu computador.
 
-### <a name="working-with-azure-powershell"></a>Trabalhando com Azure PowerShell
+### <a name="working-with-azure-powershell"></a>Trabalhar com o Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 

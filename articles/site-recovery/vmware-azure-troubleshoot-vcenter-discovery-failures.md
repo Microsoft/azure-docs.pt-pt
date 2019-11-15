@@ -1,20 +1,20 @@
 ---
-title: Solucionar problemas de failback para local durante a recuperação de desastre de VM VMware no Azure com Azure Site Recovery
-description: Este artigo descreve maneiras de solucionar problemas de failback e de nova proteção durante a recuperação de desastres de VM VMware no Azure com Azure Site Recovery.
+title: Solucionar falhas de descoberta do VMware vCenter no Azure Site Recovery
+description: Este artigo descreve como solucionar problemas de falhas de descoberta do VMware vCenter no Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
-ms.openlocfilehash: e9213637f45a4761af60de9dfac7add6324f6b96
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: f00c7b12accde9df9a5708a2b8b378d70428318d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053858"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091241"
 ---
-# <a name="troubleshoot-vcenter-discovery-failures"></a>Resolver problemas de falhas de deteção do vCenter
+# <a name="troubleshoot-vcenter-server-discovery-failures"></a>Solucionar problemas vCenter Server falhas de descoberta
 
 Este artigo ajuda você a solucionar problemas que ocorrem devido a falhas de descoberta do VMware vCenter.
 

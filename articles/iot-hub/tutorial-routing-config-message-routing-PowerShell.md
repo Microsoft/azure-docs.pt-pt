@@ -1,5 +1,5 @@
 ---
-title: Configurar o roteamento de mensagens para o Hub IoT do Azure usando Azure PowerShell | Microsoft Docs
+title: Configurar o roteamento de mensagens para o Hub IoT do Azure com Azure PowerShell
 description: Configure o roteamento de mensagens para o Hub IoT do Azure usando Azure PowerShell. Dependendo das propriedades da mensagem, encaminhe para uma conta de armazenamento ou para uma fila do barramento de serviço.
 author: robinsh
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: a0a64d694429bddf040deeeb901c776adc8ec595
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 68338c56419316e561bb072c1a0555e89d3de85b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888786"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084441"
 ---
 # <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Tutorial: usar Azure PowerShell para configurar o roteamento de mensagens do Hub IoT
 

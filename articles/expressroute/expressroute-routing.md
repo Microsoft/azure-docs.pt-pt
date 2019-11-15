@@ -1,5 +1,5 @@
 ---
-title: 'Requisitos de roteamento – ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: requisitos de roteamento'
 description: Esta página apresenta os requisitos detalhados para configurar e gerir o encaminhamento para circuitos do ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: a52f9fca172e42aa39a4507347185026451a8ff2
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 934dc94da9bbdfc38cc12e78eaa5b67fa9f786ca
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029033"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083314"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -171,14 +170,14 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | Sul do Brasil | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 |
 | **Europa** | |
 | Europa do Norte | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
-| Europa Ocidental | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
+| Europa ocidental | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
 | Reino Unido Sul | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
 | Reino Unido Oeste | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
 | França Central | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | Sul de França | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
 | **Ásia-Pacífico** | |
 | Ásia Oriental | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
-| Sudeste Asiático | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
+| Sudeste asiático | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
 | **Japão** | |
 | Leste do Japão | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
 | Oeste do Japão | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
@@ -196,11 +195,11 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | Coreia do Sul | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
 | Coreia do Sul Central | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
 | **África do Sul**| |
-| África do Sul, Norte | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
-| África do Sul, Oeste | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
+| Norte da África do Sul | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
+| Oeste da África do Sul | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
 | **DOS EAU**| |
-| Norte dos EAU | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
-| EAU Central | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
+| Norte dos E.A.U. | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
+| E.A.U. Central | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
 
 
 Todas as rotas anunciadas a partir da Microsoft serão etiquetadas com o valor da comunidade adequado. 

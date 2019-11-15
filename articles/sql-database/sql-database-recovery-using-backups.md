@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: ba961547bc46b0746997ea95ddd14f1a6d1d8a23
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1c8717614ec59ef210c7340f70ddedd7f7f86f88
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821215"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091954"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados
 
@@ -108,11 +108,13 @@ Você restaura bancos de dados excluídos do portal do Azure do servidor e do re
 
 Para recuperar um banco de dados excluído individual ou em pool usando o portal do Azure, abra a página Visão geral do servidor e selecione bancos de dados **excluídos**. Selecione um banco de dados excluído que você deseja restaurar e digite o nome para o novo banco de dados que será criado com a data de restauração do backup.
 
-  ![Captura de tela de opções de bancos de dados excluídos](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
+  ![Captura de tela da restauração do banco de dados SQL do Azure excluído](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
 #### <a name="managed-instance-database"></a>Banco de dados de instância gerenciada
 
-Você não pode usar o portal do Azure para restaurar um banco de dados excluído em uma instância gerenciada. Você pode usar o PowerShell para essa finalidade. 
+Para recuperar um banco de dados gerenciado usando o portal do Azure, abra a página Visão geral da instância gerenciada e selecione bancos de dados **excluídos**. Selecione um banco de dados excluído que você deseja restaurar e digite o nome para o novo banco de dados que será criado com a data de restauração do backup.
+
+  ![Captura de tela de restaurar banco de dados de instância SQL do Azure excluído](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
 ### <a name="deleted-database-restore-by-using-powershell"></a>Restauração de banco de dados excluída usando o PowerShell
 
@@ -224,7 +226,7 @@ Para restaurar um banco de dados individual ou em pool usando a API REST:
 
 | API | Descrição |
 | --- | --- |
-| [REST (= recuperação)](https://docs.microsoft.com/rest/api/sql/databases) |Restaura um banco de dados. |
+| [REST (createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Restaura um banco de dados. |
 | [Obter o status de criação ou atualização do banco de dados](https://docs.microsoft.com/rest/api/sql/operations) |Retorna o status durante uma operação de restauração. |
 
 ### <a name="azure-cli"></a>CLI do Azure

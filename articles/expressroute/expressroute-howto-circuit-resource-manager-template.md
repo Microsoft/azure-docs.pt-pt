@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 07/05/2019
+ms.date: 11/13/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
-ms.openlocfilehash: d6d9a3b472e2a40bfacf25a0b8fe0accb7d62cb8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 25ed38e72f5a21622a87e36ad811ffd66f6a4c90
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031975"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083517"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Criar um circuito do ExpressRoute usando Azure Resource Manager modelo
 
@@ -64,8 +64,8 @@ Para criar um circuito de ExpressRoute implantando um modelo:
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **Escalão** determina se um padrão de ExpressRoute ou de um suplemento premium do ExpressRoute está ativado. Pode especificar **padrão** para obter o SKU standard ou **Premium** para o suplemento premium.
-
+   * A **camada de SKU** determina se um circuito de ExpressRoute é [local](expressroute-faqs.md#expressroute-local), Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Você pode especificar *local*, *Standard* ou *Premium*.
+   * A **família de SKUs** determina o tipo de cobrança. Pode especificar *Metereddata* de um plano de dados limitados e *Unlimiteddata* para um plano de dados ilimitados. Pode alterar o tipo de faturação de *Metereddata* ao *Unlimiteddata*, mas não é possível alterar o tipo de *Unlimiteddata* para *Metereddata*. Um circuito *local* é apenas *Unlimiteddata* .
    * **Localização de peering** é a localização física onde são peering com a Microsoft.
 
      > [!IMPORTANT]

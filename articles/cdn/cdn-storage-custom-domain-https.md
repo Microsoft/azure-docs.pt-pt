@@ -1,6 +1,5 @@
 ---
-title: Tutorial - aceder aos blobs de armazenamento com um domínio personalizado da CDN do Azure através de HTTPS | Microsoft Docs
-description: ''
+title: Acessar blobs de armazenamento usando um domínio personalizado da CDN do Azure por HTTPS
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,26 +14,26 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: e3b10760b95662570c8a6e802a57e1073e2faa0a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 341383c232718349f091a9c92207bb27cf87cc48
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593375"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083024"
 ---
-# <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Tutorial: Blobs de armazenamento de acesso com um domínio personalizado da CDN do Azure através de HTTPS
+# <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Tutorial: aceder aos blobs de armazenamento com um domínio personalizado da CDN do Azure através de HTTPS
 
 Depois de ter integrado a conta de armazenamento do Azure na rede de entrega de conteúdos (CDN) do Azure, pode adicionar um domínio personalizado e ativar o HTTPS nesse domínio para o ponto final de armazenamento de blobs personalizado. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de concluir os passos neste tutorial, primeiro tem de integrar a sua conta de armazenamento do Azure na CDN do Azure. Para obter mais informações, consulte [início rápido: Integrar uma conta de armazenamento do Azure CDN do Azure](cdn-create-a-storage-account-with-cdn.md).
+Antes de concluir os passos neste tutorial, primeiro tem de integrar a sua conta de armazenamento do Azure na CDN do Azure. Para obter mais informações, veja [Início Rápido: integrar uma conta de armazenamento do Azure na CDN do Azure](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="add-a-custom-domain"></a>Adicionar um domínio personalizado
-Ao criar um ponto final da CDN no seu perfil, o nome do mesmo, que é um subdomínio de azureedge.net, é incluído no URL da entrega de conteúdos da CDN por predefinição. Também tem a opção de associar um domínio personalizado a um ponto final da CDN. Com esta opção, os seus conteúdos são entregues com um domínio personalizado no seu URL em vez de um nome de ponto final. Para adicionar um domínio personalizado para o ponto final, siga as instruções neste tutorial: [Adicionar um domínio personalizado ao ponto final da CDN do Azure](cdn-map-content-to-custom-domain.md).
+Ao criar um ponto final da CDN no seu perfil, o nome do mesmo, que é um subdomínio de azureedge.net, é incluído no URL da entrega de conteúdos da CDN por predefinição. Também tem a opção de associar um domínio personalizado a um ponto final da CDN. Com esta opção, os seus conteúdos são entregues com um domínio personalizado no seu URL em vez de um nome de ponto final. Para adicionar um domínio personalizado ao ponto final, siga as instruções neste tutorial: [Adicionar um domínio personalizado ao ponto final da CDN do Azure](cdn-map-content-to-custom-domain.md).
 
 ## <a name="configure-https"></a>Configurar HTTPS
-Ao utilizar o protocolo HTTPS no domínio personalizado, está a garantir que os dados são entregues de forma segura na Internet através da encriptação TLS/SSL. Quando o browser está ligado a um site por HTTPS, valida o certificado de segurança do site e verifica que este é emitido por uma autoridade de certificação legítima. Para configurar o HTTPS no seu domínio personalizado, siga as instruções neste tutorial: [Configurar HTTPS num domínio personalizado da CDN do Azure](cdn-custom-ssl.md).
+Ao utilizar o protocolo HTTPS no domínio personalizado, está a garantir que os dados são entregues de forma segura na Internet através da encriptação TLS/SSL. Quando o browser está ligado a um site por HTTPS, valida o certificado de segurança do site e verifica que este é emitido por uma autoridade de certificação legítima. Para configurar HTTPS no domínio personalizado, siga as instruções deste tutorial: [Configurar HTTPS num domínio personalizado da CDN do Azure](cdn-custom-ssl.md).
 
 ## <a name="shared-access-signatures"></a>Assinaturas de Acesso Partilhado
 Se o ponto final de armazenamento de blobs estiver configurado para não permitir o acesso de leitura anónimo, deve fornecer um token [SAS (Assinatura de Acesso Partilhado)](cdn-sas-storage-support.md) em cada pedido que fizer ao domínio personalizado. Por predefinição, os pontos finais de armazenamento de blobs não permitem o acesso de leitura anónimo. Para obter mais informações sobre SAS, veja [Gerir o acesso de leitura anónimo a contentores e blobs](../storage/blobs/storage-manage-access-to-resources.md).
@@ -55,8 +54,8 @@ Ao aceder a blobs através da CDN do Azure, paga os [Preços de armazenamento de
 
 Se, por exemplo, tiver uma conta de armazenamento nos Estados Unidos que está a ser acedida através da CDN do Azure e alguém na Europa tentar aceder a um dos blobs nessa conta de armazenamento através da CDN do Azure, a CDN do Azure verifica primeiro o POP mais próximo na Europa para esse blob. Se o encontrar, a CDN do Azure acede a essa cópia do blob e utiliza os preços da CDN, pois está a ser acedida na CDN do Azure. Se não o encontrar, a CDN do Azure copia o blob para o servidor POP, o que incorre em custos de saída e transação, conforme especificado nos Preços de armazenamento de blobs e, em seguida, acede ao ficheiro no servidor POP, o que resulta numa faturação da CDN do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
-[Tutorial: Definir as regras de cache de CDN do Azure](cdn-caching-rules-tutorial.md)
+## <a name="next-steps"></a>Passos seguintes
+[Tutorial: Definir regras de colocação em cache da CDN do Azure](cdn-caching-rules-tutorial.md)
 
 
 

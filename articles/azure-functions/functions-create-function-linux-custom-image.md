@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: d4a72edbe762afd2a94962c1440357ce3ad46862
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b8d82868788d831d4db68a35c032d3f81b545417
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329594"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082837"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Criar uma função no Linux usando uma imagem personalizada
 
@@ -57,7 +57,7 @@ Pode também utilizar o [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ## <a name="create-the-local-project"></a>Criar o projeto local
 
-Execute o seguinte comando na linha de comandos para criar um projeto de aplicação de funções na pasta `MyFunctionProj` do diretório local atual. Para um projeto Python, você [deve estar executando o em um ambiente virtual](functions-create-first-function-python.md#create-and-activate-a-virtual-environment-optional).
+Execute o seguinte comando na linha de comandos para criar um projeto de aplicação de funções na pasta `MyFunctionProj` do diretório local atual. Para um projeto Python, você [deve estar executando o em um ambiente virtual](functions-create-first-function-python.md#create-and-activate-a-virtual-environment).
 
 ```bash
 func init MyFunctionProj --docker
@@ -195,18 +195,18 @@ AzureWebJobsStorage=$storageConnectionString
 
 <!-- we should replace this with a CLI or API-based approach, when we get something better than REST -->
 
-A função disparada por HTTP que você criou requer uma [chave de função](functions-bindings-http-webhook.md#authorization-keys) ao chamar o ponto de extremidade. Neste momento, a maneira mais fácil de obter a URL da função, incluindo a chave, é da [portal do Azure]. 
+A função disparada por HTTP que você criou requer uma [chave de função](functions-bindings-http-webhook.md#authorization-keys) ao chamar o ponto de extremidade. Neste momento, a maneira mais fácil de obter a URL da função, incluindo a chave, é da [Azure portal]. 
 
 > [!TIP]
 > Você também pode obter suas chaves de função usando as [APIs de gerenciamento de chaves](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), o que exige que você apresente um [token de portador para autenticação](/cli/azure/account#az-account-get-access-token).
 
-Localize seu novo aplicativo de funções no [portal do Azure] digitando o nome do aplicativo de funções na caixa de **pesquisa** na parte superior da página e selecionando o recurso do **serviço de aplicativo** .
+Localize seu novo aplicativo de funções no [Azure portal] digitando o nome do aplicativo de funções na caixa de **pesquisa** na parte superior da página e selecionando o recurso do **serviço de aplicativo** .
 
-Selecione a função **MyHttpTrigger** , selecione **</> URL de função Get** > **padrão (chave de função)**  > **cópia**.
+Selecione a função **MyHttpTrigger** , selecione **</> URL de função Get** > **padrão (tecla de função)**  > **cópia**.
 
 ![Copiar o URL da função a partir do portal do Azure](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)
 
-Nessa URL, a chave de função é o parâmetro de consulta `code`. 
+Nessa URL, a chave de função é o `code` parâmetro de consulta. 
 
 > [!NOTE]  
 > Como seu aplicativo de funções é implantado como um contêiner, você não pode fazer alterações no seu código de função no Portal. Em vez disso, você deve atualizar o projeto no contêiner local e publicá-lo novamente no Azure.
@@ -243,7 +243,7 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Com o SSH 
 
 ### <a name="change-the-base-image"></a>Alterar a imagem base
 
-Em seu dockerfile, acrescente a cadeia de caracteres `-appservice` à imagem base na instrução `FROM`, que para um projeto JavaScript é semelhante ao seguinte.
+Em seu dockerfile, acrescente a cadeia de caracteres `-appservice` à imagem base em sua instrução `FROM`, que para um projeto JavaScript é semelhante ao seguinte.
 
 ```docker
 FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
@@ -269,7 +269,7 @@ A imagem atualizada é reimplantada para seu aplicativo de funções.
 
 ### <a name="connect-to-your-container-in-azure"></a>Conectar-se ao seu contêiner no Azure
 
-No navegador, navegue até o seguinte kudu (ferramentas avançadas) `scm.` ponto de extremidade para o contêiner do aplicativo de funções, substituindo `<app_name>` pelo nome do seu aplicativo de funções.
+No navegador, navegue até as seguintes ferramentas avançadas (kudu) `scm.` ponto de extremidade para o contêiner do aplicativo de funções, substituindo `<app_name>` pelo nome do seu aplicativo de funções.
 
 ```
 https://<app_name>.scm.azurewebsites.net/
@@ -317,7 +317,7 @@ Agora, você pode adicionar uma associação de saída de armazenamento ao seu p
 
 ### <a name="add-an-output-binding"></a>Adicionar um enlace de saída
 
-Em funções, cada tipo de associação requer um `direction`, `type` e um @no__t exclusivo a ser definido no arquivo function. JSON. A maneira como você define esses atributos depende do idioma do seu aplicativo de funções.
+Em funções, cada tipo de associação requer um `direction`, `type`e um `name` exclusivo a ser definido no arquivo function. JSON. A maneira como você define esses atributos depende do idioma do seu aplicativo de funções.
 
 # <a name="javascript--pythontabnodejspython"></a>[JavaScript/Python](#tab/nodejs+python)
 
@@ -331,7 +331,7 @@ Em funções, cada tipo de associação requer um `direction`, `type` e um @no__
 
 ### <a name="add-code-that-uses-the-output-binding"></a>Adicione código que utiliza o enlace de saída
 
-Depois que a associação é definida, você pode usar o `name` da Associação para acessá-la como um atributo na assinatura da função. Usando uma associação de saída, você não precisa usar o código do SDK de armazenamento do Azure para autenticação, obter uma referência de fila ou gravar dados. O tempo de execução de funções e a associação de saída de fila executam essas tarefas para você.
+Depois que a associação é definida, você pode usar a `name` da Associação para acessá-la como um atributo na assinatura da função. Usando uma associação de saída, você não precisa usar o código do SDK de armazenamento do Azure para autenticação, obter uma referência de fila ou gravar dados. O tempo de execução de funções e a associação de saída de fila executam essas tarefas para você.
 
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
@@ -363,7 +363,7 @@ docker push <docker-id>/mydockerimage:v1.0.0
 
 ### <a name="verify-the-updates-in-azure"></a>Verificar as atualizações no Azure
 
-Use a mesma URL de antes do navegador para disparar sua função. Você deve ver a mesma resposta. No entanto, desta vez, a cadeia de caracteres que você passa como o parâmetro `name` é gravada na fila de armazenamento `outqueue`.
+Use a mesma URL de antes do navegador para disparar sua função. Você deve ver a mesma resposta. No entanto, desta vez a cadeia de caracteres que você passa como o parâmetro `name` é gravada na fila de armazenamento `outqueue`.
 
 [!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
 
@@ -379,4 +379,4 @@ Agora que você implantou com êxito seu contêiner personalizado em um aplicati
 + [Opções de escala e Hospedagem](functions-scale.md)
 + [Hospedagem sem servidor baseada em kubernetes](functions-kubernetes-keda.md)
 
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

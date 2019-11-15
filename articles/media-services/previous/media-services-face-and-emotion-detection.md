@@ -15,19 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: 6fa2495ee580bb8e74a0d026533fa90f20743510
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: b6cbca454d1463ffe6e73d7021ea563e7121b7be
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881772"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084629"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detectar rosto e emoções com Análise de Mídia do Azure
 
-> [!IMPORTANT]
-> Examine os [planos de aposentadoria](media-services-analytics-overview.md#retirement-plans) de alguns processadores de mídia.
+## <a name="overview"></a>Descrição geral
 
-## <a name="overview"></a>Visão geral
 O MP (processador de mídia **Azure Media face detector** ) permite que você conte, acompanhe movimentos e até mesmo avalie a participação e a reação do público por meio de expressões faciais. Esse serviço contém dois recursos: 
 
 * **Detecção facial**
@@ -166,8 +164,8 @@ Abaixo estão os valores recomendados para a janela agregada e as configuraçõe
 
 || Padrões (es) | Máx. (s) | Min (s) |
 |--- | --- | --- | --- |
-| AggregateEmotionWindowMs |0,5 |2 |0,25|
-| AggregateEmotionIntervalMs |0,5 |1 |0,25|
+| AggregateEmotionWindowMs |0,5 |2 |0.25|
+| AggregateEmotionIntervalMs |0,5 |1 |0.25|
 
 ### <a name="json-output"></a>Saída JSON
 Saída JSON para a emoção da agregação (truncada):
@@ -524,7 +522,7 @@ namespace FaceDetection
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Hiperligações relacionadas
+## <a name="related-links"></a>Ligações relacionadas
 [Visão geral da análise dos serviços de mídia do Azure](media-services-analytics-overview.md)
 
 [Demonstrações de Análise de Mídia do Azure](https://amslabs.azurewebsites.net/demos/Analytics.html)

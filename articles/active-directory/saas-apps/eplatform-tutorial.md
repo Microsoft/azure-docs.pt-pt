@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integração de SSO (logon único) com ePlatform | Microsoft Docs'
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o ePlatform | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o ePlatform.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 10/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a822f1f5d781576102d874f33b31b698f4907a7d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b9dd7781263887a21597f32c74bd51854cc0dcfc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121554"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081919"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eplatform"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com ePlatform
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eplatform"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o ePlatform
 
 Neste tutorial, você aprenderá a integrar o ePlatform com o Azure Active Directory (Azure AD). Ao integrar o ePlatform ao Azure AD, você pode:
 
@@ -67,10 +67,10 @@ Configure e teste o SSO do Azure AD com o ePlatform usando um usuário de teste 
 Para configurar e testar o SSO do Azure AD com o ePlatform, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
 1. **[Configurar o SSO do ePlatform](#configure-eplatform-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    1. **[Criar usuário de teste do ePlatform](#create-eplatform-test-user)** – para ter um equivalente de B. Simon em ePlatform que esteja vinculado à representação do usuário no Azure AD.
+    * **[Criar usuário de teste do ePlatform](#create-eplatform-test-user)** – para ter um equivalente de B. Simon em ePlatform que esteja vinculado à representação do usuário no Azure AD.
 1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
@@ -84,6 +84,16 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
    ![Editar configuração básica de SAML](common/edit-urls.png)
 
 1. Na seção **configuração básica do SAML** , o aplicativo é pré-configurado e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
+
+1. o aplicativo ePlatform espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+
+    ![image](common/default-attributes.png)
+
+1. Além de acima, o aplicativo ePlatform espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seus requisitos.
+
+    | Nome | Atributo de origem |
+    | ---------------| --------------- |
+    | sufixo | user.userprincipalname |
 
 1. Na seção **certificado de autenticação SAML** , clique no botão **Editar** para abrir a caixa de diálogo **certificado de autenticação SAML** .
 
@@ -135,7 +145,7 @@ Para configurar o logon único no lado do **ePlatform** , é necessário enviar 
 
 Nesta seção, você criará um usuário chamado B. Simon em ePlatform. Trabalhe com a [equipe de suporte do ePlatform](https://help.eplatform.co/hc/en-us) para adicionar os usuários na plataforma do ePlatform. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-## <a name="test-sso"></a>Testar SSO 
+## <a name="test-sso"></a>Testar SSO
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

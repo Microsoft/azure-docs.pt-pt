@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o servidor de configuração para recuperação de desastre de servidores físicos locais para o Azure com o Azure Site Recovery | Microsoft Docs '
+title: Gerenciar o servidor de configuração para servidores físicos no Azure Site Recovery
 description: Este artigo descreve como gerenciar o servidor de configuração de Azure Site Recovery para recuperação de desastres do servidor físico no Azure.
 services: site-recovery
 author: mayurigupta13
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: f87210cd14570687eebae88896830bb3ee00b74e
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: f443f0362ecad8448895322686a7175b2813141e
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242995"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084602"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerenciar o servidor de configuração para recuperação de desastres do servidor físico
 
@@ -39,7 +39,7 @@ A tabela resume os pré-requisitos para implantar o computador do servidor de co
 | IIS | -Nenhum site padrão já existente <br> -Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Habilitar configuração de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> -Nenhum site/aplicativo já existente escutando na porta 443<br>|
 | Tipo de NIC | VMXNET3 (quando implantado como uma VM VMware) |
 | Tipo de endereço IP | Estático |
-| Acesso à Internet | O servidor precisa de acesso a essas URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> -*. services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (não é necessário para servidores de processo de expansão) <br> - time.nist.gov <br> - time.windows.com |
+| Acesso à Internet | O servidor precisa de acesso a essas URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (não é necessário para servidores de processo de expansão) <br> - time.nist.gov <br> - time.windows.com |
 | Portas | 443 (Canal de controlo e orquestração)<br>9443 (Transporte de dados)|
 
 ## <a name="download-the-latest-installation-file"></a>Baixar o arquivo de instalação mais recente
@@ -110,19 +110,19 @@ Execute o arquivo de instalação da seguinte maneira:
 
 |Nome do Parâmetro| Tipo | Descrição| Valores|
 |-|-|-|-|
-| /ServerMode|Obrigatório|Especifica se a configuração e os servidores de processos devem ser instalados, ou apenas o servidor de processos|CS<br>PS|
-|/InstallLocation|Obrigatório|A pasta na qual os componentes são instalados| Qualquer pasta no computador|
-|/MySQLCredsFilePath|Obrigatório|O caminho do ficheiro no qual as credenciais do servidor MySQL são armazenadas|O ficheiro deve estar no formato especificado abaixo|
-|/VaultCredsFilePath|Obrigatório|O caminho do ficheiro de credenciais do cofre|Caminho do ficheiro válido|
-|/EnvType|Obrigatório|Tipo de ambiente que você deseja proteger |VMware<br>NonVMware|
-|/PSIP|Obrigatório|Endereço IP do NIC a ser utilizado para transferência de dados de replicação| Qualquer endereço IP válido|
-|/CSIP|Obrigatório|O endereço IP do NIC em que o servidor de configuração está a ouvir| Qualquer endereço IP válido|
-|/PassphraseFilePath|Obrigatório|O caminho completo para a localização do ficheiro da frase de acesso|Caminho do ficheiro válido|
+| /ServerMode|Necessário|Especifica se a configuração e os servidores de processos devem ser instalados, ou apenas o servidor de processos|CS<br>PS|
+|/InstallLocation|Necessário|A pasta na qual os componentes são instalados| Qualquer pasta no computador|
+|/MySQLCredsFilePath|Necessário|O caminho do ficheiro no qual as credenciais do servidor MySQL são armazenadas|O ficheiro deve estar no formato especificado abaixo|
+|/VaultCredsFilePath|Necessário|O caminho do ficheiro de credenciais do cofre|Caminho do ficheiro válido|
+|/EnvType|Necessário|Tipo de ambiente que você deseja proteger |VMware<br>NonVMware|
+|/PSIP|Necessário|Endereço IP do NIC a ser utilizado para transferência de dados de replicação| Qualquer endereço IP válido|
+|/CSIP|Necessário|O endereço IP do NIC em que o servidor de configuração está a ouvir| Qualquer endereço IP válido|
+|/PassphraseFilePath|Necessário|O caminho completo para a localização do ficheiro da frase de acesso|Caminho do ficheiro válido|
 |/BypassProxy|Opcional|Especifica que o servidor de configuração estabelece uma ligação ao Azure sem um proxy|Para obter este valor do Venu|
 |/ProxySettingsFilePath|Opcional|Definições de proxy (o proxy predefinido necessita de autenticação ou de um proxy personalizado)|O ficheiro deve estar no formato especificado abaixo|
 |DataTransferSecurePort|Opcional|Número da porta no PSIP a ser utilizado para dados de replicação| Número de Porta Válido (o valor predefinido é 9433)|
 |/SkipSpaceCheck|Opcional|Ignorar a verificação de espaços para a cache do disco| |
-|/AcceptThirdpartyEULA|Obrigatório|O sinalizador indica a aceitação do EULA de terceiros| |
+|/AcceptThirdpartyEULA|Necessário|O sinalizador indica a aceitação do EULA de terceiros| |
 |/ShowThirdpartyEULA|Opcional|Apresenta o EULA de terceiros. Se for fornecido como entrada, todos os outros parâmetros são ignorados| |
 
 
@@ -155,7 +155,7 @@ Você pode modificar as configurações de proxy para o computador do servidor d
 3. Clique na guia **registro do cofre** .
 4. Baixe um novo arquivo de registro do cofre do portal e forneça-o como entrada para a ferramenta.
 
-   ![registrar-configuração-servidor](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+   ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Forneça os novos detalhes de proxy e clique no botão **registrar** .
 6. Abra uma janela de comando do PowerShell de administrador.
 7. Execute o seguinte comando:
@@ -175,7 +175,7 @@ Você pode modificar as configurações de proxy para o computador do servidor d
 2. Inicie o cspsconfigtool. exe usando o atalho em sua área de trabalho.
 3. Clique na guia **registro do cofre** .
 4. Baixe um novo arquivo de registro do portal e forneça-o como entrada para a ferramenta.
-      ![registrar-configuração-servidor](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+      ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Forneça os detalhes do servidor proxy e clique no botão **registrar** .  
 6. Abra uma janela de comando do PowerShell de administrador.
 7. Execute o seguinte comando

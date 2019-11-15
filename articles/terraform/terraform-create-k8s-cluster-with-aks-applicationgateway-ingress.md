@@ -5,13 +5,13 @@ ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2019
-ms.openlocfilehash: 853175665ce16c9ec972b184f9e07838b407b628
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.date: 11/13/2019
+ms.openlocfilehash: 31faedf247f8dd0799a4ee52cabc8386f0363ff6
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969580"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082577"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Tutorial: criar um controlador de entrada do gateway de aplicativo no serviço kubernetes do Azure
 
@@ -32,7 +32,9 @@ Neste tutorial, você aprenderá a executar as seguintes tarefas:
 
 - **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Configurar o Terraform**: siga as instruções no artigo [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) (Terraform e configuração do acesso ao Azure)
+- **Configurar o Terraform**: Siga as instruções no artigo [Terraform e configuração do acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure)
+
+- **Grupo de recursos do Azure**: se você não tiver um grupo de recursos do Azure para usar para a demonstração, [crie um grupo de recursos do Azure](/azure/azure-resource-manager/manage-resource-groups-portal#create-resource-groups). Anote o nome e o local do grupo de recursos, pois esses valores são usados na demonstração.
 
 - **Principal de serviço do Azure**: siga as instruções na secção **Criar o principal de serviço** no artigo [Criar um principal de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Anote os valores para appId, displayName e password.
 
@@ -46,13 +48,13 @@ O primeiro passo é criar o diretório que mantenha os seus ficheiros de configu
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview).
 
-1. Mude para o diretório `clouddrive`.
+1. Altere os diretórios para o diretório `clouddrive`.
 
     ```bash
     cd clouddrive
     ```
 
-1. Crie um diretório com o nome `terraform-aks-k8s`.
+1. Crie um diretório denominado `terraform-aks-k8s`.
 
     ```bash
     mkdir terraform-aks-appgw-ingress
@@ -86,7 +88,7 @@ Crie o ficheiro de configuração Terraform que declara o fornecedor do Azure.
     }
     ```
 
-1. Salve o arquivo ( **&lt;Ctrl > S**) e saia do editor ( **&lt;Ctrl > Q**).
+1. Salve o arquivo ( **&lt;ctrl > S**) e saia do editor ( **&lt;CTRL > Q**).
 
 ## <a name="define-input-variables"></a>Definir variáveis de entrada
 
@@ -102,7 +104,7 @@ Crie o arquivo de configuração Terraform que lista todas as variáveis necess�
     
     ```hcl
     variable "resource_group_name" {
-      description = "Name of the resource group already created."
+      description = "Name of the resource group."
     }
 
     variable "location" {
@@ -229,7 +231,7 @@ Crie o arquivo de configuração Terraform que lista todas as variáveis necess�
     }
     ```
 
-1. Salve o arquivo ( **&lt;Ctrl > S**) e saia do editor ( **&lt;Ctrl > Q**).
+1. Salve o arquivo ( **&lt;ctrl > S**) e saia do editor ( **&lt;CTRL > Q**).
 
 ## <a name="define-the-resources"></a>Definir os recursos 
 Crie um arquivo de configuração Terraform que cria todos os recursos. 
@@ -312,7 +314,7 @@ Crie um arquivo de configuração Terraform que cria todos os recursos.
       name                         = "publicIp1"
       location                     = data.azurerm_resource_group.rg.location
       resource_group_name          = data.azurerm_resource_group.rg.name
-      public_ip_address_allocation = "static"
+      allocation_method            = "Static"
       sku                          = "Standard"
 
       tags = var.tags
@@ -470,7 +472,7 @@ Crie um arquivo de configuração Terraform que cria todos os recursos.
 
     ```
 
-1. Salve o arquivo e saia do editor.
+1. Salve o arquivo ( **&lt;ctrl > S**) e saia do editor ( **&lt;CTRL > Q**).
 
 O código apresentado nesta seção define o nome do cluster, o local e o resource_group_name. O valor `dns_prefix`-que faz parte do FQDN (nome de domínio totalmente qualificado) usado para acessar o cluster – está definido.
 
@@ -528,21 +530,19 @@ As [saídas do Terraform](https://www.terraform.io/docs/configuration/outputs.ht
     }
     ```
 
-1. Salve o arquivo ( **&lt;Ctrl > S**) e saia do editor ( **&lt;Ctrl > Q**).
+1. Salve o arquivo ( **&lt;ctrl > S**) e saia do editor ( **&lt;CTRL > Q**).
 
 ## <a name="configure-azure-storage-to-store-terraform-state"></a>Configurar o armazenamento do Azure para armazenar o estado do Terraform
 
 O Terraform monitoriza o estado localmente através do ficheiro `terraform.tfstate`. Este padrão funciona bem num ambiente individual. No entanto, em um ambiente de várias pessoas mais prática, você precisa controlar o estado no servidor usando o [armazenamento do Azure](/azure/storage/). Nesta seção, você aprenderá a recuperar as informações de conta de armazenamento necessárias e criar um contêiner de armazenamento. As informações de estado Terraform são armazenadas nesse contêiner.
 
-1. No portal do Azure, selecione **Todos os serviços** no menu à esquerda.
+1. No portal do Azure, em **Serviços do Azure**, selecione **contas de armazenamento**. (Se a opção **contas de armazenamento** não estiver visível na página principal, selecione **mais serviços** e localize e selecione-o.)
 
-1. Selecione **Contas de armazenamento**.
-
-1. No separador **Contas de armazenamento**, selecione o nome da conta de armazenamento na qual o Terraform deve armazenar o estado. Por exemplo, pode utilizar a conta de armazenamento criada quando abriu o Cloud Shell pela primeira vez.  O nome de conta de armazenamento criado pelo Cloud Shell costuma começar por `cs`, seguido de uma cadeia aleatória de números e letras. 
+1. Na página **contas de armazenamento** , selecione o nome da conta de armazenamento na qual o Terraform deve armazenar o estado. Por exemplo, pode utilizar a conta de armazenamento criada quando abriu o Cloud Shell pela primeira vez.  O nome de conta de armazenamento criado pelo Cloud Shell costuma começar por `cs`, seguido de uma cadeia aleatória de números e letras. 
 
     Anote a conta de armazenamento que você selecionar, pois você precisará dela mais tarde.
 
-1. No separador de conta de armazenamento, selecione **Chaves de acesso**.
+1. Na página da conta de armazenamento, selecione **Chaves de acesso**.
 
     ![Menu de conta de armazenamento](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account.png)
 
@@ -550,7 +550,7 @@ O Terraform monitoriza o estado localmente através do ficheiro `terraform.tfsta
 
     ![Chaves de acesso da conta de armazenamento](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account-access-key.png)
 
-1. No Cloud Shell, crie um contêiner em sua conta de armazenamento do Azure (substitua os espaços reservados &lt;YourAzureStorageAccountName > e &lt;YourAzureStorageAccountAccessKey > com os valores apropriados para sua conta de armazenamento do Azure).
+1. Em Cloud Shell, crie um contêiner em sua conta de armazenamento do Azure. Substitua os espaços reservados pelos valores apropriados para sua conta de armazenamento do Azure.
 
     ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
@@ -559,7 +559,7 @@ O Terraform monitoriza o estado localmente através do ficheiro `terraform.tfsta
 ## <a name="create-the-kubernetes-cluster"></a>Criar o cluster do Kubernetes
 Nesta secção, pode ver como utilizar o comando `terraform init` para criar os recursos definidos nos ficheiros de configuração que criou nas secções anteriores.
 
-1. Em Cloud Shell, inicialize Terraform (substitua os espaços reservados &lt;YourAzureStorageAccountName > e &lt;YourAzureStorageAccountAccessKey > com os valores apropriados para sua conta de armazenamento do Azure).
+1. Em Cloud Shell, inicialize Terraform. Substitua os espaços reservados pelos valores apropriados para sua conta de armazenamento do Azure.
 
     ```bash
     terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
@@ -569,28 +569,28 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
 
     ![Exemplo de resultados "terraform init"](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-init-complete.png)
 
-1. Em Cloud Shell, crie um arquivo chamado `main.tf`:
+1. Em Cloud Shell, crie um arquivo chamado `terraform.tfvars`:
 
     ```bash
     code terraform.tfvars
     ```
 
-1. Cole as seguintes variáveis criadas anteriormente no editor:
+1. Cole as seguintes variáveis criadas anteriormente no editor. Para obter o valor de local para o seu ambiente, use `az account list-locations`.
 
     ```hcl
-    resource_group_name = <Name of the Resource Group already created>
+    resource_group_name = "<Name of the Resource Group already created>"
 
-    location = <Location of the Resource Group>
+    location = "<Location of the Resource Group>"
       
-    aks_service_principal_app_id = <Service Principal AppId>
+    aks_service_principal_app_id = "<Service Principal AppId>"
       
-    aks_service_principal_client_secret = <Service Principal Client Secret>
+    aks_service_principal_client_secret = "<Service Principal Client Secret>"
       
-    aks_service_principal_object_id = <Service Principal Object Id>
+    aks_service_principal_object_id = "<Service Principal Object Id>"
         
     ```
 
-1. Salve o arquivo ( **&lt;Ctrl > S**) e saia do editor ( **&lt;Ctrl > Q**).
+1. Salve o arquivo ( **&lt;ctrl > S**) e saia do editor ( **&lt;CTRL > Q**).
 
 1. Execute o comando `terraform plan` para criar o plano do Terraform que define os elementos de infraestrutura. 
 
@@ -614,7 +614,7 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
 
 1. No portal do Azure, selecione **grupos de recursos** no menu à esquerda para ver os recursos criados para o novo cluster kubernetes no grupo de recursos selecionado.
 
-    ![Comando do Cloud Shell](./media/terraform-k8s-cluster-appgw-with-tf-aks/k8s-resources-created.png)
+    ![Comandos do Cloud Shell](./media/terraform-k8s-cluster-appgw-with-tf-aks/k8s-resources-created.png)
 
 ## <a name="recover-from-a-cloud-shell-timeout"></a>Recuperar de um tempo limite do Cloud Shell
 
@@ -665,25 +665,25 @@ Azure Active Directory identidade Pod fornece acesso baseado em token ao [Azure 
 
 A [identidade do Pod do Azure ad](https://github.com/Azure/aad-pod-identity) adiciona os seguintes componentes ao cluster kubernetes:
 
-  - Kubernetes [crds](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
+  - Kubernetes [crds](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity``AzureIdentityBinding`
   - Componente [do controlador de identidade gerenciada (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic)
   - Componente [de identidade gerenciada de nó (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi)
 
 Se o RBAC estiver **habilitado**, execute o seguinte comando para instalar a identidade do Pod do Azure AD em seu cluster:
 
-    ```bash
-    kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
-    ```
+```bash
+kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
+```
 
 Se o RBAC estiver **desabilitado**, execute o seguinte comando para instalar a identidade do Pod do Azure AD em seu cluster:
 
-    ```bash
-    kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
-    ```
+```bash
+kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
+```
 
 ## <a name="install-helm"></a>Instalar o Helm
 
-O código nesta seção usa o Gerenciador de pacotes [Helm](/azure/aks/kubernetes-helm) -kubernetes-para instalar o pacote `application-gateway-kubernetes-ingress`:
+O código nesta seção usa o Gerenciador de pacotes [Helm](/azure/aks/kubernetes-helm) -kubernetes-para instalar o pacote de `application-gateway-kubernetes-ingress`:
 
 1. Se o RBAC estiver **habilitado**, execute o seguinte conjunto de comandos para instalar e configurar o Helm:
 
@@ -708,7 +708,7 @@ O código nesta seção usa o Gerenciador de pacotes [Helm](/azure/aks/kubernete
 
 ## <a name="install-ingress-controller-helm-chart"></a>Instalar o gráfico do controlador de entrada Helm
 
-1. Baixe `helm-config.yaml` para configurar o AGIC:
+1. Baixar `helm-config.yaml` para configurar o AGIC:
 
     ```bash
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
@@ -717,21 +717,21 @@ O código nesta seção usa o Gerenciador de pacotes [Helm](/azure/aks/kubernete
 1. Edite o `helm-config.yaml` e insira os valores apropriados para `appgw` e `armAuth` seções.
 
     ```bash
-    nano helm-config.yaml
+    code helm-config.yaml
     ```
 
     Os valores são descritos da seguinte maneira:
 
     - `verbosityLevel`: define o nível de detalhamento da infraestrutura de log AGIC. Consulte [níveis de log](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) para obter os valores possíveis.
-    - `appgw.subscriptionId`: a ID da assinatura do Azure para o gateway de aplicativo. Exemplo: `a123b234-a3b4-557d-b2df-a0bc12de1234`
-    - `appgw.resourceGroup`: nome do grupo de recursos do Azure no qual o gateway de aplicativo foi criado. 
+    - `appgw.subscriptionId`: a ID de assinatura do Azure para o gateway de aplicativo. Exemplo: `a123b234-a3b4-557d-b2df-a0bc12de1234`
+    - `appgw.resourceGroup`: o nome do grupo de recursos do Azure no qual o gateway de aplicativo foi criado. 
     - `appgw.name`: nome do gateway de aplicativo. Exemplo: `applicationgateway1`.
-    - `appgw.shared`: esse sinalizador booliano deve ser padronizado para `false`. Defina como `true` caso precise de um [Gateway de aplicativo compartilhado](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
-    - `kubernetes.watchNamespace`: especifique o espaço de nome, que AGIC deve observar. O namespace pode ser um único valor de cadeia de caracteres ou uma lista separada por vírgulas de namespaces.
+    - `appgw.shared`: esse sinalizador booliano deve ser padronizado para `false`. Defina como `true` caso você precise de um [Gateway de aplicativo compartilhado](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
+    - `kubernetes.watchNamespace`: especifique o espaço de nome, que o AGIC deve observar. O namespace pode ser um único valor de cadeia de caracteres ou uma lista separada por vírgulas de namespaces. Deixar essa variável comentada ou defini-la como um resultado de cadeia de caracteres vazia ou vazio faz com que o controlador de entrada Observe todos os namespaces acessíveis.
     - `armAuth.type`: um valor de `aadPodIdentity` ou `servicePrincipal`.
     - `armAuth.identityResourceID`: ID de recurso da identidade gerenciada.
     - `armAuth.identityClientId`: a ID do cliente da identidade.
-    - `armAuth.secretJSON`: necessário apenas quando o tipo de segredo da entidade de serviço é escolhido (quando `armAuth.type` tiver sido definido como `servicePrincipal`).
+    - `armAuth.secretJSON`: necessário somente quando o tipo de segredo da entidade de serviço é escolhido (quando `armAuth.type` foi definido como `servicePrincipal`).
 
     Observações-chave:
     - O valor de `identityResourceID` é criado no script Terraform e pode ser encontrado executando: `echo "$(terraform output identity_client_id)"`.
@@ -759,8 +759,18 @@ Depois de ter o gateway de aplicativo, o AKS e o AGIC instalados, você pode ins
 2. Aplique o arquivo YAML:
 
     ```bash
-    kubectl apply -f apsnetapp.yaml
+    kubectl apply -f aspnetapp.yaml
     ```
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando não for mais necessário, exclua os recursos criados neste artigo.  
+
+Substitua o espaço reservado pelo valor apropriado. Todos os recursos dentro do grupo de recursos especificado serão excluídos.
+
+```bash
+az group delete -n <resource-group>
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

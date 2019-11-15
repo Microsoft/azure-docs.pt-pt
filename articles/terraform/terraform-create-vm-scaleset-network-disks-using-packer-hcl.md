@@ -1,37 +1,37 @@
 ---
-title: Tutorial – criar conjunto de dimensionamento de máquinas virtuais do Azure de uma imagem personalizada do Packr usando Terraform
+title: Tutorial-criar um conjunto de dimensionamento de máquinas virtuais do Azure por meio de uma imagem personalizada do empacotador usando Terraform
 description: Utilize o Terraform para configurar e criar a versão de um conjunto de dimensionamento de máquinas virtuais do Azure a partir de uma imagem personalizada gerada pelo Packer (incluindo uma rede virtual e discos anexados geridos).
 ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 080fda3077a10d0605f061aca5226783457348f9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7d2813a51e63d86b56712bb6d07efc2f65ec65a0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837527"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077818"
 ---
-# <a name="tutorial-create-azure-virtual-machine-scale-set-from-a-packer-custom-image-using-terraform"></a>Tutorial: criar um conjunto de dimensionamento de máquinas virtuais do Azure de uma imagem personalizada do Packer usando Terraform
+# <a name="tutorial-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image-by-using-terraform"></a>Tutorial: criar um conjunto de dimensionamento de máquinas virtuais do Azure por meio de uma imagem personalizada do empacotador usando Terraform
 
-Neste tutorial, vai utilizar o [Terraform](https://www.terraform.io/) para criar e implementar um [conjunto de dimensionamento de máquinas virtuais do Azure](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) criado com uma imagem personalizada produzida com o [Packer](https://www.packer.io/intro/index.html) com discos geridos que utilizam o [HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL).  
+Neste tutorial, você usará o [Terraform](https://www.terraform.io/) para criar e implantar um [conjunto de dimensionamento de máquinas virtuais do Azure](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) criado com uma imagem personalizada produzida por meio do [empacotador](https://www.packer.io/intro/index.html) com discos gerenciados que usam a HCL ( [linguagem de configuração do HashiCorp](https://www.terraform.io/docs/configuration/syntax.html) ). 
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Configurar a sua implementação do Terraform
-> * Utilizar variáveis e resultados para a implementação do Terraform 
-> * Criar e implementar uma infraestrutura de rede
-> * Criar uma imagem de máquina virtual personalizada com o Packer
-> * Criar e implementar um conjunto de dimensionamento de máquinas virtuais com a imagem personalizada
-> * Criar e implementar uma jumpbox 
+> * Configure sua implantação do Terraform.
+> * Use variáveis e saídas para a implantação do Terraform.
+> * Criar e implantar uma infraestrutura de rede.
+> * Crie uma imagem de máquina virtual personalizada usando o Packr.
+> * Crie e implante um conjunto de dimensionamento de máquinas virtuais usando a imagem personalizada.
+> * Criar e implantar um Jumpbox.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Terraform**: [instalar o Terraform e configurar o acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Terraform**: [Instale o Terraform e configure o acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure).
 - **Par de chaves SSH**: [crie um par de chaves SSH](/azure/virtual-machines/linux/mac-create-ssh-keys).
 - **Pacote**de [instalação: instalar o pacoter](https://www.packer.io/docs/install/index.html).
 
@@ -47,7 +47,7 @@ Crie três novos ficheiros num diretório vazio com os seguintes nomes:
 
 Neste passo, irá definir as variáveis que personalizam os recursos criados pelo Terraform.
 
-Edite o ficheiro `variables.tf`, copie o código seguinte e, em seguida, guarde as alterações.
+Edite o arquivo `variables.tf`, copie o código a seguir e salve as alterações.
 
 ```hcl
 variable "location" {
@@ -63,11 +63,11 @@ variable "resource_group_name" {
 ```
 
 > [!NOTE]
-> O valor predefinido da variável resource_group_name não está definido: defina o seu próprio valor.
+> O valor padrão da variável resource_group_name é não definido. Defina seu próprio valor.
 
 Guarde o ficheiro.
 
-Ao implementar o modelo do Terraform, deve obter o nome de domínio completamente qualificado que é utilizado para aceder à aplicação. Utilize o tipo de recurso `output` do Terraform e obtenha a propriedade `fqdn` do recurso. 
+Ao implantar o modelo Terraform, você deseja obter o nome de domínio totalmente qualificado que é usado para acessar o aplicativo. Utilize o tipo de recurso `output` do Terraform e obtenha a propriedade `fqdn` do recurso. 
 
 Edite o ficheiro `output.tf` e copie o código seguinte para expor o nome de domínio completamente qualificado para as máquinas virtuais. 
 
@@ -80,9 +80,9 @@ output "vmss_public_ip" {
 ## <a name="define-the-network-infrastructure-in-a-template"></a>Definir a infraestrutura de rede num modelo 
 
 Nesta etapa, irá criar a seguinte infraestrutura de rede num novo grupo de recursos do Azure: 
-  - Uma VNET com o espaço de endereços 10.0.0.0/16 
-  - Uma sub-rede com o espaço de endereços 10.0.2.0/24
-  - Dois endereços IP públicos. Um utilizado pelo balanceador de carga do conjunto de dimensionamento de máquinas virtuais; e o outro utilizado para ligar à jumpbox SSH
+  - Uma rede virtual com o espaço de endereço de 10.0.0.0/16.
+  - Uma sub-rede com o espaço de endereço de 10.0.2.0/24.
+  - Dois endereços IP públicos. Um é usado pelo balanceador de carga do conjunto de dimensionamento de máquinas virtuais. O outro é usado para se conectar ao Jumpbox SSH.
 
 Precisa também de um grupo de recursos onde todos os recursos são criados. 
 
@@ -132,7 +132,7 @@ resource "azurerm_public_ip" "vmss" {
 ``` 
 
 > [!NOTE]
-> Recomendamos que etiquete os recursos a implementar no Azure para facilitar a sua identificação no futuro.
+> Marque os recursos que estão sendo implantados no Azure para facilitar sua identificação no futuro.
 
 ## <a name="create-the-network-infrastructure"></a>Criar a infraestrutura de rede
 
@@ -152,32 +152,32 @@ terraform apply
 
 Verifique se o nome de domínio completamente qualificado do endereço IP público corresponde à sua configuração.
 
-![Nome de domínio completamente qualificado do conjunto de dimensionamento de máquinas virtuais do Terraform para o endereço IP Público](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-fqdn.png)
+![Conjunto de dimensionamento de máquinas virtuais Terraform nome de domínio totalmente qualificado para endereço IP público](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-fqdn.png)
 
 O grupo de recursos contém os seguintes recursos:
 
 ![Recursos de rede do conjunto de dimensionamento de máquinas virtuais do Terraform](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-rg.png)
 
 
-## <a name="create-an-azure-image-using-packer"></a>Criar uma imagem do Azure com o Packer
-Crie uma imagem personalizada do Linux através dos passos descritos no tutorial [How to use Packer to create Linux virtual machine images in Azure](/azure/virtual-machines/linux/build-image-with-packer) (Como utilizar o Packer para criar imagens de máquinas virtuais do Linux no Azure).
+## <a name="create-an-azure-image-by-using-packer"></a>Criar uma imagem do Azure usando o Packr
+Crie uma imagem personalizada do Linux seguindo as etapas no tutorial [como usar o Packer para criar imagens de máquina virtual do Linux no Azure](/azure/virtual-machines/linux/build-image-with-packer).
  
-Siga o tutorial para criar uma imagem de Ubuntu desaprovisionada com o NGINX instalado.
+Siga o tutorial para criar uma imagem do Ubuntu desprovisionada com o Nginx instalado.
 
-![Depois de criar a imagem do Packer, tem uma imagem](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/packerimagecreated.png)
+![Depois de criar a imagem do empacotador, você terá uma imagem](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/packerimagecreated.png)
 
 > [!NOTE]
-> Para efeitos deste tutorial, na imagem do Packer, é executado um comando para instalar o nginx. Pode também executar o seu próprio script durante a criação.
+> Para os fins deste tutorial, na imagem do empacotador, um comando é executado para instalar o Nginx. Pode também executar o seu próprio script durante a criação.
 
 ## <a name="edit-the-infrastructure-to-add-the-virtual-machine-scale-set"></a>Editar a infraestrutura para adicionar o conjunto de dimensionamento de máquinas virtuais
 
 Neste passo, vai criar os seguintes recursos na rede que foi anteriormente implementada:
-- O Azure Load Balancer para servir o aplicativo e anexá-lo ao endereço IP público implantado anteriormente.
-- Um balanceador de carga do Azure e regras para servir a aplicação e anexá-la ao endereço IP público configurado anteriormente
-- Pool de endereços de back-end do Azure e atribuí-lo ao balanceador de carga.
+- Um balanceador de carga do Azure para atender ao aplicativo. Anexe-o ao endereço IP público que foi implantado anteriormente.
+- Um Azure Load Balancer e regras para atender ao aplicativo. Anexe-o ao endereço IP público que foi configurado anteriormente.
+- Um pool de endereços de back-end do Azure. Atribua-o ao balanceador de carga.
 - Uma porta de investigação de integridade usada pelo aplicativo e configurada no balanceador de carga.
-- Um conjunto de dimensionamento de máquinas virtuais localizado atrás do balanceador de carga, em execução na VNET implantada anteriormente.
-- [Nginx](https://nginx.org/) nos nós da escala da máquina virtual instalada a partir da imagem personalizada.
+- Um conjunto de dimensionamento de máquinas virtuais que fica atrás do balanceador de carga e é executado na rede virtual que foi implantada anteriormente.
+- [Nginx](https://nginx.org/) nos nós da escala da máquina virtual instalada a partir de uma imagem personalizada.
 
 
 Adicione o seguinte código ao fim do ficheiro `vmss.tf`.
@@ -342,7 +342,7 @@ Abra um browser e ligue ao nome de domínio completamente qualificado que foi de
 Este passo opcional ativa o acesso SSH às instâncias do conjunto de dimensionamento de máquinas virtuais através de uma jumpbox.
 
 Adicione os seguintes recursos à sua implementação existente:
-- Uma interface de rede ligada à mesma sub-rede que o conjunto de dimensionamento de máquinas virtuais
+- Uma interface de rede conectada à mesma sub-rede que o conjunto de dimensionamento de máquinas virtuais
 - Uma máquina virtual com esta interface de rede
 
 Adicione o seguinte código ao fim do ficheiro `vmss.tf`:
@@ -419,7 +419,7 @@ resource "azurerm_virtual_machine" "jumpbox" {
 }
 ```
 
-Edite `outputs.tf` para adicionar o seguinte código que apresenta o nome do anfitrião da jumpbox quando a implementação é concluída:
+Edite `outputs.tf` para adicionar o seguinte código que exibe o nome do host do Jumpbox quando a implantação for concluída:
 
 ```
 output "jumpbox_public_ip" {
@@ -435,12 +435,12 @@ Implemente a jumpbox.
 terraform apply 
 ```
 
-Depois de concluída a implementação, o conteúdo do grupo de recursos é semelhante ao apresentado na imagem seguinte:
+Depois que a implantação for concluída, o conteúdo do grupo de recursos será semelhante à imagem a seguir:
 
 ![Grupo de recursos do conjunto de dimensionamento de máquinas virtuais do Terraform](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-create-vmss-step8.png)
 
 > [!NOTE]
-> A opção de iniciar sessão com uma palavra-passe está desativada na jumpbox e no conjunto de dimensionamento de máquinas virtuais que implementou. Inicie sessão com SSH para aceder às VMs.
+> A entrada com uma senha é desabilitada no Jumpbox e no conjunto de dimensionamento de máquinas virtuais que você implantou. Entre com o SSH para acessar as VMs.
 
 ## <a name="clean-up-the-environment"></a>Limpar o ambiente
 
@@ -450,9 +450,9 @@ Os seguintes comandos eliminam os recursos criados neste tutorial:
 terraform destroy
 ```
 
-Escreva `yes` quando lhe for pedido para confirmar a eliminação dos recursos. O processo de destruição pode demorar alguns minutos a ser concluído.
+Insira *Sim* quando for solicitado a confirmar a exclusão dos recursos. O processo de destruição pode demorar alguns minutos a ser concluído.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
 > [Saiba mais sobre como usar o Terraform no Azure](/azure/terraform)

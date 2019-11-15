@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 35d850dc6439173c83730375c576855f6920b450
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0cf9a0a13a1c16f5be6d82528849e6e2cc3d466d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475239"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641860"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API Web Node.js a partir de uma aplicação de ambiente de trabalho com o Azure Active Directory B2C
 
@@ -68,7 +68,7 @@ No tutorial de pré-requisito, você registrou um aplicativo cliente nativo cham
 1. Selecione a API à qual o aplicativo cliente nativo deve receber acesso. Por exemplo, *webapi1*.
 1. Em **permissão**, expanda **demonstração**e selecione os escopos que você definiu anteriormente. Por exemplo, *demo. Read* e *demo. Write*.
 1. Selecione **adicionar permissões**. Conforme indicado, aguarde alguns minutos antes de prosseguir para a próxima etapa.
-1. Selecione **conceder consentimento de administrador para (seu nome de locatário)** .
+1. Selecione **conceder consentimento de administrador para (seu nome de locatário)**.
 1. Selecione sua conta de administrador conectada no momento ou entre com uma conta em seu locatário Azure AD B2C que tenha sido atribuído pelo menos à função *administrador de aplicativos de nuvem* .
 1. Selecione **Aceitar**.
 1. Selecione **Atualizar**e, em seguida, verifique se "concedido para..." aparece em **status** para ambos os escopos. Pode levar alguns minutos para que as permissões se propaguem.

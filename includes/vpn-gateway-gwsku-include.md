@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 75152fabfc33dda0494d871fbdf9a388f4260c0d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8087025810214f3edbb74e628698eb69558f3500
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495715"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74085266"
 ---
 Quando cria um gateway de rede virtual, tem de especificar o SKU de gateway que pretende utilizar. Selecione o SKU que atende as suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, funcionalidades e SLA. Para SKUs de gateway de rede virtual no Zonas de Disponibilidade do Azure, consulte [SKUs de gateway de zonas de disponibilidade do Azure](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
@@ -21,7 +21,11 @@ Quando cria um gateway de rede virtual, tem de especificar o SKU de gateway que 
 
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
+> [!NOTE]
+> VpnGw SKUs (VpnGw1, VpnGw1AZ, VpnGw2, VpnGw2AZ, VpnGw3, VpnGw3AZ, VpnGw4, VpnGw4AZ, VpnGw5 e VpnGw5AZ) têm suporte apenas para o modelo de implantação do Resource Manager. As redes virtuais clássicas devem continuar a usar os SKUs antigos (herdados).
+>  * Para obter informações sobre como trabalhar com as SKUs de gateway herdadas (Basic, Standard e HighPerformance), consulte [trabalhando com SKUs de gateway de VPN (SKUs herdadas)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+>  * Para SKUs de gateway do ExpressRoute, consulte [gateways de rede virtual para ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+>
 
 ###  <a name="feature"></a>SKUs de gateway por conjunto de recursos
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7339ef136639ceaaacb1c416c147155c7ce659f8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e61949dc739230382fab4cfaad53a6cb449de79a
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074168"
+ms.locfileid: "74091627"
 ---
 # <a name="recovery-services-vaults-overview"></a>Visão geral dos cofres dos serviços de recuperação
 
@@ -26,15 +26,15 @@ Se você ainda tiver cofres de backup, eles serão atualizados automaticamente p
 
 Os cofres dos serviços de recuperação são baseados no modelo de Azure Resource Manager do Azure, enquanto os cofres de backup eram baseados no modelo de Service Manager do Azure. Quando você atualiza um cofre de backup para um cofre dos serviços de recuperação, os dados de backup permanecem intactos durante e após o processo de atualização. Os cofres dos serviços de recuperação fornecem recursos não disponíveis para cofres de backup, como:
 
-- **Recursos aprimorados para ajudar a proteger os dados de backup**: com cofres dos serviços de recuperação, o backup do Azure fornece recursos de segurança para proteger os backups na nuvem. Os recursos de segurança garantem que você possa proteger seus backups e recuperar dados com segurança, mesmo se os servidores de produção e de backup estiverem comprometidos. [Saber mais](backup-azure-security-feature.md)
+- **Recursos aprimorados para ajudar a proteger os dados de backup**: com cofres dos serviços de recuperação, o backup do Azure fornece recursos de segurança para proteger os backups na nuvem. Os recursos de segurança garantem que você possa proteger seus backups e recuperar dados com segurança, mesmo se os servidores de produção e de backup estiverem comprometidos. [Saiba mais](backup-azure-security-feature.md)
 
-- **Monitoramento central para seu ambiente de ti híbrido**: com cofres dos serviços de recuperação, você pode monitorar não apenas suas [VMs IaaS do Azure](backup-azure-manage-vms.md) , mas também seus [ativos locais](backup-azure-manage-windows-server.md#manage-backup-items) de um portal central. [Saber mais](https://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
+- **Monitoramento central para seu ambiente de ti híbrido**: com cofres dos serviços de recuperação, você pode monitorar não apenas suas [VMs IaaS do Azure](backup-azure-manage-vms.md) , mas também seus [ativos locais](backup-azure-manage-windows-server.md#manage-backup-items) de um portal central. [Saiba mais](https://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
-- **RBAC (controle de acesso baseado em função)** : o RBAC fornece controle de gerenciamento de acesso refinado no Azure. O [Azure fornece várias funções internas](../role-based-access-control/built-in-roles.md), e o backup do Azure tem três [funções internas para gerenciar pontos de recuperação](backup-rbac-rs-vault.md). Os cofres dos serviços de recuperação são compatíveis com o RBAC, que restringe o acesso de backup e restauração ao conjunto definido de funções de usuário. [Saber mais](backup-rbac-rs-vault.md)
+- **RBAC (controle de acesso baseado em função)** : o RBAC fornece controle de gerenciamento de acesso refinado no Azure. O [Azure fornece várias funções internas](../role-based-access-control/built-in-roles.md), e o backup do Azure tem três [funções internas para gerenciar pontos de recuperação](backup-rbac-rs-vault.md). Os cofres dos serviços de recuperação são compatíveis com o RBAC, que restringe o acesso de backup e restauração ao conjunto definido de funções de usuário. [Saiba mais](backup-rbac-rs-vault.md)
 
-- **Proteger todas as configurações de máquinas virtuais do Azure**: cofres dos serviços de recuperação proteja VMs baseadas no Resource Manager, incluindo discos Premium, Managed disks e VMs criptografadas. A atualização de um cofre de backup para um cofre dos serviços de recuperação oferece a oportunidade de atualizar suas VMs baseadas em Service Manager para VMs baseadas no Gerenciador de recursos. Ao atualizar o cofre, você pode manter seus pontos de recuperação de VM baseados em Service Manager e configurar a proteção para as VMs atualizadas (habilitadas para o Gerenciador de recursos). [Saber mais](https://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
+- **Proteger todas as configurações de máquinas virtuais do Azure**: cofres dos serviços de recuperação proteja VMs baseadas no Resource Manager, incluindo discos Premium, Managed disks e VMs criptografadas. A atualização de um cofre de backup para um cofre dos serviços de recuperação oferece a oportunidade de atualizar suas VMs baseadas em Service Manager para VMs baseadas no Gerenciador de recursos. Ao atualizar o cofre, você pode manter seus pontos de recuperação de VM baseados em Service Manager e configurar a proteção para as VMs atualizadas (habilitadas para o Gerenciador de recursos). [Saiba mais](https://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 
-- **Restauração instantânea para VMs de IaaS**: usando cofres de serviços de recuperação, você pode restaurar arquivos e pastas de uma VM IaaS sem restaurar toda a VM, o que permite tempos de restauração mais rápidos. A restauração instantânea para VMs de IaaS está disponível para VMs Windows e Linux. [Saber mais](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
+- **Restauração instantânea para VMs de IaaS**: usando cofres de serviços de recuperação, você pode restaurar arquivos e pastas de uma VM IaaS sem restaurar toda a VM, o que permite tempos de restauração mais rápidos. A restauração instantânea para VMs de IaaS está disponível para VMs Windows e Linux. [Saiba mais](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Gerenciando cofres dos serviços de recuperação no portal
 
@@ -76,7 +76,7 @@ As seções a seguir contêm links para artigos que explicam como usar um cofre 
 
 - [Protegendo dados de backup na nuvem em cofres dos serviços de recuperação](backup-azure-security-feature.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Use os seguintes artigos para:</br>
 [Fazer backup de uma VM IaaS](backup-azure-arm-vms-prepare.md)</br>

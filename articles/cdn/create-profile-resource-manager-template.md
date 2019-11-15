@@ -1,6 +1,7 @@
 ---
-title: Início rápido - criar um perfil de rede de entrega de conteúdos do Azure e o ponto final com modelos do Resource Manager | Documentos da Microsoft
-description: Saiba como criar um perfil de rede de entregar conteúdos do Azure e o ponto final com modelos do Resource Manager
+title: Início rápido-criar um perfil e um ponto de extremidade usando modelos do Resource Manager
+titleSuffix: Azure Content Delivery Network
+description: Saiba como criar um perfil de rede e um ponto de extremidade de entrega de conteúdo do Azure usando modelos do Resource Manager
 services: cdn
 documentationcenter: ''
 author: senthuransivananthan
@@ -15,31 +16,31 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: cbde4c7fd568e6d9ff9a0d90332da96926e08077
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: b711a12161bc134bdcbb8c1f3e74f2e5ae06e701
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593138"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083144"
 ---
-# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Início rápido: Criar um perfil de CDN do Azure e o ponto de extremidade usando o modelo do Resource Manager
+# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Início rápido: criar um perfil e um ponto de extremidade da CDN do Azure usando o modelo do Resource Manager
 
-Neste início rápido, vai implementar um modelo do Azure Resource Manager com CLI. O modelo criado por si implementa um perfil CDN e ponto final da CDN para a sua aplicação web de front.
-Deve demorar cerca de dez minutos para concluir estes passos.
+Neste guia de início rápido, você implanta um modelo de Azure Resource Manager usando a CLI. O modelo que você cria implanta um perfil CDN e um ponto de extremidade CDN para antecipar seu aplicativo Web.
+Deve levar cerca de dez minutos para concluir essas etapas.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prequisites"></a>Pré-requisitos
+## <a name="prequisites"></a>Selecionado pré-requisitos
 
-Para efeitos deste início rápido, tem de ter uma aplicação Web para utilizar como a sua origem. O exemplo de que aplicativo Web utilizado neste início rápido foi implementado https://cdndemo.azurewebsites.net
+Para os fins deste guia de início rápido, você deve ter um aplicativo Web para usar como sua origem. O aplicativo Web de exemplo usado neste guia de início rápido foi implantado para https://cdndemo.azurewebsites.net
 
-Para obter mais informações, consulte [criar uma aplicação web HTML estática no Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html).
+Para obter mais informações, consulte [criar um aplicativo Web HTML estático no Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Todos os recursos tem de ser implementados no mesmo grupo de recursos.
+Todos os recursos devem ser implantados no mesmo grupo de recursos.
 
-Crie o grupo de recursos na localização que selecionou. Este exemplo mostra a criação de um grupo de recursos com o nome da cdn na localização E.U.A. Leste.
+Crie o grupo de recursos no local que você selecionar. Este exemplo mostra a criação de um grupo de recursos chamado CDN no local leste dos EUA.
 
 ```bash
 az group create --name cdn --location eastus
@@ -49,13 +50,13 @@ az group create --name cdn --location eastus
 
 ## <a name="create-the-resource-manager-template"></a>Criar o modelo do Resource Manager
 
-Neste passo, vai criar um arquivo de modelo que implementa os recursos.
+Nesta etapa, você cria um arquivo de modelo que implanta os recursos.
 
-Embora este exemplo descreve como um cenário de aceleração de site geral, isso significa que há muitas outras configurações que podem ser configuradas. Estas definições estão disponíveis na referência de modelo do Azure Resource Manager. Consulte referências para [perfil da CDN](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) e [ponto final do perfil de CDN](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
+Embora este exemplo percorra um cenário de aceleração de site geral, há muitas outras configurações que podem ser configuradas. Essas configurações estão disponíveis na referência do modelo de Azure Resource Manager. Consulte as referências para o [perfil CDN](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) e o [ponto de extremidade do perfil CDN](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
 
-Tenha em atenção que o Microsoft CDN não suporta a modificar a lista de tipo de conteúdo.
+Observe que a CDN da Microsoft não dá suporte à modificação da lista de tipos de conteúdo.
 
-Guardar o modelo como **resource-manager-cdn.json**.
+Salve o modelo como **Resource-Manager-CDN. JSON**.
 
 ```json
 {
@@ -177,59 +178,59 @@ Guardar o modelo como **resource-manager-cdn.json**.
 
 ## <a name="create-the-resources"></a>Criar os recursos
 
-Implemente o modelo com a CLI do Azure. Será solicitado para 2 entradas:
+Implante o modelo usando CLI do Azure. Serão solicitadas duas entradas:
 
-**cdnProfileSku** -o fornecedor CDN que pretende utilizar. As opções são:
+**cdnProfileSku** -o provedor de CDN que você deseja usar. As opções são:
 
 * Standard_Microsoft
 * Standard_Akamai
 * Standard_Verizon
 * Premium_Verizon.
 
-**endpointOriginHostName** -o ponto final que irá ser atendido por meio da CDN, por exemplo, cdndemo.azurewebsites.net.
+**endpointOriginHostName** -o ponto de extremidade que será servido por meio da CDN, por exemplo, cdndemo.azurewebsites.net.
 
 ```bash
 az group deployment create --resource-group cdn --template-file arm-cdn.json
 ```
 
-![Implementar o modelo do Resource Manager](./media/create-profile-resource-manager-template/cdn-deploy-resource-manager.png)
+![Implantar modelo do Resource Manager](./media/create-profile-resource-manager-template/cdn-deploy-resource-manager.png)
 
-## <a name="view-the-cdn-profile"></a>Visualizar o perfil CDN
+## <a name="view-the-cdn-profile"></a>Exibir o perfil CDN
 
 ```bash
 az cdn profile list --resource-group cdn -o table
 ```
 
-![Ver perfil CDN](./media/create-profile-resource-manager-template/cdn-view-profile.png)
+![Exibir Perfil CDN](./media/create-profile-resource-manager-template/cdn-view-profile.png)
 
-## <a name="view-the-cdn-endpoint-for-the-profile-standard-microsoft"></a>Ver o ponto final da CDN para a perfil padrão da microsoft
+## <a name="view-the-cdn-endpoint-for-the-profile-standard-microsoft"></a>Exibir o ponto de extremidade CDN para o perfil padrão-Microsoft
 
 ```bash
 az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o table
 ```
 
-![Ponto final da CDN do Vista](./media/create-profile-resource-manager-template/cdn-view-endpoint.png)
+![Exibir ponto de extremidade CDN](./media/create-profile-resource-manager-template/cdn-view-endpoint.png)
 
-Utilize o nome de anfitrião para ver o conteúdo. Por exemplo, acessar https://cdndemo-azurewebsites-net.azureedge.net utilizando o seu browser.
+Use o nome do host para exibir o conteúdo. Por exemplo, acesse https://cdndemo-azurewebsites-net.azureedge.net usando seu navegador.
 
 ## <a name="clean-up"></a>Limpeza
 
-A eliminar o grupo de recursos removerá automaticamente todos os recursos que foram implementados no mesmo.
+A exclusão do grupo de recursos removerá automaticamente todos os recursos que foram implantados nele.
 
 ```bash
 az group delete --name cdn
 ```
 
-![Eliminar grupo de recursos](./media/create-profile-resource-manager-template/cdn-delete-resource-group.png)
+![Excluir grupo de recursos](./media/create-profile-resource-manager-template/cdn-delete-resource-group.png)
 
 ## <a name="references"></a>Referências
 
-* Perfil CDN - [referência de modelo do Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles)
-* Ponto final da CDN - [documentação de referência de modelo do Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
+* [Referência de modelo de Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) de perfil CDN
+* Ponto de extremidade CDN- [documentação de referência do modelo de Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre como adicionar um domínio personalizado ao ponto final de CDN, veja o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md) (Adicionar um domínio personalizado ao ponto final da CDN do Azure)
+> [Tutorial: Adicionar um domínio personalizado ao ponto final da CDN do Azure](cdn-map-content-to-custom-domain.md)

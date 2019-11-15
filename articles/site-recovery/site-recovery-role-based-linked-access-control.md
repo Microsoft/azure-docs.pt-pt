@@ -1,21 +1,21 @@
 ---
-title: Gerenciar o acesso de Azure Site Recovery com RBAC (controle de acesso baseado em função) | Microsoft Docs
+title: Gerenciar o controle de acesso baseado em função do Azure no Azure Site Recovery
 description: Este artigo descreve como aplicar o RBAC (controle de acesso baseado em função) para gerenciar o acesso ao Azure Site Recovery.
 ms.service: site-recovery
 ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 51c0d832a6d6d9b1cd148f765e68cb77c4679819
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929226"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083767"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gerenciar o acesso de Site Recovery com o RBAC (controle de acesso baseado em função)
 
-O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão pormenorizada de acesso ao Azure. Usando o RBAC, você pode separar as responsabilidades dentro de sua equipe e conceder apenas permissões de acesso específicas aos usuários conforme necessário para executar trabalhos específicos.
+O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Usando o RBAC, você pode separar as responsabilidades dentro de sua equipe e conceder apenas permissões de acesso específicas aos usuários conforme necessário para executar trabalhos específicos.
 
 O Azure Site Recovery fornece 3 funções internas para controlar as operações de gerenciamento de Site Recovery. Obter mais informações sobre [Funções incorporadas do RBAC do Azure](../role-based-access-control/built-in-roles.md)
 
@@ -43,31 +43,31 @@ Um usuário precisa das seguintes permissões para concluir a replicação de um
 
 | **Tipo de Recurso** | **Modelo de implantação** | **Permissão** |
 | --- | --- | --- |
-| Computação | Resource Manager | Microsoft. Compute/availabilitySets/Read |
-|  |  | Microsoft. Compute/virtualMachines/Read |
-|  |  | Microsoft. Compute/virtualMachines/Write |
-|  |  | Microsoft. Compute/virtualMachines/Delete |
-|  | Clássico | Microsoft. ClassicCompute/nome_do_domínio/leitura |
-|  |  | Microsoft. ClassicCompute/nome_do_domínio/gravação |
-|  |  | Microsoft. ClassicCompute/nome_do_domínio/excluir |
-|  |  | Microsoft. ClassicCompute/virtualMachines/Read |
-|  |  | Microsoft. ClassicCompute/virtualMachines/Write |
-|  |  | Microsoft. ClassicCompute/virtualMachines/Delete |
-| Rede | Resource Manager | Microsoft. Network/networkInterfaces/Read |
-|  |  | Microsoft. Network/networkInterfaces/Write |
-|  |  | Microsoft. Network/networkInterfaces/excluir |
-|  |  | Microsoft. Network/networkInterfaces/junção/ação |
-|  |  | Microsoft. Network/virtualNetworks/Read |
-|  |  | Microsoft. Network/virtualNetworks/sub-redes/leitura |
-|  |  | Microsoft. Network/virtualNetworks/sub-redes/junção/ação |
-|  | Clássico | Microsoft. ClassicNetwork/virtualNetworks/Read |
-|  |  | Microsoft. ClassicNetwork/virtualNetworks/junção/ação |
-| Armazenamento | Resource Manager | Microsoft. Storage/storageAccounts/Read |
-|  |  | Microsoft. Storage/storageAccounts/listkeys/Action |
-|  | Clássico | Microsoft. ClassicStorage/storageAccounts/Read |
-|  |  | Microsoft. ClassicStorage/storageAccounts/listKeys/Action |
-| Grupo de Recursos | Resource Manager | Microsoft. Resources/Implantations/* |
-|  |  | Microsoft. Resources/subscriptions/resourceGroups/Read |
+| Computação | Resource Manager | Microsoft.Compute/availabilitySets/read |
+|  |  | Microsoft.Compute/virtualMachines/read |
+|  |  | Microsoft.Compute/virtualMachines/write |
+|  |  | Microsoft.Compute/virtualMachines/delete |
+|  | Clássica | Microsoft.ClassicCompute/domainNames/read |
+|  |  | Microsoft.ClassicCompute/domainNames/write |
+|  |  | Microsoft.ClassicCompute/domainNames/delete |
+|  |  | Microsoft.ClassicCompute/virtualMachines/read |
+|  |  | Microsoft.ClassicCompute/virtualMachines/write |
+|  |  | Microsoft.ClassicCompute/virtualMachines/delete |
+| Rede | Resource Manager | Microsoft.Network/networkInterfaces/read |
+|  |  | Microsoft.Network/networkInterfaces/write |
+|  |  | Microsoft.Network/networkInterfaces/delete |
+|  |  | Microsoft.Network/networkInterfaces/join/action |
+|  |  | Microsoft.Network/virtualNetworks/read |
+|  |  | Microsoft.Network/virtualNetworks/subnets/read |
+|  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
+|  | Clássica | Microsoft.ClassicNetwork/virtualNetworks/read |
+|  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
+| Storage | Resource Manager | Microsoft.Storage/storageAccounts/read |
+|  |  | Microsoft.Storage/storageAccounts/listkeys/action |
+|  | Clássica | Microsoft.ClassicStorage/storageAccounts/read |
+|  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
+| Grupo de Recursos | Resource Manager | Microsoft.Resources/deployments/* |
+|  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
 
 Considere o uso das [funções internas](../role-based-access-control/built-in-roles.md) ' colaborador da máquina virtual ' e ' colaborador da máquina virtual clássica ' para os modelos de implantação do Resource Manager e clássico, respectivamente.
 

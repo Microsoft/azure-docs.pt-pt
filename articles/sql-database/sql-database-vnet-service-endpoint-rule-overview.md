@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
-ms.date: 08/27/2019
-ms.openlocfilehash: f171181aa56287561aba3159f5039f70165dc8ab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: faf3573178693ec806000eb89ce7a975955d61b9
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807502"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084124"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usar pontos de extremidade de serviço de rede virtual e regras para servidores de banco de dados
 
@@ -197,13 +197,11 @@ O erro de conexão 40914 está relacionado às *regras de rede virtual*, conform
 
 ### <a name="error-40615"></a>Erro 40615
 
-*Texto da mensagem:* Não é possível abrir o servidor '{0}' solicitado pelo logon. O cliente com o endereço IP ' {1} ' não tem permissão para acessar o servidor.
+*Texto da mensagem:* Não é possível abrir o servidor '{0}' solicitado pelo logon. O cliente com o endereço IP '{1}' não tem permissão para acessar o servidor.
 
 *Descrição do erro:* O cliente está tentando se conectar de um endereço IP que não está autorizado a se conectar ao servidor do banco de dados SQL do Azure. O servidor da firewall não dispõe de qualquer regra de endereço IP que permita a um cliente comunicar entre esse mesmo endereço IP e a Base de Dados SQL.
 
 *Resolução de erro:* Insira o endereço IP do cliente como uma regra de IP. Faça isso através do painel Firewall no portal do Azure.
-
-Está documentada [aqui][sql-database-develop-error-messages-419g] uma lista de várias mensagens de erro da Base de Dados SQL.
 
 <a name="anchor-how-to-by-using-firewall-portal-59j" />
 
@@ -302,8 +300,6 @@ O recurso de regra de rede virtual para o banco de dados SQL do Azure tornou-se 
 [rbac-what-is-813s]:../role-based-access-control/overview.md
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
-
-[sql-database-develop-error-messages-419g]: sql-database-develop-error-messages.md
 
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]: sql-database-vnet-service-endpoint-rule-powershell.md
 

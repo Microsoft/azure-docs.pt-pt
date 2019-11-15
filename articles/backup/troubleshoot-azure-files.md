@@ -7,12 +7,12 @@ ms.author: dacurwin
 ms.date: 08/20/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: a6914fadcc69db534bb8476bbd8c89aa716a8bcb
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c589cba1386433e13318dabbd2873f789ee42df3
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074697"
+ms.locfileid: "74091498"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Resolução de problemas da cópia de segurança de Partilhas de Ficheiros do Azure
 
@@ -31,7 +31,7 @@ A cópia de segurança de Partilhas de ficheiros do Azure está em Pré-visualiz
 
 O backup de compartilhamentos de arquivos do Azure em contas de armazenamento com replicação de ZRS ( [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) ) está disponível no momento apenas em EUA Central (cus), leste dos EUA (eus), leste dos EUA 2 (EUS2), Europa setentrional (ne), Sudeste Asiático (Sea), Europa Ocidental (nós) e oeste dos EUA 2 (WUS2).
 
-## <a name="configuring-backup"></a>Configurar a Cópia de Segurança
+## <a name="configuring-backup"></a>Configurando o backup
 
 A tabela seguinte apresenta informações para a configuração da cópia de segurança:
 
@@ -44,7 +44,7 @@ A tabela seguinte apresenta informações para a configuração da cópia de seg
 | A configuração da Partilha de ficheiros da cópia de segurança (ou a configuração da política de proteção) está a falhar. | <ul><li>Repita a operação para ver se o problema persiste. <li> Verifique se a Partilha de ficheiros que quer proteger não foi eliminada. <li> Se estiver a tentar proteger várias Partilhas de ficheiros em simultâneo e algumas das partilhas de ficheiros estiverem a falhar, repita a configuração da cópia de segurança para as Partilhas de ficheiros com falhas. |
 | Não é possível eliminar o cofre dos Serviços de Recuperação após desproteger uma Partilha de ficheiros. | No portal do Azure, abra o seu Cofre > **Infraestrutura de Cópia de Segurança** > **Contas de armazenamento** e clique em **Anular o Registo** para remover a conta de armazenamento do cofre dos Serviços de Recuperação.|
 
-## <a name="error-messages-for-backup-or-restore-job-failures"></a>Mensagens de erro para falhas de Tarefas de Cópia de Segurança ou de Restauro
+## <a name="error-messages-for-backup-or-restore-job-failures"></a>Mensagens de erro para falhas no trabalho de backup ou restauração
 
 | Mensagens de erro | Sugestões de Solução ou Resolução |
 | -------------- | ----------------------------- |

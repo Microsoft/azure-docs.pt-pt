@@ -1,6 +1,6 @@
 ---
-title: Usar filas do barramento de serviço do Azure no node. js
-description: Saiba como usar filas do barramento de serviço no Azure de um aplicativo node. js.
+title: 'Início rápido: usar filas do barramento de serviço do Azure no node. js'
+description: 'Início rápido: saiba como usar filas do barramento de serviço no Azure de um aplicativo node. js.'
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -11,25 +11,26 @@ ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 1aba29f8ed7cacb8f2911ae2d37358869e6a7730
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 404163ed93549b55ceadad10825a9cf682de470b
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001133"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719216"
 ---
-# <a name="use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Usar filas do barramento de serviço no Azure com node. js e o pacote Azure-SB
+# <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Início rápido: usar filas do barramento de serviço no Azure com node. js e o pacote Azure-SB
+
 > [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote node. js"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
+> - [(Node. js | Azure-SB)](service-bus-nodejs-how-to-use-queues.md)
+> - [(Node. js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
 Neste tutorial, você aprenderá a criar aplicativos node. js para enviar mensagens e receber mensagens de uma fila do barramento de serviço do Azure usando o pacote [Azure-SB](https://www.npmjs.com/package/azure-sb) . Os exemplos são escritos em JavaScript e usam o [módulo do Azure](https://www.npmjs.com/package/azure) node. js que usa internamente o pacote Azure-SB.
 
-O pacote [Azure-SB](https://www.npmjs.com/package/azure-sb) usa [APIs REST de tempo de execução do barramento de serviço](/rest/api/servicebus/service-bus-runtime-rest). Você pode obter uma experiência mais rápida usando o novo [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) que usa o [protocolo AMQP 1,0](service-bus-amqp-overview.md)mais rápido. Para saber mais sobre o novo pacote, consulte [como usar filas do barramento de serviço com o pacote node. js e @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), caso contrário, continue lendo para ver como usar o pacote [do Azure](https://www.npmjs.com/package/azure) .
+O pacote [Azure-SB](https://www.npmjs.com/package/azure-sb) usa [APIs REST de tempo de execução do barramento de serviço](/rest/api/servicebus/service-bus-runtime-rest). Você pode obter uma experiência mais rápida usando o novo [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) que usa o [protocolo AMQP 1,0](service-bus-amqp-overview.md)mais rápido. Para saber mais sobre o novo pacote, consulte [como usar filas do barramento de serviço com o Node. js e o pacote de @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), caso contrário, continue lendo para ver como usar o pacote [do Azure](https://www.npmjs.com/package/azure) .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Você pode ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
@@ -49,7 +50,7 @@ Crie um aplicativo node. js em branco. Para obter instruções sobre como criar 
 Para usar o barramento de serviço do Azure, baixe e use o pacote do Azure do node. js. Este pacote inclui um conjunto de bibliotecas que se comunicam com os serviços REST do barramento de serviço.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Usar o Gerenciador de pacotes de nó (NPM) para obter o pacote
-1. Use a janela de comando do **Windows PowerShell para node. js** para navegar até a pasta **c: \\node @ no__t-3sbqueues @ no__t-4WebRole1** na qual você criou o aplicativo de exemplo.
+1. Use a janela de comando do **Windows PowerShell para node. js** para navegar até o **nó c:\\\\pasta do sbqueues\\WebRole1** em que você criou o aplicativo de exemplo.
 2. Digite **NPM install Azure** na janela de comando, que deve resultar em uma saída semelhante ao exemplo a seguir:
 
     ```
@@ -86,7 +87,7 @@ O objeto **ServiceBusService** permite que você trabalhe com filas do barrament
 var serviceBusService = azure.createServiceBusService();
 ```
 
-Ao chamar `createQueueIfNotExists` no objeto **ServiceBusService** , a fila especificada é retornada (se existir) ou uma nova fila com o nome especificado é criada. O código a seguir usa `createQueueIfNotExists` para criar ou conectar-se à fila chamada `myqueue`:
+Chamando `createQueueIfNotExists` no objeto **ServiceBusService** , a fila especificada é retornada (se existir) ou uma nova fila com o nome especificado é criada. O código a seguir usa `createQueueIfNotExists` para criar ou conectar-se à fila chamada `myqueue`:
 
 ```javascript
 serviceBusService.createQueueIfNotExists('myqueue', function(error){
@@ -112,7 +113,7 @@ serviceBusService.createQueueIfNotExists('myqueue', queueOptions, function(error
 ```
 
 ### <a name="filters"></a>Filtros
-Operações de filtragem opcionais podem ser aplicadas às operações executadas usando **ServiceBusService**. As operações de filtragem podem incluir registro em log, repetição automática, etc. Os filtros são objetos que implementam um método com a assinatura:
+Operações de filtragem opcionais podem ser aplicadas às operações executadas usando **ServiceBusService**. As operações de filtragem podem incluir registro em log, repetição automática, etc. Filtros são objetos que implementam um método com a assinatura:
 
 ```javascript
 function handle (requestOptions, next)
@@ -158,7 +159,7 @@ As mensagens são recebidas de uma fila usando o método `receiveQueueMessage` n
 
 O comportamento padrão de leitura e exclusão da mensagem como parte da operação Receive é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo pode tolerar o não processamento de uma mensagem quando ocorrer uma falha. Para entender esse comportamento, considere um cenário no qual o consumidor emite a solicitação de recebimento e depois falha antes de processá-la. Como o barramento de serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
-Se o parâmetro `isPeekLock` for definido como **true**, o Receive se tornará uma operação de duas etapas, o que torna possível o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma confiável para processamento futuro), ele conclui o segundo estágio do processo de recebimento chamando o método `deleteMessage` e fornecendo a mensagem a ser excluída como um parâmetro. O método `deleteMessage` marca a mensagem como sendo consumida e a remove da fila.
+Se o parâmetro `isPeekLock` for definido como **true**, o Receive se tornará uma operação de duas etapas, o que possibilitará o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma confiável para processamento futuro), ele conclui o segundo estágio do processo de recebimento chamando o método `deleteMessage` e fornecendo a mensagem a ser excluída como um parâmetro. O método `deleteMessage` marca a mensagem como sendo consumida e a remove da fila.
 
 O exemplo a seguir demonstra como receber e processar mensagens usando `receiveQueueMessage`. O exemplo primeiro recebe e exclui uma mensagem e, em seguida, recebe uma mensagem usando `isPeekLock` definido como **true**e, em seguida, exclui a mensagem usando `deleteMessage`:
 

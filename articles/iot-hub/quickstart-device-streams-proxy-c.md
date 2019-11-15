@@ -1,5 +1,5 @@
 ---
-title: Início rápido dos fluxos de dispositivos do Hub IoT do Azure para SSH e RDP (visualização) | Microsoft Docs
+title: Início rápido dos fluxos de dispositivos no Hub IoT do Azure para SSH e RDP
 description: Neste guia de início rápido, você executa um aplicativo C de exemplo que atua como um proxy para habilitar cenários SSH e RDP em fluxos de dispositivo do Hub IoT.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 5d610f14dc037d1585b7f8ec1e0dd28944847b7a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c8554fc3f691af05a2c6a660d07ffb9a6ff29f31
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900862"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084324"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Início rápido: habilitar SSH e RDP em um fluxo de dispositivo do Hub IoT usando um aplicativo de proxy C (versão prévia)
 
@@ -54,7 +54,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 * Atualmente, há suporte para a visualização de fluxos de dispositivo apenas para os hubs IoT criados nas seguintes regiões:
 
-  * Centro dos E.U.A.
+  * EUA Central
   * EUA Central EUAP
   * Europa do Norte
   * Sudeste Asiático
@@ -217,7 +217,7 @@ A imagem a seguir mostra a saída do console do programa cliente SSH. O cliente 
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você configura um hub IoT, registrou um dispositivo, implantou um dispositivo e um programa de proxy de serviço local para estabelecer um fluxo de dispositivo por meio do Hub IoT e usou os proxies para encapsular o tráfego SSH.
 

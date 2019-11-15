@@ -1,33 +1,23 @@
 ---
-title: Mover o Azure MS para outra região com Azure Site Recovery
-description: Use Azure Site Recovery para mover VMs IaaS do Azure de uma região do Azure para outra.
+title: Movendo VMs do Azure para outra região com Azure Site Recovery
+description: Usar Azure Site Recovery para mover VMs do Azure de uma região do Azure para outra.
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: e3a3db66b4833a8ba21dc9d3c1938f645919221c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 05d0fcb9e689b8954bffaff402475762344c023d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954175"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091945"
 ---
-# <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
+# <a name="moving-azure-vms-to-another-azure-region"></a>Movendo VMs do Azure para outra região do Azure
 
-O Azure cresce junto com a base de clientes e adiciona suporte a novas regiões para manter o ritmo das demandas crescentes. Novos recursos também são adicionados mensalmente entre serviços. Talvez você queira mover suas VMs (máquinas virtuais) para uma região diferente ou para Zonas de Disponibilidade para aumentar a disponibilidade.
+Este artigo fornece uma visão geral dos motivos e das etapas envolvidas na movimentação de VMs do Azure para outra região do Azure usando [Azure site Recovery](site-recovery-overview.md). 
 
-Este tutorial descreve diferentes cenários nos quais você gostaria de mover suas VMs. Ele também descreve como configurar a arquitetura na região de destino para obter maior disponibilidade. 
-
-Neste tutorial, vai aprender o seguinte:
-
-> [!div class="checklist"]
-> 
-> * Motivos para mover as VMs
-> * Arquiteturas típicas
-> * Movendo VMs como se encontra para uma região de destino
-> * Movendo VMs para aumentar a disponibilidade
 
 ## <a name="reasons-to-move-azure-vms"></a>Motivos para mover as VMs do Azure
 

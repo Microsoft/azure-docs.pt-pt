@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Robin | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o Robin | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Robin.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82e1f0b72b4f2f3053a13a305df9d0e277894156
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
+ms.openlocfilehash: 0f8278f9c0b478d940a629d3308fd73ea474a4aa
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70213545"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081668"
 ---
-# <a name="tutorial-integrate-robin-with-azure-active-directory"></a>Tutorial: Integrar o Robin com Azure Active Directory
+# <a name="tutorial-integrate-robin-with-azure-active-directory"></a>Tutorial: integrar o Robin com Azure Active Directory
 
 Neste tutorial, você aprenderá a integrar o Robin ao Azure Active Directory (Azure AD). Ao integrar o Robin ao Azure AD, você pode:
 
@@ -37,7 +37,7 @@ Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consult
 
 Para começar, você precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma avaliação gratuita de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 * Assinatura habilitada para logon único (SSO) do Robin.
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -58,7 +58,6 @@ Para configurar a integração do Robin ao Azure AD, você precisará adicionar 
 1. Na seção **Adicionar da Galeria** , digite **Robin** na caixa de pesquisa.
 1. Selecione **Robin** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
 Configure e teste o SSO do Azure AD com o Robin usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Robin.
@@ -66,11 +65,11 @@ Configure e teste o SSO do Azure AD com o Robin usando um usuário de teste cham
 Para configurar e testar o SSO do Azure AD com o Robin, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-2. **[Configurar SSO de rodízio](#configure-robin-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-5. **[Criar usuário de teste do Robin](#create-robin-test-user)** – para ter um equivalente de B. Simon em rodízio que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
+    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar SSO de rodízio](#configure-robin-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    * **[Criar usuário de teste do Robin](#create-robin-test-user)** – para ter um equivalente de B. Simon em rodízio que esteja vinculado à representação do usuário no Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
@@ -84,45 +83,33 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , o aplicativo é pré-configurado no modo iniciado pelo **IDP** e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
 
+    ![Informações de logon único de domínio e URLs do Robin](common/preintegrated.png)
+
 1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-    Na caixa de texto **URL de logon** , digite uma URL:`https://dashboard.robinpowered.com/`
+    Na caixa de texto **URL de logon** , digite uma URL: `https://dashboard.robinpowered.com/`
 
-5. O aplicativo Robin espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique em **Editar** ícone para abrir a caixa de diálogo atributos de usuário.
+1. O aplicativo Robin espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-    ![image](common/edit-attribute.png)
+    ![image](common/default-attributes.png)
 
-6. Além de acima, o aplicativo Robin espera que mais alguns atributos sejam passados de volta na resposta SAML. Na seção declarações do usuário, na caixa de diálogo atributos de usuário, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo: 
+1. Além de acima, o aplicativo Robin espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seus requisitos.
 
-    | Name | Atributo de origem|
-    | ---------------| --------- |
-    | FirstName | user.givenname |
-    | LastName | User. sobrenome |
-    | Email | user.mail |
+    | Nome | Atributo de origem|
+    | ---------------|  --------- |
+    | Email | user.userprincipalname |
+    | FirstName |  user.givenname |
+    | LastName |  User. sobrenome |
 
-    a. Clique em **Adicionar nova declaração** para abrir a caixa de diálogo **gerenciar declarações do usuário** .
 
-    b. Na caixa de texto **nome** , digite o nome do atributo mostrado para essa linha.
-
-    c. Deixe o **namespace** em branco.
-
-    d. Selecione origem como **atributo**.
-
-    e. Na lista **atributo de origem** , digite o valor do atributo mostrado para essa linha.
-
-    f. Clique em **Guardar**.
-
-4. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize **certificado (bruto)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize **certificado (bruto)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download de certificado](common/certificateraw.png)
 
-6. Na seção **Configurar o Robin** , copie as URLs apropriadas com base em seu requisito.
+1. Na seção **Configurar o Robin** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="configure-robin-sso"></a>Configurar SSO de rodízio
-
-Para configurar o logon único no lado do **Robin** , é necessário enviar o **certificado (bruto)** baixado e as URLs copiadas apropriadas da [equipe de suporte](mailto:support@robinpowered.com)do portal do Azure para o Robin. Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
@@ -153,6 +140,10 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
+## <a name="configure-robin-sso"></a>Configurar SSO de rodízio
+
+Para configurar o logon único no lado do **Robin** , é necessário enviar o **certificado (bruto)** baixado e as URLs copiadas apropriadas da [equipe de suporte](mailto:support@robinpowered.com)do portal do Azure para o Robin. Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+
 ### <a name="create-robin-test-user"></a>Criar usuário de teste do Robin
 
 Nesta seção, um usuário chamado B. Simon é criado em rodízio. O Robin dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir no Robin, um novo será criado após a autenticação.
@@ -171,3 +162,4 @@ Ao clicar no bloco do Robin no painel de acesso, você deverá ser conectado aut
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Tente repetir com o Azure AD](https://aad.portal.azure.com/)

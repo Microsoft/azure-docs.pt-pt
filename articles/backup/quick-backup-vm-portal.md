@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: fb6a1022308ee26aa8a4f2ac39c58fce26243419
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 2d740c8d078770267669a0be749ca8d5d210bb72
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903578"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083170"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure
 
@@ -26,7 +26,7 @@ Este início rápido ativa a cópia de segurança numa VM do Azure existente. Se
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Entre no portal do Azure em <https://portal.azure.com>
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="select-a-vm-to-back-up"></a>Selecionar uma VM para fazer uma cópia de segurança
 
@@ -91,7 +91,7 @@ Se quiser avançar para um tutorial de Cópia de segurança que explique como re
 
     ![Eliminar o grupo de recursos do portal do Azure](./media/quick-backup-vm-portal/delete-resource-group.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, criou um cofre dos Serviços de Recuperação, ativou a proteção numa VM e criou o ponto de recuperação inicial. Para saber mais sobre o Azure Backup e os Serviços de Recuperação, prossiga para os tutoriais.
 

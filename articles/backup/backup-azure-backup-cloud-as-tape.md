@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/30/2017
 ms.author: dacurwin
-ms.openlocfilehash: 82d646cd40312765b11c711f4c63c0943c9e8555
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 2850fab3a5639673008a7433db48911ced832401
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074332"
+ms.locfileid: "74091110"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Mover o armazenamento de longo prazo de fita para a nuvem do Azure
 
@@ -70,7 +70,7 @@ Ao clicar em **Modificar** na tela anterior, os clientes têm flexibilidade adic
 
 ![Modificar](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o backup do Azure, consulte:
 

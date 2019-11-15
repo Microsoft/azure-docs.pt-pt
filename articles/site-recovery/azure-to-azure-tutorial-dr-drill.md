@@ -1,22 +1,22 @@
 ---
-title: Executar um teste de recuperação após desastre de VMs do Azure para uma região secundária do Azure com o serviço Azure Site Recovery
-description: Saiba como executar um teste de recuperação após desastre de VMs do Azure para uma região secundária do Azure para VMs IaaS do Azure através do serviço Azure Site Recovery.
+title: Executar uma análise de recuperação de desastre de VM do Azure com Azure Site Recovery
+description: Saiba como executar uma análise de recuperação de desastre em uma região secundária para VMs do Azure usando o serviço de Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/21/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cb234f9fa2fc5df68fb2bf4dde3a377ea15532eb
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 817a220e36ac250b1d5a5aa90d0bddbfb155cc26
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053371"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091323"
 ---
-# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Executar um teste de recuperação após desastre de VMs do Azure para uma região secundária do Azure
+# <a name="run-a-disaster-recovery-drill-to-a-secondary-region-for-azure-vms"></a>Executar uma análise de recuperação de desastre em uma região secundária para VMs do Azure 
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para a sua estratégia de continuidade comercial e recuperação após desastre (BCDR) ao manter as suas aplicações empresariais em funcionamento e disponíveis durante falhas planeadas e não planeadas. O Site Recovery gere e orquestra a recuperação após desastre de computadores no local e máquinas virtuais (VMs) do Azure, incluindo replicação, ativação pós-falha e recuperação.
 
@@ -33,7 +33,7 @@ Este tutorial mostra como executar um teste de recuperação após desastre para
 
 - Antes de executar uma ativação pós-falha de teste, recomendamos que verifique as propriedades da VM para garantir que funciona tudo conforme o esperado.  Aceda às propriedades da VM nos **Itens replicados**. O painel **Informações Básicas** mostra informações sobre estados e definições de computadores.
 - **Recomendamos que utilize uma rede de VMs do Azure na ativação pós-falha de teste**, e não a rede predefinida que foi configurada quando ativou a replicação.
-- Dependendo das configurações de rede de origem para cada NIC, opcionalmente, você pode especificar a **sub-rede, o endereço IP, o IP público, o grupo de segurança de rede ou o Load balancer interno** para anexar a cada NIC em configurações de failover de teste em computação & rede anterior para conduzir a análise de DR.
+- Dependendo das configurações de rede de origem para cada NIC, opcionalmente, você pode especificar a **sub-rede, o endereço IP, o IP público, o grupo de segurança de rede ou o Load balancer interno** para anexar a cada NIC em configurações de failover de teste em computação & rede antes de realizar a análise de Dr.
 
 
 ## <a name="run-a-test-failover"></a>Executar uma ativação pós-falha de teste

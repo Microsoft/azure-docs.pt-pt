@@ -8,18 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 11/13/2019
 ms.author: wellsi
-ms.openlocfilehash: 9421f730ea6480c9e4223dd9ddbd15852b1fce8f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3a74f3eb9aece3535f5505d69833a074c2dd0ed2
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072591"
+ms.locfileid: "74091188"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notas de versão: SDK de dispositivos de fala
 
 As seções a seguir listam as alterações nas versões mais recentes.
+
+## <a name="speech-devices-sdk-170"></a>SDK de dispositivos de fala 1.7.0:
+
+*   Agora há suporte para o ARM do Linux.
+*   Os binários iniciais para Roobov2 são fornecidos (Linux ARM64).
+*   Os usuários do Windows podem usar AudioConfig. fromDefaultMicrophoneInput () ou AudioConfig. fromMicrophoneInput (DeviceName) para especificar o microfone a ser usado.
+*   O tamanho da biblioteca foi otimizado.
+*   Suporte para reconhecimento de Multiturn usando o mesmo objeto de reconhecedor de fala/intenção.
+*   Corrija a interrupção ocasional que ocorreria ao parar o reconhecimento.
+*   Os aplicativos de exemplo agora contêm um arquivo participantes. Properties de exemplo para demonstrar o formato do arquivo.
+*   Atualizado o componente [SDK de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) para a versão 1.7.0. Para obter mais informações, consulte suas [notas de versão](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="speech-devices-sdk-160"></a>SDK de dispositivos de fala 1.6.0:
 

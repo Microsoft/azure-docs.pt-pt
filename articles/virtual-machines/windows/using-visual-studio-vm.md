@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 09/24/2019
 ms.author: phillee
 keywords: VisualStudio
-ms.openlocfilehash: 2879317289b0c828ac580a7df11771b1b4550bd2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 1f89cc55b8b62ca3c28d8d00ee733141179781ed
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067416"
+ms.locfileid: "74078578"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Visual Studio no Azure
 Usar o Visual Studio em uma VM (máquina virtual) do Azure pré-configurada é uma maneira rápida e fácil de passar de nada para um ambiente de desenvolvimento ativo e em execução. As imagens do sistema com diferentes configurações do Visual Studio estão disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
@@ -28,14 +28,14 @@ Usar o Visual Studio em uma VM (máquina virtual) do Azure pré-configurada é u
 Novo no Azure? [Crie uma conta gratuita](https://azure.microsoft.com/free).
 
 > [!NOTE]
-> Nem todas as assinaturas são eligble para implantar imagens do Windows 10. Para obter mais informações, consulte [usar o cliente do Windows no Azure para cenários de desenvolvimento/teste](https://docs.microsoft.com/azure/virtual-machines/windows/client-images)
+> Nem todas as assinaturas estão qualificadas para implantar imagens do Windows 10. Para obter mais informações, consulte [usar o cliente do Windows no Azure para cenários de desenvolvimento/teste](https://docs.microsoft.com/azure/virtual-machines/windows/client-images)
 
 ## <a name="what-configurations-and-versions-are-available"></a>Quais configurações e versões estão disponíveis?
 As imagens para as versões principais mais recentes, o Visual Studio 2019, o Visual Studio 2017 e o Visual Studio 2015, podem ser encontradas no Azure Marketplace.  Para cada versão principal lançada, você verá a versão originalmente "lançada para a Web" (RTW) e as versões atualizadas mais recentes.  Cada uma dessas versões oferece a Visual Studio Enterprise e as edições da Comunidade do Visual Studio.  Essas imagens são atualizadas pelo menos a cada mês para incluir as atualizações mais recentes do Visual Studio e do Windows.  Embora os nomes das imagens permaneçam os mesmos, a descrição de cada imagem inclui a versão do produto instalada e a data "a partir de" da imagem.
 
 | Versão de lançamento                                                                                                                                                | Edições              | Versão do produto   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
-| [Visual Studio 2019: mais recente (versão 16,2)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, comunidade | 16.3.0 da versão    |
+| [Visual Studio 2019: mais recente (versão 16,3)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, comunidade | 16.3.0 da versão    |
 | [Visual Studio 2019: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise, comunidade | 16.0.8 da versão    |
 | [Visual Studio 2017: mais recente (versão 15,9)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, comunidade | 15.9.16 da versão   |
 | [Visual Studio 2017: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise, comunidade | 15.0.25 da versão   |

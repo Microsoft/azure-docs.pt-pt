@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 4e7136c5689bf37e0ca1db33f4838373d59a0901
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/13/2019
+ms.openlocfilehash: e11aeb66d4eac09d696ff06d706069d4517600e5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013934"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082268"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutorial: provisionar suas condições de trabalho de criação e monitor com o Azure digital gêmeos Preview
 

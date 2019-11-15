@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com MyVR | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e MyVR.
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o MyVR | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o MyVR.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,151 +13,155 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/24/2019
+ms.date: 10/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10473c820cd0dbb7c7db3f33de203ca4d636414b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0bb55832443a9f4ac71122d92292c18346a9f48
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096482"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081904"
 ---
-# <a name="tutorial-integrate-myvr-with-azure-active-directory"></a>Tutorial: Integrar MyVR com o Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-myvr"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o MyVR
 
-Neste tutorial, irá aprender como integrar MyVR com o Azure Active Directory (Azure AD). Quando integrar MyVR com o Azure AD, pode:
+Neste tutorial, você aprenderá a integrar o MyVR com o Azure Active Directory (Azure AD). Ao integrar o MyVR ao Azure AD, você pode:
 
-* Controlar no Azure AD que tenha acesso ao MyVR.
-* Permita que os utilizadores ser automaticamente sessão iniciada para MyVR com as suas contas do Azure AD.
-* Gira as suas contas num local central – portal do Azure.
+* Controle no Azure AD quem tem acesso ao MyVR.
+* Habilite seus usuários a serem conectados automaticamente ao MyVR com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, terá dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter a versão de avaliação gratuita de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-* MyVR início de sessão único (SSO) ativado na subscrição.
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do MyVR.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configurar e testar o SSO do Azure AD num ambiente de teste. 
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* Suporta MyVR **SP e IDP** iniciada SSO.
-* Suporta MyVR **Just In Time** aprovisionamento de utilizadores.
 
-## <a name="adding-myvr-from-the-gallery"></a>Adicionando MyVR da Galeria
 
-Para configurar a integração do MyVR com o Azure AD, terá de adicionar MyVR a partir da Galeria à sua lista de aplicações de SaaS geridas.
+* O MyVR dá suporte ao **SP e** ao SSO iniciado pelo IDP
+* O MyVR dá suporte ao provisionamento **de usuário just in time**
+
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
+
+## <a name="adding-myvr-from-the-gallery"></a>Adicionando o MyVR da Galeria
+
+Para configurar a integração do MyVR ao Azure AD, você precisará adicionar o MyVR da Galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** serviço.
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar nova aplicação, selecione **nova aplicação**.
-1. Na **adicionar a partir da galeria** secção, escreva **MyVR** na caixa de pesquisa.
-1. Selecione **MyVR** do painel de resultados e, em seguida, adicionar a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **MyVR** na caixa de pesquisa.
+1. Selecione **MyVR** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Configurar e testar o SSO do Azure AD com MyVR com um utilizador de teste **B. Simon**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no MyVR.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-myvr"></a>Configurar e testar o logon único do Azure AD para o MyVR
 
-Para configurar e testar o SSO do Azure AD com MyVR, conclua os seguintes blocos de construção:
+Configure e teste o SSO do Azure AD com o MyVR usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no MyVR.
 
-1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Configurar o MyVR SSO](#configure-myvr-sso)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Simon B.
-1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Simon B. utilizar o Azure AD início de sessão único.
-1. **[Criar utilizador de teste MyVR](#create-myvr-test-user)**  - para ter um equivalente de Simon B. no MyVR que está ligado à representação de utilizador do Azure AD.
-1. **[Testar o SSO](#test-sso)**  - para verificar se a configuração funciona.
+Para configurar e testar o SSO do Azure AD com o MyVR, conclua os seguintes blocos de construção:
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar o SSO do MyVR](#configure-myvr-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    1. **[Criar usuário de teste do MyVR](#create-myvr-test-user)** – para ter um equivalente de B. Simon em MyVR que esteja vinculado à representação do usuário no Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-1. Na [portal do Azure](https://portal.azure.com/), na **MyVR** página de integração de aplicativo, encontrar o **gerir** secção e selecione **início de sessão único**.
-1. Sobre o **selecionar um método de início de sessão único** , selecione **SAML**.
-1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **configuração básica de SAML** para editar as definições.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-   ![Editar a configuração SAML do básico](common/edit-urls.png)
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **MyVR** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-1. Sobre o **configuração básica de SAML** secção, se o utilizador pretende configurar a aplicação no **IDP** modo iniciado, o utilizador não tem de realizar qualquer passo dado que a aplicação já está pré-integrado com o Azure.
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+1. Na seção **configuração básica do SAML** o aplicativo é pré-configurado no modo de iniciado pelo **IDP** e as URLs necessárias já estão preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
 
-   Na **URL de início de sessão** caixa de texto, escreva o URL: `https://ess.virtualroster.net/ess/login.aspx`
+1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-1. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos:
+    Na caixa de texto **URL de logon** , digite uma URL: `https://ess.virtualroster.net/ess/login.aspx`
 
-   | Name | Atributo de origem|
+1. O aplicativo MyVR espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+
+    ![image](common/edit-attribute.png)
+
+1. Além de acima, o aplicativo MyVR espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seu requisito.
+
+   | Nome | Atributo de origem|
    | ---------------| --------------- |
-   | givenName | user.givenname |
-   | Apelido | user.surname |
-   | emailaddress | user.mail |
    | employeeid | user.employeeid |
 
-   1. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
-   1. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
-   1. Deixe o **espaço de nomes** em branco.
-   1. Selecione a origem de dado **atributo**.
-   1. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
-   1. Clique em **OK**.
-   1. Clique em **Guardar**.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-1. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, encontrar **certificado (Base64)** e selecione **transferir** para transferir o certificado e guarde-o no seu computador.
+    ![O link de download de certificado](common/certificatebase64.png)
 
-   ![O link de download de certificado](common/certificatebase64.png)
+1. Na seção **Configurar MyVR** , copie as URLs apropriadas com base em seu requisito.
 
-1. Sobre o **configurar MyVR** secção, copie o URL adequado com base nos seus requisitos.
-
-   ![URLs de configuração de cópia](common/copy-configuration-urls.png)
-
-### <a name="configure-myvr-sso"></a>Configurar o MyVR SSO
-
-Para configurar o início de sessão único num **MyVR** lado, terá de enviar o transferido **certificado (Base64)** e adequadas copiados URLs a partir do portal do Azure para [equipa de suporte de MyVR](mailto:arno.vandenberg@Kronos.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-Nesta secção, irá criar um utilizador de teste no portal do Azure chamado Simon B.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
 1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Na **utilizador** propriedades, siga estes passos:
-   1. No campo **Nome**, introduza `B. Simon`.  
-   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+1. Nas propriedades do **usuário** , siga estas etapas:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, irá ativar a Simon B. utilizar o Azure início de sessão único ao conceder acesso para MyVR.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao MyVR.
 
-1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicações, selecione **MyVR**.
-1. Na página de descrição geral da aplicação, localize a **Manage** secção e selecione **utilizadores e grupos**.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **MyVR**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **adicionar utilizador**, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-   ![A ligação de adicionar utilizador](common/add-assign-user.png)
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-1. Na **utilizadores e grupos** caixa de diálogo, selecione **B. Simon** a partir da lista de utilizadores, em seguida, clique no **selecione** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-### <a name="create-myvr-test-user"></a>Criar utilizador de teste MyVR
+## <a name="configure-myvr-sso"></a>Configurar o SSO do MyVR
 
-Nesta secção, um usuário chamado Simon B. é criado na MyVR. MyVR suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no MyVR, é criado um novo após a autenticação.
+Para configurar o logon único no lado do **MyVR** , é necessário enviar o **certificado (Base64)** baixado e as URLs copiadas apropriadas de portal do Azure para a [equipe de suporte do MyVR](mailto:arno.vandenberg@Kronos.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
-### <a name="test-sso"></a>Teste SSO
+### <a name="create-myvr-test-user"></a>Criar usuário de teste do MyVR
 
-Ao selecionar o mosaico MyVR no painel de acesso, deve ser automaticamente sessão iniciada no MyVR para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Nesta seção, um usuário chamado B. Simon é criado em MyVR. O MyVR dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir no MyVR, um novo será criado após a autenticação.
+
+## <a name="test-sso"></a>Testar SSO 
+
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+
+Ao clicar no bloco do MyVR no painel de acesso, você deverá ser conectado automaticamente ao MyVR para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimente o MyVR com o Azure AD](https://aad.portal.azure.com/)
+

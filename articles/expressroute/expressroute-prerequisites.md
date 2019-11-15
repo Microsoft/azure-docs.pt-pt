@@ -1,5 +1,5 @@
 ---
-title: 'Pré-requisitos – ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: pré-requisitos'
 description: Esta página fornece uma lista de requisitos a serem satisfeitos para que possa ordenar um circuito do ExpressRoute do Azure. Ele inclui uma lista de verificação.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 4ef1a768356078c160b798c1a96412adda0330f6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a72eba9bde0745e66bdf8e7efd8eaec7d6a0b186
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123302"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083361"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Pré-requisitos e lista de verificação do ExpressRoute
 Para ligar a serviços cloud da Microsoft com o ExpressRoute, terá de verificar se foram cumpridos os seguintes requisitos listados nas secções abaixo.
@@ -30,11 +29,11 @@ Para ligar a serviços cloud da Microsoft com o ExpressRoute, terá de verificar
 * Se o seu fornecedor não for um parceiro de conectividade do ExpressRoute, ainda pode ligar-se à nuvem da Microsoft através de um [fornecedor do Exchange na nuvem](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## <a name="network-requirements"></a>Requisitos da rede
-* **Redundância em cada local de emparelhamento**: A Microsoft exige que sessões BGP redundantes sejam configuradas entre os roteadores da Microsoft e os roteadores de emparelhamento em cada circuito do ExpressRoute (mesmo quando você tem apenas [uma conexão física com uma troca de nuvem](expressroute-faqs.md#onep2plink)).
-* **Redundância para recuperação de desastres**: A Microsoft recomenda enfaticamente que você configure pelo menos dois circuitos de ExpressRoute em diferentes locais de emparelhamento para evitar um ponto único de falha.
+* **Redundância em cada local de emparelhamento**: a Microsoft requer que sessões BGP redundantes sejam configuradas entre os roteadores da Microsoft e os roteadores de emparelhamento em cada circuito do ExpressRoute (mesmo quando você tem apenas [uma conexão física com uma troca de nuvem](expressroute-faqs.md#onep2plink)).
+* **Redundância para recuperação de desastre**: a Microsoft recomenda enfaticamente que você configure pelo menos dois circuitos de ExpressRoute em diferentes locais de emparelhamento para evitar um único ponto de falha.
 * **Encaminhamento**: consoante a forma como ligar a Cloud da Microsoft, utilizador ou o fornecedor tem de configurar e gerir as sessões de BGP para [domínios de encaminhamento](expressroute-circuit-peerings.md). Alguns fornecedores de conectividade Ethernet ou fornecedores do exchange na nuvem poderão oferecer gestão de BGP como um serviço de valor acrescentado.
-* **NAT**: A Microsoft só aceita endereços IP públicos por meio do emparelhamento da Microsoft. Se estiver a utilizar endereços IP privados na sua rede no local, utilizador ou o fornecedor tem de traduzir os endereços IP privados para os endereços IP públicos [com o NAT](expressroute-nat.md).
-* **QoS**: O Skype for Business tem vários serviços (por exemplo, voz, vídeo, texto) que exigem tratamento de QoS diferenciado. O utilizador e o fornecedor devem cumprir os [Requisitos de QoS](expressroute-qos.md).
+* **NAT**: a Microsoft só aceita endereços IP públicos através do peering da Microsoft. Se estiver a utilizar endereços IP privados na sua rede no local, utilizador ou o fornecedor tem de traduzir os endereços IP privados para os endereços IP públicos [com o NAT](expressroute-nat.md).
+* **QoS**: o Skype para Empresas tem vários serviços (por exemplo, voz, vídeo, texto) que exigem um tratamento QoS diferenciado. O utilizador e o fornecedor devem cumprir os [Requisitos de QoS](expressroute-qos.md).
 * **Segurança de Rede**: tenha em conta a [segurança de rede](../best-practices-network-security.md) ao ligar à Microsoft Cloud através do ExpressRoute.
 
 ## <a name="office-365"></a>Office 365

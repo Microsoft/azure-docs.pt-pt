@@ -1,18 +1,18 @@
 ---
 title: Monitorar o servidor de processo de Azure Site Recovery
-description: Este artigo descreve como monitorar Azure Site Recovery servidor de processo.
+description: Este artigo descreve como monitorar Azure Site Recovery servidor de processo usado para a recuperação de desastre do servidor físico/VM do VMware
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 00b424672b505a5bb3d576c0ca4d8e334e2a1753
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 54c161c40c881d7626f79fc9bfe1ec1c160480ae
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383211"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082232"
 ---
 # <a name="monitor-the-process-server"></a>Monitorar o servidor de processo
 
@@ -59,11 +59,11 @@ O servidor de processo gera vários alertas de integridade, resumidos na tabela 
 ![Aviso][yellow] | Espaço livre na pasta de cache < 30% nos últimos 15 minutos
 ![Aviso][yellow] | O Site Recovery monitora os dados pendentes/enviados a cada cinco minutos e estima que os dados no cache do servidor de processo não podem ser carregados no Azure dentro de 30 minutos.
 ![Aviso][yellow] | Os serviços do servidor de processo não estão em execução nos últimos 15 minutos
-![Crítico][red] | Utilização da CPU > 95% nos últimos 15 minutos
-![Crítico][red] | Uso de memória > 95% nos últimos 15 minutos
-![Crítico][red] | Espaço livre na pasta de cache < 25% nos últimos 15 minutos
-![Crítico][red] | Site Recovery monitora os dados pendentes/enviados a cada cinco minutos e estima que os dados no cache do servidor de processo não podem ser carregados no Azure dentro de 45 minutos.
-![Crítico][red] | Nenhuma pulsação do servidor de processo por 15 minutos.
+![Crítica][red] | Utilização da CPU > 95% nos últimos 15 minutos
+![Crítica][red] | Uso de memória > 95% nos últimos 15 minutos
+![Crítica][red] | Espaço livre na pasta de cache < 25% nos últimos 15 minutos
+![Crítica][red] | Site Recovery monitora os dados pendentes/enviados a cada cinco minutos e estima que os dados no cache do servidor de processo não podem ser carregados no Azure dentro de 45 minutos.
+![Crítica][red] | Nenhuma pulsação do servidor de processo por 15 minutos.
 
 ![Chave de tabela](./media/vmware-physical-azure-monitor-process-server/table-key.png)
 
@@ -93,7 +93,7 @@ Você pode monitorar o estado de integridade de seus servidores de processo da s
 Você também pode monitorar servidores de processo no cofre em **infraestrutura de site Recovery**. Em **gerenciar sua infraestrutura de site Recovery**, clique em **servidores de configuração**. Selecione o servidor de configuração associado ao servidor de processo e faça uma busca detalhada nos detalhes do servidor de processo.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Se você tiver problemas de servidores de processo, siga nossas [diretrizes de solução de problemas](vmware-physical-azure-troubleshoot-process-server.md)
 - Se precisar de mais ajuda, poste sua pergunta no [Fórum de Azure site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 

@@ -1,5 +1,5 @@
 ---
-title: 'Estenda sua rede local para o Azure por meio de uma conexão privada-Visão geral do ExpressRoute: Azure | Microsoft Docs'
+title: 'Visão geral do Azure ExpressRoute: conectar-se por uma conexão privada'
 description: A Descrição Geral Técnica do ExpressRoute explica como funciona uma ligação do ExpressRoute para expandir a sua rede no local para o Azure através de uma ligação privada.
 services: expressroute
 author: mialdrid
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 09/18/2019
 ms.author: mialdrid
-ms.custom: seodec18
-ms.openlocfilehash: a068912857c16d2257d09e221477afc5d4a8d603
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: db728de120a50461257d8e85e708aa4c7f4d6190
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123320"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083416"
 ---
 # <a name="expressroute-overview"></a>Descrição geral do ExpressRoute
 O ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como Microsoft Azure e Office 365.
@@ -80,7 +79,7 @@ O ExpressRoute Direct permite aos clientes ligarem diretamente à rede global da
 As principais funcionalidades que o ExpressRoute Direct dispõe incluem, mas não se limitam a:
 
 * Ingestão de Dados em Massa em serviços como o Armazenamento e o Cosmos DB
-* Isolamento físico para setores que são regulamentados e exigem conectividade dedicada e isolada, como: Bancário, governo e varejo
+* Isolamento físico para setores que são regulamentados e exigem conectividade dedicada e isolada como: Bancos, Governo e Retalho
 * Controlo granular de distribuição do circuito baseado na unidade de negócios
 
 Para obter mais informações, veja [Sobre o ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973).
@@ -88,14 +87,14 @@ Para obter mais informações, veja [Sobre o ExpressRoute Direct](https://go.mic
 ### <a name="bandwidth-options"></a>Opções de largura de banda
 Pode comprar circuitos ExpressRoute para uma vasta gama de larguras de banda. As larguras de banda suportadas são apresentadas abaixo. Confirme que consulta o seu fornecedor de conectividade para determinar as larguras de banda suportadas que suportam.
 
-* 50 Mbps
+* 50 Mbps
 * 100 Mbps
 * 200 Mbps
 * 500 Mbps
 * 1 Gbps
 * 2 Gbps
 * 5 Gbps
-* 10 Gbps
+* 10 Gbps
 
 ### <a name="dynamic-scaling-of-bandwidth"></a>Dimensionamento dinâmico da largura de banda
 Pode aumentar a largura de banda do circuito ExpressRoute (na base de melhor esforço) sem ter de fechar as suas ligações. Para obter mais informações, veja [Modificar um circuito do ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md#modify).
@@ -113,7 +112,7 @@ Pode escolher um modelo de faturação que funciona melhor para si. Escolha entr
 ## <a name="faq"></a>FAQ
 Para perguntas mais frequentes sobre o ExpressRoute, veja [FAQ do ExpressRoute](expressroute-faqs.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [ExpressRoute connectivity models (Modelos de conectividade do ExpressRoute)](expressroute-connectivity-models.md).
 * Saiba mais sobre ligações ExpressRoute e domínios de encaminhamento. Veja [Circuitos ExpressRoute e domínios de encaminhamento](expressroute-circuit-peerings.md).
 * Encontre um fornecedor de serviços. Veja [Parceiros e localizações de peering do ExpressRoute ](expressroute-locations.md).

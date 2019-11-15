@@ -1,5 +1,5 @@
 ---
-title: Conectar-se a VMs do Azure após o failover do local para o Azure com Azure Site Recovery
+title: Conectar-se ao failover local de VMs do Azure com o Azure Site Recovery
 description: Descreve como se conectar a VMs do Azure após o failover do local para o Azure usando o Azure Site Recovery
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: f535a681ac3508aafc2823bcc9b9ae7f22cc2d8e
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f222cdd315b79503b1bdea032f495c71df4682b5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333034"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084254"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Conectar-se a VMs do Azure após o failover do local 
 
@@ -21,7 +21,7 @@ Este artigo descreve como configurar a conectividade para que você possa se con
 
 Quando você configura a recuperação de desastre de VMs (máquinas virtuais) locais e servidores físicos no Azure, [Azure site Recovery](site-recovery-overview.md) inicia a replicação de computadores no Azure. Em seguida, quando ocorrerem interrupções, você poderá fazer failover para o Azure do site local. Quando ocorre o failover, o Site Recovery cria VMs do Azure usando dados replicados locais. Como parte do planejamento da recuperação de desastres, você precisa descobrir como se conectar a aplicativos em execução nessas VMs do Azure após o failover.
 
-Neste artigo, vai aprender a:
+Neste artigo, saiba como:
 
 > [!div class="checklist"]
 > * Prepare os computadores locais antes do failover.
@@ -96,7 +96,7 @@ A retenção de endereços IP requer as seguintes etapas:
 
 ### <a name="failover-example"></a>Exemplo de failover
 
-Vejamos um exemplo.
+Vamos examinar um exemplo.
 
 - O Woodgrove Bank da empresa fictícia hospeda seus aplicativos de negócios locais, eles hospedam seus aplicativos móveis no Azure.
 - Eles se conectam do local para o Azure por VPN site a site. 

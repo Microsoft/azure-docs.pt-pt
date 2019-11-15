@@ -1,5 +1,5 @@
 ---
-title: Sobre o ExpressRoute Direct – Azure | Documentos da Microsoft
+title: Sobre o Azure ExpressRoute Direct
 description: Esta página fornece uma visão geral do ExpressRoute Direct
 services: expressroute
 author: jaredr80
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 916175401cd993392094b2bb16f8fc8746a4d2a8
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f26fdd75e0a6c6228d329a8b9be4743072ae54c1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123388"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083593"
 ---
 # <a name="about-expressroute-direct"></a>Sobre o ExpressRoute Direct
 
@@ -22,7 +21,7 @@ ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global
 Recursos-chave que ExpressRoute Direct fornece incluem, mas não estão limitados a:
 
 * Ingestão de Dados em Massa em serviços como o Armazenamento e o Cosmos DB
-* Isolamento físico para setores que são regulamentados e exigem conectividade dedicada e isolada como: Bancário, governo e varejo
+* Isolamento físico para setores que estejam reguladas e exigir dedicado e isolado a conectividade, como: bancários, governamentais e varejo
 * Controlo granular de distribuição do circuito baseado na unidade de negócios
 
 ## <a name="onboard-to-expressroute-direct"></a>Integração ao ExpressRoute Direct
@@ -31,7 +30,7 @@ Antes de usar o ExpressRoute Direct, você deve primeiro registrar sua assinatur
 
 * Cenários que pretende para realizar com **direta do ExpressRoute**
 * Preferências de localização - consulte [parceiros e localizações de peering](expressroute-locations-providers.md) para obter uma lista completa de todas as localizações
-* Linha cronológica para implementação
+* Linha cronológica da implementação
 * Outras perguntas
 
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute através de um fornecedor de serviços e direta do ExpressRoute
@@ -73,8 +72,8 @@ ExpressRoute Direct suporta cenários de ingestão de grandes quantidades de dad
     * EtherType = 0x8100
     * É necessário adicionar a tag VLAN externa (STAG) com base na ID de VLAN especificada pela Microsoft- *aplicável somente em QinQ*
     * Deve oferecer suporte a várias sessões BGP (VLANs) por porta e dispositivo
-    * Conectividade IPv4 e IPv6. *Para IPv6, nenhuma subinterface adicional será criada. O endereço IPv6 será adicionado à subinterface*existente. 
-    * Opcional: Suporte a [BFD (detecção de encaminhamento bidirecional)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) , que é configurado por padrão em todos os emparelhamentos privados em circuitos do ExpressRoute
+    * Conectividade IPv4 e IPv6. *Para IPv6, nenhuma subinterface adicional será criada. O endereço IPv6 será adicionado à subinterface existente*. 
+    * Opcional: suporte a [BFD (detecção de encaminhamento bidirecional)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) , que é configurado por padrão em todos os emparelhamentos privados em circuitos do ExpressRoute
 
 ## <a name="vlan-tagging"></a>Marcação de VLAN
 
@@ -86,7 +85,7 @@ ExpressRoute Direct suporta QinQ e Dot1Q marcação de VLAN.
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
-[![modelo](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+[fluxo de trabalho ![](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
 ## <a name="sla"></a>SLA
 

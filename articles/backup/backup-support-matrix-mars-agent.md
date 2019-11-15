@@ -7,12 +7,12 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 57e8eab6413efa25eb03c48a968ca2b671b8c8d6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a4372a66caaa8af807980a2f58f344cbf8fb1be9
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162116"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090556"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -45,7 +45,7 @@ Instalar em um servidor de backup | Ao configurar o DPM ou o MABS para fazer bac
 
 Quando você usa o agente MARS para fazer backup de dados, o agente tira um instantâneo dos dados e os armazena em uma pasta de cache local antes de enviar os dados para o Azure. A pasta cache (Scratch) tem vários requisitos:
 
-**Armazenar** | **Detalhes**
+**Cache** | **Detalhes**
 --- | ---
 Tamanho |  O espaço livre na pasta de cache deve ter pelo menos 5 a 10% do tamanho geral dos dados de backup.
 Localização | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
@@ -58,11 +58,11 @@ Alterações de local | Você pode alterar o local do cache interrompendo o meca
 
 O agente MARS precisa de acesso a essas URLs:
 
-- http://www.msftncsi.com/ncsi.txt
+- <http://www.msftncsi.com/ncsi.txt>
 - *.Microsoft.com
 - *.WindowsAzure.com
-- *. MicrosoftOnline.com
-- *. Windows.net
+- *.MicrosoftOnline.com
+- *.Windows.net
 
 ### <a name="throttling-support"></a>Suporte à limitação
 
@@ -73,13 +73,16 @@ Limitação de rede | Não disponível para computadores com backup que executam
 
 ## <a name="support-for-direct-backups"></a>Suporte para backups diretos
 
+>[!NOTE]
+> O agente MARS não dá suporte a SKUs do Windows Server Core.
+
 Você pode usar o agente MARS para fazer backup diretamente no Azure em alguns sistemas operacionais que são executados em máquinas locais e VMs do Azure. Os sistemas operacionais devem ser de 64 bits e devem estar executando os serviços e atualizações mais recentes. A tabela a seguir resume estes sistemas operacionais:
 
 **Sistema operativo** | **Arquivos/pastas** | **Estado do sistema** | **Requisitos de software/módulo**
 --- | --- | --- | ---
-Windows 10 (Enterprise, pro, Home) | Sim | Não |  Verificar a versão do servidor correspondente para os requisitos de software/módulo
-Windows 8.1 (Enterprise, pro)| Sim |Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
-Windows 8 (Enterprise, pro) | Sim | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
+Windows 10 (Enterprise, Pro, Home) | Sim | Não |  Verificar a versão do servidor correspondente para os requisitos de software/módulo
+Windows 8.1 (Enterprise, Pro)| Sim |Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
+Windows 8 (Enterprise, Pro) | Sim | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
 Windows 7 (Ultimate, Enterprise, pro, Home Premium/Basic, Starter) | Sim | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
 Windows Server 2016 (Standard, Datacenter, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
@@ -107,9 +110,9 @@ Windows 7| 1\.700 GB
 
 **Tipo** | **Suporte**
 --- | ---
-Encriptada| Suportado.
+Encriptados| Suportado.
 Comprimidos | Suportado.
-Dispersos | Suportado.
+Disperso | Suportado.
 Compactados e esparsos |Suportado.
 Ligações fixas| Não suportado. Ignorada.
 Ponto de nova análise| Não suportado. Ignorada.
@@ -128,7 +131,7 @@ Compartilhamento de rede| Não suportado |O volume deve ser local no servidor.
 Volumes protegidos pelo BitLocker| Não suportado |O volume deve ser desbloqueado antes do início do backup.
 Identificação do sistema de arquivos| Não suportado |Há suporte apenas para NTFS.
 Mídia removível| Não suportado |Todas as fontes de itens de backup devem ter um status *fixo* .
-Unidades com eliminação de duplicação | Suportadas | O backup do Azure converte dados com eliminação de duplicação em dados normais. Ele otimiza, criptografa, armazena e envia os dados para o cofre.
+Unidades com eliminação de duplicação | Suportado | O backup do Azure converte dados com eliminação de duplicação em dados normais. Ele otimiza, criptografa, armazena e envia os dados para o cofre.
 
 ## <a name="support-for-initial-offline-backup"></a>Suporte para backup offline inicial
 

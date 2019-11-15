@@ -1,5 +1,5 @@
 ---
-title: Previsão do tempo usando Azure Machine Learning com dados do Hub IoT | Microsoft Docs
+title: Previsão do tempo usando Azure Machine Learning com dados do Hub IoT
 description: Use Azure Machine Learning para prever a possibilidade de Rain com base nos dados de temperatura e umidade que o Hub IoT coleta de um sensor.
 author: robinsh
 manager: philmea
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
-ms.openlocfilehash: d7b71a6aa17e8eeae55fd6c8c6e9a5aa9e0ce524
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e7114febe85af4acaf94ef7fe64fe47988fd6321
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498890"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74079268"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Previsão do tempo usando os dados do sensor do seu hub IoT no Azure Machine Learning
 
@@ -147,7 +147,7 @@ Você aprende a usar Azure Machine Learning para fazer a previsão do tempo (pos
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurar a consulta da tarefa do Stream Analytics
 
-1. Em **Topologia de Tarefas**, clique em **Consulta**.
+1. Em **Topologia da Tarefa**, clique em **Consulta**.
 1. Substitua o código existente pelo código a seguir:
 
    ```sql

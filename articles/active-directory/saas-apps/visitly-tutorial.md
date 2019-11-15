@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integração de Azure Active Directory com o visitado | Microsoft Docs'
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o visited | Microsoft Docs'
 description: Saiba como configurar o logon único entre Azure Active Directory e visite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3ae085fb-ca60-4f41-96a0-068e5febf943
 ms.service: active-directory
@@ -13,211 +13,146 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 10/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82efc34bf580ef204a04268e861a0ff214d97572
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: db295d7865d057c9c635070a606672f9586f951a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160920"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081628"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-visitly"></a>Tutorial: integração do Azure Active Directory com o Visitetive
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-visitly"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o visited
 
-Neste tutorial, você aprende a integrar o visitado com o Azure Active Directory (Azure AD).
-A integração do visito ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá a integrar o visitado com o Azure Active Directory (Azure AD). Ao integrar o visitado ao Azure AD, você pode:
 
-* No Azure AD, é possível controlar quem tem acesso ao visitado.
-* Você pode permitir que seus usuários sejam conectados automaticamente para visitar (logon único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um local central-a portal do Azure.
+* Controle no Azure AD que tem acesso ao visitado.
+* Habilite seus usuários a serem conectados automaticamente para visitar suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao visite, você precisa dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Visitar assinatura habilitada para logon único
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada do logon único (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * Visite o SSO iniciado pelo **IDP**
+
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
 
 ## <a name="adding-visitly-from-the-gallery"></a>Adicionando o visitado da Galeria
 
 Para configurar a integração do visite o Azure AD, você precisará adicionar o visitado da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o visitado da galeria, execute as seguintes etapas:**
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **visitado** na caixa de pesquisa.
+1. Selecione **visite** o painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
+## <a name="configure-and-test-azure-ad-single-sign-on-for-visitly"></a>Configurar e testar o logon único do Azure AD para o Visitetive
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+Configure e teste o SSO do Azure AD com o visitado usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no acesse.
 
-2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
+Para configurar e testar o SSO do Azure AD com o Visitetive, conclua os seguintes blocos de construção:
 
-    ![A folha aplicativos empresariais](common/enterprise-applications.png)
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar o SSO de visita](#configure-visitly-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    * **[Criar usuário de teste](#create-visitly-test-user)** do acessado – para ter um equivalente de B. Simon no visitado que esteja vinculado à representação do usuário no Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-    ![O botão novo aplicativo](common/add-new-app.png)
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-4. Na caixa de pesquisa, digite **visitar**, selecione **visitar** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **visite** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-     ![Visite a lista de resultados](common/search-new-app.png)
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
+1. Na seção **configuração básica do SAML** , o aplicativo é pré-configurado e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Visitetive, com base em um usuário de teste chamado **Brenda Simon**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do.
+1. O aplicativo de visita espera que as asserções SAML estejam em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-Para configurar e testar o logon único do Azure AD com o Visitetive, você precisa concluir os seguintes blocos de construção:
+    ![image](common/default-attributes.png)
 
-1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único de visita](#configure-visitly-single-sign-on)** -para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
-5. **[Criar usuário de teste](#create-visitly-test-user)** do acessado – para ter um equivalente de Brenda Simon no visitado que esteja vinculado à representação do usuário no Azure AD. 
-6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. Além de acima, o aplicativo visitado espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seus requisitos.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
-
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
-
-Para configurar o logon único do Azure AD com o Visitetive, execute as seguintes etapas:
-
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **visite** , selecione **logon único**.
-
-    ![Link configurar logon único](common/select-sso.png)
-
-2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
-
-    ![Modo de seleção de logon único](common/select-saml-option.png)
-
-3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
-
-    ![Editar configuração básica de SAML](common/edit-urls.png)
-
-4. Na seção **configuração básica do SAML** , o usuário não precisa executar nenhuma etapa, pois o aplicativo já está previamente integrado ao Azure.
-
-    ![Informações de logon único de domínio e URLs visitadas](common/preintegrated.png)
-
-5. O aplicativo de visita espera que as asserções SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **atributos de usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML** , clique no botão **Editar** para abrir a caixa de diálogo **atributos de usuário** .
-
-    ![imagem](common/edit-attribute.png)
-
-6. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , edite a declaração de valor do identificador de **nome** usando **Editar ícone** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML, conforme mostrado na imagem acima e Execute as seguintes etapas:
-    
-    | Nome | Atributo de origem | 
+    | Nome | Atributo de origem |
     | ---------------| --------------- |
-    | Valor do identificador de nome  | User. mail |
+    | Valor do identificador de nome  | user.mail |
 
-    a. Clique em **Adicionar nova declaração** para abrir a caixa de diálogo **gerenciar declarações do usuário** .
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **XML de metadados de Federação** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![imagem](common/new-save-attribute.png)
+    ![O link de download de certificado](common/metadataxml.png)
 
-    ![imagem](common/new-attribute-details.png)
-
-    b. Na caixa de texto **nome** , digite o nome do atributo mostrado para essa linha.
-
-    c. Deixe o **namespace** em branco.
-
-    d. Selecione origem como **atributo**.
-
-    e. Na lista **atributo de origem** , digite o valor do atributo mostrado para essa linha.
-
-    f. Clique em **OK**
-
-    g. Clique em **Guardar**.
-
-7. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o XML de metadados de **Federação** das opções especificadas de acordo com seu requisito e salve-o em seu computador.
-
-    ![O link de download do certificado](common/metadataxml.png)
-
-8. Na seção **configurar as visitas** , copie as URLs apropriadas de acordo com seu requisito.
+1. Na seção **configurar as visitas** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de logon
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-    b. Identificador do Azure AD
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-    c. URL de logout
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **usuário** , siga estas etapas:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. Clique em **Criar**.
 
-### <a name="configure-visitly-single-sign-on"></a>Configurar o logon único de visita
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Para configurar o logon único **no lado do** , é necessário enviar o XML de metadados de **Federação** baixado e as URLs copiadas apropriadas do portal do Azure para [dar suporte à equipe de apoio](mailto:support@visitly.io). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao visitado.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **visitar**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Simon.
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![Os links "usuários e grupos" e "todos os usuários"](common/users.png)
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-2. Selecione **novo usuário** na parte superior da tela.
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-    ![Botão novo usuário](common/new-user.png)
+## <a name="configure-visitly-sso"></a>Configurar o SSO visitado
 
-3. Nas propriedades do usuário, execute as etapas a seguir.
-
-    ![A caixa de diálogo usuário](common/user-properties.png)
-
-    a. No campo **nome** , insira **brendafernandes**.
-  
-    b. No campo **nome de usuário** , digite **brendafernandes\@yourcompanydomain. Extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
-
-    d. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
-
-Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo-lhe acesso para visitar.
-
-1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **visitar**.
-
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicativos, selecione **visitar**.
-
-    ![O link visitado na lista de aplicativos](common/all-applications.png)
-
-3. No menu à esquerda, selecione **usuários e grupos**.
-
-    ![O link "usuários e grupos"](common/users-groups-blade.png)
-
-4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
-
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
-
-5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-
-6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+Para configurar o logon único **no lado do** , é necessário enviar o XML de metadados de **Federação** baixado e as URLs copiadas apropriadas do portal do Azure para [dar suporte à equipe de apoio](mailto:support@visitly.io). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-visitly-test-user"></a>Criar usuário de teste visitado
 
-Nesta seção, você criará um usuário chamado Brenda Simon em visite. Trabalhe com a [equipe de suporte visitado](mailto:support@visitly.io) para adicionar os usuários na plataforma de visita. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Simon em visite. Trabalhe com a [equipe de suporte visitado](mailto:support@visitly.io) para adicionar os usuários na plataforma de visita. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+## <a name="test-sso"></a>Testar SSO
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Ao clicar no bloco visitado no painel de acesso, você deverá ser conectado automaticamente à visita para configurar o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
 - [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Tente visitar com o Azure AD](https://aad.portal.azure.com/)

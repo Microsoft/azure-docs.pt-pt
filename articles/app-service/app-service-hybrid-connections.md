@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 72874e7b96e2ec8909a325b5ae598b900ebe8079
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.custom: fasttrack-edit
+ms.openlocfilehash: ff2dac5d27cfffb92922038c1d1c67cd5118557a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791883"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082386"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Serviço de Azure App Conexões Híbridas #
 
@@ -106,8 +106,8 @@ Os Conexões Híbridas do serviço de aplicativo estão disponíveis apenas nas 
 
 | Plano de preços | Número de Conexões Híbridas utilizáveis no plano |
 |----|----|
-| Basic | 5 |
-| Padrão | 25 |
+| Básico | 5 |
+| Standard | 25 |
 | Premium | 200 |
 | Isolado | 200 |
 
@@ -172,7 +172,7 @@ Para permitir que alguém fora de sua assinatura hospede uma instância HCM para
 
 ![Adicionar uma conexão híbrida manualmente][11]
 
-### <a name="upgrade"></a>Atualização ###
+### <a name="upgrade"></a>Atualizar ###
 
 Há atualizações periódicas para a Gerenciador de Conexões Híbridas corrigir problemas ou fornecer melhorias. Quando as atualizações forem liberadas, um pop-up será exibido na interface do usuário da HCM. A aplicação da atualização aplicará as alterações e reiniciará a HCM. 
 
@@ -220,6 +220,12 @@ Para usar essa API, você precisa da ID de recurso Enviar chave e retransmissão
 
     armclient login
     armclient put /subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myapp-rg/providers/Microsoft.Web/sites/myhcdemoapp/hybridConnectionNamespaces/demo-relay/relays/relay-demo-hc?api-version=2016-08-01 @hctest.json
+
+## <a name="secure-your-hybrid-connections"></a>Proteger seu Conexões Híbridas ##
+
+Uma conexão híbrida existente pode ser adicionada a outros aplicativos Web do serviço de aplicativo por qualquer usuário que tenha permissões suficientes na retransmissão do barramento de serviço do Azure subjacente. Isso significa que, se você precisar impedir que outras pessoas reutilizem essa mesma conexão híbrida (por exemplo, quando o recurso de destino é um serviço que não tem nenhuma medida de segurança adicional em vigor para impedir o acesso não autorizado), você deve bloquear o acesso ao Azure Retransmissão do barramento de serviço.
+
+Qualquer pessoa com acesso `Reader` à retransmissão poderá _Ver_ a conexão híbrida ao tentar adicioná-la ao aplicativo Web no portal do Azure, mas não poderá _adicioná_ -la, pois ela não tem as permissões para recuperar a cadeia de conexão que é usada para estabelecer a conexão de retransmissão. Para adicionar a conexão híbrida com êxito, elas devem ter a permissão `listKeys` (`Microsoft.Relay/namespaces/hybridConnections/authorizationRules/listKeys/action`). A função `Contributor` ou qualquer outra função que inclua essa permissão na retransmissão permitirá que os usuários usem a conexão híbrida e o adicionem aos seus próprios aplicativos Web.
 
 ## <a name="troubleshooting"></a>Resolução de problemas ##
 

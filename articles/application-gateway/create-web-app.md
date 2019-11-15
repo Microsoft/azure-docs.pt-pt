@@ -1,22 +1,23 @@
 ---
-title: Proteger aplicações web com o Gateway de aplicação do Azure - PowerShell
+title: Configurar o serviço de aplicativo usando o PowerShell
+titleSuffix: Azure Application Gateway
 description: Este artigo fornece orientação sobre como configurar aplicações Web como anfitriões de back-end num gateway de aplicação novo ou existente.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: dcf21fe111ab742074ab4fe580a021338e1f7c43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4198c83a167ad8f2d52f4393c39625948e18e6e3
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122222"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089517"
 ---
-# <a name="configure-app-service-with-application-gateway"></a>Configurar o serviço de aplicações com o Gateway de aplicação
+# <a name="configure-app-service-with-application-gateway-using-powershell"></a>Configurar o serviço de aplicativo com o gateway de aplicativo usando o PowerShell
 
-Gateway de aplicação permite-lhe ter uma aplicação de serviço de aplicações ou outro serviço multi-inquilino como membro do conjunto de back-end. Neste artigo, vai aprender a configurar uma aplicação de serviço de aplicações com o Gateway de aplicação. O primeiro exemplo mostra como configurar um gateway de aplicação existente para utilizar uma aplicação Web como membro do conjunto de back-end. O segundo exemplo mostra como criar um novo gateway de aplicação com uma aplicação Web como membro do conjunto de back-end.
+O gateway de aplicativo permite que você tenha um aplicativo do serviço de aplicativo ou outro serviço de vários locatários como um membro do pool de back-end. Neste artigo, você aprenderá a configurar um aplicativo do serviço de aplicativo com o gateway de aplicativo. O primeiro exemplo mostra como configurar um gateway de aplicação existente para utilizar uma aplicação Web como membro do conjunto de back-end. O segundo exemplo mostra como criar um novo gateway de aplicação com uma aplicação Web como membro do conjunto de back-end.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -157,12 +158,12 @@ DnsSettings              : {
                             }
 ```
 
-## <a name="restrict-access"></a>Restringir o acesso
+## <a name="restrict-access"></a>Acesso restrito
 
-Para as aplicações web implementadas nesses exemplos utilizam endereços IP públicos, que podem ser acedidos diretamente a partir da Internet. Isto ajuda a resolver problemas quando estiver a aprender uma nova funcionalidade e tentar novas coisas. Mas se pretende implantar um recurso em produção, convém adicionar mais restrições.
+Os aplicativos Web implantados nesses exemplos usam endereços IP públicos que podem ser acessados diretamente da Internet. Isso ajuda na solução de problemas quando você está aprendendo sobre um novo recurso e experimentando novas coisas. Mas se você pretende implantar um recurso na produção, convém adicionar mais restrições.
 
-Pode restringir o acesso às suas aplicações web de uma maneira é usar [restrições de IP estáticas do serviço de aplicações do Azure](../app-service/app-service-ip-restrictions.md). Por exemplo, pode restringir a aplicação web para que ele só recebe tráfego do gateway de aplicação. Utilize a funcionalidade de restrição de IP de serviço de aplicações para listar o VIP do gateway de aplicação como o único endereço com acesso.
+Uma maneira de restringir o acesso aos seus aplicativos Web é usar [Azure app restrições de IP estático do serviço](../app-service/app-service-ip-restrictions.md). Por exemplo, você pode restringir o aplicativo Web para que ele só receba tráfego do gateway de aplicativo. Use o recurso de restrição de IP do serviço de aplicativo para listar o VIP do gateway de aplicativo como o único endereço com acesso.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba como configurar o redirecionamento ao visitar: [Configurar o redirecionamento no Gateway de aplicação com o PowerShell](redirect-overview.md).
+Saiba como configurar o redirecionamento ao visitar: [Configurar o redirecionamento no Gateway de Aplicação com o PowerShell](redirect-overview.md).

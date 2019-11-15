@@ -8,14 +8,14 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 499b08dbdc8e798a884b721bcba51be1f6973df6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6386ef775f897ca56d2660adf72a885672c8dfd2
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562389"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092069"
 ---
-# <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Tutorial: Instruções detalhadas para criar um novo aplicativo Android usando âncoras espaciais do Azure
+# <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Tutorial: instruções passo a passo para criar um novo aplicativo Android usando âncoras espaciais do Azure
 
 Este tutorial mostrará como criar um novo aplicativo Android que integre a funcionalidade ARCore com âncoras espaciais do Azure.
 
@@ -30,17 +30,17 @@ Para concluir este tutorial, confirme que tem:
 
 Inicie o Android Studio. Na janela **Bem-vindo ao Android Studio** , clique em **Iniciar um novo projeto de Android Studio**. Ou, se você tiver um projeto já aberto, selecione **arquivo**->**novo projeto**.
 
-Na janela **criar novo projeto** , na seção **telefone e Tablet** , escolha **atividade vazia**e clique em **Avançar**. Em seguida, **em nível mínimo**da API `API 26: Android 8.0 (Oreo)`, escolha e verifique se o **idioma** está `Java`definido como. Talvez você queira alterar o nome do projeto & local e o nome do pacote. Deixe as outras opções como estão. Clique em **Concluir**. O **instalador do componente** será executado. Quando terminar, clique em **concluir**. Após algum processamento, Android Studio abrirá o IDE.
+Na janela **criar novo projeto** , na seção **telefone e Tablet** , escolha **atividade vazia**e clique em **Avançar**. Em seguida, em **nível mínimo de API**, escolha `API 26: Android 8.0 (Oreo)`e verifique se o **idioma** está definido como `Java`. Talvez você queira alterar o nome do projeto & local e o nome do pacote. Deixe as outras opções como estão. Clique em **Concluir**. O **instalador do componente** será executado. Quando terminar, clique em **concluir**. Após algum processamento, Android Studio abrirá o IDE.
 
 ## <a name="trying-it-out"></a>Experimentando
 
 Para testar seu novo aplicativo, conecte seu dispositivo habilitado para desenvolvedor à sua máquina de desenvolvimento com um cabo USB. Clique em **executar**->**Executar ' aplicativo '** . Na janela **Selecionar destino de implantação** , selecione o dispositivo e clique em **OK**. Android Studio instala o aplicativo em seu dispositivo conectado e o inicia. Agora você deve ver "Olá, Mundo!" exibido no aplicativo em execução no seu dispositivo. Clique em **executar**->**parar ' aplicativo '** .
 
-## <a name="integrating-arcore"></a>Integração do _ARCore_
+## <a name="integrating-_arcore_"></a>Integração do _ARCore_
 
 <a href="https://developers.google.com/ar/discover/" target="_blank">_ARCore_</a> é a plataforma do Google para a criação de experiências de realidade aumentadas, permitindo que seu dispositivo acompanhe sua posição à medida que ele se move e cria sua própria compreensão do mundo real.
 
-Modifique `app\manifests\AndroidManifest.xml` para incluir as entradas a seguir dentro do `<manifest>` nó raiz. Este trecho de código faz algumas coisas:
+Modifique `app\manifests\AndroidManifest.xml` para incluir as entradas a seguir dentro do nó de `<manifest>` raiz. Este trecho de código faz algumas coisas:
 
 - Ele permitirá que seu aplicativo acesse a câmera do dispositivo.
 - Ele também garantirá que seu aplicativo só fique visível no Google Play Store para dispositivos que dão suporte a ARCore.
@@ -62,16 +62,16 @@ Modifique `Gradle Scripts\build.gradle (Module: app)` para incluir a entrada a s
 ```
 dependencies {
     ...
-    implementation 'com.google.ar:core:1.8.0'
+    implementation 'com.google.ar:core:1.11.0'
     ...
 }
 ```
 
-## <a name="integrating-sceneform"></a>Integração do _Sceneform_
+## <a name="integrating-_sceneform_"></a>Integração do _Sceneform_
 
 O <a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_</a> simplifica a renderização de cenas 3D realísticas em aplicativos de realidade aumentada, sem a necessidade de aprender OpenGL.
 
-Modifique `Gradle Scripts\build.gradle (Module: app)` para incluir as entradas a seguir. Esse código permitirá que seu aplicativo use construções de linguagem do Java 8, o `Sceneform` que exige. Ele também garantirá que seu aplicativo `Sceneform` se destina à versão 1,8, já que ela deve corresponder à versão do ARCore que seu aplicativo está usando. Após essa alteração, você pode receber uma notificação do gradle solicitando a sincronização: clique em **sincronizar agora**.
+Modifique `Gradle Scripts\build.gradle (Module: app)` para incluir as entradas a seguir. Esse código permitirá que seu aplicativo use construções de linguagem do Java 8, o que `Sceneform` requer. Ele também garantirá que seu aplicativo se destina `Sceneform` versão 1,8, já que ela deve corresponder à versão do ARCore que seu aplicativo está usando. Após essa alteração, você pode receber uma notificação do gradle solicitando a sincronização: clique em **sincronizar agora**.
 
 ```
 android {
@@ -85,12 +85,12 @@ android {
 
 dependencies {
     ...
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.8.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.11.0'
     ...
 }
 ```
 
-Abra o e substitua o elemento Hello Wolrd `<TextView>` existente pelo seguinte ArFragment. `app\res\layout\activity_main.xml` Esse código fará com que o feed de câmera seja exibido na tela, permitindo que o ARCore acompanhe a posição do dispositivo à medida que ele se move.
+Abra o `app\res\layout\activity_main.xml`e substitua o elemento Hello Wolrd `<TextView>` existente pelo seguinte ArFragment. Esse código fará com que o feed de câmera seja exibido na tela, permitindo que o ARCore acompanhe a posição do dispositivo à medida que ele se move.
 
 ```xml
 <fragment android:name="com.google.ar.sceneform.ux.ArFragment"
@@ -107,15 +107,15 @@ Vamos criar & Coloque um objeto usando seu aplicativo. Primeiro, adicione as seg
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=23-33)]
 
-Em seguida, adicione as seguintes variáveis de membro `MainActivity` à sua classe:
+Em seguida, adicione as seguintes variáveis de membro à sua classe `MainActivity`:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=52-57)]
 
-Em seguida, adicione o código a seguir `app\java\<PackageName>\MainActivity` ao seu `onCreate()` método. Esse código conectará um ouvinte, chamado `handleTap()`, que detectará quando o usuário tocar na tela em seu dispositivo. Se o Tap estiver em uma superfície do mundo real que já foi reconhecida pelo acompanhamento do ARCore, o ouvinte será executado.
+Em seguida, adicione o código a seguir ao seu método `app\java\<PackageName>\MainActivity` `onCreate()`. Esse código conectará um ouvinte, chamado `handleTap()`, que detectará quando o usuário tocar a tela em seu dispositivo. Se o Tap estiver em uma superfície do mundo real que já foi reconhecida pelo acompanhamento do ARCore, o ouvinte será executado.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=68-74,85&highlight=6-7)]
 
-Por fim, adicione o `handleTap()` método a seguir, que vinculará tudo. Ele criará uma esfera e a posicionará no local tocado. A esfera inicialmente será preta, pois `this.recommendedSessionProgress` está definida como zero no momento. Esse valor será ajustado posteriormente.
+Por fim, adicione o seguinte método de `handleTap()`, que vinculará tudo. Ele criará uma esfera e a posicionará no local tocado. A esfera inicialmente será preta, pois `this.recommendedSessionProgress` está definida como zero no momento. Esse valor será ajustado posteriormente.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-171,174-182,198-199)]
 
@@ -134,13 +134,13 @@ dependencies {
 }
 ```
 
-Clique com o `app\java\<PackageName>`botão direito ->do mouse em **nova**->**classe Java**. Defina o **nome** como _meuprimeiroapp_e  a superclasse como _Android. app. Application_. Deixe as outras opções como estão. Clique em **OK**. Um arquivo chamado `MyFirstApp.java` será criado. Adicione a seguinte importação a ele:
+Clique com o botão direito do mouse em `app\java\<PackageName>`->**nova** **classe Java**->. Defina o **nome** como _meuprimeiroapp_e a **superclasse** como _Android. app. Application_. Deixe as outras opções como estão. Clique em **OK**. Um arquivo chamado `MyFirstApp.java` será criado. Adicione a seguinte importação a ele:
 
 ```java
 import com.microsoft.CloudServices;
 ```
 
-Em seguida, adicione o código a seguir dentro `MyFirstApp` da nova classe, o que garantirá que as âncoras espaciais do Azure sejam inicializadas com o contexto do seu aplicativo.
+Em seguida, adicione o código a seguir dentro da nova classe `MyFirstApp`, que garantirá que as âncoras espaciais do Azure sejam inicializadas com o contexto do seu aplicativo.
 
 ```java
     @Override
@@ -150,7 +150,7 @@ Em seguida, adicione o código a seguir dentro `MyFirstApp` da nova classe, o qu
     }
 ```
 
-Agora, modifique `app\manifests\AndroidManifest.xml` para incluir a seguinte entrada dentro do nó `<application>` raiz. Esse código irá conectar a classe de aplicativo que você criou em seu aplicativo.
+Agora, modifique `app\manifests\AndroidManifest.xml` para incluir a entrada a seguir dentro do nó de `<application>` raiz. Esse código irá conectar a classe de aplicativo que você criou em seu aplicativo.
 
 ```xml
     <application
@@ -159,23 +159,23 @@ Agora, modifique `app\manifests\AndroidManifest.xml` para incluir a seguinte ent
     </application>
 ```
 
-`app\java\<PackageName>\MainActivity`Novamente, adicione as seguintes importações a ela:
+De volta ao `app\java\<PackageName>\MainActivity`, adicione as seguintes importações a ele:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=33-40&highlight=2-8)]
 
-Em seguida, adicione as seguintes variáveis de membro `MainActivity` à sua classe:
+Em seguida, adicione as seguintes variáveis de membro à sua classe `MainActivity`:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=57-60&highlight=3-4)]
 
-Em seguida, vamos adicionar o seguinte `initializeSession()` método dentro de `mainActivity` sua classe. Uma vez chamado, ele garantirá que uma sessão de âncoras espaciais do Azure seja criada e inicializada corretamente durante a inicialização do seu aplicativo.
+Em seguida, vamos adicionar o seguinte método `initializeSession()` dentro de sua classe `mainActivity`. Uma vez chamado, ele garantirá que uma sessão de âncoras espaciais do Azure seja criada e inicializada corretamente durante a inicialização do seu aplicativo.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-97,146)]
 
-Agora, vamos vincular o `initializeSession()` método ao seu `onCreate()` método. Além disso, vamos garantir que os quadros de seu feed de câmera sejam enviados para o SDK de âncoras espaciais do Azure para processamento.
+Agora, vamos conectar seu método `initializeSession()` ao seu método `onCreate()`. Além disso, vamos garantir que os quadros de seu feed de câmera sejam enviados para o SDK de âncoras espaciais do Azure para processamento.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=68-85&highlight=9-17)]
 
-Por fim, adicione o código a seguir `handleTap()` ao seu método. Ele anexará uma âncora espacial local do Azure à esfera preta que estamos colocando no mundo real.
+Por fim, adicione o código a seguir ao seu método `handleTap()`. Ele anexará uma âncora espacial local do Azure à esfera preta que estamos colocando no mundo real.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-182,198-199&highlight=12-13)]
 
@@ -187,27 +187,27 @@ Antes de continuar, você precisará criar um identificador e uma chave de conta
 
 ## <a name="upload-your-local-anchor-into-the-cloud"></a>Carregue sua âncora local na nuvem
 
-Depois que você tiver o identificador e a chave da conta das âncoras espaciais do Azure `app\java\<PackageName>\MainActivity`, podemos voltar, adicionar as seguintes importações a ela:
+Depois que você tiver o identificador e a chave da conta das âncoras espaciais do Azure, podemos voltar ao `app\java\<PackageName>\MainActivity`, adicionar as seguintes importações a ela:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=40-45&highlight=3-6)]
 
-Em seguida, adicione as seguintes variáveis de membro `MainActivity` à sua classe:
+Em seguida, adicione as seguintes variáveis de membro à sua classe `MainActivity`:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=60-65&highlight=3-6)]
 
-Agora, adicione o código a seguir ao `initializeSession()` seu método. Primeiro, esse código permitirá que seu aplicativo monitore o progresso que o SDK de âncoras espaciais do Azure faz à medida que coleta quadros do seu feed de câmera. Como faz, a cor da esfera começará a mudar de seu preto original para o cinza. Em seguida, ele deixará o branco quando forem coletados quadros suficientes para enviar sua âncora para a nuvem. Em segundo lugar, esse código fornecerá as credenciais necessárias para se comunicar com o back-end de nuvem. Aqui está onde você configurará seu aplicativo para usar o identificador de conta e a chave. Você os copiou em um editor de texto ao [Configurar o recurso âncoras espaciais](#create-a-spatial-anchors-resource).
+Agora, adicione o código a seguir ao seu método `initializeSession()`. Primeiro, esse código permitirá que seu aplicativo monitore o progresso que o SDK de âncoras espaciais do Azure faz à medida que coleta quadros do seu feed de câmera. Como faz, a cor da esfera começará a mudar de seu preto original para o cinza. Em seguida, ele deixará o branco quando forem coletados quadros suficientes para enviar sua âncora para a nuvem. Em segundo lugar, esse código fornecerá as credenciais necessárias para se comunicar com o back-end de nuvem. Aqui está onde você configurará seu aplicativo para usar o identificador de conta e a chave. Você os copiou em um editor de texto ao [Configurar o recurso âncoras espaciais](#create-a-spatial-anchors-resource).
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-120,142-146&highlight=11-36)]
 
-Em seguida, adicione o `uploadCloudAnchorAsync()` seguinte método dentro `mainActivity` de sua classe. Uma vez chamado, esse método irá aguardar de forma assíncrona até que quadros suficientes sejam coletados do seu dispositivo. Assim que isso acontecer, ele mudará a cor da sua esfera para amarelo e, em seguida, começará a carregar sua âncora espacial local do Azure na nuvem. Quando o carregamento for concluído, o código retornará um identificador de âncora.
+Em seguida, adicione o seguinte método `uploadCloudAnchorAsync()` dentro de sua classe `mainActivity`. Uma vez chamado, esse método irá aguardar de forma assíncrona até que quadros suficientes sejam coletados do seu dispositivo. Assim que isso acontecer, ele mudará a cor da sua esfera para amarelo e, em seguida, começará a carregar sua âncora espacial local do Azure na nuvem. Quando o carregamento for concluído, o código retornará um identificador de âncora.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?name=uploadCloudAnchorAsync)]
 
-Por fim, vamos conectar tudo isso. Em seu `handleTap()` método, adicione o código a seguir. Ele invocará o `uploadCloudAnchorAsync()` método assim que sua esfera for criada. Depois que o método retornar, o código a seguir executará uma atualização final para sua esfera, alterando sua cor para azul.
+Por fim, vamos conectar tudo isso. Em seu método de `handleTap()`, adicione o código a seguir. Ele invocará seu método `uploadCloudAnchorAsync()` assim que sua esfera for criada. Depois que o método retornar, o código a seguir executará uma atualização final para sua esfera, alterando sua cor para azul.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-199&highlight=24-37)]
 
-[Reimplante](#trying-it-out) seu aplicativo mais uma vez. Mova-se pelo dispositivo, toque na tela e coloque a esfera. Desta vez, no entanto, sua esfera mudará sua cor de preto para branco, pois os quadros da câmera são coletados. Assim que tivermos quadros suficientes, a esfera será transformada em amarelo e o carregamento da nuvem será iniciado. Quando o carregamento for concluído, sua esfera ficará azul. Opcionalmente, você também pode usar a `Logcat` janela dentro de Android Studio para monitorar as mensagens de log que seu aplicativo está enviando. Por exemplo, o andamento da sessão durante capturas de quadros e o identificador de âncora que a nuvem retorna quando o carregamento é concluído.
+[Reimplante](#trying-it-out) seu aplicativo mais uma vez. Mova-se pelo dispositivo, toque na tela e coloque a esfera. Desta vez, no entanto, sua esfera mudará sua cor de preto para branco, pois os quadros da câmera são coletados. Assim que tivermos quadros suficientes, a esfera será transformada em amarelo e o carregamento da nuvem será iniciado. Quando o carregamento for concluído, sua esfera ficará azul. Opcionalmente, você também pode usar a janela `Logcat` dentro de Android Studio para monitorar as mensagens de log que seu aplicativo está enviando. Por exemplo, o andamento da sessão durante capturas de quadros e o identificador de âncora que a nuvem retorna quando o carregamento é concluído.
 
 ## <a name="locate-your-cloud-spatial-anchor"></a>Localize sua âncora espacial de nuvem
 
@@ -215,7 +215,7 @@ Uma sua âncora é carregada na nuvem, estamos prontos para tentar localizá-la 
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=45-48&highlight=3-4)]
 
-Em seguida, vamos adicionar o código a seguir ao `handleTap()` seu método. Esse código irá:
+Em seguida, vamos adicionar o código a seguir ao seu método `handleTap()`. Esse código irá:
 
 - Remova nossa esfera azul existente da tela.
 - Inicialize nossa sessão de âncoras espaciais do Azure novamente. Essa ação garantirá que a âncora que vamos localizar venha da nuvem em vez da âncora local que criamos.
@@ -223,7 +223,7 @@ Em seguida, vamos adicionar o código a seguir ao `handleTap()` seu método. Ess
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?name=handleTap&highlight=10-19)]
 
-Agora, vamos conectar o código que será invocado quando a âncora que estamos consultando estiver localizada. Dentro de `initializeSession()` seu método, adicione o código a seguir. Esse trecho de código criará & posicionar uma esfera verde quando a âncora espacial da nuvem estiver localizada. Ele também habilitará o toque da tela novamente, para que você possa repetir o cenário inteiro mais uma vez: crie outra âncora local, carregue-a e localize-a novamente.
+Agora, vamos conectar o código que será invocado quando a âncora que estamos consultando estiver localizada. Dentro de seu método de `initializeSession()`, adicione o código a seguir. Esse trecho de código criará & posicionar uma esfera verde quando a âncora espacial da nuvem estiver localizada. Ele também habilitará o toque da tela novamente, para que você possa repetir o cenário inteiro mais uma vez: crie outra âncora local, carregue-a e localize-a novamente.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?name=initializeSession&highlight=34-53)]
 

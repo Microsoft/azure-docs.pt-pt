@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: 690df14e4e09b4a35589446029468a7d757d2732
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 72ab2717cea479de6150f435398f164c7c9d5937
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888619"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092267"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Tutorial: treinar e implantar seu primeiro modelo em R com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -271,7 +271,7 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 Com seu modelo, você pode prever o perigo de morte de uma colisão. Use o Azure ML para implantar seu modelo como um serviço de previsão. Neste tutorial, você implantará o serviço Web em ACI ( [instâncias de contêiner do Azure](https://docs.microsoft.com/azure/container-instances/) ).
 
-### <a name="register-the-model"></a>Registrar o modelo
+### <a name="register-the-model"></a>Registe o modelo
 
 Primeiro, registre o modelo que você baixou em seu espaço de trabalho com [`register_model()`](https://azure.github.io/azureml-sdk-for-r/reference/register_model.html). Um modelo registrado pode ser qualquer coleção de arquivos, mas, nesse caso, o objeto de modelo R é suficiente. O Azure ML usará o modelo registrado para implantação.
 
@@ -353,17 +353,17 @@ aci_service$scoring_uri
 Exclua os recursos quando não precisar mais deles. Não exclua nenhum recurso que você planeja ainda usar. 
 
 Exclua o serviço Web:
-```{r delete_service, eval=FALSE}
+```R
 delete_webservice(aci_service)
 ```
 
 Exclua o modelo registrado:
-```{r delete_model, eval=FALSE}
+```R
 delete_model(model)
 ```
 
 Exclua o cluster de computação:
-```{r delete_compute, eval=FALSE}
+```R
 delete_compute(compute)
 ```
 

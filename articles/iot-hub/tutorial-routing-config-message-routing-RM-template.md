@@ -1,5 +1,5 @@
 ---
-title: Configurar o roteamento de mensagens para o Hub IoT do Azure usando um modelo de Azure Resource Manager | Microsoft Docs
+title: Configurar o roteamento de mensagens para o Hub IoT do Azure usando um modelo de Azure Resource Manager
 description: Configurar o roteamento de mensagens para o Hub IoT do Azure usando um modelo de Azure Resource Manager
 author: robinsh
 manager: philmeagit st
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ef73aed577645af5af82c439abb57022b389d040
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809720"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084398"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Tutorial: usar um modelo de Azure Resource Manager para configurar o roteamento de mensagens do Hub IoT
 
@@ -50,15 +50,15 @@ A maioria desses parâmetros tem valores padrão. Aqueles que terminam com **_in
 
 **SubscriptionId**: esse campo é definido para você para a assinatura na qual você está implantando o modelo. Este campo não está no arquivo de parâmetros porque está definido para você.
 
-**IoTHubName_in**: esse campo é o nome do Hub IOT base, que é concatenado com o aleatóriovalue para ser globalmente exclusivo.
+**IoTHubName_in**: esse campo é o nome do Hub IOT base, que é concatenado com o randomValue para ser globalmente exclusivo.
 
 **local**: esse campo é a região do Azure na qual você está implantando, como "westus".
 
-**consumer_group**: esse campo é o conjunto de grupos de consumidores para mensagens provenientes do ponto de extremidade de roteamento. Ele é usado para filtrar resultados em Azure Stream Analytics. Por exemplo, há todo o fluxo em que você obtém tudo, ou se tiver dados provenientes do consumer_group definido como **contoso**, você poderá configurar um fluxo de Azure Stream Analytics (e Power bi relatório) para mostrar apenas essas entradas. Esse campo é usado na parte 2 deste tutorial.
+**consumer_group**: esse campo é o conjunto de grupos de consumidores para mensagens provenientes do ponto de extremidade de roteamento. Ele é usado para filtrar resultados em Azure Stream Analytics. Por exemplo, há todo o fluxo em que você obtém tudo, ou se você tiver dados recebidos com consumer_group definido como **contoso**, poderá configurar um fluxo de Azure Stream Analytics (e Power bi relatório) para mostrar apenas essas entradas. Esse campo é usado na parte 2 deste tutorial.
 
 **sku_name**: esse campo é o dimensionamento para o Hub IOT. Esse valor deve ser S1 ou superior; uma camada gratuita não funciona para este tutorial porque não permite vários pontos de extremidade.
 
-**sku_units**: esse campo vai com o **sku_name**e é o número de unidades do Hub IOT que podem ser usadas.
+**sku_units**: esse campo acompanha o **sku_name**e é o número de unidades do Hub IOT que podem ser usadas.
 
 **d2c_partitions**: esse campo é o número de partições usadas para o fluxo de eventos.
 
@@ -72,7 +72,7 @@ A maioria desses parâmetros tem valores padrão. Aqueles que terminam com **_in
 
 **service_bus_queue_in**: esse campo é o nome da fila do barramento de serviço usada para rotear mensagens. Esse valor é concatenado com o randomValue para torná-lo globalmente exclusivo.
 
-**AuthRules_sb_queue**: Este campo é as regras de autorização para a fila do barramento de serviço, usado para recuperar a cadeia de conexão para a fila.
+**AuthRules_sb_queue**: Este campo é as regras de autorização para a fila do barramento de serviço, usada para recuperar a cadeia de conexão para a fila.
 
 ### <a name="variables"></a>Variáveis
 

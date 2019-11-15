@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 18c85995c545e1b603333fd6788b70cd863865ce
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 4d64d556c96d29556ee36179623ff8cc24532b48
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905020"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74085267"
 ---
 A Galeria de imagens compartilhadas é um serviço que ajuda você a criar estrutura e organização em suas imagens gerenciadas. As galerias de imagens compartilhadas fornecem:
 
@@ -49,7 +49,7 @@ As definições de imagem são um agrupamento lógico de versões de uma imagem.
 
 Há três parâmetros para cada definição de imagem que são usados em combinação- **Publicador**, **oferta** e **SKU**. Eles são usados para localizar uma definição de imagem específica. Você pode ter versões de imagem que compartilham um ou dois, mas não todos os três valores.  Por exemplo, aqui estão três definições de imagem e seus valores:
 
-|Definição da Imagem|Publicador|Oferta|SKU|
+|Definição da Imagem|Publicador|Oferta|Sku|
 |---|---|---|---|
 |myImage1|Contoso|Finanças|End|
 |myImage2|Contoso|Finanças|Front-end|
@@ -186,7 +186,7 @@ Os SDKs a seguir dão suporte à criação de galerias de imagens compartilhadas
 
 - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
+- [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
 - [Go](https://docs.microsoft.com/azure/go/)
 

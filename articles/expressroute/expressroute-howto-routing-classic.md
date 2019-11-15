@@ -1,5 +1,5 @@
 ---
-title: 'Configurar o emparelhamento para um circuito-ExpressRoute: Azure: clássico | Microsoft Docs'
+title: 'Azure ExpressRoute: configurar o emparelhamento: clássico'
 description: Este artigo explica-lhe os passos para criar e aprovisionar o peering privado, público e da Microsoft de um circuito ExpressRoute. Este artigo também mostra como verificar o estado, atualizar ou eliminar peerings no seu circuito.
 services: expressroute
 author: cherylmc
@@ -7,28 +7,27 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 01ec721fb7e7dea0e4e31e0c3052cc4246cf14b0
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 814a73900b05b66d1bacc946b9f994135d3fc9f6
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748187"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083449"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Criar e modificar o emparelhamento para um circuito de ExpressRoute (clássico)
 > [!div class="op_single_selector"]
 > * [Portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [CLI do Azure](howto-routing-cli.md)
-> * [Vídeo-emparelhamento privado](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Vídeo – emparelhamento público](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
-> * [Vídeo-emparelhamento da Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
+> * [Vídeo - peering privado](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Vídeo - peering público](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Vídeo - peering da Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-routing-classic.md)
 > 
 
-Este artigo orienta você pelas etapas para criar e gerenciar a configuração de emparelhamento/roteamento para um circuito do ExpressRoute usando o PowerShell e o modelo de implantação clássico. Os passos abaixo também irão mostrar como verificar o estado, atualizar ou eliminar e retirar o aprovisionamento do peerings para um circuito ExpressRoute. Você pode configurar um, dois ou todos os três emparelhamentos (privado do Azure, público do Azure e Microsoft) para um circuito do ExpressRoute. Pode configurar peerings em qualquer ordem que escolha. No entanto, tem de confirmar que conclui a configuração de cada peering, um de cada vez. 
+Este artigo orienta você pelas etapas para criar e gerenciar a configuração de emparelhamento/roteamento para um circuito do ExpressRoute usando o PowerShell e o modelo de implantação clássico. Os passos abaixo também irão mostrar como verificar o estado, atualizar ou eliminar e retirar o aprovisionamento do peerings para um circuito ExpressRoute. Pode configurar um, dois ou todos os três peerings (Azure privado, Azure público e Microsoft) para um circuito do ExpressRoute. Pode configurar peerings em qualquer ordem que escolha. No entanto, tem de confirmar que conclui a configuração de cada peering, um de cada vez. 
 
-Essas instruções se aplicam somente a circuitos criados com provedores de serviço que oferecem serviços de conectividade de camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de camada 3 (normalmente um IPVPN, como o MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
+Essas instruções se aplicam somente a circuitos criados com provedores de serviço que oferecem serviços de conectividade de camada 2. Se estiver a utilizar um fornecedor de serviços que oferece geridos de camada 3 serviços (normalmente uma VPN de IP, como MPLS), o seu fornecedor de conectividade irá configurar e gerir encaminhamento por si.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -43,7 +42,7 @@ Essas instruções se aplicam somente a circuitos criados com provedores de serv
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>Baixe os cmdlets mais recentes do PowerShell
 
-Instale as versões mais recentes dos módulos do PowerShell do gerenciamento de serviços do Azure (SM) e do módulo ExpressRoute. Ao usar o exemplo a seguir, observe que o número de versão (neste exemplo, 5.1.1) será alterado conforme as versões mais recentes dos cmdlets forem liberadas.
+Instale as versões mais recentes de módulos do PowerShell de gestão de serviço do Azure (SM) e o módulo do ExpressRoute. Ao utilizar o exemplo seguinte, tenha em atenção que o número de versão (neste exemplo, 5.1.1) será alterado à medida que as versões mais recentes dos cmdlets são lançadas.
 
 ```powershell
 Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
@@ -72,7 +71,7 @@ Para entrar em sua conta do Azure, use os exemplos a seguir:
    Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
-4. Em seguida, use o cmdlet a seguir para adicionar sua assinatura do Azure ao PowerShell para o modelo de implantação clássico.
+4. Em seguida, utilize o cmdlet seguinte para adicionar a sua subscrição do Azure para o PowerShell para o modelo de implementação clássica.
 
    ```powershell
    Add-AzureAccount
@@ -274,7 +273,7 @@ VlanId                         : 200
 
 ### <a name="to-update-azure-public-peering-configuration"></a>Para atualizar a configuração do peering público do Azure
 
-Pode atualizar qualquer parte da configuração com o cmdlet seguinte. Neste exemplo, a ID de VLAN do circuito está sendo atualizada de 200 para 600.
+Pode atualizar qualquer parte da configuração com o cmdlet seguinte. Neste exemplo, o ID de VLAN do circuito está a ser atualizado de 200 para 600.
 
 ```powershell
 Set-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 600 -SharedKey "A1B2C3D4"
@@ -283,7 +282,7 @@ Set-AzureBGPPeering -AccessType Public -ServiceKey "****************************
 Verifique se o circuito é mostrado como provisionado e habilitado. 
 ### <a name="to-delete-azure-public-peering"></a>Para eliminar um peering público do Azure
 
-Você pode remover a configuração de emparelhamento executando o seguinte cmdlet:
+Pode remover a sua configuração de peering executando o seguinte cmdlet:
 
 ```powershell
 Remove-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
@@ -336,7 +335,7 @@ Esta secção fornece instruções sobre como criar, obter, atualizar e eliminar
    * Prefixos anunciados: tem de fornecer uma lista de todos os prefixos que planeia anunciar durante a sessão de BGP. São aceites apenas prefixos de endereços IP públicos. Você pode enviar uma lista separada por vírgulas se planeja enviar um conjunto de prefixos. Estes prefixos têm de ser registados para si num RIR/TIR.
    * Cliente ASN: se estiver a anunciar prefixos que não estão registados para o número AS de peering, pode especificar o número AS no qual estão registados. **Opcional**.
    * Nome do registo de encaminhamento: pode especificar o RIR/TIR de acordo com o número AS e os prefixos aos quais estão registados.
-   * Um hash MD5, se optar por utilizar um. **Adicional.**
+   * Um hash MD5, se optar por utilizar um. **Opcional.**
      
    Execute o seguinte cmdlet para configurar o emparelhamento da Microsoft para seu circuito:
  
@@ -378,7 +377,7 @@ Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*************************
 
 ### <a name="to-delete-microsoft-peering"></a>Para eliminar o peering da Microsoft
 
-Você pode remover a configuração de emparelhamento executando o seguinte cmdlet:
+Pode remover a sua configuração de peering executando o seguinte cmdlet:
 
 ```powershell
 Remove-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"

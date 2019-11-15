@@ -1,6 +1,6 @@
 ---
-title: Mover uma configuração de Azure Site Recovery para outra região do Azure | Microsoft Docs
-description: Diretrizes para mover uma configuração de Site Recovery para outra região do Azure
+title: Mover um cofre de Azure Site Recovery para outra região
+description: Descreve como mover um cofre dos serviços de recuperação (Azure Site Recovery) para outra região do Azure
 services: site-recovery
 author: rajani-janaki-ram
 ms.service: site-recovery
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 2cf06a0c4e35d22cbad260201183516db2f07436
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 32dff9a165125ab1949560ce36438ae266cd3036
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013467"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090301"
 ---
 # <a name="move-a-recovery-services-vault-and-azure-site-recovery-configuration-to-another-azure-region"></a>Mover um cofre dos serviços de recuperação e Azure Site Recovery configuração para outra região do Azure
 
@@ -45,7 +45,7 @@ Neste documento, você vai:
 ## <a name="identify-the-resources-that-were-used-by-azure-site-recovery"></a>Identificar os recursos que foram usados pelo Azure Site Recovery
 Recomendamos que você faça essa etapa antes de prosseguir para a próxima. É mais fácil identificar os recursos relevantes enquanto as VMs estão sendo replicadas.
 
-Para cada VM do Azure que está sendo replicada, acesse **itens** > protegidos**Propriedades** de**itens** > replicados e identifique os seguintes recursos:
+Para cada VM do Azure que está sendo replicada, acesse **itens protegidos** > **itens replicados** > **Propriedades** e identifique os seguintes recursos:
 
 - Grupo de recursos de destino
 - Conta de armazenamento em cache
@@ -56,7 +56,7 @@ Para cada VM do Azure que está sendo replicada, acesse **itens** > protegidos**
 ## <a name="disable-the-existing-disaster-recovery-configuration"></a>Desabilitar a configuração de recuperação de desastre existente
 
 1. Vá para o cofre dos serviços de recuperação.
-2. Em **itens** > protegidos itens**replicados**, clique com o botão direito do mouse no computador e selecione **desabilitar replicação**.
+2. Em **itens protegidos** > **itens replicados**, clique com o botão direito do mouse no computador e selecione **desabilitar replicação**.
 3. Repita essa etapa para todas as VMs que você deseja mover.
 
 > [!NOTE]

@@ -1,5 +1,5 @@
 ---
-title: Monitorização, métricas e alertas - ExpressRoute do Azure | Documentos da Microsoft
+title: 'Azure ExpressRoute: monitoramento, métricas e alertas'
 description: Esta página fornece informações sobre a monitorização de ExpressRoute
 services: expressroute
 author: mialdrid
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 40e5561c9a55595340568ec660cbc6dd6e1eab51
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 95083809f8fcfe42ae76faa0af507c7ce4acd709
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672080"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083432"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorização, métricas e alertas do ExpressRoute
 
@@ -32,16 +31,16 @@ Depois que uma métrica for selecionada, a agregação padrão será aplicada. O
 ### <a name="available-metrics"></a>Métricas disponíveis
 |**Métricas**|**Categoria**|**Dimensão (ões)**|**Recurso (s)**|
 | --- | --- | --- | --- |
-|Disponibilidade do ARP|Disponibilidade|<ui><li>Par (roteador de ExpressRoute primário/secundário)</ui></li><ui><li> Tipo de emparelhamento (privado/público/Microsoft)</ui></li>|ExpressRoute|
-|Disponibilidade de BGP|Disponibilidade|<ui><li> Par (roteador de ExpressRoute primário/secundário)</ui></li><ui><li> Tipo de emparelhamento</ui></li>|ExpressRoute|
-|BitsInPerSecond|Tráfego|<ui><li> Tipo de emparelhamento (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute direto)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
-|BitsOutPerSecond|Tráfego| <ui><li>Tipo de emparelhamento (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute direto) | <ui><li>ExpressRoute<ui><li>ExpressRoute direto</ui></li> |
-|GlobalReachBitsInPerSecond|Tráfego|<ui><li>Circuito emparelhado skey (chave de serviço)</ui></li>|Alcance Global|
-|GlobalReachBitsOutPerSecond|Tráfego|<ui><li>Circuito emparelhado skey (chave de serviço)</ui></li>|Alcance Global|
-|Adminstate|Conectividade física|Associar|ExpressRoute Direct|
-|LineProtocol|Conectividade física|Associar|ExpressRoute Direct|
-|RxLightLevel|Conectividade física|<ui><li>Criar</ui></li><ui><li>Estreita</ui></li>|ExpressRoute Direct|
-|TxLightLevel|Conectividade física|<ui><li>Criar</ui></li><ui><li>Estreita</ui></li>|ExpressRoute Direct|
+|Disponibilidade do ARP|Disponibilidade|<ui><li>Ponto (roteador de ExpressRoute primário/secundário)</ui></li><ui><li> Tipo de emparelhamento (privado/público/Microsoft)</ui></li>|ExpressRoute|
+|Disponibilidade de BGP|Disponibilidade|<ui><li> Ponto (roteador de ExpressRoute primário/secundário)</ui></li><ui><li> </ui> de tipo de emparelhamento</li>|ExpressRoute|
+|BitsInPerSecond|Trânsito|<ui><li> Tipo de emparelhamento (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute direto)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|Trânsito| <ui><li>Tipo de emparelhamento (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute direto) | <ui><li><ui> ExpressRoute<li></ui> direto do ExpressRoute</li> |
+|GlobalReachBitsInPerSecond|Trânsito|<ui><li>Skey de circuito emparelhado (chave de serviço)</ui></li>|Alcance Global|
+|GlobalReachBitsOutPerSecond|Trânsito|<ui><li>Skey de circuito emparelhado (chave de serviço)</ui></li>|Alcance Global|
+|Adminstate|Conectividade física|Ligação|ExpressRoute Direct|
+|LineProtocol|Conectividade física|Ligação|ExpressRoute Direct|
+|RxLightLevel|Conectividade física|<ui><li></ui> de link</li><ui><li></ui> de Lane</li>|ExpressRoute Direct|
+|TxLightLevel|Conectividade física|<ui><li></ui> de link</li><ui><li></ui> de Lane</li>|ExpressRoute Direct|
 >[!NOTE]
 >Usar *GlobalGlobalReachBitsInPerSecond* e *GlobalGlobalReachBitsOutPerSecond* só será visível se pelo menos uma conexão alcance global for estabelecida.
 >
@@ -116,7 +115,7 @@ Você pode exibir o nível de luz Tx (o nível de luz que a porta do ExpressRout
 
 2. Clique em **+ selecionar destino** e selecione o recurso de ligação de gateway do ExpressRoute.
 
-   ![destino]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![target]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Defina os detalhes do alerta.
 
    ![grupo de ação](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
@@ -135,7 +134,7 @@ Na **critérios de alerta**, pode selecionar **registo de atividades** para o ti
 
   ![outro](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
   
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Configurar a ligação do ExpressRoute.
   

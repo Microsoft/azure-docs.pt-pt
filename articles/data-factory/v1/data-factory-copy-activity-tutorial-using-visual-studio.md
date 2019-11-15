@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um pipeline com atividade de cópia com o Visual Studio | Documentos da Microsoft'
+title: 'Tutorial: Criar um pipeline com a Atividade de Cópia com o Visual Studio '
 description: Neste tutorial, irá criar um pipeline do Azure Data Factory com uma Atividade de Cópia com o Visual Studio.
 services: data-factory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 934effe585b85075a80eede4236258d4a428b9ce
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 3d14b4a821f91486c396d5dae516d3a545c02321
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836557"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682862"
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Criar um pipeline com atividade de cópia com o Visual Studio
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Criar um pipeline com a Atividade de Cópia com o Visual Studio
 > [!div class="op_single_selector"]
 > * [Descrição geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
@@ -38,12 +38,12 @@ ms.locfileid: "67836557"
 
 Neste artigo, vai aprender a utilizar o Microsoft Visual Studio para criar uma fábrica de dados com um pipeline que copia dados de um armazenamento de blobs do Azure para uma base de dados SQL do Azure. Se não estiver familiarizado com o Azure Data Factory, leia o artigo [Introduction to Azure Data Factory](data-factory-introduction.md) (Introdução ao Azure Data Factory) antes de fazer este tutorial.   
 
-Neste tutorial, vai criar um pipeline com uma atividade no mesmo: Atividade de cópia. A Atividade de Cópia copia dados de um arquivo de dados suportado para um arquivo de dados sink suportado. Para obter uma lista dos arquivos de dados suportados como origens e sinks, veja [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Arquivos de dados suportados). A atividade utiliza a tecnologia de um serviço globalmente disponível que pode copiar dados entre vários arquivos de dados de uma forma segura, fiável e dimensionável. Para obter mais informações sobre a Atividade de Cópia, veja [Data Movement Activities](data-factory-data-movement-activities.md) (Atividades de Movimento de Dados).
+Neste tutorial, vai criar um pipeline com uma atividade no mesmo: a Atividade de Cópia. A Atividade de Cópia copia dados de um arquivo de dados suportado para um arquivo de dados sink suportado. Para obter uma lista dos arquivos de dados suportados como origens e sinks, veja [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Arquivos de dados suportados). A atividade utiliza a tecnologia de um serviço globalmente disponível que pode copiar dados entre vários arquivos de dados de uma forma segura, fiável e dimensionável. Para obter mais informações sobre a Atividade de Cópia, veja [Data Movement Activities](data-factory-data-movement-activities.md) (Atividades de Movimento de Dados).
 
 Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas atividades (executar uma atividade após a outra) ao definir o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra. Para obter mais informações, veja [Multiple activities in a pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Várias atividades num pipeline).
 
 > [!NOTE] 
-> O pipeline de dados neste tutorial copia dados a partir de um arquivo de dados de origem para um arquivo de dados de destino. Para obter um tutorial sobre como transformar dados com o Azure Data Factory, veja [Tutorial: Criar um pipeline para transformar dados com o cluster do Hadoop](data-factory-build-your-first-pipeline.md).
+> O pipeline de dados neste tutorial copia dados a partir de um arquivo de dados de origem para um arquivo de dados de destino. Para ver um tutorial sobre como transformar dados através do Azure Data Factory, consulte [Tutorial: Build a pipeline to transform data using Hadoop cluster (Tutorial: Criar um pipeline para transformar dados com o cluster do Hadoop)](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,12 +54,12 @@ Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas ativ
 3. Tem de ter o seguinte instalado no computador: 
    * Visual Studio 2013 ou Visual Studio 2015
    * Transfira o Azure SDK para o Visual Studio 2013 ou Visual Studio 2015. Navegue até à [Página de Transferências do Azure](https://azure.microsoft.com/downloads/) e clique em **VS 2013** ou **VS 2015** na secção **.NET**.
-   * Transferir o plug-in mais recente do Azure Data Factory para Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Também pode atualizar o plug-in, efetuando os seguintes passos: No menu, clique em **ferramentas** -> **extensões e atualizações** -> **Online** -> **galeria do Visual Studio**  ->  **Ferramentas do Microsoft Azure Data Factory para Visual Studio** -> **atualização**.
+   * Transfira o plug-in mais recente do Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Também pode atualizar o plug-in ao seguir estes passos: no menu, clique em **Ferramentas** -> **Extensões e Atualizações** -> **Online** -> **Galeria do Visual Studio** -> **Ferramentas do Microsoft Azure Data Factory para Visual Studio** -> **Atualizar**.
 
 ## <a name="steps"></a>Passos
 Veja a seguir os passos que deve executar como parte deste tutorial:
 
-1. Crie **serviços ligados** na fábrica de dados. Neste passo, vai criar dois serviços ligados dos tipos: Armazenamento do Azure e Azure base de dados SQL. 
+1. Crie **serviços ligados** na fábrica de dados. Neste passo, vai criar dois serviços ligados dos tipos Armazenamento do Azure e Base de Dados SQL do Azure. 
     
     O AzureStorageLinkedService liga a sua conta do Armazenamento do Azure à fábrica de dados. Como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), criou um contentor e carregou dados para esta conta de armazenamento.   
 
@@ -86,7 +86,7 @@ Veja a seguir os passos que deve executar como parte deste tutorial:
 ## <a name="create-linked-services"></a>Criar serviços ligados
 Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Neste tutorial, não vai utilizar serviços de computação, como o Azure HDInsight ou o Azure Data Lake Analytics. Vai utilizar dois arquivos de dados do tipo Armazenamento do Azure (origem) e Base de Dados SQL do Azure (destino). 
 
-Portanto, cria dois serviços ligados dos tipos: AzureStorage e AzureSqlDatabase.  
+Desta forma, vai criar dois serviços ligados dos tipos AzureStorage e AzureSqlDatabase.  
 
 O serviço ligado Armazenamento do Azure liga a sua conta do Armazenamento do Azure à fábrica de dados. Esta conta de armazenamento é aquela em que criou um contentor e para a qual carregou os dados como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
@@ -166,14 +166,14 @@ Aqui, é utilizado o termo “tabelas” em vez de “conjuntos de dados”. Uma
 
     | Propriedade | Descrição |
     |:--- |:--- |
-    | type | O tipo de propriedade é definido como **AzureBlob**, uma vez que os dados residem num armazenamento de blobs do Azure. |
+    | tipo | O tipo de propriedade é definido como **AzureBlob**, uma vez que os dados residem num armazenamento de blobs do Azure. |
     | linkedServiceName | Refere-se ao **AzureStorageLinkedService** que criou anteriormente. |
     | folderPath | Especifica o **contentor** de blobs e a **pasta** que contém os blobs de entrada. Neste tutorial, adftutorial é o contentor de blobs e a pasta é a pasta raiz. | 
     | fileName | Esta propriedade é opcional. Se omitir esta propriedade, são escolhidos todos os ficheiros em folderPath. Neste tutorial, **emp.txt** é especificado para fileName, pelo que apenas esse ficheiro é escolhido para processamento. |
-    | format -> type |O ficheiro de entrada está em formato de texto, pelo que utilizamos **TextFormat**. |
-    | columnDelimiter | As colunas do ficheiro de entrada são delimitadas pelo caráter de **vírgula (`,`)** . |
-    | frequency/interval | A frequência está definida como **Hora** e o intervalo como **1**, o que significa que os setores de entrada estão disponíveis **à hora**. Por outras palavras, o serviço do Data Factory procura dados de entrada a cada hora na pasta raiz do contentor de blobs (**adftutorial**) que especificou. Procura os dados entre as horas de início e fim do pipeline e não antes ou depois.  |
-    | external | Esta propriedade está definida como **verdadeira** se os dados de entrada não forem gerados por este pipeline. Os dados de entrada deste tutorial estão no ficheiro empt.txt, que não é gerado por este pipeline, pelo que vamos definir esta propriedade como verdadeira. |
+    | formato -> tipo |O ficheiro de entrada está em formato de texto, pelo que utilizamos **TextFormat**. |
+    | columnDelimiter | As colunas do ficheiro de entrada são delimitadas pelo caráter de **vírgula (`,`)**. |
+    | frequência/intervalo | A frequência está definida como **Hora** e o intervalo como **1**, o que significa que os setores de entrada estão disponíveis **à hora**. Por outras palavras, o serviço do Data Factory procura dados de entrada a cada hora na pasta raiz do contentor de blobs (**adftutorial**) que especificou. Procura os dados entre as horas de início e fim do pipeline e não antes ou depois.  |
+    | externo | Esta propriedade está definida como **verdadeira** se os dados de entrada não forem gerados por este pipeline. Os dados de entrada deste tutorial estão no ficheiro empt.txt, que não é gerado por este pipeline, pelo que vamos definir esta propriedade como verdadeira. |
 
     Para obter mais informações sobre estas propriedades JSON, veja [Azure Blob connector](data-factory-azure-blob-connector.md#dataset-properties) (Conector de Blobs do Azure).   
 
@@ -214,10 +214,10 @@ Neste passo, vai criar um conjunto de dados de saída com o nome **OutputDataset
 
     | Propriedade | Descrição |
     |:--- |:--- |
-    | type | A propriedade de tipo está definida como **AzureSqlTable**, porque os dados são copiados para uma tabela numa base de dados SQL do Azure. |
+    | tipo | A propriedade de tipo está definida como **AzureSqlTable**, porque os dados são copiados para uma tabela numa base de dados SQL do Azure. |
     | linkedServiceName | Refere-se ao **AzureSqlLinkedService** que criou anteriormente. |
     | tableName | Especificou a **tabela** para a qual os dados são copiados. | 
-    | frequency/interval | A frequência está definida como **Hora** e o intervalo é **1**, o que significa que os setores de saída são produzidos **à hora** entre as horas de início e fim do pipeline, não antes ou depois.  |
+    | frequência/intervalo | A frequência está definida como **Hora** e o intervalo é **1**, o que significa que os setores de saída são produzidos **à hora** entre as horas de início e fim do pipeline, não antes ou depois.  |
 
     Existem três colunas – **ID**, **FirstName**, e **LastName** – na tabela emp da base de dados. O ID é uma coluna de identidade, por isso terá de especificar apenas **FirstName** e **LastName** aqui.
 
@@ -330,7 +330,7 @@ Neste passo, vai publicar as entidades do Data Factory (serviços ligados, conju
 
 Tenha em atenção os seguintes pontos: 
 
-* Se receber o erro: "Esta subscrição não está registada para utilizar o espaço de nomes DataFactory", efetue um dos seguintes procedimentos e tente publicar novamente: 
+* Se receber o erro: "Esta subscrição não está registada para utilizar o espaço de nomes Microsoft.DataFactory", realize um dos seguintes procedimentos e tente publicar novamente: 
   
   * No Azure PowerShell, execute o seguinte comando para registar o fornecedor do Data Factory. 
 
@@ -346,7 +346,7 @@ Tenha em atenção os seguintes pontos:
 * O nome da fábrica de dados pode ser registado como um nome DNS no futuro e, por conseguinte, ficar publicamente visível.
 
 > [!IMPORTANT]
-> Para criar instâncias do Data Factory, tem de ser um administrador/coadministrador da subscrição do Azure
+> Para criar instâncias de Data Factory, você precisa ser um administrador/coadministrador da assinatura do Azure
 
 ## <a name="monitor-pipeline"></a>Monitorizar o pipeline
 Navegue para a home page da sua fábrica de dados:
@@ -364,16 +364,16 @@ Navegue para a home page da sua fábrica de dados:
 5. Siga as instruções em [Monitorizar conjuntos de dados e pipeline](data-factory-monitor-manage-pipelines.md) para monitorizar o pipeline e os conjuntos de dados que criou neste tutorial. Atualmente, o Visual Studio não suporta a monitorização de pipelines do Data Factory. 
 
 ## <a name="summary"></a>Resumo
-Neste tutorial, irá criar um Azure Data Factory para copiar dados de um blob do Azure para uma base de dados SQL do Azure. Utilizou o Visual Studio para criar a fábrica de dados, serviços ligados, conjuntos de dados e um pipeline. Eis os passos de alto nível que realizou neste tutorial:  
+Neste tutorial, vai criar um Azure Data Factory para copiar dados de um blob do Azure para uma base de dados SQL do Azure. Utilizou o Visual Studio para criar a fábrica de dados, serviços ligados, conjuntos de dados e um pipeline. Eis os passos de alto nível que realizou neste tutorial:  
 
-1. Criou uma **fábrica de dados** do Azure.
+1. Criar uma **fábrica de dados** do Azure.
 2. Criou **serviços ligados**:
    1. Um serviço ligado do **Storagedo Azure** para ligar a sua Conta de armazenamento do Azure que contém dados de entrada.     
    2. Um serviço ligado do **SQL do Azure** para ligar a sua base de dados SQL do Azure que contém dados de saída. 
 3. Criou **conjuntos de dados** que descrevem dados de entrada e saída para pipelines.
 4. Criou um **pipeline** com uma **Atividade de Cópia** com **BlobSource** como origem e **SqlSink** como sink. 
 
-Para ver como utilizar uma atividade do Hive do HDInsight para transformar dados com o cluster Azure HDInsight, consulte [Tutorial: Crie seu primeiro pipeline para transformar dados com o cluster do Hadoop](data-factory-build-your-first-pipeline.md).
+Para ver como usar uma atividade de hive do HDInsight para transformar dados usando o cluster HDInsight do Azure, consulte [tutorial: criar seu primeiro pipeline para transformar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
 Pode encadear duas atividades (executar uma atividade após a outra) ao definir o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Consulte [Scheduling and execution in Data Factory (Agendamento e execução no Data Factory)](data-factory-scheduling-and-execution.md) para obter informações detalhadas. 
 
@@ -511,7 +511,7 @@ Aquando da implementação, os valores do ficheiro de configuração são utiliz
 Não é aconselhável e frequentemente contra a política de segurança entregar dados confidenciais, como cadeias de ligação para o repositório de código. Consulte a amostra [Publicação Segura do ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) no GitHub para saber mais sobre o armazenamento e utilização de informações confidenciais no Azure Key Vault ao publicar entidades do Data Factory. A extensão Publicação Segura para o Visual Studio permite que os segredos sejam armazenados no Key Vault e sejam especificadas apenas referências aos mesmos nas configurações de serviços/implementações ligados. Estas referências são convertidas ao publicar entidades do Data Factory no Azure. Estes ficheiros podem então ser consolidados para o repositório de origem, sem expor quaisquer segredos.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, utilizou o armazenamento de blobs do Azure como arquivo de dados de origem e uma base de dados SQL do Azure como arquivo de dados de destino numa operação de cópia. A tabela seguinte disponibiliza uma lista dos arquivos de dados que a atividade de cópia suporta como origens e destinos: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]

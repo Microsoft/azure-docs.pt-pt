@@ -1,166 +1,166 @@
 ---
-title: Manter os endereços IP durante a ativação pós-falha da VM do Azure com o Azure Site Recovery | Documentos da Microsoft
-description: Descreve como manter os endereços IP quando efetuar a ativação pós-falha de VMs do Azure para recuperação após desastre para uma região secundária com o Azure Site Recovery
+title: Manter os endereços IP após o failover de VM do Azure com Azure Site Recovery
+description: Descreve como reter endereços IP ao fazer failover de VMs do Azure para recuperação de desastre em uma região secundária com Azure Site Recovery
 ms.service: site-recovery
 ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 7b7772bad5bb1c5b43a4bcc8d727a22c82547043
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479955"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083679"
 ---
-# <a name="retain-ip-addresses-during-failover"></a>Manter os endereços IP durante a ativação pós-falha
+# <a name="retain-ip-addresses-during-failover"></a>Reter endereços IP durante o failover
 
-[O Azure Site Recovery](site-recovery-overview.md) permite a recuperação após desastre para VMs do Azure ao replicar VMs para outra região do Azure, efetuar a ativação pós-falha se ocorrer uma falha e reativa para a região primária quando as coisas são volta ao normal.
+O [Azure site Recovery](site-recovery-overview.md) permite a recuperação de desastres para VMs do Azure, replicando VMs para outra região do Azure, fazendo failover se ocorrer uma interrupção e fazendo failback para a região primária quando as coisas voltarem para o normal.
 
-Durante a ativação pós-falha, pode querer manter na região de destino é idêntica à região de origem de endereçamento IP:
+Durante o failover, talvez você queira manter o endereçamento IP na região de destino idêntica à região de origem:
 
-- Por predefinição, quando ativar a recuperação após desastre para VMs do Azure, o Site Recovery cria os recursos de destino com base nas definições de recursos de origem. Para as VMs do Azure configurada com endereços IP estáticos, o Site Recovery tenta aprovisionar o mesmo endereço IP da VM, de destino se não está em utilização. Para obter uma explicação completa de como o Site Recovery trata endereçamento, [rever este artigo](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
-- Para aplicativos simples, a configuração predefinida é suficiente. Para aplicações mais complexas, poderá ter de aprovisionar recursos adicionais para se certificar de que a conectividade funciona como esperado após a ativação pós-falha.
+- Por padrão, quando você habilita a recuperação de desastre para VMs do Azure, Site Recovery cria recursos de destino com base nas configurações de recurso de origem. Para VMs do Azure configuradas com endereços IP estáticos, Site Recovery tenta provisionar o mesmo endereço IP para a VM de destino, se não estiver em uso. Para obter uma explicação completa de como Site Recovery lida com o endereçamento, [Leia este artigo](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
+- Para aplicativos simples, a configuração padrão é suficiente. Para aplicativos mais complexos, talvez seja necessário provisionar recursos adicionais para garantir que a conectividade funcione conforme o esperado após o failover.
 
 
-Este artigo fornece alguns exemplos de retenção de endereços IP nos cenários de exemplo mais complexos. Os exemplos incluem:
+Este artigo fornece alguns exemplos de retenção de endereços IP em cenários de exemplo mais complexos. Os exemplos incluem:
 
-- Ativação pós-falha para uma empresa com todos os recursos em execução no Azure
-- Ativação pós-falha para uma empresa com uma implementação híbrida e recursos em execução no local e no Azure
+- Failover para uma empresa com todos os recursos em execução no Azure
+- Failover para uma empresa com uma implantação híbrida e recursos em execução no local e no Azure
 
-## <a name="resources-in-azure-full-failover"></a>Recursos no Azure: ativação pós-falha completa
+## <a name="resources-in-azure-full-failover"></a>Recursos no Azure: failover completo
 
-A empresa A tem todas as suas aplicações em execução no Azure.
+A empresa A tem todos os seus aplicativos em execução no Azure.
 
-### <a name="before-failover"></a>Antes da ativação pós-falha
+### <a name="before-failover"></a>Antes do failover
 
-Eis a arquitetura antes da ativação pós-falha.
+Aqui está a arquitetura antes do failover.
 
-- A empresa tem redes idênticos e de sub-redes de origem e regiões do Azure de destino.
-- Para reduzir o objetivo de tempo de recuperação (RTO), a empresa utiliza nós de réplica para o SQL Server Always On, controladores de domínio, etc. Estes nós de réplica estão numa VNet diferente na região de destino, para que eles podem estabelecer a conectividade de site-site VPN entre as regiões de origem e de destino. Não é possível se o mesmo espaço de endereços IP é utilizado na origem e de destino.  
-- Antes da ativação pós-falha, a arquitetura de rede é o seguinte:
-    - Região primária é Azure Ásia Oriental
-        - Ásia Oriental tem uma VNet (**VNet de origem**) com o endereço espaço 10.1.0.0/16.
-        - Este asiático tem cargas de trabalho dividido em três sub-redes na VNet:
+- A empresa A tem redes e sub-redes idênticas nas regiões do Azure de origem e de destino.
+- Para reduzir o RTO (objetivo de tempo de recuperação), a empresa usa nós de réplica para SQL Server Always On, controladores de domínio, etc. Esses nós de réplica estão em uma VNet diferente na região de destino, para que eles possam estabelecer a conectividade VPN site a site entre as regiões de origem e de destino. Isso não será possível se o mesmo espaço de endereço IP for usado na origem e no destino.  
+- Antes do failover, a arquitetura de rede é a seguinte:
+    - A região primária é o Azure Ásia Oriental
+        - Ásia Oriental tem uma VNet (**vnet de origem**) com espaço de endereço 10.1.0.0/16.
+        - Ásia Oriental tem cargas de trabalho divididas em três sub-redes na VNet:
             - **Sub-rede 1**: 10.1.1.0/24
             - **Sub-rede 2**: 10.1.2.0/24
             - **Sub-rede 3**: 10.1.3.0/24
-    - Região secundária (destino) é o Azure Sudeste asiático
-        - Sudeste asiático tem uma recuperação VNet (**VNet de recuperação**) idêntico ao **VNet de origem**.
-        - Sudeste asiático tem uma VNet adicional (**VNet do Azure**) com o endereço espaço 10.2.0.0/16.
-        - **VNet do Azure** contém uma sub-rede (**sub-rede 4**) com o endereço espaço 10.2.4.0/24.
-        - Nós de réplica para o SQL Server Always On, etc. do controlador de domínio estão localizados num **sub-rede 4**.
-    - **VNet de origem** e **VNet do Azure** estão ligados com uma ligação de site-site VPN.
-    - **VNet de recuperação** não está ligado com qualquer outra rede virtual.
-    - **Da empresa A** atribui/verifica os endereços IP de destino para itens replicados. O IP de destino é o mesmo que o IP de origem para cada VM.
+    - A região secundária (destino) é o sudeste asiático do Azure
+        - O sudeste asiático tem uma VNet de recuperação (**vnet de recuperação**) idêntica à **VNet de origem**.
+        - O sudeste asiático tem uma VNet adicional (**vnet do Azure**) com espaço de endereço 10.2.0.0/16.
+        - A **VNet do Azure** contém uma sub-rede (**sub-rede 4**) com espaço de endereço 10.2.4.0/24.
+        - Os nós de réplica para SQL Server Always On, controlador de domínio etc. estão localizados na **sub-rede 4**.
+    - A **vnet de origem** e a **vnet do Azure** estão conectadas a uma conexão VPN site a site.
+    - A **VNet de recuperação** não está conectada a nenhuma outra rede virtual.
+    - **A empresa A** atribui/verifica endereços IP de destino para itens replicados. O IP de destino é o mesmo que o IP de origem para cada VM.
 
-![Recursos no Azure antes da ativação pós-falha completo](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover2.png)
+![Recursos no Azure antes do failover completo](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover2.png)
 
-### <a name="after-failover"></a>Após a ativação pós-falha
+### <a name="after-failover"></a>Após o failover
 
-Se ocorrer uma falha regional de origem, a empresa pode falhar ao longo de todos os respetivos recursos para a região de destino.
+Se ocorrer uma interrupção regional de origem, a empresa A poderá fazer failover de todos os seus recursos para a região de destino.
 
-- Com endereços IP de destino já em vigor antes da ativação pós-falha, a empresa A pode coordenar a ativação pós-falha e automaticamente estabelecer ligações após a ativação pós-falha entre **VNet de recuperação** e **VNet do Azure**. Isso é ilustrado no diagrama seguinte....
-- Dependendo dos requisitos de aplicações, ligações entre as duas VNets (**VNet de recuperação** e **VNet do Azure**) no destino região pode ser estabelecido antes, durante a (como passo intermédio) ou após a ativação pós-falha.
-  - A empresa pode utilizar [planos de recuperação](site-recovery-create-recovery-plans.md) para especificar quando serão possível estabelecer ligações.
-  - Se possam ligar-se entre as VNets com peering de VNet ou VPN de site a site.
+- Com os endereços IP de destino já em vigor antes do failover, A empresa A pode orquestrar o failover e estabelecer automaticamente as conexões após o failover entre a **vnet de recuperação** e a **vnet do Azure**. Isso é ilustrado no diagrama a seguir.
+- Dependendo dos requisitos do aplicativo, as conexões entre os dois VNets (**vnet de recuperação** e **vnet do Azure**) na região de destino podem ser estabelecidas antes, durante (como uma etapa intermediária) ou após o failover.
+  - A empresa pode usar [planos de recuperação](site-recovery-create-recovery-plans.md) para especificar quando as conexões serão estabelecidas.
+  - Eles podem se conectar entre o VNets usando o emparelhamento VNet ou VPN site a site.
       - O VNet peering não utiliza um gateway de VPN e tem restrições de diferentes.
-      - O VNet peering [preços](https://azure.microsoft.com/pricing/details/virtual-network) é calculado de forma diferente do que o Gateway de VPN de VNet a VNet [preços](https://azure.microsoft.com/pricing/details/vpn-gateway). Para as ativações pós-falha, aconselhamos em geral, para utilizar o mesmo método de conectividade como redes de origem, incluindo o tipo de ligação, para minimizar a incidentes de rede imprevisíveis.
+      - O [preço](https://azure.microsoft.com/pricing/details/virtual-network) de emparelhamento VNet é calculado de maneira diferente do [Preço](https://azure.microsoft.com/pricing/details/vpn-gateway)de gateway de VPN de vnet a vnet. Para failovers, geralmente aconselhamos usar o mesmo método de conectividade que redes de origem, incluindo o tipo de conexão, para minimizar incidentes de rede imprevisíveis.
 
-    ![Recursos de ativação pós-falha completa do Azure](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
-
-
-
-## <a name="resources-in-azure-isolated-app-failover"></a>Recursos no Azure: ativação pós-falha de aplicação em ambiente isolado
-
-Poderá ter de efetuar a ativação pós-falha ao nível da aplicação. Por exemplo, para efetuar a ativação pós-falha de uma aplicação específica ou a camada de aplicação localizado numa sub-rede dedicada.
-
-- Neste cenário, embora pode manter o endereçamento de IP, não é aconselhável em geral, uma vez que ele aumenta a possibilidade de inconsistências de conectividade. Também irá perder a conectividade de sub-rede para outras sub-redes dentro da mesma VNet do Azure.
-- Uma maneira melhor de fazer a ativação pós-falha de aplicação de nível de sub-rede está a utilizar endereços IP de destino diferente para ativação pós-falha (se precisar de conectividade para outras sub-redes na VNet de origem), ou para isolar cada aplicação em sua própria VNet dedicada na região de origem. Com a última abordagem pode estabelecer conectividade entre redes na região de origem e emular o mesmo comportamento quando efetuar a ativação pós-falha para a região de destino.  
-
-Neste exemplo, aplicações de locais de empresa A na região de origem no dedicado VNets e estabelece a conectividade entre as VNets. Com esta estrutura, podem efetuar ativação pós-falha de aplicação em ambiente isolado e manter os endereços IP privados de origem na rede de destino.
-
-### <a name="before-failover"></a>Antes da ativação pós-falha
-
-Antes da ativação pós-falha, a arquitetura é o seguinte:
-
-- VMs de aplicação encontram-se na sua região do Azure Ásia Oriental primária:
-    - **App1** VMs estão localizadas na VNet **1 de VNet de origem**: 10.1.0.0/16.
-    - **App2** VMs estão localizadas na VNet **2 de VNet de origem**: 10.2.0.0/16.
-    - **VNet 1 de origem** tem duas sub-redes.
-    - **2 de VNet de origem** tem duas sub-redes.
-- Região secundária (destino) é o Azure Sudeste da Ásia - Sudeste asiático tem uma recuperação VNets (**recuperação VNet 1** e **recuperação VNet 2**) que são idênticos aos **1 de VNet de origem** e **Da origem de VNet 2**.
-        - **VNet de recuperação 1** e **recuperação VNet 2** cada uma tem duas sub-redes que correspondem as sub-redes **1 de VNet de origem** e **2 de VNet de origem** -Sudeste asiático tem um VNet adicional (**VNet do Azure**) com o endereço espaço 10.3.0.0/16.
-        - **VNet do Azure** contém uma sub-rede (**sub-rede 4**) com o endereço espaço 10.3.4.0/24.
-        -Nós de réplica para o SQL Server Always On, etc. do controlador de domínio estão localizados num **sub-rede 4**.
-- Há um número de ligações de VPN de site a site: 
-    - **1 de VNet de origem** e **VNet do Azure**
-    - **2 de VNet de origem** e **VNet do Azure**
-    - **VNet 1 de origem** e **2 de VNet de origem** estão ligados com VPN site a site
-- **VNet de recuperação 1** e **recuperação VNet 2** não estão ligadas a quaisquer outras VNets.
-- **Da empresa A** configura gateways de VPN no **1 de VNet de recuperação** e **recuperação VNet 2**, para reduzir o RTO.  
-- **Recuperação VNet1** e **recuperação VNet2** não estão ligados com qualquer outra rede virtual.
-- Para reduzir o objetivo de tempo de recuperação (RTO), os gateways de VPN são configurados no **recuperação VNet1** e **recuperação VNet2** antes da ativação pós-falha.
-
-    ![Recursos no Azure antes de ativação pós-falha de aplicação](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)
-
-### <a name="after-failover"></a>Após a ativação pós-falha
-
-Em caso de falha ou um problema que afeta um único aplicativo (em * * 2 de VNet de origem no nosso exemplo), empresa pode recuperar a aplicação afetada da seguinte forma:
+    ![Recursos no failover completo do Azure](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
 
-- Desligar as ligações de VPN entre **origem VNet1** e **origem VNet2**e entre **origem VNet2** e **VNet do Azure** .
-- Estabelecer ligações de VPN entre **origem VNet1** e **recuperação VNet2**e entre **recuperação VNet2** e **VNet do Azure**.
-- Ativação pós-falha de VMs no **origem VNet2** ao **recuperação VNet2**.
 
-![Recursos de ativação pós-falha de aplicação do Azure](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover2.png)
+## <a name="resources-in-azure-isolated-app-failover"></a>Recursos no Azure: failover de aplicativo isolado
+
+Talvez seja necessário fazer failover no nível do aplicativo. Por exemplo, para fazer failover de um aplicativo específico ou de uma camada de aplicativo localizada em uma sub-rede dedicada.
+
+- Nesse cenário, embora você possa reter o endereçamento IP, não é geralmente aconselhável, pois aumenta a chance de inconsistências de conectividade. Você também perderá a conectividade de sub-rede para outras sub-redes na mesma VNet do Azure.
+- Uma maneira melhor de realizar o failover de aplicativo no nível de sub-rede é usar endereços IP de destino diferentes para failover (se você precisar de conectividade com outras sub-redes na VNet de origem) ou para isolar cada aplicativo em sua própria VNet dedicada na região de origem. Com a última abordagem, você pode estabelecer a conectividade entre redes na região de origem e emular o mesmo comportamento ao fazer failover para a região de destino.  
+
+Neste exemplo, A empresa A coloca aplicativos na região de origem no VNets dedicado e estabelece a conectividade entre esses VNets. Com esse design, eles podem executar o failover de aplicativo isolado e manter os endereços IP privados de origem na rede de destino.
+
+### <a name="before-failover"></a>Antes do failover
+
+Antes do failover, a arquitetura é a seguinte:
+
+- As VMs de aplicativo são hospedadas na região primária do Azure Ásia Oriental:
+    - **App1** As VMs estão localizadas na **vnet de origem**de vnet 1:10.1.0.0/16.
+    - **App2** As VMs estão localizadas em **vnet de origem**de vnet 2:10.2.0.0/16.
+    - **VNet de origem 1** tem duas sub-redes.
+    - A **VNet 2 de origem** tem duas sub-redes.
+- A região secundária (de destino) é Azure sudeste asiático-sudeste asiático tem um VNets de recuperação (vnet**1** de recuperação e **vnet 2**) que são idênticos à vnet de **origem 1** e **vnet 2**.
+        a **rede virtual de recuperação - e** a vnet de recuperação **2** têm duas sub-redes que correspondem às sub-redes **na vnet 1 de origem** e na **vnet 2** -sudeste da Ásia tem uma vnet adicional (**vnet do Azure**) com espaço de endereço 10.3.0.0/16.
+        - **VNet do Azure** contém uma sub-rede (**sub-rede 4**) com espaço de endereço 10.3.4.0/24.
+        -Os nós de réplica para SQL Server Always On, controlador de domínio etc. estão localizados na **sub-rede 4**.
+- Há várias conexões VPN site a site: 
+    - Vnet de **origem 1** e **vnet do Azure**
+    - Vnet de **origem 2** e **vnet do Azure**
+    - **Vnet de origem 1** e **vnet de origem 2** estão conectados com VPN site a site
+- A vnet **1** de recuperação e a rede virtual de recuperação **2** não estão conectadas a nenhum outro VNets.
+- A **empresa A** configura os gateways de VPN na vnet de **recuperação vnet 1** e na **rede virtual de recuperação 2**, para reduzir o RTO.  
+- **VNet1 de recuperação** e **VNet2 de recuperação** não estão conectados a nenhuma outra rede virtual.
+- Para reduzir o RTO (objetivo de tempo de recuperação), os gateways de VPN são configurados no **VNet1 de recuperação** e na **VNet2 de recuperação** antes do failover.
+
+    ![Recursos no Azure antes do failover de aplicativo](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)
+
+### <a name="after-failover"></a>Após o failover
+
+No caso de uma interrupção ou um problema que afete um único aplicativo (em * * rede virtual de origem 2 em nosso exemplo), a empresa A pode recuperar o aplicativo afetado da seguinte maneira:
 
 
-- Neste exemplo, pode ser expandido para incluir mais aplicações e ligações de rede. Recomenda-se seguir um modelo de como o tipo de ligação, máximo possível, quando efetuar a ativação pós-falha de origem ao destino.
-- Gateways de VPN utilizam endereços IP públicos e saltos de gateway para estabelecer ligações. Se não quiser utilizar endereços IP públicos, ou deseja evitar saltos Extras, pode usar [peering de VNet do Azure](../virtual-network/virtual-network-peering-overview.md) para configurar o peering entre redes virtuais entre [regiões do Azure suportadas](../virtual-network/virtual-network-manage-peering.md#cross-region).
+- Desconecte as conexões VPN entre **VNet1** de origem e **VNet2**de origem e entre **VNet2 de origem** e **VNet do Azure** .
+- Estabeleça conexões VPN entre **VNet1 de origem** e **VNet2 de recuperação**e entre VNet2 de **recuperação** e **VNet do Azure**.
+- Failover de VMs no **VNet2 de origem** para **VNet2 de recuperação**.
 
-## <a name="hybrid-resources-full-failover"></a>Recursos de híbrida: ativação pós-falha completa
+![Recursos no failover de aplicativo do Azure](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover2.png)
 
-Neste cenário, **empresa B** é executado de uma empresa híbrida, com parte da infra-estrutura de aplicativo em execução no Azure e o resto em execução no local. 
 
-### <a name="before-failover"></a>Antes da ativação pós-falha
+- Este exemplo pode ser expandido para incluir mais aplicativos e conexões de rede. A recomendação é seguir um modelo de conexão semelhante, o máximo possível, ao fazer failover da origem para o destino.
+- Os gateways de VPN usam endereços IP públicos e saltos de gateway para estabelecer conexões. Se você não quiser usar endereços IP públicos ou se quiser evitar saltos extras, poderá usar o [emparelhamento VNet do Azure](../virtual-network/virtual-network-peering-overview.md) para emparelhar redes virtuais entre [regiões do Azure com suporte](../virtual-network/virtual-network-manage-peering.md#cross-region).
 
-Eis o aspeto de arquitetura de rede antes da ativação pós-falha.
+## <a name="hybrid-resources-full-failover"></a>Recursos híbridos: failover completo
 
-- VMs de aplicação estão alojadas no Azure Ásia Oriental.
-- Ásia Oriental tem uma VNet (**VNet de origem**) com o endereço espaço 10.1.0.0/16.
-  - Este asiático tem cargas de trabalho dividido em três sub-redes na **VNet de origem**:
+Nesse cenário, a **empresa B** executa um negócio híbrido, com parte da infraestrutura do aplicativo em execução no Azure e o restante em execução no local. 
+
+### <a name="before-failover"></a>Antes do failover
+
+Aqui está a aparência da arquitetura de rede antes do failover.
+
+- As VMs de aplicativo são hospedadas no Azure Ásia Oriental.
+- Ásia Oriental tem uma VNet (**vnet de origem**) com espaço de endereço 10.1.0.0/16.
+  - Ásia Oriental tem cargas de trabalho divididas em três sub-redes na **VNet de origem**:
     - **Sub-rede 1**: 10.1.1.0/24
     - **Sub-rede 2**: 10.1.2.0/24
-    - **Sub-rede 3**: 10.1.3.0/24, utilizando uma rede virtual com endereço espaço 10.1.0.0/16. Esta rede virtual com o nome **VNet de origem**
-      - A região secundária (destino) é o Azure Sudeste asiático:
-  - Sudeste asiático tem uma recuperação VNet (**VNet de recuperação**) idêntico ao **VNet de origem**.
-- As VMs na Ásia Oriental estão ligadas a um datacenter no local com o Azure ExpressRoute ou VPN de site a site.
-- Para reduzir o RTO, a empresa B Aprovisiona gateways de VNet de recuperação no Azure Sudeste asiático antes da ativação pós-falha.
-- Endereços IP de destino de atribui/verifica de empresa B para VMs replicadas. O endereço IP de destino é o mesmo endereço IP de origem para cada VM.
+    - **Sub-rede 3**: 10.1.3.0/24, utilizando uma rede virtual do Azure com espaço de endereço 10.1.0.0/16. Esta rede virtual é nomeada **VNet de origem**
+      - A região secundária (destino) é o sudeste asiático do Azure:
+  - O sudeste asiático tem uma VNet de recuperação (**vnet de recuperação**) idêntica à **VNet de origem**.
+- As VMs no Ásia Oriental estão conectadas a um datacenter local com o Azure ExpressRoute ou VPN site a site.
+- Para reduzir o RTO, a empresa B provisiona gateways na VNet de recuperação no Azure sudeste asiático antes do failover.
+- A empresa B atribui/verifica endereços IP de destino para VMs replicadas. O endereço IP de destino é o mesmo que o endereço IP de origem para cada VM.
 
 
-![Conectividade no local-para-Azure antes da ativação pós-falha](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover2.png)
+![Conectividade local para Azure antes do failover](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover2.png)
 
-### <a name="after-failover"></a>Após a ativação pós-falha
+### <a name="after-failover"></a>Após o failover
 
 
-Se ocorrer uma falha regional de origem, B da empresa pode efetuar a ativação pós-falha de todos os respetivos recursos para a região de destino.
+Se ocorrer uma interrupção regional de origem, a empresa B poderá fazer failover de todos os seus recursos para a região de destino.
 
-- Com endereços IP de destino já em vigor antes da ativação pós-falha, pode orquestrar a ativação pós-falha e automaticamente estabelecer ligações após a ativação pós-falha entre empresa B **VNet de recuperação** e **VNet do Azure**.
-- Dependendo dos requisitos de aplicações, ligações entre as duas VNets (**VNet de recuperação** e **VNet do Azure**) no destino região pode ser estabelecido antes, durante a (como passo intermédio) ou após a ativação pós-falha. A empresa pode utilizar [planos de recuperação](site-recovery-create-recovery-plans.md) para especificar quando serão possível estabelecer ligações.
-- A ligação original entre Azure Ásia Oriental e o datacenter no local deve ser desligada antes de estabelecer a ligação entre o Azure Sudeste asiático e o datacenter no local.
-- O encaminhamento no local é reconfigurados para apontar para a região de destino e gateways após a ativação pós-falha.
+- Com os endereços IP de destino já em vigor antes do failover, a empresa B pode orquestrar o failover e estabelecer automaticamente as conexões após o failover entre a **vnet de recuperação** e a **vnet do Azure**.
+- Dependendo dos requisitos do aplicativo, as conexões entre os dois VNets (**vnet de recuperação** e **vnet do Azure**) na região de destino podem ser estabelecidas antes, durante (como uma etapa intermediária) ou após o failover. A empresa pode usar [planos de recuperação](site-recovery-create-recovery-plans.md) para especificar quando as conexões serão estabelecidas.
+- A conexão original entre o Azure Ásia Oriental e o datacenter local deve ser desconectada antes de estabelecer a conexão entre o Azure Sudeste Asiático e o datacenter local.
+- O roteamento local é reconfigurado para apontar para a região de destino e os gateways após o failover.
 
-![Conectividade no local-para-Azure após a ativação pós-falha](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover2.png)
+![Conectividade local para Azure após failover](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover2.png)
 
-## <a name="hybrid-resources-isolated-app-failover"></a>Recursos de híbrida: ativação pós-falha de aplicação em ambiente isolado
+## <a name="hybrid-resources-isolated-app-failover"></a>Recursos híbridos: failover de aplicativo isolado
 
-Empresa B não é possível efetuar a ativação pós-falha isoladas aplicações ao nível da sub-rede. Isto acontece porque o espaço de endereços na origem e de recuperação VNets é o mesmo, e a origem original para a ligação no local está ativa.
+A empresa B não pode fazer failover de aplicativos isolados no nível de sub-rede. Isso ocorre porque o espaço de endereço nos VNets de origem e de recuperação é o mesmo, e a origem original para a conexão local está ativa.
 
- - Para resiliência de aplicação B da empresa precisará de colocar cada aplicação na sua própria VNet dedicada do Azure.
- - Com cada aplicação numa VNet separada, B da empresa pode efetuar a ativação pós-falha de aplicações isoladas e encaminhar as ligações de origem para a região de destino.
+ - Para a resiliência de aplicativo, a empresa B precisará posicionar cada aplicativo em sua própria VNet do Azure dedicada.
+ - Com cada aplicativo em uma VNet separada, a empresa B pode fazer failover de aplicativos isolados e rotear conexões de origem para a região de destino.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [planos de recuperação](site-recovery-create-recovery-plans.md).
+Saiba mais sobre os [planos de recuperação](site-recovery-create-recovery-plans.md).

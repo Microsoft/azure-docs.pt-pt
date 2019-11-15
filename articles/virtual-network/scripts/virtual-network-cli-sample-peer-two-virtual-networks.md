@@ -1,13 +1,10 @@
 ---
-title: Exemplo de script da CLI do Azure - Peering de redes virtuais | Microsoft Docs
+title: Emparelhar duas redes virtuais – exemplo de script de CLI do Azure
 description: Exemplo de script da CLI do Azure - Peering de redes virtuais.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags: ''
-ms.assetid: ''
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: sample
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: 82f4f06cd4e615df38f2251be9aef9e8578b9df4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2dd5336d66872cc8c56fd372e89b67ce9c892f3a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726794"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083831"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>Exemplo de script de peering de duas redes virtuais
 
@@ -54,7 +51,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az network vnet peering create](/cli/azure/network/vnet/peering) | Cria um peering entre duas redes virtuais.  |
 | [az group delete](/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

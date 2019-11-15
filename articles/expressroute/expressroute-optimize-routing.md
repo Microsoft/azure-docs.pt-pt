@@ -1,5 +1,5 @@
 ---
-title: 'Otimizar os circuitos de roteamento-ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: otimizar o roteamento'
 description: Esta página disponibiliza detalhes sobre como otimizar o encaminhamento quando tem mais do que um circuito do ExpressRoute que se ligam entre a rede da Microsoft e a sua rede empresarial.
 services: expressroute
 author: charwen
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: charwen
-ms.custom: seodec18
-ms.openlocfilehash: 4a20318a4779b06e60d849dea0774d717d87e48e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: dcbae103933167c583bf0f73dc2fa09178c38bd5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141854"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74080124"
 ---
 # <a name="optimize-expressroute-routing"></a>Otimizar o Encaminhamento do ExpressRoute
 Se tem vários circuitos do ExpressRoute, significa que tem mais do que um caminho para se ligar à Microsoft. Sendo assim, o encaminhamento poderá não ser o ideal, ou seja, o tráfego poderá optar por um caminho mais longo para chegar à Microsoft e da Microsoft à sua rede. Quanto mais longo for o caminho de rede, maior será a latência. A latência tem um impacto direto no desempenho das aplicações e na experiência do utilizador. Este artigo ilustra este problema e explica como otimizar o encaminhamento com as tecnologias de encaminhamento padrão.
@@ -55,7 +54,7 @@ Vamos analisar o problema de encaminhamento com um exemplo. Imagine que tem dois
 ![Problema de Caso 1 do ExpressRoute - encaminhamento inferior ao ideal do cliente para a Microsoft](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
 
 ### <a name="solution-use-bgp-communities"></a>Solução: utilizar Comunidades do BGP
-Para otimizar o encaminhamento para os utilizadores dos dois escritório, é necessário saber qual é o prefixo do Azure dos EUA Oeste e qual é o do Azure dos EUA Leste. Codificamos estas informações com os [Valores das Comunidades do BGP](expressroute-routing.md). Atribuímos um valor exclusivo de Comunidades do BGP a cada região do Azure, por exemplo, “12076:51004” para EUA Leste e “12076:51006” para EUA Oeste. Agora que sabe que prefixo corresponde a que região do Azure, já pode configurar que circuito do ExpressRoute deve ser o preferencial. Uma vez que utilizamos o BGP para trocar informações de encaminhamento, pode utilizar a Preferência Local do BGP para influenciar o encaminhamento. No nosso exemplo, pode atribuir um valor de preferência local mais alto a 13.100.0.0/16 nos EUA Oeste do que nos EUA Leste, e, da mesma forma, um valor de preferência local mais alto a 23.100.0.0/16 nos EUA Leste do que nos EUA Oeste. Esta configuração permitirá garantir que, quando estiverem disponíveis os dois caminhos para Microsoft, os utilizadores em Los Angeles optam pelo circuito do ExpressRoute nos EUA Oeste para se ligarem ao Azure dos EUA Oeste, ao passo que os utilizadores em Nova Iorque optarão pelo ExpressRoute nos EUA Leste para o Azure dos EUA Leste. O encaminhamento fica otimizado em ambos os lados. 
+Para otimizar o encaminhamento para os utilizadores dos dois escritório, é necessário saber qual é o prefixo do Azure dos EUA Oeste e qual é o do Azure dos EUA Leste. Codificamos estas informações com os [Valores das Comunidades do BGP](expressroute-routing.md). Atribuímos um valor de comunidade BGP exclusivo a cada região do Azure, por exemplo, "12076:51004" para o leste dos EUA, "12076:51006" para o oeste dos EUA. Agora que sabe que prefixo corresponde a que região do Azure, já pode configurar que circuito do ExpressRoute deve ser o preferencial. Uma vez que utilizamos o BGP para trocar informações de encaminhamento, pode utilizar a Preferência Local do BGP para influenciar o encaminhamento. No nosso exemplo, pode atribuir um valor de preferência local mais alto a 13.100.0.0/16 nos EUA Oeste do que nos EUA Leste, e, da mesma forma, um valor de preferência local mais alto a 23.100.0.0/16 nos EUA Leste do que nos EUA Oeste. Esta configuração permitirá garantir que, quando estiverem disponíveis os dois caminhos para Microsoft, os utilizadores em Los Angeles optam pelo circuito do ExpressRoute nos EUA Oeste para se ligarem ao Azure dos EUA Oeste, ao passo que os utilizadores em Nova Iorque optarão pelo ExpressRoute nos EUA Leste para o Azure dos EUA Leste. O encaminhamento fica otimizado em ambos os lados. 
 
 ![Solução do Caso 1 do ExpressRoute - utilizar Comunidades do BGP](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
 

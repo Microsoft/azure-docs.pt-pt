@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
-ms.date: 02/07/2019
-ms.openlocfilehash: af657d28bc3052ebefe25ea54891b8d3555692c9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: 26aa9948a44727ff4c8092eb5131b1c054bf5442
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825844"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082440"
 ---
 # <a name="sql-database-application-development-overview"></a>Visão geral do desenvolvimento de aplicativos do banco de dados SQL
 
@@ -48,7 +48,7 @@ Evite transações de longa execução porque qualquer falha de infraestrutura o
 
 ## <a name="resiliency"></a>Resiliência
 
-O banco de dados SQL do Azure é um serviço de nuvem em que você pode esperar erros transitórios que ocorrem na infraestrutura subjacente ou na comunicação entre entidades de nuvem. Embora o banco de dados SQL do Azure seja resiliente nas falhas de infraestrutura transitivas, essas falhas podem afetar a conectividade. Quando ocorre um erro transitório durante a conexão com o banco de dados SQL, seu código deve [repetir a chamada](sql-database-connectivity-issues.md). Recomendamos que tente novamente a lógica de repetição utilize a lógica de backoff, para que não sobrecarregue a Base de Dados SQL com vários clientes em simultâneo a tentar novamente. A lógica de repetição depende das [mensagens de erro para os programas cliente do banco de dados SQL](sql-database-develop-error-messages.md).
+O banco de dados SQL do Azure é um serviço de nuvem em que você pode esperar erros transitórios que ocorrem na infraestrutura subjacente ou na comunicação entre entidades de nuvem. Embora o banco de dados SQL do Azure seja resiliente nas falhas de infraestrutura transitivas, essas falhas podem afetar a conectividade. Quando ocorre um erro transitório durante a conexão com o banco de dados SQL, seu código deve [repetir a chamada](sql-database-connectivity-issues.md). Recomendamos que tente novamente a lógica de repetição utilize a lógica de backoff, para que não sobrecarregue a Base de Dados SQL com vários clientes em simultâneo a tentar novamente. A lógica de repetição depende das [mensagens de erro para os programas cliente do banco de dados SQL](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md).
 
 Para obter mais informações sobre como se preparar para eventos de manutenção planejada em seu banco de dados SQL do Azure, consulte [planejando eventos de manutenção do Azure no banco de dados SQL do Azure](sql-database-planned-maintenance.md).
 

@@ -1,19 +1,19 @@
 ---
-title: Matriz de suporte para recuperação de desastre de VMs VMware ou servidores físicos em um site VMware secundário com Azure Site Recovery | Microsoft Docs
+title: Suporte para recuperação de desastres do VMware/físico em um site secundário com Azure Site Recovery
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidores físicos em um site secundário com Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 908d681b271aa8acdb0898676c33d396461d8f9a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255196"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082196"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos em um site secundário
 
@@ -51,7 +51,7 @@ A tabela a seguir resume o suporte do sistema operacional para computadores repl
 **Sistema operativo** | **Detalhes**
 --- | ---
 Windows Server | 64-bit Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com pelo menos SP1.
-Linux | Red Hat Enterprise Linux 6,7, 6,8, 6,9, 7,1, 7,2 <br/><br/> CentOS 6,5, 6,6, 6,7, 6,8, 6,9, 7,0, 7,1, 7,2 <br/><br/> Oracle Enterprise Linux 6,4, 6,5, 6,8 executando o kernel compatível com Red Hat ou o UEK3 (inquebrable Enterprise kernel versão 3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4 
+Linux | Red Hat Enterprise Linux 6,7, 6,8, 6,9, 7,1, 7,2 <br/><br/> Centos 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6,4, 6,5, 6,8 executando o kernel compatível com Red Hat ou o UEK3 (inquebrable Enterprise kernel versão 3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4 
 
 
 ## <a name="linux-machine-storage"></a>Armazenamento do computador Linux
@@ -71,7 +71,7 @@ Somente computadores Linux com o seguinte armazenamento podem ser replicados:
 Agrupamento do host NIC | Sim 
 Host-VLAN | Sim 
 Host-IPv4 | Sim 
-Host-IPv6 | Não 
+Host - IPv6 | Não 
 VM convidada-agrupamento NIC | Não
 VM convidada-IPv4 | Sim
 VM convidada-IPv6 | Não
@@ -79,14 +79,14 @@ VM convidada-Windows/Linux-endereço IP estático | Sim
 VM convidada-multi-NIC | Sim
 
 
-## <a name="storage"></a>Armazenamento
+## <a name="storage"></a>Storage
 
 ### <a name="host-storage"></a>Armazenamento de host
 
 **Armazenamento (host)** | **Suportado** 
 --- | --- 
 NFS | Sim 
-SMB 3.0 | N/A 
+SMB 3.0 | N/D 
 SAN (ISCSI) | Sim 
 Vários caminhos (MPIO) | Sim 
 
@@ -95,8 +95,8 @@ Vários caminhos (MPIO) | Sim
 **Configuração** | **Suportado** 
 --- | --- 
 VMDK | Sim 
-VHD/VHDX | N/A 
-VM de Gen 2 | N/A 
+VHD/VHDX | N/D 
+VM de Gen 2 | N/D 
 Disco de cluster compartilhado | Sim 
 Disco criptografado | Não 
 UEFI| Sim 
@@ -108,7 +108,7 @@ Volume com disco distribuído > 1 TB<br/><br/> LVM | Sim
 Espaços de armazenamento | Não 
 Adição/remoção de disco quente | Sim 
 Excluir o disco | Sim 
-Vários caminhos (MPIO) | N/A 
+Vários caminhos (MPIO) | N/D 
 
 ## <a name="vaults"></a>Cofres
 

@@ -1,5 +1,5 @@
 ---
-title: Configurar um servidor de processo no Azure para VM VMware e failback de servidor físico com o Azure Site Recovery | Microsoft Docs
+title: Configurar um servidor de processo VMware/failback físico no Azure Site Recovery
 description: Este artigo descreve como configurar um servidor de processo no Azure para fazer failback de VMs do Azure para VMware.
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: ramamill
-ms.openlocfilehash: 080edfc86848bb6c6579c177c72d3fbd3214a06a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 16214fa07b14c8db2f32fa2c69739b7fa3dc1907
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968842"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083957"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurar um servidor de processo no Azure para failback
 
@@ -37,7 +37,7 @@ Saiba mais sobre o processo de Nova [proteção](vmware-azure-reprotect.md) e [f
 
 4. Em **nome do servidor**, **nome de usuário**e **senha**, especifique um nome para o servidor de processo e as credenciais às quais serão atribuídas permissões de administrador no servidor.
 5. Especifique uma conta de armazenamento a ser usada para os discos de VM do servidor, a sub-rede na qual a VM do servidor de processo será localizada e o endereço IP do servidor que será atribuído quando a VM for iniciada.
-6. Clique no botão **OK** para iniciar a implantação da VM do servidor de processo. O servidor de processo será implantado no SKU do Standard_A8_v2. Verifique se esse SKU de VM está disponível para sua assinatura.
+6. Clique no botão **OK** para iniciar a implantação da VM do servidor de processo. O servidor de processo será implantado em Standard_A8_v2 SKU. Verifique se esse SKU de VM está disponível para sua assinatura.
 
 >
 

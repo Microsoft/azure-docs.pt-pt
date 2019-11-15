@@ -5,19 +5,19 @@ author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.author: zarhoads
-ms.date: 03/22/2019
+ms.date: 11/13/2019
 ms.topic: quickstart
-description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
+description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 41dea16f7938d391f8cdf03e1a731e8082f74b26
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 5a7ab993c58730594a0c4e10572939d3dccbdf02
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695480"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091837"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-and-net-core-on-kubernetes-with-azure-dev-spaces"></a>Início rápido: Depurar e iterar com o Visual Studio e o .NET Core no kubernetes com Azure Dev Spaces
 
@@ -52,7 +52,7 @@ Você deve criar um cluster AKS em uma [região com suporte][supported-regions].
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar Azure Dev Spaces em seu cluster AKS
 
-Navegue até o cluster AKS na portal do Azure e clique em *espaços de desenvolvimento*. Altere *habilitar espaços de desenvolvimento* para *Sim* e clique em *salvar*.
+Navegue até o cluster AKS na portal do Azure e clique em *espaços de desenvolvimento*. Altere *usar espaços de desenvolvimento* para *Sim* e clique em *salvar*.
 
 ![Habilitar espaços de desenvolvimento no portal do Azure](media/get-started-netcore-visualstudio/enable-dev-spaces-portal.png)
 
@@ -60,11 +60,11 @@ Navegue até o cluster AKS na portal do Azure e clique em *espaços de desenvolv
 
 1. Abra o Visual Studio.
 1. Criar um projeto novo.
-1. Escolha *ASP.NET Core aplicativo Web* e nomeie o seu projeto de *front-end*.
-1. Clique em *OK*.
+1. Escolha *ASP.NET Core aplicativo Web* e clique em *Avançar*.
+1. Nomeie o seu projeto de *WebFrontEnd* e clique em *criar*.
 1. Quando solicitado, escolha *aplicativo Web (Model-View-Controller)* para o modelo.
-1. Selecione *.NET Core* e *ASP.NET Core 2,0* na parte superior.
-1. Clique em *OK*.
+1. Selecione *.NET Core* e *ASP.NET Core 2,1* na parte superior.
+1. Clique em *Criar*.
 
 ## <a name="connect-your-project-to-your-dev-space"></a>Conectar seu projeto ao seu espaço de desenvolvimento
 
@@ -93,12 +93,12 @@ Built container image in 39s
 Waiting for container...
 36s
 
-Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 'http' is available at http://default.webfrontend.1234567890abcdef1234.eus.azds.io/
 Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-No exemplo acima, a URL pública é http://webfrontend.1234567890abcdef1234.eus.azds.io/. Navegue até a URL pública do serviço e interaja com o serviço em execução no seu espaço de desenvolvimento.
+No exemplo acima, a URL pública é http://default.webfrontend.1234567890abcdef1234.eus.azds.io/. Navegue até a URL pública do serviço e interaja com o serviço em execução no seu espaço de desenvolvimento.
 
 Esse processo pode ter desabilitado o acesso público ao seu serviço. Para habilitar o acesso público, você pode atualizar o [valor de entrada nos *valores. YAML*][ingress-update].
 
@@ -132,7 +132,7 @@ Navegue até o grupo de recursos na portal do Azure e clique em *excluir grupo d
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-netcore-visualstudio.md) (Trabalhar com vários contentores e o desenvolvimento em equipa)

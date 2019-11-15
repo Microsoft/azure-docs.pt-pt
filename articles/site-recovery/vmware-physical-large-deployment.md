@@ -1,18 +1,18 @@
 ---
-title: Configurar a recuperação de desastres para o Azure para grandes números de VMs VMware ou servidores físicos com Azure Site Recovery | Microsoft Docs
+title: Dimensionar a recuperação de desastres VMware/física com Azure Site Recovery
 description: Saiba como configurar a recuperação de desastres para o Azure para grandes números de VMs VMware locais ou servidores físicos com Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 7ef4a9d5f63282736b010e67b467f82474bcf409
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: e08c7d5f794611a92688e931f35da7482c04407f
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782664"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082229"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurar a recuperação de desastre em escala para VMs VMware/servidores físicos
 
@@ -30,12 +30,12 @@ Como parte de sua estratégia de BCDR (continuidade de negócios e recuperação
 
 Algumas práticas recomendadas gerais para a recuperação de desastre em larga escala. Essas práticas recomendadas são discutidas mais detalhadamente nas próximas seções do documento.
 
-- **Identificar requisitos de destino**: Estimar as necessidades de capacidade e recursos no Azure antes de configurar a recuperação de desastre.
-- **Planejar site Recovery componentes**: Descubra quais Site Recovery componentes (servidor de configuração, servidores de processo) você precisa para atender à sua capacidade estimada.
-- **Configure um ou mais servidores de processo de expansão**: Não use o servidor de processo que está sendo executado por padrão no servidor de configuração. 
-- **Execute as atualizações mais recentes**: A equipe de Site Recovery lança novas versões de componentes do Site Recovery regularmente, e você deve verificar se está executando as versões mais recentes. Para ajudar com isso, acompanhe [](site-recovery-whats-new.md) as novidades das atualizações e habilite [e instale as atualizações](service-updates-how-to.md) à medida que elas são lançadas.
-- **Monitorar de forma proativa**: À medida que você obtém a recuperação de desastre em funcionamento, você deve monitorar proativamente o status e a integridade de máquinas replicadas e recursos de infraestrutura.
-- **Análises de recuperação de desastre**: Você deve executar os testes de recuperação de desastre regularmente. Isso não afeta o ambiente de produção, mas ajuda a garantir que o failover para o Azure funcione conforme o esperado quando necessário.
+- **Identificar requisitos de destino**: estimar as necessidades de capacidade e recursos no Azure antes de configurar a recuperação de desastre.
+- **Planejar site Recovery componentes**: descubra quais site Recovery componentes (servidor de configuração, servidores de processo) você precisa para atender à sua capacidade estimada.
+- **Configurar um ou mais servidores de processo de escalabilidade horizontal**: não use o servidor de processo que está sendo executado por padrão no servidor de configuração. 
+- **Execute as atualizações mais recentes**: a equipe de site Recovery lança novas versões de componentes do site Recovery regularmente, e você deve verificar se está executando as versões mais recentes. Para ajudar com isso [, acompanhe as novidades das](site-recovery-whats-new.md) atualizações e [habilite e instale as atualizações](service-updates-how-to.md) à medida que elas são lançadas.
+- **Monitorar de forma proativa**: à medida que você obtém a recuperação de desastre em funcionamento, você deve monitorar proativamente o status e a integridade de máquinas replicadas e recursos de infraestrutura.
+- **Análise de recuperação de desastres**: você deve executar análises de recuperação de desastre regularmente. Isso não afeta o ambiente de produção, mas ajuda a garantir que o failover para o Azure funcione conforme o esperado quando necessário.
 
 
 
@@ -61,7 +61,7 @@ Em seguida, execute o planejador da seguinte maneira:
 2. Examine os [pré-requisitos](site-recovery-deployment-planner.md#prerequisites) e [as atualizações mais recentes](site-recovery-deployment-planner-history.md) para o planejador de implantações e [Baixe e extraia](site-recovery-deployment-planner.md#download-and-extract-the-deployment-planner-tool) a ferramenta.
 3. [Execute o planejador de implantações](site-recovery-vmware-deployment-planner-run.md) no servidor de configuração.
 4. [Gere um relatório](site-recovery-vmware-deployment-planner-run.md#generate-report) para resumir estimativas e recomendações.
-5. Analise as [recomendações de relatório](site-recovery-vmware-deployment-planner-analyze-report.md) e as estimativas de [custo](site-recovery-vmware-deployment-planner-cost-estimation.md).
+5. Analise as [recomendações de relatório](site-recovery-vmware-deployment-planner-analyze-report.md) e as [estimativas de custo](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 >[!NOTE]
 > Por padrão, a ferramenta está configurada para criar o perfil e gerar um relatório para até 1000 VMs. Você pode alterar esse limite aumentando o valor da chave MaxVMsSupported no arquivo ASRDeploymentPlanner. exe. config.
@@ -71,11 +71,11 @@ Em seguida, execute o planejador da seguinte maneira:
 Usando suas estimativas e recomendações coletadas, você pode planejar os recursos de destino e a capacidade. Se você executou o Planejador de Implantações para VMs VMware, poderá usar várias [recomendações de relatório](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) para ajudá-lo.
 
 - **VMs compatíveis**: Use esse número para identificar o número de VMs que estão prontas para recuperação de desastre no Azure. As recomendações sobre largura de banda de rede e núcleos do Azure se baseiam nesse número.
-- **Largura de banda de rede necessária**: Observe a largura de banda de que você precisa para a replicação delta de VMs compatíveis. 
+- **Largura de banda de rede necessária**: Observe a largura de banda necessária para a replicação delta de VMs compatíveis. 
     - Ao executar o planejador, você especifica o RPO desejado em minutos. As recomendações mostram a largura de banda necessária para atender a esse RPO 100% e 90% do tempo. 
     - As recomendações de largura de banda da rede levam em conta a largura de banda necessária para o número total de servidores de configuração e servidores de processo recomendados no planejador.
-- **Núcleos do Azure necessários**: Observe o número de núcleos necessários na região do Azure de destino, com base no número de VMs compatíveis. Se você não tiver núcleos suficientes, no failover Site Recovery não poderá criar as VMs do Azure necessárias.
-- **Tamanho de lote de VM recomendado**: O tamanho de lote recomendado é baseado na capacidade de concluir a replicação inicial para o lote em 72 horas por padrão, ao mesmo tempo em que atende a um RPO de 100%. O valor de hora pode ser modificado.
+- **Núcleos do Azure necessários**: Observe o número de núcleos que você precisa na região do Azure de destino, com base no número de VMs compatíveis. Se você não tiver núcleos suficientes, no failover Site Recovery não poderá criar as VMs do Azure necessárias.
+- **Tamanho de lote de VM recomendado**: o tamanho de lote recomendado é baseado na capacidade de concluir a replicação inicial para o lote em 72 horas por padrão, ao mesmo tempo em que atende a um RPO de 100%. O valor de hora pode ser modificado.
 
 Você pode usar essas recomendações para planejar recursos do Azure, largura de banda de rede e envio em lote de VM.
 
@@ -83,7 +83,7 @@ Você pode usar essas recomendações para planejar recursos do Azure, largura d
 
 Queremos garantir que as cotas disponíveis na assinatura de destino sejam suficientes para lidar com o failover.
 
-**Tarefa** | **Detalhes** | **ação**
+**Tarefa** | **Detalhes** | **Ação**
 --- | --- | ---
 **Verificar núcleos** | Se os núcleos na cota disponível não forem iguais ou excederem a contagem de destino total no momento do failover, ocorrerá falha nos failovers. | Para VMs VMware, verifique se você tem núcleos suficientes na assinatura de destino para atender à recomendação de Planejador de Implantações Core.<br/><br/> Para servidores físicos, verifique se os núcleos do Azure atendem às suas estimativas manuais.<br/><br/> Para verificar as cotas, na **assinatura**do portal do Azure >, clique em **uso + cotas**.<br/><br/> [Saiba mais](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) sobre como aumentar as cotas.
 **Verificar limites de failover** | O número de failovers não deve excede Site Recovery limites de failover. |  Se os failovers excederem os limites, você poderá adicionar assinaturas e fazer failover para várias assinaturas ou aumentar a cota de uma assinatura. 
@@ -189,7 +189,7 @@ Depois de iniciar a replicação para o primeiro lote de VMs, comece a monitorar
 2. [Monitorar eventos](site-recovery-monitor-and-troubleshoot.md) de itens replicados e da infraestrutura.
 3. [Monitore a integridade](vmware-physical-azure-monitor-process-server.md) de seus servidores de processo de expansão.
 4. Inscreva-se para obter [notificações por email](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) para eventos, para facilitar o monitoramento.
-5. Realize análises regulares de [recuperação](site-recovery-test-failover-to-azure.md)de desastres para garantir que tudo esteja funcionando conforme o esperado.
+5. Realize análises regulares de [recuperação de desastres](site-recovery-test-failover-to-azure.md)para garantir que tudo esteja funcionando conforme o esperado.
 
 
 ## <a name="plan-for-large-scale-failovers"></a>Planejar failovers em larga escala
@@ -218,7 +218,7 @@ Para executar um failover em larga escala, recomendamos o seguinte:
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Site Recovery de monitor](site-recovery-monitor-and-troubleshoot.md)

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e2d64835d425e8fa273a2805f307833e071a3a62
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a121cc7bcb9fba3a01c1e71c7b9e6fc67dce0572
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933477"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092167"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Início rápido: criar um aplicativo do Unity iOS com âncoras espaciais do Azure
 
@@ -34,7 +34,7 @@ Vai aprender a:
 
 Para concluir este início rápido, certifique-se de que tem:
 
-- Uma máquina macOS com o <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 +</a>, o <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a>e o <a href="https://cocoapods.org" target="_blank">CocoaPods</a> instalados.
+- Uma máquina macOS com o <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 +</a>, a última versão do <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a>e o <a href="https://cocoapods.org" target="_blank">CocoaPods</a> instalado.
 - Git instalado via HomeBrew. Digite o seguinte comando em uma única linha do terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, execute `brew install git`.
 - Um dispositivo IOS <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">compatível com o ARKit</a> habilitado para desenvolvedor.
 

@@ -7,13 +7,13 @@ ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
-ms.date: 05/14/2019
-ms.openlocfilehash: 01319de8fd72875ca35bb7a869a6eaedee62f2a7
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.date: 11/04/2019
+ms.openlocfilehash: 4a09a0fe4aa1f04e665aeb71ebece17a8b368090
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285532"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582393"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Tutorial: criar um cluster do Azure Red Hat OpenShift
 
@@ -34,8 +34,6 @@ Nesta série de tutoriais, ficará a saber como:
 
 > [!IMPORTANT]
 > Este tutorial requer a versão 2.0.65 do CLI do Azure.
->    
-> Antes de usar o Azure Red Hat OpenShift, você precisará comprar um mínimo de 4 nós de aplicativos reservados do Red Hat OpenShift do Azure, conforme descrito em [configurar seu ambiente de desenvolvimento do Azure Red Hat OpenShift](howto-setup-environment.md#purchase-azure-red-hat-openshift-application-nodes-reserved-instances).
 
 Antes de começar este tutorial:
 
@@ -136,7 +134,7 @@ Se você **não** estiver emparelhando o cluster para uma rede virtual, use o se
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID
 ```
 
-Se você **estiver** emparelhando o cluster para uma rede virtual, use o seguinte comando que adiciona o sinalizador `--vnet-peer`:
+Se você **estiver** emparelhando o cluster para uma rede virtual, use o seguinte comando que adiciona o sinalizador de `--vnet-peer`:
  
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --vnet-peer $VNET_ID
@@ -145,7 +143,7 @@ az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCA
 > [!NOTE]
 > Se você receber um erro informando que o nome do host não está disponível, pode ser porque o nome do cluster não é exclusivo. Tente excluir o registro do aplicativo original e refazer as etapas com um nome de cluster diferente em [criar um novo registro de aplicativo](howto-aad-app-configuration.md#create-an-azure-ad-app-registration), omitindo a etapa de criação de um novo usuário e grupo de segurança.
 
-Após alguns minutos, `az openshift create` será concluído.
+Depois de alguns minutos, `az openshift create` será concluída.
 
 ### <a name="get-the-sign-in-url-for-your-cluster"></a>Obter a URL de entrada para o cluster
 
@@ -157,7 +155,7 @@ az openshift show -n $CLUSTER_NAME -g $CLUSTER_NAME
 
 Procure o `publicHostName` na saída, por exemplo: `"publicHostname": "openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io"`
 
-A URL de entrada para seu cluster será `https://` seguido pelo valor de `publicHostName`.  Por exemplo: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`.  Você usará esse URI na próxima etapa como parte do URI de redirecionamento de registro do aplicativo.
+A URL de entrada para seu cluster será `https://` seguida pelo valor de `publicHostName`.  Por exemplo: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`.  Você usará esse URI na próxima etapa como parte do URI de redirecionamento de registro do aplicativo.
 
 ## <a name="step-3-update-your-app-registration-redirect-uri"></a>Etapa 3: atualizar o URI de redirecionamento de registro do aplicativo
 

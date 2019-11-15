@@ -1,27 +1,26 @@
 ---
-title: Azure Site Recovery-perguntas frequentes
-description: Este artigo aborda perguntas populares sobre Azure Site Recovery.
-services: site-recovery
+title: Perguntas gerais sobre o serviço de Azure Site Recovery
+description: Este artigo discute perguntas gerais populares sobre Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 9ab2466a201662cfde4655aedd12f9fd1b21c964
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: fb88d28ea47495dcbdb0844901a03ee7efa4e4eb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053716"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078525"
 ---
-# <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: perguntas frequentes (FAQ)
-Este artigo resume as perguntas frequentes sobre Azure Site Recovery.</br>
-Para consultas específicas em cenários de ASR diferentes, consulte perguntas frequentes específicas do cenário.<br>
+# <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre Azure Site Recovery
 
-- [Recuperação de desastre da VM do Azure para o Azure](azure-to-azure-common-questions.md)
-- [Recuperação de desastre de VM VMware no Azure](vmware-azure-common-questions.md)
-- [Recuperação de desastre de VM do Hyper-V no Azure](hyper-v-azure-common-questions.md)
+Este artigo resume as perguntas frequentes sobre Azure Site Recovery. Para cenários específicos, examine estes artigos
+
+- [Perguntas sobre a recuperação de desastre de VM do Azure para o Azure](azure-to-azure-common-questions.md)
+- [Perguntas sobre a recuperação de desastre de VM do VMware para o Azure](vmware-azure-common-questions.md)
+- [Perguntas sobre a recuperação de desastre de VM do Hyper-V para o Azure](hyper-v-azure-common-questions.md)
  
 ## <a name="general"></a>Geral
 
@@ -195,7 +194,7 @@ Sim. Você pode ler mais sobre a limitação de largura de banda nestes artigos:
 
 
 
-## <a name="failover"></a>Ativação Pós-Falha
+## <a name="failover"></a>Ativação pós-falha
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Se eu estiver fazendo o failover para o Azure, como posso acessar as VMs do Azure após a tolerância a falhas?
 
 Pode aceder a VMs do Azure através de uma ligação de Internet segura, através de uma VPN de site para site ou através do ExpressRoute do Azure. Você precisa preparar várias coisas para se conectar. [Saiba mais](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 242cdcc07821151503dc6765f820187c0c3dfc53
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 2c2994c310369a0a6fe26ccc2c1e2e5de6680349
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515561"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084704"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
 
@@ -30,16 +30,16 @@ Saiba como criar e excluir uma rede virtual e alterar as configurações, como s
 Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção deste artigo:
 
 - Se você ainda não tiver uma conta do Azure, Inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
-- Se estiver usando o portal, abra https://portal.azure.com e faça logon com sua conta do Azure.
+- Se estiver usando o portal, abra https://portal.azure.come faça logon com sua conta do Azure.
 - Se estiver usando comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure cloud Shell](https://shell.azure.com/powershell)ou executando o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o módulo Azure PowerShell versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 - Se você estiver usando comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure cloud Shell](https://shell.azure.com/bash)ou executando a CLI do seu computador. Este tutorial requer o CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se você estiver executando o CLI do Azure localmente, também precisará executar `az login` para criar uma conexão com o Azure.
 - A conta que você faz logon ou conecta-se ao Azure com o, deve ser atribuída à função [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que recebe as ações apropriadas listadas em [permissões](#permissions).
 
-## <a name="create-a-virtual-network"></a>Criar rede virtual
+## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-1. Selecione **+ criar um recurso**  > **rede**  > **rede virtual**.
+1. Selecione **+ criar um recurso** > **rede** > **rede virtual**.
 2. Insira ou selecione valores para as seguintes configurações e, em seguida, selecione **criar**:
-   - **Nome**: o nome deve ser exclusivo no [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) em que você selecionar para criar a rede virtual. Você não pode alterar o nome depois que a rede virtual é criada. Você pode criar várias redes virtuais ao longo do tempo. Para obter sugestões de nomenclatura, consulte [convenções de nomenclatura](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming). Seguir uma Convenção de nomenclatura pode ajudar a facilitar o gerenciamento de várias redes virtuais.
+   - **Nome**: o nome deve ser exclusivo no [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) em que você selecionar para criar a rede virtual. Você não pode alterar o nome depois que a rede virtual é criada. Você pode criar várias redes virtuais ao longo do tempo. Para obter sugestões de nomenclatura, consulte [convenções de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources). Seguir uma Convenção de nomenclatura pode ajudar a facilitar o gerenciamento de várias redes virtuais.
    - **Espaço de endereço**: o espaço de endereço para uma rede virtual é composto por um ou mais intervalos de endereços não sobrepostos que são especificados na notação CIDR. O intervalo de endereços definido pode ser público ou privado (RFC 1918). Independentemente de você definir o intervalo de endereços como público ou privado, o intervalo de endereços pode ser acessado somente de dentro da rede virtual, de redes virtuais interconectadas e de qualquer rede local que você tenha conectado à rede virtual. Você não pode adicionar os seguintes intervalos de endereços:
      - 224.0.0.0/4 (multicast)
      - 255.255.255.255/32 (difusão)
@@ -173,9 +173,9 @@ Para executar tarefas em redes virtuais, sua conta deve ser atribuída à funç�
 
 | Ação                                  |   Nome                                |
 |---------------------------------------- |   --------------------------------    |
-|Microsoft. Network/virtualNetworks/Read   |   Ler uma rede virtual              |
-|Microsoft. Network/virtualNetworks/Write  |   Criar ou atualizar uma rede virtual  |
-|Microsoft. Network/virtualNetworks/Delete |   Excluir uma rede virtual            |
+|Microsoft.Network/virtualNetworks/read   |   Ler uma rede virtual              |
+|Microsoft.Network/virtualNetworks/write  |   Criar ou atualizar uma rede virtual  |
+|Microsoft.Network/virtualNetworks/delete |   Excluir uma rede virtual            |
 
 ## <a name="next-steps"></a>Passos seguintes
 

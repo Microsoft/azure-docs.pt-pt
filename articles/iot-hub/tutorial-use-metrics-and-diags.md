@@ -1,5 +1,5 @@
 ---
-title: Configurar e usar logs de diagnóstico e métricas com um hub IoT do Azure | Microsoft Docs
+title: Configurar e usar logs de diagnóstico e métricas com um hub IoT do Azure
 description: Saiba como configurar e usar logs de diagnóstico e métricas com um hub IoT do Azure. Isso fornecerá dados a serem analisados para ajudar a diagnosticar problemas que o Hub pode ter.
 author: robinsh
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 3bda78a54b0914465a50d664ab0323444203a387
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 88101aacab8b4745ce6bc9180521e66500086edd
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890368"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084368"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: configurar e usar logs de diagnóstico e métricas com um hub IoT
 
@@ -46,11 +46,11 @@ Neste tutorial, vai realizar as seguintes tarefas:
 
 ## <a name="set-up-resources"></a>Configurar os recursos
 
-Para este tutorial, você precisa de um hub IoT, uma conta de armazenamento e um dispositivo IoT simulado. Pode criar estes recursos com a CLI do Azure ou o Azure PowerShell. Utilize o mesmo grupo de recursos e a mesma localização para todos os recursos. Em seguida, no fim, pode remover tudo num único passo ao eliminar o grupo de recursos.
+Para este tutorial, você precisa de um hub IoT, uma conta de armazenamento e um dispositivo IoT simulado. Pode criar estes recursos com a CLI do Azure ou o Azure PowerShell. Utilize o mesmo grupo de recursos e a mesma localização para todos os recursos. Em seguida, no final, pode remover tudo num único passo ao eliminar o grupo de recursos.
 
 Essas são as etapas necessárias.
 
-1. Criar um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
+1. Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
 
 2. Crie um hub IoT.
 

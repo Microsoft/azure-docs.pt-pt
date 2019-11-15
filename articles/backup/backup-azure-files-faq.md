@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 9cb5d3ae02cb0d4a6e293207a736dced56ed8538
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: be6eb6f13d7abf80537d155472a4072f7d08c06c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747455"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091601"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 
@@ -109,7 +109,7 @@ Sim. Se tiver escolhido **Reter Dados de Cópia de Segurança** quando parou a p
 
 Se um trabalho de restauração em andamento for cancelado, o processo de restauração será interrompido e todos os arquivos restaurados antes do cancelamento, permanecerão no destino configurado (local original ou alternativo) sem nenhuma reversão.
 
-## <a name="manage-backup"></a>Gerir a Cópia de Segurança
+## <a name="manage-backup"></a>Gerenciar backup
 
 ### <a name="can-i-use-powershell-to-configuremanagerestore-backups-of-azure-file-shares"></a>Posso usar o PowerShell para configurar/gerenciar/restaurar backups de compartilhamentos de arquivos do Azure?
 
@@ -119,7 +119,7 @@ Sim. Consulte a documentação detalhada [aqui](backup-azure-afs-automation.md)
 
 Todos os Instantâneos tirados pelo Azure Backup podem ser acedidos ao utilizar a opção Ver Instantâneos no portal, no PowerShell ou na CLI. Para saber mais sobre os instantâneos de partilha de Ficheiros do Azure, veja [Descrição geral de instantâneos de partilha de Ficheiros do Azure (pré-visualização)](../storage/files/storage-snapshots-files.md).
 
-### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Qual é a retenção máxima que posso configurar para as Cópias de Segurança?
+### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Qual é a retenção máxima que posso configurar para backups?
 
 O backup para compartilhamentos de arquivos do Azure oferece a capacidade de configurar políticas com retenção de até 180 dias. No entanto, usando a [opção "backup sob demanda" no PowerShell](backup-azure-afs-automation.md#trigger-an-on-demand-backup), você pode manter um ponto de recuperação mesmo por 10 anos.
 
@@ -127,9 +127,9 @@ O backup para compartilhamentos de arquivos do Azure oferece a capacidade de con
 
 Quando é aplicada uma política nova a uma ou mais partilhas de ficheiros, a agenda e a retenção da política nova são seguidas. Se a retenção for estendida, os pontos de recuperação existentes serão marcados para que estejam em conformidade com a política nova. Se for reduzida, são marcados para eliminação no trabalho de limpeza seguinte.
 
-## <a name="see-also"></a>Consultar também
+## <a name="next-steps"></a>Passos seguintes
 
-Esta informação é apenas sobre a cópia de segurança de Ficheiros do Azure. Para obter mais informações sobre outras áreas do Azure Backup, veja algumas destas outras FAQs sobre Cópias de Segurança:
+Para saber mais sobre outras áreas do backup do Azure, consulte algumas dessas outras perguntas frequentes de backup:
 
 - [FAQ sobre o cofre dos Serviços de Recuperação](backup-azure-backup-faq.md)
 - [FAQ sobre as cópias de segurança de VMs do Azure](backup-azure-vm-backup-faq.md)

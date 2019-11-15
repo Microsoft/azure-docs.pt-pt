@@ -1,10 +1,10 @@
 ---
-title: Exemplos do Azure PowerShell | Microsoft Docs
+title: Exemplos de Azure PowerShell – rede
 description: Exemplos do Azure PowerShell
 services: virtual-network
 documentationcenter: virtual-network
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: mtillman
 editor: tysonn
 tags: ''
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/24/2017
 ms.author: gwallace
-ms.openlocfilehash: 38ee43b805f39e1a702033a53eb7bbc13c43aab6
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: fb4b63d8329f0a175252b819653e192c746489b6
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875500"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092024"
 ---
 # <a name="azure-powershell-samples-for-networking"></a>Exemplos de Azure PowerShell para rede
 

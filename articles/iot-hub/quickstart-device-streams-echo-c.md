@@ -1,5 +1,5 @@
 ---
-title: Comunicar-se com um aplicativo de dispositivo em C por meio de fluxos de dispositivo do Hub IoT do Azure (visualização) | Microsoft Docs
+title: Comunicar-se com o aplicativo de dispositivo em C com fluxos de dispositivo do Hub IoT do Azure
 description: Neste guia de início rápido, você executa um aplicativo do lado do dispositivo C que se comunica com um dispositivo IoT por meio de um fluxo de dispositivo.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: b0a23486d81ac6b48bf7bb256e3583973a338002
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d53b36beeca2c5e0456965cf5af19e5324b31ad9
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900905"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084203"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Início rápido: comunicar-se com um aplicativo de dispositivo em C por meio de fluxos de dispositivo do Hub IoT (versão prévia)
 
@@ -56,7 +56,7 @@ Você precisa dos seguintes pré-requisitos:
 
 Atualmente, há suporte para a visualização de fluxos de dispositivo apenas para os hubs IoT criados nas seguintes regiões:
 
-  * Centro dos E.U.A.
+  * EUA Central
   * EUA Central EUAP
   * Europa do Norte
   * Sudeste Asiático
@@ -197,7 +197,7 @@ Conforme mencionado anteriormente, o SDK do Hub IoT C dá suporte a fluxos de di
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você configura um hub IoT, registrou um dispositivo, estabeleceu um fluxo de dispositivo entre um aplicativo C no dispositivo e outro aplicativo no lado do serviço e usou o fluxo para enviar dados entre os aplicativos.
 

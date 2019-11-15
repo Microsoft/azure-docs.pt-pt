@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 5fc9463d5f5ea15f08378d4a0245174a366fa2b9
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6f1a793432fa6403639726dbe4340bae6804fb9f
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747475"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091101"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Criar cópias de segurança e restaurar partilhas de ficheiros do Azure
 
@@ -123,7 +123,7 @@ Pode executar várias tarefas de gestão para Cópias de segurança de partilhas
 * [Retomar a proteção numa partilha de ficheiros](backup-azure-files.md#resume-protection-for-azure-file-share)
 * [Eliminar dados de cópia de segurança](backup-azure-files.md#delete-backup-data)
 
-### <a name="monitor-jobs"></a>Monitorizar trabalhos
+### <a name="monitor-jobs"></a>Monitorizar tarefas
 
 Pode monitorizar o progresso de todas as tarefas na página **Tarefas de Cópia de Segurança**.
 
@@ -195,13 +195,13 @@ Para retomar a proteção para a partilha de ficheiros, aceda ao Item de Cópia 
 
    ![Selecionar a tarefa que quer monitorizar](./media/backup-file-shares/resume-backup-job.png)
 
-### <a name="delete-backup-data"></a>Eliminar Dados de cópia de segurança
+### <a name="delete-backup-data"></a>Eliminar dados de cópia de segurança
 
 Você pode excluir o backup de um compartilhamento de arquivos durante o trabalho parar backup ou a qualquer momento depois de interromper a proteção. Até pode ser vantajoso aguardar dias ou semanas antes de eliminar os pontos de recuperação. Ao contrário de restaurar pontos de recuperação, ao eliminar dados de cópia de segurança, não pode escolher pontos de recuperação específicos para eliminar. Se optar por eliminar os dados de cópia de segurança, tem de eliminar todos os pontos de recuperação associados ao item.
 
 O procedimento seguinte assume que a tarefa de Cópia de segurança para a máquina virtual foi parada. Depois de parar a Tarefa de cópia de segurança, as opções Retomar a cópia de segurança e Eliminar Dados da Cópia de Segurança estão disponíveis no dashboard do item de Cópia de segurança. Clique em Eliminar Dados de Cópia de Segurança e escreva o nome da Partilha de ficheiros para confirmar a eliminação. Opcionalmente, indique um Motivo para eliminar ou um Comentário.
 
-## <a name="see-also"></a>Veja também
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre compartilhamentos de arquivos do Azure, consulte
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 11/14/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddbb233bb9d0970169f040e3040b44a0b75aa1f8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 8f8d1c9f53d08d017c6c07abf8e00ab77e6879e3
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477184"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091403"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Início de sessão único para aplicações no Azure Active Directory
 
@@ -52,7 +52,7 @@ A tabela seguinte resume os métodos de início de sessão únicos e ligações 
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect e OAuth
 
-Ao desenvolver novos aplicativos, use protocolos modernos como o OpenID Connect e o OAuth para obter a melhor experiência de logon único para seu aplicativo em várias plataformas de dispositivo. O OAuth permite que usuários ou administradores concedam [consentimento](configure-user-consent.md) para recursos protegidos, como [Microsoft Graph](/graph/overview). Fornecemos [SDKs](../develop/reference-v2-libraries.md) fáceis de adotar para seu aplicativo e, além disso, seu aplicativo estará pronto para usar [Microsoft Graph](/graph/overview).
+Ao desenvolver novos aplicativos, use protocolos modernos como o OpenID Connect e o OAuth para obter a melhor experiência de logon único para seu aplicativo em várias plataformas de dispositivo. O OAuth permite que usuários ou administradores [concedam consentimento](configure-user-consent.md) para recursos protegidos, como [Microsoft Graph](/graph/overview). Fornecemos [SDKs](../develop/reference-v2-libraries.md) fáceis de adotar para seu aplicativo e, além disso, seu aplicativo estará pronto para usar [Microsoft Graph](/graph/overview).
 
 Para obter mais informações, consulte:
 
@@ -73,7 +73,7 @@ Baseado em SAML início de sessão único é suportada para aplicações que uti
 
 Para configurar um aplicativo SaaS para logon único baseado em SAML, consulte [Configurar logon único baseado em SAML](configure-single-sign-on-non-gallery-applications.md). Além disso, muitos aplicativos SaaS (software como serviço) têm um [tutorial específico do aplicativo](../saas-apps/tutorial-list.md) que o orienta pela configuração do logon único baseado em SAML.
 
-Para configurar um aplicativo para o WS-Federation, siga as mesmas diretrizes para configurar o aplicativo para logon único baseado em SAML, consulte [Configurar logon único baseado em SAML](configure-single-sign-on-non-gallery-applications.md). Na etapa de configurar o aplicativo para usar o Azure AD, você precisará substituir a URL de logon do Azure AD para o ponto `https://login.microsoftonline.com/<tenant-ID>/wsfed`de extremidade do WS-Federation.
+Para configurar um aplicativo para o WS-Federation, siga as mesmas diretrizes para configurar o aplicativo para logon único baseado em SAML, consulte [Configurar logon único baseado em SAML](configure-single-sign-on-non-gallery-applications.md). Na etapa de configurar o aplicativo para usar o Azure AD, você precisará substituir a URL de logon do Azure AD para o ponto de extremidade do WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
 
 Para configurar um aplicativo local para logon único baseado em SAML, consulte [logon único do SAML para aplicativos locais com o proxy de aplicativo](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -97,6 +97,8 @@ Com base em palavra-passe de início de sessão único é suportado para qualque
    > O Internet Explorer está em suporte limitado e não recebe mais novas atualizações de software. O Microsoft Edge é o navegador recomendado.
 
 - Microsoft Edge no Windows 10 aniversário Edition ou posterior
+- Microsoft Edge para iOS e Android
+- Intune Managed Browser
 - No Windows 7 ou posterior e no MacOS X ou posterior do Chrome
 - Firefox 26.0 ou posterior no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
 
@@ -188,9 +190,9 @@ Como esse cenário é oferecido por meio de uma parceria entre o Azure AD e o Pi
 Para obter mais informações, consulte [Edições do Azure Active Directory](../fundamentals/active-directory-whatis.md).
 
 ## <a name="related-articles"></a>Artigos relacionados
-* [Tutoriais para integrar aplicações SaaS com o Azure Active Directory](../saas-apps/tutorial-list.md)
+* [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md) (Tutoriais para integrar aplicações SaaS no Azure Active Directory)
 * [Configurando o logon único baseado em SAML](configure-single-sign-on-non-gallery-applications.md)
 * [Configurando o logon único baseado em senha](configure-password-single-sign-on-non-gallery-applications.md)
 * [Configurando o logon vinculado](configure-linked-sign-on.md)
 * [Introdução à gestão do acesso a aplicações](what-is-access-management.md)
-* Link de download: [Plano de implantação de logon único](https://aka.ms/SSODeploymentPlan).
+* Ligação de transferência: [plano de implantação de início de sessão único](https://aka.ms/SSODeploymentPlan).

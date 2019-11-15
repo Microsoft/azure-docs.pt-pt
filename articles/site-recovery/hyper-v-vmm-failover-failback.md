@@ -1,19 +1,19 @@
 ---
-title: Fazer failover e failback de VMs do Hyper-V replicadas para um data center secundário durante a recuperação de desastre com Azure Site Recovery | Microsoft Docs
+title: Configurar failover/failback para um site secundário do Hyper-V com Azure Site Recovery
 description: Saiba como fazer failover de VMs do Hyper-V para seu site local secundário e failback para o site primário, durante a recuperação de desastre com o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: f93c9bd679272f76665a6c8e4a0c611327699839
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813697"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082590"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Fazer failover e failback de VMs do Hyper-V replicadas para seu site local secundário
 
@@ -30,8 +30,8 @@ Este artigo descreve como fazer failover de uma VM Hyper-V gerenciada em uma nuv
 
 O failover e o failback têm três estágios:
 
-1. **Failover para o site secundário**: Reprovam computadores do site primário para o secundário.
-2. **Failback do site secundário**: Replique as VMs do secundário para o primário e execute um failover planejado para realizar o failback.
+1. Failover **para o site secundário**: faz failover de computadores do site primário para o secundário.
+2. **Failback do site secundário**: replique as VMs do secundário para o primário e execute um failover planejado para realizar o failback.
 3. Após o failover planejado, opcionalmente, inicie a replicação do site primário para o secundário novamente.
 
 
@@ -53,12 +53,12 @@ Você pode executar um failover regular ou planejado para VMs do Hyper-V.
 
 
 1. Em **Definições** > **Itens replicados** clique na VM > **Ativação Pós-falha**.
-1. Selecione **desligar o computador antes do início do failover** se desejar que site Recovery tente fazer um desligamento das VMs de origem antes de disparar o failover. Site Recovery também tentará sincronizar os dados locais que ainda não foram enviados para o site secundário antes de disparar o failover. Observe que o failover continua mesmo se o desligamento falhar. Pode seguir o progresso da ativação pós-falha na página **Trabalhos**.
+1. Selecione **desligar o computador antes do início do failover** se desejar que site Recovery tente fazer um desligamento das VMs de origem antes de disparar o failover. Site Recovery também tentará sincronizar os dados locais que ainda não foram enviados para o site secundário antes de disparar o failover. Observe que o failover continua mesmo se o desligamento falhar. Pode seguir o progresso da ativação pós-falha na página **Tarefas**.
 2. Agora você deve ser capaz de ver a VM na nuvem de VMM secundária.
 3. Depois de verificar a VM, **confirme** o failover. São eliminados todos os pontos de recuperação disponíveis.
 
 > [!WARNING]
-> **Não cancelar um failover em andamento**: Antes de iniciar a ativação pós-falha, a replicação de VM é interrompida. Se cancelar uma ativação pós-falha que esteja em curso, a mesma para, mas a VM não será replicada outra vez.  
+> **Não cancelar uma ativação pós-falha em curso**: antes do início da ativação pós-falha, a replicação da VM é parada. Se cancelar uma ativação pós-falha que esteja em curso, a mesma para, mas a VM não será replicada outra vez.  
 
 
 ## <a name="reverse-replicate-and-failover"></a>Replicação reversa e failover

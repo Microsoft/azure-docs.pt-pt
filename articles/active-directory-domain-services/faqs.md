@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: iainfou
-ms.openlocfilehash: e8e6eb9be65b038780fa6e21cf20f4c5dda27a31
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 61c9d887f1b193258161cd96ccfa3618e8371890
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991447"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081009"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (FAQs)
 
@@ -62,7 +62,7 @@ O serviço em si não dá suporte direto a esse cenário. Seu domínio gerenciad
 Sim. Para obter mais informações, consulte [como habilitar o Azure AD Domain Services usando o PowerShell](powershell-create-instance.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Posso habilitar Azure AD Domain Services usando um modelo do Resource Manager?
-Não, atualmente, não é possível habilitar Azure AD Domain Services usando um modelo. Para obter uma abordagem com script, consulte [como habilitar Azure AD Domain Services usando o PowerShell](powershell-create-instance.md).
+Sim, você pode criar um Azure AD Domain Services domínio gerenciado usando um modelo do Resource Manager. Uma entidade de serviço e um grupo do Azure AD para administração devem ser criados usando o portal do Azure ou Azure PowerShell antes de o modelo ser implantado. Quando você cria um Azure AD Domain Services domínio gerenciado no portal do Azure, há uma opção para exportar o modelo para uso com implantações adicionais. Há também um [modelo de exemplo no repositório de exemplo de modelos do GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-AAD-DomainServices).
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Posso adicionar controladores de domínio a um domínio gerenciado Azure AD Domain Services?
 Não. O domínio fornecido pelo Azure AD Domain Services é um domínio gerenciado. Você não precisa provisionar, configurar ou gerenciar controladores de domínio para esse domínio. Essas atividades de gerenciamento são fornecidas como um serviço pela Microsoft. Portanto, você não pode adicionar mais controladores de domínio (leitura/gravação ou somente leitura) para o domínio gerenciado.

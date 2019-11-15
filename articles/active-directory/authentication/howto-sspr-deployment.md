@@ -11,14 +11,17 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330b02e3db6af90fcfeb962e78b043b04090116e
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: b648d6f914b5e3004ea3b62019bbec33e5a4871d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743232"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081524"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Implementar a reposição personalizada de palavra-passe do Azure AD
+
+> [!NOTE]
+> Este guia explica a redefinição de senha de autoatendimento e como implantá-la. Se você estiver procurando a ferramenta de redefinição de senha de autoatendimento para voltar à sua conta, vá para [https://aka.ms/sspr](https://aka.ms/sspr). 
 
 A SSPR (autoatendimento de redefinição de senha) é um recurso Azure Active Directory que permite aos funcionários redefinir suas senhas sem precisar entrar em contato com a equipe de ti. Os funcionários devem se registrar ou ser registrados para redefinição de senha de autoatendimento antes de usar o serviço. Durante o registro, o funcionário escolhe um ou mais métodos de autenticação habilitados pela organização.
 
@@ -53,7 +56,7 @@ A experiência de registro combinada não exige que as organizações habilitem 
 
 As configurações a seguir são necessárias para habilitar o SSPR juntamente com os valores recomendados.
 
-| Área | Definição | Value |
+| Área | Definição | Valor |
 | --- | --- | --- |
 | **Propriedades de SSPR** | Redefinição de senha de autoatendimento habilitada | Grupo **selecionado** para o piloto/ **tudo** para produção |
 | **Métodos de autenticação** | Métodos de autenticação necessários para registrar | Sempre 1 mais do que o necessário para redefinir |
@@ -62,8 +65,8 @@ As configurações a seguir são necessárias para habilitar o SSPR juntamente c
 |   | Número de dias antes que os usuários sejam solicitados a confirmar novamente suas informações de autenticação | 90 – 180 dias |
 | **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Sim |
 |   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Sim |
-| **Customization** | Personalizar ligação de suporte técnico | Sim |
-|   | URL ou e-mail de suporte técnico personalizado | Site de suporte ou endereço de email |
+| **Customization** | Personalizar link de assistência técnica | Sim |
+|   | URL ou email de assistência técnica personalizado | Site de suporte ou endereço de email |
 | **Integração no local** | Write-back de senhas para o AD local | Sim |
 |   | Permitir que os usuários desbloqueiem a conta sem redefinir a senha | Sim |
 
@@ -87,7 +90,7 @@ Defina **exigir que os usuários se registrem ao entrar** em **Sim**. Essa confi
 
 Defina **o número de dias antes que os usuários sejam solicitados a confirmar novamente suas informações de autenticação** entre **90** e **180** dias, a menos que sua organização tenha uma necessidade comercial por um período de tempo menor.
 
-### <a name="notifications-settings"></a>Definições de notificações
+### <a name="notifications-settings"></a>Configurações de notificações
 
 Configure os **usuários de notificação em redefinições de senha** e **notifique todos os administradores quando outros administradores redefinirem sua senha** como **Sim**. A seleção de **Sim** em ambos aumenta a segurança, garantindo que os usuários saibam quando sua senha foi redefinida e que todos os administradores estão cientes quando um administrador altera uma senha. Se os usuários ou administradores receberem tal notificação e eles não tiverem iniciado a alteração, eles poderão relatar imediatamente uma possível violação de segurança.
 
@@ -206,7 +209,7 @@ Dispositivos Windows 10 que executam a versão 1803 ou superior que são ingress
 
 ### <a name="configure-password-writeback"></a>Configurar write-back de senha
 
-As etapas para configurar o Write-back de senha para sua organização podem [ser encontradas no artigo como: Configure o Write](howto-sspr-writeback.md)-back de senha.
+As etapas para configurar o Write-back de senha para sua organização podem ser encontradas no artigo [como: configurar o Write-back de senha](howto-sspr-writeback.md).
 
 ## <a name="manage-sspr"></a>Gerenciar SSPR
 
@@ -214,9 +217,9 @@ Funções necessárias para gerenciar recursos associados à redefinição de se
 
 | Função corporativa/persona | Função do Azure AD (se necessário) |
 | :---: | :---: |
-| Suporte técnico nível 1 | Administrador de palavras-passe |
-| Suporte técnico nível 2 | Administrador de utilizadores |
-| Administrador do SSPR | Administrador Global |
+| Suporte técnico nível 1 | Administrador de senha |
+| Suporte técnico nível 2 | Administrador do usuário |
+| Administrador do SSPR | Administrador global |
 
 ### <a name="support-scenarios"></a>Cenários de suporte
 

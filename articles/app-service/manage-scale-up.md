@@ -13,20 +13,20 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d2c3b09277963781b90f65705e03f936f81b14ee
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 91a6681c2ef4a6d0ac01889e6e92e752975e90a5
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232355"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089465"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Escalar verticalmente um aplicativo no serviço Azure App
 
 Este artigo mostra como dimensionar seu aplicativo no serviço Azure App. Há dois fluxos de trabalho para dimensionar, escalar verticalmente e escalar horizontalmente, e este artigo explica o fluxo de trabalho de escala vertical.
 
-* [Escalar verticalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Obtenha mais CPU, memória, espaço em disco e recursos extras, como VMs (máquinas virtuais) dedicadas, domínios personalizados e certificados, slots de preparo, dimensionamento automático e muito mais. Você escala verticalmente alterando o tipo de preço do plano do serviço de aplicativo ao qual seu aplicativo pertence.
+* [Escalar verticalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Obtenha mais CPU, memória, espaço em disco e recursos extras, como VMS (máquinas virtuais) dedicadas, domínios personalizados e certificados, slots de preparo, dimensionamento automático e muito mais. Você escala verticalmente alterando o tipo de preço do plano do serviço de aplicativo ao qual seu aplicativo pertence.
 * [Escalar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Aumente o número de instâncias de VM que executam seu aplicativo.
-  Você pode escalar horizontalmente até 20 instâncias, dependendo do tipo de preço. Os [ambientes do serviço de aplicativo](environment/intro.md) na camada **isolada** aumentam ainda mais sua contagem de expansão para instâncias de 100. Para obter mais informações sobre como escalar horizontalmente, consulte [dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md). Lá, você descobrirá como usar o dimensionamento automático, que é dimensionar automaticamente a contagem de instâncias com base em regras e agendamentos predefinidos.
+  Você pode escalar horizontalmente até 30 instâncias, dependendo do tipo de preço. Os [ambientes do serviço de aplicativo](environment/intro.md) na camada **isolada** aumentam ainda mais sua contagem de expansão para instâncias de 100. Para obter mais informações sobre como escalar horizontalmente, consulte [dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md). Lá, você descobrirá como usar o dimensionamento automático, que é dimensionar automaticamente a contagem de instâncias com base em regras e agendamentos predefinidos.
 
 As configurações de escala levam apenas alguns segundos para aplicar e afetar todos os aplicativos em seu [plano do serviço de aplicativo](../app-service/overview-hosting-plans.md).
 Eles não exigem que você altere seu código ou reimplante seu aplicativo.

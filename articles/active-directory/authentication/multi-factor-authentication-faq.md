@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea174de04d0e75bc996c6f692edd474a9396346a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9ae7390afead843fa0784454f7e0374bedf735ad
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474266"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081537"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas frequentes sobre a autenticação multifator do Azure
 
@@ -219,7 +219,7 @@ Uma solução alternativa para esse erro é ter contas de usuário separadas par
 
 Se sua pergunta não for respondida aqui, deixe-a nos comentários na parte inferior da página. Ou, aqui estão algumas opções adicionais para obter ajuda:
 
-* Pesquise na [base de dados de conhecimento suporte da Microsoft](https://www.microsoft.com/en-us/search?form=mssupport&q=phonefactor&rtc=1) para obter soluções para problemas técnicos comuns.
+* Pesquise na [base de dados de conhecimento suporte da Microsoft](https://support.microsoft.com) para obter soluções para problemas técnicos comuns.
 * Pesquise e procure perguntas e respostas técnicas da Comunidade ou faça sua própria pergunta nos [fóruns de Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 * Se você for um cliente herdado do PhoneFactor e tiver dúvidas ou precisar de ajuda para redefinir uma senha, use o link [redefinição de senha](mailto:phonefactorsupport@microsoft.com) para abrir um caso de suporte.
 * Contate um profissional de suporte por meio [do suporte do Azure servidor de autenticação multifator (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947). Ao entrar em contato conosco, será útil se você puder incluir o máximo possível de informações sobre o seu problema. As informações que você pode fornecer incluem a página em que você viu o erro, o código de erro específico, a ID de sessão específica e a ID do usuário que viu o erro.

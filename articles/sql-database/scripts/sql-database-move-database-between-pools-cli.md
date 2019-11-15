@@ -1,5 +1,5 @@
 ---
-title: Exemplo da CLI-mover base de dados SQL do Azure-conjunto elástico SQL | Microsoft Docs
+title: Exemplo de CLI – mover o pool elástico do banco de dados SQL do Azure
 description: Script de exemplo da CLI do Azure para mover uma base de dados SQL num conjunto elástico
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 166643231e9f98cc3b8205bf0e9a8bb949ffbc3b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d974685040d2a5759ca7719e82be02a7ec8950c5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569882"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691586"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Utilize a CLI para mover uma base de dados SQL do Azure num conjunto elástico SQL
 
@@ -53,7 +53,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | Atualiza as propriedades de base de dados ou move uma base de dados para, de ou entre conjuntos elásticos. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

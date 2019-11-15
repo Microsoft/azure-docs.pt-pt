@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 11/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a6629db50d0cec13d866d28a0823ccd3ed43f42
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 6ab9d0ae07978e69bebb0fc24c8965cce971cfd5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014200"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082355"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Adicionar BLOBs a objetos no Azure digital gêmeos
 
@@ -51,7 +51,7 @@ Os metadados de blob JSON estão em conformidade com o seguinte modelo:
   }
 ```
 
-| Atributo | Tipo | Descrição |
+| Atributo | Type | Descrição |
 | --- | --- | --- |
 | **parentId** | Cadeia | A entidade pai para associar o blob (espaços, dispositivos ou usuários) |
 | **name** |Cadeia | Um nome amigável para o blob |
@@ -106,7 +106,7 @@ BLOBs retornados individualmente estão em conformidade com o seguinte esquema J
 }
 ```
 
-| Atributo | Tipo | Descrição |
+| Atributo | Type | Descrição |
 | --- | --- | --- |
 | **id** | Cadeia | O identificador exclusivo para o blob |
 | **name** |Cadeia | Um nome amigável para o blob |
@@ -181,8 +181,6 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 Por fim, a [ondulação](https://curl.haxx.se/) de usuários pode fazer solicitações de formulário de várias partes da mesma maneira:
 
-[exemplo de ondulação de ![](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
-
 ```bash
 curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
  -H "Authorization: Bearer YOUR_TOKEN" \
@@ -198,7 +196,9 @@ curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
 | YOUR_SPACE_ID | A ID do espaço com o qual associar o blob |
 | PATH_TO_FILE | O caminho para o arquivo de texto |
 
-Um POST bem-sucedido retorna a ID do novo BLOB (realçado em vermelho anteriormente).
+[exemplo de ondulação de ![](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
+
+Uma POSTAgem bem-sucedida retorna a ID do novo BLOB.
 
 ## <a name="api-endpoints"></a>Pontos de extremidade de API
 

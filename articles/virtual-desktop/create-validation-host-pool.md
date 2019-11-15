@@ -1,5 +1,5 @@
 ---
-title: Criar um pool de hosts de área de trabalho virtual do Windows para validar atualizações de serviço – Azure
+title: Atualizações do serviço pool de hosts da área de trabalho virtual do Windows – Azure
 description: Como criar um pool de hosts de validação para monitorar atualizações de serviço antes de distribuir as atualizações para produção.
 services: virtual-desktop
 author: Heidilohr
@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: c294bb41afae1257add0c96a9f77adad3f871849
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: fd8be170f0f4388ee711881dde16923b9547f21f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676680"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606917"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar um conjunto de anfitriões para validar as atualizações de serviço
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: criar um pool de hosts para validar atualizações de serviço
 
 Pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas em ambientes de locatário da área de trabalho virtual do Windows. Antes de implantar pools de hosts em seu ambiente de produção, é altamente recomendável criar um pool de hosts de validação. As atualizações são aplicadas primeiro aos pools de hosts de validação, permitindo que você monitore as atualizações de serviço antes de distribuí-las para o ambiente de produção. Sem um pool de hosts de validação, você não pode descobrir alterações que introduzam erros, o que pode resultar em tempo de inatividade para os usuários em seu ambiente de produção.
 
@@ -34,7 +34,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ## <a name="create-your-host-pool"></a>Criar seu pool de hosts
 
 Você pode criar um pool de hosts seguindo as instruções em qualquer um destes artigos:
-- [Tutorial: Criar um pool de hosts com o Azure Marketplace @ no__t-0
+- [Tutorial: criar um pool de hosts com o Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Criar um pool de hosts com um modelo de Azure Resource Manager](create-host-pools-arm-template.md)
 - [Criar um pool de hosts com o PowerShell](create-host-pools-powershell.md)
 

@@ -1,37 +1,42 @@
 ---
-title: Conectar-se a uma loja de conhecimento com Power BI
+title: Conectar-se a uma loja de conhecimento (versão prévia) com Power BI
 titleSuffix: Azure Cognitive Search
-description: Conecte uma loja de conhecimento do Azure Pesquisa Cognitiva com Power BI para análise e exploração.
+description: Conecte uma loja de conhecimento do Azure Pesquisa Cognitiva (versão prévia) com Power BI para análise e exploração.
 author: lisaleib
 manager: nitinme
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 03f28cb40708b7ec77a0a342b5ec1b6faeaa8e3b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 7b12f0f14003389d36e2df5bcffe7828c135cf2b
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485145"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715489"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Conectar uma loja de conhecimento com Power BI
 
-> [!Note]
-> A loja de conhecimento está em versão prévia e não deve ser usada na produção. O portal e a [pesquisa REST API versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para o SDK do .NET no momento.
->
+> [!IMPORTANT] 
+> a loja de conhecimento está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de visualização. Atualmente, há suporte ao portal limitado e não há suporte para o SDK do .NET.
 
 Neste artigo, saiba como se conectar e explorar uma loja de conhecimento usando Power Query no aplicativo Power BI Desktop. Você pode começar mais rápido com modelos ou criar um painel personalizado do zero.
 
-## <a name="prerequisites"></a>Pré-requisitos
++ Siga as etapas em [criar uma loja de conhecimento no portal do Azure](knowledge-store-create-portal.md) ou [criar uma loja de conhecimento do Azure pesquisa cognitiva usando o REST](knowledge-store-create-rest.md) para criar o repositório de conhecimento de exemplo usado neste passo a passos. Você também precisará do nome da conta de armazenamento do Azure que usou para criar a loja de conhecimento, junto com sua chave de acesso do portal do Azure.
 
 + [Instalar Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 
-+ Você precisará de uma loja de conhecimento, com uma projeção no armazenamento de tabelas do Azure. Você também precisará do nome da conta de armazenamento do Azure usada para criar o repositório de conhecimento, junto com sua chave de acesso do portal do Azure.
+## <a name="sample-power-bi-template---azure-portal-only"></a>Modelo de Power BI de exemplo – somente portal do Azure
 
-Se você quiser trabalhar com um exemplo de armazenamento de conhecimento, siga as instruções para [criar uma loja de conhecimento](knowledge-store-create-portal.md).
+Se você [criou sua loja de conhecimento usando o portal do Azure](knowledge-store-create-portal.md), você pode usar o [exemplo de modelo de Power bi de pesquisa cognitiva do Azure](https://github.com/Azure-Samples/cognitive-search-templates) para exibir e experimentar Power bi visualizações. Esse modelo também está disponível para download quando você percorre o assistente de **importação de dados** .
 
-## <a name="create-a-custom-report"></a>Criar um relatório personalizado
+O modelo de exemplo executará automaticamente as etapas de configuração descritas no restante deste artigo. No entanto, se você usou a API REST para criar sua loja de conhecimento, ignore o modelo e use as seções restantes neste artigo para conectar sua loja de conhecimento a Power BI. Comece com [conectar com Power bi](#connect-with-power-bi).
+
+O modelo de exemplo inclui várias visualizações, como WordCloud e navegador de rede. Algumas visualizações no modelo, como o mapa de locais e o Visualizador de grafo de entidade, não mostrarão dados para o exemplo de armazenamento de conhecimento criado em [criar um repositório de conhecimento no portal do Azure](knowledge-store-create-portal.md). Isso ocorre porque apenas um subconjunto dos aprimoramentos de ia disponíveis no assistente de **importação de dados** foi usado.
+
+![Modelo de Power BI de Pesquisa Cognitiva do Azure de exemplo](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Modelo de Power BI de exemplo")
+
+## <a name="connect-with-power-bi"></a>Ligar com o Power BI
 
 1. Inicie o Power BI Desktop e clique em **obter dados**.
 

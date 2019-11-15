@@ -1,20 +1,21 @@
 ---
-title: Tutorial – Criar um registo de alias do DNS do Azure para suportar os nomes de domínio apex com o Gestor de Tráfego
+title: 'Tutorial: criar um registro de alias para dar suporte a nomes de Apex de domínio-Gerenciador de tráfego'
+titleSuffix: Azure DNS
 description: Este tutorial mostra como pode configurar um registo de alias do DNS do Azure para suportar os nomes de domínio apex com o Gestor de Tráfego.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: victorh
-ms.openlocfilehash: 6bb3506e60894db525efaf2985dd92f9eaaf9e0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 3834b782be054611de67b782b7fcd0c46cbf3a19
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921428"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082257"
 ---
-# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: Configurar um registo de alias para oferecer suporte a nomes de domínio com o Gestor de tráfego do vértice 
+# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: Configurar um registo de alias para suportar os nomes de domínio apex com o Gestor de Tráfego 
 
 Pode criar um registo de alias para o apex do seu nome de domínio para referenciar um perfil do Gestor de Tráfego do Azure. Um exemplo é contoso.com. Em vez de utilizar um serviço de redirecionamento, configure o DNS do Azure para referenciar um perfil do Gestor de Tráfego diretamente da sua zona. 
 
@@ -33,7 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 Deve ter um nome de domínio disponível que possa alojar no DNS do Azure para testar. Deve ter controlo total sobre este domínio. O controlo total inclui a capacidade de definir os registos do servidor de nomes (NS) do domínio.
 
-Para obter instruções sobre como alojar o seu domínio no DNS do Azure, consulte [Tutorial: Aloje o seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
+Para obter instruções sobre como alojar o seu domínio no DNS do Azure, veja o [Tutorial: Alojar o seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
 
 O domínio de exemplo utilizado para este tutorial é o contoso.com, mas utilize o seu próprio nome de domínio.
 
@@ -50,7 +51,7 @@ Primeiro, crie uma rede virtual e uma sub-rede onde possa colocar os servidores 
 3. Para **Tamanho**, selecione um SKU com 8 GB de RAM.
 4. Em **Definições**, selecione a rede virtual **VNet-Servers** e a sub-rede **SN-Web**.
 5. Selecione **Endereço IP público**. Sob **Atribuição**, selecione **Estático** e, em seguida, selecione **OK**.
-6. Nas portas de entrada públicas, selecione **HTTP** > **HTTPS** > **RDP (3389)**, e, em seguida, selecione **OK**.
+6. Nas portas de entrada públicas, selecione **HTTP** > **HTTPS** > **RDP (3389)** , e, em seguida, selecione **OK**.
 7. Na página **Resumo**, selecione **Criar**. Este procedimento demora alguns minutos a concluir.
 
 Repita este procedimento para criar outra máquina virtual com o nome **Web-02**.
@@ -70,7 +71,7 @@ Instale o IIS em **Web-01** e **Web-02**.
 
 1. Ligue-se a **Web-01** e inicie sessão.
 2. No dashboard do **Gestor de Servidor**, selecione **Adicionar funções e funcionalidades**.
-3. Selecione **Seguinte** três vezes. Na página **Funções de Servidor**, selecione **Servidor Web (IIS)**.
+3. Selecione **Seguinte** três vezes. Na página **Funções de Servidor**, selecione **Servidor Web (IIS)** .
 4. Selecione **Adicionar Funcionalidades** e selecione **Seguinte**.
 5. Selecione **Seguinte** quatro vezes. Em seguida, selecione **Instalar**. Este procedimento demora alguns minutos a concluir.
 6. Quando a instalação terminar, selecione **Fechar**.
@@ -116,7 +117,7 @@ Crie um registo de alias que esteja associado ao perfil do Gestor de Tráfego.
 
 Quando já não precisar dos recursos criados para este tutorial, elimine o grupo de recursos **RG-DNS-Alias-TM**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou um registo de alias para utilizar o seu nome de domínio do apex para referenciar um perfil do Gestor de Tráfego. Para saber mais sobre o DNS do Azure e as aplicações Web, avance para o tutorial de aplicações Web.
 

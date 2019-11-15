@@ -1,5 +1,5 @@
 ---
-title: Servidor de nova base de dados SQL do Azure de cópia de exemplo do PowerShell | Microsoft Docs
+title: Exemplo do PowerShell-Copy-banco de dados SQL do Azure-novo servidor
 description: Script de exemplo do Azure PowerShell para copiar uma base de dados SQL para um novo servidor
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: dad2364e64d9a30c5cc4f8af11146ad21ec71a2d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: adb832f9f5fb44c5fa4216cb50862d8fc6e48207
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570022"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691720"
 ---
 # <a name="use-powershell-to-copy-a-sql-database-to-a-new-server"></a>Utilize o PowerShell para copiar uma base de dados SQL para um novo servidor
 
@@ -54,7 +54,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

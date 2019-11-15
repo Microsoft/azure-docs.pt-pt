@@ -1,5 +1,5 @@
 ---
-title: Ligar a redes no local ao Microsoft Cloud com o alcance Global - Azure ExpressRoute | Documentos da Microsoft
+title: 'Azure ExpressRoute: conectar-se a Microsoft Cloud usando Alcance Global'
 description: Este artigo explica o alcance Global do ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: e522c7ea306667f675af4bbe7486e25fb7f4ec9f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: e01b311d10dcf4216bfeea77ce8919f64ea2ef28
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122807"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74080333"
 ---
 # <a name="expressroute-global-reach"></a>Alcance Global do ExpressRoute
 O ExpressRoute é uma forma privada e resiliente para ligar as suas redes no local para a Cloud da Microsoft. Você pode acessar muitos serviços de nuvem da Microsoft, como o Azure, e o Office 365 de seu data center particular ou sua rede corporativa. Por exemplo, pode ter uma filial em são Francisco com um circuito do ExpressRoute no vale do silício e outra sucursal em Londres com um circuito do ExpressRoute na mesma cidade. Ambas as filiais podem ter conectividade de alta velocidade para recursos do Azure em E.u.a. oeste e sul do Reino Unido. No entanto, as filiais não podem trocar dados diretamente entre si. Em outras palavras, 10.0.1.0/24 pode enviar dados para 10.0.3.0/24 e 10.0.4.0/24, mas não a 10.0.2.0/24.
@@ -48,7 +47,7 @@ Alcance Global do ExpressRoute atualmente é suportada nos seguintes locais.
 
 Os circuitos do ExpressRoute tem de ser criados no [localizações de peering de ExpressRoute](expressroute-locations.md) na região ou países acima. Para ativar o ExpressRoute alcance Global entre [diferentes regiões geopolíticas](expressroute-locations.md), seus circuitos tem de ser Premium SKU.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 1. [Saiba mais sobre o alcance Global do ExpressRoute](expressroute-faqs.md)
 2. [Como ativar o alcance Global do ExpressRoute](expressroute-howto-set-global-reach.md)
 3. [Ligar o circuito do ExpressRoute a rede virtual do Azure](expressroute-howto-linkvnet-arm.md)

@@ -1,18 +1,18 @@
 ---
-title: 'Modificar um circuito do ExpressRoute: PowerShell: Azure clássico | Microsoft Docs'
-description: Este artigo orienta você pelas etapas para verificar o status, atualizar ou excluir e desprovisionar seu circuito de modelo de implantação clássico do ExpressRoute.
+title: 'Azure ExpressRoute: modificar um circuito: PowerShell: clássico'
+description: Este artigo orienta-o pelos passos para verificar o estado, update ou delete e desaprovisionar o circuito de modelo de implementação clássica do ExpressRoute.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9f1c05b85fac6dd0168d9c2b2944326800e90493
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: a2a3bdeb0ee454185c92c6e49a17bda7e4e5d5f0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643676"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083586"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificar um circuito do ExpressRoute com o PowerShell (clássico)
 
@@ -21,11 +21,11 @@ ms.locfileid: "73643676"
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI do Azure](howto-circuit-cli.md)
 > * [Modelo do Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
-> * [portal do Azure de vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [Vídeo - portal do Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
 >
 
-Este artigo orienta você pelas etapas para verificar o status, atualizar ou excluir e desprovisionar seu circuito de modelo de implantação clássico do ExpressRoute. Este artigo aplica-se ao modelo de implementação clássica.
+Este artigo orienta-o pelos passos para verificar o estado, update ou delete e desaprovisionar o circuito de modelo de implementação clássica do ExpressRoute. Este artigo aplica-se ao modelo de implementação clássica.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -35,7 +35,7 @@ Este artigo orienta você pelas etapas para verificar o status, atualizar ou exc
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Instale as versões mais recentes dos módulos do PowerShell do gerenciamento de serviços do Azure (SM) e do módulo ExpressRoute. Você não pode usar o ambiente CloudShell do Azure para executar módulos SM.
+Instale as versões mais recentes de módulos do PowerShell de gestão de serviço do Azure (SM) e o módulo do ExpressRoute. Você não pode usar o ambiente CloudShell do Azure para executar módulos SM.
 
 1. Use as instruções no artigo [instalando o módulo de gerenciamento de serviços](/powershell/azure/servicemanagement/install-azure-ps) para instalar o módulo de gerenciamento de serviços do Azure. Se você tiver o módulo AZ ou RM já instalado, certifique-se de usar '-AllowClobber '.
 2. Importe os módulos instalados. Ao usar o exemplo a seguir, ajuste o caminho para refletir o local dos seus módulos do PowerShell instalados.
@@ -50,9 +50,9 @@ Instale as versões mais recentes dos módulos do PowerShell do gerenciamento de
    Add-AzureAccount
    ```
 
-## <a name="get-the-status-of-a-circuit"></a>Obter o status de um circuito
+## <a name="get-the-status-of-a-circuit"></a>Obter o estado de um circuito
 
-Você pode recuperar essas informações a qualquer momento usando o cmdlet `Get-AzureCircuit`. Fazer a chamada sem parâmetros lista todos os circuitos.
+Pode obter estas informações em qualquer altura utilizando o `Get-AzureCircuit` cmdlet. Efetuar a chamada sem quaisquer parâmetros apresenta uma lista de todos os circuitos.
 
 ```powershell
 Get-AzureDedicatedCircuit
@@ -76,7 +76,7 @@ Sku                              : Standard
 Status                           : Enabled
 ```
 
-Você pode obter informações sobre um circuito do ExpressRoute específico passando a chave de serviço como um parâmetro para a chamada.
+Pode obter informações sobre um circuito de ExpressRoute específico passando a chave do serviço como um parâmetro para a chamada.
 
 ```powershell
 Get-AzureDedicatedCircuit -ServiceKey "*********************************"
@@ -91,7 +91,7 @@ Sku                              : Standard
 Status                           : Enabled
 ```
 
-Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte exemplo:
+Para obter descrições detalhadas dos parâmetros de executar o exemplo a seguir:
 
 ```powershell
 get-help get-azurededicatedcircuit -detailed
@@ -99,20 +99,20 @@ get-help get-azurededicatedcircuit -detailed
 
 ## <a name="modify-a-circuit"></a>Modificar um circuito
 
-Você pode modificar determinadas propriedades de um circuito do ExpressRoute sem afetar a conectividade.
+Pode modificar algumas propriedades de um circuito do ExpressRoute sem afetar a conectividade.
 
-Você pode executar as seguintes tarefas sem tempo de inatividade:
+Pode efetuar as seguintes tarefas sem tempo de inatividade:
 
-* Habilite ou desabilite um complemento Premium do ExpressRoute para o circuito do ExpressRoute.
-* Aumente a largura de banda do circuito do ExpressRoute, desde que haja capacidade disponível na porta. Desatualização de largura de banda de um circuito não é suportada.
-* Altere o plano de medição de dados limitados para dados ilimitados. Não há suporte para a alteração do plano de medição de dados ilimitados para dados limitados.
-* Você pode habilitar e desabilitar *permitir operações clássicas*.
+* Ativar ou desativar um suplemento ExpressRoute premium para o seu circuito do ExpressRoute.
+* Aumente a largura de banda do seu circuito do ExpressRoute, desde que haja capacidade na porta. Desatualização de largura de banda de um circuito não é suportada.
+* Altere o plano de medição de dados limitados para dados ilimitados. Não é suportada a alteração do plano de medição de dados ilimitados para dados limitados.
+* Pode ativar e desativar *permitir operações clássicas*.
 
-Consulte as [perguntas frequentes sobre o ExpressRoute](expressroute-faqs.md) para obter mais informações sobre limites e limitações.
+Consulte a [FAQ do ExpressRoute](expressroute-faqs.md) para obter mais informações sobre limites e limitações.
 
-### <a name="enable-the-expressroute-premium-add-on"></a>Habilitar o complemento Premium do ExpressRoute
+### <a name="enable-the-expressroute-premium-add-on"></a>Ativar o suplemento ExpressRoute premium
 
-Você pode habilitar o complemento Premium do ExpressRoute para seu circuito existente usando o seguinte cmdlet do PowerShell:
+Pode ativar o suplemento ExpressRoute premium para o seu circuito existente ao utilizar o seguinte cmdlet do PowerShell:
 
 ```powershell
 Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
@@ -127,24 +127,24 @@ Sku                              : Premium
 Status                           : Enabled
 ```
 
-Seu circuito agora terá os recursos complementares do ExpressRoute Premium habilitados. Assim que o comando for executado com êxito, a cobrança do recurso de complemento Premium começará.
+O circuito agora têm as funcionalidades de suplemento ExpressRoute premium ativadas. Assim que o comando foi executado com êxito, começa a faturação para a capacidade de suplemento premium.
 
-### <a name="disable-the-expressroute-premium-add-on"></a>Desabilitar o complemento Premium do ExpressRoute
+### <a name="disable-the-expressroute-premium-add-on"></a>Desativar o suplemento ExpressRoute premium
 
 > [!IMPORTANT]
-> Essa operação poderá falhar se você estiver usando recursos que são maiores do que o permitido para o circuito padrão.
+> Esta operação pode falhar se estiver a utilizar os recursos que são maiores que o que é permitido para o circuito standard.
 >
 >
 
 #### <a name="considerations"></a>Considerações
 
-* Verifique se o número de redes virtuais vinculadas ao circuito é menor que 10 antes de fazer o downgrade de Premium para Standard. Se você não fizer isso, a solicitação de atualização falhará e você será cobrado pelas tarifas Premium.
-* Você deve desvincular todas as redes virtuais em outras regiões do geopolítica. Se você não fizer isso, a solicitação de atualização falhará e você será cobrado pelas tarifas Premium.
-* Sua tabela de rotas deve ter menos de 4.000 rotas para o emparelhamento privado. Se o tamanho da tabela de rotas for maior que 4.000 rotas, a sessão BGP cai e não será reabilitada até que o número de prefixos anunciados fique abaixo de 4.000.
+* Certifique-se de que o número de redes virtuais ligadas ao circuito é inferior a 10 antes de mudar a versão de premium para standard. Se não o fizer, o seu pedido de atualização falha e é faturado as tarifas premium.
+* Deve desassociar a todas as redes virtuais em outras regiões geopolíticas. Se não o fizer, o seu pedido de atualização falha e é faturado as tarifas premium.
+* A tabela de rotas tem de ser inferior a 4000 rotas para peering privado. Se o tamanho da tabela de rota for superior a 4.000, a sessão de BGP ignora e não ser reenabled até que o número de prefixos anunciados fica abaixo de 4.000.
 
-#### <a name="to-disable-the-premium-add-on"></a>Para desabilitar o complemento Premium
+#### <a name="to-disable-the-premium-add-on"></a>Para desativar o suplemento premium
 
-Você pode desabilitar o complemento Premium do ExpressRoute para o circuito existente usando o seguinte cmdlet do PowerShell:
+Pode desativar o suplemento ExpressRoute premium para o seu circuito existente ao utilizar o seguinte cmdlet do PowerShell:
 
 ```powershell
 
@@ -162,18 +162,18 @@ Status                           : Enabled
 
 ### <a name="update-the-expressroute-circuit-bandwidth"></a>Atualizar a largura de banda do circuito do ExpressRoute
 
-Verifique as [perguntas frequentes do ExpressRoute](expressroute-faqs.md) para obter as opções de largura de banda com suporte para seu provedor Você pode escolher qualquer tamanho maior que o tamanho do seu circuito existente, desde que a porta física (na qual o circuito é criado) permita.
+Verifique os [FAQ do ExpressRoute](expressroute-faqs.md) para opções de largura de banda para o seu fornecedor de suporte. Pode escolher qualquer tamanho, que é superior ao tamanho do seu circuito existente, desde que permite a porta física (em que o circuito é criado).
 
 > [!IMPORTANT]
-> Talvez seja necessário recriar o circuito do ExpressRoute se houver capacidade inadequada na porta existente. Você não poderá atualizar o circuito se não houver capacidade adicional disponível nesse local.
+> Poderá ter de recriar o circuito do ExpressRoute, se houver a capacidade inadequada na porta existente. Não é possível atualizar o circuito se não existir nenhuma capacidade adicional disponível naquele local.
 >
-> Não é possível reduzir a largura de banda de um circuito do ExpressRoute sem interrupções. O downgrade da largura de banda exige o desprovisionamento do circuito do ExpressRoute e o reprovisionamento de um novo circuito do ExpressRoute.
+> Não é possível reduzir a largura de banda de um circuito do ExpressRoute sem interrupção. Desatualização de largura de banda exige que desaprovisionar o circuito do ExpressRoute e, em seguida, reaprovisionar um novo circuito do ExpressRoute.
 >
 >
 
 #### <a name="resize-a-circuit"></a>Redimensionar um circuito
 
-Depois de decidir de qual tamanho você precisa, você pode usar o seguinte comando para redimensionar o circuito:
+Depois de decidir o tamanho necessário, pode utilizar o seguinte comando para redimensionar o seu circuito:
 
 ```powershell
 Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
@@ -188,9 +188,9 @@ Sku                              : Standard
 Status                           : Enabled
 ```
 
-Depois que o circuito for dimensionado no lado da Microsoft, você deverá entrar em contato com seu provedor de conectividade para atualizar as configurações em seu lado para corresponder a essa alteração. A cobrança começa pela opção de largura de banda atualizada deste ponto em diante.
+Assim que o seu circuito tem sido dimensionado a cópia de segurança no lado do Microsoft, tem de contactar o seu fornecedor de conectividade para atualizar as configurações no seu lado para fazer corresponder esta alteração. Início da faturação para a opção de largura de banda atualizado a partir deste ponto num.
 
-Se você vir o erro a seguir ao aumentar a largura de banda do circuito, isso significa que não há largura de banda suficiente restante na porta física em que o circuito existente é criado. Você deve excluir esse circuito e criar um novo circuito do tamanho necessário.
+Se vir o erro seguinte ao aumentar a largura de banda do circuito, isso significa que há não resta nenhuma largura de banda suficiente na porta física onde o seu circuito existente é criado. Tem de eliminar este circuito e criar um novo circuito do tamanho que necessário.
 
 ```powershell
 Set-AzureDedicatedCircuitProperties : InvalidOperation : Insufficient bandwidth available to perform this circuit
@@ -202,17 +202,17 @@ At line:1 char:1
   + FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.SetAzureDedicatedCircuitPropertiesCommand
 ```
 
-## <a name="deprovision-and-delete-a-circuit"></a>Desprovisionar e excluir um circuito
+## <a name="deprovision-and-delete-a-circuit"></a>Desaprovisionar e eliminar um circuito
 
 ### <a name="considerations"></a>Considerações
 
-* Você deve desvincular todas as redes virtuais do circuito do ExpressRoute para que essa operação tenha sucesso. Verifique se você tem redes virtuais vinculadas ao circuito se essa operação falhar.
-* Se o estado de provisionamento do provedor de serviço de circuito do **ExpressRoute for Provisionando** ou **provisionado** , você deverá trabalhar com seu provedor de serviços para desprovisionar o circuito no lado deles. Continuamos reservando recursos e cobramos até que o provedor de serviços conclua o desprovisionamento do circuito e nos notifique.
-* Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **não provisionado**), você poderá excluir o circuito. Isto interrompe a faturação do circuito.
+* Deve desassociar a todas as redes virtuais do circuito ExpressRoute para esta operação seja bem-sucedida. Verifique se tem quaisquer redes virtuais que estão ligadas ao circuito se esta operação falhar.
+* Se for o fornecedor de serviços de circuito do ExpressRoute estado de aprovisionamento **aprovisionamento** ou **aprovisionado** deve trabalhar com o fornecedor de serviços para desaprovisionar o circuito no seu lado. Continuamos a reservar recursos e a faturação é que o fornecedor de serviços seja concluída o circuito de desaprovisionamento e notifica-nos.
+* Se o fornecedor de serviços tiver desaprovisionado o circuito (fornecedor de serviços de estado de aprovisionamento está definido como **não aprovisionado**), em seguida, pode eliminar o circuito. Isto interrompe a faturação do circuito.
 
-#### <a name="delete-a-circuit"></a>Excluir um circuito
+#### <a name="delete-a-circuit"></a>Eliminar um circuito
 
-Você pode excluir o circuito do ExpressRoute executando o seguinte comando:
+Pode eliminar o seu circuito do ExpressRoute, executando o seguinte comando:
 
 ```powershell
 Remove-AzureDedicatedCircuit -ServiceKey "*********************************"

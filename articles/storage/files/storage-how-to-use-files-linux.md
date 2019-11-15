@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 70673dc7d42a0c7d9b60f3c3f877c1985dac3c98
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 238afdf9e50eaccba51d996ce6e9cfd06ea36899
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73097801"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091986"
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar os Ficheiros do Azure com o Linux
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas maneiras de montar um compartilhamento de arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada no `/etc/fstab`.
@@ -24,9 +24,9 @@ A maneira recomendada para montar um compartilhamento de arquivos do Azure no Li
 | Ubuntu | 14.04 + | 16.04 + |
 | Red Hat Enterprise Linux (RHEL) | 7 + | 7.5 + |
 | CentOS | 7 + |  7.5 + |
-| Debian | 8 + | mais de 10 |
+| Debian | 8 + | 10+ |
 | openSUSE | 13.2 + | 42.3 + |
-| Servidor Linux Empresarial SUSE | mais de 12 | 12 SP3 + |
+| SUSE Linux Enterprise Server | mais de 12 | 12 SP3 + |
 
 Se você estiver usando uma distribuição do Linux não listada na tabela acima, poderá verificar se sua distribuição do Linux dá suporte ao SMB 3,0 com criptografia verificando a versão do kernel do Linux. O SMB 3,0 com criptografia foi adicionado ao kernel do Linux versão 4,11. O comando `uname` retornará a versão do kernel do Linux em uso:
 
@@ -53,7 +53,7 @@ uname -r
     sudo dnf install cifs-utils
     ```
 
-    Em versões mais antigas do **Red Hat Enterprise Linux** e do **CentOS**, use o gerenciador de pacotes do `dnf`:
+    Em versões mais antigas do **Red Hat Enterprise Linux** e do **CentOS**, use o gerenciador de pacotes do `yum`:
 
     ```bash
     sudo yum install cifs-utils 
@@ -173,7 +173,7 @@ Quando terminar de usar o compartilhamento de arquivos do Azure, você poderá u
     sudo chmod 600 $smbCredentialFile
     ```
 
-1. **Use o comando a seguir para acrescentar a seguinte linha a `/etc/fstab`** : no exemplo abaixo, as permissões de pasta e arquivo Linux local padrão 0755, que significa ler, gravar e executar para o proprietário (com base no proprietário do Linux de arquivo/diretório), ler e Execute para usuários no grupo proprietário e leia e execute para outras pessoas no sistema. Você pode usar as opções de montagem `uid` e `gid` para definir a ID de usuário e a ID de grupo para a montagem. Você também pode usar `dir_mode` e `file_mode` para definir permissões personalizadas conforme desejado. Para obter mais informações sobre como definir permissões, consulte [notação numérica do UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) na Wikipédia.
+1. **Use o comando a seguir para acrescentar a seguinte linha a `/etc/fstab`** : no exemplo abaixo, as permissões de pasta e arquivo Linux local padrão 0755, que significa leitura, gravação e execução para o proprietário (com base no proprietário do Linux de arquivo/diretório), leitura e execução para usuários no grupo proprietário e leitura e execução para outras pessoas no sistema. Você pode usar as opções de montagem `uid` e `gid` para definir a ID de usuário e a ID de grupo para a montagem. Você também pode usar `dir_mode` e `file_mode` para definir permissões personalizadas conforme desejado. Para obter mais informações sobre como definir permissões, consulte [notação numérica do UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) na Wikipédia.
 
     ```bash
     httpEndpoint=$(az storage account show \
@@ -281,6 +281,6 @@ O grupo de arquivos do Azure para usuários do Linux fornece um fórum para voc�
 ## <a name="next-steps"></a>Passos seguintes
 Veja estas ligações para obter mais informações sobre os Ficheiros do Azure:
 
-* [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
+* [Planning for an Azure Files deployment](storage-files-planning.md) (Planear uma implementação de Ficheiros do Azure)
 * [FAQ](../storage-files-faq.md)
 * [Resolução de problemas](storage-troubleshoot-linux-file-connection-problems.md)

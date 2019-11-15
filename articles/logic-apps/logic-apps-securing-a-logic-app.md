@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 57bea93fd03dc19caa1ce29a34a40bc3cff06209
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: c9dfc4ed6fce186fea9474222875a072edb32f59
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039063"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084732"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados no aplicativo lógico do Azure
 
@@ -659,7 +659,7 @@ Se a opção de [certificado de cliente](../active-directory/authentication/acti
 | Propriedade (Designer) | Propriedade (JSON) | Necessário | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | **Certificado do cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a ser usado para certificados de cliente protocolo SSL (SSL). Embora haja suporte para certificados autoassinados, não há suporte para certificados autoassinados para SSL. |
-| **Pfx** | `pfx` | Sim | <*Encoded-pfx-File-content*> | O conteúdo codificado em Base64 de um arquivo de troca de informações pessoais (PFX) |
+| **Pfx** | `pfx` | Sim | <*Encoded-pfx-File-content*> | O conteúdo codificado em Base64 de um arquivo de troca de informações pessoais (PFX) <p><p>Para converter o arquivo PFX em formato codificado em base64, você pode usar o PowerShell seguindo estas etapas: <p>1. Salve o conteúdo do certificado em uma variável: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. converta o conteúdo do certificado usando a função `ToBase64String()` e salve esse conteúdo em um arquivo de texto: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Palavra-passe** | `password`| Consulte a descrição | <*password-for-pfx-file*> | A senha para acessar o arquivo PFX. <p><p>**Observação**: esse valor de propriedade é necessário quando você trabalha no designer de aplicativo lógico e *não* é necessário quando trabalha no modo de exibição de código. |
 |||||
 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: bfb44a44967c474da319c574307c7c289b28648e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 294fd39bfa78219df4bb0134aa744dd7515ff0f2
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807815"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092155"
 ---
 # <a name="azure-sql-database-features"></a>Recursos do banco de dados SQL do Azure
 
@@ -108,7 +108,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | Autenticação do Windows | Não | Não |
 | [Clustering de failover do Windows Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Não. Outras técnicas que fornecem [alta disponibilidade](sql-database-high-availability.md) estão incluídas em todos os bancos de dados. A recuperação de desastre é discutida em [visão geral da continuidade dos negócios com o banco de dados SQL](sql-database-business-continuity.md) | Não. Outras técnicas que fornecem [alta disponibilidade](sql-database-high-availability.md) estão incluídas em todos os bancos de dados. A recuperação de desastre é discutida em [visão geral da continuidade dos negócios com o banco de dados SQL](sql-database-business-continuity.md) |
 
-## <a name="platform-capabilities"></a>Recursos da plataforma
+## <a name="platform-capabilities"></a>Capacidades da plataforma
 
 A plataforma Azure fornece vários recursos de PaaS que são adicionados como um valor adicional aos recursos de banco de dados padrão. Há vários serviços externos que podem ser usados com o serviço de banco de dados SQL do Azure. 
 
@@ -124,7 +124,7 @@ A plataforma Azure fornece vários recursos de PaaS que são adicionados como um
 | Retenção da cópia de segurança | Sim. padrão de 7 dias, no máximo 35 dias. | Sim. padrão de 7 dias, no máximo 35 dias. |
 | [Serviço de migração de dados (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Sim | Sim |
 | Acesso ao sistema de arquivos | Não. Use [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) ou [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) para acessar e carregar dados do armazenamento de BLOBs do Azure como uma alternativa. | Não. Use [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) ou [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) para acessar e carregar dados do armazenamento de BLOBs do Azure como uma alternativa. |
-| [Restauração geográfica](sql-database-recovery-using-backups.md#geo-restore) | Sim-todas as camadas de serviço que não sejam de hiperescala | Sim-usando [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
+| [Restauração geográfica](sql-database-recovery-using-backups.md#geo-restore) | Sim-todas as camadas de serviço que não sejam de hiperescala | Sim-todas as camadas de serviço que não sejam de hiperescala |
 | [Arquitetura de hiperescala](sql-database-service-tier-hyperscale.md) | Sim | Não |
 | [Retenção de backup de longo prazo-EPD](sql-database-long-term-retention.md) | Sim, mantenha backups feitos automaticamente até 10 anos. | Ainda não. Use `COPY_ONLY` [backups manuais](sql-database-managed-instance-transact-sql-information.md#backup) como uma solução alternativa temporária. |
 | Pausar/retomar | Sim, em [modelo sem servidor](sql-database-serverless.md) | Não | 
@@ -171,7 +171,7 @@ Você pode usar diferentes métodos de migração para mover seus dados entre SQ
 | **Origem** | **Banco de dados individual e pool elástico** | **Instância Gerenciada e pools de instância** |
 | --- | --- | --- |
 | SQL Server (local, AzureVM, Amazon RDS) | **Online:** [serviço de migração de dados (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [replicação transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Offline:** [arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Online:** [serviço de migração de dados (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [replicação transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Offline:** Backup/restauração nativos, [arquivo BACPAC (importação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](sql-database-managed-instance-transactional-replication.md) |
-| Base de dados individual | **Offline:** [arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Offline:** [arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp |
+| Base de dados única | **Offline:** [arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Offline:** [arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp |
 | Instância Gerida | **Online:** [replicação transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Offline:** [arquivo BACPAC (importar)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](sql-database-managed-instance-transactional-replication.md) | **Online:** [replicação transacional](sql-database-managed-instance-transactional-replication.md) <br/> **Offline:** Restauração pontual de instância cruzada ([Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase?#examples) ou [CLI do Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Cross-instance-point-in-time-restore-in-Azure-SQL-Database/ba-p/386208)), [backup/restauração nativo](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore), [arquivo BACPAC (importação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](sql-database-managed-instance-transactional-replication.md) |
 
 ## <a name="next-steps"></a>Passos seguintes

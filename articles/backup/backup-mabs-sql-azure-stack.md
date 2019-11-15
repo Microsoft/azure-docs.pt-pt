@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: dacurwin
-ms.openlocfilehash: 28d4ad1a94cea6f21d1fe75483357d8788524b88
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 397de7d1de9acc657fa0fd0cb93bd6e26e5606e2
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747217"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090897"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Fazer backup de SQL Server em Azure Stack
 
@@ -156,7 +156,7 @@ As etapas a seguir são necessárias para recuperar uma entidade protegida (SQL 
 
     Depois que a recuperação for concluída, o banco de dados restaurado será consistente com o aplicativo.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o artigo [arquivos e aplicativos de backup](backup-mabs-files-applications-azure-stack.md) .
 Consulte o artigo [fazer backup do SharePoint no Azure Stack](backup-mabs-sharepoint-azure-stack.md) .

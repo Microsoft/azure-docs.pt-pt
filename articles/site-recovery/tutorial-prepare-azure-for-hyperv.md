@@ -1,21 +1,21 @@
 ---
-title: Preparar os recursos do Azure para a recuperação após desastre de máquinas no local
+title: Preparar o Azure para a recuperação de desastres do Hyper-V com o Azure Site Recovery
 description: Saiba como preparar o Azure para a recuperação de desastre de VMs do Hyper-V locais usando Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6064c32e14ffba7edd51c2dae7787067d14e33c9
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ef623b95e104b485c6bfc8b2f489afeca436d81e
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814345"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084180"
 ---
-# <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparar os recursos do Azure para a recuperação após desastre de máquinas no local
+# <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Preparar recursos do Azure para recuperação de desastres do Hyper-V
 
  [Azure site Recovery](site-recovery-overview.md) ajuda a BCDR (continuidade dos negócios e recuperação de desastre) mantendo os aplicativos de negócios em execução durante interrupções planejadas e não planejadas. O Site Recovery gere e orquestra a recuperação após desastre de computadores no local e máquinas virtuais (VMs) do Azure, incluindo replicação, ativação pós-falha e recuperação.
 
@@ -103,7 +103,7 @@ Saiba mais sobre:
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Preparar a infraestrutura local do Hyper-V para recuperação de desastres no Azure](hyper-v-prepare-on-premises-tutorial.md)

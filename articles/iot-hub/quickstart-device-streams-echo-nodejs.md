@@ -1,5 +1,5 @@
 ---
-title: Comunicar-se com um aplicativo de dispositivo no node. js por meio de fluxos de dispositivo do Hub IoT (visualização) | Microsoft Docs
+title: Comunicar-se com o aplicativo de dispositivo no node. js com fluxos de dispositivo do Hub IoT do Azure
 description: Neste guia de início rápido, você executará um aplicativo do lado do serviço node. js que se comunica com um dispositivo IoT por meio de um fluxo de dispositivo.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 4acfe148e424d41308e310abd2a10e4e21133799
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 538e04d7ae4f6528c26762a8efac06d02b4f86bc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900848"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083738"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Início rápido: comunicar-se com um aplicativo de dispositivo no node. js por meio de fluxos de dispositivo do Hub IoT (versão prévia)
 
@@ -44,7 +44,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Atualmente, a visualização dos fluxos de dispositivo só tem suporte para hubs IoT criados nas seguintes regiões:
 
-  * Centro dos E.U.A.
+  * EUA Central
   * EUA Central EUAP
   * Europa do Norte
   * Sudeste Asiático
@@ -69,13 +69,13 @@ Se ainda não o fez, transfira o projeto Node.js de exemplo do https://github.co
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-Se concluiu o anterior [Guia de Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md), pode ignorar este passo.
+Se concluiu o anterior [Guia de Início Rápido: enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md), pode ignorar este passo.
 
 [!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
-Se concluiu o anterior [Guia de Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md), pode ignorar este passo.
+Se concluiu o anterior [Guia de Início Rápido: enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md), pode ignorar este passo.
 
 É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Neste início rápido, vai utilizar o Azure Cloud Shell para registar um dispositivo simulado.
 
@@ -155,7 +155,7 @@ Em seguida, você pode encerrar o programa pressionando Enter novamente.
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você configura um hub IoT, registrou um dispositivo, estabeleceu um fluxo de dispositivo entre aplicativos no lado do dispositivo e do serviço e usou o fluxo para enviar dados entre os aplicativos.
 

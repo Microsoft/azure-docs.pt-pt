@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 90b7d79cd2a0e215af17856796bcdda2fbabb43f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 00805d6284c166d0ec03b9fe88482377a9488314
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693634"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084856"
 ---
 # <a name="process-change-feed-in-azure-blob-storage-preview"></a>Processar feed de alterações no armazenamento de BLOBs do Azure (visualização)
 
@@ -26,7 +26,7 @@ Para saber mais sobre o feed de alterações, consulte [alterar feed no armazena
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>Obter a biblioteca do processador do feed de alterações de BLOB
 
-1. No Visual Studio, adicione a URL `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` às suas fontes de pacote NuGet. 
+1. No Visual Studio, adicione a URL `https://azuresdkartifacts.blob.core.windows.net/azuresdkpartnerdrops/index.json` às suas fontes de pacote NuGet. 
 
    Para saber como, consulte [origens do pacote](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
 

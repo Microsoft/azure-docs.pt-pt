@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 7cfe0cf291e8c39a4600234632090c39ab5cd78e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa6a2fd853673493c93dbe65f889468c8e0c8617
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73519322"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082938"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformação do coletor para um fluxo de dados
 
@@ -28,7 +28,7 @@ Para coletar todos os campos de entrada, ative o **mapa automático**. Para esco
 ## <a name="output"></a>Saída 
 Para o armazenamento de BLOBs do Azure ou Data Lake Storage tipos de coletor, gere os dados transformados em uma pasta. O Spark gera arquivos de dados de saída particionados com base no esquema de particionamento usado pela transformação do coletor. 
 
-Você pode definir o esquema de particionamento na guia **otimizar** . Se desejar que Data Factory mescle a saída em um único arquivo, selecione **partição única**.
+Você pode definir o esquema de particionamento na guia **otimizar** . Se desejar que Data Factory mescle a saída em um único arquivo, selecione **partição única**. Se você quiser manter ou criar pastas particionadas, use o **particionamento de chave** e defina as chaves que deseja usar para estruturas de pastas particionadas.
 
 ![Opções na guia otimizar](media/data-flow/opt001.png "opções de coletor")
 

@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: 9427b72faf36106602cb59dc271d72402453e81e
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 66edbc872fe5f1d4320107aa21ed2792bdd4fecc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821418"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083896"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Análise de Mídia na plataforma de serviços de mídia 
 
@@ -33,12 +33,8 @@ ms.locfileid: "72821418"
 |---|---|
 |[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)| 1º de janeiro de 2020|Esse processador de mídia será substituído pelos [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Para obter mais informações, consulte [migrar do Azure Media indexer 2 para os serviços de mídia do Azure Video indexer](migrate-indexer-v1-v2.md).|
 |[Azure Media Indexer](media-services-index-content.md)|1º de outubro de 2020|Esse processador de mídia será substituído pelos [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Para obter mais informações, consulte [migrar do Azure Media indexer para os serviços de mídia do Azure Video indexer](migrate-indexer-v1-v2.md)
-|[Azure Media Face Detector](media-services-face-and-emotion-detection.md)|1º de fevereiro de 2020|Esse Análise de Mídia processador de visualização será desativado e não será movido para a disponibilidade geral. Nós iremos avaliar seus cenários e casos de uso com os clientes para futuros investimentos.|
-|[Azure Media Motion Detector](media-services-motion-detection.md)|1º de fevereiro de 2020|Esse Análise de Mídia processador de visualização será desativado e não será movido para a disponibilidade geral. Nós iremos avaliar seus cenários e casos de uso com os clientes para futuros investimentos.|
-|[OCR de mídia do Azure](media-services-video-optical-character-recognition.md)|1º de fevereiro de 2020|Esse processador de mídia será substituído pelos [serviços de mídia do azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) e a [Predefinição do analisador de vídeo da API dos serviços de mídia do Azure v3](../latest/analyzing-video-audio-files-concept.md).|
-|[Azure Media Video Thumbnails](media-services-video-summarization.md)|1º de fevereiro de 2020|Esse processador de mídia será substituído pelos [serviços de mídia do azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) e a [Predefinição do analisador de vídeo da API dos serviços de mídia do Azure v3](../latest/analyzing-video-audio-files-concept.md).|
-
-## <a name="overview"></a>Visão geral
+ 
+## <a name="overview"></a>Descrição geral
 
 Mais organizações estão usando vídeos como o meio preferido para treinar seus funcionários, envolver seus clientes e documentar funções de negócios. A computação em nuvem fornece uma maneira de armazenar, transmitir e acessar esses arquivos de mídia grandes. Mas, à medida que a biblioteca de conteúdo de vídeo de uma empresa cresce, ela precisa de um meio igualmente eficaz de extrair informações do conteúdo. 
 
@@ -80,7 +76,7 @@ Esta seção lista os processadores de mídia Análise de Mídia e mostra como u
 
 ### <a name="mp-names"></a>Nomes de MP
 * Versão prévia do Azure Media Indexer 2
-* Indexador de Multimédia do Azure
+* Azure Media Indexer
 * Azure Media Face Detector
 * Azure Media Motion Detector
 * Azure Media Video Thumbnails

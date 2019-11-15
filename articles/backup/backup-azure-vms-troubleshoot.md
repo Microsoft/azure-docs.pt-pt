@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 78de85cede228f4b1c6ff01388fd7a08f78aa74f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 0be9973aed1aaf5074c3b61d6249b95e8fd45a64
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747183"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090911"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
@@ -50,7 +50,7 @@ Mensagem de erro: a cópia dos dados de backup do cofre atingiu o tempo limite
 
 Isso pode ocorrer devido a erros de armazenamento transitórios ou IOPS de conta de armazenamento insuficiente para o serviço de backup transferir dados para o cofre dentro do período de tempo limite. Configure o backup de VM usando essas [práticas recomendadas](backup-azure-vms-introduction.md#best-practices) e repita a operação de backup.
 
-## <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState-a VM não está em um estado que permita backups.
+## <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState-a VM não está em um estado que permita backups
 
 Código de erro: UserErrorVmNotInDesirableState <br/>
 Mensagem de erro: a VM não está em um estado que permita backups.<br/>
@@ -161,7 +161,7 @@ A operação de instantâneo falhou porque o limite de instantâneos foi excedid
   * Verifique se o valor de **isanysnapshotfailed** está definido como false em/etc/Azure/VMBackup.conf
   * Agendar Azure Site Recovery em um momento diferente, de modo que ele não entra em conflito com a operação de backup.
 
-## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>Falha na operação ExtensionFailedTimeoutVMNetworkUnresponsive-snapshot devido a recursos inadequados da VM.
+## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>Falha na operação ExtensionFailedTimeoutVMNetworkUnresponsive-snapshot devido a recursos inadequados da VM
 
 Código de erro: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
 Mensagem de erro: falha na operação de instantâneo devido a recursos de VM inadequados.
@@ -187,7 +187,7 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 
 | Detalhes do erro | Solução |
 | ------ | --- |
-| **Código de erro**: 320001, ResourceNotFound <br/> **Mensagem de erro**: não foi possível executar a operação porque a VM não existe mais. <br/> <br/> **Código de erro**: 400094, BCMV2VMNotFound <br/> **Mensagem de erro**: a máquina virtual não existe <br/> <br/>  Uma máquina virtual do Azure não foi encontrada.  |Esse erro ocorre quando a VM primária é excluída, mas a política de backup ainda procura por uma VM para fazer backup. Para corrigir esse erro, execute as seguintes etapas: <ol><li> Recriar a máquina virtual com o mesmo nome e o mesmo nome do grupo de recursos, **nome do serviço de nuvem**,<br>**or**</li><li> Interrompa a proteção da máquina virtual com ou sem excluir os dados de backup. Para obter mais informações, consulte [parar de proteger máquinas virtuais](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
+| **Código de erro**: 320001, ResourceNotFound <br/> **Mensagem de erro**: não foi possível executar a operação porque a VM não existe mais. <br/> <br/> **Código de erro**: 400094, BCMV2VMNotFound <br/> **Mensagem de erro**: a máquina virtual não existe <br/> <br/>  Uma máquina virtual do Azure não foi encontrada.  |Esse erro ocorre quando a VM primária é excluída, mas a política de backup ainda procura por uma VM para fazer backup. Para corrigir esse erro, execute as seguintes etapas: <ol><li> Recriar a máquina virtual com o mesmo nome e o mesmo nome do grupo de recursos, **nome do serviço de nuvem**,<br>**ou**</li><li> Interrompa a proteção da máquina virtual com ou sem excluir os dados de backup. Para obter mais informações, consulte [parar de proteger máquinas virtuais](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
 | **Código de erro**: UserErrorVmProvisioningStateFailed<br/> **Mensagem de erro**: a VM está em estado de provisionamento com falha: <br>Reinicie a VM e verifique se a VM está em execução ou desligada. | Esse erro ocorre quando uma das falhas de extensão coloca a VM no estado de provisionamento com falha. Vá para a lista de extensões, verifique se há uma extensão com falha, remova-a e tente reiniciar a máquina virtual. Se todas as extensões estiverem em estado de execução, verifique se o serviço do agente de VM está em execução. Caso contrário, reinicie o serviço do agente de VM. |
 |**Código de erro**: UserErrorBCMPremiumStorageQuotaError<br/> **Mensagem de erro**: não foi possível copiar o instantâneo da máquina virtual devido a espaço livre insuficiente na conta de armazenamento | Para VMs Premium na pilha de backup da VM v1, copiamos o instantâneo para a conta de armazenamento. Essa etapa garante que o tráfego de gerenciamento de backup, que funciona no instantâneo, não limite o número de IOPS disponíveis para o aplicativo usando discos Premium. <br><br>É recomendável que você aloque apenas 50%, 17,5 TB, do espaço total da conta de armazenamento. Em seguida, o serviço de backup do Azure pode copiar o instantâneo para a conta de armazenamento e transferir dados desse local copiado na conta de armazenamento para o cofre. |
 | **Código de erro**: 380008, AzureVmOffline <br/> **Mensagem de erro**: falha ao instalar a extensão dos serviços de recuperação da Microsoft porque a máquina virtual não está em execução | O agente de VM é um pré-requisito para a extensão dos serviços de recuperação do Azure. Instale o agente de máquina virtual do Azure e reinicie a operação de registro. <br> <ol> <li>Verifique se o agente de VM está instalado corretamente. <li>Verifique se o sinalizador na configuração da VM está definido corretamente.</ol> Leia mais sobre como instalar o agente de VM e como validar a instalação do agente de VM. |
@@ -202,7 +202,7 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 | Detalhes do erro | Solução |
 | --- | --- |
 | O cancelamento não tem suporte para este tipo de trabalho: <br>Aguarde até que o trabalho seja concluído. |Nenhum |
-| O trabalho não está em um estado cancelável: <br>Aguarde até que o trabalho seja concluído. <br>**or**<br> O trabalho selecionado não está em um estado cancelável: <br>Aguarde a conclusão do trabalho. |É provável que o trabalho esteja quase concluído. Aguarde até que o trabalho seja concluído.|
+| O trabalho não está em um estado cancelável: <br>Aguarde até que o trabalho seja concluído. <br>**ou**<br> O trabalho selecionado não está em um estado cancelável: <br>Aguarde a conclusão do trabalho. |É provável que o trabalho esteja quase concluído. Aguarde até que o trabalho seja concluído.|
 | O backup não pode cancelar o trabalho porque ele não está em andamento: <br>O cancelamento tem suporte apenas para trabalhos em andamento. Tente cancelar um trabalho em andamento. |Esse erro ocorre devido a um estado transitório. Aguarde um minuto e repita a operação de cancelamento. |
 | O backup falhou ao cancelar o trabalho: <br>Aguarde até que o trabalho seja concluído. |Nenhum |
 

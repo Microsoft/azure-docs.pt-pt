@@ -12,13 +12,13 @@ author: dalechen
 manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
-ms.date: 06/14/2019
-ms.openlocfilehash: a943ade4bfc46083fe84274640d979928357a492
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: c25fa3f378c1e5a0f8bc26e4fb8c6f4ec752b43c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826800"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082498"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabalhando com problemas de conexão do banco de dados SQL e erros transitórios
 
@@ -30,7 +30,7 @@ Este artigo descreve como evitar, solucionar problemas, diagnosticar e atenuar e
 
 Um erro transitório, também conhecido como uma falha transitória, tem uma causa subjacente que é resolvida em breve. Uma causa ocasional de erros transitórios é quando o sistema do Azure muda rapidamente os recursos de hardware para melhor balancear a carga de várias cargas de trabalho. A maioria desses eventos de reconfiguração termina em menos de 60 segundos. Durante esse período de reconfiguração, você pode ter problemas de conectividade com o banco de dados SQL. Os aplicativos que se conectam ao banco de dados SQL devem ser criados para esperar esses erros transitórios. Para tratá-los, implemente a lógica de repetição em seu código em vez de identificando-los a usuários como erros de aplicativo.
 
-Se seu programa cliente usar ADO.NET, seu programa será informado sobre o erro transitório pelo lançamento de **SqlException**. Compare a propriedade **Number** com a lista de erros transitórios encontrados na parte superior do artigo [códigos de erro do SQL para aplicativos cliente do banco de dados SQL](sql-database-develop-error-messages.md).
+Se seu programa cliente usar ADO.NET, seu programa será informado sobre o erro transitório pelo lançamento de **SqlException**. 
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -90,7 +90,7 @@ Para testar sua lógica de repetição, você deve simular ou causar um erro que
 
 Uma maneira de testar sua lógica de repetição é desconectar o computador cliente da rede enquanto o programa está em execução. O erro é:
 
-- **SqlException. Number** = 11001
+- **SqlException.Number** = 11001
 - Mensagem: "nenhum host desse tipo é conhecido"
 
 Como parte da primeira tentativa de repetição, você pode reconectar o computador cliente à rede e, em seguida, tentar se conectar.
@@ -108,7 +108,7 @@ Para tornar esse teste prático, desconecte o computador da rede antes de inicia
 
 Seu programa pode intencionalmente errar o nome de usuário antes da primeira tentativa de conexão. O erro é:
 
-- **SqlException. Number** = 18456
+- **SqlException.Number** = 18456
 - Mensagem: "falha de logon para o usuário ' WRONG_MyUserName '."
 
 Como parte da primeira tentativa de repetição, o programa pode corrigir o erro de ortografia e, em seguida, tentar se conectar.

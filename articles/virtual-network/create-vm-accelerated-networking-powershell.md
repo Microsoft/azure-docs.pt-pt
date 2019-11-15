@@ -1,5 +1,5 @@
 ---
-title: Criar uma máquina virtual do Azure com rede acelerada | Microsoft Docs
+title: Criar uma VM do Azure com rede acelerada-Azure PowerShell
 description: Saiba como criar uma máquina virtual Linux com rede acelerada.
 services: virtual-network
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: f8f4f55f2c2aa4a0f9cce08e10c9f12f81a54dba
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 16837782af2f08e27363091dc21587a100194cd8
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678001"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083706"
 ---
-# <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual do Windows com rede acelerada
+# <a name="create-a-windows-virtual-machine-with-accelerated-networking-using-azure-powershell"></a>Criar uma máquina virtual do Windows com rede acelerada usando o Azure PowerShell
 
 Neste tutorial, você aprenderá a criar uma VM (máquina virtual) do Windows com rede acelerada. Para criar uma VM do Linux com rede acelerada, consulte [criar uma VM do Linux com rede acelerada](create-vm-accelerated-networking-cli.md). A rede acelerada habilita o SR-IOV (virtualização de e/s de raiz única) para uma VM, melhorando muito seu desempenho de rede. Esse caminho de alto desempenho ignora o host do caminho de DataPath, reduzindo a latência, a tremulação e a utilização da CPU para uso com as cargas de trabalho de rede mais exigentes em tipos de VM com suporte. A figura a seguir mostra a comunicação entre duas VMs com e sem rede acelerada:
 
@@ -65,7 +65,7 @@ As máquinas virtuais (clássicas) não podem ser implantadas com rede acelerada
 ## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>Criar uma VM do Windows com a rede acelerada do Azure
 ## <a name="portal-creation"></a>Criação do portal
 Embora este artigo forneça etapas para criar uma máquina virtual com rede acelerada usando o Azure PowerShell, você também pode [criar uma máquina virtual com rede acelerada usando o portal do Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ao criar uma máquina virtual no portal, na folha **criar uma máquina virtual** , escolha a guia **rede** .  Nessa guia, há uma opção para **rede acelerada**.  Se você tiver escolhido um [sistema operacional com suporte](#supported-operating-systems) e um [tamanho de VM](#supported-vm-instances), essa opção será preenchida automaticamente como "ativada".  Caso contrário, ele preencherá a opção "desativado" para rede acelerada e dará ao usuário um motivo pelo qual ele não está habilitado.   
-* *Nota:* Somente sistemas operacionais com suporte podem ser habilitados por meio do Portal.  Se você estiver usando uma imagem personalizada e sua imagem der suporte à rede acelerada, crie sua VM usando a CLI ou o PowerShell. 
+* *Observação:* Somente sistemas operacionais com suporte podem ser habilitados por meio do Portal.  Se você estiver usando uma imagem personalizada e sua imagem der suporte à rede acelerada, crie sua VM usando a CLI ou o PowerShell. 
 
 Depois que a máquina virtual for criada, você poderá confirmar se a rede acelerada está habilitada seguindo as instruções em confirmar se a rede acelerada está habilitada.
 
@@ -216,7 +216,7 @@ Depois de criar a VM no Azure, conecte-se à VM e confirme se o driver está ins
 3. Insira o nome de usuário e a senha que você inseriu em [criar a máquina virtual](#create-the-virtual-machine). Se você nunca se conectou a uma VM do Windows no Azure, consulte [conectar-se à máquina virtual](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 4. Clique com o botão direito do mouse no botão Iniciar do Windows e clique em **Device Manager**. Expanda o nó **adaptadores de rede** . Confirme se o **adaptador Ethernet de função virtual Mellanox ConnectX-3** aparece, conforme mostrado na figura a seguir:
 
-    ![Gestor de Dispositivos](./media/create-vm-accelerated-networking/device-manager.png)
+    ![Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
 
 A rede acelerada agora está habilitada para sua VM.
 

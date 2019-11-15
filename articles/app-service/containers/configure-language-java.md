@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 8f6fb9737d3d8dad93a95f31d566f7cc4706ded3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e63d8f03b26c9039fe4093cf15b13522dbb49af9
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886055"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081475"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Linux para o serviço Azure App
 
@@ -45,7 +45,7 @@ Relatórios de desempenho, visualizações de tráfego e verificação de integr
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-### <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
+### <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
@@ -239,9 +239,9 @@ Primeiro, siga as instruções para [conceder acesso ao aplicativo para Key Vaul
 
 Para injetar esses segredos em seu arquivo de configuração Spring ou Tomcat, use a sintaxe de injeção de variável de ambiente (`${MY_ENV_VAR}`). Para arquivos de configuração do Spring, consulte esta documentação sobre [configurações externas](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
-## <a name="using-the-java-key-store"></a>Usando o repositório de chaves Java
+### <a name="using-the-java-key-store"></a>Usando o repositório de chaves Java
 
-Por padrão, todos os certificados públicos ou privados [carregados no serviço de aplicativo Linux](../configure-ssl-certificate.md) serão carregados no repositório de chaves Java à medida que o contêiner for iniciado. Isso significa que os certificados carregados estarão disponíveis no contexto de conexão ao fazer conexões TLS de saída.
+Por padrão, todos os certificados públicos ou privados [carregados no serviço de aplicativo Linux](../configure-ssl-certificate.md) serão carregados no repositório de chaves Java à medida que o contêiner for iniciado. Isso significa que os certificados carregados estarão disponíveis no contexto de conexão ao fazer conexões TLS de saída. Depois de carregar seu certificado, você precisará reiniciar o serviço de aplicativo para que ele seja carregado no repositório de chaves Java.
 
 Você pode interagir ou depurar a ferramenta de chave do Java [abrindo uma conexão SSH](app-service-linux-ssh-support.md) para o serviço de aplicativo e executando o comando `keytool`. Consulte a [documentação da ferramenta de chave](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) para obter uma lista de comandos. Os certificados são armazenados no local do arquivo de keystore padrão do Java, `$JAVA_HOME/jre/lib/security/cacerts`.
 
@@ -251,7 +251,7 @@ A configuração adicional pode ser necessária para criptografar sua conexão J
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 
-### <a name="manually-initialize-and-load-the-key-store"></a>Inicializar e carregar manualmente o repositório de chaves
+#### <a name="manually-initialize-and-load-the-key-store"></a>Inicializar e carregar manualmente o repositório de chaves
 
 Você pode inicializar o repositório de chaves e adicionar certificados manualmente. Crie uma configuração de aplicativo, `SKIP_JAVA_KEYSTORE_LOAD`, com um valor de `1` para desabilitar o serviço de aplicativo de carregar os certificados no repositório de chaves automaticamente. Todos os certificados públicos carregados no serviço de aplicativo por meio do portal do Azure são armazenados em `/var/ssl/certs/`. Os certificados privados são armazenados em `/var/ssl/private/`.
 
@@ -314,9 +314,9 @@ Essas instruções se aplicam a todas as conexões de banco de dados. Você prec
 
 | Base de Dados   | Nome da classe do driver                             | JDBC Driver                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [Transferência](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Transferir](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Baixar](https://dev.mysql.com/downloads/connector/j/) (selecione "plataforma independente") |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Transferência](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Transferir](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 
 Para configurar o Tomcat para usar Java Database Connectivity (JDBC) ou a API de persistência Java (JPA), primeiro Personalize a variável de ambiente `CATALINA_OPTS` que é lida no pelo Tomcat na inicialização. Defina esses valores por meio de uma configuração de aplicativo no [plug-in Maven do serviço de aplicativo](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
@@ -579,7 +579,7 @@ As etapas a seguir explicam os requisitos para conectar seu serviço de aplicati
 
 6. Use o CLI do Azure para adicionar configurações ao serviço de aplicativo que contêm suas informações de conexão de banco de dados. Substitua `<resource group>` e `<webapp name>` pelos valores que seu serviço de aplicativo usa. Substitua `<database server name>`, `<database name>`, `<admin name>`e `<admin password>` pelas informações de conexão do banco de dados. Você pode obter as informações do serviço de aplicativo e do banco de dados do portal do Azure.
 
-    **PostgreSQL**
+    **PostgreSQL:**
 
     ```bash
     az webapp config appsettings set \
@@ -591,7 +591,7 @@ As etapas a seguir explicam os requisitos para conectar seu serviço de aplicati
             DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
     ```
 
-    **MySQL**
+    **MySQL:**
 
     ```bash
     az webapp config appsettings set \

@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: dapine
-ms.openlocfilehash: fc4b9469d8634cbb46eccb842c9795a155384eb7
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 2b6118930626ce753060addcf64c568c7c086efb
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961929"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091235"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte para contentores nos serviços cognitivos do Azure
 
@@ -38,10 +38,12 @@ Os recursos de serviços cognitivas estão disponíveis em [Microsoft Azure](htt
 
 ## <a name="features-and-benefits"></a>Funcionalidades e benefícios
 
+- **Infraestrutura imutável**: habilite as equipes do DevOps para aproveitar um conjunto consistente e confiável de parâmetros de sistema conhecidos, além de ser capaz de se adaptar a alterações. Os contêineres fornecem a flexibilidade para dinamizar em um ecossistema previsível e evitar descompassos de configuração.
 - **Controlo sobre os dados**: permitir aos clientes escolherem onde estes serviços cognitivos processa os dados. Isto é essencial para os clientes que não é possível enviar dados para a cloud, mas precisam de acesso à tecnologia de serviços cognitivos. Suporte a consistência em ambientes híbridos – entre dados, gerenciamento, identidade e segurança.
 - **Controle sobre atualizações do modelo**: fornecer aos clientes flexibilidade no controlo de versões e a atualização dos modelos implementados em suas soluções.
 - **Arquitetura portátil**: Ativar a criação de uma arquitetura de aplicativos portáteis que pode ser implementada no Azure, no local e o limite. Contentores podem ser implementados diretamente à [serviço Kubernetes do Azure](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml), ou uma [Kubernetes](https://kubernetes.io/) cluster implementado para [Azure Pilha](/azure-stack/operator). Para obter mais informações, consulte [implementar o Kubernetes no Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
-- **Alto débito / baixa latência**: fornecer aos clientes a capacidade de dimensionar para um débito elevado e requisitos de baixa latência, permitindo que os serviços cognitivos executar fisicamente perto dos seus dados e lógica do aplicativo. Os contentores não limite de transações por segundo (TPS) e podem ser feitos para aumentar verticalmente e horizontalmente para lidar com a pedido, se fornecer os recursos de hardware necessários. 
+- **Alto débito / baixa latência**: fornecer aos clientes a capacidade de dimensionar para um débito elevado e requisitos de baixa latência, permitindo que os serviços cognitivos executar fisicamente perto dos seus dados e lógica do aplicativo. Os contentores não limite de transações por segundo (TPS) e podem ser feitos para aumentar verticalmente e horizontalmente para lidar com a pedido, se fornecer os recursos de hardware necessários.
+- **Escalabilidade**: com a popularidade cada vez maior de contêineres e software de orquestração de contêiner, como kubernetes; a escalabilidade está no Forefront de avanços tecnológicos. Criando uma base de cluster escalonável, o desenvolvimento de aplicativos atende à alta disponibilidade.
 
 ## <a name="containers-in-azure-cognitive-services"></a>Contentores nos serviços cognitivos do Azure
 

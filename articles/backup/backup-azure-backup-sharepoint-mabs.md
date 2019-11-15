@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: dacurwin
-ms.openlocfilehash: a9a72a9b9df18462c1a4dfe470c7c7393cf356d4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a7a1b088868add308f128c5a51d8cce4339c637c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074291"
+ms.locfileid: "74091727"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Fazer backup de um farm do SharePoint no Azure com o MABS
 
@@ -239,7 +239,7 @@ No exemplo a seguir, a *recuperação do item do SharePoint* foi acidentalmente 
     ![Protection13 SharePoint do MABS](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Neste ponto, siga as etapas de recuperação anteriores neste artigo para recuperar um banco de dados de conteúdo do SharePoint do disco.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o artigo [fazer backup do Exchange Server](backup-azure-exchange-mabs.md) .
 Consulte o artigo [fazer backup de SQL Server](backup-azure-sql-mabs.md) .

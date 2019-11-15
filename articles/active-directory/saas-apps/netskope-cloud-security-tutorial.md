@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o Netskope Cloud Security | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Netskope Cloud Security.
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o Netskope Console do Administrador | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Netskope Console do Administrador.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,22 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2019
+ms.date: 10/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e33d05450e19331d876029b07d520634a40ab31
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: dec8f8065114b89dfa7bcaceee3f26855953dde2
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884454"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081815"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-cloud-security"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Netskope Cloud Security
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-administrator-console"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Netskope Console do Administrador
 
-Neste tutorial, você aprenderá a integrar o Netskope Cloud Security ao Azure Active Directory (Azure AD). Ao integrar o Netskope Cloud Security ao Azure AD, você pode:
+Neste tutorial, você aprenderá a integrar o Netskope Console do Administrador ao Azure Active Directory (Azure AD). Ao integrar o Netskope Console do Administrador ao Azure AD, você pode:
 
-* Controle no Azure AD quem tem acesso ao Netskope Cloud Security.
-* Habilite seus usuários a serem conectados automaticamente ao Netskope Cloud Security com suas contas do Azure AD.
+* Controle no Azure AD quem tem acesso ao Netskope Console do Administrador.
+* Habilite seus usuários a serem conectados automaticamente ao Netskope Console do Administrador com suas contas do Azure AD.
 * Gerencie suas contas em um local central-o portal do Azure.
 
 Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -38,43 +38,43 @@ Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consult
 Para começar, você precisa dos seguintes itens:
 
 * Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
-* Assinatura habilitada para SSO (logon único) do Netskope Cloud Security.
+* Netskope Console do Administrador assinatura habilitada para SSO (logon único).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O Netskope Cloud Security dá suporte a **SP** iniciado pelo
+* Netskope Console do Administrador dá suporte ao **SP e** ao SSO iniciado pelo IDP
 
-## <a name="adding-netskope-cloud-security-from-the-gallery"></a>Adicionando o Netskope Cloud Security da Galeria
+## <a name="adding-netskope-administrator-console-from-the-gallery"></a>Adicionar o Netskope Console do Administrador da Galeria
 
-Para configurar a integração do Netskope Cloud Security ao Azure AD, você precisará adicionar o Netskope Cloud Security da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do Netskope Console do Administrador ao Azure AD, você precisará adicionar o Netskope Console do Administrador da Galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
 1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
 1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
-1. Na seção **Adicionar da Galeria** , digite **Netskope Cloud Security** na caixa de pesquisa.
-1. Selecione **Netskope Cloud Security** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Na seção **Adicionar da Galeria** , digite **Netskope console do administrador** na caixa de pesquisa.
+1. Selecione **Netskope console do administrador** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-netskope-cloud-security"></a>Configurar e testar o logon único do Azure AD para o Netskope Cloud Security
+## <a name="configure-and-test-azure-ad-single-sign-on-for-netskope-administrator-console"></a>Configurar e testar o logon único do Azure AD para Netskope Console do Administrador
 
-Configure e teste o SSO do Azure AD com o Netskope Cloud Security usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Netskope Cloud Security.
+Configure e teste o SSO do Azure AD com o Netskope Console do Administrador usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Netskope Console do Administrador.
 
-Para configurar e testar o SSO do Azure AD com o Netskope Cloud Security, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Netskope Console do Administrador, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
     * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-1. **[Configurar o SSO do Netskope Cloud Security](#configure-netskope-cloud-security-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    * **[Criar usuário de teste do Netskope Cloud Security](#create-netskope-cloud-security-test-user)** – para ter um equivalente de B. Simon no Netskope Cloud Security que esteja vinculado à representação do usuário no Azure AD.
+1. **[Configurar o Netskope console do administrador SSO](#configure-netskope-administrator-console-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    * **[Criar usuário de teste do Netskope console do administrador](#create-netskope-administrator-console-test-user)** – para ter um equivalente de B. Simon em Netskope console do administrador que esteja vinculado à representação do usuário no Azure AD.
 1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Netskope Cloud Security** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Netskope console do administrador** , localize a seção **gerenciar** e selecione **logon único**.
 1. Na página **selecionar um método de logon único** , selecione **SAML**.
 1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
@@ -86,55 +86,58 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://<tenant_host_name>/saml/acs`
 
+    > [!NOTE]
+    > Esses valores não são reais. Atualize esses valores com o identificador e a URL de resposta reais. Você receberá esses valores explicados posteriormente no tutorial.
+
 1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
     Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<tenantname>.goskope.com`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta e a URL de logon reais. Contate a [equipe de suporte ao cliente do Netskope Cloud Security](mailto:support@netskope.com) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > Os valores da URL de logon não são reais. Atualize o valor da URL de logon com a URL de logon real. Contate a [equipe de suporte ao cliente do Netskope console do administrador](mailto:support@netskope.com) para obter o valor da URL de logon. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-1. O aplicativo Netskope Cloud Security espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+1. Netskope Console do Administrador aplicativo espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
     ![image](common/default-attributes.png)
 
-1. Além de acima, o aplicativo Netskope Cloud Security espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seus requisitos.
+1. Além de acima, Netskope Console do Administrador aplicativo espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seus requisitos.
 
     | Nome |  Atributo de origem|
     | ---------| --------- |
-    | função de administrador | User. assignedroles |
+    | função de administrador | user.assignedroles |
 
     > [!NOTE]
     > Clique [aqui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) para saber como criar funções no Azure AD.
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download do certificado](common/certificatebase64.png)
+    ![O link de download de certificado](common/certificatebase64.png)
 
-1. Na seção **Configurar segurança de nuvem do Netskope** , copie as URLs apropriadas com base em seu requisito.
+1. Na seção **configurar console do administrador do Netskope** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo usuário** na parte superior da tela.
+1. Selecione **novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao Netskope Cloud Security.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao Netskope Console do Administrador.
 
 1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicativos, selecione **Netskope Cloud Security**.
+1. Na lista de aplicativos, selecione **Netskope console do administrador**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![O link "usuários e grupos"](common/users-groups-blade.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -144,19 +147,81 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-## <a name="configure-netskope-cloud-security-sso"></a>Configurar SSO do Netskope Cloud Security
+## <a name="configure-netskope-administrator-console-sso"></a>Configurar o SSO Console do Administrador Netskope
 
-Para configurar o logon único no lado do **Netskope Cloud Security** , é necessário enviar o **certificado (Base64)** baixado e as URLs copiadas apropriadas de portal do Azure para a [equipe de suporte do Netskope Cloud Security](mailto:support@netskope.com). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
+1. Abra uma nova guia no navegador e entre no site da empresa do Netskope Console do Administrador como um administrador.
 
-### <a name="create-netskope-cloud-security-test-user"></a>Criar usuário de teste do Netskope Cloud Security
+1. Clique na guia **configurações** no painel de navegação à esquerda.
 
-Nesta seção, você criará um usuário chamado B. Simon no Netskope Cloud Security. Trabalhe com a [equipe de suporte do Netskope Cloud Security](mailto:support@netskope.com) para adicionar os usuários na plataforma de segurança de nuvem do Netskope. Os usuários devem ser criados e ativados antes de usar o logon único.
+    ![Configuração de Console do Administrador de Netskope](./media/netskope-cloud-security-tutorial/config-settings.png)
+
+1. Clique na guia **Administração** .
+
+    ![Configuração de Console do Administrador de Netskope](./media/netskope-cloud-security-tutorial/config-administration.png)
+
+1. Clique na guia **SSO** .
+
+    ![Configuração de Console do Administrador de Netskope](./media/netskope-cloud-security-tutorial/config-sso.png)
+
+1. Na seção **configurações de rede** , execute as seguintes etapas:
+    
+    ![Configuração de Console do Administrador de Netskope](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
+
+    a. Copie o valor da **URL do serviço do consumidor de asserção** e cole-o na caixa de texto URL de **resposta** na seção **configuração básica do SAML** no portal do Azure.
+
+    b. Copie o valor da **ID da entidade do provedor de serviços** e cole-o na caixa de texto **identificador** na seção de **configuração básica do SAML** no portal do Azure.
+
+1. Clique em **Editar configurações** na seção **configurações de SSO/SLO** .
+
+    ![Configuração de Console do Administrador de Netskope](./media/netskope-cloud-security-tutorial/config-editsettings.png)
+
+1. Na janela pop-up **configurações** , execute as seguintes etapas:
+
+    ![Configuração de Console do Administrador de Netskope](./media/netskope-cloud-security-tutorial/configuration.png)
+
+    a. Selecione **habilitar SSO**.
+
+    b. Na caixa de texto **URL do IDP** , Cole o valor da **URL de logon** copiado do portal do Azure.
+
+    c. Na caixa de texto **ID da entidade do IDP** , Cole o valor do identificador do **Azure ad** copiado do portal do Azure.
+
+    d. Abra seu certificado codificado em base64 baixado no bloco de notas, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **certificado IDP** .
+
+    e. Selecione **habilitar SSO**.
+
+    f. Na caixa de texto **URL do SLO do IDP** , Cole o valor da URL de **logout** copiado do portal do Azure.
+
+    g. Clique em **Enviar**.
+
+### <a name="create-netskope-administrator-console-test-user"></a>Criar Netskope Console do Administrador usuário de teste
+
+1. Abra uma nova guia no navegador e entre no site da empresa do Netskope Console do Administrador como um administrador.
+
+1. Clique na guia **configurações** no painel de navegação à esquerda.
+
+    ![Netskope Console do Administrador criação de usuário](./media/netskope-cloud-security-tutorial/config-settings.png)
+
+1. Clique na guia **plataforma ativa** .
+
+    ![Netskope Console do Administrador criação de usuário](./media/netskope-cloud-security-tutorial/user1.png)
+
+1. Clique na guia **usuários** .
+
+    ![Netskope Console do Administrador criação de usuário](./media/netskope-cloud-security-tutorial/add-user.png)
+
+1. Clique em **Adicionar usuários**.
+
+    ![Netskope Console do Administrador criação de usuário](./media/netskope-cloud-security-tutorial/user-add.png)
+
+1. Insira o endereço de email do usuário que você deseja adicionar e clique em **Adicionar**.
+
+    ![Netskope Console do Administrador criação de usuário](./media/netskope-cloud-security-tutorial/add-user-popup.png)
 
 ## <a name="test-sso"></a>Testar SSO
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Ao clicar no bloco Netskope Cloud Security no painel de acesso, você deverá entrar automaticamente no Netskope Cloud Security para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco Netskope Console do Administrador no painel de acesso, você deverá entrar automaticamente no Console do Administrador de Netskope para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -166,4 +231,4 @@ Ao clicar no bloco Netskope Cloud Security no painel de acesso, você deverá en
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente o Netskope Cloud Security com o Azure AD](https://aad.portal.azure.com/)
+- [Experimente o Netskope Console do Administrador com o Azure AD](https://aad.portal.azure.com/)

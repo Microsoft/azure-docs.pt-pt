@@ -10,22 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6324c00d9b85a13ef6e69185e3b380b20f761f3b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 137ab722df280d17fe5ccc5c07acfd323feb6531
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552964"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091212"
 ---
-# <a name="speech-to-text-rest-api"></a>API REST de conversão de fala em texto
+# <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
 Como alternativa ao SDK de [fala](speech-sdk.md), os serviços de fala permitem que você converta a fala em texto usando uma API REST. Cada ponto de final de acesso está associado uma região. Seu aplicativo requer uma chave de subscrição para o ponto final que pretende utilizar.
 
 Antes de usar a API REST de fala em texto, entenda:
-* As solicitações que usam a API REST podem conter apenas 10 segundos de áudio gravado.
+
+* As solicitações que usam a API REST e transmitem áudio diretamente podem conter até 60 segundos de áudio.
 * A API de REST de voz em texto devolve apenas os resultados finais. Resultados parciais não são fornecidos.
 
-Se enviar áudio mais tempo é um requisito para a sua aplicação, considere utilizar o [SDK de voz](speech-sdk.md) ou [transcrição do batch](batch-transcription.md).
+Se o envio de áudio mais longo for um requisito para seu aplicativo, considere usar o [SDK de fala](speech-sdk.md) ou uma API REST baseada em arquivo, como a [transcrição do lote](batch-transcription.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -33,7 +34,7 @@ Se enviar áudio mais tempo é um requisito para a sua aplicação, considere ut
 
 Estas regiões são suportadas para transcrição de voz em texto com a API REST. Certifique-se de que seleciona o ponto final que corresponde à sua região de subscrição.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)] 
 
 ## <a name="query-parameters"></a>Parâmetros de consulta
 
@@ -43,7 +44,7 @@ Esses parâmetros podem ser incluídos na cadeia de consulta da solicitação RE
 |-----------|-------------|---------------------|
 | `language` | Identifica o idioma falado que está a ser reconhecido. Ver [idiomas suportados](language-support.md#speech-to-text). | Necessário |
 | `format` | Especifica o formato de resultado. Aceite os valores são `simple` e `detailed`. Os resultados da simples incluem `RecognitionStatus`, `DisplayText`, `Offset`, e `Duration`. Respostas detalhadas incluem vários resultados com valores de confiança e quatro diferentes representações. A predefinição é `simple`. | Opcional |
-| `profanity` | Especifica como lidar com linguagem inapropriada nos resultados de reconhecimento. Aceite os valores são `masked`, que substitui a linguagem inapropriada por asteriscos, `removed`, linguagem inapropriada todos os que remover o resultado ou `raw`, que inclui a linguagem inapropriada no resultado. A predefinição é `masked`. | Opcional |
+| `profanity` | Especifica como lidar com linguagem inapropriada nos resultados de reconhecimento. Os valores aceitos são `masked`, que substitui a profanação por asteriscos, `removed`, que remove toda a profanação do resultado, ou `raw`, que inclui a profanação no resultado. A predefinição é `masked`. | Opcional |
 
 ## <a name="request-headers"></a>Cabeçalhos do pedido
 
@@ -56,7 +57,7 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para pedidos de voz e
 | `Content-type` | Descreve o formato e o codec de dados de áudio fornecidos. Aceite os valores são `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Necessário |
 | `Transfer-Encoding` | Especifica que os dados em segmentos de áudio são enviados, em vez de um único arquivo. Utilize este cabeçalho apenas se a segmentação de dados de áudio. | Opcional |
 | `Expect` | Se utilizar a transferência em partes, enviar `Expect: 100-continue`. Os serviços de fala reconhecem a solicitação inicial e aguardam dados adicionais.| Necessário se o envio de dados de áudio em partes. |
-| `Accept` | Se for fornecido, tem de ser `application/json`. Os serviços de fala fornecem resultados em JSON. Algumas estruturas de solicitação da Web, forneça um valor incompatível predefinido se não especificar um, portanto, é recomendável sempre incluir `Accept`. | Opcional mas recomendado. |
+| `Accept` | Se for fornecido, tem de ser `application/json`. Os serviços de fala fornecem resultados em JSON. Algumas estruturas de solicitação fornecem um valor padrão incompatível. É uma boa prática sempre incluir `Accept`. | Opcional mas recomendado. |
 
 ## <a name="audio-formats"></a>Formatos de áudio
 
@@ -72,7 +73,7 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para pedidos de voz e
 
 ## <a name="sample-request"></a>Pedido de exemplo
 
-Este é um pedido HTTP comuns. O exemplo abaixo inclui o nome de anfitrião e cabeçalhos necessários. É importante observar que o serviço espera também os dados de áudio, o que não estão incluídos neste exemplo. Como mencionado anteriormente, segmentação recomenda, no entanto, não é necessário.
+O exemplo abaixo inclui o nome de anfitrião e cabeçalhos necessários. É importante observar que o serviço espera também os dados de áudio, o que não estão incluídos neste exemplo. Como mencionado anteriormente, segmentação recomenda, no entanto, não é necessário.
 
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
@@ -92,13 +93,13 @@ O código de estado HTTP para cada resposta indica o êxito ou erros comuns.
 |------------------|-------------|-----------------|
 | 100 | Continuar | O pedido inicial foi aceite. Continue com a enviar o resto dos dados. (Utilizado com a transferência em partes). |
 | 200 | OK | O pedido foi concluída com êxito; o corpo da resposta é um objeto JSON. |
-| 400 | Pedido incorreto | Código de idioma fornecido ou não é um idioma suportado; arquivo de áudio inválido. |
+| 400 | Pedido incorreto | Código de idioma não fornecido, não um idioma com suporte, arquivo de áudio inválido, etc. |
 | 401 | Não autorizado | Chave de subscrição ou autorização token é inválido na região especificada ou ponto final inválido. |
 | 403 | Proibido | Chave de subscrição ou autorização em falta token. |
 
 ## <a name="chunked-transfer"></a>Transferência em partes
 
-A transferência em partes`Transfer-Encoding: chunked`() pode ajudar a reduzir a latência de reconhecimento porque permite que os serviços de fala comecem a processar o arquivo de áudio enquanto ele está sendo transmitido. A API REST não fornece resultados parciais ou provisórias. Esta opção destina-se exclusivamente para melhorar a capacidade de resposta.
+A transferência em partes (`Transfer-Encoding: chunked`) pode ajudar a reduzir a latência de reconhecimento. Ele permite que os serviços de fala comecem a processar o arquivo de áudio enquanto eles são transmitidos. A API REST não fornece resultados parciais ou provisórias.
 
 Este exemplo de código mostra como enviar áudio em blocos. Apenas o primeiro segmento deve conter cabeçalho do arquivo de áudio. `request` está ligado um objeto HTTPWebRequest para o ponto final REST adequado. `audioFile` é o caminho para um arquivo de áudio no disco.
 
@@ -146,7 +147,7 @@ Os resultados são fornecidos como JSON. O `simple` formato inclui estes campos 
 | Parâmetro | Descrição  |
 |-----------|--------------|
 |`RecognitionStatus`|Estado, tais como `Success` para reconhecimento bem-sucedido. Consulte a tabela seguinte.|
-|`DisplayText`|O texto reconhecido depois de capitalização, pontuação, normalização do texto inversa (conversão de texto falado forms mais curto, por exemplo, 200 para "duzentos" ou "Dr. Smith"para"doutor smith") e a máscara de linguagem inapropriada. Apresentar apenas com êxito.|
+|`DisplayText`|O texto reconhecido após a capitalização, a pontuação, a normalização inversa de texto (conversão de texto falado em formas mais curtas, como 200 para "200" ou "Dr. Smith" para "médico Smith") e mascaramento de profanação. Apresentar apenas com êxito.|
 |`Offset`|O tempo (em unidades de 100 nanossegundos), no qual a voz reconhecido começa no fluxo de áudio.|
 |`Duration`|A duração (em unidades de 100 nanossegundos) do voz reconhecido no fluxo de áudio.|
 
@@ -163,7 +164,7 @@ O `RecognitionStatus` campo pode conter estes valores:
 > [!NOTE]
 > Se o áudio consiste apenas em linguagem inapropriada e o `profanity` parâmetro de consulta está definido como `remove`, o serviço não devolve um resultado de conversão de voz.
 
-O `detailed` formato inclui os mesmos dados que o `simple` formato, juntamente com `NBest`, uma lista de interpretações alternativas do mesmo resultado de reconhecimento. Esses resultados são classificados da maior probabilidade de menos provável. A primeira entrada é igual ao resultado do reconhecimento principal.  Ao utilizar o `detailed` formato, `DisplayText` é fornecido como `Display` para cada resultado no `NBest` lista.
+O formato de `detailed` inclui os mesmos dados que o formato de `simple`, juntamente com `NBest`, uma lista de interpretações alternativas do mesmo resultado de reconhecimento. Esses resultados são classificados da maior probabilidade de menos provável. A primeira entrada é igual ao resultado do reconhecimento principal.  Ao utilizar o `detailed` formato, `DisplayText` é fornecido como `Display` para cada resultado no `NBest` lista.
 
 Cada objeto no `NBest` lista inclui:
 
@@ -177,7 +178,7 @@ Cada objeto no `NBest` lista inclui:
 
 ## <a name="sample-responses"></a>Respostas de exemplo
 
-Esta é uma resposta típica para `simple` reconhecimento.
+Uma resposta típica para o reconhecimento de `simple`:
 
 ```json
 {
@@ -188,7 +189,7 @@ Esta é uma resposta típica para `simple` reconhecimento.
 }
 ```
 
-Esta é uma resposta típica para `detailed` reconhecimento.
+Uma resposta típica para o reconhecimento de `detailed`:
 
 ```json
 {
@@ -214,7 +215,7 @@ Esta é uma resposta típica para `detailed` reconhecimento.
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)

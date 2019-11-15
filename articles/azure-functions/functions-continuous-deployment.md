@@ -1,21 +1,19 @@
 ---
-title: Implantação contínua para Azure Functions | Microsoft Docs
+title: Implementação contínua para Funções do Azure
 description: Use os recursos de implantação contínua do serviço de Azure App para publicar suas funções.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/25/2016
+ms.date: 09/25/2019
 ms.author: glenga
-ms.openlocfilehash: fb3cd885c0a16b3dc3a79150043b25cb271040bd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: dae75153cffbf2f0e836e1a28b78a9f05f54e6e0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097104"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091185"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementação contínua para Funções do Azure
 
@@ -35,11 +33,14 @@ Para que a implantação contínua seja realizada com sucesso, sua estrutura de 
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
+>[!NOTE]  
+> A implantação contínua ainda não tem suporte para aplicativos do Linux em execução em um plano de consumo. 
+
 ## <a name="credentials"></a>Configurar a implantação contínua
 
 Para configurar a implantação contínua para um aplicativo de funções existente, conclua estas etapas. As etapas demonstram a integração com um repositório GitHub, mas etapas semelhantes se aplicam para Azure Repos ou outros repositórios de código-fonte.
 
-1. Em seu aplicativo de funções no [portal do Azure](https://portal.azure.com), selecione**centro de implantação**de **recursos** > de plataforma.
+1. Em seu aplicativo de funções no [portal do Azure](https://portal.azure.com), selecione **recursos de plataforma** > **centro de implantação**.
 
     ![Abrir o centro de implantação](./media/functions-continuous-deployment/platform-features.png)
 
@@ -55,8 +56,8 @@ Para configurar a implantação contínua para um aplicativo de funções existe
 
 4. Selecione um dos seguintes provedores de compilação:
 
-    * **Serviço de compilação do serviço de aplicativo**: Melhor quando você não precisa de uma compilação ou se precisa de uma compilação genérica.
-    * **Azure pipelines (versão prévia)** : Melhor quando você precisa de mais controle sobre a compilação. Este provedor está em visualização no momento.
+    * **Serviço de compilação do serviço de aplicativo**: melhor quando você não precisa de uma compilação ou se precisa de uma compilação genérica.
+    * **Azure pipelines (visualização)** : melhor quando você precisa de mais controle sobre a compilação. Este provedor está em visualização no momento.
 
     ![Selecionar um provedor de compilação](./media/functions-continuous-deployment/build.png)
 
@@ -78,7 +79,7 @@ Quando o processo for concluído, todo o código da origem especificada será im
 
 Se você já escreveu funções no [portal do Azure](https://portal.azure.com) e deseja baixar o conteúdo do seu aplicativo antes de alternar para a implantação contínua, vá para a guia **visão geral** do seu aplicativo de funções. Selecione o botão **baixar conteúdo do aplicativo** .
 
-![Transferir conteúdo da aplicação](./media/functions-continuous-deployment/download.png)
+![Baixar o conteúdo do aplicativo](./media/functions-continuous-deployment/download.png)
 
 > [!NOTE]
 > Depois de configurar a integração contínua, você não poderá mais editar seus arquivos de origem no portal do functions.

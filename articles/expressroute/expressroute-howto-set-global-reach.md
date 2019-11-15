@@ -1,23 +1,22 @@
 ---
-title: 'Configurar o Alcance Global-ExpressRoute: Azure | Microsoft Docs'
-description: Este artigo ajuda você a vincular circuitos do ExpressRoute juntos para fazer uma rede privada entre suas redes locais e habilitar o Alcance Global.
+title: 'Azure ExpressRoute: configurar Alcance Global'
+description: Este artigo ajuda-o a ligar os circuitos do ExpressRoute em conjunto para garantir uma privada, de rede entre as redes no local e ativar o alcance Global.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 64abf820a502db0ee0033ce52ed148bae6b8ffc2
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 76de7a8854a58deb924cbbe3177ad5a7b5fd57a2
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748182"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083470"
 ---
 # <a name="configure-expressroute-global-reach"></a>Configurar o Alcance Global do ExpressRoute
 
-Este artigo ajuda você a configurar o ExpressRoute Alcance Global usando o PowerShell. Para obter mais informações, consulte [ExpressRouteRoute alcance global](expressroute-global-reach.md).
+Este artigo ajuda-o a configurar o ExpressRoute alcance Global com o PowerShell. Para obter mais informações, consulte [alcance Global do ExpressRouteRoute](expressroute-global-reach.md).
 
  ## <a name="before-you-begin"></a>Antes de começar
 
@@ -28,7 +27,7 @@ Antes de iniciar a configuração, confirme o seguinte:
 * O emparelhamento privado do Azure é configurado em seus circuitos do ExpressRoute.
 * Se você quiser executar o PowerShell localmente, verifique se a versão mais recente do Azure PowerShell está instalada em seu computador.
 
-### <a name="working-with-azure-powershell"></a>Trabalhando com Azure PowerShell
+### <a name="working-with-azure-powershell"></a>Trabalhar com o Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
@@ -50,7 +49,7 @@ Habilite a conectividade entre suas redes locais. Há conjuntos separados de ins
 
 ### <a name="expressroute-circuits-in-the-same-azure-subscription"></a>Circuitos do ExpressRoute na mesma assinatura do Azure
 
-1. Use os comandos a seguir para obter o circuito 1 e o circuito 2. Os dois circuitos estão na mesma assinatura.
+1. Utilize os seguintes comandos para obter o circuito 1 e 2 do circuito. Dois circuitos estão na mesma subscrição.
 
    ```azurepowershell-interactive
    $ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
@@ -76,7 +75,7 @@ Habilite a conectividade entre suas redes locais. Há conjuntos separados de ins
 
 Quando a operação anterior for concluída, você terá conectividade entre suas redes locais em ambos os lados através dos dois circuitos do ExpressRoute.
 
-### <a name="expressroute-circuits-in-different-azure-subscriptions"></a>Circuitos do ExpressRoute em diferentes assinaturas do Azure
+### <a name="expressroute-circuits-in-different-azure-subscriptions"></a>Circuitos do ExpressRoute em diferentes subscrições do Azure
 
 Se os dois circuitos não estiverem na mesma assinatura do Azure, você precisará de autorização. Na configuração a seguir, a autorização é gerada na assinatura do circuito 2 e a chave de autorização é passada para o circuito 1.
 
@@ -89,7 +88,7 @@ Se os dois circuitos não estiverem na mesma assinatura do Azure, você precisar
    ```
 
    Anote a ID de emparelhamento privado do circuito 2, bem como a chave de autorização.
-2. Execute o comando a seguir no circuito 1. Passe a ID de emparelhamento privado do circuito 2 e a chave de autorização.
+2. Execute o seguinte comando na circuito 1. Passe a ID de emparelhamento privado do circuito 2 e a chave de autorização.
 
    ```azurepowershell-interactive
    Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix '__.__.__.__/29' -AuthorizationKey '########-####-####-####-############'
@@ -121,11 +120,11 @@ Remove-AzExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -Expre
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 ```
 
-Você pode executar a operação get para verificar o status.
+Pode executar a operação Get para verificar o estado.
 
 Depois que a operação anterior for concluída, você não terá mais conectividade entre sua rede local por meio de circuitos do ExpressRoute.
 
 ## <a name="next-steps"></a>Passos seguintes
-1. [Saiba mais sobre o ExpressRoute Alcance Global](expressroute-global-reach.md)
+1. [Saiba mais sobre o alcance Global do ExpressRoute](expressroute-global-reach.md)
 2. [Verificar a conectividade do ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 3. [Vincular um circuito do ExpressRoute a uma rede virtual do Azure](expressroute-howto-linkvnet-arm.md)

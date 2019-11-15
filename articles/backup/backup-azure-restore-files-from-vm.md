@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 13481788bce22876fa13080d0be34db29e2a72cb
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 07ec5b76756b462e03e9349edd2daff96933588c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961588"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091637"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos do backup de máquina virtual do Azure
 
@@ -66,17 +66,13 @@ Para restaurar arquivos ou pastas do ponto de recuperação, acesse a máquina v
     Se você executar o script em um computador com acesso restrito, verifique se há acesso a:
 
     - download.microsoft.com
-    - URLs do serviço de recuperação (nome geográfico refere-se à região onde reside o cofre do serviço de recuperação)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (para áreas geográficas públicos do Azure)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (para o Azure China 21Vianet)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (para o governo dos EUA do Azure)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (para Azure Alemanha)
+    - As URLs do serviço de recuperação (nome geográfico refere-se à região em que reside o cofre do serviço de recuperação) - <https://pod01-rec2.geo-name.backup.windowsazure.com> (para o Azure Public áreas geográficas) - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (para Azure China 21Vianet) - <https://pod01-rec2.geo-name.backup.windowsazure.us> (para o governo dos EUA do Azure) - <https://pod01-rec2.geo-name.backup.windowsazure.de> (para Azure Alemanha)
     - porta de saída 3260
 
 > [!Note]
 >
-> - O nome do arquivo de script baixado terá o **nome geográfico** a ser preenchido na URL. Por exemplo: o nome do script baixado começa com \'VMname\'\_\'geoname\'_\'GUID\', como ContosoVM_wcus_12345678....<br><br>
-> - A URL seria "https:\//pod01-rec2.wcus.backup.windowsazure.com"
+> - O nome do arquivo de script baixado terá o **nome geográfico** a ser preenchido na URL. Por exemplo: o nome do script baixado começa com \'VMname\'\_\'geoname\'_\'GUID\', como ContosoVM_wcus_12345678
+> - A URL seria <https://pod01-rec2.wcus.backup.windowsazure.com>"
 
    Para o Linux, o script requer os componentes ' Open-iSCSI ' e ' lshw ' para se conectar ao ponto de recuperação. Se os componentes não existirem no computador em que o script é executado, o script solicitará permissão para instalar os componentes. Forneça consentimento para instalar os componentes necessários.
 
@@ -141,21 +137,21 @@ Para listar os nomes de grupos de volumes em um volume físico.
 
 ```bash
 #!/bin/bash
-$ pvs <volume name as shown above in the script output>
+pvs <volume name as shown above in the script output>
 ```
 
 Para listar todos os volumes lógicos, nomes e seus caminhos em um grupo de volumes.
 
 ```bash
 #!/bin/bash
-$ lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs command’s results>
 ```
 
 Para montar os volumes lógicos no caminho de sua escolha.
 
 ```bash
 #!/bin/bash
-$ mount <LV path> </mountpath>
+mount <LV path> </mountpath>
 ```
 
 #### <a name="for-raid-arrays"></a>Para matrizes RAID
@@ -164,7 +160,7 @@ O comando a seguir exibe detalhes sobre todos os discos RAID.
 
 ```bash
 #!/bin/bash
-$ mdadm –detail –scan
+mdadm –detail –scan
 ```
 
  O disco RAID relevante é exibido como `/dev/mdm/<RAID array name in the protected VM>`
@@ -173,7 +169,7 @@ Use o comando Mount se o disco RAID tiver volumes físicos.
 
 ```bash
 #!/bin/bash
-$ mount [RAID Disk Path] [/mountpath]
+mount [RAID Disk Path] [/mountpath]
 ```
 
 Se o disco RAID tiver outro LVM configurado, use o procedimento anterior para partições LVM, mas use o nome do volume no lugar do nome do disco RAID

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 09/04/2019
-ms.openlocfilehash: ebf63d14a8fb883158d1ac3e0a8f3d6658920aa7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: 0b8bfff03414dd02360cab1957ea2205e392235d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826645"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082469"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copiar uma cópia transacionalmente consistente de um banco de dados SQL do Azure
 
@@ -62,7 +62,7 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
 Para obter um script de exemplo completo, consulte [copiar um banco de dados para um novo servidor](scripts/sql-database-copy-database-to-new-server-powershell.md).
 
-A cópia do banco de dados é uma operação assíncrona, mas o banco de dados de destino é criado imediatamente depois que a solicitação é aceita. Se você precisar cancelar a operação de cópia enquanto ainda estiver em andamento, remova o banco de dados de destino usando o cmdlet [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) .  
+A cópia do banco de dados é uma operação assíncrona, mas o banco de dados de destino é criado imediatamente depois que a solicitação é aceita. Se você precisar cancelar a operação de cópia enquanto ainda estiver em andamento, descarte o banco de dados de destino usando o cmdlet [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) .  
 
 ## <a name="rbac-roles-to-manage-database-copy"></a>Funções de RBAC para gerenciar cópia de banco de dados
 
@@ -72,8 +72,8 @@ Para criar uma cópia de banco de dados, você precisará estar nas seguintes fu
 - SQL Server função colaborador ou
 - Função personalizada nos bancos de dados de origem e de destino com a seguinte permissão:
 
-   Microsoft. SQL/servidores/bancos de dados/leitura   
-   Microsoft. SQL/servidores/bancos de dados/gravação   
+   Microsoft.Sql/servers/databases/read   
+   Microsoft.Sql/servers/databases/write   
 
 Para cancelar uma cópia de banco de dados, você precisará estar nas seguintes funções
 
@@ -81,8 +81,8 @@ Para cancelar uma cópia de banco de dados, você precisará estar nas seguintes
 - SQL Server função colaborador ou
 - Função personalizada nos bancos de dados de origem e de destino com a seguinte permissão:
 
-   Microsoft. SQL/servidores/bancos de dados/leitura   
-   Microsoft. SQL/servidores/bancos de dados/gravação   
+   Microsoft.Sql/servers/databases/read   
+   Microsoft.Sql/servers/databases/write   
    
 Para gerenciar a cópia de banco de dados usando portal do Azure, você também precisará das seguintes permissões:
 
@@ -156,6 +156,26 @@ Depois que o novo banco de dados estiver online no servidor de destino, use a in
 Todos os usuários no novo banco de dados retêm as permissões que tinham no banco de dados de origem. O usuário que iniciou a cópia do banco de dados se torna o proprietário do novo banco de dados e recebe um novo SID (identificador de segurança). Depois que a cópia for realizada com sucesso e antes que outros usuários sejam remapeados, somente o logon que iniciou a cópia, o proprietário do banco de dados, poderá fazer logon no novo banco de dados.
 
 Para saber mais sobre como gerenciar usuários e logons ao copiar um banco de dados para um servidor de banco de dados SQL diferente, consulte [como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastres](sql-database-geo-replication-security-config.md).
+
+## <a name="database-copy-errors"></a>Erros de cópia do banco de dados
+
+Os erros a seguir podem ser encontrados ao copiar um banco de dados no banco de dados SQL do Azure. Para mais informações, consulte [Copiar uma Base de Dados SQL do Azure](sql-database-copy.md).
+
+| Código de erro | Gravidade | Descrição |
+| ---:| ---:|:--- |
+| 40635 |16 |Cliente com o endereço IP '%.&#x2a;ls' está temporariamente desativada. |
+| 40637 |16 |A cópia do banco de dados de criação está desabilitada no momento. |
+| 40561 |16 |Falha na cópia do banco de dados. O banco de dados de origem ou de destino não existe. |
+| 40562 |16 |Falha na cópia do banco de dados. O banco de dados de origem foi Descartado. |
+| 40563 |16 |Falha na cópia do banco de dados. O banco de dados de destino foi Descartado. |
+| 40564 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente. |
+| 40565 |16 |Falha na cópia do banco de dados. Não é permitida mais de uma cópia de banco de dados simultânea da mesma fonte. Remova o banco de dados de destino e tente novamente mais tarde. |
+| 40566 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente. |
+| 40567 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente. |
+| 40568 |16 |Falha na cópia do banco de dados. O banco de dados de origem tornou-se indisponível. Remova o banco de dados de destino e tente novamente. |
+| 40569 |16 |Falha na cópia do banco de dados. O banco de dados de destino tornou-se indisponível. Remova o banco de dados de destino e tente novamente. |
+| 40570 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente mais tarde. |
+| 40571 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente mais tarde. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,5 +1,5 @@
 ---
-title: Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos no Azure com Azure Site Recovery | Microsoft Docs
+title: Matriz de suporte para recuperação de desastres do VMware/físico no Azure Site Recovery
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9125c69f9d2f4d7289120f86059ffab3b7f9228a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b16b6bb8ad39f7f0a5f19a2e2d4280bb73def60a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961286"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082205"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -30,7 +30,7 @@ Recuperação de desastre de servidores físicos | Replicação de servidores f�
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualização locais
 
-**servidor** | **Requisitos** | **Detalhes**
+**Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
 vCenter Server | Versão 6,7, 6,5, 6,0 ou 5,5 | Recomendamos que você use um servidor vCenter em sua implantação de recuperação de desastre.
 hosts vSphere | Versão 6,7, 6,5, 6,0 ou 5,5 | Recomendamos que os hosts vSphere e os servidores vCenter estejam localizados na mesma rede que o servidor de processo. Por padrão, o servidor de processo é executado no servidor de configuração. [Saiba mais](vmware-physical-azure-config-process-server-overview.md).

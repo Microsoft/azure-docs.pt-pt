@@ -1,22 +1,22 @@
 ---
-title: Enviar eventos de armazenamento de BLOBs para o ponto final web - portal | Documentos da Microsoft
-description: Utilize o Azure Event Grid e o portal do Azure para criar a conta de armazenamento de Blobs e subscrever os respetivos eventos. Envie eventos para um Webhook.
+title: 'Início rápido: enviar eventos de armazenamento de BLOBs para o ponto de extremidade da Web-Portal'
+description: 'Início rápido: Use a grade de eventos do Azure e portal do Azure para criar a conta de armazenamento de BLOBs e assinar seus eventos. Envie os eventos para um webhook.'
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 07/11/2019
+ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: a11e04a92375f5b52849257124344673301739e5
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 9ecffc25461a909d47329d536d1c19724b3c22ac
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839158"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718066"
 ---
-# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Início rápido: Encaminhar eventos de armazenamento de BLOBs para o ponto final da web com o portal do Azure
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Início rápido: rotear eventos de armazenamento de BLOB para o ponto de extremidade da Web com o portal do Azure
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, irá utilizar o portal do Azure para criar uma conta de armazenamento de Blobs, subscrever eventos nesse armazenamento de blobs e acionar um evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 
@@ -102,7 +102,7 @@ Aciona um evento para o armazenamento de Blobs ao carregar um ficheiro. O fichei
 
 1. Navegue para o ficheiro de teste e carregue-o.
 
-1. Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configurou ao subscrever. A mensagem está no formato JSON e contém uma matriz com um ou mais eventos. No exemplo seguinte, a mensagem JSON contém uma matriz com um evento. Veja a sua aplicação Web e repare que foi recebido um evento criado por um blob. 
+1. Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configurou ao subscrever. A mensagem está no formato JSON e contém uma matriz com um ou mais eventos. No exemplo a seguir, a mensagem JSON contém uma matriz com um evento. Veja a sua aplicação Web e repare que foi recebido um evento criado por um blob. 
 
    ```json
    [{
@@ -136,7 +136,7 @@ Se quiser continuar a trabalhar com este evento, não limpe os recursos criados 
 
 Selecione o grupo de recursos e selecione **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe como criar tópicos personalizados e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

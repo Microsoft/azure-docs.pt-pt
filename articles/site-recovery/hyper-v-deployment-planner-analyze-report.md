@@ -1,5 +1,5 @@
 ---
-title: Analisar o relatório de Planejador de Implantações do Azure Site Recovery para recuperação de desastre de VMs do Hyper-V para o Azure | Microsoft Docs
+title: Analisar o relatório de Planejador de Implantações do Hyper-V no Azure Site Recovery
 description: Este artigo descreve como analisar um relatório gerado pelo Planejador de Implantações do Azure Site Recovery para recuperação de desastres de VMs do Hyper-V para o Azure.
 services: site-recovery
 author: mayurigupta13
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: aafeeb59446ac914bba25874f74871fc5f189498
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693593"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084950"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analisar o relatório de Planejador de Implantações do Azure Site Recovery
 Este artigo aborda as folhas do relatório do Excel que o Planeador de Implementações do Azure Site Recovery gera para um cenário de Hyper-V para o Azure.
@@ -179,7 +179,7 @@ O relatório do Excel gerado pelo Planeador de Implementações do Site Recovery
 
 **VM Name (Nome da VM)** : o nome da VM que é utilizado em VMListFile quando é gerado um relatório. Esta coluna também apresenta os discos (VHDs) que estão ligados às VMs. Os nomes incluem os nomes do anfitrião Hyper-V onde as VMs foram colocadas quando a ferramenta os detetou durante o período de criação de perfis.
 
-**VM Compatibility (Compatibilidade de VMs)** : os valores são **Yes (Sim)** e **Yes (Não)** \*. **Sim** \* é para instâncias nas quais a VM é uma opção para [SSDs Premium](../virtual-machines/windows/disks-types.md). Aqui, a elevada taxa de abandono da criação de perfis ou o disco IOPS encaixa num tamanho de disco premium superior ao tamanho mapeado para o disco. A conta de armazenamento decide para que tipo de disco de armazenamento premium mapear os discos com base no tamanho dos mesmos: 
+**VM Compatibility (Compatibilidade de VMs)** : os valores são **Yes (Sim)** e **Yes (Não)** \*. **Sim**\* é para instâncias nas quais a VM é uma opção para [SSDs Premium](../virtual-machines/windows/disks-types.md). Aqui, a elevada taxa de abandono da criação de perfis ou o disco IOPS encaixa num tamanho de disco premium superior ao tamanho mapeado para o disco. A conta de armazenamento decide para que tipo de disco de armazenamento premium mapear os discos com base no tamanho dos mesmos: 
 * < 128 GB é P10.
 * 128 GB a 256 GB é P15.
 * 256 GB a 512 GB é P20.

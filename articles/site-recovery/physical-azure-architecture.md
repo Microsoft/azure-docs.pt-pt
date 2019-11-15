@@ -1,18 +1,18 @@
 ---
-title: Arquitetura para recuperação de desastres do servidor físico no Azure usando Azure Site Recovery | Microsoft Docs
+title: Arquitetura de recuperação de desastres do servidor físico no Azure Site Recovery
 description: Este artigo fornece uma visão geral dos componentes e da arquitetura usados durante a recuperação de desastres de servidores físicos locais para o Azure com o serviço de Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: a5d3dfe6457c4b70f0b23c2d8aa7ac5e58e68dc7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 23e8e4f9a092e871e62da27c8bf0c58a3bb8eb5b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814466"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084691"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Servidor físico para arquitetura de recuperação de desastre do Azure
 
@@ -63,15 +63,15 @@ Depois que a replicação é configurada e você executa uma análise de recuper
 - Depois de disparar o failover inicial, você o confirma para começar a acessar a carga de trabalho da VM do Azure.
 - Quando o site no local primário estiver novamente disponível, pode fazer a reativação pós-falha.
 - Você precisa configurar uma infraestrutura de failback, incluindo:
-    - **Servidor de processo temporário no Azure**: Para fazer failback do Azure, você configura uma VM do Azure para atuar como um servidor de processo, para lidar com a replicação do Azure. É possível eliminar esta VM após a conclusão da reativação pós-falha.
-    - **Conexão VPN**: Para fazer failback, você precisa de uma conexão VPN (ou Azure ExpressRoute) da rede do Azure para o site local.
-    - **Servidor de destino mestre separado**: Por padrão, o servidor de destino mestre que foi instalado com o servidor de configuração, na VM do VMware local, lida com o failback. No entanto, se você precisar fazer failback de grandes volumes de tráfego, deverá configurar um servidor de destino mestre local separado para essa finalidade.
-    - **Política de failback**: Para replicar de volta para seu site local, você precisa de uma política de failback. Isso foi criado automaticamente quando você criou sua política de replicação do local para o Azure.
-    - **Infraestrutura do VMware**: Você precisa de uma infra-estrutura VMware para failback. Não pode efetuar a reativação pós-falha num servidor físico.
+    - **Servidor de processo temporário no Azure**: para fazer failback do Azure, você configura uma VM do Azure para atuar como um servidor de processo, para lidar com a replicação do Azure. É possível eliminar esta VM após a conclusão da reativação pós-falha.
+    - **Conexão VPN**: para fazer failback, você precisa de uma conexão VPN (ou Azure ExpressRoute) da rede do Azure para o site local.
+    - **Servidor de destino mestre separado**: por padrão, o servidor de destino mestre que foi instalado com o servidor de configuração, na VM do VMware local, lida com o failback. No entanto, se você precisar fazer failback de grandes volumes de tráfego, deverá configurar um servidor de destino mestre local separado para essa finalidade.
+    - **Política de reativação pós-falha**: para replicar de novo para o site no local, precisa de uma política de reativação pós-falha. Isso foi criado automaticamente quando você criou sua política de replicação do local para o Azure.
+    - **Infraestrutura do VMware**: você precisa de uma infraestrutura VMware para failback. Não pode efetuar a reativação pós-falha num servidor físico.
 - Depois que os componentes estiverem em vigor, o failback ocorrerá em três estágios:
-    - Estágio 1: Proteja novamente as VMs do Azure para que elas sejam replicadas do Azure de volta para as VMs do VMware locais.
-    - Estágio 2: Execute um failover para o site local.
-    - Estágio 3: Após o failback das cargas de trabalho, você reabilita a replicação.
+    - Estágio 1: proteger novamente as VMs do Azure para que elas sejam replicadas do Azure de volta para as VMs do VMware locais.
+    - Estágio 2: executar um failover para o site local.
+    - Estágio 3: após o failback das cargas de trabalho, você reabilitará a replicação.
 
 **Failback do VMware do Azure**
 

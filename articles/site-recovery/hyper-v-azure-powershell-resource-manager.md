@@ -1,5 +1,5 @@
 ---
-title: Configurar a recuperação de desastres para o Azure para VMs do Hyper-V usando o PowerShell e o Azure Resource Manager | Microsoft Docs
+title: Recuperação de desastre de VM Hyper-V usando Azure Site Recovery e PowerShell
 description: Automatize a recuperação de desastre de VMs do Hyper-V no Azure com o serviço de Azure Site Recovery usando o PowerShell e o Azure Resource Manager.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: sutalasi
-ms.openlocfilehash: 1779a33e4ac021c1807ce10dc224e0b8c8c53ebb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73f5f64a64ab28cdb4b57d0904911f62c2020cf0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200530"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082682"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar a recuperação de desastres para o Azure para VMs do Hyper-V usando o PowerShell e Azure Resource Manager
 
@@ -45,11 +45,11 @@ Além disso, o exemplo específico descrito neste artigo tem os seguintes pré-r
 * Um host Hyper-V executando o Windows Server 2012 R2 ou Microsoft Hyper-V Server 2012 R2 contendo uma ou mais VMs. Os servidores Hyper-V devem estar conectados à Internet, seja diretamente ou por meio de um proxy.
 * As VMs que você deseja replicar devem estar em conformidade com [esses pré-requisitos](hyper-v-azure-support-matrix.md#replicated-vms).
 
-## <a name="step-1-sign-in-to-your-azure-account"></a>Passo 1: Inicie sessão na sua conta do Azure
+## <a name="step-1-sign-in-to-your-azure-account"></a>Etapa 1: entrar em sua conta do Azure
 
 1. Abra um console do PowerShell e execute este comando para entrar em sua conta do Azure. O cmdlet abre uma página da Web que solicita suas credenciais de conta: **Connect-AzAccount**.
     - Como alternativa, você pode incluir suas credenciais de conta como um parâmetro no cmdlet **Connect-AzAccount** , usando o parâmetro **-Credential** .
-    - Se você for um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário, usando seu nome de domínio de locatárioid ou de locatário primário. Por exemplo: **Connect-AzAccount -Tenant "fabrikam.com"**
+    - Se você for um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário, usando seu nome de domínio de locatárioid ou de locatário primário. Por exemplo: **Connect-AzAccount-Tenant "fabrikam.com"**
 2. Associe a assinatura que você deseja usar com a conta, uma vez que uma conta pode ter várias assinaturas:
 
     `Select-AzSubscription -SubscriptionName $SubscriptionName`
@@ -66,7 +66,7 @@ Além disso, o exemplo específico descrito neste artigo tem os seguintes pré-r
 
     `Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
-## <a name="step-2-set-up-the-vault"></a>Passo 2: Configurar o cofre
+## <a name="step-2-set-up-the-vault"></a>Etapa 2: configurar o cofre
 
 1. Crie um grupo de recursos Azure Resource Manager no qual criar o cofre ou use um grupo de recursos existente. Crie um novo grupo de recursos da seguinte maneira. A variável $ResourceGroupName contém o nome do grupo de recursos que você deseja criar e a variável $Geo contém a região do Azure na qual o grupo de recursos será criado (por exemplo, "sul do Brasil").
 
@@ -80,13 +80,13 @@ Além disso, o exemplo específico descrito neste artigo tem os seguintes pré-r
     Você pode recuperar uma lista de cofres existentes com o cmdlet **Get-AzRecoveryServicesVault** .
 
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>Passo 3: Definir o contexto do cofre dos serviços de recuperação
+## <a name="step-3-set-the-recovery-services-vault-context"></a>Etapa 3: definir o contexto do cofre dos serviços de recuperação
 
 Defina o contexto do cofre da seguinte maneira:
 
 `Set-AsrVaultSettings -Vault $vault`
 
-## <a name="step-4-create-a-hyper-v-site"></a>Passo 4: Criar um site do Hyper-V
+## <a name="step-4-create-a-hyper-v-site"></a>Etapa 4: criar um site do Hyper-V
 
 1. Crie um novo site do Hyper-V da seguinte maneira:
 
@@ -104,7 +104,7 @@ Defina o contexto do cofre da seguinte maneira:
 
 5. Copie a chave baixada para o host do Hyper-V. Você precisa da chave para registrar o host Hyper-V no site.
 
-## <a name="step-5-install-the-provider-and-agent"></a>Passo 5: Instalar o provedor e o agente
+## <a name="step-5-install-the-provider-and-agent"></a>Etapa 5: instalar o provedor e o agente
 
 1. Baixe o instalador para obter a versão mais recente do provedor da [Microsoft](https://aka.ms/downloaddra).
 2. Execute o instalador no host do Hyper-V.
@@ -115,15 +115,15 @@ Defina o contexto do cofre da seguinte maneira:
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
 
 Se você estiver executando um servidor de núcleo do Hyper-V, baixe o arquivo de instalação e siga estas etapas:
-1. Extraia os arquivos de AzureSiteRecoveryProvider. exe para um diretório local executando este comando:```AzureSiteRecoveryProvider.exe /x:. /q```
-2. Os ```.\setupdr.exe /i``` resultados da execução são registrados em%ProgramData%\ASRLogs\DRASetupWizard.log.
+1. Extraia os arquivos de AzureSiteRecoveryProvider. exe para um diretório local executando este comando: ```AzureSiteRecoveryProvider.exe /x:. /q```
+2. Executar ```.\setupdr.exe /i``` resultados são registrados em%Programdata%\ASRLogs\DRASetupWizard.log.
 
 3. Registre o servidor executando este comando:
 
     ```cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"```
 
 
-## <a name="step-6-create-a-replication-policy"></a>Passo 6: Criar uma política de replicação
+## <a name="step-6-create-a-replication-policy"></a>Etapa 6: criar uma política de replicação
 
 Antes de começar, observe que a conta de armazenamento especificada deve estar na mesma região do Azure que o cofre e deve ter a replicação geográfica habilitada.
 
@@ -151,7 +151,7 @@ Antes de começar, observe que a conta de armazenamento especificada deve estar 
 
         $ProtectionContainerMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $protectionContainer
 
-## <a name="step-7-enable-vm-protection"></a>Passo 7: Habilitar proteção de VM
+## <a name="step-7-enable-vm-protection"></a>Etapa 7: habilitar a proteção de VM
 
 1. Recupere o item de proteção que corresponde à VM que você deseja proteger, da seguinte maneira:
 
@@ -190,7 +190,7 @@ Antes de começar, observe que a conta de armazenamento especificada deve estar 
 
 
 
-## <a name="step-8-run-a-test-failover"></a>Passo 8: Executar uma ativação pós-falha de teste
+## <a name="step-8-run-a-test-failover"></a>Etapa 8: executar um failover de teste
 1. Execute um failover de teste da seguinte maneira:
 
         $nw = Get-AzVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group

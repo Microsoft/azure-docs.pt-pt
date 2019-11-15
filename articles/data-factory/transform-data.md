@@ -11,12 +11,12 @@ ms.date: 07/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 0b91d22454d6023094f269b184c845047092b4fb
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 268c1e66010720d1da052183165ce1cea50a1095
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954275"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092015"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados em Azure Data Factory
 > [!div class="op_single_selector"]

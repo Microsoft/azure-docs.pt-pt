@@ -1,6 +1,6 @@
 ---
-title: Como usar filas do barramento de serviço com PHP | Microsoft Docs
-description: Saiba como utilizar as filas do Service Bus no Azure. Exemplos de código escritos em PHP.
+title: 'Início rápido: como usar filas do barramento de serviço com PHP'
+description: 'Início rápido: saiba como usar as filas do barramento de serviço no Azure. Exemplos de código escritos em PHP.'
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -11,17 +11,17 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: d958202ee42b1edec5e1b65c120536c656823ecf
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: d576c269f4178c7543327c6b75f46f5487d7a205
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147247"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719185"
 ---
-# <a name="how-to-use-service-bus-queues-with-php"></a>Como usar filas do barramento de serviço com PHP
+# <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>Início rápido: como usar filas do barramento de serviço com PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 Neste tutorial, você aprenderá a criar aplicativos PHP para enviar e receber mensagens de uma fila do barramento de serviço. 
@@ -54,7 +54,7 @@ Para usar as APIs de fila do barramento de serviço, faça o seguinte:
 1. Referencie o arquivo de carregador automático usando a instrução [require_once][require_once] .
 2. Referencie todas as classes que você possa usar.
 
-O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência `ServicesBuilder` à classe.
+O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe `ServicesBuilder`.
 
 > [!NOTE]
 > Este exemplo (e outros exemplos neste artigo) pressupõe que você instalou as bibliotecas de cliente PHP para o Azure por meio do Composer. Se você instalou as bibliotecas manualmente ou como um pacote de pêra, deverá fazer referência ao arquivo de carregador automático **WindowsAzure. php** .
@@ -66,7 +66,7 @@ require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
-Nos exemplos abaixo, a `require_once` instrução sempre será mostrada, mas somente as classes necessárias para executar o exemplo serão referenciadas.
+Nos exemplos abaixo, a instrução `require_once` sempre será mostrada, mas somente as classes necessárias para executar o exemplo são referenciadas.
 
 ## <a name="set-up-a-service-bus-connection"></a>Configurar uma conexão do barramento de serviço
 Para criar uma instância de um cliente do barramento de serviço, você deve primeiro ter uma cadeia de conexão válida neste formato:
@@ -75,14 +75,14 @@ Para criar uma instância de um cliente do barramento de serviço, você deve pr
 Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[Primary Key]
 ```
 
-Em `Endpoint` que normalmente é o formato `[yourNamespace].servicebus.windows.net`.
+Em que `Endpoint` normalmente é o `[yourNamespace].servicebus.windows.net`de formato.
 
-Para criar qualquer cliente de serviço do Azure, você deve `ServicesBuilder` usar a classe. Pode:
+Para criar qualquer cliente de serviço do Azure, você deve usar a classe `ServicesBuilder`. Pode:
 
 * Passe a cadeia de conexão diretamente para ela.
 * Use o **CloudConfigurationManager (CCM)** para verificar várias fontes externas para a cadeia de conexão:
   * Por padrão, ele vem com suporte para uma fonte externa-variáveis de ambiente
-  * Você pode adicionar novas fontes estendendo `ConnectionStringSource` a classe
+  * Você pode adicionar novas fontes estendendo a classe `ConnectionStringSource`
 
 Nos exemplos aqui descritos, a cadeia de ligação é transmitida diretamente.
 
@@ -97,9 +97,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 ```
 
 ## <a name="create-a-queue"></a>Criar uma fila
-Você pode executar operações de gerenciamento para filas do barramento de serviço `ServiceBusRestProxy` por meio da classe. Um `ServiceBusRestProxy` objeto é construído por meio `ServicesBuilder::createServiceBusService` do método de fábrica com uma cadeia de conexão apropriada que encapsula as permissões de token para gerenciá-lo.
+Você pode executar operações de gerenciamento para filas do barramento de serviço por meio da classe `ServiceBusRestProxy`. Um objeto `ServiceBusRestProxy` é construído por meio do método `ServicesBuilder::createServiceBusService` Factory com uma cadeia de conexão apropriada que encapsula as permissões de token para gerenciá-lo.
 
-O exemplo a seguir mostra como instanciar `ServiceBusRestProxy` um e `ServiceBusRestProxy->createQueue` chamar para criar uma fila `myqueue` chamada em `MySBNamespace` um namespace de serviço:
+O exemplo a seguir mostra como criar uma instância de um `ServiceBusRestProxy` e chamar `ServiceBusRestProxy->createQueue` para criar uma fila denominada `myqueue` em um namespace de serviço `MySBNamespace`:
 
 ```php
 require_once 'vendor/autoload.php';
@@ -128,12 +128,12 @@ catch(ServiceException $e){
 ```
 
 > [!NOTE]
-> Você pode usar o `listQueues` método em `ServiceBusRestProxy` objetos para verificar se uma fila com um nome especificado já existe em um namespace.
+> Você pode usar o método `listQueues` em objetos `ServiceBusRestProxy` para verificar se uma fila com um nome especificado já existe em um namespace.
 > 
 > 
 
 ## <a name="send-messages-to-a-queue"></a>Enviar mensagens para uma fila
-Para enviar uma mensagem para uma fila do barramento de serviço, seu aplicativo `ServiceBusRestProxy->sendQueueMessage` chama o método. O código a seguir mostra como enviar uma mensagem para a `myqueue` fila criada anteriormente no namespace `MySBNamespace` de serviço.
+Para enviar uma mensagem para uma fila do barramento de serviço, seu aplicativo chama o método `ServiceBusRestProxy->sendQueueMessage`. O código a seguir mostra como enviar uma mensagem para a fila de `myqueue` criada anteriormente dentro do namespace do serviço de `MySBNamespace`.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -169,11 +169,11 @@ As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [e
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
 
-A melhor maneira de receber mensagens de uma fila é usar um `ServiceBusRestProxy->receiveQueueMessage` método. As mensagens podem ser recebidas em dois modos diferentes: [*ReceiveAndDelete*](/dotnet/api/microsoft.servicebus.messaging.receivemode) e [*Peeklock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock). **PeekLock** é a predefinição.
+A melhor maneira de receber mensagens de uma fila é usar um método `ServiceBusRestProxy->receiveQueueMessage`. As mensagens podem ser recebidas em dois modos diferentes: [*ReceiveAndDelete*](/dotnet/api/microsoft.servicebus.messaging.receivemode) e [*Peeklock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock). **PeekLock** é a predefinição.
 
 Ao usar o modo [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) , Receive é uma operação Single-Shot; ou seja, quando o barramento de serviço recebe uma solicitação de leitura de uma mensagem em uma fila, ele marca a mensagem como sendo consumida e a retorna ao aplicativo. O modo [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem no caso de falha. Para compreender isto, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, o sistema falha antes do respetivo processamento. Como o barramento de serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
-No modo [Peeklock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) padrão, o recebimento de uma mensagem se torna uma operação de duas etapas, o que torna possível o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o barramento de serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, bloqueia-a para impedir que outros consumidores a recebam e, em seguida, retorna-a para o aplicativo. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma confiável para processamento futuro), ele conclui o segundo estágio do processo de recebimento passando a mensagem `ServiceBusRestProxy->deleteMessage`recebida para. Quando o barramento de serviço `deleteMessage` vê a chamada, ele marca a mensagem como sendo consumida e a remove da fila.
+No modo [Peeklock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) padrão, o recebimento de uma mensagem se torna uma operação de duas etapas, o que torna possível o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o barramento de serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, bloqueia-a para impedir que outros consumidores a recebam e, em seguida, retorna-a para o aplicativo. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma confiável para processamento futuro), ele conclui o segundo estágio do processo de recebimento, passando a mensagem recebida para `ServiceBusRestProxy->deleteMessage`. Quando o barramento de serviço vê a chamada de `deleteMessage`, ele marcará a mensagem como sendo consumida e a removerá da fila.
 
 O exemplo a seguir mostra como receber e processar uma mensagem usando o modo [Peeklock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) (o modo padrão).
 
@@ -217,11 +217,11 @@ catch(ServiceException $e){
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como processar falhas da aplicação e mensagens ilegíveis
 
-O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se um aplicativo receptor não puder processar a mensagem por algum motivo, ele poderá chamar o `unlockMessage` método na mensagem recebida (em vez `deleteMessage` do método). Isso fará com que o barramento de serviço desbloqueie a mensagem na fila e disponibilize-a para ser recebida novamente, seja pelo mesmo aplicativo de consumo ou por outro aplicativo de consumo.
+O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se um aplicativo receptor não puder processar a mensagem por algum motivo, ele poderá chamar o método `unlockMessage` na mensagem recebida (em vez do método `deleteMessage`). Isso fará com que o barramento de serviço desbloqueie a mensagem na fila e disponibilize-a para ser recebida novamente, seja pelo mesmo aplicativo de consumo ou por outro aplicativo de consumo.
 
 Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o aplicativo não processar a mensagem antes de expirar o tempo limite de bloqueio (por exemplo, se o aplicativo falhar), o barramento de serviço desbloqueará a mensagem automaticamente e a tornará disponível para ser recebido novamente.
 
-Caso o aplicativo falhe após o processamento da mensagem, mas antes que a `deleteMessage` solicitação seja emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado *de processamento de pelo menos uma vez* ; ou seja, cada mensagem é processada pelo menos uma vez, mas, em determinadas situações, a mesma mensagem pode ser entregue novamente. Se o cenário não puder tolerar o processamento duplicado, é recomendável adicionar lógica adicional aos aplicativos para lidar com a entrega de mensagem duplicada. Isso geralmente é obtido usando o `getMessageId` método da mensagem, que permanece constante nas tentativas de entrega.
+Caso o aplicativo falhe após o processamento da mensagem, mas antes que a solicitação de `deleteMessage` seja emitida, a mensagem será entregue novamente ao aplicativo quando ele for reiniciado. Isso é frequentemente chamado *de processamento de pelo menos uma vez* ; ou seja, cada mensagem é processada pelo menos uma vez, mas, em determinadas situações, a mesma mensagem pode ser entregue novamente. Se o cenário não puder tolerar o processamento duplicado, é recomendável adicionar lógica adicional aos aplicativos para lidar com a entrega de mensagem duplicada. Isso geralmente é obtido usando o método `getMessageId` da mensagem, que permanece constante nas tentativas de entrega.
 
 > [!NOTE]
 > Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 

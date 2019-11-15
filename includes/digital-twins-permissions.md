@@ -9,12 +9,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 11/11/2019
 ms.custom: include file
-ms.openlocfilehash: 414fa10774c755c7837d2e1a2fd87b412c7a05a8
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 832c0e6080b82f3c38beaf051669fbdacd37081c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014139"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74101358"
 ---
 >[!NOTE]
 >Esta seção fornece instruções para o [registro de aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
@@ -32,6 +32,8 @@ ms.locfileid: "74014139"
     [![criar painel](./media/digital-twins-permissions/aad-app-reg-create.png)](./media/digital-twins-permissions/aad-app-reg-create.png#lightbox)
 
 1. Para certificar-se [de que o aplicativo está registrado como um **cliente público**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), abra o painel de **autenticação** para o registro do aplicativo e role para baixo nesse painel. Na seção **tipo de cliente padrão** , escolha **Sim** para **tratar aplicativo como um cliente público**e clique em **salvar**.
+
+    Verifique os **tokens de acesso** para habilitar a configuração **Oauth2AllowImplicitFlow** em seu manifest. JSON.
 
     [![definição de configuração de cliente público](./media/digital-twins-permissions/aad-public-client.png)](./media/digital-twins-permissions/aad-public-client.png#lightbox)
 

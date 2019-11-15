@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 403585a198b2569b700ef304e83b45b0a1138db5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 086856865efba2d1b5e1b8e359ab1e4616aabec9
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012806"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091556"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>O que há de novo no Backup do Microsoft Azure Server
 

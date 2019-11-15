@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: eb8bf1891f5ce96507c20e196d20ae499f30fe34
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5901cbe1e30eb1ce2334a7b935a3629c66c24b8a
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012119"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091579"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solucionar problemas de backup do estado do sistema
 

@@ -1,18 +1,18 @@
 ---
 title: Solucionar problemas de atualização do provedor de Site Recovery de Microsoft Azure
-description: Resolver problemas comuns ao atualizar o provedor de Site Recovery de Microsoft Azure
+description: Resolva problemas comuns que ocorrem ao atualizar o provedor de Site Recovery de Microsoft Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
-ms.openlocfilehash: 73309103d422391aae3d72e3b0267d5d5a85515a
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 0e6631d36f8b8153c34f787f8941b45b7522aceb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953757"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083930"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Resolver problemas de falhas de atualização do Fornecedor do Microsoft Azure Site Recovery
 

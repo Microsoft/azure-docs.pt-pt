@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b57fe9241a6a29e6f5ce12b7a1412455df4a001
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7b3aa2add128cfc11a638fe6c7e03cfb25189afc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603480"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081566"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Habilitar a entrada de chave de segurança sem senha em dispositivos Windows 10 (versão prévia)
 
@@ -29,7 +29,7 @@ Este documento se concentra em habilitar a autenticação sem senha baseada em c
 
 ## <a name="requirements"></a>Requisitos
 
-- [Autenticação multifator do Azure](howto-mfa-getstarted.md)
+- [Autenticação Multifator do Azure](howto-mfa-getstarted.md)
 - [Visualização do registro de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md)
 - [Chaves de segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis
 - Webauthn requer o Windows 10 versão 1809 ou superior
@@ -60,7 +60,7 @@ As organizações podem optar por usar um ou mais dos métodos a seguir para hab
 
 ### <a name="enable-with-intune"></a>Habilitar com o Intune
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue até **Microsoft Intune** > **registro de dispositivo** > **registro do Windows** > **Propriedades** **do Windows Hello para empresas** > .
 1. Em **configurações** , defina **usar chaves de segurança para entrar** como **habilitado**.
 
@@ -70,7 +70,7 @@ A configuração de chaves de segurança para entrada não depende da configura�
 
 Para direcionar grupos de dispositivos específicos para habilitar o provedor de credenciais, use as seguintes configurações personalizadas por meio do Intune.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue até **Microsoft Intune** > **configuração do dispositivo** > **perfis** > **Criar perfil**.
 1. Configurar o novo perfil com as seguintes configurações
    1. Nome: chaves de segurança para entrar no Windows
@@ -88,7 +88,7 @@ Para direcionar grupos de dispositivos específicos para habilitar o provedor de
 
 ### <a name="enable-with-a-provisioning-package"></a>Habilitar com um pacote de provisionamento
 
-Para dispositivos não gerenciados pelo Intune, um pacote de provisionamento pode ser instalado para habilitar a funcionalidade. O aplicativo do Windows Configuration designer pode ser instalado por meio do [Microsoft Store](https://www.microsoft.com/store/apps/9nblggh4tx22).
+Para dispositivos não gerenciados pelo Intune, um pacote de provisionamento pode ser instalado para habilitar a funcionalidade. O aplicativo do Windows Configuration designer pode ser instalado por meio do [Microsoft Store](https://www.microsoft.com/en-us/p/windows-configuration-designer/9nblggh4tx22).
 
 1. Inicie o designer de configuração do Windows.
 1. Selecione **arquivo** > **novo projeto**.

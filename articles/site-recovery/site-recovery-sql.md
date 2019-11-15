@@ -1,5 +1,5 @@
 ---
-title: Configurar a recuperação de desastre para SQL Server com SQL Server e Azure Site Recovery | Microsoft Docs
+title: Configurar a recuperação de desastres para SQL Server com Azure Site Recovery
 description: Este artigo descreve como configurar a recuperação de desastre para SQL Server usando SQL Server e Azure Site Recovery.
 services: site-recovery
 author: sujayt
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 79428520eed95e6e79f29e1676e2711e6ee24087
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 429f46156da728bbc24108090eac8c04f68da71c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934840"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084743"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurar a recuperação de desastre para SQL Server
 
@@ -54,18 +54,18 @@ Site Recovery orquestra o failover de teste e o failover de todo o seu aplicativ
 
 Há alguns pré-requisitos para garantir que seu plano de recuperação seja totalmente personalizado de acordo com sua necessidade. Qualquer implantação de SQL Server normalmente precisa de uma implantação de Active Directory. Ele também precisa de conectividade para a camada de aplicativo.
 
-### <a name="step-1-set-up-active-directory"></a>Passo 1: Configurar o Active Directory
+### <a name="step-1-set-up-active-directory"></a>Etapa 1: configurar Active Directory
 
 Configure o Active Directory no site de recuperação secundário para que SQL Server seja executado corretamente.
 
-* **Pequena empresa**: Você tem um pequeno número de aplicativos e um único controlador de domínio para o site local. Se você quiser fazer failover de todo o site, use Site Recovery replicação. Esse serviço Replica o controlador de domínio para o datacenter secundário ou para o Azure.
+* **Pequena empresa**: você tem um pequeno número de aplicativos e um único controlador de domínio para o site local. Se você quiser fazer failover de todo o site, use Site Recovery replicação. Esse serviço Replica o controlador de domínio para o datacenter secundário ou para o Azure.
 * **Média para grande empresa**: Talvez seja necessário configurar controladores de domínio adicionais.
   - Se você tiver um grande número de aplicativos, tiver uma floresta Active Directory e desejar fazer failover por aplicativo ou carga de trabalho, configure outro controlador de domínio no datacenter secundário ou no Azure.
   -  Se você estiver usando grupos de disponibilidade Always On para recuperar em um site remoto, configure outro controlador de domínio no site secundário ou no Azure. Esse controlador de domínio é usado para a instância de SQL Server recuperada.
 
 As instruções neste artigo pressupõem que um controlador de domínio esteja disponível no local secundário. Para saber mais, consulte os procedimentos para [ajudar a proteger Active Directory com site Recovery](site-recovery-active-directory.md).
 
-### <a name="step-2-ensure-connectivity-with-other-tiers"></a>Passo 2: Garantir a conectividade com outras camadas
+### <a name="step-2-ensure-connectivity-with-other-tiers"></a>Etapa 2: garantir a conectividade com outras camadas
 
 Depois que a camada de banco de dados estiver em execução na região do Azure de destino, verifique se você tem conectividade com o aplicativo e as camadas da Web. Execute as etapas necessárias com antecedência para validar a conectividade com o failover de teste.
 
@@ -74,7 +74,7 @@ Para entender como você pode criar aplicativos para considerações de conectiv
 * [Criar um aplicativo para recuperação de desastre na nuvem](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 * [Estratégias de recuperação de desastre do pool elástico](../sql-database/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 
-### <a name="step-3-interoperate-with-always-on-active-geo-replication-and-auto-failover-groups"></a>Passo 3: Interopere com Always On, replicação geográfica ativa e grupos de failover automático
+### <a name="step-3-interoperate-with-always-on-active-geo-replication-and-auto-failover-groups"></a>Etapa 3: interoperar com Always On, replicação geográfica ativa e grupos de failover automático
 
 As tecnologias BCDR Always On, replicação geográfica ativa e grupos de failover automático têm réplicas secundárias de SQL Server em execução na região do Azure de destino. A primeira etapa para o failover do aplicativo é especificar essa réplica como primária. Esta etapa pressupõe que você já tem um controlador de domínio no secundário. A etapa pode não ser necessária se você optar por fazer um failover automático. Faça failover de suas camadas Web e de aplicativo somente após a conclusão do failover de banco de dados.
 
@@ -85,13 +85,13 @@ As tecnologias BCDR Always On, replicação geográfica ativa e grupos de failov
 
 1. Importe os scripts para fazer failover do grupo de disponibilidade do SQL em uma [máquina virtual do Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) e em uma [máquina virtual clássica](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). Importe os scripts para sua conta de automação do Azure.
 
-    [![Imagem de um logotipo "implantar no Azure"](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![imagem de um logotipo "implantar no Azure"](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Adicione o script ASR-SQL-FailoverAG como uma ação prévia do primeiro grupo do plano de recuperação.
 
 1. Siga as instruções disponíveis no script para criar uma variável de automação. Essa variável fornece o nome dos grupos de disponibilidade.
 
-### <a name="step-4-conduct-a-test-failover"></a>Passo 4: Conduzir um failover de teste
+### <a name="step-4-conduct-a-test-failover"></a>Etapa 4: conduzir um failover de teste
 
 Algumas tecnologias BCDRs, como o SQL Always On, não oferecem suporte nativo ao failover de teste. Recomendamos a seguinte abordagem *somente ao usar essas tecnologias*.
 
@@ -163,5 +163,5 @@ Site Recovery é independente de aplicativo. Site Recovery pode ajudar a protege
 
 * Saiba mais sobre a [arquitetura de site Recovery](site-recovery-components.md).
 * Para SQL Server no Azure, saiba mais sobre [soluções de alta disponibilidade](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions) para recuperação em uma região secundária do Azure.
-* Para o banco de dados SQL, saiba mais sobre as opções de continuidade de [negócios](../sql-database/sql-database-business-continuity.md) e [alta disponibilidade](../sql-database/sql-database-high-availability.md) para recuperação em uma região secundária do Azure.
+* Para o banco de dados SQL, saiba mais sobre as opções de [continuidade de negócios](../sql-database/sql-database-business-continuity.md) e [alta disponibilidade](../sql-database/sql-database-high-availability.md) para recuperação em uma região secundária do Azure.
 * Para computadores SQL Server no local, saiba mais sobre as opções de [alta disponibilidade](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md#hybrid-it-disaster-recovery-solutions) para recuperação em máquinas virtuais do Azure.

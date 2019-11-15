@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: dbf2b4b5113598fee742c3864bede782a624773c
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 491adb2719dc7c05a2943634e83027376c9327c3
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817455"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082732"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: aplicar modelos de aprendizado de máquina em Azure Functions com Python e TensorFlow
 
@@ -100,7 +100,7 @@ Um aplicativo de funções pode conter um ou mais Azure Functions. Abra a pasta 
 
 - [*local. Settings. JSON*](functions-run-local.md#local-settings-file): contém as configurações de aplicativo usadas para o desenvolvimento local
 - [*host. JSON*](functions-host-json.md): contém configurações para o host e as extensões de Azure Functions
-- [*requirements. txt*](functions-reference-python.md#python-version-and-package-management): contém pacotes python exigidos por este aplicativo
+- [*requirements. txt*](functions-reference-python.md#package-management): contém pacotes python exigidos por este aplicativo
 
 ## <a name="create-an-http-function"></a>Criar uma função HTTP
 
@@ -140,7 +140,7 @@ Você usará um modelo TensorFlow predefinido que foi treinado e exportado do Az
 > [!NOTE]
 > Se você quiser criar seu próprio usando a camada gratuita do Serviço de Visão Personalizada, poderá seguir as [instruções no repositório do projeto de exemplo](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
-O modelo consiste em dois arquivos na pasta *< REPOSITORY_ROOT >/Resources/Model* : *Model. PB* e *Labels. txt*. Copie-os para a pasta *classificar* da função.
+O modelo consiste em dois arquivos no *< REPOSITORY_ROOT > pasta/resources/Model* : *Model. PB* e *Labels. txt*. Copie-os para a pasta *classificar* da função.
 
 #### <a name="linux-and-macos"></a>Linux e macOS:
 
@@ -221,7 +221,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     return func.HttpResponse(json.dumps(results), headers = headers)
 ```
 
-Certifique-se de salvar suas alterações.
+Certifique-se guardar as alterações.
 
 Essa função recebe uma URL de imagem em um parâmetro de cadeia de caracteres de consulta chamado `img`. Ele chama `predict_image_from_url` da biblioteca auxiliar que baixa a imagem e retorna uma previsão usando o modelo TensorFlow. Em seguida, a função retorna uma resposta HTTP com os resultados.
 
