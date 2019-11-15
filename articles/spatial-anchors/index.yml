@@ -27,6 +27,7 @@ sections:
           - html: <a href="/azure/spatial-anchors/concepts/anchor-relationships-way-finding">Relações de âncora e orientação espacial.</a>
           - html: <a href="/azure/spatial-anchors/concepts/guidelines-effective-anchor-experiences">Diretrizes de experiência.</a>
           - html: <a href="/azure/spatial-anchors/concepts/logging-diagnostics">Registos e diagnósticos.</a>
+          - html: <a href="/azure/spatial-anchors/concepts/coarse-reloc">Relocalização genérica.</a>
   - title: Inícios rápidos de cinco minutos
     items:
       - type: paragraph
