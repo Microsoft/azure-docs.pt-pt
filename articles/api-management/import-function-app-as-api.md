@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 7e9215d7250628ed9177e097d127a1554a1f0ea0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0c4a95669eea1b98baea5f9a866598e000c0923c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073342"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107842"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar uma Function App do Azure como uma API na Gestão de API do Azure
 
@@ -31,7 +31,7 @@ Vai aprender a:
 > * Importar uma Function App do Azure como uma API
 > * Anexar uma Function App do Azure como uma API
 > * Ver a nova chave de anfitrião da Function App do Azure e o valor nomeado da Gestão de API do Azure
-> * Testar a API no portal do Azure
+> * Testar a API no Portal do Azure
 > * Testar a API no portal do programador
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -117,7 +117,7 @@ A importação de uma Function App do Azure gera automaticamente:
 * Chave de host dentro do Aplicativo de funções com o nome APIM-{*nome da instância do serviço de gerenciamento de API do Azure*},
 * Valor nomeado dentro da instância de gerenciamento de API do Azure com o nome {*seu nome de instância do aplicativo de funções do Azure*}-chave, que contém a chave de host criada.
 
-Para APIs criadas após 4º de abril de 2019, a chave do host é passada em solicitações HTTP do gerenciamento de API para o Aplicativo de funções em um cabeçalho. APIs mais antigas passam a chave de host como [um parâmetro de consulta](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Esse comportamento pode ser alterado por meio `PATCH Backend` da [chamada à API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) na entidade de *back-end* associada ao aplicativo de funções.
+Para APIs criadas após 4º de abril de 2019, a chave do host é passada em solicitações HTTP do gerenciamento de API para o Aplicativo de funções em um cabeçalho. APIs mais antigas passam a chave de host como [um parâmetro de consulta](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Esse comportamento pode ser alterado por meio da [chamada à API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) `PATCH Backend` na entidade de *back-end* associada ao aplicativo de funções.
 
 > [!WARNING]
 > Remover ou alterar o valor da chave de anfitrião da Aplicação de Funções do Azure ou o valor nomeado da Gestão de API do Azure irá interromper a comunicação entre os serviços. Os valores não são sincronizados automaticamente.
@@ -142,7 +142,7 @@ Navegue até à sua instância de Gestão de API do Azure e selecione **Valores 
 
 ![Adicionar a partir da Function App](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-in-azure-portal"></a> Teste a nova API de Gestão de API no Portal do Azure
+## <a name="test-in-azure-portal"></a>Testar a nova API no portal do Azure
 
 Pode chamar operações diretamente a partir do portal do Azure. Utilizar o portal do Azure é um meio cómodo de ver e testar as operações de uma API.  
 
@@ -157,26 +157,6 @@ Pode chamar operações diretamente a partir do portal do Azure. Utilizar o port
 4. Selecione **Enviar**.
 
     O back-end responde com **200 OK** e alguns dados.
-
-## <a name="test-in-developer-portal"></a> Chamar uma operação a partir do portal do programador
-
-Também pode chamar operações do portal do programador para testar as APIs. 
-
-1. Selecione a API que você criou em importar e publique uma API de back-end.
-
-2. Selecione **Portal de programador**.
-
-    O site do portal do Programador abre-se.
-
-3. Selecione a **API** que criou.
-
-4. Selecione a operação que pretende testar.
-
-5. Selecione **Experimentar**.
-
-6. Selecione **Enviar**.
-    
-    Depois de uma operação ser invocada, o portal do programador apresenta o **Estado da resposta**, os **Cabeçalhos da resposta** e qualquer **Conteúdo da resposta**.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

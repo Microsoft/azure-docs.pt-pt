@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: implantar um grafo espacial – gêmeos digital do Azure | Microsoft Docs'
+title: 'Tutorial: implantar o gêmeos digital do Azure'
 description: Saiba como implementar a sua instância do duplos Digital do Azure e configurar os seus recursos espaciais, utilizando os passos neste tutorial.
 services: digital-twins
 ms.author: alinast
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: e78a85ac590cc6c6f501774a2cdd64a4544676a1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4d4e7e47b82c46cca53fab0540a4867031eaab85
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039439"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107752"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: implantar o Azure digital gêmeos Preview e configurar um grafo espacial
 

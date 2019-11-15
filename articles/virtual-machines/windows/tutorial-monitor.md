@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 13e5cc9ee45cf230668ef7a7cbe85b6437044643
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9e807927a10399b02c2c89359c2ffffaf87ba57b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064760"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112483"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutorial: monitorar uma máquina virtual do Windows no Azure
 
@@ -91,7 +91,7 @@ Para habilitar o monitoramento de sua VM do Azure com o Azure Monitor para VMs:
 
 3. Sobre o **Insights (pré-visualização)** página, selecione **Experimente agora o**.
 
-    ![Ativar o Azure Monitor para as VMs para uma VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Ativar o Azure Monitor para as VMs para uma VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 4. Sobre o **integração de informações do Azure Monitor** página, se tiver um existentes do Log Analytics área de trabalho na mesma subscrição, selecione-o na lista pendente.  
 

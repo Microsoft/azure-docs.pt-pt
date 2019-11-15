@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de REST: criar um pipeline de enriquecimento de ia para extrair texto e estrutura de BLOBs JSON'
+title: 'Tutorial: extrair texto e estrutura de BLOBs JSON'
 titleSuffix: Azure Cognitive Search
 description: Percorra um exemplo de extração de texto e processamento de idioma natural sobre o conteúdo em BLOBs JSON usando o postmaster e as APIs REST do Azure Pesquisa Cognitiva.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: cb05d85c32d7eaed002d3e3bacbe7fdbd17310eb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5dffafba0f0dc0dc108bf2c82929c157018d8dbb
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790199"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113668"
 ---
-# <a name="tutorial-add-structure-to-unstructured-content-with-ai-enrichment"></a>Tutorial: adicionar estrutura ao "conteúdo não estruturado" com o enriquecimento de ia
+# <a name="tutorial-extract-text-and-structure-from-json-blobs-in-azure-using-rest-apis-azure-cognitive-search"></a>Tutorial: extrair texto e estrutura de BLOBs JSON no Azure usando APIs REST (Azure Pesquisa Cognitiva)
 
-Se você tiver conteúdo de imagem ou texto não estruturado, um [pipeline de enriquecimento de ia](cognitive-search-concept-intro.md) poderá ajudá-lo a extrair informações e criar um novo conteúdo que seja útil para a pesquisa de texto completo ou cenários de mineração de conhecimento. Embora um pipeline possa processar arquivos de imagem (JPG, PNG, TIFF), este tutorial se concentra no conteúdo baseado em palavras, aplicando detecção de idioma e análise de texto para criar novos campos e informações que você pode aproveitar em consultas, facetas e filtros.
+Se você tiver conteúdo de imagem ou texto não estruturado no armazenamento de BLOBs do Azure, um [pipeline de enriquecimento de ia](cognitive-search-concept-intro.md) poderá ajudá-lo a extrair informações e criar um novo conteúdo que seja útil para a pesquisa de texto completo ou cenários de mineração de conhecimento. Embora um pipeline possa processar arquivos de imagem (JPG, PNG, TIFF), este tutorial se concentra no conteúdo baseado em palavras, aplicando detecção de idioma e análise de texto para criar novos campos e informações que você pode aproveitar em consultas, facetas e filtros.
 
 > [!div class="checklist"]
 > * Comece com documentos inteiros (texto não estruturado), como PDF, MD, DOCX e PPTX no armazenamento de BLOBs do Azure.
@@ -100,7 +100,7 @@ Assim como no armazenamento de BLOBs do Azure, Reserve um momento para coletar a
 
 1. [Entre no portal do Azure](https://portal.azure.com/)e, em sua página de **visão geral** do serviço de pesquisa, obtenha o nome do serviço de pesquisa. Você pode confirmar o nome do serviço examinando a URL do ponto de extremidade. Se a URL do ponto de extremidade fosse `https://mydemo.search.windows.net`, o nome do serviço seria `mydemo`.
 
-2. Em **configurações**  > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+2. Em **configurações** > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
     Obtenha também a chave de consulta. É uma prática recomendada emitir solicitações de consulta com acesso somente leitura.
 
@@ -167,9 +167,9 @@ Um [objeto skillset](https://docs.microsoft.com/rest/api/searchservice/create-sk
    | Técnico                 | Descrição    |
    |-----------------------|----------------|
    | [Reconhecimento de entidade](cognitive-search-skill-entity-recognition.md) | Extrai os nomes de pessoas, organizações e locais do conteúdo no contêiner de BLOBs. |
-   | [Detecção de Idioma](cognitive-search-skill-language-detection.md) | Detecta o idioma do conteúdo. |
+   | [Deteção de idioma](cognitive-search-skill-language-detection.md) | Detecta o idioma do conteúdo. |
    | [Divisão de texto](cognitive-search-skill-textsplit.md)  | Quebra o conteúdo grande em partes menores antes de chamar a habilidade de extração de frases-chave. A extração de expressões-chave aceita entradas de 50 000 carateres ou menos. Alguns dos ficheiros de exemplo precisam de ser divididos para caberem dentro deste limite. |
-   | [Extração de Frases-chave](cognitive-search-skill-keyphrases.md) | Extrai as principais frases-chave. |
+   | [Extração de expressões-chave](cognitive-search-skill-keyphrases.md) | Extrai as principais frases-chave. |
 
    Cada competência é executada no conteúdo do documento. Durante o processamento, o Azure Pesquisa Cognitiva rachadura cada documento para ler o conteúdo de diferentes formatos de arquivo. O texto encontrado proveniente do ficheiro de origem é colocado num campo ```content``` gerado (um para cada documento). Como tal, a entrada se torna ```"/document/content"```.
 

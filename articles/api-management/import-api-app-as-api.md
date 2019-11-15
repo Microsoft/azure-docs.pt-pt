@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 484621668b582953d49c366336a49970d82c3fbf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bf4039b661ac7e0ee9630b86b9e15d1388991431
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073270"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108502"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importar uma Aplicação API como uma API
 
@@ -27,12 +27,12 @@ Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Importar uma Aplicação API como uma API
-> * Testar a API no portal do Azure
+> * Testar a API no Portal do Azure
 > * Testar a API no portal do Programador
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Conclua o início rápido a seguir: [crie uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
++ Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
 + Certifique-se de que existe uma Aplicação API na sua subscrição. Para obter mais informações, consulte a [documentação do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
@@ -48,7 +48,7 @@ Neste artigo, vai aprender a:
 
     Caso o APIM não localize o swagger, expõe a API como uma API de "pass-through". 
 5. Adicione um sufixo de URL de API. O sufixo é um nome que identifica esta API específica nesta instância de APIM. Tem de ser exclusivo nesta instância de APIM.
-6. Associe a API a um produto e publique-a. Neste caso, é utilizado o produto "*Unlimited*".  Se pretender que a API seja publicada e esteja disponível para programadores, adicione-a a um produto. Pode fazê-lo durante a criação da API ou defini-lo mais tarde.
+6. Publique a API ao associá-la a um produto. Neste caso, é utilizado o produto "*Unlimited*".  Se pretender que a API seja publicada e esteja disponível para programadores, adicione-a a um produto. Pode fazê-lo durante a criação da API ou defini-lo mais tarde.
 
     Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos por predefinição.
 
@@ -58,7 +58,7 @@ Neste artigo, vai aprender a:
     * **Ilimitado**   
 7. Selecione **Criar**.
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testar a nova API de APIM no Portal do Azure
+## <a name="test-the-new-api-in-the-azure-portal"></a>Testar a nova API no portal do Azure
 
 As operações podem ser chamadas diretamente a partir do Portal do Azure, que fornece um meio cómodo para ver e testar as operações de uma API.  
 
@@ -70,21 +70,6 @@ As operações podem ser chamadas diretamente a partir do Portal do Azure, que f
 1. Prima **Enviar**.
 
     O back-end responde com **200 OK** e alguns dados.
-
-## <a name="call-operation"> </a>Chamar uma operação a partir do portal do programador
-
-Também é possível chamar operações a partir do **portal do Programador** para testar as APIs. 
-
-1. Selecione a API que criou no passo “Importar e publicar uma API de back-end”.
-2. Prima **Portal do Programador**.
-
-    O site "portal do Programador" abre-se.
-3. Selecione a **API** que criou.
-4. Clique na operação que pretende testar.
-5. Prima **Experimente**.
-6. Prima **Enviar**.
-    
-    Depois de uma operação ser invocada, o portal do programador apresenta o **Estado da resposta**, os **Cabeçalhos da resposta** e qualquer **Conteúdo da resposta**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

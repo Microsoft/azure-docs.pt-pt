@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: capturar eventos de um espaço-Azure digital gêmeos | Microsoft Docs'
+title: 'Tutorial: capturar eventos de um espaço de gêmeos digital do Azure'
 description: Saiba como receber notificações dos seus espaços mediante a integração do Azure Digital Twins no Logic Apps através dos passos descritos neste tutorial.
 services: digital-twins
 ms.author: alinast
@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/23/2019
-ms.openlocfilehash: 00efae0b87de90d2abb1d488afa6b51b1b188b30
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/12/2019
+ms.openlocfilehash: 3cb5d8a6cb605d2150be1e34a9f4b0ac7955aed6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009289"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107689"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: receber notificações de seus espaços de gêmeos digitais do Azure usando aplicativos lógicos
 
@@ -51,7 +51,7 @@ Nesta seção, você configura a [grade de eventos](../event-grid/overview.md) p
 
 Um [tópico de grade de eventos](../event-grid/concepts.md#topics) fornece uma interface para rotear os eventos gerados pela função definida pelo usuário. 
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, selecione **Criar um recurso**. 
 

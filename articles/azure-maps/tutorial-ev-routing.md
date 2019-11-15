@@ -1,22 +1,22 @@
 ---
-title: Encaminhar veículos elétricos usando Azure Notebooks (Python) | Microsoft Docs
-description: Circule veículos elétricos usando as APIs de roteamento e Azure Notebooks do Azure Maps.
+title: 'Tutorial: rotear veículos elétricos usando o Azure Notebooks (Python)'
+description: 'Tutorial: rotear veículos elétricos usando as APIs de roteamento e Azure Notebooks do Azure Maps.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/01/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9628e34b752abc8d77225a612f9f6daaf02fcbf7
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 0f5964472b738bd3868bbf361b85fa4ad1f13b5c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010934"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109599"
 ---
-# <a name="route-electric-vehicles-by-using-azure-notebooks-python"></a>Encaminhar veículos elétricos usando Azure Notebooks (Python)
+# <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: rotear veículos elétricos usando o Azure Notebooks (Python)
 
 O mapas do Azure é um portfólio de APIs de serviço geoespaciais que são nativamente integrados ao Azure. Com essas APIs, os desenvolvedores, as empresas e os ISVs podem criar aplicativos com reconhecimento de local e soluções de IoT, mobilidade, logística e acompanhamento de ativos. 
 

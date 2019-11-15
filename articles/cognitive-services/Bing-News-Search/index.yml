@@ -4,7 +4,7 @@ title: Documentação da API de Pesquisa de Notícias do Bing
 metadata:
   title: 'Documentação da API da Pesquisa de Notícias do Bing – Tutoriais, inícios rápidos, referências da API'
   titleSuffix: Azure Cognitive Services
-  description: Saiba como utilizar a API de Pesquisa de Notícias do Bing para pesquisar notícias na Web.
+  description: A API de Pesquisa de Notícias do Bing permite-lhe integrar as capacidades de pesquisa de notícias do Bing nas suas aplicações.
   services: cognitive-services
   author: aahill
   manager: nitinme

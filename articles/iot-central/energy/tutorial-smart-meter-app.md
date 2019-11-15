@@ -1,19 +1,19 @@
 ---
-title: Criar um aplicativo de análise de medidor inteligente com IoT Central | Microsoft Docs
-description: Saiba como criar um aplicativo de monitoramento do medidor inteligente usando os modelos de aplicativo IoT Central do Azure.
+title: 'Tutorial: criar um aplicativo de análise de medidor inteligente com IoT Central'
+description: 'Tutorial: saiba como criar um aplicativo de monitoramento do medidor inteligente usando os modelos de aplicativo IoT Central do Azure.'
 author: op-ravi
 ms.author: omravi
-ms.date: 10/23/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: c7bb35e7de6400a0fad13845a3faa38ad21b6de7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a73f4d75811a384eb822d1f8594a22506509d560
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581246"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112533"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: criar e percorrer o modelo de aplicativo de monitoramento do medidor inteligente 
 
@@ -33,7 +33,7 @@ Se você não tiver uma assinatura, [crie uma conta de avaliação gratuita](htt
 - Nenhum
 - A assinatura do Azure é recomendada, mas não é necessária para experimentar
 
-## <a name="create-a-smart-meter-monitoring-app"></a>Criar um aplicativo de monitoramento do medidor inteligente 
+## <a name="create-a-smart-meter-monitoring-app"></a>Criar uma aplicação de monitorização de medidores inteligentes 
 
 Você pode criar esse aplicativo em três etapas simples:
 

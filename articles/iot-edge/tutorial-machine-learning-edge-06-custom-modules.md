@@ -1,19 +1,19 @@
 ---
-title: Criar e implantar módulos personalizados – Machine Learning em Azure IoT Edge | Microsoft Docs
-description: Criar e implantar módulos IoT Edge que processam dados de dispositivos folha por meio de um modelo de aprendizado de máquina e, em seguida, enviam as informações para o Hub IoT.
+title: 'Tutorial: criar e implantar módulos personalizados – Machine Learning em Azure IoT Edge'
+description: 'Tutorial: criar e implantar módulos de IoT Edge que processam dados de dispositivos folha por meio de um modelo de aprendizado de máquina e, em seguida, enviam as informações ao Hub IoT.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 731abdde2160c16123ed648b5e552e9e62378438
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7bfe620510d5ff88a20c518be1f4dd1fb422daa2
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493996"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106558"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: criar e implantar módulos de IoT Edge personalizados
 
@@ -22,7 +22,7 @@ ms.locfileid: "73493996"
 
 Neste artigo, criamos três módulos IoT Edge que recebem mensagens de dispositivos folha, executam os dados por meio de seu modelo de aprendizado de máquina e encaminham insights ao Hub IoT.
 
-IoT Edge Hub facilita a comunicação entre módulos e módulos. O uso do hub de IoT Edge como um agente de mensagem mantém os módulos independentes entre si. Os módulos só precisam especificar as entradas nas quais eles aceitam mensagens e as saídas nas quais eles gravam mensagens.
+IoT Edge Hub facilita a comunicação entre módulos e módulos. O uso do hub de IoT Edge como um agente de mensagem mantém os módulos independentes entre si. Módulos só precisam de especificar as entradas em que aceite mensagens e as saídas para que eles escrevem mensagens.
 
 Queremos que o dispositivo IoT Edge realize quatro coisas para nós:
 

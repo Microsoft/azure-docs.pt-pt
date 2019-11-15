@@ -27,9 +27,9 @@
         - name: Utilizar o PHP
           href: quickstarts/php.md
         - name: Utilizar o Go
-          href: quickstarts/php.md
+          href: quickstarts/go.md
         - name: Utilizar o Ruby
-          href: quickstarts/php.md
+          href: quickstarts/ruby.md
 - name: Tutoriais
   items:
     - name: Integre o Power BI para analisar os comentários dos clientes

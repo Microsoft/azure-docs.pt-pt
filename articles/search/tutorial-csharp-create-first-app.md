@@ -1,19 +1,19 @@
 ---
 title: C#tutorial para criar seu primeiro aplicativo
 titleSuffix: Azure Cognitive Search
-description: Saiba como criar seu primeiro aplicativo de pesquisa passo a passo. O tutorial fornece um link para um aplicativo de trabalho no GitHub e o processo completo para criar o aplicativo do zero. Saiba mais sobre os componentes essenciais do Azure Pesquisa Cognitiva.
+description: Saiba como criar seu primeiro C# aplicativo de pesquisa passo a passo. O tutorial fornece um link para um aplicativo de trabalho no GitHub e o processo completo para criar o aplicativo do zero. Saiba mais sobre os componentes essenciais do Azure Pesquisa Cognitiva.
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 3f234a11aeaf7af4e47fb0cf6310ecd68d35e4da
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fc3d9d52ca6eb3d35138323908c73eb0d09cf519
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794141"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112227"
 ---
 # <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>C#Tutorial: criar seu primeiro aplicativo-Azure Pesquisa Cognitiva
 
@@ -502,7 +502,7 @@ A chamada de Pesquisa Cognitiva do Azure é encapsulada em nosso método **RunQu
 
     Nesse método, primeiro garantimos que a configuração do Azure seja iniciada e, em seguida, defina alguns parâmetros de pesquisa. Os nomes dos campos no parâmetro **Select** correspondem exatamente aos nomes de propriedade na classe **Hotel** . É possível deixar o parâmetro **Select** fora do caso em que todas as propriedades são retornadas. No entanto, a definição de nenhum parâmetro de **seleção** não é eficiente se estamos interessados apenas em um subconjunto dos dados. Ao especificar as propriedades em que estamos interessados, apenas essas propriedades são retornadas.
 
-    A chamada assíncrona para Search (**Model. resultList = Await _indexClient. Documents. SearchAsync&lt;Hotel&gt;(Model. ProcurarTexto, Parameters);** ) é assim que este tutorial e aplicativo. A classe **DocumentSearchResult** é um interessante e uma boa ideia (quando o aplicativo está em execução) é definir um ponto de interrupção aqui e usar um depurador para examinar o conteúdo de **Model. resultList**. Você deve descobrir que ele é intuitivo, fornecendo os dados que você solicitou e não muito mais.
+    A chamada assíncrona para Search (**Model. resultList = await _indexClient. Documents. SearchAsync&lt;Hotel&gt;(Model. ProcurarTexto, Parameters);** ) é assim que este tutorial e aplicativo. A classe **DocumentSearchResult** é um interessante e uma boa ideia (quando o aplicativo está em execução) é definir um ponto de interrupção aqui e usar um depurador para examinar o conteúdo de **Model. resultList**. Você deve descobrir que ele é intuitivo, fornecendo os dados que você solicitou e não muito mais.
 
 Agora, no momento da verdade.
 

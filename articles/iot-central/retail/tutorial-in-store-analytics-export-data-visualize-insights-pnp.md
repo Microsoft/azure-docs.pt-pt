@@ -1,5 +1,5 @@
 ---
-title: Exportar dados e visualizar informações no Azure IoT Central | Microsoft Docs
+title: 'Tutorial: exportar dados e visualizar informações no Azure IoT Central'
 description: Neste tutorial, saiba como exportar dados do IoT Central e visualizar informações em um painel de Power BI.
 services: iot-central
 ms.service: iot-central
@@ -10,13 +10,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: dobett
 author: dominicbetts
-ms.date: 10/22/2019
-ms.openlocfilehash: 0cf1c6e926b2406d960762a9d597b28a17f6c316
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.date: 11/12/2019
+ms.openlocfilehash: ce775f207eaa5df05900ea2e5b6d9fbeab4dc878
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615273"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112886"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: exportar dados do Azure IoT Central e visualizar informações no Power BI
 
@@ -42,7 +42,7 @@ Para concluir este tutorial, precisa de:
 
 Antes de criar o Hub de eventos e o aplicativo lógico, você precisa criar um grupo de recursos para gerenciá-los. O grupo de recursos deve estar no mesmo local que o aplicativo **Analytics-check-out in-store** IOT central. Para criar um grupo de recursos:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No painel de navegação esquerdo, selecione **grupos de recursos**. Em seguida, selecione **Adicionar**.
 1. Para **assinatura**, selecione o nome da assinatura do Azure que você usou para criar seu aplicativo IOT central.
 1. Para o nome do **grupo de recursos** , insira _Retail-Store-Analysis_*.
@@ -58,7 +58,7 @@ Antes de configurar o aplicativo de monitoramento de varejo para exportar a tele
 
 1. Na portal do Azure, selecione **criar um recurso** na parte superior esquerda da tela.
 1. Em **Pesquisar no Marketplace**, insira os _hubs de eventos_e pressione **Enter**.
-1. Na página **hubs de eventos** , selecione **criar**.
+1. Sobre o **os Hubs de eventos** página, selecione **criar**.
 1. Na página **criar namespace** , execute as seguintes etapas:
     * Insira um nome exclusivo para o namespace, como _o namename-Retail-Store-Analysis_. O sistema verifica se esse nome está disponível.
     * Escolha o tipo de preço **básico** .
@@ -99,7 +99,7 @@ A exportação de dados pode levar alguns minutos para começar a enviar telemet
 
 Seu painel de Power BI exibirá dados do seu aplicativo de monitoramento de varejo. Nesta solução, você usa Power BI conjuntos de dados de streaming como a fonte de dado para o painel de Power BI. Nesta seção, você define o esquema dos conjuntos de dados de streaming para que o aplicativo lógico possa encaminhar dados do hub de eventos. As etapas a seguir mostram como criar dois conjuntos de Datastream para os sensores ambientais e um conjunto de fluxo de transmissão para o sensor de ocupação:
 
-1. Inicie sessão na sua conta do **Power BI**.
+1. Inicie sessão na sua conta do **Power BI**.
 1. Selecione **espaços de trabalho**e, em seguida, selecione **criar um espaço de trabalho**.
 1. Na página **criar um espaço de trabalho** , insira _Analytics no repositório-check-out_ como o **nome do espaço de trabalho**.
 1. Role até a parte inferior da página **Bem-vindo ao espaço de trabalho análise-check-out no armazenamento** e selecione **ignorar**.
@@ -384,7 +384,7 @@ Para adicionar a lógica ao design do aplicativo lógico, selecione **exibição
     * Selecione o campo **timestamp** e, em seguida, selecione **x-opt-enqueuedtime** na lista de **conteúdo dinâmico** .
     * Selecione o campo **umidade** e, em seguida, selecione **Ver mais** ao lado de **analisar telemetria**. Em seguida, selecione **umidade**.
     * Selecione o campo **temperatura** e, em seguida, selecione **Ver mais** ao lado de **analisar telemetria**. Em seguida, selecione **temperatura**.
-    * Selecione **salvar** para salvar as alterações. A ação de **ambiente zona 1** é semelhante à captura de tela a seguir: ![ambiente de zona 1](./media/tutorial-in-store-analytics-visualize-insights-pnp/zone-1-action.png)
+    * Selecione **guardar** para guardar as alterações. A ação de **ambiente zona 1** é semelhante à captura de tela a seguir: ![ambiente de zona 1](./media/tutorial-in-store-analytics-visualize-insights-pnp/zone-1-action.png)
 1. Selecione a ação **zona 2 ambiente** e selecione **Adicionar uma ação**.
 1. Em **Pesquisar conectores e ações**, digite **Power bi**e pressione **Enter**.
 1. Selecione a ação **adicionar linhas a um conjunto de uma (visualização)** .
@@ -396,7 +396,7 @@ Para adicionar a lógica ao design do aplicativo lógico, selecione **exibição
     * Selecione o campo **timestamp** e, em seguida, selecione **x-opt-enqueuedtime** na lista de **conteúdo dinâmico** .
     * Selecione o campo **umidade** e, em seguida, selecione **Ver mais** ao lado de **analisar telemetria**. Em seguida, selecione **umidade**.
     * Selecione o campo **temperatura** e, em seguida, selecione **Ver mais** ao lado de **analisar telemetria**. Em seguida, selecione **temperatura**.
-    Selecione **salvar** para salvar as alterações.  A ação de **ambiente zona 2** é semelhante à captura de tela a seguir: ![ambiente de zona 2](./media/tutorial-in-store-analytics-visualize-insights-pnp/zone-2-action.png)
+    Selecione **guardar** para guardar as alterações.  A ação de **ambiente zona 2** é semelhante à captura de tela a seguir: ![ambiente de zona 2](./media/tutorial-in-store-analytics-visualize-insights-pnp/zone-2-action.png)
 1. Selecione a ação de **ocupação** e, em seguida, selecione a ação **alternar por ID de interface** .
 1. Selecione a ação de **interface de tempo de duração de pesquisa** e selecione **Adicionar uma ação**.
 1. Em **Pesquisar conectores e ações**, digite **Power bi**e pressione **Enter**.
@@ -409,7 +409,7 @@ Para adicionar a lógica ao design do aplicativo lógico, selecione **exibição
     * Selecione o campo **timestamp** e, em seguida, selecione **x-opt-enqueuedtime** na lista de **conteúdo dinâmico** .
     * Selecione o campo **tempo de duração 1** e, em seguida, selecione **Ver mais** ao lado de **analisar telemetria**. Em seguida, selecione **DwellTime1**.
     * Selecione o campo **tempo de duração 2** e, em seguida, selecione **Ver mais** ao lado de **analisar telemetria**. Em seguida, selecione **DwellTime2**.
-    * Selecione **salvar** para salvar as alterações. A ação de **interface de tempo de duração da pesquisa** é semelhante à seguinte captura de tela: ![ação de ocupação](./media/tutorial-in-store-analytics-visualize-insights-pnp/occupancy-action-1.png)
+    * Selecione **guardar** para guardar as alterações. A ação de **interface de tempo de duração da pesquisa** é semelhante à seguinte captura de tela: ![ação de ocupação](./media/tutorial-in-store-analytics-visualize-insights-pnp/occupancy-action-1.png)
 1. Selecione a ação **interface de contagem de pessoas** e selecione **Adicionar uma ação**.
 1. Em **Pesquisar conectores e ações**, digite **Power bi**e pressione **Enter**.
 1. Selecione a ação **adicionar linhas a um conjunto de uma (visualização)** .
@@ -421,7 +421,7 @@ Para adicionar a lógica ao design do aplicativo lógico, selecione **exibição
     * Selecione o campo **timestamp** e, em seguida, selecione **x-opt-enqueuedtime** na lista de **conteúdo dinâmico** .
     * Selecione o campo **comprimento da fila 1** e, em seguida, selecione **Ver mais** ao lado de **analisar telemetria**. Em seguida, selecione **count1**.
     * Selecione o campo **comprimento da fila 2** e, em seguida, selecione **Ver mais** ao lado de **analisar telemetria**. Em seguida, selecione **Count2**.
-    * Selecione **salvar** para salvar as alterações. A ação da **interface de contagem de pessoas** é semelhante à seguinte captura de tela: ação de ![de ocupação](./media/tutorial-in-store-analytics-visualize-insights-pnp/occupancy-action-2.png)
+    * Selecione **guardar** para guardar as alterações. A ação da **interface de contagem de pessoas** é semelhante à seguinte captura de tela: ação de ![de ocupação](./media/tutorial-in-store-analytics-visualize-insights-pnp/occupancy-action-2.png)
 
 O aplicativo lógico é executado automaticamente. Para ver o status de cada execução, navegue até a página **visão geral** do aplicativo lógico no portal do Azure:
 
@@ -429,7 +429,7 @@ O aplicativo lógico é executado automaticamente. Para ver o status de cada exe
 
 Agora você tem telemetria fluindo do seu aplicativo IoT Central por meio de seu hub de eventos. Em seguida, seu aplicativo lógico analisa as mensagens do hub de eventos e as adiciona a um conjunto de Power BI fluxo de os. Agora, você pode criar um painel de Power BI para visualizar a telemetria:
 
-1. Inicie sessão na sua conta do **Power BI**.
+1. Inicie sessão na sua conta do **Power BI**.
 1. Selecione **espaços de trabalho > análise na loja-check-out**.
 1. Selecione **criar > painel**.
 1. Insira o **Store Analytics** como o nome do painel e selecione **criar**.
@@ -475,7 +475,7 @@ Adicione quatro blocos de cartão para mostrar o comprimento da fila e o tempo d
 | Definição | #1 do cartão | #2 do cartão | #3 do cartão | #4 do cartão |
 | ------- | ------- | ------- | ------- | ------- |
 | Conjunto de dados | Sensor de ocupação | Sensor de ocupação | Sensor de ocupação | Sensor de ocupação |
-| Tipo de visualização | Gráfico de colunas clusterizado | Gráfico de colunas clusterizado | Indicadores | Indicadores |
+| Tipo de visualização | Gráfico de colunas clusterizado | Gráfico de colunas clusterizado | Medidor | Medidor |
 | Valores    | Carimbo de data/hora | Carimbo de data/hora | N/D | N/D |
 | Valor | Tempo de pesquisa 1 | Tempo de duração 2 | Comprimento da fila 1 | Comprimento da fila 2 |
 | Janela de tempo | 60 minutos | 60 minutos |  N/D | N/D |
@@ -484,11 +484,11 @@ Adicione quatro blocos de cartão para mostrar o comprimento da fila e o tempo d
 
 Redimensione e reorganize os blocos no painel para se parecer com a captura de tela a seguir:
 
-![Painel do Power BI](./media/tutorial-in-store-analytics-visualize-insights-pnp/pbi-dashboard.png)
+![Dashboard do Power BI](./media/tutorial-in-store-analytics-visualize-insights-pnp/pbi-dashboard.png)
 
 Você pode adicionar alguns recursos gráficos adicionais para personalizar ainda mais o painel:
 
-![Painel do Power BI](./media/tutorial-in-store-analytics-visualize-insights-pnp/pbi-dashboard-graphics.png)
+![Dashboard do Power BI](./media/tutorial-in-store-analytics-visualize-insights-pnp/pbi-dashboard-graphics.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -500,7 +500,7 @@ Você pode excluir o Hub de eventos e o aplicativo lógico no portal do Azure ex
 
 Você pode excluir seus conjuntos de Power BI de trabalho e o painel excluindo o espaço de trabalho da página Configurações de Power BI do espaço de trabalho.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Esses três tutoriais mostraram uma solução de ponta a ponta que usa o modelo **de aplicativo análise na loja-check-out** IOT central. Você conectou dispositivos ao aplicativo, usou IoT Central para monitorar os dispositivos e usou Power BI para criar um painel para exibir informações da telemetria do dispositivo. Uma próxima etapa recomendada é explorar um dos outros modelos de aplicativo IoT Central:
 

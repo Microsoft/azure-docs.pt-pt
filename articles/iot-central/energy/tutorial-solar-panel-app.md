@@ -1,19 +1,19 @@
 ---
-title: Criar um aplicativo de monitoramento de penal solar com IoT Central | Microsoft Docs
-description: Saiba como criar um aplicativo de painel solar usando os modelos de aplicativo IoT Central do Azure.
+title: 'Tutorial: criar um aplicativo de monitoramento penal solar com IoT Central'
+description: 'Tutorial: saiba como criar um aplicativo de painel solar usando os modelos de aplicativo IoT Central do Azure.'
 author: op-ravi
 ms.author: omravi
-ms.date: 10/23/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: c560c7e298dabbb5a3c31d90e0d48d0d63cfac5f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 5560cb31e31f7cf33ac8ae71d649e88be3dbb6e6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581526"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112504"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Tutorial: criar e percorrer o modelo de aplicativo de monitoramento do painel solar 
 
@@ -35,7 +35,7 @@ Se você não tiver uma assinatura, [crie uma conta de avaliação gratuita](htt
 - A assinatura do Azure é recomendada, mas não é necessária para experimentar
 
 
-## <a name="create-a-solar-panel-monitoring-app"></a>Criar um aplicativo de monitoramento de painel solar 
+## <a name="create-a-solar-panel-monitoring-app"></a>Criar uma aplicação de monitorização de painéis solares 
 
 Você pode criar esse aplicativo em três etapas simples:
 

@@ -1,5 +1,5 @@
 ---
-title: Verificações de conformidade regulatória – central de segurança do Azure
+title: 'Tutorial: verificações de conformidade regulatória-central de segurança do Azure'
 description: 'Tutorial: saiba como melhorar sua conformidade regulatória usando a central de segurança do Azure.'
 services: security-center
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: c448697339948b30d73e88c183211e7a1154fe77
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 01c0f1199ab8c376fe5bb5e864f81a2730879ed1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686434"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112316"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: melhorar a conformidade regulatória
 ---
@@ -76,7 +76,7 @@ Dadas as informações no painel de conformidade regulatória, você pode melhor
 
 1. À medida que você clica nas informações de recomendação e seleciona um recurso não íntegro, ele conduz você diretamente à experiência de habilitar a **transferência de armazenamento seguro** dentro do portal do Azure.
 
-    Para obter mais informações sobre como aplicar recomendações, consulte [implementando recomendações de segurança na central de segurança do Azure](security-center-recommendations.md).
+    Para obter mais informações sobre como aplicar recomendações, veja [implementar recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md).
 
     ![recomendação de conformidade](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
 

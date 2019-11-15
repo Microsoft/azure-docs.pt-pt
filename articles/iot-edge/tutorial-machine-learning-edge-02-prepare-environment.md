@@ -1,21 +1,21 @@
 ---
-title: Configurar o ambiente-Machine Learning em Azure IoT Edge | Microsoft Docs
-description: Prepare seu ambiente para desenvolvimento e implantação de módulos para aprendizado de máquina na borda.
+title: 'Tutorial: configurar o ambiente Machine Learning no Azure IoT Edge'
+description: 'Tutorial: preparar seu ambiente para desenvolvimento e implantação de módulos para aprendizado de máquina na borda.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1db94e683a0dfb3b60b12bc5ac205c766d405d0a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 2ea4248ebaedd318e4112e41169f72bc80b1120f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299831"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114069"
 ---
-# <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Configurar um ambiente para aprendizado de máquina no IoT Edge
+# <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: configurar um ambiente para aprendizado de máquina no IoT Edge
 
 > [!NOTE]
 > Este artigo faz parte de uma série de um tutorial sobre como usar Azure Machine Learning em IoT Edge. Se você chegou a este artigo diretamente, incentivamos você a começar com o [primeiro artigo](tutorial-machine-learning-edge-01-intro.md) da série para obter os melhores resultados.
@@ -58,7 +58,7 @@ Clone ou baixe o script do PowerShell do [Machine Learning e IOT Edge](https://g
 
 O diretório DevVM contém os arquivos necessários para criar uma máquina virtual do Azure apropriada para concluir este tutorial.
 
-1. Abra o PowerShell como administrador e navegue até o diretório em que você baixou o código. Vamos nos referir ao diretório raiz de sua origem como `<srcdir>`.
+1. Abra o PowerShell como administrador e navegue até o diretório em que você baixou o código. Vamos nos referir ao diretório raiz da sua fonte como `<srcdir>`.
 
     ```powershell
     cd <srcdir>\IoTEdgeAndMlSample\DevVM
@@ -77,17 +77,17 @@ O diretório DevVM contém os arquivos necessários para criar uma máquina virt
     ```
 
     * Quando solicitado, forneça as seguintes informações:
-      * **ID da assinatura do Azure**: Sua ID de assinatura, que pode ser encontrada na portal do Azure
-      * **Nome do grupo de recursos**: O nome de um grupo de recursos novo ou existente no Azure
-      * **Local**: Escolha um local do Azure onde a máquina virtual será criada. Por exemplo, westus2 ou northeurope. Para obter mais informações, consulte [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/).
-      * **AdminUsername**: Forneça um nome fácil de memorizar para a conta de administrador que você deseja criar e usar na máquina virtual.
-      * **AdminPassword**: Defina uma senha para a conta de administrador na máquina virtual.
+      * **ID de assinatura do Azure**: sua ID de assinatura, que pode ser encontrada no portal do Azure
+      * **Nome do grupo de recursos**: o nome de um grupo de recursos novo ou existente no Azure
+      * **Local**: escolha um local do Azure onde a máquina virtual será criada. Por exemplo, westus2 ou northeurope. Para obter mais informações, consulte [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/).
+      * **AdminUsername**: forneça um nome fácil de memorizar para a conta de administrador que você deseja criar e usar na máquina virtual.
+      * **AdminPassword**: defina uma senha para a conta de administrador na máquina virtual.
 
     * Se você não tiver o Azure PowerShell instalado, o script será instalado [Azure PowerShell módulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0)
 
     * Ser-lhe-á pedido que inicie sessão no Azure.
 
-    * O script confirma as informações para a criação de sua VM. Pressione `y` ou`Enter` para continuar.
+    * O script confirma as informações para a criação de sua VM. Pressione `y` ou `Enter` para continuar.
 
 O script é executado por vários minutos, uma vez que executa as seguintes etapas:
 
@@ -118,7 +118,7 @@ Agora que criamos uma VM, precisamos concluir a instalação do software necess�
 
 1. O script de criação de VM criou um arquivo RDP em sua área de trabalho.
 
-2. Clique duas vezes no arquivo com o nome  **\<VM do Azure nome\>. rdp**.
+2. Clique duas vezes no arquivo com o nome **\<nome da VM do Azure\>. rdp**.
 
 3. Será exibida uma caixa de diálogo informando que o editor da conexão remota é desconhecido. Clique na caixa de seleção **não perguntar novamente sobre conexões a este computador** e, em seguida, selecione **conectar**.
 
@@ -130,7 +130,7 @@ Agora que criamos uma VM, precisamos concluir a instalação do software necess�
 
 Agora que você se conectou ao computador de desenvolvimento, adicione algumas extensões úteis para Visual Studio Code para facilitar a experiência de desenvolvimento.
 
-1. Em uma janela do PowerShell, navegue até **C\\:\\Source\\IoTEdgeAndMlSample DevVM**.
+1. Em uma janela do PowerShell, navegue até **C:\\fonte\\IoTEdgeAndMlSample\\DevVM**.
 
 2. Permita que os scripts sejam executados na máquina virtual digitando.
 
@@ -182,7 +182,7 @@ Nesta seção, você usará um script para criar um hub IoT do Azure e uma conta
     ```
 
     * Ser-lhe-á pedido que inicie sessão no Azure.
-    * O script confirma as informações para a criação do Hub e a conta de armazenamento. Pressione `y` ou`Enter` para continuar.
+    * O script confirma as informações para a criação do Hub e a conta de armazenamento. Pressione `y` ou `Enter` para continuar.
 
 O script leva cerca de dois minutos para ser executado. Depois de concluído, o script gera o nome do Hub e a conta de armazenamento.
 
@@ -202,7 +202,7 @@ Como parte da criação do Hub IoT, o script que executamos na seção anterior 
 
 1. Em **armazenamento de BLOBs**, selecione **turbofanDeviceStorage**.
 
-1. Observe que esse ponto de extremidade aponta para um contêiner de blob chamado **devicedata** na conta de armazenamento criada na última etapa, que é nomeada **\<iotedgeandml\>sufixo exclusivo**.
+1. Observe que esse ponto de extremidade aponta para um contêiner de BLOBs chamado **devicedata** na conta de armazenamento criada na última etapa, denominada **iotedgeandml\<sufixo exclusivo\>** .
 
 1. Observe também que o **formato de nome de arquivo de blob** foi alterado do formato padrão para posicionar a partição como o último elemento no nome. Descobrimos que esse formato é mais conveniente para as operações de arquivo que faremos com Azure Notebooks mais adiante no tutorial.
 

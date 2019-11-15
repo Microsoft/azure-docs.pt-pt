@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: analisar eventos – gêmeos digital do Azure | Microsoft Docs'
+title: 'Tutorial: analisar eventos da instalação do gêmeos digital do Azure'
 description: Saiba como Visualizar e analisar eventos de seus espaços de gêmeos digitais do Azure, com Azure Time Series Insights, usando as etapas neste tutorial.
 services: digital-twins
 ms.author: alinast
@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/23/2019
-ms.openlocfilehash: b082de36b954f1ed387782c3eefdc2b01cf09a90
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/12/2019
+ms.openlocfilehash: 3df0fa448e320cba6dd3aaba1bb1be09c1a8b49b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014016"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107677"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Tutorial: Visualizar e analisar eventos do Azure digital gêmeos usando o Time Series Insights
 
@@ -48,7 +48,7 @@ Você pode usar o serviço de [hubs de eventos](../event-hubs/event-hubs-about.m
 
 ### <a name="create-an-event-hub"></a>Criar um hub de eventos
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, selecione **Criar um recurso**.
 

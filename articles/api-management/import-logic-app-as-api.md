@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 57965b0326171f37d33aeae02080c8887c3acf23
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4077187fe04e3be914a6f7fba84c03df1b79d06a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072067"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108403"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importar uma Aplicação Lógica como uma API
 
@@ -28,12 +28,12 @@ Neste artigo, vai aprender a:
 > [!div class="checklist"]
 >
 > -   Importar uma Aplicação Lógica como uma API
-> -   Testar a API no portal do Azure
+> -   Testar a API no Portal do Azure
 > -   Testar a API no portal do Programador
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
--   Conclua o início rápido a seguir: [crie uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
+-   Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
 -   Verifique se há um aplicativo lógico em sua assinatura que expõe um ponto de extremidade HTTP. Para obter mais informações, [dispare fluxos de trabalho com pontos de extremidade http](../logic-apps/logic-apps-http-endpoint.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
@@ -48,7 +48,7 @@ Neste artigo, vai aprender a:
 3. Pressione **procurar** para ver a lista de aplicativos lógicos com gatilho http em sua assinatura. (Observe que os aplicativos lógicos sem gatilho HTTP não serão exibidos na lista.)
 4. Selecione a aplicação. O gerenciamento de API localiza o Swagger associado ao aplicativo selecionado, o busca e o importa.
 5. Adicione um sufixo de URL de API. O sufixo é um nome que identifica esta API específica nesta instância de Gestão de API. Ele deve ser exclusivo nesta instância de gerenciamento de API.
-6. Associe a API a um produto e publique-a. Neste caso, é utilizado o produto "_Unlimited_". Se pretender que a API seja publicada e esteja disponível para programadores, adicione-a a um produto. Pode fazê-lo durante a criação da API ou defini-lo mais tarde.
+6. Publique a API ao associá-la a um produto. Neste caso, é utilizado o produto "_Unlimited_". Se pretender que a API seja publicada e esteja disponível para programadores, adicione-a a um produto. Pode fazê-lo durante a criação da API ou defini-lo mais tarde.
 
     Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. Se você criou a instância de gerenciamento de API, você já é um administrador, portanto, você está inscrito em cada produto por padrão.
 
@@ -59,7 +59,7 @@ Neste artigo, vai aprender a:
 
 7. Selecione **Criar**.
 
-## <a name="test-the-imported-api-in-the-azure-portal"></a>Testar a API importada no portal do Azure
+## <a name="test-the-api-in-the-azure-portal"></a>Testar a API no Portal do Azure
 
 As operações podem ser chamadas diretamente a partir do Portal do Azure, que fornece um meio cómodo para ver e testar as operações de uma API.
 
@@ -72,22 +72,6 @@ As operações podem ser chamadas diretamente a partir do Portal do Azure, que f
 4. Prima **Enviar**.
 
     O back-end responde com **200 OK** e alguns dados.
-
-## <a name="call-operation"> </a>Chamar uma operação a partir do portal do programador
-
-Também é possível chamar operações a partir do **portal do Programador** para testar as APIs.
-
-1. Selecione a API que criou no passo “Importar e publicar uma API de back-end”.
-2. Prima **Portal do Programador**.
-
-    O site "portal do Programador" abre-se.
-
-3. Selecione a **API** que criou.
-4. Clique na operação que pretende testar.
-5. Prima **Experimente**.
-6. Prima **Enviar**.
-
-    Depois de uma operação ser invocada, o portal do programador apresenta o **Estado da resposta**, os **Cabeçalhos da resposta** e qualquer **Conteúdo da resposta**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

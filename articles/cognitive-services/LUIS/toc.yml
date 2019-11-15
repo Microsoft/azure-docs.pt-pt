@@ -337,8 +337,6 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2092087'
         - name: APIs REST de Predição V2
           href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
-        - name: API REST V3 de ponto final
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
         - name: Códigos HTTP
           displayName: '400, 401, 403, 409, 410, 414, 429'
           href: luis-reference-response-codes.md

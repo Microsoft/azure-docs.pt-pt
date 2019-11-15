@@ -1,6 +1,6 @@
 ---
-title: Utilizar eventos do Hub IoT para acionar o Azure Logic Apps | Microsoft Docs
-description: Crie processos automatizados com o serviço de encaminhamento de eventos do Azure Event Grid para executar ações do Azure Logic Apps com base em eventos do Hub IoT.
+title: 'Tutorial: usar eventos do Hub IoT para disparar aplicativos lógicos do Azure'
+description: 'Tutorial: usando o serviço de roteamento de eventos da grade de eventos do Azure, crie processos automatizados para executar ações de aplicativos lógicos do Azure com base em eventos do Hub IoT.'
 services: iot-hub
 documentationcenter: ''
 author: kgremban
@@ -10,16 +10,16 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 11/11/2019
 ms.author: kgremban
-ms.openlocfilehash: 9c84e1a62ad8b67e398c62074c390711f4b0be28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e003cb650b0589ab43c984850838c56cbbf1ff2f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60823831"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106773"
 ---
-# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Tutorial: Enviar notificações por e-mail sobre eventos do Hub IoT do Azure com o Logic Apps
+# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Tutorial: Enviar por e-mail notificações sobre eventos do IoT Hub do Azure com o Logic Apps
 
 O Azure Event Grid permite-lhe reagir a eventos no Hub IoT ao acionar ações nas suas aplicações empresariais a jusante.
 
@@ -37,16 +37,16 @@ Primeiro, crie uma aplicação lógica e adicione um acionador do Event Grid que
 
 ### <a name="create-a-logic-app-resource"></a>Criar um recurso de aplicação lógica
 
-1. Na [portal do Azure](https://portal.azure.com), selecione **criar um recurso** > **integração** > **aplicação lógica**.
+1. No [portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Integração** > **Aplicação Lógica**.
 
    ![Criar uma aplicação lógica](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
 2. Atribua um nome à aplicação lógica que seja exclusivo na sua subscrição e, em seguida, selecione essa subscrição, o grupo de recursos e a localização como o seu hub IoT. 
 3. Selecione **Criar**.
 
-4. Assim que o recurso é criado, navegue até à sua aplicação lógica. 
+4. Depois que o recurso for criado, navegue até seu aplicativo lógico. 
 
-5. O estruturador de aplicações lógicas mostra-lhe modelos de padrões comuns para que possa começar mais depressa. No Estruturador de Aplicações Lógicas, em **Modelos**, escolha **Aplicação Lógica em Branco** para criar a sua aplicação lógica de raiz.
+5. O designer de aplicativos lógicos mostra modelos para padrões comuns para que você possa começar mais rapidamente. No Estruturador de Aplicações Lógicas, em **Modelos**, escolha **Aplicação Lógica em Branco** para criar a sua aplicação lógica de raiz.
 
 ### <a name="select-a-trigger"></a>Selecionar um acionador
 
@@ -128,8 +128,8 @@ Ações são os passos que ocorrem depois de o acionador iniciar o fluxo de trab
 5. Se tal lhe for solicitado, inicie sessão na sua conta de e-mail. 
 
 6. Crie o seu modelo de e-mail. 
-   * **Para**: Introduza o endereço de e-mail para receber os e-mails de notificação. Neste tutorial, utilize uma conta de e-mail a que tenha acesso para fins de teste. 
-   * **Assunto** e **corpo**: Escreva o texto para o seu e-mail. Selecione as propriedades de JSON na ferramenta do seletor para incluir conteúdo dinâmico baseado em dados de eventos.  
+   * **Para**: introduza o endereço de e-mail para receber as mensagens de e-mail de notificação. Neste tutorial, utilize uma conta de e-mail a que tenha acesso para fins de teste. 
+   * **Assunto** e **Corpo**: escreva o texto da sua mensagem de e-mail. Selecione as propriedades de JSON na ferramenta do seletor para incluir conteúdo dinâmico baseado em dados de eventos.  
 
    O modelo de e-mail pode ter um aspeto semelhante ao deste exemplo:
 
@@ -162,23 +162,23 @@ Nesta secção, vai configurar o Hub IoT para publicar eventos à medida que est
    ![Criar nova subscrição de evento](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. Crie a subscrição de evento com os seguintes valores: 
-   * **Tipo de evento**: Desmarque a opção inscrever-se a todos os tipos de eventos e selecione **dispositivo criado** no menu.
-   * **Detalhes do ponto final**: Selecione o tipo de ponto final como **Hook de Web** e clique no ponto de extremidade selecione e cole o URL que copiou da sua aplicação lógica e confirme a seleção.
+   * **Tipo de Evento**: desmarque Subscrever todos os tipos de eventos e selecione **Dispositivo Criado** no menu.
+   * **Detalhes do Ponto Final**: selecione o Tipo de Ponto Final como **Webhook** e clique em selecionar ponto final e cole o URL que copiou da sua aplicação lógica e confirme a seleção.
 
      ![selecione o url do ponto final](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-   * **Detalhes da subscrição de evento**: Forneça um nome descritivo e selecione **esquema de grelha de eventos**
+   * **Detalhes da Subscrição de Evento**: forneça um nome descritivo e selecione **Esquema da Grelha de Eventos**
 
    Quando tiver terminado, o aspeto do formulário deverá ser semelhante ao do exemplo seguinte: 
 
     ![Formulário de exemplo de subscrição de evento](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
-5. Pode guardar a subscrição de evento aqui e receber notificações para cada dispositivo criado no seu hub IoT. Para este tutorial, porém, vamos utilizar campos opcionais para filtrar para dispositivos específicos. Selecione **funcionalidades adicionais** na parte superior do formulário. 
+5. Pode guardar a subscrição de evento aqui e receber notificações para cada dispositivo criado no seu hub IoT. Para este tutorial, no entanto, vamos usar os campos opcionais para filtrar dispositivos específicos. Selecione **recursos adicionais** na parte superior do formulário. 
 
 6. Crie os seguintes filtros:
 
-   * **Assunto começa com**: Introduza `devices/Building1_` para filtrar eventos de dispositivo no módulo 1.
-   * **Assunto termina com**: Introduza `_Temperature` filtrar eventos relacionados com a temperatura do dispositivo.
+   * **Assunto Começa Com**: introduza `devices/Building1_` para filtrar os eventos de dispositivo no edifício 1.
+   * **Assunto Termina Com**: introduza `_Temperature` para filtrar eventos de dispositivo relacionados com temperatura.
 
 5. Selecione **Criar** para guardar a subscrição de evento.
 
@@ -222,7 +222,7 @@ Mesmo que decida manter o hub IoT, poderá ser conveniente eliminar a subscriç�
 2. Selecione a subscrição de evento que pretende remover. 
 3. Selecione **Eliminar**. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre como [Reagir aos eventos do Hub IoT com o Event Grid para acionar ações](../iot-hub/iot-hub-event-grid.md).
 * [Saiba como encomendar eventos de dispositivos ligados e desligados](../iot-hub/iot-hub-how-to-order-connection-state-events.md)

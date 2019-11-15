@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial do Python: chamar serviços cognitivas em um pipeline de enriquecimento de ia'
+title: 'Tutorial: criar um conconhecimento em Python usando APIs REST'
 titleSuffix: Azure Cognitive Search
 description: Percorra um exemplo de extração de dados, linguagem natural e processamento de ia de imagem no Azure Pesquisa Cognitiva usando um notebook Jupyter Python. Os dados extraídos são indexados e acessados facilmente por consulta.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: bb36ae551c48fc53756933e78ff0212f8ec1cdeb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1e404998c8f49852248a754e7134f439dcdf5b04
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790212"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113674"
 ---
-# <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-enrichment-pipeline"></a>Tutorial do Python: chamar API de Serviços Cognitivos em um pipeline de enriquecimento de Pesquisa Cognitiva do Azure
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>Tutorial: criar um pipeline de enriquecimento de ia usando REST e Python
 
 Neste tutorial, você aprende a mecânica do enriquecimento de dados de programação no Azure Pesquisa Cognitiva usando *habilidades cognitivas*. As habilidades são apoiadas por recursos de análise de imagem e NLP (processamento de idioma natural) em serviços cognitivas. Por meio de composição e configuração do consentset, você pode extrair texto e representações de texto de uma imagem ou arquivo de documento digitalizado. Você também pode detectar idioma, entidades, frases-chave e muito mais. O resultado é um conteúdo adicional avançado em um índice de pesquisa, criado com os aprimoramentos de ia em um pipeline de indexação. 
 
@@ -58,7 +58,7 @@ Para interagir com o serviço de Pesquisa Cognitiva do Azure, você precisará d
 
 1. [Entre no portal do Azure](https://portal.azure.com/)e, em sua página de **visão geral** do serviço de pesquisa, obtenha a URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-1. Em **configurações**  > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+1. Em **configurações** > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
 ![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
 

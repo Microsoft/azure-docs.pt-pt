@@ -1,22 +1,22 @@
 ---
-title: Implementar análise espacial de IoT usando mapas do Azure | Microsoft Docs
-description: Integre o Hub IoT com as APIs de serviço do Azure Maps.
+title: 'Tutorial: implementar análise espacial de IoT usando mapas do Azure'
+description: 'Tutorial: integrar o Hub IoT com as APIs de serviço do Azure Maps.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/13/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 618931c3a45fcb25b2a9221ea3f6069e9ff11de5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b876b27d0eb24a9eabcffe0d131ea0ef5bb79bad
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933207"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107052"
 ---
-# <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Implementar análise espacial de IoT usando mapas do Azure
+# <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutorial: implementar análise espacial de IoT usando mapas do Azure
 
 Acompanhar e capturar eventos relevantes que ocorrem em espaço e tempo é um cenário de IoT comum. Por exemplo, nos aplicativos gerenciamento de frota, acompanhamento de ativos, mobilidade e cidade inteligente. Este tutorial orienta você por meio de um padrão de solução para usar APIs do Azure Maps em relação a eventos relevantes capturados pelo Hub IoT, usando o modelo de assinatura de evento fornecido pela grade de eventos.
 
@@ -70,7 +70,7 @@ O diagrama a seguir fornece uma visão geral de alto nível do sistema.
  
   <center>
 
-  ![Visão geral do sistema](./media/tutorial-iot-hub-maps/system-diagram.png)</center>
+  Visão geral do ![do sistema](./media/tutorial-iot-hub-maps/system-diagram.png)</center>
 
 A figura a seguir representa a área de limite geodestacada em azul e a rota do veículo de aluguel como uma linha verde.
 
@@ -94,9 +94,9 @@ Para concluir as etapas deste tutorial, primeiro você precisa criar um grupo de
    ![Adicionar grupo de recursos](./media/tutorial-iot-hub-maps/add-resource-group.png) 
 
 4. Insira os seguintes valores de propriedade:
-    * **Scriçõe** Selecione sua assinatura do Azure.
+    * **Assinatura:** Selecione sua assinatura do Azure.
     * **Grupo de recursos:** Insira "ContosoRental" como o nome do grupo de recursos.
-    * **Regionais** Selecione uma região para o grupo de recursos.  
+    * **Região:** Selecione uma região para o grupo de recursos.  
 
     ![Detalhes do grupo de recursos](./media/tutorial-iot-hub-maps/resource-details.png)
 
@@ -165,7 +165,7 @@ Abra o aplicativo de postmaster e siga as etapas abaixo para carregar a cerca ge
     https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
     ```
     
-    O valor "geojson" em relação `dataFormat` ao parâmetro no caminho da URL representa o formato dos dados que estão sendo carregados.
+    O valor "geojson" em relação ao parâmetro `dataFormat` no caminho da URL representa o formato dos dados que estão sendo carregados.
 
 3. Clique em **params**e insira os seguintes pares de chave/valor a serem usados para a URL de solicitação post. Substitua o valor da chave de assinatura pela chave de assinatura primária do Azure Maps.
    
@@ -181,13 +181,13 @@ Abra o aplicativo de postmaster e siga as etapas abaixo para carregar a cerca ge
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. Copie seu URI de status e acrescente `subscription-key` um parâmetro a ele com seu valor sendo sua chave de assinatura de conta do Azure Maps. O formato do URI de status deve ser semelhante ao mostrado abaixo:
+6. Copie seu URI de status e acrescente um `subscription-key` parâmetro a ele com seu valor sendo sua chave de assinatura de conta do Azure Maps. O formato do URI de status deve ser semelhante ao mostrado abaixo:
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-7. Para obter o, `udId` abra uma nova guia no aplicativo de postmaster e selecione obter método http na guia Construtor e faça uma solicitação get no URI de status. Se o upload de dados tiver sido bem-sucedido, você receberá um udId no corpo da resposta. Copie o udId para uso posterior.
+7. Para obter o, `udId` abra uma nova guia no aplicativo de postmaster e selecione obter método HTTP na guia Construtor e faça uma solicitação GET no URI de status. Se o upload de dados tiver sido bem-sucedido, você receberá um udId no corpo da resposta. Copie o udId para uso posterior.
 
    ```JSON
    {
@@ -226,7 +226,7 @@ Azure Functions é um serviço de computação sem servidor que nos permite exec
 7. No script c#, substitua os seguintes parâmetros:
     * Substitua o **SUBSCRIPTION_KEY** pela chave de assinatura primária da conta do Azure Maps.
     * Substitua o **UDID** pelo UDID da cerca geográfica que você carregou, 
-    * A função **CreateBlobAsync** no script cria um blob por evento na conta de armazenamento de dados. Substitua **ACCESS_KEY**, **ACCOUNT_NAME** e **STORAGE_CONTAINER_NAME** pela chave de acesso da sua conta de armazenamento e pelo nome da conta e pelo contêiner de armazenamento de dados.
+    * A função **CreateBlobAsync** no script cria um blob por evento na conta de armazenamento de dados. Substitua o **ACCESS_KEY**, **ACCOUNT_NAME** e **STORAGE_CONTAINER_NAME** pela chave de acesso da sua conta de armazenamento e pelo nome da conta e pelo contêiner de armazenamento de dados.
 
 10. Clique em **Adicionar assinatura da grade de eventos**.
     
@@ -243,7 +243,7 @@ Depois de adicionar uma assinatura de grade de eventos à função do Azure, ago
 
 ![Hub-ex-rota](./media/tutorial-iot-hub-maps/hub-route.png)
 
-Em nosso cenário de exemplo, desejamos filtrar todas as mensagens nas quais o veículo de aluguel está sendo movido. Para publicar esses eventos de telemetria de dispositivo na grade de eventos, usaremos a consulta de roteamento para filtrar os eventos em `Engine` que a propriedade está **"ativada"** . Há várias maneiras de consultar mensagens do dispositivo para a nuvem do IoT, para saber mais sobre a sintaxe de roteamento de mensagens, consulte [Roteamento de mensagens do Hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax). Para criar uma consulta de roteamento, clique na rota **RouteToEventGrid** e substitua a **consulta de roteamento** por **"Engine =" em ""** e clique em **salvar**. Agora, o Hub IoT publicará apenas a telemetria do dispositivo onde o mecanismo está ativado.
+Em nosso cenário de exemplo, desejamos filtrar todas as mensagens nas quais o veículo de aluguel está sendo movido. Para publicar esses eventos de telemetria de dispositivo na grade de eventos, usaremos a consulta de roteamento para filtrar os eventos em que a propriedade `Engine` está **"ativada"** . Há várias maneiras de consultar mensagens do dispositivo para a nuvem do IoT, para saber mais sobre a sintaxe de roteamento de mensagens, consulte [Roteamento de mensagens do Hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax). Para criar uma consulta de roteamento, clique na rota **RouteToEventGrid** e substitua a **consulta de roteamento** por **"Engine =" em ""** e clique em **salvar**. Agora, o Hub IoT publicará apenas a telemetria do dispositivo onde o mecanismo está ativado.
 
 ![Hub-ex-filtro](./media/tutorial-iot-hub-maps/hub-filter.png)
 
@@ -280,7 +280,7 @@ O mapa abaixo mostra quatro pontos em que o veículo estava fora da cerca geogr�
 
 ![mapa de violação](./media/tutorial-iot-hub-maps/violation-map.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para explorar as APIs do Azure Maps usadas neste tutorial, consulte:
 

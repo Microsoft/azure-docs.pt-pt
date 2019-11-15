@@ -1,20 +1,20 @@
 ---
-title: Stream Analytics na borda-Azure IoT Edge | Microsoft Docs
+title: 'Tutorial: Stream Analytics na borda-Azure IoT Edge'
 description: Neste tutorial, você implanta Azure Stream Analytics como um módulo para um dispositivo IoT Edge
 author: kgremban
 ms.author: kgremban
-ms.date: 08/07/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0128574ff0ef9db1c5a4326e3ebce25fbba0c2e7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: fcb272a6161ecae99f969fbf6689944ea85a1384
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845111"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114019"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: Implantar Azure Stream Analytics como um módulo IoT Edge
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: implantar Azure Stream Analytics como um módulo IoT Edge
 
 Muitas soluções de IoT usam o Analytics Services para obter informações sobre os dados conforme chegam na nuvem de dispositivos IoT. Com o Azure IoT Edge, pode utilizar a lógica do [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) e movê-la para o dispositivo propriamente dito. Ao processar os fluxos de telemetria na periferia, pode reduzir a quantidade de dados carregados, bem como o tempo que demora a reagir a informações acionáveis.
 
@@ -33,7 +33,7 @@ Neste tutorial, ficará a saber como:
 
 <center>
 
-![Diagrama-arquitetura do tutorial, estágio e implantação do trabalho ASA](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
+Diagrama ![-arquitetura do tutorial, estágio e implantação do trabalho ASA](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
 
@@ -67,7 +67,7 @@ Quando cria um trabalho do Azure Stream Analytics para ser executado num disposi
 
    | Campo | Valor |
    | ----- | ----- |
-   | Subscription | Escolha a mesma subscrição do hub IoT. |
+   | Subscrição | Escolha a mesma subscrição do hub IoT. |
    | Grupo de recursos | Recomendamos que utilize o mesmo grupo de recursos para todos os recursos de teste que criou durante os inícios rápidos e tutoriais do IoT Edge. Por exemplo, **IoTEdgeResources**. |
    | Nome | Introduza um nome exclusivo para a conta de armazenamento. | 
    | Localização | Escolha uma localização perto de si. |
@@ -255,7 +255,7 @@ Caso contrário, você pode excluir as configurações locais e os recursos do A
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configurou uma tarefa do Azure Stream Analytics para analisar dados a partir do dispositivo IoT Edge. Em seguida, carregou este módulo do Azure Stream Analytics no dispositivo do IoT Edge para processar e reagir ao aumento da temperatura localmente, bem como enviar o fluxo de dados agregados para a cloud. Para ver de que forma o Azure IoT Edge pode criar mais soluções para a sua empresa, avance para os outros tutoriais.
 

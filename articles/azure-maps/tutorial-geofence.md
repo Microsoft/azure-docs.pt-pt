@@ -1,22 +1,22 @@
 ---
-title: Criar uma cerca geográfica usando o Azure Maps | Microsoft Docs
-description: Configure uma cerca geográfica usando mapas do Azure.
+title: 'Tutorial: criar uma cerca geográfica usando mapas do Azure'
+description: 'Tutorial: configurar uma cerca geográfica usando mapas do Azure.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 62005546c653796773083eaf625820ab532a8a2c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694929"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107092"
 ---
-# <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurar uma cerca geográfica usando mapas do Azure
+# <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: configurar uma cerca geográfica usando o Azure Maps
 
 Este tutorial orienta você pelas etapas básicas para configurar a cerca geográfica usando o Azure Maps. O cenário que abordamos neste tutorial é ajudar a construção de gerenciadores de sites a monitorar equipamentos perigosos em potencial, movendo-se além das áreas de construção designadas. Um site de construção envolve equipamentos e regulamentos caros. Normalmente, isso requer que o equipamento permaneça dentro do site de construção e não deixe sem permissão.
 
@@ -154,13 +154,13 @@ Abra o aplicativo de postmaster e siga as etapas a seguir para carregar a cerca 
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. Copie seu URI de status e acrescente `subscription-key` um parâmetro a ele com seu valor sendo sua chave de assinatura de conta do Azure Maps. O formato do URI de status deve ser semelhante ao mostrado abaixo:
+6. Copie seu URI de status e acrescente um `subscription-key` parâmetro a ele com seu valor sendo sua chave de assinatura de conta do Azure Maps. O formato do URI de status deve ser semelhante ao mostrado abaixo:
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-7. Para obter o, `udId` abra uma nova guia no aplicativo de postmaster e selecione obter método http na guia Construtor e faça uma solicitação get no URI de status. Se o upload de dados tiver sido bem-sucedido, você receberá um udId no corpo da resposta. Copie o udId para uso posterior.
+7. Para obter o, `udId` abra uma nova guia no aplicativo de postmaster e selecione obter método HTTP na guia Construtor e faça uma solicitação GET no URI de status. Se o upload de dados tiver sido bem-sucedido, você receberá um udId no corpo da resposta. Copie o udId para uso posterior.
 
    ```JSON
    {
@@ -257,7 +257,7 @@ A seguir estão cinco solicitações de API HTTP GET de isolamento geográfico, 
   
    ![Consulta de limite geográfico 4](./media/tutorial-geofence/geofence-query4.png)
 
-   Ao observar atentamente a resposta correspondente, você pode observar que nenhum evento é publicado aqui mesmo que o equipamento tenha saído da cerca geográfica do subsite. Se você olhar a hora especificada do usuário na solicitação GET, poderá ver que a cerca geográfica do subsite expirou em relação a esse tempo e o equipamento ainda está no limite geográfico principal. Você também pode ver a ID de geometria da cerca geográfica do subsite `expiredGeofenceGeometryId` em no corpo da resposta.
+   Ao observar atentamente a resposta correspondente, você pode observar que nenhum evento é publicado aqui mesmo que o equipamento tenha saído da cerca geográfica do subsite. Se você olhar a hora especificada do usuário na solicitação GET, poderá ver que a cerca geográfica do subsite expirou em relação a esse tempo e o equipamento ainda está no limite geográfico principal. Você também pode ver a ID de geometria da cerca geográfica do subsite em `expiredGeofenceGeometryId` no corpo da resposta.
 
 
 5. Local 5:

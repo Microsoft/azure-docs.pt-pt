@@ -1,20 +1,20 @@
 ---
-title: Definir um novo tipo de dispositivo no Azure IoT Central | Microsoft Docs
+title: 'Tutorial: definir um novo tipo de dispositivo no Azure IoT Central'
 description: Este tutorial mostra-lhe como definir, enquanto construtor, um novo tipo de dispositivo na aplicação do Azure IoT Central. Você define a telemetria, o estado, as propriedades e as configurações do seu tipo.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/07/2019
+ms.date: 11/13/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: ee1f461f14a46031e3fa9d62a6dceae55d892613
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3d79e710f2c71d96179ab8774ee89c90cb462ca4
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72955572"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112346"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo na aplicação do Azure IoT Central
 
@@ -112,7 +112,7 @@ Os passos seguintes mostram como criar um novo modelo de dispositivo de **Ar Con
      | Nome do Campo           | temperatura   |
      | Unidades                | F             |
      | Mín.                  | 60            |
-     | Máx                  | 110           |
+     | Máx.                  | 110           |
      | Casas decimais       | 0             |
 
      Também pode escolher uma cor para a apresentação de telemetria. Para salvar a definição de telemetria, selecione **salvar**:
@@ -193,7 +193,7 @@ Você pode usar o estado para definir e visualizar o estado do dispositivo ou se
      | Valor                | 1                 |
      | Etiqueta de apresentação        | Em funcionamento         |
      | Valor                | 0                 |
-     | Etiqueta de apresentação        | Parada           |
+     | Etiqueta de apresentação        | Parado           |
 
      Para salvar a definição de medida de estado, selecione **salvar**:
 

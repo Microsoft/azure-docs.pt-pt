@@ -1,23 +1,23 @@
 ---
-title: Aprovisionar um dispositivo X.509 simulado no Hub IoT do Azure com Java e grupos de inscrição | Microsoft Docs
+title: 'Tutorial: provisionar um dispositivo X. 509 simulado para o Hub IoT do Azure usando Java e grupos de registro'
 description: Tutorial do Azure - Criar e aprovisionar um dispositivo X.509 simulado com o SDK de dispositivos e serviços Java e grupos de inscrição no Serviço Aprovisionamento de Dispositivos no Hub IoT
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/04/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 8e926c3ff7c3d7abc9467291e9b1de77781f664e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b3cb506b241adab44df490e2fe7f363d35f0f747
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61251132"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112444"
 ---
-# <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Criar e aprovisionar um dispositivo X.509 simulado com o SDK de dispositivos e serviços Java e inscrições em grupos no Serviço Aprovisionamento de Dispositivos no Hub IoT
+# <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Tutorial: criar e provisionar um dispositivo X. 509 simulado usando o dispositivo Java e o SDK do serviço e os registros de grupo para o serviço de provisionamento de dispositivos no Hub IoT
 
 Estes passos mostram como simular um dispositivo X.509 no seu computador de desenvolvimento que executa o SO Windows e utilizar um código de exemplo para ligar esse dispositivo ao Serviço Aprovisionamento de Dispositivos e ao seu hub IoT mediante a utilização de grupos de inscrição. 
 
@@ -32,10 +32,10 @@ Antes de avançar, certifique-se de que executa os passos descritos em [Configur
 
 1. Verifique se `git` está instalado no computador e que é adicionado às variáveis de ambiente às quais a janela de comandos pode aceder. Veja as [ferramentas de cliente Git da Software Freedom Conservancy](https://git-scm.com/download/) relativamente à mais recente versão das ferramentas de `git` a instalar, que incluem o **Git Bash**, a aplicação de linha de comandos que pode utilizar para interagir com o seu repositório Git local. 
 
-1. Utilize o seguinte procedimento [descrição geral de certificados](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para criar os certificados de teste.
+1. Use a seguinte [visão geral do certificado](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para criar seus certificados de teste.
 
     > [!NOTE]
-    > Este passo requer [OpenSSL](https://www.openssl.org/), que pode qualquer um ser criado e instalado de origem ou transferido e instalado a partir de um [3rd party](https://wiki.openssl.org/index.php/Binaries) como [isso](https://sourceforge.net/projects/openssl/). Se já tiver criado os certificados de _raiz_, _intermédios_ e de _dispositivo_, pode ignorar este passo.
+    > Esta etapa requer [OpenSSL](https://www.openssl.org/), que pode ser criada e instalada a partir da origem ou baixada e instalada de um [terceiro](https://wiki.openssl.org/index.php/Binaries) , como [esta](https://sourceforge.net/projects/openssl/). Se já tiver criado os certificados de _raiz_, _intermédios_ e de _dispositivo_, pode ignorar este passo.
     >
 
     1. Siga os dois primeiros passos para criar os certificados de _raiz_ e  _intermédio_.
@@ -46,7 +46,7 @@ Antes de avançar, certifique-se de que executa os passos descritos em [Configur
 
         1. Em **Adicionar Certificado**, introduza as informações seguintes:
             - Introduza um nome exclusivo de certificado.
-            - Selecione o **_rootca_** ficheiro que criou.
+            - Selecione o arquivo **_RootCA. pem_** que você criou.
             - Quando tiver terminado, clique no botão **Guardar**.
 
            ![Adicionar certificado](./media/tutorial-group-enrollments/add-certificate.png)
@@ -73,7 +73,7 @@ Antes de avançar, certifique-se de que executa os passos descritos em [Configur
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-1. No código fonte transferido, navegue até à pasta de exemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Abra o ficheiro **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** num editor à sua escolha e adicione os seguintes detalhes:
+1. No código fonte transferido, navegue até à pasta de exemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** . Abra o ficheiro **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** num editor à sua escolha e adicione os seguintes detalhes:
 
     1. Adicione `[Provisioning Connection String]` para o seu serviço de aprovisionamento, a partir do portal da seguinte forma:
 
@@ -85,15 +85,15 @@ Antes de avançar, certifique-se de que executa os passos descritos em [Configur
 
             ![Obter a cadeia de ligação de aprovisionamento a partir do portal](./media/tutorial-group-enrollments/provisioning-string.png)  
 
-        1. No ficheiro de código de exemplo **_ServiceEnrollmentGroupSample.java_**, substitua a cadeia `[Provisioning Connection String]` pela **Cadeia de ligação da chave primária**.
+        1. No ficheiro de código de exemplo **_ServiceEnrollmentGroupSample.java_** , substitua a cadeia `[Provisioning Connection String]` pela **Cadeia de ligação da chave primária**.
 
             ```java
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    1. Abra o ficheiro de certificado de assinatura intermediários num editor de texto. Atualização do `PUBLIC_KEY_CERTIFICATE_STRING` valor com o valor do seu certificado de assinatura de intermediário.
+    1. Abra seu arquivo de certificado de autenticação intermediário em um editor de texto. Atualize o valor `PUBLIC_KEY_CERTIFICATE_STRING` com o valor do seu certificado de autenticação intermediário.
 
-        Se os certificados de dispositivo com o shell de Bash, gerado *./certs/azure-iot-test-only.intermediate.cert.pem* contém a chave de certificado intermédio. Se os certificados foram gerados com o PowerShell, *./Intermediate1.pem* será o ficheiro de certificado intermédio.
+        Se você gerou os certificados de dispositivo com o shell bash, *./certs/Azure-IOT-Test-only.Intermediate.cert.pem* contém a chave de certificado intermediária. Se seus certificados foram gerados com o PowerShell, *./Intermediate1.pem* será seu arquivo de certificado intermediário.
 
         ```java
         private static final String PUBLIC_KEY_CERTIFICATE_STRING =
@@ -127,7 +127,7 @@ Antes de avançar, certifique-se de que executa os passos descritos em [Configur
 
     1. Guarde o ficheiro _ServiceEnrollmentGroupSample.java_.
 
-1. Abra uma janela de comando e navegue até à pasta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**.
+1. Abra uma janela de comando e navegue até à pasta **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** .
 
 1. Compile o código de exemplo, utilizando este comando:
 
@@ -160,7 +160,7 @@ Antes de avançar, certifique-se de que executa os passos descritos em [Configur
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-1. Editar `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` para incluir sua _âmbito do ID_ e _aprovisionamento Global ponto final de serviço_ que anotou anteriormente.
+1. Edite `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` para incluir seu _escopo de ID_ e o ponto de _extremidade global do serviço de provisionamento_ que você anotou anteriormente.
 
     ```java
     private static final String idScope = "[Your ID scope here]";
@@ -171,13 +171,13 @@ Antes de avançar, certifique-se de que executa os passos descritos em [Configur
     private static final String leafPrivateKey = "<Your Private PEM Key here>";
     ```
 
-1. Atualização do `leafPublicPem` e `leafPrivateKey` variáveis com os certificados de dispositivo públicas e privadas.
+1. Atualize as variáveis `leafPublicPem` e `leafPrivateKey` com seus certificados de dispositivo público e privado.
 
-    Se gerar os certificados de dispositivo com o PowerShell, os ficheiros mydevice * conter a chave pública, a chave privada e o PFX para o dispositivo.
+    Se você gerou seus certificados de dispositivo com o PowerShell, os arquivos MyDevice * contêm a chave pública, a chave privada e o PFX para o dispositivo.
 
-    Se gerar os certificados de dispositivo com o shell de Bash,./certs/new-device.cert.pem contém a chave pública. Chave privada do dispositivo será no ficheiro./private/new-device.key.pem.
+    Se você gerou os certificados de dispositivo com o shell bash,./certs/New-Device.cert.pem contém a chave pública. A chave privada do dispositivo estará no arquivo./Private/New-Device.Key.PEM.
 
-    Abrir o seu ficheiro de chave pública e a atualização a `leafPublicPem` variável com esse valor. Copie o texto do _---BEGIN PRIVATE KEY---_ ao _---END PRIVATE KEY---_.
+    Abra o arquivo de chave pública e atualize a variável `leafPublicPem` com esse valor. Copie o texto de _-----begin Private key-----_ para _-----END Private Key-----_ .
 
     ```java
     private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
@@ -189,7 +189,7 @@ Antes de avançar, certifique-se de que executa os passos descritos em [Configur
         "-----END CERTIFICATE-----\n";
     ```
 
-    Abrir o seu ficheiro de chave privada e a atualização a `leafPrivatePem` variável com esse valor. Copie o texto do _---BEGIN RSA PRIVATE KEY---_ ao _---END RSA PRIVATE KEY---_.
+    Abra o arquivo de chave privada e atualize a variável `leafPrivatePem` com esse valor. Copie o texto de _-----iniciar a chave privada rsa-----_ para _-----end rsa Private Key-----_ .
 
     ```java
     private static final String leafPrivateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +
@@ -201,9 +201,9 @@ Antes de avançar, certifique-se de que executa os passos descritos em [Configur
         "-----END RSA PRIVATE KEY-----\n";
     ```
 
-1. Adicionar uma nova variável logo abaixo `leafPrivateKey` para o seu certificado intermédio. Nome esta nova variável `intermediateKey`. Dar a ele o valor do seu certificado de assinatura de intermediário.
+1. Adicione uma nova variável abaixo `leafPrivateKey` para seu certificado intermediário. Nomeie essa nova variável `intermediateKey`. Dê a ele o valor do seu certificado de autenticação intermediário.
 
-    Se os certificados de dispositivo com o shell de Bash, gerado *./certs/azure-iot-test-only.intermediate.cert.pem* contém a chave de certificado intermédio. Se os certificados foram gerados com o PowerShell, *./Intermediate1.pem* será o ficheiro de certificado intermédio.
+    Se você gerou os certificados de dispositivo com o shell bash, *./certs/Azure-IOT-Test-only.Intermediate.cert.pem* contém a chave de certificado intermediária. Se seus certificados foram gerados com o PowerShell, *./Intermediate1.pem* será seu arquivo de certificado intermediário.
 
     ```java
     private static final String intermediateKey = "-----BEGIN CERTIFICATE-----\n" +
@@ -215,7 +215,7 @@ Antes de avançar, certifique-se de que executa os passos descritos em [Configur
         "-----END CERTIFICATE-----\n";
     ```
 
-1. Na `main` funcionar, adicione o `intermediateKey` para o `signerCertificates` coleção antes da inicialização do `securityProviderX509`.
+1. Na função `main`, adicione o `intermediateKey` à coleção de `signerCertificates` antes da inicialização de `securityProviderX509`.
 
     ```java
     public static void main(String[] args) throws Exception
@@ -232,7 +232,7 @@ Antes de avançar, certifique-se de que executa os passos descritos em [Configur
             SecurityProvider securityProviderX509 = new SecurityProviderX509Cert(leafPublicPem, leafPrivateKey, signerCertificates);
     ```
 
-1. Guardar as alterações e criar o exemplo. Navegue até à pasta de destino e execute o ficheiro jar criado.
+1. Salve as alterações e compile o exemplo. Navegue até à pasta de destino e execute o ficheiro jar criado.
 
     ```cmd/sh
     mvn clean install
@@ -252,11 +252,11 @@ Antes de avançar, certifique-se de que executa os passos descritos em [Configur
 Se quiser continuar a trabalhar e a explorar o exemplo de cliente do dispositivo, não limpe os recursos criados neste Guia Rápido. Se não planear continuar, utilize os passos seguintes para eliminar todos os recursos criados no Guia Rápido.
 
 1. Feche a janela da saída do exemplo de dispositivo cliente no seu computador.
-1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Abra o painel **Gerir Inscrições** para o seu serviço e, em seguida, clique no separador **Inscrições Individuais**. Selecione o *ID DE REGISTO* do dispositivo que inscreveu neste Início Rápido e clique no botão **Eliminar** na parte superior. 
+1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Abra a folha **gerenciar registros** para seu serviço e clique na guia registros **individuais** . Selecione a *ID de registro* do dispositivo que você registrou neste início rápido e clique no botão **excluir** na parte superior. 
 1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Abra o painel **Dispositivos IoT** do seu hub, selecione o *ID DE DISPOSITIVO* do dispositivo que registou neste Início Rápido e, em seguida, clique no botão **Eliminar** Na parte superior.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou um dispositivo X.509 simulado no seu computador Windows e aprovisionou-o no seu hub IoT com o Serviço Aprovisionamento de Dispositivos no Hub IoT e os grupos de inscrição. Para saber mais sobre o seu dispositivo X.509, avance para os conceitos do dispositivo. 
 

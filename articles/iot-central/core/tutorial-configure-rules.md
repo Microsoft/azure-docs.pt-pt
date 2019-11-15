@@ -1,20 +1,20 @@
 ---
-title: Configurar regras e ações no Azure IoT Central | Microsoft Docs
+title: 'Tutorial: configurar regras e ações no Azure IoT Central'
 description: Este tutorial mostra-lhe, como construtor, como configurar regras baseadas em telemetria e ações na sua aplicação Azure IoT Central.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 06/09/2019
+ms.date: 11/13/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 5358563de9f35d2cef74a32cb1794de418066810
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9c2c8c1bacf4abfa775747a03d2a4a6121b67714
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72955796"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106589"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Tutorial: Configurar regras e ações para o seu dispositivo no Azure IoT Central
 
@@ -55,7 +55,7 @@ Antes de começar, deve concluir o tutorial [Definir um novo tipo de dispositivo
     | Nome                                         | Alerta de temperatura do ar condicionado |
     | Ativar regra para todos os dispositivos deste modelo | Ativado                                |
     | Condição                                    | A temperatura é superior a 90    |
-    | Agregação                                  | Nenhuma                              |
+    | Agregação                                  | Nenhum                              |
 
     ![Condição da regra de temperatura](media/tutorial-configure-rules/temperaturerule.png)
 
@@ -73,7 +73,7 @@ Quando definir uma regra, também pode definir uma ação a executar quando são
 
     | Definição   | Valor                          |
     | --------- | ------------------------------ |
-    | a        | O seu endereço de e-mail             |
+    | Para        | O seu endereço de e-mail             |
     | Notas     | A temperatura do ar condicionado excedeu o limite. |
 
     > [!NOTE]

@@ -1,21 +1,21 @@
 ---
-title: Configurar cloud para o Serviço Aprovisionamento de Dispositivos no Hub IoT no portal | Microsoft Docs
-description: Configurar os recursos de nuvem para o provisionamento de dispositivos no [portal do Azure](https://portal.azure.com) usando o DPS (serviço de provisionamento de dispositivos) do Hub IOT
+title: 'Tutorial: configurar a nuvem para o serviço de provisionamento de dispositivos no Hub IoT do Azure no portal'
+description: 'Tutorial: configurar os recursos de nuvem para o provisionamento de dispositivos no [portal do Azure](https://portal.azure.com) usando o DPS (serviço de provisionamento de dispositivos) do Hub IOT'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 09/05/2017
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f0e61f264ac0e6a4a2306bc94234811b38941bb5
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e91627f934357cd67965ea8880db37ff9bfb3fb2
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888757"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112789"
 ---
-# <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurar recursos da cloud para aprovisionamento de dispositivos com o Serviço Aprovisionamento de Dispositivos no Hub IoT
+# <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Tutorial: configurar recursos de nuvem para o provisionamento de dispositivos com o serviço de provisionamento de dispositivos no Hub IoT
 
 Este tutorial mostra como configurar a cloud para o aprovisionamento de dispositivos com o Serviço Aprovisionamento de Dispositivos no Hub IoT. Neste tutorial, ficará a saber como:
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-device-provisioning-service-instance-and-get-the-id-scope"></a>Criar uma instância do Serviço Aprovisionamento de Dispositivos e obter o âmbito do ID
 

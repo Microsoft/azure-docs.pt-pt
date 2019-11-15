@@ -1,19 +1,19 @@
 ---
-title: Criar um aplicativo de monitoramento de consumo de água com o Azure IoT Central | Microsoft Docs
-description: Aprenda a criar um aplicativo de monitoramento de consumo de água usando os modelos de aplicativo IoT Central do Azure.
+title: 'Tutorial: criar um aplicativo de monitoramento de consumo de água com o Azure IoT Central'
+description: 'Tutorial: Aprenda a criar um aplicativo de monitoramento de consumo de água usando os modelos de aplicativo IoT Central do Azure.'
 author: miriambrus
 ms.author: miriamb
-ms.date: 09/24/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: d79c4585d9764e2cc5cebd679372a97946479396
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0b100e0bebc7c5b26449e396650da5434334075d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889161"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112632"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-in-iot-central"></a>Tutorial: criar um aplicativo de monitoramento de consumo de água no IoT Central
 

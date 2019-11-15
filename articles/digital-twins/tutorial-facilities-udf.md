@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: monitorar um espaço-gêmeos digital do Azure | Microsoft Docs'
+title: 'Tutorial: monitorar um espaço com o gêmeos digital do Azure'
 description: Saiba como provisionar seus recursos espaciais e monitorar as condições de trabalho com o gêmeos digital do Azure usando as etapas deste tutorial.
 services: digital-twins
 ms.author: alinast
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: e11aeb66d4eac09d696ff06d706069d4517600e5
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 6c9403f8355d2f842226c9c7257803edd3215829
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082268"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107492"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutorial: provisionar suas condições de trabalho de criação e monitor com o Azure digital gêmeos Preview
 

@@ -1,24 +1,24 @@
 ---
-title: Aprovisionar um dispositivo com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure | Microsoft Docs
-description: Aprovisionar o seu dispositivo num hub IoT individual com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure
+title: 'Tutorial: provisionar um dispositivo usando o serviço de provisionamento de dispositivos no Hub IoT do Azure'
+description: 'Tutorial: provisionar seu dispositivo para um único Hub IoT usando o serviço de provisionamento de dispositivos no Hub IoT do Azure'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/12/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9ff134b0747e78773c95fac7ceab4cddd61c601d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: be0b926b6beae2cb339ca232d2b792f50834d801
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227019"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112047"
 ---
-# <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Aprovisionar o dispositivo num hub IoT com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure
+# <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: provisionar o dispositivo para um hub IoT usando o serviço de provisionamento de dispositivos no Hub IoT do Azure
 
-No tutorial anterior, aprendeu a configurar um dispositivo para se ligar ao Serviço Aprovisionamento de Dispositivos. Neste tutorial, vai aprender a utilizar este serviço para aprovisionar o seu dispositivo num hub IoT individual através de aprovisionamento automático e **_listas de inscrição_**. Este tutorial mostrar-lhe como:
+No tutorial anterior, aprendeu a configurar um dispositivo para se ligar ao Serviço Aprovisionamento de Dispositivos. Neste tutorial, vai aprender a utilizar este serviço para aprovisionar o seu dispositivo num hub IoT individual através de aprovisionamento automático e **_listas de inscrição_** . Este tutorial mostrar-lhe como:
 
 > [!div class="checklist"]
 > * Inscrever o dispositivo
@@ -43,7 +43,7 @@ Este passo envolve a adição dos artefactos de segurança exclusiva do disposit
       [![Informações de inscrição do TPM no portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - Para dispositivos baseados em X.509, precisa:
-    - Do [certificado emitido para o chip ou simulação de X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), sob a forma de ficheiro *.pem* ou *.cer*. Para inscrição individual, tem de utilizar o por dispositivo *certificado autoassinado* para o seu sistema X.509, enquanto para grupos de inscrição, tem de utilizar o *certificado de raiz*. 
+    - Do [certificado emitido para o chip ou simulação de X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), sob a forma de ficheiro *.pem* ou *.cer*. Para o registro individual, você precisa usar o *certificado assinado* por dispositivo para o sistema X. 509, enquanto para grupos de registro, você precisa usar o *certificado raiz*. 
 
       [![Adicionar inscrição individual para fins de atestado X.509 no portal](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
@@ -89,9 +89,9 @@ Após o arranque do dispositivo, devem ocorrer as ações seguintes:
 
     ![Ligação com êxito ao hub no portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-Para obter mais informações, consulte o exemplo de cliente para o dispositivo aprovisionamento [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). O exemplo demonstra o aprovisionamento de um dispositivo simulado com o TPM, certificados X.509 e as chaves simétricas. Veja novamente o [TPM](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device), [X.509](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509), e [chave simétrica](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key) inícios rápidos de atestado para obter instruções passo a passo sobre como utilizar o exemplo.
+Para obter mais informações, consulte o exemplo de cliente de provisionamento de dispositivo, [prov_dev_client_sample. c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). O exemplo demonstra o provisionamento de um dispositivo simulado usando certificados de TPM, X. 509 e chaves simétricas. Consulte os guias de início rápido do [TPM](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device), [X. 509](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509)e atestado de [chave simétrica](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key) para obter instruções passo a passo sobre como usar o exemplo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]

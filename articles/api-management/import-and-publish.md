@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: apimpm
-ms.openlocfilehash: 6a1ae2966e8d5535a5fd9aeffb5ddc3a788f85ee
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bae762b4603b2f5f80447a16671fed4e37e62b95
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072107"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108532"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importar e publicar a sua primeira API 
 
@@ -38,7 +38,7 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
-+ Conclua o início rápido a seguir: [Crie uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -51,7 +51,7 @@ Esta secção mostra como importar e publicar uma API de back-end de especifica�
 
     ![Criar uma API](./media/api-management-get-started/create-api.png)
 
-    Pode definir os valores da API durante a criação ou mais tarde, acedendo ao separador **Definições**. O asterisco vermelho junto a um campo indica que o campo é obrigatório.
+    Você pode definir os valores da API durante a criação ou posteriormente acessando a guia **configurações** . A estrela vermelha ao lado de um campo indica que o campo é obrigatório.
 
     Utilize os valores da tabela abaixo para criar a sua primeira API.
 
@@ -62,8 +62,8 @@ Esta secção mostra como importar e publicar uma API de back-end de especifica�
     | **Nome**                  | *demo-conference-api*                              | Fornece um nome exclusivo para a API. <br/>Se premir o separador depois de introduzir o URL do serviço, a APIM irá preencher este campo com base no que está no json.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
     | **Descrição**           | Forneça uma descrição opcional da API.        | Se premir o separador depois de introduzir o URL do serviço, a APIM irá preencher este campo com base no que está no json.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
     | **Esquema do URL**            | *HTTPS*                                            | Determina que protocolos podem ser utilizados para aceder à API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-    | **Sufixo do URL da API**        | *conferência*                                       | O sufixo é anexado ao URL base do serviço Gestão de API. A Gestão de API distingue as APIs pelo respetivo sufixo, pelo que cada API tem de ter o seu sufixo exclusivo para um determinado editor.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-    | **Produtos**              | *Ilimitado*                                        | Os produtos são associações de uma ou mais APIs. Pode incluir várias APIs num Produto e disponibilizá-las para os programadores através do portal do programador. <br/>Publique a API, ao associar a API a um produto (neste exemplo, *Ilimitado*). Para adicionar esta nova API a um produto, escreva o nome do produto (também pode fazê-lo mais tarde a partir da página **Definições**). Este passo pode ser repetido múltiplas vezes para adicionar a API a vários produtos.<br/>Para obter acesso à API, os programadores têm de subscrever primeiro um produto. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. <br/> Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos.<br/> Por predefinição, cada instância daAPI Management é fornecida com dois produtos de exemplo: **Iniciador** e **ilimitado**. |
+    | **Sufixo do URL da API**        | *conference*                                       | O sufixo é anexado ao URL base do serviço Gestão de API. A Gestão de API distingue as APIs pelo respetivo sufixo, pelo que cada API tem de ter o seu sufixo exclusivo para um determinado editor.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+    | **Produtos**              | *Ilimitado*                                        | Os produtos são associações de uma ou mais APIs. Pode incluir várias APIs num Produto e disponibilizá-las para os programadores através do portal do programador. <br/>Publique a API, ao associar a API a um produto (neste exemplo, *Ilimitado*). Para adicionar esta nova API a um produto, escreva o nome do produto (também pode fazê-lo mais tarde a partir da página **Definições**). Este passo pode ser repetido múltiplas vezes para adicionar a API a vários produtos.<br/>Para obter acesso à API, os programadores têm de subscrever primeiro um produto. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. <br/> Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos.<br/> Por predefinição, cada instância da Gestão de API é fornecida com dois produtos de exemplo: **Inicial** e **Ilimitado**. |
     | **Etiquetas**                  |                                                    | Marcas para organizar APIs. As marcas podem ser usadas para pesquisa, agrupamento ou filtragem.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
     | **Versão desta API?**     |                                                    | Para obter mais informações sobre o controlo de versões, veja [Publicar várias versões da sua API](api-management-get-started-publish-versions.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
@@ -75,7 +75,7 @@ Esta secção mostra como importar e publicar uma API de back-end de especifica�
 > [!TIP]
 > Se estiver a ter problemas na importação da sua própria definição de API, [veja a lista de problemas conhecidos e restrições](api-management-api-import-restrictions.md).
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testar a nova API de APIM no Portal do Azure
+## <a name="test-the-new-api-in-the-azure-portal"></a>Testar a nova API no portal do Azure
 
 ![Testar o mapa da API](./media/api-management-get-started/01-import-first-api-01.png)
 
@@ -88,23 +88,6 @@ As operações podem ser chamadas diretamente a partir do Portal do Azure, que f
 
     O back-end responde com **200 OK** e alguns dados.
 
-## <a name="call-operation"> </a>Chamar uma operação a partir do portal do programador
-
-Também é possível chamar operações do **portal do Programador** para testar as APIs.
-
-1. Navegue para o **portal do Programador**.
-
-    ![Portal do programador](./media/api-management-get-started/developer-portal.png)
-
-2. Selecione **APIS**, clique em **API da Conferência de Demonstração** e, em seguida **GetSpeakers**.
-
-    A página apresenta os campos para os parâmetros de consulta; contudo, neste caso, não temos nenhum, e cabeçalhos. Um dos cabeçalhos é “Ocp-Apim-Subscription-Key”, para a chave de subscrição do produto que está associado a esta API. Se tiver criado a instância de APIM, já é um administrador, pelo que a chave é preenchida automaticamente.
-
-3. Prima **Experimente**.
-4. Prima **Enviar**.
-
-    Após uma operação ser invocada, o portal do programador mostra as respostas.  
-
 ## <a name="next-steps"> </a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
@@ -112,7 +95,6 @@ Neste tutorial, ficou a saber como:
 > [!div class="checklist"]
 > * Importar a sua primeira API
 > * Testar a API no Portal do Azure
-> * Testar a API no portal do Programador
 
 Avance para o tutorial seguinte:
 

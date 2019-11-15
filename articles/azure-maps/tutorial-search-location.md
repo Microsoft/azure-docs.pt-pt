@@ -1,36 +1,36 @@
 ---
-title: Procurar com o Azure Maps | Microsoft Docs
-description: Procurar um ponto de interesse nas proximidades com o Azure Maps
+title: 'Tutorial: Pesquisar com o Azure Maps'
+description: 'Tutorial: Pesquisar ponto de interesse próximo usando mapas do Azure'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8945ccef1dd44570f4f59c7c91c2fe05b222c5bb
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 86ba98bfb4003a723cfaaf2d1c51301314ca47cf
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576928"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109511"
 ---
-# <a name="search-nearby-points-of-interest-using-azure-maps"></a>Procurar pontos de interesse nas proximidades com o Azure Maps
+# <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Pesquisar pontos de interesse próximos usando o Azure Maps
 
 Este tutorial mostra como configurar uma conta com o Azure Maps e, em seguida, utilizar as APIs do Maps para procurar um ponto de interesse. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma conta do Azure Maps
 > * Obter a chave primária para a sua conta do Maps
-> * Criar uma nova página Web com a API de controlo de mapas
+> * Criar uma nova página Web com a API de Controlo de Mapas
 > * Utilizar o serviço de pesquisa do Maps para localizar um ponto de interesse nas proximidades
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 <a id="createaccount"></a>
 

@@ -1,19 +1,19 @@
 ---
 title: C#tutorial sobre preenchimento automático e sugestões
 titleSuffix: Azure Cognitive Search
-description: Este tutorial se baseia no projeto "paginação de resultados da pesquisa – Azure Pesquisa Cognitiva", para adicionar AutoCompletar e sugestões. O objetivo é uma experiência de usuário mais rica. Saiba como combinar uma lista suspensa de sugestões com preenchimento automático embutido.
+description: Este tutorial demonstra a conclusão automática e sugestões como uma maneira de coletar entrada de termo de pesquisa de usuários usando a lista suspensa. Ele se baseia em um projeto de hotéis existente.
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 959ae749f9ab8a025ec9c78d75640e2108868372
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b542476ac1c9b6d4368d97eb4db76518eb2dba03
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786494"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114555"
 ---
 # <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>C#Tutorial: Adicionar AutoCompletar e sugestões-Azure Pesquisa Cognitiva
 
@@ -80,7 +80,7 @@ A função de preenchimento automático chamada no script acima não é algo que
     </head>
     ```
 
-2. Também precisamos remover, ou comentar, uma linha referenciando jQuery no arquivo _ layout. cshtml (na pasta **views/Shared** ). Localize as linhas a seguir e comente a primeira linha do script, conforme mostrado. Essa alteração evita referências conflitantes ao jQuery.
+2. Também precisamos remover, ou comentar, uma linha referenciando jQuery no arquivo _Layout. cshtml (na pasta **views/Shared** ). Localize as linhas a seguir e comente a primeira linha do script, conforme mostrado. Essa alteração evita referências conflitantes ao jQuery.
 
     ```html
     <environment include="Development">
@@ -311,7 +311,7 @@ Há bibliotecas que oferecem essa funcionalidade – geralmente chamadas de "pre
 
     Uma opção de autocompletação é retornada na parte superior da lista de **resultados** , seguida por todas as sugestões.
 
-2. Na exibição, primeiro implementamos um truque para que uma palavra de preenchimento automático cinza claro seja renderizada diretamente sob o texto com negrito sendo inserido pelo usuário. O HTML inclui o posicionamento relativo para essa finalidade. Altere a instrução **TextBoxFor** (e suas instruções &lt;div&gt;) para o seguinte, observando que uma segunda caixa de pesquisa identificada como **abaixo** está diretamente em nossa caixa de pesquisa normal, puxando esta caixa de pesquisa 39 pixels de seu local padrão!
+2. Na exibição, primeiro implementamos um truque para que uma palavra de preenchimento automático cinza claro seja renderizada diretamente sob o texto com negrito sendo inserido pelo usuário. O HTML inclui o posicionamento relativo para essa finalidade. Altere a instrução **TextBoxFor** (e suas instruções &lt;div&gt;) para o seguinte, observando que uma segunda caixa de pesquisa identificada como **abaixo** está diretamente em nossa caixa de pesquisa normal, puxando esta caixa de pesquisa 39 pixels para fora de seu local padrão!
 
     ```cs
     <div id="underneath" class="searchBox" style="position: relative; left: 0; top: 0">
@@ -433,7 +433,7 @@ Há bibliotecas que oferecem essa funcionalidade – geralmente chamadas de "pre
     </script>
     ```
 
-    Observe o uso inteligente da função **Interval** para limpar o texto subjacente quando ele não corresponde mais ao que o usuário está digitando e também para definir o mesmo caso (superior ou inferior) quando o usuário está digitando (como "PA" corresponde a "PA", "PA", "PA" ao Pesquisar) , para que o texto sobreposto seja limpo.
+    Observe o uso inteligente da função **Interval** para limpar o texto subjacente quando ele não corresponde mais ao que o usuário está digitando e também para definir o mesmo caso (superior ou inferior) quando o usuário está digitando (como "PA" corresponde a "PA", "PA", "PA" ao Pesquisar), para que o texto sobreposto seja limpo.
 
     Leia os comentários no script para obter uma compreensão mais completa.
 

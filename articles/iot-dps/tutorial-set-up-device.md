@@ -1,33 +1,33 @@
 ---
-title: Configurar o dispositivo para o Serviço Aprovisionamento de Dispositivos no Hub IoT
-description: Configurar o dispositivo para ser aprovisionado através do Serviço Aprovisionamento de Dispositivos no Hub IoT durante o processo de fabrico de dispositivos
+title: 'Tutorial: configurar o dispositivo para o serviço de provisionamento de dispositivos no Hub IoT do Azure'
+description: 'Tutorial: configurar o dispositivo para provisionar por meio do serviço de provisionamento de dispositivos no Hub IoT durante o processo de fabricação do dispositivo'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d5a4f6c7d7d19ced4f2cd9ff21b00e58703f795e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e7f6151968fb14d44f1e330fb6ddc06fabad3ee6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65911693"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112767"
 ---
-# <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurar um dispositivo para ser aprovisionado com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure
+# <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: configurar um dispositivo para provisionar usando o serviço de provisionamento de dispositivos no Hub IoT do Azure
 
 No tutorial anterior, aprendeu a configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure para aprovisionar automaticamente os seus dispositivos no seu hub IoT. Este tutorial mostra-lhe como configurar o seu dispositivo durante o processo de fabrico, permitindo que o mesmo seja aprovisionado automaticamente no hub IoT. O dispositivo é aprovisionado com base no [Mecanismo de atestação](concepts-device.md#attestation-mechanism), após o primeiro arranque e ligação ao serviço de aprovisionamento. Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Compilar o SDK de Cliente dos Serviços Aprovisionamento de Dispositivos para plataformas específicas
 > * Extrair os artefactos de segurança
-> * Criar o software de registo de dispositivos
+> * Configurar o software de registo de dispositivos
 
 Este tutorial espera que tenha criado a instância do Serviço de Aprovisionamento de Dispositivos e um hub IoT com as instruções no tutorial [Configurar recursos na cloud](tutorial-set-up-cloud.md) anterior.
 
-Este tutorial utiliza o [repositório Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c) (SDKs e bibliotecas do Azure IoT para C), que contém o SDK de Cliente do Serviço Aprovisionamento de Dispositivos para C. O SDK fornece atualmente suporte para TPM e X.509 para dispositivos em execução em implementações Windows ou Ubuntu. Este tutorial baseia-se a utilização de um cliente de desenvolvimento do Windows, o que também pressupõe conhecimentos avançados com o Visual Studio. 
+Este tutorial utiliza o [repositório Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c) (SDKs e bibliotecas do Azure IoT para C), que contém o SDK de Cliente do Serviço Aprovisionamento de Dispositivos para C. O SDK fornece atualmente suporte para TPM e X.509 para dispositivos em execução em implementações Windows ou Ubuntu. Este tutorial se baseia no uso de um cliente de desenvolvimento do Windows, que também assume a proficiência básica com o Visual Studio. 
 
 Se não estiver familiarizado com o processo de aprovisionamento automático, reveja [Auto-provisioning concepts](concepts-auto-provisioning.md) (Conceitos de aprovisionamento automático) antes de continuar. 
 
@@ -36,16 +36,16 @@ Se não estiver familiarizado com o processo de aprovisionamento automático, re
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou posterior com o ["desenvolvimento de área de trabalho com o C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) carga de trabalho ativada.
+* O [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou posterior com a carga de [trabalho C++' desenvolvimento de desktop com '](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
 
 
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>Compilar uma versão do SDK específica para uma plataforma
 
-O SDK de Cliente do Serviço Aprovisionamento de Dispositivos ajuda-o a implementar o software de registo de dispositivos. Contudo, antes de poder utilizá-lo, tem de compilar uma versão do SDK que seja específica da plataforma de cliente de desenvolvimento e do mecanismo de atestação. Neste tutorial, vai criar um SDK que utiliza o Visual Studio numa plataforma de desenvolvimento do Windows, para um tipo de atestação suportado:
+O SDK de Cliente do Serviço Aprovisionamento de Dispositivos ajuda-o a implementar o software de registo de dispositivos. Contudo, antes de poder utilizá-lo, tem de compilar uma versão do SDK que seja específica da plataforma de cliente de desenvolvimento e do mecanismo de atestação. Neste tutorial, você cria um SDK que usa o Visual Studio em uma plataforma de desenvolvimento do Windows, para um tipo de atestado com suporte:
 
-1. Transfira o [sistema de compilação CMake](https://cmake.org/download/).
+1. Baixe o [sistema de Build CMake](https://cmake.org/download/).
 
     É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho "Desenvolvimento do ambiente de trabalho em C++") estejam instalados no computador, **antes** de iniciar a instalação de `CMake`. Depois de os pré-requisitos estarem assegurados e a transferência verificada, instale o sistema de compilação CMake.
 
@@ -96,8 +96,8 @@ Consoante tenha criado o SDK para utilizar um atestado para um TPM/HSM físico o
 
 - Para um dispositivo X.509, tem de obter os certificados emitidos para o(s) seu(s) dispositivo(s). O serviço de aprovisionamento expõe dois tipos de entrada de inscrição que controlam o acesso para dispositivos que utilizem o mecanismo de atestado X.509. Os certificados necessários dependem dos tipos de inscrição que irá utilizar.
 
-    1. Inscrições individuais: Inscrição de um dispositivo único específico. Este tipo de entrada de inscrição requer [certificados "folha" de entidade final](concepts-security.md#end-entity-leaf-certificate).
-    1. Grupos de inscrição: Este tipo de entrada de inscrição requer intermediário ou certificados de raiz. Para obter mais informações, veja [Controlar o acesso a dispositivos para o serviço de aprovisionamento com certificados X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    1. Inscrições individuais: inscrição de um único dispositivo específico. Este tipo de entrada de inscrição requer [certificados "folha" de entidade final](concepts-security.md#end-entity-leaf-certificate).
+    1. Grupos de inscrição: este tipo de entrada de inscrição requer certificados intermediários ou de raiz. Para obter mais informações, veja [Controlar o acesso a dispositivos para o serviço de aprovisionamento com certificados X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Dispositivos simulados
 
@@ -128,20 +128,20 @@ Consoante tenha criado o SDK para utilizar um atestado para um dispositivo simul
 
   1. No painel *Explorador de Soluções* do Visual Studio, navegue para a pasta **Aprovisionar\_Ferramentas**. Clique com o botão direito do rato no projeto **dice\_device\_enrollment** e selecione **Set as Startup Project** (Definir como Projeto de Arranque”). 
   
-  1. Execute a solução com um dos comandos "Start" no menu "Debug" (“Depuração”). Na janela de saída, introduza **i** para inscrição individual, quando lhe for pedido. A janela de saída apresenta um certificado X.509 gerado localmente para o seu dispositivo simulado. Copie a saída para a área de transferência, começando em *-----BEGIN CERTIFICATE-----* e terminando no primeiro *-----END CERTIFICATE-----*, garantindo que também inclui estas duas linhas. Apenas necessita do primeiro certificado na janela de saída.
+  1. Execute a solução com um dos comandos "Start" no menu "Debug" (“Depuração”). Na janela de saída, introduza **i** para inscrição individual, quando lhe for pedido. A janela de saída apresenta um certificado X.509 gerado localmente para o seu dispositivo simulado. Copie a saída para a área de transferência, começando em *-----BEGIN CERTIFICATE-----* e terminando no primeiro *-----END CERTIFICATE-----* , garantindo que também inclui estas duas linhas. Apenas necessita do primeiro certificado na janela de saída.
  
-  1. Crie um ficheiro com o nome **_X509testcert.pem_**, abra-o num editor de texto à sua escolha e copie os conteúdos da área de transferência para o mesmo. Guarde o ficheiro, pois vai utilizá-lo mais tarde para a inscrição de dispositivos. Quando o software de registo for executado, utiliza o mesmo certificado durante o aprovisionamento automático.    
+  1. Crie um ficheiro com o nome **_X509testcert.pem_** , abra-o num editor de texto à sua escolha e copie os conteúdos da área de transferência para o mesmo. Guarde o ficheiro, pois vai utilizá-lo mais tarde para a inscrição de dispositivos. Quando o software de registo for executado, utiliza o mesmo certificado durante o aprovisionamento automático.    
 
 Estes artefactos de segurança são necessários durante a inscrição do seu dispositivo no Serviço Aprovisionamento de Dispositivos. O Serviço Aprovisionamento aguarda que o dispositivo seja arrancado e se ligue ao mesmo num momento posterior. Da primeira vez que o dispositivo for arrancado, a lógica do SDK de Cliente interage com o seu chip (ou simulador) para extrair os artefactos de segurança do dispositivo e verifica o registo no Serviço Aprovisionamento de Dispositivos. 
 
-## <a name="create-the-device-registration-software"></a>Criar o software de registo de dispositivos
+## <a name="create-the-device-registration-software"></a>Configurar o software de registo de dispositivos
 
 O último passo consiste em escrever uma aplicação de registo que utiliza o SDK de Cliente do Serviço Aprovisionamento de Dispositivos para registar o dispositivo no serviço Hub IoT. 
 
 > [!NOTE]
 > Neste passo, vamos pressupor que está a ser utilizado um dispositivo simulado, o que é conseguido ao executar uma aplicação de registo de exemplo de SDK a partir da sua estação de trabalho. No entanto, estes mesmos conceitos aplicam-se se estiver a compilar uma aplicação de registo para implementação num dispositivo físico. 
 
-1. No portal do Azure, selecione o painel **Descrição Geral** do seu Serviço Aprovisionamento de Dispositivos e copie o valor **_Âmbito do ID_**. O *ID do Âmbito* é gerado pelo serviço e garante que é exclusivo. É imutável e utilizado para identificar exclusivamente o IDs de registo.
+1. No portal do Azure, selecione o painel **Descrição Geral** do seu Serviço Aprovisionamento de Dispositivos e copie o valor **_Âmbito do ID_** . O *ID do Âmbito* é gerado pelo serviço e garante que é exclusivo. É imutável e utilizado para identificar exclusivamente o IDs de registo.
 
     ![Extrair informações de ponto final do Serviço Aprovisionamento de Dispositivos do painel do portal](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
@@ -156,7 +156,7 @@ O último passo consiste em escrever uma aplicação de registo que utiliza o SD
 
     Para referência, a variável `global_prov_uri`, que permite que a API de registo de cliente do Hub IoT `IoTHubClient_LL_CreateFromDeviceAuth` se ligue à instância do Serviço Aprovisionamento de Dispositivos indicado.
 
-1. Na função **main()**, no mesmo ficheiro, comente/anule o comentário da variável `hsm_type` que corresponde ao mecanismo de atestação que o software de registo de dispositivos está a utilizar (TPM ou X.509): 
+1. Na função **main()** , no mesmo ficheiro, comente/anule o comentário da variável `hsm_type` que corresponde ao mecanismo de atestação que o software de registo de dispositivos está a utilizar (TPM ou X.509): 
 
     ```c
     hsm_type = SECURE_DEVICE_TYPE_TPM;
@@ -204,9 +204,9 @@ Neste momento, os serviços Aprovisionamento de Dispositivos e Hub IoT poderão 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Compilar o SDK de Cliente do Serviço Aprovisionamento de Dispositivos para plataformas específicas
+> * Compilar o SDK de Cliente do Serviço de Aprovisionamento de Dispositivos para plataformas específicas
 > * Extrair os artefactos de segurança
-> * Criar o software de registo de dispositivos
+> * Configurar o software de registo de dispositivos
 
 Avance para o próximo tutorial para saber como aprovisionar o dispositivo no seu hub IoT ao inscrevê-lo no Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure para aprovisionamento automático.
 

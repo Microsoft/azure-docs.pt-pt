@@ -1,20 +1,20 @@
 ---
-title: Implantar Azure Machine Learning em um dispositivo-Azure IoT Edge | Microsoft Docs
+title: 'Tutorial: implantar Azure Machine Learning em um dispositivo-Azure IoT Edge'
 description: Neste tutorial, você criará um modelo de Azure Machine Learning e, em seguida, o implantará como um módulo em um dispositivo de borda
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/16/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 28e5e09ea64f7ac1272e8ed126d5b4153b952c1d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2d56d434fbdaf8c05c4d4db75bffb65468a5bc42
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494038"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114028"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutorial: Implementar o Azure Machine Learning como um módulo do IoT Edge (pré-visualização)
 
@@ -70,7 +70,7 @@ Nesta seção, você converterá arquivos de modelo de aprendizado de máquina t
 
    ![Executar em computação gratuita](./media/tutorial-deploy-machine-learning/run-on-free-compute.png)
 
-6. Abra o arquivo **aml_config/config. JSON** .
+6. Abra o arquivo **aml_config/config.JSON** .
 
 7. Edite o arquivo de configuração para incluir os valores de sua ID de assinatura do Azure, um grupo de recursos em sua assinatura e o nome do espaço de trabalho Azure Machine Learning. Você pode obter todos esses valores da seção **visão geral** do seu espaço de trabalho no Azure. 
 
@@ -141,7 +141,7 @@ Os passos seguintes mostram como configurar o Visual Studio Code para monitoriza
 
 2. Selecione **...** e, em seguida, selecione **Definir Cadeia de Ligação do Hub IoT** no menu.
 
-   ![Definir cadeia de conexão do Hub IoT](./media/tutorial-deploy-machine-learning/set-connection.png)
+   ![Definir cadeia de ligação do IoT Hub](./media/tutorial-deploy-machine-learning/set-connection.png)
 
 3. Na caixa de texto que se abre na parte superior da página, introduza a cadeia de ligação de iothubowner para o seu Hub IoT. O dispositivo do IoT Edge deve aparecer na lista de Dispositivos do Hub IoT.
 
