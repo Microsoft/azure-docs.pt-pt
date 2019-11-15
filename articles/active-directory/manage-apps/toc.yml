@@ -24,6 +24,8 @@
 - name: Conceitos
   expanded: true
   items:
+    - name: Melhores práticas de gestão de aplicações
+      href: application-management-fundamentals.md
     - name: Aplicações da cloud e início de sessão único
       items:
         - name: Planear uma integração de aplicações da cloud

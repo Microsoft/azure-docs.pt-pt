@@ -180,6 +180,8 @@
       items:
         - name: Azure Data Factory
           items:
+            - name: Integração com o Data Factory
+              href: data-factory-integration.md
             - name: Cópia em massa de dados com o modelo do Azure Data Factory
               href: data-factory-template.md
             - name: Executar comandos de controlo com o Azure Data Factory

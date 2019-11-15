@@ -15,6 +15,10 @@
   items:
     - name: Utilizar a API do Video Indexer
       href: video-indexer-use-apis.md
+- name: Amostras
+  items:
+    - name: Análise de transmissão em direto de evento
+      href: live-stream-analysis.md
 - name: Conceitos
   items:
     - name: Descrição geral

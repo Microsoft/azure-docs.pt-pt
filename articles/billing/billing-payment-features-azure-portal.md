@@ -1,0 +1,177 @@
+---
+title: Tarefas de Administrador de Conta no portal do Azure
+description: Descreve como executar operações de pagamento no portal do Azure
+author: bandersmsft
+manager: jureid
+tags: billing
+ms.service: billing
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 11/05/2019
+ms.author: banders
+ms.openlocfilehash: 510765778166f007501cfcb21e242c539200ce2f
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73722147"
+---
+# <a name="account-administrator-tasks-in-the-azure-portal"></a>Tarefas de Administrador de Conta no portal do Azure
+
+Este artigo explica como executar as seguintes tarefas no portal do Azure:
+- Gerir os métodos de pagamento da sua subscrição
+- Remover o limite de gastos da sua subscrição
+- Adicionar créditos à subscrição do Azure no Licenciamento Open
+
+Tem de ser o Administrador de Conta para realizar qualquer uma destas tarefas. 
+
+## <a name="navigate-to-your-subscriptions-payment-methods"></a>Navegar até aos métodos de pagamento da sua subscrição
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) como Administrador de Conta.
+1. Procure **Cost Management + Faturação**.
+    
+    ![Captura de ecrã que mostra a pesquisa para Cost Management + Faturação ](./media/billing-payment-features-azure-portal/search-bar.png)
+
+1. Na lista **As minhas subscrições**, selecione a subscrição à qual quer adicionar o cartão de crédito.
+    ![Captura de ecrã que mostra a grelha de As minhas subscrições na descrição geral](./media/billing-payment-features-azure-portal/cost-management-billing-overview-x.png)
+
+1. Selecione **Métodos de pagamento**.
+
+    ![Captura de ecrã que mostra o painel de métodos de pagamento selecionado.](./media/billing-payment-features-azure-portal/subscription-payment-methods-blade.png)
+
+Aqui, pode adicionar um novo cartão de crédito, alterar o método de pagamento ativo, editar detalhes do cartão de crédito e eliminar cartões de crédito. 
+
+### <a name="change-active-payment-method"></a>Alterar o método de pagamento ativo
+
+Pode alterar o método de pagamento ativo adicionando um novo cartão de crédito ou escolhendo um que já esteja guardado. Para alterar o método de pagamento ativo para um novo cartão de crédito:
+
+1. No canto superior esquerdo, selecione “+” para adicionar um cartão de crédito.
+    
+    ![Captura de ecrã que mostra o sinal de adição](./media/billing-payment-features-azure-portal/subscription-payment-methods-plus.png)
+
+1. Introduza os detalhes do cartão de crédito no formulário à direita.
+
+    ![Captura de ecrã que mostra o formulário de adição de cartão de crédito.](./media/billing-payment-features-azure-portal/subscription-add-payment-method-x.png)
+
+1. Para definir este cartão como o método de pagamento ativo, selecione a caixa junto a **Definir o meu método de pagamento ativo** acima do formulário. Este cartão tornar-se-á o instrumento de pagamento ativo para todas as subscrições com o mesmo cartão da subscrição selecionada.
+
+    ![Captura de ecrã que mostra a caixa de verificação para tornar o cartão no método de pagamento ativo.](./media/billing-payment-features-azure-portal/subscription-make-active-payment-method-x.png)
+
+1. Selecione **Seguinte**.
+
+Para alterar o método de pagamento ativo para um cartão de crédito que já esteja guardado:
+
+1. Selecione a caixa junto ao cartão que quer definir como o método de pagamento ativo.
+
+    ![Captura de ecrã que mostra a caixa assinalada ao lado do cartão de crédito](./media/billing-payment-features-azure-portal/subscription-checked-payment-method-x.png)
+
+1. Clique em **Definir como ativo** na barra de comandos.
+
+    ![Captura de ecrã que mostra o botão Definir como ativo](./media/billing-payment-features-azure-portal/subscription-checked-payment-method-set-active.png)
+
+### <a name="edit-credit-card-details"></a>Editar detalhes do cartão de crédito
+
+Para editar os detalhes do cartão de crédito, como a data de validade ou o endereço, clique no cartão de crédito que pretende editar. Será apresentado à direita um formulário de cartão de crédito.
+
+![Captura de ecrã que mostra o cartão de crédito selecionado](./media/billing-payment-features-azure-portal/subscription-edit-payment-method-x.png)
+
+Atualize os detalhes do cartão de crédito e clique em **Guardar**.
+
+### <a name="remove-a-credit-card-from-the-account"></a>Remover o cartão de crédito da conta
+
+1. Selecione a caixa junto ao cartão que pretende eliminar.
+
+    ![Captura de ecrã que mostra a caixa assinalada ao lado do cartão de crédito](./media/billing-payment-features-azure-portal/subscription-checked-payment-method-x.png)
+
+1. Clique em **Eliminar** na barra de comandos.
+
+    ![Captura de ecrã que mostra o botão Eliminar](./media/billing-payment-features-azure-portal/subscription-checked-payment-method-delete.png)
+
+Se o cartão de crédito for o método de pagamento ativo para qualquer uma das suas subscrições da Microsoft, não o poderá remover da conta do Azure. Altere o método de pagamento ativo para todas as subscrições associadas a este cartão de crédito e tente novamente.
+
+### <a name="switch-to-invoice-payment"></a>Mudar para pagamento por fatura
+
+Se for elegível para pagar por fatura (cheque/transferência bancária), pode mudar a sua subscrição para pagamento por fatura (cheque/transferência bancária) no portal do Azure.
+
+1. Selecione **Pagar por fatura** na barra de comandos.
+
+    ![Captura de ecrã que mostra o painel de métodos de pagamento selecionado.](./media/billing-payment-features-azure-portal/subscription-payment-methods-pay-by-invoice.png)
+
+1. Introduza o endereço para o método de pagamento por fatura.
+1. Clique em **Seguinte**.
+
+Se quiser ser aprovado para pagar por fatura, veja [como pagar por fatura](billing-how-to-pay-by-invoice.md).
+
+### <a name="edit-invoice-payment-address"></a>Editar endereço de pagamento por fatura
+
+Para editar o endereço do seu método de pagamento por fatura, clique em **Fatura** na lista de métodos de pagamento para a sua subscrição. O formulário de endereço será aberto à direita. 
+
+## <a name="remove-spending-limit"></a>Remover limite de gastos
+
+O limite de gastos no Azure impede que gaste mais do que o montante do seu crédito. Pode remover o limite de gastos a qualquer momento, desde que exista um método de pagamento válido associado à subscrição do Azure. Para os tipos de subscrição que utilizam crédito ao longo de vários meses, como o Visual Studio Enterprise e o Visual Studio Professional, pode optar por ativar o limite de gastos no início do próximo período de faturação.
+
+O limite de gastos não está disponível para as subscrições com planos de alocação ou planos com preços pay as you go. Veja a [lista completa de tipos de subscrição do Azure e a disponibilidade do limite de gastos](https://azure.microsoft.com/support/legal/offer-details/).
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) como Administrador de Conta.
+1. Procure **Cost Management + Faturação**.
+
+    ![Captura de ecrã que mostra a pesquisa para Cost Management + Faturação ](./media/billing-payment-features-azure-portal/search-bar.png)
+
+1. Na lista **As minhas subscrições**, selecione a sua subscrição do Visual Studio Enterprise.
+    
+    ![Captura de ecrã que mostra a grelha de As minhas subscrições na descrição geral](./media/billing-payment-features-azure-portal/cost-management-overview-msdn-x.png)
+
+1. Na descrição geral de Subscrição, clique na faixa laranja para remover o limite de gastos.
+    
+    ![Captura de ecrã que mostra a faixa para remover o limite de gastos](./media/billing-payment-features-azure-portal/msdn-remove-spending-limit-banner-x.png)
+
+1. Escolha se pretende remover o limite de gastos indefinidamente ou apenas para o período de faturação atual.
+
+   ![Captura de ecrã que mostra o painel para remover o limite de gastos](./media/billing-payment-features-azure-portal/remove-spending-limit-blade-x.png)
+
+1. Clique em **Selecionar método de pagamento** para escolher um método de pagamento para a sua subscrição. Este passará a ser o método de pagamento ativo para a sua subscrição.
+
+1. Clique em **Concluir**.
+
+## <a name="add-credits-to-azure-in-open-subscription"></a>Adicionar créditos à subscrição Azure no Licenciamento Open
+
+Se tiver uma subscrição Azure no Licenciamento Open, pode adicionar créditos à sua subscrição no portal do Azure, resgatando uma chave de produto ou comprando créditos com um cartão de crédito.
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) como Administrador de Conta.
+1. Procure **Cost Management + Faturação**.
+
+    ![Captura de ecrã que mostra a pesquisa para Cost Management + Faturação ](./media/billing-payment-features-azure-portal/search-bar.png)
+
+1. Na lista **As minhas subscrições**, selecione a sua subscrição Azure no Licenciamento Open.
+   
+    ![Captura de ecrã que mostra a grelha de As minhas subscrições na descrição geral](./media/billing-payment-features-azure-portal/cost-management-overview-aio-x.png)
+
+1. Selecione **Histórico de crédito**.
+    
+    ![Captura de ecrã que mostra o histórico de crédito](./media/billing-payment-features-azure-portal/aio-credit-history-blade.png)
+
+1. No canto superior esquerdo, selecione "+" para adicionar mais créditos.
+
+    ![Captura de ecrã que mostra o botão Adicionar créditos](./media/billing-payment-features-azure-portal/aio-credit-history-plus.png)
+
+1. Selecione um tipo de método de pagamento na lista pendente. Pode adicionar uma chave de produto ou comprar créditos com um cartão de crédito.
+    
+    ![Captura de ecrã que mostra a lista pendente de método de pagamento no painel Adicionar créditos](./media/billing-payment-features-azure-portal/add-credits-select-payment-method.png)
+
+1. Se escolheu chave de produto:
+    - Introduza a chave de produto
+    - Clique em **Validar**
+
+1. Se escolheu cartão de crédito:
+    - Clique em **Selecionar método de pagamento** para adicionar um cartão de crédito ou selecionar um existente.
+    - Especifique a quantidade de créditos que pretende adicionar.
+
+1. Clique em **Aplicar**
+
+## <a name="troubleshooting"></a>Resolução de problemas
+Não suportamos cartões virtuais ou pré-pagos. Se ocorrerem erros ao adicionar ou atualizar um cartão de crédito válido, tente abrir o browser em modo privado.
+
+## <a name="next-steps"></a>Passos seguintes
+- Obtenha mais informações sobre como [analisar e evitar custos inesperados no portal do Azure](billing-getting-started.md)

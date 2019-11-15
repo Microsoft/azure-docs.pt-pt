@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Peering Service (Pré-visualização)
+title: Pré-visualização do Azure Peering Service
 summary: Saiba mais sobre o Azure Peering Service
 metadata:
-  title: Documentação do Azure Peering Service (Pré-visualização)
+  title: Documentação da Pré-visualização do Azure Peering Service
   description: Saiba como gerir e implementar a ligação ao Peering Service
   services: peering-service
   ms.service: peering-service
@@ -11,12 +11,12 @@ metadata:
   author: ypitsch
   ms.author: v-meravi
   ms.date: 11/04/2019
-  ms.openlocfilehash: 80cd9b2e6fde34daf6126ba8e14cf9f5c0b7c627
-  ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+  ms.openlocfilehash: 3f026ca55b19d1285ad555dbf1dffa009ef167e7
+  ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 11/14/2019
-  ms.locfileid: "74076826"
+  ms.locfileid: "74084777"
 landingContent:
 - title: Acerca do Peering Service
   linkLists:
