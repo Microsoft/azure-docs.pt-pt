@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/10/2019
+ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 5c881551648e8fc6078405e34fa3280723009b20
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 18b96e9afbf2a83b917d6848b419fb76518035de
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490962"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090432"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>Início rápido: executar o aplicativo de exemplo do SDK de dispositivos de fala no Linux
 
@@ -25,7 +25,7 @@ O aplicativo é criado com o pacote do SDK de fala e o eclipse Java IDE (v4) no 
 
 Este guia requer uma conta de [Serviços cognitivas do Azure](get-started.md) com um recurso de serviços de fala. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
 
-O código-fonte do [aplicativo de exemplo](https://aka.ms/sdsdk-download-JRE) está incluído no SDK dos dispositivos de fala. Ele também está [disponível no GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
+O código-fonte do [aplicativo de exemplo](https://aka.ms/sdsdk-download-JRE) está incluído no SDK dos dispositivos de fala. Também vale [está disponível no GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -80,11 +80,34 @@ Se você planeja usar as intenções, precisará de uma assinatura do [Luis (ser
 
    ![Captura de ecrã do Explorador de pacotes](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
+1. Abra o arquivo pom. xml e edite-o.
+
+    No final do arquivo, antes da marca de fechamento `</project>`, crie `repositories` e `dependencies` elementos, como mostrado aqui, e verifique se o `version` corresponde à sua versão atual:
+    ```xml    
+    <repositories>
+         <repository>
+             <id>maven-cognitiveservices-speech</id>
+             <name>Microsoft Cognitive Services Speech Maven Repository</name>
+             <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+         </repository>
+    </repositories>
+ 
+    <dependencies>
+        <dependency>
+             <groupId>com.microsoft.cognitiveservices.speech</groupId>
+             <artifactId>client-sdk</artifactId>
+             <version>1.7.0</version>
+        </dependency>
+    </dependencies>
+   ```
+
 1. No **Explorador de pacotes**, clique com o botão direito do mouse em seu projeto. Escolha **Propriedades**e, em seguida, **executar/depurar configurações** > **novo...** > **aplicativo Java**. 
 
 1. A janela **Editar configuração** é exibida. No campo **nome** , insira **principal**e use **procurar** a **classe principal** para localizar e selecionar **com. Microsoft. cognitivaservices. Speech. Samples. functionlist**.
 
    ![Captura de tela de Editar configuração de inicialização](media/speech-devices-sdk/eclipse-edit-launch-configuration-linux.png)
+
+1. Copie os binários de áudio para sua arquitetura de destino, do **Linux-ARM** ou **Linux-x64**, para o local do projeto Java, por exemplo, **/Home/wcaltest/JRE-Sample-Release**
 
 1. Também na janela **Editar configuração** , selecione a página **ambiente** e **novo**. A janela **nova variável de ambiente** é exibida. No campo **nome** , insira **LD_LIBRARY_PATH** e, no campo **valor** , insira a pasta que contém os arquivos *. so, por exemplo, **/Home/wcaltest/JRE-Sample-Release**
 
@@ -93,7 +116,7 @@ Se você planeja usar as intenções, precisará de uma assinatura do [Luis (ser
 
 ## <a name="configure-the-sample-application"></a>Configurar o aplicativo de exemplo
 
-1. Adicione sua chave de assinatura de fala ao código-fonte. Se você quiser tentar o reconhecimento de intenção, adicione também sua chave de assinatura de [serviço reconhecimento vocal](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) e a ID do aplicativo.
+1. Adicione sua chave de assinatura de fala ao código-fonte. Se quiser experimentar o reconhecimento da intenção, adicione também seu [serviço de compreensão de idiomas](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) ID da chave de subscrição e a aplicação.
 
    Para fala e LUIS, suas informações entram em `FunctionsList.java`:
 
@@ -118,24 +141,23 @@ Se você planeja usar as intenções, precisará de uma assinatura do [Luis (ser
    > [!TIP]
    > Você também pode [criar uma palavra-chave personalizada](speech-devices-sdk-create-kws.md).
 
-    Para usar uma nova palavra-chave, atualize as duas linhas a seguir em `FunctionsList.java`e copie o pacote de palavras-chave para seu aplicativo. Por exemplo, para usar a palavra-chave ' Machine ' do pacote de palavras-chave `kws-machine.zip`:
+    Para usar uma nova palavra-chave, atualize a linha a seguir em `FunctionsList.java`e copie a palavra-chave para seu aplicativo. Por exemplo, para usar a palavra-chave ' Machine ' do pacote de palavras-chave `machine.zip`:
 
-   * Copie o pacote de palavras-chave para o **destino/as classes**da pasta do projeto.
+   * Copie o arquivo de `kws.table` do pacote zip para as **classes/destino**da pasta do projeto.
 
-   * Atualize o `FunctionsList.java` com a palavra-chave e o nome do pacote:
+   * Atualize o `FunctionsList.java` com o nome da palavra-chave:
 
      ```java
      private static final String Keyword = "Machine";
-     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Executar o aplicativo de exemplo do eclipse
 
 1. Na barra de menus do eclipse, **execute** > **executar** 
 
-1. O aplicativo de exemplo SDK de dispositivos de fala é iniciado e exibe as seguintes opções:
+1. O aplicativo de exemplo do SDK de dispositivos de fala é iniciado e exibe as seguintes opções:
 
-   ![Exemplo de aplicativo e opções do SDK de dispositivos de fala](media/speech-devices-sdk/java-sample-app-linux.png)
+   ![Exemplo de aplicativo de exemplo de SDK de dispositivos de voz e opções](media/speech-devices-sdk/java-sample-app-linux.png)
 
 1. Experimente a nova demonstração de **transcrição de conversa** . Comece a transcrever com a **sessão** > **Iniciar**. Por padrão, todos são convidados. No entanto, se você tiver as assinaturas de voz do participante, elas poderão ser colocadas em `participants.properties` nas **classes/destino**da pasta do projeto. Para gerar a assinatura de voz, examine [conversações (SDK) de transcrever](how-to-use-conversation-transcription-service.md).
 
@@ -169,4 +191,4 @@ Se você planeja usar as intenções, precisará de uma assinatura do [Luis (ser
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Examinar as notas de versão](devices-sdk-release-notes.md)
+> [Reveja as notas de versão](devices-sdk-release-notes.md)

@@ -1,41 +1,41 @@
 ---
 title: Tutorial-criar uma rede virtual de Hub no Azure usando o Terraform
-description: Tutorial ilustrando como criar uma VNet de Hub no Azure que atue como um ponto de conexão comum entre outras redes
+description: Tutorial que ilustra como criar uma rede virtual de Hub no Azure que atua como um ponto de conexão comum entre outras redes
 ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 231f8c6b98db785f3ef155af271be7e354998d54
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 25c4d6fa881f7ec6c96dd5ea7c935544374bc57d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969427"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077708"
 ---
-# <a name="tutorial-create-a-hub-virtual-network-in-azure-using-terraform"></a>Tutorial: criar uma rede virtual de Hub no Azure usando o Terraform
+# <a name="tutorial-create-a-hub-virtual-network-in-azure-by-using-terraform"></a>Tutorial: criar uma rede virtual de Hub no Azure usando o Terraform
 
-A rede virtual do Hub (VNet) atua como o ponto central de conectividade para a rede local. A VNet hospeda serviços compartilhados consumidos por cargas de trabalho hospedadas no spoke VNets. Para fins de demonstração, nenhum serviço compartilhado é implementado neste tutorial.
+A rede virtual do Hub atua como o ponto central de conectividade para a rede local. A rede virtual hospeda serviços compartilhados consumidos por cargas de trabalho hospedadas nas redes virtuais spoke. Para fins de demonstração, nenhum serviço compartilhado é implementado neste tutorial.
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Use a HCL (linguagem HashiCorp) para implementar a VNet do Hub na topologia hub-spoke
-> * Usar Terraform para criar máquina virtual de caixa de salto de Hub
-> * Usar o Terraform para criar um gateway de rede virtual privada de Hub
-> * Usar o Terraform para criar conexões de gateway local e de Hub
+> * Use a HCL (linguagem de configuração do HashiCorp) para implementar a rede virtual do Hub em uma topologia hub e spoke.
+> * Use Terraform para criar uma máquina virtual Jumpbox de Hub.
+> * Use Terraform para criar um gateway de rede virtual privada de Hub.
+> * Use Terraform para criar conexões de gateway local e de Hub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. [Crie uma topologia de rede híbrida de Hub e spoke com Terraform no Azure](./terraform-hub-spoke-introduction.md).
+1. [Crie uma topologia de rede híbrida Hub e spoke com Terraform no Azure](./terraform-hub-spoke-introduction.md).
 1. [Crie uma rede virtual local com o Terraform no Azure](./terraform-hub-spoke-on-prem.md).
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 
 A rede de Hub consiste nos seguintes componentes:
 
-- Rede virtual do Hub
-- Gateway de rede virtual do Hub
+- Uma rede virtual do Hub
+- Um gateway de rede virtual do Hub
 - Conexões de gateway de Hub 
 
 O arquivo de configuração Terraform a seguir define os recursos:
@@ -44,21 +44,21 @@ O arquivo de configuração Terraform a seguir define os recursos:
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se não tiver selecionado um ambiente anteriormente, selecione **Bash** como o seu ambiente.
 
-    ![Comando do Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
+    ![Comandos do Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
 
-1. Mude para o diretório `clouddrive`.
+1. Altere os diretórios para o diretório `clouddrive`.
 
     ```bash
     cd clouddrive
     ```
 
-1. Mude para o diretório novo:
+1. Altere os diretórios para o novo diretório.
 
     ```bash
     cd hub-spoke
     ```
 
-## <a name="declare-the-hub-vnet"></a>Declarar a VNet do Hub
+## <a name="declare-the-hub-virtual-network"></a>Declarar a rede virtual do Hub
 
 Crie o arquivo de configuração Terraform que declara a rede virtual do Hub.
 
@@ -226,9 +226,9 @@ Crie o arquivo de configuração Terraform que declara a rede virtual do Hub.
     }
     ```
     
-1. Salve o arquivo e saia do editor.
+3. Salve o arquivo e saia do editor.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
-> [Criar um dispositivo de rede virtual de Hub com o Terraform no Azure](./terraform-hub-spoke-hub-nva.md))
+> [Criar um dispositivo de rede virtual de Hub com o Terraform no Azure](./terraform-hub-spoke-hub-nva.md)

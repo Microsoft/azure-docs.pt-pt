@@ -7,16 +7,16 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 10/02/2019
+ms.date: 11/13/2019
 ms.custom: include file
-ms.openlocfilehash: 7f40cf10d6357afd6944e7f4a28a20b9b407f698
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: cc87c64ca88dd9dbc5a5cdb4a61a541c62b86770
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949124"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082366"
 ---
-Este artigo pressupõe uma autenticação de familiaridade com suas APIs de gerenciamento de gêmeos digital do Azure.
+Este artigo pressupõe alguma familiaridade com a autenticação em suas APIs de gerenciamento de gêmeos digitais do Azure.
 
 * Para saber mais sobre como autenticar com suas APIs de gerenciamento, confira [Autenticando com as APIs do Azure digital gêmeos](../articles/digital-twins/security-authenticating-apis.md).
 * Para autenticar com suas APIs de gerenciamento usando o cliente REST do postmaster, leia [como configurar o postmaster](../articles/digital-twins/how-to-configure-postman.md).

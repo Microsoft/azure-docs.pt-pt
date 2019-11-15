@@ -14,19 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 48b5136505c3d0cb5e2e2027f832655e4b3445bf
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 11f897852ce820e666d7403f42735b2ee3bdd73b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881730"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084813"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Use Análise de Mídia do Azure para converter o conteúdo de texto em arquivos de vídeo em texto digital  
 
-> [!IMPORTANT]
-> Examine os [planos de aposentadoria](media-services-analytics-overview.md#retirement-plans) de alguns processadores de mídia.
-
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 Se você precisar extrair o conteúdo de texto de seus arquivos de vídeo e gerar um texto digital editável e pesquisável, deverá usar Análise de Mídia do Azure OCR (reconhecimento óptico de caracteres). Esse processador de mídia do Azure detecta o conteúdo de texto em seus arquivos de vídeo e gera arquivos de texto para seu uso. O OCR permite automatizar a extração de metadados significativos do sinal de vídeo de sua mídia.
 
 Quando usado em conjunto com um mecanismo de pesquisa, você pode indexar facilmente sua mídia por texto e aprimorar a capacidade de descoberta do seu conteúdo. Isso é extremamente útil em vídeo altamente textual, como uma gravação de vídeo ou captura de tela de uma apresentação de slides. O processador de mídia do OCR do Azure é otimizado para texto digital.
@@ -48,8 +45,8 @@ Configuração da tarefa (predefinição). Ao criar uma tarefa com o **OCR de m�
 ### <a name="attribute-descriptions"></a>Descrições de atributo
 | Nome do atributo | Descrição |
 | --- | --- |
-|AdvancedOutput| Se você definir AdvancedOutput como true, a saída JSON conterá dados posicionais para cada palavra única (além de frases e regiões). Se você não quiser ver esses detalhes, defina o sinalizador como false. O valor padrão é false. Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
-| Linguagem |(opcional) descreve o idioma do texto a ser examinado. Um dos seguintes: AutoDetect (padrão), árabe, ChineseSimplified, ChineseTraditional, tcheco dinamarquês, holandês, inglês, finlandês, francês, alemão, grego, húngaro, italiano, japonês, coreano, norueguês, polonês, Português, romeno, russo, SerbianCyrillic, SerbianLatin, eslovaco, espanhol, Sueco, Turco. |
+|AdvancedOutput| Se você definir AdvancedOutput como true, a saída JSON conterá dados posicionais para cada palavra única (além de frases e regiões). Se você não quiser ver esses detalhes, defina o sinalizador como false. O valor predefinido é false. Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
+| Idioma |(opcional) descreve o idioma do texto a ser examinado. Um dos seguintes: AutoDetect (padrão), árabe, ChineseSimplified, ChineseTraditional, tcheco dinamarquês, holandês, inglês, finlandês, francês, alemão, grego, húngaro, italiano, japonês, coreano, norueguês, polonês, Português, romeno, russo, SerbianCyrillic, SerbianLatin, eslovaco, espanhol, Sueco, Turco. |
 | TextOrientation |(opcional) descreve a orientação do texto a ser examinado.  "Left" significa que a parte superior de todas as letras é apontada para a esquerda.  O texto padrão (como o que pode ser encontrado em um livro) pode ser chamado de "up" orientado.  Um dos seguintes: AutoDetect (padrão), up, direita, Down e Left. |
 | TimeInterval |(opcional) descreve a taxa de amostragem.  O padrão é a cada 1/2 segundo.<br/>Formato JSON – HH: mm: SS. SSS (padrão 00:00:00.500)<br/>Formato XML – duração XSD do W3C (padrão PT 0.5) |
 | DetectRegions |adicional Uma matriz de objetos DetectRegion especificando regiões dentro do quadro de vídeo no qual detectar texto.<br/>Um objeto DetectRegion é composto pelos quatro valores inteiros a seguir:<br/>Esquerda – pixels da margem esquerda<br/>Superior – pixels da margem superior<br/>Largura – largura da região em pixels<br/>Altura – altura da região em pixels |
@@ -113,10 +110,10 @@ A saída contém os seguintes atributos:
 | Desvio |diferença de tempo para carimbos de data/hora. Na versão 1,0 de APIs de vídeo, isso será sempre 0. |
 | Taxa de fotogramas |Quadros por segundo do vídeo |
 | Largura |largura do vídeo em pixels |
-| Tamanho |altura do vídeo em pixels |
+| tamanho |altura do vídeo em pixels |
 | Fragmentos |matriz de partes baseadas em tempo de vídeo em que os metadados são fragmentados |
 | start |hora de início de um fragmento em "tiques" |
-| Permanência |comprimento de um fragmento em "tiques" |
+| duration |comprimento de um fragmento em "tiques" |
 | intervalo |intervalo de cada evento dentro do fragmento fornecido |
 | eventos |matriz que contém regiões |
 | . |objeto representando palavras ou frases detectadas |
@@ -372,6 +369,6 @@ namespace OCR
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Hiperligações relacionadas
+## <a name="related-links"></a>Ligações relacionadas
 [Visão geral da análise dos serviços de mídia do Azure](media-services-analytics-overview.md)
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: dacurwin
-ms.openlocfilehash: 1394ea03874db5e05831100ef7bfec5187f3f4e4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c15f3f899b856cb715406bf0e2f95914cd58cca0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074153"
+ms.locfileid: "74091675"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Fazer backup de um farm do SharePoint no Azure Stack
 
@@ -243,7 +243,7 @@ R: Sim, o item pode ser recuperado para o site do SharePoint original.
 P: posso recuperar um banco de dados do SharePoint no local original se o SharePoint estiver configurado usando o SQL AlwaysOn?<br>
 R: como os bancos de dados do SharePoint são configurados no SQL AlwaysOn, eles não podem ser modificados, a menos que o grupo de disponibilidade seja removido. Como resultado, o MABS não pode restaurar um banco de dados para o local original. Você pode recuperar um banco de dados SQL Server para outra instância do SQL Server.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o artigo [arquivos e aplicativos de backup](backup-mabs-files-applications-azure-stack.md) .
 Consulte o artigo [SQL Server de backup no Azure Stack](backup-mabs-sql-azure-stack.md) .

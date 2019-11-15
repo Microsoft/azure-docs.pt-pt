@@ -1,19 +1,18 @@
 ---
-title: Azure Site Recovery solução de problemas de erros de replicação do Azure para o Azure | Microsoft Docs
+title: Solucionar problemas de replicação de VM do Azure no Azure Site Recovery
 description: Solucionar erros ao replicar máquinas virtuais do Azure para recuperação de desastre.
-services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: asgang
-ms.openlocfilehash: baf7a21d04e8f9bcf86c67abde302a558dfba01c
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: b3c459c0eaac98a1cb704b4346153f77ec974188
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910386"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084929"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solucionar erros de replicação de VM do Azure para o Azure
 
@@ -27,7 +26,7 @@ Se não houver um tamanho que dê suporte à configuração da VM de origem, a s
 
 > "Não foi possível habilitar a replicação para a máquina virtual *VmName*".
 
-### <a name="possible-causes"></a>Causas possíveis
+### <a name="possible-causes"></a>Possíveis causas
 
 - Sua ID de assinatura não está habilitada para criar VMs no local da região de destino.
 - Sua ID de assinatura não está habilitada ou não tem cota suficiente para criar tamanhos de VM específicos no local da região de destino.
@@ -81,7 +80,7 @@ Como o SuSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de
 
 1. Se o certificado de autoridade de certificação raiz da Symantec não for encontrado, execute o comando a seguir para baixar o arquivo. Verifique se há erros e siga as ações recomendadas para falhas de rede.
 
-    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
+    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem-O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
 
 1. Verifique se o certificado de autoridade de certificação raiz do Baltimore está presente:
 
@@ -89,21 +88,21 @@ Como o SuSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de
 
 1. Se o certificado de autoridade de certificação raiz do Baltimore não for encontrado, execute este comando para baixar o certificado:
 
-    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root. pem**
+    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem-O Baltimore_CyberTrust_Root. pem**
 
-1. Verifique se o certificado DigiCert_Global_Root_CA está presente:
+1. Verifique se o certificado de DigiCert_Global_Root_CA está presente:
 
     **# ls DigiCert_Global_Root_CA. pem**
 
 1. Se o DigiCert_Global_Root_CA não for encontrado, execute os seguintes comandos para baixar o certificado:
 
-    **n º de wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt**
+    **# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt**
 
     **# OpenSSL X509-in DigiCertGlobalRootCA. CRT-informar a der-out PEM-out DigiCert_Global_Root_CA. pem**
 
 1. Execute o script de rehash para atualizar os hashes de entidade do certificado para os certificados recentemente baixados:
 
-    **# c_rehash**
+    **n º de c_rehash**
 
 1. Execute estes comandos para verificar se os hashes da entidade como symlinks foram criados para os certificados:
 
@@ -119,7 +118,7 @@ Como o SuSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de
 
     - Linha
 
-        **# ls-l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5**
+        **# ls-l | VeriSign_Class_3_Public_Primary_Certification_Authority_G5 grep**
 
     - Saída:
 
@@ -129,7 +128,7 @@ Como o SuSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de
 
     - Linha
 
-        **# ls-l | grep DigiCert_Global_Root**
+        **# ls-l | DigiCert_Global_Root grep**
 
     - Saída:
 
@@ -137,15 +136,15 @@ Como o SuSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de
 
         `-rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem`
 
-1. Crie uma cópia do arquivo VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem com filename b204d74a. 0:
+1. Crie uma cópia do arquivo VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem com o nome de arquivo b204d74a. 0:
 
     **# CP VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem b204d74a. 0**
 
-1. Crie uma cópia do arquivo Baltimore_CyberTrust_Root. pem com filename 653b494a. 0:
+1. Crie uma cópia do arquivo Baltimore_CyberTrust_Root. pem com o nome de arquivo 653b494a. 0:
 
     **# CP Baltimore_CyberTrust_Root. pem 653b494a. 0**
 
-1. Crie uma cópia do arquivo DigiCert_Global_Root_CA. pem com filename 3513523f. 0:
+1. Crie uma cópia do arquivo DigiCert_Global_Root_CA. pem com o nome de arquivo 3513523f. 0:
 
     **# CP DigiCert_Global_Root_CA. pem 3513523f. 0**
 
@@ -155,7 +154,7 @@ Como o SuSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de
 
         **# ls-l 653b494a. 0 b204d74a. 0 3513523f. 0**
 
-    - Output
+    - Saída
 
         `-rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0`
 
@@ -167,7 +166,7 @@ Como o SuSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de
 
 Para que a replicação de Site Recovery funcione, a conectividade de saída é necessária da VM para URLs ou intervalos de IP específicos. Se a VM estiver protegido por uma firewall ou utiliza regras de grupo (NSG) de segurança de rede para controlar a conectividade de saída, poderá deparar-se com um desses problemas.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: Falha ao registrar a máquina virtual do Azure com Site Recovery (código de erro 151195)
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: falha ao registrar a máquina virtual do Azure com Site Recovery (código de erro 151195)
 
 #### <a name="possible-cause"></a>Causa possível 
 
@@ -177,13 +176,13 @@ Esse problema ocorre com mais frequência durante a nova proteção, quando voc�
 
 #### <a name="fix-the-problem"></a>Corrigir o problema
 
-Se você estiver usando um DNS personalizado, verifique se o servidor DNS está acessível na região de recuperação de desastre. Para descobrir se você tem um DNS personalizado, na VM, vá para *rede* > de recuperação de desastre**servidores DNS**.
+Se você estiver usando um DNS personalizado, verifique se o servidor DNS está acessível na região de recuperação de desastre. Para descobrir se você tem um DNS personalizado, na VM, vá para rede de *recuperação de desastres* > **servidores DNS**.
 
 ![Lista de servidores DNS personalizados](./media/azure-to-azure-troubleshoot-errors/custom_dns.PNG)
 
-Tente acessar o servidor DNS da máquina virtual. Se o servidor não estiver acessível, torne-o acessível fazendo o failover do servidor DNS ou criando a linha de site entre a rede de DR e o DNS.
+Tente aceder ao servidor DNS a partir da máquina virtual. Se o servidor não estiver acessível, torne-o acessível fazendo o failover do servidor DNS ou criando a linha de site entre a rede de DR e o DNS.
 
-### <a name="issue-2-site-recovery-configuration-failed-error-code-151196"></a>Problema 2: Falha na configuração do Site Recovery (código de erro 151196)
+### <a name="issue-2-site-recovery-configuration-failed-error-code-151196"></a>Problema 2: falha na configuração do Site Recovery (código de erro 151196)
 
 #### <a name="possible-cause"></a>Causa possível
 
@@ -197,7 +196,7 @@ Se você estiver usando regras de NSG do Azure ou proxy de firewall para control
 > [!NOTE]
 > Se as VMs estiverem atrás de um balanceador de carga interno *padrão* , o balanceador de carga por padrão não terá acesso aos intervalos de IP do Office 365 (ou seja, login.microsoftonline.com). Altere o tipo de balanceador de carga interno para *básico* ou crie acesso de saída, conforme descrito no artigo [configurar regras de saída e balanceamento de carga](https://aka.ms/lboutboundrulescli).
 
-### <a name="issue-3-site-recovery-configuration-failed-error-code-151197"></a>Problema 3: Falha na configuração do Site Recovery (código de erro 151197)
+### <a name="issue-3-site-recovery-configuration-failed-error-code-151197"></a>Problema 3: falha na configuração do Site Recovery (código de erro 151197)
 
 #### <a name="possible-cause"></a>Causa possível
 
@@ -207,7 +206,7 @@ A conexão não pode ser estabelecida com Site Recovery pontos de extremidade de
 
 Site Recovery requer acesso a [intervalos de IP site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges), dependendo da região. Verifique se os intervalos de IP necessários estão acessíveis da máquina virtual.
 
-### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-an-on-premises-proxy-server-error-code-151072"></a>Problema 4: Falha na replicação do Azure para o Azure quando o tráfego de rede passa por um servidor proxy local (código de erro 151072)
+### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-an-on-premises-proxy-server-error-code-151072"></a>Problema 4: a replicação do Azure para o Azure falhou quando o tráfego de rede passa por um servidor proxy local (código de erro 151072)
 
 #### <a name="possible-cause"></a>Causa possível
 
@@ -220,7 +219,7 @@ O agente do serviço de mobilidade detecta as configurações de proxy do Intern
 Se preferir definir o proxy somente para o serviço de mobilidade, você poderá fornecer os detalhes do proxy no arquivo ProxyInfo. conf nestes locais:
 
 - **Linux**:/usr/local/InMage/config/
-- **Windows**: C:\ProgramData\Microsoft Azure Site Recovery\Config
+- **Windows**: C:\ProgramData\Microsoft Azure site Recovery\Config
 
 No ProxyInfo. conf, forneça as configurações de proxy no seguinte formato de arquivo de inicialização:
 
@@ -244,7 +243,7 @@ Um disco novo anexado à VM tem de ser inicializado. Se o disco não for encontr
 
 > "O disco de dados do Azure *diskname* *DiskURI* com o número de unidade lógica *LUNValue* *LUN* não foi mapeado para um disco correspondente que está sendo relatado de dentro da VM que tem o mesmo valor de LUN.
 
-### <a name="possible-causes"></a>Causas possíveis
+### <a name="possible-causes"></a>Possíveis causas
 
 - Um novo disco de dados foi anexado à VM, mas não foi inicializado.
 - O disco de dados dentro da VM não está relatando corretamente o valor de LUN (número de unidade lógica) no qual o disco foi anexado à VM.
@@ -253,15 +252,15 @@ Um disco novo anexado à VM tem de ser inicializado. Se o disco não for encontr
 
 Verifique se os discos de dados foram inicializados e repita a operação.
 
-- **Windows**: [Anexe e inicialize um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
+- **Windows**: [anexe e inicialize um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
 
-- **Linux**: [Inicialize um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+- **Linux**: [inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 Se o problema persistir, contacte o suporte.
 
 ## <a name="one-or-more-disks-are-available-for-protection-error-code-153039"></a>Um ou mais discos estão disponíveis para proteção (código de erro 153039)
 
-### <a name="possible-causes"></a>Causas possíveis
+### <a name="possible-causes"></a>Possíveis causas
 
 - Um ou mais discos foram adicionados recentemente à máquina virtual após a proteção.
 - Um ou mais discos foram inicializados após a proteção da máquina virtual.
@@ -294,7 +293,7 @@ Você pode ignorar esse aviso se você nunca pretender proteger essa máquina vi
 > Se você não fizer a limpeza:
 >
 > - Quando você habilita a replicação por meio do cofre dos serviços de recuperação, a máquina virtual não será listada.
-> - Se você tentar proteger a VM usando**as configurações** > de **máquina** > virtual**recuperação de desastre**, a operação falhará com a mensagem "a replicação não pode ser habilitada devido aos links de recursos obsoletos existentes em a VM ".
+> - Se você tentar proteger a VM usando **as configurações** de > de **máquina virtual** > **recuperação de desastre**, a operação falhará com a mensagem "a replicação não pode ser habilitada devido aos links de recursos obsoletos existentes na VM".
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
@@ -336,17 +335,17 @@ Uma configuração obsoleta pode ocorrer em uma VM do Azure se você habilitou a
 
 ## <a name="unable-to-see-the-azure-vm-or-resource-group-for-the-selection-in-the-enable-replication-job"></a>Não é possível ver a VM ou o grupo de recursos do Azure para a seleção no trabalho "Habilitar replicação"
 
-### <a name="cause-1-the-resource-group-and-source-virtual-machine-are-in-different-locations"></a>Causa 1: O grupo de recursos e a máquina virtual de origem estão em locais diferentes
+### <a name="cause-1-the-resource-group-and-source-virtual-machine-are-in-different-locations"></a>Causa 1: o grupo de recursos e a máquina virtual de origem estão em locais diferentes
 
 Atualmente, Site Recovery requer que o grupo de recursos da região de origem e as máquinas virtuais estejam no mesmo local. Se não forem, você não poderá encontrar a máquina virtual ou o grupo de recursos ao tentar aplicar a proteção.
 
 Como alternativa, você pode habilitar a replicação da VM em vez do cofre dos serviços de recuperação. Vá para **origem VM** > **Propriedades** > **recuperação de desastre** e habilite a replicação.
 
-### <a name="cause-2-the-resource-group-is-not-part-of-the-selected-subscription"></a>Causa 2: O grupo de recursos não faz parte da assinatura selecionada
+### <a name="cause-2-the-resource-group-is-not-part-of-the-selected-subscription"></a>Causa 2: o grupo de recursos não faz parte da assinatura selecionada
 
 Talvez você não consiga localizar o grupo de recursos no momento da proteção se o grupo de recursos não fizer parte da assinatura selecionada. Verifique se o grupo de recursos pertence à assinatura que você está usando.
 
-### <a name="cause-3-stale-configuration"></a>Causa 3: Configuração obsoleta
+### <a name="cause-3-stale-configuration"></a>Causa 3: configuração obsoleta
 
 Talvez você não veja a VM que deseja habilitar para a replicação se uma configuração de Site Recovery obsoleta tiver sido deixada na VM do Azure. Essa condição pode ocorrer se você habilitou a replicação para a VM do Azure usando Site Recovery e, em seguida:
 
@@ -369,11 +368,11 @@ Talvez você não veja a VM que deseja habilitar para a replicação se uma conf
 
 ## <a name="unable-to-select-a-virtual-machine-for-protection"></a>Não é possível selecionar uma máquina virtual para proteção
 
-### <a name="cause-1-the-virtual-machine-has-an-extension-installed-in-a-failed-or-unresponsive-state"></a>Causa 1: A máquina virtual tem uma extensão instalada em um estado com falha ou sem resposta
+### <a name="cause-1-the-virtual-machine-has-an-extension-installed-in-a-failed-or-unresponsive-state"></a>Causa 1: a máquina virtual tem uma extensão instalada em um estado de falha ou sem resposta
 
-Vá para **máquinas** > virtuais**configurações** > **extensões** e verifique se há extensões em estado de falha. Desinstale qualquer extensão com falha e tente proteger a máquina virtual novamente.
+Vá para **máquinas virtuais** > **configurações** > **extensões** e verifique se há extensões em estado de falha. Desinstale qualquer extensão com falha e tente proteger a máquina virtual novamente.
 
-### <a name="cause-2-the-vms-provisioning-state-is-not-valid"></a>Causa 2: O estado de provisionamento da VM não é válido
+### <a name="cause-2-the-vms-provisioning-state-is-not-valid"></a>Causa 2: o estado de provisionamento da VM não é válido
 
 Consulte as etapas de solução de problemas no [estado de provisionamento da VM não é válido](#the-vms-provisioning-state-is-not-valid-error-code-150019), mais adiante neste artigo.
 
@@ -394,21 +393,21 @@ Para habilitar a replicação na VM, seu estado de provisionamento deve ser **be
 
 ## <a name="unable-to-select-target-vm-network-selection-tab-is-unavailable"></a>Não é possível selecionar a VM de destino (a guia Seleção de rede não está disponível)
 
-### <a name="cause-1-your-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>Causa 1: Sua VM está conectada a uma rede que já está mapeada para uma rede de destino
+### <a name="cause-1-your-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>Causa 1: sua VM está conectada a uma rede que já está mapeada para uma rede de destino
 
 Se a VM de origem fizer parte de uma rede virtual e outra VM da mesma rede virtual já estiver mapeada com uma rede no grupo de recursos de destino, a caixa de listagem suspensa seleção de rede estará indisponível (aparece esmaecida) por padrão.
 
 ![Lista de seleção de rede não disponível](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
 
-### <a name="cause-2-you-previously-protected-the-vm-by-using-site-recovery-and-then-you-disabled-the-replication"></a>Causa 2: Você protegeu anteriormente a VM usando Site Recovery e, em seguida, desabilitou a replicação
+### <a name="cause-2-you-previously-protected-the-vm-by-using-site-recovery-and-then-you-disabled-the-replication"></a>Causa 2: você protegeu anteriormente a VM usando Site Recovery e, em seguida, desabilitou a replicação
 
 Desabilitar a replicação de uma VM não exclui o mapeamento de rede. O mapeamento deve ser excluído do cofre dos serviços de recuperação onde a VM foi protegida. Vá para *cofre dos serviços de recuperação* > **site Recovery** > **mapeamento de rede**de infraestrutura.
 
-![Eliminar mapeamento de rede](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
+![Excluir mapeamento de rede](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
 
 A rede de destino que foi configurada durante a configuração de recuperação de desastre pode ser alterada após a configuração inicial, depois que a VM for protegida:
 
-![Modificar mapeamento da rede](./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png)
+![Modificar mapeamento de rede](./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png)
 
 Observe que a alteração do mapeamento de rede afeta todas as VMs protegidas que usam o mesmo mapeamento de rede.
 
@@ -418,7 +417,7 @@ Quando esse erro ocorre, a seguinte mensagem é exibida:
 
 > "Falha ao instalar a extensão de Site Recovery"
 
-### <a name="possible-causes"></a>Causas possíveis
+### <a name="possible-causes"></a>Possíveis causas
 
 - O serviço de aplicativo do sistema COM+ está desabilitado.
 - O serviço de cópias de sombra de volume está desabilitado.
@@ -476,7 +475,7 @@ Substitua cada nome de dispositivo pelo UUID correspondente:
     /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. Substitua o nome do dispositivo pelo UUID, na raiz de formatos **=** =*uuid UUID* e **resume =** =*uuid UUID.* Por exemplo, após a substituição, a linha de/boot/grub/menu.lst (discutida anteriormente) ficaria assim:
+1. Substitua o nome do dispositivo pelo UUID, no UUID de **formatos raiz = uuid**=*UUID* e **resume =** UUID *de=.* Por exemplo, após a substituição, a linha de/boot/grub/menu.lst (discutida anteriormente) ficaria assim:
 
     > kernel/boot/vmlinuz-3.0.101-63-Default **raiz = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume = UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b** Splash = Silent crashkernel = 256M-: 128M showopts VGA = 0x314
 
@@ -490,7 +489,7 @@ Os arquivos de configuração do GRUB (/boot/grub/menu.lst,/boot/grub/grub.cfg,/
 
 - Arquivo:/boot/Grub2/grub.cfg em RHEL7:
 
-    > linux16/vmlinuz-3.10.0-957.EL7.x86_64 root =/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel = 128M\@64M **Rd. LVM. lv = rootvg/raiz Rd. LVM. lv = rootvg/swap** rhgb Quiet Lang = en_US. UTF-8
+    > linux16/vmlinuz-3.10.0-957.EL7. x86_64 raiz =/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel = 128M\@64M **Rd. LVM. lv = rootvg/raiz Rd. LVM. lv = rootvg/swap** rhgb Quiet LANG = en_US. UTF-8
 
 - Arquivo:/etc/default/grub em RHEL7:
 
@@ -498,7 +497,7 @@ Os arquivos de configuração do GRUB (/boot/grub/menu.lst,/boot/grub/grub.cfg,/
 
 - Arquivo:/boot/grub/menu.lst em RHEL6:
 
-    > kernel/vmlinuz-2.6.32-754.el6.x86_64 ro raiz = UUID = 36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG = en_US. UTF-8 rd_NO_MD SYSFONT = latarcyrheb-sun16 crashkernel = auto **rd_LVM_LV = rootvg/lv_root** keyboardvalue = PC keyTable = US **rd_LVM_LV = rootvg/lv_swap** rd_NO_DM rhgb Quiet
+    > /vmlinuz-2.6.32-754.el6. de kernel x86_64 ro raiz = UUID = 36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG = en_US. UTF-8 rd_NO_MD SYSFONT = latarcyrheb-sun16 crashkernel = auto **rd_LVM_LV = rootvg/lv_root** keyboardvalue = PC keyTable = US **rd_LVM_LV = rootvg/lv_swap** rd_NO_DM rhgb Quiet
 
 Em cada exemplo, a parte em negrito mostra que o GRUB precisa detectar dois dispositivos LVM com os nomes "root" e "swap" do grupo de volumes "rootvg".
 
@@ -525,6 +524,6 @@ Esse problema pode ocorrer se a máquina virtual já tiver sido protegida anteri
 
 Exclua o disco de réplica identificado na mensagem de erro e repita o trabalho de proteção com falha.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Replicar máquinas virtuais do Azure](site-recovery-replicate-azure-to-azure.md)

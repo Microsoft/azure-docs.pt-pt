@@ -6,26 +6,26 @@ author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: cb85897e0a7d281eca4ad3f42e8ef28c9e3fdb7b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 374936c39221d79d59fc8a54dc2bc4a49800240d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833534"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078570"
 ---
 # <a name="tutorial-store-terraform-state-in-azure-storage"></a>Tutorial: armazenar o estado de Terraform no armazenamento do Azure
 
-O estado Terraform é usado para reconciliar os recursos implantados com as configurações do Terraform. O estado permite que o Terraform saiba quais recursos do Azure adicionar, atualizar ou excluir. Por padrão, o estado Terraform é armazenado localmente ao executar o comando `terraform apply`. Essa configuração não é ideal pelos seguintes motivos:
+O estado Terraform é usado para reconciliar os recursos implantados com as configurações do Terraform. O estado permite que o Terraform saiba quais recursos do Azure adicionar, atualizar ou excluir. Por padrão, o estado Terraform é armazenado localmente quando você executa o comando `terraform apply`. Essa configuração não é ideal pelos seguintes motivos:
 
-- O estado local não funciona bem em uma equipe ou em um ambiente de colaboração
-- O estado Terraform pode incluir informações confidenciais
-- Armazenar o estado localmente aumenta a chance de exclusão inadvertida
+- O estado local não funciona bem em uma equipe ou em um ambiente de colaboração.
+- O estado Terraform pode incluir informações confidenciais.
+- Armazenar o estado localmente aumenta a chance de exclusão inadvertida.
 
 O Terraform dá suporte à persistência de estado no armazenamento remoto. Um desses back-end com suporte é o armazenamento do Azure. Este documento mostra como configurar e usar o armazenamento do Azure para essa finalidade.
 
 ## <a name="configure-storage-account"></a>Configurar conta de armazenamento
 
-Antes de usar o armazenamento do Azure como um back-end, uma conta de armazenamento deve ser criada. A conta de armazenamento pode ser criada com o portal do Azure, o PowerShell, o CLI do Azure ou o próprio Terraform. Use o exemplo a seguir para configurar a conta de armazenamento com o CLI do Azure.
+Antes de usar o armazenamento do Azure como um back-end, você deve criar uma conta de armazenamento. A conta de armazenamento pode ser criada com o portal do Azure, o PowerShell, o CLI do Azure ou o próprio Terraform. Use o exemplo a seguir para configurar a conta de armazenamento com o CLI do Azure.
 
 ```azurecli
 #!/bin/bash
@@ -51,18 +51,18 @@ echo "container_name: $CONTAINER_NAME"
 echo "access_key: $ACCOUNT_KEY"
 ```
 
-Anote o nome da conta de armazenamento, o nome do contêiner e a chave de acesso de armazenamento. Esses valores são necessários ao configurar o estado remoto.
+Anote o nome da conta de armazenamento, o nome do contêiner e a chave de acesso de armazenamento. Esses valores são necessários quando você configura o estado remoto.
 
-## <a name="configure-state-backend"></a>Configurar back-end do estado
+## <a name="configure-state-back-end"></a>Configurar back-end de estado
 
-O back-end do estado Terraform é configurado ao executar o comando `terraform init`. os dados a seguir são necessários para configurar o back-end do Estado:
+O back-end de estado Terraform é configurado quando você executa o comando `terraform init`. Os dados a seguir são necessários para configurar o back-end de Estado:
 
-- storage_account_name-o nome da conta de armazenamento do Azure.
-- container_name-o nome do contêiner de BLOB.
-- chave-o nome do arquivo de armazenamento de estado a ser criado.
-- access_key-a chave de acesso de armazenamento.
+- **storage_account_name**: o nome da conta de armazenamento do Azure.
+- **container_name**: o nome do contêiner de BLOB.
+- **chave**: o nome do arquivo de armazenamento de estado a ser criado.
+- **access_key**: a chave de acesso de armazenamento.
 
-Cada um desses valores pode ser especificado no arquivo de configuração Terraform ou na linha de comando, no entanto, é recomendável usar uma variável de ambiente para o `access_key`. O uso de uma variável de ambiente impede que a chave seja gravada no disco.
+Cada um desses valores pode ser especificado no arquivo de configuração Terraform ou na linha de comando. Recomendamos que você use uma variável de ambiente para o valor `access_key`. O uso de uma variável de ambiente impede que a chave seja gravada no disco.
 
 Crie uma variável de ambiente chamada `ARM_ACCESS_KEY` com o valor da chave de acesso de armazenamento do Azure.
 
@@ -104,7 +104,7 @@ Inicialize a configuração executando as seguintes etapas:
 1. Execute o comando `terraform init`.
 1. Execute o comando `terraform apply`.
 
-Agora você pode encontrar o arquivo de estado na Azure Storage Blob.
+Agora você pode encontrar o arquivo de estado no Azure Storage BLOB.
 
 ## <a name="state-locking"></a>Bloqueio de estado
 
@@ -112,7 +112,7 @@ Os blobs de armazenamento do Azure são bloqueados automaticamente antes de qual
 
 Para obter mais informações, consulte [bloqueio de estado](https://www.terraform.io/docs/state/locking.html) na documentação do Terraform.
 
-O bloqueio pode ser visto ao examinar o blob por meio do portal do Azure ou outras ferramentas de gerenciamento do Azure.
+Você pode ver o bloqueio ao examinar o blob por meio do portal do Azure ou outras ferramentas de gerenciamento do Azure.
 
 ![Blob do Azure com bloqueio](media/terraform-backend/lock.png)
 
@@ -122,7 +122,7 @@ Os dados armazenados em um blob do Azure são criptografados antes de serem pers
 
 Para obter mais informações sobre a criptografia de armazenamento do Azure, consulte [criptografia do serviço de armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
 > [Saiba mais sobre como usar o Terraform no Azure](/azure/terraform)

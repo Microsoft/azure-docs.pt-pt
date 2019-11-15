@@ -1,5 +1,5 @@
 ---
-title: 'Fluxos de trabalho de configuração de circuito – ExpressRoute: Azure| Microsoft Docs'
+title: 'Azure ExpressRoute: fluxos de trabalho de configuração de circuito'
 description: Esta página mostra os fluxos de trabalho para configurar o circuito do ExpressRoute e de peerings
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 1e0f4d356bb6addf735bf148a80e6be3ca550c8f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: ae6c2b7257ee6a8184f3a5bb002f24cb75a86d67
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123387"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083329"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Fluxos de trabalho do ExpressRoute para o aprovisionamento e estados dos circuitos
 Esta página explica o serviço de aprovisionamento e encaminhamento de fluxos de trabalho de configuração num alto nível.
@@ -104,7 +103,7 @@ Se o estado de prefixo públicos anunciados é definido como um *validação nec
 > 
 > 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Configurar a ligação do ExpressRoute.
   
   * [Crie um circuito do ExpressRoute](expressroute-howto-circuit-arm.md)

@@ -14,19 +14,17 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: c319b3e53f550e56fbf4f655cb9cfa43326f9c72
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: fd31528325ddbe913333bc228fc3847242abcd24
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882429"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083760"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detectar movimentos com Análise de Mídia do Azure
+ 
+## <a name="overview"></a>Descrição geral
 
-> [!IMPORTANT]
-> Examine os [planos de aposentadoria](media-services-analytics-overview.md#retirement-plans) de alguns processadores de mídia.
-
-## <a name="overview"></a>Visão geral
 O MP (processador de mídia **Azure Media Motion detector** ) permite que você identifique com eficiência as seções de interesse em um vídeo muito longo e não-evento. A detecção de movimento pode ser usada em seqüências de imagens de câmera estática para identificar as seções do vídeo em que ocorre o movimento. Ele gera um arquivo JSON contendo metadados com carimbos de data/hora e a região delimitadora em que o evento ocorreu.
 
 Direcionado para feeds de vídeo de segurança, essa tecnologia é capaz de categorizar o movimento em eventos relevantes e falsos positivos, como sombras e mudanças de iluminação. Isso permite que você gere alertas de segurança de feeds de câmera sem ser spam com eventos irrelevantes intermináveis, além de poder extrair momentos de interesse de vídeos de vigilância longos.
@@ -46,9 +44,9 @@ Você pode usar os seguintes parâmetros:
 
 | Nome | Opções | Descrição | Predefinição |
 | --- | --- | --- | --- |
-| sensitivityLevel |Cadeia de caracteres: ' low ', ' Medium ', ' High ' |Define o nível de sensibilidade no qual os movimentos são relatados. Ajuste para ajustar o número de falsos positivos. |médio |
+| sensitivityLevel |String: 'low', 'medium', 'high' |Define o nível de sensibilidade no qual os movimentos são relatados. Ajuste para ajustar o número de falsos positivos. |médio |
 | frameSamplingValue |Inteiro positivo |Define a frequência na qual o algoritmo é executado. 1 é igual a cada quadro, 2 significa cada segundo quadro e assim por diante. |1 |
-| detectLightChange |Booliano: ' true ', ' false ' |Define se as alterações leves são relatadas nos resultados |For |
+| detectLightChange |Boolean: 'true', 'false' |Define se as alterações leves são relatadas nos resultados |For |
 | mergeTimeThreshold |XS-time: hh: mm: SS<br/>Exemplo: 00:00:03 |Especifica a janela de tempo entre eventos de movimento em que dois eventos são combinados e relatados como 1. |00:00:00 |
 | detectionZones |Uma matriz de zonas de detecção:<br/>-A zona de detecção é uma matriz de três ou mais pontos<br/>-Point é uma coordenada x e y de 0 a 1. |Descreve a lista de zonas de detecção poligonal a serem usadas.<br/>Os resultados são relatados com as zonas como uma ID, com a primeira sendo ' ID ': 0 |Zona única, que abrange todo o quadro. |
 
@@ -100,12 +98,12 @@ A tabela a seguir descreve os elementos do arquivo JSON de saída.
 | Elemento | Descrição |
 | --- | --- |
 | versão |Isso se refere à versão da API de vídeo. A versão atual é 2. |
-| escala |"Tiques" por segundo do vídeo. |
+| timescale |"Tiques" por segundo do vídeo. |
 | desvio |O deslocamento de tempo para carimbos de data/hora em "tiques". Na versão 1,0 de APIs de vídeo, isso será sempre 0. Em cenários futuros com suporte, esse valor pode ser alterado. |
 | quadros |Fotogramas por segundo do vídeo. |
 | largura, altura |Refere-se à largura e à altura do vídeo em pixels. |
 | start |O carimbo de data/hora inicial em "tiques". |
-| Permanência |O comprimento do evento, em "tiques". |
+| duration |O comprimento do evento, em "tiques". |
 | intervalo |O intervalo de cada entrada no evento, em "tiques". |
 | eventos |Cada fragmento de evento contém o movimento detectado dentro dessa duração de tempo. |
 | tipo |Na versão atual, é sempre ' 2 ' para o movimento genérico. Esse rótulo fornece às APIs de vídeo a flexibilidade para categorizar o movimento em versões futuras. |
@@ -113,7 +111,7 @@ A tabela a seguir descreve os elementos do arquivo JSON de saída.
 | regiões |Refere-se à área em seu vídeo onde você se preocupa com o Motion. <br/><br/>-"ID" representa a área de região – nesta versão, há apenas uma, ID 0. <br/>-"tipo" representa a forma da região com a qual você se preocupa para o movimento. Atualmente, há suporte para "Rectangle" e "Polygon".<br/> Se você especificou "Rectangle", a região terá dimensões em X, Y, largura e altura. As coordenadas X e Y representam as coordenadas XY do lado esquerdo superior da região em uma escala normalizada de 0,0 a 1,0. A largura e a altura representam o tamanho da região em uma escala normalizada de 0,0 a 1,0. Na versão atual, X, Y, largura e altura são sempre corrigidos em 0, 0 e 1, 1. <br/>Se você tiver especificado "Polygon", a região terá dimensões em pontos. <br/> |
 | fragmentos |Os metadados são divididos em segmentos diferentes chamados fragmentos. Cada fragmento contém um início, duração, número de intervalos e evento(s). Um fragmento sem eventos significa que nenhum movimento foi detectado durante essa hora e duração de início. |
 | colchetes [] |Cada colchete representa um intervalo no evento. Colchetes vazios para esse intervalo significam que nenhum movimento foi detectado. |
-| locais |Essa nova entrada em eventos lista o local em que o movimento ocorreu. Isso é mais específico do que as zonas de detecção. |
+| locations |Essa nova entrada em eventos lista o local em que o movimento ocorreu. Isso é mais específico do que as zonas de detecção. |
 
 O exemplo de JSON a seguir mostra a saída:
 
@@ -386,7 +384,7 @@ namespace VideoMotionDetection
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Hiperligações relacionadas
+## <a name="related-links"></a>Ligações relacionadas
 [Blog do detector de movimento dos serviços de mídia do Azure](https://azure.microsoft.com/blog/motion-detector-update/)
 
 [Visão geral da análise dos serviços de mídia do Azure](media-services-analytics-overview.md)

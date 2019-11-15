@@ -1,18 +1,18 @@
 ---
-title: Criar e personalizar planos de recuperação para recuperação de desastre usando Azure Site Recovery
+title: Criar/Personalizar planos de recuperação no Azure Site Recovery
 description: Saiba como criar e personalizar planos de recuperação para recuperação de desastre usando o serviço de Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 2ca44ffd26e1b87dd201ed6f274791eadfeb0737
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9bb5a1a3aa0c2a4681ddecb5e20df41d481755ec
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814396"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084514"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Criar e personalizar planos de recuperação
 
@@ -24,7 +24,7 @@ Este artigo descreve como criar e personalizar um plano de recuperação no [Azu
 2. Em **criar plano de recuperação**, especifique um nome para o plano.
 3. Escolha uma origem e um destino com base nas máquinas no plano e selecione **Gerenciador de recursos** para o modelo de implantação. O local de origem deve ter computadores habilitados para failover e recuperação. 
 
-   **Ativação pós-falha** | **Origem** | **Target** 
+   **Ativação pós-falha** | **Origem** | **Destino** 
    --- | --- | ---
    Azure para o Azure | Região do Azure |Região do Azure
    VMware para Azure | Servidor de configuração | Azure
@@ -77,7 +77,7 @@ Você pode personalizar um plano de recuperação adicionando um script ou uma a
     1. Digite um nome para a ação e digite as instruções de ação. A pessoa que está executando o failover verá essas instruções.
     1. Especifique se você deseja adicionar a ação manual para todos os tipos de failover (teste, failover, failover planejado (se relevante)). Em seguida, clique em **OK**.
 4. Se você quiser adicionar um script, faça o seguinte:
-    1. Se você estiver adicionando um script do VMM, selecione **failover para o script do VMM**e, em caminho do **script** , digite o caminho relativo para o compartilhamento. Por exemplo, se o compartilhamento estiver localizado em \\ \<VMMServerName > \MSSCVMMLibrary\RPScripts, especifique o caminho: \RPScripts\RPScript.ps1.
+    1. Se você estiver adicionando um script do VMM, selecione **failover para o script do VMM**e, em caminho do **script** , digite o caminho relativo para o compartilhamento. Por exemplo, se o compartilhamento estiver localizado em \\\<VMMServerName > \MSSCVMMLibrary\RPScripts, especifique o caminho: \RPScripts\RPScript.PS1.
     1. Se você estiver adicionando um livro de execução de automação do Azure, especifique a **conta de automação do Azure** na qual o runbook está localizado e selecione o **script de runbook do Azure**apropriado.
 5. Execute um failover de teste do plano de recuperação para garantir que o script funcione conforme o esperado.
 
@@ -88,7 +88,7 @@ Assista a um vídeo que demonstra como criar um plano de recuperação.
 
 > [!VIDEO https://www.youtube.com/embed/1KUVdtvGqw8]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a [execução de failovers](site-recovery-failover.md).  
 

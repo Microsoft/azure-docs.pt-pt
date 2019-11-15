@@ -7,14 +7,14 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 902e89305aa24e8cbb6d2dd84d6a61c710d11637
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 55ada93e6a77dd7e31640988bad95034f77c90dd
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715366"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091900"
 ---
-# <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Matriz de suporte para avaliação e migração de servidor físico
+# <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Matriz de suporte para avaliação e migração de servidores físicos
 
 Você pode usar o [serviço migrações para Azure](migrate-overview.md) para avaliar e migrar computadores para a nuvem Microsoft Azure. Este artigo resume as configurações de suporte e as limitações para avaliar e migrar servidores físicos locais.
 
@@ -28,7 +28,7 @@ A tabela resume os cenários com suporte para servidores físicos.
 
 **Implementação** | **Detalhes***
 --- | ---
-**Avaliar servidores físicos locais** | [Configure](tutorial-prepare-physical.md) sua primeira avaliação.
+**Avaliar servidores físicos locais** | [Configure](tutorial-prepare-physical.md) sua primeira avaliação.<br/><br/> [Execute](tutorial-assess-physical.md) uma avaliação.
 **Migrar servidores físicos para o Azure** | [Experimente](tutorial-migrate-physical-virtual-machines.md) a migração para o Azure.
 
 
@@ -37,7 +37,7 @@ A tabela resume os cenários com suporte para servidores físicos.
 **Suporte** | **Detalhes**
 --- | ---
 **Permissões do Azure** | Você precisa de permissões de colaborador ou de proprietário na assinatura para criar um projeto de migrações para Azure.
-**Servidores físicos** | Avalie até 250 servidores físicos em um único projeto. Você pode ter vários projetos em uma assinatura do Azure. Um projeto pode incluir servidores físicos, VMs VMware e VMs do Hyper-V, até os limites de avaliação.
+**Servidores físicos** | Avalie até 35.000 servidores físicos em um único projeto. Você pode ter vários projetos em uma assinatura do Azure. Um projeto pode incluir servidores físicos, VMs VMware e VMs do Hyper-V, até os limites de avaliação.
 **Geografia** | Você pode criar projetos de migrações para Azure em uma série de geografias. Embora seja possível criar projetos em geografias específicos, você pode avaliar ou migrar computadores para outros locais de destino. A geografia do projeto é usada somente para armazenar os metadados descobertos.
 
   **Geografia** | **Local de armazenamento de metadados**
@@ -66,7 +66,7 @@ A tabela resume os cenários com suporte para servidores físicos.
 | :-------------------       | :------------------- |
 | **Implantação de servidor físico**       | O servidor físico pode ser autônomo ou implantado em um cluster. |
 | **Permissões**           | **Windows:** Configure uma conta de usuário local em todos os servidores Windows que você deseja incluir na descoberta. A conta de usuário precisa ser adicionada a esses grupos-Área de Trabalho Remota usuários, usuários do monitor de desempenho e usuários de log de desempenho. <br/> **Linux:** Você precisa de uma conta raiz nos servidores Linux que deseja descobrir. |
-| **Sistema operativo** | Todos os sistemas operacionais [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) com suporte no Azure. |
+| **Sistema operativo** | Há suporte para todos os sistemas operacionais [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , exceto o seguinte:<br/> Windows Server 2003 <br/> SUSE Linux|
 
 
 ## <a name="assessment-appliance-requirements"></a>Avaliação – requisitos de dispositivo
@@ -75,9 +75,9 @@ Para avaliação, as migrações para Azure executam um dispositivo leve para de
 
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
-| **Implantação de dispositivo**   |  Você pode implantar o dispositivo em um servidor físico ou VM.<br/>  O computador host deve estar executando o Windows Server 2012 R2 ou posterior.<br/> O host precisa de espaço suficiente para alocar 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um comutador externo para a VM do dispositivo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e acesso à Internet.
+| **Implantação de dispositivo**   |  Você pode implantar o dispositivo em um servidor físico ou em uma máquina virtual.<br/>  O computador host deve estar executando o Windows Server 2012 R2 ou posterior.<br/> O host precisa de espaço suficiente para alocar 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um comutador externo para a VM do dispositivo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e acesso à Internet.
 | **Projeto de migrações para Azure**  |  Um dispositivo pode ser associado a um único projeto.<br/> Qualquer número de dispositivos pode ser associado a um único projeto.<br/> Você pode avaliar até 35.000 computadores em um projeto.
-| **Descoberta**              | Um único dispositivo pode descobrir até 200 servidores.
+| **Descoberta**              | Um único dispositivo pode descobrir até 250 servidores.
 | **Grupo de avaliação**       | Você pode adicionar até 35.000 computadores em um único grupo.
 | **Avaliação**             | Você pode avaliar até 35.000 computadores em uma única avaliação.
 
@@ -95,7 +95,7 @@ Para avaliar as VMs, o dispositivo de migrações para Azure precisa de conectiv
 --- | ---
 *.portal.azure.com | Navegação para a portal do Azure
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Inicie sessão na sua subscrição do Azure
-*.microsoftonline.com <br/> *. microsoftonline-p.com | Criação de aplicativos de Azure Active Directory para comunicações de dispositivo para serviço.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Criação de aplicativos de Azure Active Directory para comunicações de dispositivo para serviço.
 management.azure.com | Criação de aplicativos de Azure Active Directory para comunicações de dispositivo para serviço.
 dc.services.visualstudio.com | Início de sessão e monitorização
 *.vault.azure.net | Gerencie segredos em Azure Key Vault ao se comunicar entre o dispositivo e o serviço.
@@ -108,7 +108,7 @@ https://download.microsoft.com/download/* | Permite downloads do site de downloa
 
 A tabela a seguir resume os requisitos de porta para avaliação.
 
-**Vice** | **Conexão**
+**Vice** | **ligação**
 --- | ---
 **Baseado** | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivo usando a URL: ``` https://<appliance-ip-or-name>:44368 ```<br/> Conexões de saída nas portas 443, 5671 e 5672 para enviar metadados de descoberta e desempenho para migrações para Azure.
 **Servidores físicos** | **Windows:** Conexões de entrada nas portas 443, 5989 para efetuar pull de metadados de configuração e desempenho de servidores Windows. <br/> **Linux:**  Conexões de entrada na porta 22 (UDP) para efetuar pull de metadados de configuração e desempenho de servidores Linux. |

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: mlearned
-ms.openlocfilehash: e0b7154e3c4d6a6f493aac93ffcbcc424a67c300
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d855e7a65b7e1ad24dcfc4fe6a6d5e02f9004bb0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932321"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089548"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Conectar-se com o SSH para os nós de cluster do AKS (serviço kubernetes do Azure) para manutenção ou solução de problemas
 
@@ -37,14 +37,16 @@ Para configurar o conjunto de dimensionamento de máquinas virtuais baseado para
 Use o comando [AZ AKs show][az-aks-show] para obter o nome do grupo de recursos do seu cluster AKs e, em seguida, o comando [AZ vmss List][az-vmss-list] para obter o nome do seu conjunto de dimensionamento.
 
 ```azurecli-interactive
-$CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
 ```
 
-O exemplo acima atribui o nome do grupo de recursos de cluster para o *myAKSCluster* em MyResource Group para *CLUSTER_RESOURCE_GROUP*. Em seguida, o exemplo usa *CLUSTER_RESOURCE_GROUP* para listar o nome do conjunto de dimensionamento e atribuí-lo a *SCALE_SET_NAME*.  
+O exemplo acima atribui o nome do grupo de recursos de cluster para o *myAKSCluster* em *MyResource* Group para *CLUSTER_RESOURCE_GROUP*. Em seguida, o exemplo usa *CLUSTER_RESOURCE_GROUP* para listar o nome do conjunto de dimensionamento e atribuí-lo a *SCALE_SET_NAME*.  
 
-> [!NOTE]
-> Atualmente, as chaves SSH só podem ser adicionadas a nós do Linux usando o CLI do Azure. Se você quiser se conectar a um nó do Windows Server usando o SSH, use as chaves SSH fornecidas quando você criou o cluster AKS e ignore o próximo conjunto de comandos para adicionar sua chave pública SSH. Você ainda precisará do endereço IP do nó que deseja solucionar problemas, o que é mostrado no comando final desta seção. Como alternativa, você pode [se conectar a nós do Windows Server usando conexões RDP (Remote Desktop Protocol)][aks-windows-rdp] em vez de usar o SSH.
+> [!IMPORTANT]
+> Neste momento, você só deve atualizar suas chaves SSH para os clusters AKS com base em conjunto de dimensionamento de máquinas virtuais usando o CLI do Azure.
+> 
+> Para nós do Linux, as chaves SSH só podem ser adicionadas no momento usando o CLI do Azure. Se você quiser se conectar a um nó do Windows Server usando o SSH, use as chaves SSH fornecidas quando você criou o cluster AKS e ignore o próximo conjunto de comandos para adicionar sua chave pública SSH. Você ainda precisará do endereço IP do nó que deseja solucionar problemas, o que é mostrado no comando final desta seção. Como alternativa, você pode [se conectar a nós do Windows Server usando conexões RDP (Remote Desktop Protocol)][aks-windows-rdp] em vez de usar o SSH.
 
 Para adicionar suas chaves SSH aos nós em um conjunto de dimensionamento de máquinas virtuais, use os comandos [AZ vmss Extension Set][az-vmss-extension-set] e [AZ vmss Update-instances][az-vmss-update-instances] .
 
@@ -62,7 +64,7 @@ az vmss update-instances --instance-ids '*' \
     --name $SCALE_SET_NAME
 ```
 
-O exemplo acima usa as variáveis *CLUSTER_RESOURCE_GROUP* e *SCALE_SET_NAME* dos comandos anteriores. O exemplo acima também usa *~/.ssh/id_rsa.pub* como o local para sua chave pública SSH.
+O exemplo acima usa as variáveis *CLUSTER_RESOURCE_GROUP* e *SCALE_SET_NAME* dos comandos anteriores. O exemplo acima também usa *~/.ssh/id_rsa. pub* como o local para a chave pública SSH.
 
 > [!NOTE]
 > Por padrão, o nome de usuário para os nós AKS é *azureuser*.
@@ -94,11 +96,11 @@ Para configurar o cluster AKS baseado em conjunto de disponibilidade de máquina
 Use o comando [AZ AKs show][az-aks-show] para obter o nome do grupo de recursos do cluster do AKs e, em seguida, o comando [AZ VM List][az-vm-list] para listar o nome da máquina virtual do nó Linux do cluster.
 
 ```azurecli-interactive
-$CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
-O exemplo acima atribui o nome do grupo de recursos de cluster para o *myAKSCluster* em MyResource Group para *CLUSTER_RESOURCE_GROUP*. Em seguida, o exemplo usa *CLUSTER_RESOURCE_GROUP* para listar o nome da máquina virtual. A saída de exemplo mostra o nome da máquina virtual: 
+O exemplo acima atribui o nome do grupo de recursos de cluster para o *myAKSCluster* em *MyResource* Group para *CLUSTER_RESOURCE_GROUP*. Em seguida, o exemplo usa *CLUSTER_RESOURCE_GROUP* para listar o nome da máquina virtual. A saída de exemplo mostra o nome da máquina virtual: 
 
 ```
 Name                      ResourceGroup                                  Location
@@ -116,7 +118,7 @@ az vm user update \
     --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-O exemplo acima usa a variável *CLUSTER_RESOURCE_GROUP* e o nome da máquina virtual do nó de comandos anteriores. O exemplo acima também usa *~/.ssh/id_rsa.pub* como o local para sua chave pública SSH. Você também pode usar o conteúdo da sua chave pública SSH em vez de especificar um caminho.
+O exemplo acima usa a variável *CLUSTER_RESOURCE_GROUP* e o nome da máquina virtual do nó de comandos anteriores. O exemplo acima também usa *~/.ssh/id_rsa. pub* como o local para a chave pública SSH. Você também pode usar o conteúdo da sua chave pública SSH em vez de especificar um caminho.
 
 > [!NOTE]
 > Por padrão, o nome de usuário para os nós AKS é *azureuser*.
@@ -150,7 +152,7 @@ Para criar uma conexão SSH com um nó AKS, você executa um pod auxiliar em seu
     >
     > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
 
-1. Depois que a sessão de terminal estiver conectada ao contêiner, instale um cliente `apt-get`SSH usando:
+1. Depois que a sessão de terminal estiver conectada ao contêiner, instale um cliente SSH usando `apt-get`:
 
     ```console
     apt-get update && apt-get install openssh-client -y
@@ -173,7 +175,7 @@ Para criar uma conexão SSH com um nó AKS, você executa um pod auxiliar em seu
     kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
     ```
 
-1. Retorne à sessão de terminal para seu contêiner, atualize as permissões na chave `id_rsa` SSH privada copiada para que ela seja somente leitura do usuário:
+1. Retorne à sessão de terminal para seu contêiner, atualize as permissões na chave SSH privada `id_rsa` copiada para que ela seja somente leitura do usuário:
 
     ```console
     chmod 0600 id_rsa
@@ -204,9 +206,9 @@ Para criar uma conexão SSH com um nó AKS, você executa um pod auxiliar em seu
 
 ## <a name="remove-ssh-access"></a>Remover o acesso SSH
 
-Quando terminar, `exit` a sessão SSH e, `exit` em seguida, a sessão de contêiner interativa. Quando essa sessão de contêiner é fechada, o Pod usado para acesso SSH do cluster AKS é excluído.
+Quando terminar, `exit` a sessão SSH e, em seguida, `exit` a sessão de contêiner interativa. Quando essa sessão de contêiner é fechada, o Pod usado para acesso SSH do cluster AKS é excluído.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de mais dados de solução de problemas, você poderá [exibir os logs do kubelet][view-kubelet-logs] ou [exibir os logs do nó mestre do kubernetes][view-master-logs].
 

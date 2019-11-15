@@ -1,18 +1,19 @@
 ---
-title: Fazer failover e failback de servidores físicos para recuperação de desastres no Azure com Site Recovery | Microsoft Docs
+title: Configurar failover e failback para servidores físicos com Site Recovery
 description: Saiba como fazer failover de servidores físicos para o Azure e failback para o site local para recuperação de desastre com Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 49b61423b33282be7f0ace52c2a164d52ba20314
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 2c0d2e57a34286f65be45a95403a32de42c51908
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814425"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084577"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Fazer failover e failback de servidores físicos replicados para o Azure
 
@@ -24,10 +25,10 @@ Os servidores físicos replicados para o Azure usando Site Recovery só podem re
 
 A ativação pós-falha e a reativação pós-falha têm quatro fases:
 
-1. **Failover para o Azure**: Reprovam computadores do site local para o Azure.
-2. **Proteger novamente as VMs do Azure**: Proteja novamente as VMs do Azure para que elas comecem a replicar de volta para VMs VMware locais.
-3. **Failover para local**: Execute um failover para fazer failback do Azure.
-4. **Proteger novamente as VMs locais**: Após o failback dos dados, proteja novamente as VMs do VMware locais para as quais você fez o failback, para que elas comecem a replicar no Azure.
+1. **Fazer a ativação pós-falha para o Azure**: fazer a ativação pós-falha de máquinas do site no local para o Azure.
+2. **Proteger**novamente as VMs do Azure: Proteja novamente as VMs do Azure, para que elas comecem a replicar de volta para VMs VMware locais.
+3. **Fazer a ativação pós-falha no local**: executar uma ativação pós-falha para fazer a reativação pós-falha do Azure.
+4. **Proteger novamente as VMs locais**: após o failback dos dados, proteja novamente as VMs do VMware locais para as quais você fez o failback, para que elas comecem a replicar para o Azure.
 
 ## <a name="verify-server-properties"></a>Verificar Propriedades do servidor
 
@@ -44,12 +45,12 @@ Verifique as propriedades do servidor e certifique-se de que ele esteja em confo
 
 1. Em **Definições** > **Itens replicados**, clique no computador > **Ativação Pós-falha**.
 2. Em **Ativação pós-falha**, selecione um **Ponto de Recuperação** para o qual fazer a ativação pós-falha. Pode utilizar uma das opções seguintes:
-   - **Mais recente**: Essa opção primeiro processa todos os dados enviados para Site Recovery. Disponibiliza o último RPO (Objetivo de Ponto de Recuperação), porque a VM do Azure criada após a ativação pós-falha tem todos os dados que foram replicados para o Site Recovery quando a ativação pós-falha foi acionada.
-   - **Mais recente processado**: Essa opção faz failover do computador para o último ponto de recuperação processado pelo Site Recovery. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
-   - **Consistente com o aplicativo mais recente**: Essa opção faz failover do computador para o ponto de recuperação consistente com o aplicativo mais recente processado pelo Site Recovery.
-   - **Personalizado**: Especifique um ponto de recuperação.
+   - **Mais recente**: esta opção processa primeiro todos os dados enviados para o Site Recovery. Disponibiliza o último RPO (Objetivo de Ponto de Recuperação), porque a VM do Azure criada após a ativação pós-falha tem todos os dados que foram replicados para o Site Recovery quando a ativação pós-falha foi acionada.
+   - **Mais recente processado**: essa opção faz failover do computador para o último ponto de recuperação processado pelo site Recovery. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
+   - **Consistente com o aplicativo mais recente**: essa opção faz failover do computador para o ponto de recuperação consistente com o aplicativo mais recente processado pelo site Recovery.
+   - **Personalizado**: especifique um ponto de recuperação.
 
-3. Selecione **desligar o computador antes do início do failover** se desejar que site Recovery tente desligar o computador de origem antes de disparar o failover. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Trabalhos**.
+3. Selecione **desligar o computador antes do início do failover** se desejar que site Recovery tente desligar o computador de origem antes de disparar o failover. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Tarefas**.
 4. Se preparou para ligar à VM do Azure, ligue para validá-la após a ativação pós-falha.
 5. Depois de verificar, **consolide** a ativação pós-falha. São eliminados todos os pontos de recuperação disponíveis.
 

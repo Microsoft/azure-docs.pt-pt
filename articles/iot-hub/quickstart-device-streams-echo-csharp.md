@@ -1,5 +1,5 @@
 ---
-title: Comunicar-se com um aplicativo C# de dispositivo por meio de fluxos de dispositivo do Hub IOT do Azure (visualização) | Microsoft Docs
+title: Comunicar-se com o C# aplicativo de dispositivo no com fluxos de dispositivo do Hub IOT do Azure
 description: Neste guia de início rápido, você executa C# dois aplicativos de exemplo que se comunicam por meio de um fluxo de dispositivo estabelecido por meio do Hub IOT.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: c994b77105fe94eef418c0befc4c135ec09ada14
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 14139d56a9a733a284d0ec49cabcb3ff7ce67fce
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900937"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084301"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Início rápido: comunicar-se com um C# aplicativo de dispositivo por meio de fluxos de dispositivo do Hub IOT (versão prévia)
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Atualmente, há suporte para a visualização de fluxos de dispositivo apenas para os hubs IoT criados nas seguintes regiões:
-  * Centro dos E.U.A.
+  * EUA Central
   * EUA Central EUAP
   * Europa do Norte
   * Sudeste Asiático
@@ -169,7 +169,7 @@ O tráfego que está sendo enviado pelo fluxo é encapsulado por meio do Hub IoT
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você configura um hub IoT, registrou um dispositivo, estabeleceu um C# fluxo de dispositivo entre aplicativos nos lados do dispositivo e do serviço e usou o fluxo para enviar dados entre os aplicativos.
 
