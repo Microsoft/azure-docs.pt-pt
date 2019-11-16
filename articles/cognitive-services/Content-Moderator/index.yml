@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/24/2019
-  ms.openlocfilehash: 9a09bb92f38e5678f71e1126617d39471479940c
-  ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+  ms.openlocfilehash: 8d49e2c455bdd27917bb33cbf428b3a6b52facd3
+  ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/29/2019
-  ms.locfileid: "73044068"
+  ms.lasthandoff: 11/16/2019
+  ms.locfileid: "74132716"
 landingContent:
 - title: Acerca do Content Moderator
   linkLists:
@@ -137,7 +137,7 @@ landingContent:
     - text: SDK Java
       url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
     - text: SDK Node.js
-      url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest
+      url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-contentmoderator
     - text: SDK Go
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
     - text: Azure PowerShell
