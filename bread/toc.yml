@@ -527,8 +527,8 @@
       topicHref: /azure/industry
       items:
         - name: Azure FarmBeats
-          tocHref: /azure/industry/agriculture
-          topicHref: /azure/industry/agriculture
+          tocHref: /azure/industry
+          topicHref: /azure/industry
     - name: Jenkins
       tocHref: /azure/jenkins/
       topicHref: /azure/jenkins/
