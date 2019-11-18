@@ -15,10 +15,6 @@
   items:
     - name: Utilizar a API do Video Indexer
       href: video-indexer-use-apis.md
-- name: Amostras
-  items:
-    - name: Análise de transmissão em direto de evento
-      href: live-stream-analysis.md
 - name: Conceitos
   items:
     - name: Descrição geral
@@ -29,6 +25,8 @@
       href: manage-multiple-tenants.md
     - name: Modelo de identificação de idioma
       href: language-identification-model.md
+    - name: Análise de transmissão em direto de evento
+      href: live-stream-analysis.md
     - name: Personalizar modelos de conteúdo
       items:
         - name: Descrição geral
