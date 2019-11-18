@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 11/04/2019
-  ms.openlocfilehash: 4f9c17fabdcb333d172e7a983921ef89d879fce7
-  ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+  ms.openlocfilehash: c800a1a9827844d9f451de245652b4eddec395ca
+  ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/05/2019
-  ms.locfileid: "73622737"
+  ms.lasthandoff: 11/16/2019
+  ms.locfileid: "74132544"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -159,6 +159,9 @@ conceptualContent:
     - url: ./containers/docker-compose-recipe.md
       itemType: get-started
       text: Utilizar o Docker Compose para implementar vários contentores
+    - url: ./containers/container-image-tags.md
+      itemType: reference
+      text: Etiquetas de imagem de contentor dos Serviços Cognitivos
     - url: ./containers/container-faq.md
       itemType: reference
       text: FAQ dos contentores dos Serviços Cognitivos
