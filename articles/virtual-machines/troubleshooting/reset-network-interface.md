@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: afb8335d3206a76b8f9bc47733e9816126e80af0
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 1c49c6221e9b310a1b14a4e06a296befc7f6da4d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058469"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111717"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Como redefinir a interface de rede para a VM do Windows do Azure 
 
@@ -68,7 +68,7 @@ Este artigo mostra como redefinir o adaptador de rede para a VM do Windows do Az
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
 
     #Add/Change static IP. This process will not change MAC address
-    Get-AzVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
+    Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
     ```
 3. Tente usar o RDP em seu computador.  Se for bem-sucedido, você poderá alterar o endereço IP privado de volta para o original, se desejar. Caso contrário, você pode mantê-lo.
 
@@ -109,7 +109,7 @@ Para redefinir a interface de rede, siga estas etapas:
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
     
     #Add/Change static IP. This process will not change MAC address
-    Get-AzureVM -ServiceName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
+    Get-AzureVM -ResourceGroupName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
     ```
 3. Tente usar o RDP em seu computador. Se for bem-sucedido, você poderá alterar o endereço IP privado de volta para o original, se desejar. Caso contrário, você pode mantê-lo. 
 
@@ -117,10 +117,10 @@ Para redefinir a interface de rede, siga estas etapas:
 Depois de fazer a área de trabalho remota para o computador, você deve excluir as NICs antigas para evitar o possível problema:
 
 1.  Abra Device Manager.
-2.  Selecione **Exibir** > **Mostrar dispositivos ocultos**.
+2.  Selecione **exibir** > **Mostrar dispositivos ocultos**.
 3.  Selecione **adaptadores de rede**. 
 4.  Verifique os adaptadores nomeados como "adaptador de rede Microsoft Hyper-V".
-5.  Poderá ver um adaptador indisponível por estar desativado. Clique com o botão direito do mouse no adaptador e selecione Desinstalar.
+5.  Você pode ver um adaptador indisponível que está esmaecido. Clique com o botão direito do mouse no adaptador e selecione Desinstalar.
 
     ![a imagem da NIC](media/reset-network-interface/nicpage.png)
 

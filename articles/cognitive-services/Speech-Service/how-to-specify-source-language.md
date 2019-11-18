@@ -1,5 +1,5 @@
 ---
-title: Como especificar o idioma de origem para a fala para o serviço fala de texto
+title: Como especificar o idioma de origem de fala para texto
 titleSuffix: Azure Cognitive Services
 description: O SDK de fala permite que você especifique o idioma de origem ao converter a fala em texto. Este artigo descreve como usar os métodos FromConfig e SourceLanguageConfig para permitir que o serviço de fala saiba o idioma de origem e forneça um destino de modelo personalizado.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 3c2503d2f341b4cdf90f7f7690fed897412a9614
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 94b8fb026b61b52e8096cf54e1db30a6c260c04b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506903"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109949"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>Especificar o idioma de origem de fala para texto
 
@@ -174,7 +174,7 @@ speechConfig.endpointId = @"The Endpoint ID for your custom model.";
 
 ::: zone-end
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 * Para obter uma lista de idiomas com suporte e localidades de fala para texto, consulte [suporte a idiomas](language-support.md).
 

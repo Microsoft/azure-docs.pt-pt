@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 11/14/2019
 ms.author: swmachan
-ms.openlocfilehash: c07673e7b170170de4723a1232d2e7281feaaf99
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 172bf452cc5197db95e0e1e55c7c687971194899
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888084"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123054"
 ---
 # <a name="translator-text-api-v30"></a>API de Tradução de Texto v 3.0
 
@@ -56,7 +56,7 @@ Há três cabeçalhos que você pode usar para autenticar sua assinatura. Esta t
 
 |Cabeçalhos|Descrição|
 |:----|:----|
-|OCP-APIM-Subscription-Key|*Use com a assinatura de serviços cognitivas se você estiver passando sua chave secreta*.<br/>O valor é a chave secreta do Azure para sua assinatura para API de Tradução de Texto.|
+|OCP-Apim-Subscription-Key|*Use com a assinatura de serviços cognitivas se você estiver passando sua chave secreta*.<br/>O valor é a chave secreta do Azure para sua assinatura para API de Tradução de Texto.|
 |Autorização|*Use com a assinatura de serviços cognitivas se você estiver passando um token de autenticação.*<br/>O valor é o token de portador: `Bearer <token>`.|
 |OCP-APIM-Subscription – região|*Use com a assinatura de vários serviços cognitivas se você estiver passando uma chave secreta de vários serviços.*<br/>O valor é a região da assinatura de vários serviços. Esse valor é opcional quando não estiver usando uma assinatura de vários serviços.|
 
@@ -163,5 +163,23 @@ O código de erro é um número de 6 dígitos que combina o código de status HT
 | 415000| O cabeçalho Content-Type está ausente ou é inválido.|
 | 429000, 429001, 429002| O servidor rejeitou a solicitação porque o cliente excedeu os limites de solicitação.|
 | 500000| Ocorreu um erro inesperado. Se o erro persistir, relate-o com data/hora de erro, identificador de solicitação do cabeçalho de resposta X-RequestId e identificador de cliente do cabeçalho de solicitação X-ClientTraceId.|
-| 503000| O serviço está temporariamente indisponível. Tente novamente. Se o erro persistir, relate-o com data/hora de erro, identificador de solicitação do cabeçalho de resposta X-RequestId e identificador de cliente do cabeçalho de solicitação X-ClientTraceId.|
+| 503000| Serviço está temporariamente indisponível. Tente novamente. Se o erro persistir, relate-o com data/hora de erro, identificador de solicitação do cabeçalho de resposta X-RequestId e identificador de cliente do cabeçalho de solicitação X-ClientTraceId.|
 
+## <a name="metrics"></a>Métricas 
+As métricas permitem que você exiba as informações de uso e disponibilidade do tradutor em portal do Azure, na seção métricas, conforme mostrado na captura de tela abaixo. Para obter mais informações, consulte [métricas de dados e plataforma](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+
+![Métricas do Tradutor](../media/translatormetrics.png)
+
+Esta tabela lista as métricas disponíveis com a descrição de como elas são usadas para monitorar chamadas à API de tradução.
+
+| Métricas | Descrição |
+|:----|:-----|
+| TotalCalls| Número total de chamadas à API.|
+| TotalTokenCalls| Número total de chamadas à API por meio do serviço de token usando o token de autenticação.|
+| SuccessfulCalls| Número de chamadas bem-sucedidas.|
+| TotalErrors| Número de chamadas com resposta de erro.|
+| BlockedCalls| Número de chamadas que excederam a taxa ou o limite de cota.|
+| ServerErrors| Número de chamadas com erro interno do servidor (5XX).|
+| ClientErrors| Número de chamadas com erro do lado do cliente (4XX).|
+| Latência| Duração para concluir a solicitação em milissegundos.|
+| CharactersTranslated| Número total de caracteres na solicitação de texto de entrada.|

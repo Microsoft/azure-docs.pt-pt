@@ -1,26 +1,19 @@
 ---
-title: Exemplo do Script da CLI do Azure – eliminar uma Cache do Azure para Redis | Documentos da Microsoft
+title: Exemplo do Script da CLI do Azure – eliminar a Cache do Azure para Redis
 description: Exemplo do Script da CLI do Azure – eliminar a Cache do Azure para Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
 tags: azure-service-management
-ms.assetid: 7beded7a-d2c9-43a6-b3b4-b8079c11de4a
 ms.service: cache
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
+ms.topic: sample
 ms.date: 08/30/2017
 ms.author: yegu
-ms.openlocfilehash: d02d3196c2cbc130a2e88061df514b0bf681b1bf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a2884fd326b6091680b8d81a905f3ee3320a2740
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60240780"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121213"
 ---
 # <a name="delete-an-azure-cache-for-redis"></a>Eliminar a Cache do Azure para Redis
 
@@ -43,7 +36,7 @@ Este script utiliza os seguintes comandos para eliminar uma Cache do Azure para 
 | [az redis delete](https://docs.microsoft.com/cli/azure/redis) | Elimine Cache do Azure para a instância de Redis. |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

@@ -1,78 +1,78 @@
 ---
-title: Criar páginas de erro personalizado do Gateway de aplicação do Azure
-description: Este artigo mostra-lhe como criar páginas de erro personalizado do Gateway de aplicação.
+title: Criar páginas de erro personalizadas do gateway de Aplicativo Azure
+description: Este artigo mostra como criar páginas de erro personalizadas do gateway de aplicativo. Pode utilizar a sua própria imagem e esquema corporativos através de uma página de erro personalizada.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/14/2019
+ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff11f686287498fe12b31d15a630178bb12035ad
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60832035"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129858"
 ---
-# <a name="create-application-gateway-custom-error-pages"></a>Criar páginas de erro personalizado do Gateway de aplicação
+# <a name="create-application-gateway-custom-error-pages"></a>Criar páginas de erro personalizadas do gateway de aplicativo
 
 O Gateway de Aplicação permite-lhe criar páginas de erro personalizadas, em vez de apresentar as páginas de erro predefinidas. Pode utilizar a sua própria imagem e esquema corporativos através de uma página de erro personalizada.
 
-Por exemplo, pode definir sua própria página de manutenção, se a sua aplicação web não estiver acessível. Em alternativa, pode criar uma página de acesso não autorizado se um pedido malicioso for enviado para um aplicativo web.
+Por exemplo, você pode definir sua própria página de manutenção se seu aplicativo Web não estiver acessível. Ou, você pode criar uma página de acesso não autorizado se uma solicitação mal-intencionada for enviada a um aplicativo Web.
 
-Páginas de erro personalizadas são suportadas para dois cenários a seguir:
+As páginas de erro personalizadas têm suporte para os dois cenários a seguir:
 
-- **Página de manutenção** -esta página de erro personalizado é enviada em vez de uma página de 502 gateway incorreto. É mostrado quando o Gateway de aplicação tem sem back-end para encaminhar o tráfego. Por exemplo, se existir tem agendada de manutenção ou quando um problema imprevisto afete o acesso de conjunto de back-end.
-- **Página de acesso não autorizado** -esta página de erro personalizado é enviada em vez de uma página de acesso não autorizado 403. É mostrado quando o WAF do Gateway de aplicação Deteta o tráfego malicioso e bloqueia-lo.
+- **Página de manutenção** -esta página de erro personalizada é enviada em vez de uma página 502 de gateway inadequado. Ele é mostrado quando o gateway de aplicativo não tem nenhum back-end para rotear o tráfego. Por exemplo, quando há manutenção agendada ou quando um problema imprevisto afeta o acesso ao pool de back-end.
+- **Página de acesso não autorizado** – esta página de erro personalizada é enviada em vez de uma página de acesso não autorizado 403. Ele é mostrado quando o WAF do gateway de aplicativo detecta o tráfego mal-intencionado e o bloqueia.
 
-Se um erro são originados pelos servidores de back-end, em seguida, ele será passado ao back sem modificações o autor da chamada. Não é apresentada uma página de erro personalizada. Gateway de aplicação pode apresentar uma página de erro personalizada quando um pedido não é possível alcançar o back-end.
+Se um erro for proveniente dos servidores de back-end, ele será passado sem modificações de volta para o chamador. Uma página de erro personalizada não é exibida. O gateway de aplicativo pode exibir uma página de erro personalizada quando uma solicitação não pode alcançar o back-end.
 
-Páginas de erro personalizadas podem ser definidas ao nível global e o nível de serviço de escuta:
+Páginas de erro personalizadas podem ser definidas no nível global e no nível do ouvinte:
 
-- **Nível global** -a página de erro se aplica a tráfego para todas as aplicações web implementadas em que o gateway de aplicação.
-- **Nível de serviço de escuta** -a página de erro é aplicada a tráfego recebido nesse serviço de escuta.
-- **Ambos** -a página de erro personalizada definida no nível de serviço de escuta substitui o um conjunto nível global.
+- **Nível global** – a página de erro se aplica ao tráfego para todos os aplicativos Web implantados nesse gateway de aplicativo.
+- **Nível do ouvinte** – a página de erro é aplicada ao tráfego recebido nesse ouvinte.
+- **Ambos** -a página de erro personalizada definida no nível do ouvinte substitui a definida no nível global.
 
-Para criar uma página de erro personalizado, tem de ter:
+Para criar uma página de erro personalizada, você deve ter:
 
-- um código de estado de resposta HTTP.
-- a localização correspondente para a página de erro. 
-- um blob de armazenamento do Azure acessível ao público para a localização.
-- um tipo de extensão htm ou *.html. 
+- um código de status de resposta HTTP.
+- o local correspondente para a página de erro. 
+- um blob de armazenamento do Azure acessível publicamente para o local.
+- um tipo de extensão *. htm ou *. html. 
 
-O tamanho da página de erro deve ser inferior a 1 MB. Se existirem imagens ligadas na página de erro, têm de ser acessíveis publicamente URLs absolutos ou codificado por base64 imagem embutida na página de erro personalizada. Ligações relativas com imagens na mesma localização do blob não são atualmente suportadas. 
+O tamanho da página de erro deve ser menor que 1 MB. Se houver imagens vinculadas na página de erro, elas deverão ser URLs absolutas acessíveis publicamente ou a imagem codificada em base64 embutida na página de erro personalizada. No momento, não há suporte para links relativos com imagens no mesmo local de BLOB. 
 
-Depois de especificar uma página de erro, o gateway de aplicação transfere-o partir da localização do blob de armazenamento e guarda-o no cache de gateway de aplicação local. Em seguida, a página de erro é atendida diretamente a partir do gateway de aplicação. Para modificar uma página de erro personalizada existente, tem de apontar para uma localização de blob diferente na configuração do gateway da aplicação. O gateway de aplicação periodicamente não verifique a localização de blob para buscar novas versões.
+Depois de especificar uma página de erro, o gateway de aplicativo baixa o local do blob de armazenamento e salva-o no cache do gateway de aplicativo local. Em seguida, a página de erro é servida diretamente do gateway de aplicativo. Para modificar uma página de erro personalizada existente, você deve apontar para um local de blob diferente na configuração do gateway de aplicativo. O gateway de aplicativo não verifica periodicamente o local do blob para buscar novas versões.
 
 ## <a name="portal-configuration"></a>Configuração do portal
 
-1. Navegue para o Gateway de aplicação no portal e escolher um gateway de aplicação.
+1. Navegue até gateway de aplicativo no portal e escolha um gateway de aplicativo.
 
     ![ag-overview](media/custom-error/ag-overview.png)
-2. Clique em **serviços de escuta** e navegue para um determinado serviço de escuta em que pretende especificar uma página de erro.
+2. Clique em **ouvintes** e navegue até um ouvinte específico no qual você deseja especificar uma página de erro.
 
-    ![Serviços de escuta de Gateway de aplicação](media/custom-error/ag-listener.png)
-3. Configure uma página de erro personalizado para um erro 403 do WAF ou uma página de 502 Manutenção ao nível do serviço de escuta.
+    ![Ouvintes do gateway de aplicativo](media/custom-error/ag-listener.png)
+3. Configure uma página de erro personalizada para um erro 403 WAF ou uma página de manutenção 502 no nível do ouvinte.
 
     > [!NOTE]
-    > Criar páginas de erro personalizadas de nível global a partir do portal do Azure não é atualmente suportada.
+    > No momento, não há suporte para a criação de páginas de erro personalizadas de nível global do portal do Azure.
 
-4. Especifique um URL acessível publicamente blob para um código de estado de erro fornecida e clique em **guardar**. O Gateway de aplicação está agora configurado com a página de erro personalizada.
+4. Especifique uma URL de blob publicamente acessível para um determinado código de status de erro e clique em **salvar**. O gateway de aplicativo agora está configurado com a página de erro personalizada.
 
-   ![Códigos de erro do Gateway de aplicação](media/custom-error/ag-error-codes.png)
+   ![Códigos de erro do gateway de aplicativo](media/custom-error/ag-error-codes.png)
 
 ## <a name="azure-powershell-configuration"></a>Configuração do Azure PowerShell
 
-Pode utilizar o Azure PowerShell para configurar uma página de erro personalizada. Por exemplo, uma página de erro personalizada global:
+Você pode usar Azure PowerShell para configurar uma página de erro personalizada. Por exemplo, uma página de erro personalizada global:
 
 `$updatedgateway = Add-AzApplicationGatewayCustomError -ApplicationGateway $appgw -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
 
-Ou uma página de erro de nível de serviço de escuta:
+Ou uma página de erro no nível do ouvinte:
 
 `$updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
 
 Para obter mais informações, consulte [Add-AzApplicationGatewayCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) e [Add-AzApplicationGatewayHttpListenerCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter informações sobre o diagnóstico do Gateway de aplicação, consulte [estado de funcionamento do Back-end, registos de diagnóstico e métricas para o Gateway de aplicação](application-gateway-diagnostics.md).
+Para obter informações sobre o diagnóstico do gateway de aplicativo, consulte [integridade de back-end, logs de diagnóstico e métricas para o gateway de aplicativo](application-gateway-diagnostics.md).

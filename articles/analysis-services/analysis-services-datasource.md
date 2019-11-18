@@ -4,15 +4,15 @@ description: Descreve as fontes de dados e conectores com suporte para os modelo
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5539d290ea182e24a50a103a762f011202ebf33a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 038773b41d84a7b2b4f845a8bf70e9eed849bc80
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572964"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120013"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -20,7 +20,7 @@ As fontes de dados e conectores mostrados no Assistente para obter dados ou impo
 
 ## <a name="azure-data-sources"></a>Origens de dados do Azure
 
-|Fonte de dados  |Dentro da memória  |DirectQuery  |
+|Origem de dados  |Dentro da memória  |DirectQuery  |
 |---------|---------|---------|
 |Banco de dados SQL do Azure<sup>[2](#azsqlmanaged)</sup>     |   Sim      |    Sim      |
 |Azure SQL Data Warehouse     |   Sim      |   Sim       |
@@ -35,7 +35,7 @@ As fontes de dados e conectores mostrados no Assistente para obter dados ou impo
 <a name="tab1400a">1</a> -somente modelos tabulares 1400 e superiores.   
 Há suporte para <a name="azsqlmanaged">2</a> -instância gerenciada do banco de dados SQL do Azure. Como a instância gerenciada é executada na VNet do Azure com um endereço IP privado, o ponto de extremidade público deve ser habilitado na instância. Se não estiver habilitado, um gateway de dados local será necessário.    
 Não há <a name="databricks">suporte para o</a> Azure Databricks usando o conector do Spark no momento.   
-Não há suporte para <a name="gen2">4</a> -ADLS Gen2 no momento.
+no momento, não há suporte para o conector de <a name="gen2">4</a> ADLS Gen2, no entanto, o conector de armazenamento de blob pode ser usado com uma fonte de dados de ADLS Gen2.
 
 
   do **provedor**  
@@ -43,21 +43,21 @@ Modelos na memória e DirectQuery que se conectam a fontes de dados do Azure usa
 
 ## <a name="other-data-sources"></a>Outras fontes de dados
 
-Conectar-se a fontes de dados locais do e do Azure como servidor requer um gateway local. Ao usar um gateway, são necessários provedores de 64 bits.
+Conectar-se a fontes de dados locais de um servidor Azure Analysis Services requer um gateway local. Ao usar um gateway, são necessários provedores de 64 bits.
 
 ### <a name="in-memory-and-directquery"></a>Na memória e DirectQuery
 
-|Fonte de dados | Provedor na memória | Provedor DirectQuery |
+|Origem de dados | Provedor na memória | Provedor DirectQuery |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11,0, provedor de OLE DB da Microsoft para SQL Server, .NET Framework Provedor de Dados para SQL Server | .NET Framework Provedor de Dados para SQL Server |
-| SQL Server data warehouse |SQL Server Native Client 11,0, provedor de OLE DB da Microsoft para SQL Server, .NET Framework Provedor de Dados para SQL Server | .NET Framework Provedor de Dados para SQL Server |
+| SQL Server |Microsoft OLE DB driver for SQL Server MSOLEDBSQL (recomendado), SQL Server Native Client 11,0, .NET Framework Provedor de Dados para SQL Server | .NET Framework Provedor de Dados para SQL Server |
+| Armazém de dados do SQL Server |Microsoft OLE DB driver for SQL Server MSOLEDBSQL (recomendado), SQL Server Native Client 11,0, .NET Framework Provedor de Dados para SQL Server | .NET Framework Provedor de Dados para SQL Server |
 | Oracle | Provedor de OLE DB para Oracle, Oracle Provedor de Dados para .NET |Oracle Provedor de Dados para .NET |
 | Teradata |Provedor de OLE DB para Teradata, Teradata Provedor de Dados para .NET |Provedor de Dados Teradata para .NET |
 | | | |
 
 ### <a name="in-memory-only"></a>Somente na memória
 
-|Fonte de dados  |  
+|Origem de dados  |  
 |---------|
 |Banco de dados do Access     |  
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
@@ -68,7 +68,7 @@ Conectar-se a fontes de dados locais do e do Azure como servidor requer um gatew
 |Pasta de trabalho do Excel     |  
 |Exchange<sup>[1](#tab1400b)</sup>     |  
 |Pasta<sup>[1](#tab1400b)</sup>     |
-|IBM Informix<sup>[1](#tab1400b)</sup> (beta) |
+|IBM Informix<sup>[1](#tab1400b)</sup> (Beta) |
 |Documento JSON<sup>[1](#tab1400b)</sup>     |  
 |Linhas do binário<sup>[1](#tab1400b)</sup>     | 
 |Base de Dados MySQL     | 
@@ -80,7 +80,7 @@ Conectar-se a fontes de dados locais do e do Azure como servidor requer um gatew
 |Relatórios do Salesforce<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|Lista do SharePoint<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
+|SharePoint List<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
 |Banco de dados Sybase     |  
 |Arquivo TXT  |
 |Tabela XML<sup>[1](#tab1400b)</sup>    |  

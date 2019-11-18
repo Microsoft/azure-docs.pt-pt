@@ -1,26 +1,19 @@
 ---
-title: Script da CLI do Azure de exemplo - criar uma Cache do Azure Premium para Redis com o clustering | Documentos da Microsoft
+title: Exemplo de script CLI do Azure-criar um cache Premium do Azure para Redis com clustering
 description: Script da CLI do Azure de exemplo – criar uma camada Premium do Azure Cache de Redis com clustering
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
 tags: azure-service-management
-ms.assetid: 07bcceae-2521-4fe3-b88f-ed833104ddd2
 ms.service: cache
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
+ms.topic: sample
 ms.date: 08/30/2017
 ms.author: yegu
-ms.openlocfilehash: 18538cf713d2938b0b595c9d4664c39c6ada5231
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1813bf7112969436012627147b94f656537029d5
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130454"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122501"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Criar uma Cache do Azure Premium para Redis com clustering
 
@@ -44,7 +37,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos e ativ
 | [Criar AZ redis](https://docs.microsoft.com/cli/azure/redis) | Crie a Cache do Azure para a instância de Redis. |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

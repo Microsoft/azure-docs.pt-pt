@@ -8,23 +8,20 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: c4669809f1efa1f69081da17bf5ccbeddc39a716
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f48c8712a2f4fbd69db7de5247e3293ad57ae1e6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077136"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112835"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Suporte ao feed de alterações no armazenamento de BLOBs do Azure (visualização)
 
 A finalidade do feed de alterações é fornecer logs de transação de todas as alterações que ocorrem nos BLOBs e nos metadados de BLOB em sua conta de armazenamento. O feed de alterações fornece o log **ordenado**, **garantido**, **durável**, **imutável**e **somente leitura** dessas alterações. Os aplicativos cliente podem ler esses logs a qualquer momento, seja no streaming ou no modo de lote. O feed de alterações permite que você crie soluções eficientes e escalonáveis que processam eventos de alteração que ocorrem em sua conta de armazenamento de BLOBs a um custo baixo.
 
-> [!NOTE]
-> O feed de alterações está em visualização pública e está disponível nas regiões **westcentralus** e **westus2** . Consulte a seção [condições](#conditions) deste artigo. Para se registrar na versão prévia, consulte a seção [registrar sua assinatura](#register) deste artigo.
-
 O feed de alterações é armazenado como [BLOBs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) em um contêiner especial em sua conta de armazenamento em custo de [preço de blob](https://azure.microsoft.com/pricing/details/storage/blobs/) padrão. Você pode controlar o período de retenção desses arquivos com base em seus requisitos (consulte as [condições](#conditions) da versão atual). Os eventos de alteração são anexados ao feed de alterações como registros na especificação de formato [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) : um formato compacto, rápido e binário que fornece estruturas de dados avançadas com esquema embutido. Este formato é bastante usado no ecossistema Hadoop, o Stream Analytics e o Azure Data Factory.
 
-Você pode processar esses logs de forma assíncrona, incremental ou completa. Qualquer número de aplicativos cliente pode ler de forma independente o feed de alterações, em paralelo e em seu próprio ritmo. Aplicativos de análise, como [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) ou [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) , podem consumir logs diretamente como arquivos Avro, o que permite processá-los em baixo custo, com alta largura de banda e sem precisar escrever um aplicativo personalizado.
+Você pode processar esses logs de forma assíncrona, incremental ou completa. Qualquer número de aplicativos cliente pode ler de forma independente o feed de alterações, em paralelo e em seu próprio ritmo. Aplicativos de análise, como [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) ou [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) , podem consumir logs diretamente como arquivos Avro, o que permite processá-los a um baixo custo, com alta largura de banda e sem precisar escrever um aplicativo personalizado.
 
 O suporte ao feed de alterações é bem adequado para cenários que processam dados com base em objetos que foram alterados. Por exemplo, os aplicativos podem:
 
@@ -32,7 +29,7 @@ O suporte ao feed de alterações é bem adequado para cenários que processam d
   
   - Extraia análises e métricas de análise de negócios com base nas alterações que ocorrem em seus objetos, seja de forma de streaming ou em modo em lote.
   
-  - Armazene, audite e analise alterações em seus objetos, em qualquer período de tempo, para segurança, conformidade ou inteligência para o gerenciamento de dados corporativos.
+  - Armazene, faça auditoria e analise alterações em seus objetos, em qualquer período de tempo, para segurança, conformidade ou inteligência para o gerenciamento de dados corporativos.
 
   - Crie soluções para fazer backup, espelhar ou replicar o estado do objeto em sua conta para gerenciamento de desastres ou conformidade.
 
@@ -54,6 +51,9 @@ Aqui estão algumas coisas para ter em mente quando você habilita o feed de alt
 - O feed de alterações captura *todas* as alterações para todos os eventos disponíveis que ocorrem na conta. Os aplicativos cliente podem filtrar os tipos de evento conforme necessário. (Consulte as [condições](#conditions) da versão atual).
 
 - Somente as contas de armazenamento de GPv2 e BLOB podem habilitar o feed de alterações. Atualmente, não há suporte para contas de armazenamento GPv1, contas Premium BlockBlobStorage e contas habilitadas para namespace hierárquico.
+
+> [!IMPORTANT]
+> O feed de alterações está em visualização pública e está disponível nas regiões **westcentralus** e **westus2** . Consulte a seção [condições](#conditions) deste artigo. Para se registrar na versão prévia, consulte a seção [registrar sua assinatura](#register) deste artigo. Você deve registrar sua assinatura para poder habilitar o feed de alterações em suas contas de armazenamento.
 
 ### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -302,7 +302,16 @@ Esta seção descreve os problemas e condições conhecidos na visualização p�
 - A propriedade `url` do arquivo de log está sempre vazia.
 - A propriedade `LastConsumable` do arquivo Segments. JSON não lista o primeiro segmento que o feed de alterações finaliza. Esse problema ocorre somente depois que o primeiro segmento é finalizado. Todos os segmentos subsequentes após a primeira hora são capturados com precisão na propriedade `LastConsumable`.
 
+## <a name="faq"></a>FAQ
+
+### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>Qual é a diferença entre o feed de alterações e o log de Análise de Armazenamento?
+O feed de alterações é otimizado para desenvolvimento de aplicativos, pois apenas eventos de criação, modificação e exclusão de blob com êxito são registrados no log do feed de alterações. O log de análise registra todas as solicitações bem-sucedidas e com falha em todas as operações, incluindo operações de leitura e lista. Aproveitando o feed de alterações, você não precisa se preocupar em filtrar o ruído de log em uma conta pesada de transação e se concentrar apenas nos eventos de alteração de BLOB.
+
+### <a name="should-i-use-change-feed-or-storage-events"></a>Devo usar o feed de alterações ou os eventos de armazenamento?
+Você pode aproveitar os dois recursos, já que os eventos de feed de alteração e de [armazenamento de BLOBs](storage-blob-event-overview.md) são semelhantes por natureza, com a principal diferença de latência, ordenação e armazenamento de registros de eventos. O feed de alterações grava registros no log do feed de alterações em massa a cada poucos minutos, garantindo a ordem das operações de alteração de BLOB. Os eventos de armazenamento são enviados em tempo real e podem não ser ordenados. Eventos de feed de alteração são permanentemente armazenados dentro de sua conta de armazenamento enquanto os eventos de armazenamento são transitórios e consumidos pelo manipulador de eventos, a menos que você os armazene explicitamente.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 - Consulte um exemplo de como ler o feed de alterações usando um aplicativo cliente .NET. Consulte [processar logs do feed de alterações no armazenamento de BLOBs do Azure](storage-blob-change-feed-how-to.md).
 - Saiba mais sobre como reagir a eventos em tempo real. Consulte [reagindo a eventos de armazenamento de BLOBs](storage-blob-event-overview.md)
+- Saiba mais sobre informações detalhadas de log para operações bem-sucedidas e com falha para todas as solicitações. Consulte [registro em log da análise de armazenamento do Azure](../common/storage-analytics-logging.md)

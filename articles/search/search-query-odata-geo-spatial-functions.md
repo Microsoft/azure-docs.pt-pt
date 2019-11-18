@@ -1,7 +1,7 @@
 ---
 title: Referência de função espacial geográfica do OData
 titleSuffix: Azure Cognitive Search
-description: As funções geoespaciais do OData, geográficas e geográficas, geográfica e de interseção, no Azure Pesquisa Cognitiva consultas.
+description: A sintaxe e a documentação de referência para o uso de funções geoespaciais, geográficas e geográficas OData. interseccionamentos, nas consultas do Azure Pesquisa Cognitiva.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 09034423e16c652cf6994b38f8d92574abc0ce55
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 902996c1813931638012c78f81bd65c400bee7a1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793342"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113170"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>Funções geoespaciais OData no Azure Pesquisa Cognitiva-`geo.distance` e `geo.intersects`
 
@@ -80,7 +80,7 @@ A constante de ponto de Geografia está no formato `geography'POINT(<longitude> 
 > [!NOTE]
 > Ao usar `geo.distance` em um filtro, você deve comparar a distância retornada pela função com uma constante usando `lt`, `le`, `gt`ou `ge`. Não há suporte para os operadores `eq` e `ne` ao comparar distâncias. Por exemplo, esse é um uso correto de `geo.distance`: `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.
 
-### <a name="geointersects"></a>interseções geográficas
+### <a name="geointersects"></a>geo.intersects
 
 A função `geo.intersects` usa uma variável do tipo `Edm.GeographyPoint` e uma constante `Edm.GeographyPolygon` e retorna um `Edm.Boolean` -- `true` se o ponto estiver dentro dos limites do polígono, `false` caso contrário.
 

@@ -1,5 +1,5 @@
 ---
-title: Processar e extrair texto de imagens em um pipeline de enriquecimento
+title: Extrair texto de imagens
 titleSuffix: Azure Cognitive Search
 description: Processe e extraia texto e outras informações de imagens em pipelines de Pesquisa Cognitiva do Azure.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5006bf5bc7eafd464861a3570654539386c5f837
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f81bcd84dfb07958f3205f779937b8beac74166f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787745"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113848"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Como processar e extrair informações de imagens em cenários de enriquecimento de ia
 
@@ -31,7 +31,7 @@ Não é possível desativar a normalização de imagem. As habilidades que itera
 
 | Parâmetro de configuração | Descrição |
 |--------------------|-------------|
-| imageaction   | Defina como "nenhum" se nenhuma ação for executada quando imagens inseridas ou arquivos de imagem forem encontrados. <br/>Defina como "generateNormalizedImages" para gerar uma matriz de imagens normalizadas como parte da quebra de documento.<br/>Definido como "generateNormalizedImagePerPage" para gerar uma matriz de imagens normalizadas onde, para PDFs na fonte de dados, cada página é renderizada para uma imagem de saída.  A funcionalidade é a mesma que "generateNormalizedImages" para tipos de arquivo não PDF.<br/>Para qualquer opção que não seja "None", as imagens serão expostas no campo *normalized_images* . <br/>O padrão é "nenhum". Essa configuração só é pertinente a fontes de dados de BLOB, quando "dataToExtract" é definido como "contentAndMetadata". <br/>Um máximo de 1000 imagens será extraído de um determinado documento. Se houver mais de 1000 imagens em um documento, o primeiro 1000 será extraído e um aviso será gerado. |
+| imageAction   | Defina como "nenhum" se nenhuma ação for executada quando imagens inseridas ou arquivos de imagem forem encontrados. <br/>Defina como "generateNormalizedImages" para gerar uma matriz de imagens normalizadas como parte da quebra de documento.<br/>Definido como "generateNormalizedImagePerPage" para gerar uma matriz de imagens normalizadas onde, para PDFs na fonte de dados, cada página é renderizada para uma imagem de saída.  A funcionalidade é a mesma que "generateNormalizedImages" para tipos de arquivo não PDF.<br/>Para qualquer opção que não seja "None", as imagens serão expostas no campo *normalized_images* . <br/>O padrão é "nenhum". Essa configuração só é pertinente a fontes de dados de BLOB, quando "dataToExtract" é definido como "contentAndMetadata". <br/>Um máximo de 1000 imagens será extraído de um determinado documento. Se houver mais de 1000 imagens em um documento, o primeiro 1000 será extraído e um aviso será gerado. |
 |  normalizedImageMaxWidth | A largura máxima (em pixels) para as imagens normalizadas geradas. O padrão é 2000. O valor máximo permitido é 10000. | 
 |  normalizedImageMaxHeight | A altura máxima (em pixels) para as imagens normalizadas geradas. O padrão é 2000. O valor máximo permitido é 10000.|
 
@@ -62,9 +62,9 @@ Quando *imageaction* é definido com um valor diferente de "None", o novo campo 
 
 | Membro da imagem       | Descrição                             |
 |--------------------|-----------------------------------------|
-| dado               | Cadeia de caracteres codificada em BASE64 da imagem normalizada no formato JPEG.   |
+| data               | Cadeia de caracteres codificada em BASE64 da imagem normalizada no formato JPEG.   |
 | Largura              | Largura da imagem normalizada em pixels. |
-| Tamanho             | Altura da imagem normalizada em pixels. |
+| tamanho             | Altura da imagem normalizada em pixels. |
 | originalWidth      | A largura original da imagem antes da normalização. |
 | originalHeight      | A altura original da imagem antes da normalização. |
 | rotationFromOriginal |  Rotação no sentido anti-horário em graus que ocorreu para criar a imagem normalizada. Um valor entre 0 graus e 360 graus. Esta etapa lê os metadados da imagem que é gerada por uma câmera ou um scanner. Geralmente, um múltiplo de 90 graus. |
@@ -109,7 +109,7 @@ Um cenário comum envolve a criação de uma única cadeia de caracteres contend
 1. Executar a habilidade de OCR usando `"/document/normalized_images"` como entrada
 1. Mescle a representação de texto dessas imagens com o texto bruto extraído do arquivo. Você pode usar a habilidade de [mesclagem de texto](cognitive-search-skill-textmerger.md) para consolidar as partes de texto em uma única cadeia de caracteres grande.
 
-O seguinte contenção de exemplo cria um campo *merged_text* contendo o conteúdo textual do documento. Ele também inclui o texto OCRed de cada uma das imagens inseridas. 
+O seguinte contenção de exemplo cria um campo de *merged_text* que contém o conteúdo textual do documento. Ele também inclui o texto OCRed de cada uma das imagens inseridas. 
 
 #### <a name="request-body-syntax"></a>Sintaxe do corpo da solicitação
 ```json
@@ -162,7 +162,7 @@ O seguinte contenção de exemplo cria um campo *merged_text* contendo o conteú
 }
 ```
 
-Agora que você tem um campo merged_text, pode mapeá-lo como um campo pesquisável na definição do indexador. Todo o conteúdo de seus arquivos, incluindo o texto das imagens, será pesquisável.
+Agora que você tem um campo merged_text, você pode mapeá-lo como um campo pesquisável na definição do indexador. Todo o conteúdo de seus arquivos, incluindo o texto das imagens, será pesquisável.
 
 ## <a name="visualize-bounding-boxes-of-extracted-text"></a>Visualizar caixas delimitadoras de texto extraído
 

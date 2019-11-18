@@ -1,5 +1,5 @@
 ---
-title: Adicionar analisadores de idioma a campos de cadeia de caracteres em um índice
+title: Adicionar analisadores de idioma a campos de cadeia de caracteres
 titleSuffix: Azure Cognitive Search
 description: Análise de texto léxico multilíngue para consultas e índices que não estão em inglês no Azure Pesquisa Cognitiva.
 manager: nitinme
@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f5833da5b15c893499b0d786972eff61c7391137
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ebdbcdda4efd7fdf9eb0e3e04cfa4d1987e03716
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790147"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111803"
 ---
-# <a name="add-language-analyzers-to-an-azure-cognitive-search-index"></a>Adicionar analisadores de idioma a um índice de Pesquisa Cognitiva do Azure
+# <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicionar analisadores de idioma a campos de cadeia de caracteres em um índice de Pesquisa Cognitiva do Azure
 
 Um *analisador de linguagem* é um tipo específico de [analisador de texto](search-analyzers.md) que executa uma análise lexical usando as regras linguísticas do idioma de destino. Cada campo pesquisável tem uma propriedade do **analisador** . Se o índice contiver cadeias de caracteres traduzidas, como campos separados para texto em inglês e chinês, você poderá especificar analisadores de idioma em cada campo para acessar os recursos lingüísticos avançados desses analisadores.  
 
@@ -59,64 +59,64 @@ Para obter mais informações sobre propriedades de índice, consulte [criar ín
 ## <a name="language-analyzer-list"></a>Lista do analisador de idioma 
  Abaixo está a lista de idiomas com suporte junto com os nomes do Lucene e do Microsoft Analyzer.  
 
-|Linguagem|Nome do Microsoft Analyzer|Nome do analisador Lucene|  
+|Idioma|Nome do Microsoft Analyzer|Nome do analisador Lucene|  
 |--------------|-----------------------------|--------------------------|  
-|Árabe|ar. Microsoft|ar. Lucene|  
-|Armênio||hipótese. Lucene|  
-|Bengali|bilhão. Microsoft||  
-|Basco||UE. Lucene|  
-|Búlgaro|BG. Microsoft|BG. Lucene|  
-|Catalão|ca. Microsoft|ca. Lucene|  
-|Chinês simplificado|zh-Hans. Microsoft|zh-Hans. Lucene|  
-|Chinês tradicional|zh-Hant. Microsoft|zh-Hant. Lucene|  
-|Croata|HR. Microsoft||  
-|Tcheco|cs. Microsoft|cs. Lucene|  
-|Dinamarquês|da. Microsoft|da. Lucene|  
-|Holandês|nl. Microsoft|nl. Lucene|  
-|Português|en. Microsoft|en. Lucene|  
-|Estoniano|et. Microsoft||  
-|Finlandês|Fi. Microsoft|o fi. Lucene|  
-|Francês|fr. Microsoft|fr. Lucene|  
-|Galego||GL. Lucene|  
-|Alemão|de. Microsoft|de. Lucene|  
-|Grego|El. Microsoft|El. Lucene|  
-|Guzerate|Gu. Microsoft||  
-|Hebraico|Ele. Microsoft||  
-|Hindi|Olá. Microsoft|Oi. Lucene|  
-|Húngaro|Hu. Microsoft|Hu. Lucene|  
-|Islandês|é. Microsoft||  
-|Indonésio (Bahasa)|ID. Microsoft|ID. Lucene|  
+|Árabe|ar.microsoft|ar. Lucene|  
+|Arménio||hipótese. Lucene|  
+|Bangla|bn.microsoft||  
+|Basco (Basco)||UE. Lucene|  
+|Búlgaro|bg.microsoft|bg.lucene|  
+|Catalão|ca.microsoft|ca. Lucene|  
+|Chinês simplificado|zh-Hans.microsoft|zh-Hans.lucene|  
+|Chinês tradicional|zh-Hant.microsoft|zh-Hant.lucene|  
+|Croata|hr.microsoft||  
+|Checo|cs.microsoft|cs. Lucene|  
+|Dinamarquês|da.microsoft|da. Lucene|  
+|Neerlandês|nl.microsoft|nl.lucene|  
+|Português|en.microsoft|en. Lucene|  
+|Estónio|et.microsoft||  
+|Finlandês|fi.microsoft|o fi. Lucene|  
+|Francês|fr.microsoft|fr. Lucene|  
+|Galego||gl.lucene|  
+|Alemão|de.microsoft|de. Lucene|  
+|Grego|el.microsoft|El. Lucene|  
+|Guzarate|gu.microsoft||  
+|Hebraico|he.microsoft||  
+|Hindi|hi.microsoft|Oi. Lucene|  
+|Húngaro|hu.microsoft|Hu. Lucene|  
+|Islandês|is.microsoft||  
+|Indonésio (Bahasa)|id.microsoft|id.lucene|  
 |Irlandês||ga. Lucene|  
-|Italiano|ti. Microsoft|ti. Lucene|  
-|Japonês|ja. Microsoft|ja. Lucene|  
-|Kannada|kN. Microsoft||  
-|Coreano|Ko. Microsoft|Ko. Lucene|  
-|Letão|LV. Microsoft|LV. Lucene|  
-|Lituano|lt. Microsoft||  
-|Malaiala|ml. Microsoft||  
-|Malaio (latino)|MS. Microsoft||  
-|Marata|Sr. Microsoft||  
-|Norueguês|NB. Microsoft|Não. Lucene|  
+|Italiano|it.microsoft|ti. Lucene|  
+|Japonês|ja.microsoft|ja. Lucene|  
+|Canarim|kn.microsoft||  
+|Coreano|ko.microsoft|Ko. Lucene|  
+|Letão|lv.microsoft|LV. Lucene|  
+|Lituano|lt.microsoft||  
+|Malayalam|ml.microsoft||  
+|Malaio (latino)|ms.microsoft||  
+|Marata|mr.microsoft||  
+|Norueguês|nb.microsoft|Não. Lucene|  
 |Persa||FA. Lucene|  
-|Polaco|pl. Microsoft|pl. Lucene|  
-|Português (Brasil)|pt-br. Microsoft|pt-br. Lucene|  
-|Português (Portugal)|pt pt. Microsoft|pt pt. Lucene|  
-|Punjabi|PA. Microsoft||  
-|Romeno|ro. Microsoft|ro. Lucene|  
-|Russo|ru. Microsoft|ru. Lucene|  
-|Sérvio (Cirílico)|Sr-cirílico. Microsoft||  
-|Sérvio (latino)|Sr-latino. Microsoft||  
-|Eslovaco|SK. Microsoft||  
-|Esloveno|SL. Microsoft||  
-|Espanhol|es. Microsoft|es. Lucene|  
-|Sueco|VA. Microsoft|VA. Lucene|  
-|Tâmil|ta. Microsoft||  
-|Telugu|te. Microsoft||  
-|Tailandês|th. Microsoft|th. Lucene|  
-|Turco|TR. Microsoft|TR. Lucene|  
-|Ucraniano|Reino Unido. Microsoft||  
-|Urdu|seu. Microsoft||  
-|Vietnamita|vi. Microsoft||  
+|Polaco|pl.microsoft|pl. Lucene|  
+|Português (Brasil)|pt-Br.microsoft|pt-br. Lucene|  
+|Português (Portugal)|pt-Pt.microsoft|pt pt. Lucene|  
+|Punjabi|pa.microsoft||  
+|Romeno|ro.microsoft|ro. Lucene|  
+|Russo|ru.microsoft|ru. Lucene|  
+|Sérvio (Cirílico)|sr-cyrillic.microsoft||  
+|Sérvio (Latim)|sr-latin.microsoft||  
+|Eslovaco|sk.microsoft||  
+|Esloveno|sl.microsoft||  
+|Espanhol|es.microsoft|es. Lucene|  
+|Sueco|sv.microsoft|VA. Lucene|  
+|Tamil|ta.microsoft||  
+|Télego|te.microsoft||  
+|Tailandês|th.microsoft|th. Lucene|  
+|Turco|tr.microsoft|TR. Lucene|  
+|Ucraniano|uk.microsoft||  
+|Urdu|ur.microsoft||  
+|Vietnamita|vi.microsoft||  
 
  Todos os analisadores com nomes anotados com o **Lucene** são compatíveis com os [analisadores de idioma do Apache Lucene](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 

@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/04/2019
-ms.openlocfilehash: d9b7a433dd7392e83719f09815f736dbd85f9c7f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0a28292ac95dca7b46d9f82c32b9881c18d74b87
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582898"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123537"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Azure Machine Learning de monitoramento
 
@@ -38,7 +38,7 @@ Para entender os custos associados a Azure Monitor, confira [uso e custos estima
 
 ## <a name="monitoring-data-from-azure-machine-learning"></a>Monitorando dados de Azure Machine Learning
 
-Azure Machine Learning coleta os mesmos tipos de dados de monitoramento que outros recursos do Azure, que são descritos em [monitoramento de dados de recursos do Azure](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). Veja [Azure Machine Learning referência de dados de monitoramento](monitor-resource-reference.md) para obter uma referência detalhada dos logs e métricas criados por Azure Machine Learning.
+Azure Machine Learning coleta os mesmos tipos de dados de monitoramento que outros recursos do Azure, que são descritos em [monitoramento de dados de recursos do Azure](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data). Veja [Azure Machine Learning referência de dados de monitoramento](monitor-resource-reference.md) para obter uma referência detalhada dos logs e métricas criados por Azure Machine Learning.
 
 ## <a name="analyzing-metric-data"></a>Analisando dados de métrica
 
@@ -111,7 +111,7 @@ Os dados em logs de Azure Monitor são armazenados em tabelas, sendo que cada ta
 
 Para obter uma referência detalhada dos logs e métricas, consulte [Azure Machine Learning referência de dados de monitoramento](monitor-resource-reference.md).
 
-### <a name="sample-queries"></a>Exemplos de consultas
+### <a name="sample-queries"></a>Amostras de consultas
 
 Veja a seguir as consultas que você pode usar para ajudá-lo a monitorar seus Azure Machine Learning recursos: 
 

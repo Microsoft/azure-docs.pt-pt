@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 567110b2e0429930720abf6af5f2727e4ad9d3bb
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: ad1cb3b08f92923ef45b48d79ad8bbdc3277d370
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048266"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131973"
 ---
 # <a name="troubleshooting"></a>Resolução de problemas
 
@@ -196,7 +196,7 @@ No painel do grupo de recursos, procure a conta de armazenamento (datahublogs...
     > [!NOTE]
     > Selecione o grupo de recursos do acelerador que foi especificado no momento da implantação do FarmBeats.
 
-3.  No painel do grupo de recursos, procure armazenamento.... Conta de armazenamento. Por exemplo, storagedop4k
+3.  No painel do grupo de recursos, procure armazenamento.... conta de armazenamento. Por exemplo, storagedop4k
 4.  Selecione a conta de armazenamento na coluna **nome** para exibir o painel da conta de armazenamento.
 5.  Na página (armazenamento...), selecione **abrir no Explorer** para exibir o aplicativo aberto Gerenciador de armazenamento do Azure.
 6.  No painel esquerdo, < armazenamento...), **contêineres de blob**, selecione **logs de trabalho**.
@@ -251,7 +251,7 @@ No painel do grupo de recursos, procure a conta de armazenamento (datahublogs...
 
 **Significado**: a configuração de registro de aplicativo do Azure ad não aconteceu corretamente.  
 
-**Ação corretiva**: peça ao administrador de ti (com acesso de leitura de locatário) para usar nosso [script](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) para gerar a criação do registro de aplicativo do Azure AD. Esse script também cuidará automaticamente das etapas de configuração.
+**Ação corretiva**: peça ao administrador de ti (com acesso de leitura de locatário) para usar nosso [script](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) para criar o registro de aplicativo do Azure AD. Esse script também cuidará automaticamente das etapas de configuração.
 
 **Erro**: não foi possível criar o novo Active Directory aplicativo "fictícioname" neste locatário: já existe outro objeto com o mesmo valor para URIs de identificador de propriedade
 

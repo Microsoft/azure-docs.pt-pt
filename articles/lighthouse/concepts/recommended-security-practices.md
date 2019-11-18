@@ -1,18 +1,14 @@
 ---
 title: Práticas de segurança recomendadas
 description: Ao usar o gerenciamento de recursos delegado do Azure, é importante considerar a segurança e o controle de acesso.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
 ms.date: 07/11/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 08a54313885c7d38117c242f01c2780796f38a08
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: e0f0a9d4cdd56ff1bca9b9faf493d3e0d68e558c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286190"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132463"
 ---
 # <a name="recommended-security-practices"></a>Práticas de segurança recomendadas
 
@@ -34,10 +30,10 @@ Por exemplo, talvez você queira usar uma estrutura como esta:
 
 |Nome do grupo  |Tipo  |principalId  |Definição de função  |ID de definição de função  |
 |---------|---------|---------|---------|---------|
-|Arquitetos     |Grupo de utilizadores         |\<principalId @ no__t-1         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
-|Avaliação     |Grupo de utilizadores         |\<principalId @ no__t-1         |Leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
-|Especialistas de VM     |Grupo de utilizadores         |\<principalId @ no__t-1         |Colaborador de VM         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automatização     |SPN (nome da entidade de serviço)         |\<principalId @ no__t-1         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Arquitetos     |Grupo de utilizadores         |\<principalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Avaliação     |Grupo de utilizadores         |\<principalId\>         |Leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
+|Especialistas de VM     |Grupo de utilizadores         |\<principalId\>         |Colaborador de VM         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
+|Automatização     |SPN (nome da entidade de serviço)         |\<principalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 Depois de criar esses grupos, você pode atribuir usuários conforme necessário. Somente adicione os usuários que realmente precisam ter acesso. Certifique-se de revisar a associação de grupo regularmente e remover os usuários que não são mais apropriados ou necessários para incluir.
 

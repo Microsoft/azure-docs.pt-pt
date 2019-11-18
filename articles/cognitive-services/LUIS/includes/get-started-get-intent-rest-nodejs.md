@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: 5d8ed625e13d31e148ef1e54d8028fc7d13a6ede
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 10216b52ded61328a73e5401549a59e6abc4667a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499598"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125581"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -153,4 +153,4 @@ Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivo
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Adicionar declarações e treinar](../luis-get-started-node-add-utterance.md)
+> [Adicionar declarações e treinar](../get-started-get-model-rest-apis.md)

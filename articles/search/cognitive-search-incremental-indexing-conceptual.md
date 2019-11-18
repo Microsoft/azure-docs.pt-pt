@@ -1,5 +1,5 @@
 ---
-title: Introdução à indexação incremental (versão prévia)
+title: Indexação incremental (versão prévia)
 titleSuffix: Azure Cognitive Search
 description: Configure seu pipeline de enriquecimento de ia para direcionar seus dados para a consistência eventual para lidar com quaisquer atualizações de habilidades, habilidades, indexadores ou fontes de dados. Este recurso está atualmente em visualização pública
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 94ce056185ff6a804521bf583ac4f6ffaa513fb0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 76ab8784f04f3c67e4ea8062505931783048dea1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715429"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113595"
 ---
 # <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>O que é indexação incremental no Pesquisa Cognitiva do Azure?
 
@@ -138,7 +138,7 @@ Alguns indexadores (por meio de [fontes de dados](https://docs.microsoft.com/res
 
 O habilidades não dará suporte a nenhuma nova operação, mas dará suporte a um novo parâmetro QueryString: `disableCacheReprocessingChangeDetection` deve ser definido como `true` quando você não quiser atualizações para documentos existentes com base na ação atual.
 
-### <a name="datasources"></a>fontes
+### <a name="datasources"></a>Fontes
 
 As fontes de armazenamento não oferecerão suporte a novas operações, mas dará suporte a um novo parâmetro QueryString: `ignoreResetRequirement` deve ser definido como `true` quando a ação de atualização não deve invalidar o cache.
 

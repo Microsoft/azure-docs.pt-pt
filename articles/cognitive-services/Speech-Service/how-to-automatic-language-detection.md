@@ -1,5 +1,5 @@
 ---
-title: Como usar a detecção automática de idioma para fala no serviço de fala de texto
+title: Como usar a detecção automática de idioma para fala em texto
 titleSuffix: Azure Cognitive Services
 description: O SDK de fala dá suporte à detecção automática de idioma para fala em texto. Ao usar esse recurso, o áudio fornecido é comparado com uma lista de idiomas fornecida e a correspondência mais provável é determinada. O valor retornado pode então ser usado para selecionar o modelo de idioma usado para a fala de texto.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: qiohu
-ms.openlocfilehash: e156704d3ad54c3437f921fae536a497e1d94868
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a72f477e64c856c545801533c131c397de627c00
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506969"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110178"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Detecção automática de idioma para fala em texto
 
@@ -30,7 +30,7 @@ Neste artigo, você aprenderá a usar `AutoDetectSourceLanguageConfig` para cons
 
 A detecção automática de idioma atualmente tem um limite no lado dos serviços de dois idiomas por detecção. Tenha essa limitação em mente ao construção de seu objeto de `AudoDetectSourceLanguageConfig`. Nos exemplos a seguir, você criará um `AutoDetectSourceLanguageConfig`e, em seguida, o usará para construir um `SpeechRecognizer`.
 
->[!TIP]
+> [!TIP]
 > Você também pode especificar um modelo personalizado a ser usado ao executar a fala em texto. Para obter mais informações, consulte [usar um modelo personalizado para detecção automática de idioma](#use-a-custom-model-for-automatic-language-detection).
 
 Os trechos de código a seguir ilustram como usar a detecção automática de idioma em seus aplicativos:
@@ -80,4 +80,4 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig = AutoDetectSource
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Documentação de referência do SDK de fala](speech-sdk.md)
+- [Documentação de referência do SDK de fala](speech-sdk.md)

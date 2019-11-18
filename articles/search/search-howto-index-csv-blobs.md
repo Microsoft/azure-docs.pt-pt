@@ -1,5 +1,5 @@
 ---
-title: Indexar BLOBs CSV usando o modo de análise de delimitedText (versão prévia)
+title: Pesquisar em BLOBs CSV
 titleSuffix: Azure Cognitive Search
 description: Extraia e importe CSV do armazenamento de BLOBs do Azure usando o modo de análise delimitedText, atualmente em visualização pública.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4edeb8d535504c305319aad35637bb1b09f65984
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 2166e100f03f21c218618d19dc37ee70c6ab29ef
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719243"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113027"
 ---
 # <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Como indexar BLOBs CSV usando o modo de análise de delimitedText e indexadores de blob no Azure Pesquisa Cognitiva 
 

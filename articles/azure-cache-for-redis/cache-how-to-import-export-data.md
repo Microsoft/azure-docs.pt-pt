@@ -1,25 +1,17 @@
 ---
-title: Importar e exportar dados no cache do Azure para Redis | Microsoft Docs
+title: Importar e exportar dados no cache do Azure para Redis
 description: Saiba como importar e exportar dados de e para o armazenamento de BLOBs com seu cache do Azure Premium para instâncias de Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 4a68ac38-87af-4075-adab-569d37d7cc9e
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: fda366f631e392379bd52b4bba728d0373f3e75e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: e4265cf3f9c211a19fe05bc18cf47a273165c3c3
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756725"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122771"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importar e exportar dados no cache do Azure para Redis
 Importação/exportação é um cache do Azure para a operação de gerenciamento de dados Redis, que permite importar dados para o cache do Azure para Redis ou exportar dados do cache do Azure para Redis importando e exportando um instantâneo do RDB (cache do Azure para o banco de dados Redis) de um cache Premium para um blob em uma conta de armazenamento do Azure. 

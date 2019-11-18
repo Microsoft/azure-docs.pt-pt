@@ -1,7 +1,7 @@
 ---
-title: 'MLOps: gerenciar, implantar & monitorar modelos de ML'
+title: 'MLOps: gerenciamento de modelos de ML'
 titleSuffix: Azure Machine Learning
-description: 'Saiba como usar o Azure Machine Learning para MLOps: implantar, gerenciar e monitorar seus modelos para melhorá-los continuamente. Você pode implantar os modelos treinados com Azure Machine Learning, no computador local ou em outras fontes.'
+description: 'Saiba mais sobre o gerenciamento de modelos com o Azure Machine Learning (MLOps). Implante, gerencie e monitore seus modelos para melhorá-los continuamente. '
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d0e567198fd25243b89245d54bbed5a658cc663
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c77e36b5fbeb1ecacd42352c8c52cfd4b617d0e6
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716593"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123599"
 ---
-# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps: gerenciar, implantar e monitorar modelos com Azure Machine Learning
+# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gerenciamento de modelos, implantação e monitoramento com Azure Machine Learning
 
 Neste artigo, saiba mais sobre como usar Azure Machine Learning para gerenciar o ciclo de vida de seus modelos. O Azure Machine Learning usa uma abordagem de MLOps (operações de Machine Learning), que melhora a qualidade e a consistência de suas soluções de aprendizado de máquina. 
 
@@ -47,7 +47,7 @@ O registro de modelo permite armazenar e fazer a versão de seus modelos na nuve
 > [!TIP]
 > Um modelo registrado é um contêiner lógico para um ou mais arquivos que compõem seu modelo. Por exemplo, se você tiver um modelo armazenado em vários arquivos, poderá registrá-los como um único modelo em seu espaço de trabalho do Azure Machine Learning. Após o registro, você pode baixar ou implantar o modelo registrado e receber todos os arquivos que foram registrados.
  
-Os modelos registrados são identificados por nome e versão. Cada vez que você registra um modelo com o mesmo nome de um existente, o registro incrementa a versão. Você também pode fornecer marcas de metadados adicionais durante o registro que podem ser usadas durante a pesquisa de modelos. Azure Machine Learning dá suporte a qualquer modelo que possa ser carregado usando Python 3.5.2 ou superior.
+Os modelos registrados são identificados por nome e versão. Sempre que registar um modelo com o mesmo nome que um já existente, o registro incrementa a versão. Também pode fornecer marcas de metadados adicionais durante o registo que pode ser utilizado ao pesquisar para modelos. Azure Machine Learning dá suporte a qualquer modelo que possa ser carregado usando Python 3.5.2 ou superior.
 
 > [!TIP]
 > Você também pode registrar modelos treinados fora do Azure Machine Learning.
@@ -137,7 +137,7 @@ Para obter mais informações, consulte [como habilitar a coleta de dados de mod
 
 ## <a name="audit-trail-of-the-ml-lifecycle"></a>Trilha de auditoria do ciclo de vida am
 
-O Azure ML oferece a capacidade de acompanhar a trilha de auditoria de ponta a ponta de todos os seus ativos de ML. Especificamente:
+O Azure ML oferece a capacidade de acompanhar a trilha de auditoria de ponta a ponta de todos os seus ativos de ML. Mais concretamente:
 
 - O Azure ML [integra-se com o Git](how-to-set-up-training-targets.md#gitintegration) para controlar as informações das quais o repositório/Branch/confirmação do seu código provém.
 - Os conjuntos de dados [do Azure ml](how-to-create-register-datasets.md) ajudam você a controlar e a obter a versão.

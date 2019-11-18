@@ -1,7 +1,7 @@
 ---
-title: Ligar à API com serviços ligados no Visual Studio de pesquisa de notícias do Bing eC#
+title: Conectar-se a API de Pesquisa de Notícias do Bing com os serviços conectados no Visual Studio eC#
 titleSuffix: Azure Cognitive Services
-description: Ligue à Pesquisa de Notícias do Bing a partir de uma aplicação Web ASP.NET Core.
+description: Ao utilizar a Pesquisa de Notícias do Bing, pode ativar aplicações e serviços para tirar partido do poder de um motor de busca sem anúncios e direcionado para a Web.
 services: cognitive-services
 author: ghogen
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: ghogen
-ms.openlocfilehash: 85afae087b1b1e572759943142412743744ee806
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 0a8a4f69c94f217cb40146b022adf2b2d56c8d42
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203423"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111508"
 ---
-# <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Tutorial: Ligar à API com serviços ligados no Visual Studio de pesquisa de notícias do Bing eC#
+# <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Tutorial: conectar-se a API de Pesquisa de Notícias do Bing com os serviços conectados no Visual Studio eC#
 
 Ao utilizar a Pesquisa de Notícias do Bing, pode ativar aplicações e serviços para tirar partido do poder de um motor de busca sem anúncios e direcionado para a Web. A Pesquisa de Notícias do Bing é um dos serviços de pesquisa disponíveis com os Serviços Cognitivos.
 
@@ -26,16 +26,16 @@ Este artigo fornece detalhes para utilizar a funcionalidade de Serviço Ligado d
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. Se não tiver uma conta, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio de 2019, com a carga de trabalho de desenvolvimento para a Web instalada. [Transfira-a agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2019, com a carga de trabalho de desenvolvimento da Web instalada. [Transfira-a agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
 ## <a name="add-support-to-your-project-for-bing-news-search-api"></a>Adicionar suporte ao seu projeto para a API de Pesquisa de Notícias do Bing
 
-1. Crie um novo projeto Web ASP.NET Core com o nome MyWebApplication. Utilize o modelo de projeto **Aplicação Web (Model-View-Controller)** , com todas as predefinições. É importante que atribua o nome MyWebApplication ao projeto, para que o espaço de nomes corresponda ao copiar código para o projeto. 
+1. Crie um novo projeto Web ASP.NET Core com o nome MyWebApplication. Utilize o modelo de projeto **Aplicação Web (Model-View-Controller)** , com todas as predefinições. É importante atribuir o nome MyWebApplication ao projeto, para que o espaço de nomes corresponda ao copiar código para o projeto. 
 
 1. No **Explorador de Soluções**, escolha **Adicionar** > **Serviço Ligado**.
-   É apresentada a página Serviço Ligado, com os serviços que pode adicionar ao seu projeto.
+   É apresentada a página Connected Service (Serviço Ligado), com os serviços que pode adicionar ao seu projeto.
 
    ![Captura de ecrã do item de menu Adicionar Serviço Ligado](../media/vs-common/Connected-Service-Menu.PNG)
 
@@ -43,17 +43,17 @@ Este artigo fornece detalhes para utilizar a funcionalidade de Serviço Ligado d
 
    ![Captura de ecrã da lista de serviços ligados](./media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-0.PNG)
 
-   Se já tem sessão iniciada no Visual Studio e uma subscrição do Azure associada à sua conta, é apresentada uma página com uma lista pendente com as suas subscrições. Selecione a subscrição que pretende utilizar e, em seguida, escolha um nome para a API de Pesquisa de Notícias do Bing. Também pode escolher **Editar** para modificar o nome gerado automaticamente.
+   Se já tiver sessão iniciada no Visual Studio e uma subscrição do Azure associada à sua conta, será apresentada uma página com uma lista pendente com as suas subscrições. Selecione a subscrição que pretende utilizar e, em seguida, escolha um nome para a API de Pesquisa de Notícias do Bing. Também pode escolher **Editar** para modificar o nome gerado automaticamente.
 
    ![Captura de ecrã dos campos subscrição e nome](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-1.PNG)
 
 1. Escolha o grupo de recursos e o escalão de preço.
 
-   ![Captura de ecrã dos campos grupo de recursos e escalão de preço](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-2.PNG)
+   ![Captura de ecrã a mostrar os campos de grupo de recursos e escalão de preço](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-2.PNG)
 
    Se pretender obter mais detalhes sobre os escalões de preço, selecione **Rever os preços**.
 
-1. Escolha **Adicionar** para adicionar suporte para o Serviço Ligado.
+1. Selecione **Add** (Adicionar) para adicionar suporte para o Serviço Ligado.
    O Visual Studio modifica o seu projeto para adicionar os pacotes NuGet, as entradas do ficheiro de configuração e outras alterações para suportar uma ligação à API de Pesquisa de Notícias do Bing. A janela de saída mostra o registo do que está a acontecer ao seu projeto. Deverá ver algo semelhante ao seguinte:
 
    ```output
@@ -266,6 +266,6 @@ Quando o grupo de recursos já não for necessário, pode eliminá-lo. Esta aç�
 2. Selecione **Eliminar grupo de recursos**.
 3. Na caixa **Escreva o Nome do Grupo de Recursos**, introduza o nome do grupo de recursos e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a API de Pesquisa de Notícias do Bing, veja [O que é a Pesquisa de Notícias do Bing?](index.yml).

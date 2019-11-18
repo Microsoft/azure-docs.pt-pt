@@ -1,22 +1,18 @@
 ---
-title: Lighthouse do Azure em cenários empresariais
+title: Azure Lighthouse em cenários empresariais
 description: Os recursos do Azure Lighthouse podem ser usados para simplificar o gerenciamento entre locatários em uma empresa que usa vários locatários do Azure AD.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
 ms.date: 09/25/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: fbd87cc801824729025feb7aefa411ac38048949
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ae2241048e6ae481e319154beedab74c23c91163
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266728"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132494"
 ---
-# <a name="azure-lighthouse-in-enterprise-scenarios"></a>Lighthouse do Azure em cenários empresariais
+# <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse em cenários empresariais
 
-O cenário mais comum para o Azure Lighthouse é um provedor de serviços que gerencia recursos em seus locatários do Azure Active Directory (Azure AD) de seus clientes. No entanto, os recursos do Azure Lighthouse também podem ser usados para simplificar o gerenciamento entre locatários em uma empresa que usa vários locatários do Azure AD.
+O cenário mais comum para o [Azure Lighthouse](../overview.md) é um provedor de serviços que gerencia recursos em seus locatários do Azure Active Directory (Azure AD) de seus clientes. No entanto, os recursos do Azure Lighthouse também podem ser usados para simplificar o gerenciamento entre locatários em uma empresa que usa vários locatários do Azure AD.
 
 ## <a name="single-vs-multiple-tenants"></a>Locatários únicos versus múltiplos
 

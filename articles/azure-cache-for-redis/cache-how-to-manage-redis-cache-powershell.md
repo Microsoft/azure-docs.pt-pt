@@ -1,25 +1,17 @@
 ---
-title: Gerenciar o cache do Azure para Redis com o Azure PowerShell | Microsoft Docs
+title: Gerenciar o cache do Azure para Redis com o Azure PowerShell
 description: Saiba como executar tarefas administrativas para o cache do Azure para Redis usando Azure PowerShell.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 0286bd7ae20fc1398dbfffad6484164c9d66c7e1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 06d1895a807b4e618be3dc1f816da2c1b3faaf3b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72758081"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122139"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gerenciar o cache do Azure para Redis com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -58,7 +50,7 @@ Para especificar a assinatura, execute o comando a seguir. No exemplo a seguir, 
 
 Para poder usar o Windows PowerShell com Azure Resource Manager, você precisará do seguinte:
 
-* Windows PowerShell, versão 3,0 ou 4,0. Para localizar a versão do Windows PowerShell, digite: `$PSVersionTable` e verifique se o valor de `PSVersion` é 3,0 ou 4,0. Para instalar uma versão compatível, consulte [Windows Management framework 3,0](https://www.microsoft.com/download/details.aspx?id=34595) ou [windows Management Framework 4,0](https://www.microsoft.com/download/details.aspx?id=40855).
+* Windows PowerShell, versão 3,0 ou 4,0. Para localizar a versão do Windows PowerShell, digite:`$PSVersionTable` e verifique se o valor de `PSVersion` é 3,0 ou 4,0. Para instalar uma versão compatível, consulte [Windows Management framework 3,0](https://www.microsoft.com/download/details.aspx?id=34595) ou [windows Management Framework 4,0](https://www.microsoft.com/download/details.aspx?id=40855).
 
 Para obter ajuda detalhada para qualquer cmdlet que você vir neste tutorial, use o cmdlet Get-Help.
 
@@ -117,7 +109,7 @@ ou
 
 Para criar um cache no Microsoft Azure Alemanha, use um dos seguintes locais.
 
-* Nordeste da Alemanha
+* Alemanha Central
 * Alemanha Nordeste
 
 Para obter mais informações sobre Microsoft Azure Alemanha, consulte [Microsoft Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/).
@@ -132,30 +124,30 @@ A tabela a seguir contém propriedades e descrições para parâmetros usados co
 | ResourceGroupName |Nome do grupo de recursos no qual criar o cache | |
 | Tamanho |O tamanho do cache. Os valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1GB, 2,5 GB, 6 GB, 13GB, 26GB, 53GB |1GB |
 | ShardCount |O número de fragmentos a serem criados ao criar um cache Premium com clustering habilitado. Os valores válidos são: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU |Especifica a SKU do cache. Os valores válidos são: básico, Standard, Premium |Padrão |
+| SKU |Especifica a SKU do cache. Os valores válidos são: básico, Standard, Premium |Standard |
 | RedisConfiguration |Especifica as definições de configuração do Redis. Para obter detalhes sobre cada configuração, consulte a tabela de [Propriedades RedisConfiguration](#redisconfiguration-properties) a seguir. | |
 | EnableNonSslPort |Indica se a porta não SSL está habilitada. |Falso |
 | MaxMemoryPolicy |Este parâmetro foi preterido-use RedisConfiguration em vez disso. | |
 | StaticIP |Ao hospedar o cache em uma VNET, especifica um endereço IP exclusivo na sub-rede para o cache. Se não for fornecido, um será escolhido para você na sub-rede. | |
 | Subrede |Ao hospedar o cache em uma VNET, especifica o nome da sub-rede na qual o cache será implantado. | |
 | VirtualNetwork |Ao hospedar o cache em uma VNET, especifica a ID de recurso da VNET na qual o cache será implantado. | |
-| keyType |Especifica qual chave de acesso será regenerada ao renovar as chaves de acesso. Os valores válidos são: primário, secundário | |
+| KeyType |Especifica qual chave de acesso será regenerada ao renovar as chaves de acesso. Os valores válidos são: primário, secundário | |
 
 ### <a name="redisconfiguration-properties"></a>Propriedades de RedisConfiguration
 | Propriedade | Descrição | Escalões de preço |
 | --- | --- | --- |
-| RDB-habilitado para backup |Se a [persistência de dados do Redis](cache-how-to-premium-persistence.md) está habilitada |Somente Premium |
-| RDB-Storage-Connection-String |A cadeia de conexão para a conta de armazenamento para [persistência de dados Redis](cache-how-to-premium-persistence.md) |Somente Premium |
+| rdb-backup-enabled |Se a [persistência de dados do Redis](cache-how-to-premium-persistence.md) está habilitada |Somente Premium |
+| rdb-storage-connection-string |A cadeia de conexão para a conta de armazenamento para [persistência de dados Redis](cache-how-to-premium-persistence.md) |Somente Premium |
 | RDB-backup-Frequency |A frequência de backup para [persistência de dados Redis](cache-how-to-premium-persistence.md) |Somente Premium |
-| MaxMemory-reservado |Configura a [memória reservada](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para processos que não são de cache |Standard e Premium |
+| maxmemory-reserved |Configura a [memória reservada](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para processos que não são de cache |Standard e Premium |
 | MaxMemory – política |Configura a política de [remoção](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para o cache |Todos os tipos de preço |
 | notificar-keyspace-eventos |Configura notificações de [keyspace](cache-configure.md#keyspace-notifications-advanced-settings) |Standard e Premium |
-| hash-Max-ziplist-Entries |Configura a [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados agregados pequenos |Standard e Premium |
-| hash-Max-ziplist-Value |Configura a [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados agregados pequenos |Standard e Premium |
-| SET-Max-intset-Entries |Configura a [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados agregados pequenos |Standard e Premium |
-| zset-Max-ziplist-Entries |Configura a [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados agregados pequenos |Standard e Premium |
-| zset-Max-ziplist-Value |Configura a [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados agregados pequenos |Standard e Premium |
-| databases |Configura o número de bancos de dados. Essa propriedade pode ser configurada somente na criação do cache. |Standard e Premium |
+| hash-max-ziplist-entries |Configura a [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados agregados pequenos |Standard e Premium |
+| hash-max-ziplist-value |Configura a [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados agregados pequenos |Standard e Premium |
+| set-max-intset-entries |Configura a [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados agregados pequenos |Standard e Premium |
+| zset-max-ziplist-entries |Configura a [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados agregados pequenos |Standard e Premium |
+| zset-max-ziplist-value |Configura a [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados agregados pequenos |Standard e Premium |
+| bases de dados |Configura o número de bancos de dados. Essa propriedade pode ser configurada somente na criação do cache. |Standard e Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Para criar um cache do Azure para Redis
 O novo cache do Azure para instâncias Redis são criados usando o cmdlet [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) .
@@ -245,7 +237,7 @@ Para criar um cache com parâmetros padrão, execute o comando a seguir.
 
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US"
 
-`ResourceGroupName`, `Name` e `Location` são parâmetros obrigatórios, mas o restante são opcionais e têm valores padrão. A execução do comando anterior cria um cache de SKU do Azure padrão para a instância Redis com o nome, o local e o grupo de recursos especificados, que tem 1 GB de tamanho com a porta não SSL desabilitada.
+`ResourceGroupName`, `Name`e `Location` são parâmetros obrigatórios, mas o restante são opcionais e têm valores padrão. A execução do comando anterior cria um cache de SKU do Azure padrão para a instância Redis com o nome, o local e o grupo de recursos especificados, que tem 1 GB de tamanho com a porta não SSL desabilitada.
 
 Para criar um cache Premium, especifique um tamanho de P1 (6 GB-60 GB), P2 (13 GB-130 GB), P3 (26 GB-260 GB) ou P4 (53 GB-530 GB). Para habilitar o clustering, especifique uma contagem de fragmentos usando o parâmetro `ShardCount`. O exemplo a seguir cria um cache Premium P1 com 3 fragmentos. Um cache Premium P1 tem 6 GB de tamanho e, como especificamos três fragmentos, o tamanho total é de 18 GB (3 x 6 GB).
 
@@ -321,7 +313,7 @@ Para ver uma lista de parâmetros disponíveis e suas descrições para `Set-AzR
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-O cmdlet `Set-AzRedisCache` pode ser usado para atualizar propriedades como `Size`, `Sku`, `EnableNonSslPort` e os valores de `RedisConfiguration`. 
+O cmdlet `Set-AzRedisCache` pode ser usado para atualizar propriedades como `Size`, `Sku`, `EnableNonSslPort`e os valores de `RedisConfiguration`. 
 
 O comando a seguir atualiza o MaxMemory-Policy para o cache do Azure para Redis chamado myCache.
 
@@ -330,7 +322,7 @@ O comando a seguir atualiza o MaxMemory-Policy para o cache do Azure para Redis 
 <a name="scale"></a>
 
 ## <a name="to-scale-an-azure-cache-for-redis"></a>Para dimensionar um cache do Azure para Redis
-`Set-AzRedisCache` pode ser usado para dimensionar um cache do Azure para instância Redis quando as propriedades `Size`, `Sku` ou `ShardCount` são modificadas. 
+`Set-AzRedisCache` pode ser usado para dimensionar um cache do Azure para instância Redis quando as propriedades `Size`, `Sku`ou `ShardCount` são modificadas. 
 
 > [!NOTE]
 > O dimensionamento de um cache usando o PowerShell está sujeito aos mesmos limites e diretrizes que o dimensionamento de um cache do portal do Azure. Você pode dimensionar para um tipo de preço diferente com as restrições a seguir.

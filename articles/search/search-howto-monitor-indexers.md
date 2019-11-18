@@ -1,5 +1,5 @@
 ---
-title: Como monitorar o status e os resultados do indexador
+title: Monitorar o status e os resultados do indexador
 titleSuffix: Azure Cognitive Search
 description: Monitore o status, o progresso e os resultados dos indexadores do Azure Pesquisa Cognitiva no portal do Azure, usando a API REST ou o SDK do .NET.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c7f688c96576f660795becaf318c3b0677a24542
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 699b5a4e5a7f10c883667ca5030dd971855467f5
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793790"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112990"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Como monitorar o status e os resultados do indexador Pesquisa Cognitiva do Azure
 

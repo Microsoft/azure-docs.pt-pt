@@ -1,22 +1,18 @@
 ---
 title: Ver e gerir fornecedores de serviços
 description: Os clientes podem usar a página provedores de serviço no portal do Azure para exibir informações sobre provedores de serviço, ofertas de provedor de serviço e recursos delegados.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 11/15/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 0a7d39d95e35e30a16ce11db5b942024b6890438
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: baa5a77b481779ab511ff473aacda5d40e0d771c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286591"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132172"
 ---
 # <a name="view-and-manage-service-providers"></a>Ver e gerir fornecedores de serviços
 
-Os clientes podem usar a página **provedores de serviço** no [portal do Azure](https://portal.azure.com) para exibir informações sobre provedores de serviço e ofertas de provedor de serviço, delegar recursos específicos por meio [do gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md)e comprar outros ofertas de provedor de serviço. Embora possamos nos referir aos provedores de serviços e clientes aqui, as empresas que gerenciam vários locatários podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
+Os clientes podem usar a página **provedores de serviço** no [portal do Azure](https://portal.azure.com) para exibir informações sobre provedores de serviço e ofertas de provedor de serviço, delegar recursos específicos por meio [do gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md)e comprar ofertas adicionais de provedor de serviços. Embora possamos nos referir aos provedores de serviços e clientes aqui, as empresas que gerenciam vários locatários podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
 
 Para acessar a página **provedores de serviço** no portal do Azure, o cliente pode selecionar **todos os serviços**e, em seguida, Pesquisar provedores de **Serviços** e selecioná-lo. Eles também podem encontrá-lo inserindo "provedores de serviço" na caixa de pesquisa próxima à parte superior do portal do Azure.
 
@@ -50,6 +46,12 @@ Para delegar assinaturas ou grupos de recursos:
 Um cliente pode adicionar uma nova oferta de provedor de serviços na página de **ofertas de provedor** selecionando **Adicionar oferta**. O provedor de serviços deve ter publicado uma oferta para este cliente. O cliente pode selecionar essa oferta na tela de **ofertas particulares** e, em seguida, selecionar **criar**.
 
 Se o cliente quiser remover uma oferta de provedor de serviços, ele poderá selecionar o ícone de lixeira na linha dessa oferta. Depois de confirmar a exclusão, esse provedor de serviços não terá mais acesso aos recursos do cliente que antes eram delegados para essa oferta.
+
+## <a name="update-service-provider-offers"></a>Atualizar ofertas do provedor de serviços
+
+Depois que um cliente tiver adicionado uma oferta, um provedor de serviços poderá publicar uma versão atualizada da mesma oferta no Azure Marketplace. Por exemplo, eles podem querer adicionar uma nova definição de função. Se uma nova versão da oferta tiver sido publicada, a página de **ofertas do provedor** mostrará um ícone de "atualização" na linha dessa oferta. O cliente pode selecionar esse ícone para ver as diferenças entre a versão atual da oferta e a nova. 
+
+Depois de revisar as alterações, o cliente pode optar por atualizar para a nova versão. Depois disso, as autorizações e outras configurações especificadas na nova versão serão aplicadas a quaisquer assinaturas e/ou grupos de recursos que tenham sido delegados para essa oferta.
 
 ## <a name="view-delegations"></a>Exibir delegações
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 5eded3217e96ccc45951acae004d1424e16cb098
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3894904575d545aed0dbfce470247afb145b7590
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605671"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129306"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network"></a>Implementar o Azure Databricks na sua rede virtual
 
@@ -119,7 +119,7 @@ Se você usar esse modelo sem usar também o modelo de grupos de segurança de r
 
 ## <a name="whitelisting-subnet-traffic"></a>Tráfego de sub-rede de lista de permissões
 
-Se você não usar os modelos de [portal do Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-portal) ou [Azure Resource Manager](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) para criar os grupos de segurança de rede, deverá colocar a lista de permissões manualmente no tráfego a seguir em suas sub-redes.
+Se você não usar os modelos de [portal do Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-portal) ou [Azure Resource Manager](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-advanced) para criar os grupos de segurança de rede, deverá colocar a lista de permissões manualmente no tráfego a seguir em suas sub-redes.
 
 |Direção|Protocolo|Origem|Porta de origem|Destino|Porta de destino|
 |---------|--------|------|-----------|-----------|----------------|
@@ -137,16 +137,16 @@ O tráfego de sub-rede da lista de permissões usando os seguintes endereços IP
 |-----------------------|-------|---------|
 |EUA Leste|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |EUA Leste 2|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
-|E.U.A. Centro-Norte|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|EUA Centro-Norte|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |EUA Central|NAT do plano de controle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |EUA Centro-Sul|NAT do plano de controle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
-|Oeste dos E.U.A.|NAT do plano de controle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
+|EUA Oeste|NAT do plano de controle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
 |EUA Oeste 2|NAT do plano de controle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
 |Canadá Central|NAT do plano de controle </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
 |Leste do Canadá|NAT do plano de controle </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
 |Reino Unido Oeste|NAT do plano de controle </br></br>Webapp|51.140.203.27/32 </br></br>51.140.204.4/32|
-|Sul do Reino Unido|NAT do plano de controle </br></br>Webapp|51.140.203.27/32 </br></br>51.140.204.4/32|
-|Europa Ocidental|NAT do plano de controle </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
+|Reino Unido Sul|NAT do plano de controle </br></br>Webapp|51.140.203.27/32 </br></br>51.140.204.4/32|
+|Europa ocidental|NAT do plano de controle </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
 |Europa do Norte|NAT do plano de controle </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
 |Índia Central|NAT do plano de controle </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
 |Sul da Índia|NAT do plano de controle </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|

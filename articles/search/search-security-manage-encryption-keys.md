@@ -1,5 +1,5 @@
 ---
-title: Criptografia em repouso usando chaves gerenciadas pelo cliente no Azure Key Vault (versão prévia)
+title: Criptografia em repouso usando chaves gerenciadas pelo cliente (visualização)
 titleSuffix: Azure Cognitive Search
 description: Complemente a criptografia do lado do servidor sobre índices e mapas de sinônimos no Azure Pesquisa Cognitiva por meio de chaves que você cria e gerencia no Azure Key Vault. Este recurso está atualmente em visualização pública.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 1521abfa327c69648b38f02d1d6313baa369f304
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 4f78b4b7b38c6e67aa8aebf04e3a8ef0fdbd000f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721749"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112933"
 ---
-# <a name="content-encryption-of-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Criptografia de conteúdo do Azure Pesquisa Cognitiva usando chaves gerenciadas pelo cliente no Azure Key Vault
+# <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Criptografia em repouso de conteúdo no Azure Pesquisa Cognitiva usando chaves gerenciadas pelo cliente no Azure Key Vault
 
 > [!IMPORTANT] 
 > O suporte para criptografia em repouso está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) e o [SDK do .NET versão 8,0-Preview](search-dotnet-sdk-migration-version-9.md) fornece esse recurso. No momento, não há suporte ao Portal.

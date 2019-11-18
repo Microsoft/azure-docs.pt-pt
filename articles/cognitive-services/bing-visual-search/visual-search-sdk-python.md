@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Pesquisa Visual do Bing SDK, Python'
+title: 'Início Rápido: SDK de Pesquisa Visual do Bing, Python'
 titleSuffix: Azure Cognitive Services
-description: Configure a aplicação de consola Python do SDK de Pesquisa Visual.
+description: Use este guia de início rápido para começar a obter informações de imagem do serviço de Pesquisa Visual do Bing, usando o SDK do Python.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: eb0befe3b6f131559a86c121251a4b6194abc49c
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4d5679e75f0feb4fd502abc92fc7c1de16b53bc8
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204022"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111578"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Início rápido: Obtenha informações de imagem com o SDK de pesquisa Visual do Bing para Python
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Início rápido: obter informações de imagem usando o SDK do Pesquisa Visual do Bing para Python
 
-Utilize este guia de introdução para iniciar a obtenção de informações de imagem do serviço de pesquisa Visual do Bing, utilizando o SDK de Python. Embora a pesquisa Visual do Bing tenha uma API de REST compatível com a maioria das linguagens de programação, o SDK fornece uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
+Use este guia de início rápido para começar a obter informações de imagem do serviço de Pesquisa Visual do Bing, usando o SDK do Python. Embora Pesquisa Visual do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço em seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python](https://www.python.org/) 2.x ou 3.x
-* É recomendado utilizar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [módulo venv](https://pypi.python.org/pypi/virtualenv).
-* A pesquisa Visual do Bing SDK para Python. Pode instalá-lo com os seguintes comandos:
+* [Python](https://www.python.org/) 2. x ou 3. x
+* É recomendável usar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [módulo venv](https://pypi.python.org/pypi/virtualenv).
+* O SDK do Pesquisa Visual do Bing para Python. Você pode instalá-lo com os seguintes comandos:
     1. `cd mytestenv`
     2. `python -m pip install azure-cognitiveservices-search-visualsearch`
 
@@ -36,7 +36,7 @@ Utilize este guia de introdução para iniciar a obtenção de informações de 
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Criar um novo ficheiro de Python no seu IDE ou editor favorito e adicione as seguintes declarações de importação. 
+1. Crie um novo arquivo Python em seu IDE ou editor favorito e adicione as seguintes instruções de importação. 
 
     ```python
     import http.client, urllib.parse
@@ -52,7 +52,7 @@ Utilize este guia de introdução para iniciar a obtenção de informações de 
     )
     from msrest.authentication import CognitiveServicesCredentials
     ```
-2. Crie variáveis para a chave de subscrição, ID de configuração personalizada e a imagem que pretende carregar. 
+2. Crie variáveis para sua chave de assinatura, ID de configuração personalizada e a imagem que você deseja carregar. 
     
     ```python
     subscription_key = 'YOUR-VISUAL-SEARCH-ACCESS-KEY'
@@ -69,7 +69,7 @@ Utilize este guia de introdução para iniciar a obtenção de informações de 
 
 ## <a name="send-the-search-request"></a>Enviar a solicitação de pesquisa
 
-1. Com a imagem de ficheiros abertos, serializar `VisualSearchRequest()`e passá-lo como o `knowledge_request` parâmetro para o `visual_search()`.
+1. Com o arquivo de imagem aberto, Serialize `VisualSearchRequest()`e passe-o como o parâmetro `knowledge_request` para o `visual_search()`.
 
     ```python
     with open(image_path, "rb") as image_fd:
@@ -80,7 +80,7 @@ Utilize este guia de introdução para iniciar a obtenção de informações de 
         result = client.images.visual_search(image=image_fd, knowledge_request=knowledge_request)
     ```
 
-2. Se foram devolvidos resultados, imprimi-los, as etiquetas e as ações na primeira marca.
+2. Se qualquer resultado for retornado, imprima-o, as marcas e as ações na primeira marca.
 
     ```python
     if not result:
@@ -108,7 +108,7 @@ Utilize este guia de introdução para iniciar a obtenção de informações de 
             print("Couldn't find image tags!")
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação web de página única](tutorial-bing-visual-search-single-page-app.md)
+> [Criar um aplicativo Web de página única](tutorial-bing-visual-search-single-page-app.md)

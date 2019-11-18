@@ -1,28 +1,20 @@
 ---
-title: Criar um aplicativo Web ASP.NET com o cache do Azure para Redis | Microsoft Docs
+title: Criar um aplicativo Web ASP.NET com o cache do Azure para Redis
 description: Neste guia de início rápido, você aprende a criar um aplicativo Web ASP.NET com o cache do Azure para Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7cca9d020d5e999bda2c494853295957da5cca1a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 155993bb3da781e698398ed8ddffa626e8f6cb2d
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326487"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122576"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Início rápido: Usar o cache do Azure para Redis com um aplicativo Web ASP.NET 
+# <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Início rápido: usar o cache do Azure para Redis com um aplicativo Web ASP.NET 
 
 Neste guia de início rápido, você usa o Visual Studio 2019 para criar um aplicativo Web ASP.NET que se conecta ao cache do Azure para Redis para armazenar e recuperar dados do cache. Em seguida, implante o aplicativo no serviço Azure App.
 
@@ -67,7 +59,7 @@ Em seguida, crie a cache para a aplicação.
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>Para editar o ficheiro *CacheSecrets.config*
 
-1. Crie um ficheiro no computador com o nome *CacheSecrets.config*. Coloque-o numa localização onde não dê entrada com o código de origem do seu exemplo de aplicação. Neste início rápido, o ficheiro *CacheSecrets.config* está localizado em *C:\AppSecrets\CacheSecrets.config*.
+1. Crie um arquivo em seu computador chamado *CacheSecrets. config*. Coloque-o em um local onde ele não será verificado com o código-fonte do seu aplicativo de exemplo. Neste início rápido, o ficheiro *CacheSecrets.config* está localizado em *C:\AppSecrets\CacheSecrets.config*.
 
 1. Edite o ficheiro *CacheSecrets.config*. Em seguida, adicione o seguinte conteúdo:
 
@@ -109,7 +101,7 @@ Uma vez que o ficheiro *CacheSecrets.config* não está implementado no Azure co
 2. No ficheiro *web.config*, encontre o elemento `<appSetting>`. Em seguida, adicione o atributo `file` seguinte. Se utilizou um nome de ficheiro ou localização diferentes, substitua estes valores pelos valores que são mostrados no exemplo.
 
 * Antes: `<appSettings>`
-* Após`<appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* Após: `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 O tempo de execução do ASP.NET une o conteúdo do ficheiro externo e a marcação no elemento `<appSettings>`. O tempo de execução ignora o atributo de ficheiro se não for possível localizar o ficheiro especificado. Os segredos (a cadeia de ligação para a cache) não são incluídos como parte do código fonte da aplicação. Quando você implanta seu aplicativo Web no Azure, o arquivo *CacheSecrets. config* não é implantado.
 
@@ -247,7 +239,7 @@ Por predefinição, o projeto está configurado para alojar a aplicação localm
 
 2. No navegador, selecione o **cache do Azure para Redis teste** na barra de navegação.
 
-3. No exemplo a seguir, a `Message` chave tinha anteriormente um valor armazenado em cache, que foi definido usando o console de cache do Azure para Redis no Portal. A aplicação atualizou esse valor em cache. A aplicação também executou os comandos `PING` e `CLIENT LIST`.
+3. No exemplo a seguir, a chave de `Message` tinha anteriormente um valor armazenado em cache, que foi definido usando o console de cache do Azure para Redis no Portal. A aplicação atualizou esse valor em cache. A aplicação também executou os comandos `PING` e `CLIENT LIST`.
 
     ![Teste simples concluído no local](./media/cache-web-app-howto/cache-simple-test-complete-local.png)
 
@@ -325,7 +317,7 @@ Caso contrário, se tiver concluído o exemplo de aplicação do início rápido
 
 Após alguns instantes, o grupo de recursos e todos os respetivos recursos são eliminados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 No próximo tutorial, você usará o cache do Azure para Redis em um cenário mais realista para melhorar o desempenho de um aplicativo. Vai atualizar esta aplicação com os resultados de classificação da cache com o padrão cache-aside com ASP.NET e uma base de dados.
 

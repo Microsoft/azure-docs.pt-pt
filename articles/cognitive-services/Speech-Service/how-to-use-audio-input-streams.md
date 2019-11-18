@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: e00feed416eb3e06b703a2ef4fe040f0c815716e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3039276a49e7bb41660d114e78ca047a3f77f279
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464295"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109947"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Sobre a API de fluxo de entrada de áudio do SDK de fala
 
-A API de **fluxo de entrada de áudio** do SDK de fala fornece uma maneira de transmitir fluxos de áudio para os reconhecedores em vez de usar o microfone ou as APIs de arquivo de entrada.
+A API de **fluxo de entrada de áudio** do SDK de fala fornece uma maneira de transmitir áudio para os reconhecedores em vez de usar o microfone ou as APIs de arquivo de entrada.
 
 As etapas a seguir são necessárias ao usar fluxos de entrada de áudio:
 
@@ -29,7 +29,7 @@ As etapas a seguir são necessárias ao usar fluxos de entrada de áudio:
 
   O código correspondente no SDK para criar o formato de áudio é semelhante ao seguinte:
 
-  ```
+  ```csharp
   byte channels = 1;
   byte bitsPerSample = 16;
   int samplesPerSecond = 16000;
@@ -40,7 +40,7 @@ As etapas a seguir são necessárias ao usar fluxos de entrada de áudio:
 
 - Crie sua própria classe de fluxo de entrada de áudio derivada de `PullAudioInputStreamCallback`. Implemente os membros `Read()` e `Close()`. A assinatura de função exata depende do idioma, mas o código será semelhante a este exemplo de código:
 
-  ```
+  ```csharp
    public class ContosoAudioStream : PullAudioInputStreamCallback {
       ContosoConfig config;
 
@@ -61,7 +61,7 @@ As etapas a seguir são necessárias ao usar fluxos de entrada de áudio:
 
 - Crie uma configuração de áudio com base no seu formato de áudio e no fluxo de entrada. Passe a configuração de fala regular e a configuração de entrada de áudio ao criar o reconhecedor. Por exemplo:
 
-  ```
+  ```csharp
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);
 
   var speechConfig = SpeechConfig.FromSubscription(...);
@@ -75,5 +75,5 @@ As etapas a seguir são necessárias ao usar fluxos de entrada de áudio:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como reconhecer a fala noC#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+- [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Veja como a reconhecer a conversão de voz em c#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

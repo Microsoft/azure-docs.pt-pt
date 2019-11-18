@@ -1,25 +1,17 @@
 ---
-title: Como configurar o clustering do Redis para um cache Premium do Azure para Redis | Microsoft Docs
+title: Como configurar o clustering do Redis para um cache Premium do Azure para Redis
 description: Saiba como criar e gerenciar o clustering Redis para o cache do Azure da camada Premium para instâncias do Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/13/2018
 ms.author: yegu
-ms.openlocfilehash: d81647e8d09d8f10827e8eb6038363db73395c1e
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 1f0c97d6c0854254026e194ffd5030976fc506b2
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596910"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122153"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Como configurar o clustering do Redis para um cache Premium do Azure para Redis
 O cache do Azure para Redis tem diferentes ofertas de cache, que fornecem flexibilidade na escolha do tamanho e dos recursos do cache, incluindo recursos da camada Premium, como clustering, persistência e suporte à rede virtual. Este artigo descreve como configurar o clustering em um cache do Azure Premium para a instância do Redis.
@@ -111,7 +103,7 @@ A lista a seguir contém respostas para perguntas frequentes sobre o cache do Az
 ### <a name="how-are-keys-distributed-in-a-cluster"></a>Como as chaves são distribuídas em um cluster?
 De acordo com a documentação do [modelo de distribuição de chaves](https://redis.io/topics/cluster-spec#keys-distribution-model) Redis: o espaço de chave é dividido em slots de 16384. Cada chave é codificada em hash e atribuída a um desses slots, que são distribuídos entre os nós do cluster. Você pode configurar qual parte da chave é configurada em hash para garantir que várias chaves estejam localizadas no mesmo fragmento usando marcas de hash.
 
-* Chaves com uma marca de hash – se qualquer parte da chave estiver entre `{` e `}`, somente essa parte da chave será codificada para fins de determinação do slot de hash de uma chave. Por exemplo, as três chaves a seguir estarão localizadas no mesmo fragmento: `{key}1`, `{key}2` e `{key}3`, já que apenas a parte `key` do nome tem hash. Para obter uma lista completa de especificações de marca de hash de chaves, consulte [marcas de hash de chaves](https://redis.io/topics/cluster-spec#keys-hash-tags).
+* Chaves com uma marca de hash – se qualquer parte da chave estiver entre `{` e `}`, somente essa parte da chave será codificada para fins de determinação do slot de hash de uma chave. Por exemplo, as três chaves a seguir estarão localizadas no mesmo fragmento: `{key}1`, `{key}2`e `{key}3`, já que apenas a parte `key` do nome tem hash. Para obter uma lista completa de especificações de marca de hash de chaves, consulte [marcas de hash de chaves](https://redis.io/topics/cluster-spec#keys-hash-tags).
 * Chaves sem uma marca de hash-o nome de chave inteiro é usado para hash. Isso resulta em uma distribuição estatisticamente uniforme entre os fragmentos do cache.
 
 Para obter o melhor desempenho e a taxa de transferência, é recomendável distribuir as chaves uniformemente. Se você estiver usando chaves com uma marca de hash, é responsabilidade do aplicativo garantir que as chaves sejam distribuídas uniformemente.

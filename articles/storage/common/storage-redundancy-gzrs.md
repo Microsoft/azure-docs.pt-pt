@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c8fc6c552920cf7790bf5c89531fc04ad4c57d36
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e040533acdd8979b7b43358c74d1b729dafa2c66
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333218"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111849"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Crie aplicativos de armazenamento do Azure altamente disponíveis com GZRS (armazenamento com redundância de zona geográfica) (visualização)
 
@@ -31,6 +31,7 @@ GZRS e RA-GZRS estão disponíveis atualmente para visualização nas seguintes 
 
 - Norte da Europa
 - Europa Ocidental
+- Reino Unido Sul
 - Este dos EUA
 - Este dos EUA 2
 - Centro dos EUA
@@ -141,7 +142,7 @@ Para solicitar uma migração ao vivo, use o [portal do Azure](https://ms.portal
     - **Tipo de problema**: selecione **migração de dados**.
     - **Categoria**: selecione **migrar para (ra-) GZRS em uma região**.
     - **Título**: digite um título descritivo, por exemplo, **(ra-) GZRS de migração de conta**.
-    - **Detalhes**: digite detalhes adicionais na caixa de **detalhes** , por exemplo, "Eu gostaria de migrar para GZRS de [lRS, GRS] na região \_ @ no__t-3". ou "Eu gostaria de migrar para o RA-GZRS de [LRS, RA-GRS] na região \_ @ no__t-1".
+    - **Detalhes**: digite detalhes adicionais na caixa de **detalhes** , por exemplo, "Eu gostaria de migrar para GZRS de [lRS, grs] na região do \_\_". ou "Eu gostaria de migrar para o RA-GZRS de [LRS, RA-GRS] na região do \_\_."
 5. Selecione **Seguinte**.
 6. Verifique se as informações de contato estão corretas na folha **informações de contato** .
 7. Selecione **Criar**.

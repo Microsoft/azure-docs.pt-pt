@@ -1,5 +1,5 @@
 ---
-title: Estratégias de implantação e práticas recomendadas para otimizar o desempenho
+title: Otimização de implantação e desempenho
 titleSuffix: Azure Cognitive Search
 description: Aprenda técnicas e práticas recomendadas para ajustar o desempenho de Pesquisa Cognitiva do Azure e configurar a escala ideal.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 15557a437732ee15c3c6dada7b2d9fe1d397dc5a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4ff6779843546bd41423c140ef40de6a7e24b026
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793427"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113260"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-cognitive-search"></a>Estratégias de implantação e práticas recomendadas para otimizar o desempenho no Azure Pesquisa Cognitiva
 

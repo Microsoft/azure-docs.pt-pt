@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Obter informações de imagem usando o SDK do Pesquisa Visual do Bing para node. js'
+title: 'Início rápido: obter informações de imagem usando o SDK do Pesquisa Visual do Bing para node. js'
 titleSuffix: Azure Cognitive Services
-description: Carregue uma imagem usando o SDK do Pesquisa Visual do Bing e obtenha informações sobre ele.
+description: Use este guia de início rápido para começar a obter informações de imagem do serviço de Pesquisa Visual do Bing, usando o SDK do node. js.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: f0dd0bb82f899146956b5671497d298c7ce076ef
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: fd69179c98e999323936daf7e83b165126c20381
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360515"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111584"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Início rápido: Obter informações de imagem usando o SDK do Pesquisa Visual do Bing para node. js
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Início rápido: obter informações de imagem usando o SDK do Pesquisa Visual do Bing para node. js
 
 Use este guia de início rápido para começar a obter informações de imagem do serviço de Pesquisa Visual do Bing, usando o SDK do node. js. Embora Pesquisa Visual do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço em seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
 
@@ -57,7 +57,7 @@ Use este guia de início rápido para começar a obter informações de imagem d
 
 ## <a name="search-for-images"></a>Pesquisar por imagens
 
-1. Use `fs.createReadStream()` para ler o arquivo de imagem e criar variáveis para seus resultados e solicitação de pesquisa. Em seguida, use o cliente para pesquisar imagens.
+1. Use `fs.createReadStream()` para ler o arquivo de imagem e criar variáveis para os resultados e a solicitação de pesquisa. Em seguida, use o cliente para pesquisar imagens.
 
     ```javascript
     let fileStream = fs.createReadStream(filePath);
@@ -107,7 +107,7 @@ Use este guia de início rápido para começar a obter informações de imagem d
     
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web de página única](tutorial-bing-visual-search-single-page-app.md)

@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre o serviço de Conversão de Texto em Fala no Azure
+title: Conversão de Texto em Fala perguntas frequentes
 titleSuffix: Azure Cognitive Services
 description: Obtenha respostas para as perguntas frequentes sobre o serviço de Conversão de Texto em Fala.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 0ec9b9729ea93a0685179559bf58392944f37ba6
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 19b8be83a3678164197ec0650b07091e941a04d7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075823"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110507"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Conversão de Texto em Fala perguntas frequentes
 

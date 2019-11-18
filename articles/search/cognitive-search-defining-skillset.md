@@ -1,5 +1,5 @@
 ---
-title: Criar um conconhecimento em um pipeline de enriquecimento
+title: Criar um conjunto de competências
 titleSuffix: Azure Cognitive Search
 description: Defina as etapas de extração de dados, processamento de idioma natural ou análise de imagem para enriquecer e extrair informações estruturadas de seus dados para uso no Azure Pesquisa Cognitiva.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a60298b02b02e375d7241acf15852a19f814d59a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e9fd4602d661dd4223c8caa2ec02eaf56284735a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787475"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114548"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Como criar um conconhecimento em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva 
 
@@ -163,7 +163,7 @@ Vamos examinar a primeira habilidade, que é a habilidade interna de reconhecime
     }
 ```
 
-* Todas as habilidades internas têm `odata.type`, `input` e `output` Propriedades. As propriedades específicas da habilidade fornecem informações adicionais aplicáveis a essa habilidade. Para o reconhecimento de entidade, `categories` é uma entidade entre um conjunto fixo de tipos de entidade que o modelo pretreinado pode reconhecer.
+* Todas as habilidades internas têm `odata.type`, `input`e `output` Propriedades. As propriedades específicas da habilidade fornecem informações adicionais aplicáveis a essa habilidade. Para o reconhecimento de entidade, `categories` é uma entidade entre um conjunto fixo de tipos de entidade que o modelo pretreinado pode reconhecer.
 
 * Cada habilidade deve ter um ```"context"```. O contexto representa o nível no qual as operações ocorrem. Na habilidade acima, o contexto é o documento inteiro, o que significa que a habilidade de reconhecimento de entidade é chamada uma vez por documento. As saídas também são produzidas nesse nível. Mais especificamente, ```"organizations"``` são geradas como um membro de ```"/document"```. Em habilidades de downstream, você pode consultar essas informações recentemente criadas como ```"/document/organizations"```.  Se o campo ```"context"``` não estiver definido explicitamente, o contexto padrão será o documento.
 

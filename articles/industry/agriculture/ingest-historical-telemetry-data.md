@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e721a7818c5f2fcea23263b296912edf164036b2
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 5ae64371bd114a898ddca874e23b499bc4a2b8a3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927803"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128773"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos do histórico
 
@@ -29,7 +29,7 @@ Você precisa habilitar a integração de parceiros à instância do FarmBeats d
 - Ponto de extremidade de API – é a URL do hub de dados, por exemplo, https://<datahub>. azurewebsites.net
 - ID do inquilino
 - ID de Cliente
-- Segredo do cliente
+- Segredo do Cliente
 - Cadeia de conexão do EventHub
 
 Siga as etapas abaixo para gerá-los:
@@ -74,7 +74,7 @@ Siga as etapas abaixo para gerá-los:
 - /**sensor de sensor corresponde** a um sensor físico que registra valores. Um sensor normalmente é conectado a um dispositivo com uma ID de dispositivo.  
 
 
-|        Modo de dispositivo   |  Sugestões   |
+|        Modelo de dispositivo   |  Sugestões   |
 | ------- | -------             |
 |     Tipo (nó, gateway)        |          1 Estrela      |
 |          Fabricante            |         2 Estrelas     |
@@ -125,7 +125,7 @@ Para fazer uma solicitação de API, você combina o método HTTP (POST), a URL 
 O FarmBeats data Hub usa a autenticação de portador, que precisa das seguintes credenciais que geramos na seção acima.
 
 - ID de Cliente
-- Segredo do cliente
+- Segredo do Cliente
 - ID do inquilino  
 
 Usando as credenciais acima, o chamador pode solicitar um token de acesso, que precisa ser enviado nas solicitações de API subsequentes na seção de cabeçalho da seguinte maneira:

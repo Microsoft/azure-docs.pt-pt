@@ -1,19 +1,19 @@
 ---
-title: Como implementar a navegação facetada em uma hierarquia de categoria
+title: Adicionar uma hierarquia de categoria de navegação facetada
 titleSuffix: Azure Cognitive Search
-description: Adicione navegação de faceta a aplicativos que se integram ao Azure Pesquisa Cognitiva, um serviço de pesquisa hospedado na nuvem no Microsoft Azure.
+description: Adicione navegação facetada para filtragem Autodirigida em aplicativos de pesquisa que se integram ao Azure Pesquisa Cognitiva.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d10a049f7a4c7da7a75054acd442269adc74b948
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 927f57ae3ca90f5701791022b68c4bf0d91d4e7d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496524"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112077"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Como implementar a navegação facetada no Azure Pesquisa Cognitiva
 
@@ -67,10 +67,10 @@ No Azure Pesquisa Cognitiva, uma solicitação é especificada por meio de um ou
 
 A precisão, entendida como a capacidade de filtrar ocorrências irrelevantes, é obtida por meio de uma ou de ambas as expressões:
 
--   **Pesquisar =**  
+-   **search=**  
     O valor desse parâmetro constitui a expressão de pesquisa. Pode ser uma única parte do texto ou uma expressão de pesquisa complexa que inclui vários termos e operadores. No servidor, uma expressão de pesquisa é usada para pesquisa de texto completo, consultando campos pesquisáveis no índice para termos de correspondência, retornando resultados em ordem de classificação. Se você definir `search` como NULL, a execução da consulta será sobre o índice inteiro (ou seja, `search=*`). Nesse caso, outros elementos da consulta, como um `$filter` ou um perfil de pontuação, são os principais fatores que afetam quais documentos são retornados `($filter`) e em qual ordem (`scoringProfile` ou `$orderby`).
 
--   **$filter =**  
+-   **$filter=**  
     Um filtro é um mecanismo poderoso para limitar o tamanho dos resultados da pesquisa com base nos valores de atributos específicos do documento. Uma `$filter` é avaliada primeiro, seguida pela lógica de faceta que gera os valores disponíveis e as contagens correspondentes para cada valor
 
 Expressões de pesquisa complexas diminuem o desempenho da consulta. Sempre que possível, use expressões de filtro bem construídas para aumentar a precisão e melhorar o desempenho da consulta.
@@ -243,7 +243,7 @@ if (businessTitleFacet != "")
 
 <a name="tips"></a> 
 
-## <a name="tips-and-best-practices"></a>Dicas e práticas recomendadas
+## <a name="tips-and-best-practices"></a>Sugestões e melhores práticas
 
 ### <a name="indexing-tips"></a>Dicas de indexação
 **Melhorar a eficiência do índice se você não usar uma caixa de pesquisa**

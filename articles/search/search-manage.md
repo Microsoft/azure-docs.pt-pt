@@ -1,5 +1,5 @@
 ---
-title: Administração de serviços para o Azure Pesquisa Cognitiva no portal
+title: Administração de serviço no portal
 titleSuffix: Azure Cognitive Search
 description: Gerenciar um serviço de Pesquisa Cognitiva do Azure, um serviço de pesquisa de nuvem hospedado no Microsoft Azure, usando o portal do Azure.
 manager: nitinme
@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 052d772c8ef885d594146d456ebb3cdcbbc0e383
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e00a810e7977e1c45c1833e0b901ff6804f7fb32
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793509"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113282"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviço do Azure Pesquisa Cognitiva no portal do Azure
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ No painel, o monitoramento de recursos é limitado às informações mostradas n
 Usando a API REST do serviço de pesquisa, você pode obter uma contagem de documentos e índices programaticamente: 
 
 * [Obter estatísticas de índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Contar documentos](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [Contagem de documentos](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Interrupções de serviço e recuperação de desastre
 

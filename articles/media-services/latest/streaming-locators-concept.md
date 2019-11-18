@@ -1,6 +1,6 @@
 ---
-title: Transmissão em fluxo localizadores nos serviços de multimédia do Azure | Documentos da Microsoft
-description: Este artigo fornece uma explicação sobre o que são os localizadores de transmissão em fluxo e como elas são usadas pelos serviços de multimédia do Azure.
+title: Localizadores de streaming nos serviços de mídia do Azure | Microsoft Docs
+description: Este artigo fornece uma explicação de quais localizadores de streaming são e como eles são usados pelos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,38 +11,38 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/26/2019
 ms.author: juliako
-ms.openlocfilehash: 5897b7df2460257784c40eb974c473573ec4003d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d13ca5b3657f1deac9e6b4218decf8fe57eb1d9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299172"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113747"
 ---
 # <a name="streaming-locators"></a>Localizadores de Transmissão em Fluxo
 
-Para fazer vídeos no Recurso de saída disponível para a reprodução em clientes, tem de criar um [Localizador de Transmissões em Fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators) e, em seguida, criar os URLs das transmissões. Para compilar um URL, terá de concatenar o nome de anfitrião do ponto final de transmissão em fluxo e o caminho de localizador de transmissão em fluxo. Para um exemplo de .NET, veja [Get a Streaming Locator](stream-files-tutorial-with-api.md#get-a-streaming-locator) (Obter um Localizador de Transmissão em Fluxo).
+Para fazer vídeos no Recurso de saída disponível para a reprodução em clientes, tem de criar um [Localizador de Transmissões em Fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators) e, em seguida, criar os URLs das transmissões. Para criar uma URL, você precisa concatenar o nome do host do ponto de extremidade de streaming e o caminho do localizador de streaming. Para um exemplo de .NET, veja [Get a Streaming Locator](stream-files-tutorial-with-api.md#get-a-streaming-locator) (Obter um Localizador de Transmissão em Fluxo).
 
-O processo de criação de um **localizador de transmissão em fluxo** é chamado de publicação. Por predefinição, o **localizador de transmissão em fluxo** é válido, imediatamente após fazer as chamadas à API e dura até serem eliminada, a menos que configure o início opcional e de horas de fim. 
+O processo de criação de um **localizador de streaming** é chamado publicação. Por padrão, o **localizador de streaming** é válido imediatamente depois que você faz as chamadas à API e dura até que ela seja excluída, a menos que você configure as horas de início e término opcionais. 
 
-Ao criar um **localizador de transmissão em fluxo**, tem de especificar um **Asset** nome e um **política de transmissão em fluxo** nome. Para obter mais informações, consulte os seguintes tópicos:
+Ao criar um **localizador de streaming**, você deve especificar um nome de **ativo** e um nome de **política de streaming** . Para obter mais informações, consulte os seguintes tópicos:
 
-* [Ativos](assets-concept.md)
+* [Recursos](assets-concept.md)
 * [Streaming Policies](streaming-policy-concept.md) (Políticas de Transmissão em Fluxo)
-* [Content Key Policies](content-key-policy-concept.md) (Políticas de Chaves de Conteúdos)
+* [Content Key Policies](content-key-policy-concept.md) (Políticas de chave de conteúdo)
 
-Também pode especificar a hora de início e de fim de sua localizador de transmissão em fluxo, que só permitirá que o seu utilizador reproduzir o conteúdo entre essas horas (por exemplo, entre 5/1/2019 para 5/5/2019).  
+Você também pode especificar a hora de início e de término no seu localizador de streaming, o que permitirá que o usuário execute o conteúdo entre esses horários (por exemplo, entre 5/1/2019 e 5/5/2019).  
 
 ## <a name="considerations"></a>Considerações
 
-* **Os localizadores de transmissão em fluxo** não são atualizáveis. 
-* Propriedades de **localizadores de transmissão em fluxo** que são de Datetime tipo são sempre em formato UTC.
-* Deve criar um conjunto limitado de políticas para a sua conta de serviço de multimédia e reutilizá-los para os localizadores de transmissão em fluxo sempre que as mesmas opções são necessárias. Para obter mais informações, consulte [Quotas e limitações](limits-quotas-constraints.md).
+* Os **localizadores de streaming** não são atualizáveis. 
+* As propriedades dos **localizadores de streaming** que são do tipo DateTime estão sempre no formato UTC.
+* Você deve criar um conjunto limitado de políticas para sua conta de serviço de mídia e reutilizá-las para seus localizadores de streaming sempre que as mesmas opções forem necessárias. Para obter mais informações, consulte [cotas e limitações](limits-quotas-constraints.md).
 
-## <a name="create-streaming-locators"></a>Criar localizadores de transmissão em fluxo  
+## <a name="create-streaming-locators"></a>Criar localizadores de streaming  
 
-### <a name="not-encrypted"></a>Não encriptado
+### <a name="not-encrypted"></a>Não criptografado
 
-Se quer transmitir o seu ficheiro no-the-limpar (não encriptadas), definir a política predefinida de transmissão em fluxo clara: para "Predefined_ClearStreamingOnly" (no .NET, pode usar a enumeração PredefinedStreamingPolicy.ClearStreamingOnly).
+Se você quiser transmitir o arquivo no-The-Clear (não criptografado), defina a política Clear streaming predefinida: para ' Predefined_ClearStreamingOnly ' (no .NET, você pode usar a enumeração PredefinedStreamingPolicy. ClearStreamingOnly).
 
 ```csharp
 StreamingLocator locator = await client.StreamingLocators.CreateAsync(
@@ -58,7 +58,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
 
 ### <a name="encrypted"></a>Encriptados 
 
-Se precisar de encriptar o seu conteúdo com a encriptação de CENC, defina a política para 'Predefined_MultiDrmCencStreaming'. A encriptação do Widevine será aplicada a um fluxo DASH e PlayReady para uniforme. A chave será entregue a um cliente de reprodução com base em licenças DRM configuradas.
+Se você precisar criptografar o conteúdo com a criptografia CENC, defina sua política como ' Predefined_MultiDrmCencStreaming '. A criptografia Widevine será aplicada a um fluxo de DASH e a um PlayReady para Smooth. A chave será entregue a um cliente de reprodução com base nas licenças DRM configuradas.
 
 ```csharp
 StreamingLocator locator = await client.StreamingLocators.CreateAsync(
@@ -73,19 +73,19 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
     });
 ```
 
-Se desejar encriptar a sua transmissão em fluxo HLS com CBCS (FairPlay), utilize 'Predefined_MultiDrmStreaming'.
+Se você também quiser criptografar o fluxo do HLS com CBCS (FairPlay), use ' Predefined_MultiDrmStreaming '.
 
-## <a name="associate-filters-with-streaming-locators"></a>Associar filtros localizadores de transmissão em fluxo
+## <a name="associate-filters-with-streaming-locators"></a>Associar filtros a localizadores de streaming
 
-Ver [filtros: associar às localizadores de transmissão em fluxo](filters-concept.md#associating-filters-with-streaming-locator).
+Consulte [filtros: associar a localizadores de streaming](filters-concept.md#associating-filters-with-streaming-locator).
 
-## <a name="filter-order-page-streaming-locator-entities"></a>Filtrar, ordem, entidades de localizador de transmissão em fluxo de página
+## <a name="filter-order-page-streaming-locator-entities"></a>Entidades do localizador de streaming, Order, Page
 
-Ver [filtragem, ordenação, a paginação de entidades de serviços de multimédia](entities-overview.md).
+Consulte [filtragem, ordenação, paginação de entidades de serviços de mídia](entities-overview.md).
 
-## <a name="list-streaming-locators-by-asset-name"></a>Lista os localizadores de transmissão em fluxo por nome de recurso
+## <a name="list-streaming-locators-by-asset-name"></a>Listar localizadores de streaming por nome de ativo
 
-Para obter os localizadores de transmissão em fluxo de mensagens em fila com base no nome do recurso associado, utilize as seguintes operações:
+Para obter localizadores de streaming com base no nome do ativo associado, use as seguintes operações:
 
 |Idioma|API|
 |---|---|
@@ -93,14 +93,14 @@ Para obter os localizadores de transmissão em fluxo de mensagens em fila com ba
 |CLI|[az ams asset list-streaming-locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
 |.NET|[ListStreamingLocators](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
 |Java|[AssetStreamingLocator](https://docs.microsoft.com/java/api/com.microsoft.azure.management.mediaservices.v2018_07_01.assetstreaminglocator?view=azure-java-stable)|
-|Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/assets?view=azure-node-latest#liststreaminglocators-string--string--string--object-)|
+|Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
 ## <a name="also-see"></a>Consulte também
 
-* [Ativos](assets-concept.md)
+* [Recursos](assets-concept.md)
 * [Streaming Policies](streaming-policy-concept.md) (Políticas de Transmissão em Fluxo)
-* [Content Key Policies](content-key-policy-concept.md) (Políticas de Chaves de Conteúdos)
+* [Content Key Policies](content-key-policy-concept.md) (Políticas de chave de conteúdo)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md) (Tutorial: carregar, codificar e transmitir vídeos em fluxo com .NET)
+[Tutorial: carregar, codificar e transmitir vídeos usando o .NET](stream-files-tutorial-with-api.md)

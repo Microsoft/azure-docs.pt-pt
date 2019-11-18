@@ -1,5 +1,5 @@
 ---
-title: Habilidade de pesquisa cognitiva de extração de documentos (versão prévia)
+title: Habilidade cognitiva de extração de documentos (visualização)
 titleSuffix: Azure Cognitive Search
 description: Extrai o conteúdo de um arquivo dentro do pipeline de enriquecimento. Esta habilidade está atualmente em visualização pública.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: chalton
-ms.openlocfilehash: e4274f1cb2eacaf78ab83bfb9d637d044d2290bd
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a79b0476fccbd2e2b9d3cf47ecfdc99c17c2862d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720121"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113334"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Habilidade cognitiva de extração de documentos
 
@@ -145,7 +145,7 @@ Esse objeto de referência de arquivo pode ser gerado de uma das três maneiras:
 }
 ```
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 + [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)

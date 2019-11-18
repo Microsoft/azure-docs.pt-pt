@@ -1,5 +1,5 @@
 ---
-title: Filtros de idioma para conteúdo multilíngue em um índice de pesquisa
+title: Filtrar por idioma em um índice de pesquisa
 titleSuffix: Azure Cognitive Search
 description: Critérios de filtro para dar suporte à pesquisa em vários idiomas, escopo da execução da consulta em campos específicos do idioma.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2762ce42f0d3f5829682e0910c452746a65ef2f3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5dbf32610e54df4ff009d4cb0a0b080babb4ec73
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792876"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112063"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Como filtrar por idioma no Azure Pesquisa Cognitiva 
 
@@ -21,7 +21,7 @@ Um requisito importante em um aplicativo de pesquisa multilíngüe é a capacida
 
 Os parâmetros de consulta na solicitação são usados para fazer o escopo da operação de pesquisa e, em seguida, aparar os resultados de todos os campos que não fornecem conteúdo compatível com a experiência de pesquisa que você deseja entregar.
 
-| Parâmetros | Finalidade |
+| Parâmetros | Objetivo |
 |-----------|--------------|
 | **searchFields** | Limita a pesquisa de texto completo à lista de campos nomeados. |
 | **$select** | Corta a resposta para incluir apenas os campos que você especificar. Por padrão, todos os campos recuperáveis são retornados. O parâmetro **$Select** permite que você escolha quais serão retornados. |

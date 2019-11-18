@@ -1,7 +1,7 @@
 ---
 title: Referência do operador de comparação de OData
 titleSuffix: Azure Cognitive Search
-description: Operadores de comparação OData, EQ, ne, gt, lt, GE e Le, no Azure Pesquisa Cognitiva consultas.
+description: Sintaxe e documentação de referência para usar operadores de comparação OData (EQ, ne, gt, lt, GE e Le) no Azure Pesquisa Cognitiva consultas.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 068e2ec822f0a292ac83b3e48049830eb77b49f6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 62c8c93e07326e776cbe089042abc481544794bc
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793394"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113219"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operadores de comparação OData no Azure Pesquisa Cognitiva-`eq`, `ne`, `gt`, `lt`, `ge`e `le`
 

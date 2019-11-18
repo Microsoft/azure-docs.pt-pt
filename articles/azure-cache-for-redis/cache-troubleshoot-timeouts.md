@@ -1,25 +1,17 @@
 ---
-title: Solucionar problemas de cache do Azure para tempos limite do Redis | Microsoft Docs
+title: Solucionar problemas de cache do Azure para tempos limite do Redis
 description: Saiba como resolver problemas comuns de tempo limite com o cache do Azure para Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: 4f577e6497e853d9b75f81b5da4f7121064a9d07
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e58b305a43cc5ad339fb87b9b8a09af04c410839
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826340"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121378"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Solucionar problemas de cache do Azure para tempos limite do Redis
 
@@ -49,9 +41,9 @@ Essa mensagem de erro contém métricas que podem ajudar a indicar a causa e a p
 | Inst |Na última fração de tempo: 0 comandos foram emitidos |
 | Manager |O Gerenciador de soquete está fazendo `socket.select`, o que significa que ele está solicitando que o sistema operacional indique um soquete que tenha algo a fazer. O leitor não está lendo ativamente da rede porque não parece que há algo a fazer |
 | fila |Há 73 operações em andamento no total |
-| t |6 das operações em andamento estão na fila não enviada e ainda não foram gravadas na rede de saída |
-| QS |67 das operações em andamento foram enviadas para o servidor, mas uma resposta ainda não está disponível. A resposta pode ser `Not yet sent by the server` ou `sent by the server but not yet processed by the client.` |
-| QC |0 das operações em andamento viram respostas, mas ainda não foram marcadas como concluídas porque estão aguardando o loop de conclusão |
+| qu |6 das operações em andamento estão na fila não enviada e ainda não foram gravadas na rede de saída |
+| qs |67 das operações em andamento foram enviadas para o servidor, mas uma resposta ainda não está disponível. A resposta pode ser `Not yet sent by the server` ou `sent by the server but not yet processed by the client.` |
+| qc |0 das operações em andamento viram respostas, mas ainda não foram marcadas como concluídas porque estão aguardando o loop de conclusão |
 | WR |Há um gravador ativo (o que significa que as 6 solicitações não enviadas não estão sendo ignoradas) bytes/activewriters |
 | No |Não há leitores ativos e zero bytes disponíveis para serem lidos na NIC bytes/activereaders |
 

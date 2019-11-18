@@ -1,5 +1,5 @@
 ---
-title: Recomendações de matriz do microfone do SDK de dispositivos de fala – serviço de fala
+title: Recomendações de matriz do microfone do SDK de dispositivos de fala
 titleSuffix: Azure Cognitive Services
 description: Recomendações de matriz do microfone do SDK de dispositivos de fala. Essas geometrias de matriz são recomendadas para uso com a pilha de áudio da Microsoft.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: 0a0bbbb59d09d35d0153f56f65b2ee1d9438e49d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e39056d6ed1ced85e3f953bcbd7f04dd6311942c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072403"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111657"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recomendações de matriz do microfone do SDK de dispositivos de fala
 
@@ -41,16 +41,16 @@ Os componentes do microfone devem ser selecionados para reproduzir com precisão
 
 As propriedades recomendadas ao selecionar microfones são:
 
-| Parâmetro                     | Recomendado                                         |
-| ----------------------------- | --------------------------------------------------- |
-| SNR                           | \>= 65 dB (sinal de 1 kHz 94 dBSPL, ruído de peso) |
-| Correspondência de amplitude            | ± 1 dB @ 1 kHz                                      |
-| Correspondência de fase                | ± 2 ° @ 1 kHz                                        |
-| Ponto de sobrecarga acústica (AOP) | \>= 120 dBSPL (THD = 10%)                           |
-| Taxa de bits                      | Mínimo de 24 bits                                      |
-| Taxa de Amostragem                 | Mínimo de 16 kHz\*                                    |
-| Resposta de frequência            | ± 3 dB, 200-8000 Hz máscara flutuante\*                 |
-| Fiabilidade                   | Intervalo de temperatura de armazenamento-40 ° c a 70 ° c<br />Intervalo de temperatura operacional-20 ° c a 55 ° c |
+| Parâmetro | Recomendado |
+| --------- | ----------- |
+| SNR | \>= 65 dB (sinal de 1 kHz 94 dBSPL, ruído de peso) |
+| Correspondência de amplitude | ± 1 dB @ 1 kHz |
+| Correspondência de fase | ± 2 ° @ 1 kHz |
+| Ponto de sobrecarga acústica (AOP) | \>= 120 dBSPL (THD = 10%) |
+| Taxa de bits | Mínimo de 24 bits |
+| Taxa de Amostragem | Mínimo de 16 kHz\* |
+| Resposta de frequência | ± 3 dB, 200-8000 Hz máscara flutuante\* |
+| Fiabilidade | Intervalo de temperatura de armazenamento-40 ° c a 70 ° c<br />Intervalo de temperatura operacional-20 ° c a 55 ° c |
 
 \*_taxas de amostragem mais altas ou intervalos de frequência "mais largos" podem ser necessários para aplicativos de comunicação de alta qualidade (VoIP)_
 
@@ -68,7 +68,7 @@ O desempenho da matriz de microfone quando integrada a um dispositivo será dife
 | THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5º pedido             |
 | Resposta de frequência | ± 6 dB, 200-8000 Hz máscara flutuante\*\*              |
 
-\*_um alto-falante de distorção é necessário para medir THD (por exemplo, Neumann KH120)_
+\*\*_um alto-falante de distorção é necessário para medir THD (por exemplo, Neumann KH120)_
 
 \*\*_os intervalos de frequência "mais largos" podem ser necessários para aplicativos de comunicação de alta qualidade (VoIP)_
 

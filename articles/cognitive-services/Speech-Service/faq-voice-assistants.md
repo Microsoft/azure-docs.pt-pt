@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre os assistentes de voz
+title: Perguntas frequentes sobre assistentes de voz
 titleSuffix: Azure Cognitive Services
 description: Obtenha respostas para as perguntas mais populares sobre assistentes de voz usando comandos personalizados (versão prévia) ou o canal de fala de linha direta.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: eccf2a7a1b9c7ea7a21cd5d0cf0f60728284c05d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8480299c2c889a243150028ac9651f4b62656aec
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579674"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110353"
 ---
-# <a name="voice-assistants-frequently-asked-questions"></a>Assistentes de voz: perguntas frequentes
+# <a name="voice-assistants-frequently-asked-questions"></a>Perguntas frequentes sobre assistentes de voz
 
 Se você não encontrar respostas para suas perguntas neste documento, confira [outras opções de suporte](support.md).
 
@@ -35,9 +35,9 @@ Se você não encontrar respostas para suas perguntas neste documento, confira [
 
 **R:** A melhor maneira de começar a criar um aplicativo de comandos personalizados (versão prévia) ou bot de estrutura de bot básico.
 
-* [Criar um aplicativo de comandos personalizados (versão prévia)](quickstart-custom-speech-commands-create-new.md)
-* [Criar um bot de estrutura de bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-* [Conectar um bot ao canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Criar um aplicativo de comandos personalizados (versão prévia)](quickstart-custom-speech-commands-create-new.md)
+- [Criar um bot de estrutura de bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+- [Conectar um bot ao canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>Depurar
 
@@ -47,14 +47,13 @@ Se você não encontrar respostas para suas perguntas neste documento, confira [
 
 A versão mais recente da Direct line Speech simplifica o processo de contato do bot a partir de um dispositivo. Na página de registro do canal, a lista suspensa na parte superior associa seu registro de canal de fala de linha direta a um recurso de fala. Uma vez associado, o SDK de fala v 1.8 inclui um método de fábrica `BotFrameworkConfig::FromSubscription` que configurará um `DialogServiceConnector` para entrar em contato com o bot que você associou à sua assinatura.
 
-Se você ainda estiver migrando seu aplicativo cliente de v 1.7 para v 1.8, `DialogServiceConfig::FromBotSecret` poderá continuar a trabalhar com um valor não vazio e não nulo para seu parâmetro secreto de canal, por exemplo, o segredo anterior que você usou. Ele simplesmente será ignorado ao usar uma assinatura de fala associada a um registro de canal mais recente. Observe que o valor *deve* ser não nulo e não vazio, pois eles são verificados no dispositivo antes que a associação do lado do serviço seja relevante.
-
+Se você ainda estiver migrando seu aplicativo cliente de v 1.7 para v 1.8, `DialogServiceConfig::FromBotSecret` poderá continuar a trabalhar com um valor não vazio e não nulo para seu parâmetro secreto de canal, por exemplo, o segredo anterior que você usou. Ele simplesmente será ignorado ao usar uma assinatura de fala associada a um registro de canal mais recente. Observe que o valor _deve_ ser não nulo e não vazio, pois eles são verificados no dispositivo antes que a associação do lado do serviço seja relevante.
 
 Para obter um guia mais detalhado, consulte a [seção do tutorial](tutorial-voice-enable-your-bot-speech-sdk.md#register-the-direct-line-speech-channel) que percorre o registro do canal.
 
 **P: recebo um erro 401 ao se conectar e nada funciona. Sei que minha chave de assinatura de fala é válida. O que está acontecendo?**
 
-**R:** Ao gerenciar sua assinatura no portal do Azure, verifique se você está usando o recurso de **fala** (Microsoft. CognitiveServicesSpeechServices, "fala") e *não* o recurso de **Serviços cognitivas** ( Microsoft. CognitiveServicesAllInOne, "todos os serviços cognitivas"). Além disso, verifique o [suporte de região do serviço de fala para assistentes de voz](regions.md#voice-assistants).
+**R:** Ao gerenciar sua assinatura no portal do Azure, verifique se você está usando o recurso de **fala** (Microsoft. CognitiveServicesSpeechServices, "fala") e _não_ o recurso de **Serviços cognitivas** ( Microsoft. CognitiveServicesAllInOne, "todos os serviços cognitivas"). Além disso, verifique o [suporte de região do serviço de fala para assistentes de voz](regions.md#voice-assistants).
 
 ![assinatura correta para a Direct line Speech](media/voice-assistants/faq-supported-subscription.png "exemplo de uma assinatura de fala compatível")
 
@@ -62,8 +61,8 @@ Para obter um guia mais detalhado, consulte a [seção do tutorial](tutorial-voi
 
 **R:** Esse erro indica um problema de comunicação entre o assistente e o serviço de assistente de voz.
 
-* Para comandos personalizados (versão prévia), verifique se o aplicativo de comandos personalizados (versão prévia) foi publicado
-* Para a Direct line Speech, verifique se você [conectou o bot ao canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [adicionou suporte de protocolo de streaming](https://aka.ms/botframework/addstreamingprotocolsupport) ao bot (com o suporte de soquete da Web relacionado) e, em seguida, verifique se o bot está respondendo às solicitações de entrada do canal.
+- Para comandos personalizados (versão prévia), verifique se o aplicativo de comandos personalizados (versão prévia) foi publicado
+- Para a Direct line Speech, verifique se você [conectou o bot ao canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [adicionou suporte de protocolo de streaming](https://aka.ms/botframework/addstreamingprotocolsupport) ao bot (com o suporte de soquete da Web relacionado) e, em seguida, verifique se o bot está respondendo às solicitações de entrada do canal.
 
 **P: esse código ainda não funciona e/ou estou recebendo um erro diferente ao usar um `DialogServiceConnector`. O que devo fazer?**
 
@@ -71,5 +70,5 @@ Para obter um guia mais detalhado, consulte a [seção do tutorial](tutorial-voi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Resolução de problemas](troubleshooting.md)
-* [Notas de versão](releasenotes.md)
+- [Resolução de problemas](troubleshooting.md)
+- [Notas de versão](releasenotes.md)

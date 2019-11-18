@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f53bf023346c4f494de5ab50e8beb185d9f97c91
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 6f6aa90553f3a69d2d287c7d59e166884a1a8f66
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882659"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113722"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Exclusão reversível para BLOBs de armazenamento do Azure
 
@@ -23,7 +23,7 @@ O armazenamento do Azure agora oferece exclusão reversível para objetos de BLO
 
 Quando habilitado, a exclusão reversível permite que você salve e recupere seus dados quando BLOBs ou instantâneos de blob são excluídos. Essa proteção se estende aos dados de BLOB que são apagados como resultado de uma substituição.
 
-Quando os dados são excluídos, ele faz a transição para um estado de exclusão reversível em vez de ser apagado permanentemente. Quando a exclusão reversível está ativada e você substitui dados, um instantâneo com exclusão reversível é gerado para salvar o estado dos dados substituídos. Os objetos com exclusão reversível são invisíveis, a menos que explicitamente listados. Você pode configurar a quantidade de tempo que os dados com exclusão reversível são recuperáveis antes de expirarem permanentemente.
+Quando os dados são excluídos, ele faz a transição para um estado de exclusão reversível em vez de ser apagado permanentemente. Quando a exclusão reversível está ativada e você substitui dados, um instantâneo com exclusão reversível é gerado para salvar o estado dos dados substituídos. Os objetos com exclusão reversível são invisíveis, a menos que explicitamente listados. Pode configurar o período de tempo durante o qual os dados eliminados de forma recuperável são recuperáveis antes de expirarem de forma permanente.
 
 A exclusão reversível é compatível com versões anteriores, portanto, você não precisa fazer nenhuma alteração em seus aplicativos para aproveitar as proteções que esse recurso proporciona. No entanto, a [recuperação de dados](#recovery) introduz uma nova API para **restaurar blob** .
 
@@ -41,7 +41,7 @@ Você pode alterar o período de retenção de exclusão reversível a qualquer 
 
 A exclusão reversível preserva seus dados em muitos casos em que BLOBs ou instantâneos de blob são excluídos ou substituídos.
 
-Quando um blob é substituído usando **Put Blob**, **Put bloquear**, **Put bloquear lista** ou **copiar blob** , um instantâneo do estado do blob antes da operação de gravação é gerado automaticamente. Esse instantâneo é um instantâneo com exclusão reversível; Ela é invisível, a menos que os objetos excluídos por software sejam explicitamente listados. Consulte a seção [recuperação](#recovery) para saber como listar objetos com exclusão reversível.
+Quando um blob é substituído usando **Put Blob**, **Put bloquear**, **Put bloquear List**ou **Copy blob** , um instantâneo do estado do blob antes da operação de gravação é gerado automaticamente. Esse instantâneo é um instantâneo com exclusão reversível; Ela é invisível, a menos que os objetos excluídos por software sejam explicitamente listados. Consulte a seção [recuperação](#recovery) para saber como listar objetos com exclusão reversível.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-overwrite.png)
 
@@ -79,7 +79,7 @@ A tabela a seguir detalha o comportamento esperado quando a exclusão reversíve
 | [Colocar blob](/rest/api/storageservices/put-blob) | Blobs de bloco, acréscimo e página | Cria um novo BLOB ou substitui um blob existente em um contêiner | Se for usado para substituir um blob existente, um instantâneo do estado do blob antes da chamada será gerado automaticamente. Isso também se aplica a um blob com exclusão reversível anteriormente se e somente se ele for substituído por um blob do mesmo tipo (bloco, acréscimo ou página). Se ele for substituído por um blob de um tipo diferente, todos os dados de exclusão reversível existentes serão permanentemente expirados. |
 | [Excluir blob](/rest/api/storageservices/delete-blob) | Blobs de bloco, acréscimo e página | Marca um instantâneo de BLOB ou BLOB para exclusão. O BLOB ou instantâneo é excluído posteriormente durante a coleta de lixo | Se usado para excluir um instantâneo de BLOB, esse instantâneo é marcado como com exclusão reversível. Se for usado para excluir um blob, esse blob será marcado como com exclusão reversível. |
 | [Copiar blob](/rest/api/storageservices/copy-blob) | Blobs de bloco, acréscimo e página | Copia um blob de origem para um blob de destino na mesma conta de armazenamento ou em outra conta de armazenamento. | Se for usado para substituir um blob existente, um instantâneo do estado do blob antes da chamada será gerado automaticamente. Isso também se aplica a um blob com exclusão reversível anteriormente se e somente se ele for substituído por um blob do mesmo tipo (bloco, acréscimo ou página). Se ele for substituído por um blob de um tipo diferente, todos os dados de exclusão reversível existentes serão permanentemente expirados. |
-| [Colocar bloco](/rest/api/storageservices/put-block) | Blobs de bloco | Cria um novo bloco a ser confirmado como parte de um blob de blocos. | Se usado para confirmar um bloco em um blob ativo, não há alteração. Se usado para confirmar um bloco em um blob que é excluído de maneira reversível, um novo BLOB é criado e um instantâneo é gerado automaticamente para capturar o estado do blob com exclusão reversível. |
+| [Colocar bloco](/rest/api/storageservices/put-block) | Blobs de bloco | Cria um novo bloco a ser confirmado como parte de um blob de blocos. | Se for usado para confirmar um bloco em um blob que está ativo, não haverá alteração. Se usado para confirmar um bloco em um blob que é excluído de maneira reversível, um novo BLOB é criado e um instantâneo é gerado automaticamente para capturar o estado do blob com exclusão reversível. |
 | [Colocar lista de blocos](/rest/api/storageservices/put-block-list) | Blobs de bloco | Confirma um blob especificando o conjunto de IDs de bloco que compõem o blob de blocos. | Se for usado para substituir um blob existente, um instantâneo do estado do blob antes da chamada será gerado automaticamente. Isso também se aplica a um blob com exclusão reversível anteriormente se e somente se ele for um blob de blocos. Se ele for substituído por um blob de um tipo diferente, todos os dados de exclusão reversível existentes serão permanentemente expirados. |
 | [Colocar página](/rest/api/storageservices/put-page) | Blobs de Página | Grava um intervalo de páginas em um blob de páginas. | Nenhuma alteração. Os dados de blob de páginas substituídos ou limpos usando essa operação não são salvos e não são recuperáveis. |
 | [Bloco de acréscimo](/rest/api/storageservices/append-block) | Acrescentar BLOBs | Grava um bloco de dados no final de um blob de acréscimo | Nenhuma alteração. |
@@ -293,9 +293,9 @@ blockBlob.StartCopy(copySource);
 
 ---
 
-## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>Há alguma consideração especial para usar a exclusão reversível?
+## <a name="special-considerations"></a>Considerações especiais
 
-Se houver uma chance de que seus dados sejam acidentalmente modificados ou excluídos por um aplicativo ou outro usuário da conta de armazenamento, é recomendável ativar a exclusão reversível. Habilitar a exclusão reversível para dados frequentemente substituídos pode resultar em encargos de capacidade de armazenamento maiores e maior latência ao listar BLOBs. Você pode reduzir esse custo adicional armazenando os dados substituídos frequentemente em uma conta de armazenamento separada na qual a exclusão reversível está desabilitada. 
+Se houver uma chance de que seus dados sejam acidentalmente modificados ou excluídos por um aplicativo ou outro usuário da conta de armazenamento, é recomendável ativar a exclusão reversível. Habilitar a exclusão reversível para dados frequentemente substituídos pode resultar em encargos de capacidade de armazenamento maiores e maior latência ao listar BLOBs. Você pode reduzir esse custo e latência adicionais armazenando os dados frequentemente substituídos em uma conta de armazenamento separada em que a exclusão reversível está desabilitada. 
 
 ## <a name="faq"></a>FAQ
 

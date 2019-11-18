@@ -1,5 +1,5 @@
 ---
-title: Como usar o Azure Pesquisa Cognitiva de um aplicativo .NET
+title: Usar o Pesquisa Cognitiva do Azure no .NET
 titleSuffix: Azure Cognitive Search
 description: Saiba como usar o Azure Pesquisa Cognitiva em um aplicativo .NET usando C# o e o SDK do .net. As tarefas baseadas em código incluem conectar-se ao serviço, índice de conteúdo e consultar um índice.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e1903b3b33e1dde5178fadbc37feee191a2eaacd
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 54fcd1fb936b5dd41715798408b604106a24bcf9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792127"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112586"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Como usar o Azure Pesquisa Cognitiva de um aplicativo .NET
 
@@ -33,8 +33,8 @@ Os outros pacotes NuGet no SDK são:
 
 As várias bibliotecas de cliente definem classes como `Index`, `Field`e `Document`, bem como operações como `Indexes.Create` e `Documents.Search` nas classes `SearchServiceClient` e `SearchIndexClient`. Essas classes são organizadas nos seguintes namespaces:
 
-* [Microsoft. Azure. Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
-* [Microsoft. Azure. Search. Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
+* [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
+* [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
 Se você quiser fornecer comentários para uma atualização futura do SDK, consulte nossa [página de comentários](https://feedback.azure.com/forums/263029-azure-search/) ou crie um problema no [GitHub](https://github.com/azure/azure-sdk-for-net/issues) e mencione "Azure pesquisa cognitiva" no título do problema.
 
@@ -61,7 +61,7 @@ Há várias coisas que você precisará fazer em seu aplicativo de pesquisa. Nes
 
 O código de exemplo a seguir ilustra cada um desses cenários. Sinta-se à vontade para usar os trechos de código em seu próprio aplicativo.
 
-### <a name="overview"></a>Visão geral
+### <a name="overview"></a>Descrição geral
 O aplicativo de exemplo que iremos explorar criará um novo índice chamado "Hotéis", o preencherá com alguns documentos e, em seguida, executará algumas consultas de pesquisa. Este é o programa principal, mostrando o fluxo geral:
 
 ```csharp

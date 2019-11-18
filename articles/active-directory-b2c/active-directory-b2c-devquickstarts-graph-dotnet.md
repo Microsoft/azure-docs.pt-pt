@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c4c8f123eb8c32362219f21dc70d137f2cc9b4b1
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e0b87757326b5e2a54a78a38bbcd5bef8e6f5be2
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74078827"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74119982"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usar o API do Graph do Azure AD
 
@@ -281,7 +281,7 @@ Você pode pesquisar usuários em seu locatário B2C das seguintes maneiras:
 
 * Referencie a ID de **objeto**do usuário.
 * Referencie seu identificador de entrada, a propriedade `signInNames`.
-* Faça referência a qualquer um dos parâmetros de OData válidos, por exemplo, excertoname, sobrenome, displayName, etc.
+* Referencie qualquer um dos parâmetros de OData válidos. Por exemplo, ' excertoname ', ' sobrenome ', ' displayName ' etc.
 
 Execute um dos seguintes comandos para procurar um usuário:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: criar um serviço de Pesquisa Cognitiva do Azure no portal'
+title: 'Início rápido: criar um serviço de pesquisa no portal'
 titleSuffix: Azure Cognitive Search
 description: Provisione um recurso de pesquisa AzureCognitive no portal do Azure. Escolha grupos de recursos, regiões e a SKU ou tipo de preço.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 5acfb60395f39d17e640e389ae2a28e220ccfae6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 75a7cce55627a981d0d0b0f23a119fac6de920ef
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884272"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112116"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Início rápido: criar um serviço de Pesquisa Cognitiva do Azure no portal
 

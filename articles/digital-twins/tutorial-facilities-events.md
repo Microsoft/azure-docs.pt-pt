@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 3cb5d8a6cb605d2150be1e34a9f4b0ac7955aed6
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 545e1757f4f3669957d8f6755cdbd9a2b29513b6
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107689"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129229"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: receber notificações de seus espaços de gêmeos digitais do Azure usando aplicativos lógicos
 
@@ -38,7 +38,7 @@ Neste tutorial, parte-se do princípio de que [configurou](tutorial-facilities-s
 - Uma instância do Digital Twins em execução.
 - Os [exemplos do Digital Twins em C#](https://github.com/Azure-Samples/digital-twins-samples-csharp) transferidos e extraídos para o computador de trabalho.
 - [SDK do .NET Core versão 2.1.403 ou posterior](https://www.microsoft.com/net/download) em seu computador de desenvolvimento para executar o exemplo. Execute `dotnet --version` para verificar se a versão correta está instalada.
-- Uma conta do Office 365 para enviar e-mails de notificação.
+- Uma conta [do Office 365](https://products.office.com/home) para enviar emails de notificação.
 
 > [!TIP]
 > Use um nome de instância de gêmeos digital exclusivo se você estiver Provisionando uma nova instância.
@@ -51,7 +51,7 @@ Nesta seção, você configura a [grade de eventos](../event-grid/overview.md) p
 
 Um [tópico de grade de eventos](../event-grid/concepts.md#topics) fornece uma interface para rotear os eventos gerados pela função definida pelo usuário. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, selecione **Criar um recurso**. 
 
@@ -63,7 +63,7 @@ Um [tópico de grade de eventos](../event-grid/concepts.md#topics) fornece uma i
 
 1. Navegue até o tópico da grade de eventos do seu grupo de recursos, selecione **visão geral**e copie o valor do **ponto de extremidade do tópico** para um arquivo temporário. Você precisará dessa URL na próxima seção. 
 
-1. Selecione **chaves de acesso**e copie **YOUR_KEY_1** e **YOUR_KEY_2** em um arquivo temporário. Você precisará desses valores para criar o ponto de extremidade na próxima seção.
+1. Selecione **chaves de acesso**e copie a **chave 1** e a **chave 2** em um arquivo temporário. Você precisará desses valores para criar o ponto de extremidade na próxima seção.
 
     [![chaves de grade de eventos](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
 
@@ -85,9 +85,9 @@ Um [tópico de grade de eventos](../event-grid/concepts.md#topics) fornece uma i
       path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Substitua o espaço reservado `<Primary connection string for your Event Grid>` pelo valor de **YOUR_KEY_1**.
+1. Substitua o espaço reservado `<Primary connection string for your Event Grid>` pelo valor da **chave 1**.
 
-1. Substitua o espaço reservado `<Secondary connection string for your Event Grid>` pelo valor de **YOUR_KEY_2**.
+1. Substitua o espaço reservado `<Secondary connection string for your Event Grid>` pelo valor da **chave 2**.
 
 1. Substitua o espaço reservado **pelo caminho pelo caminho** do tópico da grade de eventos. Obtenha esse caminho removendo **https://** e os caminhos de recurso à direita da URL do **ponto de extremidade do tópico** . Deverá ser semelhante ao formato *NomedoEventGrid.asuaLocalização.eventgrid.azure.net*.
 
@@ -178,7 +178,7 @@ Você pode usar o serviço de [aplicativos lógicos do Azure](../logic-apps/logi
 
    a. Selecione **Adicionar uma ação**e selecione **Office 365 Outlook**.
 
-   b. Na lista **ações** , selecione **enviar um email**. Selecione **entrar** e use suas credenciais de conta de email. Selecione **permitir acesso** , se solicitado.
+   b. Na lista **ações** , selecione **enviar um email (v2)** . Selecione **entrar** e use suas credenciais de conta de email. Selecione **permitir acesso** , se solicitado.
 
    c. Na caixa **To** (Para), introduza o ID do seu e-mail para receber notificações. Em **assunto**, insira o texto **notificação de gêmeos digital para uma qualidade de ar ruim no espaço**. Em seguida, selecione **TopologyObjectId** na lista de **conteúdo dinâmico** para **analisar JSON**.
 

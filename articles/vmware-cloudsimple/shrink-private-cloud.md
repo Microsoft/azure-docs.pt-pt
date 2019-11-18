@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1ae2f87a3719853f4a91cb8ba801be6d578597d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 602dca105e91c55c591388a833a36e71f951da8b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825689"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108603"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>Reduzir uma nuvem privada CloudSimple
 
@@ -24,7 +24,8 @@ O CloudSimple fornece a flexibilidade para reduzir dinamicamente uma nuvem priva
 As condições a seguir devem ser atendidas para a redução de uma nuvem privada.  O cluster de gerenciamento (primeiro cluster) criado quando uma nuvem privada foi criada não pode ser excluído.
 
 * Um cluster vSphere deve ter três nós.  Um cluster com apenas três nós não pode ser reduzido.
-* O armazenamento total consumido não deve exceder a capacidade total após a redução do cluster. 
+* O armazenamento total consumido não deve exceder a capacidade total após a redução do cluster.
+* Verifique se alguma regra do Distributed Resource Scheduler (DRS) impede o vMotion de uma máquina virtual.  Se houver regras, desabilite ou exclua as regras.  As regras do DRS incluem a máquina virtual para hospedar regras de afinidade.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -55,7 +56,8 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 A redução da nuvem privada é iniciada.  Você pode monitorar o progresso em tarefas.  O processo de redução pode levar algumas horas, dependendo dos dados, que precisam ser ressincronizados no vSAN.
 
 > [!NOTE]
-> Se você reduzir uma nuvem privada excluindo o último ou o único cluster no datacenter, o datacenter não será excluído.  
+> 1. Se você reduzir uma nuvem privada excluindo o último ou o único cluster no datacenter, o datacenter não será excluído.
+> 2. Se ocorrer uma violação de regra de DRS, o nó não será removido do cluster e a descrição da tarefa mostrará que a remoção de um nó violará as regras do DRS no cluster.    
 
 
 ## <a name="next-steps"></a>Passos seguintes

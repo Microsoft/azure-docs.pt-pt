@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Obtendo resultados de Verificação Ortográfica usando a API Verificação Ortográfica do Bing'
+title: 'Tutorial: Obter os Resultados da Verificação Ortográfica com a API de Verificação de Ortografia do Bing'
 titleSuffix: Azure Cognitive Services
-description: Mostra como utilizar a Verificação de Ortografia do Bing.
+description: Neste tutorial, criaremos uma página da Web que permite aos usuários consultar a API de Verificação Ortográfica do Bing e exibir os resultados.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: 73466b80915d5eb7228eef397d5aad68d27faa15
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 4ef45d0d67d44ee1bcf0f06f41425ca5366ce46d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996837"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111445"
 ---
-# <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Criar uma página da Web Verificação Ortográfica cliente
+# <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Compilar um cliente de Verificação Ortográfica de página Web
 
 Neste tutorial, vamos compilar uma página Web que permite que os utilizadores consultem a API de Verificação de Ortografia do Bing. O código-fonte para este aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: criar um comando personalizado (versão prévia)'
+title: 'Início rápido: criar um comando personalizado (versão prévia) – serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, você cria e testa um aplicativo de comandos personalizados hospedado.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: bfe871ce6f7cd2fbd6ada4b825e41ebdf5ac3f12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 80eb0a2018ece23de80e8eb9c4a68c149b590440
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507563"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111361"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Início rápido: criar um comando personalizado (versão prévia)
 

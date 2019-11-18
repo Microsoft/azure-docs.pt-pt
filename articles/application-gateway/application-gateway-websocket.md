@@ -1,18 +1,18 @@
 ---
-title: Suporte a WebSocket no gateway Aplicativo Azure | Microsoft Docs
-description: Esta página fornece uma visão geral do suporte ao WebSocket do gateway de aplicativo.
+title: Suporte a WebSocket no gateway Aplicativo Azure
+description: O Gateway de Aplicação fornece suporte nativo para o WebSocket em todos os tamanhos de gateway. Não há configurações definidas pelo usuário.
 author: vhorne
 ms.author: amsriva
 ms.service: application-gateway
+services: application-gateway
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 03/18/2019
-ms.openlocfilehash: a48f1b6e4410820d40ba6563d431c690ab791ff0
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.date: 11/16/2019
+ms.openlocfilehash: baa02c4d946a121f26f421af99835ae2bea18847
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097247"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130341"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Visão geral do suporte ao WebSocket no gateway de aplicativo
 
@@ -121,6 +121,6 @@ O back-end deve ter um servidor Web HTTP/HTTPS em execução na porta configurad
 
 Outro motivo para isso é que a investigação de integridade de back-end do gateway de aplicativo dá suporte apenas a protocolos HTTP e HTTPS. Se o servidor back-end não responder a investigações HTTP ou HTTPS, ele será retirado do pool de back-end.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de aprender sobre o suporte ao WebSocket, vá para [criar um gateway de aplicativo](quick-create-powershell.md) para começar com um aplicativo Web habilitado para WebSocket.

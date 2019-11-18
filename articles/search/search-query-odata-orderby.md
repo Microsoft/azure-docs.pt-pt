@@ -1,7 +1,7 @@
 ---
 title: Referência de ordem por OData
 titleSuffix: Azure Cognitive Search
-description: Referência de linguagem OData para sintaxe de order-by nas consultas do Azure Pesquisa Cognitiva.
+description: Documentação de referência de sintaxe e linguagem para usar order-by no Azure Pesquisa Cognitiva consultas.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e3ca19b5696b9a7ad9b68b180313753a5c9de912
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 99ec639b88f3334530243242aadfa0ab52a40df0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793307"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113158"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Sintaxe de $orderby OData no Azure Pesquisa Cognitiva
 

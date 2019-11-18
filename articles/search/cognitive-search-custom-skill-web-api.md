@@ -1,5 +1,5 @@
 ---
-title: Habilidades da API Web personalizada em um pipeline de enriquecimento
+title: Habilidade personalizada da API Web no habilidades
 titleSuffix: Azure Cognitive Search
 description: Estenda os recursos do Azure Pesquisa Cognitiva habilidades chamando as APIs da Web. Use a habilidade personalizada da API Web para integrar seu código personalizado.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b0d0caa9deb43bc198b3c09836ac94777cf154
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: defe6711049e191ada1a2f6e46d6643debdca86e
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466731"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113791"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Habilidades da API Web personalizada em um pipeline de enriquecimento de Pesquisa Cognitiva do Azure
 
@@ -28,7 +28,7 @@ A estrutura dos conteúdos JSON é descrita mais adiante neste documento.
 > * `429 Too Many Requests`
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft. Skills. Custom. WebApiSkill
+Microsoft.Skills.Custom.WebApiSkill
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
@@ -201,7 +201,7 @@ Além de sua API Web estar indisponível ou enviar códigos de status não bem-s
 
 Para casos em que a API Web não está disponível ou retorna um erro de HTTP, um erro amigável com todos os detalhes disponíveis sobre o erro HTTP será adicionado ao histórico de execução do indexador.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
 + [Adicionar uma habilidade personalizada a um pipeline de enriquecimento de ia](cognitive-search-custom-skill-interface.md)

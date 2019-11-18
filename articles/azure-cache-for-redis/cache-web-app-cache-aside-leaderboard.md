@@ -1,26 +1,18 @@
 ---
-title: Tutorial para criar um aplicativo Web com o cache do Azure para Redis que usa o padrão de reserva de cache | Microsoft Docs
+title: Tutorial para criar um aplicativo Web com o cache do Azure para Redis que usa o padrão de reserva de cache
 description: Saiba como criar um aplicativo Web com o cache do Azure para Redis que usa o padrão de reserva de cache
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 3260bbbd858fecc8cc305a9fcab0b551fdf182dc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dbd8250da46e640aaa9403430ae0fbfaa9b181c8
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834117"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121505"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar uma classificação cache-aside no ASP.NET
 
@@ -711,7 +703,7 @@ Neste passo do tutorial, vai publicar as atualizações da aplicação no Azure 
 
     | Ação | Descrição |
     | --- | --- |
-    | Criar Nova |Crie uma nova Equipa. |
+    | Criar Novo |Crie uma nova Equipa. |
     | Reproduzir Época |Reproduza uma época de jogos, atualize as estatísticas da equipa e limpe quaisquer dados da equipa desatualizados da cache. |
     | Limpar Cache |Limpe as estatísticas da equipa na cache. |
     | Lista na Cache |Obtenha as estatísticas da equipa a partir da cache. Se existir uma falha de acerto na cache, carregue as estatísticas da base de dados e guarde-as na cache para a próxima utilização. |
@@ -741,7 +733,7 @@ Quando tiver terminado o tutorial da aplicação de exemplo, poderá eliminar os
 
     Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Como dimensionar o cache do Azure para Redis](./cache-how-to-scale.md)

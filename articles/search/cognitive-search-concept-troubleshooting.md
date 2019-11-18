@@ -1,5 +1,5 @@
 ---
-title: Dicas de solução de problemas para o enriquecimento de ia
+title: Dicas para design de enriquecimento de ia
 titleSuffix: Azure Cognitive Search
 description: Dicas e solução de problemas para configurar pipelines de enriquecimento de ia no Azure Pesquisa Cognitiva.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 485dd47e035f03a8e20ded4c8a424f1658f5246a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3fef5db90c3ae63a8fa48835646e09f9dfe6f023
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787706"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113840"
 ---
-# <a name="troubleshooting-tips-for-ai-enrichment-in-azure-cognitive-search"></a>Dicas de solução de problemas para o enriquecimento de ia no Azure Pesquisa Cognitiva
+# <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Dicas para o enriquecimento de ia no Azure Pesquisa Cognitiva
 
 Este artigo contém uma lista de dicas e truques para manter você mudando à medida que começar a usar os recursos de enriquecimento de ia no Azure Pesquisa Cognitiva. 
 

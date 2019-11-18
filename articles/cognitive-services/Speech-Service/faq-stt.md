@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre o serviço de fala para texto no Azure
+title: Perguntas frequentes sobre fala para texto
 titleSuffix: Azure Cognitive Services
 description: Obtenha respostas para perguntas frequentes sobre o serviço de fala para texto.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: f03a937aff17c6ee622f3b5ab6045f912b51bbf2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 277d8e3fe8f54b8e95d8acc93d26100d3ac64db1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072588"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110696"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre fala para texto
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 1b6b3f4e4be9d056bc53fac2eb2f1f3fcd768085
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c3ed84e06f693925ed8b484070616e223929e401
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514995"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108757"
 ---
 # <a name="using-sql-database-dac-package-and-stream-analytics-job-with-sql-database-edge"></a>Usando o pacote de DAC do banco de dados SQL e Stream Analytics trabalho com borda do banco de dados SQL
 
@@ -37,7 +37,7 @@ A borda do banco de dados SQL do Azure expõe dois parâmetros opcionais por mei
 |Campo | Descrição |
 |------|-------------|
 | SQLPackage | URI do armazenamento de BLOBs do Azure para o arquivo *. zip que contém o pacote de DAC do banco de dados SQL.
-| ASAJobInfo | URI do armazenamento de BLOBs do Azure para o trabalho do ASA Edge. Para obter mais informações sobre como publicar o trabalho do ASA Edge, consulte [publicando um trabalho do asa Edge para a borda do banco de dados SQL]().
+| ASAJobInfo | URI do armazenamento de BLOBs do Azure para o trabalho do ASA Edge. Para obter mais informações sobre como publicar o trabalho do ASA Edge, consulte [publicando um trabalho do asa Edge para a borda do banco de dados SQL](/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
 
 ## <a name="using-sql-database-dac-packages-with-sql-database-edge"></a>Usando pacotes de DAC do banco de dados SQL com borda do banco de dados SQL
 

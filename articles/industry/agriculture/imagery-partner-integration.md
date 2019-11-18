@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 232ade55350ad1ac85612cf8c69117c19cb20d0c
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 788ffd9e7036996f6ac1bc7fcbc33137aca40ee2
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927785"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132016"
 ---
 # <a name="imagery-partner-integration"></a>Integração de parceiros de imagens
 
@@ -34,7 +34,7 @@ Você deve usar as seguintes credenciais no software de parceiro drone para vinc
 - Ponto Final de API
 - ID do inquilino
 - ID de Cliente
-- Segredo do cliente
+- Segredo do Cliente
 
 ## <a name="api-development"></a>Desenvolvimento de API
 
@@ -42,14 +42,14 @@ As APIs contêm a documentação técnica do Swagger. Examine o [Swagger](https:
 
 ## <a name="authentication"></a>Autenticação
 
-O FarmBeats aproveita [Active Directory]((https://docs.microsoft.com/azure/app-service/overview-authentication-authorization))de Microsoft Azure. O serviço de Azure App de autenticação fornece suporte interno de autenticação e autorização. 
+O FarmBeats aproveita [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)de Microsoft Azure. O serviço de Azure App fornece autenticação interna e suporte de autorização. 
 
 Para obter mais informações sobre o, consulte [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
 
 O FarmBeats data Hub usa a autenticação de portador, que precisa das seguintes credenciais:
 
 - ID de Cliente
-- Segredo do cliente
+- Segredo do Cliente
 - ID do inquilino
 
 Usando as credenciais acima, o chamador pode solicitar um token de acesso, que precisa ser enviado nas solicitações de API subsequentes, na seção de cabeçalho da seguinte maneira:
@@ -86,7 +86,7 @@ Aqui estão os cabeçalhos de solicitação mais comuns que precisam ser especif
 --- | ---
 Tipo de conteúdo  | O formato de solicitação (Content-Type: Application/<format>) para o formato da API do hub de dados FarmBeats é JSON. Tipo de conteúdo: aplicativo/JSON
 Autorização | Especifica o token de acesso necessário para fazer uma chamada à API. Autorização: portador de acesso < token >
-aceitar  | O formato de resposta. Para APIs de Hub de dados FarmBeats, o formato é JSON Accept: aplicativo/JSON
+Aceitar  | O formato de resposta. Para APIs de Hub de dados FarmBeats, o formato é JSON Accept: aplicativo/JSON
 
 
 ## <a name="api-requests"></a>Solicitações de API
