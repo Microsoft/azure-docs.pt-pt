@@ -7,17 +7,17 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar uma aplicação ASP.NET
+    - name: Aplicação ASP.NET
       href: cache-web-app-howto.md
-    - name: Criar uma aplicação .NET
-      href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: Criar uma aplicação .NET Core
+    - name: Aplicação .NET Core
       href: cache-dotnet-core-quickstart.md
-    - name: Criar uma aplicação em Node.js
-      href: cache-nodejs-get-started.md
-    - name: Criar uma aplicação em Java
+    - name: Aplicação .NET
+      href: cache-dotnet-how-to-use-azure-redis-cache.md
+    - name: Aplicação Java
       href: cache-java-get-started.md
-    - name: Criar uma aplicação em Python
+    - name: Aplicação Node.js
+      href: cache-nodejs-get-started.md
+    - name: Aplicação Python
       href: cache-python-get-started.md
 - name: Tutoriais
   items:
@@ -33,10 +33,10 @@
       href: cli-samples.md
 - name: Conceitos
   items:
-    - name: Melhores práticas
-      href: cache-best-practices.md
     - name: Ativação pós-falha e aplicação de patches
       href: cache-failover.md
+    - name: Melhores práticas
+      href: cache-best-practices.md
     - name: Melhores práticas de colocação em cache da arquitetura
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
 - name: Guias de procedimentos
@@ -45,12 +45,14 @@
       items:
         - name: Escolher um escalão de cache
           href: 'cache-faq.md#what-redis-cache-offering-and-size-should-i-use'
+        - name: Distribua a cache com clustering
+          href: cache-how-to-premium-clustering.md
         - name: Mantenha a cache com a persistência de dados de Redis
           href: cache-how-to-premium-persistence.md
         - name: Protega a sua cache com uma rede virtual
           href: cache-how-to-premium-vnet.md
-        - name: Distribua a cache com clustering
-          href: cache-how-to-premium-clustering.md
+        - name: Configurar a georreplicação
+          href: cache-how-to-geo-replication.md
         - name: Migrar do Serviço de Cache Gerida
           href: cache-migrate-to-redis.md
     - name: Automatizar
@@ -79,8 +81,6 @@
       items:
         - name: Configurar no portal do Azure
           href: cache-configure.md
-        - name: Configurar a Georreplicação
-          href: cache-how-to-geo-replication.md
         - name: Importar/Exportar dados
           href: cache-how-to-import-export-data.md
         - name: Reiniciar

@@ -806,10 +806,10 @@
                   href: insights/container-insights-hybrid-setup.md
                 - name: Mapeamentos de região
                   href: insights/container-insights-region-mapping.md
-            - name: Analisar
+            - name: Monitorizar desempenho
               href: insights/container-insights-analyze.md
-            - name: Desativar a monitorização
-              href: insights/container-insights-optout.md
+            - name: Monitorizar o estado de funcionamento
+              href: insights/container-insights-health.md
             - name: Ver dados em direto
               items:
                 - name: Descrição geral dos dados em direto (pré-visualização)
@@ -832,6 +832,10 @@
               href: insights/container-insights-agent-config.md
             - name: Atualizar para ativar as métricas
               href: insights/container-insights-update-metrics.md
+            - name: Configuração da monitorização do estado de funcionamento
+              href: insights/container-insights-health-monitors-config.md
+            - name: Desativar a monitorização
+              href: insights/container-insights-optout.md
             - name: Resolução de problemas
               href: insights/container-insights-troubleshoot.md
         - name: Docker e monitorização do Contentor do Windows
@@ -1167,7 +1171,7 @@
               href: platform/autoscale-overview.md
             - name: Instruções
               href: platform/autoscale-get-started.md
-            - name: Definições
+            - name: Definições de configuração
               href: platform/autoscale-understanding-settings.md
             - name: Melhores práticas
               href: platform/autoscale-best-practices.md
@@ -1183,6 +1187,10 @@
               href: platform/autoscale-virtual-machine-scale-sets.md
             - name: Utilizar webhooks e notificações por e-mail
               href: platform/autoscale-webhook-email.md
+            - name: Resolução de problemas
+              href: platform/autoscale-troubleshoot.md
+            - name: Esquemas do Registo de Recursos
+              href: platform/autoscale-resource-log-schema.md
         - name: PowerShell
           items:
             - name: Gestão com o PowerShell
