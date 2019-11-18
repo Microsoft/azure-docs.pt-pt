@@ -1,57 +1,54 @@
 ---
-title: Funções de modelo de Azure Resource Manager-cadeia de caracteres | Microsoft Docs
+title: Funções de modelo – cadeia de caracteres
 description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para trabalhar com cadeias de caracteres.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: tomfitz
-ms.openlocfilehash: d5c95e964740978af0db8db233c65adb7eb074f0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: af972bac39890402cf75e83d10806e9a830c1d4a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834331"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149602"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos de Azure Resource Manager
 
 O Gerenciador de recursos fornece as seguintes funções para trabalhar com cadeias de caracteres:
 
-* [Base64](#base64)
+* [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
-* [Concat](#concat)
+* [concat](#concat)
 * [contains](#contains)
 * [dataUri](#datauri)
 * [dataUriToString](#datauritostring)
-* [esvaziá](#empty)
+* [empty](#empty)
 * [endsWith](#endswith)
-* [primeiro](#first)
-* [ao](#format)
-* [volume](#guid)
+* [first](#first)
+* [format](#format)
+* [guid](#guid)
 * [indexOf](#indexof)
-* [última](#last)
+* [last](#last)
 * [lastIndexOf](#lastindexof)
-* [muito](#length)
+* [length](#length)
 * [newGuid](#newguid)
-* [PadLeft preenche](#padleft)
-* [Substitua](#replace)
-* [saltar](#skip)
-* [dividir](#split)
+* [padLeft](#padleft)
+* [replace](#replace)
+* [skip](#skip)
+* [split](#split)
 * [startsWith](#startswith)
-* [Strings](#string)
-* [Subcadeia](#substring)
-* [ter](#take)
+* [string](#string)
+* [substring](#substring)
+* [take](#take)
 * [toLower](#tolower)
 * [toUpper](#toupper)
-* [Trim](#trim)
+* [trim](#trim)
 * [uniqueString](#uniquestring)
-* [URI](#uri)
+* [uri](#uri)
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
 * [utcNow](#utcnow)
 
-## <a name="base64"></a>Base64
+## <a name="base64"></a>base64
 
 `base64(inputString)`
 
@@ -108,13 +105,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | Um dois três |
-| toJsonOutput | Object | {"One": "a", "Two": "b"} |
+| base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Cadeia | Um dois três |
+| toJsonOutput | Objeto | {"One": "a", "Two": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
 
@@ -173,13 +170,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | Um dois três |
-| toJsonOutput | Object | {"One": "a", "Two": "b"} |
+| base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Cadeia | Um dois três |
+| toJsonOutput | Objeto | {"One": "a", "Two": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
 
@@ -238,13 +235,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | Um dois três |
-| toJsonOutput | Object | {"One": "a", "Two": "b"} |
+| base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Cadeia | Um dois três |
+| toJsonOutput | Objeto | {"One": "a", "Two": "b"} |
 
 ## <a name="concat"></a>Concat
 
@@ -286,11 +283,11 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| concatOutput | String | prefixo-5yj4yjf5mbg72 |
+| concatOutput | Cadeia | prefix-5yj4yjf5mbg72 |
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) a seguir mostra como combinar duas matrizes.
 
@@ -327,13 +324,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| exibir | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| exibir | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-## <a name="contains"></a>terá
+## <a name="contains"></a>Contém
 
 `contains (container, itemToFind)`
 
@@ -403,16 +400,16 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringTrue | bool | Verdadeiro |
-| stringFalse | bool | Falso |
-| objecttrue | bool | Verdadeiro |
-| objectfalse | bool | Falso |
-| arrayTrue | bool | Verdadeiro |
-| arrayFalse | bool | Falso |
+| stringTrue | Bool | Verdadeiro |
+| stringFalse | Bool | Falso |
+| objecttrue | Bool | Verdadeiro |
+| objectFalse | Bool | Falso |
+| arrayTrue | Bool | Verdadeiro |
+| arrayFalse | Bool | Falso |
 
 ## <a name="datauri"></a>dataUri
 
@@ -462,12 +459,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| dataUriOutput | String | dados: text/plain; charset = UTF8; base64, SGVsbG8 = |
-| toStringOutput | String | Olá, Mundo! |
+| dataUriOutput | Cadeia | dados: text/plain; charset = UTF8; base64, SGVsbG8 = |
+| toStringOutput | Cadeia | Olá, Mundo! |
 
 ## <a name="datauritostring"></a>dataUriToString
 
@@ -517,14 +514,14 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| dataUriOutput | String | dados: text/plain; charset = UTF8; base64, SGVsbG8 = |
-| toStringOutput | String | Olá, Mundo! |
+| dataUriOutput | Cadeia | dados: text/plain; charset = UTF8; base64, SGVsbG8 = |
+| toStringOutput | Cadeia | Olá, Mundo! |
 
-## <a name="empty"></a>esvaziá
+## <a name="empty"></a>vazio
 
 `empty(itemToTest)`
 
@@ -581,15 +578,15 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayEmpty | bool | Verdadeiro |
-| objectempty | bool | Verdadeiro |
-| stringEmpty | bool | Verdadeiro |
+| arrayEmpty | Bool | Verdadeiro |
+| objectempty | Bool | Verdadeiro |
+| stringEmpty | Bool | Verdadeiro |
 
-## <a name="endswith"></a>EndsWith
+## <a name="endswith"></a>endsWith
 
 `endsWith(stringToSearch, stringToFind)`
 
@@ -644,16 +641,16 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| startsTrue | bool | Verdadeiro |
-| startsCapTrue | bool | Verdadeiro |
-| startsFalse | bool | Falso |
-| endsTrue | bool | Verdadeiro |
-| endsCapTrue | bool | Verdadeiro |
-| endsFalse | bool | Falso |
+| startsTrue | Bool | Verdadeiro |
+| startsCapTrue | Bool | Verdadeiro |
+| startsFalse | Bool | Falso |
+| endsTrue | Bool | Verdadeiro |
+| endsCapTrue | Bool | Verdadeiro |
+| endsFalse | Bool | Falso |
 
 ## <a name="first"></a>primeiro
 
@@ -700,14 +697,14 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | String | um |
-| stringOutput | String | Minúscula |
+| arrayOutput | Cadeia | um |
+| stringOutput | Cadeia | Minúscula |
 
-## <a name="format"></a>ao
+## <a name="format"></a>format
 
 `format(formatString, arg1, arg2, ...)`
 
@@ -758,11 +755,11 @@ O modelo de exemplo a seguir mostra como usar a função Format.
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| formatTest | String | Olá, usuário. Número formatado: 8.175.133 |
+| formatTest | Cadeia | Olá, usuário. Número formatado: 8.175.133 |
 
 ## <a name="guid"></a>guid
 
@@ -774,7 +771,7 @@ Cria um valor no formato de um identificador global exclusivo com base nos valor
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| basestring |Sim |string |O valor usado na função de hash para criar o GUID. |
+| baseString |Sim |string |O valor usado na função de hash para criar o GUID. |
 | parâmetros adicionais conforme necessário |Não |string |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
 
 ### <a name="remarks"></a>Observações
@@ -886,15 +883,15 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| primeiro a | Inteiro | 0 |
-| último a | Inteiro | 3 |
-| nome da primeira | Inteiro | 2 |
-| últimastring | Inteiro | 0 |
-| notFound | Inteiro | -1 |
+| firstT | Int | 0 |
+| lastT | Int | 3 |
+| nome da primeira | Int | 2 |
+| últimastring | Int | 0 |
+| notFound | Int | -1 |
 
 ## <a name="last"></a>última
 
@@ -941,12 +938,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | String | três |
-| stringOutput | String | Oriental |
+| arrayOutput | Cadeia | três |
+| stringOutput | Cadeia | Oriental |
 
 ## <a name="lastindexof"></a>lastIndexOf
 
@@ -999,17 +996,17 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| primeiro a | Inteiro | 0 |
-| último a | Inteiro | 3 |
-| nome da primeira | Inteiro | 2 |
-| últimastring | Inteiro | 0 |
-| notFound | Inteiro | -1 |
+| firstT | Int | 0 |
+| lastT | Int | 3 |
+| nome da primeira | Int | 2 |
+| últimastring | Int | 0 |
+| notFound | Int | -1 |
 
-## <a name="length"></a>muito
+## <a name="length"></a>length
 
 `length(string)`
 
@@ -1077,13 +1074,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayLength | Inteiro | 3 |
-| stringLength | Inteiro | 13 |
-| ObjectLength | Inteiro | 4 |
+| arrayLength | Int | 3 |
+| stringLength | Int | 13 |
+| ObjectLength | Int | 4 |
 
 ## <a name="newguid"></a>newGuid
 
@@ -1182,7 +1179,7 @@ A saída do exemplo anterior varia de acordo com cada implantação, mas será s
 | nameOutput | string | storagenziwvyru7uxie |
 
 
-## <a name="padleft"></a>PadLeft preenche
+## <a name="padleft"></a>padLeft
 
 `padLeft(valueToPad, totalLength, paddingCharacter)`
 
@@ -1226,11 +1223,11 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringOutput | String | 0000000123 |
+| stringOutput | Cadeia | 0000000123 |
 
 ## <a name="replace"></a>Substitua
 
@@ -1278,12 +1275,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| firstOutput | String | 1231231234 |
-| secondOutput | String | 123-123-xxxx |
+| firstOutput | Cadeia | 1231231234 |
+| secondOutput | Cadeia | 123-123-xxxx |
 
 ## <a name="skip"></a>saltar
 
@@ -1346,14 +1343,14 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Array | ["três"] |
-| stringOutput | String | 2 3 |
+| arrayOutput | Matriz | ["three"] |
+| stringOutput | Cadeia | 2 3 |
 
-## <a name="split"></a>dividir
+## <a name="split"></a>split
 
 `split(inputString, delimiter)`
 
@@ -1405,12 +1402,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| firstOutput | Array | ["One", "Two", "três"] |
-| secondOutput | Array | ["One", "Two", "três"] |
+| firstOutput | Matriz | ["One", "Two", "três"] |
+| secondOutput | Matriz | ["One", "Two", "três"] |
 
 ## <a name="startswith"></a>startsWith
 
@@ -1467,16 +1464,16 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| startsTrue | bool | Verdadeiro |
-| startsCapTrue | bool | Verdadeiro |
-| startsFalse | bool | Falso |
-| endsTrue | bool | Verdadeiro |
-| endsCapTrue | bool | Verdadeiro |
-| endsFalse | bool | Falso |
+| startsTrue | Bool | Verdadeiro |
+| startsCapTrue | Bool | Verdadeiro |
+| startsFalse | Bool | Falso |
+| endsTrue | Bool | Verdadeiro |
+| endsCapTrue | Bool | Verdadeiro |
+| endsFalse | Bool | Falso |
 
 ## <a name="string"></a>string
 
@@ -1541,13 +1538,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| ObjectOutput | String | {"value": 10, "valorB": "texto de exemplo"} |
-| arrayOutput | String | ["a", "b", "c"] |
-| intOutput | String | 5 |
+| objectOutput | Cadeia | {"value": 10, "valorB": "texto de exemplo"} |
+| arrayOutput | Cadeia | ["a","b","c"] |
+| intOutput | Cadeia | 5 |
 
 ## <a name="substring"></a>Subcadeia
 
@@ -1561,7 +1558,7 @@ Retorna uma subcadeia de caracteres que começa na posição de caractere especi
 |:--- |:--- |:--- |:--- |
 | stringToParse |Sim |string |A cadeia de caracteres original da qual a subcadeia de caracteres é extraída. |
 | startIndex |Não |int |A posição de caractere inicial com base em zero para a subcadeia de caracteres. |
-| muito |Não |int |O número de caracteres para a subcadeia. Deve se referir a um local dentro da cadeia de caracteres. Deve ser zero ou maior. |
+| length |Não |int |O número de caracteres para a subcadeia. Deve se referir a um local dentro da cadeia de caracteres. Deve ser zero ou maior. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1604,13 +1601,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| substringOutput | String | dois |
+| substringOutput | Cadeia | dois |
 
-## <a name="take"></a>Ter
+## <a name="take"></a>ter
 
 `take(originalValue, numberToTake)`
 
@@ -1671,12 +1668,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Array | ["One", "Two"] |
-| stringOutput | String | no |
+| arrayOutput | Matriz | ["One", "Two"] |
+| stringOutput | Cadeia | em |
 
 ## <a name="tolower"></a>toLower
 
@@ -1722,12 +1719,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| toLowerOutput | String | Um dois três |
-| toUpperOutput | String | Um dois três |
+| toLowerOutput | Cadeia | Um dois três |
+| toUpperOutput | Cadeia | Um dois três |
 
 ## <a name="toupper"></a>toUpper
 
@@ -1773,12 +1770,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| toLowerOutput | String | Um dois três |
-| toUpperOutput | String | Um dois três |
+| toLowerOutput | Cadeia | Um dois três |
+| toUpperOutput | Cadeia | Um dois três |
 
 ## <a name="trim"></a>Trim
 
@@ -1820,11 +1817,11 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| exibir | String | Um dois três |
+| exibir | Cadeia | Um dois três |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -1836,7 +1833,7 @@ Cria uma cadeia de caracteres de hash determinística com base nos valores forne
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| basestring |Sim |string |O valor usado na função de hash para criar uma cadeia de caracteres exclusiva. |
+| baseString |Sim |string |O valor usado na função de hash para criar uma cadeia de caracteres exclusiva. |
 | parâmetros adicionais conforme necessário |Não |string |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
 
 ### <a name="remarks"></a>Observações
@@ -1976,13 +1973,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | Cadeia | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -2031,13 +2028,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | Cadeia | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2086,13 +2083,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | Cadeia | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | Cadeia | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="utcnow"></a>utcNow
 
@@ -2104,7 +2101,7 @@ Retorna o valor DateTime (UTC) atual no formato especificado. Se nenhum formato 
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| ao |Não |string |O valor codificado de URI a ser convertido em uma cadeia de caracteres. Use cadeias de caracteres de [formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cadeias de caracteres de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Não |string |O valor codificado de URI a ser convertido em uma cadeia de caracteres. Use cadeias de caracteres de [formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cadeias de caracteres de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Observações
 
@@ -2204,8 +2201,8 @@ O exemplo a seguir mostra como usar um valor da função ao definir um valor de 
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para obter uma descrição das seções em um modelo de Azure Resource Manager, consulte [criando modelos de Azure Resource Manager](resource-group-authoring-templates.md).
-* Para mesclar vários modelos, consulte [usando modelos vinculados com Azure Resource Manager](resource-group-linked-templates.md).
-* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
-* Para ver como implantar o modelo que você criou, consulte [implantar um aplicativo com Azure Resource Manager modelo](resource-group-template-deploy.md).
+* Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
+* Para intercalar vários modelos, veja [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
+* Para fazer a iteração de um número especificado de vezes ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
+* Para ver como implementar o modelo que criou, veja [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md).
 

@@ -3,17 +3,17 @@ title: Reduzir os custos de serviço usando o Azure Advisor | Microsoft Docs
 description: Use o Azure Advisor para otimizar o custo de suas implantações do Azure.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: saket-ms
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: kasparks
-ms.openlocfilehash: 78429001b855e3347e72fbb0f0d4d3171731a8e2
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.author: sagupt
+ms.openlocfilehash: cae16430ce933b8d071696377b22f10c15b5eae5
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703040"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145385"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reduzir os custos de serviço usando o Azure Advisor
 
@@ -21,7 +21,7 @@ O Advisor ajuda a otimizar e reduzir o gasto geral do Azure identificando recurs
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Otimizar o gasto de máquinas virtuais redimensionando ou desligando instâncias subutilizadas 
 
-Embora determinados cenários de aplicativos possam resultar em baixa utilização por design, muitas vezes você pode economizar dinheiro Gerenciando o tamanho e o número de suas máquinas virtuais. Os modelos de avaliação avançada do Advisor consideram que máquinas virtuais sejam desligadas quando P95th do máximo do valor máximo da utilização da CPU for menor que 3% e a utilização da rede for inferior a 2% em um período de 7 dias. As máquinas virtuais são consideradas para o tamanho certo quando é possível ajustar a carga atual em uma SKU menor (dentro da mesma família de SKU) ou um número menor de instância, de modo que a carga atual não ultrapasse 80% de utilização quando cargas de trabalho não voltadas para o usuário e não acima de 40% na carga de trabalho voltada para o usuário. Aqui, o tipo de carga de trabalho é determinado analisando as características de utilização da CPU da carga de trabalho.
+Embora determinados cenários de aplicativos possam resultar em baixa utilização por design, muitas vezes você pode economizar dinheiro Gerenciando o tamanho e o número de suas máquinas virtuais. Os modelos de avaliação avançada do Advisor consideram que máquinas virtuais sejam desligadas quando P95th do máximo do valor máximo da utilização da CPU for menor que 3% e a utilização da rede for inferior a 2% em um período de 7 dias. As máquinas virtuais são consideradas para o tamanho certo quando é possível ajustar a carga atual em uma SKU menor (dentro da mesma família de SKUs) ou um número menor de instância, de modo que a carga atual não ultrapasse 80% de utilização quando cargas de trabalho não voltadas para o usuário e não acima de 40% quando a carga de trabalho voltada para o usuário. Aqui, o tipo de carga de trabalho é determinado analisando as características de utilização da CPU da carga de trabalho.
 
 As ações recomendadas são desligadas ou redimensionadas, específicas ao recurso recomendado para o. O Advisor mostra a economia de custos estimada para ações recomendadas – redimensionar ou desligar. Além disso, para a ação recomendada de redimensionamento, o Advisor fornece informações de SKU atuais e de destino. 
 
@@ -66,3 +66,4 @@ Para saber mais sobre as recomendações do Advisor, consulte:
 * [Recomendações de desempenho do Advisor](advisor-cost-recommendations.md)
 * [Recomendações de alta disponibilidade do Advisor](advisor-cost-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-cost-recommendations.md)
+* [Recomendações de excelência operacional do Advisor](advisor-operational-excellence-recommendations.md)

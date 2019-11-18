@@ -1,52 +1,46 @@
 ---
-title: Descrição geral do redirecionamento para o Gateway de aplicação do Azure
-description: Saiba mais sobre a capacidade de redirecionamento no Gateway de aplicação do Azure
+title: Visão geral de redirecionamento para Aplicativo Azure gateway
+description: Saiba mais sobre o recurso de redirecionamento no Aplicativo Azure gateway para redirecionar o tráfego recebido em um ouvinte para outro ouvinte ou para um site externo.
 services: application-gateway
-documentationcenter: na
 author: amsriva
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 3/19/2018
+ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 8e88e0e11b3ccab7cc2c68b2617df2d588680780
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5943d8aad4d5dd0d981fae9b2325dd3fc75b31e8
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715816"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129879"
 ---
-# <a name="application-gateway-redirect-overview"></a>Descrição geral de redirecionamento do Gateway de aplicação
+# <a name="application-gateway-redirect-overview"></a>Visão geral redirecionamento do gateway de aplicativo
 
-Pode utilizar o gateway de aplicação para redirecionar o tráfego.  Este tem um mecanismo de redirecionamento genérico que permite redirecionar o tráfego recebido num serviço de escuta para outro serviço de escuta ou para um site externo. Isso simplifica a configuração da aplicação, otimiza a utilização de recursos e oferece suporte a novos cenários de redirecionamento, incluindo global e com base no caminho de redirecionamento.
+Você pode usar o gateway de aplicativo para redirecionar o tráfego.  Este tem um mecanismo de redirecionamento genérico que permite redirecionar o tráfego recebido num serviço de escuta para outro serviço de escuta ou para um site externo. Isso simplifica a configuração do aplicativo, otimiza o uso de recursos e dá suporte a novos cenários de redirecionamento, incluindo o redirecionamento global e baseado em caminho.
 
-É um cenário comum de redirecionamento para muitos aplicativos web suportar automática HTTP para redirecionamento a HTTPS para garantir que toda a comunicação entre aplicativos e para os utilizadores ocorre através de um caminho encriptado. No passado, os clientes usaram técnicas como a criação de um conjunto de back-end dedicado cujo único objetivo é redirecionar os pedidos recebidos de HTTP para HTTPS. Com o suporte de redirecionamento no Gateway de aplicação, é possível fazer isso simplesmente ao adicionar uma nova configuração de redirecionamento para uma regra de roteamento e especificar o outro serviço de escuta com o protocolo HTTPS como o serviço de escuta de destino.
+Um cenário de redirecionamento comum para muitos aplicativos Web é dar suporte ao redirecionamento automático de HTTP para HTTPS para garantir que toda a comunicação entre o aplicativo e seus usuários ocorra em um caminho criptografado. No passado, os clientes usaram técnicas como a criação de um pool de back-end dedicado cujo único propósito é redirecionar solicitações recebidas por HTTP para HTTPS. Com o suporte ao redirecionamento no gateway de aplicativo, você pode fazer isso simplesmente adicionando uma nova configuração de redirecionamento a uma regra de roteamento e especificando outro ouvinte com o protocolo HTTPS como o ouvinte de destino.
 
-São suportados os seguintes tipos de redirecionamento de:
+Há suporte para os seguintes tipos de redirecionamento:
 
-- 301 Permanent Redirect
-- 302 Found
+- redirecionamento permanente 301
+- 302 encontrado
 - 303 ver outros
-- 307 Temporary Redirect
+- redirecionamento temporário 307
 
 O suporte de redirecionamento do Gateway de Aplicação oferece as seguintes capacidades:
 
 -  **Redirecionamento global**
 
-   Redirecionamentos de um serviço de escuta para outro serviço de escuta no gateway. Isto permite o redirecionamento de HTTP para HTTPS num site.
-- **Com base no caminho de redirecionamento**
+   Redireciona de um ouvinte para outro ouvinte no gateway. Isto permite o redirecionamento de HTTP para HTTPS num site.
+- **Redirecionamento baseado em caminho**
 
-   Este tipo de redirecionamento de permite HTTP para redirecionamento a HTTPS apenas numa área de site específico, por exemplo uma área de carrinho de compras indicado pelos/carrinho / *.
+   Esse tipo de redirecionamento permite o redirecionamento de HTTP para HTTPS somente em uma área de site específica, por exemplo, uma área de carrinho de compras denotada por/cart/*.
 - **Redirecionar para o site externo**
 
-![redirect](./media/redirect-overview/redirect.png)
+![Redirecionamento](./media/redirect-overview/redirect.png)
 
-Com esta alteração, os clientes têm de criar um novo objeto de configuração de redirecionamento, que especifica o serviço de escuta de destino ou um site externo ao qual o redirecionamento é desejado. O elemento de configuração também oferece suporte a opções para ativar a acrescentar a cadeia de caminho e a consulta do URI para o URL redirecionado. Também pode escolher o tipo de redirecionamento. Depois de criado, esta configuração de redirecionamento está ligada ao serviço de escuta de origem através de uma nova regra. Quando utilizar uma regra básica, a configuração de redirecionamento está associada um serviço de escuta de origem e é um redirecionamento global. Quando uma regra baseada em caminho é utilizada, a configuração de redirecionamento é definida no mapa do caminho do URL. Por isso, ele só se aplica a área de caminho específico de um site.
+Com essa alteração, os clientes precisam criar um novo objeto de configuração de redirecionamento, que especifica o ouvinte de destino ou o site externo ao qual o redirecionamento é desejado. O elemento de configuração também dá suporte a opções para habilitar o acréscimo do caminho do URI e da cadeia de caracteres de consulta à URL redirecionada. Você também pode escolher o tipo de redirecionamento. Depois de criada, essa configuração de redirecionamento é anexada ao ouvinte de origem por meio de uma nova regra. Ao usar uma regra básica, a configuração de redirecionamento é associada a um ouvinte de origem e é um redirecionamento global. Quando uma regra baseada em caminho é usada, a configuração de redirecionamento é definida no mapa de caminho de URL. Portanto, ele se aplica apenas à área de caminho específica de um site.
 
-### <a name="next-steps"></a>Passos Seguintes
+### <a name="next-steps"></a>Passos seguintes
 
-[Configurar o redirecionamento de URL num gateway de aplicação](tutorial-url-redirect-powershell.md)
+[Configurar o redirecionamento de URL em um gateway de aplicativo](tutorial-url-redirect-powershell.md)

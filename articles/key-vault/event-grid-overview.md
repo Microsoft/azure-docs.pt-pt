@@ -1,21 +1,21 @@
 ---
-title: Key Vault de monitoramento com a grade de eventos do Azure
-description: Usar a grade de eventos do Azure para assinar eventos de Key Vault
+title: 'Tutorial: monitorando Key Vault com a grade de eventos do Azure'
+description: 'Tutorial: usar a grade de eventos do Azure para assinar eventos de Key Vault'
 services: media-services
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
-ms.topic: article
-ms.date: 10/25/2019
+ms.topic: tutorial
+ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1fa554e03188c4d8d6227a6d2c0a560c3080b0fe
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 5771af365b763d2152eea4ef4f662e08769b378c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033501"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133358"
 ---
-# <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Key Vault de monitoramento com a grade de eventos do Azure (versão prévia)
+# <a name="tutorial-monitoring-key-vault-with-azure-event-grid-preview"></a>Tutorial: monitorando Key Vault com a grade de eventos do Azure (versão prévia)
 
 A integração do Key Vault com a grade de eventos está atualmente em visualização. Ele permite que os usuários sejam notificados quando o status de um segredo armazenado no cofre de chaves for alterado. Uma alteração de status é definida como um segredo que está prestes a expirar (dentro de 30 dias após a expiração), um segredo que expirou ou um segredo que tem uma nova versão disponível. Há suporte para notificações para todos os três tipos secretos (chave, certificado e segredo).
 
@@ -45,6 +45,7 @@ Os aplicativos que manipulam Key Vault eventos devem seguir algumas práticas re
 
 - [Visão geral de Azure Key Vault](key-vault-overview.md)
 - [Visão geral da grade de eventos do Azure](../event-grid/overview.md)
-- [Como: rotear eventos de Key Vault para o runbook de automação (visualização)](event-grid-tutorial.md).
+- Como: [rotear eventos de Key Vault para o runbook de automação (visualização)](event-grid-tutorial.md).
+- Como: [receber email quando um segredo do cofre de chaves for alterado](event-grid-logicapps.md)
 - [Esquema de evento da grade de eventos do Azure para Azure Key Vault (versão prévia)](../event-grid/event-schema-key-vault.md)
 - [Descrição geral da Automatização do Azure](../automation/index.yml)

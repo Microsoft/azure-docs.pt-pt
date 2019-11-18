@@ -84,6 +84,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculadora de preços
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Repositório de exemplos do GitHub
+      href: 'https://github.com/Azure-Samples/Governance/tree/master/src/resource-graph'
     - name: UserVoice
       href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345061'
     - name: Canal do YouTube sobre Governação

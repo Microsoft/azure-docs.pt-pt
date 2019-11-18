@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 10/25/2019
-ms.openlocfilehash: 5ac741579562b41678c4aeb59bb5ebb425d8405c
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.date: 11/13/2019
+ms.openlocfilehash: c5d0c517e7a3d4c011d66925b8db0c4d09dd34ca
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932094"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123588"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteger trabalhos de experimentação e de inferência do Azure ML em uma rede virtual do Azure
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -79,7 +79,7 @@ Para usar uma conta de armazenamento do Azure para o espaço de trabalho em uma 
 >
 > A conta de armazenamento padrão é provisionada automaticamente quando você cria um espaço de trabalho.
 >
-> Para contas de armazenamento não padrão, o parâmetro `storage_account` na [função`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite que você especifique uma conta de armazenamento personalizada pela ID de recurso do Azure.
+> Para contas de armazenamento não padrão, o parâmetro `storage_account` na [função`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite que você especifique uma conta de armazenamento personalizada pela ID de recurso do Azure.
 
 ## <a name="use-a-key-vault-instance-with-your-workspace"></a>Usar uma instância do Key Vault com seu espaço de trabalho
 
@@ -244,8 +244,18 @@ except ComputeTargetException:
 
 Quando o processo de criação for concluído, você treinará seu modelo usando o cluster em um experimento. Para obter mais informações, consulte [selecionar e usar um destino de computação para treinamento](how-to-set-up-training-targets.md).
 
-<a id="vmorhdi"></a>
+## <a name="use-azure-databricks"></a>Usar Azure Databricks
 
+Para usar o Azure Azure Databricks em uma rede virtual com seu espaço de trabalho, os seguintes requisitos devem ser atendidos:
+
+> [!div class="checklist"]
+> * A rede virtual deve estar na mesma assinatura e região que o espaço de trabalho Azure Machine Learning.
+> * Se as contas de armazenamento do Azure para o espaço de trabalho também estiverem protegidas em uma rede virtual, elas deverão estar na mesma rede virtual que o cluster de Azure Databricks.
+> * Além do __databricks – Private__ e __databricks-sub-redes públicas__ usadas pelo Azure Databricks, a sub-rede __padrão__ criada para a rede virtual também é necessária.
+
+Para obter informações específicas sobre como usar Azure Databricks com uma rede virtual, consulte [implantar Azure Databricks em sua rede virtual do Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
+
+<a id="vmorhdi"></a>
 
 ## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>Usar uma máquina virtual ou um cluster HDInsight
 
@@ -367,6 +377,6 @@ Para obter mais informações sobre como configurar uma regra de rede, consulte 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar ambientes de treinamento](how-to-set-up-training-targets.md)
-* [Onde implantar modelos](how-to-deploy-and-where.md)
+* [Onde pretende implementar modelos](how-to-deploy-and-where.md)
 * [Implantar modelos com SSL com segurança](how-to-secure-web-service.md)
 

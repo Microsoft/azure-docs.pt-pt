@@ -1,17 +1,14 @@
 ---
-title: Criar & implantar projetos do grupo de recursos do Azure no Visual Studio
+title: Criar & implantar projetos do grupo de recursos do Visual Studio
 description: Use o Visual Studio para criar um projeto de grupo de recursos do Azure e implantar os recursos no Azure.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.date: 10/16/2019
-ms.author: tomfitz
-ms.openlocfilehash: ae7ff9370bd289dfdec578e6daeb471bbd53a072
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 39ee16ac81ee1b163a4ed4c80152a063f7ee619c
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597734"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149257"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criar e implementar grupos de recursos do Azure através do Visual Studio
 
@@ -23,7 +20,7 @@ Este artigo mostra como usar [o Visual Studio 2019 ou posterior com as cargas de
 
 Nesta seção, você cria um projeto de grupo de recursos do Azure com um modelo de **aplicativo Web** .
 
-1. No Visual Studio, escolha **arquivo** >**novo** **projeto**de >.
+1. No Visual Studio, escolha **arquivo**>**novo** **projeto**de>.
 1. Selecione o modelo de projeto do **grupo de recursos do Azure** e **Avançar**.
 
     ![Criar o projeto](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
@@ -47,8 +44,8 @@ Nesta seção, você cria um projeto de grupo de recursos do Azure com um modelo
    | Nome de ficheiro | Descrição |
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Um script do PowerShell que executa comandos do PowerShell para implementar no Azure Resource Manager. O Visual Studio usa esse script do PowerShell para implantar seu modelo. |
-   | Site. JSON |O modelo do Resource Manager que define a infraestrutura que pretende implementar no Azure e os parâmetros que pode fornecer durante a implementação. Define as dependências entre os recursos para que o Resource Manager os implemente na ordem correta. |
-   | Site. Parameters. JSON |Um ficheiro de parâmetros que tem os valores que são precisos para o modelo. Passa nos valores dos parâmetros para personalizar cada implementação. |
+   | WebSite.json |O modelo do Resource Manager que define a infraestrutura que pretende implementar no Azure e os parâmetros que pode fornecer durante a implementação. Define as dependências entre os recursos para que o Resource Manager os implemente na ordem correta. |
+   | WebSite.parameters.json |Um ficheiro de parâmetros que tem os valores que são precisos para o modelo. Passa nos valores dos parâmetros para personalizar cada implementação. |
 
     Todos os projetos de implementação do grupo de recursos têm estes ficheiros básicos. Outros projetos poderão ter ficheiros adicionais para suportar outras funcionalidades.
 

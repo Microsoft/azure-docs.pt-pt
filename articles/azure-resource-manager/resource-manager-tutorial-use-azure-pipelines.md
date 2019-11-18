@@ -1,24 +1,16 @@
 ---
-title: Integração contínua com o Azure Pipelines | Microsoft Docs
+title: Integração contínua com os Pipelines do Azure
 description: Saiba como criar, testar e implantar continuamente modelos de Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: carmonm
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: daf1e85835401f618d2804285cdb9579360aef15
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 73ab01b5e4ea923b990932986a938f8c1fb25629
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052214"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149301"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: integração contínua de modelos de Azure Resource Manager com Azure Pipelines
 
@@ -48,7 +40,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 Para concluir este artigo, precisa de:
 
 * **Uma conta do GitHub**, onde você a usa para criar um repositório para seus modelos. Se você não tiver uma, poderá [criar uma gratuitamente](https://github.com). Para obter mais informações sobre como usar repositórios do GitHub, consulte [criar repositórios do GitHub](/azure/devops/pipelines/repos/github).
-* **Instalar o Git**. Esta instrução de tutorial usa *git bash* ou *git Shell*. Para obter instruções, consulte [instalar o Git]( https://www.atlassian.com/git/tutorials/install-git).
+* **Instale o Git**. Esta instrução de tutorial usa *git bash* ou *git Shell*. Para obter instruções, consulte [instalar o Git]( https://www.atlassian.com/git/tutorials/install-git).
 * **Uma organização DevOps do Azure**. Se você não tiver uma, poderá criar uma gratuitamente. Consulte [criar uma organização ou coleção de projetos]( https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops).
 * **[Visual Studio Code](https://code.visualstudio.com/) com a extensão de ferramentas do Resource Manager**. Veja [Instalar a extensão](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 
@@ -126,7 +118,7 @@ O azuredeploy. JSON foi adicionado ao repositório local. Em seguida, carregue o
     ```
 
     Você pode receber um aviso sobre LF. Você pode ignorar o aviso. **mestre** é a ramificação mestre.  Normalmente, você cria uma ramificação para cada atualização. Para simplificar o tutorial, você usa a ramificação mestre diretamente.
-1. Navegue até o repositório GitHub em um navegador.  A URL é **https://github.com/ [YourAccountName]/[YourGitHubRepository]** . Você deverá ver a pasta **CreateAzureStorage** e **Azuredeploy. JSON** dentro da pasta.
+1. Navegue até o repositório GitHub em um navegador.  A URL é **https://github.com/[YourAccountName]/[YourGitHubRepository]** . Você deverá ver a pasta **CreateAzureStorage** e **Azuredeploy. JSON** dentro da pasta.
 
 Até agora, você criou um repositório GitHub e carregou um modelo para o repositório.
 
@@ -220,7 +212,7 @@ Para criar um pipeline com uma etapa para implantar um modelo:
 
 ## <a name="verify-the-deployment"></a>Verificar a implementação
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. Abra o grupo de recursos. O nome é o que você especificou no arquivo YAML do pipeline.  Você deverá ver uma conta de armazenamento criada.  O nome da conta de armazenamento começa com **Store**.
 1. Selecione o nome da conta de armazenamento para abri-lo.
 1. Selecione **Propriedades**. Observe que a **replicação** é um **armazenamento com REDUNDÂNCIA local (LRS)** .

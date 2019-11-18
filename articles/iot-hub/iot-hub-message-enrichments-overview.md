@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 83114023eb35221bfa53e3ce4de8a861948c7a3a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a623c8d3ff755338ac8b40faa970f2f007115a02
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005833"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144872"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Aprimoramentos de mensagem para mensagens do Hub IoT do dispositivo para a nuvem
 
@@ -54,11 +54,21 @@ As mensagens podem vir de qualquer fonte de dados com suporte no [Roteamento de 
 
 Você pode adicionar aprimoramentos a mensagens que vão para o ponto de extremidade interno de um hub IoT ou mensagens que estão sendo roteadas para pontos de extremidades personalizados, como o armazenamento de BLOBs do Azure, uma fila do barramento de serviço ou um tópico do barramento de serviço.
 
-Você também pode adicionar aprimoramentos às mensagens que estão sendo publicadas na grade de eventos selecionando o ponto de extremidade como grade de eventos. Para obter mais informações, consulte [Hub IOT e grade de eventos](iot-hub-event-grid.md).
+Você pode adicionar aprimoramentos às mensagens que estão sendo publicadas na grade de eventos selecionando o ponto de extremidade como grade de eventos. Criamos uma rota padrão no Hub IoT para telemetria de dispositivo, com base em sua assinatura de grade de eventos. Essa rota única pode lidar com todas as suas assinaturas de grade de eventos. Você pode configurar aprimoramentos para a grade de eventos ent [ponto depois de ter criado a assinatura da grade de eventos para a telemetria do dispositivo. Para obter mais informações, consulte [Hub IOT e grade de eventos](iot-hub-event-grid.md).
 
 Os aprimoramentos são aplicados por ponto de extremidade. Se você especificar cinco aprimoramentos a serem carimbados para um ponto de extremidade específico, todas as mensagens que vão para esse ponto de extremidade serão carimbadas com os mesmos cinco aprimoramentos.
 
-Para ver como experimentar os aprimoramentos de mensagens, consulte o [tutorial de aprimoramentos de mensagem](tutorial-message-enrichments.md)
+Os aprimoramentos podem ser configurados usando os seguintes métodos:
+
+| **Método** | **Comando** |
+| ----- | -----| 
+| Portal | [Portal do Azure](https://portal.azure.com) | Consulte o [tutorial de aprimoramentos de mensagem](tutorial-message-enrichments.md) | 
+| CLI do Azure   | [enriquecimento de mensagem AZ Hub IOT](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
+| Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment?view=azps-2.8.0) |
+
+Adicionar aprimoramentos de mensagem não adiciona latência ao roteamento de mensagens.
+
+Para experimentar os aprimoramentos de mensagens, consulte o [tutorial de aprimoramentos de mensagens](tutorial-message-enrichments.md)
 
 ## <a name="limitations"></a>Limitações
 

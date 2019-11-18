@@ -1,24 +1,15 @@
 ---
-title: Implantar modelo de Azure Resource Manager – ideia IntelliJ
+title: Implantar modelo-ideia IntelliJ
 description: Saiba como criar seu primeiro modelo de Azure Resource Manager usando a ideia IntelliJ e como implantá-lo.
-services: azure-resource-manager
-documentationcenter: ''
-author: yucwan
-manager: ''
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: quickstart
-ms.author: yucwan
-ms.openlocfilehash: 137a87ad0314fad08f9af0eb567e1d31032ddcb9
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 62ea27236eec1a63b2a07dcb532f91cea7ead70b
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533654"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149476"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-intellij-idea"></a>Início rápido: criar e implantar modelos de Azure Resource Manager usando a ideia IntelliJ
 
@@ -48,7 +39,7 @@ Em vez de criar um modelo de raiz, pode abrir um modelo dos [Modelos de Início 
 
     ![Modelo do Resource Manager clique com o botão direito do mouse para criar a implantação](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-create-deployment-right-click.png)
 
-1. Configurar seu **nome de implantação**, **assinatura**, **grupo de recursos**e **região**. Aqui, implantamos o modelo em um novo grupo de recursos `testRG`. Em seguida, selecione caminho para o **modelo de recurso** como `azuredeploy.json` e **parâmetros de recurso** como `azuredeploy.parameters.json` que você baixou.
+1. Configurar seu **nome de implantação**, **assinatura**, **grupo de recursos**e **região**. Aqui, implantamos o modelo em um novo grupo de recursos `testRG`. Em seguida, selecione caminho para o **modelo de recurso** como `azuredeploy.json` e **parâmetros de recurso** como `azuredeploy.parameters.json` você baixou.
 
     ![Modelo do Resource Manager selecionar arquivos para criar a implantação](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-create-deployment-select-files.png)
 

@@ -1,19 +1,16 @@
 ---
-title: Utilizar o Gestor de Implementações do Azure com modelos do Resource Manager | Microsoft Docs
+title: Usar o Deployment Manager do Azure com modelos
 description: Utilize modelos do Resource Manager com o Gestor de Implementações do Azure para implementar recursos do Azure.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b381c4be5d0c56e14ccd01657542ef3bff2f8894
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 0ce37a744cdf22beddcef433fca1a64252e1673d
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285679"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149892"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: usar a verificação de integridade no Azure Deployment Manager (visualização pública)
 
@@ -83,7 +80,7 @@ Para verificar e testar a função do Azure:
 
     ![Azure Deployment Manager Health Check do Azure function](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
-1. Selecione **&lt;/> URL de função Get**.
+1. Selecione **&lt;/> obter URL da função**.
 1. Selecione **copiar** para copiar a URL para a área de transferência.  A URL é semelhante a:
 
     ```url

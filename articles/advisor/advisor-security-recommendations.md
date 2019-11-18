@@ -3,7 +3,7 @@ title: Torne os recursos mais seguros com o Azure Advisor | Microsoft Docs
 description: Use o Azure Advisor para ajudar a melhorar a segurança de suas implantações do Azure.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: saket-ms
 manager: ''
 ms.assetid: ''
 ms.service: advisor
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
-ms.author: kasparks
-ms.openlocfilehash: 1e9c3556d904dd961a2b8f99f84983c35ccf5c6a
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.author: sagupt
+ms.openlocfilehash: 8392e3b74677a8977684300d33ceb663c4e2fe81
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772283"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145330"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Torne os recursos mais seguros com o Azure Advisor
 
@@ -33,7 +33,7 @@ Para obter mais informações sobre recomendações de segurança, consulte [Ger
 
 2.  No painel do Advisor, clique na guia **segurança** .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 * [Introdução ao Advisor](advisor-overview.md)
@@ -41,6 +41,6 @@ Para saber mais sobre as recomendações do Advisor, consulte:
 * [Recomendações de custo do Advisor](advisor-cost-recommendations.md)
 * [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de alta disponibilidade do Advisor](advisor-high-availability-recommendations.md)
-
+* [Recomendações de excelência operacional do Advisor](advisor-operational-excellence-recommendations.md)
 
  

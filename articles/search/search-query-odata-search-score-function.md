@@ -1,7 +1,7 @@
 ---
 title: Pesquisa de OData. referência de função de Pontuação
 titleSuffix: Azure Cognitive Search
-description: Função de pesquisa do OData. Score no Azure Pesquisa Cognitiva consultas.
+description: Sintaxe e documentação de referência para usar a função Search. Score no Azure Pesquisa Cognitiva consultas.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 500ac4f3a44d54e367ddc4ee5efc9514d603cab6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2439d4f03184f8dbb85b229b3908dff95013b4bc
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793261"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113132"
 ---
 # <a name="odata-searchscore-function-in-azure-cognitive-search"></a>Função `search.score` OData no Azure Pesquisa Cognitiva
 

@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 11/12/2019
-ms.openlocfilehash: d9a88a40a85ce4be9222f45d3bce53e91346040b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 44ef646328f5f55d16dfa2d6906b78866292ebd9
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039392"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123191"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Início rápido: Salas disponíveis ao utilizar o gémeos Digital do Azure
 
@@ -76,7 +76,7 @@ O gráfico espacial é aprovisionado através da utilização a [provisionSample
 1. Execute `dotnet run ProvisionSample`.
 
     >[!NOTE]
-    >A ferramenta de CLI do dispositivo início de sessão do Azure é utilizada para autenticar o utilizador para o Azure AD. O utilizador tem de introduzir um código específico para autenticar com [o início de sessão do Microsoft](https://microsoft.com/devicelogin) página. Depois do código é inserido, siga os passos para se autenticar. O utilizador tem de ser autenticado quando é executada a ferramenta.
+    >A ferramenta de CLI do dispositivo início de sessão do Azure é utilizada para autenticar o utilizador para o Azure AD. O utilizador tem de introduzir um código específico para autenticar com [o início de sessão do Microsoft](https://microsoft.com/devicelogin) página. Depois que o código for inserido, siga as etapas para autenticar. O utilizador tem de ser autenticado quando é executada a ferramenta.
 
     >[!TIP]
     > Quando executar este passo, certifique-se de que suas variáveis foram copiadas corretamente se é apresentada a seguinte mensagem de erro: `EXIT: Unexpected error: The input is not a valid Base-64 string ...`

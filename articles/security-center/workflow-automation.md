@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 74a33edb358f9b9bf9322c652c0696ef87182725
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 1abfd8af7e0ef18d4e7bcf05b4726c5d0bcb0a84
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521582"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151705"
 ---
 # <a name="workflow-automation-preview"></a>Automação de fluxo de trabalho (visualização)
 
@@ -76,7 +76,7 @@ Este artigo descreve o recurso de automação de fluxo de trabalho (versão pré
 
     ![Atualizar](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
-1. Selecione seu aplicativo lógico e salve a automação.
+1. Selecione seu aplicativo lógico e salve a automação. Observe que o menu suspenso do aplicativo lógico mostra apenas os aplicativos lógicos com suporte aos conectores da central de segurança mencionados acima.
 
 
 ## <a name="manually-trigger-a-logic-app"></a>Disparar um aplicativo lógico manualmente

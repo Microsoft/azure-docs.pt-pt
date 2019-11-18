@@ -1,21 +1,21 @@
 ---
-title: C#Tutorial para chamar API de Serviços Cognitivos em um pipeline de enriquecimento de ia
+title: 'Tutorial: criar um conconhecimento em C# usando o .net'
 titleSuffix: Azure Cognitive Search
-description: Percorra um exemplo de extração de dados, linguagem natural e processamento de ia de imagem no pipeline de indexação de enriquecimento Pesquisa Cognitiva do Azure.
+description: Percorrer código de exemplo mostrando extração de dados, linguagem natural e processamento de ia de imagem em um pipeline de indexação de enriquecimento de Pesquisa Cognitiva do Azure.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7a8146f524a6e6f9abed2440c98a83aa3878f0c7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 84b98b637236213cdd5b87c6b0a38d87c110c21b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790232"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111743"
 ---
-# <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-indexing-pipeline"></a>C#Tutorial: chamar API de Serviços Cognitivos em um pipeline de indexação de Pesquisa Cognitiva do Azure
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-c-and-the-net-sdk"></a>Tutorial: criar um pipeline de enriquecimento de ia usando C# o e o SDK do .net
 
 Neste tutorial, você aprende a mecânica do enriquecimento de dados de programação no Azure Pesquisa Cognitiva usando *habilidades cognitivas*. As habilidades são apoiadas por recursos de análise de imagem e NLP (processamento de idioma natural) em serviços cognitivas. Por meio de composição e configuração do consentset, você pode extrair texto e representações de texto de uma imagem ou arquivo de documento digitalizado. Você também pode detectar idioma, entidades, frases-chave e muito mais. O resultado final é um conteúdo adicional extra em um índice de pesquisa, criado por um pipeline de indexação alimentado por ia.
 
@@ -57,7 +57,7 @@ Para interagir com o serviço de Pesquisa Cognitiva do Azure, você precisará d
 
 1. [Entre no portal do Azure](https://portal.azure.com/)e, em sua página de **visão geral** do serviço de pesquisa, obtenha a URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-1. Em **configurações**  > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+1. Em **configurações** > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
    ![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
 
@@ -91,7 +91,7 @@ Comece abrindo o Visual Studio e criando um novo projeto de aplicativo de consol
 
 ### <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
-O [SDK do .net pesquisa cognitiva do Azure](https://aka.ms/search-sdk) consiste em algumas bibliotecas de cliente que permitem gerenciar seus índices, fontes de dados, indexadores e habilidades, bem como carregar e gerenciar documentos e executar consultas, tudo isso sem a necessidade de lidar com os detalhes de HTTP e JSON. Essas bibliotecas de cliente são todas distribuídas como pacotes NuGet.
+O [SDK do .net pesquisa cognitiva do Azure](https://aka.ms/search-sdk) consiste em algumas bibliotecas de cliente que permitem gerenciar seus índices, fontes de dados, indexadores e habilidades, bem como carregar e gerenciar documentos e executar consultas, tudo isso sem precisar lidar com os detalhes de http e JSON. Essas bibliotecas de cliente são todas distribuídas como pacotes NuGet.
 
 Para este projeto, você precisará instalar a versão 9 do pacote `Microsoft.Azure.Search` NuGet e o mais recente `Microsoft.Extensions.Configuration.Json` pacote NuGet.
 
@@ -222,7 +222,7 @@ Para obter mais informações acerca das noções básicas do conjunto de compet
 
 ### <a name="ocr-skill"></a>Habilidade de OCR
 
-A habilidade de **OCR** extrai texto de imagens. Essa habilidade pressupõe que exista um campo normalized_images. Para gerar esse campo, mais adiante no tutorial, vamos definir a configuração de ```"imageAction"``` na definição do indexador como ```"generateNormalizedImages"```.
+A habilidade de **OCR** extrai texto de imagens. Essa habilidade pressupõe que exista um campo de normalized_images. Para gerar esse campo, mais adiante no tutorial, vamos definir a configuração de ```"imageAction"``` na definição do indexador como ```"generateNormalizedImages"```.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();

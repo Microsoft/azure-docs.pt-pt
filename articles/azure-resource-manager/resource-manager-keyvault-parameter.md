@@ -1,17 +1,14 @@
 ---
-title: Key Vault segredo com Azure Resource Manager modelo | Microsoft Docs
+title: Key Vault segredo com o modelo
 description: Mostra como passar um segredo de um cofre de chaves como um parâmetro durante a implantação.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.author: tomfitz
-ms.openlocfilehash: 489b09d2523393ae67668ed13c651c9b7b0217b4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 37d21e295eca2b40e91f92d65d6e927ee6857d0e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998894"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149483"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usar Azure Key Vault para passar um valor de parâmetro seguro durante a implantação
 
@@ -19,7 +16,7 @@ Em vez de colocar um valor seguro (como uma senha) diretamente no seu arquivo de
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Implantar Key Vaults e segredos
 
-Para acessar um cofre de chaves durante a implantação do `enabledForTemplateDeployment` modelo, defina no cofre `true`de chaves como.
+Para acessar um cofre de chaves durante a implantação do modelo, defina `enabledForTemplateDeployment` no cofre de chaves para `true`.
 
 Os exemplos de CLI do Azure e Azure PowerShell a seguir mostram como criar o cofre de chaves e adicionar um segredo.
 
@@ -72,7 +69,7 @@ Para obter mais informações sobre como criar cofres de chaves e adicionar segr
 
 ## <a name="grant-access-to-the-secrets"></a>Conceder acesso aos segredos
 
-O usuário que implanta o modelo deve ter a `Microsoft.KeyVault/vaults/deploy/action` permissão para o escopo do grupo de recursos e do cofre de chaves. As funções de [proprietário](../role-based-access-control/built-in-roles.md#owner) e [colaborador](../role-based-access-control/built-in-roles.md#contributor) concedem esse acesso. Se você criou o cofre de chaves, você é o proprietário para que tenha a permissão.
+O usuário que implanta o modelo deve ter a permissão `Microsoft.KeyVault/vaults/deploy/action` para o escopo do grupo de recursos e do cofre de chaves. As funções de [proprietário](../role-based-access-control/built-in-roles.md#owner) e [colaborador](../role-based-access-control/built-in-roles.md#contributor) concedem esse acesso. Se você criou o cofre de chaves, você é o proprietário para que tenha a permissão.
 
 O procedimento a seguir mostra como criar uma função com a permissão mínima e como atribuir o usuário
 
@@ -124,7 +121,7 @@ Com essa abordagem, você faz referência ao cofre de chaves no arquivo de parâ
 
 ![Diagrama de ID estática de integração do cofre de chaves do Resource Manager](./media/resource-manager-keyvault-parameter/statickeyvault.png)
 
-[Tutorial: Integrar Azure Key Vault no Gerenciador de recursos](./resource-manager-tutorial-use-key-vault.md) implantação de modelo usa esse método.
+[Tutorial: integrar Azure Key Vault no Gerenciador de recursos implantação de modelo](./resource-manager-tutorial-use-key-vault.md) usa esse método.
 
 O modelo a seguir implanta um SQL Server que inclui uma senha de administrador. O parâmetro de senha é definido como uma cadeia de caracteres segura. No entanto, o modelo não especifica de onde vem esse valor.
 
@@ -189,7 +186,7 @@ No arquivo de parâmetro a seguir, o segredo do cofre de chaves já deve existir
 }
 ```
 
-Se você precisar usar uma versão do segredo diferente da versão atual, use a `secretVersion` propriedade.
+Se você precisar usar uma versão do segredo diferente da versão atual, use a propriedade `secretVersion`.
 
 ```json
 "secretName": "ExamplePassword",
@@ -343,7 +340,7 @@ New-AzResourceGroupDeployment `
   -vaultName $keyVaultName -vaultResourceGroupName $keyVaultResourceGroupName -secretName $secretName
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações gerais sobre os cofres de chaves, consulte [o que é Azure Key Vault?](../key-vault/key-vault-overview.md).
 - Para obter exemplos completos de como referenciar segredos de chave, consulte [exemplos de Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

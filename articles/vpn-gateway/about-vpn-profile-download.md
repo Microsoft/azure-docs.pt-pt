@@ -1,5 +1,5 @@
 ---
-title: 'Sobre perfis de cliente VPN ponto a site: gateway de VPN do Azure | Microsoft Docs'
+title: 'Gateway de VPN do Azure: sobre perfis de cliente VPN P2S'
 description: Isso ajuda você a trabalhar com o arquivo de perfil do cliente
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 340ff6d9b112f4ff04950499b2708d8882fa6120
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 5386cace7191be60534f0d2fbf4a85b592d1ecdd
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960636"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151634"
 ---
 # <a name="about-p2s-vpn-client-profiles"></a>Sobre perfis de cliente VPN P2S
 

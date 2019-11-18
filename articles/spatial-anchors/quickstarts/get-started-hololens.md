@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 94cae186cee099618772f53d2b820e12f20cad64
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7069a3c8b266938e974d1b7130a349e0c9b66b5c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562407"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111823"
 ---
-# <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Início rápido: Criar um aplicativo do HoloLens com âncoras espaciais do C++Azure, no/WinRT e no DirectX
+# <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Início rápido: criar um aplicativo do HoloLens com âncoras espaciais C++do Azure, no/WinRT e no DirectX
 
-Este guia de início rápido aborda como criar um aplicativo do HoloLens usando âncoras C++espaciais [do Azure](../overview.md) no/WinRT e no DirectX. As âncoras espaciais do Azure são um serviço de desenvolvedor de plataforma cruzada que permite que você crie experiências de realidade mista usando objetos que persistem seu local entre dispositivos ao longo do tempo. Quando tiver terminado, você terá um aplicativo de HoloLens que pode salvar e recuperar uma âncora espacial.
+Este guia de início rápido aborda como criar um aplicativo do HoloLens usando [âncoras espaciais do Azure](../overview.md) no C++/WinRT e no DirectX. As âncoras espaciais do Azure são um serviço de desenvolvedor de plataforma cruzada que permite que você crie experiências de realidade mista usando objetos que persistem seu local entre dispositivos ao longo do tempo. Quando tiver terminado, você terá um aplicativo de HoloLens que pode salvar e recuperar uma âncora espacial.
 
 Vai aprender a:
 
@@ -48,23 +48,23 @@ Abra `HoloLens\DirectX\SampleHoloLens.sln` no Visual Studio.
 
 A próxima etapa é configurar o aplicativo para usar o identificador de conta e a chave de conta. Você os copiou em um editor de texto ao [Configurar o recurso âncoras espaciais](#create-a-spatial-anchors-resource).
 
-Abra `HoloLens\DirectX\SampleHoloLens\ViewController.cpp`o.
+Abra `HoloLens\DirectX\SampleHoloLens\ViewController.cpp`.
 
-Localize o `SpatialAnchorsAccountKey` campo e substitua `Set me` pela chave da conta.
+Localize o campo `SpatialAnchorsAccountKey` e substitua `Set me` pela chave de conta.
 
-Localize o `SpatialAnchorsAccountId` campo e substitua `Set me` pelo identificador da conta.
+Localize o campo `SpatialAnchorsAccountId` e substitua `Set me` pelo identificador da conta.
 
 ## <a name="deploy-the-app-to-your-hololens"></a>Implantar o aplicativo em seu HoloLens
 
 Altere a **configuração da solução** para **liberar**, altere **plataforma de solução** para **x86**e selecione **dispositivo** nas opções de destino de implantação.
 
-Se estiver usando o HoloLens 2, use o **ARM** como **plataforma de solução**, em vez de **x86**.
+Se estiver usando o HoloLens 2, use **ARM64** como a **plataforma da solução**, em vez de **x86**.
 
 ![Configuração do Visual Studio](./media/get-started-hololens/visual-studio-configuration.png)
 
 Ligue o dispositivo do HoloLens, entre e conecte-o ao PC usando um cabo USB.
 
-Selecione **depurar** > **Iniciar Depuração** para implantar seu aplicativo e iniciar a depuração.
+Selecione **depurar** > **iniciar a depuração** para implantar seu aplicativo e iniciar a depuração.
 
 Siga as instruções no aplicativo para colocá-lo e relembrar uma âncora.
 
@@ -75,4 +75,4 @@ No Visual Studio, interrompa o aplicativo selecionando **parar depuração** ou 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Tutorial: Compartilhar âncoras espaciais entre dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Tutorial: compartilhar âncoras espaciais entre dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)

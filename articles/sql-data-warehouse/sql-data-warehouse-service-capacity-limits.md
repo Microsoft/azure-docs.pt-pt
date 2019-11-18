@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: c4ab9d9cc8007281e0e5729fe883e654107be6fe
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: e3661797ea408f219a67a1862901fee7c27a1d58
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645295"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123913"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limites de capacidade do Azure Synapse Analytics (anteriormente conhecido como SQL DW)
 
@@ -26,10 +26,10 @@ Valores máximos permitidos para vários componentes do Azure Synapse.
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
 | [Unidades de data warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DWU Max para uma única unidade de pool de SQL (data warehouse) | Gen1: DW6000<br></br>Gen2: DW30000c |
-| [Unidades de data warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU padrão por servidor |54.000<br></br>Por padrão, cada SQL Server (por exemplo, myserver.database.windows.net) tem uma cota de DTU de 54.000, que permite até 9 DW6000c. Esta quota é apenas um limite de segurança. Você pode aumentar sua cota [criando um tíquete de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e selecionando *cota* como o tipo de solicitação.  Para calcular suas necessidades de DTU, multiplique o 7,5 pelo total de DWU necessário ou multiplique 9,0 pelo cDWU total necessário. Por exemplo:<br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW6000c x 9,0 = 54.000 DTUs.<br></br>Você pode exibir o consumo atual de DTU na opção SQL Server no Portal. Tanto as bases de dados em pausa como as que não estão em pausa contam para a quota de DTU. |
+| [Unidades de data warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU padrão por servidor |54,000<br></br>Por padrão, cada SQL Server (por exemplo, myserver.database.windows.net) tem uma cota de DTU de 54.000, que permite até DW5000c. Esta quota é apenas um limite de segurança. Você pode aumentar sua cota [criando um tíquete de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e selecionando *cota* como o tipo de solicitação.  Para calcular suas necessidades de DTU, multiplique o 7,5 pelo total de DWU necessário ou multiplique 9,5 pelo cDWU total necessário. Por exemplo:<br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW5000c x 9,5 = 47.500 DTUs.<br></br>Você pode exibir o consumo atual de DTU na opção SQL Server no Portal. Tanto as bases de dados em pausa como as que não estão em pausa contam para a quota de DTU. |
 | Conexão de banco de dados |Máximo de sessões abertas simultâneas |1024<br/><br/>O número de sessões abertas simultâneas irá variar com base no DWU selecionado. O DWU600c e superior dão suporte a um máximo de 1024 sessões abertas. DWU500c e abaixo, dão suporte a um limite máximo de sessão de abertura simultânea de 512. Observe que há limites no número de consultas que podem ser executadas simultaneamente. Quando o limite de simultaneidade for excedido, a solicitação entrará em uma fila interna onde aguardará o processamento. |
 | Conexão de banco de dados |Memória máxima para instruções preparadas |20 MB |
-| [Gestão de cargas de trabalho](resource-classes-for-workload-management.md) |Máximo de consultas simultâneas |128<br/><br/>  Um máximo de 128 consultas simultâneas será executado e as consultas restantes serão enfileiradas.<br/><br/>O número de consultas simultâneas pode diminuir quando os usuários são atribuídos a classes de recursos mais altas ou quando a configuração de limits.md de memória [unidade de data warehouse]-simultaneidade) é reduzida. Algumas consultas, como consultas DMV, sempre podem ser executadas e não afetam o limite de consultas simultâneas. Para obter mais detalhes sobre a execução de consultas simultâneas, consulte o artigo [concorrentes maximums] Memory-Concurrency-limits.md). |
+| [Gestão de cargas de trabalho](resource-classes-for-workload-management.md) |Máximo de consultas simultâneas |128<br/><br/>  Um máximo de 128 consultas simultâneas será executado e as consultas restantes serão enfileiradas.<br/><br/>O número de consultas simultâneas pode diminuir quando os usuários são atribuídos a classes de recursos mais altas ou quando a configuração de [unidade de data warehouse](memory-concurrency-limits.md) é reduzida. Algumas consultas, como consultas DMV, sempre podem ser executadas e não afetam o limite de consultas simultâneas. Para obter mais detalhes sobre a execução de consultas simultâneas, consulte o artigo de [máximos de simultaneidade](memory-concurrency-limits.md) . |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |GB máximo |399 GB por DW100. Portanto, em DWU1000, o tempdb é dimensionado para 3,99 TB. |
 
 ## <a name="database-objects"></a>Objetos de banco de dados
@@ -49,9 +49,9 @@ Valores máximos permitidos para vários componentes do Azure Synapse.
 | Índice |Colunas de chave por índice. |16<br/><br/>Aplica-se somente a índices de armazenamento. Os índices columnstore clusterizados incluem todas as colunas. |
 | Estatísticas |Tamanho dos valores de coluna combinados. |900 bytes. |
 | Estatísticas |Colunas por objeto de estatísticas. |32 |
-| Estatísticas |Estatísticas criadas em colunas por tabela. |30.000 |
+| Estatísticas |Estatísticas criadas em colunas por tabela. |30,000 |
 | Procedimentos Armazenados |Níveis máximos de aninhamento. |8 |
-| Ver |Colunas por exibição |1\.024 |
+| Vista |Colunas por exibição |1,024 |
 
 ## <a name="loads"></a>Inúmeras
 | Categoria | Descrição | Máximo |
@@ -65,27 +65,27 @@ Valores máximos permitidos para vários componentes do Azure Synapse.
 | Consulta |Consultas simultâneas em exibições do sistema. |100 |
 | Consulta |Consultas em fila em exibições do sistema |1000 |
 | Consulta |Parâmetros máximos |2098 |
-| Batch |Tamanho máximo |65536 * 4096 |
+| Batch |Tamanho máximo |65,536*4096 |
 | SELECIONAR resultados |Colunas por linha |4096<br/><br/>Você nunca pode ter mais de 4096 colunas por linha no resultado de SELECT. Não há nenhuma garantia de que você sempre pode ter 4096. Se o plano de consulta exigir uma tabela temporária, o máximo de 1024 colunas por tabela poderá ser aplicado. |
 | SELECIONAR |Subconsultas aninhadas |32<br/><br/>Você nunca pode ter mais de 32 subconsultas aninhadas em uma instrução SELECT. Não há nenhuma garantia de que você sempre pode ter 32. Por exemplo, uma junção pode introduzir uma subconsulta no plano de consulta. O número de subconsultas também pode ser limitado pela memória disponível. |
 | SELECIONAR |Colunas por junção |1024 colunas<br/><br/>Você nunca pode ter mais de 1024 colunas na junção. Não há nenhuma garantia de que você sempre pode ter 1024. Se o plano de junção exigir uma tabela temporária com mais colunas do que o resultado da junção, o limite de 1024 se aplicará à tabela temporária. |
 | SELECIONAR |Bytes por colunas agrupar por. |8060<br/><br/>As colunas na cláusula GROUP BY podem ter um máximo de 8060 bytes. |
 | SELECIONAR |Bytes por colunas ORDER BY |8060 bytes<br/><br/>As colunas na cláusula ORDER BY podem ter um máximo de 8060 bytes |
-| Identificadores por instrução |Número de identificadores referenciados |65.535<br/><br/> O número de identificadores que podem estar contidos em uma única expressão de uma consulta é limitado. Exceder esse número resulta na SQL Server do erro 8632. Para obter mais informações, consulte [erro interno: um limite dos serviços de expressão foi atingido](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
-| Literais de cadeia de caracteres | Número de literais de cadeia de caracteres em uma instrução | 20.000 <br/><br/>O número de constantes de cadeia de caracteres em uma única expressão de uma consulta é limitado. Exceder esse número resulta na SQL Server do erro 8632.|
+| Identificadores por instrução |Número de identificadores referenciados |65,535<br/><br/> O número de identificadores que podem estar contidos em uma única expressão de uma consulta é limitado. Exceder esse número resulta na SQL Server do erro 8632. Para obter mais informações, consulte [erro interno: um limite dos serviços de expressão foi atingido](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
+| Literais de cadeia de caracteres | Número de literais de cadeia de caracteres em uma instrução | 20,000 <br/><br/>O número de constantes de cadeia de caracteres em uma única expressão de uma consulta é limitado. Exceder esse número resulta na SQL Server do erro 8632.|
 
 ## <a name="metadata"></a>Metadados
 | Exibição do sistema | Máximo de linhas |
 |:--- |:--- |
-| sys. dm_pdw_component_health_alerts |10,000 |
-| sys. dm_pdw_dms_cores |100 |
-| sys. dm_pdw_dms_workers |Número total de trabalhos DMS para as solicitações de 1000 do SQL mais recentes. |
-| sys. dm_pdw_errors |10,000 |
-| sys. dm_pdw_exec_requests |10,000 |
-| sys. dm_pdw_exec_sessions |10,000 |
-| sys. dm_pdw_request_steps |Número total de etapas para as solicitações SQL mais recentes de 1000 que são armazenadas em sys. dm_pdw_exec_requests. |
-| sys. dm_pdw_os_event_logs |10,000 |
-| sys. dm_pdw_sql_requests |As solicitações SQL mais recentes de 1000 que são armazenadas em sys. dm_pdw_exec_requests. |
+| sys.dm_pdw_component_health_alerts |10,000 |
+| sys.dm_pdw_dms_cores |100 |
+| sys.dm_pdw_dms_workers |Número total de trabalhos DMS para as solicitações de 1000 do SQL mais recentes. |
+| sys.dm_pdw_errors |10,000 |
+| sys.dm_pdw_exec_requests |10,000 |
+| sys.dm_pdw_exec_sessions |10,000 |
+| sys.dm_pdw_request_steps |Número total de etapas para as solicitações SQL mais recentes de 1000 que são armazenadas em sys. dm_pdw_exec_requests. |
+| sys.dm_pdw_os_event_logs |10,000 |
+| sys.dm_pdw_sql_requests |As solicitações SQL mais recentes de 1000 que são armazenadas em sys. dm_pdw_exec_requests. |
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter recomendações sobre como usar o Azure Synapse, consulte a [folha](cheat-sheet.md)de consulta.

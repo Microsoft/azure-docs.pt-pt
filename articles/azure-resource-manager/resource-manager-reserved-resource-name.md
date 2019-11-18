@@ -1,32 +1,22 @@
 ---
-title: Erros de nomes de recursos de reservada do Azure | Documentos da Microsoft
+title: Erros de nome de recurso reservado
 description: Descreve como resolver erros ao fornecer um nome de recurso que inclui uma palavra reservada.
-services: azure-resource-manager
-documentationcenter: ''
-author: tfitzmac
-manager: timlt
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/08/2017
-ms.author: tomfitz
-ms.openlocfilehash: 922389b7c6c1bb7ad1d9b8f6ec35ccc1c5656723
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e76f4bf9bfee7de6e7523d69acf1388d2dd80e93
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683942"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150462"
 ---
-# <a name="resolve-reserved-resource-name-errors"></a>Resolver erros de nomes de recursos reservados
+# <a name="resolve-reserved-resource-name-errors"></a>Resolver erros de nome de recurso reservado
 
-Este artigo descreve o erro que ocorrer durante a implantação de um recurso que inclui uma palavra reservada em seu nome.
+Este artigo descreve o erro que você encontra ao implantar um recurso que inclui uma palavra reservada em seu nome.
 
 ## <a name="symptom"></a>Sintoma
 
-Ao implementar um recurso que está disponível por meio de um ponto final público, poderá receber o erro seguinte:
+Ao implantar um recurso que está disponível por meio de um ponto de extremidade público, você pode receber o seguinte erro:
 
 ```
 Code=ReservedResourceName;
@@ -35,47 +25,47 @@ Message=The resource name <resource-name> or a part of the name is a trademarked
 
 ## <a name="cause"></a>Causa
 
-Recursos que tenham um ponto final público não podem utilizar palavras reservadas ou não, o nome.
+Os recursos que têm um ponto de extremidade público não podem usar palavras reservadas ou marcas no nome.
 
-As seguintes palavras estão reservadas:
+As palavras a seguir são reservadas:
 
-* ACESSO
+* ÀS
 * AZURE
 * BING
 * BIZSPARK
 * BIZTALK
-* CORTANA
+* Tana
 * DIRECTX
 * DOTNET
-* DYNAMICS
+* PINCEL
 * EXCEL
-* EXCHANGE
-* FOREFRONT
+* TRANSFERÊNCIA
+* VANGUARDA
 * GROOVE
 * HOLOLENS
-* HYPER-V
+* V
 * KINECT
 * LYNC
 * MSDN
 * O365
 * OFFICE
 * OFFICE365
-* ONEDRIVE
+* FOR
 * ONENOTE
 * OUTLOOK
-* POWERPOINT
+* Point
 * SHAREPOINT
-* SKYPE
+* DO
 * VISIO
 * VISUALSTUDIO
 
-As seguintes palavras não podem ser utilizadas como uma palavra inteira ou uma subcadeia no nome:
+As palavras a seguir não podem ser usadas como uma palavra inteira ou uma subcadeia de caracteres no nome:
 
-* INÍCIO DE SESSÃO
+* ENTRAR
 * MICROSOFT
 * WINDOWS
 * XBOX
 
 ## <a name="solution"></a>Solução
 
-Forneça um nome que não utilize uma das palavras reservadas.
+Forneça um nome que não use uma das palavras reservadas.

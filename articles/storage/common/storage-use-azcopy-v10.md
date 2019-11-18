@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 812daaf42a987e9dd63bbc39b60c517d8f0cc761
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: af24a6b6d165ba60a0d88a4ddf74a4f18836e813
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882503"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111750"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -305,16 +305,9 @@ Se você planeja usar o [Jenkins](https://jenkins.io/) para executar scripts, ce
 /usr/bin/keyctl new_session
 ```
 
-## <a name="use-azcopy-in-storage-explorer"></a>Usar AzCopy no Gerenciador de Armazenamento
+## <a name="use-azcopy-in-azure-storage-explorer"></a>Usar AzCopy no Gerenciador de Armazenamento do Azure
 
-Se você quiser aproveitar as vantagens de desempenho do AzCopy, mas preferir usar Gerenciador de Armazenamento em vez da linha de comando para interagir com seus arquivos, habilite AzCopy no Gerenciador de Armazenamento.
-
-Em Gerenciador de Armazenamento, escolha **visualização**->**use AzCopy para upload e download de blob aprimorados**.
-
-![Habilitar o AzCopy como um mecanismo de transferência no Gerenciador de Armazenamento do Azure](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
-
-> [!NOTE]
-> Você não precisará habilitar essa configuração se tiver habilitado um namespace hierárquico em sua conta de armazenamento. Isso ocorre porque Gerenciador de Armazenamento usa automaticamente AzCopy em contas de armazenamento que têm um namespace hierárquico.  
+[Gerenciador de armazenamento](https://azure.microsoft.com/features/storage-explorer/) usa AzCopy para executar todas as operações de transferência de dados. Você pode usar [Gerenciador de armazenamento](https://azure.microsoft.com/features/storage-explorer/) se quiser aproveitar as vantagens de desempenho do AzCopy, mas preferir usar uma interface gráfica do usuário em vez da linha de comando para interagir com seus arquivos.
 
 Gerenciador de Armazenamento usa sua chave de conta para executar operações, portanto, depois de entrar no Gerenciador de Armazenamento, você não precisará fornecer credenciais de autorização adicionais.
 

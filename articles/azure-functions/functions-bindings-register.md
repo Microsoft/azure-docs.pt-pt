@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 93ced443a73d5499d8b305770c3c866c26d540f0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 40dca0797d75597f4728423eb9d6d071a15d81b9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086472"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129271"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrar Azure Functions extensões de associação
 
@@ -33,42 +33,25 @@ A tabela a seguir indica quando e como você registra as associações.
 |Portal do Azure|Automático|Automático|
 |Idiomas Non-.NET ou desenvolvimento de ferramentas principais do Azure local|Automático|[Usar Azure Functions Core Tools e pacotes de extensão](#extension-bundles)|
 |C#biblioteca de classes usando o Visual Studio|[Usar ferramentas do NuGet](#vs)|[Usar ferramentas do NuGet](#vs)|
-|C#biblioteca de classes usando Visual Studio Code|N/A|[Usar CLI do .NET Core](#vs-code)|
+|C#biblioteca de classes usando Visual Studio Code|N/D|[Usar CLI do .NET Core](#vs-code)|
 
 ## <a name="extension-bundles"></a>Pacotes de extensão para desenvolvimento local
 
-Os pacotes de extensão são uma tecnologia de desenvolvimento local para o tempo de execução da versão 2. x que permite adicionar um conjunto compatível de extensões de associação de funções ao seu projeto de aplicativo de funções. Esses pacotes de extensão são então incluídos no pacote de implantação quando você implanta no Azure. Os pacotes tornam todas as associações publicadas pela Microsoft disponíveis por meio de uma configuração no arquivo *host. JSON* . Os pacotes de extensão definidos em um pacote são compatíveis entre si, o que ajuda a evitar conflitos entre pacotes. Ao desenvolver localmente, verifique se você está usando a versão mais recente do [Azure Functions Core Tools](functions-run-local.md#v2).
+Os pacotes de extensão são uma tecnologia de implantação que permite adicionar um conjunto compatível de extensões de associação de funções ao seu aplicativo de funções. Um conjunto predefinido de extensões é adicionado quando você cria seu aplicativo. Os pacotes de extensão definidos em um pacote são compatíveis entre si, o que ajuda a evitar conflitos entre pacotes. Você habilita pacotes de extensão no arquivo host. JSON do aplicativo.  
 
-Use pacotes de extensão para todo o desenvolvimento local usando Azure Functions Core Tools ou Visual Studio Code.
+Você pode usar pacotes de extensão com a versão 2. x e versões posteriores do tempo de execução do functions. Ao desenvolver localmente, verifique se você está usando a versão mais recente do [Azure Functions Core Tools](functions-run-local.md#v2).
 
-Se você não usar pacotes de extensão, deverá instalar o SDK do .NET Core 2. x em seu computador local antes de instalar qualquer extensão de associação. Os pacotes eliminam esse requisito para o desenvolvimento local. 
+Use pacotes de extensão para o desenvolvimento local usando Azure Functions Core Tools, Visual Studio Code e quando você cria remotamente.
+
+Se você não usar pacotes de extensão, deverá instalar o SDK do .NET Core 2. x em seu computador local antes de instalar qualquer extensão de associação. Os pacotes de extensão eliminam esse requisito para o desenvolvimento local. 
 
 Para usar pacotes de extensão, atualize o arquivo *host. JSON* para incluir a seguinte entrada para `extensionBundle`:
-
-```json
-{
-    "version": "2.0",
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[1.*, 2.0.0)"
-    }
-}
-```
-
-As seguintes propriedades estão disponíveis em `extensionBundle`:
-
-| Propriedade | Descrição |
-| -------- | ----------- |
-| **`id`** | O namespace para pacotes de extensão do Microsoft Azure functions. |
-| **`version`** | A versão do pacote a ser instalado. O tempo de execução do Functions sempre escolhe a versão máxima permitida definida pelo intervalo de versão ou intervalo. O valor da versão acima permite todas as versões do pacote da 1.0.0 até, mas não incluindo 2.0.0. Para obter mais informações, consulte a notação de [intervalo para especificar intervalos de versão](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). |
-
-As versões do pacote são incrementadas como pacotes na alteração do pacote. As alterações de versão principal ocorrem quando os pacotes no pacote são incrementados por uma versão principal, que geralmente coincide com uma alteração na versão principal do tempo de execução do functions.  
-
-O conjunto atual de extensões instaladas pelo pacote padrão é enumerado neste [arquivo Extensions. JSON](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
+ 
+[!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 <a name="local-csharp"></a>
 
-## <a name="vs"></a>Biblioteca\# de classes C com o Visual Studio
+## <a name="vs"></a>C\# biblioteca de classes com o Visual Studio
 
 No **Visual Studio**, você pode instalar pacotes do console do Gerenciador de pacotes usando o comando [install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) , conforme mostrado no exemplo a seguir:
 
@@ -78,14 +61,14 @@ Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_V
 
 O nome do pacote usado para uma determinada associação é fornecido no artigo de referência para essa associação. Para obter um exemplo, consulte a [seção pacotes do artigo de referência de associação do barramento de serviço](functions-bindings-service-bus.md#packages---functions-1x).
 
-Substitua `<TARGET_VERSION>` no exemplo por uma versão específica do pacote, `3.0.0-beta5`como. As versões válidas são listadas nas páginas de pacote individuais em [NuGet.org](https://nuget.org). As versões principais que correspondem ao Functions Runtime 1. x ou 2. x são especificadas no artigo de referência para a associação.
+Substitua `<TARGET_VERSION>` no exemplo por uma versão específica do pacote, como `3.0.0-beta5`. As versões válidas são listadas nas páginas de pacote individuais em [NuGet.org](https://nuget.org). As versões principais que correspondem ao Functions Runtime 1. x ou 2. x são especificadas no artigo de referência para a associação.
 
-Se você usar `Install-Package` o para fazer referência a uma associação, não será necessário usar [pacotes de extensão](#extension-bundles). Essa abordagem é específica para bibliotecas de classes criadas no Visual Studio.
+Se você usar `Install-Package` para fazer referência a uma associação, não precisará usar [pacotes de extensão](#extension-bundles). Essa abordagem é específica para bibliotecas de classes criadas no Visual Studio.
 
 ## <a name="vs-code"></a>C# biblioteca de classes com Visual Studio Code
 
 > [!NOTE]
-> É recomendável usar [pacotes de extensão](#extension-bundles) para que o Functions instale automaticamente um conjunto compatível de pacotes de extensão de associação.
+> É recomendável usar [pacotes de extensão](#extension-bundles) para que o Functions instale automaticamente um conjunto compatível de pacotes de extensão de associação. 
 
 No **Visual Studio Code**, instale pacotes para um C# projeto de biblioteca de classes do prompt de comando usando o comando [dotnet adicionar pacote](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) na CLI do .NET Core. O exemplo a seguir demonstra como você adiciona uma associação:
 
@@ -95,10 +78,10 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --vers
 
 O CLI do .NET Core só pode ser usado para desenvolvimento Azure Functions 2. x.
 
-Substitua `<BINDING_TYPE_NAME>` pelo nome do pacote fornecido no artigo de referência para a associação desejada. Você pode encontrar o artigo de referência de associação desejada na [lista de associações com suporte](./functions-triggers-bindings.md#supported-bindings).
+Substitua `<BINDING_TYPE_NAME>` pelo nome do pacote que contém a associação de que você precisa. Você pode encontrar o artigo de referência de associação desejada na [lista de associações com suporte](./functions-triggers-bindings.md#supported-bindings).
 
-Substitua `<TARGET_VERSION>` no exemplo por uma versão específica do pacote, `3.0.0-beta5`como. As versões válidas são listadas nas páginas de pacote individuais em [NuGet.org](https://nuget.org). As versões principais que correspondem ao Functions Runtime 1. x ou 2. x são especificadas no artigo de referência para a associação.
+Substitua `<TARGET_VERSION>` no exemplo por uma versão específica do pacote, como `3.0.0-beta5`. As versões válidas são listadas nas páginas de pacote individuais em [NuGet.org](https://nuget.org). As versões principais que correspondem ao Functions Runtime 1. x ou 2. x são especificadas no artigo de referência para a associação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Exemplo de gatilho e associação do Azure function](./functions-bindings-example.md)

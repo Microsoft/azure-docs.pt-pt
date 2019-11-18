@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 41332a76c3c4e8228e6827e1553d73da3a85fc09
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: fb8f5f2adf497a12b4ed54b381a2dbf85e160b8e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73522141"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123964"
 ---
 # <a name="container-security-in-security-center"></a>Segurança do contêiner na central de segurança
 
@@ -59,7 +59,7 @@ Para obter detalhes das recomendações da central de segurança, consulte [prot
 
 A central de segurança fornece detecção de ameaças em tempo real para seus ambientes em contêineres e gera alertas para atividades suspeitas. Pode utilizar estas informações para remediar rapidamente problemas de segurança e aumentar a segurança dos contentores.
 
-Detectamos ameaças no nível de cluster host e AKS. Para obter detalhes completos, consulte [serviço de contêiner do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-container-service-).
+Detectamos ameaças no nível de cluster host e AKS. Para obter detalhes completos, consulte [serviço de contêiner do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
 
 
 ## <a name="to-view-the-security-posture-of-your-container-related-resources"></a>Para exibir a postura de segurança de seus recursos relacionados ao contêiner

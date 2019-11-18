@@ -1,5 +1,5 @@
 ---
-title: Ajustar hiperparâmetros de modelo
+title: Ajustar hiperparâmetros do modelo
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo ajustar hiperparâmetros de modelo no serviço de Azure Machine Learning para executar uma varredura de parâmetro em um modelo para determinar as configurações de parâmetro ideais.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: fd796297bafeb437b55eca7f38cbd7ae55e19b93
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 834907528e4062de583197cf91e98372b96451d7
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716716"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131220"
 ---
-# <a name="tune-model-hyperparameters"></a>Ajustar hiperparâmetros de modelo
+# <a name="tune-model-hyperparameters"></a>Ajustar hiperparâmetros do modelo
 
 Este artigo descreve como usar o módulo ajustar hiperparâmetros de modelo no designer de Azure Machine Learning (versão prévia). O objetivo é determinar os hiperparâmetros ideais para um modelo de aprendizado de máquina. O módulo cria e testa vários modelos usando diferentes combinações de configurações. Ele compara métricas em todos os modelos para obter as combinações de configurações. 
 
@@ -69,7 +69,7 @@ Esta seção descreve como executar uma varredura de parâmetro básica, que tre
 
 8.  Para **classificação**, escolha uma única métrica a ser usada para classificar os modelos.
 
-    Quando você executa uma varredura de parâmetro, o módulo calcula todas as métricas aplicáveis para o tipo de modelo retorna-as no relatório de **resultados de varredura** . O módulo usa métricas separadas para modelos de regressão e classificação.
+    Quando você executa uma varredura de parâmetro, o módulo calcula todas as métricas aplicáveis para o tipo de modelo e as retorna no relatório de **resultados de varredura** . O módulo usa métricas separadas para modelos de regressão e classificação.
 
     No entanto, a métrica que você escolhe determina como os modelos são classificados. Somente o modelo superior, conforme classificado pela métrica escolhida, é a saída como um modelo treinado a ser usado para pontuação.
 

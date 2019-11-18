@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: b16b6bb8ad39f7f0a5f19a2e2d4280bb73def60a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 5c20c280fdc9097692f98c83dcb3d310e9914ecf
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082205"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133373"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -208,7 +208,7 @@ Convidado/servidor-excluir disco | Sim
 MPIO (vários caminhos) de convidado/servidor | Não
 Partições do convidado/servidor GPT | Há suporte para cinco partições do [pacote cumulativo de atualizações 37](https://support.microsoft.com/help/4508614/) (versão 9,25 do serviço de mobilidade) em diante. Anteriormente, eram suportadas quatro.
 ReFS | O sistema de arquivos resiliente tem suporte com o serviço de mobilidade versão 9,23 ou superior
-Inicialização de EFI/servidor do convidado/UEFI | -Com suporte para Windows Server 2012 ou posterior, SLES SP4 e RHEL 8,0 <br/> -Não há suporte para o tipo de inicialização UEFI segura. 
+Inicialização de EFI/servidor do convidado/UEFI | -Com suporte para Windows Server 2012 ou posterior, SLES 12 SP4 e RHEL 8,0 com agente de mobilidade versão 9,30 em diante<br/> -Não há suporte para o tipo de inicialização UEFI segura. 
 
 ## <a name="replication-channels"></a>Canais de replicação
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: jenns
-ms.openlocfilehash: 6c2a8fa57bf6e3a552da57588bdbe752ef0d22e2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 5f2d23b3fe33691d37dc00b2d4e79036293252d9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609570"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132867"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Esquema de evento da grade de eventos do Azure para Azure Machine Learning
 
@@ -155,12 +155,12 @@ Um evento tem os seguintes dados de nível superior:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | tópico | string | Caminho completo do recurso para a origem do evento. Este campo não é gravável. A grade de eventos fornece esse valor. |
-| Assunto | string | Caminho definido pelo Publicador para a entidade do evento. |
-| EventType | string | Um dos tipos de evento registrados para essa origem do evento. |
+| subject | string | Caminho definido pelo Publicador para a entidade do evento. |
+| eventType | string | Um dos tipos de evento registrados para essa origem do evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | ID | string | Identificador exclusivo do evento. |
-| dado | objeto | Dados de evento de armazenamento de BLOBs. |
-| versão de | string | A versão do esquema do objeto de dados. O Publicador define a versão do esquema. |
+| data | objeto | Dados de evento de armazenamento de BLOBs. |
+| dataVersion | string | A versão do esquema do objeto de dados. O Publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. A grade de eventos define o esquema das propriedades de nível superior. A grade de eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades para cada tipo de evento:
@@ -178,9 +178,9 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| ServiceName | string | O nome do serviço implantado. |
+| serviceName | string | O nome do serviço implantado. |
 | Filecomputetype | string | O tipo de computação (por exemplo, ACI, AKS) do serviço implantado. |
-| ModelIds | string | Uma lista de IDs de modelo separados em comum. As IDs dos modelos implantados no serviço. |
+  | ModelIds | string | Uma lista separada por vírgulas de IDs de modelo. As IDs dos modelos implantados no serviço. |
 | Crachás | objeto | As marcas do serviço implantado. |
 | ServiceProperties | objeto | As propriedades do serviço implantado. |
 
@@ -189,7 +189,7 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | Experimentoid | string | A ID do experimento ao qual a execução pertence. |
-| experimentoname | string | O nome do experimento ao qual a execução pertence. |
+| Experimentoname | string | O nome do experimento ao qual a execução pertence. |
 | RunId | string | A ID da execução que foi concluída. |
 | RunType | string | O tipo de execução da execução concluída. |
 | RunTags | objeto | As marcas da execução concluída. |
@@ -214,4 +214,4 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 * Para obter uma introdução à grade de eventos do Azure, consulte [o que é a grade de eventos?](overview.md)
 * Para obter mais informações sobre como criar uma assinatura da grade de eventos do Azure, consulte [esquema de assinatura da grade de eventos](subscription-creation-schema.md)
 * Para obter uma introdução ao uso da grade de eventos do Azure com o Azure Machine Learning, consulte [consumir Azure Machine Learning eventos](/azure/machine-learning/service/concept-event-grid-integration)
-* Para obter um exemplo de como usar a grade de eventos do Azure com Azure Machine Learning, consulte [criar fluxos de trabalho de aprendizado de máquina direcionados a eventos](/azure/machine-learning/service/event-schema-machine-learning)
+* Para obter um exemplo de como usar a grade de eventos do Azure com Azure Machine Learning, consulte [criar fluxos de trabalho de aprendizado de máquina direcionados a eventos](/azure/machine-learning/service/how-to-use-event-grid)

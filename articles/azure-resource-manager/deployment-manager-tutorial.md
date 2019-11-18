@@ -1,19 +1,16 @@
 ---
 title: Utilizar o Gestor de Implementações do Azure com modelos do Resource Manager | Microsoft Docs
 description: Utilize modelos do Resource Manager com o Gestor de Implementações do Azure para implementar recursos do Azure.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
 ms.date: 10/10/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3f10093b1d3087e87279258d04d86fc3d47ba313
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 6a05e45c5dc60cf26b2fb4f50cb4699c0fde142a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285902"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147411"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Utilizar o Gestor de Implementação do Azure com modelos do Resource Manager (Pré-visualização pública)
 
@@ -192,7 +189,7 @@ Tem de criar uma identidade gerida atribuída pelo utilizador e configurar o con
 > [!IMPORTANT]
 > A identidade gerida atribuída pelo utilizador tem de estar na mesma localização do [lançamento](#create-the-rollout-template). Atualmente, os recursos do Gestor de Implementações, incluindo o lançamento, só podem ser criados nos E.U.A. Central ou nos E.U.A. Leste 2. No entanto, isso só é verdadeiro para os recursos de Deployment Manager (como a topologia de serviço, os serviços, as unidades de serviço, a distribuição e as etapas). Os recursos de destino podem ser implantados em qualquer região do Azure com suporte. Neste tutorial, por exemplo, os recursos de Deployment Manager são implantados em EUA Central, mas os serviços são implantados no leste dos EUA e oeste dos EUA. Essa restrição será levantada no futuro.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 2. Crie uma [identidade gerida atribuída pelo utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. No portal, selecione **Subscrições**, no menu do lado esquerdo, e selecione a sua subscrição.
 4. Selecione **controle de acesso (iam)** e, em seguida, selecione **Adicionar atribuição de função**.

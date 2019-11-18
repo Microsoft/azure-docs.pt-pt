@@ -1,25 +1,17 @@
 ---
 title: Práticas recomendadas para o cache do Azure para Redis
 description: Saiba como usar o cache do Azure para Redis com eficiência seguindo estas práticas recomendadas.
-services: cache
-documentationcenter: na
 author: joncole
-manager: jhubbard
-editor: tysonn
-ms.assetid: 3e4905e3-89e3-47f7-8cfb-12caf1c6e50e
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: joncole
-ms.openlocfilehash: 29e5a81c438a7aa834fc002b916739a952c9a270
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 136c29245c63b2f2feed79a10a09fb57a379736f
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72785878"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122388"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Práticas recomendadas para o cache do Azure para Redis 
 Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempenho e o uso econômico de seu cache do Azure para a instância Redis.
@@ -55,7 +47,7 @@ Há várias coisas relacionadas ao uso de memória em sua instância do servidor
  * **Defina um valor de expiração em suas chaves.**  Isso removerá as chaves proativamente, em vez de aguardar até que haja pressão de memória.  Quando a remoção é acionada devido à pressão de memória, ela pode causar carga adicional no servidor.  Para obter mais informações, consulte a documentação para os comandos [expire](https://redis.io/commands/expire) e [ExpireAt](https://redis.io/commands/expireat) .
  
 ## <a name="client-library-specific-guidance"></a>Diretrizes específicas da biblioteca de cliente
- * [StackExchange. Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
+ * [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
  * [Java-qual cliente devo usar?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
  * [Lettuce (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)

@@ -1,17 +1,14 @@
 ---
-title: Erros de recurso pai do Azure | Microsoft Docs
+title: Erros de recurso pai
 description: Descreve como resolver erros ao trabalhar com um recurso pai em um modelo de Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 08/01/2018
-ms.author: tomfitz
-ms.openlocfilehash: 197554e16e28b4928cab351838f00e1631c269fd
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: f6e0eb678c6ebce17f168ac09f0777102aafc3d9
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390243"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150554"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Resolver erros de recursos pai
 

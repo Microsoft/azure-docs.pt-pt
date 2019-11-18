@@ -1,28 +1,21 @@
 ---
-title: 'Início rápido: Usar o cache do Azure para Redis com Java'
+title: 'Início rápido: usar o cache do Azure para Redis com Java'
 description: Neste guia de início rápido, você criará um novo aplicativo Java que usa o cache do Azure para Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 29275a5e-2e39-4ef2-804f-7ecc5161eab9
 ms.service: cache
 ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: cache
-ms.workload: tbd
 ms.date: 05/23/2018
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 019defe782f8258acfd508745d36a0a6599d2e61
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 6163392c80d40b6ea65e681aa175c21c244099b9
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273920"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122703"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Início rápido: Usar o cache do Azure para Redis com Java
+# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Início rápido: usar o cache do Azure para Redis com Java
 
 Neste guia de início rápido, você incorpora o cache do Azure para Redis em um aplicativo Java usando o cliente [Jedis](https://github.com/xetorthio/jedis) Redis para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure.
 
@@ -141,7 +134,7 @@ No exemplo abaixo, pode ver que a chave `Message` tinha anteriormente um valor e
 
 Se avançar para o próximo tutorial, pode manter os recursos que criou neste início rápido e reutilizá-los.
 
-Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, poderá eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
+Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, pode eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
 
 > [!IMPORTANT]
 > A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos nele contidos serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.

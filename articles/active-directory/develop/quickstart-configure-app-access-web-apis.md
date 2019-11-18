@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30b0649f23403363ca4ab4101a2d5cf7a42d505b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: afa757020ff6de3be23403b78fd9a12c2de97016
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473701"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106605"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Início rápido: configurar um aplicativo cliente para acessar APIs Web
 
@@ -71,7 +71,7 @@ Antes de poder configurar a aplicação, siga estes passos:
 
 Para adicionar um URI de redirecionamento à aplicação:
 
-1. Na página **Descrição Geral** da aplicação, selecione a secção **Autenticação**.
+1. Na página **Descrição geral** da aplicação, selecione a secção **Autenticação**.
 1. Para adicionar um URI de redirecionamento personalizado para aplicações cliente da Web e públicas, siga estes passos:
    1. Localize a secção **URI de redirecionamento**.
    1. Selecione o tipo de aplicação que está a compilar, **Web** ou **Cliente público (móvel e ambiente de trabalho)** .
@@ -171,13 +171,40 @@ Para adicionar uma credencial à aplicação Web:
 Para adicionar uma ou mais permissões para aceder às APIs de recursos a partir do seu cliente:
 
 1. Na página **Descrição Geral** da aplicação, selecione **Permissões de API**.
-1. Selecione o botão **Adicionar uma permissão**.
+1. Na seção **permissões configuradas** , selecione o botão **Adicionar uma permissão** .
 1. Por predefinição, a vista permite-lhe selecionar de entre **APIs da Microsoft**. Selecione a secção de APIs em que está interessado:
     * **APIs da Microsoft** - permite-lhe selecionar permissões para APIs da Microsoft, como a Microsoft Graph.
     * **APIs que a minha organização utiliza** - permite-lhe selecionar permissões para as APIs que a sua organização expôs ou APIs com que a organização se integrou.
     * **As minhas APIs** - permite-lhe selecionar permissões para as APIs expostas por si.
 1. Depois de selecionar as APIs, verá a página **Pedir Permissões de API**. Se a API expuser as permissões delegadas e as permissões da aplicação, selecione o tipo de permissão de que a sua aplicação precisa.
 1. Quando tiver concluído, selecione **Adicionar permissões**. É reencaminhado para a página **Permissões da API** na qual as permissões foram guardadas e adicionadas à tabela.
+
+## <a name="understanding-api-permissions-and-admin-consent-ui"></a>Noções básicas sobre permissões de API e interface do usuário de consentimento do administrador
+
+### <a name="configured-permissions"></a>Permissões configuradas
+
+Esta seção mostra as permissões que foram explicitamente configuradas no objeto Application (permissões \the que fazem parte da lista de acesso de recursos necessária do aplicativo). Você pode adicionar ou remover permissões desta tabela. Como administrador, você também pode conceder/revogar o consentimento do administrador para um conjunto de permissões de uma API ou permissões individuais nesta seção.
+
+### <a name="other-permissions-granted"></a>Outras permissões concedidas
+
+Se seu aplicativo estiver registrado em um locatário, você poderá ver uma seção adicional intitulada **outras permissões concedidas para o locatário**. Esta seção mostra as permissões que foram concedidas para o locatário, mas que não foram explicitamente configuradas no objeto de aplicativo (por exemplo, permissões que foram solicitadas e consentidas dinamicamente). Esta seção só aparecerá se houver pelo menos uma permissão aplicável.
+
+Você pode adicionar um conjunto de permissões de API ou permissões individuais que aparecem nesta seção à seção **permissões configuradas** . Como administrador, você também pode revogar o consentimento do administrador para APIs individuais ou permissões nesta seção.
+
+### <a name="admin-consent-button"></a>Botão de consentimento do administrador
+
+Se seu aplicativo estiver registrado em um locatário, você verá um botão **conceder consentimento de administrador para locatário** . Ele será desabilitado se você não for um administrador ou se nenhuma permissão tiver sido configurada para o aplicativo.
+Esse botão permite que um administrador conceda facilmente consentimento de administrador às permissões configuradas para o aplicativo. Clicar no botão de consentimento do administrador inicia uma nova janela com um prompt de consentimento mostrando todas as permissões configuradas.
+
+> [!NOTE]
+> Há um atraso entre as permissões que estão sendo configuradas para o aplicativo e elas aparecem no prompt de consentimento. Se você não vir todas as permissões configuradas no prompt de consentimento, feche-a e inicie-a novamente.
+
+Se você tiver permissões que foram concedidas, mas não configuradas, ao clicar no botão de consentimento do administrador, será solicitado que você decida como lidar com essas permissões. Você pode adicioná-los às permissões configuradas ou pode removê-los.
+
+A solicitação de consentimento fornece a opção de **aceitar** ou **Cancelar**. Se você selecionar **aceitar**, o consentimento do administrador será concedido. Se você selecionar **Cancelar**, o consentimento do administrador não será concedido e verá um erro informando que o consentimento foi recusado.
+
+> [!NOTE]
+> Há um atraso entre a concessão de consentimento do administrador (selecionando **aceitar** no prompt de consentimento) e o status do consentimento do administrador refletido na interface do usuário.
 
 ## <a name="next-steps"></a>Passos seguintes
 

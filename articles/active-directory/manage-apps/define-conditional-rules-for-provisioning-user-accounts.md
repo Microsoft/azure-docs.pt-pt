@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bb1ed48d501ca3166e0b906c622507b59ef059a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 82360dacd68de512bc12ff5d39ddbd3a21578aa7
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "70812679"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120110"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo baseado em atributo com filtros de escopo
 O objetivo deste artigo é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários são provisionados para um aplicativo.
@@ -65,7 +65,7 @@ De acordo com esse filtro de escopo, os usuários devem atender aos seguintes cr
 Os filtros de escopo são configurados como parte dos mapeamentos de atributo para cada conector de provisionamento de usuário do Azure AD. O procedimento a seguir pressupõe que você já configurou o provisionamento automático para [um dos aplicativos com suporte](../saas-apps/tutorial-list.md) e está adicionando um filtro de escopo a ele.
 
 ### <a name="create-a-scoping-filter"></a>Criar um filtro de escopo
-1. Na [portal do Azure](https://portal.azure.com), vá para a seção **Azure Active Directory** > **aplicativos empresariais** > **todos os aplicativos** .
+1. Na [portal do Azure](https://portal.azure.com), acesse a seção **Azure Active Directory** > **aplicativos empresariais** > **todos os aplicativos** .
 
 2. Selecione o aplicativo para o qual você configurou o provisionamento automático: por exemplo, "ServiceNow".
 
@@ -110,6 +110,14 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributo pa
 >[!IMPORTANT] 
 > Salvar um novo filtro de escopo dispara uma nova sincronização completa para o aplicativo, onde todos os usuários no sistema de origem são avaliados novamente em relação ao novo filtro de escopo. Se um usuário no aplicativo estava anteriormente no escopo para provisionamento, mas estiver fora do escopo, sua conta será desabilitada ou desprovisionada no aplicativo. Para substituir esse comportamento padrão, consulte [ignorar a exclusão de contas de usuário que saem do escopo](skip-out-of-scope-deletions.md).
 
+
+## <a name="common-scoping-filters"></a>Filtros de escopo comuns
+| Atributo de destino| Operador | Valor | Descrição|
+|----|----|----|----|
+|userPrincipalName|CORRESPONDÊNCIA DE REGEX|.\*@domain.com |Todos os usuários com userPrincipal que têm o domínio @domain.com estarão no escopo para provisionamento|
+|userPrincipalName|NÃO CORRESPONDÊNCIA DE REGEX|.\*@domain.com|Todos os usuários com userPrincipal que têm o domínio @domain.com estarão fora do escopo para provisionamento|
+|Departamento|SEJA|impostos|Todos os usuários do departamento de vendas estão no escopo para provisionamento|
+|workerid|CORRESPONDÊNCIA DE REGEX|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Todos os funcionários com workerIDs entre 1 milhão e 2 milhões estão no escopo para provisionamento.|
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Automatizar o provisionamento e o desprovisionamento de usuários para aplicativos SaaS](user-provisioning.md)

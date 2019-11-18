@@ -7,13 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.custom: fasttrack-edit
-ms.openlocfilehash: f2cf69b456aeccd6da5ac393b88171fb3bb03cf2
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 68ce0dca3bc7c5d408bd6e8f267d238ac812a84d
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082537"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130580"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o gateway de aplicativo
 
@@ -23,7 +22,7 @@ Veja a seguir as perguntas comuns sobre Aplicativo Azure gateway.
 
 ## <a name="general"></a>Geral
 
-### <a name="what-is-application-gateway"></a>O que é o Gateway de Aplicação?
+### <a name="what-is-application-gateway"></a>O que é o Gateway da Aplicação?
 
 Aplicativo Azure Gateway fornece um ADC (controlador de entrega de aplicativos) como um serviço. Ele oferece vários recursos de balanceamento de carga de camada 7 para seus aplicativos. Esse serviço é altamente disponível, escalonável e totalmente gerenciado pelo Azure.
 

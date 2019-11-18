@@ -1,26 +1,19 @@
 ---
 title: 'Início rápido: usar o cache do Azure para Redis com node. js'
 description: Neste início rápido, você aprenderá a usar o cache do Azure para Redis com node. js e node_redis.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: v-lincan
-ms.assetid: 06fddc95-8029-4a8d-83f5-ebd5016891d9
 ms.service: cache
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.tgt_pltfrm: cache
-ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: bd31cf066b7844eeae02c24cb39ece686630b5ff
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e0458fd257942a455daef911a303437fea03b11b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329821"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122019"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Início rápido: usar o cache do Azure para Redis com node. js
 
@@ -48,7 +41,7 @@ set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ## <a name="connect-to-the-cache"></a>Ligar à cache
 
-As compilações mais recentes do [node_redis](https://github.com/mranney/node_redis) fornecem suporte para conexão com o cache do Azure para REDIS usando SSL. O exemplo a seguir mostra como se conectar ao cache do Azure para Redis usando o ponto de extremidade SSL de 6380. 
+As compilações mais recentes do [node_redis](https://github.com/mranney/node_redis) fornecem suporte para se conectar ao cache do Azure para REDIS usando SSL. O exemplo a seguir mostra como se conectar ao cache do Azure para Redis usando o ponto de extremidade SSL de 6380. 
 
 ```js
 var redis = require("redis");
@@ -122,7 +115,7 @@ Se avançar para o próximo tutorial, pode manter os recursos que criou neste in
 Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, pode eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
 
 > [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos contidos no mesmo serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
+> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos nele contidos serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
 >
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.

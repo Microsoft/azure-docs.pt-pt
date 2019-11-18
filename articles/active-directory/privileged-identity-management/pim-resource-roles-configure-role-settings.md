@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a302e723aa898a62bc43ecb38343bcf026dc769e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: abb6c2212549c3d92f9c1dbc42c31f838a704af2
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74022942"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144291"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Definir configurações de função de recurso do Azure no Privileged Identity Management
 
@@ -48,11 +48,19 @@ Siga estas etapas para abrir as configurações de uma função de recurso do Az
 
     ![Página de detalhes de configuração de função listando várias configurações de atribuição e ativação](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. Selecione **Editar** para abrir o painel configurações de função.
+1. Selecione **Editar** para abrir o painel **configurações de função** . A primeira guia permite que você atualize a configuração de ativação de função no Privileged Identity Management.
 
-    ![Página Editar configurações de função com opções para atualizar a atribuição e as configurações de ativação](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![Página Editar configurações de função com a guia ativação aberta](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 
-    No painel de configuração de função para cada função, há várias configurações que você pode configurar.
+1. Selecione a guia **atribuição** ou o botão **próximo: atribuição** na parte inferior da página para abrir a guia Configuração de atribuição. Essas configurações controlam as atribuições de função feitas dentro da interface Privileged Identity Management.
+
+    ![Guia atribuição de função na página Configurações de função](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
+
+1. Use a guia **notificação** ou o botão **Avançar: ativação** na parte inferior da página para acessar a guia Configuração de notificação para essa função. Essas configurações controlam todas as notificações por email relacionadas a essa função.
+
+    ![Guia notificações de função na página Configurações de função](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+
+1. Selecione o botão **Atualizar** a qualquer momento para atualizar as configurações de função.
 
 ## <a name="assignment-duration"></a>Duração da atribuição
 

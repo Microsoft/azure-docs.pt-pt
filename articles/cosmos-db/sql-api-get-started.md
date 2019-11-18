@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
-ms.openlocfilehash: 25846bb7a19d29a3a72146d4046b5205183a247e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a8af36da7b9043492f1ed3c77dcc1b35dc2936fe
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720864"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132563"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Tutorial: compilar um aplicativo de console .NET para gerenciar dados em Azure Cosmos DB conta da API do SQL
 
@@ -32,7 +32,7 @@ Este tutorial aborda:
 
 > [!div class="checklist"]
 >
-> * Criando e conectando-se a uma conta do Azure Cosmos
+> * Criar e ligar a uma conta do Cosmos do Azure
 > * Configurando seu projeto no Visual Studio
 > * Criando um banco de dados e um contêiner
 > * Adicionar itens ao contentor
@@ -257,6 +257,16 @@ As bases de dados são os contentores lógicos dos itens particionados em conten
     ```
 
 1. Selecione F5 para executar o aplicativo.
+
+   > [!NOTE]
+   > Se você receber uma "exceção do serviço 503 indisponível", é possível que as [portas](performance-tips.md#networking) necessárias para o modo direto sejam bloqueadas por um firewall. Para corrigir esse problema, abra as [portas](performance-tips.md#networking) necessárias ou tente usar o modo de gateway, conforme mostrado abaixo.
+   ```csharp
+     // Create a new instance of the Cosmos Client in Gateway mode
+     this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()
+            {
+                ConnectionMode = ConnectionMode.Gateway
+            });
+   ```
 
 Parabéns! Você criou um banco de dados Cosmos do Azure com êxito.  
 

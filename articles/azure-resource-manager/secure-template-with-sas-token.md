@@ -1,18 +1,14 @@
 ---
-title: Implantar Azure Resource Manager modelo com segurança com o token SAS
+title: Implantar o modelo com segurança com o token SAS
 description: Implante recursos no Azure com um modelo de Azure Resource Manager que é protegido por um token SAS. Mostra Azure PowerShell e CLI do Azure.
-services: azure-resource-manager
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.author: tomfitz
-ms.openlocfilehash: f396618350e4f4a9be09db421d073aec6ba52b65
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 8138563211cae12cc38f0e737be49b32204dc243
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036959"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150316"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token"></a>Implementar um modelo privado do Resource Manager com o token SAS
 
@@ -143,7 +139,7 @@ az group deployment create \
 Para obter um exemplo de como usar um token SAS com modelos vinculados, consulte [usando modelos vinculados com Azure Resource Manager](resource-group-linked-templates.md).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para obter uma introdução à implantação de modelos, consulte [implantar recursos com modelos e Azure PowerShell do Resource Manager](resource-group-template-deploy.md).
 * Para obter um script de exemplo completo que implanta um modelo, consulte [implantar script de modelo do Resource Manager](resource-manager-samples-powershell-deploy.md)
 * Para definir parâmetros no modelo, consulte [criando modelos](resource-group-authoring-templates.md#parameters).

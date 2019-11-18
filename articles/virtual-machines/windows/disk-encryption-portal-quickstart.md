@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 2590b9851b654990795f111e76f6cc5ea6c96723
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2518de3ad5d0f583cd4962796e4adda5751351df
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491951"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151016"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Início rápido: criar e criptografar uma máquina virtual do Windows com o portal do Azure
 
@@ -23,41 +23,14 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
-## <a name="create-a-key-vault"></a>Criar um cofre de chaves
-
-1. Selecione a opção **Criar um recurso** no canto superior esquerdo do portal do Azure
-1. Na caixa Pesquisar, introduza **Key Vault**.
-1. Na lista de resultados, selecione **Key Vault**.
-1. Na seção Key Vault, selecione **criar**.
-1. Na tela **criar cofre de chaves** , escolha um nome exclusivo para o novo cofre de chaves.
-
-    > [!Important]
-    > Cada Key Vault deve ter um nome exclusivo. O exemplo a seguir cria um Key Vault chamado *myADEKV*, mas você deve nomear algo diferente.
-
-1. Selecione uma **assinatura**.
-1.  Em **grupo de recursos**, selecione **criar novo**. No pop-up, escreva *myResourceGroup* no nome do grupo de recursos e, em seguida, selecione **OK**. 
-
-    ![Tela de criação do grupo de recursos](../media/disk-encryption/portal-qs-keyvaultcreation.png)
-
-1. No menu suspenso **local** , escolha **leste dos EUA**.
-1. Deixe as outras opções com os valores predefinidos.
-1. Selecione "políticas de acesso", que levará você para uma nova tela.
-1. Marque a caixa de seleção ao lado de "habilitar o acesso a Azure Disk Encryption para criptografia de volume.
-
-    ![Tela de criação de resourcegroup](../media/disk-encryption/portal-qs-keyvault-enable-encryption.png)
-
-1. Na parte inferior da tela políticas de acesso, clique em "revisar + criar".
-1. Após a revisão, clique em "criar".
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
-
 1. Na nova página, em popular, selecione **Windows Server 2016 datacenter**.
-1. Na guia **noções básicas** , em **detalhes do projeto**, verifique se a assinatura correta está selecionada.
-1. Para **grupo de recursos**, selecione o grupo de recursos que você criou ao tornar o cofre de chaves acima (por exemplo, **MyResource**Group).
+1. Na guia noções básicas, em detalhes do projeto, verifique se a assinatura correta está selecionada e, em seguida, escolha **criar novo grupo de recursos**. Insira *Myresourceobject* como o nome.
 1. Para **nome da máquina virtual**, insira *MyVM*.
-1. Para **região**, selecione a mesma região que você usou ao tornar o cofre de chaves acima (por exemplo, **leste dos EUA**).
+1. Para **região**, selecione a mesma região que você usou ao tornar o cofre de chaves acima (por exemplo, *leste dos EUA*).
 1. Verifique se o **tamanho** é *Standard D2s v3*.
 1. Em **conta de administrador**, selecione **senha**. Insira um nome de usuário e uma senha.
     ![tela de criação de resourcegroup](../media/disk-encryption/portal-qs-windows-vm-creation.png)
@@ -76,11 +49,21 @@ Irá demorar alguns minutos até a VM ser implementada. Quando a implementação
     ![seleção de discos e criptografia](../media/disk-encryption/portal-qs-disks-to-encryption.png)
 
 1. Na tela criptografia, em **discos para criptografar**, escolha **sistema operacional e discos de dados**.
-1. Em **configurações de criptografia**, clique em "selecionar um cofre de chaves e uma chave para criptografia".
-1. Na barra lateral direita, selecione o nome do cofre de chaves que você criou anteriormente como o valor para o **cofre de chaves**e clique em **selecionar**.
+1. Em **configurações de criptografia**, escolha **selecionar um cofre de chaves e uma chave para criptografia**.
+1. Na tela **selecionar chave de Azure Key Vault** , selecione **criar novo**.
 
-    ![seleção de discos e criptografia](../media/disk-encryption/portal-qs-encrypt-vm-screen.png)
-1. Na parte superior da tela criptografia, clique em "salvar". Um pop-up avisará que a VM será reinicializada. Clique em **Sim**.
+    ![seleção de discos e criptografia](../media/disk-encryption/portal-qs-keyvault-create.png)
+
+1. Na tela **criar cofre de chaves** , verifique se o grupo de recursos é o mesmo usado para criar a VM.
+1. Dê um nome ao seu cofre de chaves.  Cada cofre de chaves no Azure deve ter um nome exclusivo.
+1. Na guia **políticas de acesso** , marque a caixa **Azure Disk Encryption para criptografia de volume** .
+
+    ![seleção de discos e criptografia](../media/disk-encryption/portal-qs-keyvault-enable.png)
+
+1. Selecione **Rever + criar**.  
+1. Depois que o cofre de chaves passar na validação, selecione **criar**. Isso retornará à tela **selecionar chave de Azure Key Vault** .
+1. Deixe o campo de **chave** em branco e escolha **selecionar**.
+1. Na parte superior da tela criptografia, clique em **salvar**. Um pop-up avisará que a VM será reinicializada. Clique em **Sim**.
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos

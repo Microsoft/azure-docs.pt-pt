@@ -1,19 +1,16 @@
 ---
-title: Tutorial-usar arquivo de parâmetro para ajudar a implantar um modelo de Azure Resource Manager
+title: Tutorial – usar arquivo de parâmetro para implantar o modelo
 description: Use arquivos de parâmetro que contenham os valores a serem usados para implantar seu modelo de Azure Resource Manager.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fa29ea3d2f6edbbb016ce5c0c74415a5e765e85a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 7ebf8a3eed81c8f5233f7212df7e245a27f7fd16
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177557"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149158"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Tutorial: usar arquivos de parâmetro para implantar o modelo do Resource Manager
 
@@ -41,13 +38,13 @@ Em VS Code, crie um novo arquivo com o conteúdo a seguir. Salve o arquivo com o
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json)]
 
-Esse arquivo é o arquivo de parâmetro para o ambiente de desenvolvimento. Observe que ele usa Standard_LRS para a conta de armazenamento, nomeia os recursos com um prefixo de **desenvolvimento** e define a marca de **ambiente** como **dev**.
+Esse arquivo é o arquivo de parâmetro para o ambiente de desenvolvimento. Observe que ele usa Standard_LRS para a conta de armazenamento, os recursos de nomes com um prefixo de **desenvolvimento** e define a marca de **ambiente** como **dev**.
 
 Novamente, crie um novo arquivo com o conteúdo a seguir. Salve o arquivo com o nome **azuredeploy. Parameters. Prod. JSON**.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json)]
 
-Esse arquivo é o arquivo de parâmetro para o ambiente de produção. Observe que ele usa Standard_GRS para a conta de armazenamento, nomeia os recursos com um prefixo **contoso** e define a marca de **ambiente** como **produção**. Em um ambiente de produção real, você também desejaria usar um serviço de aplicativo com uma SKU diferente de gratuita, mas continuaremos a usar essa SKU para este tutorial.
+Esse arquivo é o arquivo de parâmetro para o ambiente de produção. Observe que ele usa Standard_GRS para a conta de armazenamento, os recursos de nomes com um prefixo **contoso** e define a marca de **ambiente** como **produção**. Em um ambiente de produção real, você também desejaria usar um serviço de aplicativo com uma SKU diferente de gratuita, mas continuaremos a usar essa SKU para este tutorial.
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -123,7 +120,7 @@ az group deployment create \
 
 Você pode verificar a implantação explorando os grupos de recursos do portal do Azure.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. No menu à esquerda, selecione **grupos de recursos**.
 1. Você verá os dois novos grupos de recursos implantados neste tutorial.
 1. Selecione o grupo de recursos e exiba os recursos implantados. Observe que eles correspondem aos valores que você especificou em seu arquivo de parâmetro para esse ambiente.

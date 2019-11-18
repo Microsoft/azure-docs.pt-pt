@@ -1,5 +1,5 @@
 ---
-title: Como selecionar um dispositivo de entrada de áudio com o SDK de fala-serviço de fala
+title: Como selecionar um dispositivo de entrada de áudio com o SDK de fala
 titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre como selecionar dispositivos de entrada de áudio noC++SDK C#de fala (, Python, Objective-C, Java, JavaScript) obtendo as IDs dos dispositivos de áudio conectados a um sistema.
 services: cognitive-services
@@ -10,18 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 967e4fbc5484c152867fe5558040631d21e6c0b3
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9891cdb59c757035afd17339b052d5587ac99b0c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072439"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109969"
 ---
-# <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Selecionar um dispositivo de entrada de áudio com o SDK de fala
+# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Como: selecionar um dispositivo de entrada de áudio com o SDK de fala
 
-A versão 1.3.0 do SDK de fala introduz uma API para selecionar a entrada de áudio.
-Este artigo descreve como obter as IDs dos dispositivos de áudio conectados a um sistema.
-Eles podem ser usados no SDK de fala Configurando o dispositivo de áudio por meio do objeto `AudioConfig`:
+A versão 1.3.0 do SDK de fala introduz uma API para selecionar a entrada de áudio. Este artigo descreve como obter as IDs dos dispositivos de áudio conectados a um sistema. Eles podem ser usados no SDK de fala Configurando o dispositivo de áudio por meio do objeto `AudioConfig`:
 
 ```C++
 audioConfig = AudioConfig.FromMicrophoneInput("<device id>");
@@ -53,6 +51,7 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>IDs de dispositivo de áudio no Windows para aplicativos de área de trabalho
 
 [Cadeias de caracteres de ID de ponto de extremidade](/windows/desktop/CoreAudio/endpoint-id-strings) de dispositivo de áudio podem ser recuperadas do objeto [`IMMDevice`](/windows/desktop/api/mmdeviceapi/nn-mmdeviceapi-immdevice) no Windows para aplicativos de área de
+
 O exemplo de código a seguir ilustra como usá-lo para enumerar C++dispositivos de áudio no:
 
 ```cpp
@@ -177,6 +176,7 @@ Uma ID de dispositivo de exemplo é `{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-4
 ## <a name="audio-device-ids-on-uwp"></a>IDs de dispositivo de áudio no UWP
 
 No Plataforma Universal do Windows (UWP), os dispositivos de entrada de áudio podem ser obtidos usando a propriedade `Id()` do objeto [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) correspondente.
+
 Os exemplos de código a seguir mostram como fazer isso C++ em C#e:
 
 ```cpp
@@ -227,13 +227,16 @@ Uma ID de dispositivo de exemplo é `\\\\?\\SWD#MMDEVAPI#{0.0.1.00000000}.{5f23a
 ## <a name="audio-device-ids-on-linux"></a>IDs de dispositivo de áudio no Linux
 
 As IDs de dispositivo são selecionadas usando as IDs de dispositivo ALSA padrão.
+
 As IDs das entradas anexadas ao sistema estão contidas na saída do comando `arecord -L`.
 Como alternativa, eles podem ser obtidos usando a [biblioteca ALSA C](https://www.alsa-project.org/alsa-doc/alsa-lib/).
+
 As IDs de exemplo são `hw:1,0` e `hw:CARD=CC,DEV=0`.
 
 ## <a name="audio-device-ids-on-macos"></a>IDs de dispositivo de áudio no macOS
 
 A função a seguir implementada em Objective-C cria uma lista de nomes e IDs dos dispositivos de áudio anexados a um Mac.
+
 A cadeia de caracteres de `deviceUID` é usada para identificar um dispositivo no SDK de fala para macOS.
 
 ```objc
@@ -362,8 +365,8 @@ Por exemplo, a UID do microfone interno é `BuiltInMicrophoneDevice`.
 
 ## <a name="audio-device-ids-on-ios"></a>IDs de dispositivo de áudio no iOS
 
-A seleção de dispositivo de áudio com o SDK de fala não tem suporte no iOS.
-No entanto, os aplicativos que usam o SDK podem influenciar o roteamento de áudio por meio da estrutura de [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) .
+A seleção de dispositivo de áudio com o SDK de fala não tem suporte no iOS. No entanto, os aplicativos que usam o SDK podem influenciar o roteamento de áudio por meio da estrutura de [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) .
+
 Por exemplo, a instrução
 
 ```objc
@@ -382,7 +385,7 @@ No JavaScript, o método [MediaDevices. enumerateDevices ()](https://developer.m
 > [!div class="nextstepaction"]
 > [Explore nossos exemplos no GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de idioma](how-to-customize-language-model.md)

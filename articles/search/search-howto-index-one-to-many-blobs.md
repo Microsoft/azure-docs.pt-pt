@@ -1,7 +1,7 @@
 ---
-title: Indexar um blob em muitos documentos de índice de pesquisa do indexador de blob do Azure para pesquisa de texto completo
+title: Blobs de índice que contêm vários documentos
 titleSuffix: Azure Cognitive Search
-description: Rastreie BLOBs do Azure para conteúdo de texto usando o indexador de blob do Azure cognitivos Search. Cada blob pode produzir um ou mais documentos de índice de pesquisa.
+description: Rastreie BLOBs do Azure para conteúdo de texto usando o indexador de blob do Azure cognitivos Search, em que cada blob pode produzir um ou mais documentos de índice de pesquisa.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 127354e55a81e379825b41759f2b6150ba554a12
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818549"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112276"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexando BLOBs para produzir vários documentos de pesquisa
 Por padrão, um indexador de blob tratará o conteúdo de um blob como um único documento de pesquisa. Determinados valores de **parsingMode** dão suporte a cenários em que um blob individual pode resultar em vários documentos de pesquisa. Os diferentes tipos de **parsingMode** que permitem que um indexador Extraia mais de um documento de pesquisa de um blob são:
@@ -40,12 +40,12 @@ Suponha que você tenha uma definição de índice com os seguintes campos:
 
 E seu contêiner de BLOBs tem BLOBs com a seguinte estrutura:
 
-_Blob1. JSON_
+_Blob1.json_
 
     { "temperature": 100, "pressure": 100, "timestamp": "2019-02-13T00:00:00Z" }
     { "temperature" : 33, "pressure" : 30, "timestamp": "2019-02-14T00:00:00Z" }
 
-_Blob2. JSON_
+_Blob2.json_
 
     { "temperature": 1, "pressure": 1, "timestamp": "2018-01-12T00:00:00Z" }
     { "temperature" : 120, "pressure" : 3, "timestamp": "2013-05-11T00:00:00Z" }
@@ -71,13 +71,13 @@ Essa configuração resultará no índice de Pesquisa Cognitiva do Azure que con
 
 Supondo que a mesma definição de índice do exemplo anterior, digamos que o contêiner de blob tenha BLOBs com a seguinte estrutura:
 
-_Blob1. JSON_
+_Blob1.json_
 
     recordid, temperature, pressure, timestamp
     1, 100, 100,"2019-02-13T00:00:00Z" 
     2, 33, 30,"2019-02-14T00:00:00Z" 
 
-_Blob2. JSON_
+_Blob2.json_
 
     recordid, temperature, pressure, timestamp
     1, 1, 1,"2018-01-12T00:00:00Z" 

@@ -1,7 +1,7 @@
 ---
 title: Noções básicas sobre filtros de coleção OData
 titleSuffix: Azure Cognitive Search
-description: Entender como os filtros da coleção OData funcionam no Azure Pesquisa Cognitiva consultas.
+description: Aprenda a mecânica de como os filtros de coleta do OData funcionam no Azure Pesquisa Cognitiva consultas, incluindo limitações e comportamentos exclusivos de coleções.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9a57e1d16b13d822b6f5b541a7f838b0dd3a69ad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794399"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113066"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Noções básicas sobre filtros de coleção OData no Azure Pesquisa Cognitiva
 
@@ -103,7 +103,7 @@ Como `Rooms/Description` é armazenado para a pesquisa de texto completo:
 | aplicações | 1 |
 | ver | 1 |
 
-Ao contrário do filtro acima, que basicamente diz "corresponder documentos onde um quarto tem `Type` igual a" sala de luxo "e **que o mesmo espaço** tem `BaseRate` menos de 100", a consulta de pesquisa diz "corresponder documentos onde `Rooms/Type` tem o termo" Deluxe "e `Rooms/Description` tem a frase "exibição de cidade". Não há nenhum conceito de salas individuais cujos campos podem ser correlacionados no último caso.
+Ao contrário do filtro acima, que basicamente diz "corresponder documentos onde um quarto tem `Type` igual a" sala de luxo "e **que o mesmo espaço** tem `BaseRate` menos de 100", a consulta de pesquisa indica "corresponder documentos onde `Rooms/Type` tem o termo" Deluxe "e `Rooms/Description` tem a frase" cidade de exibição ". Não há nenhum conceito de salas individuais cujos campos podem ser correlacionados no último caso.
 
 > [!NOTE]
 > Se você quiser ver o suporte para a pesquisa correlacionada adicionada ao Pesquisa Cognitiva do Azure, vote [neste item de voz do usuário](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections).

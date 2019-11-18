@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 9c11d4648635e62ebc2e68734e14dd2bdc028a7c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2b600edc4c360a2b2990be34e44bb8fbd1c8f721
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330676"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133174"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configurar um laboratório para ensinar a classe de Ethical Hacking 
 Este artigo mostra como configurar uma classe que se concentra no lado da perícia de Ethical Hacking. O teste de penetração, uma prática usada pela comunidade de Ethical Hacking, ocorre quando alguém tenta obter acesso ao sistema ou à rede para demonstrar as vulnerabilidades que um invasor mal-intencionado pode explorar. 
 
-Em uma aula de Ethical Hacking, os alunos podem aprender técnicas modernas de defesa contra vulnerabilidades. Cada aluno Obtém uma máquina virtual do host do Windows Server que tem duas máquinas virtuais aninhadas – uma máquina virtual com imagem **Metaspoiltable** e outra máquina com a imagem do [Kali Linux](https://www.kali.org/) . A máquina virtual Metasploitable é usada para fins de exploração e a máquina virtual Kali fornece acesso às ferramentas necessárias para executar tarefas forenses.
+Em uma aula de Ethical Hacking, os alunos podem aprender técnicas modernas de defesa contra vulnerabilidades. Cada aluno Obtém uma máquina virtual do host do Windows Server que tem duas máquinas virtuais aninhadas – uma máquina virtual com imagem [Metasploitable3](https://github.com/rapid7/metasploitable3) e outra máquina com a imagem do [Kali Linux](https://www.kali.org/) . A máquina virtual Metasploitable é usada para fins de exploração e a máquina virtual Kali fornece acesso às ferramentas necessárias para executar tarefas forenses.
 
 Este artigo tem duas seções principais. A primeira seção aborda como criar o laboratório de sala de aula. A segunda seção aborda como criar o computador de modelo com a virtualização aninhada habilitada e com as ferramentas e imagens necessárias. Nesse caso, uma imagem Metasploitável e uma imagem do Kali Linux em um computador com o Hyper-V habilitado para hospedar as imagens.
 
@@ -44,15 +44,17 @@ Após a criação do computador de modelo, inicie o computador e conecte-o para 
 2. Configure a imagem do [Kali](https://www.kali.org/) Linux. O Kali é uma distribuição do Linux que inclui ferramentas para teste de penetração e auditoria de segurança.
 3. Configure a imagem de Metasploit. Para este exemplo, a imagem [Metasploitable3](https://github.com/rapid7/metasploitable3) será usada. Essa imagem é criada para ter vulnerabilidades de segurança intencionalmente.
 
+Um script que automatiza as tarefas descritas acima está disponível em [scripts de Ethical Hacking dos serviços de laboratório](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/EthicalHacking).
+
 ### <a name="prepare-template-machine-for-nested-virtualization"></a>Preparar computador de modelo para virtualização aninhada
 Siga as instruções neste [artigo](how-to-enable-nested-virtualization-template-vm.md) para preparar sua máquina virtual de modelo para a virtualização aninhada. 
 
 ### <a name="set-up-a-nested-virtual-machine-with-kali-linux-image"></a>Configurar uma máquina virtual aninhada com a imagem do Kali Linux
 O Kali é uma distribuição do Linux que inclui ferramentas para teste de penetração e auditoria de segurança.
 
-1. Baixe a imagem do [https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/).  
+1. Baixe a imagem de [https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/).  
     1. Baixe o **Kali Linux Hyper-v 64 bit** para Hyper-v.
-    1. Extraia o arquivo. 7z.  Se você ainda não tiver 7 zip, baixe-o de [https://www.7-zip.org/download.html](https://www.7-zip.org/download.html). Lembre-se do local da pasta extraída, pois você precisará dela mais tarde.
+    1. Extraia o arquivo. 7z.  Se você ainda não tiver 7 zip, baixe-o em [https://www.7-zip.org/download.html](https://www.7-zip.org/download.html). Lembre-se do local da pasta extraída, pois você precisará dela mais tarde.
 2. Abra o **Gerenciador do Hyper-V** em ferramentas administrativas.
 1. Selecione **ação**e, em seguida, selecione **importar máquina virtual**. 
 1. Na página **Localizar pasta** do assistente para **importar máquina virtual** , escolha o local da pasta extraída que contém a imagem do Kali Linux.
@@ -76,14 +78,14 @@ O Kali é uma distribuição do Linux que inclui ferramentas para teste de penet
     > Se você precisar desbloquear a imagem, pressione a tecla CTRL e arraste o mouse para cima.
 
 ## <a name="set-up-a-nested-vm-with-metasploitable-image"></a>Configurar uma VM aninhada com imagem Metasploitável  
-A imagem Rapid7 Metasploitable é uma imagem configurada propositadamente com vulnerabilidades de segurança. Você usará essa imagem para testar e encontrar problemas. As instruções a seguir mostram como usar uma imagem do Metasploitable criada previamente. No entanto, se for necessária uma versão mais nova da imagem de Metasploit, consulte [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3).
+A imagem Rapid7 Metasploitable é uma imagem configurada propositadamente com vulnerabilidades de segurança. Você usará essa imagem para testar e encontrar problemas. As instruções a seguir mostram como usar uma imagem do Metasploitable criada previamente. No entanto, se uma versão mais nova da imagem Metasploitável for necessária, consulte [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3).
 
 1. Navegue até [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html). Preencha o formulário para baixar a imagem e selecione o botão **Enviar** .
 1. Selecione o botão **baixar agora** .
 1. Quando o arquivo zip for baixado, extraia o arquivo zip e lembre-se do local.
 1. Converta o arquivo VMDK extraído em um arquivo vhdx para que você possa usar o com o Hyper-V. Para fazer isso, abra o PowerShell com privilégios administrativos e navegue até a pasta onde o arquivo VMDK reside e siga estas instruções:
-    1. Baixe o [conversor de máquina virtual da Microsoft](https://www.microsoft.com/download/details.aspx?id=42497)e execute o arquivo mvmc_setup. msi quando solicitado.
-    1. Importe o módulo do PowerShell.  O local padrão no qual o módulo está instalado é C:\Arquivos de Programas\microsoft Virtual Machine converter \
+    1. Baixe o [conversor de máquina virtual da Microsoft](https://www.microsoft.com/download/details.aspx?id=42497)e execute mvmc_setup arquivo. msi quando solicitado.
+    1. Importe o módulo PowerShell.  O local padrão no qual o módulo está instalado é C:\Arquivos de Programas\microsoft Virtual Machine converter \
 
         ```powershell
         Import-Module 'C:\Program Files\Microsoft Virtual Machine Converter\MvmcCmdlet.psd1'
@@ -96,7 +98,7 @@ A imagem Rapid7 Metasploitable é uma imagem configurada propositadamente com vu
     1. Copie o recém-criado. vhdx que acabou de criar para C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks\. 
 1. Crie uma nova máquina virtual do Hyper-V.
     1. Abra o **Gerenciador do Hyper-V**.
-    1. Escolha **ação** -> **nova** **máquina virtual** -> .
+    1. Escolha a **ação** -> **nova** -> **máquina virtual**.
     1. Na página **antes de começar** do assistente de **nova máquina virtual**, clique em **Avançar**.
     1. Na página **especificar nome e local** , digite **Metasploitable** para o **nome**e selecione **Avançar**.
 
@@ -111,7 +113,7 @@ A imagem Rapid7 Metasploitable é uma imagem configurada propositadamente com vu
         ![Página conectar disco de rede virtual](../media/class-type-ethical-hacking/connect-virtual-network-disk.png)
     1. Na página **concluindo o assistente de nova máquina virtual** e selecione **concluir**.
     1. Depois que a máquina virtual for criada, selecione-a no Gerenciador do Hyper-V. Não ative o computador ainda.  
-    1. Escolha a **ação** -> **configurações**.
+    1. Escolha **ação** -> **configurações**.
     1. Na caixa de diálogo **configurações para o Metasploitable** para, selecione **adicionar hardware**. 
     1. Selecione **adaptador de rede herdado**e selecione **Adicionar**.
 

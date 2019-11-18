@@ -8,14 +8,14 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 56f9901a1468207a295f8223e990f7a926b2d76e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9e8196c9561465930fc9723c9b8f8a0d02668ef5
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561445"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114093"
 ---
-# <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Início rápido: Criar um aplicativo de HoloLens do Unity que usa âncoras espaciais do Azure
+# <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Início rápido: criar um aplicativo de HoloLens do Unity que usa âncoras espaciais do Azure
 
 Neste guia de início rápido, você criará um aplicativo de HoloLens do Unity que usa [âncoras espaciais do Azure](../overview.md). As âncoras espaciais são um serviço de desenvolvedor de plataforma cruzada que permite criar experiências de realidade misturada com objetos que persistem seu local entre dispositivos ao longo do tempo. Quando tiver terminado, você terá um aplicativo de HoloLens criado com o Unity que pode salvar e recuperar uma âncora espacial.
 
@@ -34,9 +34,9 @@ Vai aprender a:
 Para concluir este guia de início rápido:
 
 - Você precisa de um computador Windows no qual o <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019,1</a> ou posterior e o <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> ou posterior estejam instalados. A instalação do Visual Studio deve incluir a carga de trabalho de **desenvolvimento plataforma universal do Windows** e o componente **SDK do Windows 10 (10.0.18362.0 ou mais recente)** . Você também deve instalar o <a href="https://git-scm.com/download/win" target="_blank">git para Windows</a>.
-- Você precisa de um dispositivo HoloLens no qual o [modo de desenvolvedor](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) esteja habilitado. [Atualização de outubro de 2018 do Windows 10](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (também conhecido como RS5) deve ser instalado no dispositivo. Para atualizar para a versão mais recente no HoloLens, abra o aplicativo **configurações** , vá para **Atualizar & segurança**e, em seguida, selecione **verificar se há atualizações**.
-- Em seu aplicativo, você precisa habilitar o recurso **SpatialPerception** . Essa configuração está no **Build Settings** > configurações do**Player** > configurações de**publicação** > **recursos**.
-- Em seu aplicativo, você precisa habilitar a **realidade virtual com suporte** com o **SDK do Windows Mixed Reality**. Essa configuração está em configurações de **compilação** > configurações do**Player** > **XR Settings**.
+- Você precisa de um dispositivo HoloLens no qual o [modo de desenvolvedor](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) esteja habilitado. A [atualização do Windows 10 de outubro de 2018](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (também conhecida como RS5) deve ser instalada no dispositivo. Para atualizar para a versão mais recente no HoloLens, abra o aplicativo **configurações** , vá para **Atualizar & segurança**e, em seguida, selecione **verificar se há atualizações**.
+- Em seu aplicativo, você precisa habilitar o recurso **SpatialPerception** . Essa configuração está em **configurações de compilação** > **configurações do Player** > **configurações de publicação** > **recursos**.
+- Em seu aplicativo, você precisa habilitar a **realidade virtual com suporte** com o **SDK do Windows Mixed Reality**. Essa configuração está em **configurações de compilação** > configurações do **Player** > **XR Settings**.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -46,7 +46,7 @@ Para concluir este guia de início rápido:
 
 [!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
-Abra **configurações de compilação** selecionando **arquivo** > **configurações de compilação**.
+Abra **as configurações de Build** selecionando **arquivo** > **configurações de compilação**.
 
 Na seção **plataforma** , selecione **plataforma universal do Windows**. Altere o **dispositivo de destino** para o **HoloLens**.
 
@@ -58,7 +58,7 @@ Feche a janela **configurações de compilação** .
 
 ## <a name="configure-the-account-identifier-and-key"></a>Configurar o identificador e a chave da conta
 
-No painel **projeto** , vá para `Assets/AzureSpatialAnchors.Examples/Scenes` e abra o arquivo `AzureSpatialAnchorsBasicDemo.unity` de cena.
+No painel **projeto** , vá para `Assets/AzureSpatialAnchors.Examples/Scenes` e abra o `AzureSpatialAnchorsBasicDemo.unity` arquivo de cena.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
@@ -78,13 +78,13 @@ Na pasta, clique duas vezes em **HELLOAR U3D. sln** para abrir o projeto no Visu
 
 Altere a **configuração da solução** para **liberar**, altere a **plataforma da solução** para **x86**e selecione **dispositivo** nas opções de destino de implantação.
 
-Se estiver usando o HoloLens 2, use o **ARM** como **plataforma de solução**, em vez de **x86**.
+Se estiver usando o HoloLens 2, use **ARM64** como a **plataforma da solução**, em vez de **x86**.
 
    ![Configuração do Visual Studio](./media/get-started-unity-hololens/visual-studio-configuration.png)
 
 Ligue o dispositivo do HoloLens, entre e conecte o dispositivo ao computador usando um cabo USB.
 
-Selecione **depurar** > **Iniciar Depuração** para implantar seu aplicativo e iniciar a depuração.
+Selecione **depurar** > **iniciar a depuração** para implantar seu aplicativo e iniciar a depuração.
 
 Siga as instruções no aplicativo para colocá-lo e relembrar uma âncora.
 
@@ -95,4 +95,4 @@ No Visual Studio, interrompa o aplicativo selecionando **parar depuração** ou 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Tutorial: Compartilhar âncoras espaciais entre dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Tutorial: compartilhar âncoras espaciais entre dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)

@@ -1,18 +1,14 @@
 ---
-title: Implantar várias instâncias de recursos do Azure | Microsoft Docs
+title: Implantar várias instâncias de recursos
 description: Use a operação de cópia e as matrizes em um modelo de Azure Resource Manager para iterar várias vezes ao implantar recursos.
-services: azure-resource-manager
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: tomfitz
-ms.openlocfilehash: f97f9dac76ac29cf295b5cedc08f916e85c4e317
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3ee4b47dd6cb9043a4100d114c483d1feadbde38
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675093"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150803"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Recurso, propriedade ou iteração de variável em modelos de Azure Resource Manager
 
@@ -143,7 +139,7 @@ Cria estes nomes:
 
 Por padrão, o Resource Manager cria os recursos em paralelo. Ele não aplica nenhum limite ao número de recursos implantados em paralelo, além do limite total de 800 recursos no modelo. A ordem na qual eles são criados não é garantida.
 
-No entanto, talvez você queira especificar que os recursos sejam implantados em sequência. Por exemplo, ao atualizar um ambiente de produção, talvez você queira escalonar as atualizações para que apenas um determinado número seja atualizado a qualquer momento. Para implantar em série mais de uma instância de um recurso, defina `mode` como **serial** e `batchSize` como o número de instâncias a serem implantadas de cada vez. Com o modo Serial, o Resource Manager cria uma dependência em instâncias anteriores no loop, portanto, ele não inicia um lote até que o lote anterior seja concluído.
+No entanto, talvez você queira especificar que os recursos sejam implantados em sequência. Por exemplo, ao atualizar um ambiente de produção, talvez você queira escalonar as atualizações para que apenas um determinado número seja atualizado a qualquer momento. Para implantar em série mais de uma instância de um recurso, defina `mode` como **serial** e `batchSize` como o número de instâncias a serem implantadas por vez. Com o modo Serial, o Resource Manager cria uma dependência em instâncias anteriores no loop, portanto, ele não inicia um lote até que o lote anterior seja concluído.
 
 Por exemplo, para implantar em série duas contas de armazenamento de cada vez, use:
 
@@ -180,7 +176,7 @@ Para obter informações sobre como usar a cópia com modelos aninhados, consult
 
 ## <a name="property-iteration"></a>Iteração de propriedade
 
-Para criar mais de um valor para uma propriedade em um recurso, adicione uma matriz `copy` no elemento Properties. Essa matriz contém objetos e cada objeto tem as seguintes propriedades:
+Para criar mais de um valor para uma propriedade em um recurso, adicione um `copy` matriz no elemento Properties. Essa matriz contém objetos e cada objeto tem as seguintes propriedades:
 
 * nome-o nome da propriedade para a qual criar vários valores
 * Count – o número de valores a serem criados.
@@ -209,7 +205,7 @@ O exemplo a seguir mostra como aplicar `copy` à propriedade datadisks em uma m�
 
 Observe que, ao usar `copyIndex` dentro de uma iteração de propriedade, você deve fornecer o nome da iteração. Você não precisa fornecer o nome quando usado com a iteração de recurso.
 
-O Resource Manager expande a matriz `copy` durante a implantação. O nome da matriz se torna o nome da propriedade. Os valores de entrada se tornam as propriedades do objeto. O modelo implantado se torna:
+O Resource Manager expande a matriz de `copy` durante a implantação. O nome da matriz se torna o nome da propriedade. Os valores de entrada se tornam as propriedades do objeto. O modelo implantado se torna:
 
 ```json
 {
@@ -302,7 +298,7 @@ Você pode usar a iteração de recurso e Propriedade juntas. Referencie a itera
 
 ## <a name="variable-iteration"></a>Iteração de variável
 
-Para criar várias instâncias de uma variável, use a propriedade `copy` na seção variáveis. Você cria uma matriz de elementos construídos com base no valor na propriedade `input`. Você pode usar a propriedade `copy` dentro de uma variável ou no nível superior da seção de variáveis. Ao usar `copyIndex` dentro de uma iteração de variável, você deve fornecer o nome da iteração.
+Para criar várias instâncias de uma variável, use a propriedade `copy` na seção variáveis. Você cria uma matriz de elementos construídos com base no valor na propriedade `input`. Você pode usar a propriedade `copy` dentro de uma variável ou no nível superior da seção de variáveis. Ao usar `copyIndex` dentro de uma iteração variável, você deve fornecer o nome da iteração.
 
 Para obter um exemplo simples de criação de uma matriz de valores de cadeia de caracteres, consulte [copiar modelo de matriz](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
 

@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 3a448147390ff2dd6a8049e8338a4cbf2bd94ce3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c71fb8a7e18439817023874146e22c29a5af3b12
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821108"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123697"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
@@ -78,7 +78,7 @@ Para obter mais informações sobre preços de hiperescala, consulte [preços do
 
 ## <a name="distributed-functions-architecture"></a>Arquitetura de funções distribuídas
 
-Ao contrário dos mecanismos de banco de dados tradicionais que centralizaram todas as funções de gerenciamento em um local/processo (mesmo assim, chamados de bancos de dados distribuídos na produção atualmente têm várias cópias de um mecanismo de dado monolítico), um banco de dados de hiperescala separa o mecanismo de processamento de consultas, em que a semântica de vários mecanismos de dados diverge, dos componentes que fornecem armazenamento de longo prazo e durabilidade para os dados. Dessa forma, a capacidade de armazenamento pode ser dimensionada de maneira tranqüila até o necessário (o destino inicial é de 100 TB). Réplicas somente leitura compartilham os mesmos componentes de armazenamento, portanto, nenhuma cópia de dados é necessária para criar uma nova réplica legível. 
+Ao contrário dos mecanismos de banco de dados tradicionais que centralizaram todas as funções de gerenciamento em um local/processo (mesmo assim, chamados de bancos de dados distribuídos na produção atualmente têm várias cópias de um mecanismo de dado monolítico), um banco de dados de hiperescala separa o mecanismo de processamento de consultas, em que a semântica de vários mecanismos de dados diverge, dos componentes que fornecem armazenamento de longo Dessa forma, a capacidade de armazenamento pode ser dimensionada de maneira tranqüila até o necessário (o destino inicial é de 100 TB). Réplicas somente leitura compartilham os mesmos componentes de armazenamento, portanto, nenhuma cópia de dados é necessária para criar uma nova réplica legível. 
 
 O diagrama a seguir ilustra os diferentes tipos de nós em um banco de dados de hiperescala:
 
@@ -114,7 +114,7 @@ Com a capacidade de acelerar/reduzir rapidamente os nós de computação somente
 
 Um banco de dados de hiperescala pode ser criado usando o [portal do Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Os bancos de dados de hiperescala estão disponíveis apenas usando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
-O comando T-SQL a seguir cria um banco de dados de hiperescala. Você deve especificar a edição e o objetivo de serviço na instrução `CREATE DATABASE`. Consulte os [limites de recurso](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier-for-provisioned-compute) para obter uma lista de objetivos de serviço válidos.
+O comando T-SQL a seguir cria um banco de dados de hiperescala. Você deve especificar a edição e o objetivo de serviço na instrução `CREATE DATABASE`. Consulte os [limites de recurso](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen5) para obter uma lista de objetivos de serviço válidos.
 
 ```sql
 -- Create a HyperScale Database
@@ -137,7 +137,7 @@ GO
 
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Conectar-se a uma réplica de escala de leitura de um banco de dados de hiperescala
 
-Em bancos de dados de hiperescala, o argumento `ApplicationIntent` na cadeia de conexão fornecido pelo cliente determina se a conexão é roteada para a réplica de gravação ou para uma réplica secundária somente leitura. Se o `ApplicationIntent` definido como `READONLY` e o banco de dados não tiver uma réplica secundária, a conexão será roteada para a réplica primária e usará como padrão o comportamento `ReadWrite`.
+Em bancos de dados de hiperescala, o argumento `ApplicationIntent` na cadeia de conexão fornecida pelo cliente determina se a conexão é roteada para a réplica de gravação ou para uma réplica secundária somente leitura. Se o `ApplicationIntent` definido como `READONLY` e o banco de dados não tiver uma réplica secundária, a conexão será roteada para a réplica primária e usará como padrão `ReadWrite` comportamento.
 
 ```cmd
 -- Connection string with application intent
@@ -185,10 +185,10 @@ No momento, a camada de hiperescala do banco de dados SQL do Azure está dispon�
 - Europa do Norte
 - Norte da África do Sul
 - EUA Centro-Sul
-- Sudeste Asiático
-- Sul do Reino Unido
+- Sudeste asiático
+- Reino Unido Sul
 - Reino Unido Oeste
-- Europa Ocidental
+- Europa ocidental
 - EUA Oeste
 - EUA Oeste 2
 

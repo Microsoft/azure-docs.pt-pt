@@ -1,25 +1,17 @@
 ---
-title: Configurar uma rede virtual para um cache Premium do Azure para Redis | Microsoft Docs
+title: Configurar uma rede virtual para um cache Premium do Azure para Redis
 description: Saiba como criar e gerenciar o suporte de rede virtual para o cache do Azure da camada Premium para instâncias de Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: 6fc17f08db5951a3d693c7a5e3d5556d848d2efb
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b2ddac9439183321691104d4eedccb0c971d19c9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075051"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129413"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar o suporte de rede virtual para um cache Premium do Azure para Redis
 O cache do Azure para Redis tem diferentes ofertas de cache, que fornecem flexibilidade na escolha do tamanho e dos recursos do cache, incluindo recursos da camada Premium, como clustering, persistência e suporte à rede virtual. Uma VNet é uma rede privada na nuvem. Quando um cache do Azure para instância Redis é configurado com uma VNet, ele não é publicamente endereçável e só pode ser acessado de máquinas virtuais e aplicativos na VNet. Este artigo descreve como configurar o suporte de rede virtual para um cache do Azure Premium para instância Redis.
@@ -161,7 +153,7 @@ Há requisitos de conectividade de rede para o cache do Azure para Redis que pod
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Como posso verificar se meu cache está funcionando em uma VNET?
 
 >[!IMPORTANT]
->Ao se conectar a um cache do Azure para a instância Redis hospedada em uma VNET, os clientes de cache devem estar na mesma VNET ou em uma VNET com emparelhamento VNET habilitado. Isso inclui quaisquer aplicativos de teste ou ferramentas de ping de diagnóstico. Independentemente de onde o aplicativo cliente está hospedado, os grupos de segurança de rede devem ser configurados de modo que o tráfego de rede do cliente tenha permissão para alcançar a instância Redis.
+>Ao se conectar a um cache do Azure para a instância Redis hospedada em uma VNET, os clientes de cache devem estar na mesma VNET ou em uma VNET com emparelhamento VNET habilitado na mesma região do Azure. O Emparelhamento VNET global não tem suporte no momento. Isso inclui quaisquer aplicativos de teste ou ferramentas de ping de diagnóstico. Independentemente de onde o aplicativo cliente está hospedado, os grupos de segurança de rede devem ser configurados de modo que o tráfego de rede do cliente tenha permissão para alcançar a instância Redis.
 >
 >
 

@@ -1,7 +1,7 @@
 ---
 title: API de Pesquisa na Web do Bing a estrutura de resposta e os tipos de resposta
 titleSuffix: Azure Cognitive Services
-description: Saiba mais sobre os tipos de resposta e as respostas usadas pelo API de Pesquisa na Web do Bing.
+description: Quando você envia Pesquisa na Web do Bing uma solicitação de pesquisa, ela retorna um objeto `SearchResponse` no corpo da resposta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f19454868ad7be21777d725f61e09a84f6c7a313
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 95ebfaef863a1fa05e8a5d3b46fca9659c61f6b7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854732"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110626"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>API de Pesquisa na Web do Bing a estrutura de resposta e os tipos de resposta  
 
-Quando você envia pesquisa na Web do Bing uma solicitação de pesquisa, ela retorna [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) um objeto no corpo da resposta. O objeto inclui um campo para cada resposta que o Bing determinado foi relevante para a consulta. Este exemplo ilustra um objeto de resposta se o Bing retornou todas as respostas:
+Quando você envia Pesquisa na Web do Bing uma solicitação de pesquisa, ela retorna um objeto [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) no corpo da resposta. O objeto inclui um campo para cada resposta que o Bing determinado foi relevante para a consulta. Este exemplo ilustra um objeto de resposta se o Bing retornou todas as respostas:
 
 ```json
 {
@@ -38,7 +38,7 @@ Quando você envia pesquisa na Web do Bing uma solicitação de pesquisa, ela re
 }, ...
 ```
 
-Normalmente, Pesquisa na Web do Bing retorna um subconjunto das respostas. Por exemplo, se o termo de consulta era *velejando Dinghies*, a resposta pode `webPages`incluir `images`, e `rankingResponse`. A menos que você tenha usado o [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) para filtrar páginas da Web, a resposta sempre `webpages` inclui `rankingResponse` as respostas e.
+Normalmente, Pesquisa na Web do Bing retorna um subconjunto das respostas. Por exemplo, se o termo de consulta era *velejando Dinghies*, a resposta pode incluir `webPages`, `images`e `rankingResponse`. A menos que você tenha usado o [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) para filtrar páginas da Web, a resposta sempre incluirá as respostas `webpages` e `rankingResponse`.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -57,7 +57,7 @@ A resposta das [páginas da Web](https://docs.microsoft.com/rest/api/cognitivese
 }, ...
 ```
 
-Use `name` e`url` para criar um hiperlink que leva o usuário para a página da Web.
+Use `name` e `url` para criar um hiperlink que leva o usuário para a página da Web.
 
 <!-- Remove until this can be replaced with a sanitized version.
 The following shows an example of how you might display the webpage in a search results page.
@@ -93,7 +93,7 @@ A resposta de [imagens](https://docs.microsoft.com/rest/api/cognitiveservices-bi
 }, ...
 ```
 
-Dependendo do dispositivo do usuário, você normalmente exibiria um subconjunto das miniaturas, com uma opção para o usuário paginar [](paging-webpages.md) as imagens restantes.
+Dependendo do dispositivo do usuário, você normalmente exibiria um subconjunto das miniaturas, com uma opção para o usuário [paginar](paging-webpages.md) as imagens restantes.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
@@ -111,7 +111,7 @@ Para obter detalhes sobre a resposta da imagem e as imagens, consulte [pesquisa 
 
 ## <a name="related-searches-answer"></a>Resposta de pesquisas relacionadas
 
-A resposta [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse-relatedsearches) contém uma lista das consultas relacionadas mais populares feitas por outros usuários. Cada [consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query_obj) na lista inclui uma cadeia de caracteres de`text`consulta (), uma cadeia de caracteres de consulta com`displayText`realce de caracteres ()`webSearchUrl`e uma URL () para a página de resultados da pesquisa do Bing para essa consulta.
+A resposta [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse-relatedsearches) contém uma lista das consultas relacionadas mais populares feitas por outros usuários. Cada [consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query_obj) na lista inclui uma cadeia de caracteres de consulta (`text`), uma cadeia de caracteres de consulta com caracteres de realce de clique (`displayText`) e uma URL (`webSearchUrl`) para a página de resultados da pesquisa do Bing para essa consulta.
 
 ```json
 {
@@ -121,9 +121,9 @@ A resposta [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservic
 }, ...
 ```
 
-Use a `displayText` cadeia de caracteres de `webSearchUrl` consulta e a URL para criar um hiperlink que leva o usuário para a página de resultados da pesquisa do Bing para a consulta relacionada. Você também pode usar a `text` cadeia de caracteres de consulta em sua própria consulta de API pesquisa na Web e exibir os resultados por conta própria.
+Use a cadeia de caracteres de consulta `displayText` e a URL de `webSearchUrl` para criar um hiperlink que leva o usuário para a página de resultados da pesquisa do Bing para a consulta relacionada. Você também pode usar a cadeia de caracteres de consulta `text` em sua própria consulta de API de Pesquisa na Web e exibir os resultados por conta própria.
 
-Para obter informações sobre como lidar com os marcadores de realce `displayText`no, consulte realce de [cliques](../bing-web-search/hit-highlighting.md).
+Para obter informações sobre como lidar com os marcadores de realce no `displayText`, consulte [realce de cliques](../bing-web-search/hit-highlighting.md).
 
 Veja a seguir um exemplo do uso de consultas relacionadas em Bing.com.
 
@@ -169,7 +169,7 @@ Dependendo do dispositivo do usuário, você normalmente exibiria um subconjunto
 ![List of video thumbnails](./media/cognitive-services-bing-web-api/bing-web-video-thumbnails.PNG)
 -->
 
-À medida que o usuário passa o mouse sobre a miniatura `motionThumbnailUrl` , você pode usar para reproduzir uma versão em miniatura do vídeo. Certifique-se de que adiciona um atributo à miniatura de movimento quando a apresentar.
+À medida que o usuário passa o mouse sobre a miniatura, você pode usar `motionThumbnailUrl` para reproduzir uma versão em miniatura do vídeo. Certifique-se de que adiciona um atributo à miniatura de movimento quando a apresentar.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![Motion thumbnail of a video](./media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
@@ -220,11 +220,11 @@ Para obter detalhes sobre a resposta de notícias e artigos de notícias, consul
 
 ## <a name="computation-answer"></a>Resposta de computação
 
-Se o usuário inserir uma expressão matemática ou uma consulta de conversão de unidade, a resposta poderá conter uma resposta de [computação](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#computation) . A `computation` resposta contém a expressão normalizada e seu resultado.
+Se o usuário inserir uma expressão matemática ou uma consulta de conversão de unidade, a resposta poderá conter uma resposta de [computação](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#computation) . A resposta `computation` contém a expressão normalizada e seu resultado.
 
 Uma consulta de conversão de unidade é uma consulta que converte uma unidade em outra. Por exemplo, *Quantos pés em 10 metros?* ou quantos *tablespoons em uma xícara de 1/4?*
 
-O seguinte mostra a `computation` resposta de *Quantos pés em 10 metros?*
+O seguinte mostra a resposta `computation` por *Quantos pés em 10 metros?*
 
 ```json
 "computation": {
@@ -234,7 +234,7 @@ O seguinte mostra a `computation` resposta de *Quantos pés em 10 metros?*
 }, ...
 ```
 
-O exemplo a seguir mostra exemplos de consultas matemáticas `computation` e suas respostas correspondentes.
+O exemplo a seguir mostra exemplos de consultas matemáticas e suas respostas `computation` correspondentes.
 
 ```
 Query: (5+3)(10/2)+8
@@ -292,13 +292,13 @@ Uma expressão matemática pode conter os seguintes símbolos:
 
 |Símbolo|Descrição|
 |------------|-----------------|
-|+|Adição|
+|+|Além|
 |-|Subtração|
 |/|Divisão|
 |*|Multiplicação|
-|^|Alimentar|
+|^|Avançado|
 |!|Fatorial|
-|.|Decimal|
+|.|decimal|
 |()|Agrupamento de precedência|
 |[]|Função|
 
@@ -330,11 +330,11 @@ Expressões matemáticas que contêm variáveis (por exemplo, 4x + 6 = 18, em qu
 
 Se o usuário inserir uma consulta de data/hora, a resposta poderá conter uma resposta de [fuso horário](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone) . Essa resposta dá suporte a consultas implícitas ou explícitas. Uma consulta implícita, como *qual é o tempo?* , retorna a hora local com base no local do usuário. Uma consulta explícita, como *qual é o tempo em Seattle?* , retorna a hora local de Seattle, WA.
 
-A `timeZone` resposta fornece o nome do local, a data e hora UTC atuais no local especificado e o deslocamento UTC. Se o limite do local estiver dentro de vários fusos horários, a resposta conterá a data e a hora UTC atuais de todos os fusos horários dentro do limite. Por exemplo, como o estado da Flórida cai dentro de dois fusos horários, a resposta contém a data e a hora locais de ambos os fusos horários.  
+A resposta `timeZone` fornece o nome do local, a data e hora UTC atuais no local especificado e o deslocamento UTC. Se o limite do local estiver dentro de vários fusos horários, a resposta conterá a data e a hora UTC atuais de todos os fusos horários dentro do limite. Por exemplo, como o estado da Flórida cai dentro de dois fusos horários, a resposta contém a data e a hora locais de ambos os fusos horários.  
 
-Se a consulta solicitar a hora de um Estado ou país/região, o Bing determinará a cidade principal dentro do limite geográfico do local e a `primaryCityTime` retornará no campo. Se o limite contiver vários fusos horários, os fusos horários restantes serão `otherCityTimes` retornados no campo.
+Se a consulta solicitar a hora de um Estado ou país/região, o Bing determinará a cidade principal dentro do limite geográfico do local e a retornará no campo `primaryCityTime`. Se o limite contiver vários fusos horários, os fusos horários restantes serão retornados no campo `otherCityTimes`.
 
-Veja a seguir as consultas de exemplo que `timeZone` retornam a resposta.
+Veja a seguir as consultas de exemplo que retornam a resposta `timeZone`.
 
 ```
 Query: What time is it?
@@ -473,10 +473,10 @@ O seguinte mostra como o Bing usa a sugestão de ortografia.
 
 ![Exemplo de sugestão de ortografia do Bing](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
 
-## <a name="next-steps"></a>Passos Seguintes  
+## <a name="next-steps"></a>Passos seguintes  
 
 * Revisar documentação de [limitação de solicitação](throttling-requests.md) .  
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Ver também  
 
 * [Referência de API de Pesquisa na Web do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

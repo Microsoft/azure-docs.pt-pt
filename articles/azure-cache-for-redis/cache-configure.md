@@ -1,25 +1,17 @@
 ---
-title: Como configurar o cache do Azure para Redis | Microsoft Docs
+title: Como configurar o cache do Azure para Redis
 description: Entenda a configuração padrão do Redis para o cache do Azure para Redis e saiba como configurar seu cache do Azure para instâncias do Redis
-services: cache
-documentationcenter: na
 author: yegu-ms
-manager: jhubbard
-editor: tysonn
-ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 6bc4b69122df7d29a611571a750229f47337015c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7c0642377e75e621e1774936262ffddd166ff06d
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756804"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122870"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o cache do Azure para Redis
 Este tópico descreve as configurações disponíveis para o cache do Azure para instâncias Redis. Este tópico também aborda a configuração padrão do servidor Redis para o cache do Azure para instâncias do Redis.
@@ -38,14 +30,14 @@ O cache do Azure para as configurações do Redis são exibidos e configurados n
 
 Você pode exibir e definir as configurações a seguir usando o **menu de recursos**.
 
-* [Descrição geral](#overview)
+* [Descrição Geral](#overview)
 * [Registo de atividades](#activity-log)
 * [Controle de acesso (IAM)](#access-control-iam)
 * [Etiquetas](#tags)
 * [Diagnosticar e resolver problemas](#diagnose-and-solve-problems)
 * [Definições](#settings)
     * [Chaves de acesso](#access-keys)
-    * [Configurações avançadas](#advanced-settings)
+    * [Definições avançadas](#advanced-settings)
     * [Cache do Azure para o Redis Advisor](#azure-cache-for-redis-advisor)
     * [Dimensionar](#scale)
     * [Tamanho do cluster Redis](#cluster-size)
@@ -70,7 +62,7 @@ Você pode exibir e definir as configurações a seguir usando o **menu de recur
     * [Nova solicitação de suporte](#new-support-request)
 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 A **visão geral** fornece informações básicas sobre o cache, como nome, portas, tipo de preço e métricas de cache selecionadas.
 
@@ -97,7 +89,7 @@ Clique em **diagnosticar e resolver problemas** a serem fornecidos com problemas
 A seção **configurações** permite que você acesse e defina as configurações a seguir para seu cache.
 
 * [Chaves de acesso](#access-keys)
-* [Configurações avançadas](#advanced-settings)
+* [Definições avançadas](#advanced-settings)
 * [Cache do Azure para o Redis Advisor](#azure-cache-for-redis-advisor)
 * [Dimensionar](#scale)
 * [Tamanho do cluster Redis](#cluster-size)
@@ -201,7 +193,7 @@ Cada tipo de preço tem limites diferentes para conexões de cliente, memória e
 Para atualizar o cache, clique em **Atualizar agora** para alterar o tipo de preço e [dimensionar](#scale) o cache. Para obter mais informações sobre como escolher um tipo de preço, consulte [qual o cache do Azure para oferta e tamanho do Redis devo usar?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 
-### <a name="scale"></a>Escalabilidade
+### <a name="scale"></a>Escala
 Clique em **dimensionar** para exibir ou alterar o tipo de preço do seu cache. Para obter mais informações sobre o dimensionamento, consulte [como dimensionar o cache do Azure para Redis](cache-how-to-scale.md).
 
 ![Cache do Azure para tipo de preço Redis](./media/cache-configure/pricing-tier.png)
@@ -237,7 +229,7 @@ Para obter mais informações, consulte [como configurar a persistência para um
 > 
 > 
 
-### <a name="schedule-updates"></a>Atualizações agendadas
+### <a name="schedule-updates"></a>Agendar atualizações
 A folha **agendar atualizações** permite designar uma janela de manutenção para atualizações do Redis Server para seu cache. 
 
 > [!IMPORTANT]
@@ -245,7 +237,7 @@ A folha **agendar atualizações** permite designar uma janela de manutenção p
 > 
 > 
 
-![Atualizações agendadas](./media/cache-configure/redis-schedule-updates.png)
+![Agendar atualizações](./media/cache-configure/redis-schedule-updates.png)
 
 Para especificar uma janela de manutenção, verifique os dias desejados e especifique a hora de início da janela de manutenção para cada dia e clique em **OK**. A hora da janela de manutenção está em UTC.
 
@@ -341,7 +333,7 @@ Para reinicializar um ou mais nós do cache, selecione os nós desejados e cliqu
 
 A seção **monitoramento** permite que você configure o diagnóstico e o monitoramento para o cache do Azure para Redis. Para obter mais informações sobre o cache do Azure para monitoramento e diagnóstico de Redis, consulte [como monitorar o cache do Azure para Redis](cache-how-to-monitor.md).
 
-![Diagnósticos](./media/cache-configure/redis-cache-diagnostics.png)
+![Diagnóstico](./media/cache-configure/redis-cache-diagnostics.png)
 
 * [Métricas de Redis](#redis-metrics)
 * [Regras de alerta](#alert-rules)
@@ -354,7 +346,7 @@ Clique em **métricas de Redis** para [exibir as métricas](cache-how-to-monitor
 
 Clique em **regras de alerta** para configurar alertas com base no cache do Azure para métricas Redis. Para obter mais informações, consulte [alertas](cache-how-to-monitor.md#alerts).
 
-### <a name="diagnostics"></a>Diagnósticos
+### <a name="diagnostics"></a>Diagnóstico
 
 Por padrão, as métricas de cache no Azure Monitor são [armazenadas por 30 dias](../azure-monitor/platform/data-platform-metrics.md) e, em seguida, excluídas. Para persistir suas métricas de cache por mais de 30 dias, clique em **diagnóstico** para [Configurar a conta de armazenamento](cache-how-to-monitor.md#export-cache-metrics) usada para armazenar o diagnóstico de cache.
 
@@ -371,7 +363,7 @@ As configurações na seção **suporte + solução de problemas** fornecem opç
 * [Resource Health](#resource-health)
 * [Nova solicitação de suporte](#new-support-request)
 
-### <a name="resource-health"></a>Resource Health
+### <a name="resource-health"></a>Estado de funcionamento de recursos
 O **Resource Health** inspeciona o recurso e informa se ele está sendo executado conforme o esperado. Para obter mais informações sobre o serviço de integridade de recursos do Azure, consulte [visão geral do Azure Resource Health](../resource-health/resource-health-overview.md).
 
 > [!NOTE]
@@ -404,9 +396,9 @@ O novo cache do Azure para instâncias Redis são configurados com os seguintes 
 | `maxclients` |Depende do tipo de preço<sup>2</sup> |Esse valor é o número máximo de clientes conectados permitidos ao mesmo tempo. Depois que o limite for atingido, o Redis fechará todas as novas conexões, retornando um erro "número máximo de clientes atingidos". |
 | `maxmemory-policy` |`volatile-lru` |A política MaxMemory é a configuração de como o Redis seleciona o que remover quando `maxmemory` (o tamanho da oferta de cache que você selecionou quando criou o cache) é atingido. Com o cache do Azure para Redis, a configuração padrão é `volatile-lru`, que remove as chaves com uma expiração definida usando um algoritmo LRU. Essa configuração pode ser definida no portal do Azure. Para obter mais informações, consulte [políticas de memória](#memory-policies). |
 | `maxmemory-samples` |3 |Para economizar memória, os algoritmos de TTL mínimo e LRU são algoritmos aproximados em vez de algoritmos precisos. Por padrão, o Redis verifica três chaves e escolhe aquela que foi usada menos recentemente. |
-| `lua-time-limit` |5000 |Tempo máximo de execução de um script de lua em milissegundos. Se o tempo de execução máximo for atingido, o Redis registrará em log que um script ainda está em execução após o tempo máximo permitido e começará a responder a consultas com um erro. |
+| `lua-time-limit` |5\.000 |Tempo máximo de execução de um script de lua em milissegundos. Se o tempo de execução máximo for atingido, o Redis registrará em log que um script ainda está em execução após o tempo máximo permitido e começará a responder a consultas com um erro. |
 | `lua-event-limit` |500 |Tamanho máximo da fila de eventos de script. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8MB 60 |Os limites de buffer de saída do cliente podem ser usados para forçar a desconexão de clientes que não estão lendo dados do servidor com rapidez suficiente por algum motivo (um motivo comum é que um cliente pub/sub não pode consumir mensagens tão rápido quanto o Publicador pode produzi-las). Para mais informações, consulte [https://redis.io/topics/clients](https://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Os limites de buffer de saída do cliente podem ser usados para forçar a desconexão de clientes que não estão lendo dados do servidor com rapidez suficiente por algum motivo (um motivo comum é que um cliente pub/sub não pode consumir mensagens tão rápido quanto o Publicador pode produzi-las). Para mais informações, consulte [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>o limite de `databases` é diferente para cada cache do Azure para o tipo de preço Redis e pode ser definido na criação do cache. Se nenhuma configuração de `databases` for especificada durante a criação do cache, o padrão será 16.
@@ -434,7 +426,7 @@ Para obter mais informações sobre bancos de dados, consulte [o que são bancos
 > 
 
 <a name="maxclients"></a>
-<sup>2</sup> `maxclients` é diferente para cada cache do Azure para o tipo de preço Redis.
+<sup>2</sup>`maxclients` é diferente para cada cache do Azure para o tipo de preço Redis.
 
 * Caches básico e Standard
   * Cache de C0 (250 MB)-até 256 conexões

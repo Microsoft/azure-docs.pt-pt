@@ -1,5 +1,6 @@
 ---
-title: 'Criar e instalar arquivos de configuração de cliente VPN P2S para autenticação de certificado do Azure: Azure'
+title: 'Criar & instalar arquivos de configuração de cliente VPN P2S: autenticação de certificado'
+titleSuffix: Azure VPN Gateway
 description: Crie e instale arquivos de configuração de cliente de VPN Windows, Linux, Linux (strongSwan) e Mac OS X para autenticação de certificado P2S.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: fb6c484e234b4641a521bd876acdfeb4df562260
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: ad6e912f976095ae7d8fd5276b0f1365566c181a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063120"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143791"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar arquivos de configuração de cliente VPN para configurações nativas de P2S de autenticação de certificado do Azure
 
@@ -27,7 +28,7 @@ Os arquivos de configuração do cliente são específicos para a configuração
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="generate"></a>Gerar arquivos de configuração de cliente VPN
+## <a name="generate"></a>Gerar ficheiros de configuração de cliente VPN
 
 Antes de começar, certifique-se de que todos os usuários conectados tenham um certificado válido instalado no dispositivo do usuário. Para obter mais informações sobre como instalar um certificado de cliente, consulte [instalar um certificado de cliente](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
@@ -94,7 +95,7 @@ Use as etapas a seguir para configurar o cliente VPN nativo no Mac para autentic
 
    O valor da **interface** é ' VPN ' e o valor do **tipo de VPN** é ' IKEv2 '. Especifique um nome para o perfil no campo **nome do serviço** e clique em **criar** para criar o perfil de conexão de cliente VPN.
 
-   ![Rede](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+   ![rede](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. Na pasta **genérica** , no arquivo **VpnSettings. xml** , copie o valor da marca **VpnServer** . Cole esse valor nos campos **endereço do servidor** e **ID remota** do perfil.
 
    ![informações do servidor](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
@@ -146,7 +147,7 @@ As instruções a seguir foram criadas no Ubuntu 18.0.4. O Ubuntu 16.0.10 não d
 
    ![copiar nome](./media/point-to-site-vpn-client-configuration-azure-cert/vpnserver.png)
 6. Cole esse nome no campo **endereço** da nova conexão VPN na seção **Gateway** . Em seguida, selecione o ícone de pasta no final do campo **certificado** , navegue até a pasta **genérica** e selecione o arquivo **VpnServerRoot** .
-7. Na seção **cliente** da conexão, para **autenticação**, selecione **certificado/chave privada**. Para **certificado** e **chave privada**, escolha o certificado e a chave privada que foram criados anteriormente. Em **Opções**, selecione **solicitar um endereço IP interno**. Em seguida, clique em **Adicionar**.
+7. Na seção **cliente** da conexão, para **autenticação**, selecione **certificado/chave privada**. Para **certificado** e **chave privada**, escolha o certificado e a chave privada que foram criados anteriormente. Em **Opções**, selecione **solicitar um endereço IP interno**. Em seguida, clique em **adicionar**.
 
    ![solicitar um endereço IP interno](./media/point-to-site-vpn-client-configuration-azure-cert/turnon.png)
 8. **Ative a conexão.**

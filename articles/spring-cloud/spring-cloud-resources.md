@@ -6,24 +6,22 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 11/1/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 0d3eb2bc526633f139c09620ae4bc1b53c6e31ad
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1c78f71c2ad607ed09b784f6ecbaf495d56617ce
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607147"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151155"
 ---
-# <a name="resources"></a>Recursos
+# <a name="azure-spring-cloud-developer-resources"></a>Recursos para desenvolvedores de nuvem do Azure Spring
 
-Abaixo está uma lista de recursos que podem ser úteis para os desenvolvedores de nuvem Spring do Azure.
+Como desenvolvedor, você pode encontrar os seguintes recursos do Azure Spring Cloud úteis:
 
-| Nome                  | Ligação                 |
-| :------------------- | -------------------: |
-| Mapa do Azure | https://azure.microsoft.com/updates/ |
-| Perguntas Mais Frequentes| [Link para o documento](spring-cloud-faq.md)|
-| Guia de Resolução de Problemas| [Link para o documento](spring-cloud-troubleshoot.md) |
-| Fórum MSDN| https://social.msdn.microsoft.com/Forums/home |
-| Site do Java Spring Cloud| https://spring.io/ |
-| Spring Framework| https://cloud.spring.io/spring-cloud-azure/ |
-| Spring no Azure| https://docs.microsoft.com/azure/java/spring-framework/?view=azure-java-stable |
-| Arquitetura de microserviços do Spring Cloud por Pivotal| https://docs.pivotal.io/spring-cloud-services/1-5/common/index.html |
+* [Mapa do Azure](https://azure.microsoft.com/updates)
+* [Perguntas mais frequentes](spring-cloud-faq.md)
+* [Guia de resolução de problemas](spring-cloud-troubleshoot.md)
+* [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home)
+* [Site do Java Spring Cloud](https://spring.io/)
+* [Spring Framework](https://cloud.spring.io/spring-cloud-azure/)
+* [Spring no Azure](https://docs.microsoft.com/azure/java/spring-framework/?view=azure-java-stable)
+* [Arquitetura de microserviços do Spring Cloud por Pivotal](https://docs.pivotal.io/spring-cloud-services/1-5/common/index.html)

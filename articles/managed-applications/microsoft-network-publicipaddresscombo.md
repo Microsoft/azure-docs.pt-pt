@@ -1,6 +1,6 @@
 ---
-title: Elemento de interface do Usuário de PublicIpAddressCombo do Azure | Documentos da Microsoft
-description: Descreve o elemento de interface do Usuário de Microsoft.Network.PublicIpAddressCombo para o portal do Azure.
+title: Elemento de interface do usuário PublicIpAddressCombo do Azure | Microsoft Docs
+description: Descreve o elemento de interface do usuário Microsoft. Network. PublicIpAddressCombo para portal do Azure.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,24 +13,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: c3e8c99f6648f0f4927140f3215978566afb9eb8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 069a8ee1f019d1b21be996084e4902f94076fbf7
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60251102"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151501"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI element
-Um grupo de controles para a seleção de um endereço IP público novo ou existente.
 
-## <a name="ui-sample"></a>Exemplo de interface do Usuário
+Um grupo de controles para selecionar um endereço IP público novo ou existente.
+
+## <a name="ui-sample"></a>Exemplo de interface do usuário
+
 ![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
 
-- Se o utilizador selecionar 'None' para o endereço IP público, a caixa de texto de etiqueta de nome de domínio está oculta.
-- Se o usuário seleciona um endereço IP público existente, a caixa de texto de etiqueta de nome de domínio está desativada. Seu valor é a etiqueta de nome de domínio do endereço IP selecionado.
-- As atualizações de sufixo (por exemplo, westus.cloudapp.azure.com) de nome domínio automaticamente com base na localização selecionada.
+- Se o usuário selecionar "nenhum" para o endereço IP público, a caixa de texto rótulo de nome de domínio ficará oculta.
+- Se o usuário selecionar um endereço IP público existente, a caixa de texto rótulo de nome de domínio será desabilitada. Seu valor é o rótulo de nome de domínio do endereço IP selecionado.
+- O sufixo do nome de domínio (por exemplo, westus.cloudapp.azure.com) é atualizado automaticamente com base no local selecionado.
 
 ## <a name="schema"></a>Esquema
+
 ```json
 {
   "name": "element1",
@@ -62,15 +65,9 @@ Um grupo de controles para a seleção de um endereço IP público novo ou exist
 }
 ```
 
-## <a name="remarks"></a>Observações
-- Se `constraints.required.domainNameLabel` está definido como **true**, o usuário deve fornecer uma etiqueta de nome de domínio, ao criar um novo endereço IP público. Sem uma etiqueta não estão disponíveis para seleção de endereços IP público existente.
-- Se `options.hideNone` está definido como **verdadeiro**, em seguida, a opção de selecionar **nenhum** para o IP público está oculta o endereço. O valor predefinido é **false**.
-- Se `options.hideDomainNameLabel` está definido como **true**, em seguida, a caixa de texto de etiqueta de nome de domínio está oculto. O valor predefinido é **false**.
-- Se `options.hideExisting` seja verdadeira, o usuário não pode escolher um endereço IP público existente. O valor predefinido é **false**.
-- Para `zone`, endereços de IP público único para a zona especificada ou zona resilientes os endereços IP públicos estão disponíveis.
-
 ## <a name="sample-output"></a>Resultado da amostra
-Se o utilizador não seleciona nenhum endereço IP público, o controle retorna o resultado seguinte:
+
+Se o usuário selecionar nenhum endereço IP público, o controle retornará a seguinte saída:
 
 ```json
 {
@@ -78,7 +75,7 @@ Se o utilizador não seleciona nenhum endereço IP público, o controle retorna 
 }
 ```
 
-Se o usuário seleciona um endereço IP novo ou existente, o controle retorna o resultado seguinte:
+Se o usuário selecionar um endereço IP novo ou existente, o controle retornará a seguinte saída:
 
 ```json
 {
@@ -91,9 +88,18 @@ Se o usuário seleciona um endereço IP novo ou existente, o controle retorna o 
 }
 ```
 
-- Quando `options.hideNone` é especificado como **verdadeira**, `newOrExistingOrNone` só terá um valor de **novo** ou **existente**.
-- Quando `options.hideDomainNameLabel` é especificado como **verdadeira**, `domainNameLabel` é não declarado.
+- Quando `options.hideNone` for especificado como **true**, `newOrExistingOrNone` terá apenas um valor de **novo** ou **existente**.
+- Quando `options.hideDomainNameLabel` é especificado como **true**, `domainNameLabel` não é declarado.
 
-## <a name="next-steps"></a>Passos Seguintes
-* Para obter uma introdução à criação de definições de interface do Usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns em elementos de interface do Usuário, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).
+## <a name="remarks"></a>Observações
+
+- Se `constraints.required.domainNameLabel` for definido como **true**, o usuário deverá fornecer um rótulo de nome de domínio ao criar um novo endereço IP público. Os endereços IP públicos existentes sem um rótulo não estão disponíveis para seleção.
+- Se `options.hideNone` for definido como **true**, a opção para selecionar **nenhum** para o endereço IP público ficará oculta. O valor predefinido é **false**.
+- Se `options.hideDomainNameLabel` for definido como **true**, a caixa de texto para o rótulo de nome de domínio ficará oculta. O valor predefinido é **false**.
+- Se `options.hideExisting` for true, o usuário não poderá escolher um endereço IP público existente. O valor predefinido é **false**.
+- Para `zone`, somente os endereços IP públicos para os endereços IP públicos resilientes de zona ou região especificada estão disponíveis.
+
+## <a name="next-steps"></a>Passos seguintes
+
+* Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
+* Para obter uma descrição das propriedades comuns nos elementos da interface do usuário, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).

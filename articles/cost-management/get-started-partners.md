@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/04/2019
+ms.date: 11/15/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: cd3efbea7b194da54bc1d9bebd1cc77987bd9dea
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b7ae388488de32bb106ae29f975302953cfcb2e9
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072342"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123019"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introdução ao gerenciamento de custos do Azure para parceiros
 
-O gerenciamento de custos do Azure está disponível nativamente para parceiros que integraram seus clientes a um contrato de cliente da Microsoft e compraram um plano do Azure. Este artigo explica como os parceiros usam os recursos de [Gerenciamento de custos do Azure](https://docs.microsoft.com/azure/cost-management/) . Ele também descreve como os parceiros permitem o acesso de gerenciamento de custos para seus clientes. Os clientes podem usar os recursos de gerenciamento de custos quando habilitados pelo parceiro CSP.
+O gerenciamento de custos do Azure está disponível nativamente para parceiros que integraram seus clientes a um contrato de cliente da Microsoft e [compraram um plano do Azure](/partner-center/purchase-azure-plan). Este artigo explica como os parceiros usam os recursos de [Gerenciamento de custos do Azure](index.yml) para exibir os custos de assinaturas no plano do Azure. Ele também descreve como os parceiros permitem o acesso de gerenciamento de custos para seus clientes. Os clientes podem usar os recursos de gerenciamento de custos quando habilitados pelo parceiro CSP.
 
 Os parceiros CSP usam o gerenciamento de custos para:
 
@@ -147,25 +147,81 @@ As exibições amortizadas e os custos reais das instâncias reservadas nos esco
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analisar custos na análise de custo
 
-Os parceiros podem explorar e analisar os custos na análise de custos entre clientes para um cliente específico ou para uma fatura.
+Os parceiros podem explorar e analisar os custos na análise de custos entre clientes para um cliente específico ou para uma fatura. Na exibição [análise de custo](quick-acm-cost-analysis.md) , você também pode [salvar exibições](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) e exportar dados para [arquivos CSV e png](quick-acm-cost-analysis.md#automation-and-offline-analysis).
 
-Os campos a seguir são encontrados em arquivos de detalhes de uso e APIs de gerenciamento de custos. Você pode usar filtrar e agrupar por recursos na análise de custo para analisar os custos por vários campos. Para exibir uma lista completa de campos, consulte [campos de dados de gerenciamento de custos](understand-cost-mgt-data.md#cost-management-data-fields).
+Você pode usar filtrar e agrupar por recursos na análise de custo para analisar os custos por vários campos. Os campos específicos do parceiro são mostrados na próxima seção.
 
-| Nome do campo | Descrição |
-| --- | --- |
-| CustomerTenantID | Identificador do locatário de Azure Active Directory da assinatura do&#39;cliente s. |
-| Customer | Nome do locatário de Azure Active Directory para a assinatura&#39;do cliente s. |
-| CustomerTenantDomainName | Nome de domínio para o locatário de Azure Active Directory da&#39;assinatura do cliente s. |
-| PartnerTenantID | Identificador para o locatário&#39;de Azure Active Directory do parceiro. |
-| PartnerName | Nome do locatário do parceiro Azure Active Directory. |
-| ResellerMPNID | MPNID para o revendedor associado à assinatura. |
-| costinUSD | ExtendedCost estimado ou custo combinado antes do imposto em USD. |
-| paygCostInBillingCurrency | Mostra os custos se os preços estiverem em preços de varejo. Mostra os preços pagos conforme o uso na moeda de cobrança. Disponível somente em escopos de RBAC. |
-| paygCostInUSD | Mostra os custos se os preços estiverem em preços de varejo. Mostra os preços pagos conforme o uso em USD. Disponível somente em escopos de RBAC. |
-| partnerEarnedCreditRate | Taxa de desconto aplicado se houver um acordo de crédito de parceiro (PEC) com base no acesso de link do administrador do parceiro. |
-| partnerEarnedCreditApplied | Indica se o crédito obtido do parceiro foi aplicado. |
+## <a name="data-fields"></a>Campos de dados
 
-Na exibição [análise de custo](quick-acm-cost-analysis.md) , você também pode [salvar exibições](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) e exportar dados para [arquivos CSV e png](quick-acm-cost-analysis.md#automation-and-offline-analysis).
+Os campos de dados a seguir são encontrados em arquivos de detalhes de uso e APIs de gerenciamento de custos. Quando disponível, as informações equivalentes do Partner Center são mostradas. Para os seguintes campos em negrito, os parceiros podem usar filtrar e agrupar por recursos na análise de custo para analisar os custos por vários campos. Os campos em negrito se aplicam somente aos contratos de clientes da Microsoft com suporte pelos parceiros.
+
+| **Nome do campo** | **Descrição** | **Equivalente do Partner Center** |
+| --- | --- | --- |
+| invoiceId | A ID da nota fiscal mostrada na nota fiscal para a transação específica. | Número da nota fiscal em que a transação é mostrada. |
+| previousInvoiceID | Referência a uma fatura original há um reembolso (custo negativo). Populado somente quando há um reembolso. | N/D |
+| billingAccountName | Nome da conta de cobrança que representa o parceiro. Ele acumula todos os custos entre os clientes que se integraram a um contrato com o cliente da Microsoft e os clientes do CSP que fizeram compras de direitos como SaaS, Azure Marketplace e reservas. | N/D |
+| billingAccountID | Identificador da conta de cobrança que representa o parceiro. | ID raiz do MCAPI Partner Commerce. Usado em uma solicitação, mas não incluído em uma resposta.|
+| billingProfileID | Identificador do perfil de cobrança que agrupa custos entre faturas em uma única moeda de cobrança entre os clientes que se integraram a um contrato de cliente da Microsoft e os clientes do CSP que fizeram compras de direitos como SaaS, Azure Marketplace e Reservas. | ID do grupo de cobrança do parceiro MCAPI. Usado em uma solicitação, mas não incluído em uma resposta. |
+| billingProfileName | Nome do perfil de cobrança que agrupa custos entre faturas em uma única moeda de cobrança entre os clientes que se integraram a um contrato de cliente da Microsoft e os clientes do CSP que fizeram compras de direitos como SaaS, Azure Marketplace e Reservas. | N/D |
+| invoiceSectionName | Nome do projeto que está sendo cobrado na fatura. Não aplicável para contratos de clientes da Microsoft integrados por parceiros. | N/D |
+| invoiceSectionID | Identificador do projeto que está sendo cobrado na fatura. Não aplicável para contratos de clientes da Microsoft integrados por parceiros. | N/D |
+| **CustomerTenantID** | Identificador do locatário de Azure Active Directory da assinatura do cliente. | ID organizacional do cliente – a Tenantid de Azure Active Directory do cliente. |
+| **Customer** | Nome do locatário de Azure Active Directory para a assinatura do cliente. | Nome da organização do cliente, conforme mostrado no Partner Center. Importante para reconciliar a fatura com as informações do sistema. |
+| **CustomerTenantDomainName** | Nome de domínio para o locatário de Azure Active Directory da assinatura do cliente. | Domínio de locatário de Azure Active Directory do cliente. |
+| **PartnerTenantID** | Identificador para o locatário de Azure Active Directory do parceiro. | O parceiro Azure Active Directory ID do locatário chamado como ID do parceiro, no formato GUID. |
+| **PartnerName** | Nome do locatário do parceiro Azure Active Directory. | Nome do parceiro. |
+| **ResellerMPNID** | MPNID para o revendedor associado à assinatura. | ID de MPN do revendedor no registro para a assinatura. Não disponível para a atividade atual. |
+| costCenter | Centro de custo associado à assinatura. | N/D |
+| billingPeriodStartDate | Data de início do período de cobrança, conforme mostrado na nota fiscal. | N/D |
+| billingPeriodEndDate | Data de término do período de cobrança, conforme mostrado na nota fiscal. | N/D |
+| servicePeriodStartDate | Data de início do período de classificação em que o uso do serviço foi classificado para cobranças. Os preços dos serviços do Azure são determinados para o período de classificação. | ChargeStartDate no Partner Center. Data de início do ciclo de cobrança, exceto ao apresentar datas de dados de uso latentes anteriormente não cobrados de um ciclo de cobrança anterior. O tempo é sempre o início do dia, 0:00. |
+| servicePeriodEndDate | Data de término do período em que o uso do serviço foi classificado para cobranças. Os preços dos serviços do Azure são determinados com base no período de classificação. | N/D |
+| date | Para dados de consumo do Azure, ele mostra a data de uso como classificado. Para a instância reservada, ela mostra a data de compra. Para encargos recorrentes e encargos de uso único, como Marketplace e suporte, ele mostra a data de compra. | N/D |
+| productID | Identificador do produto que tem encargos acumulados por consumo ou compra. É a chave concatenada de productID e SKuID, conforme mostrado no Partner Center. | A ID do produto. |
+| produto | Nome do produto que tem encargos acumulados por consumo ou compra, conforme mostrado na nota fiscal. | O nome do produto no catálogo. |
+| serviceFamily | Mostra a família de serviços para o produto adquirido ou cobrado. Por exemplo, armazenamento ou computação. | N/D |
+| productOrderID | O identificador do ativo ou o nome do plano do Azure ao qual a assinatura pertence. Por exemplo, plano do Azure. | N/D |
+| productOrderName | O nome do plano do Azure ao qual a assinatura pertence. Por exemplo, plano do Azure. | N/D|
+| consumedService | Serviço consumido (taxonomia herdada), conforme usado em detalhes de uso de EA herdado. | Serviço mostrado no Partner Center. Por exemplo, Microsoft. Storage, Microsoft. Compute e Microsoft. operationalinsights. |
+| meterId | Identificador medido para consumo medido. | A ID do medidor usado. |
+| meterName | Identifica o nome do medidor para consumo medido. | O nome do medidor consumido. |
+| meterCategory | Identifica o serviço de nível superior para uso. | O serviço de nível superior para o uso. |
+| meterSubCategory | Define o tipo ou a subcategoria do serviço do Azure que pode afetar a taxa. | O tipo de serviço do Azure que pode afetar a taxa.|
+| meterRegion | Identifica a localização do datacenter para determinados serviços cujo preço é definido com base na localização do datacenter. | O local regional de um data center para serviços, quando aplicável e preenchidos. |
+| ID da subscrição | Identificador exclusivo gerado pela Microsoft para a assinatura do Azure. | N/D |
+| subscriptionName | Nome da subscrição do Azure. | N/D |
+| Termo | Apresenta o termo da validade da oferta. Por exemplo, as instâncias reservadas mostram 12 meses de um termo anual da instância reservada. Para compras de uma vez ou compras recorrentes, o termo exibe um mês para SaaS, Azure Marketplace e suporte. Não aplicável ao consumo do Azure. | N/D |
+| PublisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Tipo de Publicador que identifica o Publicador como primeira parte, revendedor de terceiros ou agência de terceiros. | N/D |
+| partNumber | Número de peça para a instância reservada não usada e os serviços do Azure Marketplace. | N/D |
+| publisherName | Nome do editor do serviço, incluindo Publicadores da Microsoft ou de terceiros. | O nome do editor do produto.|
+| reservationId | Identificador para a compra de instância reservada. | N/D |
+| reservationName | Nome da instância reservada. | N/D |
+| reservationOrderId | OrderID para a instância reservada. | N/D |
+| frequência | Frequência de pagamento para uma instância reservada. | N/D |
+| resourceGroup | Nome do grupo de recursos do Azure usado para gerenciamento de recursos do ciclo de vida. | Nome do grupo de recursos. |
+| instanceID (ou) ResourceId | Identificador da instância de recurso. | Mostrado como um ResourceURI que inclui propriedades de recurso completas. |
+| resourceLocation | Nome do local do recurso. | O local do recurso. |
+| Localização | Local normalizado do recurso. | N/D |
+| effectivePrice | O preço unitário efetivo do serviço, em moeda de preços. Exclusivo para um produto, uma família de serviços, um medidor e uma oferta. Usado com preços na folha de preços da conta de cobrança. Quando há preços em camadas ou uma quantidade incluída, ele mostra o preço combinado do consumo. | O preço unitário após os ajustes serem feitos. |
+| Quantidade | Quantidade medida comprada ou consumida. O valor do medidor usado durante o período de cobrança. | Número de unidades. Verifique se ele corresponde às informações em seu sistema de cobrança durante a reconciliação. |
+| unitOfMeasure | Identifica a unidade na qual o serviço é cobrado. Por exemplo, GB e horas. | Identifica a unidade na qual o serviço é cobrado. Por exemplo, GB, horas e 10, mil. |
+| pricingCurrency | A moeda que define o preço unitário. | A moeda na tabela de preços.|
+| billingCurrency | A moeda que define o custo cobrado. | A moeda da região geográfica do cliente. |
+| chargeType | Define o tipo de encargo que o custo representa no gerenciamento de custos do Azure, como compra e reembolso. | O tipo de encargo ou ajuste. Não disponível para a atividade atual. |
+| costinBillingCurrency | ExtendedCost ou custo combinado antes do imposto na moeda cobrada. | N/D |
+| costinPricingCurrency | ExtendedCost ou custo combinado antes do imposto na moeda de preços para correlacionar com os preços. | N/D |
+| **costinUSD** | ExtendedCost estimado ou custo combinado antes do imposto em USD. | N/D |
+| **paygCostInBillingCurrency** | Mostra os custos se os preços estiverem em preços de varejo. Mostra os preços pagos conforme o uso na moeda de cobrança. Disponível somente em escopos de RBAC. | N/D |
+| **paygCostInUSD** | Mostra os custos se os preços estiverem em preços de varejo. Mostra os preços pagos conforme o uso em USD. Disponível somente em escopos de RBAC. | N/D |
+| exchangeRate | Taxa de câmbio usada para converter da moeda de preço para a moeda de cobrança. | Conhecido como PCToBCExchangeRate no Partner Center. A moeda de preço para a taxa de câmbio da moeda de cobrança.|
+| exchangeRateDate | A data da taxa de câmbio usada para converter da moeda de preço para a moeda de cobrança. | Conhecido como PCToBCExchangeRateDat no Partner Center. A moeda de preço para cobrança da moeda da taxa de câmbio.|
+| isAzureCreditEligible | Indica se o custo é qualificado para pagamento por créditos do Azure. | N/D |
+| serviceInfo1 | Campo herdado que captura metadados específicos do serviço opcionais. | Metadados de serviço do Azure internos. |
+| serviceInfo2 | Campo herdado que captura metadados específicos do serviço opcionais. | Informações de serviço. Por exemplo, um tipo de imagem para uma máquina virtual e o nome do ISP para ExpressRoute.|
+| additionalInfo | Metadados específicos do serviço. Por exemplo, um tipo de imagem de uma máquina virtual. | Quaisquer informações adicionais não abordadas em outras colunas. Os metadados específicos do serviço. Por exemplo, um tipo de imagem de uma máquina virtual.|
+| etiquetas | Marca que você atribui ao medidor. Use marcas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir custos pelo departamento que usa o medidor. | Marcas adicionadas pelo cliente.|
+| **partnerEarnedCreditRate** | Taxa de desconto aplicado se houver um acordo de crédito de parceiro (PEC) com base no acesso de link do administrador do parceiro. | A taxa de o PEC (crédito ganho do parceiro). Por exemplo, 0% ou 15%. |
+| **partnerEarnedCreditApplied** | Indica se o crédito obtido do parceiro foi aplicado. | N/D |
 
 ## <a name="view-partner-earned-credit-pec-resource-costs"></a>Exibir custos de recursos do PEC (crédito acumulado) do parceiro
 

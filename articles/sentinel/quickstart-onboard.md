@@ -1,37 +1,42 @@
 ---
-title: Integração no Azure Sentinel | Microsoft Docs
-description: Saiba como coletar dados no Azure Sentinel.
+title: 'Início rápido: integração no Azure Sentinel'
+description: Saiba como coletar dados no Azure Sentinel seguindo este documento de início rápido.
 services: sentinel
-documentationcenter: na
 author: rkarlin
-manager: rkarlin
-editor: ''
+ms.author: rkarlin
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: quickstart
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: 7f042cfe10bd8ca57d9a2dae511a13a82f053a67
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 182dec35d515966ae883aca405cf3a95b6f1f72c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316819"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133095"
 ---
-# <a name="on-board-azure-sentinel"></a>Azure Sentinel integrado
+# <a name="quickstart-on-board-azure-sentinel"></a>Início rápido: Sentinela do Azure integrado
 
-
-
-Neste início rápido, você aprenderá como integrar o Azure Sentinel. 
+Neste guia de início rápido, saiba como integrar o Azure Sentinel. 
 
 Para o Azure Sentinel integrado, primeiro você precisa habilitar o Azure Sentinel e, em seguida, conectar suas fontes de dados. O Azure Sentinel vem com vários conectores para soluções da Microsoft, disponíveis prontos para uso e fornecimento de integração em tempo real, incluindo soluções de proteção contra ameaças da Microsoft, Microsoft 365 fontes, incluindo o Office 365, o Azure AD, o Azure ATP e o Microsoft Cloud App Security e muito mais. Além disso, há conectores internos para o ecossistema de segurança mais amplo para soluções que não são da Microsoft. Você também pode usar o formato de evento comum, syslog ou REST-API para conectar suas fontes de dados com o Azure Sentinel.  
 
 Depois de conectar suas fontes de dados, escolha de uma galeria de pastas de trabalho criadas de especialistas que insights de superfície com base em seus dados. Essas pastas de trabalho podem ser facilmente personalizadas para suas necessidades.
 
+>[!NOTE] 
+> O [preço do Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) é baseado na quantidade de dados ingeridos no espaço de trabalho associado do Azure monitor log Analytics. Alguns dos conectores de dados a seguir não são cobrados pela ingestão, mas haveria algum encargo associado quando você gera qualquer tipo de alerta usando os dados ingeridos armazenados no espaço de trabalho Log Analytics que serão cobrados de acordo com o [preço do Azure monitor log Analytics](https://azure.microsoft.com/pricing/details/monitor/). 
+  > - Atividade do Azure (logs de atividade para operações do Azure)
+  > - Azure Active Directory Identity Protection (para locatários com licenças AAD P2)
+  > - Azure Information Protection
+  > - Proteção avançada contra ameaças do Azure (alertas)
+  > - Central de segurança do Azure (alertas)
+  > - Microsoft Cloud App Security (somente alertas)
+  > - Proteção avançada contra ameaças do Microsoft defender (alertas do agente de monitoramento)
+  > - Office 365 (logs do Exchange e do SharePoint)
+>
+> Os logs de auditoria do Azure AD/Office365 não são gratuitos e são oferecidos como uma camada Premium, portanto, a ingestão desses dados é cobrada por GB. 
+  
 
 ## <a name="global-prerequisites"></a>Pré-requisitos globais
 
@@ -49,12 +54,12 @@ Depois de conectar suas fontes de dados, escolha de uma galeria de pastas de tra
 1. Vá para a portal do Azure.
 2. Verifique se a assinatura na qual o Azure Sentinel foi criado está selecionada. 
 3. Pesquise pelo Azure Sentinel. 
-   ![procurando](./media/quickstart-onboard/search-product.png)
+   pesquisa de ![](./media/quickstart-onboard/search-product.png)
 
 1. Clique em **+ Adicionar**.
 1. Selecione o espaço de trabalho que você deseja usar ou crie um novo. Você pode executar o Azure Sentinel em mais de um espaço de trabalho, mas os dados são isolados em um único espaço de trabalho.
 
-   ![procurar](./media/quickstart-onboard/choose-workspace.png)
+   ![procurando](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - Os espaços de trabalho padrão criados pela central de segurança do Azure não serão exibidos na lista; Você não pode instalar o Azure Sentinel neles.

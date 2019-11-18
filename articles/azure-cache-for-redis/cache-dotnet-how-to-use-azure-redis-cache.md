@@ -1,28 +1,21 @@
 ---
-title: Início rápido para aprender a usar o cache do Azure para Redis com aplicativos .NET | Microsoft Docs
+title: Início rápido para aprender a usar o cache do Azure para Redis com aplicativos .NET
 description: Neste guia de início rápido, saiba como acessar o cache do Azure para Redis de seus aplicativos .NET
-services: cache,app-service
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: c502f74c-44de-4087-8303-1b1f43da12d5
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5930ac3834c0b697a4c03ce5b110dfeac105436a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 2738805043b701d9e116d962f88225a6c6ae3e9b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324441"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122804"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Início rápido: Usar o cache do Azure para Redis com um aplicativo .NET Framework
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Início rápido: usar o cache do Azure para Redis com um aplicativo .NET Framework
 
 Neste guia de início rápido, você incorpora o cache do Azure para Redis em um aplicativo .NET Framework para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure. Você usa especificamente o cliente [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) com C# código em um aplicativo de console .net.
 
@@ -99,7 +92,7 @@ using StackExchange.Redis;
 using System.Configuration;
 ```
 
-A conexão com o cache do Azure para Redis é gerenciada `ConnectionMultiplexer` pela classe. Esta classe deve ser partilhada e reutilizada em toda a aplicação cliente. Não crie uma nova ligação para cada operação. 
+A conexão com o cache do Azure para Redis é gerenciada pela classe `ConnectionMultiplexer`. Esta classe deve ser partilhada e reutilizada em toda a aplicação cliente. Não crie uma nova ligação para cada operação. 
 
 Nunca guarde as credenciais no código fonte. Para simplificar este exemplo, estou a utilizar apenas um ficheiro de configuração de segredos externo. Uma melhor abordagem seria utilizar o [Azure Key Vault com certificados](https://docs.microsoft.com/rest/api/keyvault/certificate-scenarios).
 
@@ -122,7 +115,7 @@ Em *Program.cs*, adicione os seguintes membros à classe `Program` da sua aplica
 ```
 
 
-Esta abordagem para partilhar uma instância `ConnectionMultiplexer` na aplicação utiliza uma propriedade estática que devolve uma instância ligada. O código oferece uma forma segura para os threads de modo a inicializar apenas uma única instância `ConnectionMultiplexer` ligada. `abortConnect`é definido como false, o que significa que a chamada terá sucesso mesmo se uma conexão com o cache do Azure para Redis não for estabelecida. Uma funcionalidade-chave do `ConnectionMultiplexer` consiste no restauro automático da conectividade à cache assim que o problema de rede, ou outros problemas, tiverem sido resolvidos.
+Esta abordagem para partilhar uma instância `ConnectionMultiplexer` na aplicação utiliza uma propriedade estática que devolve uma instância ligada. O código oferece uma forma segura para os threads de modo a inicializar apenas uma única instância `ConnectionMultiplexer` ligada. `abortConnect` é definido como false, o que significa que a chamada terá sucesso mesmo se uma conexão com o cache do Azure para Redis não for estabelecida. Uma funcionalidade-chave do `ConnectionMultiplexer` consiste no restauro automático da conectividade à cache assim que o problema de rede, ou outros problemas, tiverem sido resolvidos.
 
 O valor da appSetting de *CacheConnection* serve para referenciar a cadeia de ligação da cache a partir do portal do Azure como o parâmetro de palavra-passe.
 
@@ -167,7 +160,7 @@ Adicione o seguinte código ao procedimento `Main` da classe `Program` para a su
         }
 ```
 
-O cache do Azure para Redis tem um número configurável de bancos de dados (o padrão de 16) que pode ser usado para separar lógicas do cache do Azure para Redis. O código estabelece ligação à base de dados predefinida, DB 0. Para obter mais informações, veja [O que são as bases de dados Redis?](cache-faq.md#what-are-redis-databases) e [Configuração do servidor predefinido Redis](cache-configure.md#default-redis-server-configuration).
+O cache do Azure para Redis tem um número configurável de bancos de dados (o padrão de 16) que pode ser usado para separar lógicas do cache do Azure para Redis. O código é ligado à base de dados predefinida, DB 0. Para obter mais informações, veja [O que são as bases de dados Redis?](cache-faq.md#what-are-redis-databases) e [Configuração do servidor predefinido Redis](cache-configure.md#default-redis-server-configuration).
 
 Os itens de cache podem ser obtidos com os métodos `StringSet` e `StringGet`.
 
@@ -241,7 +234,7 @@ Prima **Ctrl+F5** para compilar e executar a aplicação de consola para testar 
 
 Se avançar para o próximo tutorial, pode manter os recursos que criou neste início rápido e reutilizá-los.
 
-Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, poderá eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
+Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, pode eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
 
 > [!IMPORTANT]
 > A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos nele contidos serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
@@ -249,7 +242,7 @@ Caso contrário, se tiver concluído a aplicação de exemplo do início rápido
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
 
-Na caixa de texto **Filtrar por nome...** , escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
+Na caixa de texto **Filtrar por nome...** , escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No seu grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
 
 ![Eliminar](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 
@@ -261,7 +254,7 @@ Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesm
 
 <a name="next-steps"></a>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você aprendeu a usar o cache do Azure para Redis de um aplicativo .NET. Continue para o próximo início rápido para usar o cache do Azure para Redis com um aplicativo Web ASP.NET.
 

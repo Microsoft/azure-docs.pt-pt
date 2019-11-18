@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: bc8b834e0dd128457910c46cc1a62382bbc28ee1
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 39a249fb75249505189e2af4872c3a3f61ebe2af
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721566"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133253"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Início rápido: iniciar um aplicativo de nuvem Spring do Azure usando o portal do Azure
 
@@ -38,7 +38,7 @@ Seguindo este guia de início rápido, você aprenderá a:
 
 Para concluir este guia de início rápido:
 
-1. [Instale o Git](https://git-scm.com/).
+1. [Instale o Git](https://git-scm.com/)
 2. [Instalar o JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 3. [Instalar o Maven 3,0 ou superior](https://maven.apache.org/download.cgi)
 4. [Instalar o CLI do Azure versão 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -56,14 +56,16 @@ az extension add --name spring-cloud
 
 1. Em um navegador da Web, abra [este link para o Azure Spring Cloud no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.AppPlatform).
 
-1. Selecione **Azure Spring Cloud** para ir para a página Visão geral. Selecione o botão **criar** para começar.
-
-1. Preencha o formulário, considerando as seguintes diretrizes:
+1. Preencha o formulário na página **criar** do Azure Spring Cloud.  Considere as seguintes diretrizes:
     - Nome do serviço: especifique o nome da sua instância de serviço.  O nome deve ter entre 4 e 32 caracteres de comprimento e pode conter apenas letras minúsculas, números e hifens.  O primeiro caractere do nome do serviço deve ser uma letra e o último caractere deve ser uma letra ou um número.
     - Assinatura: selecione a assinatura que você deseja que seja cobrada para este recurso.  Verifique se essa assinatura foi adicionada à nossa lista de permissões para o Azure Spring Cloud.
     - Grupo de recursos: a criação de novos grupos de recursos para novos recursos é uma prática recomendada.
     - Local: selecione o local para sua instância de serviço. Os locais com suporte no momento incluem leste dos EUA, oeste dos EUA 2, Europa Ocidental e sudeste asiático.
-    
+
+1. Clique em **revisar e criar**.
+
+1. Verifique suas especificações e clique em **criar**.
+
 Leva cerca de 5 minutos para que o serviço seja implantado.  Após a implantação, a página **visão geral** da instância do serviço será exibida.
 
 ## <a name="set-up-your-configuration-server"></a>Configurar o servidor de configuração
@@ -72,7 +74,7 @@ Leva cerca de 5 minutos para que o serviço seja implantado.  Após a implantaç
 
 1. Na seção **repositório padrão** , defina **URI** como "https\://github.com/Azure-Samples/piggymetrics", defina **rótulo** como "configuração" e selecione **aplicar** para salvar as alterações.
 
-    ![Captura de tela do portal do ASC](media/spring-cloud-tutorial-config-server/portal-config-server.png)
+    ![Captura de tela do portal do ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>Compilar e implantar aplicativos de microatendimento
 
@@ -118,7 +120,7 @@ Leva cerca de 5 minutos para que o serviço seja implantado.  Após a implantaç
     az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
     ```
 
-1. Seguindo o mesmo padrão, crie os aplicativos `account-service` e `auth-service` e implante seus arquivos JAR.
+1. Seguindo o mesmo padrão, crie o `account-service` e `auth-service` aplicativos e implante seus arquivos JAR.
 
     ```azurecli
     az spring-cloud app create -n account-service

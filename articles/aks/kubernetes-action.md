@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
-ms.openlocfilehash: c82cbb8d7406c8d6f4063f52590e050438283ace
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cc2d6df952b2e0aa9b9f4d4e1dcb4859a5bb3790
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693387"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130523"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Ações do GitHub para implantação no serviço kubernetes
 
-As [ações do GitHub](https://help.github.com/en/articles/about-github-actions) oferecem a flexibilidade para criar um fluxo de trabalho de desenvolvimento automatizado do software. A ação kubernetes [azure/aks-set-context@v1]((https://github.com/Azure/aks-set-context)) facilitar implantações em clusters do serviço kubernetes do Azure. A ação define o contexto de cluster AKS de destino, que pode ser usado por outras ações, como [Azure/K8S-Deploy](https://github.com/Azure/k8s-deploy/tree/master), [Azure/K8S-Create-Secret,](https://github.com/Azure/k8s-create-secret/tree/master) etc. ou executar qualquer comando kubectl.
+As [ações do GitHub](https://help.github.com/en/articles/about-github-actions) oferecem a flexibilidade para criar um fluxo de trabalho de desenvolvimento automatizado do software. A ação kubernetes [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) facilitar implantações em clusters do serviço kubernetes do Azure. A ação define o contexto de cluster AKS de destino, que pode ser usado por outras ações, como [Azure/K8S-Deploy](https://github.com/Azure/k8s-deploy/tree/master), [Azure/K8S-Create-Secret,](https://github.com/Azure/k8s-create-secret/tree/master) etc. ou executar qualquer comando kubectl.
 
 > [!IMPORTANT]
 > No momento, as ações do GitHub estão em beta. Primeiro, você deve [se inscrever para ingressar na versão prévia](https://github.com/features/actions) usando sua conta do github.
@@ -78,7 +78,7 @@ Siga as etapas para configurar os segredos:
 
 A criação e o envio por push das imagens de contêiner são feitas usando `Azure/docker-login@v1` ação. Para implantar uma imagem de contêiner no AKS, você precisará usar a ação `Azure/k8s-deploy@v1`. Esta ação tem cinco parâmetros:
 
-| **Meter**  | **Explicação**  |
+| **Parâmetro**  | **Explicação**  |
 |---------|---------|
 | **namespace** | Adicional Escolha o namespace kubernetes de destino. Se o namespace não for fornecido, os comandos serão executados no namespace padrão | 
 | **manifestos** |  Necessária Caminho para os arquivos de manifesto que serão usados para implantação |

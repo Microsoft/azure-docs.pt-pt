@@ -1,36 +1,28 @@
 ---
-title: Artefatos seguros-modelos de Azure Resource Manager
-description: Saiba como proteger os artefatos usados em seus modelos de Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: ''
+title: Proteger artefatos em modelos
+description: Saiba como proteger os artefactos utilizados nos seus modelos do Azure Resource Manager.
 author: mumian
-manager: dougeby
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d9570c30e2870a136bd97ed5fc2304d6f0d280c9
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 4aea85fe7f71d09c77b0596b4a8ec54922c8eee8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528270"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150429"
 ---
-# <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutorial: artefatos seguros em implantações de modelo Azure Resource Manager
+# <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutorial: Proteger artefactos em implementações de modelo do Azure Resource Manager
 
-Saiba como proteger os artefatos usados em seus modelos de Azure Resource Manager usando a conta de armazenamento do Azure com SAS (assinaturas de acesso compartilhado). Os artefatos de implantação são todos os arquivos, além do arquivo de modelo principal, que são necessários para concluir uma implantação. Por exemplo, no [tutorial: importar arquivos BACPAC do SQL com modelos Azure Resource Manager](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md), o modelo principal cria um banco de dados SQL do Azure; Ele também chama um arquivo BACPAC para criar tabelas e inserir dados. O arquivo BACPAC é um artefato. O artefato é armazenado em uma conta de armazenamento do Azure com acesso público. Neste tutorial, você usa SAS para conceder acesso limitado ao arquivo BACPAC em sua própria conta de armazenamento do Azure. Para obter mais informações sobre SAS, consulte [usando SAS (assinaturas de acesso compartilhado)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Saiba como proteger os artefactos utilizados nos seus modelos do Azure Resource Manager com a conta de armazenamento do Azure com assinaturas de acesso partilhado (SAS). Artefatos de implementação são todos os ficheiros, além do ficheiro de modelo principal, que são necessárias para concluir uma implementação. Por exemplo, no [Tutorial: ficheiros BACPAC do SQL de importação com modelos Azure Resource Manager](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md), o modelo principal cria uma base de dados do SQL do Azure; ele também chama um ficheiro BACPAC para criar tabelas e inserir dados. Ficheiro BACPAC é um artefato. O artefacto é armazenado numa conta de armazenamento do Azure com o acesso público. Neste tutorial, vai utilizar SAS a conceder acesso limitado para o ficheiro BACPAC em sua própria conta de armazenamento do Azure. Para obter mais informações sobre SAS, consulte [Using partilhado assinaturas de acesso (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-Para saber como proteger o modelo vinculado, consulte [tutorial: criar modelos de Azure Resource Manager vinculados](./resource-manager-tutorial-create-linked-templates.md).
+Para saber como proteger o modelo ligado, veja [Tutorial: criar modelos do Azure Resource Manager ligados](./resource-manager-tutorial-create-linked-templates.md).
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Preparar um ficheiro BACPAC
-> * Abrir um modelo existente
+> * Abra um modelo existente
 > * Editar o modelo
 > * Implementar o modelo
 > * Verificar a implementação
@@ -42,7 +34,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 Para concluir este artigo, precisa de:
 
 * [Visual Studio Code](https://code.visualstudio.com/) com a extensão Ferramentas do Resource Manager. Veja [Instalar a extensão](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
-* Leia o [tutorial: importar arquivos BACPAC do SQL com modelos de Azure Resource Manager](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md). O modelo usado neste tutorial é aquele desenvolvido nesse tutorial. Um link de download do modelo concluído é fornecido neste artigo.
+* Revisão [Tutorial: ficheiros BACPAC do SQL de importação com modelos Azure Resource Manager](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md). O modelo utilizado neste tutorial é a desenvolveu esse tutorial. Uma ligação de transferência do modelo concluída é fornecida neste artigo.
 * Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador do SQL Server. Eis um exemplo para gerar uma palavra-passe:
 
     ```azurecli-interactive
@@ -52,89 +44,89 @@ Para concluir este artigo, precisa de:
 
 ## <a name="prepare-a-bacpac-file"></a>Preparar um ficheiro BACPAC
 
-Nesta seção, você prepara o arquivo BACPAC para que o arquivo seja acessível com segurança ao implantar o modelo do Resource Manager. Há cinco procedimentos nesta seção:
+Nesta secção, prepare o ficheiro BACPAC para que o ficheiro está acessível em segurança quando implementar o modelo do Resource Manager. Existem cinco procedimentos nesta secção:
 
-* Baixe o arquivo BACPAC.
+* Transfira o ficheiro BACPAC.
 * Criar uma conta de Armazenamento do Azure.
-* Crie um contêiner de BLOB da conta de armazenamento.
-* Carregue o arquivo BACPAC no contêiner.
-* Recupere o token SAS do arquivo BACPAC.
+* Crie um contentor de Blob da conta de armazenamento.
+* Carregue o ficheiro BACPAC para o contentor.
+* Obter o token SAS do ficheiro BACPAC.
 
-Para automatizar essas etapas usando um script do PowerShell, consulte o script em [carregar o modelo vinculado](./resource-manager-tutorial-create-linked-templates.md#upload-the-linked-template).
+Para automatizar estes passos com um script do PowerShell, consulte o script a partir [carregar o modelo ligado](./resource-manager-tutorial-create-linked-templates.md#upload-the-linked-template).
 
-### <a name="download-the-bacpac-file"></a>Baixar o arquivo BACPAC
+### <a name="download-the-bacpac-file"></a>Transfira o ficheiro BACPAC
 
-Baixe o [arquivo BACPAC](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac)e salve o arquivo em seu computador local com o mesmo nome, **SQLDatabaseExtension. BACPAC**.
+Transfira o [ficheiro BACPAC](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac)e guarde o ficheiro no seu computador local com o mesmo nome, **SQLDatabaseExtension.bacpac**.
 
-### <a name="create-a-storage-account"></a>Create a storage account
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-1. Selecione a imagem a seguir para abrir um modelo do Resource Manager na portal do Azure.
+1. Selecione a imagem seguinte para abrir um modelo do Resource Manager no portal do Azure.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json" target="_blank"><img src="./media/resource-manager-tutorial-secure-artifacts/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Insira as seguintes propriedades:
+2. Introduza as seguintes propriedades:
 
     * **Subscrição**: selecione a sua subscrição do Azure.
-    * **Grupo de recursos**: selecione **criar novo** e dê a ele um nome. Um grupo de recursos é um contêiner de recursos do Azure para fins de gerenciamento. Neste tutorial, você pode usar o mesmo grupo de recursos para a conta de armazenamento e o banco de dados SQL do Azure. Anote esse nome do grupo de recursos, você precisará dele quando criar o banco de dados SQL do Azure posteriormente nos tutoriais.
-    * **Local**: selecione uma região. Por exemplo, **EUA Central**.
-    * **Tipo de conta de armazenamento**: Use o valor padrão, que é **Standard_LRS**.
-    * **Local**: Use o valor padrão, que é **[resourcegroup (). Location]** . Isso significa que você usa o local do grupo de recursos para a conta de armazenamento.
-    * **Eu concordo com os termos e condições iniciados acima**: (selecionado)
+    * **Grupo de recursos**: selecione **criar novo** e atribua um nome. Um grupo de recursos é um contentor para recursos do Azure para o efeito de gestão. Neste tutorial, pode utilizar o mesmo grupo de recursos para a conta de armazenamento e a base de dados do SQL do Azure. Anote este nome de grupo de recursos, irá precisar dele quando criar a base de dados do SQL do Azure mais tarde nos tutoriais.
+    * **Localização**: selecione uma região. Por exemplo, **E.U.A. Central**.
+    * **Tipo de conta de armazenamento**: Utilize o valor predefinido, que é **Standard_LRS**.
+    * **Localização**: Utilize o valor predefinido, que é **[resourceGroup (). location]** . Isso significa que usar a localização do grupo de recursos para a conta de armazenamento.
+    * **Eu concordo com os termos e condições a utilizar acima**: (selecionado)
 3. Selecione **Comprar**.
-4. Selecione o ícone de notificação (o ícone de sino) no canto superior direito do portal para ver o status da implantação.
+4. Selecione o ícone de notificação (o ícone de sino) no canto superior direito do portal para ver o estado de implementação.
 
-    ![Painel de notificações do portal do tutorial do Gerenciador de recursos](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-portal-notifications-pane.png)
-5. Depois que a conta de armazenamento for implantada com êxito, selecione **ir para o grupo de recursos** no painel de notificação para abrir o grupo de recursos.
+    ![Painel de notificações do portal tutorial do Resource Manager](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-portal-notifications-pane.png)
+5. Depois da conta de armazenamento é implementada com êxito, selecione **vá para o grupo de recursos** partir do painel de notificação para abrir o grupo de recursos.
 
-### <a name="create-a-blob-container"></a>Criar um contêiner de BLOBs
+### <a name="create-a-blob-container"></a>Criar um contentor de BLOBs
 
-Um contêiner de blob é necessário para que você possa carregar todos os arquivos.
+Um contentor de BLOBs é necessária para poder carregar todos os ficheiros.
 
-1. Selecione a conta de armazenamento para abri-la. Você deverá ver apenas uma conta de armazenamento listada no grupo de recursos. O nome da conta de armazenamento é diferente daquele mostrado na captura de tela a seguir.
+1. Selecione a conta de armazenamento para abri-la. Deverá ver apenas uma conta de armazenamento listada no grupo de recursos. O nome da sua conta de armazenamento é diferente daquele mostrado na captura de ecrã seguinte.
 
-    ![Conta de armazenamento do tutorial do Resource Manager](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-storage-account.png)
+    ![Conta de armazenamento de tutorial do Resource Manager](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-storage-account.png)
 
-2. Selecione o bloco **BLOBs** .
+2. Selecione o **Blobs** mosaico.
 
     ![Blobs de tutorial do Resource Manager](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-blobs.png)
-3. Selecione **+ contêiner** na parte superior para criar um novo contêiner.
+3. Selecione **+ contentor** da parte superior para criar um novo contentor.
 4. Introduza os seguintes valores:
 
-    * **Nome**: insira **sqlbacpac**.
-    * **Nível de acesso público**: Use o valor padrão, **privado (sem acesso anônimo)** .
+    * **Nome**: introduza **sqlbacpac**.
+    * **Nível de acesso público**: Utilize o valor predefinido, **privado (sem acesso anónimo)** .
 5. Selecione **OK**.
-6. Selecione **sqlbacpac** para abrir o contêiner recém-criado.
+6. Selecione **sqlbacpac** para abrir o contentor criado recentemente.
 
-### <a name="upload-the-bacpac-file-to-the-container"></a>Carregar o arquivo BACPAC no contêiner
+### <a name="upload-the-bacpac-file-to-the-container"></a>Carregue o ficheiro BACPAC para o contentor
 
 1. Selecione **Upload**.
 2. Introduza os seguintes valores:
 
-    * **Arquivos**: seguindo as instruções para selecionar o arquivo BACPAC que você baixou anteriormente. O nome padrão é **SQLDatabaseExtension. bacpac**.
-    * **Tipo de autenticação**: selecione **SAS**.  *SAS* é o valor padrão.
-3. Selecione **Upload**.  Depois que o arquivo for carregado com êxito, o nome do arquivo deverá ser listado no contêiner.
+    * **Ficheiros**: Siga as instruções para selecionar o ficheiro BACPAC que transferiu anteriormente. O nome predefinido é **SQLDatabaseExtension.bacpac**.
+    * **Tipo de autenticação**: selecione **SAS**.  *SAS* é o valor predefinido.
+3. Selecione **Upload**.  Depois do ficheiro é carregado com êxito, o nome do ficheiro deve ser listado no contentor.
 
-### <a name="a-namegenerate-a-sas-token-generate-a-sas-token"></a><a name="generate-a-sas-token" />Generate um token SAS
+### <a name="a-namegenerate-a-sas-token-generate-a-sas-token"></a><a name="generate-a-sas-token" />Gerar um token SAS
 
-1. Clique com o botão direito do mouse em **SQLDatabaseExtension. bacpac** do contêiner e selecione **gerar SAS**.
+1. Com o botão direito **SQLDatabaseExtension.bacpac** do contentor e, em seguida, selecione **gerar SAS**.
 2. Introduza os seguintes valores:
 
-    * **Permissão**: Use o padrão, **ler**.
-    * **Data/hora de início e expiração**: o valor padrão fornece oito horas para usar o token SAS. Se precisar de mais tempo para concluir este tutorial, atualize a **expiração**.
-    * **Endereços IP permitidos**: Deixe esse campo em branco.
-    * **Protocolos permitidos**: Use o valor padrão: **https**.
-    * **Chave de assinatura**: Use o valor padrão: **chave 1**.
-3. Selecione **gerar token SAS de BLOB e URL**.
-4. Faça uma cópia da **URL de SAS do blob**. No meio da URL está o nome do arquivo **SQLDatabaseExtension. bacpac**.  O nome do arquivo divide a URL em três partes:
+    * **Permissão**: Utilize a predefinição **leitura**.
+    * **Data/hora de início e de expiração**: O valor predefinido dá-lhe oito horas para usar o token SAS. Se precisar de mais tempo para concluir este tutorial, atualize **expiração**.
+    * **Endereços IP permitidos**: deixe este campo em branco.
+    * **Permitidos protocolos**: Utilize o valor predefinido: **HTTPS**.
+    * **Chave de assinatura**: Utilize o valor predefinido: **chave 1**.
+3. Selecione **gerar o token SAS do blob e o URL**.
+4. Faça uma cópia deles **URL de SAS do Blob**. No meio o URL é o nome de ficheiro **SQLDatabaseExtension.bacpac**.  O nome de ficheiro divide o URL em três partes:
 
-   - **Localização do artefato**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Verifique se o local termina com um "/".
-   - **Nome do arquivo BACPAC**: SQLDatabaseExtension. BACPAC.
-   - **Token SAS de localização do artefato**: Verifique se o token precede com um "?."
+   - **Localização do artefacto**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Certifique-se de que a localização termina com uma "/".
+   - **Nome de ficheiro BACPAC**: SQLDatabaseExtension.bacpac.
+   - **Token SAS de localização de artefacto**: Certifique-se de que precede o token com um "?."
 
-     Você precisa desses três valores em [implantar o modelo](#deploy-the-template).
+     Vai precisar destes três valores na [implementar o modelo](#deploy-the-template).
 
-## <a name="open-an-existing-template"></a>Abrir um modelo existente
+## <a name="open-an-existing-template"></a>Abra um modelo existente
 
-Nesta sessão, você modifica o modelo criado no [tutorial: importar arquivos SQL BACPAC com modelos de Azure Resource Manager](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md) para chamar o arquivo bacpac com um token SAS.  O modelo desenvolvido no tutorial de extensão do SQL é compartilhado no [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
+Nesta sessão, é modificar o modelo que criou no [Tutorial: ficheiros BACPAC do SQL de importação com modelos Azure Resource Manager](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md) para chamar o ficheiro BACPAC, com um token SAS.  O modelo desenvolvido no tutorial de extensão do SQL é compartilhado no [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
 
 1. No Visual Studio Code, selecione **Ficheiro**>**Abrir Ficheiro**.
 2. em **Nome de ficheiro**, cole o seguinte URL:
@@ -144,7 +136,7 @@ Nesta sessão, você modifica o modelo criado no [tutorial: importar arquivos SQ
     ```
 3. Selecione **Abrir** para abrir o ficheiro.
 
-    Há cinco recursos definidos no modelo:
+    Existem cinco recursos definidos no modelo:
 
    * `Microsoft.Sql/servers`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
    * `Microsoft.SQL/servers/securityAlertPolicies`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
@@ -182,9 +174,9 @@ Adicione os seguintes parâmetros adicionais:
 }
 ```
 
-![Tutorial do Resource Manager-parâmetros de artefatos seguros](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-secure-artifacts-parameters.png)
+![Parâmetros de artefactos de seguro de tutorial do Resource Manager](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-secure-artifacts-parameters.png)
 
-Atualize o valor dos dois elementos a seguir:
+Atualize o valor dos dois seguintes elementos:
 
 ```json
 "storageKey": "[parameters('_artifactsLocationSasToken')]",
@@ -217,8 +209,8 @@ New-AzResourceGroupDeployment `
     -TemplateFile "$HOME/azuredeploy.json"
 ```
 
-Use uma senha gerada. Veja [Pré-requisitos](#prerequisites).
-Para obter os valores de _artifactsLocation, _artifactsLocationSasToken e bacpacFileName, consulte [gerar um token SAS](#generate-a-sas-token).
+Utilize uma palavra-passe gerada. Veja [Pré-requisitos](#prerequisites).
+Para os valores de artifactslocation, artifactslocationsastoken e bacpacFileName, consulte [gerar um token SAS](#generate-a-sas-token).
 
 ## <a name="verify-the-deployment"></a>Verificar a implementação
 
@@ -237,7 +229,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você implantou um SQL Server, um banco de dados SQL e importou um arquivo BACPAC usando o token SAS. Para saber como criar um pipeline do Azure para desenvolver e implantar os modelos do Resource Manager continuamente, consulte
+Neste tutorial, implementou um servidor de SQL, uma base de dados SQL e importar um ficheiro BACPAC com o SAS token. Para saber como criar um pipeline do Azure para desenvolver e implantar os modelos do Resource Manager continuamente, consulte
 
 > [!div class="nextstepaction"]
 > [Integração contínua com o pipeline do Azure](./resource-manager-tutorial-use-azure-pipelines.md)

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: ed100c27d482065e244bb3dc2cca3b66dfc11986
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 7de1a1e24c2863b90fe5f1f3ff19124318912cff
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013405"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132683"
 ---
 # <a name="add-entities-to-extract-data"></a>Adicionar entidades para extrair dados 
 
@@ -26,15 +26,26 @@ A entidade representa uma palavra ou frase dentro da expressão que pretende que
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## <a name="creating-an-entity-is-different-from-labeling-an-entity"></a>A criação de uma entidade é diferente de rotular uma entidade
+## <a name="plan-entities-then-create-and-label"></a>Planejar entidades e, em seguida, criar e rotular
 
-Primeiro, você precisa criar uma entidade antes de poder rotular a entidade no exemplo expressão. 
+As entidades aprendidas por máquina podem ser criadas no exemplo declarações ou criadas na página **entidades** . 
+
+Em geral, uma prática recomendada é gastar tempo planejando as entidades antes de criar uma entidade aprendida por máquina no Portal. Em seguida, crie a entidade aprendida com o computador do exemplo expressão com o máximo de detalhes nos subcomponentes e descritores e restrições, como você sabe no momento. O [tutorial de entidade decombinável](tutorial-machine-learned-entity.md) demonstra como usar esse método. 
+
+Como parte do planejamento das entidades, você pode saber que precisa de entidades de correspondência de texto (como entidades predefinidas, entidades de expressão regular ou entidades de lista). Você pode criá-los na página **entidades** antes que eles sejam rotulados no exemplo declarações. 
+
+Ao rotular, você pode rotular entidades individuais e, em seguida, criar uma entidade do computador pai aprendida. Ou você pode começar com uma entidade pai aprendida por computador e decompor em entidades filhas. 
+
+> [!TIP] 
+>Rotular todas as palavras que podem indicar uma entidade, mesmo se as palavras não forem usadas quando extraídas no aplicativo cliente. 
+
+## <a name="creating-an-entity-before-or-with-labeling"></a>Criando uma entidade antes ou com rotulagem
 
 Use a tabela a seguir para entender quais entidades onde criar ou adicionar cada entidade ao aplicativo. 
 
 |Tipo de entidade|Onde criar a entidade no portal do LUIS|
 |--|--|
-|Entidade aprendida por máquina|Detalhes de entidades ou intenções|
+|Entidade de aprendizagem automática|Detalhes de entidades ou intenções|
 |Entidade de lista|Detalhes de entidades ou intenções|
 |Entidade de expressão regular|Entidades|
 |Entidade Pattern.any|Entidades|

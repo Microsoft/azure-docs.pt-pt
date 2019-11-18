@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Obtenha notícias através de API de REST de pesquisa de notícias do Bing e Go'
+title: 'Início rápido: Obtenha notícias usando Pesquisa de Notícias do Bing API REST e vá'
 titleSuffix: Azure Cognitive Services
-description: Saiba como obter os resultados de notícias da API de pesquisa de notícias do Bing.
+description: Este guia de início rápido usa o idioma Go para chamar o API de Pesquisa de Notícias do Bing. Os resultados incluem nomes e URLs de fontes de notícias identificadas pela cadeia de caracteres de consulta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 2/21/2019
 ms.author: aahi
-ms.openlocfilehash: 79e93e3ba0bbf9ac71a01bad0502b84dfee85297
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c3d18852086e202d9f818f2cac2c90fa4f464211
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798508"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110801"
 ---
-# <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Início rápido: Obter resultados de notícias, usando a API de REST de pesquisa de notícias do Bing e Go
+# <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Início rápido: obter resultados de notícias usando a API REST do Pesquisa de Notícias do Bing e ir
 
-Este início rápido utiliza a linguagem Go para chamar a API de pesquisa de notícias do Bing. Os resultados incluem os nomes e os URLs de fontes noticiosas identificados pela cadeia de consulta.
+Este guia de início rápido usa o idioma Go para chamar o API de Pesquisa de Notícias do Bing. Os resultados incluem nomes e URLs de fontes de notícias identificadas pela cadeia de caracteres de consulta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Instalar o [ir binários](https://golang.org/dl/)
-* Instalar a biblioteca de go-spew para a mesma impressora muito para apresentar resultados
-    * Instale esta libarary: `$ go get -u https://github.com/davecgh/go-spew`
+* Instalar os [binários go](https://golang.org/dl/)
+* Instale a biblioteca go-Spew para que ela tenha uma impressora para exibir os resultados
+    * Instalar este Libarary: `$ go get -u https://github.com/davecgh/go-spew`
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="create-a-project-and-import-libraries"></a>Crie um projeto e bibliotecas de importação
+## <a name="create-a-project-and-import-libraries"></a>Criar um projeto e importar bibliotecas
 
-Crie um novo projeto de Go no seu IDE ou editor. Em seguida, importe `net/http` para pedidos, `ioutil` ler a resposta, e `encoding/json` para lidar com o texto JSON de resultados. A biblioteca de go-spew é necessário para analisar o JSON. 
+Crie um novo projeto Go em seu IDE ou editor. Em seguida, importe `net/http` para solicitações, `ioutil` para ler a resposta e `encoding/json` para manipular o texto JSON de resultados. A biblioteca go-Spew é necessária para analisar o JSON. 
 
 ```
 package main
@@ -47,7 +47,7 @@ import (
 
 ## <a name="create-a-struct-to-format-the-news-search-results"></a>Criar uma estrutura para formatar os resultados da pesquisa de notícias
 
-A estrutura `NewsAnswer` formata os dados apresentados na resposta. A resposta JSON é muito complexo e vários níveis.  A seguinte implementação aborda os essentials.
+A estrutura `NewsAnswer` formata os dados apresentados na resposta. A resposta JSON é de vários níveis e muito complexa.  A implementação a seguir aborda os conceitos básicos.
 
 ```
 // This struct formats the answer provided by the Bing News Search API.
@@ -87,7 +87,7 @@ type NewsAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Declarar a função principal e definir variáveis  
 
-O seguinte código declara a função principal e atribui a variáveis necessárias. Confirme que o ponto final está correto e substitua o valor `token` por uma chave de subscrição válida da sua conta do Azure.
+O código a seguir declara a função main e atribui as variáveis necessárias. Confirme que o ponto final está correto e substitua o valor `token` por uma chave de subscrição válida da sua conta do Azure.
 
 ```
 func main() {
@@ -108,7 +108,7 @@ func main() {
 
 ## <a name="query-and-header"></a>Consulta e cabeçalho
 
-Adicione o cabeçalho do chave como cadeia de caracteres e acesso da consulta
+Adicionar a cadeia de caracteres de consulta e o cabeçalho de chave de acesso
 
 ```
 // Add the query to the request.  
@@ -121,9 +121,9 @@ req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
 ```
 
-## <a name="get-request"></a>O pedido
+## <a name="get-request"></a>Obter solicitação
 
-Criar o cliente e enviar o pedido Get. 
+Crie o cliente e envie a solicitação get. 
 
 ```
 // Instantiate a client.  
@@ -137,9 +137,9 @@ if err != nil {
 
 ```
 
-## <a name="send-the-request"></a>Enviar o pedido
+## <a name="send-the-request"></a>Enviar a solicitação
 
-Enviar o pedido e ler os resultados usando `ioutil`.
+Envie a solicitação e leia os resultados usando `ioutil`.
 
 ```
 resp, err := client.Do(req)
@@ -160,7 +160,7 @@ if err != nil {
 
 ## <a name="handle-the-response"></a>Processar a resposta
 
-O `Unmarshall` função extrai informações a partir do texto JSON devolvido pela API de pesquisa de notícias.  Em seguida, pode apresentar os nós dos resultados usando o `go-spew` impressora bonita.
+A função `Unmarshall` extrai informações do texto JSON retornado pela API Pesquisa de Notícias.  Em seguida, você pode exibir nós dos resultados usando a `go-spew` impressora.
 
 ```
 // Create a new answer object 
@@ -181,7 +181,7 @@ spew.Dump(result.Name, result.URL)
 
 ## <a name="results"></a>Resultados
 
-Os resultados contêm o nome e um URL de cada resultado.
+Os resultados contêm o nome e a URL de cada resultado.
 
 ```
 (string) (len=91) "Cognitive Services Market: Global Industry Analysis and Opportunity Assessment, 2019 - 2025"
@@ -203,7 +203,7 @@ Os resultados contêm o nome e um URL de cada resultado.
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [O que é a pesquisa de notícias do Bing](search-the-web.md)
+> [O que é Pesquisa de Notícias do Bing](search-the-web.md)

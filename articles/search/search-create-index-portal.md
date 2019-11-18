@@ -1,5 +1,5 @@
 ---
-title: Criar um índice de Pesquisa Cognitiva do Azure no portal do Azure
+title: Criar um índice de pesquisa no portal do Azure
 titleSuffix: Azure Cognitive Search
 description: Saiba como criar um índice para o Azure Pesquisa Cognitiva usando um designer de índice do portal interno.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a9340b9c058ba780b8d74587f21c1b9fbe59576d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f2e875c625431867e6e83cfd1e0b2c6d7a2781f7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792445"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112840"
 ---
 # <a name="create-an-azure-cognitive-search-index-in-the-portal"></a>Criar um índice de Pesquisa Cognitiva do Azure no portal
 

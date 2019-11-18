@@ -1,5 +1,5 @@
 ---
-title: Configurar a indexação incremental (visualização) do controle de alterações baseado em conteúdo aprimorado
+title: Adicionar indexação incremental (versão prévia)
 titleSuffix: Azure Cognitive Search
 description: Habilite o controle de alterações e preserve o estado do conteúdo aprimorado para processamento controlado em um conjunto de qualificações cognitiva. Este recurso está atualmente em visualização pública.
 author: vkurpad
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 74631ee3167c65e59fbd05f53fe5327d1b532dba
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 09defe9648208e2300594169add990d4bcbd7a39
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719935"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112566"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Como configurar a indexação incremental de documentos aprimorados no Azure Pesquisa Cognitiva
 

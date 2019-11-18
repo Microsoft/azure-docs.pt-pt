@@ -1,48 +1,47 @@
 ---
-title: Estado de funcionamento da descrição geral da monitorização para o Gateway de aplicação do Azure
-description: Saiba mais sobre as capacidades de monitorização no Gateway de aplicação do Azure
+title: Visão geral do monitoramento de integridade para Aplicativo Azure gateway
+description: Aplicativo Azure gateway monitora a integridade de todos os recursos em seu pool de back-end e remove automaticamente qualquer recurso considerado não íntegro do pool.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/6/2018
+ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2938665aa0c0a3df66b6ddcfd1c8c5fbc4598319
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66135202"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130678"
 ---
-# <a name="application-gateway-health-monitoring-overview"></a>Descrição geral do Application Gateway health monitorização
+# <a name="application-gateway-health-monitoring-overview"></a>Visão geral do monitoramento de integridade do gateway de aplicativo
 
-O Gateway de aplicação do Azure por predefinição monitoriza o estado de funcionamento de todos os recursos no seu conjunto de back-end e automaticamente remove qualquer recurso considerado em mau estado de funcionamento do conjunto. Gateway de aplicação continua a monitorizar as instâncias em mau estado de funcionamento e adiciona-os novamente para o conjunto de back-end em bom estado, uma vez que eles se tornarem disponíveis e respondem às sondas de estado de funcionamento. Gateway de aplicação envia que o estado de funcionamento sondas com a mesma porta que é definida nas definições de HTTP de back-end. Esta configuração garante que a sonda está a testar a mesma porta que os clientes estariam a utilizar para ligar ao back-end.
+O gateway de Aplicativo Azure, por padrão, monitora a integridade de todos os recursos em seu pool de back-ends e remove automaticamente qualquer recurso considerado não íntegro do pool. O gateway de aplicativo continua monitorando as instâncias não íntegras e as adiciona de volta ao pool de back-end íntegro quando elas ficam disponíveis e respondem a investigações de integridade. O gateway de aplicativo envia as investigações de integridade com a mesma porta que é definida nas configurações de HTTP de back-end. Essa configuração garante que a investigação esteja testando a mesma porta que os clientes usam para se conectar ao back-end.
 
-![exemplo de sonda de gateway de aplicação][1]
+![exemplo de investigação do gateway de aplicativo][1]
 
-Além de utilizar a monitorização de sonda de estado de funcionamento do predefinido, também pode personalizar a sonda de estado de funcionamento para atender às necessidades da sua aplicação. Neste artigo, são abordadas predefinido e sondas de estado de funcionamento personalizados.
+Além de usar o monitoramento de investigação de integridade padrão, você também pode personalizar a investigação de integridade para atender aos requisitos do seu aplicativo. Neste artigo, as investigações de integridade padrão e personalizada são cobertas.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="default-health-probe"></a>Sonda de estado de funcionamento predefinida
+## <a name="default-health-probe"></a>Investigação de integridade padrão
 
-Um gateway de aplicação configura automaticamente uma sonda de estado de funcionamento predefinida quando não configurada qualquer configuração de sonda personalizada. O comportamento de monitorização funciona fazendo uma solicitação HTTP para os endereços IP configurados para o conjunto de back-end. Para sondas padrão se as definições de http de back-end estão configuradas para HTTPS, a sonda utiliza HTTPS também para testar o estado de funcionamento dos back-ends.
+Um gateway de aplicativo configura automaticamente uma investigação de integridade padrão quando você não define nenhuma configuração de investigação personalizada. O comportamento de monitoramento funciona fazendo uma solicitação HTTP para os endereços IP configurados para o pool de back-ends. Para investigações padrão se as configurações de http de back-end forem configuradas para HTTPS, a investigação usará HTTPS também para testar a integridade dos back-ends.
 
-Por exemplo: Configurar o gateway de aplicação para utilizar servidores de back-end A, B e C para receber o tráfego de rede HTTP na porta 80. A monitorização de estado de funcionamento de predefinição testa os três servidores a cada 30 segundos para uma resposta HTTP em bom estado. Uma bom estado de funcionamento resposta HTTP tem um [código de estado](https://msdn.microsoft.com/library/aa287675.aspx) entre 200 e 399.
+Por exemplo: você configura o gateway de aplicativo para usar os servidores back-end a, B e C para receber o tráfego de rede HTTP na porta 80. O monitoramento de integridade padrão testa os três servidores a cada 30 segundos para uma resposta HTTP íntegra. Uma resposta HTTP íntegra tem um [código de status](https://msdn.microsoft.com/library/aa287675.aspx) entre 200 e 399.
 
-Se falhar a verificação de sonda de padrão para o servidor A, o gateway de aplicação remove-o do seu conjunto de back-end e deixa de tráfego de rede que fluem para este servidor. A sonda predefinida ainda continua a verificar a existência de servidor um cada 30 segundos. Quando o servidor A responde com êxito a uma solicitação de uma sonda de estado de funcionamento predefinida, é adicionado novamente como bom estado de funcionamento para o conjunto de back-end e o tráfego começar a fluir para o servidor novamente.
+Se a verificação de investigação padrão falhar para o servidor A, o gateway de aplicativo a removerá de seu pool de back-end e o tráfego de rede parará de fluir para esse servidor. A investigação padrão ainda continua a verificar o servidor A cada 30 segundos. Quando o servidor A responde com êxito a uma solicitação de uma investigação de integridade padrão, ele é adicionado de volta como íntegro para o pool de back-end e o tráfego começa a fluir para o servidor novamente.
 
-### <a name="probe-matching"></a>Correspondência de sonda
+### <a name="probe-matching"></a>Correspondência de investigação
 
-Por predefinição, uma resposta de HTTP (S) com o código de estado entre 200 e 399 é considerada em bom estado. Além disso, sondas de estado de funcionamento personalizados suportam dois critérios de correspondência. Critérios de correspondência podem ser utilizado para, opcionalmente, modifique a interpretação de padrão do que constitui uma resposta de bom estado de funcionamento.
+Por padrão, uma resposta HTTP (S) com código de status entre 200 e 399 é considerada íntegra. As investigações de integridade personalizadas também dão suporte a dois critérios de correspondência. Os critérios de correspondência podem ser usados para modificar opcionalmente a interpretação padrão do que constitui uma resposta íntegra.
 
-A seguir é correspondentes aos critérios: 
+Estes são os critérios correspondentes: 
 
-- **Correspondência de código de estado de resposta HTTP** - critério para abertos ao recebimento de correspondência de sonda http resposta código ou resposta intervalos de código especificadas pelo utilizador. Códigos de estado de resposta separados por vírgulas individuais ou um intervalo de código de estado é suportado.
-- **Correspondência de corpo de resposta HTTP** - critério que examina o corpo de resposta HTTP e as correspondências com um utilizador especificado a cadeia de caracteres de correspondência de sonda. O aspeto de apenas de correspondência de presença do utilizador especificado no corpo de resposta de cadeias de caracteres e não é uma correspondência de expressão regular completa.
+- **Correspondência de código de status de resposta http** – critério de correspondência de investigação para aceitar o código de resposta HTTP especificado pelo usuário ou intervalos de códigos de resposta. Códigos de status de resposta separados por vírgulas individuais ou um intervalo de códigos de status têm suporte.
+- **Correspondência de corpo de resposta http** – critério de correspondência de investigação que examina o corpo da resposta http e corresponde a uma cadeia de caracteres especificada pelo usuário. A correspondência só procura a presença da cadeia de caracteres especificada pelo usuário no corpo da resposta e não é uma correspondência de expressão regular completa.
 
-Critérios de correspondência podem ser especificados utilizando o `New-AzApplicationGatewayProbeHealthResponseMatch` cmdlet.
+Os critérios de correspondência podem ser especificados usando o cmdlet `New-AzApplicationGatewayProbeHealthResponseMatch`.
 
 Por exemplo:
 
@@ -50,57 +49,57 @@ Por exemplo:
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
-Assim que os critérios de correspondência for especificado, pode ser anexado a configuração através de sonda um `-Match` parâmetro no PowerShell.
+Depois que os critérios de correspondência forem especificados, eles poderão ser anexados à configuração de investigação usando um parâmetro `-Match` no PowerShell.
 
-### <a name="default-health-probe-settings"></a>Predefinições de sonda de estado de funcionamento
+### <a name="default-health-probe-settings"></a>Configurações de investigação de integridade padrão
 
-| Propriedade de pesquisa | Value | Descrição |
+| Propriedade de investigação | Valor | Descrição |
 | --- | --- | --- |
-| URL de sonda |http://127.0.0.1:\<port\>/ |Caminho do URL |
-| Interval |30 |A quantidade de tempo em segundos a aguardar antes da próxima sonda de estado de funcionamento é enviada.|
-| Tempo limite |30 |A quantidade de tempo em segundos, o gateway de aplicação aguarda uma resposta de sonda antes de os marcar a sonda como mau estado de funcionamento. Se uma sonda retornar saudável, o back-end correspondente será imediatamente marcado como em bom estado.|
-| Limiar de mau estado de funcionamento |3 |Controla quantas sondas para enviar no caso de falha da sonda de estado de funcionamento normal. Estas sondas de estado de funcionamento adicionais são enviadas numa rápida sucessão para determinar o estado de funcionamento do back-end rapidamente e não espere durante o intervalo de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
+| URL de investigação |http://127.0.0.1:\<port\>/ |Caminho da URL |
+| Intervalo |30 |A quantidade de tempo em segundos a aguardar antes que a próxima investigação de integridade seja enviada.|
+| Tempo limite |30 |A quantidade de tempo em segundos que o gateway de aplicativo aguarda uma resposta de investigação antes de marcar a investigação como não íntegra. Se uma investigação retornar como íntegra, o back-end correspondente será imediatamente marcado como íntegro.|
+| Limite não íntegro |3 |Governa a quantidade de investigações a serem enviadas caso haja uma falha na investigação de integridade regular. Essas investigações de integridade adicionais são enviadas em sucessão rápida para determinar a integridade do back-end rapidamente e não aguardam o intervalo de investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir o limite não íntegro. |
 
 > [!NOTE]
-> A porta é a mesma porta que as definições de HTTP de back-end.
+> A porta é a mesma porta que as configurações de HTTP de back-end.
 
-A sonda predefinida analisa apenas http:\//127.0.0.1:\<porta\> para determinar o estado de funcionamento. Se precisar de configurar a sonda de estado de funcionamento para ir para um URL personalizado ou modificar outras definições, tem de utilizar as pesquisas personalizadas.
+A investigação padrão se parece apenas com http:\//127.0.0.1:\<porta\> para determinar o status de integridade. Se você precisar configurar a investigação de integridade para ir para uma URL personalizada ou modificar qualquer outra configuração, deverá usar investigações personalizadas.
 
-### <a name="probe-intervals"></a>Intervalos de sonda
+### <a name="probe-intervals"></a>Intervalos de investigação
 
-Todas as instâncias de Gateway de aplicação de sonda de back-end independente umas das outras. A mesma configuração de pesquisa aplica-se a cada instância de Gateway de aplicação. Por exemplo, se a configuração de sonda consiste em enviar sondas de estado de funcionamento a cada 30 segundos e o gateway de aplicação tem duas instâncias, em seguida, ambas as instâncias enviam a sonda de estado de funcionamento a cada 30 segundos.
+Todas as instâncias do gateway de aplicativo investigam o back-end independente um do outro. A mesma configuração de investigação se aplica a cada instância do gateway de aplicativo. Por exemplo, se a configuração de investigação for enviar investigações de integridade a cada 30 segundos e o gateway de aplicativo tiver duas instâncias, ambas as instâncias enviarão a investigação de integridade a cada 30 segundos.
 
-Também se existirem várias escutas, cada serviço de escuta sonda o back-end independente umas das outras. Por exemplo, se existirem dois serviços de escuta que aponta para o mesmo conjunto de back-end em duas portas diferentes (configurado por duas definições de http de back-end), em seguida, cada serviço de escuta sondas back-end da mesmo forma independente. Neste caso, existem dois sondas de cada instância de gateway de aplicação para os dois serviços de escuta. Se existirem duas instâncias do gateway de aplicação neste cenário, a máquina virtual de back-end veria quatro sondas de acordo com o intervalo de sonda configurado.
+Além disso, se houver vários ouvintes, cada ouvinte investigará o back-end independentemente um do outro. Por exemplo, se houver dois ouvintes apontando para o mesmo pool de back-end em duas portas diferentes (configuradas por duas configurações de http de back-end), cada ouvinte investigará o mesmo back-end independentemente. Nesse caso, há duas investigações de cada instância do gateway de aplicativo para os dois ouvintes. Se houver duas instâncias do gateway de aplicativo nesse cenário, a máquina virtual de back-end veria quatro investigações de acordo com o intervalo de investigação configurado.
 
-## <a name="custom-health-probe"></a>Sonda de estado de funcionamento personalizados
+## <a name="custom-health-probe"></a>Investigação de integridade personalizada
 
-As pesquisas personalizadas permitem que tenha um controle mais granular sobre a monitorização de estado de funcionamento. Ao utilizar sondas personalizadas, pode configurar o intervalo de pesquisa, o URL e caminho para testar e quantos respostas com falhas para aceitar antes de os marcar a instância de conjunto de back-end como mau estado de funcionamento.
+As investigações personalizadas permitem que você tenha um controle mais granular sobre o monitoramento de integridade. Ao usar investigações personalizadas, você pode configurar o intervalo de investigação, a URL e o caminho para teste e quantas respostas com falha aceitar antes de marcar a instância do pool de back-end como não íntegra.
 
-### <a name="custom-health-probe-settings"></a>Definições de sonda de estado de funcionamento personalizados
+### <a name="custom-health-probe-settings"></a>Configurações de investigação de integridade personalizadas
 
-A tabela seguinte fornece definições para as propriedades de uma sonda de estado de funcionamento personalizados.
+A tabela a seguir fornece definições para as propriedades de uma investigação de integridade personalizada.
 
-| Propriedade de pesquisa | Descrição |
+| Propriedade de investigação | Descrição |
 | --- | --- |
-| Name |Nome da sonda. Este nome é utilizado para fazer referência a sonda nas definições de HTTP de back-end. |
-| Protocol |Protocolo utilizado para enviar a sonda. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
-| Host |Nome de anfitrião para enviar a sonda. Aplicável apenas quando vários sites está configurada no Gateway de aplicação, caso contrário, utilize "127.0.0.1". Este valor é diferente do nome de anfitrião VM. |
-| Caminho |Caminho relativo da sonda. O caminho válido começa com "/". |
-| Interval |Intervalo de sonda em segundos. Este valor é o intervalo de tempo entre dois sondas consecutivos. |
-| Tempo limite |Sonda de tempo limite em segundos. Se uma resposta válida não está a ser recebida durante este período de tempo limite, a sonda está marcada como falhado.  |
-| Limiar de mau estado de funcionamento |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
+| Nome |Nome da investigação. Esse nome é usado para fazer referência à investigação nas configurações de HTTP de back-end. |
+| Protocolo |Protocolo usado para enviar a investigação. A investigação usa o protocolo definido nas configurações de HTTP de back-end |
+| Anfitrião |Nome do host para enviar a investigação. Aplicável somente quando multissite está configurado no gateway de aplicativo; caso contrário, use ' 127.0.0.1 '. Esse valor é diferente do nome de host da VM. |
+| Caminho |Caminho relativo da investigação. O caminho válido começa com '/'. |
+| Intervalo |Intervalo de investigação em segundos. Esse valor é o intervalo de tempo entre duas investigações consecutivas. |
+| Tempo limite |Tempo limite de investigação em segundos. Se uma resposta válida não for recebida nesse período de tempo limite, a investigação será marcada como com falha.  |
+| Limite não íntegro |Contagem de repetição de investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir o limite não íntegro. |
 
 > [!IMPORTANT]
-> Se o Gateway de aplicação está configurado para um único site, por predefinição, o anfitrião nome deve ser especificado como '127.0.0.1', a menos que caso contrário, é configurado na sonda personalizada.
-> Para referência uma sonda personalizada é enviada ao \<protocolo\>://\<anfitrião\>:\<porta\>\<caminho\>. A porta utilizada será a mesma porta, conforme definido nas definições de HTTP de back-end.
+> Se o gateway de aplicativo estiver configurado para um único site, por padrão, o nome do host deverá ser especificado como ' 127.0.0.1 ', a menos que configurado de outra forma na investigação personalizada.
+> Para referência, uma investigação personalizada é enviada para \<protocolo\>://\<host\>:\<porta\>\<caminho\>. A porta usada será a mesma porta definida nas configurações de HTTP de back-end.
 
-## <a name="nsg-considerations"></a>Considerações de NSG
+## <a name="nsg-considerations"></a>Considerações sobre o NSG
 
-Se existir um grupo de segurança de rede (NSG) numa sub-rede de gateway de aplicação, intervalos de portas 65503 65534 têm de ser abertos na sub-rede de gateway de aplicação para tráfego de entrada. Estas portas são necessárias para o estado de funcionamento do back-end API para trabalhar.
+Se houver um NSG (grupo de segurança de rede) em uma sub-rede de gateway de aplicativo, os intervalos de porta 65503-65534 devem ser abertos na sub-rede do gateway de aplicativo para o tráfego de entrada. Essas portas são necessárias para que a API de integridade de back-end funcione.
 
-Além disso, conectividade de Internet de saída não pode ser bloqueada e o tráfego de entrada provenientes a etiqueta AzureLoadBalancer têm de ser permitido.
+Além disso, a conectividade de Internet de saída não pode ser bloqueada e o tráfego de entrada proveniente da marca AzureLoadBalancer deve ser permitido.
 
-## <a name="next-steps"></a>Passos Seguintes
-Após a aprendizagem sobre a monitorização de estado de funcionamento do Gateway de aplicação, pode configurar uma [sonda de estado de funcionamento personalizados](application-gateway-create-probe-portal.md) no portal do Azure ou uma [sonda de estado de funcionamento personalizados](application-gateway-create-probe-ps.md) com o PowerShell e o Azure Resource Manager modelo de implementação.
+## <a name="next-steps"></a>Passos seguintes
+Depois de aprender sobre o monitoramento de integridade do gateway de aplicativo, você pode configurar uma [investigação de integridade personalizada](application-gateway-create-probe-portal.md) no portal do Azure ou uma [investigação de integridade personalizada](application-gateway-create-probe-ps.md) usando o PowerShell e o modelo de implantação de Azure Resource Manager.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png

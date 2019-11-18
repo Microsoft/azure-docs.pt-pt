@@ -1,23 +1,14 @@
 ---
-title: Provedores de recursos do Azure e tipos de recursos | Microsoft Docs
+title: Provedores de recursos e tipos de recursos
 description: Descreve os provedores de recursos que oferecem suporte ao Gerenciador de recursos, seus esquemas e versões de API disponíveis e as regiões que podem hospedar os recursos.
-services: azure-resource-manager
-documentationcenter: na
-author: tfitzmac
-ms.assetid: 3c7a6fe4-371a-40da-9ebe-b574f583305b
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/29/2019
-ms.author: tomfitz
-ms.openlocfilehash: 2cbc8843d41b760c52b9ca5ccfb6d940bd454136
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 01550adbce51e3498f1167f6a4ebfd846ec316f3
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164810"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149395"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos e provedores de recursos do Azure
 
@@ -42,7 +33,7 @@ Para obter uma lista que mapeia os provedores de recursos para os serviços do A
 
 Para ver todos os provedores de recursos e o status de registro para sua assinatura:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os serviços**.
 
     ![selecionar assinaturas](./media/resource-manager-supported-services/select-subscriptions.png)
@@ -52,16 +43,16 @@ Para ver todos os provedores de recursos e o status de registro para sua assinat
 
     ![Mostrar provedores de recursos](./media/resource-manager-supported-services/show-resource-providers.png)
 
-6. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O âmbito de registo é sempre a subscrição. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Para registrar um provedor de recursos, você deve ter permissão para realizar `/register/action` a operação para o provedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário. Para registrar um provedor de recursos, selecione **registrar**. Na captura de tela anterior, o link **registrar** é realçado para **Microsoft. Blueprint**.
+6. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O âmbito de registo é sempre a subscrição. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Para registrar um provedor de recursos, você deve ter permissão para fazer a operação de `/register/action` para o provedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário. Para registrar um provedor de recursos, selecione **registrar**. Na captura de tela anterior, o link **registrar** é realçado para **Microsoft. Blueprint**.
 
     Não é possível cancelar o registro de um provedor de recursos quando você ainda tem tipos de recursos desse provedor de recursos em sua assinatura.
 
 Para ver informações para um provedor de recursos específico:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os serviços**.
 
-    ![selecionar todos os serviços](./media/resource-manager-supported-services/more-services.png)
+    ![Selecionar todos os serviços](./media/resource-manager-supported-services/more-services.png)
 
 3. Na caixa **todos os serviços** , insira **Gerenciador de recursos**e, em seguida, selecione **Gerenciador de recursos**.
 4. Expanda **provedores** selecionando a seta para a direita.
@@ -102,7 +93,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O âmbito de registo é sempre a subscrição. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Para registrar um provedor de recursos, você deve ter permissão para realizar `/register/action` a operação para o provedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário.
+O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O âmbito de registo é sempre a subscrição. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Para registrar um provedor de recursos, você deve ter permissão para fazer a operação de `/register/action` para o provedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -207,7 +198,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O âmbito de registo é sempre a subscrição. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Para registrar um provedor de recursos, você deve ter permissão para realizar `/register/action` a operação para o provedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário.
+O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O âmbito de registo é sempre a subscrição. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Para registrar um provedor de recursos, você deve ter permissão para fazer a operação de `/register/action` para o provedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -293,7 +284,7 @@ West US
 ...
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre como criar modelos do Resource Manager, confira [criação de modelos de Azure Resource Manager](resource-group-authoring-templates.md). 
 * Para exibir os esquemas de modelo de provedor de recursos, consulte [referência de modelo](/azure/templates/).

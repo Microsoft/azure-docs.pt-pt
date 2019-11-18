@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 1de9283e1ad609a1f81d7e8a6d8171cc8052e3ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58bc33c54a7bd878d717b2c6e44d9ac8657c245f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504075"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111788"
 ---
 # <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Início rápido: criar um assistente de voz em Java no Android usando o SDK de fala
 
@@ -30,9 +30,9 @@ Esse aplicativo é criado com o pacote do SDK do Speech e o Android Studio 3,3. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma chave de assinatura do Azure para serviços de fala. [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com).
-* Um bot criado anteriormente configurado com o [canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-* [Android Studio](https://developer.android.com/studio/) v 3.3 ou posterior
+- Uma chave de assinatura do Azure para serviços de fala. [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com).
+- Um bot criado anteriormente configurado com o [canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Android Studio](https://developer.android.com/studio/) v 3.3 ou posterior
 
     > [!NOTE]
     > Consulte [a lista de regiões com suporte para assistentes de voz](regions.md#voice-assistants) e garanta que seus recursos sejam implantados em uma dessas regiões.
@@ -96,9 +96,9 @@ Em seguida, substitua o conteúdo do `activity_main.xml` pelo código a seguir:
 
 Esse XML define uma interface do usuário simples para interagir com o bot.
 
-* O elemento `button` inicia uma interação e invoca o método `onBotButtonClicked` quando clicado.
-* O elemento `recoText` exibirá os resultados da fala para texto à medida que você conversa com o bot.
-* O elemento `activityText` exibirá a carga JSON para a atividade mais recente do bot Framework do bot.
+- O elemento `button` inicia uma interação e invoca o método `onBotButtonClicked` quando clicado.
+- O elemento `recoText` exibirá os resultados da fala para texto à medida que você conversa com o bot.
+- O elemento `activityText` exibirá a carga JSON para a atividade mais recente do bot Framework do bot.
 
 O texto e a representação gráfica da sua interface do usuário agora devem ter esta aparência:
 
@@ -283,7 +283,7 @@ Depois que o aplicativo e sua atividade tiverem sido iniciados, clique no botão
 > [!div class="nextstepaction"]
 > [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0) (Criar e implementar um bot básico)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 - [Sobre assistentes de voz](voice-assistants.md)
 - [Obtenha uma chave de assinatura de serviços de fala gratuitamente](get-started.md)
 - [Palavras-chave personalizadas](speech-devices-sdk-create-kws.md)

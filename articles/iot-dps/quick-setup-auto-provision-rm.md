@@ -1,6 +1,6 @@
 ---
 title: 'Início rápido: configurar o provisionamento de dispositivos usando um modelo de Azure Resource Manager'
-description: Início Rápido do Azure - Configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure com um modelo
+description: Início rápido do Azure-configurar o serviço de provisionamento de dispositivos no Hub IoT do Azure usando um modelo
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,22 +9,22 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fdc75424c5c99e80c13ac086229da93411e3ce83
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: f74260b5a2d088a6019653dcbcc6709e438916c4
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903372"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151645"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Início rápido: configurar o serviço de provisionamento de dispositivos no Hub IoT com um modelo de Azure Resource Manager
 
-Pode utilizar o [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para configurar programaticamente os recursos de cloud do Azure necessários para aprovisionar os seus dispositivos. Estes passos mostram como criar um hub IoT, um Serviço Aprovisionamento de Dispositivos no Hub IoT novo e associar ambos os serviços com um modelo do Azure Resource Manager. Este Início Rápido utiliza a [CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) para realizar programaticamente os passos necessários para criar um grupo de recursos e implementar o modelo, mas pode utilizar, de forma fácil, o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby ou outra linguagem de programação para realizá-los e implementar o modelo. 
+Pode utilizar o [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para configurar programaticamente os recursos de cloud do Azure necessários para aprovisionar os seus dispositivos. Estas etapas mostram como criar um hub IoT e um novo serviço de provisionamento de dispositivos no Hub IoT e vincular os dois serviços usando um modelo de Azure Resource Manager. Este guia de início rápido usa [CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) para executar as etapas programáticas necessárias para criar um grupo de recursos e implantar o modelo, mas você pode usar facilmente o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), o .net, o Ruby ou outras linguagens de programação para executar essas etapas e implantar o modelo. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Este início rápido requer que execute a CLI do Azure localmente. Tem de ter instalada a versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- Este guia de início rápido requer que você execute o CLI do Azure localmente. Tem de ter instalada a versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
 ## <a name="sign-in-to-azure-and-create-a-resource-group"></a>Iniciar sessão e criar um grupo de recursos
@@ -114,7 +114,7 @@ Utilize um modelo JSON para criar um serviço de aprovisionamento e um hub IoT a
 
    ```
 
-4. Para criar um hub IoT, adicione as seguintes linhas à coleção **resources**. O JSON especifica as propriedades mínimas necessárias para criar um Hub IoT. As propriedades **name** e **location** são transmitidas como parâmetros. Para saber mais sobre as propriedades que pode especificar para um Hub IoT num modelo, veja [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs) (Referência do modelo Microsoft.Devices/IotHubs).
+4. Para criar um hub IoT, adicione as seguintes linhas à coleção **resources**. O JSON especifica as propriedades mínimas necessárias para criar um hub IoT. As propriedades **name** e **location** são transmitidas como parâmetros. Para saber mais sobre as propriedades que você pode especificar para um hub IoT em um modelo, consulte [referência de modelo Microsoft. Devices/IotHubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -235,7 +235,7 @@ Utilize um modelo JSON para criar um serviço de aprovisionamento e um hub IoT a
 
 ## <a name="create-a-resource-manager-parameter-file"></a>Criar um ficheiro de parâmetros do Resource Manager
 
-O modelo que definiu no último passo utiliza parâmetros para especificar o nome do Hub IoT, o nome do serviço de aprovisionamento e a localização (região do Azure) para criá-los. Estes parâmetros são transmitidos num ficheiro à parte. Desta forma, pode utilizar o mesmo modelo para várias implementações. Para criar o ficheiro de parâmetros, siga estes passos:
+O modelo que você definiu na última etapa usa parâmetros para especificar o nome do Hub IoT, o nome do serviço de provisionamento e o local (região do Azure) para criá-los. Estes parâmetros são transmitidos num ficheiro à parte. Desta forma, pode utilizar o mesmo modelo para várias implementações. Para criar o ficheiro de parâmetros, siga estes passos:
 
 1. Utilize um editor de texto para criar um ficheiro de parâmetros do Azure Resource Manager com o nome **parameters.json** e o conteúdo de estrutura abaixo: 
 
@@ -248,7 +248,7 @@ O modelo que definiu no último passo utiliza parâmetros para especificar o nom
    }
    ```
 
-2. Adicione o valor **iotHubName** à secção “parameters”. Se alterar o nome, confirme que segue as convenções de nomenclatura adequadas para os hubs IoT. O nome deve ter entre 3 e 50 carateres de comprimento e só pode conter carateres alfanuméricas em letra maiúscula ou minúscula ou hífenes (“-”). 
+2. Adicione o valor **iotHubName** à secção “parameters”.  Um nome de Hub IoT deve ser globalmente exclusivo no Azure, portanto, talvez você queira adicionar um prefixo ou sufixo exclusivo ao nome de exemplo ou escolher um novo nome totalmente. Verifique se seu nome segue as convenções de nomenclatura adequadas para um hub IoT: deve ter de 3-50 caracteres de comprimento e pode conter apenas caracteres alfanuméricos ou hifens ('-'). 
 
    ```json
     "parameters": {
@@ -259,7 +259,7 @@ O modelo que definiu no último passo utiliza parâmetros para especificar o nom
    
    ```
 
-3. Adicione o valor **provisioningServiceName** à secção “parameters”. Se alterar o nome, confirme que segue as convenções de nomenclatura adequadas para o Serviço Aprovisionamento de Dispositivos. Deve ter entre 3 e 64 carateres de comprimento e só pode conter carateres alfanuméricas em letra maiúscula ou minúscula ou hífenes (“-”).
+3. Adicione o valor **provisioningServiceName** à secção “parameters”. Você também precisará escolher um nome globalmente exclusivo para seu serviço de provisionamento. Verifique se ele segue as convenções de nomenclatura adequadas para um serviço de provisionamento de dispositivos no Hub IoT: deve ter de 3-64 caracteres de comprimento e pode conter apenas caracteres alfanuméricos ou hifens ('-').
 
    ```json
     "parameters": {
@@ -321,7 +321,7 @@ Utilize os seguintes comandos da CLI do Azure para implementar os modelos e veri
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Outros Guias de Introdução desta coleção têm por base este Guia de Introdução. Se pretender continuar a trabalhar com Inícios Rápidos subsequentes ou com os tutoriais, não limpe os recursos criados neste Início Rápido. Se você não planeja continuar, pode usar o CLI do Azure para [excluir um recurso individual][lnk-az-resource-command], como um hub IOT ou um serviço de provisionamento, ou para excluir um grupo de recursos e todos os seus recursos.
+Outros guias de introdução desta coleção têm por base este guia de introdução. Se pretender continuar a trabalhar com guias de introdução subsequentes ou com os tutoriais, não limpe os recursos criados neste guia de introdução. Se você não planeja continuar, pode usar o CLI do Azure para [excluir um recurso individual][lnk-az-resource-command], como um hub IOT ou um serviço de provisionamento, ou para excluir um grupo de recursos e todos os seus recursos.
 
 Para eliminar o serviço de aprovisionamento, execute o seguinte comando:
 
@@ -344,10 +344,10 @@ Também pode eliminar grupos de recursos e recursos individuais através do port
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste Início Rápido, implementou um hub do IoT e uma instância do Serviço Aprovisionamento de Dispositivos e ligou ambos os recursos. Para saber como utilizar esta configuração para aprovisionar um dispositivo simulado, avance para o Início Rápido para a criação de dispositivos simulados.
+Neste guia de início rápido, você implantou um hub IoT e uma instância do serviço de provisionamento de dispositivos e vinculou os dois recursos. Para saber como usar essa configuração para provisionar um dispositivo simulado, continue no início rápido para criar um dispositivo simulado.
 
 > [!div class="nextstepaction"]
-> [Quickstart to create simulated device](./quick-create-simulated-device.md) (Início rápido para criar dispositivos simulados)
+> [Início rápido para criar um dispositivo simulado](./quick-create-simulated-device.md)
 
 
 <!-- Links -->

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 196aeb69a1948a44afb8170fa5f48d42b978854d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2af3ec61537dc28ab652b669ff46500db19ab307
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070466"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130600"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Orientação sobre a implantação de aplicativos Web usando modelos de Azure Resource Manager
 
@@ -46,7 +46,7 @@ Você implanta recursos na seguinte ordem:
 **Camada 3**
 * Controle do código-fonte – depende do aplicativo Web.
 * Extensão de site do MSDeploy – depende do aplicativo Web.
-* Application Insights instância que se destina ao farm de servidores – depende do aplicativo Web.
+* Aplicativo Azure instância do insights que se destina ao aplicativo Web – depende do aplicativo Web.
 
 **Camada 4**
 * Certificado do serviço de aplicativo – depende do controle do código-fonte ou do MSDeploy se algum deles estiver presente. Caso contrário, depende do aplicativo Web.
@@ -87,7 +87,7 @@ O exemplo a seguir mostra parte de um modelo. O valor da configuração da cadei
 }
 ```
 
-Para obter um exemplo pronto para execução que usa o código acima, consulte [modelo: Crie um aplicativo](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple)Web Umbraco simples.
+Para um exemplo pronto para execução que usa o código acima, consulte [modelo: compilar um aplicativo Web Umbraco simples](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
 
 ## <a name="find-information-about-msdeploy-errors"></a>Encontrar informações sobre erros de MSDeploy
 
@@ -138,5 +138,5 @@ Para obter um modelo de exemplo, consulte [implantar um certificado de aplicativ
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter um tutorial sobre como implantar aplicativos Web com um modelo, consulte provisionar [e implantar microservices previsíveis no Azure](deploy-complex-application-predictably.md).
+* Para obter um tutorial sobre como implantar aplicativos Web com um modelo, consulte [provisionar e implantar microservices previsíveis no Azure](deploy-complex-application-predictably.md).
 * Para saber mais sobre a sintaxe JSON e as propriedades para tipos de recursos em modelos, consulte [Azure Resource Manager referência de modelo](/azure/templates/).

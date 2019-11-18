@@ -1,17 +1,14 @@
 ---
-title: Funções de modelo de Azure Resource Manager – numeric | Microsoft Docs
+title: Funções de modelo – numéricas
 description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para trabalhar com números.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/08/2017
-ms.author: tomfitz
-ms.openlocfilehash: 3ec5477ca6ea1731f18b09d6393bdde6261e0c32
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: b663f27d48e3ee4e7ee2a96794015555417b3608
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194324"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149631"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funções numéricas para modelos de Azure Resource Manager
 
@@ -85,7 +82,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | addResult | Int | 8 |
 
@@ -112,14 +109,14 @@ Retorna o índice de um loop de iteração.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| loopName | Não | Cadeia de caracteres | O nome do loop para obter a iteração. |
+| loopName | Não | string | O nome do loop para obter a iteração. |
 | desvio |Não |int |O número a ser adicionado ao valor de iteração com base em zero. |
 
 ### <a name="remarks"></a>Observações
 
 Essa função é sempre usada com um objeto de **cópia** . Se nenhum valor for fornecido para **deslocamento**, o valor de iteração atual será retornado. O valor de iteração começa em zero. Você pode usar loops de iteração ao definir recursos ou variáveis.
 
-A Propriedade loopname permite que você especifique se copyIndex está se referindo a uma iteração de recurso ou iteração de propriedade. Se nenhum valor for fornecido para **loopname**, a iteração do tipo de recurso atual será usada. Forneça um valor para **loopname** ao iterar em uma propriedade. 
+A propriedade **loopname** permite que você especifique se copyIndex está se referindo a uma iteração de recurso ou iteração de propriedade. Se nenhum valor for fornecido para **loopname**, a iteração do tipo de recurso atual será usada. Forneça um valor para **loopname** ao iterar em uma propriedade. 
  
 Para obter uma descrição completa de como usar o **copyIndex**, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
 
@@ -202,7 +199,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | divResult | Int | 2 |
 
@@ -296,7 +293,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | intResult | Int | 4 |
 
@@ -314,7 +311,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="max" />
 
-## <a name="max"></a>máx.
+## <a name="max"></a>maximizar
 `max (arg1)`
 
 Retorna o valor máximo de uma matriz de inteiros ou uma lista de inteiros separados por vírgulas.
@@ -359,7 +356,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -378,7 +375,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>mín.
+## <a name="min"></a>min.
 `min (arg1)`
 
 Retorna o valor mínimo de uma matriz de inteiros ou uma lista de inteiros separados por vírgulas.
@@ -423,7 +420,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -494,7 +491,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | modResult | Int | 1 |
 
@@ -565,7 +562,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | mulResult | Int | 15 |
 
@@ -635,7 +632,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | subresultado | Int | 4 |
 
@@ -651,7 +648,7 @@ Para implementar este modelo de exemplo com o PowerShell, utilize:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Para intercalar vários modelos, veja [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para fazer a iteração de um número especificado de vezes ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).

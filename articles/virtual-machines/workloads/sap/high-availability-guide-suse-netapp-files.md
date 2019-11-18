@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/07/2019
 ms.author: radeltch
-ms.openlocfilehash: 910ffc1a94b78fec259dcf30a3c7284716809355
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e8205497262c2c7a500769f32a473d628974220c
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832590"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151793"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs do Azure em SUSE Linux Enterprise Server com Azure NetApp Files para aplicativos SAP
 
@@ -172,11 +172,10 @@ Neste exemplo, usamos Azure NetApp Files para todos os sistemas de arquivos do S
 
 Ao considerar Azure NetApp Files para o SAP NetWeaver na arquitetura de alta disponibilidade do SUSE, esteja ciente das seguintes considerações importantes:
 
-- O pool de capacidade mínima é 4 TiB. O tamanho do pool de capacidade deve estar em múltiplos de 4 TiB.
+- O pool de capacidade mínima é 4 TiB. O tamanho do pool de capacidade pode ser aumentado em incrementos de 1 TiB.
 - O volume mínimo é 100 GiB
 - Azure NetApp Files e todas as máquinas virtuais, nas quais Azure NetApp Files volumes serão montados, devem estar na mesma rede virtual do Azure ou em [redes virtuais emparelhadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) na mesma região. Agora há suporte para o acesso Azure NetApp Files sobre o emparelhamento VNET na mesma região. Ainda não há suporte para o acesso do Azure NetApp sobre o emparelhamento global.
 - A rede virtual selecionada deve ter uma sub-rede, delegada para Azure NetApp Files.
-- Azure NetApp Files atualmente dá suporte apenas a NFSv3 
 - O Azure NetApp Files oferece [política de exportação](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): você pode controlar os clientes permitidos, o tipo de acesso (leitura & gravação, somente leitura, etc.). 
 - O recurso de Azure NetApp Files ainda não reconhece a zona. Atualmente Azure NetApp Files recurso não está implantado em todas as zonas de disponibilidade em uma região do Azure. Esteja atento às possíveis implicações de latência em algumas regiões do Azure. 
 
@@ -297,7 +296,7 @@ Siga as etapas em [Configurando pacemaker em SuSE Linux Enterprise Server no Azu
 
 ### <a name="installation"></a>Instalação
 
-Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]** -aplicável somente ao nó 1 ou **[2]** – aplicável somente ao nó 2.
+Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os nós, **[1]** – apenas aplicável no nó 1 ou **[2]** – apenas aplicável a nó 2.
 
 1. **[A]** instalar o conector SuSE
 
@@ -346,15 +345,15 @@ Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]*
    sudo zypper in -t patch SUSE-SLE-HA-12-SP2-2017-886=1
    </code></pre>
 
-3. **[A]** configurar resolução de nome de host
+3. **[A]**  Configurar a resolução de nomes de anfitrião
 
-   Você pode usar um servidor DNS ou modificar o/etc/hosts em todos os nós. Este exemplo mostra como usar o arquivo/etc/hosts.
+   Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
    Substitua o endereço IP e o nome do host nos comandos a seguir
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Insira as linhas a seguir para/etc/hosts. Alterar o endereço IP e o nome do host para corresponder ao seu ambiente   
+   Insira as seguintes linhas ao /etc/hosts. Alterar o endereço IP e o nome de anfitrião para corresponder ao seu ambiente   
 
    <pre><code>
    # IP address of cluster node 1
@@ -403,7 +402,7 @@ Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]*
    </code></pre>
    
    > [!NOTE]
-   > Atualmente Azure NetApp Files dá suporte apenas a NFSv3. Não omita a opção nfsvers = 3.
+   > Certifique-se de corresponder à versão do protocolo NFS dos volumes de Azure NetApp Files, ao montar os volumes. Neste exemplo, os volumes de Azure NetApp Files foram criados como volumes NFSv3.  
    
    Reiniciar `autofs` para montar os novos compartilhamentos
     <pre><code>
@@ -704,9 +703,9 @@ As etapas abaixo pressupõem que você instale o servidor de aplicativos em um s
 Os seguintes itens são prefixados com **[A]** -aplicável ao pas e ao AAS, **[P]** – aplicável somente ao pas ou **[S]** – aplicável somente ao AAS.
 
 
-1. **[A]** configurar o sistema operacional
+1. **[A]**  Configurar sistema operativo
 
-   Reduza o tamanho do cache sujo. Para obter mais informações, consulte [baixo desempenho de gravação em servidores SLES 11/12 com RAM grande](https://www.suse.com/support/kb/doc/?id=7010287).
+   Reduza o tamanho da cache modificado. Para obter mais informações, consulte [desempenho de escrita de baixa no SLES 11/12 servidores com grandes RAM](https://www.suse.com/support/kb/doc/?id=7010287).
 
    <pre><code>
    sudo vi /etc/sysctl.conf
@@ -715,16 +714,16 @@ Os seguintes itens são prefixados com **[A]** -aplicável ao pas e ao AAS, **[P
    vm.dirty_background_bytes = 314572800
    </code></pre>
 
-1. **[A]** configurar resolução de nome de host
+1. **[A]**  Configurar a resolução de nomes de anfitrião
 
-   Você pode usar um servidor DNS ou modificar o/etc/hosts em todos os nós. Este exemplo mostra como usar o arquivo/etc/hosts.
+   Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
    Substitua o endereço IP e o nome do host nos comandos a seguir
 
    ```bash
    sudo vi /etc/hosts
    ```
 
-   Insira as linhas a seguir para/etc/hosts. Alterar o endereço IP e o nome do host para corresponder ao seu ambiente
+   Insira as seguintes linhas ao /etc/hosts. Alterar o endereço IP e o nome de anfitrião para corresponder ao seu ambiente
 
    <pre><code>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS

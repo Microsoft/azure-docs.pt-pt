@@ -1,18 +1,15 @@
 ---
-title: Estado de operações assíncronas - Azure Resource Manager
+title: Status de operações assíncronas
 description: Descreve como monitorizar operações assíncronas no Azure. Mostra os valores que utilizar para obter o estado de uma operação de longa execução.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/09/2018
-ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 56d55365a243a9e51e96985ee0035c43404f82f0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 39174010e5d5c71e1b9f09827f92a2c540d98e78
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206288"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149533"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Monitorizar operações assíncronas do Azure
 Algumas operações de REST de Azure executam de maneira assíncrona porque não é possível concluir a operação rapidamente. Este artigo descreve como controlar o estado das operações assíncronas por meio de valores devolvidos na resposta.  
@@ -185,7 +182,7 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 
 Se o pedido ainda está em execução, receberá um código de estado 202. Se o pedido foi concluído, seu receber um código de estado 200 e o corpo da resposta contém as propriedades da conta de armazenamento que criou.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter documentação sobre cada operação REST, veja [documentação da REST API](/rest/api/).
 * Para obter informações sobre como implementar modelos através da API de REST do Resource Manager, consulte [implementar recursos com modelos do Resource Manager e API de REST do Resource Manager](resource-group-template-deploy-rest.md).

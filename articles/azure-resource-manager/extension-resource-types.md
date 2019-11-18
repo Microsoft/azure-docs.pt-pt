@@ -1,23 +1,20 @@
 ---
-title: Tipos de recursos de extensão do Azure
+title: Tipos de recursos extensão
 description: Lista os tipos de recursos do Azure são usados para estender os recursos de outros tipos de recursos.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: tomfitz
-ms.openlocfilehash: 00e8efaaa81ec0ce189d8cfe8a78285ded445c68
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 16dcd4cccea4445b6839ac639094d18e29ed49a9
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901927"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147033"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Tipos de recursos que estendem funcionalidades de outros recursos
 
 Um recurso de extensão é um recurso que o adiciona aos recursos de outro recurso. Por exemplo, o bloqueio de recurso é um recurso de extensão. Você aplica um bloqueio de recurso a outro recurso para impedir que ele seja excluído ou modificado. Não faz sentido criar um bloqueio de recurso por si só. Um recurso de extensão sempre é aplicado a outro recurso.
 
-## <a name="extension-resource-types"></a>Tipos de recursos de extensão
+## <a name="extension-resource-types"></a>Tipos de recursos extensão
 
 - Microsoft. Advisor/Configurations
 - Microsoft. Advisor/Recommendations
@@ -75,8 +72,8 @@ Um recurso de extensão é um recurso que o adiciona aos recursos de outro recur
 - Microsoft. CostManagement/views
 - Microsoft. CostManagement/showbackRules
 - Microsoft. CustomProviders/Associations
-- Microsoft. EventGrid/eventSubscriptions
-- Microsoft. EventGrid/extensionTopics
+- Microsoft.EventGrid/eventSubscriptions
+- Microsoft.EventGrid/extensionTopics
 - Microsoft. GuestConfiguration/configurationProfileAssignments
 - Microsoft. GuestConfiguration/guestConfigurationAssignments
 - Microsoft. GuestConfiguration/software
@@ -110,7 +107,7 @@ Um recurso de extensão é um recurso que o adiciona aos recursos de outro recur
 - Microsoft. PolicyInsights/policyEvents
 - Microsoft. PolicyInsights/policyStates
 - Microsoft. PolicyInsights/policyTrackedResources
-- Microsoft. PolicyInsights/correções
+- Microsoft.PolicyInsights/remediations
 - Microsoft. Recoveryservices/backupProtectedItems
 - Microsoft. ResourceHealth/availabilityStatuses
 - Microsoft. ResourceHealth/childAvailabilityStatuses

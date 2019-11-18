@@ -1,19 +1,16 @@
 ---
-title: Tutorial – exportar modelo de Azure Resource Manager da portal do Azure
+title: Tutorial-exportar modelo do portal do Azure
 description: Saiba como usar um modelo exportado para concluir o desenvolvimento do modelo.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6e4f246cac0ecc1ab5942e522595f59c3625db8f
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6dae5d494ac71ace41586e89de5aab745962cc90
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243213"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147930"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: usar o modelo exportado do portal do Azure
 
@@ -35,7 +32,7 @@ Esse modelo funciona bem para a implantação de contas de armazenamento, mas ta
 
 ## <a name="create-app-service-plan"></a>Criar plano do App Service
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione **criar um recurso**.
 1. Em **Pesquisar no Marketplace**, insira **plano do serviço de aplicativo**e selecione **plano do serviço de aplicativo**.  Não selecionar **plano do serviço de aplicativo (clássico)**
 1. Selecione **Criar**.
@@ -45,7 +42,7 @@ Esse modelo funciona bem para a implantação de contas de armazenamento, mas ta
     - **Grupo de recursos**: selecione **criar novo** e especifique um nome. Forneça um nome de grupo de recursos diferente daquele que você está usando nesta série de tutoriais.
     - **Nome**: Insira um nome para o plano do serviço de aplicativo.
     - **Sistema operacional**: selecione **Linux**.
-    - **Região**: selecione um local do Azure. Por exemplo, **EUA Central**.
+    - **Região**: selecione um local do Azure. Por exemplo, **E.U.A. Central**.
     - **Tipo de preço**: para economizar custos, altere a SKU para **básico B1** (em desenvolvimento/teste).
 
     ![Portal do modelo de exportação de modelos do Resource Manager](./media/template-tutorial-export-template/resource-manager-template-export.png)
@@ -114,7 +111,7 @@ az group deployment create \
 
 Você pode verificar a implantação explorando o grupo de recursos do portal do Azure.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. No menu à esquerda, selecione **grupos de recursos**.
 1. Selecione o grupo de recursos no qual você implantou.
 1. O grupo de recursos contém uma conta de armazenamento e um plano do serviço de aplicativo.

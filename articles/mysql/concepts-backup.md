@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: dfbf416c93c78e6ba5e23819084d69e57c47edc8
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: fbd595c7de0bde4e8ba8b7aaa9a65aa5880c1165
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273664"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151924"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauração no banco de dados do Azure para MySQL
 
@@ -19,13 +19,13 @@ O banco de dados do Azure para MySQL cria automaticamente backups de servidor e 
 
 ## <a name="backups"></a>Cópias de segurança
 
-O banco de dados do Azure para MySQL usa backups completos, diferenciais e de log de transações. Esses backups permitem que você restaure um servidor para qualquer ponto no tempo em seu período de retenção de backup configurado. O período de retenção de backup padrão é de sete dias. Opcionalmente, você pode [configurá-lo](howto-restore-server-portal.md#set-backup-configuration) até 35 dias. Todos os backups são criptografados usando a criptografia AES de 256 bits.
+O banco de dados do Azure para MySQL faz backups dos arquivos de data e do log de transações. Dependendo do tamanho máximo de armazenamento com suporte, pegamos backups completos e diferenciais (servidores de armazenamento máximo de 4 TB) ou backups de instantâneo (até 16 TB de servidores de armazenamento máximo). Esses backups permitem que você restaure um servidor para qualquer ponto no tempo em seu período de retenção de backup configurado. O período de retenção de backup padrão é de sete dias. Opcionalmente, você pode [configurá-lo](howto-restore-server-portal.md#set-backup-configuration) até 35 dias. Todos os backups são criptografados usando a criptografia AES de 256 bits.
 
-### <a name="backup-frequency"></a>FREQUÊNCIA DE CÓPIA DE SEGURANÇA
+### <a name="backup-frequency"></a>Frequência de cópia de segurança
 
-Geralmente, os backups completos ocorrem semanalmente, os backups diferenciais ocorrem duas vezes por dia e os backups de log de transações ocorrem a cada cinco minutos. O primeiro backup completo é agendado imediatamente após a criação de um servidor. O backup inicial pode levar mais tempo em um servidor restaurado grande. O ponto mais antigo no tempo no qual um novo servidor pode ser restaurado é a hora em que o backup completo inicial é concluído.
+Geralmente, os backups completos ocorrem semanalmente, os backups diferenciais ocorrem duas vezes por dia para servidores com um armazenamento máximo com suporte de 4 TB. Os backups de instantâneo acontecem pelo menos uma vez por dia para servidores que dão suporte a até 16 TB de armazenamento. Os backups de log de transações em ambos os casos ocorrem a cada cinco minutos. O primeiro instantâneo do backup completo é agendado imediatamente após a criação de um servidor. O backup completo inicial pode levar mais tempo em um servidor restaurado grande. O ponto mais antigo no tempo no qual um novo servidor pode ser restaurado é a hora em que o backup completo inicial é concluído. Como os instantâneos são instantanious, os servidores com suporte para até 16 TB de armazenamento podem ser restaurados até o momento da criação.
 
-### <a name="backup-redundancy-options"></a>Opções de redundância de cópia de segurança
+### <a name="backup-redundancy-options"></a>Opções de redundância de backup
 
 O banco de dados do Azure para MySQL fornece a flexibilidade para escolher entre o armazenamento de backup com redundância local ou com redundância geográfica nas camadas de Uso Geral e com otimização de memória. Quando os backups são armazenados no armazenamento de backup com redundância geográfica, eles não são armazenados apenas na região em que o servidor está hospedado, mas também são replicados em um [Data Center emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Isso fornece melhor proteção e capacidade de restaurar o servidor em uma região diferente em caso de desastre. A camada básica oferece apenas armazenamento de backup com redundância local.
 
@@ -38,7 +38,7 @@ O banco de dados do Azure para MySQL fornece até 100% de seu armazenamento de s
 
 Por exemplo, se você tiver provisionado um servidor com 250 GB, terá 250 GB de armazenamento de backup sem custo adicional. O armazenamento que excede 250 GB é cobrado.
 
-## <a name="restore"></a>Restaurar
+## <a name="restore"></a>Restauro
 
 No banco de dados do Azure para MySQL, a execução de uma restauração cria um novo servidor a partir dos backups do servidor original.
 
@@ -62,7 +62,9 @@ Talvez seja necessário aguardar até que o próximo backup de log de transaçõ
 
 ### <a name="geo-restore"></a>Georrestauro
 
-Você pode restaurar um servidor para outra região do Azure em que o serviço estará disponível se você tiver configurado o servidor para backups com redundância geográfica. A restauração geográfica é a opção de recuperação padrão quando o servidor não está disponível devido a um incidente na região em que o servidor está hospedado. Se um incidente de grande escala em uma região resultar na indisponibilidade do seu aplicativo de banco de dados, você poderá restaurar um servidor de backups com redundância geográfica para um servidor em qualquer outra região. Há um atraso entre o momento em que um backup é feito e quando ele é replicado em uma região diferente. Esse atraso pode ser de até uma hora, portanto, se ocorrer um desastre, pode haver uma perda de dados de até uma hora.
+Você pode restaurar um servidor para outra região do Azure em que o serviço estará disponível se você tiver configurado o servidor para backups com redundância geográfica. Para servidores que dão suporte a até 16 TB de armazenamento, os backups geográficos só podem ser restaurados em regiões que dão suporte a servidores de 16 TB também. Examine os [tipos de preço do banco de dados do Azure para MySQL](concepts-pricing-tiers.md) para a lista de regiões com suporte. 
+
+A restauração geográfica é a opção de recuperação padrão quando o servidor não está disponível devido a um incidente na região em que o servidor está hospedado. Se um incidente de grande escala em uma região resultar na indisponibilidade do seu aplicativo de banco de dados, você poderá restaurar um servidor de backups com redundância geográfica para um servidor em qualquer outra região. Há um atraso entre o momento em que um backup é feito e quando ele é replicado em uma região diferente. Esse atraso pode ser de até uma hora, portanto, se ocorrer um desastre, pode haver uma perda de dados de até uma hora.
 
 Durante a restauração geográfica, as configurações de servidor que podem ser alteradas incluem geração de computação, vCore, período de retenção de backup e opções de redundância de backup. A alteração do tipo de preço (básico, Uso Geral ou otimizado para memória) ou o tamanho do armazenamento durante a restauração geográfica não tem suporte.
 

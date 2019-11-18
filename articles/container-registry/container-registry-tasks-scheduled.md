@@ -1,6 +1,6 @@
 ---
 title: Agendar tarefas do registro de contêiner do Azure
-description: Saiba como executar uma tarefa de registro de contêiner do Azure em um agendamento definido definindo um ou mais gatilhos de temporizador
+description: Neste tutorial, saiba como executar uma tarefa de registro de contêiner do Azure em um agendamento definido definindo um ou mais gatilhos de temporizador
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,16 +8,22 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 6272b5467aff10171814152eb4188554a22c7a51
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ae36b8d67d02f8cae0007b7b06485932db851af5
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931455"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148635"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Executar uma tarefa ACR em um agendamento definido
 
-Este artigo mostra como executar uma [tarefa ACR](container-registry-tasks-overview.md) em uma agenda. Agende uma tarefa Configurando um ou mais *gatilhos de temporizador*.
+Este tutorial mostra como executar uma [tarefa ACR](container-registry-tasks-overview.md) em uma agenda. Agende uma tarefa Configurando um ou mais *gatilhos de temporizador*. Os gatilhos de temporizador podem ser usados sozinhos ou em combinação com outros gatilhos de tarefa.
+
+Neste tutorial, saiba mais sobre o agendamento de tarefas e:
+
+> [!div class="checklist"]
+> * Criar uma tarefa com um gatilho de temporizador
+> * Gerenciar gatilhos de temporizador
 
 O agendamento de uma tarefa é útil para cenários como o seguinte:
 
@@ -199,9 +205,11 @@ Cada campo pode ter um dos seguintes tipos de valores:
 
 ## <a name="next-steps"></a>Passos seguintes
 
+Neste tutorial, você aprendeu a criar tarefas de registro de contêiner do Azure que são disparadas automaticamente por um temporizador. 
+
 Para obter um exemplo de como usar uma tarefa agendada para limpar repositórios em um registro, consulte [limpar automaticamente as imagens de um registro de contêiner do Azure](container-registry-auto-purge.md).
 
-Para obter exemplos de tarefas disparadas por confirmações de código-fonte ou atualizações de imagem de base, confira a [série de tutoriais de tarefas de ACR](container-registry-tutorial-quick-task.md).
+Para obter exemplos de tarefas disparadas por confirmações de código-fonte ou atualizações de imagem de base, consulte outros artigos na [série de tutoriais de tarefas do ACR](container-registry-tutorial-quick-task.md).
 
 
 

@@ -1,17 +1,16 @@
 ---
-title: Usar Visual Studio Code para criar modelos de Azure Resource Manager
+title: Usar Visual Studio Code para criar modelos
 description: Saiba como instalar e usar Visual Studio Code e a extensão de ferramentas de Azure Resource Manager.
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: jgao
-ms.openlocfilehash: 4c0fd0968ce52e50a9171eecb3dfaebd1e2a4c46
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3f0eaf44a536cfb54796744068fee8a70135597a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075018"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149386"
 ---
 # <a name="use-visual-studio-code-to-create-azure-resource-manager-templates"></a>Usar Visual Studio Code para criar modelos de Azure Resource Manager
 

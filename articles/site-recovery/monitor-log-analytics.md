@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: b5bf568e03d4949b8798dd2e0f4c2d8cbcbbe0c7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: f20d0d38a7fbd831d3e97a69373bac04b9b330aa
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936076"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133412"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorizar o Site Recovery com os Registos do Azure Monitor
 
@@ -28,11 +28,11 @@ Para Site Recovery, você pode Azure Monitor logs para ajudá-lo a fazer o segui
 O uso de logs de Azure Monitor com Site Recovery tem suporte para a replicação do Azure **para o Azure** e para a replicação do **VMware/servidor físico para Azure** .
 
 > [!NOTE]
-> Os logs de dados de rotatividade e os logs de taxa de upload estão disponíveis somente para VMs do Azure que replicam para uma região secundária do Azure.
+> Para obter os logs de dados de rotatividade e os logs de taxa de upload para VMware e máquinas físicas, você precisa instalar um Microsoft Monitoring Agent no servidor de processo. Esse agente envia os logs das máquinas de replicação para o espaço de trabalho. Essa funcionalidade está disponível apenas para a versão do agente de mobilidade 9,30 em diante.
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Eis o que precisa:
+Eis do que precisa:
 
 - Pelo menos um computador protegido em um cofre dos serviços de recuperação.
 - Um espaço de trabalho Log Analytics para armazenar Site Recovery logs. [Saiba mais sobre como](../azure-monitor/learn/quick-create-workspace.md) configurar um espaço de trabalho.
@@ -54,6 +54,24 @@ Recomendamos que você revise as [perguntas comuns de monitoramento](monitoring-
     ![Selecionar área de trabalho](./media/monitoring-log-analytics/select-workspace.png)
 
 Os logs de Site Recovery começam a ser alimentados em uma tabela (**AzureDiagnostics**) no espaço de trabalho selecionado.
+
+## <a name="configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs"></a>Configurar o agente de monitoramento da Microsoft no servidor de processo para enviar a rotatividade e carregar logs de taxa
+
+Você pode capturar as informações de taxa de variação de dados e informações de taxa de upload de dados de origem para seus computadores VMware/físicos no local. Para habilitar isso, é necessário que um Microsoft Monitoring Agent esteja instalado no servidor de processo.
+
+1. Vá para o espaço de trabalho Log Analytics e clique em **Configurações avançadas**.
+2. Clique na página **fontes conectadas** e selecione outros **servidores Windows**.
+3. Baixe o agente do Windows (64 bits) no servidor de processo. 
+4. [Obter a ID e a chave do espaço de trabalho](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key)
+5. [Configurar o agente para usar o TLS 1,2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
+6. [Conclua a instalação do agente](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) fornecendo a ID e a chave do espaço de trabalho obtidas.
+7. Quando a instalação for concluída, vá para Log Analytics espaço de trabalho e clique em **Configurações avançadas**. Vá para a página de **dados** e clique mais em **contadores de desempenho do Windows**. 
+8. Clique em **' + '** para adicionar os dois contadores a seguir com o intervalo de amostragem de 300 segundos:
+
+        ASRAnalytics(*)\SourceVmChurnRate 
+        ASRAnalytics(*)\SourceVmThrpRate 
+
+Os dados da taxa de rotatividade e upload começarão a alimentar no espaço de trabalho.
 
 
 ## <a name="query-the-logs---examples"></a>Consultar os logs-exemplos
@@ -174,12 +192,9 @@ AzureDiagnostics  
 ```
 ![RPO de máquina de consulta](./media/monitoring-log-analytics/example2.png)
 
-### <a name="query-data-change-rate-churn-for-a-vm"></a>Taxa de alteração de dados de consulta (rotatividade) para uma VM
+### <a name="query-data-change-rate-churn-and-upload-rate-for-an-azure-vm"></a>Taxa de alteração de dados de consulta (rotatividade) e taxa de upload para uma VM do Azure
 
-> [!NOTE] 
-> As informações de rotatividade só estão disponíveis para VMs do Azure que replicam para uma região secundária do Azure.
-
-Essa consulta Plota um grafo de tendência para uma VM do Azure específica (ContosoVM123), que acompanha a taxa de alteração de dados (bytes de gravação por segundo) e a taxa de carregamento de dados. 
+Essa consulta Plota um grafo de tendência para uma VM do Azure específica (ContosoVM123), que representa a taxa de alteração de dados (bytes de gravação por segundo) e a taxa de carregamento de dados. 
 
 ```
 AzureDiagnostics   
@@ -193,6 +208,23 @@ Category contains "Upload", "UploadRate", "none") 
 | render timechart  
 ```
 ![Alteração de dados de consulta](./media/monitoring-log-analytics/example3.png)
+
+### <a name="query-data-change-rate-churn-and-upload-rate-for-a-vmware-or-physical-machine"></a>Taxa de alteração de dados de consulta (rotatividade) e taxa de upload para um VMware ou computador físico
+
+> [!Note]
+> Verifique se você configurou o agente de monitoramento no servidor de processo para buscar esses logs. Consulte [as etapas para configurar o agente de monitoramento](#configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs).
+
+Essa consulta Plota um grafo de tendência para um **disk0** de disco específico de um item replicado **Win-9r7sfh9qlru**, que representa a taxa de alteração de dados (bytes de gravação por segundo) e a taxa de carregamento de dados. Você pode encontrar o nome do disco na folha **discos** do item replicado no cofre dos serviços de recuperação. O nome da instância a ser usada na consulta é o nome DNS da máquina seguido por _ e o nome do disco como neste exemplo.
+
+```
+Perf
+| where ObjectName == "ASRAnalytics"
+| where InstanceName contains "win-9r7sfh9qlru_disk0"
+| where TimeGenerated >= ago(4h) 
+| project TimeGenerated ,CounterName, Churn_MBps = todouble(CounterValue)/5242880 
+| render timechart
+```
+O servidor de processo envia esses dados a cada 5 minutos para o espaço de trabalho Log Analytics. Esses pontos de dados representam a média calculada por 5 minutos.
 
 ### <a name="query-disaster-recovery-summary-azure-to-azure"></a>Resumo da recuperação de desastre de consulta (Azure para Azure)
 

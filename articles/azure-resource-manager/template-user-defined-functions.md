@@ -1,17 +1,14 @@
 ---
-title: Funções definidas pelo usuário no modelo Azure Resource Manager
+title: Funções definidas pelo usuário em modelos
 description: Descreve como definir e usar funções definidas pelo usuário em um modelo de Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.author: tomfitz
-ms.openlocfilehash: 227ecb57b125264e7d0eba56e634966d677e0f58
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 94fdf80ffc309645a4bc10109a5e8dd4450731e2
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387289"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143700"
 ---
 # <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funções definidas pelo usuário no modelo Azure Resource Manager
 
@@ -77,7 +74,7 @@ Ao definir uma função de usuário, há algumas restrições:
 * Os parâmetros da função não podem ter valores padrão.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre as propriedades disponíveis para funções definidas pelo usuário, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para obter uma lista das funções de modelo disponíveis, consulte [Azure Resource Manager funções de modelo](resource-group-template-functions.md).

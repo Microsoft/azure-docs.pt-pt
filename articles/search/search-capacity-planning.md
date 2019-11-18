@@ -1,5 +1,5 @@
 ---
-title: Escalar verticalmente partições e réplicas para adicionar capacidade para cargas de trabalho de consulta e índice
+title: Capacidade de escala para cargas de trabalho de consulta e índice
 titleSuffix: Azure Cognitive Search
 description: Ajuste os recursos de computador da partição e da réplica no Azure Pesquisa Cognitiva, em que cada recurso é cobrado nas unidades de pesquisa cobráveis.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8613ddc668df338c4f96a9d37f32120718513925
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4020a40b87c32bdbd07e390a0d04769cb3d47f7d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792505"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112139"
 ---
 # <a name="scale-up-partitions-and-replicas-to-add-capacity-for-query-and-index-workloads-in-azure-cognitive-search"></a>Escalar verticalmente partições e réplicas para adicionar capacidade para cargas de trabalho de consulta e índice no Azure Pesquisa Cognitiva
 
@@ -89,10 +89,10 @@ Todos os serviços de pesquisa padrão e de armazenamento otimizados podem assum
 | **1 réplica** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **2 réplicas** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
 | **3 réplicas** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **4 réplicas** |4 SU |8 SU |12 SU |16 SU |24 SU |N/A |
-| **5 réplicas** |5 SU |10 SU |15 SU |20 SU |30 SU |N/A |
-| **6 réplicas** |6 SU |12 SU |18 SU |24 SU |36 SU |N/A |
-| **12 réplicas** |12 SU |24 SU |36 SU |N/A |N/A |N/A |
+| **4 réplicas** |4 SU |8 SU |12 SU |16 SU |24 SU |N/D |
+| **5 réplicas** |5 SU |10 SU |15 SU |20 SU |30 SU |N/D |
+| **6 réplicas** |6 SU |12 SU |18 SU |24 SU |36 SU |N/D |
+| **12 réplicas** |12 SU |24 SU |36 SU |N/D |N/D |N/D |
 
 O SUs, os preços e a capacidade são explicados em detalhes no site do Azure. Para obter mais informações, consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/search/).
 

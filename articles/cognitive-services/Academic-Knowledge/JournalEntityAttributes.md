@@ -3,29 +3,31 @@ title: Atributos de entidade de diário-API de Conhecimento Acadêmico
 titlesuffix: Azure Cognitive Services
 description: Conheça os atributos que você pode usar com a entidade de diário na API de Conhecimento Acadêmico em serviços cognitivas.
 services: cognitive-services
-author: alch-msft
-manager: nitinme
+author: darrine
+manager: kuansanw
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
-ms.date: 03/23/2017
-ms.author: alch
+ms.date: 11/14/2019
+ms.author: darrine
 ROBOTS: NOINDEX
-ms.openlocfilehash: 93868bb014809693e7614e74bde7db864de95c04
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 72c3cc0a86b3d79cef9d8e9af5846817566fe904
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704953"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143887"
 ---
 # <a name="journal-entity"></a>Entidade de diário
 
-<sub>* Os atributos a seguir são específicos para a entidade de diário. (Ty = ' 2 ')</sub>
+> [!NOTE]
+> Os atributos a seguir são específicos para a entidade de diário. (Ty = ' 2 ')
 
-Nome    |Descrição                            |Type       | Operações
-------- | ------------------------------------- | --------- | ----------------------------
-ID      |ID de entidade                              |Int64      |É igual a
-DJN     |Nome normalizado do diário                |Cadeia     |nenhum
-JN      |Nome de exibição do diário                   |Cadeia     |É igual a
-CC      |Contagem total de citações do diário           |Int32      |nenhum  
-CONTROLCENTER     |Diário total estimado da contagem de citações |Int32      |nenhum
+Nome | Descrição | Tipo | Operações
+--- | --- | --- | ---
+CC      |Contagem total de citações do diário           |Int32      |Nenhum  
+DJN     |Nome de exibição do diário               |Cadeia     |Nenhum
+ControlCenter     |Diário total estimado da contagem de citações |Int32      |Nenhum
+JN      |Nome normalizado do diário                    |Cadeia     |Igual a
+Id      |ID da entidade                              |Int64      |Igual a
+PC    |Contagem total de publicação do diário | Int32 | Nenhum

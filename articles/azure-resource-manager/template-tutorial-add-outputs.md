@@ -1,19 +1,16 @@
 ---
-title: Tutorial – adicionar saídas ao modelo de Azure Resource Manager
+title: Tutorial – adicionar saídas ao modelo
 description: Adicione saídas ao seu modelo de Azure Resource Manager para simplificar a sintaxe.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 458833372d5bd03a04e4df7d6e915cddb4bb05c7
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 0d89c1651e6b897da7538432d183a8ac003a51ac
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001533"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148265"
 ---
 # <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Tutorial: Adicionar saídas ao seu modelo do Resource Manager
 
@@ -97,7 +94,7 @@ Você fez muito nos últimos seis tutoriais. Vamos reservar um momento para exam
 
 Agora, vamos examinar o grupo de recursos e o histórico de implantação.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. No menu à esquerda, selecione **grupos de recursos**.
 1. Selecione o grupo de recursos no qual você implantou.
 1. Dependendo das etapas que você fez, você deve ter pelo menos uma e, talvez, várias contas de armazenamento no grupo de recursos.

@@ -1,25 +1,17 @@
 ---
-title: Utilizar a referência de modelo do Azure Resource Manager | Documentos da Microsoft
+title: Utilizar referência de modelo
 description: Utilize a referência de modelo do Azure Resource Manager para criar um modelo para a implementação de uma conta de armazenamento encriptado.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 81c02c5e39e23b49291561821b0732227feb5c05
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 8957f661665811679c088de7ac4a4b026e9d28c7
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103653"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149369"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Tutorial: Utilizar a referência de modelo do Azure Resource Manager
 
@@ -27,7 +19,7 @@ Saiba como encontrar as informações de esquema do modelo e utilizar as informa
 
 Neste tutorial, vai utilizar um modelo de base dos modelos de Início Rápido do Azure. Com a documentação de referência do modelo, personalize o modelo para criar uma conta de Armazenamento encriptada.
 
-![Conta de armazenamento encriptada de implementar a referência de modelo do Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
+![Referência de modelo do Resource Manager implantar conta de armazenamento criptografada](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -79,8 +71,8 @@ Os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/t
 ## <a name="find-the-template-reference"></a>Encontre a referência do modelo
 
 1. Navegue até [referência de modelo do Azure](https://docs.microsoft.com/azure/templates/).
-2. Na **filtrar por título** , introduza **contas de armazenamento**.
-3. Selecione **referência de referência/modelo/armazenamento/&lt;versão > / contas de armazenamento** conforme mostrado na captura de ecrã seguinte:
+2. Na caixa **Filtrar por título** , insira **contas de armazenamento**.
+3. Selecione referência/modelo de referência/ **armazenamento/&lt;versão > contas/Storage** , conforme mostrado na seguinte captura de tela:
 
     ![Conta de armazenamento de referência do modelo do Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 
@@ -154,7 +146,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 3. Selecione o nome do grupo de recursos.  Verá um total de seis recursos no grupo de recursos.
 4. Selecione **Eliminar grupo de recursos** no menu superior.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a utilizar a referência de modelo para personalizar um modelo existente. Para saber mais sobre como criar várias instâncias de contas de armazenamento, veja:
 

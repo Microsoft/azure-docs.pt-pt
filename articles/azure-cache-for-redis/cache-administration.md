@@ -1,25 +1,17 @@
 ---
-title: Como administrar o cache do Azure para Redis | Microsoft Docs
+title: Como administrar o cache do Azure para Redis
 description: Saiba como executar tarefas de administração, como reinicializar e agendar atualizações para o cache do Azure para Redis
-services: cache
-documentationcenter: na
 author: yegu-ms
-manager: jhubbard
-editor: tysonn
-ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: afb48c18f9690e77a5478956e1147acf850290ab
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 69686cad20bc4ce70bff2a92a216c9430522c301
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756619"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122532"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Como administrar o cache do Azure para Redis
 Este tópico descreve como executar tarefas de administração, como [reinicializar](#reboot) e [agendar atualizações](#schedule-updates) para o cache do Azure para instâncias Redis.
@@ -73,14 +65,14 @@ Se você reinicializar apenas um dos nós, os dados normalmente não são perdid
 ### <a name="can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools"></a>Posso reinicializar meu cache usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?
 Sim, para instruções do PowerShell, consulte [para reinicializar um cache do Azure para Redis](cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
 
-## <a name="schedule-updates"></a>Atualizações agendadas
+## <a name="schedule-updates"></a>Agendar atualizações
 A folha **agendar atualizações** permite designar uma janela de manutenção para sua instância de cache. Quando a janela de manutenção é especificada, todas as atualizações do servidor Redis são feitas durante essa janela. 
 
 > [!NOTE] 
 > A janela de manutenção aplica-se somente a atualizações do servidor Redis e não a atualizações do Azure ou a atualizações do sistema operacional das VMs que hospedam o cache.
 >
 
-![Atualizações agendadas](./media/cache-administration/redis-schedule-updates.png)
+![Agendar atualizações](./media/cache-administration/redis-schedule-updates.png)
 
 Para especificar uma janela de manutenção, verifique os dias desejados e especifique a hora de início da janela de manutenção para cada dia e clique em **OK**. Observe que o tempo da janela de manutenção está em UTC. 
 

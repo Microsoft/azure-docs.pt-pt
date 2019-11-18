@@ -1,7 +1,7 @@
 ---
-title: Exemplos de informações do Bing - pesquisa Visual do Bing
+title: Exemplos de informações do Bing-Pesquisa Visual do Bing
 titleSuffix: Azure Cognitive Services
-description: Mostra exemplos de informações de imagem mostradas no Bing.com.
+description: Este artigo contém exemplos de como Pesquisa Visual do Bing pode usar e exibir informações de imagem no Bing.com.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,72 +10,72 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: scottwhi
-ms.openlocfilehash: 94f8d4ea98f42ad919597ef53dc63281825f0e6b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: df66dbeebb04209921ff91c4b99a14580f026718
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60610473"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111634"
 ---
-# <a name="examples-of-bing-insights-usage"></a>Exemplos de utilização de informações do Bing
+# <a name="examples-of-bing-insights-usage"></a>Exemplos de uso do Bing insights
 
-Este artigo contém exemplos de como o Bing pode utilizar e apresentar informações de imagem no Bing.com.
+Este artigo contém exemplos de como o Bing pode usar e exibir informações de imagem no Bing.com.
 
-## <a name="pagesincluding-insight-example"></a>Exemplo de informações de PagesIncluding
+## <a name="pagesincluding-insight-example"></a>Exemplo do PagesIncluding Insight
 
-A seguir apresenta uma hiperligação para a primeira página da Web e permite que o utilizador expandir e recolher a lista de outras páginas da Web que incluem a imagem:
+O seguinte exibe um link para a primeira página da Web e permite que o usuário expanda e recolha a lista de outras páginas da Web que incluem a imagem:
 
 ![Páginas expandidas, incluindo](./media/pages-including.PNG)
 
-## <a name="shoppingsources-insight-example"></a>Exemplo de informações de ShoppingSources
+## <a name="shoppingsources-insight-example"></a>Exemplo do ShoppingSources Insight
 
-O código a seguir mostra como o Bing pode apresentar fontes de compras para produtos verifica na imagem:
+O código a seguir mostra como o Bing pode exibir fontes de compras para produtos vistos na imagem:
 
-![Origens de compras](./media/shopping-sources.PNG)
+![Fontes de compras](./media/shopping-sources.PNG)
 
-## <a name="visualsearch-insight-example"></a>Exemplo de informações de VisualSearch
+## <a name="visualsearch-insight-example"></a>Exemplo do VisualSearch Insight
 
-O seguinte mostra como o Bing pode exibir imagens visualmente similares (veja **imagens relacionadas com** no exemplo):
+Veja a seguir como o Bing pode exibir imagens visualmente semelhantes (consulte as **imagens relacionadas** no exemplo):
 
-![Imagens visualmente similares](./media/similar-images.PNG)
+![Imagens visualmente semelhantes](./media/similar-images.PNG)
 
-## <a name="recipes-insight-example"></a>Exemplo de informações de receitas
+## <a name="recipes-insight-example"></a>Exemplo de insights de receitas
 
-O código a seguir mostra como o Bing pode apresentar receitas para alimentar mostrado na imagem. O exemplo que informa ao usuário há receitas disponíveis:
+O seguinte mostra como o Bing pode exibir receitas para a comida mostrada na imagem. O exemplo permite que o usuário saiba que há receitas disponíveis:
 
 ![Receitas e páginas, incluindo](./media/recipes-pages-including.PNG)
 
- E fornece a ligação para as receitas quando o utilizador expande a lista:
+ E fornece o link para as receitas quando o usuário expande a lista:
 
-![Páginas de receita expandido, incluindo](./media/expanded-recipes-pages-including.PNG)
+![Páginas de receitas expandidas, incluindo](./media/expanded-recipes-pages-including.PNG)
 
-## <a name="relatedsearches-insight-example"></a>Exemplo de informações de RelatedSearches
+## <a name="relatedsearches-insight-example"></a>Exemplo do RelatedSearches Insight
 
-O código a seguir mostra como o Bing pode apresentar pesquisas relacionadas de imagens realizadas por terceiros. Se o usuário clicar na imagem, o utilizador é direcionado para a página de resultados de pesquisa de Bing.com/images para essa consulta relacionada.
+O seguinte mostra como o Bing pode exibir pesquisas relacionadas de imagens feitas por outras pessoas. Se o usuário clicar na imagem, o usuário será levado para a página de resultados da pesquisa do Bing.com/images para essa consulta relacionada.
 
-![Pesquisas relacionadas com imagens](./media/bordered-related-searches.PNG)
+![Pesquisas relacionadas a imagens](./media/bordered-related-searches.PNG)
 
-## <a name="entity-insight-example"></a>Exemplo de informações da entidade
+## <a name="entity-insight-example"></a>Exemplo do Entity Insight
 
-O código a seguir mostra como o Bing pode apresentar informações sobre a entidade (pessoa, local ou coisa) mostrada na imagem. Se o utilizador clica na ligação de entidade, o utilizador é direcionado para a página de resultados de pesquisa de Bing.com para a entidade:
+O seguinte mostra como o Bing pode exibir informações sobre a entidade (pessoa, lugar ou coisa) mostrada na imagem. Se o usuário clicar no link de entidade, o usuário será levado para a página de resultados da pesquisa do Bing.com para a entidade:
 
 ![Entidade mostrada na imagem](./media/entity.PNG)
 
-## <a name="displaying-other-insights-that-the-user-might-explore"></a>Exibir outras informações que o utilizador poderá explorar
+## <a name="displaying-other-insights-that-the-user-might-explore"></a>Exibindo outras informações que o usuário pode explorar
 
-A seguir mostra como o Bing pode exibir outras informações sobre a imagem que o utilizador pode explorar.
+O seguinte mostra como o Bing pode exibir outras informações sobre a imagem que o usuário pode explorar.
 
-![Explore outras informações sobre a imagem](./media/apple-pie-more-tags.PNG)
+![Explorar outras informações sobre a imagem](./media/apple-pie-more-tags.PNG)
 
-## <a name="bounding-boxes-and-hot-spots"></a>Delimitadora caixas e pontos de acesso
+## <a name="bounding-boxes-and-hot-spots"></a>Caixas delimitadoras e pontos de acesso
 
-Etiquetas predefinidas não incluem a caixa delimitadora que identifica a área de interesse na imagem que se aplica a marca. Se a caixa delimitadora não identifica a imagem inteira, utilize a caixa delimitadora para criar um ponto de acesso na imagem. O utilizador pode clicar o ponto de acesso para obter informações relacionadas com o conteúdo encontrado sob o ponto de acesso (ou o retângulo). Por exemplo, se a imagem é uma imagem de alto modo, os resultados podem conter tags (e caixas delimitadora) para Acessórios mostrado na imagem, como uma bolsa, joias, scarfs e assim por diante. O exemplo seguinte mostra um retângulo de ponto de acesso frequente para óculos de sol, mostrado na imagem:
+Marcas não padrão incluem a caixa delimitadora que identifica a área de interesse na imagem à qual a marca se aplica. Se a caixa delimitadora não identificar a imagem inteira, use a caixa delimitadora para criar um ponto de acesso na imagem. O usuário pode clicar no ponto de acesso para obter informações relacionadas ao conteúdo encontrado no ponto de acesso (ou retângulo). Por exemplo, se a imagem for uma imagem de alto nível, os resultados poderão conter marcas (e caixas delimitadoras) para acessórios mostrados na imagem, como bolsa, joia, Scarfs e assim por diante. O exemplo a seguir mostra um retângulo de ponto de acesso para o óculos mostrado na imagem:
 
-![Caixa delimitadora e de ponto de acesso](./media/click-to-search.PNG)
+![Caixa delimitadora e ponto de acesso](./media/click-to-search.PNG)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para começar a utilizar com o primeiro pedido, veja os inícios rápidos: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
+Para começar a usar sua primeira solicitação, consulte os guias de início [C#](quickstarts/csharp.md) rápido: | [Java](quickstarts/java.md) | [node. js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
 
 
 

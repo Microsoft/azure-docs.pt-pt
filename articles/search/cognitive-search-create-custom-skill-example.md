@@ -1,5 +1,5 @@
 ---
-title: 'Exemplo: criando uma habilidade cognitiva personalizada com o API de Pesquisa de Entidade do Bing'
+title: Exemplo de habilidade personalizada usando API de Pesquisa de Entidade do Bing
 titleSuffix: Azure Cognitive Search
 description: Demonstra o uso do serviço Pesquisa de Entidade do Bing em uma habilidade personalizada mapeada para um pipeline de indexação aprimorado do ia no Azure Pesquisa Cognitiva.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1f134ac360b6c5bd04c0e141da52b6dad950e208
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466811"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113814"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemplo: criar uma habilidade personalizada usando o API de Pesquisa de Entidade do Bing
 
@@ -379,7 +379,7 @@ Quando estiver satisfeito com o comportamento da função, você poderá public�
 
 1. Se você ainda não conectou o Visual Studio à sua conta do Azure, selecione **Adicionar uma conta....**
 
-1. Siga os prompts na tela. Você será solicitado a especificar um nome exclusivo para o serviço de aplicativo, a assinatura do Azure, o grupo de recursos, o plano de hospedagem e a conta de armazenamento que deseja usar. Você pode criar um novo grupo de recursos, um novo plano de hospedagem e uma conta de armazenamento, se ainda não os tiver. Quando terminar, selecione **criar**
+1. Siga as instruções no ecrã. Você será solicitado a especificar um nome exclusivo para o serviço de aplicativo, a assinatura do Azure, o grupo de recursos, o plano de hospedagem e a conta de armazenamento que deseja usar. Você pode criar um novo grupo de recursos, um novo plano de hospedagem e uma conta de armazenamento, se ainda não os tiver. Quando terminar, selecione **criar**
 
 1. Após a conclusão da implantação, observe a URL do site. É o endereço do seu aplicativo de funções no Azure. 
 

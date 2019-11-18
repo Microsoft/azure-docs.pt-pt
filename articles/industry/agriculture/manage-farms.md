@@ -5,14 +5,14 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c83ac8a42a91c9db06726e917ed142e20995b987
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 929672dceabc7d9b591f05ef3f4f716f2117e09c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797975"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128671"
 ---
-# <a name="manage-farms"></a>Gerenciar farms
+# <a name="manage-farms"></a>Gerir terrenos agrícolas
 
 Você pode gerenciar seus farms no Azure FarmBeats. Este artigo fornece informações sobre como criar farms, instalar dispositivos, sensores e drones que ajudam a gerenciar seus farms.
 
@@ -58,7 +58,7 @@ A página lista de farms exibe uma lista de farms criados. Selecione um farm par
 A página **farms** exibe uma lista de farms criados.
 
 1.  Selecione um farm para exibir e editar o farm.
-2.  Selecione **Editar farm** para editar as informações do farm. Na janela **detalhes do farm** , você pode editar os campos **nome**, **aparas**, **endereço**e **limite do farm** .
+2.  Selecione **Editar farm** para editar as informações do farm. Na janela **detalhes do farm** , você pode editar **nomes**, **aparas**, **endereços**e definir campos de **limite do farm** .
 
     ![Batidas no farm de projetos](./media/create-farms/edit-farm-1.png)
 

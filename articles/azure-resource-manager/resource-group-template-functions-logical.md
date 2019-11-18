@@ -1,17 +1,14 @@
 ---
-title: Funções de modelo de Azure Resource Manager – lógica | Microsoft Docs
+title: Funções de modelo – lógica
 description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para determinar valores lógicos.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.author: tomfitz
-ms.openlocfilehash: ea91798a1c0ca0aad729128ce4694a85165f3c3b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: df8433d167a166fe94d965f81e42cd0b3e8f0e54
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194799"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150688"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos de Azure Resource Manager
 
@@ -69,13 +66,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior é:
 
-| Name | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| andExampleOutput | Bool | Falso |
+| orExampleOutput | Bool | Verdadeiro |
+| notExampleOutput | Bool | Falso |
 
-## <a name="bool"></a>bool
+## <a name="bool"></a>booleano
 
 `bool(arg1)`
 
@@ -122,12 +119,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| TrueString | Bool | True |
-| falseString | Bool | False |
-| trueInt | Bool | True |
-| falseInt | Bool | False |
+| TrueString | Bool | Verdadeiro |
+| falseString | Bool | Falso |
+| trueInt | Bool | Verdadeiro |
+| falseInt | Bool | Falso |
 
 ## <a name="if"></a>que
 
@@ -153,7 +150,7 @@ Quando a condição for **verdadeira**, somente o valor verdadeiro será avaliad
 
 ### <a name="examples"></a>Exemplos
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) a seguir mostra como usar `if` a função.
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) a seguir mostra como usar a função `if`.
 
 ```json
 {
@@ -180,7 +177,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior é:
 
-| Name | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | yesOutput | Cadeia | sim |
 | noOutput | Cadeia | não |
@@ -234,7 +231,7 @@ O [modelo de exemplo](https://github.com/krnese/AzureDeploy/blob/master/ARM/depl
 }
 ```
 
-## <a name="not"></a>não
+## <a name="not"></a>válido
 
 `not(arg1)`
 
@@ -278,11 +275,11 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior é:
 
-| Name | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| andExampleOutput | Bool | Falso |
+| orExampleOutput | Bool | Verdadeiro |
+| notExampleOutput | Bool | Falso |
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) a seguir usa **não** com [Equals](resource-group-template-functions-comparison.md#equals).
 
@@ -302,9 +299,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior é:
 
-| Name | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | True |
+| checkNotEquals | Bool | Verdadeiro |
 
 ## <a name="or"></a>ou
 
@@ -352,13 +349,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior é:
 
-| Name | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| andExampleOutput | Bool | Falso |
+| orExampleOutput | Bool | Verdadeiro |
+| notExampleOutput | Bool | Falso |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Para intercalar vários modelos, veja [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).

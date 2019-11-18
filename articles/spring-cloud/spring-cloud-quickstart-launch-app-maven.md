@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: cb6032938379b632b743827153c61fd3e18c1cfe
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 01bf33c3ed50311b031e015b24566f5819ac0857
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721597"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123819"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Início rápido: iniciar um aplicativo de nuvem Spring do Azure usando o plug-in do Maven
 
@@ -53,8 +53,6 @@ az extension add --name spring-cloud
 
 1. Em um navegador da Web, abra [este link para o Azure Spring Cloud no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.AppPlatform)e entre na sua conta.
 
-1. Selecione **criar** na página **visão geral** para abrir a caixa de diálogo de criação.
-
 1. Forneça os **detalhes do projeto** para o aplicativo de exemplo da seguinte maneira:
 
     1. Selecione a **assinatura** com a qual o aplicativo será associado.
@@ -71,7 +69,7 @@ Leva cerca de 5 minutos para que o serviço seja implantado. Depois que o servi�
 ## <a name="set-up-your-configuration-server"></a>Configurar o servidor de configuração
 
 1. Na página **visão geral** do serviço, selecione **servidor de configuração**.
-1. Na seção **repositório padrão** , defina **URI** como **https://github.com/Azure-Samples/piggymetrics**, defina **rótulo** como **configuração**e, em seguida, selecione **aplicar** para salvar as alterações.
+1. Na seção **repositório padrão** , defina **URI** como **https://github.com/Azure-Samples/piggymetrics** , defina **rótulo** como **configuração**e, em seguida, selecione **aplicar** para salvar as alterações.
 
     > [!div class="mx-imgBorder"]
     > ![definir e aplicar configurações de configuração](media/maven-qs-apply-config.jpg)
@@ -101,7 +99,7 @@ Leva cerca de 5 minutos para que o serviço seja implantado. Depois que o servi�
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.0.0:config
     ```
 
-    a. Selecione os módulos `gateway`, `auth-service` e `account-service`.
+    a. Selecione os módulos `gateway`,`auth-service`e `account-service`.
 
     b. Selecione sua assinatura e o cluster do serviço de nuvem do Azure Spring.
 

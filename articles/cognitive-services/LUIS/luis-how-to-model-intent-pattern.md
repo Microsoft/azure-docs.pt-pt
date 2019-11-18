@@ -9,43 +9,46 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: cbd8ad73ff4a03790dd6b22d5ce33acf09a2b125
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 39b56c5e73c8ce85a020402dafb622b90c536a1e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491362"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143816"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar padrões para melhorar a precisão da previsão
 Depois que um aplicativo LUIS recebe o ponto de extremidade declarações, use um [padrão](luis-concept-patterns.md) para melhorar a precisão da previsão para declarações que revela um padrão em ordem de palavras e escolha de palavra. Padrões usam [sintaxe](luis-concept-patterns.md#pattern-syntax) específica para indicar o local de: [entidades](luis-concept-entity-types.md), [funções](luis-concept-roles.md)de entidade e texto opcional.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## <a name="add-template-utterance-to-create-pattern"></a>Adicionar modelo expressão para criar padrão
-1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** e, em seguida, selecione **padrões** no painel esquerdo, em melhorar o **desempenho do aplicativo**.
+## <a name="add-template-utterance-to-create-pattern"></a>Adicionar a expressão de modelo para criar padrão
 
-    ![Captura de tela da lista de padrões](./media/luis-how-to-model-intent-pattern/patterns-1.png)
+1. Abra a sua aplicação, selecionando o respetivo nome na **as minhas aplicações** página e, em seguida, selecione **padrões** no painel esquerdo, em **melhorar o desempenho da aplicação**.
 
-2. Selecione a intenção correta para o padrão. 
+    > [!div class="mx-imgBorder"]
+    > ![captura de tela da lista de padrões](./media/luis-how-to-model-intent-pattern/patterns-1.png)
 
-    ![Selecionar intenção](./media/luis-how-to-model-intent-pattern/patterns-2.png)
+1. Selecione a intenção correta para o padrão. 
 
-3. Na caixa de texto modelo, digite o modelo expressão e selecione Enter. Quando você quiser inserir o nome da entidade, use a sintaxe de entidade de padrão correta. Inicie a sintaxe da entidade com `{`. A lista de entidades é exibida. Selecione a entidade correta e, em seguida, selecione Enter. 
+1. Na caixa de texto modelo, escreva a expressão de modelo e selecione Enter. Quando pretender introduzir o nome da entidade, utilize a sintaxe de entidade padrão correto. Começar a sintaxe de entidade com `{`. A lista de entidades apresenta. Selecione a entidade correta. 
 
-    ![Captura de tela de entidade para padrão](./media/luis-how-to-model-intent-pattern/patterns-3.png)
+    > [!div class="mx-imgBorder"]
+    > Captura de tela de ![da entidade para o padrão](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Se sua entidade incluir uma [função](luis-concept-roles.md), indique a função com um único sinal de dois-pontos, `:`, após o nome da entidade, como `{Location:Origin}`. A lista de funções para as entidades é exibida em uma lista. Selecione a função e, em seguida, selecione Enter. 
+    Se sua entidade incluir uma [função](luis-concept-roles.md), indique a função com um único sinal de dois-pontos, `:`, após o nome da entidade, como `{Location:Origin}`. Apresenta a lista de funções para as entidades numa lista. Selecione a função e, em seguida, selecione Enter. 
 
-    ![Captura de tela da entidade com a função](./media/luis-how-to-model-intent-pattern/patterns-4.png)
+    > [!div class="mx-imgBorder"]
+    > ![captura de tela da entidade com a função](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 
-    Depois de selecionar a entidade correta, conclua a inserção do padrão e, em seguida, selecione Enter. Quando você terminar de inserir padrões, [treine](luis-how-to-train.md) seu aplicativo.
+    Depois de selecionar a entidade correta, termina de introduzir o padrão e, em seguida, selecione Enter. Quando tiver terminado de padrões de digitação [treinar](luis-how-to-train.md) seu aplicativo.
 
-    ![Captura de tela do padrão inserido com ambos os tipos de entidades](./media/luis-how-to-model-intent-pattern/patterns-5.png)
+    > [!div class="mx-imgBorder"]
+    > ![captura de tela do padrão inserido com os dois tipos de entidades](./media/luis-how-to-model-intent-pattern/patterns-5.png)
 
-## <a name="train-your-app-after-changing-model-with-patterns"></a>Treinar seu aplicativo depois de alterar o modelo com padrões
-Depois de adicionar, editar, remover ou reatribuir um padrão, [treine](luis-how-to-train.md) e [publique](luis-how-to-publish-app.md) seu aplicativo para que suas alterações afetem as consultas de ponto de extremidade. 
+## <a name="train-your-app-after-changing-model-with-patterns"></a>Preparar a sua aplicação depois de alterar o modelo com padrões
+Depois de adicionar, editar, remover ou reatribuir um padrão [treinar](luis-how-to-train.md) e [publicar](luis-how-to-publish-app.md) as suas alterações afetar a consultas de ponto final na sua aplicação. 
 
 <a name="search-patterns"></a>
 <a name="edit-a-pattern"></a>
@@ -64,14 +67,14 @@ A barra de ferramentas contextual acima da lista de padrões permite que você:
 
 * Pesquisar padrões
 * Editar um padrão
-* Reatribuir o padrão individual a uma intenção diferente
-* Reatribuir vários padrões a uma intenção diferente
+* Reatribuir padrão individual em intenção diferente
+* Reatribuir vários padrões em intenção diferente
 * Excluir um padrão único
-* Excluir vários padrões
-* Lista de padrões de filtro por entidade
+* Eliminar vários padrões
+* Filtrar a lista padrão por entidade
 * Filtro-padrão-listar por intenção
-* Remover filtro de entidade ou intenção
-* Adicionar padrão de expressão existente na página de intenção ou entidade
+* Remover entidade ou um filtro de intenção
+* Adicionar o padrão de expressão existente na página de intenção ou a entidade
 
 ## <a name="next-steps"></a>Passos seguintes
 

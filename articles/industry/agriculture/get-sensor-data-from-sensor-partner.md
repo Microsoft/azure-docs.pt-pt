@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 424df8ac7145129dd70a9a5791648730189b528b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 33fd2221d3f3a0562abf83f014a7b84df972eebc
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889658"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128838"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obter dados de sensor de parceiros de sensor
 
@@ -35,7 +35,7 @@ Depois de iniciar o streaming de dados do sensor, você pode iniciar o processo 
  - Ponto Final de API  
  - ID do inquilino  
  - ID de Cliente  
- - Segredo do cliente  
+ - Segredo do Cliente  
  - Cadeia de conexão do EventHub
 
 As informações acima são fornecidas a você pelo integrador de sistema. Para quaisquer problemas ao habilitar as integrações de dispositivo, entre em contato com o integrador de sistema.
@@ -72,7 +72,7 @@ Visite o portal de parceiros de dispositivo para vincular FarmBeats usando o con
  - Ponto Final de API  
  - Cadeia de conexão do EventHub  
  - ID de Cliente  
- - Segredo do cliente  
+ - Segredo do Cliente  
  - ID do inquilino  
 
  O provedor do dispositivo confirma uma integração bem-sucedida. Após a confirmação, você pode exibir todos os dispositivos e sensores no Azure FarmBeats.
@@ -86,7 +86,7 @@ Use a seção a seguir para exibir os dispositivos e sensores em seu farm.
 Atualmente, o FarmBeats dá suporte aos seguintes dispositivos:
 
 - **Nó**: um dispositivo ao qual um ou mais sensores estão anexados.
-- **Gateway**: um dispositivo ao qual um ou mais sensores estão anexados.
+- **Gateway**: um dispositivo ao qual um ou mais nós estão anexados.
 
 Utilize os passos seguintes:
 

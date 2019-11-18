@@ -1,17 +1,14 @@
 ---
-title: Erros de modelo inválido do Azure | Microsoft Docs
+title: Erros de modelo inválidos
 description: Descreve como resolver erros de modelo inválido ao implantar modelos de Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 03/08/2018
-ms.author: tomfitz
-ms.openlocfilehash: bdf1d66ab345cc0d86206413db6617e9568b4d22
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 7b9b8021ad34a7ec7f879ce9413f4ae5d44e2720
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390329"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150580"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolver erros de modelo inválido
 
@@ -153,8 +150,8 @@ A remoção de valores da propriedade **dependy** pode causar erros quando você
 
 Se essa abordagem não resolver a dependência circular, considere mover parte da lógica de implantação para recursos filho (como extensões ou definições de configuração). Configure os recursos filho a serem implantados após os recursos envolvidos na dependência circular. Por exemplo, suponha que você esteja implantando duas máquinas virtuais, mas deve definir propriedades em cada uma delas referente à outra. Você pode implantá-los na seguinte ordem:
 
-1. VM1
-2. VM2
+1. vm1
+2. vm2
 3. A extensão em VM1 depende de VM1 e VM2. A extensão define valores em VM1 que obtém de VM2.
 4. A extensão em VM2 depende de VM1 e VM2. A extensão define valores em VM2 que obtém de VM1.
 

@@ -1,24 +1,16 @@
 ---
-title: Implantar modelo do Resource Manager-portal do Azure
+title: Implantar modelo-portal do Azure
 description: Saiba como criar o seu primeiro modelo do Azure Resource Manager com o portal do Azure e como implementá-lo.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 299e1f3bc5915d547c4b463e770427d480836179
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9a747dbdda4b822c70edaa5a08c30db80328c321
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834292"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150535"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Início Rápido: Criar e implementar um modelo do Azure Resource Manager com o portal do Azure
 
@@ -63,7 +55,7 @@ Muitos desenvolvedores de modelos experientes usam esse método para gerar model
 
     ![Gerar um modelo a partir do portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
 
-    O painel principal mostra o modelo. É um arquivo JSON com seis elementos de nível superior-`schema`, `contentVersion`, `parameters`, `variables`, `resources` e `output`. Para obter mais informações, veja [Compreender a estrutura e a sintaxe de modelos do Azure Resource Manager](./resource-group-authoring-templates.md)
+    O painel principal mostra o modelo. É um arquivo JSON com seis elementos de nível superior – `schema`, `contentVersion`, `parameters`, `variables`, `resources`e `output`. Para obter mais informações, veja [Compreender a estrutura e a sintaxe de modelos do Azure Resource Manager](./resource-group-authoring-templates.md)
 
     Existem seis parâmetros definidos. Um desses parâmetros é denominado **storageAccountName**. A segunda parte realçada na captura de tela anterior mostra como fazer referência a esse parâmetro no modelo. Na próxima secção, vai editar o modelo de modo a utilizar um nome gerado para a conta de armazenamento.
 
@@ -163,7 +155,7 @@ O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implantaçã
     |Nome|Valor|
     |----|----|
     |**Grupo de recursos**|Selecione o nome do grupo de recursos que você criou na última seção. |
-    |**Localização**|Selecione um local para a conta de armazenamento. Por exemplo, **EUA Central**. |
+    |**Localização**|Selecione um local para a conta de armazenamento. Por exemplo, **E.U.A. Central**. |
     |**Tipo de conta**|Insira **Standard_LRS** para este guia de início rápido. |
     |**Quase**|Insira **StorageV2** para este guia de início rápido. |
     |**Camada de acesso**|Insira a **quente** para este guia de início rápido. |

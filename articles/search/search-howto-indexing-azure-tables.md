@@ -1,5 +1,5 @@
 ---
-title: Indexar conteúdo do armazenamento de tabelas do Azure para pesquisa de texto completo
+title: Pesquisar o conteúdo do armazenamento de tabelas do Azure
 titleSuffix: Azure Cognitive Search
 description: Saiba como indexar dados armazenados no armazenamento de tabelas do Azure com um indexador Pesquisa Cognitiva do Azure.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ae99145178fba8e204267546dc1cedf42df412eb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e8f6c0454497b1cb1d62417e566e9662469c56d0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793737"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112995"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Como indexar tabelas do armazenamento de tabelas do Azure com o Azure Pesquisa Cognitiva
 
@@ -67,7 +67,7 @@ Para obter mais informações sobre a API criar fonte de dados, consulte [criar 
 
 Você pode fornecer as credenciais para a tabela de uma das seguintes maneiras: 
 
-- **Cadeia de conexão da conta de armazenamento de acesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` você pode obter a cadeia de conexão do portal do Azure acessando a **folha da conta de armazenamento** > **configurações** > **chaves** (para contas de armazenamento clássicas) ou **Configurações** > **chaves de acesso** (para contas de armazenamento de Azure Resource Manager).
+- **Cadeia de conexão da conta de armazenamento de acesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` você pode obter a cadeia de conexão do portal do Azure acessando a **folha conta de armazenamento** > **configurações** > **chaves** (para contas de armazenamento clássicas) ou **configurações** > **chaves de acesso** (para contas de armazenamento Azure Resource Manager).
 - **Cadeia de conexão de assinatura de acesso compartilhado da conta de armazenamento**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` a assinatura de acesso compartilhado deve ter as permissões de lista e leitura em contêineres (tabelas neste caso) e objetos (linhas de tabela).
 -  **Assinatura de acesso compartilhado de tabela**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` a assinatura de acesso compartilhado deve ter permissões de consulta (leitura) na tabela.
 

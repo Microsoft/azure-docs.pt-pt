@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 1322b8eb14205ff29e109fae82466270f7507781
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fc47b18dd51bbaa48d950515cccfe618d9e58426
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094027"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132748"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Enviar um grande número de tarefas para um trabalho em lotes
 
@@ -35,9 +35,9 @@ O tamanho máximo da coleção de tarefas que você pode adicionar em uma única
 
 * As seguintes APIs do lote limitam a coleta a **100 tarefas**. O limite pode ser menor dependendo do tamanho das tarefas, por exemplo, se as tarefas tiverem um grande número de arquivos de recursos ou variáveis de ambiente.
 
-    * [REST API](/rest/api/batchservice/task/addcollection)
+    * [API REST](/rest/api/batchservice/task/addcollection)
     * [API Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
-    * [API do Node.js](/javascript/api/azure-batch/task?view=azure-node-latest)
+    * [API do Node.js](/javascript/api/@azure/batch/task?view=azure-node-latest)
 
   Ao usar essas APIs, você precisa fornecer a lógica para dividir o número de tarefas para atender ao limite da coleção e manipular erros e repetições caso a adição de tarefas falhe. Se uma coleção de tarefas for muito grande para ser adicionada, a solicitação gerará um erro e deverá ser repetida novamente com menos tarefas.
 
@@ -52,15 +52,15 @@ O tamanho máximo da coleção de tarefas que você pode adicionar em uma única
 
 Pode levar algum tempo para adicionar uma grande coleção de tarefas a um trabalho, por exemplo, até 1 minuto para adicionar 20.000 tarefas por meio da API do .NET. Dependendo da API do lote e da carga de trabalho, você pode melhorar a taxa de transferência da tarefa modificando uma ou mais das seguintes opções:
 
-* **Tamanho da tarefa** : a adição de tarefas grandes demora mais do que a adição de partes menores. Para reduzir o tamanho de cada tarefa em uma coleção, você pode simplificar a linha de comando da tarefa, reduzir o número de variáveis de ambiente ou tratar requisitos para a execução da tarefa com mais eficiência. Por exemplo, em vez de usar um grande número de arquivos de recursos, instale dependências de tarefas usando uma [tarefa inicial](batch-api-basics.md#start-task) no pool ou use um [pacote de aplicativos](batch-application-packages.md) ou um [contêiner](batch-docker-container-workloads.md)do Docker.
+* **Tamanho da tarefa** : a adição de tarefas grandes demora mais do que a adição de partes menores. Para reduzir o tamanho de cada tarefa em uma coleção, você pode simplificar a linha de comando da tarefa, reduzir o número de variáveis de ambiente ou tratar requisitos para a execução da tarefa com mais eficiência. Por exemplo, em vez de usar um grande número de arquivos de recursos, instale dependências de tarefas usando uma [tarefa inicial](batch-api-basics.md#start-task) no pool ou use um [pacote de aplicativos](batch-application-packages.md) ou um [contêiner do Docker](batch-docker-container-workloads.md).
 
-* **Número de operações paralelas** – dependendo da API do lote, aumente a taxa de transferência aumentando o número máximo de operações simultâneas pelo cliente do lote. Defina essa configuração usando a propriedade [BatchClientParallelOptions. MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) na API do .net ou o `threads` parâmetro de métodos como [TaskOperations. Adicione _Collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python) na extensão do SDK do Python do lote. (Essa propriedade não está disponível no SDK do Python do lote nativo.) Por padrão, essa propriedade é definida como 1, mas a define como maior para melhorar a taxa de transferência de operações. Você compensa o aumento da taxa de transferência consumindo largura de banda de rede e algum desempenho de CPU. A taxa de transferência da tarefa aumenta em até `MaxDegreeOfParallelism` 100 `threads`vezes o ou o. Na prática, você deve definir o número de operações simultâneas abaixo de 100. 
+* **Número de operações paralelas** – dependendo da API do lote, aumente a taxa de transferência aumentando o número máximo de operações simultâneas pelo cliente do lote. Defina essa configuração usando a propriedade [BatchClientParallelOptions. MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) na API do .net ou o parâmetro `threads` de métodos como [TaskOperations. add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python) na extensão do SDK do Python do lote. (Essa propriedade não está disponível no SDK do Python do lote nativo.) Por padrão, essa propriedade é definida como 1, mas a define como maior para melhorar a taxa de transferência de operações. Você compensa o aumento da taxa de transferência consumindo largura de banda de rede e algum desempenho de CPU. A taxa de transferência da tarefa aumenta em até 100 vezes o `MaxDegreeOfParallelism` ou `threads`. Na prática, você deve definir o número de operações simultâneas abaixo de 100. 
  
   A extensão da CLI do lote do Azure com modelos de lote aumenta o número de operações simultâneas automaticamente com base no número de núcleos disponíveis, mas essa propriedade não é configurável na CLI. 
 
 * **Limites de conexão http** – o número de conexões http simultâneas pode limitar o desempenho do cliente de lote quando ele está adicionando um grande número de tarefas. O número de conexões HTTP é limitado a determinadas APIs. Ao desenvolver com a API do .NET, por exemplo, a propriedade [ServicePointManager. DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) é definida como 2 por padrão. Recomendamos que você aumente o valor para um número próximo ou maior que o número de operações paralelas.
 
-## <a name="example-batch-net"></a>Exemplo: .NET do Batch
+## <a name="example-batch-net"></a>Exemplo: .NET do lote
 
 Os trechos de código a seguir C# mostram as configurações a serem definidas ao adicionar um grande número de tarefas usando a API .net do lote.
 
@@ -84,11 +84,11 @@ await batchClient.JobOperations.AddTaskAsync(jobId, tasksToAdd, parallelOptions)
 ```
 
 
-## <a name="example-batch-cli-extension"></a>Exemplo: Extensão da CLI do lote
+## <a name="example-batch-cli-extension"></a>Exemplo: extensão da CLI do lote
 
 Usando as extensões da CLI do lote do Azure com [modelos de CLI do lote](batch-cli-templates.md), crie um arquivo JSON de modelo de trabalho que inclui uma fábrica de [tarefas](https://github.com/Azure/azure-batch-cli-extensions/blob/master/doc/taskFactories.md). A fábrica de tarefas configura uma coleção de tarefas relacionadas para um trabalho de uma única definição de tarefa.  
 
-Veja a seguir um modelo de trabalho de exemplo para um trabalho de limpeza paramétrica unidimensional com um grande número de tarefas – nesse caso, 250.000. A linha de comando da tarefa é `echo` um comando simples.
+Veja a seguir um modelo de trabalho de exemplo para um trabalho de limpeza paramétrica unidimensional com um grande número de tarefas – nesse caso, 250.000. A linha de comando da tarefa é um simples comando `echo`.
 
 ```json
 {
@@ -127,7 +127,7 @@ Veja a seguir um modelo de trabalho de exemplo para um trabalho de limpeza param
 ```
 Para executar um trabalho com o modelo, consulte [usar modelos da CLI do lote do Azure e transferência de arquivos](batch-cli-templates.md).
 
-## <a name="example-batch-python-sdk-extension"></a>Exemplo: Extensão do SDK do Python do lote
+## <a name="example-batch-python-sdk-extension"></a>Exemplo: extensão do SDK do Python do lote
 
 Para usar a extensão do SDK do Python do lote do Azure, primeiro instale o SDK do Python e a extensão:
 
@@ -154,7 +154,7 @@ tasks = list()
 ...
 ```
 
-Adicione a coleção de tarefas usando a [tarefa. Adicione _Collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python). Defina o `threads` parâmetro para aumentar o número de operações simultâneas:
+Adicione a coleção de tarefas usando [Task. add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python). Defina o parâmetro `threads` para aumentar o número de operações simultâneas:
 
 ```python
 try:
@@ -200,7 +200,7 @@ job_json = client.job.expand_template(parameter_sweep)
 job_parameter = client.job.jobparameter_from_json(job_json)
 ```
 
-Adicione os parâmetros de trabalho ao trabalho. Defina o `threads` parâmetro para aumentar o número de operações simultâneas:
+Adicione os parâmetros de trabalho ao trabalho. Defina o parâmetro `threads` para aumentar o número de operações simultâneas:
 
 ```python
 try:
@@ -209,7 +209,7 @@ except Exception as e:
     raise e
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre como usar a extensão da CLI do lote do Azure com [modelos da CLI do lote](batch-cli-templates.md).
 * Saiba mais sobre a [extensão do SDK do Python do lote](https://pypi.org/project/azure-batch-extensions/).

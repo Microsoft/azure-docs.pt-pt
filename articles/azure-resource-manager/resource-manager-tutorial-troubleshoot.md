@@ -1,24 +1,16 @@
 ---
-title: Solucionar problemas de implantações do Resource Manager | Microsoft Docs
+title: Resolução de problemas de implementações
 description: Saiba como monitorar e solucionar problemas Azure Resource Manager implantações de modelo. Mostra os logs de atividade e o histórico de implantação.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4ad32ed83d731a26b6bb72fca230d00d5465c45a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: be390b35a69f44aae38bec100deb2d3c07ad6355
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390215"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149328"
 ---
 # <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Tutorial: solucionar problemas de implantações de modelo do Resource Manager
 
@@ -101,7 +93,7 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 
 O erro de implantação pode ser encontrado no portal do Azure usando o seguinte procedimento:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 2. Abra o grupo de recursos selecionando **grupos de recursos** e o nome do grupo de recursos. Você deverá ver **1 com falha** na **implantação**.
 
     ![Solução de problemas do tutorial do Gerenciador de recursos](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
@@ -115,8 +107,8 @@ O erro de implantação pode ser encontrado no portal do Azure usando o seguinte
 
 Você também pode encontrar o erro nos logs de atividade:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **Monitor** > **log de atividades**.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+2. Selecione **monitorar** > **log de atividades**.
 3. Use os filtros para localizar o log.
 
     ![Solução de problemas do tutorial do Gerenciador de recursos](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-activity-log.png)

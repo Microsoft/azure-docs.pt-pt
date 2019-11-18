@@ -2,23 +2,17 @@
 title: Provisionar aplicativo Web com o cache do Azure para Redis
 description: Use Azure Resource Manager modelo para implantar o aplicativo Web com o cache do Azure para Redis.
 services: app-service
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 6e99c71f-ef8e-4570-a307-e4c059e60c35
 ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
-ms.openlocfilehash: b28ed58159545bca10ec89375b82b9c97ae38630
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8e15d51062993bc6e9913d49d3fe67c1a8b9cd03
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098230"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122629"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Criar um aplicativo Web mais o cache do Azure para Redis usando um modelo
 
@@ -46,7 +40,7 @@ Para executar automaticamente a implementação, clique no seguinte botão:
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## <a name="variables-for-names"></a>Variáveis para nomes
-Este modelo usa variáveis para construir nomes para os recursos. Ele usa a [](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) função uniquestring para construir um valor com base na ID do grupo de recursos.
+Este modelo usa variáveis para construir nomes para os recursos. Ele usa a função [uniquestring](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) para construir um valor com base na ID do grupo de recursos.
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -83,7 +77,7 @@ O modelo cria o cache no mesmo local que o grupo de recursos.
 
 
 ### <a name="web-app"></a>Aplicação Web
-Cria o aplicativo Web com o nome especificado na variável WebSiteName.
+Cria o aplicativo Web com o nome especificado na variável **WebSiteName** .
 
 Observe que o aplicativo Web está configurado com propriedades de configuração de aplicativo que o habilitam a trabalhar com o cache do Azure para Redis. Essas configurações de aplicativo são criadas dinamicamente com base nos valores fornecidos durante a implantação.
 

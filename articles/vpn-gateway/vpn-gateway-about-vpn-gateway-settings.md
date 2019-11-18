@@ -1,5 +1,5 @@
 ---
-title: Configurações de gateway de VPN para conexões entre locais do Azure | Microsoft Docs
+title: 'Gateway de VPN do Azure: definições de configuração'
 description: Saiba mais sobre as configurações de gateway de VPN para gateways de rede virtual do Azure.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 64a162b9d2f83b4bc703f5912116fd302fcb601c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c72b85bc978191744c55afb73973caa6d3b45db6
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495763"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150957"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre as definições de configuração do gateway de VPN
 

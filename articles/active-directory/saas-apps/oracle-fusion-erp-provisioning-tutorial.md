@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Oracle Fusion ERP para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: configurar o Oracle Fusion ERP para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Oracle Fusion ERP.
 services: active-directory
 documentationcenter: ''
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
-ms.author: zhchia
-ms.openlocfilehash: 4ecb0189736ca2787f0725fb471ef8a22252185c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.author: Zhchia
+ms.openlocfilehash: 73991efa2e98ff033987f1ce172d24fe3ecddb96
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642049"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144567"
 ---
-# <a name="tutorial-configure-oracle-fusion-erp-for-automatic-user-provisioning"></a>Tutorial: Configurar o Oracle Fusion ERP para provisionamento automático de usuário
+# <a name="tutorial-configure-oracle-fusion-erp-for-automatic-user-provisioning"></a>Tutorial: configurar o Oracle Fusion ERP para provisionamento automático de usuário
 
 O objetivo deste tutorial é demonstrar as etapas a serem executadas no Oracle Fusion ERP e Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos para o Oracle Fusion ERP.
 
 > [!NOTE]
->  Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter detalhes importantes sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte automatizar o [provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../manage-apps/user-provisioning.md).
+>  Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter detalhes importantes sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../manage-apps/user-provisioning.md).
 >
 > Este conector está atualmente em visualização. Para obter mais informações sobre os termos de uso geral de Microsoft Azure para recursos de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
@@ -36,7 +36,7 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no Oracle F
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um locatário do Azure AD
-* [Um locatário do Oracle Fusion ERP](https://www.oracle.com/applications/erp/).
+* Um [locatário do Oracle Fusion ERP](https://www.oracle.com/applications/erp/).
 * Uma conta de usuário no Oracle Fusion ERP com permissões de administrador.
 
 ## <a name="assign-users-to-oracle-fusion-erp"></a>Atribuir usuários ao Oracle Fusion ERP 
@@ -52,7 +52,7 @@ Antes de configurar e habilitar o provisionamento automático de usuário, você
 
 * Ao atribuir um usuário ao Oracle Fusion ERP, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de acesso padrão são excluídos do provisionamento.
 
-## <a name="setup-oracle-fusion-erp-for-provisioning"></a>Configurar o Oracle Fusion ERP para provisionamento
+## <a name="set-up-oracle-fusion-erp-for-provisioning"></a>Configurar o Oracle Fusion ERP para provisionamento
 
 Antes de configurar o Oracle Fusion ERP para o provisionamento automático de usuário com o Azure AD, você precisará habilitar o provisionamento do SCIM no Oracle Fusion ERP.
 
@@ -95,11 +95,14 @@ Para configurar o Oracle Fusion ERP para o provisionamento automático de usuár
 Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no Oracle Fusion ERP com base em atribuições de usuário e/ou grupo no Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para Oracle Fusion ERP, seguindo as instruções fornecidas no tutorial de [logon único do ERP do Oracle Fusion](oracle-fusion-erp-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
+> Você também pode optar por habilitar o logon único baseado em SAML para Oracle Fusion ERP seguindo as instruções fornecidas no [tutorial de logon único do Oracle Fusion ERP](oracle-fusion-erp-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
+
+> [!NOTE]
+> Para saber mais sobre o ponto de extremidade SCIM do Oracle Fusion ERP, consulte [API REST para recursos comuns na nuvem de aplicativos Oracle](https://docs.oracle.com/en/cloud/saas/applications-common/18b/farca/index.html).
 
 ### <a name="to-configure-automatic-user-provisioning-for-fuze-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para Fuze no Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
     ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
@@ -115,41 +118,55 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` a **URL de locatário**. Insira o nome de usuário e a senha do administrador recuperados anteriormente nos campos nome de usuários e **senha** do **administrador** . Clique em **testar conexão** entre o Azure AD e o Oracle Fusion ERP. 
+5. Na seção **credenciais de administrador** , insira `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` na **URL do locatário**. Insira o nome de usuário e a senha do administrador recuperados anteriormente nos campos nome de usuários e **senha** do **administrador** . Clique em **testar conexão** entre o Azure AD e o Oracle Fusion ERP. 
 
     ![Adicionar SCIM do Oracle Fusion ERP](media/oracle-fusion-erp-provisioning-tutorial/admin.png)
 
 6. No campo **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e marque a caixa de seleção- **Enviar uma notificação por email quando ocorrer uma falha**.
 
-    ![E-mail de Notificação](common/provisioning-notification-email.png)
+    ![Email de notificação](common/provisioning-notification-email.png)
 
 7. Clique em **Guardar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários com o Oracle Fusion ERP**.
 
     ![Adicionar SCIM do Oracle Fusion ERP](media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png)
-    
+
 9. Examine os atributos de usuário que são sincronizados do Azure AD para o Oracle Fusion ERP na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Oracle Fusion ERP para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
 
     ![Adicionar SCIM do Oracle Fusion ERP](media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png)
 
-10. Para configurar filtros de escopo, consulte as instruções a seguir fornecidas no [tutorial de filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para o Oracle Fusion ERP**.
 
-11. Para habilitar o serviço de provisionamento do Azure AD para Oracle Fusion ERP, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+    ![Mapeamentos de Grupo ERP do Oracle Fusion](media/oracle-fusion-erp-provisioning-tutorial/groupmappings.png)
+
+11. Examine os atributos de grupo que são sincronizados do Azure AD para o Oracle Fusion ERP na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no Oracle Fusion ERP para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
+
+    ![Atributos de Grupo ERP do Oracle Fusion](media/oracle-fusion-erp-provisioning-tutorial/groupattributes.png)
+
+12. Para configurar filtros de escopo, consulte as instruções a seguir fornecidas no [tutorial de filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Para habilitar o serviço de provisionamento do Azure AD para Oracle Fusion ERP, altere o **status de provisionamento** para **ativado** na seção **configurações** .
 
     ![Status de provisionamento alternado em](common/provisioning-toggle-on.png)
 
-12. Defina os usuários e/ou grupos que você deseja provisionar para o Oracle Fusion ERP escolhendo os valores desejados no **escopo** na seção **configurações** .
+14. Defina os usuários e/ou grupos que você deseja provisionar para o Oracle Fusion ERP escolhendo os valores desejados no **escopo** na seção **configurações** .
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-13. Quando estiver pronto para provisionar, clique em **salvar**.
+15. Quando estiver pronto para provisionar, clique em **salvar**.
 
     ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
 
     Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **escopo** na seção **configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Oracle Fusion ERP.
 
-    Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de conta de usuário](../manage-apps/check-status-user-account-provisioning.md)
+    Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+
+## <a name="connector-limitations"></a>Limitações do conector
+
+* O Oracle Fusion ERP só dá suporte à autenticação básica para seu ponto de extremidade SCIM.
+* O Oracle Fusion ERP não dá suporte ao provisionamento de grupo.
+* As funções no Oracle Fusion ERP são mapeadas para grupos no Azure AD. Para atribuir funções a usuários no Oracle Fusion ERP do Azure AD, você precisará atribuir usuários aos grupos do Azure AD desejados que são nomeados após funções no Oracle Fusion ERP.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

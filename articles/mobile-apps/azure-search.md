@@ -7,12 +7,12 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: 1e3e198c38215ceacbe43961bf93ab906e5ccc09
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 335df16e6a6436485521611aee0f0a62edca8a3b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73846267"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123451"
 ---
 # <a name="ai-powered-cloud-service-with-azure-cognitive-search"></a>Serviço de nuvem alimentado por ia com o Azure Pesquisa Cognitiva
 O [Azure pesquisa cognitiva](https://azure.microsoft.com/services/search/) é uma solução de nuvem de pesquisa como serviço que oferece aos desenvolvedores APIs e ferramentas para adicionar uma experiência de pesquisa avançada sobre conteúdo privado e heterogêneo em aplicativos Web, móveis e empresariais. O código personalizado invoca a ingestão de dados (indexação) para criar e carregar um índice. No outro lado, o código do aplicativo emite solicitações de consulta e manipula as respostas. A experiência de pesquisa é definida em seu cliente usando a funcionalidade do Azure Pesquisa Cognitiva, com a execução da consulta em um índice persistente que você cria, possui e armazena em seu serviço.
@@ -33,7 +33,7 @@ Encontre uma descrição detalhada sobre os [recursos](/azure/search/search-what
 - [Portal do Azure](https://portal.azure.com) 
 - [Documentação](/azure/search/)
 - [Guia para programadores](https://azure.microsoft.com/resources/iot-developers-guide/)
-- [Como usar o Azure Pesquisa Cognitiva](/azure/search/search-what-is-azure-search#how-to-use-azure-search)
+- [Como usar o Azure Pesquisa Cognitiva](/azure/search/search-what-is-azure-search#how-to-use-azure-cognitive-search)
 - [Inícios rápidos](/azure/search/search-create-service-portal)
 
   

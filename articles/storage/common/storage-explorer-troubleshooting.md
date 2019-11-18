@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: ca9b4b337eed54f02f42cad53d22387eace6b76c
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 4aa9e93831b902ff9f0a0659c650cd2ca123b1a3
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694702"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74124021"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas Gerenciador de Armazenamento do Azure
 
@@ -29,7 +29,7 @@ O [RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) de
 
 Se você estiver tendo problemas para acessar os recursos de armazenamento por meio do RBAC, talvez você não tenha atribuído as funções apropriadas. As seções a seguir descrevem as permissões Gerenciador de Armazenamento atualmente exige o acesso aos recursos de armazenamento. Entre em contato com o administrador da conta do Azure se você não tiver certeza de que tem as funções ou permissões apropriadas.
 
-#### <a name="read-listget-storage-accounts-permissions-issue"></a>Leitura Problema de permissões para listar/obter conta (s) de armazenamento
+#### <a name="read-listget-storage-accounts-permissions-issue"></a>Problema de permissões de "leitura: listar/obter conta de armazenamento"
 
 Você deve ter permissão para listar contas de armazenamento. Para obter essa permissão, você deve receber a função _leitor_ .
 
@@ -58,9 +58,9 @@ Se você não tiver uma função que conceda permissões de camada de gerenciame
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>E se eu não conseguir obter as permissões da camada de gerenciamento que preciso do meu administrador?
 
-No momento, não temos uma solução relacionada a RBAC para esse problema. Como alternativa, você pode solicitar um URI de SAS para [anexar ao recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
+No momento, não temos uma solução relacionada a RBAC para esse problema. Como alternativa, você pode solicitar um URI de SAS para [anexar ao recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
-## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erro: Certificado autoassinado na cadeia de certificados (e erros semelhantes)
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erro: certificado autoassinado na cadeia de certificados (e erros semelhantes)
 
 Normalmente, os erros de certificado ocorrem em uma das seguintes situações:
 
@@ -70,24 +70,24 @@ Normalmente, os erros de certificado ocorrem em uma das seguintes situações:
 Quando Gerenciador de Armazenamento vê um certificado autoassinado ou não confiável, ele não sabe mais se a mensagem HTTPS recebida foi alterada. Se você tiver uma cópia do certificado autoassinado, poderá instruir Gerenciador de Armazenamento a confiar, seguindo estas etapas:
 
 1. Obtenha uma cópia X. 509 (. cer) codificada em base-64 do certificado.
-2. Vá para **Editar** > certificados**SSL** > **importar certificados**e, em seguida, use o seletor de arquivos para localizar, selecionar e abrir o arquivo. cer.
+2. Vá para **editar** > **certificados SSL** > **importar certificados**e, em seguida, use o seletor de arquivos para localizar, selecionar e abrir o arquivo. cer.
 
 Esse problema também pode ocorrer se houver vários certificados (raiz e intermediário). Para corrigir esse erro, ambos os certificados devem ser adicionados.
 
 Se você não tiver certeza de onde o certificado provém, siga estas etapas para encontrá-lo:
 
 1. Instale o OpenSSL.
-    * [Windows](https://slproweb.com/products/Win32OpenSSL.html): Qualquer uma das versões leves deve ser suficiente.
-    * Mac e Linux: Deve ser incluído no seu sistema operacional.
+    * [Windows](https://slproweb.com/products/Win32OpenSSL.html): qualquer uma das versões leves deve ser suficiente.
+    * Mac e Linux: devem ser incluídos no seu sistema operacional.
 2. Execute o OpenSSL.
     * Windows: Abra o diretório de instalação, selecione **/bin/** e clique duas vezes em **OpenSSL. exe**.
-    * Mac e Linux: Executar `openssl` de um terminal.
+    * Mac e Linux: execute `openssl` de um terminal.
 3. Execute `s_client -showcerts -connect microsoft.com:443`.
-4. Procure certificados autoassinados. Se você não tiver certeza de quais certificados são autoassinados, anote em qualquer lugar que o `("s:")` assunto e o `("i:")` emissor sejam os mesmos.
-5. Quando você encontrar certificados autoassinados, para cada um, copie e cole tudo de (e incluindo) `-----BEGIN CERTIFICATE-----` por `-----END CERTIFICATE-----` meio de um novo arquivo. cer.
-6. Abra Gerenciador de armazenamento e acesse **Editar** > certificados**SSL** > **importar certificados**. Em seguida, use o seletor de arquivos para localizar, selecionar e abrir os arquivos. cer que você criou.
+4. Procure certificados autoassinados. Se você não tiver certeza de quais certificados são autoassinados, anote em qualquer lugar que o assunto `("s:")` e `("i:")` do emissor sejam os mesmos.
+5. Quando você encontrar certificados autoassinados, para cada um, copie e cole tudo de (e incluindo) `-----BEGIN CERTIFICATE-----` por meio de `-----END CERTIFICATE-----` em um novo arquivo. cer.
+6. Abra Gerenciador de Armazenamento e vá para **editar** > **certificados SSL** > **importar certificados**. Em seguida, use o seletor de arquivos para localizar, selecionar e abrir os arquivos. cer que você criou.
 
-Se você não encontrar certificados autoassinados seguindo estas etapas, entre em contato conosco por meio da ferramenta de comentários. Você também pode abrir Gerenciador de armazenamento na linha de comando usando o `--ignore-certificate-errors` sinalizador. Quando aberto com esse sinalizador, Gerenciador de Armazenamento ignora erros de certificado.
+Se você não encontrar certificados autoassinados seguindo estas etapas, entre em contato conosco por meio da ferramenta de comentários. Você também pode abrir Gerenciador de Armazenamento na linha de comando usando o sinalizador `--ignore-certificate-errors`. Quando aberto com esse sinalizador, Gerenciador de Armazenamento ignora erros de certificado.
 
 ## <a name="sign-in-issues"></a>Problemas de início de sessão
 
@@ -95,7 +95,7 @@ Se você não encontrar certificados autoassinados seguindo estas etapas, entre 
 
 Caixas de diálogo de entrada em branco ocorrem com mais frequência quando Serviços de Federação do Active Directory (AD FS) (AD FS) solicita Gerenciador de Armazenamento para executar um redirecionamento, o que não é suportado pelo de todos os. Para contornar esse problema, você pode tentar usar o fluxo de código do dispositivo para entrar. Para fazer isso, siga estas etapas:
 
-1. No menu, acesse **Visualização** > **usar entrada de código de dispositivo**.
+1. No menu, acesse **visualização** > **usar entrada de código de dispositivo**.
 2. Abra a caixa de diálogo **conectar** (por meio do ícone de plugue na barra vertical do lado esquerdo ou selecionando **adicionar conta** no painel de conta).
 3. Escolha o ambiente no qual você deseja entrar.
 4. Selecione **entrar**.
@@ -165,7 +165,7 @@ Se não for possível remover uma conta anexada ou um recurso de armazenamento p
 > Feche Gerenciador de Armazenamento antes de excluir essas pastas.
 
 > [!NOTE]
-> Se você já importou qualquer certificado SSL, faça backup do conteúdo do `certs` diretório. Posteriormente, você pode usar o backup para reimportar seus certificados SSL.
+> Se você já importou qualquer certificado SSL, faça backup do conteúdo do diretório `certs`. Posteriormente, você pode usar o backup para reimportar seus certificados SSL.
 
 ## <a name="proxy-issues"></a>Problemas de proxy
 
@@ -216,7 +216,7 @@ Se você receber essa mensagem de erro, é possível que você não tenha as per
 
 Se você vir as chaves de conta, execute um problema no GitHub para que possamos ajudá-lo a resolver o problema.
 
-## <a name="error-occurred-while-adding-new-connection-typeerror-cannot-read-property-version-of-undefined"></a>Ocorreu um erro ao adicionar uma nova conexão: TypeError: Não é possível ler a propriedade ' version ' de undefined
+## <a name="error-occurred-while-adding-new-connection-typeerror-cannot-read-property-version-of-undefined"></a>Ocorreu um erro ao adicionar uma nova conexão: TypeError: não é possível ler a propriedade ' version ' de undefined
 
 Se você receber essa mensagem de erro ao tentar adicionar uma conexão personalizada, os dados de conexão armazenados no Gerenciador de credenciais local poderão estar corrompidos. Para contornar esse problema, tente excluir as conexões locais corrompidas e, em seguida, adicione-as novamente:
 
@@ -228,13 +228,13 @@ Se você receber essa mensagem de erro ao tentar adicionar uma conexão personal
     * Contêineres de BLOB
         * `StorageExplorer_CustomConnections_Blobs_v1`
         * `StorageExplorer_CustomConnections_Blobs_v2`
-    * Partilhas de ficheiros
+    * Partilhas de Ficheiros
         * `StorageExplorer_CustomConnections_Files_v1`
     * Filas
         * `StorageExplorer_CustomConnections_Queues_v1`
     * Tabelas
         * `StorageExplorer_CustomConnections_Tables_v1`
-4. Depois de salvar os nomes de conexão atuais, defina o valor em Ferramentas para Desenvolvedores `[]`como.
+4. Depois de salvar os nomes de conexão atuais, defina o valor em Ferramentas para Desenvolvedores como `[]`.
 
 Se desejar preservar as conexões que não estão corrompidas, você poderá usar as etapas a seguir para localizar as conexões corrompidas. Se você não se lembrar de perder todas as conexões existentes, poderá ignorar essas etapas e seguir as instruções específicas da plataforma para limpar os dados de conexão.
 
@@ -248,13 +248,13 @@ Depois de passar por todas as suas conexões, para todos os nomes de conexões q
 
 1. No menu **Iniciar** , pesquise por **Gerenciador de credenciais** e abra-o.
 2. Vá para **credenciais do Windows**.
-3. Em **credenciais genéricas**, procure entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+3. Em **credenciais genéricas**, procure entradas que tenham a chave de `<connection_type_key>/<corrupted_connection_name>` (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 4. Exclua essas entradas e adicione novamente as conexões.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macOS)
 
 1. Abra o Spotlight (Command + barra de espaços) e pesquise por acesso ao conjunto de **chaves**.
-2. Procure entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+2. Procure entradas que tenham a chave de `<connection_type_key>/<corrupted_connection_name>` (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 3. Exclua essas entradas e adicione novamente as conexões.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/Linux)
@@ -262,7 +262,7 @@ Depois de passar por todas as suas conexões, para todos os nomes de conexões q
 O gerenciamento de credenciais locais varia dependendo da distribuição do Linux. Se sua distribuição do Linux não fornecer uma ferramenta interna de GUI para o gerenciamento de credenciais local, você poderá instalar uma ferramenta de terceiros para gerenciar suas credenciais locais. Por exemplo, você pode usar o [macavalo](https://wiki.gnome.org/Apps/Seahorse/), uma ferramenta de GUI de software livre para gerenciar as credenciais locais do Linux.
 
 1. Abra sua ferramenta de gerenciamento de credenciais local e localize suas credenciais salvas.
-2. Procure entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+2. Procure entradas que tenham a chave de `<connection_type_key>/<corrupted_connection_name>` (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 3. Exclua essas entradas e adicione novamente as conexões.
 ---
 
@@ -279,8 +279,8 @@ Se você estiver se conectando a um serviço por meio de uma URL SAS e ocorrendo
 Se você anexou acidentalmente usando uma URL SAS inválida e agora não puder desanexar, siga estas etapas:
 
 1. Quando estiver executando Gerenciador de Armazenamento, pressione F12 para abrir a janela Ferramentas para Desenvolvedores.
-2. Na guia **aplicativo** , selecione **armazenamento** > local**file://** na árvore à esquerda.
-3. Localize a chave associada ao tipo de serviço do URI de SAS problemático. Por exemplo, se o URI de SAS inválidos for para um contêiner de BLOB, procure `StorageExplorer_AddStorageServiceSAS_v1_blob`a chave chamada.
+2. Na guia **aplicativo** , selecione **armazenamento local** > **file://** na árvore à esquerda.
+3. Localize a chave associada ao tipo de serviço do URI de SAS problemático. Por exemplo, se o URI de SAS inadequado for para um contêiner de BLOB, procure a chave chamada `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4. O valor da chave deve ser uma matriz JSON. Localize o objeto associado ao URI inadequado e, em seguida, exclua-o.
 5. Pressione CTRL + R para recarregar Gerenciador de Armazenamento.
 
@@ -351,10 +351,10 @@ Esses pacotes são os requisitos mais comuns para Gerenciador de Armazenamento n
 Para Gerenciador de Armazenamento 1.7.0 ou anterior, talvez seja necessário corrigir a versão do .NET Core usada pelo Gerenciador de Armazenamento:
 
 1. Baixe a versão 1.5.43 do StreamJsonRpc [do NuGet](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Procure o link "baixar pacote" no lado direito da página.
-2. Depois de baixar o pacote, altere sua extensão de arquivo `.nupkg` de `.zip`para.
+2. Depois de baixar o pacote, altere sua extensão de arquivo de `.nupkg` para `.zip`.
 3. Descompacte o pacote.
 4. Abra o `streamjsonrpc.1.5.43/lib/netstandard1.1/` pasta.
-5. Copie `StreamJsonRpc.dll` para os seguintes locais na pasta gerenciador de armazenamento:
+5. Copie `StreamJsonRpc.dll` para os seguintes locais na pasta Gerenciador de Armazenamento:
    * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
    * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 

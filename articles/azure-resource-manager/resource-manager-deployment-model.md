@@ -1,19 +1,16 @@
 ---
-title: Implementação Resource Manager e implementação clássica | Microsoft Docs
+title: Implementação clássica e Resource Manager
 description: Descreve as diferenças entre o modelo de implementação Resource Manager e o modelo de implementação clássica (ou Gestão de Serviço).
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.author: tomfitz
-ms.openlocfilehash: 9356a1603a39f2ac4d18b27445bf0f8d3a555d7e
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 3cca9c71c754b39d065a599c5bb116176ec89408
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982460"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150603"
 ---
-# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Implantação do Azure Resource Manager vs. clássicas: Entenda os modelos de implantação e o estado de seus recursos
+# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Implementação Azure Resource Manager vs. implementação clássica: Compreender os modelos de implementação e o estado dos seus recursos.
 
 > [!NOTE]
 > As informações fornecidas neste artigo destinam-se a ser utilizadas apenas quando migra da implementação clássica para a implementação do Azure Resource Manager.
@@ -148,7 +145,7 @@ Toda a automatização e os scripts que criou vão continuar a funcionar nas má
 
 Pode encontrar um conjunto abrangente de modelos iniciais em [Modelos de Início Rápido do Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter orientações para a criação de um modelo que define uma máquina virtual, uma conta de armazenamento e uma rede virtual, veja [Orientações para modelos do Resource Manager](resource-manager-template-walkthrough.md).
 * Para ver os comandos para implementar um modelo, veja [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md) (Implementar uma aplicação com um modelo do Azure Resource Manager).

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4ee9bf218765ea4c3966e7f0a8b20a8108de7655
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 4af238241293f32be296e7a4243b0d2a6fef15dd
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931917"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74152027"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Início rápido: usar um modelo de capacidade de dispositivo para criar um dispositivo de visualização de Plug and Play IoT (Windows)
 
@@ -46,36 +46,7 @@ Você pode encontrar a _cadeia de conexão do repositório de modelos da empresa
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prepare-an-iot-hub"></a>Preparar um hub IoT
-
-Você também precisa de um hub IoT do Azure em sua assinatura do Azure para concluir este guia de início rápido. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. Se você não tiver um hub IoT, siga [estas instruções para criar um](../iot-hub/iot-hub-create-using-cli.md).
-
-> [!IMPORTANT]
-> Durante a visualização pública, os recursos de Plug and Play de IoT só estão disponíveis em hubs IoT criados nas regiões **EUA Central**, **Europa setentrional**e **leste do Japão** .
-
-Execute o comando a seguir para adicionar a extensão de IoT Microsoft Azure para CLI do Azure à sua instância de Cloud Shell:
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-Execute o comando a seguir para criar a identidade do dispositivo em seu hub IoT. Substitua os espaços reservados **nomedoseuhubiot** e **YourDevice** por seus nomes reais.
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDevice>
-```
-
-Execute o seguinte comando para obter a _cadeia de ligação do dispositivo_ do dispositivo que acabou de registar:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
-```
-
-Execute o seguinte comando para obter a _cadeia de conexão do Hub IOT_ para o Hub:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub-windows.md](../../includes/iot-pnp-prepare-iot-hub-windows.md)]
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
 
@@ -212,11 +183,11 @@ Para validar o código do dispositivo com o **Azure IOT Explorer**, você precis
 
 1. Insira a _cadeia de conexão do Hub IOT_ e selecione **conectar**.
 
-1. Depois de se conectar, você verá a página Visão geral do dispositivo.
+1. Depois de se conectar, você verá a página Visão geral de **dispositivos** .
 
 1. Para adicionar o repositório de sua empresa, selecione **configurações**e **+ Adicionar fonte de definição de módulo**e **repositório da empresa**. Adicione a cadeia de conexão do repositório de modelos da empresa e selecione **salvar e conectar**.
 
-1. Na página Visão geral do dispositivo, localize a identidade do dispositivo que você criou anteriormente e selecione-a para exibir mais detalhes.
+1. De volta à página Visão geral de **dispositivos** , localize a identidade do dispositivo que você criou anteriormente. Com o aplicativo do dispositivo ainda em execução no prompt de comando, verifique se o **estado da conexão** do dispositivo no Azure IOT Explorer está relatando como _conectado_ (caso contrário, pressione **Atualizar** até que ele esteja). Selecione o dispositivo para exibir mais detalhes.
 
 1. Expanda a interface com ID **urn: < YOUR_INTERFACE_NAME >: EnvironmentalSensor: 1** para ver os primitivos de plug and Play IOT-Propriedades, comandos e telemetria. O nome da interface que aparecerá é o nome que você colocou ao criar seu modelo.
 
@@ -226,7 +197,7 @@ Para validar o código do dispositivo com o **Azure IOT Explorer**, você precis
 
 1. Selecione a página **Propriedades (gravável)** para exibir as propriedades graváveis que você pode atualizar.
 
-1. Expanda **nome**da propriedade, atualize com um novo nome e selecione **Atualizar propriedade gravável**.
+1. Expanda **nome**da propriedade, atualize com um novo nome e selecione **Atualizar propriedade gravável**. 
 
 1. Para ver o novo nome aparecer na coluna **Propriedade relatada** , selecione o botão **Atualizar** na parte superior da página.
 
@@ -235,6 +206,8 @@ Para validar o código do dispositivo com o **Azure IOT Explorer**, você precis
 1. Expanda o comando **intermitência** e defina um novo intervalo de tempo de intermitência. Selecione **Enviar comando** para chamar o comando no dispositivo.
 
 1. Acesse o prompt de comando do dispositivo simulado e leia as mensagens de confirmação impressas para verificar se os comandos foram executados conforme o esperado.
+
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

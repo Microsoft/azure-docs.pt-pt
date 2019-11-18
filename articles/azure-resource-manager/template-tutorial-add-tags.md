@@ -1,19 +1,16 @@
 ---
-title: Tutorial – adicionar marcas a recursos em um modelo de Azure Resource Manager
+title: Tutorial – adicionar marcas a recursos no modelo
 description: Adicione marcas aos recursos que você implanta em seu modelo de Azure Resource Manager. As marcas permitem que você organize os recursos logicamente.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8b6ff50f7254a51bcdf37ecb0afd8f0041a2c5da
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 663de1e341815eac039c49cee63f8a492b0cb7a9
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177575"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150181"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Tutorial: adicionar marcas em seu modelo do Resource Manager
 
@@ -75,7 +72,7 @@ az group deployment create \
 
 Você pode verificar a implantação explorando o grupo de recursos do portal do Azure.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. No menu à esquerda, selecione **grupos de recursos**.
 1. Selecione o grupo de recursos no qual você implantou.
 1. Selecione um dos recursos, como o recurso da conta de armazenamento. Você verá que agora ele tem marcas.

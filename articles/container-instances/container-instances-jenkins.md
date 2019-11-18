@@ -1,6 +1,6 @@
 ---
 title: Usar instâncias de contêiner do Azure como um agente de compilação Jenkins
-description: Saiba como usar as instâncias de contêiner do Azure como um agente de compilação Jenkins.
+description: Saiba como configurar um servidor Jenkins para executar trabalhos de compilação sob demanda em instâncias de contêiner do Azure
 services: container-instances
 author: dlepow
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: ed000779940d9af7b1384873bf9fddd1cde79c71
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 7e93457a182598a2e8d739f4d626b49ff57b30fb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326023"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150212"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Usar instâncias de contêiner do Azure como um agente de compilação Jenkins
 
@@ -30,21 +30,21 @@ Para obter mais informações sobre as instâncias de contêiner do Azure, consu
    - **Nome**: Insira um nome para a implantação do Jenkins.
    - **Nome de usuário**: Insira um nome para o usuário administrador da máquina virtual Jenkins.
    - **Tipo de autenticação**: Recomendamos uma chave pública SSH para autenticação. Se você selecionar essa opção, Cole uma chave pública SSH a ser usada para fazer logon na máquina virtual Jenkins.
-   - **Assinatura**: Selecione uma subscrição do Azure.
-   - **Grupo de recursos**: Crie um grupo de recursos ou selecione um existente.
-   - **Local**: Selecione um local para o servidor Jenkins.
+   - **Subscrição**: selecione uma subscrição do Azure.
+   - **Grupo de recursos**: crie um grupo de recursos ou selecione um grupo existente.
+   - **Local**: selecione um local para o servidor Jenkins.
 
    ![Configurações básicas para a implantação do portal do Jenkins](./media/container-instances-jenkins/jenkins-portal-01.png)
 
 3. No formulário **configurações adicionais** , conclua os seguintes itens:
 
-   - **Tamanho**: Selecione a opção de dimensionamento apropriada para sua máquina virtual Jenkins.
-   - **Tipo de disco da VM**: Especifique o **HDD** (unidade de disco rígido) ou **SSD** (unidade de estado sólido) para o servidor Jenkins.
-   - **Rede virtual**: Selecione a seta se você quiser modificar as configurações padrão.
-   - **Sub-redes**: Selecione a seta, verifique as informações e selecione **OK**.
-   - **Endereço IP público**: Selecione a seta para dar ao endereço IP público um nome personalizado, configurar a SKU e definir o método de atribuição.
-   - **Rótulo de nome de domínio**: Especifique um valor para criar uma URL totalmente qualificada para a máquina virtual Jenkins.
-   - **Tipo de versão do Jenkins**: Selecione o tipo de liberação desejado nas opções: **LTS**, **compilação semanal**ou **Azure verificado**.
+   - **Tamanho**: selecione a opção de dimensionamento apropriada para sua máquina virtual Jenkins.
+   - **Tipo de disco da VM**: especifique o **HDD** (unidade de disco rígido) ou **SSD** (unidade de estado sólido) para o servidor Jenkins.
+   - **Rede virtual**: selecione a seta se desejar modificar as configurações padrão.
+   - **Sub-redes**: selecione a seta, verifique as informações e selecione **OK**.
+   - **Endereço IP público**: selecione a seta para atribuir um nome personalizado ao endereço IP público, configure a SKU e defina o método de atribuição.
+   - **Rótulo de nome de domínio**: especifique um valor para criar uma URL totalmente qualificada para a máquina virtual Jenkins.
+   - **Tipo de versão do Jenkins**: selecione o tipo de liberação desejado nas opções: **LTS**, **compilação semanal**ou **Azure verificado**.
 
    ![Configurações adicionais para a implantação do portal do Jenkins](./media/container-instances-jenkins/jenkins-portal-02.png)
 
@@ -74,7 +74,7 @@ Para obter mais informações sobre as instâncias de contêiner do Azure, consu
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
-5. Deixe a sessão SSH e o túnel em execução e vá `http://localhost:8080` para em um navegador. Cole a senha inicial do administrador na caixa e selecione **continuar**.
+5. Deixe a sessão SSH e o túnel em execução e vá para `http://localhost:8080` em um navegador. Cole a senha inicial do administrador na caixa e selecione **continuar**.
 
    ![Tela "desbloquear Jenkins" com a caixa da senha do administrador](./media/container-instances-jenkins/jenkins-portal-05.png)
 

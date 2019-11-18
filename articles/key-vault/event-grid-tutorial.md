@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 480c4c65f1bc0abe81114a2b898696e6d6b153fe
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b30e260b2eeb0d8af0c347996cdb51685dedd046
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039636"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133329"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Receber e responder a notificações do cofre de chaves com a grade de eventos do Azure (versão prévia)
 
@@ -194,8 +194,10 @@ Se você estiver usando um sistema baseado em sondagem para procurar alteraçõe
 
 Saiba mais:
 
+
+- Visão geral: [monitoramento Key Vault com a grade de eventos do Azure (versão prévia)](event-grid-overview.md)
+- Como: [receber email quando um segredo do cofre de chaves for alterado](event-grid-logicapps.md)
+- [Esquema de evento da grade de eventos do Azure para Azure Key Vault (versão prévia)](../event-grid/event-schema-key-vault.md)
 - [Visão geral de Azure Key Vault](key-vault-overview.md)
 - [Visão geral da grade de eventos do Azure](../event-grid/overview.md)
-- [Key Vault de monitoramento com a grade de eventos do Azure (versão prévia)](event-grid-overview.md)
-- [Esquema de evento da grade de eventos do Azure para Azure Key Vault (versão prévia)](../event-grid/event-schema-key-vault.md)
 - [Descrição geral da Automatização do Azure](../automation/index.yml)

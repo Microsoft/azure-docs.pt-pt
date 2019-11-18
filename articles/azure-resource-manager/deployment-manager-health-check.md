@@ -1,19 +1,16 @@
 ---
 title: Distribuição de integração de integridade-Deployment Manager do Azure
-description: Descreve como implantar um serviço em várias regiões com o Azure Deployment Manager. Ele mostra práticas de implantação segura para verificar a estabilidade de sua implantação antes de distribuir para todas as regiões.
-services: azure-resource-manager
-documentationcenter: na
+description: Descreve como implementar um serviço ao longo de várias regiões com o Gestor de implementação do Azure. Ela mostra práticas recomendadas de implantação segura para verificar a estabilidade da sua implementação antes de implementar para todas as regiões.
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: jgao
-ms.openlocfilehash: 72ddc900a892e6391d6b54046ac6f3a42358526f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 6cc21837ff08822a9eae6ae7c326142ca873df74
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528559"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149957"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduzir a distribuição de integração de integridade para o Azure Deployment Manager (visualização pública)
 
@@ -157,7 +154,7 @@ Neste ponto, o Azure Deployment Manager sabe como consultar a integridade do seu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu sobre como integrar o monitoramento de integridade no Azure Deployment Manager. Vá para o próximo artigo para aprender a implantar com o Deployment Manager.
+Neste artigo, você aprendeu sobre como integrar o monitoramento de integridade no Azure Deployment Manager. Avance para o artigo seguinte para saber como implementar com o Gestor de implementação.
 
 > [!div class="nextstepaction"]
 > [Tutorial: integrar a verificação de integridade no Azure Deployment Manager](./deployment-manager-tutorial-health-check.md)

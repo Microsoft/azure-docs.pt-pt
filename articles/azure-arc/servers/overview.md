@@ -10,12 +10,12 @@ keywords: automação do Azure, DSC, PowerShell, configuração de estado deseja
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 57dbfa0c2063c2059955294ccc1337bb76b72614
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7a2e9d39629e4fdb349652c9c48d0084d051f9f8
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606091"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122834"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>O que é o arco do Azure para servidores
 
@@ -58,7 +58,7 @@ Esses nomes DNS são fornecidos além das informações de intervalo de IP de ma
 
 | Ambiente de Domínio | Pontos finais do serviço do Azure necessários |
 |---------|---------|
-|management.azure.com|Gestor de Recursos do Azure|
+|management.azure.com|Azure Resource Manager|
 |login.windows.net|Azure Active Directory|
 |dc.services.visualstudio.com|Application Insights|
 |agentserviceapi.azure-automation.net|Configuração de Convidado|
@@ -132,13 +132,13 @@ Os dados de log coletados pelo [Microsoft Monitoring Agent (MMA)](https://docs.m
 
 - Os computadores que já têm o agente MMA instalado terão a funcionalidade de **arco do Azure** habilitada por pacotes de gerenciamento atualizados.
 - O [agente MMA versão 10.20.18011 ou superior](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#agent-and-vm-extension-version) é necessário para a integração do Azure ARC para servidores.
-- Ao consultar dados de log em [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#log-queries), o esquema de dados retornado conterá o **ResourceId** híbrido no formato `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>`.
+- Ao consultar dados de log em [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview), o esquema de dados retornado conterá o **ResourceId** híbrido no formato `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>`.
 
 Para obter mais informações, consulte Introdução [ao log Analytics no Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
 
 <!-- MMA agent version 10.20.18011 and later -->
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Há dois métodos para conectar computadores usando o Azure ARC para servidores.
 

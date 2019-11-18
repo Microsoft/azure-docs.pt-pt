@@ -1,23 +1,17 @@
 ---
-title: Modelos de reutilização entre nuvens - Azure Resource Manager
+title: Reutilizar modelos entre nuvens
 description: Desenvolva modelos Azure Resource Manager que funcionam de forma consistente para ambientes de cloud diferentes. Criar um novo ou atualizar os modelos existentes para o Azure Stack.
-services: azure-resource-manager
-documentationcenter: na
 author: marcvaneijk
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 38da6d39d095ce27cdd26719d9b8b752d2921bc0
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 2964bb4365a2c153e7bc82c3292545ad4de985eb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164771"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143768"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desenvolver modelos Azure Resource Manager para consistência de cloud
 
@@ -445,7 +439,7 @@ Espaços de nomes de ponto final podem também servir na saída de um modelo de 
 * Cadeias de ligação (MySql, SQLServer, SQL Azure, personalizado, NotificationHub, ServiceBus, EventHub, ApiHub, DocDb, RedisCache, PostgreSQL)
 * Gestor de Tráfego
 * domainNameLabel de um endereço IP público
-* Serviços em nuvem
+* Serviços Cloud
 
 Em geral, evite pontos finais de codificado num modelo. A prática recomendada é usar a função de modelo de referência para recuperar os pontos de extremidade dinamicamente. Por exemplo, o ponto final mais comumente embutido em código é o espaço de nomes de ponto final para contas de armazenamento. Cada conta de armazenamento tem um FQDN exclusivo que é criado pela concatenação do nome da conta de armazenamento com o espaço de nomes de ponto final. Uma conta de armazenamento de Blobs com o nome mystorageaccount1 resultados no FQDNs diferentes dependendo da cloud:
 
@@ -671,7 +665,7 @@ Considere as sugestões seguintes para teste e automatização:
 * Lembre-se de que alguns testes podem ser executadas sem a ser ligado ao Azure Resource Manager. Outros, como teste de implementação do modelo, exigem o Resource Manager para executar determinadas ações que não podem ser executadas offline.
 * Teste de um modelo de implementação em relação a validação de API não é igual a uma implantação real. Além disso, mesmo se implementar um modelo a partir de um ficheiro local, todas as referências para aninhados modelos no modelo são obtidas pelo Resource Manager diretamente e artefatos referenciados pelas extensões VM são obtidos pelo agente de VM em execução dentro da VM implementada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Considerações sobre os modelos do Azure Resource Manager](/azure-stack/user/azure-stack-develop-templates)
 * [Melhores práticas de modelos do Azure Resource Manager](resource-group-authoring-templates.md)

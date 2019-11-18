@@ -1,5 +1,5 @@
 ---
-title: Como agendar indexadores
+title: Agendar execução do indexador
 titleSuffix: Azure Cognitive Search
 description: Agende indexadores do Azure Pesquisa Cognitiva para indexar conteúdo periodicamente ou em horários específicos.
 author: HeidiSteen
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e9d4f49bd0aec1a04b4839b2084a81fb538f7890
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 72326413d463d449d339b1f3fd241ba2c27b4b6b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793699"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112943"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Como agendar indexadores no Azure Pesquisa Cognitiva
 

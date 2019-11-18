@@ -1,6 +1,6 @@
 ---
-title: 'Elimine um gateway de rede virtual: Portal do Azure: O Resource Manager | Documentos da Microsoft'
-description: Elimine um gateway de rede virtual com o portal do Azure no modelo de implementação do Resource Manager.
+title: 'Gateway de VPN do Azure: excluir um gateway: Portal'
+description: Exclua um gateway de rede virtual usando o portal do Azure no modelo de implantação do Gerenciador de recursos.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -8,58 +8,58 @@ ms.service: vpn-gateway
 ms.date: 10/23/2018
 ms.author: cherylmc
 ms.topic: conceptual
-ms.openlocfilehash: 387b4e982772f22453876e1ea8b9e7c4039601c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8c7a9c7b6d38c5fee4f57f65dd61a71f9723c07
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845704"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74146337"
 ---
-# <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Eliminar um gateway de rede virtual com o portal
+# <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Excluir um gateway de rede virtual usando o portal
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (clássico)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 
-Este artigo fornece as instruções para eliminar um gateways de VPN do Azure implementadas com o modelo de implementação do Resource Manager. Existem duas abordagens diferentes, que pode tomar para eliminar um gateway de rede virtual para uma configuração de gateway VPN.
+Este artigo fornece as instruções para excluir um gateway de VPN do Azure implantado usando o modelo de implantação do Gerenciador de recursos. Há algumas abordagens diferentes que você pode tomar quando deseja excluir um gateway de rede virtual para uma configuração de gateway de VPN.
 
-- Se pretender eliminar tudo e começar de novo, como no caso de um ambiente de teste, pode eliminar o grupo de recursos. Quando elimina um grupo de recursos, elimina todos os recursos dentro do grupo. Este método só é recomendado se não quiser manter qualquer um dos recursos no grupo de recursos. Não é possível eliminar seletivamente apenas a alguns recursos, o uso dessa abordagem.
+- Se você quiser excluir tudo e começar novamente, como no caso de um ambiente de teste, você poderá excluir o grupo de recursos. Quando você exclui um grupo de recursos, ele exclui todos os recursos dentro do grupo. Esse método só é recomendado se você não quiser manter nenhum dos recursos no grupo de recursos. Você não pode excluir seletivamente apenas alguns recursos usando essa abordagem.
 
-- Se quiser manter alguns dos recursos no grupo de recursos, a eliminar um gateway de rede virtual fica um pouco mais complicada. Antes de poder eliminar o gateway de rede virtual, tem primeiro de eliminar todos os recursos que são dependentes no gateway. Os passos que segue dependem do tipo de ligações que criou e os recursos dependentes para cada ligação.
+- Se você quiser manter alguns dos recursos em seu grupo de recursos, a exclusão de um gateway de rede virtual se tornará um pouco mais complicada. Antes de excluir o gateway de rede virtual, você deve primeiro excluir todos os recursos que dependem do gateway. As etapas a serem seguidas dependem do tipo de conexão que você criou e dos recursos dependentes de cada conexão.
 
 > [!IMPORTANT]
-> As instruções abaixo descrevem como eliminar gateways de VPN do Azure implementadas com o modelo de implementação do Resource Manager. Para eliminar um gateway VPN implementado usando o modelo de implementação clássica, tente utilizar o Azure PowerShell, tal como descrito [aqui](vpn-gateway-delete-vnet-gateway-classic-powershell.md).
+> As instruções a seguir descrevem como excluir gateways de VPN do Azure implantados usando o modelo de implantação do Resource Manager. Para excluir um gateway de VPN implantado usando o modelo de implantação clássico, use Azure PowerShell conforme descrito [aqui](vpn-gateway-delete-vnet-gateway-classic-powershell.md).
 
 
 ## <a name="delete-a-vpn-gateway"></a>Eliminar um gateway de VPN
 
-Para eliminar um gateway de rede virtual, tem primeiro de eliminar cada recurso que diz respeito ao gateway de rede virtual. Recursos tem de ser eliminados numa determinada ordem devido a dependências.
+Para excluir um gateway de rede virtual, você deve primeiro excluir cada recurso que pertença ao gateway de rede virtual. Os recursos devem ser excluídos em uma determinada ordem devido a dependências.
 
 [!INCLUDE [delete gateway](../../includes/vpn-gateway-delete-vnet-gateway-portal-include.md)]
 
-Neste momento, o gateway de rede virtual é eliminado. Os passos seguintes ajudar a eliminar todos os recursos que já não estão a ser utilizados.
+Neste ponto, o gateway de rede virtual é excluído. As próximas etapas ajudarão você a excluir todos os recursos que não estão mais sendo usados.
 
-### <a name="to-delete-the-local-network-gateway"></a>Para eliminar o gateway de rede local
+### <a name="to-delete-the-local-network-gateway"></a>Para excluir o gateway de rede local
 
-1. Na **todos os recursos**, localize os gateways de rede local que foram associados a cada conexão.
-2. Sobre o **descrição geral** painel para o gateway de rede local, clique em **eliminar**.
+1. Em **todos os recursos**, localize os gateways de rede local que foram associados a cada conexão.
+2. Na folha **visão geral** do gateway de rede local, clique em **excluir**.
 
-### <a name="to-delete-the-public-ip-address-resource-for-the-gateway"></a>Para eliminar o recurso de endereço IP público para o gateway
+### <a name="to-delete-the-public-ip-address-resource-for-the-gateway"></a>Para excluir o recurso de endereço IP público para o gateway
 
-1. Na **todos os recursos**, localize o recurso de endereço IP público que foi associado ao gateway. Se o gateway de rede virtual foi ativo-ativo, verá dois endereços IP públicos. 
-2. Na **descrição geral** para o endereço IP público, clique em **eliminar**, em seguida, **Sim** para confirmar.
+1. Em **todos os recursos**, localize o recurso de endereço IP público que estava associado ao gateway. Se o gateway de rede virtual estava ativo-ativo, você verá dois endereços IP públicos. 
+2. Na página **visão geral** do endereço IP público, clique em **excluir**e em **Sim** para confirmar.
 
-### <a name="to-delete-the-gateway-subnet"></a>Para eliminar a sub-rede do gateway
+### <a name="to-delete-the-gateway-subnet"></a>Para excluir a sub-rede de gateway
 
-1. Na **todos os recursos**, localize a rede virtual. 
-2. Na **sub-redes** painel, clique no **GatewaySubnet**, em seguida, clique em **eliminar**. 
-3. Clique em **Sim** para confirmar que pretende eliminar a sub-rede do gateway.
+1. Em **todos os recursos**, localize a rede virtual. 
+2. Na folha **sub-redes** , clique no **GatewaySubnet**e, em seguida, clique em **excluir**. 
+3. Clique em **Sim** para confirmar que deseja excluir a sub-rede de gateway.
 
-## <a name="deleterg"></a>Eliminar um gateway de VPN, eliminando o grupo de recursos
+## <a name="deleterg"></a>Excluir um gateway de VPN excluindo o grupo de recursos
 
-Se não estiver preocupado manter qualquer um dos seus recursos no grupo de recursos e pretender começar de novo, pode eliminar um grupo de recursos inteiro. Esta é uma forma rápida de remover tudo. Os seguintes passos aplicam-se apenas para o modelo de implementação do Resource Manager.
+Se você não estiver preocupado em manter qualquer um dos seus recursos no grupo de recursos e quiser apenas recomeçar, poderá excluir um grupo de recursos inteiro. Essa é uma maneira rápida de remover tudo. As etapas a seguir se aplicam somente ao modelo de implantação do Gerenciador de recursos.
 
-1. Na **todos os recursos**, localize o grupo de recursos e clique para abrir o painel.
-2. Clique em **Eliminar**. No painel eliminação, ver os recursos afetados. Certifique-se de que pretende eliminar todos esses recursos. Se não for, utilize os passos em eliminar um gateway de VPN na parte superior deste artigo.
-3. Para continuar, escreva o nome do grupo de recursos que pretende eliminar, em seguida, clique em **eliminar**.
+1. Em **todos os recursos**, localize o grupo de recursos e clique para abrir a folha.
+2. Clique em **Eliminar**. Na folha excluir, exiba os recursos afetados. Certifique-se de que você deseja excluir todos esses recursos. Caso contrário, use as etapas em excluir um gateway de VPN na parte superior deste artigo.
+3. Para continuar, digite o nome do grupo de recursos que você deseja excluir e clique em **excluir**.

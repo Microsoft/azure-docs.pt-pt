@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 3bc1bfcf58d622151f0af9c6da693c5533bcf966
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9751435636519100ea13fd850508c99faeb87a92
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721607"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133313"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Início rápido: iniciar um aplicativo Spring Java usando o CLI do Azure
 
@@ -38,7 +38,7 @@ Seguindo este guia de início rápido, você aprenderá a:
 
 Para concluir este guia de início rápido:
 
-1. [Instale o Git](https://git-scm.com/).
+1. [Instale o Git](https://git-scm.com/)
 2. [Instalar o JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 3. [Instalar o Maven 3,0 ou superior](https://maven.apache.org/download.cgi)
 4. [Instalar o CLI do Azure versão 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -146,9 +146,18 @@ Por fim, consulte o aplicativo de **Gateway** para seu IP público para que voc�
 az spring-cloud app show --name gateway | grep url
 ```
 
-Navegue até a URL fornecida pelo comando anterior para ver o aplicativo PiggyMetrics em execução.
+Navegue até a URL fornecida pelo comando anterior para executar o aplicativo PiggyMetrics.
+    ![captura de tela do PiggyMetrics em execução](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
-## <a name="next-steps"></a>Próximos Passos
+Você também pode navegar na portal do Azure para localizar a URL. 
+1. Navegue até o serviço
+1. Selecionar **aplicativos**
+1. Selecionar **Gateway**
+
+    ![Captura de tela de PiggyMetrics em execução](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
+1. Localize a URL na página **visão geral do gateway** ![captura de tela de PiggyMetrics em execução](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, você implantou um aplicativo Spring Cloud da CLI do Azure.  Para saber mais sobre o Azure Spring Cloud, continue no tutorial sobre como preparar seu aplicativo para implantação.
 

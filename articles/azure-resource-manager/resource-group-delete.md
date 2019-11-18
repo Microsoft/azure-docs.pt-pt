@@ -1,18 +1,15 @@
 ---
-title: Eliminar grupo de recursos e recursos - Azure Resource Manager
+title: Excluir o grupo de recursos e os recursos
 description: Descreve como excluir recursos e grupos de recursos. Ele descreve como o Azure Resource Manager ordena a exclusão de recursos quando uma exclusão de um grupo de recursos. Ele descreve os códigos de resposta e a forma como o Resource Manager processa-las para determinar se a eliminação foi concluída com êxito.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/03/2019
-ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 30a394fd33ed5d928175fc27e003661c2b53de9a
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: c84dcf64555f40f45dbdaeedb05d4cc461f2cbb7
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275075"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150809"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager o grupo de recursos e a exclusão de recursos
 
@@ -50,7 +47,7 @@ No entanto, se a chamada GET do recurso retorna um 200 ou 201, o Resource Manage
 
 Se a operação de obtenção de devolver um erro, o Resource Manager repete GET para o seguinte código de erro:
 
-* Menos de 100
+* Menos do que 100
 * 408
 * 429
 * Superior a 500
@@ -85,7 +82,7 @@ az group delete --name ExampleResourceGroup
 
 ---
 
-## <a name="delete-resource"></a>Eliminar recurso
+## <a name="delete-resource"></a>Excluir recurso
 
 Use um dos métodos a seguir para excluir um recurso.
 
@@ -113,14 +110,14 @@ az resource delete \
 
 1. Selecione **Eliminar**. A captura de tela a seguir mostra as opções de gerenciamento para uma máquina virtual.
 
-   ![Eliminar recurso](./media/resource-group-delete/delete-resource.png)
+   ![Excluir recurso](./media/resource-group-delete/delete-resource.png)
 
 1. Quando lhe for perguntado, confirme a eliminação.
 
 ---
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para compreender os conceitos do Resource Manager, veja [descrição geral do Azure Resource Manager](resource-group-overview.md).
 * Para obter comandos eliminação, veja [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [CLI do Azure](/cli/azure/group?view=azure-cli-latest#az-group-delete), e [REST API](/rest/api/resources/resourcegroups/delete).

@@ -1,17 +1,14 @@
 ---
-title: Ligar a modelos para a implementação do Azure | Documentos da Microsoft
+title: Vincular modelos para implantação
 description: Descreve como utilizar modelos ligados num modelo Azure Resource Manager para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especifique um ficheiro de parâmetros e URLs criados dinamicamente.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.author: tomfitz
-ms.openlocfilehash: 59af553f4080ca86e964b75234e4d812297d8541
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 985520963ba9fab1a7f71e1af76bba4390c751ad
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827338"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149702"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligados e aninhados modelos durante a implantação de recursos do Azure
 
@@ -90,7 +87,7 @@ Para aninhar o modelo dentro do modelo principal, utilize o **modelo** proprieda
 > ],
 > ```
 >
-> Você não pode usar `reference` a função na seção de saídas de um modelo aninhado para um recurso que você implantou no modelo aninhado. Para devolver os valores para um recurso implementado num modelo aninhado, converta seu modelo aninhado para um modelo ligado.
+> Você não pode usar a função `reference` na seção de saídas de um modelo aninhado para um recurso que você implantou no modelo aninhado. Para devolver os valores para um recurso implementado num modelo aninhado, converta seu modelo aninhado para um modelo ligado.
 
 O modelo aninhado requer o [as mesmas propriedades](resource-group-authoring-templates.md) como um modelo padrão.
 
@@ -157,7 +154,7 @@ Para passar um valor do modelo principal para o modelo vinculado, use a propried
 
 ## <a name="using-copy"></a>Usando a cópia
 
-Para criar várias instâncias de um recurso com um modelo aninhado, adicione o elemento Copy no nível do recurso **Microsoft. Resources/** Implantations.
+Para criar várias instâncias de um recurso com um modelo aninhado, adicione o elemento Copy no nível do recurso **Microsoft. Resources/Implantations** .
 
 O modelo de exemplo a seguir mostra como usar Copy com um modelo aninhado.
 
@@ -562,7 +559,7 @@ Os exemplos seguintes mostram as utilizações comuns dos modelos ligados.
 |[Balanceador de carga com o endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[Modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público a partir de modelo ligado e define esse valor no balanceador de carga. |
 |[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [Modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos no modelo ligado.  |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para seguir um tutorial, veja [Tutorial: criar modelos do Azure Resource Manager ligados](./resource-manager-tutorial-create-linked-templates.md).
 * Para saber mais sobre o tipo de definir a ordem de implementação para os seus recursos, veja [definir dependências nos modelos Azure Resource Manager](resource-group-define-dependencies.md).

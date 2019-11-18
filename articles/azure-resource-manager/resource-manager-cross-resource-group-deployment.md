@@ -1,17 +1,14 @@
 ---
-title: Implantar o grupo de recursos & assinatura cruzada de recursos do Azure
+title: Grupo de recursos implantar recursos & de assinatura cruzada
 description: Mostra como direcionar mais de uma assinatura do Azure e um grupo de recursos durante a implantação.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/02/2018
-ms.author: tomfitz
-ms.openlocfilehash: c90096043f54eb8db5834fbe83ed1d6ae710d371
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 99c534e1c51dcdf32c2b3a3b779c01d71b8d0c24
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528322"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149554"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos
 

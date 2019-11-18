@@ -1,195 +1,187 @@
 ---
-title: Como configurar a georreplicação para a Cache do Azure para Redis | Documentos da Microsoft
-description: Aprenda a replicar a sua Cache do Azure para instâncias de Redis em regiões geográficas.
-services: cache
-documentationcenter: ''
+title: Como configurar a replicação geográfica para o cache do Azure para Redis | Microsoft Docs
+description: Saiba como replicar o cache do Azure para instâncias de Redis em regiões geográficas.
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 375643dc-dbac-4bab-8004-d9ae9570440d
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 4254175955c3560c7bd0fdd08c6b60c318238b76
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce50c665fa79c361f638fda4ec373d5215c407f8
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60552356"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129426"
 ---
-# <a name="how-to-configure-geo-replication-for-azure-cache-for-redis"></a>Como configurar a georreplicação para a Cache do Azure para Redis
+# <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Como configurar a replicação geográfica para o cache do Azure para Redis
 
-Replicação geográfica fornece um mecanismo para ligar duas escalão Premium da Cache do Azure para instâncias de Redis. Um cache é escolhida como o cache ligada primário e o outro como o cache secundário ligada. Torna-se a cache de ligado secundária só de leitura e escritos na cache primária de dados são replicados para o cache secundário ligada. Esta funcionalidade pode ser utilizada para replicar uma cache entre regiões do Azure. Este artigo fornece um guia para configurar a georreplicação para o escalão Premium Cache do Azure para instâncias de Redis.
+A replicação geográfica fornece um mecanismo para vincular duas camadas do cache do Azure de camada Premium para instâncias de Redis. Um cache é escolhido como o cache vinculado primário e o outro como o cache vinculado secundário. O cache vinculado secundário torna-se somente leitura e os dados gravados no cache primário são replicados para o cache vinculado secundário. Essa funcionalidade pode ser usada para replicar um cache em regiões do Azure. Este artigo fornece um guia para configurar a replicação geográfica para o cache do Azure da camada Premium para instâncias Redis.
 
-## <a name="geo-replication-prerequisites"></a>Pré-requisitos de georreplicação
+## <a name="geo-replication-prerequisites"></a>Pré-requisitos de replicação geográfica
 
-Para configurar a georreplicação entre dois caches, devem ser cumpridos os seguintes pré-requisitos:
+Para configurar a replicação geográfica entre dois caches, os seguintes pré-requisitos devem ser atendidos:
 
-- Ambos os caches são [escalão Premium](cache-premium-tier-intro.md) coloca em cache.
-- Ambos os caches estão na mesma subscrição do Azure.
-- O cache ligada secundário é o mesmo tamanho de cache ou um tamanho de cache maior do que o cache ligada primário.
-- Ambos os caches são criadas e num Estado de execução.
+- Os dois caches são caches da [camada Premium](cache-premium-tier-intro.md) .
+- Os dois caches estão na mesma assinatura do Azure.
+- O cache vinculado secundário tem o mesmo tamanho de cache ou um tamanho de cache maior do que o cache vinculado primário.
+- Ambos os caches são criados e em estado de execução.
 
-Algumas funcionalidades não são suportadas com georreplicação:
+Alguns recursos não têm suporte com a replicação geográfica:
 
-- Persistência não é suportada com georreplicação.
-- Clustering é suportado se ambos os caches têm o clustering ativado e tem o mesmo número de partições horizontais.
-- São suportadas as caches na mesma VNET.
-- Caches em VNETs diferentes são suportadas com avisos. Ver [pode utilizar a georreplicação com meu caches numa VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet) para obter mais informações.
+- A persistência não tem suporte com a replicação geográfica.
+- O clustering terá suporte se ambos os caches tiverem o clustering habilitado e tiverem o mesmo número de fragmentos.
+- Há suporte para caches na mesma VNET.
+- Os caches em diferentes VNETs têm suporte com advertências. Veja posso [usar a replicação geográfica com meus caches em uma VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet) para obter mais informações.
 
-Após a configuração da replicação geográfica, as seguintes restrições aplicam-se para o par de cache ligada:
+Após a configuração da replicação geográfica, as seguintes restrições se aplicam ao seu par de cache vinculado:
 
-- O cache ligada secundário é só de leitura; pode lê-lo, mas não é possível escrever todos os dados. 
-- Todos os dados que se encontrava na cache secundária ligado antes da ligação foi adicionada são removidos. Se os replicação geográfica é posterior no entanto, remover os dados replicados permanecem na cache secundária ligado.
-- Não é possível [dimensionamento](cache-how-to-scale.md) qualquer cache enquanto as caches estão ligadas.
-- Não é possível [alterar o número de partições horizontais](cache-how-to-premium-clustering.md) se a cache tiver clustering ativado.
-- Não é possível ativar a persistência na cache de ambos.
-- Pode [exportar](cache-how-to-import-export-data.md#export) partir de qualquer cache.
-- Não é possível [importação](cache-how-to-import-export-data.md#import) no cache secundária ligado.
-- Não é possível eliminar o cache ligada ou o grupo de recursos que contém os mesmos, até desvinculá os caches. Para obter mais informações, consulte [por que a operação falhar quando tentei eliminar a minha cache ligada?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
-- Se os caches estão em diferentes regiões, os custos da saída de rede aplicam-se aos dados movidos entre regiões. Para obter mais informações, consulte [quanto custa para replicar dados entre regiões do Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
-- A ativação pós-falha automática não ocorre entre o cache ligada primário e secundário. Para obter mais informações e obter informações sobre como realizar a ativação pós-falha de um aplicativo cliente, consulte [como realizar a ativação pós-falha para a cache ligada secundário funciona?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- O cache vinculado secundário é somente leitura; Você pode ler a partir dele, mas não pode gravar dados nele. 
+- Todos os dados que estavam no cache vinculado secundário antes do link ser adicionado são removidos. No entanto, se a replicação geográfica for removida posteriormente, os dados replicados permanecerão no cache vinculado secundário.
+- Não é possível [dimensionar](cache-how-to-scale.md) o cache enquanto os caches estão vinculados.
+- Você não poderá [alterar o número de fragmentos](cache-how-to-premium-clustering.md) se o cache tiver o clustering habilitado.
+- Não é possível habilitar a persistência em um dos caches.
+- Você pode [Exportar](cache-how-to-import-export-data.md#export) de um desses caches.
+- Não é possível [importar](cache-how-to-import-export-data.md#import) para o cache vinculado secundário.
+- Você não pode excluir o cache vinculado ou o grupo de recursos que os contém, até desvincular os caches. Para obter mais informações, consulte [por que a operação falhou quando tentei excluir meu cache vinculado?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
+- Se os caches estiverem em regiões diferentes, os custos de egresso de rede se aplicarão aos dados movidos entre regiões. Para obter mais informações, consulte [quanto custa para replicar meus dados entre regiões do Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
+- O failover automático não ocorre entre o cache vinculado primário e o secundário. Para obter mais informações e informações sobre como fazer failover de um aplicativo cliente, confira [como funciona a falha no cache vinculado secundário?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
-## <a name="add-a-geo-replication-link"></a>Adicionar uma ligação de replicação geográfica
+## <a name="add-a-geo-replication-link"></a>Adicionar um link de replicação geográfica
 
-1. Para ligar dois caches em conjunto para georreplicação, fist clique **georreplicação** no menu de recursos de cache que pretende para ser o principal ligado a cache. Em seguida, clique em **adicionar ligação de replicação de cache** partir do **georreplicação** painel.
+1. Para vincular dois caches para replicação geográfica, clique em **replicação geográfica** no menu de recursos do cache no qual você pretende ser o cache vinculado primário. Em seguida, clique em **Adicionar link de replicação de cache** na folha **replicação geográfica** .
 
-    ![Adicionar ligação](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
+    ![Adicionar link](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
-2. Clique no nome da sua cache secundária pretendido do **caches compatíveis** lista. Se a sua cache secundária não for apresentado na lista, certifique-se de que o [pré-requisitos de georreplicação](#geo-replication-prerequisites) para a cache secundária são cumpridos. Para filtrar os caches por região, clique na região no mapa para mostrar apenas esses caches no **caches compatíveis** lista.
+2. Clique no nome do seu cache secundário pretendido na lista **caches compatíveis** . Se o seu cache secundário não for exibido na lista, verifique se os [pré-requisitos de replicação geográfica](#geo-replication-prerequisites) para o cache secundário foram atendidos. Para filtrar os caches por região, clique na região no mapa para exibir apenas os caches na lista de **caches compatíveis** .
 
-    ![Caches compatíveis de georreplicação](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
+    ![Caches compatíveis com a replicação geográfica](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
     
-    Também pode iniciar o processo de ligação ou ver detalhes sobre a cache secundária através do menu de contexto.
+    Você também pode iniciar o processo de vinculação ou exibir detalhes sobre o cache secundário usando o menu de contexto.
 
-    ![Menu de contexto de georreplicação](./media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png)
+    ![Menu de contexto de replicação geográfica](./media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png)
 
-3. Clique em **Link** para vincular os dois caches e iniciar o processo de replicação.
+3. Clique em **vincular** para vincular os dois caches juntos e iniciar o processo de replicação.
 
-    ![Caches de ligação](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
+    ![Caches de link](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
-4. Pode ver o progresso do processo de replicação na **georreplicação** painel.
+4. Você pode exibir o progresso do processo de replicação na folha de **replicação geográfica** .
 
-    ![Estado de ligação](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
+    ![Status de vinculação](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
 
-    Também pode ver o estado da ligação na **descrição geral** painel para caches primários e secundários.
+    Você também pode exibir o status de vinculação na folha de **visão geral** para os caches primário e secundário.
 
-    ![Estado da cache](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
+    ![Status do cache](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    Assim que o processo de replicação estiver concluído, o **estado de ligação** é alterado para **Succeeded**.
+    Depois que o processo de replicação for concluído, o **status do link** será alterado para **êxito**.
 
-    ![Estado da cache](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
+    ![Status do cache](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
-    O cache ligada primário permanece disponível para utilização durante o processo de ligação. A cache de ligado secundária não está disponível enquanto o processo de ligação for concluída.
+    O cache vinculado primário permanece disponível para uso durante o processo de vinculação. O cache vinculado secundário não estará disponível até que o processo de vinculação seja concluído.
 
-## <a name="remove-a-geo-replication-link"></a>Remover uma ligação de replicação geográfica
+## <a name="remove-a-geo-replication-link"></a>Remover um link de replicação geográfica
 
-1. Para remover a associação entre dois caches e parar a replicação geográfica, clique em **desassociar caches** partir do **georreplicação** painel.
+1. Para remover o vínculo entre dois caches e parar a replicação geográfica, clique em **desvincular caches** da folha de **replicação geográfica** .
     
-    ![Desassociar caches](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
+    ![Desvincular caches](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
-    Quando tiver concluído o processo a desassociar, a cache secundária está disponível para leituras e gravações.
+    Quando o processo de desvinculação é concluído, o cache secundário está disponível para leituras e gravações.
 
 >[!NOTE]
->Quando a ligação de georreplicação é removida, os dados replicados da cache primária ligado permanecem na cache secundária.
+>Quando o link de replicação geográfica é removido, os dados replicados do cache vinculado primário permanecem no cache secundário.
 >
 >
 
-## <a name="geo-replication-faq"></a>FAQ de georreplicação
+## <a name="geo-replication-faq"></a>Perguntas frequentes sobre replicação geográfica
 
-- [Pode utilizar a georreplicação com uma cache de escalão Standard ou Basic?](#can-i-use-geo-replication-with-a-standard-or-basic-tier-cache)
-- [Minha cache está disponível para utilização durante o processo de ligação ou a desassociar?](#is-my-cache-available-for-use-during-the-linking-or-unlinking-process)
-- [Posso ligar caches de mais de dois em conjunto?](#can-i-link-more-than-two-caches-together)
-- [Pode ligar dois caches de diferentes subscrições do Azure?](#can-i-link-two-caches-from-different-azure-subscriptions)
-- [Pode ligar dois caches com diferentes tamanhos?](#can-i-link-two-caches-with-different-sizes)
-- [Pode utilizar replicação geográfica com o clustering ativado?](#can-i-use-geo-replication-with-clustering-enabled)
-- [Pode utilizar a georreplicação com meu caches numa VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
-- [O que é a agenda de replicação para georreplicação Redis?](#what-is-the-replication-schedule-for-redis-geo-replication)
-- [Quanto tempo demora a replicação de georreplicação?](#how-long-does-geo-replication-replication-take)
+- [Posso usar a replicação geográfica com um cache de camada Standard ou Basic?](#can-i-use-geo-replication-with-a-standard-or-basic-tier-cache)
+- [O cache está disponível para uso durante o processo de vinculação ou desvinculação?](#is-my-cache-available-for-use-during-the-linking-or-unlinking-process)
+- [Posso vincular mais de dois caches juntos?](#can-i-link-more-than-two-caches-together)
+- [Posso vincular dois caches de diferentes assinaturas do Azure?](#can-i-link-two-caches-from-different-azure-subscriptions)
+- [Posso vincular dois caches com tamanhos diferentes?](#can-i-link-two-caches-with-different-sizes)
+- [Posso usar a replicação geográfica com o clustering habilitado?](#can-i-use-geo-replication-with-clustering-enabled)
+- [Posso usar a replicação geográfica com meus caches em uma VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
+- [Qual é o agendamento de replicação para a replicação geográfica Redis?](#what-is-the-replication-schedule-for-redis-geo-replication)
+- [Quanto tempo leva a replicação de replicação geográfica?](#how-long-does-geo-replication-replication-take)
 - [O ponto de recuperação de replicação é garantido?](#is-the-replication-recovery-point-guaranteed)
-- [Posso utilizar o PowerShell ou CLI do Azure para gerir os replicação geográfica?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
-- [Quanto custa para replicar dados entre regiões do Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
-- [Por que a operação falhar quando tentei eliminar a minha cache ligada?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
-- [Em que região deve ser usado para minha cache ligada secundário?](#what-region-should-i-use-for-my-secondary-linked-cache)
-- [Como funciona a ativação pós-falha para a cache secundária ligado?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- [Posso usar o PowerShell ou o CLI do Azure para gerenciar a replicação geográfica?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
+- [Quanto custa para replicar meus dados entre regiões do Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
+- [Por que a operação falhou quando tentei excluir meu cache vinculado?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
+- [Qual região devo usar para meu cache vinculado secundário?](#what-region-should-i-use-for-my-secondary-linked-cache)
+- [Como funciona o failover para o cache vinculado secundário?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
-### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>Pode utilizar a georreplicação com uma cache de escalão Standard ou Basic?
+### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>Posso usar a replicação geográfica com um cache de camada Standard ou Basic?
 
-Não, a georreplicação só está disponível para as caches de escalão Premium.
+Não, a replicação geográfica só está disponível para caches da camada Premium.
 
-### <a name="is-my-cache-available-for-use-during-the-linking-or-unlinking-process"></a>Minha cache está disponível para utilização durante o processo de ligação ou a desassociar?
+### <a name="is-my-cache-available-for-use-during-the-linking-or-unlinking-process"></a>O cache está disponível para uso durante o processo de vinculação ou desvinculação?
 
-- Quando cria uma ligação, o cache ligada primário permanece disponível enquanto o processo de ligação é concluída.
-- Quando cria uma ligação, o cache ligada secundário não está disponível enquanto o processo de ligação for concluída.
-- Quando a desassociação, ambas as caches permanecem disponíveis enquanto o processo a desassociar é concluída.
+- Ao vincular, o cache vinculado primário permanece disponível enquanto o processo de vinculação é concluído.
+- Ao vincular, o cache vinculado secundário não estará disponível até que o processo de vinculação seja concluído.
+- Ao desvincular, os dois caches permanecem disponíveis enquanto o processo de desvinculação é concluído.
 
-### <a name="can-i-link-more-than-two-caches-together"></a>Posso ligar caches de mais de dois em conjunto?
+### <a name="can-i-link-more-than-two-caches-together"></a>Posso vincular mais de dois caches juntos?
 
-Não, pode apenas vincular dois caches.
+Não, você só pode vincular dois caches juntos.
 
-### <a name="can-i-link-two-caches-from-different-azure-subscriptions"></a>Pode ligar dois caches de diferentes subscrições do Azure?
+### <a name="can-i-link-two-caches-from-different-azure-subscriptions"></a>Posso vincular dois caches de diferentes assinaturas do Azure?
 
-Não, ambas as caches tem de ser na mesma subscrição do Azure.
+Não, ambos os caches devem estar na mesma assinatura do Azure.
 
-### <a name="can-i-link-two-caches-with-different-sizes"></a>Pode ligar dois caches com diferentes tamanhos?
+### <a name="can-i-link-two-caches-with-different-sizes"></a>Posso vincular dois caches com tamanhos diferentes?
 
-Sim, desde que o cache ligada secundário é maior do que o cache ligada primário.
+Sim, desde que o cache vinculado secundário seja maior do que o cache vinculado primário.
 
-### <a name="can-i-use-geo-replication-with-clustering-enabled"></a>Pode utilizar replicação geográfica com o clustering ativado?
+### <a name="can-i-use-geo-replication-with-clustering-enabled"></a>Posso usar a replicação geográfica com o clustering habilitado?
 
-Sim, desde que ambas as caches de tem o mesmo número de partições horizontais.
+Sim, contanto que ambos os caches tenham o mesmo número de fragmentos.
 
-### <a name="can-i-use-geo-replication-with-my-caches-in-a-vnet"></a>Pode utilizar a georreplicação com meu caches numa VNET?
+### <a name="can-i-use-geo-replication-with-my-caches-in-a-vnet"></a>Posso usar a replicação geográfica com meus caches em uma VNET?
 
-Sim, georreplicação de caches em VNETs é suportada com advertências:
+Sim, há suporte para a replicação geográfica de caches em VNETs com as advertências:
 
-- Georreplicação entre caches na mesma VNET é suportada.
-- Também é suportada a georreplicação entre caches em VNETs diferentes.
-  - Se as VNETs estiverem na mesma região, pode ligá-las usando [peering de VNET](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) ou uma [ligação de Gateway de VPN VNET a VNET](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
-  - Se as VNETs estiverem em regiões diferentes, replicação geográfica utilização o VNET peering não é suportado devido a uma restrição com balanceadores de carga interno básico. Para obter mais informações sobre restrições de peering de VNET, veja [requisitos de rede Virtual - Peering - e restrições](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). A solução recomendada é utilizar uma ligação de Gateway de VPN VNET a VNET.
+- Há suporte para a replicação geográfica entre caches na mesma VNET.
+- Também há suporte para a replicação geográfica entre caches em diferentes VNETs.
+  - Se os VNETs estiverem na mesma região, você poderá conectá-los usando o [emparelhamento vnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) ou uma [conexão vnet a vnet do gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
+  - Se os VNETs estiverem em regiões diferentes, a replicação geográfica usando o emparelhamento VNET não terá suporte devido a uma restrição com balanceadores de carga internos básicos. Para obter mais informações sobre restrições de emparelhamento VNET, consulte [rede virtual – emparelhamento-requisitos e restrições](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). A solução recomendada é usar uma conexão VNET a VNET do gateway de VPN.
 
-Usando [este modelo do Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/), pode implementar rapidamente dois caches georreplicado para uma VNET ligada com uma ligação de Gateway de VPN VNET a VNET.
+Usando [este modelo do Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/), você pode implantar rapidamente dois caches replicados geograficamente em uma VNET conectada a uma conexão VNET a vnet do gateway de VPN.
 
-### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>O que é a agenda de replicação para georreplicação Redis?
+### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Qual é o agendamento de replicação para a replicação geográfica Redis?
 
-A replicação é assíncrona e contínuo e não acontece com base numa agenda específica. Todas as escritas feitas para o primário são instantaneamente e assíncrona replicadas no secundário.
+A replicação é contínua e assíncrona e não ocorre em um agendamento específico. Todas as gravações feitas no primário são instantâneas e replicadas de forma assíncrona no secundário.
 
-### <a name="how-long-does-geo-replication-replication-take"></a>Quanto tempo demora a replicação de georreplicação?
+### <a name="how-long-does-geo-replication-replication-take"></a>Quanto tempo leva a replicação de replicação geográfica?
 
-A replicação é incremental, assíncrono e contínua e o tempo necessário não é muito diferente da latência em várias regiões. Em determinadas circunstâncias, a cache secundária pode ser necessário fazer uma sincronização completa dos dados dos principais. O tempo de replicação, neste caso é dependente do número de fatores como: a carga sobre a cache primária, a largura de banda disponível e a latência de inter-regional. Descobrimos que o tempo de replicação para um par de georreplicado completa de 53 GB pode ser qualquer número entre 5 a 10 minutos.
+A replicação é incremental, assíncrona e contínua e o tempo gasto não é muito diferente da latência entre regiões. Em determinadas circunstâncias, o cache secundário pode ser necessário para fazer uma sincronização completa dos dados a partir do primário. O tempo de replicação, nesse caso, depende do número de fatores como: carga no cache primário, largura de banda de rede disponível e latência entre regiões. Encontramos o tempo de replicação para um par completo de 53 GB com replicação geográfica pode estar entre 5 e 10 minutos.
 
 ### <a name="is-the-replication-recovery-point-guaranteed"></a>O ponto de recuperação de replicação é garantido?
 
-Para as caches num modo georreplicado, persistência está desativada. Se um par de georreplicado for desassociado, por exemplo, uma ativação pós-falha iniciada pelo cliente, o cache secundária ligado mantém seus dados sincronizados até esse ponto no tempo. Nenhum ponto de recuperação é garantido em tais situações.
+Para caches em um modo replicado geograficamente, a persistência está desabilitada. Se um par com replicação geográfica estiver desvinculado, como um failover iniciado pelo cliente, o cache vinculado secundário manterá seus dados sincronizados até esse ponto de tempo. Nenhum ponto de recuperação é garantido nessas situações.
 
-Para obter um ponto de recuperação [exportar](cache-how-to-import-export-data.md#export) partir de qualquer cache. Posteriormente, pode [importação](cache-how-to-import-export-data.md#import) no cache principal ligado.
+Para obter um ponto de recuperação, [exporte](cache-how-to-import-export-data.md#export) de um dos caches. Posteriormente, você poderá [importar](cache-how-to-import-export-data.md#import) para o cache vinculado primário.
 
-### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Posso utilizar o PowerShell ou CLI do Azure para gerir os replicação geográfica?
+### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Posso usar o PowerShell ou o CLI do Azure para gerenciar a replicação geográfica?
 
-Sim, os replicação geográfica pode ser gerida com o portal do Azure, o PowerShell ou a CLI do Azure. Para obter mais informações, consulte a [documentos do PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) ou [docs da CLI do Azure](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest).
+Sim, a replicação geográfica pode ser gerenciada usando o portal do Azure, o PowerShell ou o CLI do Azure. Para obter mais informações, consulte os documentos do [PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) ou [CLI do Azure docs](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest).
 
-### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Quanto custa para replicar dados entre regiões do Azure?
+### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Quanto custa para replicar meus dados entre regiões do Azure?
 
-Ao utilizar a georreplicação, os dados da cache primária ligado são replicados para o cache secundário ligada. Não existe nenhum custo associado para a transferência de dados, se os dois caches ligados estão na mesma região. Se os dois caches ligados estão em diferentes regiões, a cobrança da transferência de dados é o custo de saída de rede de mover a partir de qualquer região de dados. Para obter mais informações, consulte [detalhes dos preços da largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
+Ao usar a replicação geográfica, os dados do cache vinculado primário são replicados para o cache vinculado secundário. Não haverá cobrança para a transferência de dados se os dois caches vinculados estiverem na mesma região. Se os dois caches vinculados estiverem em regiões diferentes, o encargo de transferência de dados será o custo de saída de rede da movimentação de dados em qualquer região. Para obter mais informações, consulte [detalhes de preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-### <a name="why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache"></a>Por que a operação falhar quando tentei eliminar a minha cache ligada?
+### <a name="why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache"></a>Por que a operação falhou quando tentei excluir meu cache vinculado?
 
-Não não possível eliminar o caches georreplicado e os respetivos grupos de recursos, enquanto ligado até remover a ligação de replicação geográfica. Se tentar eliminar o grupo de recursos que contém uma ou ambas as caches de ligado, os outros recursos no grupo de recursos são eliminados, mas o grupo de recursos permanece no `deleting` caches de estado e qualquer ligadas no grupo de recursos permanecem na `running`estado. Para eliminar completamente o grupo de recursos e os caches ligados dentro dele, desassociar caches, conforme descrito em [remover uma ligação de replicação geográfica](#remove-a-geo-replication-link).
+Os caches replicados geograficamente e seus grupos de recursos não podem ser excluídos enquanto estiverem vinculados até que você remova o link de replicação geográfica. Se você tentar excluir o grupo de recursos que contém um ou ambos os caches vinculados, os outros recursos no grupo de recursos serão excluídos, mas o grupo de recursos permanecerá no estado de `deleting` e todos os caches vinculados no grupo de recursos permanecerão no estado de `running`. Para excluir completamente o grupo de recursos e os caches vinculados dentro dele, desvincule os caches conforme descrito em [remover um link de replicação geográfica](#remove-a-geo-replication-link).
 
-### <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>Em que região deve ser usado para minha cache ligada secundário?
+### <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>Qual região devo usar para meu cache vinculado secundário?
 
-Em geral, recomenda-se para a sua cache de existir na mesma região do Azure que a aplicação que acede ao mesmo. Para aplicações com as regiões principais e de contingência separadas, recomenda-se que as caches primárias e secundárias existem nessas mesmas regiões. Para obter mais informações sobre as regiões emparelhadas, consulte [práticas recomendadas – regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md).
+Em geral, é recomendável que o cache exista na mesma região do Azure que o aplicativo que o acessa. Para aplicativos com regiões primárias e de fallback separadas, é recomendável que os seus caches primário e secundário existam nas mesmas regiões. Para obter mais informações sobre regiões emparelhadas, consulte [práticas recomendadas – regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md).
 
-### <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>Como funciona a ativação pós-falha para a cache secundária ligado?
+### <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>Como funciona o failover para o cache vinculado secundário?
 
-A ativação pós-falha automática em regiões do Azure não é suportada para as caches georreplicado. Num cenário de recuperação após desastre, os clientes devem aparecer a pilha de todo o aplicativo de forma coordenada na sua região de cópia de segurança. Permitir que o aplicativo individual que decidir de componentes quando mudar para as suas cópias de segurança por conta própria pode afetar negativamente o desempenho. Um dos principais benefícios de Redis é o que é um arquivo de latência muito baixa. Se o aplicativo do cliente de principal está numa região diferente da respetiva cache, o tempo de ida e volta adicional seria ter um impacto considerável no desempenho. Por esse motivo, podemos evitar efetuar automaticamente a ativação pós-falha devido a problemas de disponibilidade transitório.
+O failover automático nas regiões do Azure não tem suporte para caches com replicação geográfica. Em um cenário de recuperação de desastres, os clientes devem abrir toda a pilha de aplicativos de maneira coordenada em sua região de backup. Deixar componentes de aplicativos individuais decidir quando alternar para seus backups por conta própria pode afetar negativamente o desempenho. Um dos principais benefícios do Redis é que ele é um armazenamento de baixa latência. Se o aplicativo principal do cliente estiver em uma região diferente de seu cache, o tempo de viagem de ida e volta terá um impacto perceptível no desempenho. Por esse motivo, evitamos o failover automaticamente devido a problemas de disponibilidade transitórios.
 
-Para iniciar uma ativação pós-falha iniciada pelo cliente, desassocie primeiro os caches. Em seguida, altere o seu cliente de Redis para utilizar o ponto final de ligação da cache secundária (anteriormente conhecido como ligado). Quando os dois caches são desassociados, a cache secundária torna-se de uma cache de leitura / escrita regular novamente e aceita os pedidos diretamente a partir de clientes Redis.
+Para iniciar um failover iniciado pelo cliente, primeiro desvincule os caches. Em seguida, altere o cliente Redis para usar o ponto de extremidade de conexão do cache secundário (anteriormente vinculado). Quando os dois caches são desvinculados, o cache secundário se torna um cache de leitura-gravação regular e aceita solicitações diretamente de clientes Redis.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o [Cache do Azure para o escalão Premium da Redis](cache-premium-tier-intro.md).
+Saiba mais sobre o [cache do Azure para a camada Premium do Redis](cache-premium-tier-intro.md).

@@ -1,5 +1,5 @@
 ---
-title: Anexar um recurso de serviços cognitivas a um habilidades
+title: Anexar serviços cognitivas a um conconhecimento
 titleSuffix: Azure Cognitive Search
 description: Instruções para anexar uma assinatura All-in-One de serviços cognitivas a um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 11ca5f71cb0d08a4bebf72407035a9557c794f9f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d65b9b60ce93656c9acdc76c77291114468d345a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72788037"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113941"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Anexar um recurso de serviços cognitivas a um conconhecimento no Azure Pesquisa Cognitiva 
 
-Os algoritmos de ia orientam os [pipelines de enriquecimento](cognitive-search-concept-intro.md) usados para a transformação de conteúdo no Azure pesquisa cognitiva. Esses algoritmos são baseados nos recursos de serviços cognitivas do Azure, incluindo [Pesquisa Visual computacional](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análise de imagem e OCR (reconhecimento óptico de caracteres) e [análise de texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para reconhecimento de entidade, extração de frases-chave e outros aprimoramentos . Conforme usado pelo Azure Pesquisa Cognitiva para fins de enriquecimento de documentos, os algoritmos são encapsulados dentro de uma *habilidade*, colocados em um configurador de *qualificações*e referenciados por um *indexador* durante a indexação.
+Os algoritmos de ia orientam os [pipelines de enriquecimento](cognitive-search-concept-intro.md) usados para a transformação de conteúdo no Azure pesquisa cognitiva. Esses algoritmos são baseados nos recursos de serviços cognitivas do Azure, incluindo [Pesquisa Visual computacional](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análise de imagem e OCR (reconhecimento óptico de caracteres) e [análise de texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para reconhecimento de entidade, extração de frases-chave e outros aprimoramentos. Conforme usado pelo Azure Pesquisa Cognitiva para fins de enriquecimento de documentos, os algoritmos são encapsulados dentro de uma *habilidade*, colocados em um configurador de *qualificações*e referenciados por um *indexador* durante a indexação.
 
 Você pode enriquecer um número limitado de documentos gratuitamente. Ou então, você pode anexar um recurso de serviços de cognitiva Faturável a um *conconhecimento* para cargas de trabalho maiores e mais frequentes. Neste artigo, você aprenderá a anexar um recurso de serviços de cognitiva Faturável para enriquecer documentos durante a [indexação](search-what-is-an-index.md)de pesquisa cognitiva do Azure.
 
@@ -99,7 +99,7 @@ Se você tiver um contratador de qualificações existente, poderá anexá-lo a 
 
 ## <a name="attach-cognitive-services-programmatically"></a>Anexe serviços cognitivas programaticamente
 
-Ao definir o conconhecedor de habilidades programaticamente, adicione uma seção `cognitiveServices` ao skillset. Nessa seção, inclua a chave do recurso de serviços cognitivas que você deseja associar ao skillset. Lembre-se de que o recurso deve estar na mesma região que o recurso de Pesquisa Cognitiva do Azure. Também inclua `@odata.type` e defina-o como `#Microsoft.Azure.Search.CognitiveServicesByKey`.
+Ao definir o conconhecedor de habilidades programaticamente, adicione uma seção `cognitiveServices` ao skillset. Nessa seção, inclua a chave do recurso de serviços cognitivas que você deseja associar ao skillset. Lembre-se de que o recurso deve estar na mesma região que o recurso de Pesquisa Cognitiva do Azure. Também inclua `@odata.type`e defina-o como `#Microsoft.Azure.Search.CognitiveServicesByKey`.
 
 O exemplo a seguir mostra esse padrão. Observe a seção `cognitiveServices` no final da definição.
 

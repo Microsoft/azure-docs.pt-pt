@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 410b945f1a9a8d659f55668e272e2d9d08482bde
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: b9a5dbd8e24659493bbbefd50c3e234dca3dbdd9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601752"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129339"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperação de desastre regional para clusters de Azure Databricks
 
@@ -286,7 +286,7 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
 
 8. **Migrar o armazenamento de BLOBs do Azure e montagens de Azure Data Lake Storage**
 
-   Remonte manualmente todos os pontos de montagem [do armazenamento de BLOBs do Azure e do](/azure/databricks/data/data-sources/azure/azure-storage.html) [Azure data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html) usando uma solução baseada em bloco de anotações. Os recursos de armazenamento teriam sido montados no espaço de trabalho primário e precisam ser repetidos no espaço de trabalho secundário. Não há API externa para montagens.
+   Remonte manualmente todos os pontos de montagem [do armazenamento de BLOBs do Azure e do](/azure/databricks/data/data-sources/azure/azure-storage) [Azure data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) usando uma solução baseada em bloco de anotações. Os recursos de armazenamento teriam sido montados no espaço de trabalho primário e precisam ser repetidos no espaço de trabalho secundário. Não há API externa para montagens.
 
 9. **Migrar scripts de inicialização de cluster**
 

@@ -1,21 +1,18 @@
 ---
-title: Tutorial – adicionar parâmetros ao modelo de Azure Resource Manager
+title: Tutorial – adicionar parâmetros ao modelo
 description: Adicione parâmetros ao seu modelo de Azure Resource Manager para torná-lo reutilizável.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f5e631994223d6362512ed0ddc89d1d3c884fbd4
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 7a4d8db57167bc82d13b4d46be1abc3518c340e4
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001493"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150230"
 ---
-# <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Tutorial: Adicionar parâmetros ao seu modelo do Resource Manager
+# <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Tutorial: adicionar parâmetros ao modelo do Resource Manager
 
 No [tutorial anterior](template-tutorial-add-resource.md), você aprendeu como adicionar uma conta de armazenamento ao modelo e implantá-la. Neste tutorial, você aprenderá a melhorar o modelo adicionando parâmetros. Este tutorial leva cerca de **14 minutos** para ser concluído.
 

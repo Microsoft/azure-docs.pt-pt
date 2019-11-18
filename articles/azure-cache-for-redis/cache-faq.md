@@ -1,25 +1,17 @@
 ---
-title: Perguntas frequentes sobre o cache do Azure para Redis | Microsoft Docs
+title: FAQ da Cache do Azure para Redis
 description: Conheça as respostas a perguntas comuns, padrões e práticas recomendadas para o cache do Azure para Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: yegu
-ms.openlocfilehash: 5ccbfb75edc7fa0eabf5e647169ed2d3771326d8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e497a5c54a80dbed2ea94f8251d198c1c8bc5043
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72785841"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122794"
 ---
 # <a name="azure-cache-for-redis-faq"></a>FAQ da Cache do Azure para Redis
 Conheça as respostas a perguntas comuns, padrões e práticas recomendadas para o cache do Azure para Redis.
@@ -136,19 +128,19 @@ A partir desta tabela, podemos desenhar as seguintes conclusões:
 | Escalão de preço | Tamanho | Núcleos de CPU | Largura de banda disponível | tamanho do valor de 1 KB | tamanho do valor de 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Tamanhos de cache padrão** | | |**Megabits por segundo (MB/s)/megabytes por segundo (MB/s)** |**RPS (solicitações por segundo) não SSL** |**SSL de solicitações por segundo (RPS)** |
-| C0 | 250 MB | Partilhada | 100/12,5  |  15 000 |   7\.500 |
-| C1 |   1 GB | 1      | 500/62,5  |  38.000 |  20.720 |
-| C2 | 2,5 GB | 2      | 500/62,5  |  41.000 |  37.000 |
-| C3 |   6 GB | 4      | 1000/125  | 100.000 |  90.000 |
-| C4 |  13 GB | 2      | 500/62,5  |  60.000 |  55.000 |
-| C5 |  26 GB | 4      | 1\.000/125 | 102.000 |  93.000 |
-| C6 |  53 GB | 8      | 2\.000/250 | 126.000 | 120.000 |
+| C0 | 250 MB | Partilhado | 100 / 12.5  |  15 000 |   7\.500 |
+| C1 |   1 GB | 1      | 500 / 62.5  |  38.000 |  20.720 |
+| C2 | 2,5 GB | 2      | 500 / 62.5  |  41.000 |  37.000 |
+| C3 |   6 GB | 4      | 1000 / 125  | 100 000 |  90,000 |
+| C4 |  13 GB | 2      | 500 / 62.5  |  60,000 |  55.000 |
+| C5 |  26 GB | 4      | 1,000 / 125 | 102.000 |  93.000 |
+| C6 |  53 GB | 8      | 2,000 / 250 | 126.000 | 120,000 |
 | **Tamanhos de cache Premium** | |**Núcleos de CPU por fragmento** | **Megabits por segundo (MB/s)/megabytes por segundo (MB/s)** |**RPS (solicitações por segundo) não SSL, por fragmento** |**SSL de solicitações por segundo (RPS), por fragmento** |
-| P1 |   6 GB |  2 | 1\.500/187,5 | 180.000 | 172.000 |
-| P2 |  13 GB |  4 | 3\.000/375   | 350.000 | 341.000 |
-| P3 |  26 GB |  4 | 3\.000/375   | 350.000 | 341.000 |
-| P4 |  53 GB |  8 | 6\.000/750   | 400,000 | 373.000 |
-| P5 | 120 GB | 20 | 6\.000/750   | 400,000 | 373.000 |
+| P1 |   6 GB |  2 | 1,500 / 187.5 | 180,000 | 172.000 |
+| P2 |  13 GB |  4 | 3,000 / 375   | 350.000 | 341.000 |
+| P3 |  26 GB |  4 | 3,000 / 375   | 350.000 | 341.000 |
+| P4 |  53 GB |  8 | 6,000 / 750   | 400,000 | 373.000 |
+| P5 | 120 GB | 20 | 6,000 / 750   | 400,000 | 373.000 |
 
 Para obter instruções sobre como configurar o stunnel ou baixar as ferramentas do Redis, como `redis-benchmark.exe`, consulte a seção [como posso executar comandos do Redis?](#cache-commands) .
 
@@ -167,10 +159,10 @@ Sim, o cache do Azure para Redis está disponível na nuvem do Azure governament
 
 | Nuvem   | Sufixo DNS para Redis            |
 |---------|---------------------------------|
-| Público  | *. redis.cache.windows.net       |
-| Governo dos EUA  | *. redis.cache.usgovcloudapi.net |
-| Alemanha | *. redis.cache.cloudapi.de       |
-| China   | *. redis.cache.chinacloudapi.cn  |
+| Público  | *.redis.cache.windows.net       |
+| Governo dos EUA  | *.redis.cache.usgovcloudapi.net |
+| Alemanha | *.redis.cache.cloudapi.de       |
+| China   | *.redis.cache.chinacloudapi.cn  |
 
 Para obter mais informações sobre considerações ao usar o cache do Azure para Redis com outras nuvens, consulte os links a seguir.
 
@@ -297,7 +289,7 @@ O servidor Redis não dá suporte nativo a SSL, mas o cache do Azure para Redis.
 >
 >
 
-Ferramentas de Redis como `redis-cli` não funcionam com a porta SSL, mas você pode usar um utilitário como `stunnel` para conectar com segurança as ferramentas à porta SSL seguindo as instruções no blog [anunciando o provedor de estado de sessão ASP.net para Redis versão prévia](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) Postar.
+Ferramentas de Redis como `redis-cli` não funcionam com a porta SSL, mas você pode usar um utilitário como `stunnel` para conectar com segurança as ferramentas à porta SSL seguindo as instruções na postagem do blog [anunciando o provedor de estado de sessão do ASP.net para a versão de visualização do Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) .
 
 Para obter instruções sobre como baixar as ferramentas do Redis, consulte a seção [como posso executar comandos do Redis?](#cache-commands)
 
@@ -333,7 +325,7 @@ Para obter instruções sobre como baixar as ferramentas do Redis, consulte a se
 
 * Evite usar determinados comandos Redis que levam muito tempo para serem concluídos, a menos que você entenda totalmente o impacto desses comandos. Por exemplo, não execute o comando [Keys](https://redis.io/commands/keys) em produção. Dependendo do número de chaves, pode levar muito tempo para retornar. Redis é um servidor de thread único e processa comandos um de cada vez. Se você tiver outros comandos emitidos após as chaves, eles não serão processados até que o Redis processe o comando KEYS. O [site do Redis.Io](https://redis.io/commands/) tem detalhes sobre a complexidade do tempo para cada operação que ele suporta. Clique em cada comando para ver a complexidade de cada operação.
 * Tamanhos de chave – devo usar pequenos valores/chave ou valores/chave grandes? Depende do cenário. Se seu cenário exigir chaves maiores, você poderá ajustar o ConnectionTimeout e, em seguida, repetir os valores e ajustar sua lógica de repetição. Do ponto de vista do Redis Server, valores menores oferecem melhor desempenho.
-* Essas considerações não significam que você não pode armazenar valores maiores em Redis; Você deve estar ciente das considerações a seguir. As latências serão mais altas. Se você tiver um conjunto de dados maior e outro menor, poderá usar várias instâncias de ConnectionMultiplexer, cada uma configurada com um conjunto diferente de valores de tempo limite e de repetição, conforme descrito no anterior, o [que fazer a configuração stackexchange. Redis opções](#cache-configuration) da seção.
+* Essas considerações não significam que você não pode armazenar valores maiores em Redis; Você deve estar ciente das considerações a seguir. As latências serão mais altas. Se você tiver um conjunto de dados maior e outro menor, poderá usar várias instâncias de ConnectionMultiplexer, cada uma configurada com um conjunto diferente de valores de tempo limite e de repetição, conforme descrito no anterior, o [que as opções de configuração stackexchange. Redis fazem](#cache-configuration) .
 
 <a name="cache-benchmarking"></a>
 

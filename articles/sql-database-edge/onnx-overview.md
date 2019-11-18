@@ -10,12 +10,12 @@ author: ronychatterjee
 ms.author: achatter
 ms.reviewer: davidph
 ms.date: 11/07/2019
-ms.openlocfilehash: 744ac9f8526b7d65709d3627a5f90b31d234b2cd
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: bdb602598f3d8b4aaed5d6061542d540a82ebc75
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009086"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114593"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-database-edge-preview"></a>Aprendizado de máquina e ia com ONNX na visualização de borda do banco de dados SQL
 
@@ -46,7 +46,7 @@ Para obter um modelo no formato ONNX:
 
 Atualmente, nem todos os modelos ONNX têm suporte da borda do banco de dados SQL do Azure. O suporte é limitado a modelos com **tipos de dados numéricos**:
 
-- [int e bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql5)
+- [int e bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
 - [real e float](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql).
   
 Outros tipos numéricos podem ser convertidos em tipos com suporte usando [cast e Convert](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql).

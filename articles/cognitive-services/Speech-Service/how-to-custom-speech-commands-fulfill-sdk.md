@@ -1,5 +1,5 @@
 ---
-title: 'Como: preencher comandos personalizados no cliente com o SDK de fala (versão prévia)'
+title: Como atender a comandos personalizados no cliente com o SDK de fala
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, manipule as atividades de comandos personalizados no cliente com o SDK de fala
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: a986da74a668075457e28a9a37b6a11fd04a84e4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2da8ef2c29bd6afdaf49e000bf964d119f1e99f1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507024"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110068"
 ---
 # <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>Como: preencher comandos no cliente com o SDK de fala (versão prévia)
 
@@ -30,11 +30,11 @@ Neste artigo, você vai:
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 - Uma chave de assinatura do Azure para serviços de fala
-   - [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com)
+  - [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com)
 - Um aplicativo de comandos personalizados criado anteriormente
-   - [Início rápido: criar um comando personalizado com parâmetros (versão prévia)](./quickstart-custom-speech-commands-create-parameters.md)
+  - [Início rápido: criar um comando personalizado com parâmetros (versão prévia)](./quickstart-custom-speech-commands-create-parameters.md)
 - Um aplicativo cliente habilitado para SDK de fala
-   - [Início rápido: conectar a um aplicativo de comando personalizado com o SDK de fala (versão prévia)](./quickstart-custom-speech-commands-speech-sdk.md)
+  - [Início rápido: conectar a um aplicativo de comando personalizado com o SDK de fala (versão prévia)](./quickstart-custom-speech-commands-speech-sdk.md)
 
 ## <a name="optional-get-started-fast"></a>Opcional: introdução rápida
 
@@ -45,14 +45,15 @@ Este artigo descreve, passo a passo, como fazer um aplicativo cliente se comunic
 1. Abra o aplicativo de comandos personalizados criado anteriormente no [Speech Studio](https://speech.microsoft.com/)
 1. Marque a seção **regras de conclusão** para verificar se você tem a regra criada anteriormente que responde de volta ao usuário
 1. Para enviar uma carga diretamente para o cliente, crie uma nova regra com uma ação enviar atividade
+
    > [!div class="mx-imgBorder"]
    > ![regra de conclusão de atividade de envio](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
-   | Definição    | Valor sugerido                                  | Descrição                                        |
-   | ---------- | ------------------------------------------------ | -------------------------------------------------- |
-   | Nome da Regra  | UpdateDeviceState                                | Um nome que descreve a finalidade da regra          |
-   | Condições | Parâmetro necessário-`OnOff` e `SubjectDevice` | Condições que determinam quando a regra pode ser executada    |
-   | Ações    | `SendActivity` (veja abaixo)                        | A ação a ser tomada quando a condição da regra for verdadeira |
+   | Definição | Valor sugerido | Descrição |
+   | ------- | --------------- | ----------- |
+   | Nome da Regra | UpdateDeviceState | Um nome que descreve a finalidade da regra |
+   | Condições | Parâmetro necessário-`OnOff` e `SubjectDevice` | Condições que determinam quando a regra pode ser executada |
+   | Ações | `SendActivity` (veja abaixo) | A ação a ser tomada quando a condição da regra for verdadeira |
 
    > [!div class="mx-imgBorder"]
    > ](media/custom-speech-commands/fulfill-sdk-send-activity-action.png) ![carga da atividade de envio
@@ -139,6 +140,6 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. O estado visual da TV deve mudar para "on"
 
 ## <a name="next-steps"></a>Passos seguintes
+
 > [!div class="nextstepaction"]
 > [Como: Adicionar validações a parâmetros de comando personalizados (visualização)](./how-to-custom-speech-commands-validations.md)
-

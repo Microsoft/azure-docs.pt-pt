@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: b0f3a486edb0c650a4a14e5e60b4459f758a64d4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 40e850bcbd177b15c91e57ec369c6b04963ffb84
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499944"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132279"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: criar um painel do provedor de Power BI
 
@@ -51,7 +51,7 @@ Neste tutorial, ficará a saber como:
 * Uma conta de serviço do Power BI. Se você ainda não tiver um, poderá [criar uma conta de avaliação gratuita para serviço do Power bi](https://app.powerbi.com/). Se você ainda não usou Power BI antes, pode ser útil passar por introdução [ao Power bi](https://docs.microsoft.com/power-bi/service-get-started).
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Configurar uma exportação de dados contínua para os hubs de eventos do Azure
-Primeiro, você precisará configurar uma exportação de dados contínua de seu modelo de aplicativo IoT Central do Azure para o Hub de eventos do Azure em sua assinatura. Você pode fazer isso seguindo as etapas neste tutorial de IoT Central do Azure para [exportar para os hubs de eventos](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-pnp). Você só precisará exportar para a telemetria para os fins deste tutorial.
+Primeiro, você precisará configurar uma exportação de dados contínua de seu modelo de aplicativo IoT Central do Azure para o Hub de eventos do Azure em sua assinatura. Você pode fazer isso seguindo as etapas neste tutorial de IoT Central do Azure para [exportar para os hubs de eventos](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data). Você só precisará exportar para a telemetria para os fins deste tutorial.
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>Criar um conjunto de Power BI de streaming
 
@@ -91,7 +91,7 @@ No final desta etapa, o designer do aplicativo lógico deve ter esta aparência:
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Transmitir dados para Power BI de seu aplicativo lógico
 A próxima etapa será analisar os dados provenientes do seu hub de eventos para transmiti-los para os conjuntos Power BI dados que você criou anteriormente.
 
-1. Antes de fazer isso, você precisará entender a carga JSON que está sendo enviada do seu dispositivo para o Hub de eventos. Você pode fazer isso examinando este [esquema de exemplo](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-pnp#telemetry) e modificando-o para corresponder ao seu esquema ou usando o Gerenciador do [barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer) para inspecionar as mensagens. Se você estiver usando os aplicativos de monitoramento contínuo do paciente, suas mensagens terão a seguinte aparência:
+1. Antes de fazer isso, você precisará entender a carga JSON que está sendo enviada do seu dispositivo para o Hub de eventos. Você pode fazer isso examinando este [esquema de exemplo](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data#telemetry) e modificando-o para corresponder ao seu esquema ou usando o Gerenciador do [barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer) para inspecionar as mensagens. Se você estiver usando os aplicativos de monitoramento contínuo do paciente, suas mensagens terão a seguinte aparência:
 
 **Telemetria de patches do Smart vitals**
 
@@ -144,9 +144,9 @@ A próxima etapa será analisar os dados provenientes do seu hub de eventos para
     |Parâmetro|Valor|
     |---|---|
     |Nome|Nome da interface|
-    |Tipo|String|
+    |Tipo|Cadeia|
 
-    Clique em **salvar**. 
+    Prima **Guardar**. 
 
 3. Adicione outra variável chamada **Body** com o tipo como **cadeia de caracteres**. Seu aplicativo lógico terá essas ações adicionadas:
 

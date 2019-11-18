@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: cd5b45093be6d7cc8745013f18c897251f89f454
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6ec8f8835e925663fc6ac21a6eb1df09d6927109
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822198"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132102"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como provisionar novos locatários e registrá-los no catálogo
 
@@ -25,12 +25,12 @@ Neste tutorial, você aprenderá a provisionar e catalogar padrões de SaaS. Voc
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> 
+>
 > * Provisionar um único locatário novo.
 > * Provisione um lote de locatários adicionais.
 
 
-Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
+Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
 * O aplicativo de banco de dados por locatário SaaS Wingtip tickets é implantado. Para implantá-lo em menos de cinco minutos, consulte [implantar e explorar o aplicativo de banco de dados por locatário SaaS Wingtip tickets](saas-dbpertenant-get-started-deploy.md).
 * O Azure PowerShell está instalado. Para obter mais informações, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
@@ -39,17 +39,17 @@ Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
 
 Em um aplicativo SaaS multilocatário com suporte de banco de dados, é importante saber onde as informações de cada locatário são armazenadas. No padrão de catálogo de SaaS, um banco de dados de catálogo é usado para manter o mapeamento entre cada locatário e o banco de dados no qual os seus dados são armazenados. Esse padrão se aplica sempre que os dados de locatário são distribuídos entre vários bancos.
 
-Cada locatário é identificado por uma chave no catálogo, que é mapeada para o local de seu banco de dados. No aplicativo Wingtip tickets, a chave é formada por um hash do nome do locatário. Esse esquema permite que o aplicativo Construa a chave a partir do nome do locatário incluído na URL do aplicativo. Outros esquemas de chave de locatário podem ser usados.  
+Cada locatário é identificado por uma chave no catálogo, que é mapeada para o local de seu banco de dados. No aplicativo Wingtip tickets, a chave é formada por um hash do nome do locatário. Esse esquema permite que o aplicativo Construa a chave a partir do nome do locatário incluído na URL do aplicativo. Outros esquemas de chave de locatário podem ser usados.
 
 O catálogo permite que o nome ou o local do banco de dados seja alterado com impacto mínimo sobre o aplicativo. Em um modelo de banco de dados multilocatário, esse recurso também acomoda a movimentação de um locatário entre bancos de dados. O catálogo também pode ser usado para indicar se um locatário ou banco de dados está offline para manutenção ou outras ações. Esse recurso é explorado no [tutorial de restauração de locatário único](saas-dbpertenant-restore-single-tenant.md).
 
-O catálogo também pode armazenar metadados adicionais de locatário ou banco de dados, como a versão do esquema, o plano de serviço ou os SLAs oferecidos aos locatários. O catálogo pode armazenar outras informações que habilitam o gerenciamento de aplicativos, atendimento ao cliente ou DevOps. 
+O catálogo também pode armazenar metadados adicionais de locatário ou banco de dados, como a versão do esquema, o plano de serviço ou os SLAs oferecidos aos locatários. O catálogo pode armazenar outras informações que habilitam o gerenciamento de aplicativos, atendimento ao cliente ou DevOps.
 
-Além do aplicativo SaaS, o catálogo pode habilitar as ferramentas de banco de dados. No exemplo de banco de dados por locatário SaaS Wingtip tickets, o catálogo é usado para habilitar a consulta entre locatários, que é explorada no [tutorial de relatório ad hoc](saas-tenancy-cross-tenant-reporting.md). O gerenciamento de trabalhos entre bancos de dados é explorado nos tutoriais de [Gerenciamento de esquema](saas-tenancy-schema-management.md) e [análise de locatário](saas-tenancy-tenant-analytics.md) . 
+Além do aplicativo SaaS, o catálogo pode habilitar as ferramentas de banco de dados. No exemplo de banco de dados por locatário SaaS Wingtip tickets, o catálogo é usado para habilitar a consulta entre locatários, que é explorada no [tutorial de relatório ad hoc](saas-tenancy-cross-tenant-reporting.md). O gerenciamento de trabalhos entre bancos de dados é explorado nos tutoriais de [Gerenciamento de esquema](saas-tenancy-schema-management.md) e [análise de locatário](saas-tenancy-tenant-analytics.md) .
 
-Nos exemplos de SaaS do Wingtip tickets, o catálogo é implementado usando os recursos de gerenciamento de fragmentos da [biblioteca de cliente do banco de dados elástico (EDCL)](sql-database-elastic-database-client-library.md). O EDCL está disponível em Java e na .NET Framework. O EDCL permite que um aplicativo crie, gerencie e use um mapa de fragmentos com backup de banco de dados. 
+Nos exemplos de SaaS do Wingtip tickets, o catálogo é implementado usando os recursos de gerenciamento de fragmentos da [biblioteca de cliente do banco de dados elástico (EDCL)](sql-database-elastic-database-client-library.md). O EDCL está disponível em Java e na .NET Framework. O EDCL permite que um aplicativo crie, gerencie e use um mapa de fragmentos com backup de banco de dados.
 
-Um mapa de fragmentos contém uma lista de fragmentos (bancos de dados) e o mapeamento entre chaves (locatários) e fragmentos. As funções EDCL são usadas durante o provisionamento de locatário para criar as entradas no mapa de fragmentos. Eles são usados em tempo de execução por aplicativos para se conectarem ao banco de dados correto. O EDCL armazena em cache as informações de conexão para minimizar o tráfego para o banco de dados de catálogo e acelerar o aplicativo. 
+Um mapa de fragmentos contém uma lista de fragmentos (bancos de dados) e o mapeamento entre chaves (locatários) e fragmentos. As funções EDCL são usadas durante o provisionamento de locatário para criar as entradas no mapa de fragmentos. Eles são usados em tempo de execução por aplicativos para se conectarem ao banco de dados correto. O EDCL armazena em cache as informações de conexão para minimizar o tráfego para o banco de dados de catálogo e acelerar o aplicativo.
 
 > [!IMPORTANT]
 > Os dados de mapeamento podem ser acessados no banco de dado do catálogo, mas *não editá-los*. Edite dados de mapeamento usando somente APIs de biblioteca de cliente do banco de dados elástico. Manipular diretamente o mapeamento de riscos de dados que corrompem o catálogo e não tem suporte.
@@ -57,15 +57,15 @@ Um mapa de fragmentos contém uma lista de fragmentos (bancos de dados) e o mape
 
 ## <a name="introduction-to-the-saas-provisioning-pattern"></a>Introdução ao padrão de provisionamento de SaaS
 
-Quando você adiciona um novo locatário em um aplicativo SaaS que usa um modelo de banco de dados de locatário único, você deve provisionar um novo banco de dados de locatário. O banco de dados deve ser criado no local e na camada de serviço apropriados. Ele também deve ser inicializado com o esquema e os dados de referência apropriados. E deve ser registrado no catálogo sob a chave de locatário apropriada. 
+Quando você adiciona um novo locatário em um aplicativo SaaS que usa um modelo de banco de dados de locatário único, você deve provisionar um novo banco de dados de locatário. O banco de dados deve ser criado no local e na camada de serviço apropriados. Ele também deve ser inicializado com o esquema e os dados de referência apropriados. E deve ser registrado no catálogo sob a chave de locatário apropriada.
 
-Abordagens diferentes para o provisionamento de banco de dados podem ser usadas. Você pode executar scripts SQL, implantar um bacpac ou copiar um banco de dados de modelo. 
+Abordagens diferentes para o provisionamento de banco de dados podem ser usadas. Você pode executar scripts SQL, implantar um bacpac ou copiar um banco de dados de modelo.
 
-O provisionamento de banco de dados precisa fazer parte de sua estratégia de gerenciamento de esquema. Você deve certificar-se de que os novos bancos de dados sejam provisionados com o esquema mais recente. Esse requisito é explorado no [tutorial de gerenciamento de esquema](saas-tenancy-schema-management.md). 
+O provisionamento de banco de dados precisa fazer parte de sua estratégia de gerenciamento de esquema. Você deve certificar-se de que os novos bancos de dados sejam provisionados com o esquema mais recente. Esse requisito é explorado no [tutorial de gerenciamento de esquema](saas-tenancy-schema-management.md).
 
-O aplicativo de banco de dados por locatário Wingtip tickets provisiona novos locatários copiando um banco de dados de modelo chamado _basetenantdb_, que é implantado no servidor de catálogo. O provisionamento pode ser integrado ao aplicativo como parte de uma experiência de inscrição. Ele também pode ter suporte offline usando scripts. Este tutorial explora o provisionamento usando o PowerShell. 
+O aplicativo de banco de dados por locatário Wingtip tickets provisiona novos locatários copiando um banco de dados de modelo chamado _basetenantdb_, que é implantado no servidor de catálogo. O provisionamento pode ser integrado ao aplicativo como parte de uma experiência de inscrição. Ele também pode ter suporte offline usando scripts. Este tutorial explora o provisionamento usando o PowerShell.
 
-Os scripts de provisionamento copiam o banco de dados _basetenantdb_ para criar um novo banco de dados de locatário em um pool elástico. O banco de dados de locatário é criado no servidor de locatário mapeado para o alias DNS _Tenente_ . Esse alias mantém uma referência ao servidor usado para provisionar novos locatários e é atualizado para apontar para um servidor de locatário de recuperação nos tutoriais de recuperação de desastres ([Dr usando georestore](saas-dbpertenant-dr-geo-restore.md), [Dr usando a replicação](saas-dbpertenant-dr-geo-replication.md)). Em seguida, os scripts inicializam o banco de dados com informações específicas do locatário e o registram no mapa do fragmento do catálogo. Os bancos de dados de locatário recebem nomes com base no nome do locatário. Esse esquema de nomenclatura não é uma parte crítica do padrão. O catálogo mapeia a chave de locatário para o nome do banco de dados, portanto, qualquer Convenção de nomenclatura pode ser usada. 
+Os scripts de provisionamento copiam o banco de dados _basetenantdb_ para criar um novo banco de dados de locatário em um pool elástico. O banco de dados de locatário é criado no servidor de locatário mapeado para o alias DNS _Tenente_ . Esse alias mantém uma referência ao servidor usado para provisionar novos locatários e é atualizado para apontar para um servidor de locatário de recuperação nos tutoriais de recuperação de desastres ([Dr usando georestore](saas-dbpertenant-dr-geo-restore.md), [Dr usando a replicação](saas-dbpertenant-dr-geo-replication.md)). Em seguida, os scripts inicializam o banco de dados com informações específicas do locatário e o registram no mapa do fragmento do catálogo. Os bancos de dados de locatário recebem nomes com base no nome do locatário. Esse esquema de nomenclatura não é uma parte crítica do padrão. O catálogo mapeia a chave de locatário para o nome do banco de dados, portanto, qualquer Convenção de nomenclatura pode ser usada.
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts de aplicativo de banco de dados por locatário SaaS Wingtip tickets
@@ -95,7 +95,7 @@ Para entender como o aplicativo Wingtip tickets implementa o novo provisionament
 
 
 
-Rastreie a execução do script usando as opções do menu **depurar** . Pressione F10 e F11 para passar sobre ou para as funções chamadas. Para obter mais informações sobre como depurar scripts do PowerShell, consulte [dicas sobre como trabalhar com e depurar scripts do PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Rastreie a execução do script usando as opções do menu **depurar** . Pressione F10 e F11 para passar sobre ou para as funções chamadas. Para obter mais informações sobre como depurar scripts do PowerShell, consulte [dicas sobre como trabalhar com e depurar scripts do PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 
 Você não precisa seguir este fluxo de trabalho explicitamente. Ele explica como depurar o script.
@@ -156,7 +156,7 @@ Outros padrões de provisionamento não incluídos neste tutorial:
 
 **Pré-Provisionando bancos de dados**: o padrão de pré-provisionamento explora o fato de que os bancos de dados em um pool elástico não agregam custo extra. A cobrança é para o pool elástico, não para os bancos de dados. Bancos de dados ociosos não consomem recursos. Ao provisionar previamente bancos de dados em um pool e alocá-los quando necessário, você pode reduzir o tempo para adicionar locatários. O número de bancos de dados previamente provisionados pode ser ajustado conforme necessário para manter um buffer adequado para a taxa de provisionamento prevista.
 
-**Provisionamento automático**: no padrão de provisionamento automático, um serviço de provisionamento provisiona servidores, pools e bancos de dados automaticamente, conforme necessário. Se desejar, você pode incluir o pré-provisionamento de bancos de dados em pools elásticos. Se os bancos de dados forem encerrados e excluídos, as lacunas nos pools elásticos poderão ser preenchidas pelo serviço de provisionamento. Esse serviço pode ser simples ou complexo, como manipular o provisionamento em várias regiões geográficas e configurar a replicação geográfica para recuperação de desastres. 
+**Provisionamento automático**: no padrão de provisionamento automático, um serviço de provisionamento provisiona servidores, pools e bancos de dados automaticamente, conforme necessário. Se desejar, você pode incluir o pré-provisionamento de bancos de dados em pools elásticos. Se os bancos de dados forem encerrados e excluídos, as lacunas nos pools elásticos poderão ser preenchidas pelo serviço de provisionamento. Esse serviço pode ser simples ou complexo, como manipular o provisionamento em várias regiões geográficas e configurar a replicação geográfica para recuperação de desastres.
 
 Com o padrão de provisionamento automático, um script ou aplicativo cliente envia uma solicitação de provisionamento para uma fila a ser processada pelo serviço de provisionamento. Em seguida, ele sonda o serviço para determinar a conclusão. Se o provisionamento prévio for usado, as solicitações serão tratadas rapidamente. O serviço provisiona um banco de dados de substituição em segundo plano.
 
@@ -166,7 +166,7 @@ Com o padrão de provisionamento automático, um script ou aplicativo cliente en
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> 
+>
 > * Provisionar um único locatário novo.
 > * Provisione um lote de locatários adicionais.
 > * Concorra os detalhes de provisionamento de locatários e registro deles no catálogo.
@@ -177,4 +177,4 @@ Experimente o [tutorial de monitoramento de desempenho](saas-dbpertenant-perform
 
 * [Tutoriais adicionais que se baseiam no aplicativo de banco de dados por locatário SaaS Wingtip tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Biblioteca de clientes da base de dados elástica](sql-database-elastic-database-client-library.md)
-* [Depurar scripts no ISE do Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+* [Depurar scripts no ISE do Windows PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)

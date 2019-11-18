@@ -1,21 +1,18 @@
 ---
-title: Tutorial – adicionar funções de modelo ao modelo de Azure Resource Manager
+title: Tutorial – adicionar funções de modelo
 description: Adicione funções de modelo ao seu modelo de Azure Resource Manager para construir valores.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ca6e7f326ba67eac33e4dee5fa844d7676ab864b
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: fe571c2a0088375feff8351f49a476669461b6aa
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963962"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150259"
 ---
-# <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Tutorial: Adicionar funções de modelo ao seu modelo do Resource Manager
+# <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Tutorial: adicionar funções de modelo ao seu modelo do Resource Manager
 
 Neste tutorial, você aprenderá a adicionar [funções de modelo](resource-group-template-functions.md) ao seu modelo. Você usa funções para construir valores dinamicamente. Além dessas funções de modelo fornecidas pelo sistema, você também pode criar [funções definidas pelo usuário](./template-user-defined-functions.md). Este tutorial leva **7 minutos** para ser concluído.
 
@@ -77,7 +74,7 @@ az group deployment create \
 
 Você pode verificar a implantação explorando o grupo de recursos do portal do Azure.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. No menu à esquerda, selecione **grupos de recursos**.
 1. Selecione o grupo de recursos no qual você implantou.
 1. Você verá que um recurso de conta de armazenamento foi implantado e tem o mesmo local que o grupo de recursos.

@@ -1,29 +1,28 @@
 ---
-title: Definir a ordem de implementação para recursos do Azure | Documentos da Microsoft
-description: Descreve como definir um recurso como depende de outro recurso durante a implementação para garantir que recursos são implementados na ordem correta.
-author: tfitzmac
-ms.service: azure-resource-manager
+title: Definir ordem de implantação para recursos
+description: Descreve como definir um recurso como dependente de outro recurso durante a implantação para garantir que os recursos sejam implantados na ordem correta.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: tomfitz
-ms.openlocfilehash: 32b2b41e47fe089da70d82e6049d0139795df88a
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 6b608111f2fe24a0b426e5697ceb07349f2d4693
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204218"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149720"
 ---
-# <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definir a ordem para a implementação de recursos nos modelos do Azure Resource Manager
-Para um determinado recurso, pode haver outros recursos que tem de existir antes do recurso está implementado. Por exemplo, um SQL server tem de existir antes de tentar implementar uma base de dados SQL. Define esta relação, marcando um recurso como dependente do recurso de outro. Define uma dependência com o **dependsOn** elemento, ou utilizando o **referência** função. 
+# <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definir a ordem de implantação de recursos em modelos de Azure Resource Manager
 
-O Resource Manager avalia as dependências entre os recursos e implementa-os por ordem dependente. Quando os recursos não são dependentes entre si, o Resource Manager implementa-os em paralelo. Apenas terá de definir as dependências de recursos que são implementados no mesmo modelo. 
+Para um determinado recurso, pode haver outros recursos que devem existir antes que o recurso seja implantado. Por exemplo, um SQL Server deve existir antes de tentar implantar um banco de dados SQL. Você define essa relação marcando um recurso como dependente do outro recurso. Você define uma dependência com o elemento **depends** ou usando a função de **referência** . 
 
-Para obter um tutorial, veja [Tutorial: criar modelos Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
+O Resource Manager avalia as dependências entre os recursos e implementa-os por ordem dependente. Quando os recursos não são dependentes entre si, o Resource Manager implementa-os em paralelo. Você só precisa definir dependências para recursos que são implantados no mesmo modelo. 
+
+Para obter um tutorial, consulte [tutorial: criar modelos de Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
 
 ## <a name="dependson"></a>dependsOn
-No seu modelo, o elemento de dependsOn permite-lhe definir um recurso como um dependendo de um ou mais recursos. O valor pode ser uma lista separada por vírgulas de nomes de recursos. 
 
-O exemplo seguinte mostra um conjunto de dimensionamento de máquinas virtuais que depende de um loop que cria várias contas de armazenamento, rede virtual e um balanceador de carga. Estes outros recursos não são apresentados no exemplo a seguir, mas elas precisariam de existir em outro lugar no modelo.
+Dentro de seu modelo, o elemento depends permite que você defina um recurso como dependente de um ou mais recursos. Seu valor pode ser uma lista separada por vírgulas de nomes de recursos. 
+
+O exemplo a seguir mostra um conjunto de dimensionamento de máquinas virtuais que depende de um balanceador de carga, rede virtual e um loop que cria várias contas de armazenamento. Esses outros recursos não são mostrados no exemplo a seguir, mas eles precisariam existir em outro lugar no modelo.
 
 ```json
 {
@@ -43,9 +42,9 @@ O exemplo seguinte mostra um conjunto de dimensionamento de máquinas virtuais q
 }
 ```
 
-No exemplo anterior, uma dependência está incluída nos recursos que são criados por meio de um ciclo de cópia com o nome **storageLoop**. Por exemplo, veja [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
+No exemplo anterior, uma dependência é incluída nos recursos que são criados por meio de um loop de cópia chamado **storageLoop**. Para obter um exemplo, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
 
-Ao definir as dependências, pode incluir o espaço de nomes de fornecedor de recursos e o tipo de recurso para evitar ambiguidade. Por exemplo, para esclarecer a um balanceador de carga e a rede virtual que pode ter os mesmos nomes que outros recursos, utilize o seguinte formato:
+Ao definir dependências, você pode incluir o namespace do provedor de recursos e o tipo de recurso para evitar ambigüidade. Por exemplo, para esclarecer um balanceador de carga e uma rede virtual que podem ter os mesmos nomes que outros recursos, use o seguinte formato:
 
 ```json
 "dependsOn": [
@@ -54,14 +53,14 @@ Ao definir as dependências, pode incluir o espaço de nomes de fornecedor de re
 ]
 ``` 
 
-Embora poderá ser artísticas utilizar dependsOn para mapear as relações entre os seus recursos, é importante compreender por que está fazendo isso. Por exemplo, documente a forma como os recursos estão interligados, dependsOn não é a abordagem correta. Não é possível consultar a que recursos foram definidos no elemento dependsOn após a implementação. Usando dependsOn, potencialmente afeta o tempo de implantação porque o Gestor de recursos não implementar em paralelos dois recursos que têm uma dependência. 
+Embora você possa ser inclinado a usar dependentes para mapear relações entre seus recursos, é importante entender por que você está fazendo isso. Por exemplo, para documentar como os recursos são interconectados, a depende não é a abordagem certa. Não é possível consultar quais recursos foram definidos no elemento depends após a implantação. Usando o depending, você pode impactar o tempo de implantação porque o Resource Manager não implanta em paralelo dois recursos que têm uma dependência. 
 
-## <a name="child-resources"></a>Recursos subordinados
-A propriedade de recursos permite-lhe especificar os recursos subordinados que estão relacionados com o recurso a ser definido. Recursos subordinados só podem ser definida cinco níveis de profundidade. É importante ter em atenção que uma dependência de implementação implícito não é criada entre um recurso de subordinado e o recurso principal. Se precisar do recurso de subordinados para ser implementada depois do recurso principal, têm de indicar explicitamente essa dependência com a propriedade dependsOn. 
+## <a name="child-resources"></a>Recursos filho
+A propriedade Resources permite que você especifique recursos filho que estão relacionados ao recurso que está sendo definido. Os recursos filho só podem ser definidos em cinco níveis de profundidade. É importante observar que uma dependência de implantação implícita não é criada entre um recurso filho e o recurso pai. Se você precisar que o recurso filho seja implantado após o recurso pai, deverá declarar explicitamente essa dependência com a propriedade depending. 
 
-Cada recurso principal aceita apenas determinados tipos de recursos, como recursos subordinados. Os tipos de recurso aceites são especificados na [esquema de modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso principal. O nome do tipo de recurso subordinado inclui o nome do tipo de recurso principal, como **Microsoft.Web/sites/config** e **Microsoft.Web/sites/extensions** são os dois recursos subordinados do **Microsoft.Web/sites**.
+Cada recurso pai aceita apenas determinados tipos de recursos como recursos filho. Os tipos de recurso aceitos são especificados no [esquema de modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso pai. O nome do tipo de recurso filho inclui o nome do tipo de recurso pai, como **Microsoft. Web/sites/config** e **Microsoft. Web/sites/Extensions** são ambos recursos filho do **Microsoft. Web/sites**.
 
-O exemplo seguinte mostra um SQL server e base de dados SQL. Tenha em atenção que uma dependência explícita é definida entre a base de dados SQL e o SQL server, apesar da base de dados é um filho do servidor.
+O exemplo a seguir mostra um SQL Server e um banco de dados SQL. Observe que uma dependência explícita é definida entre o banco de dados SQL e o SQL Server, embora o banco de dados seja um filho do servidor.
 
 ```json
 "resources": [
@@ -102,7 +101,7 @@ O exemplo seguinte mostra um SQL server e base de dados SQL. Tenha em atenção 
 ```
 
 ## <a name="reference-and-list-functions"></a>funções de referência e lista
-O [fazem referência função](resource-group-template-functions-resource.md#reference) permite que uma expressão derive o respetivo valor a partir de outras JSON pares nome / valor ou a recursos de tempo de execução. O [lista * funções](resource-group-template-functions-resource.md#list) retornar valores para um recurso de uma operação de lista.  Expressões de referência e lista implicitamente declarar que um recurso depende de outra, quando o recurso referenciado está implementado no mesmo modelo e referido pelo respetivo nome (ID de recurso não). Se passar o ID de recurso para as funções de referência ou de lista, uma referência implícita não é criada.
+A [função de referência](resource-group-template-functions-resource.md#reference) permite que uma expressão derive seu valor de outros pares de nome e valor JSON ou recursos de tempo de execução. As [funções List *](resource-group-template-functions-resource.md#list) retornam valores para um recurso de uma operação de lista.  Expressões de lista e referência implicitamente declaram que um recurso depende de outro, quando o recurso referenciado é implantado no mesmo modelo e referenciado por seu nome (não ID de recurso). Se você passar a ID do recurso para as funções de referência ou lista, uma referência implícita não será criada.
 
 O formato geral da função de referência é:
 
@@ -116,7 +115,7 @@ O formato geral da função listKeys é:
 listKeys('resourceName', 'yyyy-mm-dd')
 ```
 
-No exemplo a seguir, um ponto final da CDN explicitamente depende do perfil CDN e implicitamente depende de uma aplicação web.
+No exemplo a seguir, um ponto de extremidade CDN depende explicitamente do perfil CDN e depende implicitamente de um aplicativo Web.
 
 ```json
 {
@@ -133,26 +132,26 @@ No exemplo a seguir, um ponto final da CDN explicitamente depende do perfil CDN 
     }
 ```
 
-Pode utilizar este elemento ou o elemento de dependsOn para especificar as dependências, mas não precisa de utilizar para o mesmo recurso dependente. Sempre que possível, use uma referência implícita para evitar a adição de uma dependência desnecessária.
+Você pode usar esse elemento ou o elemento depende para especificar dependências, mas não precisa usar ambos para o mesmo recurso dependente. Sempre que possível, use uma referência implícita para evitar a adição de uma dependência desnecessária.
 
-Para obter mais informações, consulte [fazem referência função](resource-group-template-functions-resource.md#reference).
+Para saber mais, consulte [função de referência](resource-group-template-functions-resource.md#reference).
 
 ## <a name="circular-dependencies"></a>Dependências circulares
 
-Gestor de recursos identifica dependências circulares durante a validação do modelo. Se receber um erro a indicar que existe uma dependência circular, avalie o seu modelo para ver se todas as dependências não são necessários e podem ser removidas. Se remover as dependências não funcionar, pode evitar dependências circulares ao mover algumas operações de implementação para os recursos subordinados que são implementados depois dos recursos que têm a dependência circular. Por exemplo, suponha que estiver implantando duas máquinas virtuais, mas tem de definir as propriedades em cada um que se referem a outra. Pode implementá-las na seguinte ordem:
+O Gerenciador de recursos identifica dependências circulares durante a validação do modelo. Se você receber um erro informando que existe uma dependência circular, avalie o modelo para ver se as dependências não são necessárias e podem ser removidas. Se a remoção de dependências não funcionar, você poderá evitar dependências circulares movendo algumas operações de implantação para recursos filho que são implantados após os recursos que têm a dependência circular. Por exemplo, suponha que você esteja implantando duas máquinas virtuais, mas deve definir propriedades em cada uma delas referente à outra. Você pode implantá-los na seguinte ordem:
 
 1. vm1
 2. vm2
-3. Extensão na vm1 depende da vm1 e vm2. A extensão define os valores na vm1 que obtém a partir do vm2.
-4. Extensão na vm2 depende da vm1 e vm2. A extensão define os valores de vm2 que ele obtém da vm1.
+3. A extensão em VM1 depende de VM1 e VM2. A extensão define valores em VM1 que obtém de VM2.
+4. A extensão em VM2 depende de VM1 e VM2. A extensão define valores em VM2 que obtém de VM1.
 
-Para obter informações sobre como avaliar a ordem de implementação e resolução de erros de dependência, consulte [resolver erros comuns de implementação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
+Para obter informações sobre como avaliar a ordem de implantação e resolver erros de dependência, consulte [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para seguir um tutorial, veja [Tutorial: criar modelos Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
-* Para obter recomendações ao definir as dependências, veja [práticas recomendadas do modelo do Azure Resource Manager](template-best-practices.md).
-* Para saber mais sobre as dependências de resolução de problemas durante a implementação, consulte [resolver erros comuns de implementação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* Para saber mais sobre a criação de modelos Azure Resource Manager, veja [criação de modelos](resource-group-authoring-templates.md). 
-* Para obter uma lista das funções disponíveis num modelo, consulte [funções de modelo](resource-group-template-functions.md).
+* Para percorrer um tutorial, consulte [tutorial: criar modelos de Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
+* Para obter recomendações ao definir dependências, consulte [Azure Resource Manager modelo de práticas recomendadas](template-best-practices.md).
+* Para saber mais sobre como solucionar problemas de dependências durante a implantação, consulte [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Para saber mais sobre como criar modelos de Azure Resource Manager, consulte Criando [modelos](resource-group-authoring-templates.md). 
+* Para obter uma lista das funções disponíveis em um modelo, consulte [funções de modelo](resource-group-template-functions.md).
 

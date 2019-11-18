@@ -1,25 +1,17 @@
 ---
-title: Usar Azure Key Vault no modelo do Resource Manager
+title: Usar Azure Key Vault em modelos
 description: Saiba como utilizar o Azure Key Vault para transmitir valores de parâmetros seguros durante a implementação de modelos do Resource Manager
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 5dfc186e5d047de76e16ec145f5f0afe94b8d2f4
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 86625132e4ac4aa3ed2c42f1e94babcfbbf63a51
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533608"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149275"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-resource-manager-template-deployment"></a>Tutorial: integrar Azure Key Vault em sua implantação de modelo do Resource Manager
 
@@ -126,7 +118,7 @@ Os modelos de início rápido do Azure são um repositório para modelos do Reso
 
    É útil ter alguma compreensão básica do modelo antes de personalizá-lo.
 
-1. Selecione **arquivo**  > **salvar como**e salve uma cópia do arquivo em seu computador local com o nome *azuredeploy. JSON*.
+1. Selecione **arquivo** > **salvar como**e salve uma cópia do arquivo em seu computador local com o nome *azuredeploy. JSON*.
 
 1. Repita as etapas 1-3 para abrir a URL a seguir e salve o arquivo como *azuredeploy. Parameters. JSON*.
 
@@ -157,7 +149,7 @@ Não precisa de fazer quaisquer alterações ao ficheiro de modelo.
 
     ![Integrar o cofre de chaves e o arquivo de parâmetros de implantação de máquina virtual do modelo do Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 
-1. Atualize os seguintes valores:
+1. Atualize os valores seguintes:
 
     * **adminUsername**: o nome da conta de administrador da máquina virtual.
     * **dnsLabelPrefix**: nomeie o valor de dnsLabelPrefix.
@@ -189,7 +181,7 @@ Depois de implantar com êxito a máquina virtual, teste as credenciais de entra
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
 
-1. Selecione **grupos de recursos**  >  **\<*YourResourceGroupName* >**  > **simpleWinVM**.
+1. Selecione **grupos de recursos** >  **\<*YourResourceGroupName*>**  > **simpleWinVM**.
 1. Selecione **conectar** na parte superior.
 1. Selecione **baixar arquivo RDP**e siga as instruções para entrar na máquina virtual usando a senha armazenada no cofre de chaves.
 

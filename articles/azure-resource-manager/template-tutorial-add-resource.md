@@ -1,20 +1,18 @@
 ---
-title: Tutorial – adicionar um recurso a Azure Resource Manager modelo
+title: Tutorial – adicionar recurso ao modelo
 description: Descreve as etapas para criar seu primeiro modelo de Azure Resource Manager. Você aprende sobre a sintaxe do arquivo de modelo e como implantar uma conta de armazenamento.
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6b8bd73a1248168ff8f434afa0a9317a8fe0c618
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 924c369465bf53ea5f58de906bd0894ce822cac3
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963906"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148193"
 ---
-# <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Tutorial: Adicionar um recurso ao seu modelo do Resource Manager
+# <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Tutorial: adicionar um recurso ao seu modelo do Resource Manager
 
 No [tutorial anterior](template-tutorial-create-first-template.md), você aprendeu como criar um modelo em branco e implantá-lo. Agora, você está pronto para implantar um recurso real. Neste tutorial, você adiciona uma conta de armazenamento. Leva cerca de **9 minutos** para concluir este tutorial.
 
@@ -34,15 +32,15 @@ Substitua **{forneça um nome exclusivo}** por um nome de conta de armazenamento
 
 Adivinhar um nome exclusivo para uma conta de armazenamento não é fácil e não funciona bem para automatizar grandes implantações. Posteriormente nesta série de tutoriais, você usará recursos de modelo que facilitam a criação de um nome exclusivo.
 
-## <a name="resource-properties"></a>Propriedades de recursos
+## <a name="resource-properties"></a>Propriedades do recurso
 
 Você pode estar se perguntando como localizar as propriedades a serem usadas para cada tipo de recurso. Você pode usar a [referência de modelo do Resource Manager](/azure/templates/) para localizar os tipos de recursos que deseja implantar.
 
 Cada recurso que você implanta tem pelo menos as três propriedades a seguir:
 
-- **tipo**: Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como Microsoft. Storage/storageAccounts).
-- **apiVersion**: Versão da API REST a ser usada para criar o recurso. Cada provedor de recursos publicou suas próprias versões de API, portanto, esse valor é específico para o tipo.
-- **nome**: Nome do recurso.
+- **tipo**: tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como Microsoft. Storage/storageAccounts).
+- **apiVersion**: versão da API REST a ser usada para criar o recurso. Cada provedor de recursos publicou suas próprias versões de API, portanto, esse valor é específico para o tipo.
+- **nome**: o nome do recurso.
 
 A maioria dos recursos também tem uma propriedade **Location** , que define a região onde o recurso é implantado.
 
@@ -82,11 +80,11 @@ az group deployment create \
 
 Duas possíveis falhas de implantação que você pode encontrar:
 
-- Erro: Código = AccountNameInvalid; A mensagem = {forneça um nome exclusivo} não é um nome de conta de armazenamento válido. O nome da conta de armazenamento deve ter entre 3 e 24 caracteres de comprimento e usar apenas números e letras minúsculas.
+- Erro: código = AccountNameInvalid; A mensagem = {forneça um nome exclusivo} não é um nome de conta de armazenamento válido. O nome da conta de armazenamento deve ter entre 3 e 24 caracteres de comprimento e usar apenas números e letras minúsculas.
 
     No modelo, substitua **{fornecer-Unique-Name}** por um nome de conta de armazenamento exclusivo.  Consulte [Adicionar recurso](#add-resource).
 
-- Erro: Código = StorageAccountAlreadyTaken; Mensagem = a conta de armazenamento denominada store1abc09092019 já está em uso.
+- Erro: código = StorageAccountAlreadyTaken; Mensagem = a conta de armazenamento denominada store1abc09092019 já está em uso.
 
     No modelo, tente um nome de conta de armazenamento diferente.
 
@@ -96,11 +94,11 @@ Essa implantação leva mais tempo do que a implantação de modelo em branco po
 
 Você pode verificar a implantação explorando o grupo de recursos do portal do Azure.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. No menu à esquerda, selecione **grupos de recursos**.
 1. Selecione o grupo de recursos no qual você implantou.
 1. Você verá que uma conta de armazenamento foi implantada.
-1. Observe que o rótulo de implantação agora diz: **Deployments: 2 com êxito @ no__t-0.
+1. Observe que o rótulo de implantação agora diz: **implantações: 2 com êxito**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

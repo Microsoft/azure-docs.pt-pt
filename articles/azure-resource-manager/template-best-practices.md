@@ -1,23 +1,20 @@
 ---
-title: Práticas recomendadas para modelos de Azure Resource Manager
+title: Melhores práticas de modelos
 description: Descreve as abordagens recomendadas para a criação de modelos de Azure Resource Manager. Oferece sugestões para evitar problemas comuns ao usar modelos.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.author: tomfitz
-ms.openlocfilehash: bd3167b7f0daf7ebd595b2c33b1147140415c3de
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 7e1b6496302af3edde4d888c67ec3e461d300a5a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983811"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150309"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Práticas recomendadas do modelo de Azure Resource Manager
 
 Este artigo fornece recomendações sobre como construir seu modelo do Resource Manager. Essas recomendações ajudam a evitar problemas comuns ao usar um modelo para implantar uma solução.
 
-Para obter recomendações sobre como controlar suas assinaturas do Azure, consulte [Azure Enterprise Scaffold: Governança](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)de assinatura prescritiva.
+Para obter recomendações sobre como controlar suas assinaturas do Azure, consulte [Azure Enterprise Scaffold: governança de assinatura prescritiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
 Para obter recomendações sobre como criar modelos que funcionam em todos os ambientes de nuvem do Azure, consulte [desenvolver modelos de Azure Resource Manager para consistência de nuvem](templates-cloud-consistency.md).
 
@@ -35,7 +32,7 @@ Você também está limitado a:
 
 Você pode exceder alguns limites de modelo usando um modelo aninhado. Para obter mais informações, consulte [usando modelos vinculados ao implantar recursos do Azure](resource-group-linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, você pode combinar vários valores em um objeto. Para obter mais informações, consulte [objetos como parâmetros](resource-manager-objects-as-parameters.md).
 
-## <a name="resource-group"></a>Resource group
+## <a name="resource-group"></a>Grupo de recursos
 
 Quando você implanta recursos em um grupo de recursos, o grupo de recursos armazena metadados sobre os recursos. Os metadados são armazenados no local do grupo de recursos.
 
@@ -98,13 +95,13 @@ As informações contidas nesta seção podem ser úteis quando você trabalha c
 
 * Use `allowedValues` com moderação. Use-o somente quando você tiver certeza de que alguns valores não estão incluídos nas opções permitidas. Se você usar `allowedValues` muito amplamente, poderá bloquear implantações válidas não mantendo sua lista atualizada.
 
-* Quando um nome de parâmetro em seu modelo corresponde a um parâmetro no comando de implantação do PowerShell, o Resource Manager resolve esse conflito de nomenclatura adicionando o sufixo detemplate ao parâmetro de modelo. Por exemplo, se você incluir um parâmetro chamado **ResourceGroupName** em seu modelo, ele entrará em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Durante a implantação, você será solicitado a fornecer um valor para **ResourceGroupNameFromTemplate**.
+* Quando um nome de parâmetro em seu modelo corresponde a um parâmetro no comando de implantação do PowerShell, o Resource Manager resolve esse conflito de nomenclatura adicionando o sufixo **detemplate** ao parâmetro de modelo. Por exemplo, se você incluir um parâmetro chamado **ResourceGroupName** em seu modelo, ele entrará em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Durante a implantação, você será solicitado a fornecer um valor para **ResourceGroupNameFromTemplate**.
 
 ### <a name="security-recommendations-for-parameters"></a>Recomendações de segurança para parâmetros
 
 * Sempre use parâmetros para nomes de usuário e senhas (ou segredos).
 
-* Use `securestring` para todas as senhas e segredos. Se você passar dados confidenciais em um objeto JSON, use o `secureObject` tipo. Parâmetros de modelo com tipos de objetos seguros ou de cadeia de caracteres segura não podem ser lidos após a implantação de recursos. 
+* Use `securestring` para todas as senhas e segredos. Se você passar dados confidenciais em um objeto JSON, use o tipo de `secureObject`. Parâmetros de modelo com tipos de objetos seguros ou de cadeia de caracteres segura não podem ser lidos após a implantação de recursos. 
    
    ```json
    "parameters": {
@@ -117,7 +114,7 @@ As informações contidas nesta seção podem ser úteis quando você trabalha c
    }
    ```
 
-* Não forneça valores padrão para nomes de usuário, senhas ou qualquer valor que exija um `secureString` tipo.
+* Não forneça valores padrão para nomes de usuário, senhas ou qualquer valor que exija um tipo de `secureString`.
 
 * Não forneça valores padrão para propriedades que aumentem a área da superfície de ataque do aplicativo.
 
@@ -137,7 +134,7 @@ As informações contidas nesta seção podem ser úteis quando você trabalha c
    },
    ```
 
-* Não especifique `allowedValues` para o parâmetro de local. Os locais especificados podem não estar disponíveis em todas as nuvens.
+* Não especifique `allowedValues` para o parâmetro Location. Os locais especificados podem não estar disponíveis em todas as nuvens.
 
 * Use o valor do parâmetro Location para recursos que provavelmente estejam no mesmo local. Essa abordagem minimiza o número de vezes que os usuários são solicitados a fornecer informações de local.
 
@@ -167,7 +164,7 @@ As informações a seguir podem ser úteis quando você trabalha com [variáveis
 
 Ao decidir quais [dependências](resource-group-define-dependencies.md) definir, use as seguintes diretrizes:
 
-* Use a função de **referência** e passe o nome do recurso para definir uma dependência implícita entre os recursos que precisam compartilhar uma propriedade. Não adicione um elemento `dependsOn` explícito quando já tiver definido uma dependência implícita. Essa abordagem reduz o risco de ter dependências desnecessárias.
+* Use a função de **referência** e passe o nome do recurso para definir uma dependência implícita entre os recursos que precisam compartilhar uma propriedade. Não adicione um elemento de `dependsOn` explícito quando você já tiver definido uma dependência implícita. Essa abordagem reduz o risco de ter dependências desnecessárias.
 
 * Defina um recurso filho como dependente de seu recurso pai.
 
@@ -239,7 +236,7 @@ As informações a seguir podem ser úteis quando você trabalha com [recursos](
    * [Permitir acesso externo à sua VM usando o PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
    * [Permitir acesso externo à sua VM Linux usando CLI do Azure](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
 
-* A propriedade **domainNameLabel** para endereços IP públicos deve ser exclusiva. O valor de **domainNameLabel** deve ter entre 3 e 63 caracteres de comprimento e seguir as regras especificadas por esta expressão regular `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`:. Como a função uniquestring gera uma cadeia de caracteres com 13 caracteres de comprimento, o parâmetro **dnsPrefixString** é limitado a 50 caracteres:
+* A propriedade **domainNameLabel** para endereços IP públicos deve ser exclusiva. O valor de **domainNameLabel** deve ter entre 3 e 63 caracteres de comprimento e seguir as regras especificadas por esta expressão regular: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Como a função **uniquestring** gera uma cadeia de caracteres com 13 caracteres de comprimento, o parâmetro **dnsPrefixString** é limitado a 50 caracteres:
 
    ```json
    "parameters": {
@@ -280,7 +277,7 @@ As informações a seguir podem ser úteis quando você trabalha com [recursos](
    > 
    > 
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>Saídas
 
 Se você usar um modelo para criar endereços IP públicos, inclua uma [seção Outputs](template-outputs.md) que retorne os detalhes do endereço IP e o FQDN (nome de domínio totalmente qualificado). Pode utilizar valores de saída facilmente obter detalhes sobre os endereços IP públicos e FQDNs após a implementação.
 

@@ -13,20 +13,20 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 24cba4b02bb046a16db04635a1bf5ef4f6b619a6
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 3282106651f9ec101251d7d35369040df9572b06
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234509"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122855"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Início rápido: Criar uma fábrica de dados e um pipeline com o SDK .NET
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Início rápido: criar um data factory e um pipeline usando o SDK do .NET
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](quickstart-create-data-factory-dot-net.md)
 
-Este início rápido descreve como utilizar o .NET SDK para criar uma fábrica de dados do Azure. O pipeline que criar nesta fábrica de dados **copia** dados de uma pasta para outra pasta num armazenamento de blobs do Azure. Para obter um tutorial sobre como **transformar** dados usando Azure data Factory, consulte [o tutorial: Transforme dados usando](tutorial-transform-data-spark-portal.md)o Spark.
+Este início rápido descreve como utilizar o .NET SDK para criar uma fábrica de dados do Azure. O pipeline que criar nesta fábrica de dados **copia** dados de uma pasta para outra pasta num armazenamento de blobs do Azure. Para ter acesso a um tutorial sobre como **transformar** dados com o Azure Data Factory, veja [Tutorial: Transformar dados com o Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > Este artigo não disponibiliza uma introdução detalhada do serviço Data Factory. Para obter uma introdução ao serviço Azure Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
@@ -43,7 +43,7 @@ Transfira e instale o [SDK do Azure para .NET](https://azure.microsoft.com/downl
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Criar uma Aplicação no Azure Active Directory
 
-Nas seções em *como: Use o portal para criar um aplicativo do Azure AD e uma entidade de serviço que*possa acessar recursos, siga as instruções para executar estas tarefas:
+Nas seções em *como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos*, siga as instruções para executar estas tarefas:
 
 1. Em [criar um aplicativo Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application), crie um aplicativo que represente o aplicativo .NET que você está criando neste tutorial. Para o URL de início de sessão, pode fornecer um URL fictício conforme mostrado no artigo (`https://contoso.org/exampleapp`).
 2. Em [obter valores para entrar](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in), obtenha a **ID do aplicativo** e a **ID do locatário**e anote esses valores que você usa posteriormente neste tutorial. 
@@ -55,14 +55,14 @@ Nas seções em *como: Use o portal para criar um aplicativo do Azure AD e uma e
 Em seguida, crie C# um aplicativo de console .net no Visual Studio:
 
 1. Inicie o **Visual Studio**.
-2. Na janela iniciar, selecione **criar um novo** > **aplicativo de console de projeto (.NET Framework)** . É necessária a versão 4.5.2 ou superior do .NET.
+2. Na janela iniciar, selecione **criar um novo projeto** > **aplicativo de console (.NET Framework)** . É necessária a versão 4.5.2 ou superior do .NET.
 3. Em **nome do projeto**, insira **ADFv2QuickStart**.
 4. Selecione **Create** (Criar) para criar o projeto.
 
 ## <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
-1. Selecione **ferramentas** > **Gerenciador**depacotesNuGetconsoledoGerenciadordepacotes. > 
-2. No painel de **console do Gerenciador de pacotes** , execute os seguintes comandos para instalar pacotes. Para obter mais informações, consulte o [pacote NuGet Microsoft. Azure. Management.](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/)datafactory.
+1. Selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **console do Gerenciador de pacotes**.
+2. No painel de **console do Gerenciador de pacotes** , execute os seguintes comandos para instalar pacotes. Para obter mais informações, consulte o [pacote NuGet Microsoft. Azure. Management. datafactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
@@ -85,7 +85,7 @@ Em seguida, crie C# um aplicativo de console .net no Visual Studio:
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Adicione o código seguinte ao método **Principal** que define as variáveis. Substitua os espaços reservados pelos seus próprios valores. Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam na página a seguir e expanda **análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (armazenamento do Azure, banco de dados SQL do Azure e muito mais) e computações (HDInsight e outros) usados pelo data factory podem estar em outras regiões.
+2. Adicione o código seguinte ao método **Principal** que define as variáveis. Substitua os espaços reservados pelos seus próprios valores. Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (armazenamento do Azure, banco de dados SQL do Azure e muito mais) e computações (HDInsight e outros) usados pelo data factory podem estar em outras regiões.
 
    ```csharp
    // Set variables
@@ -151,7 +151,7 @@ while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState ==
 
 ## <a name="create-a-linked-service"></a>Criar um serviço ligado
 
-Adicione o código seguinte ao método **Main** que cria um **serviço ligado do Armazenamento do Azure**.
+Adicione o código seguinte ao método **Main**, que cria um **serviço ligado do Armazenamento do Microsoft Azure**.
 
 Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Neste guia de início rápido, você só precisa criar um serviço vinculado do armazenamento do Azure para a fonte de cópia e o repositório de coletor; Ele é denominado "AzureStorageLinkedService" no exemplo.
 
@@ -287,7 +287,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
        pipelineRun = client.PipelineRuns.Get(
            resourceGroup, dataFactoryName, runResponse.RunId);
        Console.WriteLine("Status: " + pipelineRun.Status);
-       if (pipelineRun.Status == "InProgress")
+       if (pipelineRun.Status == "InProgress" || pipelineRun.Status == "Queued")
            System.Threading.Thread.Sleep(15000);
        else
            break;
@@ -443,6 +443,6 @@ Console.WriteLine("Deleting the data factory");
 client.Factories.Delete(resourceGroup, dataFactoryName);
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 O pipeline neste exemplo copia dados de uma localização para outra localização num armazenamento de blobs do Azure. Leia os [tutoriais](tutorial-copy-data-dot-net.md) para saber como utilizar o Data Factory em mais cenários. 

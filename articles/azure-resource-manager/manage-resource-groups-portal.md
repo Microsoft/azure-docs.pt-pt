@@ -1,19 +1,16 @@
 ---
 title: Gerenciar grupos de recursos-portal do Azure
 description: Use portal do Azure para gerenciar seus grupos de recursos por meio de Azure Resource Manager. Mostra como criar, listar e excluir grupos de recursos.
-services: azure-resource-manager,azure-portal
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: b0fac4f618f742a13633473f00dbd24ff8411c44
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: e3402f496371fe89c832dc22c8288a1b94378c82
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528551"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147151"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gerenciar Azure Resource Manager grupos de recursos usando o portal do Azure
 
@@ -36,7 +33,7 @@ O grupo de recursos armazena metadados sobre os recursos. Ao especificar um loca
 
 ## <a name="create-resource-groups"></a>Criar grupos de recursos
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 2. Selecionar **grupos de recursos**
 
     ![Adicionar grupo de recursos](./media/manage-resource-groups-portal/manage-resource-groups-add-group.png)
@@ -56,7 +53,7 @@ O grupo de recursos armazena metadados sobre os recursos. Ao especificar um loca
 
 ## <a name="list-resource-groups"></a>Listar grupos de recursos
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 2. Para listar os grupos de recursos, selecione **grupos de recursos**
 
     ![procurar grupos de recursos](./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png)
@@ -65,7 +62,7 @@ O grupo de recursos armazena metadados sobre os recursos. Ao especificar um loca
 
 ## <a name="open-resource-groups"></a>Abrir grupos de recursos
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Grupos de recursos**.
 3. Selecione o grupo de recursos que você deseja abrir.
 

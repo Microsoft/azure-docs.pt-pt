@@ -11,18 +11,19 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: a54d01aa78ad77c9328f79f31d21da570e7f5676
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6cb970a59118a93c7a9023cc7c0448019dc77362
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503823"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125578"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
+>
 > * [Criar um recurso de fala do Azure](../../../../get-started.md)
 > * [Criar um aplicativo LUIS e obter uma chave de ponto de extremidade](../../../../quickstarts/create-luis.md)
 > * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnet)
@@ -42,16 +43,16 @@ Vamos adicionar um código que funciona como um esqueleto para nosso projeto. Le
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de fala
 
-Antes de inicializar um objeto `IntentRecognizer`, você precisa criar uma configuração que usa sua chave e região LUIS Endpoing. Insira esse código no método `RecognizeIntentAsync()`.
+Antes de inicializar um objeto `IntentRecognizer`, você precisa criar uma configuração que usa sua chave e região de ponto de extremidade LUIS. Insira esse código no método `RecognizeIntentAsync()`.
 
 Este exemplo usa o método `FromSubscription()` para criar o `SpeechConfig`. Para obter uma lista completa dos métodos disponíveis, consulte [classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
 
 > [!NOTE]
-> É importante usar a chave de ponto de extremidade LUIS e não as chaves iniciante ou Authroing, já que apenas a chave do ponto de extremidade é válida para reconhecimento de fala e intenção. Consulte [criar um aplicativo Luis e obter uma chave de ponto de extremidade](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) para obter instruções sobre como obter a chave correta.
+> É importante usar a chave de ponto de extremidade LUIS e não as chaves de início ou de criação, já que apenas a chave do ponto de extremidade é válida para reconhecimento de fala e intenção. Consulte [criar um aplicativo Luis e obter uma chave de ponto de extremidade](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) para obter instruções sobre como obter a chave correta.
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
 
-## <a name="initialize-a-intentrecognizer"></a>Inicializar um IntentRecognizer
+## <a name="initialize-an-intentrecognizer"></a>Inicializar um IntentRecognizer
 
 Agora, vamos criar um `IntentRecognizer`. Esse objeto é criado dentro de uma instrução using para garantir a liberação adequada de recursos não gerenciados. Insira esse código no método `RecognizeIntentAsync()`, logo abaixo da sua configuração de fala.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=28-30,76)]
@@ -63,7 +64,7 @@ Agora você precisa associar um `LanguageUnderstandingModel` ao reconhecedor de 
 
 ## <a name="recognize-an-intent"></a>Reconhecer uma intenção
 
-A partir do objeto `IntentRecognizer`, você chamará o método `RecognizeOnceAsync()`. Esse método permite que o serviço de fala saiba que você está enviando uma única frase para reconhecimento e que, assim que a frase for identificada para parar a fala Reconizing.
+A partir do objeto `IntentRecognizer`, você chamará o método `RecognizeOnceAsync()`. Esse método permite que o serviço de fala saiba que você está enviando uma única frase para reconhecimento e que, depois que a frase for identificada para parar de reconhecer a fala.
 
 Dentro da instrução using, adicione este código: [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=46)]
 
@@ -75,7 +76,8 @@ Dentro da instrução using, abaixo `RecognizeOnceAsync()`, adicione este códig
 
 ## <a name="check-your-code"></a>Verifique seu código
 
-Neste ponto, seu código deve ter esta aparência: (adicionamos alguns comentários a esta versão) [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=5-86)]
+Neste ponto, seu código deve ter a seguinte aparência:  
+(Adicionamos alguns comentários a esta versão) [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=5-86)]
 
 ## <a name="build-and-run-your-app"></a>Compilar e executar seu aplicativo
 

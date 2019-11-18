@@ -1,25 +1,22 @@
 ---
-title: Sintaxe e expressões do modelo de Azure Resource Manager
+title: Sintaxe e expressões de modelo
 description: Descreve a sintaxe JSON declarativa para modelos de Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/03/2019
-ms.author: tomfitz
-ms.openlocfilehash: 1e7288da19e2e81d609b952e03d5143b03a65c63
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 046f7f4866e9b5933c55bc5a9d0ee96c945bff0e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259486"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149190"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Sintaxe e expressões em modelos de Azure Resource Manager
 
-A sintaxe básica do modelo é JSON. No entanto, você pode usar expressões para estender os valores JSON disponíveis no modelo.  As expressões começam e terminam com colchetes `]`: `[` e, respectivamente. O valor da expressão é avaliado quando o modelo é implantado. Uma expressão pode retornar uma cadeia de caracteres, um inteiro, um booliano, uma matriz ou um objeto.
+A sintaxe básica do modelo é JSON. No entanto, você pode usar expressões para estender os valores JSON disponíveis no modelo.  As expressões começam e terminam com colchetes: `[` e `]`, respectivamente. O valor da expressão é avaliado quando o modelo é implantado. Uma expressão pode retornar uma cadeia de caracteres, um inteiro, um booliano, uma matriz ou um objeto.
 
 Uma expressão de modelo não pode exceder 24.576 caracteres.
 
-## <a name="use-functions"></a>Usar funções
+## <a name="use-functions"></a>Utilizar funções
 
 O exemplo a seguir mostra uma expressão no valor padrão de um parâmetro:
 
@@ -32,7 +29,7 @@ O exemplo a seguir mostra uma expressão no valor padrão de um parâmetro:
 },
 ```
 
-Dentro da expressão, a sintaxe `resourceGroup()` chama uma das funções que o Gerenciador de recursos fornece para uso em um modelo. Nesse caso, é a função [resourcegroup](resource-group-template-functions-resource.md#resourcegroup) . Assim como no JavaScript, as chamadas de função são `functionName(arg1,arg2,arg3)`formatadas como. A sintaxe `.location` recupera uma propriedade do objeto retornado por essa função.
+Dentro da expressão, a sintaxe `resourceGroup()` chama uma das funções que o Gerenciador de recursos fornece para uso em um modelo. Nesse caso, é a função [resourcegroup](resource-group-template-functions-resource.md#resourcegroup) . Assim como no JavaScript, as chamadas de função são formatadas como `functionName(arg1,arg2,arg3)`. A sintaxe `.location` recupera uma propriedade do objeto retornado por essa função.
 
 As funções de modelo e seus parâmetros não diferenciam maiúsculas de minúsculas. Por exemplo, o Resource Manager resolve **variáveis (' var1 ')** e **variáveis (' var1 ')** como a mesma. Quando avaliado, a menos que a função modifique expressamente maiúsculas de minúsculas (como toUpper ou toLower), a função preserva o caso. Determinados tipos de recursos podem ter requisitos de caso separados de como as funções são avaliadas.
 
@@ -44,7 +41,7 @@ Para passar um valor de cadeia de caracteres como um parâmetro para uma funçã
 
 ## <a name="escape-characters"></a>Caracteres de escape
 
-Para que uma cadeia de caracteres literal comece com um `[` colchete esquerdo e termine com um `]`colchete direito, mas não a tenha interpretada como uma expressão, adicione um colchete extra para `[[`iniciar a cadeia de caracteres com. Por exemplo, a variável:
+Para que uma cadeia de caracteres literal comece com um colchete esquerdo `[` e termine com um colchete direito `]`, mas não o tenha interpretado como uma expressão, adicione um colchete extra para iniciar a cadeia de caracteres com `[[`. Por exemplo, a variável:
 
 ```json
 "demoVar1": "[[test value]"
@@ -68,7 +65,7 @@ Para escapar aspas duplas em uma expressão, como adicionar um objeto JSON no mo
 },
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter a lista completa de funções de modelo, consulte [Azure Resource Manager funções de modelo](resource-group-template-functions.md).
 * Para obter mais informações sobre arquivos de modelo, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](resource-group-authoring-templates.md).

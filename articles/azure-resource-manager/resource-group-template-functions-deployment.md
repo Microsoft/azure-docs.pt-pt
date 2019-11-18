@@ -1,17 +1,14 @@
 ---
-title: Funções de modelo de Azure Resource Manager – implantação | Microsoft Docs
+title: Funções de modelo – implantação
 description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager para recuperar informações de implantação.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: tomfitz
-ms.openlocfilehash: 12698d1655c414b1ee3b9866cc975dc53e4ef095
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 17caf78fb77e330685bb45ab03aaeed611900ba0
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983981"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149635"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funções de implantação para modelos de Azure Resource Manager 
 
@@ -25,7 +22,7 @@ Para obter valores de recursos, grupos de recursos ou assinaturas, consulte fun�
 
 <a id="deployment" />
 
-## <a name="deployment"></a>deployment
+## <a name="deployment"></a>implementação
 `deployment()`
 
 Retorna informações sobre a operação de implantação atual.
@@ -78,7 +75,7 @@ Quando o objeto é passado como um link, como ao usar o parâmetro **-TemplateUr
 }
 ```
 
-Quando você [implanta em uma assinatura do Azure](deploy-to-subscription.md), em vez de um grupo de recursos, o objeto `location` de retorno inclui uma propriedade. A propriedade Location é incluída durante a implantação de um modelo local ou de um modelo externo.
+Quando você [implanta em uma assinatura do Azure](deploy-to-subscription.md), em vez de um grupo de recursos, o objeto de retorno inclui uma propriedade `location`. A propriedade Location é incluída durante a implantação de um modelo local ou de um modelo externo.
 
 ### <a name="remarks"></a>Observações
 
@@ -90,7 +87,7 @@ Você pode usar a implantação () para vincular a outro modelo com base no URI 
 }
 ```  
 
-Se você reimplantar um modelo do histórico de implantação no portal, o modelo será implantado como um arquivo local. A `templateLink` propriedade não é retornada na função de implantação. Se o modelo se basear `templateLink` para construir um link para outro modelo, não use o portal para reimplantar. Em vez disso, use os comandos usados para implantar o modelo originalmente.
+Se você reimplantar um modelo do histórico de implantação no portal, o modelo será implantado como um arquivo local. A propriedade `templateLink` não é retornada na função de implantação. Se o modelo depender de `templateLink` para construir um link para outro modelo, não use o portal para reimplantar. Em vez disso, use os comandos usados para implantar o modelo originalmente.
 
 ### <a name="example"></a>Exemplo
 
@@ -134,11 +131,11 @@ O exemplo anterior retorna o seguinte objeto:
 }
 ```
 
-Para um modelo de nível de assinatura que usa a função de implantação, consulte [função de implantação de assinatura](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Ele é implantado `az deployment create` com `New-AzDeployment` um ou mais comandos.
+Para um modelo de nível de assinatura que usa a função de implantação, consulte [função de implantação de assinatura](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Ele é implantado com comandos `az deployment create` ou `New-AzDeployment`.
 
 <a id="parameters" />
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>parâmetros
 `parameters(parameterName)`
 
 Retorna um valor de parâmetro. O nome do parâmetro especificado deve ser definido na seção de parâmetros do modelo.
@@ -147,7 +144,7 @@ Retorna um valor de parâmetro. O nome do parâmetro especificado deve ser defin
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sim |Cadeia de caracteres |O nome do parâmetro a ser retornado. |
+| parameterName |Sim |string |O nome do parâmetro a ser retornado. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -232,19 +229,19 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | stringOutput | Cadeia | Opção 1 |
 | intOutput | Int | 1 |
 | objectOutput | Objeto | {"One": "a", "Two": "b"} |
-| arrayOutput | Array | [1, 2, 3] |
+| arrayOutput | Matriz | [1, 2, 3] |
 | crossOutput | Cadeia | Opção 1 |
 
 Para obter mais informações sobre como usar parâmetros, consulte [parâmetros no modelo Azure Resource Manager](template-parameters.md).
 
 <a id="variables" />
 
-## <a name="variables"></a>As
+## <a name="variables"></a>as
 `variables(variableName)`
 
 Retorna o valor da variável. O nome de variável especificado deve ser definido na seção de variáveis do modelo.
@@ -325,16 +322,16 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Value |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | exampleOutput1 | Cadeia | myVariable |
-| exampleOutput2 | Array | [1, 2, 3, 4] |
+| exampleOutput2 | Matriz | [1, 2, 3, 4] |
 | exampleOutput3 | Cadeia | myVariable |
 | exampleOutput4 |  Objeto | {"Property1": "value1", "Property2": "value2"} |
 
 Para obter mais informações sobre como usar variáveis, consulte [variáveis no modelo Azure Resource Manager](template-variables.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Para mesclar vários modelos, consulte [usando modelos vinculados com Azure Resource Manager](resource-group-linked-templates.md).
 * Para fazer a iteração de um número especificado de vezes ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).

@@ -1,19 +1,14 @@
 ---
-title: Controles de segurança para Azure Resource Manager
+title: Controlos de segurança
 description: Uma lista de verificação de controles de segurança internos para avaliar o serviço de Azure Resource Manager.
-services: azure-resource-manager
-author: msmbaldwin
-manager: rkarlin
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 78f3f41ca2f0aa45d295fd9846cf3aa96cccea72
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b2916a87c5cef01605054569285362fcf1c649c8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390469"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147566"
 ---
 # <a name="security-controls-for-azure-resource-manager"></a>Controles de segurança para Azure Resource Manager
 
@@ -27,7 +22,7 @@ Este artigo documenta os controles de segurança internos do Azure Resource Mana
 |---|---|--|
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim |  |
 | Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | HTTPS/TLS. |
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | N/A | O Azure Resource Manager não armazena nenhum conteúdo do cliente, só controla os dados. |
+| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | N/D | O Azure Resource Manager não armazena nenhum conteúdo do cliente, só controla os dados. |
 | Criptografia em nível de coluna (serviços de dados do Azure)| Sim | |
 | Chamadas de API criptografadas| Sim | |
 
@@ -46,7 +41,7 @@ Este artigo documenta os controles de segurança internos do Azure Resource Mana
 |---|---|--|
 | Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Não | |
 | Registro e auditoria do plano de gerenciamento e controle| Sim | Os logs de atividades expõem todas as operações de gravação (PUT, POST e DELETE) executadas em seus recursos; consulte [Exibir logs de atividades para auditar ações em recursos](resource-group-audit.md). |
-| Log e auditoria do plano de dados| N/A | |
+| Log e auditoria do plano de dados| N/D | |
 
 ## <a name="identity"></a>Identidade
 
@@ -55,7 +50,7 @@ Este artigo documenta os controles de segurança internos do Azure Resource Mana
 | Autenticação| Sim | Baseado em [Azure Active Directory](/azure/active-directory) .|
 | Autorização| Sim | |
 
-## <a name="configuration-management"></a>Gestão de configurações
+## <a name="configuration-management"></a>Gestão da configuração
 
 | Controle de segurança | Sim/Não | Notas|
 |---|---|--|

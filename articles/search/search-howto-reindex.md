@@ -1,5 +1,5 @@
 ---
-title: Recriar um índice de Pesquisa Cognitiva do Azure
+title: Recriar um índice de pesquisa
 titleSuffix: Azure Cognitive Search
 description: Adicione novos elementos, atualize elementos ou documentos existentes ou exclua documentos obsoletos em uma recompilação completa ou indexação incremental parcial para atualizar um índice de Pesquisa Cognitiva do Azure.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1301ee2494aa24720905b9e3e68edce04fb17e72
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b14c153f52e0427e289afeccdfd22d6510e4ace1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466439"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112960"
 ---
-# <a name="how-to-rebuild-an-azure-cognitive-search-index"></a>Como recriar um índice de Pesquisa Cognitiva do Azure
+# <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Como recriar um índice no Azure Pesquisa Cognitiva
 
 Este artigo explica como recriar um índice de Pesquisa Cognitiva do Azure, as circunstâncias sob as quais as recompilações são necessárias e recomendações para mitigar o impacto de recompilações em solicitações de consulta em andamento.
 
@@ -93,7 +93,7 @@ Quando você carrega o índice, o índice invertido de cada campo é preenchido 
 
 Você pode começar a consultar um índice assim que o primeiro documento for carregado. Se você souber a ID de um documento, a [API REST do documento de pesquisa](https://docs.microsoft.com/rest/api/searchservice/lookup-document) retornará o documento específico. Para um teste mais amplo, você deve aguardar até que o índice seja totalmente carregado e, em seguida, usar consultas para verificar o contexto que você espera ver.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
 + [Descrição geral do Indexador](search-indexer-overview.md)
 + [Indexar conjuntos de dados grandes em escala](search-howto-large-index.md)

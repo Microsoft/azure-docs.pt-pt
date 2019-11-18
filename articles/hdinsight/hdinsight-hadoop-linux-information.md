@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.openlocfilehash: daaf5763bde560250ddf70e70466fc9f4ed3e1c2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 11/14/2019
+ms.openlocfilehash: 1fd59bd18947d2c7aaba787ff7ce286e76f4f890
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834092"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150048"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre como utilizar o HDInsight no Linux
 
@@ -88,8 +88,8 @@ Para obter mais informações, consulte o documento [portas usadas pelo Apache H
 
 Os arquivos relacionados ao Hadoop podem ser encontrados nos nós de cluster em `/usr/hdp`. Esse diretório contém os seguintes subdiretórios:
 
-* **2.6.5.3006-29**: o nome do diretório é a versão da plataforma Hadoop usada pelo HDInsight. O número no seu cluster pode ser diferente daquele listado aqui.
-* **atual**: esse diretório contém links para subdiretórios no diretório **2.6.5.3006-29** . Esse diretório existe para que você não precise se lembrar do número de versão.
+* **2.6.5.3009-43**: o nome do diretório é a versão da plataforma Hadoop usada pelo HDInsight. O número no seu cluster pode ser diferente daquele listado aqui.
+* **atual**: esse diretório contém links para subdiretórios no diretório **2.6.5.3009-43** . Esse diretório existe para que você não precise se lembrar do número de versão.
 
 Os dados de exemplo e os arquivos JAR podem ser encontrados em Sistema de Arquivos Distribuído do Hadoop em `/example` e `/HdiSamples`.
 
@@ -105,7 +105,7 @@ Ao usar o HDInsight, os arquivos de dados são armazenados de maneira escalonáv
 
 Para obter mais informações, consulte [Understanding BLOBs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) and [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
-Ao usar o armazenamento do Azure ou o Data Lake Storage, você não precisa fazer nada especial do HDInsight para acessar os dados. Por exemplo, o comando a seguir lista os arquivos na pasta `/example/data`, independentemente de estarem armazenados no armazenamento do Azure ou Data Lake Storage:
+Ao usar o armazenamento do Azure ou o Data Lake Storage, você não precisa fazer nada especial do HDInsight para acessar os dados. Por exemplo, o comando a seguir lista os arquivos na pasta `/example/data`, independentemente de estar armazenado no armazenamento do Azure ou Data Lake Storage:
 
     hdfs dfs -ls /example/data
 
@@ -203,7 +203,7 @@ Se estiver usando __Azure data Lake Storage__, consulte os links a seguir para o
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
 * [CLI do Azure](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [API REST do WebHDFS](../data-lake-store/data-lake-store-get-started-rest-api.md)
-* [Ferramentas de Data Lake para o Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
+* [Ferramentas do Data Lake para Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)
 * [Java](../data-lake-store/data-lake-store-get-started-java-sdk.md)
 * [Python](../data-lake-store/data-lake-store-get-started-python.md)
@@ -249,7 +249,7 @@ Para obter informações específicas sobre como dimensionar seu cluster HDInsig
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Como fazer instalar o matiz (ou outro componente do Hadoop)?
 
-O HDInsight é um serviço gerenciado. Se o Azure detectar um problema com o cluster, ele poderá excluir o nó com falha e criar um nó para substituí-lo. Se você instalar manualmente as coisas no cluster, elas não serão persistidas quando essa operação ocorrer. Em vez disso, use as [ações de script do HDInsight](hdinsight-hadoop-customize-cluster-linux.md). Uma ação de script pode ser usada para fazer as seguintes alterações:
+O HDInsight é um serviço gerenciado. Se o Azure detectar um problema com o cluster, ele poderá excluir o nó com falha e criar um nó para substituí-lo. Se você instalar manualmente as coisas no cluster, elas não serão mantidas quando essa operação ocorrer. Em vez disso, use as [ações de script do HDInsight](hdinsight-hadoop-customize-cluster-linux.md). Uma ação de script pode ser usada para fazer as seguintes alterações:
 
 * Instalar e configurar um serviço ou site.
 * Instale e configure um componente que exija alterações de configuração em vários nós no cluster.
@@ -284,5 +284,4 @@ Para usar uma versão diferente de um componente, carregue a versão necessária
 
 * [Gerenciar clusters HDInsight usando a API REST do Apache Ambari](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Usar o Apache Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
-* [Usar o Apache Pig com o HDInsight](hadoop/hdinsight-use-pig.md)
 * [Utilizar tarefas de MapReduce com o HDInsight](hadoop/hdinsight-use-mapreduce.md)

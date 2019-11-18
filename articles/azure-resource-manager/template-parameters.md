@@ -1,17 +1,14 @@
 ---
-title: Parâmetros em modelos de Azure Resource Manager
+title: Parâmetros em modelos
 description: Descreve como definir parâmetros em um modelo de Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.author: tomfitz
-ms.openlocfilehash: 4947b00d6fad5007751cd97d43ad6aca8d775330
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 3ef87a6f24f99564d0c55ae0bc496045b7011eea
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383276"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150267"
 ---
 # <a name="parameters-in-azure-resource-manager-templates"></a>Parâmetros em modelos de Azure Resource Manager
 
@@ -161,7 +158,7 @@ Os exemplos a seguir demonstram cenários para o uso de parâmetros.
 |[objeto de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra o uso de um objeto para um parâmetro. O modelo não implanta nenhum recurso. Ele constrói valores de parâmetro e retorna esses valores. |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre as propriedades disponíveis para parâmetros, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para saber mais sobre a passagem de valores de parâmetro como um arquivo, consulte [criar arquivo de parâmetro do Resource Manager](resource-manager-parameter-files.md).

@@ -1,5 +1,5 @@
 ---
-title: Filtros para os resultados da pesquisa de escopo em um índice
+title: Filtrar nos resultados da pesquisa
 titleSuffix: Azure Cognitive Search
 description: Filtre por identidade de segurança do usuário, idioma, localização geográfica ou valores numéricos para reduzir os resultados da pesquisa em consultas no Azure Pesquisa Cognitiva, um serviço de pesquisa de nuvem hospedado no Microsoft Azure.
 manager: nitinme
@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7dd289005e91323010cfa2a0298c351b3e757d1d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 960f6f0de94c6bb4fc6b03c31740b63270cf9e14
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792867"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132926"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtros no Azure Pesquisa Cognitiva 
 
 Um *filtro* fornece critérios para selecionar documentos usados em uma consulta de pesquisa cognitiva do Azure. A pesquisa não filtrada inclui todos os documentos no índice. Um filtro tem como escopo uma consulta de pesquisa para um subconjunto de documentos. Por exemplo, um filtro poderia restringir a pesquisa de texto completo apenas a esses produtos com uma marca ou cor específica, em pontos de preço acima de um determinado limite.
 
-Algumas experiências de pesquisa impõem requisitos de filtro como parte da implementação, mas você pode usar filtros sempre que desejar restringir a pesquisa usando critérios *baseados em valor* (pesquisa de escopo para o tipo de produto "livros" para a categoria "não ficção" publicada por " Simon & Schuster ").
+Algumas experiências de pesquisa impõem requisitos de filtro como parte da implementação, mas você pode usar filtros sempre que desejar restringir a pesquisa usando critérios *baseados em valor* (pesquisa de escopo para o tipo de produto "livros" para a categoria "não ficção" publicada por "Simon & Schuster").
 
 Se, em vez disso, seu objetivo for Pesquisar em *estruturas* de dados específicas (pesquisa de escopo para um campo de revisões do cliente), há métodos alternativos, descritos abaixo.
 

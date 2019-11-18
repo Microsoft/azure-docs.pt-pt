@@ -1,5 +1,5 @@
 ---
-title: Áudio compactado do codec de fluxo com o SDK de fala no serviço Android-Speech
+title: Áudio compactado do codec de fluxo com o SDK de fala no Android
 titleSuffix: Azure Cognitive Services
 description: Saiba como transmitir áudio compactado para os serviços de fala do Azure com o SDK de fala no Android.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 2e741e8a8df2cebff167a381cef41351ead4c6cf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 76a4b010dd54a9cc6224432adf615814520ef4fd
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464365"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109899"
 ---
-# <a name="using-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>Usando o codec de entrada de áudio compactado com o SDK de fala no Android
+# <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>Como usar a entrada de áudio compactado por codec com o SDK de fala no Android
 
 A API de **fluxo de entrada de áudio compactada** do SDK de fala fornece uma maneira de transmitir áudio compactado para o serviço de fala usando PullStream ou PushStream.
 
@@ -25,9 +25,9 @@ A API de **fluxo de entrada de áudio compactada** do SDK de fala fornece uma ma
 > O áudio de entrada compactado de streaming tem suporte no momento para [ C++o, C#o e o Java no Linux (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9)](how-to-use-codec-compressed-audio-input-streams.md). Também há suporte para Java no Android e [no Objective-C na plataforma iOS](how-to-use-codec-compressed-audio-input-streams-ios.md) .
 > O Speech SDK versão 1.7.0 ou superior é necessário.
 
-Para wav/PCM, consulte a documentação de fala principal.  Fora de wav/PCM, há suporte para os seguintes formatos de entrada compactados do Codec:
+Para wav/PCM, consulte a documentação de fala principal. Fora de wav/PCM, há suporte para os seguintes formatos de entrada compactados do Codec:
 
-- MP
+- MP3
 - OPUS/OGG
 - FLAC
 - ALAW no contêiner WAV
@@ -35,7 +35,7 @@ Para wav/PCM, consulte a documentação de fala principal.  Fora de wav/PCM, há
 
 ## <a name="prerequisites-to-using-codec-compressed-audio-input-on-android"></a>Pré-requisitos para usar a entrada de áudio compactado por codec no Android
 
-O codec de áudio compactado é implementado usando [GStreamer](https://gstreamer.freedesktop.org). Por motivos de licenciamento, os binários GStreamer não são compilados com o SDK. Você precisará usar os binários predefinidos para Android. Para baixar as bibliotecas predefinidas, consulte [Installing for Android Development](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c). 
+O codec de áudio compactado é implementado usando [GStreamer](https://gstreamer.freedesktop.org). Por motivos de licenciamento, os binários GStreamer não são compilados com o SDK. Você precisará usar os binários predefinidos para Android. Para baixar as bibliotecas predefinidas, consulte [Installing for Android Development](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
 `libgstreamer_android.so` é necessário. Verifique se os plug-ins GStreamer estão vinculados em `libgstreamer_android.so`.
 
@@ -160,4 +160,4 @@ String text = result.getText();
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como reconhecer a fala em Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)
+- [Veja como reconhecer a fala em Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

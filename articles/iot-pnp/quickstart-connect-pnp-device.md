@@ -8,69 +8,38 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 2dd5d197851b0090ac1af7bbde5a1ad1b951c785
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0d89be9da55c97a5b49157251896d3a513c2c6db
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569900"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74152065"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub"></a>Início rápido: conectar um aplicativo de dispositivo de visualização de Plug and Play de IoT de exemplo em execução no Windows para o Hub IoT
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub-c-windows"></a>Início rápido: conectar um aplicativo de dispositivo de visualização de Plug and Play de IoT de exemplo em execução no Windows para o Hub IoT (C Windows)
 
-Este guia de início rápido mostra como criar um aplicativo de dispositivo de Plug and Play de IoT de exemplo, conectá-lo ao Hub IoT e usar a ferramenta do Azure IoT Explorer para exibir as informações que ele envia para o Hub. O aplicativo de exemplo é escrito em C e está incluído no SDK do dispositivo IoT do Azure para C. Um desenvolvedor de soluções pode usar a ferramenta do Azure IoT Explorer para entender os recursos de um dispositivo de Plug and Play de IoT sem a necessidade de exibir qualquer código de dispositivo.
+Este guia de início rápido mostra como criar um aplicativo de dispositivo de Plug and Play de IoT de exemplo, conectá-lo ao Hub IoT e usar a ferramenta do Azure IoT Explorer para exibir as informações que ele envia para o Hub. O aplicativo de exemplo é escrito em C e está incluído no SDK do dispositivo C do Hub IoT do Azure. Um desenvolvedor de soluções pode usar a ferramenta do Azure IoT Explorer para entender os recursos de um dispositivo de Plug and Play de IoT sem a necessidade de exibir qualquer código de dispositivo.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido, você precisa instalar o seguinte software em seu computador local:
 
-* [Ferramentas de Build para Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) com  **C++ ferramentas de compilação** e cargas de trabalho de **componente do Gerenciador de pacotes NuGet** . Ou, se você já tiver o [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 ou 2015 com as mesmas cargas de trabalho instaladas.
+* [Visual Studio (Comunidade, profissional ou empresa)](https://visualstudio.microsoft.com/downloads/) – certifique-se de incluir o componente **Gerenciador de pacotes NuGet** e o **desenvolvimento de desktop C++ com** carga de trabalho ao instalar o Visual Studio.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 
 ### <a name="install-the-azure-iot-explorer"></a>Instalar o Azure IoT Explorer
 
-Baixe e instale a ferramenta do Azure IoT Explorer na página de [versão mais recente](https://github.com/Azure/azure-iot-explorer/releases) .
+Baixe e instale a versão mais recente do **Azure IOT Explorer** na página [repositório](https://github.com/Azure/azure-iot-explorer/releases) da ferramenta, selecionando o arquivo. msi em "ativos" para a atualização mais recente.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="prepare-an-iot-hub"></a>Preparar um hub IoT
-
-Você também precisa de um hub IoT do Azure em sua assinatura do Azure para concluir este guia de início rápido. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-> [!NOTE]
-> Durante a visualização pública, os recursos de Plug and Play de IoT só estão disponíveis em hubs IoT criados nas regiões **EUA Central**, **Europa setentrional**e **leste do Japão** .
-
-Adicione a extensão Microsoft Azure IoT para CLI do Azure:
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-Execute o comando a seguir para criar a identidade do dispositivo em seu hub IoT. Substitua os espaços reservados **nomedoseuhubiot** e **YourDevice** por seus nomes reais. Se você não tiver um hub IoT, siga [estas instruções para criar um](../iot-hub/iot-hub-create-using-cli.md):
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
-```
-
-Execute os seguintes comandos para obter a _cadeia de conexão do dispositivo_ para o dispositivo que você acabou de registrar:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id [YourDevice] --output table
-```
-
-Execute os seguintes comandos para obter a _cadeia de conexão do Hub IOT_ para o Hub:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub-windows.md](../../includes/iot-pnp-prepare-iot-hub-windows.md)]
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
 
-### <a name="get-azure-iot-device-sdk-for-c"></a>Obter o SDK do dispositivo IoT do Azure para C
+Neste guia de início rápido, você prepara um ambiente de desenvolvimento que pode ser usado para clonar e criar o SDK do dispositivo C do Hub IoT do Azure.
 
-Neste guia de início rápido, você prepara um ambiente de desenvolvimento que pode ser usado para clonar e compilar o SDK do dispositivo do Azure IoT C.
-
-Abra uma linha de comandos. Execute o seguinte comando para clonar o [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) no repositório do GitHub:
+Abra um prompt de comando no diretório de sua escolha. Execute o seguinte comando para clonar o repositório GitHub de [SDKs e bibliotecas do Azure IOT C](https://github.com/Azure/azure-iot-sdk-c) neste local:
 
 ```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
@@ -80,7 +49,7 @@ Esta operação deve demorar vários minutos a ser concluída.
 
 ## <a name="build-the-code"></a>Compilar o código
 
-O aplicativo que você cria simula um dispositivo que se conecta a um hub IoT. O aplicativo envia telemetria e propriedades e recebe comandos.
+Você usa o SDK do dispositivo para criar o código de exemplo incluído. O aplicativo que você cria simula um dispositivo que se conecta a um hub IoT. O aplicativo envia telemetria e propriedades e recebe comandos.
 
 1. Crie um subdiretório `cmake` na pasta raiz do SDK do dispositivo e navegue até essa pasta:
 
@@ -102,31 +71,31 @@ O aplicativo que você cria simula um dispositivo que se conecta a um hub IoT. O
 
 ## <a name="run-the-device-sample"></a>Executar o exemplo de dispositivo
 
-Execute o aplicativo passando a cadeia de conexão do dispositivo do Hub IoT como parâmetro.
+Execute um aplicativo de exemplo no SDK para simular um dispositivo de Plug and Play IoT que envia a telemetria para o Hub IoT. Para executar o aplicativo de exemplo, use esses comandos e passe a _cadeia de conexão do dispositivo_ como um parâmetro.
 
 ```cmd\sh
 cd digitaltwin_client\samples\digitaltwin_sample_device\Release
 copy ..\EnvironmentalSensor.interface.json .
-digitaltwin_sample_device.exe "[IoT Hub device connection string]"
+digitaltwin_sample_device.exe "<YourDeviceConnectionString>"
 ```
 
-O aplicativo do dispositivo começa a enviar dados para o Hub IoT.
+Agora, o dispositivo está pronto para receber comandos e atualizações de propriedade e começou a enviar dados de telemetria para o Hub. Mantenha o exemplo em execução enquanto você conclui as próximas etapas.
 
 ## <a name="use-the-azure-iot-explorer-to-validate-the-code"></a>Usar o Azure IoT Explorer para validar o código
 
-1. Abra o Azure IoT Explorer, você verá a página **configurações de aplicativo** .
+1. Abra o Azure IoT Explorer. Você verá a página **configurações de aplicativo** .
 
-1. Insira a cadeia de conexão do Hub IoT e clique em **conectar**.
+1. Insira a _cadeia de conexão do Hub IOT_ e selecione **conectar**.
 
-1. Depois de se conectar, você verá a página Visão geral do dispositivo.
+1. Depois de se conectar, você verá a página Visão geral de **dispositivos** .
 
-1. Para adicionar o repositório de sua empresa, selecione **configurações**, **+ novo**e, em seguida, **no dispositivo conectado**.
+1. Para garantir que a ferramenta possa ler as definições de modelo de interface do seu dispositivo, selecione **configurações**. No menu configurações, **no dispositivo conectado** pode já aparecer nas configurações de plug and Play; Se não tiver, selecione **+ Adicionar fonte de definição de módulo** e, em seguida, **no dispositivo conectado** para adicioná-lo.
 
-1. Na página Visão geral do dispositivo, localize a identidade do dispositivo que você criou anteriormente e selecione-a para exibir mais detalhes.
+1. De volta à página Visão geral de **dispositivos** , localize a identidade do dispositivo que você criou anteriormente. Com o aplicativo do dispositivo ainda em execução no prompt de comando, verifique se o **estado da conexão** do dispositivo no Azure IOT Explorer está relatando como _conectado_ (caso contrário, pressione **Atualizar** até que ele esteja). Selecione o dispositivo para exibir mais detalhes.
 
-1. Expanda a interface com ID **urn: YOUR_COMPANY_NAME_HERE: EnvironmentalSensor: 1** para ver os primitivos de plug and Play IOT-Propriedades, comandos e telemetria.
+1. Expanda a interface com ID **urn: YOUR_COMPANY_NAME_HERE: EnvironmentalSensor: 1** para revelar a interface e a IOT plug and Play primitivos — Propriedades, comandos e telemetria.
 
-1. Selecione a página **telemetria** para exibir os dados de telemetria que o dispositivo está enviando.
+1. Selecione a página **telemetria** e clique em _Iniciar_ para exibir os dados de telemetria que o dispositivo está enviando.
 
 1. Selecione a página **Propriedades (não gravável)** para exibir as propriedades não graváveis relatadas pelo dispositivo.
 
@@ -134,13 +103,15 @@ O aplicativo do dispositivo começa a enviar dados para o Hub IoT.
 
 1. Expanda **nome**da propriedade, atualize com um novo nome e selecione **Atualizar propriedade gravável**. 
 
-1. Para ver o novo nome aparece na coluna **Propriedade relatada** , clique no botão **Atualizar** na parte superior da página.
+1. Para ver o novo nome aparecer na coluna **Propriedade relatada** , selecione o botão **Atualizar** na parte superior da página.
 
-1. Selecione a página de **comando** para exibir todos os comandos aos quais o dispositivo dá suporte.
+1. Selecione a página **comandos** para exibir todos os comandos aos quais o dispositivo dá suporte.
 
 1. Expanda o comando **intermitência** e defina um novo intervalo de tempo de intermitência. Selecione **Enviar comando** para chamar o comando no dispositivo.
 
-1. Vá para o dispositivo simulado para verificar se o comando foi executado conforme o esperado.
+1. Acesse o prompt de comando do dispositivo simulado e leia as mensagens de confirmação impressas para verificar se os comandos foram executados conforme o esperado.
+
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

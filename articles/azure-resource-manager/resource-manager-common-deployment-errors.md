@@ -1,19 +1,15 @@
 ---
-title: Solucionar erros comuns de implantação do Azure | Microsoft Docs
+title: Resolver erros de implementação comuns
 description: Descreve como resolver erros comuns ao implantar recursos no Azure usando o Azure Resource Manager.
 tags: top-support-issue
-author: tfitzmac
-keywords: erro de implantação, implantação do Azure, implantar no Azure
-ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: bba59d024e253c8d05aa75123be5e3f13699f72e
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 27f3b9db40e00ea0a00e50333fe86248906d8560
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263033"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150644"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solucionar erros comuns de implantação do Azure com o Azure Resource Manager
 
@@ -33,7 +29,7 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | AnotherOperationInProgress | Aguarde a conclusão da operação simultânea. | |
 | AuthorizationFailed | Sua conta ou entidade de serviço não tem acesso suficiente para concluir a implantação. Verifique a função à qual sua conta pertence e seu acesso para o escopo de implantação.<br><br>Você pode receber esse erro quando um provedor de recursos necessário não está registrado. | [Controle de acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver registro](resource-manager-register-provider-errors.md) |
 | BadRequest | Você enviou valores de implantação que não correspondem ao que é esperado pelo Resource Manager. Verifique a mensagem de status interno para obter ajuda com a solução de problemas. | [Referência de modelo](/azure/templates/) e [locais com suporte](resource-location.md) |
-| Houver | Você está solicitando uma operação que não é permitida no estado atual do recurso. Por exemplo, o redimensionamento de disco é permitido somente ao criar uma VM ou quando a VM é desalocada. | |
+| Conflito | Você está solicitando uma operação que não é permitida no estado atual do recurso. Por exemplo, o redimensionamento de disco é permitido somente ao criar uma VM ou quando a VM é desalocada. | |
 | DeploymentActiveAndUneditable | Aguarde a conclusão da implantação simultânea para este grupo de recursos. | |
 | DeploymentFailedCleanUp | Quando você implanta no modo completo, todos os recursos que não estão no modelo são excluídos. Você recebe esse erro quando não tem as permissões adequadas para excluir todos os recursos que não estão no modelo. Para evitar o erro, altere o modo de implantação para incremental. | [Azure Resource Manager modos de implantação](deployment-modes.md) |
 | DeploymentNameInvalidCharacters | O nome da implantação só pode conter letras, dígitos, '-', '. ' ou ' _ '. | |
@@ -132,7 +128,7 @@ Vê a mensagem de erro e os códigos de erro. Observe que existem dois códigos 
 
 ![detalhes do erro](./media/resource-manager-common-deployment-errors/error-details.png)
 
-## <a name="enable-debug-logging"></a>Habilitar log de depuração
+## <a name="enable-debug-logging"></a>Ativar o registo de depuração
 
 Às vezes, você precisa de mais informações sobre a solicitação e a resposta para saber o que deu errado. Durante a implantação, você pode solicitar que informações adicionais sejam registradas durante uma implantação.
 
