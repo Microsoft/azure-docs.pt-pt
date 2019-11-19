@@ -1,18 +1,14 @@
 ---
-title: Matriz de suporte de backup do Azure para backup de VM do Azure
+title: Matriz de suporte para backup de VM do Azure
 description: Fornece um resumo das configurações de suporte e limitações ao fazer backup de VMs do Azure com o serviço de backup do Azure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: f699315855dc27fd70fdb60574414ef87037671f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 8f84d7fefd2affc3a3c47227ab6f2a2d0b325f4e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953255"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172095"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 
@@ -65,6 +61,8 @@ A tabela a seguir resume os sistemas operacionais com suporte ao fazer backup de
 Fazer backup com a extensão do agente de VM do Azure | -Cliente do Windows 10 (somente 64 bits) <br/><br/>-Windows Server 2019 (datacenter/Data Center Core/Standard) <br/><br/> -Windows Server 2016 (datacenter/Data Center Core/Standard) <br/><br/> -Windows Server 2012 R2 (datacenter/padrão) <br/><br/> -Windows Server 2008 R2 (RTM e SP1 Standard)
 Fazer backup com o agente MARS | Sistemas operacionais [com suporte](backup-support-matrix-mars-agent.md#support-for-direct-backups) .
 Fazer backup com o DPM/MABS | Sistemas operacionais com suporte para backup com o [mAbs](backup-mabs-protection-matrix.md) e [o DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
+
+O backup do Azure não dá suporte a sistemas operacionais de 32 bits.
 
 ## <a name="support-for-linux-backup"></a>Suporte para backup do Linux
 

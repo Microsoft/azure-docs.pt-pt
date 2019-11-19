@@ -1,18 +1,14 @@
 ---
-title: Utilizar o Azure Backup para substituir a sua infraestrutura de bandas
+title: Como substituir sua infraestrutura de fita
 description: Saiba como o backup do Azure fornece semântica semelhante à fita que permite que você faça backup e restaure dados no Azure
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.author: dacurwin
-ms.openlocfilehash: 2850fab3a5639673008a7433db48911ced832401
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 4659a4d6fcc7213f8323e23d59411680276fcb28
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091110"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173313"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Mover o armazenamento de longo prazo de fita para a nuvem do Azure
 
@@ -38,7 +34,7 @@ Os clientes também podem agendar um backup semanal. Por exemplo, as configuraç
 
 A política de retenção especifica a duração para a qual o backup deve ser armazenado. Em vez de especificar apenas uma "política simples" para todos os pontos de backup, os clientes podem especificar políticas de retenção diferentes com base em quando o backup é feito. Por exemplo, o ponto de backup feito diariamente, que serve como um ponto de recuperação operacional, é preservado por 90 dias. O ponto de backup feito no final de cada trimestre para fins de auditoria é preservado por uma duração maior.
 
-![Política de Retenção](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
+![Política de retenção](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
 
 O número total de "pontos de retenção" especificado nesta política é 90 (pontos diários) + 40 (um a cada trimestre por 10 anos) = 130.
 

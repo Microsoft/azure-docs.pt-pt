@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: eefa54806d9f5ec9ef3a0c02e4abbaf6b4bf22e2
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 815ac261a29f710914347443f7882b9fe682229f
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298485"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173595"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -103,16 +103,9 @@ Azure NetApp Files fornece métricas de desempenho de volume. Você também pode
 
 ### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Quero ter um volume montado automaticamente quando uma VM do Azure é iniciada ou reinicializada.  Como fazer configurar meu host para volumes NFS persistentes?
 
-Para que um volume NFS seja montado automaticamente na inicialização ou na reinicialização da VM, adicione uma entrada ao arquivo `/etc/fstab` no host. 
+Para que um volume de NFS seja montado automaticamente na inicialização ou na reinicialização da VM, adicione uma entrada ao arquivo de `/etc/fstab` no host. 
 
-Por exemplo: `$ANFIP:/$FILEPATH      /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
-
-- $ANFIP  
-    O endereço IP do volume de Azure NetApp Files encontrado na folha de propriedades do volume
-- $FILEPATH  
-    O caminho de exportação do volume de Azure NetApp Files
-- $MOUNTPOINT  
-    O diretório criado no host do Linux usado para montar a exportação de NFS
+Confira [montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) para obter detalhes.  
 
 ### <a name="why-does-the-df-command-on-nfs-client-not-show-the-provisioned-volume-size"></a>Por que o comando DF no cliente NFS não mostra o tamanho do volume provisionado?
 

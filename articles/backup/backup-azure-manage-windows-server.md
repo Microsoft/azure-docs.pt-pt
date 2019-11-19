@@ -1,18 +1,14 @@
 ---
 title: Gerenciar servidores e cofres dos serviços de recuperação do Azure
 description: Neste artigo, saiba como usar o painel Visão geral do cofre dos serviços de recuperação para monitorar e gerenciar seus cofres dos serviços de recuperação.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: dacurwin
-ms.openlocfilehash: 9e5103fad517e695198602a182574de964a9c504
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: f043d50a2b0e4efbda957a9c4ccb8f1d472dce15
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091131"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173034"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorizar e gerir cofres dos Serviços de Recuperação
 
@@ -233,7 +229,7 @@ Você pode exibir todo o status ou um. Não é possível selecionar dois ou trê
 * Todos os status
 * Concluído
 * Em curso
-* Com Falhas
+* Falhou
 * Cancelado
 * Concluído com avisos
 

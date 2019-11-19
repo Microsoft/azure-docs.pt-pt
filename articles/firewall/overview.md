@@ -1,20 +1,20 @@
 ---
 title: O que é o Azure Firewall?
-description: Saiba mais sobre as funcionalidades do Azure Firewall.
+description: O Azure Firewall é um serviço de segurança de rede gerido e com base na cloud que protege os recursos da Rede Virtual do Azure.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/08/2019
+ms.date: 11/19/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 5be1a673ac456b0896ce83afcb469e4ac6b8b40a
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 7b44597b24adce05498eed273c9494cae3360ed6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001338"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168805"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -94,7 +94,7 @@ Todos os eventos são integrados com o Azure Monitor, permitindo que você arqui
 
 O Firewall do Azure é o setor de cartão de pagamento (PCI), os controles de organização de serviço (SOC) e o Organização Internacional de Normalização (ISO) em conformidade. Atualmente, ele dá suporte a SOC 1 tipo 2, SOC 2 tipo 2, SOC 3, PCI DSS e ISO 27001, 27018, 20000-1, 22301, 9001, 27017.
 
-Para obter mais informações, consulte o [Guia de conformidade da Microsoft](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
+Para obter mais informações, veja o [Guia de Conformidade da Microsoft](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -118,6 +118,6 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure @ no__t-0
+- [Tutorial: Implementar e configurar o Azure Firewall com o portal do Azure](tutorial-firewall-deploy-portal.md)
 - [Implementar o Azure Firewall através de um modelo](deploy-template.md)
 - [Criar um ambiente de teste do Azure Firewall](scripts/sample-create-firewall-test.md)

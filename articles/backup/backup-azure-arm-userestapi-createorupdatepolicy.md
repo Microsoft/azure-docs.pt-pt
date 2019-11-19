@@ -1,21 +1,15 @@
 ---
-title: 'Backup do Azure: criar políticas de backup usando a API REST'
+title: Criar políticas de backup usando a API REST
 description: Neste artigo, você aprenderá a criar e gerenciar políticas de backup (agendamento e retenção) usando a API REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API REST; Backup de VM do Azure; Restauração de VM do Azure;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 7d44f99a9f2a5bfb3d3a04fe5355f7b1dc13c404
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b6e665b5c71dc5f2e8ebc22e00e1a71237f48bfc
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747604"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173425"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de backup dos serviços de recuperação do Azure usando a API REST
 
@@ -53,7 +47,7 @@ Por exemplo, para criar uma política para o backup de VM do Azure, veja a segui
 |Nome  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
 |propriedades     |   Verdadeiro      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
-|etiquetas     |         | Object        |  Etiquetas de recursos       |
+|etiquetas     |         | Objeto        |  Etiquetas de recursos       |
 
 Para obter a lista completa de definições no corpo da solicitação, consulte o [documento da API REST da política de backup](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate).
 
@@ -152,7 +146,7 @@ A política diz:
 > [!IMPORTANT]
 > Os formatos de hora para agendamento e retenção dão suporte apenas a DateTime. Eles não dão suporte apenas ao formato de hora.
 
-## <a name="responses"></a>Respostas
+## <a name="responses"></a>Responses
 
 A criação/atualização da política de backup é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que essa operação cria outra operação que precisa ser controlada separadamente.
 

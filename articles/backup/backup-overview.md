@@ -1,19 +1,15 @@
 ---
 title: O que é o Backup do Azure?
 description: Fornece uma visão geral do serviço de backup do Azure e como ele contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre).
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: overview
 ms.date: 04/24/2019
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 29e0b05ee9cb8f7dc67f90b54081bca4db0691b6
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 49ef90c874e920ef92dd5206447081a6aa4f7988
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035238"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172210"
 ---
 # <a name="what-is-the-azure-backup-service"></a>O que é o serviço de backup do Azure?
 
@@ -23,15 +19,15 @@ O serviço de backup do Azure faz backup de dados para a nuvem Microsoft Azure. 
 
 O backup do Azure oferece estes benefícios principais:
 
-- **Descarregar backup local**: O backup do Azure oferece uma solução simples para fazer backup de seus recursos locais para a nuvem. Obtenha backup de curto e longo prazo sem a necessidade de implantar soluções de backup locais complexas.
-- **Fazer backup de VMs IaaS do Azure**: O backup do Azure fornece backups independentes e isolados para proteger contra a destruição acidental de dados originais. Os backups são armazenados em um cofre dos serviços de recuperação com um gerenciado interno de pontos de recuperação. A configuração e a escalabilidade são simples, os backups são otimizados e você pode facilmente restaurar conforme necessário.
+- **Descarregar backup local**: o backup do Azure oferece uma solução simples para fazer backup de seus recursos locais para a nuvem. Obtenha backup de curto e longo prazo sem a necessidade de implantar soluções de backup locais complexas.
+- **Fazer backup de VMs IaaS do Azure**: o backup do Azure fornece backups independentes e isolados para proteger contra a destruição acidental de dados originais. Os backups são armazenados em um cofre dos serviços de recuperação com um gerenciado interno de pontos de recuperação. A configuração e a escalabilidade são simples, os backups são otimizados e você pode facilmente restaurar conforme necessário.
 - **Dimensione facilmente** -o backup do Azure usa a potência subjacente e a escala ilimitada da nuvem do Azure para fornecer alta disponibilidade sem sobrecarga de manutenção ou monitoramento.
-- **Obter transferência de dados ilimitada**: O backup do Azure não limita a quantidade de dados de entrada ou saída que você transfere ou cobra pelos dados que são transferidos.
+- **Obter transferência de dados ilimitada**: o backup do Azure não limita a quantidade de dados de entrada ou saída que você transfere ou cobra pelos dados que são transferidos.
   - Os dados de saída são os dados transferidos a partir de um cofre dos Serviços de Recuperação durante uma operação de restauro.
   - Se você executar um backup inicial offline usando o serviço de importação/exportação do Azure para importar grandes quantidades de dados, haverá um custo associado aos dados de entrada.  [Saiba mais](backup-azure-backup-import-export.md).
-- **Mantenha os dados seguros**: O backup do Azure fornece soluções para proteger dados em trânsito e em repouso.
-- **Obter backups consistentes com o aplicativo**: Um backup consistente com o aplicativo significa que um ponto de recuperação tem todos os dados necessários para restaurar a cópia de backup. O Azure Backup fornece cópias de segurança consistentes com as aplicações, o que garante que não são necessárias correções adicionais para restaurar os dados. Restaurar dados consistentes com as aplicações reduz o tempo de restauro, permitindo-lhe voltar rapidamente a um estado de execução.
-- **Reter dados de curto e longo prazo**: Você pode usar cofres dos serviços de recuperação para retenção de dados de curto e longo prazo. O Azure não limita o período de tempo durante o qual os dados podem permanecer num cofre dos Serviços de Recuperação. Você pode mantê-lo por tanto tempo quanto desejar. O Azure Backup tem um limite de 9999 pontos de recuperação por instância protegida.
+- **Manter os dados seguros**: o backup do Azure fornece soluções para proteger dados em trânsito e em repouso.
+- **Obter backups consistentes**com o aplicativo: um backup consistente com o aplicativo significa que um ponto de recuperação tem todos os dados necessários para restaurar a cópia de backup. O Azure Backup fornece cópias de segurança consistentes com as aplicações, o que garante que não são necessárias correções adicionais para restaurar os dados. Restaurar dados consistentes com as aplicações reduz o tempo de restauro, permitindo-lhe voltar rapidamente a um estado de execução.
+- **Reter dados de curto e longo prazo**: você pode usar cofres de serviços de recuperação para retenção de dados de curto e longo prazo. O Azure não limita o período de tempo durante o qual os dados podem permanecer num cofre dos Serviços de Recuperação. Você pode mantê-lo por tanto tempo quanto desejar. O Azure Backup tem um limite de 9999 pontos de recuperação por instância protegida.
 - **Gestão de armazenamento automática** - os ambientes híbridos necessitam frequentemente de armazenamento heterogéneo - alguns no local e outros na nuvem. Com o Azure Backup, não existe nenhum custo para a utilização de dispositivos de armazenamento no local. O backup do Azure aloca e gerencia automaticamente o armazenamento de backup e usa um modelo pago conforme o uso, para que você pague apenas pelo armazenamento que consumir. [Saiba mais](https://azure.microsoft.com/pricing/details/backup) sobre preços.
 - **Várias opções de armazenamento** -o backup do Azure oferece dois tipos de replicação para manter seu armazenamento/dados altamente disponíveis.
   - O [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy-lrs.md) Replica seus dados três vezes (ele cria três cópias de seus dados) em uma unidade de escala de armazenamento em um datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger os dados contra falhas de hardware locais.
@@ -46,8 +42,8 @@ Os serviços de backup e Azure Site Recovery do Azure contribuem para uma estrat
 
 Ambos os serviços fornecem funcionalidades complementares, mas diferentes.
 
-- **Azure Site Recovery**: O Site Recovery fornece uma solução de recuperação de desastre para computadores locais e para VMs do Azure. Você Replica máquinas de um local primário para um secundário. Quando ocorre um desastre, você realiza o failover de máquinas no local secundário e os acessa a partir daí. Quando tudo está funcionando normalmente novamente, você faz failback de máquinas para recuperá-las no site primário.
-- **Backup do Azure**: O serviço de backup do Azure faz backup de dados de computadores locais e VMs do Azure. É possível fazer backup dos dados e recuperá-los em um nível granular, incluindo backup de arquivos, pastas, estado do sistema de computador e backup de dados com reconhecimento de aplicativos. O backup do Azure lida com os dados em um nível mais granular do que Site Recovery. Por exemplo, se uma apresentação em seu laptop for corrompida, você poderá usar o backup do Azure para restaurar a apresentação. Se você quiser manter uma configuração de VM e dados seguros e acessíveis, poderá usar Site Recovery.  
+- **Azure site Recovery**: o site Recovery fornece uma solução de recuperação de desastre para computadores locais e para VMs do Azure. Você Replica máquinas de um local primário para um secundário. Quando ocorre um desastre, você realiza o failover de máquinas no local secundário e os acessa a partir daí. Quando tudo está funcionando normalmente novamente, você faz failback de máquinas para recuperá-las no site primário.
+- **Backup do Azure**: o serviço de backup do Azure faz backup de dados de computadores locais e VMs do Azure. É possível fazer backup dos dados e recuperá-los em um nível granular, incluindo backup de arquivos, pastas, estado do sistema de computador e backup de dados com reconhecimento de aplicativos. O backup do Azure lida com os dados em um nível mais granular do que Site Recovery. Por exemplo, se uma apresentação em seu laptop for corrompida, você poderá usar o backup do Azure para restaurar a apresentação. Se você quiser manter uma configuração de VM e dados seguros e acessíveis, poderá usar Site Recovery.  
 
 Use os pontos de tabela para ajudar a descobrir suas necessidades de BCDR.
 
@@ -114,7 +110,7 @@ O Azure Backup tem um limite de 9999 pontos de recuperação, também conhecidos
 - Uma instância protegida é um computador, servidor (físico ou virtual) ou carga de trabalho configurados para criar cópias de segurança para o Azure. Uma instância está protegida depois de uma cópia de segurança de dados ter sido guardada.
 - A cópia de segurança de dados é a proteção. Se a origem de dados fosse perdida ou tivesse sido danificada, a cópia de segurança poderia restaurar os dados de origem.
 
-A tabela seguinte mostra a frequência de cópia de segurança máxima de cada componente. A sua configuração de política de cópias de segurança determina quão rapidamente pode consumir os pontos de recuperação. Por exemplo, se criar um ponto de recuperação por dia, pode manter os pontos de recuperação durante 27 anos antes de os esgotar. Se criar um ponto de recuperação por mês, pode manter os pontos de recuperação durante 833 anos antes de os esgotar. O serviço do Backup não define um limite de tempo de expiração para um ponto de recuperação.
+A tabela seguinte mostra a frequência de cópia de segurança máxima de cada componente. A sua configuração de política de cópias de segurança determina quão rapidamente pode consumir os pontos de recuperação. Por exemplo, se você criar um ponto de recuperação por dia, poderá manter os pontos de recuperação por 27 anos antes de executar. Se você usar um ponto de recuperação mensal, poderá manter os pontos de recuperação por 833 anos antes de executar. O serviço de backup não define um limite de tempo de expiração em um ponto de recuperação.
 
 |  | Agente do Backup do Azure (MARS)| System Center DPM | Servidor do Backup do Azure | Cópia de segurança da VM do IaaS do Azure |
 | --- | --- | --- | --- | --- |

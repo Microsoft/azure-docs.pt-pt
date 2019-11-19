@@ -3,16 +3,16 @@ title: 'Início rápido: biblioteca de armazenamento de BLOBs do Azure V12-JavaS
 description: Neste guia de início rápido, você aprende a usar a biblioteca de cliente de armazenamento de BLOBs do Azure versão 12 para JavaScript para criar um contêiner e um blob no armazenamento de BLOB (objeto). Em seguida, vai aprender a transferir o blob para o computador local e a listar todos os blobs num contentor.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/05/2019
+ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 2e5a5f2a4de4e01d2e4fa66f819e55839959afd0
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 23cd292162a4c16c4b2b5b1f297d23eb2682013f
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130704"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168276"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure V12 para JavaScript
 
@@ -105,7 +105,7 @@ No diretório do projeto:
     const uuidv1 = require('uuid/v1');
     
     async function main() {
-        console.log('Azure Blob storage v12 - Javascript quickstart sample');
+        console.log('Azure Blob storage v12 - JavaScript quickstart sample');
         // Quick start code goes here
     }
     
@@ -118,7 +118,7 @@ No diretório do projeto:
 
 Quando o aplicativo de exemplo faz uma solicitação para o armazenamento do Azure, ele deve ser autorizado. Para autorizar uma solicitação, adicione as credenciais da conta de armazenamento ao aplicativo como uma cadeia de conexão. Veja as credenciais da conta de armazenamento através dos seguintes passos:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Localize a sua conta de armazenamento.
 3. Na secção **Definições** da descrição geral da conta de armazenamento, selecione **Chaves de acesso**. Aqui, pode ver as chaves de acesso da conta e a cadeia de ligação completa para cada chave.
 4. Encontre o valor da **Cadeia de ligação** em **key1** e selecione o botão **Copiar** para copiar a cadeia de ligação. Irá adicionar o valor da cadeia de ligação para uma variável de ambiente no próximo passo.
@@ -211,7 +211,7 @@ Adicione este código ao final da função `main`:
 
 ```javascript
 // Create the BlobServiceClient object which will be used to create a container client
-const blobServiceClient = await new BlobServiceClient.fromConnectionString(CONNECT_STR);
+const blobServiceClient = await BlobServiceClient.fromConnectionString(CONNECT_STR);
 
 // Create a unique name for the container
 const containerName = 'quickstart' + uuidv1();
@@ -223,7 +223,8 @@ console.log('\t', containerName);
 const containerClient = await blobServiceClient.getContainerClient(containerName);
 
 // Create the container
-await containerClient.create();
+const createContainerResponse = await containerClient.create();
+console.log("Container was created successfully. requestId: ", createContainerResponse.requestId);
 ```
 
 ### <a name="upload-blobs-to-a-container"></a>Carregar BLOBs em um contêiner
@@ -243,11 +244,12 @@ const blobName = 'quickstart' + uuidv1() + '.txt';
 // Get a block blob client
 const blockBlobClient = containerClient.getBlockBlobClient(blobName);
 
-console.log('\nUploading to Azure Storage as blob:\n\t', blobName);
+console.log('\nUploading to Azure storage as blob:\n\t', blobName);
 
 // Upload data to the blob
 const data = 'Hello, World!';
-await blockBlobClient.upload(data, data.length);
+const uploadBlobResponse = await blockBlobClient.upload(data, data.length);
+console.log("Blob was uploaded successfully. requestId: ", uploadBlobResponse.requestId);
 ```
 
 ### <a name="list-the-blobs-in-a-container"></a>Listar os blobs num contentor
@@ -308,7 +310,8 @@ Adicione este código ao final da função `main`:
 console.log('\nDeleting container...');
 
 // Delete container
-await containerClient.delete();
+const deleteContainerResponse = await containerClient.delete();
+console.log("Container was deleted successfully. requestId: ", deleteContainerResponse.requestId);
 ```
 
 ## <a name="run-the-code"></a>Executar o código

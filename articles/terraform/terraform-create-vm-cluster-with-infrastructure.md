@@ -1,17 +1,14 @@
 ---
 title: Tutorial-criar um cluster de VM do Azure com o Terraform e a HCL
 description: Use Terraform e HCL para criar um cluster de máquina virtual Linux com um balanceador de carga no Azure
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 7fee1518c36407f4e6607cc9204f9615b024f56f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f28cbbf13015d07c9d789ed258a9e2b0582ba1da
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837727"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159263"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>Tutorial: criar um cluster de VM do Azure com Terraform e HCL
 
@@ -291,7 +288,7 @@ Se você quiser aplicar um plano de execução salvo anteriormente, execute o co
 
 ![Aplicar um plano de execução do Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
 > [Criar um conjunto de dimensionamento de máquinas virtuais do Azure usando Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)

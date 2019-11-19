@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/11/2019
+ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 46bf756a729441bd3bc4b2b00aaa2c79fa06c0b8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7187cb41fa7ea499035c57e83e04038b1269b418
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521240"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158663"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs VMware com migrações para Azure: avaliação do servidor
 
@@ -108,8 +108,8 @@ Verifique se o arquivo OVA é seguro, antes de implantá-lo.
 
   **Algoritmo** | **Valor de hash**
   --- | ---
-  MD5 | 27230f3b012187860281b912ee661709
-  SHA256 | c0a5b5998b7f38ac6e57ea9a808ecc4295795e18f9ca99c367585068883f06e7
+  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
+  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ### <a name="create-the-appliance-vm"></a>Criar a VM do dispositivo
@@ -220,7 +220,7 @@ Para definir o escopo, você precisa executar as seguintes etapas:
 Há duas abordagens para atribuir permissões em objetos de inventário no vCenter à conta de usuário do vCenter com uma função atribuída a ele.
 - Para avaliação do servidor, a função **somente leitura** deve ser aplicada à conta de usuário do vCenter para todos os objetos pai em que as VMs a serem descobertas estão hospedadas. Todos os objetos pai-host, pasta de hosts, cluster, pasta de clusters na hierarquia até os data center devem ser incluídos. Essas permissões devem ser propagadas para objetos filho na hierarquia.
 
-    Da mesma forma, para a migração de servidor, uma função definida pelo usuário (pode ser chamada de <em>_Migrate do Azure</em>) com esses [privilégios](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) atribuídos deve ser aplicada à conta de usuário do vCenter para todos os objetos pai onde as VMs a serem migradas estão hospedadas.
+    Da mesma forma, para a migração de servidor, uma função definida pelo usuário (pode ser nomeada <em>Azure _Migrate</em>) com esses [privilégios](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) atribuídos deve ser aplicada à conta de usuário do vCenter para todos os objetos pai onde as VMs a serem migradas estão hospedadas.
 
 ![Atribuir permissões](./media/tutorial-assess-vmware/assign-perms.png)
 

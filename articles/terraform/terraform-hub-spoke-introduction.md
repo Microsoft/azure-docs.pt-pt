@@ -1,17 +1,14 @@
 ---
 title: Tutorial-criar uma topologia de rede híbrida de Hub e spoke no Azure usando o Terraform
 description: Tutorial ilustrando como criar uma arquitetura de referência de rede híbrida inteira no Azure usando o Terraform
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 8d85163e746f1d2d0713a9a4f247a2061e0029b8
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 90a60fc4fe98397c903e3e8a460806d6a2edb908
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969403"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159028"
 ---
 # <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>Tutorial: criar uma topologia de rede híbrida de Hub e spoke no Azure usando o Terraform
 
@@ -37,7 +34,7 @@ Este tutorial abrange as seguintes tarefas:
 
 ## <a name="hub-and-spoke-topology-architecture"></a>Arquitetura de topologia hub e spoke
 
-Na topologia hub e spoke, o Hub é uma VNet. A VNet atua como um ponto central de conectividade para sua rede local. Os spokes são VNets que partilham com o hub e podem ser utilizados para isolar cargas de trabalho. O tráfego flui entre o datacenter no local e o hub através de uma ligação de gateway do ExpressRoute ou de VPN. A imagem a seguir demonstra os componentes em uma topologia hub e spoke:
+Na topologia hub e spoke, o Hub é uma VNet. A VNet atua como um ponto central de conectividade para sua rede local. Os spokes são VNets que partilham com o hub e podem ser utilizados para isolar cargas de trabalho. O tráfego flui entre o datacenter no local e o hub através de uma ligação de gateway ExpressRoute ou de VPN. A imagem a seguir demonstra os componentes em uma topologia hub e spoke:
 
 ![Arquitetura de topologia hub e spoke no Azure](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-architecture.png)
 
@@ -82,15 +79,15 @@ Crie o diretório que contém os arquivos de configuração do Terraform para a 
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se não tiver selecionado um ambiente anteriormente, selecione **Bash** como o seu ambiente.
 
-    ![Comando do Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
+    ![Comandos do Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
 
-1. Mude para o diretório `clouddrive`.
+1. Altere os diretórios para o diretório `clouddrive`.
 
     ```bash
     cd clouddrive
     ```
 
-1. Crie um diretório com o nome `hub-spoke`.
+1. Crie um diretório denominado `hub-spoke`.
 
     ```bash
     mkdir hub-spoke

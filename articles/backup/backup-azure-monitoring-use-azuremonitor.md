@@ -1,21 +1,15 @@
 ---
-title: 'Backup do Azure: monitorar o backup do Azure com o Azure Monitor'
+title: Monitorar o backup do Azure com o Azure Monitor
 description: Monitore as cargas de trabalho de backup do Azure e crie alertas personalizados usando Azure Monitor.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Log Analytics; Backup do Azure; Alertas Configurações de diagnóstico; Grupos de ação
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: e8f162b9dc84b863c54d92313307ef4abca76ebb
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 65bab1a6d6d424c90b38a3bdf99b6bf5bd8ded09
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074224"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172898"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorar em escala usando Azure Monitor
 

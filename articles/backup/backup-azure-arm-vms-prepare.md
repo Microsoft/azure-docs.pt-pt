@@ -1,19 +1,14 @@
 ---
-title: Fazer backup de VMs do Azure em um cofre dos serviços de recuperação com o backup do Azure
+title: Fazer backup de VMs do Azure em um cofre dos serviços de recuperação
 description: Descreve como fazer backup de VMs do Azure em um cofre de serviços de recuperação usando o backup do Azure
-service: backup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 2ef8e7e77481c0df6e85545d16c3859949184d2f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: dc47aa2b4da08a0fc2c9a91b4d547a0d19e1869a
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968542"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173350"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de VMs do Azure em um cofre dos serviços de recuperação
 
@@ -34,7 +29,7 @@ Neste artigo, vai aprender a:
 
 ## <a name="before-you-start"></a>Antes de começar
 
-* [Examine](backup-architecture.md#architecture-direct-backup-of-azure-vms) a arquitetura de backup da VM do Azure.
+* [Examine](backup-architecture.md#architecture-built-in-azure-vm-backup) a arquitetura de backup da VM do Azure.
 * [Saiba mais](backup-azure-vms-introduction.md) Backup de VM do Azure e a extensão de backup.
 * [Examine a matriz de suporte antes de configurar o](backup-support-matrix-iaas.md) backup.
 
@@ -177,8 +172,8 @@ O status do trabalho pode variar dependendo dos seguintes cenários:
 Concluído | Em curso | Em curso
 Concluído | Ignorada | Concluído
 Concluído | Concluído | Concluído
-Concluído | Com Falhas | Concluído com aviso
-Com Falhas | Com Falhas | Com Falhas
+Concluído | Falhou | Concluído com aviso
+Falhou | Falhou | Falhou
 
 Agora, com esse recurso, para a mesma VM, dois backups podem ser executados em paralelo, mas, em qualquer fase (instantâneo, transferir dados para o cofre), apenas uma subtarefa pode ser executada. Assim, em cenários, um trabalho de backup em andamento resultou na falha do backup do dia seguinte, com essa funcionalidade de desacoplamento. Os backups do dia seguinte podem ter o instantâneo concluído ao **transferir dados para o cofre** ignorados se o trabalho de backup de um dia anterior estiver em estado de andamento.
 O ponto de recuperação incremental criado no cofre irá capturar toda a rotatividade do último ponto de recuperação criado no cofre. Não há impacto no custo do usuário.
@@ -199,7 +194,7 @@ O backup do Azure faz backup de VMs do Azure instalando uma extensão para o age
 A extensão de backup em execução na VM precisa de acesso de saída para endereços IP públicos do Azure.
 
 * Em geral, você não precisa permitir explicitamente o acesso de rede de saída para uma VM do Azure para que ela se comunique com o backup do Azure.
-* Se você tiver dificuldades com as VMs conectadas ou se vir o erro **ExtensionSnapshotFailedNoNetwork** ao tentar se conectar, você deverá permitir o acesso explicitamente para que a extensão de backup possa se comunicar com os endereços IP públicos do Azure para backup tráfico. Os métodos de acesso são resumidos na tabela a seguir.
+* Se você tiver dificuldades com as VMs conectadas ou se vir o erro **ExtensionSnapshotFailedNoNetwork** ao tentar se conectar, você deverá permitir o acesso explicitamente para que a extensão de backup possa se comunicar com os endereços IP públicos do Azure para o tráfego de backup. Os métodos de acesso são resumidos na tabela a seguir.
 
 **Opção** | **Ação** | **Detalhes**
 --- | --- | ---
@@ -227,7 +222,7 @@ Se um NSG gerencia o acesso à VM, permita o acesso de saída para o armazenamen
 7. Em **protocolo**, selecione **TCP**.
 8. Em **prioridade**, especifique um valor de prioridade inferior a qualquer regra de negação superior.
 
-   Se você tiver uma regra que negue acesso, a nova regra de permissão deverá ser maior. Por exemplo, se você tiver uma regra **Deny_All** definida na prioridade 1000, a nova regra deverá ser definida para menos de 1000.
+   Se você tiver uma regra que negue acesso, a nova regra de permissão deverá ser maior. Por exemplo, se você tiver uma regra **Deny_All** definida na prioridade 1000, a nova regra deverá ser definida como inferior a 1000.
 9. Forneça um nome e uma descrição para a regra e selecione **OK**.
 
 Você pode aplicar a regra NSG a várias VMs para permitir o acesso de saída. Este vídeo orienta você pelo processo.
@@ -252,7 +247,7 @@ Se você não tiver um proxy de conta do sistema, defina um como a seguir:
 4. Defina as configurações de proxy.
    * Em computadores Linux:
      * Adicione esta linha ao arquivo **/etc/environment** :
-       * **http_proxy = http:\/endereço IP do/proxy nomedearquivo: porta do proxy**
+       * **http_proxy = http:\/endereço IP/proxy nomedearquivo: porta proxy**
      * Adicione essas linhas ao arquivo **/etc/waagent.conf** :
          * **HttpProxy. host = endereço IP do proxy**
          * **HttpProxy. Port = porta do proxy**

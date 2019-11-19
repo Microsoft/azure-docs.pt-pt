@@ -3,17 +3,13 @@ title: Tutorial-configurar inventários dinâmicos de seus recursos do Azure usa
 description: Saiba como usar o Ansible para gerenciar seus inventários dinâmicos do Azure
 keywords: Ansible, Azure, DevOps, Bash, cloudshell, inventário dinâmico
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 10/23/2019
-ms.openlocfilehash: 6d520518e7180f69ee7293523dd40c8158dcfb99
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: dea6b47e5e263fdd2e048a0435efbebfa90fe69e
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990676"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156172"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Tutorial: configurar inventários dinâmicos de seus recursos do Azure usando o Ansible
 
@@ -279,7 +275,7 @@ A finalidade das marcas é habilitar a capacidade de trabalhar de forma rápida 
 
 Esta seção ilustra uma técnica para testar se o Nginx está instalado em sua máquina virtual.
 
-1. Use o comando [AZ VM List-IP-addresses](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) para recuperar o endereço IP da máquina virtual `ansible-inventory-test-vm1`. O valor retornado (o endereço IP da máquina virtual) é usado como o parâmetro para o comando SSH para se conectar à máquina virtual.
+1. Use o comando [AZ VM List-IP-addresses](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) para recuperar o endereço ip do `ansible-inventory-test-vm1` máquina virtual. O valor retornado (o endereço IP da máquina virtual) é usado como o parâmetro para o comando SSH para se conectar à máquina virtual.
 
     ```azurecli-interactive
     ssh `az vm list-ip-addresses \
@@ -305,7 +301,7 @@ Esta seção ilustra uma técnica para testar se o Nginx está instalado em sua 
 
 1. Clique na combinação de teclado `<Ctrl>D` para desconectar a sessão SSH.
 
-1. Fazer as etapas anteriores para a máquina virtual `ansible-inventory-test-vm2` produz uma mensagem informativa indicando onde você pode obter Nginx (o que significa que você não o tem instalado neste ponto):
+1. Fazer as etapas anteriores para o `ansible-inventory-test-vm2` máquina virtual produz uma mensagem informativa indicando onde você pode obter Nginx (o que significa que você não o tem instalado neste ponto):
 
     ```Output
     tom@ansible-inventory-test-vm2:~$ nginx -v

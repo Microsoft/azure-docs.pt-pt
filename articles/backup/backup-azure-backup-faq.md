@@ -1,18 +1,14 @@
 ---
-title: Respostas para perguntas comuns sobre os recursos de backup do Azure
+title: Respostas para perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.author: dacurwin
-ms.openlocfilehash: efd2959547e13872bfa73a0a8e4b9fda62ea5728
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f95a4e7e9084c304838b01bdfaceee261d8151cf
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074325"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173235"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure-perguntas frequentes
 
@@ -96,6 +92,8 @@ Windows Storage Server 2012 R2 64 bit | Standard, Workgroup, essencial | Com os 
 Windows Storage Server 2012 64 bits | Standard, Workgroup | Com os Service Packs/atualizações mais recentes.
 Windows Server 2008 R2 SP1 64 bits | Standard, Enterprise, Datacenter, Foundation | Com as atualizações mais recentes.
 Windows Server 2008 64 bits | Standard, Enterprise e Datacenter | Com as atualizações mais recentes.
+
+O backup do Azure não dá suporte a sistemas operacionais de 32 bits.
 
 Para backups do Linux de VM do Azure, o backup do Azure dá suporte [à lista de distribuições endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md), exceto o sistema operacional de núcleo do SO Linux e de 32 bits. Outras distribuições do Linux traga seu próprio trabalho podem funcionar contanto que o agente de VM esteja disponível na VM e o suporte para Python exista.
 

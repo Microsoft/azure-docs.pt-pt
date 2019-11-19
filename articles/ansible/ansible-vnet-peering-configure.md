@@ -3,17 +3,13 @@ title: Tutorial – configurar o emparelhamento de rede virtual do Azure usando 
 description: Saiba como usar o Ansible para conectar redes virtuais com o emparelhamento de rede virtual.
 keywords: Ansible, Azure, DevOps, Bash, manual, rede, emparelhamento
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 180bdff48a2ace4dfee1d1cb10eb75a33d360f4c
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 78699a005d721b46a88a26452f5db68438793d34
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241241"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155727"
 ---
 # <a name="tutorial-configure-azure-virtual-network-peering-using-ansible"></a>Tutorial: configurar o emparelhamento de rede virtual do Azure usando o Ansible
 
@@ -59,7 +55,7 @@ O código do guia estratégico de exemplo nesta seção é usado para:
 
 O código do guia estratégico de exemplo nesta seção é usado para:
 
-- Criar rede virtual
+- Criar uma rede virtual
 - Criar uma sub-rede dentro da rede virtual
 
 ```yml
@@ -80,7 +76,7 @@ O código do guia estratégico de exemplo nesta seção é usado para:
 
 O código do guia estratégico de exemplo nesta seção é usado para:
 
-- Criar rede virtual
+- Criar uma rede virtual
 - Criar uma sub-rede dentro da rede virtual
 
 ```yml

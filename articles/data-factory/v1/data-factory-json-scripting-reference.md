@@ -3326,8 +3326,8 @@ Você pode vincular um sistema de arquivos local a um data factory do Azure com 
 
 | Cenário | Host na definição de serviço vinculado | folderPath na definição de DataSet |
 | --- | --- | --- |
-| Pasta local no computador do gateway de Gerenciamento de Dados: <br/><br/>Exemplos: D:\\\* ou D:\folder\subfolder\\* |D:\\\\ (para Gerenciamento de Dados gateway 2,0 e versões posteriores) <br/><br/> localhost (para versões anteriores do que Gerenciamento de Dados gateway 2,0) |.\\\\ ou pasta\\\\subpasta (para Gerenciamento de Dados gateway 2,0 e versões posteriores) <br/><br/>D:\\\\ ou D:\\pasta \\\\subpasta \\(para a versão do gateway abaixo de 2,0) |
-| Pasta compartilhada remota: <br/><br/>Exemplos: \\\\meuservidor\\compartilhamento\\\* ou \\\\MyServer\\compartilhamento\\pasta\\\\subpasta * |\\\\\\\\meuservidor\\compartilhamento de \\ |.\\\\ ou pasta\\subpasta \\ |
+| Pasta local no computador do gateway de Gerenciamento de Dados: <br/><br/>Exemplos: D:\\\* ou D:\folder\subfolder\\\* |D:\\\\ (para Gerenciamento de Dados gateway 2,0 e versões posteriores) <br/><br/> localhost (para versões anteriores do que Gerenciamento de Dados gateway 2,0) |.\\\\ ou pasta\\\\subpasta (para Gerenciamento de Dados gateway 2,0 e versões posteriores) <br/><br/>D:\\\\ ou D:\\pasta \\\\subpasta \\(para a versão do gateway abaixo de 2,0) |
+| Pasta compartilhada remota: <br/><br/>Exemplos: \\\\meuservidor\\compartilhamento\\\* ou \\\\MyServer\\compartilhamento\\pasta\\\\subpasta \* |\\\\\\\\meuservidor\\compartilhamento de \\ |.\\\\ ou pasta\\subpasta \\ |
 
 
 #### <a name="example-using-username-and-password-in-plain-text"></a>Exemplo: usando nome de usuário e senha em texto sem formatação

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: cd15b562c3707a28b54bc59166d54871120909e2
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 874c282ff878126297dc46ca0e7a4c19910e40a1
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084943"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159105"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurar a recuperação após desastre de VMs do Azure após a migração para o Azure 
 
@@ -30,7 +30,7 @@ Antes de configurar a recuperação de desastre, certifique-se de que a migraç�
 
 Cada VM do Azure deve ter o [agente de VM do Azure](../virtual-machines/extensions/agent-windows.md) instalado. Para replicar VMs do Azure, Site Recovery instala uma extensão no agente.
 
-- Se o computador estiver executando a versão 9.7.0.0 ou posterior do serviço de mobilidade Site Recovery, o agente de VM do Azure será instalado automaticamente pelo serviço de mobilidade em VMs do Windows. Em versões anteriores do serviço de mobilidade, você precisa instalar o agente manualmente.
+- Se o computador estiver executando a versão 9.7.0.0 ou posterior do serviço de mobilidade Site Recovery, o agente de VM do Azure será instalado automaticamente pelo serviço de mobilidade em VMs do Windows. Em versões anteriores do serviço de mobilidade, você instalará o agente manualmente.
 - Para VMs do Linux, você deve instalar o agente de VM do Azure manualmente. Você só precisa instalar o agente de VM do Azure se o serviço de mobilidade instalado no computador migrado for v 9,6 ou anterior.
 
 

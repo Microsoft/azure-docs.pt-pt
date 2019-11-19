@@ -1,18 +1,14 @@
 ---
-title: Fazendo backup de arquivos e pastas com o backup do Azure-perguntas comuns
+title: Fazendo backup de arquivos e pastas-perguntas comuns
 description: Aborda perguntas comuns sobre como fazer backup de arquivos e pastas com o backup do Azure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: dacurwin
-ms.openlocfilehash: c65c04a67b92642d3664293dd666236919142f12
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b66eb7bca3c9a57f6b44697aa0340cd852fc3db4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074197"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173050"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas comuns sobre como fazer backup de arquivos e pastas
 

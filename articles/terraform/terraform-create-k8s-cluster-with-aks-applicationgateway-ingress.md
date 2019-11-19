@@ -1,17 +1,14 @@
 ---
 title: Tutorial-criar um controlador de entrada do gateway de aplicativo no serviço kubernetes do Azure
 description: Tutorial ilustrando como criar um cluster kubernetes com o serviço kubernetes do Azure com o gateway de aplicativo como controlador de entrada
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 31faedf247f8dd0799a4ee52cabc8386f0363ff6
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 6d07fc6becf76453de792c69b25aea49c39775ae
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082577"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159092"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Tutorial: criar um controlador de entrada do gateway de aplicativo no serviço kubernetes do Azure
 

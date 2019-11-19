@@ -3,12 +3,12 @@ title: Ver e gerir fornecedores de serviços
 description: Os clientes podem usar a página provedores de serviço no portal do Azure para exibir informações sobre provedores de serviço, ofertas de provedor de serviço e recursos delegados.
 ms.date: 11/15/2019
 ms.topic: overview
-ms.openlocfilehash: baa5a77b481779ab511ff473aacda5d40e0d771c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 12ddafe1d1e425ed1c1f1188be1377a584e03936
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132172"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169651"
 ---
 # <a name="view-and-manage-service-providers"></a>Ver e gerir fornecedores de serviços
 
@@ -49,7 +49,9 @@ Se o cliente quiser remover uma oferta de provedor de serviços, ele poderá sel
 
 ## <a name="update-service-provider-offers"></a>Atualizar ofertas do provedor de serviços
 
-Depois que um cliente tiver adicionado uma oferta, um provedor de serviços poderá publicar uma versão atualizada da mesma oferta no Azure Marketplace. Por exemplo, eles podem querer adicionar uma nova definição de função. Se uma nova versão da oferta tiver sido publicada, a página de **ofertas do provedor** mostrará um ícone de "atualização" na linha dessa oferta. O cliente pode selecionar esse ícone para ver as diferenças entre a versão atual da oferta e a nova. 
+Depois que um cliente tiver adicionado uma oferta, um provedor de serviços poderá publicar uma versão atualizada da mesma oferta no Azure Marketplace. Por exemplo, eles podem querer adicionar uma nova definição de função. Se uma nova versão da oferta tiver sido publicada, a página de **ofertas do provedor** mostrará um ícone de "atualização" na linha dessa oferta. O cliente pode selecionar esse ícone para ver as diferenças entre a versão atual da oferta e a nova.
+
+ ![Ícone de oferta de atualização](../media/update-offer.jpg)
 
 Depois de revisar as alterações, o cliente pode optar por atualizar para a nova versão. Depois disso, as autorizações e outras configurações especificadas na nova versão serão aplicadas a quaisquer assinaturas e/ou grupos de recursos que tenham sido delegados para essa oferta.
 

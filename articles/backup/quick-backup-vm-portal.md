@@ -1,22 +1,17 @@
 ---
-title: Início Rápido do Azure – Fazer cópia de segurança de uma VM com o portal do Azure
+title: Início rápido-fazer backup de uma VM com o portal do Azure
 description: Neste guia de início rápido, saiba como criar um cofre dos serviços de recuperação, habilitar a proteção em uma VM do Azure e fazer backup da VM, com o portal do Azure.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-tags: azure-resource-manager, virtual-machine-backup
-ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/17/2018
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 2d740c8d078770267669a0be749ca8d5d210bb72
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 430a560f3ae8e9abc6c5e7a34c24d9d2f262fd79
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083170"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172010"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure
 
@@ -91,7 +86,7 @@ Se quiser avançar para um tutorial de Cópia de segurança que explique como re
 
     ![Eliminar o grupo de recursos do portal do Azure](./media/quick-backup-vm-portal/delete-resource-group.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, criou um cofre dos Serviços de Recuperação, ativou a proteção numa VM e criou o ponto de recuperação inicial. Para saber mais sobre o Azure Backup e os Serviços de Recuperação, prossiga para os tutoriais.
 

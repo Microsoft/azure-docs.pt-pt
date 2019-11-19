@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: c789d48656173721432779aeaba0530950527fa1
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: b91554269ab7ddf15458545715e7a3a40cc1ceb6
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646931"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158698"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Início rápido: biblioteca de cliente do Azure Key Vault para .NET (SDK v4)
 
@@ -25,7 +25,7 @@ O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os se
 - Simplifique e automatize tarefas para certificados SSL/TLS.
 - Use os HSMs validados pelo FIPS 140-2 nível 2.
 
-[Documentação de referência de API](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | o [código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [pacote (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/) da biblioteca
+[Documentação de referência de API](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet) | o [código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [pacote (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/) da biblioteca
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,10 +39,7 @@ Este início rápido pressupõe que você esteja executando os comandos `dotnet`
 
 ### <a name="create-new-net-console-app"></a>Criar novo aplicativo de console .NET
 
-Crie um novo aplicativo .NET Core em seu editor ou IDE preferido.
-
-Em uma janela de console, use o comando `dotnet new` para criar um novo aplicativo de console com o nome `akv-dotnet`.
-
+Em uma janela de console, use o comando `dotnet new` para criar um novo aplicativo de console .NET com o nome `akv-dotnet`.
 
 ```console
 dotnet new console -n key-vault-console-app

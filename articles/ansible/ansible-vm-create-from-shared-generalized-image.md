@@ -3,17 +3,13 @@ title: Tutorial – criar uma VM ou um conjunto de dimensionamento de máquinas 
 description: Saiba como usar o Ansible para criar uma VM ou conjunto de dimensionamento de máquinas virtuais com base em uma imagem generalizada na Galeria de imagens compartilhadas.
 keywords: Ansible, Azure, DevOps, Bash, manual, máquina virtual, conjunto de dimensionamento de máquinas virtuais, Galeria de imagens compartilhadas
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 10/14/2019
-ms.openlocfilehash: 4b4190ddabe90af135ea64a8ba3d5905f23c457e
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: f784419736854095cc1bc5da14f3867ac3f7eb12
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808957"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155832"
 ---
 # <a name="tutorial-create-a-vm-or-virtual-machine-scale-set-from-the-azure-shared-image-gallery-using-ansible"></a>Tutorial: criar uma VM ou um conjunto de dimensionamento de máquinas virtuais da Galeria de imagens compartilhadas do Azure usando o Ansible
 
@@ -44,7 +40,7 @@ Há duas maneiras de obter o conjunto completo de guias estratégicos de exemplo
 - [Baixe a pasta SIG](https://github.com/Azure-Samples/ansible-playbooks/tree/master/SIG_generalized_image) e salve-a em seu computador local.
 - Crie um novo arquivo para cada seção e copie o guia estratégico de exemplo nele.
 
-O arquivo `vars.yml` contém as variáveis usadas por todos os guias estratégicos de exemplo para este tutorial. Você pode editar o arquivo para fornecer nomes e valores exclusivos.
+O arquivo de `vars.yml` contém as variáveis usadas por todos os guias estratégicos de exemplo para este tutorial. Você pode editar o arquivo para fornecer nomes e valores exclusivos.
 
 O primeiro guia estratégico de exemplo `00-prerequisites.yml` cria o que é necessário para concluir este tutorial:
 - Um grupo de recursos, que é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
@@ -142,7 +138,7 @@ Execute o guia estratégico usando o comando `ansible-playbook`:
 ansible-playbook 01a-create-generalized-image.yml
 ```
 
-Verifique seu grupo de recursos e certifique-se de que `testimagea` seja exibido.
+Verifique seu grupo de recursos e verifique se `testimagea` aparece.
 
 ## <a name="create-the-shared-image-gallery"></a>Criar a Galeria de imagens compartilhadas
 

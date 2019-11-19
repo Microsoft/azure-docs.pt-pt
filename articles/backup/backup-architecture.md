@@ -1,18 +1,14 @@
 ---
-title: Arquitetura de backup do Azure
+title: Visão geral da arquitetura
 description: Fornece uma visão geral da arquitetura, dos componentes e dos processos usados pelo serviço de backup do Azure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: dacurwin
-ms.openlocfilehash: d914c2988b5f28940021de24dcfe1183c68b15cc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: ae7b0c2b81bd3d393b7e749e077a6f5fa0379562
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074355"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173510"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup do Azure
 
@@ -96,7 +92,7 @@ O consumo de armazenamento, o RTO (objetivo de tempo de recuperação) e o consu
 
 A tabela a seguir resume os recursos com suporte para os diferentes tipos de backup:
 
-**Funcionalidade** | **Máquinas locais do Windows Server (diretas)** | **VMs do Azure** | **Computadores ou aplicativos com o DPM/MABS**
+**Funcionalidade** | **Backup direto de arquivos e pastas (usando o agente MARS)** | **Backup de VM do Azure** | **Computadores ou aplicativos com o DPM/MABS**
 --- | --- | --- | ---
 Fazer backup no cofre | ![Sim][green] | ![Sim][green] | ![Sim][green]
 Fazer backup no disco do DPM/MABS e, em seguida, para o Azure | | | ![Sim][green]
@@ -106,7 +102,7 @@ Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][ye
 
 ![Chave de tabela](./media/backup-architecture/table-key.png)
 
-## <a name="architecture-direct-backup-of-azure-vms"></a>Arquitetura: backup direto de VMs do Azure
+## <a name="architecture-built-in-azure-vm-backup"></a>Arquitetura: backup de VM do Azure interno
 
 1. Quando você habilita o backup para uma VM do Azure, um backup é executado de acordo com o agendamento especificado.
 1. Durante o primeiro backup, uma extensão de backup é instalada na VM se a VM estiver em execução.

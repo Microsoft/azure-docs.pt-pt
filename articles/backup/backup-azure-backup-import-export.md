@@ -1,19 +1,15 @@
 ---
-title: Propagar o backup offline com o serviço de importação/exportação do backup do Azure
+title: Propagar o backup offline com o serviço de importação/exportação
 description: Saiba como o backup do Azure permite que você envie dados fora da rede usando o serviço de importação/exportação do Azure. Este artigo explica a propagação offline dos dados de backup iniciais usando o serviço de importação e exportação do Azure.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: dacurwin
-ms.openlocfilehash: 15a5a67209552134969c01220e8412d0c9dace15
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 331d5528c8f124f4d43142ff7be4daa3169b0381
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968524"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173294"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de cópias de segurança offline no Azure Backup
 
@@ -31,7 +27,7 @@ O processo de backup offline envolve as seguintes etapas:
 4. No datacenter do Azure, os dados nos discos são copiados para uma conta de armazenamento do Azure.
 5. O backup do Azure copia os dados de backup da conta de armazenamento para o cofre dos serviços de recuperação e os backups incrementais são agendados.
 
-## <a name="supported-configurations"></a>Configurações com suporte
+## <a name="supported-configurations"></a>Configurações suportadas
 
 Os seguintes recursos ou cargas de trabalho de backup do Azure dão suporte ao uso de backup offline.
 
@@ -40,7 +36,7 @@ Os seguintes recursos ou cargas de trabalho de backup do Azure dão suporte ao u
 > * Backup de arquivos e pastas com o agente de Serviços de Recuperação do Microsoft Azure (MARS), também conhecido como o agente de backup do Azure.
 > * Backup de todas as cargas de trabalho e arquivos com o System Center Data Protection Manager (SC DPM)
 > * Backup de todas as cargas de trabalho e arquivos com o Backup do Microsoft Azure Server
-
+ 
    > [!NOTE]
    > O backup offline não tem suporte para backups de estado do sistema feitos usando o agente de backup do Azure.
 
@@ -69,7 +65,7 @@ Antes de iniciar o fluxo de trabalho de backup offline, conclua os seguintes pr�
 * Ao enviar discos para o Azure, use somente unidades de disco rígido internas SATA II de 2,5 polegadas ou 2,5 polegadas ou 3,5 polegadas. Você pode usar discos rígidos de até 10 TB. Verifique a [documentação do serviço de importação/exportação do Azure](../storage/common/storage-import-export-requirements.md#supported-hardware) para obter o conjunto mais recente de unidades às quais o serviço dá suporte.
 * As unidades SATA devem ser conectadas a um computador (conhecido como um *computador de cópia*) de onde a cópia dos dados de backup do *local de preparo* para as unidades SATA é feita. Verifique se o BitLocker está habilitado no *computador de cópia*.
 
-## <a name="workflow"></a>Fluxo de Trabalho
+## <a name="workflow"></a>Fluxo de trabalho
 
 Esta seção descreve o fluxo de trabalho de backup offline para que seus dados possam ser entregues a um datacenter do Azure e carregados no armazenamento do Azure. Se você tiver dúvidas sobre o serviço de importação ou qualquer aspecto do processo, consulte a [documentação visão geral do serviço de importação](../storage/common/storage-import-export-service.md).
 
@@ -109,7 +105,7 @@ Esta seção descreve o fluxo de trabalho de backup offline para que seus dados 
 
 O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são enviadas para o datacenter do Azure mais próximo. Esse utilitário está disponível no diretório de instalação do agente de backup do Azure (no seguinte caminho):
 
-   *\Microsoft Agent\Utils de serviços de recuperação do Azure\\*
+    *\Microsoft Azure Recovery Services Agent\Utils\\*
 
 1. Vá para o diretório e copie o diretório **AzureOfflineBackupDiskPrep** para outro computador em que as unidades SATA estão conectadas. No computador com as unidades SATA conectadas, verifique se:
 

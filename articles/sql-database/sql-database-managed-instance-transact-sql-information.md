@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 3518404b76625e2557aaefdc6ab5ad7353683984
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: 3283cfe9455ba29679d7c741941aa8863c47b1c0
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823328"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158289"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -272,7 +272,7 @@ As seguintes opções não podem ser modificadas:
 
 Para obter mais informações, consulte [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
-### <a name="sql-server-agent"></a>SQL Server Agent
+### <a name="sql-server-agent"></a>Agente do SQL Server
 
 - Não há suporte para habilitar e desabilitar SQL Server Agent atualmente na instância gerenciada. O SQL Agent está sempre em execução.
 - SQL Server Agent configurações são somente leitura. Não há suporte para o procedimento `sp_set_agent_properties` na instância gerenciada. 
@@ -526,7 +526,7 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 - O número de vCores e tipos de instâncias que você pode implantar em uma região têm algumas [restrições e limites](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
 - Há algumas [regras de segurança que devem ser aplicadas na sub-rede](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
-### <a name="vnet"></a>VIRTUAL
+### <a name="vnet"></a>VNET
 - A VNet pode ser implantada usando modelo de recurso-modelo clássico para VNet sem suporte.
 - Depois que uma instância gerenciada é criada, não há suporte para a movimentação da instância gerenciada ou da VNet para outro grupo de recursos ou assinatura.
 - Alguns serviços, como ambientes de serviço de aplicativo, aplicativos lógicos e instâncias gerenciadas (usados para replicação geográfica, replicação transacional ou por meio de servidores vinculados) não podem acessar instâncias gerenciadas em regiões diferentes se seus VNets estiverem conectados usando [global emparelhamento](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Você pode se conectar a esses recursos via ExpressRoute ou VNet a VNet por meio de gateways de VNet.
@@ -564,16 +564,6 @@ SQL Server/Instância Gerenciada [não permitir que o usuário descarte um arqui
 A instrução de `RESTORE` contínua, o processo de migração do serviço de migração de dados e a restauração pontual interna bloquearão a atualização da camada de serviço ou o redimensionamento da instância existente e a criação de novas instâncias até que o processo de restauração seja concluído. O processo de restauração bloqueará essas operações nas instâncias gerenciadas e nos pools de instância na mesma sub-rede em que o processo de restauração está em execução. As instâncias em pools de instâncias não são afetadas. Criar ou alterar as operações da camada de serviço não falharão ou tempo limite-eles continuarão quando o processo de restauração for concluído ou cancelado.
 
 **Solução alternativa**: Aguarde até que o processo de restauração seja concluído ou cancele o processo de restauração se a operação de criação ou atualização da camada de serviço tiver prioridade mais alta.
-
-### <a name="missing-validations-in-restore-process"></a>Validações ausentes no processo de restauração
-
-**Data:** Setembro de 2019
-
-a instrução `RESTORE` e a restauração pontual interna não executam algumas verificações de nessecary no banco de dados restaurado:
-- A instrução **DBCC CHECKDB** - `RESTORE` não executa `DBCC CHECKDB` no banco de dados restaurado. Se um banco de dados original estiver corrompido ou o arquivo de backup estiver corrompido enquanto é copiado para o armazenamento de BLOBs do Azure, os backups automáticos não serão feitos e o suporte do Azure entrará em contato com o cliente 
-- O processo de restauração pontual interno não verifica se o backup automatizado de Comercialmente Crítico instância contém os [objetos OLTP na memória](sql-database-in-memory.md#in-memory-oltp). 
-
-**Solução alternativa**: Verifique se você está executando `DBCC CHECKDB` no banco de dados de origem antes de fazer um backup e usando a opção `WITH CHECKSUM` no backup para evitar possíveis corrupções que poderiam ser restauradas na instância gerenciada. Verifique se o banco de dados de origem não contém [objetos OLTP na memória](sql-database-in-memory.md#in-memory-oltp) se você o estiver restaurando na camada uso geral.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Resource Governor na camada de serviço Comercialmente Crítico talvez precise ser reconfigurada após o failover
 

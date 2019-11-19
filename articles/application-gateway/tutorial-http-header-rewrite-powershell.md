@@ -1,31 +1,31 @@
 ---
-title: Cabeçalhos HTTP de reescrita no Gateway de aplicação do Azure
-description: Este artigo fornece informações sobre como criar um Gateway de aplicação do Azure e reescrever os cabeçalhos HTTP com o Azure PowerShell
+title: Criar um gateway de Aplicativo Azure & reescrever cabeçalhos HTTP
+description: Este artigo fornece informações sobre como criar um gateway de Aplicativo Azure e reescrever cabeçalhos HTTP usando Azure PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: ba74bb8970949a15425a66f7cd4475749fd183df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2663c049245a7025b5948a64fc5008bb9e7dee90
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64947095"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173723"
 ---
-# <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Criar um gateway de aplicação e volte a escrever os cabeçalhos HTTP
+# <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Criar um gateway de aplicativo e reescrever cabeçalhos HTTP
 
-Pode utilizar o Azure PowerShell para configurar [regras de reescrita de cabeçalhos de solicitação e resposta HTTP](rewrite-http-headers.md) quando cria o novo [dimensionamento automático e o SKU de gateway de aplicação com redundância de zona](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+Você pode usar Azure PowerShell para configurar [regras para reescrever cabeçalhos de solicitação e resposta http](rewrite-http-headers.md) ao criar a nova [SKU de autoescala e de gateway de aplicativo com redundância de zona](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 >
-> * Criar uma rede virtual do dimensionamento automático
+> * Criar uma rede virtual de dimensionamento automático
 > * Criar um IP público reservado
-> * Configurar a sua infraestrutura de gateway de aplicação
-> * Especifique a configuração de regra de reescrita de cabeçalho de http
+> * Configurar a infraestrutura do gateway de aplicativo
+> * Especificar a configuração da regra de reescrita de cabeçalho http
 > * Especificar o dimensionamento automático
 > * Criar o gateway de aplicação
 > * Testar o gateway de aplicação
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo requer que execute o Azure PowerShell localmente. Tem de ter Az versão 1.0.0 do módulo ou posterior instalado. Execute `Import-Module Az` e, em seguida,`Get-Module Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](https://docs.microsoft.com/powershell/azure/install-az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma ligação ao Azure.
+Este artigo requer que você execute Azure PowerShell localmente. Você deve ter o módulo AZ versão 1.0.0 ou posterior instalado. Execute `Import-Module Az` e`Get-Module Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](https://docs.microsoft.com/powershell/azure/install-az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma ligação ao Azure.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -56,7 +56,7 @@ New-AzResourceGroup -Name $rg -Location $location
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Crie uma rede virtual com uma sub-rede dedicada para um gateway de aplicação de dimensionamento automático. Atualmente, apenas um gateway de aplicação de dimensionamento automático pode ser implementado em cada sub-rede dedicada.
+Crie uma rede virtual com uma sub-rede dedicada para um gateway de aplicativo de dimensionamento automático. Atualmente, apenas um gateway de aplicação de dimensionamento automático pode ser implementado em cada sub-rede dedicada.
 
 ```azurepowershell
 #Create VNet with two subnets
@@ -78,7 +78,7 @@ $pip = New-AzPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP" `
 
 ## <a name="retrieve-details"></a>Obter os detalhes
 
-Obtenha os detalhes de IP, uma sub-rede e o grupo de recursos num objeto local para criar os detalhes de configuração de IP para o gateway de aplicação.
+Recupere detalhes do grupo de recursos, da sub-rede e do IP em um objeto local para criar os detalhes de configuração de IP para o gateway de aplicativo.
 
 ```azurepowershell
 $resourceGroup = Get-AzResourceGroup -Name $rg
@@ -89,7 +89,7 @@ $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork
 
 ## <a name="configure-the-infrastructure"></a>Configurar a infraestrutura
 
-Configure o IP config, configuração IP Front-end, conjunto de back-end, HTTP definições, certificado, porta e serviço de escuta num formato idêntico para o gateway existente do aplicativo padrão. O novo SKU segue o mesmo modelo de objeto do SKU Standard.
+Configure a configuração de IP, a configuração de IP de front-end, o pool de back-end, as configurações de HTTP, o certificado, a porta e o ouvinte em um formato idêntico para o gateway de aplicativo padrão existente. O novo SKU segue o mesmo modelo de objeto do SKU Standard.
 
 ```azurepowershell
 $ipconfig = New-AzApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
@@ -105,15 +105,15 @@ $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting
           -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
-## <a name="specify-your-http-header-rewrite-rule-configuration"></a>Especifique a configuração de regra de reescrita de cabeçalho de HTTP
+## <a name="specify-your-http-header-rewrite-rule-configuration"></a>Especificar a configuração da regra de reescrita de cabeçalho HTTP
 
-Configure os novos objetos necessários para reescreva os cabeçalhos de http:
+Configure os novos objetos necessários para reescrever os cabeçalhos http:
 
-- **RequestHeaderConfiguration**: este objecto é utilizado para especificar os campos de cabeçalho de solicitação que pretende reescrever e o novo valor que têm de ser reescrito para os cabeçalhos originais.
-- **ResponseHeaderConfiguration**: este objecto é utilizado para especificar os campos de cabeçalho de resposta que pretende reescrever e o novo valor que têm de ser reescrito para os cabeçalhos originais.
-- **ActionSet**: este objeto contém as configurações dos cabeçalhos de solicitação e resposta especificados acima. 
-- **RewriteRule**: este objeto contém todos os *actionSets* especificado acima. 
-- **RewriteRuleSet**-este objeto contém todos os *rewriteRules* e tem de ser vinculado a uma regra de encaminhamento para a solicitação como-básica ou baseado no caminho.
+- **RequestHeaderConfiguration**: esse objeto é usado para especificar os campos de cabeçalho da solicitação que você pretende reescrever e o novo valor para o qual os cabeçalhos originais precisam ser regravados.
+- **ResponseHeaderConfiguration**: esse objeto é usado para especificar os campos de cabeçalho de resposta que você pretende reescrever e o novo valor para o qual os cabeçalhos originais precisam ser regravados.
+- **Actionset**: este objeto contém as configurações dos cabeçalhos de solicitação e resposta especificados acima. 
+- **RewriteRule**: este objeto contém todos os *actionSets* especificados acima. 
+- **RewriteRuleSet**-este objeto contém todas as *rewriteRules* e precisará ser anexado a uma regra de roteamento de solicitação-básica ou baseada em caminho.
 
    ```azurepowershell
    $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"
@@ -123,9 +123,9 @@ Configure os novos objetos necessários para reescreva os cabeçalhos de http:
    $rewriteRuleSet = New-AzApplicationGatewayRewriteRuleSet -Name rewriteRuleSet1 -RewriteRule $rewriteRule
    ```
 
-## <a name="specify-the-routing-rule"></a>Especificar a regra de encaminhamento
+## <a name="specify-the-routing-rule"></a>Especificar a regra de roteamento
 
-Crie uma regra de encaminhamento do pedido. Depois de criado, esta configuração de reescrita está ligada ao serviço de escuta de origem através da regra de encaminhamento. Quando utilizar uma regra básica de encaminhamento, a configuração de reescrita de cabeçalho está associada um serviço de escuta de origem e é uma reescrita de cabeçalho global. Quando é utilizada uma regra de encaminhamento baseado no caminho, a configuração de reescrita de cabeçalho é definida no mapa do caminho do URL. Por isso, ele só se aplica a área de caminho específico de um site. Abaixo, é criada uma regra básica de encaminhamento e o conjunto de regras de reescrita está ligado.
+Crie uma regra de roteamento de solicitação. Depois de criada, essa configuração de regravação é anexada ao ouvinte de origem por meio da regra de roteamento. Ao usar uma regra de roteamento básica, a configuração de reescrita de cabeçalho é associada a um ouvinte de origem e é uma reescrita de cabeçalho global. Quando uma regra de roteamento baseada em caminho é usada, a configuração de reescrita de cabeçalho é definida no mapa de caminho de URL. Portanto, ele só se aplica à área de caminho específica de um site. Abaixo, uma regra de roteamento básica é criada e o conjunto de regras de regravação é anexado.
 
 ```azurepowershell
 $rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule1" -RuleType basic `
@@ -134,7 +134,7 @@ $rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule1" -RuleType bas
 
 ## <a name="specify-autoscale"></a>Especificar o dimensionamento automático
 
-Agora pode especificar a configuração de dimensionamento automático para o gateway de aplicação. São suportados dois tipos de configuração de dimensionamento automático:
+Agora você pode especificar a configuração de dimensionamento automático para o gateway de aplicativo. São suportados dois tipos de configuração de dimensionamento automático:
 
 * **Modo de capacidade fixo**. Neste modo, o gateway de aplicação não dimensiona automaticamente e opera numa capacidade de Unidade de Escala fixa.
 
@@ -151,7 +151,7 @@ Agora pode especificar a configuração de dimensionamento automático para o ga
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Criar o gateway de aplicação e incluem as zonas de redundância e a configuração de dimensionamento automático.
+Crie o gateway de aplicativo e inclua zonas de redundância e a configuração de dimensionamento automático.
 
 ```azurepowershell
 $appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 -ResourceGroupName $rg -Location $location -BackendAddressPools $pool -BackendHttpSettingsCollection $setting -GatewayIpConfigurations $ipconfig -FrontendIpConfigurations $fip -FrontendPorts $fp01 -HttpListeners $listener01 -RequestRoutingRules $rule01 -Sku $sku -AutoscaleConfiguration $autoscaleConfig -RewriteRuleSet $rewriteRuleSet
@@ -159,7 +159,7 @@ $appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 -Resource
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Utilize Get-AzPublicIPAddress para obter o endereço IP público do gateway de aplicação. Copie o endereço IP público ou o nome DNS e cole-o na barra de endereço do browser.
+Use Get-AzPublicIPAddress para obter o endereço IP público do gateway de aplicativo. Copie o endereço IP público ou o nome DNS e cole-o na barra de endereço do browser.
 
 ```azurepowershell
 Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP
@@ -169,10 +169,10 @@ Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Primeiro, explore os recursos que foram criados com o gateway de aplicação. Em seguida, quando já não forem necessários, pode utilizar o `Remove-AzResourceGroup` comando para remover o grupo de recursos, o gateway de aplicação e todos os recursos relacionados.
+Primeiro, explore os recursos que foram criados com o gateway de aplicativo. Em seguida, quando eles não forem mais necessários, você poderá usar o comando `Remove-AzResourceGroup` para remover o grupo de recursos, o gateway de aplicativo e todos os recursos relacionados.
 
 `Remove-AzResourceGroup -Name $rg`
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar um gateway de aplicação com regras de encaminhamento com base no caminho de URL](./tutorial-url-route-powershell.md)

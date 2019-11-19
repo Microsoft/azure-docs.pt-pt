@@ -1,18 +1,14 @@
 ---
-title: Excluir um cofre de serviços de recuperação Backup do Microsoft Azure
+title: Excluir um cofre de Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, saiba como remover dependências e, em seguida, excluir um cofre MARS (serviços de recuperação de Backup do Microsoft Azure).
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.author: dacurwin
-ms.openlocfilehash: 469d6532449df8327389b8117904b078d9340e5b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 23e0d2874229616037c44800639411f66bc4d1b6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747585"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173179"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Excluir um cofre dos serviços de recuperação de backup do Azure
 

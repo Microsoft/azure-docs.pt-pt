@@ -1,27 +1,21 @@
 ---
-title: Banco de BD SQL no backup de VM do Azure & restaurar por meio do PowerShell-backup do Azure
+title: Banco de BD SQL no backup de VM do Azure & restaurar por meio do PowerShell
 description: Faça backup e restaure bancos de dados SQL em VMs do Azure usando o backup do Azure e o PowerShell.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Backup do Azure; SQL
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 2622fc9b7b7bc5caedc560af64a5d6b2971b814f
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 115eef3619f76f83f63c5e69e86393c032e0844e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090939"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172632"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Fazer backup e restaurar bancos de dados SQL em VMs do Azure com o PowerShell
 
 Este artigo descreve como usar Azure PowerShell para fazer backup e recuperar um banco de BD SQL em uma VM do Azure usando o cofre dos serviços de recuperação de [backup do Azure](backup-overview.md) .
 
-Este tutorial explica como:
+Este artigo explica como:
 
 > [!div class="checklist"]
 >

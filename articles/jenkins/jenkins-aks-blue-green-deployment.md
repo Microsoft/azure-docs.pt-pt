@@ -1,19 +1,15 @@
 ---
 title: Implantar no serviço kubernetes do Azure usando o Jenkins e o padrão de implantação azul/verde
 description: Saiba como implementar no Azure Kubernetes Service (AKS) com o Jenkins e o padrão de implementação azul/verde
-ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, implementação azul verde, entrega contínua, cd
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: 4f528a667a7b498cadb15a441f9d9321259fffde
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: ae9c496cd820bf1263cac50fb676990ed65ed0ba
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882077"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158551"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Implementar no Azure Kubernetes Service (AKS) com o Jenkins e o padrão de implementação azul/verde
 
@@ -272,7 +268,7 @@ Os pontos finais público e de teste azul têm a mesma atualização, ao passo q
 
 Se executar a compilação mais de uma vez, a mesma é transmitida pelas implementações azul e verde. Por outras palavras, se o ambiente atual for azul, o trabalho implementa e testa no ambiente verde. Depois, se os testes forem bem-sucedidos, o trabalho atualiza o ponto final público da aplicação para encaminhar o tráfego para o ambiente verde.
 
-## <a name="additional-information"></a>Informação adicional
+## <a name="additional-information"></a>Informações adicionais
 
 Para saber mais sobre a implementação sem tempo de inatividade, veja este [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/301-jenkins-aks-zero-downtime-deployment). 
 

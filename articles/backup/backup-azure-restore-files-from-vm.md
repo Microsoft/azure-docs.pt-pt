@@ -1,20 +1,14 @@
 ---
-title: 'Backup do Azure: recuperar arquivos e pastas do backup de VM do Azure'
+title: Recuperar arquivos e pastas do backup de VM do Azure
 description: Neste artigo, saiba como recuperar arquivos e pastas de um ponto de recuperação de máquina virtual do Azure.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: recuperação em nível de item; recuperação de arquivo do backup de VM do Azure; restaurar arquivos da VM do Azure
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: dacurwin
-ms.openlocfilehash: 07ec5b76756b462e03e9349edd2daff96933588c
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 3fff957e542a039fcc5121f13c062f710f9292c9
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091637"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172851"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos do backup de máquina virtual do Azure
 

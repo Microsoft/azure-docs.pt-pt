@@ -1,19 +1,15 @@
 ---
-title: Proteção do DPM/servidor de backup do Azure de um farm do SharePoint para o Azure
+title: Fazer backup de um farm do SharePoint no Azure com o DPM
 description: Este artigo fornece uma visão geral da proteção do DPM/servidor de backup do Azure de um farm do SharePoint para o Azure
 ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: dacurwin
-ms.openlocfilehash: 830dc313ea321f74c495f46c7c2d4ea5f9d4e5b5
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 1750270b3383e815b9255273923b50d2879fdba6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968548"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173327"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Fazer backup de um farm do SharePoint no Azure com o DPM
 
@@ -25,7 +21,7 @@ O backup do Azure para DPM dá suporte aos seguintes cenários:
 
 | Carga de trabalho | Versão | Implantação do SharePoint | Tipo de implantação do DPM | DPM – System Center 2012 R2 | Proteção e recuperação |
 | --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3,0 |SharePoint implantado como um servidor físico ou uma máquina virtual Hyper-V/VMware <br> -------------- <br> AlwaysOn do SQL |Servidor físico ou máquina virtual do Hyper-V local |Dá suporte ao backup no Azure do pacote cumulativo de atualizações 5 |Proteger opções de recuperação de farm do SharePoint: farm de recuperação, banco de dados e arquivo ou item de lista de pontos de recuperação de disco.  Recuperação de farm e banco de dados de pontos de recuperação do Azure. |
+| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint implantado como um servidor físico ou uma máquina virtual Hyper-V/VMware <br> -------------- <br> AlwaysOn do SQL |Servidor físico ou máquina virtual do Hyper-V local |Dá suporte ao backup no Azure do pacote cumulativo de atualizações 5 |Proteger opções de recuperação de farm do SharePoint: farm de recuperação, banco de dados e arquivo ou item de lista de pontos de recuperação de disco.  Recuperação de farm e banco de dados de pontos de recuperação do Azure. |
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -74,8 +70,8 @@ Você pode encontrar **ConfigureSharePoint. exe** na pasta [caminho de instalaç
 1. No servidor WFE, em um prompt de comando, vá para [local de instalação do DPM] \bin\
 2. Digite ConfigureSharePoint-EnableSharePointProtection.
 3. Insira as credenciais de administrador do farm. Essa conta deve ser um membro do grupo de Administradores local no servidor WFE. Se o administrador do farm não for um administrador local, conceda as seguintes permissões no servidor WFE:
-   * Conceda ao grupo WSS_Admin_WPG controle total para a pasta do DPM (% Program Files%\Microsoft Data Protection Manager\DPM).
-   * Conceda ao grupo WSS_Admin_WPG acesso de leitura à chave do registro do DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
+   * Conceda ao grupo de WSS_Admin_WPG controle total para a pasta do DPM (% Program Files%\Microsoft Data Protection Manager\DPM).
+   * Conceda ao grupo de WSS_Admin_WPG acesso de leitura à chave do registro do DPM (HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
 > Você precisará executar novamente o ConfigureSharePoint. exe sempre que houver uma alteração nas credenciais de administrador do farm do SharePoint.

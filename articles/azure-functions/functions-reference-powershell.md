@@ -8,18 +8,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: glenga
-ms.openlocfilehash: 0d398e9848559e70883c07498057d1807651a867
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ae3b8294c7bd91bcd6a2e0e533f5903f44e8aaea
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515662"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173667"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do Azure Functions PowerShell
 
 Este artigo fornece detalhes sobre como você escreve Azure Functions usando o PowerShell.
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
 Uma função do PowerShell do Azure (função) é representada como um script do PowerShell que é executado quando disparado. Cada script de função tem um arquivo de `function.json` relacionado que define como a função se comporta, como a forma como ela é disparada e seus parâmetros de entrada e saída. Para saber mais, confira o [artigo gatilhos e Associação](functions-triggers-bindings.md). 
 
@@ -62,7 +60,7 @@ Em aplicativos de funções do PowerShell, você pode, opcionalmente, ter um `pr
 
 ## <a name="defining-a-powershell-script-as-a-function"></a>Definindo um script do PowerShell como uma função
 
-Por padrão, o tempo de execução do Functions procura sua função em `run.ps1`, em que `run.ps1` compartilha o mesmo diretório pai que seu `function.json` correspondente.
+Por padrão, o tempo de execução do Functions procura sua função em `run.ps1`, em que `run.ps1` compartilha o mesmo diretório pai que seu `function.json`correspondente.
 
 Seu script é passado por vários argumentos na execução. Para lidar com esses parâmetros, adicione um bloco de `param` na parte superior do seu script, como no exemplo a seguir:
 
@@ -131,10 +129,10 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Veja a seguir os parâmetros válidos para chamar `Push-OutputBinding`:
 
-| Nome | Tipo | Propostas | Descrição |
+| Nome | Tipo | propostas | Descrição |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String | 1 | O nome da Associação de saída que você deseja definir. |
-| **`-Value`** | Object | 2 | O valor da Associação de saída que você deseja definir, que é aceita do pipeline ByValue. |
+| **`-Name`** | Cadeia | 1 | O nome da Associação de saída que você deseja definir. |
+| **`-Value`** | Objeto | 2 | O valor da Associação de saída que você deseja definir, que é aceita do pipeline ByValue. |
 | **`-Clobber`** | SwitchParameter | Nomeado | Adicional Quando especificado, força o valor a ser definido para uma associação de saída especificada. | 
 
 Os seguintes parâmetros comuns também têm suporte: 
@@ -240,7 +238,7 @@ O registro em log nas funções do PowerShell funciona como log normal do PowerS
 | ------------- | -------------- |
 | Erro | **`Write-Error`** |
 | Aviso | **`Write-Warning`**  | 
-| Proteção das | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Proteção das | Grava no log do nível de _informações_ . |
+| Informações | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informações | Grava no log do nível de _informações_ . |
 | Depurar | **`Write-Debug`** |
 | Rastreio | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
@@ -251,7 +249,7 @@ Além desses cmdlets, qualquer coisa gravada no pipeline é redirecionada para o
 
 ### <a name="configure-the-function-app-log-level"></a>Configurar o nível de log do aplicativo de funções
 
-Azure Functions permite que você defina o nível de limite para facilitar o controle da maneira como as funções são gravadas nos logs. Para definir o limite para todos os rastreamentos gravados no console, use a propriedade `logging.logLevel.default` na[referência de host. JSON]do [arquivo `host.json`]. Essa configuração se aplica a todas as funções em seu aplicativo de funções.
+Azure Functions permite que você defina o nível de limite para facilitar o controle da maneira como as funções são gravadas nos logs. Para definir o limite para todos os rastreamentos gravados no console, use a propriedade `logging.logLevel.default` na[referência de host. JSON]do [arquivo`host.json`]. Essa configuração se aplica a todas as funções em seu aplicativo de funções.
 
 O exemplo a seguir define o limite para habilitar o log detalhado para todas as funções, mas define o limite para habilitar o log de depuração para uma função chamada `MyFunction`:
 
@@ -282,7 +280,7 @@ Todos os gatilhos e associações são representados no código como alguns tipo
 
 * Tabela
 * string
-* Byte []
+* byte[]
 * int
 * double
 * HttpRequestContext
@@ -303,10 +301,10 @@ O objeto de solicitação que é passado para o script é do tipo `HttpRequestCo
 | Propriedade  | Descrição                                                    | Tipo                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Um objeto que contém o corpo da solicitação. `Body` é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, eles serão passados como uma tabela de hash. Se os dados forem uma cadeia de caracteres, eles serão passados como uma cadeia de caracteres. | objeto |
-| **`Headers`** | Um dicionário que contém os cabeçalhos de solicitação.                | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup> *</sup> |
+| **`Headers`** | Um dicionário que contém os cabeçalhos de solicitação.                | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup>*</sup> |
 | **`Method`** | O método HTTP da solicitação.                                | string                    |
-| **`Params`**  | Um objeto que contém os parâmetros de roteamento da solicitação. | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup> *</sup> |
-| **`Query`** | Um objeto que contém os parâmetros de consulta.                  | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup> *</sup> |
+| **`Params`**  | Um objeto que contém os parâmetros de roteamento da solicitação. | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup>*</sup> |
+| **`Query`** | Um objeto que contém os parâmetros de consulta.                  | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup>*</sup> |
 | **`Url`** | A URL da solicitação.                                        | string                    |
 
 <sup>*</sup> Todas as chaves de `Dictionary<string,string>` não diferenciam maiúsculas de minúsculas.
@@ -410,7 +408,7 @@ O Functions permite aproveitar a [Galeria do PowerShell](https://www.powershellg
 }
 ```
 
-Quando você cria um novo projeto de funções do PowerShell, o gerenciamento de dependência é habilitado por padrão, com o [módulo de `Az`](/powershell/azure/new-azureps-module-az) do Azure incluído. O número máximo de módulos com suporte no momento é 10. A sintaxe com suporte é _`MajorNumber`_ `.*` ou versão exata do módulo, conforme mostrado nos seguintes requisitos. psd1 exemplo:
+Quando você cria um novo projeto de funções do PowerShell, o gerenciamento de dependência é habilitado por padrão, com o [módulo de`Az`](/powershell/azure/new-azureps-module-az) do Azure incluído. O número máximo de módulos com suporte no momento é 10. A sintaxe com suporte é _`MajorNumber`_ `.*` ou versão exata do módulo, conforme mostrado nos seguintes requisitos. psd1 exemplo:
 
 ```powershell
 @{
@@ -424,7 +422,7 @@ Quando você atualiza o arquivo Requirements. psd1, os módulos atualizados são
 > [!NOTE]
 > As dependências gerenciadas exigem acesso ao www.powershellgallery.com para baixar módulos. Ao executar localmente, verifique se o tempo de execução pode acessar essa URL adicionando as regras de firewall necessárias. 
 
-As configurações de aplicativo a seguir podem ser usadas para alterar a forma como as dependências gerenciadas são baixadas e instaladas. A atualização do aplicativo é iniciada no `MDMaxBackgroundUpgradePeriod` e o processo de atualização é concluído em aproximadamente o `MDNewSnapshotCheckPeriod`.
+As configurações de aplicativo a seguir podem ser usadas para alterar a forma como as dependências gerenciadas são baixadas e instaladas. A atualização do aplicativo é iniciada no `MDMaxBackgroundUpgradePeriod`e o processo de atualização é concluído em aproximadamente o `MDNewSnapshotCheckPeriod`.
 
 | Aplicativo de funções configuração              | Valor predefinido             | Descrição                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
@@ -479,7 +477,7 @@ Vários módulos são geralmente usados pelo operador de linguagem do PowerShell
 
 A lista atual de módulos é a seguinte:
 
-* [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): módulo usado para trabalhar com arquivos mortos, como `.zip`, `.nupkg` e outros.
+* [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): módulo usado para trabalhar com arquivos mortos, como `.zip`, `.nupkg`e outros.
 * **ThreadJob**: uma implementação baseada em thread das APIs de trabalho do PowerShell.
 
 Por padrão, o Functions usa a versão mais recente desses módulos. Para usar uma versão de módulo específica, coloque essa versão específica na pasta `Modules` do seu aplicativo de funções.
@@ -525,7 +523,7 @@ Há um grande valor em simultaneidade com Azure PowerShell, já que algumas oper
 
 ## <a name="configure-function-scriptfile"></a>Configurar `scriptFile` de função
 
-Por padrão, uma função do PowerShell é executada a partir de `run.ps1`, um arquivo que compartilha o mesmo diretório pai que seu `function.json` correspondente.
+Por padrão, uma função do PowerShell é executada a partir de `run.ps1`, um arquivo que compartilha o mesmo diretório pai que seu `function.json`correspondente.
 
 A propriedade `scriptFile` na `function.json` pode ser usada para obter uma estrutura de pastas parecida com o exemplo a seguir:
 

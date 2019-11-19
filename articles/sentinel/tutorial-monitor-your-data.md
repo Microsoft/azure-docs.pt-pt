@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3f5e01a0ceebac092084e339994161763a11c49b
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c5f4bd079fa215e3fbd4241f603aa29d19f7aad7
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240426"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158865"
 ---
-# <a name="tutorial-monitor-your-data"></a>Tutorial: Monitorize os pipelines
+# <a name="tutorial-monitor-your-data"></a>Tutorial: monitorar seus dados
 
 
 
-Depois de [conectar suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, você pode monitorar os dados usando a integração do Azure Sentinel com Azure monitor pastas de trabalho, que fornece versatilidade na criação de painéis personalizados. Embora as pastas de trabalho sejam exibidas de forma diferente no Azure Sentinel, pode ser útil ver como [criar relatórios interativos com pastas de trabalho do Azure monitor](../azure-monitor/app/usage-workbooks.md). O Azure Sentinel permite que você crie pastas de trabalho personalizadas em seus dados e também vem com modelos de pasta de trabalho internos para que você possa obter informações rapidamente em seus dados assim que você conectar uma fonte de dados.
+Depois de [conectar suas fontes de dados](quickstart-onboard.md) ao Azure Sentinel, você pode monitorar os dados usando a integração do Azure Sentinel com pastas de trabalho do Azure monitor, que fornece versatilidade na criação de painéis personalizados. Embora as pastas de trabalho sejam exibidas de forma diferente no Azure Sentinel, pode ser útil ver como [criar relatórios interativos com pastas de trabalho do Azure monitor](../azure-monitor/app/usage-workbooks.md). O Azure Sentinel permite que você crie pastas de trabalho personalizadas em seus dados e também vem com modelos de pasta de trabalho internos para que você possa obter informações rapidamente em seus dados assim que você conectar uma fonte de dados.
 
 
 Este tutorial ajuda você a monitorar seus dados no Azure Sentinel.
@@ -56,7 +56,7 @@ Este tutorial ajuda você a monitorar seus dados no Azure Sentinel.
 ![exibir pastas de trabalho](./media/tutorial-monitor-data/workbook-graph.png)
 1. Depois de fazer as alterações, você pode salvar a pasta de trabalho. 
 
-1. Você também pode clonar a pasta de trabalho: Selecione **Editar** e **salvar como**, salvando-o com outro nome, na mesma assinatura e grupo de recursos. Essas pastas de trabalho são exibidas na guia **minhas pastas de trabalho** .
+1. Você também pode clonar a pasta de trabalho: selecione **Editar** e **salvar como**, salvando-a com outro nome, na mesma assinatura e grupo de recursos. Essas pastas de trabalho são exibidas na guia **minhas pastas de trabalho** .
 
 
 ## <a name="create-new-workbook"></a>Criar nova pasta de trabalho
@@ -72,7 +72,7 @@ Este tutorial ajuda você a monitorar seus dados no Azure Sentinel.
 
 1. Se você quiser permitir que outras pessoas em sua organização usem a pasta de trabalho, em **salvar para** selecionar **relatórios compartilhados**. Se você quiser que essa pasta de trabalho esteja disponível apenas para você, selecione **meus relatórios**.
 
-1. Para alternar entre pastas de trabalho em seu espaço de trabalho, ![você pode selecionar abrir](./media/tutorial-monitor-data/switch.png)as pastas de trabalho do comutador no painel superior de qualquer pasta de trabalho. Na janela que é aberta à direita, alterne entre pastas de trabalho.
+1. Para alternar entre pastas de trabalho em seu espaço de trabalho, você pode selecionar **abrir** ![alternar pastas de trabalho](./media/tutorial-monitor-data/switch.png)no painel superior de qualquer pasta de trabalho. Na janela que é aberta à direita, alterne entre pastas de trabalho.
 
    ![Alternar pastas de trabalho](./media/tutorial-monitor-data/switch-workbooks.png)
 
@@ -81,10 +81,7 @@ Este tutorial ajuda você a monitorar seus dados no Azure Sentinel.
 
 Você pode excluir pastas de trabalho que foram criadas a partir de um modelo do Azure Sentinel. 
 
-Para excluir uma pasta de trabalho personalizada:
-1.  Selecione **Exibir pasta de trabalho**.
-2.  Selecione **abrir** na parte superior.
-3.  Na tabela que lista as pastas de trabalho, na linha da pasta de trabalho que você deseja excluir, selecione os três pontos no final da linha... para abrir o menu e, em seguida, selecione **excluir**. Isso removerá a pasta de trabalho salva.
+Para excluir uma pasta de trabalho personalizada, na página pastas de trabalho, selecione a pasta de trabalho salva que você deseja excluir e selecione **excluir**. Isso removerá a pasta de trabalho salva.
 
 > [!NOTE]
 > Isso remove o recurso, bem como as alterações feitas no modelo. O modelo original permanecerá disponível.

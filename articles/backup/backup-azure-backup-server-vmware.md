@@ -1,18 +1,14 @@
 ---
 title: Fazer backup de VMs VMware com Servidor de Backup do Azure
 description: Neste artigo, saiba como usar Servidor de Backup do Azure para fazer backup de VMs VMware em execução em um servidor VMware vCenter/ESXi.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: dacurwin
-ms.openlocfilehash: df41907ee10b54ab3bfaeb548e085617f7d79084
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: d1c8ec249e010d75bbe96f5c70072f41b9738370
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903233"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173363"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Fazer backup de VMs VMware com Servidor de Backup do Azure
 
@@ -134,24 +130,24 @@ O Servidor de Backup do Azure precisa de uma conta de usuário com permissões p
 
 **6.5/6.0** | **5,5**
 --- | ---
-Datastore. AllocateSpace | Datastore. AllocateSpace
-Global. ManageCustomFields | Global. ManageCustomFields
-Global. SetCustomField |
-Host. local. CreateVM | Rede. atribuir
+Datastore.AllocateSpace | Datastore.AllocateSpace
+Global.ManageCustomFields | Global.ManageCustomFields
+Global.SetCustomField |
+Host.Local.CreateVM | Rede. atribuir
 Rede. atribuir |
 Resource. AssignVMToPool |
-VirtualMachine. config. AddNewDisk  | VirtualMachine. config. AddNewDisk
-VirtualMachine. config. AdvancedConfig| VirtualMachine. config. AdvancedConfig
-VirtualMachine. config. ChangeTracking| VirtualMachine. config. ChangeTracking
-VirtualMachine. config. HostUSBDevice |
-VirtualMachine. config. QueryUnownedFiles |
-VirtualMachine. config. SwapPlacement| VirtualMachine. config. SwapPlacement
-VirtualMachine. interaja. estado desligado| VirtualMachine. interaja. estado desligado
+VirtualMachine.Config.AddNewDisk  | VirtualMachine.Config.AddNewDisk
+VirtualMachine.Config.AdvancedConfig| VirtualMachine.Config.AdvancedConfig
+VirtualMachine.Config.ChangeTracking| VirtualMachine.Config.ChangeTracking
+VirtualMachine.Config.HostUSBDevice |
+VirtualMachine.Config.QueryUnownedFiles |
+VirtualMachine.Config.SwapPlacement| VirtualMachine.Config.SwapPlacement
+VirtualMachine.Interact.PowerOff| VirtualMachine.Interact.PowerOff
 VirtualMachine. Inventory. Create| VirtualMachine. Inventory. Create
-VirtualMachine. Provisioning. DiskRandomAccess |
-VirtualMachine. Provisioning. DiskRandomRead | VirtualMachine. Provisioning. DiskRandomRead
-VirtualMachine. State. createsnapshot | VirtualMachine. State. createsnapshot
-VirtualMachine. State. RemoveSnapshot | VirtualMachine. State. RemoveSnapshot
+VirtualMachine.Provisioning.DiskRandomAccess |
+VirtualMachine.Provisioning.DiskRandomRead | VirtualMachine.Provisioning.DiskRandomRead
+VirtualMachine.State.CreateSnapshot | VirtualMachine.State.CreateSnapshot
+VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
 ## <a name="create-a-vmware-account"></a>Criar uma conta do VMware
 
@@ -231,7 +227,7 @@ Adicione o vCenter Server ao Servidor de Backup do Azure.
 
     ![Especificar credencial](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. Clique em **Adicionar** para adicionar o servidor VMware à lista servidores. Clique depois em **Seguinte**.
+6. Clique em **Adicionar** para adicionar o servidor VMware à lista servidores. Em seguida, clique em **Seguinte**.
 
     ![Adicionar servidor VMWare e credencial](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -259,14 +255,14 @@ Adicione VMs VMware para backup. Os grupos de proteção reúnem várias VMs e a
 
 1. Na página **Selecionar tipo de grupo de proteção** , selecione **servidores** e clique em **Avançar**. A página **selecionar membros do grupo** é exibida.
 
-1. Em **selecionar membros do grupo**, selecione as VMs (ou pastas de VM) das quais você deseja fazer backup. Clique depois em **Seguinte**.
+1. Em **selecionar membros do grupo**, selecione as VMs (ou pastas de VM) das quais você deseja fazer backup. Em seguida, clique em **Seguinte**.
 
     - Quando você seleciona uma pasta, ou as VMs ou pastas dentro dessa pasta também são selecionadas para backup. Você pode desmarcar as pastas ou VMs das quais você não deseja fazer backup.
 1. Se uma VM ou pasta já estiver sendo submetida a backup, você não poderá selecioná-la. Isso garante que os pontos de recuperação duplicados não sejam criados para uma VM.
 
     ![Selecionar membros do grupo](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. Na página **selecionar método de proteção de dados** , insira um nome para o grupo de proteção e as configurações de proteção. Para fazer backup no Azure, defina a proteção de curto prazo em **disco** e habilite a proteção online. Clique depois em **Seguinte**.
+1. Na página **selecionar método de proteção de dados** , insira um nome para o grupo de proteção e as configurações de proteção. Para fazer backup no Azure, defina a proteção de curto prazo em **disco** e habilite a proteção online. Em seguida, clique em **Seguinte**.
 
     ![Selecionar método de proteção de dados](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -297,17 +293,17 @@ Adicione VMs VMware para backup. Os grupos de proteção reúnem várias VMs e a
 
     ![Escolher método de criação de réplica](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. Em **Opções de verificação de consistência**, selecione como e quando automatizar as verificações de consistência. Clique depois em **Seguinte**.
+1. Em **Opções de verificação de consistência**, selecione como e quando automatizar as verificações de consistência. Em seguida, clique em **Seguinte**.
       - Você pode executar verificações de consistência quando os dados da réplica se tornarem inconsistentes ou em uma agenda definida.
       - Se você não quiser configurar verificações de consistência automáticas, poderá executar uma verificação manual. Para fazer isso, clique com o botão direito do mouse no grupo de proteção > **executar a verificação de consistência**.
 
-1. Na página **especificar dados de proteção online** , selecione as VMs ou as pastas de VM que você deseja fazer backup. Você pode selecionar os membros individualmente ou clicar em **selecionar tudo** para escolher todos os membros. Clique depois em **Seguinte**.
+1. Na página **especificar dados de proteção online** , selecione as VMs ou as pastas de VM que você deseja fazer backup. Você pode selecionar os membros individualmente ou clicar em **selecionar tudo** para escolher todos os membros. Em seguida, clique em **Seguinte**.
 
     ![Especificar dados de proteção online](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. Na página **especificar agendamento de backup online** , especifique com que frequência você deseja fazer backup de dados do armazenamento local para o Azure.
 
-    - Os pontos de recuperação de nuvem para os dados serão gerados de acordo com o agendamento. Clique depois em **Seguinte**.
+    - Os pontos de recuperação de nuvem para os dados serão gerados de acordo com o agendamento. Em seguida, clique em **Seguinte**.
     - Depois que o ponto de recuperação é gerado, ele é transferido para o cofre dos serviços de recuperação no Azure.
 
     ![Especificar agendamento de backup online](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)

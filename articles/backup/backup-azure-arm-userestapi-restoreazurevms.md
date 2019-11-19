@@ -1,21 +1,15 @@
 ---
-title: 'Backup do Azure: restaurar VMs do Azure usando a API REST'
+title: Restaurar VMs do Azure usando a API REST
 description: Neste artigo, saiba como gerenciar operações de restauração do backup de máquina virtual do Azure usando a API REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API REST; Backup de VM do Azure; Restauração de VM do Azure;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: eecee01ffc78ec8cc0e60b517e9d5b4f0e6baa25
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 4990d815721ddbdde8e6eb6ebf8d6d3b49adc700
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929152"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173374"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais do Azure usando a API REST
 
@@ -35,7 +29,7 @@ Os `{containerName}` e `{protectedItemName}` são construídos [aqui](backup-azu
 
 O URI *Get* tem todos os parâmetros necessários. Não é necessário um corpo de solicitação adicional
 
-### <a name="responses"></a>Respostas
+### <a name="responses"></a>Responses
 
 |Nome  |Tipo  |Descrição  |
 |---------|---------|---------|

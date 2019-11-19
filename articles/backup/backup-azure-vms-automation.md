@@ -1,26 +1,23 @@
 ---
-title: Fazer backup e recuperar VMs do Azure usando o backup do Azure com o PowerShell
+title: Fazer backup e recuperar VMs do Azure com o PowerShell
 description: Descreve como fazer backup e recuperar VMs do Azure usando o backup do Azure com o PowerShell
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.author: dacurwin
-ms.openlocfilehash: 91e71e2ab4c028e44f667133237cefb2263ae49a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 7afa791c4a98ca5e40c0ee3983ba8650268c00ee
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969066"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172553"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
 Este artigo explica como fazer backup e restaurar uma VM do Azure em um cofre de serviços de recuperação de [backup do Azure](backup-overview.md) usando cmdlets do PowerShell.
 
-Neste artigo, vai aprender a:
+Neste artigo, saiba como:
 
 > [!div class="checklist"]
+>
 > * Crie um cofre dos serviços de recuperação e defina o contexto do cofre.
 > * Definir uma política de cópias de segurança
 > * Aplicar a política de cópia de segurança para proteger várias máquinas virtuais
@@ -29,7 +26,7 @@ Neste artigo, vai aprender a:
 ## <a name="before-you-start"></a>Antes de começar
 
 * [Saiba mais](backup-azure-recovery-services-vault-overview.md) sobre os cofres dos serviços de recuperação.
-* [Examine](backup-architecture.md#architecture-direct-backup-of-azure-vms) a arquitetura do backup de VM do Azure, [saiba mais sobre](backup-azure-vms-introduction.md) o processo de backup e [examine](backup-support-matrix-iaas.md) o suporte, as limitações e os pré-requisitos.
+* [Examine](backup-architecture.md#architecture-built-in-azure-vm-backup) a arquitetura do backup de VM do Azure, [saiba mais sobre](backup-azure-vms-introduction.md) o processo de backup e [examine](backup-support-matrix-iaas.md) o suporte, as limitações e os pré-requisitos.
 * Examine a hierarquia de objetos do PowerShell para serviços de recuperação.
 
 ## <a name="recovery-services-object-hierarchy"></a>Hierarquia de objetos dos serviços de recuperação
@@ -605,7 +602,7 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
      }
       ```
 
-   * **VMs não gerenciadas e criptografadas sem o AD do Azure (somente Bek)** – para VMs criptografadas não gerenciadas sem o Azure AD (criptografado usando apenas Bek), se o **keyvault/segredo de origem não estiver disponível** , restaure os segredos para o Key Vault usando o procedimento em [ Restaurar uma máquina virtual não criptografada de um ponto de recuperação do backup do Azure](backup-azure-restore-key-secret.md). Em seguida, execute os scripts a seguir para definir detalhes de criptografia no blob restaurado do sistema operacional (essa etapa não é necessária para o blob de dados). O $dekurl pode ser obtido a partir do keyvault restaurado.<br>
+   * **VMs não gerenciadas e criptografadas sem o AD do Azure (somente Bek)** – para VMs criptografadas não gerenciadas sem o Azure AD (criptografado usando apenas Bek), se o **keyvault/segredo de origem não estiver disponível** , restaure os segredos para o Key Vault usando o procedimento em [restaurar uma máquina virtual não criptografada de um ponto de recuperação de backup do Azure](backup-azure-restore-key-secret.md). Em seguida, execute os scripts a seguir para definir detalhes de criptografia no blob restaurado do sistema operacional (essa etapa não é necessária para o blob de dados). O $dekurl pode ser obtido a partir do keyvault restaurado.<br>
 
    O script abaixo precisa ser executado somente quando o keyvault/segredo de origem não estiver disponível.
 
@@ -632,7 +629,7 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
       }
       ```
 
-   * **VMs não gerenciadas e criptografadas sem o Azure AD (Bek e Kek)** – para VMs criptografadas não gerenciadas sem o Azure AD (criptografado usando Bek & Kek), se o **keyvault/chave/segredo de origem não estiver disponível** , restaure a chave e os segredos para o Key Vault usando o procedimento em [restaurar uma máquina virtual não criptografada de um ponto de recuperação do backup do Azure](backup-azure-restore-key-secret.md). Em seguida, execute os scripts a seguir para definir detalhes de criptografia no blob restaurado do sistema operacional (essa etapa não é necessária para o blob de dados). O $dekurl e $kekurl podem ser obtidos do cofre de chaves restaurado.
+   * **VMs não gerenciadas e criptografadas sem o Azure AD (Bek e Kek)** – para VMs criptografadas não gerenciadas sem o Azure AD (criptografado usando Bek & Kek), se o **keyvault/chave/segredo de origem não estiver disponível** , restaure a chave e os segredos para o Key Vault usando o procedimento em [restaurar uma máquina virtual não criptografada de um ponto de recuperação do backup](backup-azure-restore-key-secret.md) Em seguida, execute os scripts a seguir para definir detalhes de criptografia no blob restaurado do sistema operacional (essa etapa não é necessária para o blob de dados). O $dekurl e $kekurl podem ser obtidos do cofre de chaves restaurado.
 
    O script abaixo precisa ser executado somente quando o keyvault/chave/segredo de origem não estiver disponível.
 
@@ -666,7 +663,7 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
 
    * **VMs gerenciadas e criptografadas com o Azure AD (Bek e Kek)** – para VMs criptografadas gerenciadas com o Azure AD (criptografado usando Bek e Kek), anexe os Managed disks restaurados. Para obter informações detalhadas, consulte [anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **VMs gerenciadas e criptografadas sem o AD do Azure (somente Bek)** – para VMs criptografadas e gerenciadas sem o Azure AD (criptografado usando apenas Bek), se o **keyvault/segredo de origem não estiver disponível** , restaure os segredos para o Key Vault usando o procedimento em [restaurar um máquina virtual não criptografada de um ponto de recuperação de backup do Azure](backup-azure-restore-key-secret.md). Em seguida, execute os scripts a seguir para definir detalhes de criptografia no disco do sistema operacional restaurado (essa etapa não é necessária para o disco de dados). O $dekurl pode ser obtido a partir do keyvault restaurado.
+   * **VMs gerenciadas e criptografadas sem o AD do Azure (somente Bek)** – para VMs criptografadas e gerenciadas sem o Azure AD (criptografado usando apenas Bek), se o **keyvault/segredo de origem não estiver disponível** , restaure os segredos para o Key Vault usando o procedimento em [restaurar uma máquina virtual não criptografada de um ponto de recuperação de backup do Azure](backup-azure-restore-key-secret.md). Em seguida, execute os scripts a seguir para definir detalhes de criptografia no disco do sistema operacional restaurado (essa etapa não é necessária para o disco de dados). O $dekurl pode ser obtido a partir do keyvault restaurado.
 
      O script abaixo precisa ser executado somente quando o keyvault/segredo de origem não estiver disponível.  
 
@@ -680,7 +677,7 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
 
      Depois que os segredos estiverem disponíveis e os detalhes de criptografia estiverem definidos no disco do sistema operacional, para anexar os discos gerenciados restaurados, consulte [anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **VMs gerenciadas e criptografadas sem o Azure AD (Bek e Kek)** – para VMs criptografadas e gerenciadas sem o Azure AD (criptografado usando Bek & Kek), se o **keyvault de origem/chave/segredo não estiverem disponíveis** , restaure a chave e os segredos para o Key Vault usando o procedimento em [Restaurar uma máquina virtual não criptografada de um ponto de recuperação do backup do Azure](backup-azure-restore-key-secret.md). Em seguida, execute os scripts a seguir para definir detalhes de criptografia no disco do sistema operacional restaurado (essa etapa não é necessária para o disco de dados). O $dekurl e $kekurl podem ser obtidos do cofre de chaves restaurado.
+   * **VMs gerenciadas e criptografadas sem o Azure AD (Bek e Kek)** – para VMs criptografadas e gerenciadas sem o Azure AD (criptografado usando Bek & Kek), se o **keyvault de origem/chave/segredo não estiverem disponíveis** , restaure a chave e os segredos para o Key Vault usando o procedimento em [restaurar uma máquina virtual não criptografada de um ponto de recuperação do backup](backup-azure-restore-key-secret.md) Em seguida, execute os scripts a seguir para definir detalhes de criptografia no disco do sistema operacional restaurado (essa etapa não é necessária para o disco de dados). O $dekurl e $kekurl podem ser obtidos do cofre de chaves restaurado.
 
    O script abaixo precisa ser executado somente quando o keyvault/chave/segredo de origem não estiver disponível.
 

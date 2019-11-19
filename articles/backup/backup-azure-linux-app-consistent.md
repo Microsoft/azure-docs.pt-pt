@@ -1,20 +1,15 @@
 ---
-title: 'Backup do Azure: backups consistentes com o aplicativo de VMs Linux'
+title: Backups consistentes com o aplicativo de VMs Linux
 description: Crie backups consistentes com o aplicativo de suas máquinas virtuais Linux para o Azure. Este artigo explica como configurar a estrutura de script para fazer backup de VMs Linux implantadas no Azure. Este artigo também inclui informações de solução de problemas.
 ms.reviewer: anuragm
-author: dcurwin
-manager: carmonm
-keywords: backup consistente com o aplicativo; backup de VM do Azure consistente com o aplicativo; Backup de VM do Linux; Backup do Azure
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.author: dacurwin
-ms.openlocfilehash: 1835c6968bfdfcc3f3ce4d8a624e8f6bd62e224c
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375949"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173010"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup consistente com o aplicativo de VMs Linux do Azure
 
@@ -78,16 +73,16 @@ Certifique-se de adicionar o registro em log apropriado durante a gravação de 
 
 | Erro | Mensagem de erro | Ação recomendada |
 | ------------------------ | -------------- | ------------------ |
-| Pré-ScriptExecutionFailed |O pré-script retornou um erro, portanto, o backup pode não ser consistente com o aplicativo.| Examine os logs de falha do script para corrigir o problema.|  
-|ScriptExecutionFailed |O post-script retornou um erro que pode afetar o estado do aplicativo. |Examine os logs de falha do script para corrigir o problema e verificar o estado do aplicativo. |
-| Pré-ScriptNotFound |O pré-script não foi encontrado no local especificado no arquivo de configuração **VMSnapshotScriptPluginConfig. JSON** . |Verifique se o pré-script está presente no caminho especificado no arquivo de configuração para garantir o backup consistente com o aplicativo.|
-| ScriptNotFound |O post-script não foi encontrado no local especificado no arquivo de configuração **VMSnapshotScriptPluginConfig. JSON** . |Verifique se o post-script está presente no caminho especificado no arquivo de configuração para garantir o backup consistente com o aplicativo.|
+| Pre-ScriptExecutionFailed |O pré-script retornou um erro, portanto, o backup pode não ser consistente com o aplicativo.| Examine os logs de falha do script para corrigir o problema.|  
+|Post-ScriptExecutionFailed |O post-script retornou um erro que pode afetar o estado do aplicativo. |Examine os logs de falha do script para corrigir o problema e verificar o estado do aplicativo. |
+| Pre-ScriptNotFound |O pré-script não foi encontrado no local especificado no arquivo de configuração **VMSnapshotScriptPluginConfig. JSON** . |Verifique se o pré-script está presente no caminho especificado no arquivo de configuração para garantir o backup consistente com o aplicativo.|
+| Post-ScriptNotFound |O post-script não foi encontrado no local especificado no arquivo de configuração **VMSnapshotScriptPluginConfig. JSON** . |Verifique se o post-script está presente no caminho especificado no arquivo de configuração para garantir o backup consistente com o aplicativo.|
 | IncorrectPluginhostFile |O arquivo **Pluginhost** , que vem com a extensão VmSnapshotLinux, está corrompido, portanto, o pré e o pós-script não podem ser executados e o backup não será consistente com o aplicativo.| Desinstale a extensão **VmSnapshotLinux** e ela será reinstalada automaticamente com o próximo backup para corrigir o problema. |
 | IncorrectJSONConfigFile | O arquivo **VMSnapshotScriptPluginConfig. JSON** está incorreto, portanto, pré-script e pós-script não podem ser executados e o backup não será consistente com o aplicativo. | Baixe a cópia do [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) e configure-a novamente. |
-| InsufficientPermissionforPre-script | Para executar scripts, o usuário "raiz" deve ser o proprietário do arquivo e o arquivo deve ter permissões "700" (ou seja, somente "proprietário" deve ter permissões de "leitura", "gravação" e "execução"). | Verifique se o usuário "raiz" é o "proprietário" do arquivo de script e se somente "proprietário" tem permissões de "leitura", "gravação" e "execução". |
-| InsufficientPermissionforPost-script | Para executar scripts, o usuário raiz deve ser o proprietário do arquivo e o arquivo deve ter permissões "700" (ou seja, somente "proprietário" deve ter permissões de "leitura", "gravação" e "execução"). | Verifique se o usuário "raiz" é o "proprietário" do arquivo de script e se somente "proprietário" tem permissões de "leitura", "gravação" e "execução". |
-| Pré-ScriptTimeout | A execução do pré-script de backup consistente com o aplicativo esgotou o tempo limite. | Verifique o script e aumente o tempo limite no arquivo **VMSnapshotScriptPluginConfig. JSON** localizado em **/etc/Azure**. |
-| ScriptTimeout | A execução do pós-script de backup consistente com o aplicativo atingiu o tempo limite. | Verifique o script e aumente o tempo limite no arquivo **VMSnapshotScriptPluginConfig. JSON** localizado em **/etc/Azure**. |
+| InsufficientPermissionforPre-Script | Para executar scripts, o usuário "raiz" deve ser o proprietário do arquivo e o arquivo deve ter permissões "700" (ou seja, somente "proprietário" deve ter permissões de "leitura", "gravação" e "execução"). | Verifique se o usuário "raiz" é o "proprietário" do arquivo de script e se somente "proprietário" tem permissões de "leitura", "gravação" e "execução". |
+| InsufficientPermissionforPost-Script | Para executar scripts, o usuário raiz deve ser o proprietário do arquivo e o arquivo deve ter permissões "700" (ou seja, somente "proprietário" deve ter permissões de "leitura", "gravação" e "execução"). | Verifique se o usuário "raiz" é o "proprietário" do arquivo de script e se somente "proprietário" tem permissões de "leitura", "gravação" e "execução". |
+| Pre-ScriptTimeout | A execução do pré-script de backup consistente com o aplicativo esgotou o tempo limite. | Verifique o script e aumente o tempo limite no arquivo **VMSnapshotScriptPluginConfig. JSON** localizado em **/etc/Azure**. |
+| Post-ScriptTimeout | A execução do pós-script de backup consistente com o aplicativo atingiu o tempo limite. | Verifique o script e aumente o tempo limite no arquivo **VMSnapshotScriptPluginConfig. JSON** localizado em **/etc/Azure**. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

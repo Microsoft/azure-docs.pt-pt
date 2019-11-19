@@ -3,17 +3,13 @@ title: Módulo Ansible e matriz de versão para o Azure | Microsoft Docs
 description: Módulo Ansible e matriz de versão para o Azure
 keywords: Ansible, funções, matriz, versão, Azure, DevOps
 ms.topic: reference
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 10/14/2019
-ms.openlocfilehash: 275dca40ab20c222da2b9115f9a5dc141228c766
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 54e27c7570ba1cdbce7355740181d68a2f3efbac
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72385474"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155981"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Módulo Ansible e matriz de versão
 
@@ -26,7 +22,7 @@ Os módulos a seguir podem ser executados diretamente em hosts remotos ou por me
 Esses módulos estão disponíveis na versão oficial do Ansible e nas seguintes funções do guia estratégico da Microsoft.
 
 > [!NOTE]
-> Do Ansible 2,9 em diante, renomeamos todos os módulos * _facts para * _info para aderir à Convenção de nomenclatura de Ansible. Os módulos antigos e renomeados são vinculados de modo que, além de ver um aviso de reprovação, todos os módulos funcionam como antes.
+> Do Ansible 2,9 em diante, renomeamos todos os módulos * _facts para * _info para aderir à Convenção de nomenclatura do Ansible. Os módulos antigos e renomeados são vinculados de modo que, além de ver um aviso de reprovação, todos os módulos funcionam como antes.
 
 | Módulo Ansible para o Azure                   |  Ansible 2,4 |  Ansible 2,5 |  Ansible 2,6 | Ansible 2,7 | Ansible 2,8 | Ansible 2,9 | Função Ansible | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|--------------|--------------|--------------|  
@@ -221,9 +217,9 @@ Esses módulos estão disponíveis na versão oficial do Ansible e nas seguintes
 
 ## <a name="introduction-to-playbook-role-for-azure"></a>Introdução à função de guia estratégico do Azure
 
-A [função de guia estratégico de azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) inclui todos os módulos mais recentes do Azure. As atualizações e correções de bugs são realizadas de maneira mais oportuna do que a versão oficial do Ansible. Se você usar o Ansible para fins de provisionamento de recursos do Azure, você será incentivado a instalar a função de guia estratégico `azure_preview_module`.
+A [azure_preview_module função de guia estratégico](https://galaxy.ansible.com/Azure/azure_preview_modules/) inclui todos os módulos mais recentes do Azure. As atualizações e correções de bugs são realizadas de maneira mais oportuna do que a versão oficial do Ansible. Se você usar o Ansible para fins de provisionamento de recursos do Azure, você será incentivado a instalar a `azure_preview_module` função de guia estratégico.
 
-A função de guia estratégico `azure_preview_module` é lançada a cada três semanas.
+A `azure_preview_module` função de guia estratégico é lançada a cada três semanas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

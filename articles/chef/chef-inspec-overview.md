@@ -1,45 +1,41 @@
 ---
-title: Usar da InSpec para automação de conformidade da sua infraestrutura do Azure
-description: Saiba como utilizar da InSpec para detetar problemas na suas implementações do Azure
-keywords: Azure, chef, devops, máquinas virtuais, visão geral, automatizar, inspec
-ms.service: virtual-machines-linux
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
+title: Use inspec para a automação de conformidade da sua infraestrutura do Azure
+description: Saiba como usar o inspec para detectar problemas em suas implantações do Azure
+keywords: Azure, chefe, DevOps, máquinas virtuais, visão geral, automatizar, inspec
 ms.date: 03/19/2019
 ms.topic: article
-ms.openlocfilehash: bdfa30b48c79a8910d503bb9e54a42c30e5adba6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2531277eb1aa6048c93240031652e09582409e56
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629803"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158222"
 ---
-# <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>Usar da InSpec para automação de conformidade da sua infraestrutura do Azure
+# <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>Use inspec para a automação de conformidade da sua infraestrutura do Azure
 
-[InSpec](https://www.chef.io/inspec/) é a linguagem de código aberto do Chef para descrever as regras de segurança e conformidade que podem ser compartilhadas entre os engenheiros de software, as operações e engenheiros de segurança. Funciona da InSpec, comparando o estado real da sua infraestrutura com o estado pretendido que são expressos em fácil de ler e fácil de escrever código InSpec. InSpec Deteta violações e apresenta as descobertas na forma de um relatório, mas coloca no controle de remediação.
+[Inspec](https://www.chef.io/inspec/) é a linguagem de software livre do chefe para descrever as regras de conformidade de & de segurança que podem ser compartilhadas entre engenheiros de software, operações e engenheiros de segurança. O inspec funciona comparando o estado real da sua infraestrutura com o estado desejado que você expressa em um código inspec de fácil leitura e fácil de escrever. O inspec detecta violações e exibe as descobertas na forma de um relatório, mas coloca você no controle da correção.
 
-Pode usar da InSpec para validar o estado dos recursos e grupos de recursos numa subscrição, incluindo máquinas virtuais, configurações de rede, definições do Azure Active Directory e muito mais.
+Você pode usar inspecs para validar o estado de recursos e grupos de recursos em uma assinatura, incluindo máquinas virtuais, configurações de rede, configurações de Azure Active Directory e muito mais.
 
-Este artigo descreve as vantagens da utilização da InSpec para facilitar a segurança e conformidade no Azure.
+Este artigo descreve os benefícios de usar o inspec para facilitar a segurança e a conformidade no Azure.
 
-## <a name="make-compliance-easy-to-understand-and-assess"></a>Tornar fácil de compreender e avaliar a conformidade
+## <a name="make-compliance-easy-to-understand-and-assess"></a>Torne a conformidade fácil de entender e avaliar
 
-Documentação de conformidade escrita em folhas de cálculo ou documentos do Word deixa requisitos aberto para interpretações. Com o da InSpec, transforme os seus requisitos em código com versão do executável, legível por humanos. Código substitui conversas sobre o que deve ser avaliado em favor tangíveis testes com a intenção clara.
+A documentação de conformidade escrita em planilhas ou documentos do Word deixa os requisitos abertos para interpretação. Com o inspec, você transforma seus requisitos em código com versão, executável e legível por humanos. O código substitui as conversas sobre o que deve ser avaliado em favor de testes tangíveis com uma intenção clara.
 
-## <a name="detect-fleet-wide-issues-and-prioritize-their-remediation"></a>Detete problemas de toda a frota e atribuir prioridades a respetiva remediação
+## <a name="detect-fleet-wide-issues-and-prioritize-their-remediation"></a>Detectar problemas em toda a frota e priorizar sua correção
 
-InSpec sem agente detetar modo permitem-lhe avaliar rapidamente - em escala - seu nível de exposição. Metadados incorporados para a classificação de gravidade/impacto ajuda a determinar quais áreas de foco de remediação. Também pode escrever regras rapidamente em resposta a novas vulnerabilidades ou regulamentos e distribuam-las imediatamente.
+O modo de detecção sem agente do inspec permite que você avalie rapidamente em escala – seu nível de exposição. Os metadados internos para a pontuação de impacto/severidade ajudam a determinar em quais áreas você deve se concentrar para a correção. Você também pode escrever regras rapidamente em resposta a novas vulnerabilidades ou regulamentos e distribuí-las imediatamente.
 
-## <a name="audit-azure-virtual-machines-with-policy-guest-configuration"></a>Máquinas virtuais do Azure com configuração de convidado de política de auditoria
+## <a name="audit-azure-virtual-machines-with-policy-guest-configuration"></a>Auditar máquinas virtuais do Azure com configuração de convidado de política
 
-O Azure suporta diretamente a utilização de definições InSpec do Chef para máquinas virtuais do Azure através de auditoria [configuração da política de convidado do Azure](/azure/governance/policy/concepts/guest-configuration). Configuração de convidado avalia uma máquina virtual do Linux para uma definição de Chef InSpec fornecida e relatórios de conformidade através de política do Azure. Os resultados das auditorias destes também são comunicados através de registos do Azure Monitor; Ativar alertas e outros cenários de automatização.
+O Azure suporta diretamente o uso de definições de inspecs do chefe para auditar máquinas virtuais do Azure por meio da [configuração de convidado Azure Policy](/azure/governance/policy/concepts/guest-configuration). A configuração de convidado avalia uma máquina virtual Linux para uma definição de inspec de chefe fornecida e relatórios de acordo com a Azure Policy. Os resultados dessas auditorias também são relatados por meio de logs de Azure Monitor; habilitação de alertas e outros cenários de automação.
 
 ## <a name="satisfy-audits"></a>Satisfazer auditorias
 
-Com o da InSpec, possa responder a perguntas de auditoria em qualquer altura - não apenas em intervalos de predeterminado como trimestral ou anuais. Ao executar continuamente testes InSpec, introduz um ciclo de auditorias saber a sua postura de conformidade exata e o histórico, em vez de ter ficado surpreso com as descobertas de um auditor.
+Com o inspec, você pode responder a perguntas de auditoria a qualquer momento, não apenas em intervalos predeterminados, como trimestral ou anual. Ao executar continuamente testes inspecs, você insere um ciclo de auditoria sabendo sua postura e histórico de conformidade exatos, em vez de ficar surpreso com as descobertas de um auditor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
-> [Tente InSpec no Azure Cloud Shell](https://shell.azure.com)
+> [Experimente o inspec no Azure Cloud Shell](https://shell.azure.com)

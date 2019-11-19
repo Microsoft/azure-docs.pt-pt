@@ -1,19 +1,15 @@
 ---
 title: Dimensionar implementações do Jenkins com agentes de VM do Azure
 description: Utilize as máquinas virtuais do Azure com o plug-in Agente de VM do Azure para adicionar mais capacidade aos seus pipelines do Jenkins .
-ms.service: jenkins
 keywords: jenkins, azure, devops, virtual machine, agents
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 5cfece551f99a0925099b6ef936703e72f078985
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e811d628c017316a5bc50a8ddc22ee24d6f744e
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60641356"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158529"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Dimensionar as suas implementações do Jenkins para satisfazer a procura com agentes de VM do Azure
 
@@ -33,7 +29,7 @@ Neste tutorial, irá:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure
+* Uma subscrição do Azure.
 * Um servidor mestre do Jenkins. Se não o tiver, veja o [início rápido](install-jenkins-solution-template.md) para o configurar no Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -144,7 +140,7 @@ Selecione **Verify Template** (Verificar Modelo) para verificar a configuração
 
 Se se deparar com erros nos plug-ins do Jenkins, comunique os problemas com os componentes específicos no [Jenkins JIRA](https://issues.jenkins-ci.org/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [CI/CD to Azure App Service](java-deploy-webapp-tutorial.md) (CI/CD no Serviço de Aplicações do Azure)

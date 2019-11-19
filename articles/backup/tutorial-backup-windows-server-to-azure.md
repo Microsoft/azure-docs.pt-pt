@@ -1,20 +1,15 @@
 ---
-title: Cópia de Segurança do Windows Server para o Azure
+title: Tutorial – fazer backup do Windows Server no Azure
 description: Este tutorial apresenta detalhes sobre a cópia de segurança do Windows Server no local para um cofre dos Serviços de Recuperação.
-author: dcurwin
-manager: carmonm
-keywords: cópia de segurança do windows server; cópia de segurança do windows server; cópia de segurança e recuperação após desastre
-ms.service: backup
 ms.topic: tutorial
 ms.date: 08/22/2018
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: d57d25eff9548bea9d29f8aa908e9e1721495bd9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d29983bec7dbe379bfb2898e0f068a02b01ae726
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073935"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171839"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Cópia de Segurança do Windows Server para o Azure
 

@@ -2,18 +2,14 @@
 title: Solucionar problemas do agente de backup do Azure
 description: Neste artigo, saiba como solucionar problemas de instalação e registro do agente de backup do Azure.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.author: dacurwin
-ms.openlocfilehash: abd4e91b8fd3332191b58acf38daed06d03801be
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4f1d93a6ba36821832c945db2e5cc19bf7e9d232
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012841"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172941"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solucionar problemas do agente de Serviços de Recuperação do Microsoft Azure (MARS)
 

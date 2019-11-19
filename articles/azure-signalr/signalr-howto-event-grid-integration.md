@@ -5,14 +5,14 @@ services: signalr
 author: chenyl
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 11/13/2019
 ms.author: chenyl
-ms.openlocfilehash: 100c7120889f88c1bab3418822835e8d4ece9826
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f89fcdd50d958269b5c79c41ebabd69331c905aa
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839292"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158210"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Como enviar eventos do serviço de sinalizador do Azure para a grade de eventos
 
@@ -26,7 +26,7 @@ Os comandos CLI do Azure neste artigo são formatados para o Shell **bash** . Se
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um contêiner lógico no qual você implanta e gerencia seus recursos do Azure. O comando [AZ Group Create][az-group-create] a seguir cria um grupo de recursos chamado MyResource Group na região *eastus* . Se você quiser usar um nome diferente para seu grupo de recursos, defina `RESOURCE_GROUP_NAME` para um valor diferente.
+Um grupo de recursos do Azure é um contêiner lógico no qual você implanta e gerencia seus recursos do Azure. O comando [AZ Group Create][az-group-create] a seguir cria um grupo de recursos chamado *MyResource* Group na região *eastus* . Se você quiser usar um nome diferente para seu grupo de recursos, defina `RESOURCE_GROUP_NAME` para um valor diferente.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -75,7 +75,7 @@ Depois que o serviço Signalr tiver sido criado, o CLI do Azure retornará uma s
 
 Nesta seção, você usa um modelo do Resource Manager localizado em um repositório GitHub para implantar um aplicativo Web de exemplo pré-compilado para Azure App serviço. Posteriormente, você assina os eventos da grade de eventos do registro e especifica esse aplicativo como o ponto de extremidade para o qual os eventos são enviados.
 
-Para implantar o aplicativo de exemplo, `SITE_NAME` defina como um nome exclusivo para seu aplicativo Web e execute os comandos a seguir. O nome do site deve ser exclusivo no Azure porque ele faz parte do FQDN (nome de domínio totalmente qualificado) do aplicativo Web. Em uma seção posterior, navegue até o FQDN do aplicativo em um navegador da Web para exibir os eventos do registro.
+Para implantar o aplicativo de exemplo, defina `SITE_NAME` como um nome exclusivo para seu aplicativo Web e execute os comandos a seguir. O nome do site deve ser exclusivo no Azure porque ele faz parte do FQDN (nome de domínio totalmente qualificado) do aplicativo Web. Em uma seção posterior, navegue até o FQDN do aplicativo em um navegador da Web para exibir os eventos do registro.
 
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
@@ -141,7 +141,7 @@ Quando a assinatura for concluída, você deverá ver uma saída semelhante à s
 
 ## <a name="trigger-registry-events"></a>Disparar eventos de registro
 
-Alterne para o modo de serviço `Serverless Mode` para e configure uma conexão de cliente com o serviço signalr. Você pode escolher um [exemplo sem servidor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) como uma referência.
+Alterne para o modo de serviço para `Serverless Mode` e configure uma conexão de cliente com o serviço Signalr. Você pode escolher um [exemplo sem servidor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) como uma referência.
 
 ```bash
 git clone git@github.com:aspnet/AzureSignalR-samples.git
@@ -162,7 +162,7 @@ dotnet run
 
 ## <a name="view-registry-events"></a>Exibir eventos do registro
 
-Agora você conectou um cliente ao serviço Signalr. Navegue até o aplicativo Web do Visualizador de grade de eventos e você verá `ClientConnectionConnected` um evento. Se você encerrar o cliente, também verá um `ClientConnectionDisconnected` evento.
+Agora você conectou um cliente ao serviço Signalr. Navegue até o aplicativo Web do Visualizador de grade de eventos e você verá um evento `ClientConnectionConnected`. Se você encerrar o cliente, você também verá um evento `ClientConnectionDisconnected`.
 
 <!-- LINKS - External -->
 [azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

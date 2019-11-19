@@ -1,21 +1,17 @@
 ---
-title: Gerenciar o monitor de & Serviços de Recuperação do Microsoft Azure backups do agente
-description: Saiba como gerenciar e monitorar backups do Serviços de Recuperação do Microsoft Azure Agent usando o serviço de backup do Azure.
+title: Gerenciar e monitorar backups do agente MARS
+description: Saiba como gerenciar e monitorar backups de agente MARS (Serviços de Recuperação do Microsoft Azure) usando o serviço de backup do Azure.
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: dacurwin
-ms.openlocfilehash: 756fd720b468681b8ea31dc867cfdb6e44c0bb0a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: edb672f97f467378176bf6cdf04fe8e22cc5e51b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075002"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173072"
 ---
-# <a name="manage-microsoft-azure-recovery-services-agent-backups-by-using-the-azure-backup-service"></a>Gerenciar backups do agente Serviços de Recuperação do Microsoft Azure usando o serviço de backup do Azure
+# <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerenciar backups de agente MARS (Serviços de Recuperação do Microsoft Azure) usando o serviço de backup do Azure
 
 Este artigo descreve como gerenciar arquivos e pastas dos quais é feito backup com o agente de Serviços de Recuperação do Microsoft Azure.
 

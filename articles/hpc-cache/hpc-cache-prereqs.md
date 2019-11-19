@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: ca7a12f45f8d907ee65df85e349883e4c14af47a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 406b77a428ec725a3d8d070bd60fcd4440a5cb92
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582155"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166461"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para o cache HPC do Azure
 
@@ -48,7 +48,9 @@ O cache precisa do DNS para acessar recursos fora de sua rede virtual. Dependend
 * Para acessar os pontos de extremidade do armazenamento de BLOBs do Azure e outros recursos internos, você precisa do servidor DNS baseado no Azure.
 * Para acessar o armazenamento local, você precisa configurar um servidor DNS personalizado que possa resolver seus nomes de host de armazenamento.
 
-Se você só precisar de acesso ao armazenamento de BLOBs, poderá usar o servidor DNS padrão fornecido pelo Azure para seu cache. No entanto, se você precisar de acesso a outros recursos, deverá criar um servidor DNS personalizado e configurá-lo para encaminhar as solicitações de resolução específicas do Azure para o servidor DNS do Azure. (Um servidor DNS simples também pode ser usado para balancear a carga de conexões de cliente entre todos os pontos de montagem de cache disponíveis.)
+Se você só precisar de acesso ao armazenamento de BLOBs, poderá usar o servidor DNS padrão fornecido pelo Azure para seu cache. No entanto, se você precisar de acesso a outros recursos, deverá criar um servidor DNS personalizado e configurá-lo para encaminhar as solicitações de resolução específicas do Azure para o servidor DNS do Azure.
+
+Um servidor DNS simples também pode ser usado para balancear a carga de conexões de cliente entre todos os pontos de montagem de cache disponíveis.
 
 Saiba mais sobre as configurações de servidor DNS e redes virtuais do Azure na [resolução de nomes para recursos em redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
@@ -58,7 +60,9 @@ Verifique esses pré-requisitos relacionados à permissão antes de começar a c
 
 * A instância de cache precisa ser capaz de criar NICs (interfaces de rede virtual). O usuário que cria o cache deve ter privilégios suficientes na assinatura para criar NICs.
 
-* Se estiver usando o armazenamento de BLOB, o cache HPC do Azure precisará de autorização para acessar sua conta de armazenamento. Você pode usar o RBAC (controle de acesso baseado em função) para conceder ao cache acesso ao armazenamento de BLOBs. São necessárias duas funções: colaborador de conta de armazenamento e colaborador de dados de blob de armazenamento. Siga as instruções em [Adicionar destinos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para adicionar as funções.
+* Se estiver usando o armazenamento de BLOB, o cache HPC do Azure precisará de autorização para acessar sua conta de armazenamento. Use o RBAC (controle de acesso baseado em função) para conceder ao cache acesso ao armazenamento de BLOBs. São necessárias duas funções: colaborador de conta de armazenamento e colaborador de dados de blob de armazenamento.
+
+  Siga as instruções em [Adicionar destinos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para adicionar as funções.
 
 ## <a name="storage-infrastructure"></a>Infraestrutura de armazenamento
 
@@ -88,7 +92,7 @@ Para criar uma conta de armazenamento compatível, use estas configurações:
 É uma boa prática usar uma conta de armazenamento no mesmo local que o cache.
 <!-- clarify location - same region or same resource group or same virtual network? -->
 
-Você também deve conceder ao aplicativo de cache acesso à sua conta de armazenamento do Azure. Siga a descrição em [Adicionar destinos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para fornecer ao cache o colaborador de conta de armazenamento de funções de acesso e o contribuidor de dados do armazenamento de BLOBs. Se você não for o proprietário da conta de armazenamento, faça com que o proprietário execute esta etapa.
+Você também deve conceder ao aplicativo de cache acesso à sua conta de armazenamento do Azure, conforme mencionado em [permissões](#permissions)acima. Siga o procedimento em [Adicionar destinos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para fornecer ao cache as funções de acesso necessárias. Se você não for o proprietário da conta de armazenamento, faça com que o proprietário execute esta etapa.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,19 +7,16 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 856f7f7735435579ac14918ee8026f27b222773e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 7bf47731f2a3621e7bbdc1b104d94e97f2d03099
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715505"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158651"
 ---
 # <a name="assess-servers-using-imported-data"></a>Avaliar servidores usando dados importados
 
-> [!NOTE]
-> Se você ainda não tiver visto esse recurso no portal de migrações para Azure, aguarde. Ele será exibido na próxima semana ou assim.
-
-Este artigo explica como avaliar servidores locais com as [migrações para Azure: avaliação de servidor](migrate-services-overview.md#azure-migrate-server-assessment-tool), importando metadados de servidor usando CSV. Com esse método de avaliação, você não precisa configurar o dispositivo de migrações para Azure para criar uma avaliação. Isso será útil se: 
+Este artigo explica como avaliar servidores locais com as [migrações para Azure: avaliação de servidor](migrate-services-overview.md#azure-migrate-server-assessment-tool), importando metadados de servidor usando CSV. Com esse método de avaliação, você não precisa configurar o dispositivo de migrações para Azure para criar uma avaliação. Isso será útil se:
 
 - Você deseja criar uma avaliação rápida inicial antes de implantar o dispositivo.
 - Você não pode implantar o dispositivo de migrações para Azure em sua organização.
@@ -49,7 +46,7 @@ Neste tutorial, ficará a saber como:
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 
-## <a name="set-azure-permissions-for-azure-migrate"></a>Definir permissões do Azure para migrações para Azure 
+## <a name="set-azure-permissions-for-azure-migrate"></a>Definir permissões do Azure para migrações para Azure
 
 Sua conta do Azure precisa de permissões para criar um projeto de migrações para Azure.
 
@@ -116,7 +113,7 @@ A tabela a seguir resume os campos de arquivo para preencher.
 
 **Nome do campo** | **Obrigatório** | **Detalhes**
 --- | --- | ---
-**Nome do servidor** | Sim | É recomendável especificar o FQDN. 
+**Nome do servidor** | Sim | É recomendável especificar o FQDN.
 **Endereço IP** | Não | Endereço do servidor.
 **Número de núcleos** | Sim | O número de núcleos de processador alocados para o servidor.
 **Memória** | Sim | Total de RAM (MB) alocada para o servidor.
@@ -144,7 +141,7 @@ A tabela a seguir resume os campos de arquivo para preencher.
 **ID do Virtual Machine Manager** | Não | Este é o **InstanceUUid** para o VMware vCenter. Não é necessário para o Hyper-V.
 **Endereço MAC**| Não | Endereço MAC do servidor.
 **ID DO BIOS** | Não | ID do BIOS do servidor.
-**ID do servidor personalizado**| Não | IDs de servidor locais exclusivas localmente. <br/> Útil para acompanhar o servidor importado pela ID local. 
+**ID do servidor personalizado**| Não | IDs de servidor locais exclusivas localmente. <br/> Útil para acompanhar o servidor importado pela ID local.
 **Nome do aplicativo 1** | Não | Nome das cargas de trabalho em execução no servidor.<br/> Você pode adicionar detalhes para mais aplicativos [adicionando colunas](#add-multiple-applications) no modelo. Você pode adicionar até cinco aplicativos.
 **Tipo de aplicativo 1** | Não | Tipo de carga de trabalho em execução no servidor
 **Versão do aplicativo 1** | Não | Versão da carga de trabalho em execução no servidor.
@@ -162,7 +159,7 @@ A avaliação reconhece nomes específicos do sistema operacional. Qualquer nome
 
 ### <a name="add-multiple-disks"></a>Adicionar vários discos
 
-O modelo fornece campos padrão para o primeiro disco.  Você pode adicionar colunas semelhantes para até 8 discos. 
+O modelo fornece campos padrão para o primeiro disco.  Você pode adicionar colunas semelhantes para até 8 discos.
 
 Por exemplo, para especificar todos os campos para um segundo disco, adicione as colunas:
 
@@ -191,11 +188,11 @@ Opcionalmente, você pode adicionar campos específicos apenas para um aplicativ
 Depois de adicionar informações ao modelo CSV, importe os servidores para migrações para Azure: avaliação do servidor.
 
 1. Em migrações para Azure > **descobrir computadores**, navegue até o modelo preenchido.
-2. Clique em **importar**.
-3. O status de importação é mostrado. 
+2. Clique em **Importar**.
+3. O status de importação é mostrado.
     - Se os avisos aparecerem no status, você poderá corrigi-los ou continuar sem solucioná-los.
     - Melhorar as informações do servidor conforme sugerido em avisos melhora a precisão da avaliação.
-    - Para exibir e corrigir avisos, se eles aparecerem, clique em **baixar detalhes do aviso. CSV**. Isso baixa o CSV, com avisos adicionados. Você pode examinar os avisos e corrigir os problemas conforme necessário. 
+    - Para exibir e corrigir avisos, se eles aparecerem, clique em **baixar detalhes do aviso. CSV**. Isso baixa o CSV, com avisos adicionados. Você pode examinar os avisos e corrigir os problemas conforme necessário.
     Se forem exibidos erros no status (o status da importação é **falha**), você precisará corrigi-los para poder continuar com a importação. Para fazer isso, baixe o CSV, que agora tem detalhes de erro adicionados. Examine e resolva os erros conforme necessário. Em seguida, carregue o arquivo modificado novamente.
 4. Quando o status da importação for **concluído**, as informações do servidor serão importadas.
 
@@ -205,7 +202,7 @@ Depois de adicionar informações ao modelo CSV, importe os servidores para migr
 
 ## <a name="updating-server-information"></a>Atualizando informações do servidor
 
-Você pode atualizar as informações do servidor carregando os dados para o servidor novamente com o mesmo nome do **servidor**. Não é possível modificar o campo **nome do servidor** . 
+Você pode atualizar as informações do servidor carregando os dados para o servidor novamente com o mesmo nome do **servidor**. Não é possível modificar o campo **nome do servidor** .
 
 Atualmente, não há suporte para a exclusão de servidores.
 
@@ -300,21 +297,21 @@ Essa exibição mostra o custo estimado de computação e armazenamento de VMs e
 
 Nome | Nome
 --- | ---
-**A-H** | 
+**A-H** |
 Apple Mac OS X 10 | Asianux 3<br/>Asianux 4<br/>Asianux 5
-CentOS<br/>CentOS 4/5 | CoreOS Linux 
-Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD 
-**I-R** | 
+CentOS<br/>CentOS 4/5 | CoreOS Linux
+Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD
+**I-R** |
 IBM OS/2 | los |
-Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11 
-Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora | 
-**S-T** | 
+Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11
+Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora |
+**S-T** |
 SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO UnixWare 7 | Serenity sistemas eComStation 1<br/>Serenity Systems eComStation 2
 Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9 | SUSE Linux Enterprise 10<br/> SUSE Linux Enterprise 11<br/>SUSE Linux Enterprise 12<br/>SUSE Linux Enterprise 8/9<br/>SUSE Linux Enterprise 11<br/>SUSE openSUSE
-**U-Z** | 
+**U-Z** |
 Ubuntu Linux | VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6
 Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003 | Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Limite do Windows Server<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
-    
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

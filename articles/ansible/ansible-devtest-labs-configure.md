@@ -1,19 +1,15 @@
 ---
 title: Tutorial – configurar os laboratórios no Azure DevTest Labs usando o Ansible
 description: Saiba como configurar um laboratório no Azure DevTest Labs usando o Ansible
-ms.service: ansible
 keywords: Ansible, Azure, DevOps, Bash, manual, DevTest Labs
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: d035c76a811df45af5ed8183b86e14a2ee6218b7
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b6981ee94c4d82997c574db037befb9782465d08
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241663"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156271"
 ---
 # <a name="tutorial-configure-labs-in-azure-devtest-labs-using-ansible"></a>Tutorial: configurar os laboratórios no Azure DevTest Labs usando o Ansible
 
@@ -78,7 +74,7 @@ Você pode definir configurações de política de laboratório. Os valores a se
 - `lab_vm_count` é o número máximo de VMs de laboratório
 - `lab_premium_vm_count` é o número máximo de VMs do Lab Premium
 - `lab_vm_size` é o (s) tamanho (es) das VMs de laboratório permitidos
-- `gallery_image` é a (s) imagem (ões) da Galeria permitida
+- `gallery_image` é a imagem (ões) da Galeria permitida
 - `user_owned_lab_vm_count_in_subnet` é o número máximo de VMs do usuário em uma sub-rede
 - `lab_target_cost` é o custo de destino do laboratório
 

@@ -1,19 +1,14 @@
 ---
 title: Recuperar dados de um Servidor de Backup do Azure
 description: Recupere os dados que você protegeu para um cofre dos serviços de recuperação de qualquer Servidor de Backup do Azure registrado nesse cofre.
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: dacurwin
-ms.openlocfilehash: 5742aaebe0a1314b229a2a0d33b1de51d5b6d4f4
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 2a89697899fc244848854978de4b25e79ef6f184
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091149"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173505"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperar dados do Azure Backup Server
 

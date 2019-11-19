@@ -1,17 +1,17 @@
 ---
-title: Como dimensionar com várias instâncias do serviço de Signaler do Azure
+title: Dimensionar com várias instâncias – serviço de Signaler do Azure
 description: Em muitos cenários de dimensionamento, o cliente geralmente precisa provisionar várias instâncias e configurar para usá-las juntas, para criar uma implantação em larga escala. Por exemplo, a fragmentação requer suporte a várias instâncias.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: 1e31bc4133cced793d793c07d2e0ee3df29efddb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 43d703312cbc1fc067a2d51d5623ed028ba01405
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672342"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158155"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Como dimensionar o serviço de Signalr com várias instâncias?
 O SDK do serviço de sinalização mais recente dá suporte a vários pontos de extremidade para instâncias de serviço do Signalr. Você pode usar esse recurso para dimensionar as conexões simultâneas ou usá-las para mensagens entre regiões.
@@ -64,7 +64,7 @@ Por padrão, o SDK usa o [DefaultEndpointRouter](https://github.com/Azure/azure-
 
 2. Roteamento de mensagens do servidor
 
-    Quando * enviar mensagem para uma conexão * * específica * * * e a conexão de destino for roteada para o servidor atual, a mensagem vai diretamente para esse ponto de extremidade conectado. Caso contrário, as mensagens são transmitidas para todos os pontos de extremidade do Signalr do Azure.
+    Quando *enviar mensagem para um específico **ligação*** e a ligação de destino é encaminhado para o servidor atual, a mensagem vai diretamente para esse ponto de extremidade conectado. Caso contrário, as mensagens são transmitidas para todos os pontos de extremidade do Signalr do Azure.
 
 #### <a name="customize-routing-algorithm"></a>Personalizar o algoritmo de roteamento
 Você pode criar seu próprio roteador quando tiver conhecimento especial para identificar para quais pontos de extremidade as mensagens devem ir.

@@ -1,18 +1,14 @@
 ---
-title: Matriz de suporte para o agente de Serviços de Recuperação do Microsoft Azure
+title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
-author: dcurwin
-ms.service: backup
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.author: dacurwin
-manager: carmonm
-ms.openlocfilehash: a4372a66caaa8af807980a2f58f344cbf8fb1be9
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 6e37951dd00b999f59a1b3c08a6852cbc1929630
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090556"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172031"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -54,7 +50,7 @@ Alterações de local | Você pode alterar o local do cache interrompendo o meca
 
 ## <a name="networking-and-access-support"></a>Suporte de rede e acesso
 
-### <a name="url-access"></a>Acesso à URL
+### <a name="url-and-ip-access"></a>URL e acesso a IP
 
 O agente MARS precisa de acesso a essas URLs:
 
@@ -63,6 +59,11 @@ O agente MARS precisa de acesso a essas URLs:
 - *.WindowsAzure.com
 - *.MicrosoftOnline.com
 - *.Windows.net
+
+E para estes endereços IP:
+
+- 20.190.128.0/18
+- 40.126.0.0/18
 
 ### <a name="throttling-support"></a>Suporte à limitação
 
@@ -76,7 +77,12 @@ Limitação de rede | Não disponível para computadores com backup que executam
 >[!NOTE]
 > O agente MARS não dá suporte a SKUs do Windows Server Core.
 
-Você pode usar o agente MARS para fazer backup diretamente no Azure em alguns sistemas operacionais que são executados em máquinas locais e VMs do Azure. Os sistemas operacionais devem ser de 64 bits e devem estar executando os serviços e atualizações mais recentes. A tabela a seguir resume estes sistemas operacionais:
+Você pode usar o agente MARS para fazer backup diretamente no Azure nos sistemas operacionais listados abaixo que são executados em:
+
+1. Servidores locais do Windows
+2. VMs do Azure executando o Windows
+
+Os sistemas operacionais devem ser de 64 bits e devem estar executando os serviços e atualizações mais recentes. A tabela a seguir resume estes sistemas operacionais:
 
 **Sistema operativo** | **Arquivos/pastas** | **Estado do sistema** | **Requisitos de software/módulo**
 --- | --- | --- | ---
@@ -128,7 +134,7 @@ OneDrive (arquivos sincronizados são fluxos esparsos)| Não suportado.
 Volumes somente leitura| Não suportado | O VSS (serviço de cópias de sombra de volume) só funcionará se o volume for gravável.
 Volumes offline| Não suportado |O VSS só funcionará se o volume estiver online.
 Compartilhamento de rede| Não suportado |O volume deve ser local no servidor.
-Volumes protegidos pelo BitLocker| Não suportado |O volume deve ser desbloqueado antes do início do backup.
+Volumes bloqueados pelo BitLocker| Não suportado |O volume deve ser desbloqueado antes do início do backup.
 Identificação do sistema de arquivos| Não suportado |Há suporte apenas para NTFS.
 Mídia removível| Não suportado |Todas as fontes de itens de backup devem ter um status *fixo* .
 Unidades com eliminação de duplicação | Suportado | O backup do Azure converte dados com eliminação de duplicação em dados normais. Ele otimiza, criptografa, armazena e envia os dados para o cofre.

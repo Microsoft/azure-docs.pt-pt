@@ -1,17 +1,14 @@
 ---
 title: Início rápido-criar uma configuração do Terraform para o Azure
 description: Introdução ao Terraform no Azure implantando uma Azure Cosmos DB e instâncias de contêiner do Azure.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: quickstart
 ms.date: 10/26/2019
-ms.openlocfilehash: 07c1839afcc29c7089540c587a3a32eae14944ef
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 47eec1f238d3fdff99b75953bc6d7e92137cca2d
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969862"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159325"
 ---
 # <a name="quickstart-create-a-terraform-configuration-for-azure"></a>Início rápido: criar uma configuração do Terraform para o Azure
 
@@ -69,7 +66,7 @@ Nesta seção, você cria a configuração para uma instância de Azure Cosmos D
     }
     ```
 
-1. Salve o arquivo ( **&lt;Ctrl > S**) e saia do editor ( **&lt;Ctrl > Q**).
+1. Salve o arquivo ( **&lt;ctrl > S**) e saia do editor ( **&lt;CTRL > Q**).
 
 ## <a name="run-the-configuration"></a>Executar a configuração
 
@@ -141,7 +138,7 @@ Esta seção mostra como atualizar a configuração para incluir uma instância 
     }
     ```
 
-1. Salve o arquivo ( **&lt;Ctrl > S**) e saia do editor ( **&lt;Ctrl > Q**).
+1. Salve o arquivo ( **&lt;ctrl > S**) e saia do editor ( **&lt;CTRL > Q**).
 
 1. Como você fez na seção anterior, execute o seguinte comando para Visual as alterações a serem feitas:
 

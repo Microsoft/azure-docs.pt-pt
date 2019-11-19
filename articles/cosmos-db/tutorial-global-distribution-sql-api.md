@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b76fee17b64d50831d5bceca9d8512e7b7498d73
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 7c7ea4ca8fc28ef47e60d5010c804223c3cfab3b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720779"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173839"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: configurar a distribuição global Azure Cosmos DB usando a API do SQL
 
@@ -80,12 +80,6 @@ await docClient.OpenAsync().ConfigureAwait(false);
 
 ## <a name="nodejsjavascript"></a>Node. js/JavaScript
 
-O SDK pode ser utilizado sem quaisquer alterações de código. Neste caso, o SDK direcionará automaticamente as leituras e as escritas para a região de escrita atual.
-
-Na versão 1.8 e posterior de cada SDK, o parâmetro ConnectionPolicy do construtor DocumentClient tem uma nova propriedade denominada DocumentClient.ConnectionPolicy.PreferredLocations. Este parâmetro é uma matriz de cadeias que utiliza uma lista de nomes de região. Os nomes são formatados de acordo com a coluna nome da região na página [regiões do Azure][regions] . Também pode utilizar as constantes predefinidas no objeto de conveniência AzureDocuments.Regions
-
-Os pontos finais de escrita e leitura atuais estão disponíveis em DocumentClient.getWriteEndpoint e DocumentClient.getReadEndpoint, respetivamente.
-
 > [!NOTE]
 > Os URLs para os pontos finais não devem ser considerados como constantes de longa duração. O serviço pode atualizá-los em qualquer momento. O SDK processará esta alteração automaticamente.
 >
@@ -94,20 +88,17 @@ Os pontos finais de escrita e leitura atuais estão disponíveis em DocumentClie
 Veja abaixo um exemplo de código para node. js/JavaScript.
 
 ```JavaScript
-// Creating a ConnectionPolicy object
-var connectionPolicy = new DocumentBase.ConnectionPolicy();
-
 // Setting read region selection preference, in the following order -
 // 1 - West US
 // 2 - East US
 // 3 - North Europe
-connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe'];
+const preferredLocations = ['West US', 'East US', 'North Europe'];
 
 // initialize the connection
-var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
+const client = new CosmosClient{ endpoint, key, connectionPolicy: { preferredLocations } });
 ```
 
-## <a name="python-sdk"></a>Python SDK
+## <a name="python-sdk"></a>SDK Python
 
 O código a seguir mostra como definir locais preferenciais usando o SDK do Python:
 

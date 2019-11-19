@@ -1,20 +1,15 @@
 ---
-title: 'Backup do Azure: restaurar VMs usando o portal do Azure'
+title: Restaurar VMs usando o portal do Azure
 description: Restaurar uma máquina virtual do Azure de um ponto de recuperação usando o portal do Azure
 ms.reviewer: geg
-author: dcurwin
-manager: carmonm
-keywords: restaurar backup; Como restaurar; ponto de recuperação;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: dacurwin
-ms.openlocfilehash: 16017f00282729361a0489214c941e824042060e
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 8b84c7f89c88b54e90a8e1af1236bf205e12cfe6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044151"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173463"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar dados de VM do Azure no portal do Azure
 
@@ -79,7 +74,7 @@ Se você não tiver permissões, poderá [restaurar um disco](#restore-disks)e, 
 
 Como uma das [Opções de restauração](#restore-options), você pode criar uma VM rapidamente com configurações básicas de um ponto de restauração.
 
-1. Em **Restaurar configuração** > **criar novo** **tipo de restauração** > , selecione **criar uma máquina virtual**.
+1. Em **Restaurar configuração** > **criar novo** > **tipo de restauração**, selecione **criar uma máquina virtual**.
 2. Em **nome da máquina virtual**, ESPECIFIQUE uma VM que não exista na assinatura.
 3. Em **grupo de recursos**, selecione um grupo de recursos existente para a nova VM ou crie um novo com um nome globalmente exclusivo. Se você atribuir um nome que já existe, o Azure atribuirá ao grupo o mesmo nome da VM.
 4. Em **rede virtual**, selecione a VNet na qual a VM será colocada. Todos os VNets associados à assinatura são exibidos. Selecione a sub-rede. A primeira sub-rede é selecionada por padrão.
@@ -97,7 +92,7 @@ Como uma das [Opções de restauração](#restore-options), você pode criar um 
 - [Anexe discos restaurados](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) a uma VM existente.
 - [Crie uma nova VM](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) com base nos discos restaurados usando o PowerShell.
 
-1. Em **Restaurar configuração** > **criar novo** **tipo de restauração** > , selecione **restaurar discos**.
+1. Em **Restaurar configuração** > **criar novo** > **tipo de restauração**, selecione **restaurar discos**.
 2. Em **grupo de recursos**, selecione um grupo de recursos existente para os discos restaurados ou crie um novo com um nome globalmente exclusivo.
 3. Em **conta de armazenamento**, especifique a conta para a qual os VHDs são copiados. [Saiba mais](#storage-accounts).
 
@@ -150,7 +145,7 @@ Há vários cenários comuns em que talvez seja necessário restaurar as VMs.
 **Restaurar várias VMs do controlador de domínio em um único domínio** | Se outros controladores de domínio no mesmo domínio puderem ser acessados pela rede, o controlador de domínio poderá ser restaurado como qualquer VM. Se for o último controlador de domínio restante no domínio ou se uma recuperação em uma rede isolada for executada, use uma [recuperação de floresta](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restaurar vários domínios em uma floresta** | Recomendamos uma [recuperação de floresta](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restauração bare-metal** | A principal diferença entre as VMs do Azure e os hipervisores locais é que não há nenhum console de VM disponível no Azure. Um console do é necessário para determinados cenários, como a recuperação usando um backup do tipo BMR (recuperação bare-metal). No entanto, a restauração da VM do cofre é uma substituição completa para BMR.
-**Restaurar VMs com configurações de rede especiais** | As configurações de rede especiais incluem VMs que usam balanceamento de carga interno ou externo, usando várias NICS ou vários endereços IP reservados. Restaure essas VMs usando a [opção restaurar disco](#restore-disks). Essa opção faz uma cópia dos VHDs na conta de armazenamento especificada e, em seguida, você pode criar uma VM com um balanceador de carga [interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) ou [externo](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) , [várias NICs](../virtual-machines/windows/multiple-nics.md)ou [vários endereços IP reservados](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), de acordo com seu configuração.
+**Restaurar VMs com configurações de rede especiais** | As configurações de rede especiais incluem VMs que usam balanceamento de carga interno ou externo, usando várias NICS ou vários endereços IP reservados. Restaure essas VMs usando a [opção restaurar disco](#restore-disks). Essa opção faz uma cópia dos VHDs na conta de armazenamento especificada, e você pode criar uma VM com um balanceador de carga [interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) ou [externo](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) , [várias NICs](../virtual-machines/windows/multiple-nics.md)ou [vários endereços IP reservados](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), de acordo com sua configuração.
 **Grupo de segurança de rede (NSG) na NIC/sub-rede** | O backup de VM do Azure dá suporte a backup e restauração de informações de NSG em nível de rede virtual, sub-rede e NIC.
 **VMs fixadas pela zona** | O backup do Azure dá suporte ao backup e à restauração de VMs fixadas de zona. [Saiba mais](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 

@@ -1,19 +1,14 @@
 ---
-title: Backup do Azure-usar o PowerShell para fazer backup de cargas de trabalho do DPM
+title: Usar o PowerShell para fazer backup de cargas de trabalho do DPM
 description: Saiba como implantar e gerenciar o backup do Azure para Data Protection Manager (DPM) usando o PowerShell
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.author: dacurwin
-ms.openlocfilehash: ef20de40433542c1ed0780f198b10d6a1fb78789
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d3a8b2ff95957b69bab4932ce8a7e5a1ab4bfa44
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162134"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172409"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure em servidores do Data Protection Manager (DPM) com o PowerShell
 
@@ -106,7 +101,6 @@ SubscriptionId    : 1234-567f-8910-abc
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
-
 ## <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>Instalando o agente de backup do Azure em um servidor DPM
 
 Antes de instalar o agente de backup do Azure, você precisa ter o instalador baixado e presente no Windows Server. Você pode obter a versão mais recente do instalador no [centro de download da Microsoft](https://aka.ms/azurebackup_agent) ou na página do painel do cofre dos serviços de recuperação. Salve o instalador em um local facilmente acessível, como * C:\Downloads\*.
@@ -136,12 +130,12 @@ As opções disponíveis incluem:
 | Opção | Detalhes | Predefinição |
 | --- | --- | --- |
 | /q |Instalação silenciosa |- |
-| /p: "local" |Caminho para a pasta de instalação do agente de backup do Azure. |C:\Arquivos de Programas\microsoft Azure Recovery Services Agent |
-| /s: "local" |Caminho para a pasta de cache do agente de backup do Azure. |C:\Arquivos de Programas\microsoft Azure Recovery Services Agent\Scratch |
-| opção |Aceitar para Microsoft Update |- |
+| /p:"location" |Caminho para a pasta de instalação do agente de backup do Azure. |C:\Arquivos de Programas\microsoft Azure Recovery Services Agent |
+| /s:"location" |Caminho para a pasta de cache do agente de backup do Azure. |C:\Arquivos de Programas\microsoft Azure Recovery Services Agent\Scratch |
+| /m |Aceitar para Microsoft Update |- |
 | /nu |Não verificar se há atualizações após a conclusão da instalação |- |
 | /d |Desinstala o agente de Serviços de Recuperação do Microsoft Azure |- |
-| /pH |Endereço do host do proxy |- |
+| /ph |Endereço do host do proxy |- |
 | /po |Número da porta do host proxy |- |
 | /pu |Nome de usuário do host proxy |- |
 | /pw |Senha do proxy |- |
@@ -189,7 +183,7 @@ Todas as modificações são feitas nesse objeto local do PowerShell ```$setting
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="networking"></a>Funcionamento em Rede
+## <a name="networking"></a>Redes
 
 Se a conectividade do computador do DPM com o serviço de backup do Azure na Internet for por meio de um servidor proxy, as configurações do servidor proxy deverão ser fornecidas para backups bem-sucedidos. Isso é feito usando o ```-ProxyServer```e ```-ProxyPort```, ```-ProxyUsername``` e os parâmetros de ```ProxyPassword``` com o cmdlet [set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) . Neste exemplo, não há nenhum servidor proxy, portanto, estamos explicitamente limpando informações relacionadas ao proxy.
 
@@ -346,7 +340,7 @@ Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 
 ### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>Alterando o tamanho da réplica do DPM & volume do ponto de recuperação
 
-Você também pode alterar o tamanho do volume de réplica do DPM e do volume de cópia de sombra usando o cmdlet [set-dpmdatasourcediskallocation,](https://technet.microsoft.com/library/hh881618.aspx) como no exemplo a seguir: Get-DatasourceDiskAllocation-DataSource $DS Set-DatasourceDiskAllocation-DataSource $DS- The Protection $MPG-manual-ReplicaArea (2GB)-ShadowCopyArea (2GB)
+Você também pode alterar o tamanho do volume de réplica do DPM e do volume de cópia de sombra usando o cmdlet [set-dpmdatasourcediskallocation,](https://technet.microsoft.com/library/hh881618.aspx) como no exemplo a seguir: Get-DatasourceDiskAllocation-DataSource $DS Set-DatasourceDiskAllocation-DataSource $DS-Protection $MPG-manual-ReplicaArea (2GB)-ShadowCopyArea (2GB)
 
 ### <a name="committing-the-changes-to-the-protection-group"></a>Confirmando as alterações no grupo de proteção
 

@@ -1,19 +1,15 @@
 ---
-title: Gerenciar backups com o controle de acesso baseado em função do Azure
+title: Gerenciar backups com o controle de acesso baseado em função
 description: Use o controle de acesso baseado em função para gerenciar o acesso às operações de gerenciamento de backup no cofre dos serviços de recuperação.
 ms.reviewer: utraghuv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.author: dacurwin
-ms.openlocfilehash: 8ba28829d3ee18b441227e537cb0a7ca97fb7638
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: afb8067f2547e3a26a505bb5ec8063dd340e8500
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074042"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172193"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usar o controle de acesso baseado em função para gerenciar pontos de recuperação do backup do Azure
 

@@ -1,19 +1,15 @@
 ---
 title: Implantar em Azure Functions usando o plug-in de Azure Functions Jenkins
 description: Saiba como implantar no Azure Functions usando o plug-in de Azure Functions Jenkins
-ms.service: jenkins
 keywords: Jenkins, Azure, DevOps, Java, Azure Functions
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: 58267c607b0c4f2eaaf242c8e0752451f8c04c9a
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: af3e8dfd6e2bfc676e659a03d92658af66b5bcde
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882045"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158767"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Implantar em Azure Functions usando o plug-in de Azure Functions Jenkins
 
@@ -33,7 +29,7 @@ Para criar uma função Java com a pilha de tempo de execução Java, use o [por
 
 As etapas a seguir mostram como criar uma função Java usando o CLI do Azure:
 
-1. Crie um grupo de recursos, substituindo o espaço reservado **&lt;resource_group >** pelo nome do grupo de recursos.
+1. Crie um grupo de recursos, substituindo o **&lt;resource_group** espaço reservado > pelo nome do grupo de recursos.
 
     ```cli
     az group create --name <resource_group> --location eastus

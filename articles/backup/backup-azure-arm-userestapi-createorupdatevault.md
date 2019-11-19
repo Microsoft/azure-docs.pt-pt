@@ -1,21 +1,15 @@
 ---
-title: 'Backup do Azure: criar cofres dos serviços de recuperação usando a API REST'
+title: Criar cofres dos serviços de recuperação usando a API REST
 description: Neste artigo, saiba como gerenciar operações de backup e restauração do backup de VM do Azure usando a API REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API REST; Backup de VM do Azure; Restauração de VM do Azure;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: dacurwin
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 7c9d165f623367d1c888b90f76e96ce8fa2e8f89
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 1901c35d2b4d8bcd02cc064fcfc844e19969e3b5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747558"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173407"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Criar um cofre dos serviços de recuperação do Azure usando a API REST
 
@@ -46,11 +40,11 @@ As seguintes definições comuns são usadas para criar um corpo de solicitaçã
 
 |Nome  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
-|eTag     |         |   String      |  ETag opcional       |
-|localização     |  true       |String         |   Local do recurso      |
+|eTag     |         |   Cadeia      |  ETag opcional       |
+|localização     |  true       |Cadeia         |   Local do recurso      |
 |propriedades     |         | [Cofreproperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
 |SKU     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifica o identificador de sistema exclusivo para cada recurso do Azure     |
-|etiquetas     |         | Object        |     Etiquetas de recursos    |
+|etiquetas     |         | Objeto        |     Etiquetas de recursos    |
 
 Observe que o nome do cofre e o nome do grupo de recursos são fornecidos no URI PUT. O corpo da solicitação define o local.
 
@@ -68,7 +62,7 @@ O corpo de exemplo a seguir é usado para criar um cofre no "oeste dos EUA". Esp
 }
 ```
 
-## <a name="responses"></a>Respostas
+## <a name="responses"></a>Responses
 
 Há duas respostas bem-sucedidas para a operação criar ou atualizar um cofre dos serviços de recuperação:
 

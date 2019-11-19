@@ -3,17 +3,13 @@ title: Tutorial-configurar funções RBAC (controle de acesso baseado em funçã
 description: Saiba como usar o Ansible para configurar o RBAC no cluster do AKS (serviço kubernetes do Azure)
 keywords: Ansible, Azure, DevOps, Bash, cloudshell, manual, AKs, contêiner, AKs, kubernetes, Azure Active Directory, RBAC
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 36a6f5ade7a60a989d2e80f2405aaa2d1d50b756
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 1be123eb06bd2679169478daf27a7148d2a8b055
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242341"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156865"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: configurar funções RBAC (controle de acesso baseado em função) no AKS (serviço de kubernetes do Azure) usando o Ansible
 
@@ -35,7 +31,7 @@ AKS pode ser configurado para usar o [Azure Active Directory (AD)](/azure/active
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
-- **Instalar a biblioteca do redhat OpenShift** -  @ no__t-2
+- **Instalar o - de biblioteca do redhat OpenShift** `pip install openshift`
 
 ## <a name="configure-azure-ad-for-aks-authentication"></a>Configurar o Azure AD para autenticação AKS
 
@@ -57,7 +53,7 @@ Nesta seção, você criará um AKS com o [aplicativo Azure ad](#configure-azure
 Aqui estão algumas observações importantes a serem consideradas ao trabalhar com o guia estratégico de exemplo:
 
 - O guia estratégico carrega `ssh_key` de `~/.ssh/id_rsa.pub`. Se você modificá-lo, use o formato de linha única-começando com "ssh-RSA" (sem as aspas).
-- Os valores `client_id` e `client_secret` são carregados de `~/.azure/credentials`, que é o arquivo de credencial padrão. Você pode definir esses valores para sua entidade de serviço ou carregar esses valores de variáveis de ambiente:
+- Os valores de `client_id` e `client_secret` são carregados de `~/.azure/credentials`, que é o arquivo de credencial padrão. Você pode definir esses valores para sua entidade de serviço ou carregar esses valores de variáveis de ambiente:
 
     ```yml
     client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
@@ -162,7 +158,7 @@ subjects:
 
 Substitua o espaço reservado `&lt;your-aad-account>` pela sua ID de [objeto](#get-the-azure-ad-object-id)de locatário do Azure AD.
 
-Salve o guia estratégico a seguir-que implanta sua nova função no AKS-as `aks-kube-deploy.yml`:
+Salve o guia estratégico a seguir-que implanta sua nova função no AKS como `aks-kube-deploy.yml`:
 
 ```yml
 - name: Apply role to AKS
@@ -202,7 +198,7 @@ Guarde o manual de procedimentos seguinte como `aks-rbac.yml`:
        include_tasks: aks-kube-deploy.yml
 ```
 
-Na seção `vars`, substitua os seguintes espaços reservados pelas informações do Azure AD:
+Na seção `vars`, substitua os seguintes espaços reservados pelas suas informações do Azure AD:
 
 - `<client id>`
 - `<server id>`

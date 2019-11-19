@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 7d0fec56791c0d3e7ae60d78da83cf286532b9ab
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 13f86f0156299619d8bf8d92eb92bbcf8b4cb76c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124009"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173804"
 ---
 # <a name="monitor-azure-data-explorer-ingestion-operations-using-diagnostic-logs-preview"></a>Monitorar operações de ingestão de Data Explorer do Azure usando logs de diagnóstico (versão prévia)
 
@@ -30,8 +30,8 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 ## <a name="set-up-diagnostic-logs-for-an-azure-data-explorer-cluster"></a>Configurar logs de diagnóstico para um cluster de Data Explorer do Azure
 
 Os logs de diagnóstico podem ser usados para configurar a coleção dos seguintes dados de log:
-* Operações de ingestão bem-sucedidas: Esses logs têm informações sobre as operações de ingestão concluídas com êxito.
-* Operações de ingestão com falha: Esses logs têm informações detalhadas sobre operações de ingestão com falha, incluindo detalhes do erro. 
+* Operações de ingestão com êxito: esses logs têm informações sobre as operações de ingestão concluídas com êxito.
+* Operações de ingestão com falha: esses logs têm informações detalhadas sobre operações de ingestão com falha, incluindo detalhes do erro. 
 
 Os dados são então arquivados em uma conta de armazenamento, transmitidos para um hub de eventos ou enviados para Log Analytics, de acordo com suas especificações.
 
@@ -51,7 +51,7 @@ Os registos de diagnóstico estão desativados por predefinição. Para habilita
 
     1. Selecione o **nome** para a configuração de diagnóstico.
     1. Selecione um ou mais destinos: uma conta de armazenamento, um hub de eventos ou um Log Analytics.
-    1. Selecione os logs a serem coletados `FailedIngestion`: `SucceededIngestion` ou.
+    1. Selecione os logs a serem coletados: `SucceededIngestion` ou `FailedIngestion`.
     1. Selecione as [métricas](using-metrics.md) a serem coletadas (opcional).   
     1. Selecione **salvar** para salvar as novas configurações e métricas dos logs de diagnóstico.
     1. Crie uma **nova solicitação de suporte** no portal do Azure para solicitar a ativação de logs de diagnóstico.
@@ -66,18 +66,18 @@ Todos os [logs de diagnóstico Azure monitor compartilham um esquema de nível s
 
 As cadeias de caracteres JSON de log incluem elementos listados na tabela a seguir:
 
-|Name               |Descrição
+|Nome               |Descrição
 |---                |---
-|time               |Hora do relatório
+|hora               |Hora do relatório
 |resourceId         |ID do recurso de Azure Resource Manager
-|operationName      |Nome da operação: O. KUSTO/CLUSTERS/INGESTÃO/AÇÃO '
+|operationName      |Nome da operação: ' MICROSOFT. KUSTO/CLUSTERS/INGESTÃO/AÇÃO '
 |operationVersion   |Versão do esquema: ' 1,0 ' 
-|category           |Categoria da operação. `SucceededIngestion`ou `FailedIngestion`. As propriedades são diferentes para [operação com êxito](#successful-ingestion-operation-log) ou [falha](#failed-ingestion-operation-log).
-|properties         |Informações detalhadas da operação.
+|categoria           |Categoria da operação. `SucceededIngestion` ou `FailedIngestion`. As propriedades são diferentes para [operação com êxito](#successful-ingestion-operation-log) ou [falha](#failed-ingestion-operation-log).
+|propriedades         |Informações detalhadas da operação.
 
 #### <a name="successful-ingestion-operation-log"></a>Log de operação de ingestão com êxito
 
-**Example:**
+**Exemplo:**
 
 ```json
 {
@@ -100,7 +100,7 @@ As cadeias de caracteres JSON de log incluem elementos listados na tabela a segu
 ```
 **Propriedades de um log de diagnóstico de operação com êxito**
 
-|Name               |Descrição
+|Nome               |Descrição
 |---                |---
 |com êxito        |Tempo de conclusão de ingestão
 |operationId        |ID da operação de ingestão do Data Explorer do Azure
@@ -112,7 +112,7 @@ As cadeias de caracteres JSON de log incluem elementos listados na tabela a segu
 
 #### <a name="failed-ingestion-operation-log"></a>Falha no log da operação de ingestão
 
-**Example:**
+**Exemplo:**
 
 ```json
 {
@@ -141,7 +141,7 @@ As cadeias de caracteres JSON de log incluem elementos listados na tabela a segu
 
 **Propriedades de um log de diagnóstico de operação com falha**
 
-|Name               |Descrição
+|Nome               |Descrição
 |---                |---
 |com falha           |Tempo de conclusão de ingestão
 |operationId        |ID da operação de ingestão do Data Explorer do Azure
@@ -152,10 +152,12 @@ As cadeias de caracteres JSON de log incluem elementos listados na tabela a segu
 |rootActivityId     |ID da Atividade
 |details            |Descrição detalhada da mensagem de falha e de erro
 |errorCode          |Código de erro 
-|failureStatus      |`Permanent`ou `Transient`. A repetição de uma falha transitória pode ter êxito.
+|failureStatus      |`Permanent` ou `Transient`. A repetição de uma falha transitória pode ter êxito.
 |originatesFromUpdatePolicy|True se a falha se originar de uma política de atualização
 |shouldRetry        |True se a repetição puder ser realizada
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Usar métricas para monitorar a integridade do cluster](using-metrics.md)
+* [Tutorial: ingestão e consulta de dados de monitoramento no Azure Data Explorer](ingest-data-no-code.md)
+* [Usar métricas para monitorar a integridade do cluster](using-metrics.md)
+

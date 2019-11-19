@@ -3,17 +3,13 @@ title: Tutorial – configurar a rede CNI do Azure no AKS (serviço kubernetes d
 description: Saiba como usar o Ansible para configurar a rede kubenet no cluster do AKS (serviço kubernetes do Azure)
 keywords: Ansible, Azure, DevOps, Bash, cloudshell, manual, AKs, contêiner, AKs, kubernetes
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 04da0e8fb06d0a32c8e8bdc39d7722fc1c3fcdba
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: e3667ad7a561f56d5fddaacad705c53d1de9ac36
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242039"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156911"
 ---
 # <a name="tutorial-configure-azure-cni-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: configurar a rede CNI do Azure no serviço kubernetes do Azure (AKS) usando o Ansible
 
@@ -45,7 +41,7 @@ Para obter mais informações sobre a rede para seus aplicativos no AKS, consult
 
 O código do guia estratégico de exemplo nesta seção é usado para:
 
-- Criar rede virtual
+- Criar uma rede virtual
 - Criar uma sub-rede dentro da rede virtual
 
 Guarde o manual de procedimentos seguinte como `vnet.yml`:
@@ -111,7 +107,7 @@ Aqui estão algumas observações importantes a serem consideradas ao trabalhar 
 - Use o módulo `azure_rm_aks_version` para localizar a versão com suporte.
 - O `vnet_subnet_id` é a sub-rede criada na seção anterior.
 - O guia estratégico carrega `ssh_key` de `~/.ssh/id_rsa.pub`. Se você modificá-lo, use o formato de linha única-começando com "ssh-RSA" (sem as aspas).
-- Os valores `client_id` e `client_secret` são carregados de `~/.azure/credentials`, que é o arquivo de credencial padrão. Você pode definir esses valores para sua entidade de serviço ou carregar esses valores de variáveis de ambiente:
+- Os valores de `client_id` e `client_secret` são carregados de `~/.azure/credentials`, que é o arquivo de credencial padrão. Você pode definir esses valores para sua entidade de serviço ou carregar esses valores de variáveis de ambiente:
 
     ```yml
     client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
@@ -152,9 +148,9 @@ Guarde o manual de procedimentos seguinte como `aks-azure-cni.yml`:
 
 Aqui estão algumas observações importantes a serem consideradas ao trabalhar com o guia estratégico de exemplo:
 
-- Altere o valor `aksansibletest` para o nome do grupo de recursos.
-- Altere o valor `aksansibletest` para o nome do AKS.
-- Altere o valor `eastus` para o local do grupo de recursos.
+- Altere o valor de `aksansibletest` para o nome do grupo de recursos.
+- Altere o valor de `aksansibletest` para o nome do AKS.
+- Altere o valor de `eastus` para o local do grupo de recursos.
 
 Execute o guia estratégico usando o comando Ansible-manual:
 

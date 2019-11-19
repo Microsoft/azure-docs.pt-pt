@@ -4,25 +4,22 @@ description: Descreve como descobrir aplicativos, funções e recursos em servid
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 11/18/2019
 ms.author: snehaa
-ms.openlocfilehash: 40cb73848bab97ef9030cb0c4f3f17c984a1e0ec
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 14ecc6454c3d0f167c671532dd8e659e767cda66
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715781"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158643"
 ---
-# <a name="discover-machine-apps-roles-and-features"></a>Descobrir aplicativos, funções e recursos de computador 
-
-> [!NOTE]
-> Se você ainda não tiver visto esse recurso no portal de migrações para Azure, aguarde. Ele será exibido na próxima semana ou assim.
+# <a name="discover-machine-apps-roles-and-features"></a>Descobrir aplicativos, funções e recursos de computador
 
 Este artigo descreve como descobrir aplicativos, funções e recursos em servidores locais, usando migrações para Azure: avaliação de servidor.
 
-Descobrir o inventário de aplicativos e funções/recursos em execução em suas máquinas locais ajuda você a identificar e planejar um caminho de migração para o Azure adaptado para suas cargas de trabalho. 
+Descobrir o inventário de aplicativos e funções/recursos em execução em suas máquinas locais ajuda você a identificar e planejar um caminho de migração para o Azure adaptado para suas cargas de trabalho.
 
-Descoberta de aplicativos usando migrações para Azure: a avaliação do servidor é sem agente. Nada precisa ser instalado em máquinas e VMs. A avaliação do servidor usa o dispositivo de migrações para Azure para executar a descoberta junto com as credenciais de convidado do computador. O dispositivo acessa remotamente computadores usando chamadas de WMI e SSH. 
+Descoberta de aplicativos usando migrações para Azure: a avaliação do servidor é sem agente. Nada precisa ser instalado em máquinas e VMs. A avaliação do servidor usa o dispositivo de migrações para Azure para executar a descoberta junto com as credenciais de convidado do computador. O dispositivo acessa remotamente computadores usando chamadas de WMI e SSH.
 
 > [!NOTE]
 > Atualmente, o app Discovery tem suporte apenas para VMs VMware e é limitado apenas à descoberta. Ainda não oferecemos a avaliação baseada em aplicativo.  Atualmente, a avaliação do servidor avalia as VMs VMware locais, as VMs do Hyper-V e os servidores físicos no nível do computador, para migrações de comparação e deslocamento.
@@ -50,7 +47,7 @@ Depois que o dispositivo é implantado e você forneceu credenciais, o dispositi
 
 ## <a name="review-and-export-the-inventory"></a>Revisar e exportar o inventário
 
-Após a conclusão da descoberta, se você forneceu credenciais para a descoberta de aplicativos, poderá revisar e exportar o inventário de aplicativos no portal do Azure. 
+Após a conclusão da descoberta, se você forneceu credenciais para a descoberta de aplicativos, poderá revisar e exportar o inventário de aplicativos no portal do Azure.
 
 1. Em **migrações para Azure-servidores** > **migrações para Azure: avaliação do servidor**, clique na contagem exibida para abrir a página **servidores descobertos** .
 

@@ -1,17 +1,17 @@
 ---
-title: Crie aplicativos em tempo real com o Azure Functions e o serviço de Signaler do Azure
-description: Uma visão geral do uso do serviço de Signaler do Azure em aplicativos sem servidor.
+title: Criar Azure Functions de aplicativo em tempo real & serviço de Signaler do Azure
+description: Saiba como desenvolver um aplicativo Web sem servidor em tempo real com o serviço de Signaler do Azure, seguindo o exemplo.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 6a71647d452597c84e0df1beb6e9c6c3932d171b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: cbb1fcf320a78f11045bf9627ffcc438af3e388a
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639920"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157618"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Crie aplicativos em tempo real com o Azure Functions e o serviço de Signaler do Azure
 
@@ -28,7 +28,7 @@ Azure Functions permitem que você escreva código em [várias linguagens](../az
 * Temporizadores periódicos
 * Eventos de serviços do Azure, como:
     - Event Grid
-    - Hubs de Eventos
+    - Event Hubs
     - Service Bus
     - Feed de alterações do Cosmos DB
     - Armazenamento - blobs e filas
@@ -62,7 +62,7 @@ Um exemplo de como utilizar os enlaces do Serviço SignalR é utilizar as Funç�
 
 O Serviço SignalR permite-lhe difundir mensagens para todos os clientes ou apenas um subconjunto de clientes, tais como aqueles que pertencem a um único utilizador. Os enlaces do Serviço SignalR para as Funções do Azure podem ser combinados com a Autenticação do Serviço de Aplicações para autenticar utilizadores com fornecedores como o Azure Active Directory, o Facebook e o Twitter. Em seguida, pode enviar mensagens diretamente para estes utilizadores autenticados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, obteve uma descrição geral de como pode utilizar as Funções do Azure com o Serviço SignalR para ativar uma grande diversidade de cenários de mensagens em tempo real sem servidor.
 

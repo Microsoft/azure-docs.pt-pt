@@ -1,17 +1,17 @@
 ---
-title: Desenvolver e configurar Azure Functions aplicativos de serviço Signalr
+title: Desenvolver & configurar Azure Functions aplicativo – Signalr do Azure
 description: Detalhes sobre como desenvolver e configurar aplicativos em tempo real sem servidor usando o Azure Functions e o serviço de Signaler do Azure
 author: anthonychu
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: be77704f562a1e05485e6f3704dff265635b1dc2
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 68ada90699fe9a9db6faeb32a04e8eb02c176944
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882313"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157647"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure Functions o desenvolvimento e a configuração com o serviço de Signaler do Azure
 
@@ -38,7 +38,7 @@ Um aplicativo em tempo real sem servidor criado com o Azure Functions e o servi�
 
 Um aplicativo cliente requer um token de acesso válido para se conectar ao serviço de Signaler do Azure. Um token de acesso pode ser anônimo ou autenticado para uma determinada ID de usuário. Os aplicativos de serviço de Signaler sem servidor exigem um ponto de extremidade HTTP chamado "Negotiate" para obter um token e outras informações de conexão, como a URL do ponto de extremidade do serviço Signalr.
 
-Use uma função do Azure disparada por HTTP e a associação de entrada *SignalRConnectionInfo* para gerar o objeto de informações de conexão. A função deve ter uma rota HTTP que termina em `/negotiate`.
+Use uma função do Azure disparada por HTTP e a associação de entrada *SignalRConnectionInfo* para gerar o objeto de informações de conexão. A função deve ter uma rota HTTP que termine em `/negotiate`.
 
 Para obter mais informações sobre como criar a função Negotiate, consulte a referência de associação de entrada do [ *SignalRConnectionInfo* ](../azure-functions/functions-bindings-signalr-service.md#signalr-connection-info-input-binding).
 
@@ -46,9 +46,9 @@ Para saber mais sobre como criar um token autenticado, consulte [usando a autent
 
 ### <a name="sending-messages-and-managing-group-membership"></a>Enviando mensagens e gerenciando a associação de grupo
 
-Use a Associação de saída do signalr para enviar mensagens aos clientes conectados ao serviço de Signaler do Azure. Você pode transmitir mensagens para todos os clientes ou pode enviá-las para um subconjunto de clientes que são autenticados com uma ID de usuário específica ou foram adicionados a um grupo específico.
+Use a associação de saída do *signalr* para enviar mensagens aos clientes conectados ao serviço de Signaler do Azure. Você pode transmitir mensagens para todos os clientes ou pode enviá-las para um subconjunto de clientes que são autenticados com uma ID de usuário específica ou foram adicionados a um grupo específico.
 
-Os usuários podem ser adicionados a um ou mais grupos. Você também pode usar a Associação de saída do signalr para adicionar ou remover usuários de/para grupos.
+Os usuários podem ser adicionados a um ou mais grupos. Você também pode usar a associação de saída do *signalr* para adicionar ou remover usuários de/para grupos.
 
 Para obter mais informações, consulte a referência de associação de saída do [ *signalr* ](../azure-functions/functions-bindings-signalr-service.md#signalr-output-binding).
 
@@ -67,7 +67,7 @@ Para se conectar ao serviço Signalr, um cliente deve concluir uma negociação 
 1. Faça uma solicitação para o ponto de extremidade de *negociação* http discutido acima para obter informações de conexão válidas
 1. Conectar-se ao serviço de Signalr usando a URL de ponto de extremidade de serviço e o token de acesso obtidos do ponto de extremidade *negotia*
 
-Os SDKs de cliente do signalr já contêm a lógica necessária para executar o handshake de negociação. Passe a URL do ponto de extremidade de negociação `negotiate` , menos o segmento, para `HubConnectionBuilder`o SDK. Veja um exemplo em JavaScript:
+Os SDKs de cliente do signalr já contêm a lógica necessária para executar o handshake de negociação. Passe a URL do ponto de extremidade de negociação, menos o segmento de `negotiate`, para o `HubConnectionBuilder`do SDK. Veja um exemplo em JavaScript:
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
@@ -75,7 +75,7 @@ const connection = new signalR.HubConnectionBuilder()
   .build()
 ```
 
-Por convenção, o SDK acrescenta `/negotiate` automaticamente à URL e a usa para iniciar a negociação.
+Por convenção, o SDK acrescenta automaticamente `/negotiate` à URL e a usa para iniciar a negociação.
 
 > [!NOTE]
 > Se você estiver usando o JavaScript/TypeScript SDK em um navegador, precisará [habilitar o CORS (compartilhamento de recursos entre origens)](#enabling-cors) no seu aplicativo de funções.
@@ -102,10 +102,10 @@ O cliente JavaScript/TypeScript faz solicitações HTTP para a função Negotiat
 
 #### <a name="localhost"></a>Localhost
 
-Ao executar o aplicativo de funções em seu computador local, você pode adicionar `Host` uma seção a *local. Settings. JSON* para habilitar CORS. `Host` Na seção, adicione duas propriedades:
+Ao executar o aplicativo de funções no computador local, você pode adicionar uma `Host` seção a *local. Settings. JSON* para habilitar CORS. Na seção `Host`, adicione duas propriedades:
 
 * `CORS`-Insira a URL base que é a origem do aplicativo cliente
-* `CORSCredentials`-Defina para `true` para permitir solicitações "withCredentials"
+* `CORSCredentials`-defina-o como `true` para permitir solicitações "withCredentials"
 
 Exemplo:
 
@@ -163,13 +163,13 @@ Configure os clientes do Signalr para usar a URL de gerenciamento de API.
 
 ### <a name="using-app-service-authentication"></a>Usando a autenticação do serviço de aplicativo
 
-Azure Functions tem autenticação interna, oferecendo suporte a provedores populares como Facebook, Twitter, conta da Microsoft, Google e Azure Active Directory. Esse recurso pode ser integrado com a associação *SignalRConnectionInfo* para criar conexões com o serviço de Signaler do Azure que foram autenticados para uma ID de usuário. Seu aplicativo pode enviar mensagens usando a Associação de saída do signalr que é destinada a essa ID de usuário.
+Azure Functions tem autenticação interna, oferecendo suporte a provedores populares como Facebook, Twitter, conta da Microsoft, Google e Azure Active Directory. Esse recurso pode ser integrado com a associação *SignalRConnectionInfo* para criar conexões com o serviço de Signaler do Azure que foram autenticados para uma ID de usuário. Seu aplicativo pode enviar mensagens usando a associação de saída do *signalr* que é destinada a essa ID de usuário.
 
 Na portal do Azure, na guia *recursos da plataforma* do aplicativo de funções, abra a janela configurações de *autenticação/autorização* . Siga a documentação da [autenticação do serviço de aplicativo](../app-service/overview-authentication-authorization.md) para configurar a autenticação usando um provedor de identidade de sua escolha.
 
-Uma vez configuradas, as solicitações HTTP `x-ms-client-principal-name` autenticadas incluirão e `x-ms-client-principal-id` os cabeçalhos que contêm o nome de usuário e a ID da identidade autenticada, respectivamente.
+Uma vez configuradas, as solicitações HTTP autenticadas incluirão `x-ms-client-principal-name` e `x-ms-client-principal-id` cabeçalhos que contenham o nome de usuário e a ID de usuários da identidade autenticada, respectivamente.
 
-Você pode usar esses cabeçalhos em sua configuração de associação do *SignalRConnectionInfo* para criar conexões autenticadas. Aqui está um exemplo C# de função Negotiate que `x-ms-client-principal-id` usa o cabeçalho.
+Você pode usar esses cabeçalhos em sua configuração de associação do *SignalRConnectionInfo* para criar conexões autenticadas. Aqui está um exemplo C# de função Negotiate que usa o cabeçalho `x-ms-client-principal-id`.
 
 ```csharp
 [FunctionName("negotiate")]
@@ -184,7 +184,7 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-Em seguida, você pode enviar mensagens para esse usuário definindo `UserId` a propriedade de uma mensagem de sinalização.
+Em seguida, você pode enviar mensagens para esse usuário definindo a propriedade `UserId` de uma mensagem de sinalização.
 
 ```csharp
 [FunctionName("SendMessage")]
@@ -205,6 +205,6 @@ public static Task SendMessage(
 
 Para obter informações sobre outras linguagens, consulte [associações de serviço do Azure signalr](../azure-functions/functions-bindings-signalr-service.md) para Azure Functions referência.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a desenvolver e configurar aplicativos de serviço de sinalização sem servidor usando o Azure Functions. Tente criar um aplicativo por conta própria usando um dos tutoriais ou inícios rápidos na [página Visão geral do serviço signalr](index.yml).

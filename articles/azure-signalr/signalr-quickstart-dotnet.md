@@ -1,5 +1,5 @@
 ---
-title: Guia de início rápido para aprender a usar o serviço de Signaler do Azure com o ASP.NET
+title: Desenvolver com ASP.NET-serviço de Signaler do Azure
 description: Um guia de início rápido para usar o serviço de sinalizador do Azure para criar uma sala de chat com o ASP.NET Framework.
 author: sffamily
 ms.service: signalr
@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/20/2019
 ms.author: zhshang
-ms.openlocfilehash: 8dfb74fc941a9bb6d235093287ac47983c0e0564
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ec5b7a75bced4b7cd81a120925558b8c1be57818
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931828"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158175"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Início rápido: criar uma sala de chat com o ASP.NET e o serviço Signalr
 
@@ -27,7 +27,7 @@ Neste guia de início rápido, você aprenderá a começar a usar o ASP.NET e o 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-* [4.6.1 .NET](https://www.microsoft.com/net/download/windows)
+* [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
 * [ASP.NET Signalr 2.4.1](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -101,7 +101,7 @@ Enquanto o serviço está a ser implementado, vamos passar para trabalhar com c�
 
 
 > [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos contidos no mesmo serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
+> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos nele contidos serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
 > 
 > 
 

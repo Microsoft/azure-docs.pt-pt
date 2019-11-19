@@ -1,18 +1,14 @@
 ---
-title: Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem que usam o backup do Azure
+title: Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem
 description: Saiba como usar recursos de segurança no backup do Azure para tornar os backups mais seguros.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: f0e4540f3f5ab3fdbb5953cbf100c5fdc2b2542a
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 95eb72fe9d918b527cdceec69a0e90a682d62b07
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621982"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172711"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem que usam o backup do Azure
 
@@ -95,7 +91,7 @@ Para desabilitar a exclusão reversível, verifique se os pré-requisitos foram 
 
 ## <a name="other-security-features"></a>Outros recursos de segurança
 
-### <a name="storage-side-encryption"></a>Criptografia do lado do armazenamento
+### <a name="storage-side-encryption"></a>Encriptação do lado do armazenamento
 
 O armazenamento do Azure criptografa automaticamente seus dados ao mantê-los para a nuvem. A criptografia protege seus dados e para ajudá-lo a atender aos compromissos de segurança e conformidade da organização. Os dados no armazenamento do Azure são criptografados e descriptografados de forma transparente usando a criptografia AES de 256 bits, uma das codificações de bloco mais fortes disponíveis e é compatível com o FIPS 140-2. A criptografia de armazenamento do Azure é semelhante à criptografia BitLocker no Windows. O backup do Azure criptografa automaticamente os dados antes de armazená-los. O armazenamento do Azure descriptografa os dados antes de recuperá-los.  
 

@@ -3,17 +3,13 @@ title: Tutorial – gerenciar o tráfego da Web com o gateway de Aplicativo Azur
 description: Saiba como pode utilizar o Ansible para criar e configurar um Gateway de Aplicação do Azure para gerir o tráfego da Web
 keywords: Ansible, Azure, DevOps, Bash, manual, gateway de aplicativo, balanceador de carga, tráfego da Web
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 1dd547fb59a41a90de18d595a392b64ef518023a
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 07f75e39b8c6f592ecd4c48697527493b1109bb9
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241877"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156622"
 ---
 # <a name="tutorial-manage-web-traffic-with-azure-application-gateway-using-ansible"></a>Tutorial: gerenciar o tráfego da Web com o gateway de Aplicativo Azure usando o Ansible
 
@@ -259,12 +255,12 @@ Guarde o manual de procedimentos seguinte como `appgw_create.yml`:
 
 Antes de executar o guia estratégico, consulte as seguintes observações:
 
-* `appGatewayIP` é definido no bloco `gateway_ip_configurations`. Para a configuração do IP do gateway, é necessária uma referência de sub-rede.
-* `appGatewayBackendPool` é definido no bloco `backend_address_pools`. Os gateways de aplicação têm de ter, pelo menos, um conjunto de endereços de back-end.
-* `appGatewayBackendHttpSettings` é definido no bloco `backend_http_settings_collection`. Ele especifica que a porta 80 e um protocolo HTTP são usados para comunicação.
-* `appGatewayHttpListener` é definido no bloco `backend_http_settings_collection`. É o serviço de escuta predefinido associado a appGatewayBackendPool.
-* `appGatewayFrontendIP` é definido no bloco `frontend_ip_configurations`. Atribui myAGPublicIPAddress a appGatewayHttpListener.
-* `rule1` é definido no bloco `request_routing_rules`. É a regra de encaminhamento predefinida associada a appGatewayHttpListener.
+* `appGatewayIP` é definido no bloco de `gateway_ip_configurations`. Para a configuração do IP do gateway, é necessária uma referência de sub-rede.
+* `appGatewayBackendPool` é definido no bloco de `backend_address_pools`. Os gateways de aplicação têm de ter, pelo menos, um conjunto de endereços de back-end.
+* `appGatewayBackendHttpSettings` é definido no bloco de `backend_http_settings_collection`. Ele especifica que a porta 80 e um protocolo HTTP são usados para comunicação.
+* `appGatewayHttpListener` é definido no bloco de `backend_http_settings_collection`. É o serviço de escuta predefinido associado a appGatewayBackendPool.
+* `appGatewayFrontendIP` é definido no bloco de `frontend_ip_configurations`. Atribui myAGPublicIPAddress a appGatewayHttpListener.
+* `rule1` é definido no bloco de `request_routing_rules`. É a regra de encaminhamento predefinida associada a appGatewayHttpListener.
 
 Execute o guia estratégico usando o comando `ansible-playbook`:
 

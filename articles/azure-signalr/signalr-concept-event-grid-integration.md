@@ -1,19 +1,19 @@
 ---
-title: Reagindo aos eventos do serviço de Signaler do Azure
-description: Use a grade de eventos do Azure para assinar eventos do serviço Signaler do Azure.
+title: Reagir aos eventos do serviço de Signaler do Azure
+description: Use a grade de eventos do Azure para assinar eventos do serviço Signaler do Azure. Outros serviços downstream podem ser disparados por esses eventos.
 services: azure-signalr,event-grid
 author: chenyl
 ms.author: chenyl
 ms.reviewer: zhshang
-ms.date: 06/12/2019
+ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
-ms.openlocfilehash: a3d0669a1a89f2fc5aaca0a96e00b731d2d40830
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: a8e25907b40b910f2b91884d355b6ac85eeaa250
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296820"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158203"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Reagindo aos eventos do serviço de Signaler do Azure
 
@@ -58,10 +58,10 @@ Aqui está um exemplo de um evento conectado de conexão de cliente:
 
 Para obter mais informações, consulte [esquema de eventos do serviço signalr](../event-grid/event-schema-azure-signalr.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a grade de eventos e dê uma tentativa aos eventos do serviço Signaler do Azure:
 
 > [!div class="nextstepaction"]
-> [Experimente uma integração de grade de eventos de exemplo com o serviço](./signalr-howto-event-grid-integration.md)
-> de signalr do Azure[sobre a grade de eventos](../event-grid/overview.md)
+> [Experimente uma integração de grade de eventos de exemplo com o serviço de signalr do Azure](./signalr-howto-event-grid-integration.md)
+> [sobre a grade de eventos](../event-grid/overview.md)

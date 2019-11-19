@@ -3,17 +3,13 @@ title: Tutorial – configurar a rede kubenet no AKS (serviço kubernetes do Azu
 description: Saiba como usar o Ansible para configurar a rede kubenet no cluster do AKS (serviço kubernetes do Azure)
 keywords: Ansible, Azure, DevOps, Bash, cloudshell, manual, AKs, contêiner, AKs, kubernetes
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 10/23/2019
-ms.openlocfilehash: 67b4eb9e9ee53613ec8b54b2bf8d3bbdb89778c7
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: bfb19371ad651439c087cebd03023d48852ee2df
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881530"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156887"
 ---
 # <a name="tutorial-configure-kubenet-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: configurar a rede kubenet no AKS (serviço kubernetes do Azure) usando o Ansible
 
@@ -213,8 +209,8 @@ Guarde o manual de procedimentos seguinte como `aks-kubenet.yml`:
 Na seção `vars`, faça as seguintes alterações:
 
 - Para a chave de `resource_group`, altere o valor de `aksansibletest` para o nome do grupo de recursos.
-- Para a chave `name`, altere o valor de `aksansibletest` para o nome do AKS.
-- Para a chave `Location`, altere o valor de `eastus` para o local do grupo de recursos.
+- Para a chave de `name`, altere o valor de `aksansibletest` para o nome do AKS.
+- Para a chave de `Location`, altere o valor de `eastus` para o local do grupo de recursos.
 
 Execute o manual completo usando o comando `ansible-playbook`:
 

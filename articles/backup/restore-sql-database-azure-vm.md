@@ -1,18 +1,14 @@
 ---
-title: Usar o backup do Azure para restaurar SQL Server bancos de dados em uma VM do Azure
+title: Restaurar bancos de dados SQL Server em uma VM do Azure
 description: Este artigo descreve como restaurar SQL Server bancos de dados que estão em execução em uma VM do Azure e cujo backup é feito com o backup do Azure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: dacurwin
-ms.openlocfilehash: 878658135bdb8844c5c86bc207db580ccd7ff63f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 0dbf5c48884dc665355d2806ff343facfbeffc29
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903606"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171893"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bancos de dados SQL Server em VMs do Azure
 

@@ -10,20 +10,26 @@ ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/14/2019
+ms.date: 11/18/2019
 ms.author: magoedte
-ms.openlocfilehash: e369067a3ff61ffefe1758f6fa8b4acdce4bb2e2
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: f748399b6b356e5f8655f59221e78acd0d98f51e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134440"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173640"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Entender a integridade do cluster kubernetes com Azure Monitor para contêineres
 
 Com Azure Monitor para contêineres, ele monitora e relata o status de integridade dos componentes de infraestrutura gerenciada e todos os nós em execução em qualquer cluster kubernetes com suporte de Azure Monitor para contêineres. Essa experiência se estende além do status de integridade do cluster calculado e relatado na [exibição de vários clusters](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), em que agora você pode entender se um ou mais nós no cluster estão com restrição de recursos, ou se um nó ou Pod está indisponível que poderia afetar um aplicativo em execução no cluster com base em métricas organizadas. 
 
 Para obter informações sobre como habilitar o Azure Monitor para contêineres, consulte [Azure monitor integrado para contêineres](container-insights-onboard.md).
+
+>[!NOTE]
+>Para dar suporte a clusters do mecanismo AKS, verifique se ele atende ao seguinte:
+>- Ele está usando a versão mais recente do [cliente Helm](https://helm.sh/docs/using_helm/).
+>- A versão do agente em contêiner é *Microsoft/OMS: ciprod11012019*. Para atualizar o agente, consulte [atualizando o agente no cluster kubernetes](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster).
+>
 
 ## <a name="overview"></a>Descrição geral
 
@@ -62,7 +68,7 @@ Para entender o comportamento e a configuração de cada monitor com suporte par
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com). 
+Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 ## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>Exibir a integridade de um cluster AKS ou não AKS
 

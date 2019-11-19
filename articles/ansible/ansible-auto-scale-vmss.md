@@ -3,17 +3,13 @@ title: Tutorial – conjuntos de dimensionamento de máquinas virtuais de dimens
 description: Saiba como usar o Ansible para dimensionar conjuntos de dimensionamento de máquinas virtuais com dimensionamento automático no Azure
 keywords: Ansible, Azure, DevOps, Bash, manual, escala, dimensionamento automático, máquina virtual, conjunto de dimensionamento de máquinas virtuais, vmss
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 784cb532c11b16c820336ceeaf8d38f0225c832f
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: fb8d2a4bfca32be4575ca8f11018e5cab17cd9a2
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242096"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156827"
 ---
 # <a name="tutorial-autoscale-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: dimensionamento automático de conjuntos de dimensionamento de máquinas virtuais no Azure usando Ansible
 
@@ -183,7 +179,7 @@ ansible-playbook vmss-auto-scale-metrics.yml
 
 ## <a name="get-autoscale-settings-information"></a>Obter informações de configurações de dimensionamento automático 
 
-O código do guia estratégico nesta seção usa o módulo `azure_rm_autoscale_facts` para recuperar os detalhes da configuração de dimensionamento automático.
+O código de guia estratégico nesta seção usa o módulo `azure_rm_autoscale_facts` para recuperar os detalhes da configuração de dimensionamento automático.
 
 Guarde o manual de procedimentos seguinte como `vmss-auto-scale-get-settings.yml`:
 
@@ -211,7 +207,7 @@ ansible-playbook vmss-auto-scale-get-settings.yml
 
 ## <a name="disable-autoscale-settings"></a>Desabilitar configurações de dimensionamento automático
 
-Há duas maneiras de desabilitar as configurações de dimensionamento automático. Uma delas é alterar a chave `enabled` de `true` para `false`. A segunda maneira é excluir a configuração.
+Há duas maneiras de desabilitar as configurações de dimensionamento automático. Uma delas é alterar a chave de `enabled` de `true` para `false`. A segunda maneira é excluir a configuração.
 
 O código do guia estratégico nesta seção exclui a configuração de dimensionamento automático. 
 

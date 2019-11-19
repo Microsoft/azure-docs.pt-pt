@@ -1,18 +1,14 @@
 ---
 title: Fazer backup de bancos de dados SQL Server no Azure
-description: Este tutorial explica como fazer backup de SQL Server no Azure. O artigo também explica SQL Server recuperação.
-author: dcurwin
-manager: carmonm
-ms.service: backup
-ms.topic: tutorial
+description: Este artigo explica como fazer backup de SQL Server no Azure. O artigo também explica SQL Server recuperação.
+ms.topic: conceptual
 ms.date: 06/18/2019
-ms.author: dacurwin
-ms.openlocfilehash: e5d24c35fd2fafc27f2339af5b1c92875b0138d9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 811f04edb4d5f0326d0af629146b7cee10424df8
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162213"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172652"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
@@ -24,7 +20,7 @@ Essa solução aproveita as APIs nativas do SQL para fazer backups de seus banco
 
 * Depois de especificar o SQL Server VM que você deseja proteger e consultar os bancos de dados nele, o serviço de backup do Azure instalará uma extensão de backup de carga de trabalho na VM pelo nome `AzureBackupWindowsWorkload` extensão.
 * Essa extensão consiste em um coordenador e um plug-in do SQL. Embora o coordenador seja responsável por disparar fluxos de trabalho para várias operações, como configurar backup, backup e restauração, o plug-in é responsável pelo fluxo de dados real.
-* Para poder descobrir bancos de dados nessa VM, o backup do Azure cria a conta `NT SERVICE\AzureWLBackupPluginSvc`. Essa conta é usada para backup e restauração e requer permissões de sysadmin do SQL. A conta `NT SERVICE\AzureWLBackupPluginSvc` é uma [conta de serviço virtual](https://docs.microsoft.com/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)e, portanto, não requer nenhum gerenciamento de senha. O backup do Azure aproveita a conta `NT AUTHORITY\SYSTEM` para a descoberta/consulta de banco de dados, portanto, essa conta precisa ser um logon público no SQL. Se você não criou a VM SQL Server do Azure Marketplace, você pode receber um erro **UserErrorSQLNoSysadminMembership**. Se isso ocorrer, [siga estas instruções](#set-vm-permissions).
+* Para poder descobrir bancos de dados nessa VM, o backup do Azure cria a conta `NT SERVICE\AzureWLBackupPluginSvc`. Essa conta é usada para backup e restauração e requer permissões de sysadmin do SQL. A conta de `NT SERVICE\AzureWLBackupPluginSvc` é uma [conta de serviço virtual](https://docs.microsoft.com/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)e, portanto, não requer nenhum gerenciamento de senha. O backup do Azure aproveita a conta de `NT AUTHORITY\SYSTEM` para a pesquisa/consulta de banco de dados, portanto, essa conta precisa ser um logon público no SQL. Se você não criou a VM SQL Server do Azure Marketplace, você pode receber um erro **UserErrorSQLNoSysadminMembership**. Se isso ocorrer, [siga estas instruções](#set-vm-permissions).
 * Depois de disparar configurar a proteção nos bancos de dados selecionados, o serviço de backup configura o coordenador com os agendamentos de backup e outros detalhes da política, que a extensão armazena em cache localmente na VM.
 * No horário agendado, o coordenador se comunica com o plug-in e começa a transmitir os dados de backup do SQL Server usando o VDI.  
 * O plug-in envia os dados diretamente para o cofre dos serviços de recuperação, eliminando assim a necessidade de um local de preparo. Os dados são criptografados e armazenados pelo serviço de backup do Azure nas contas de armazenamento.
@@ -64,7 +60,7 @@ Antes de começar, verifique o seguinte:
 * Você pode fazer backup de até **~ 2000** SQL Server bancos de dados em um cofre. Você pode criar vários cofres caso tenha um número maior de bancos de dados.
 * Você pode configurar o backup para até **50** bancos de dados em um só lugar; Essa restrição ajuda a otimizar os carregamentos de backup.
 * Damos suporte a bancos de dados de até **2 TB** de tamanho; para tamanhos maiores que isso, problemas de desempenho podem surgir.
-* Para ter uma noção de como muitos bancos de dados podem ser protegidos por servidor, precisamos considerar fatores como largura de banda, tamanho da VM, frequência de backup, tamanho do banco de dados, etc. [Baixe](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) o Resource Planner que fornece o número aproximado de bancos de dados que você pode ter por servidor com base nos recursos da VM e na política de backup.
+* Para ter uma noção de quantos bancos de dados podem ser protegidos por servidor, precisamos considerar fatores como largura de banda, tamanho da VM, frequência de backup, tamanho do banco de dados, etc. [Baixe](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) o Resource Planner que fornece o número aproximado de bancos de dados que você pode ter por servidor com base nos recursos da VM e na política de backup.
 * No caso de grupos de disponibilidade, os backups são obtidos dos diferentes nós com base em alguns fatores. O comportamento de backup de um grupo de disponibilidade é resumido abaixo.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Fazer backup do comportamento em caso de grupos de disponibilidade AlwaysOn
@@ -84,7 +80,7 @@ Dependendo dos tipos de preferência de backup e backups (completo/diferencial/l
     --- | ---
     Completo | Primária
     Diferencial | Primária
-    Registo |  Primária
+    Registar |  Primária
     Copiar somente completo |  Primária
 
 * **Preferência de backup: somente secundário**
@@ -93,7 +89,7 @@ Dependendo dos tipos de preferência de backup e backups (completo/diferencial/l
 --- | ---
 Completo | Primária
 Diferencial | Primária
-Registo |  Secundária
+Registar |  Secundária
 Copiar somente completo |  Secundária
 
 * **Preferência de backup: secundária**
@@ -102,7 +98,7 @@ Copiar somente completo |  Secundária
 --- | ---
 Completo | Primária
 Diferencial | Primária
-Registo |  Secundária
+Registar |  Secundária
 Copiar somente completo |  Secundária
 
 * **Nenhuma preferência de backup**
@@ -111,7 +107,7 @@ Copiar somente completo |  Secundária
 --- | ---
 Completo | Primária
 Diferencial | Primária
-Registo |  Secundária
+Registar |  Secundária
 Copiar somente completo |  Secundária
 
 ## <a name="set-vm-permissions"></a>Definir permissões de VM

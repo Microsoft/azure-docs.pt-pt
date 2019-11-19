@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c016ce349acdfff6145286d9fc07e08db4ed9516
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5a188349e15c5e4c486d37daed9f8b611a325dcf
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882821"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167326"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planejar sua implementação de junção de Azure Active Directory híbrida
 
@@ -93,7 +93,8 @@ Se seus dispositivos ingressados no domínio do Windows 10 forem [registrados no
 - Você pode impedir que o dispositivo ingressado no domínio seja registrado no Azure AD adicionando essa chave do registro-HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = DWORD: 00000001.
 - No Windows 10 1803, se você tiver o Windows Hello para empresas configurado, o usuário precisará reinstalar o Windows Hello para empresas após a limpeza do estado duplo. Esse problema foi resolvido com o KB4512509
 
-
+> [!NOTE]
+> O dispositivo registrado do Azure AD não será removido automaticamente se for gerenciado pelo Intune.
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Examinar a validação controlada do ingresso no Azure AD híbrido
 
@@ -147,10 +148,10 @@ A tabela a seguir fornece detalhes sobre o suporte para esses UPNs locais do AD 
 
 | Tipo de UPN local do AD | Tipo de domínio | Versão do Windows 10 | Descrição |
 | ----- | ----- | ----- | ----- |
-| Podem | Federado | Da versão 1703 | Disponível para o público geral |
-| Não roteável | Federado | Da versão 1803 | Disponível para o público geral |
-| Podem | Gerido | Da versão 1803 | Em geral, não há suporte para o SSPR do Azure AD na tela de bloqueio do Windows |
-| Não roteável | Gerido | Não suportado | |
+| Podem | Federado | Da versão 1703 | Disponível em geral |
+| Não roteável | Federado | Da versão 1803 | Disponível em geral |
+| Podem | Managed | Da versão 1803 | Em geral, não há suporte para o SSPR do Azure AD na tela de bloqueio do Windows |
+| Não roteável | Managed | Não suportado | |
 
 ## <a name="next-steps"></a>Passos seguintes
 

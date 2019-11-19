@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 4718ee7943b4130bb977d5eefeb82bb385c71835
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 27231dc25604e9031f0456d787530bf2a29616f7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332840"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167426"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
 
@@ -108,11 +108,11 @@ Veja como configurar manualmente os contadores de desempenho recomendados:
 3. Na seção **configurações** , selecione **Configurações avançadas**.
 4. Depois disso, navegue até **dados** > **contadores de desempenho do Windows** e adicione os seguintes contadores:
 
-    -   Disco lógico (\*) \%Free
-    -   LogicalDisk (C:) \\Avg. comprimento da fila de disco
-    -   Memória (\*) \\Available Mbytes
-    -   Informações do processador (\*) \\Processor tempo
-    -   Atraso de entrada do usuário por sessão (\*) @no__t-atraso de entrada-1Max
+    -   LogicalDisk (\*)\\% de espaço livre
+    -   LogicalDisk (C:)\\comprimento médio da fila de disco
+    -   Memória (\*)\\MBytes disponíveis
+    -   Informações do processador (\*)\\tempo do processador
+    -   Atraso de entrada do usuário por sessão (\*)\\atraso máximo de entrada
 
 Saiba mais sobre os contadores de desempenho em [fontes de dados de desempenho do Windows e do Linux no Azure monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
 
@@ -139,14 +139,14 @@ Para certificar-se de que seu espaço de trabalho Log Analytics tem os contadore
 
 1. Na [portal do Azure](https://portal.azure.com/), acesse **log Analytics espaços de trabalho** para examinar os contadores de desempenho do Windows configurados.
 2. Em **configurações**, selecione **Configurações avançadas**.
-3. Depois disso, vá para **dados** > **contadores de desempenho do Windows**.
+3. Depois disso, acesse **dados** > **contadores de desempenho do Windows**.
 4. Verifique se os seguintes contadores estão pré-configurados:
 
-   - LogicalDisk (\*) \%Free: exibe a quantidade de espaço livre do total de espaço utilizável no disco como uma porcentagem.
-   - LogicalDisk (C:) \\Avg. comprimento da fila de disco: o comprimento da solicitação de transferência de disco para a unidade C. O valor não deve exceder 2 por mais de um curto período de tempo.
-   - Memória (\*) \\Available Mbytes: a memória disponível para o sistema em megabytes.
-   - Informações do processador (\*) \\Processor tempo: a porcentagem de tempo decorrido que o processador gasta para executar um thread não ocioso.
-   - Atraso de entrada do usuário por sessão (\*) @no__t-atraso de entrada-1Max
+   - LogicalDisk (\*)\\% de espaço livre: exibe a quantidade de espaço livre do total de espaço utilizável no disco como uma porcentagem.
+   - LogicalDisk (C:)\\tamanho médio da fila de disco: o comprimento da solicitação de transferência de disco para a unidade C. O valor não deve exceder 2 por mais de um curto período de tempo.
+   - Memória (\*)\\MBytes disponíveis: a memória disponível para o sistema em megabytes.
+   - Informações do processador (\*)\\tempo do processador: a porcentagem de tempo decorrido que o processador gasta para executar um thread não ocioso.
+   - Atraso de entrada do usuário por sessão (\*)\\atraso máximo de entrada
 
 ### <a name="connect-to-vms-in-your-log-analytics-workspace"></a>Conectar-se a VMs em seu espaço de trabalho Log Analytics
 
@@ -189,7 +189,7 @@ Para definir o URI de redirecionamento:
 
    ![A página URI de redirecionamento](media/redirect-uri-page.png)
 
-8. Agora, vá para os recursos do Azure, selecione o recurso serviços de Azure App com o nome fornecido no modelo e navegue até a URL associada a ele. (Por exemplo, se o nome do aplicativo usado no modelo foi `contosoapp45`, a URL associada será <https://contosoapp45.azurewebsites.net>).
+8. Agora, vá para os recursos do Azure, selecione o recurso serviços de Azure App com o nome fornecido no modelo e navegue até a URL associada a ele. (Por exemplo, se o nome do aplicativo usado no modelo foi `contosoapp45`, a URL associada é <https://contosoapp45.azurewebsites.net>).
 9. Entre usando a conta de usuário do Azure Active Directory apropriada.
 10.   Selecione **Aceitar**.
 
@@ -234,25 +234,25 @@ Você também pode interagir com os usuários no host da sessão:
 
 ### <a name="windows-performance-counter-thresholds"></a>Limites do contador de desempenho do Windows
 
-- LogicalDisk (\*) \|% de espaço livre:
+- LogicalDisk (\*)\\% de espaço livre:
 
     - Exibe o percentual do total de espaço utilizável no disco lógico que é gratuito.
     - Limite: menos de 20% está marcado como não íntegro.
 
-- LogicalDisk (C:) \\Avg. comprimento da fila de disco:
+- LogicalDisk (C:)\\comprimento médio da fila de disco:
 
     - Representa as condições do sistema de armazenamento.
     - Limite: maior que 5 é marcado como não íntegro.
 
-- Memória (\*) \\Available Mbytes:
+- Memória (\*)\\MBytes disponíveis:
 
     - A memória disponível para o sistema.
     - Limite: menos de 500 megabytes marcados como não íntegros.
 
-- Informações do processador (\*) \\Processor tempo:
+- Informações do processador (\*)\\tempo do processador:
 
     - Limite: maior que 80% é marcado como não íntegro.
 
-- [Atraso de entrada do usuário por sessão (\*) @no__t-atraso de entrada-2max](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
+- [Atraso de entrada do usuário por sessão (\*)\\atraso de entrada máximo](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
     - Limite: maior que 2000 MS é marcado como não íntegro.

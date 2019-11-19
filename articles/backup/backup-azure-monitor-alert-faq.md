@@ -1,19 +1,15 @@
 ---
-title: Perguntas frequentes de alerta de monitoramento de backup do Azure
+title: Perguntas frequentes sobre monitoramento de alertas e relatórios
 description: Neste artigo, descubra respostas para perguntas comuns sobre o alerta de monitoramento de backup do Azure e os relatórios de backup do Azure.
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: dacurwin
-ms.openlocfilehash: dc0225092d23371ca97dfedd48a2d3ffcf85a9be
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 9cf7bf49d29b5faa9811a591b45179fe83c1d483
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747391"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172917"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitoramento do backup do Azure-perguntas frequentes
 

@@ -3,17 +3,13 @@ title: Tutorial – configurar caches no cache do Azure para Redis usando o Ansi
 description: Saiba como usar o Ansible para criar, dimensionar, reinicializar e adicionar uma regra de firewall ao cache do Azure para Redis
 keywords: Ansible, Azure, DevOps, Bash, manual, cache, Redis
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 95b42bc9539c36a533eb528c3c26ade89e99290b
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 2ef36ee9e3601d77bfa114b903f6a75b5874b158
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614369"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156505"
 ---
 # <a name="tutorial-configure-caches-in-azure-cache-for-redis-using-ansible"></a>Tutorial: configurar caches no cache do Azure para Redis usando o Ansible
 

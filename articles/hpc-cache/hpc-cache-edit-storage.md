@@ -6,14 +6,14 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: rohogue
-ms.openlocfilehash: 757fbc166687110b9061ab95e96b0182e0ad3774
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 115e75c0149a35104d9c3696710bf8231a98743d
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622771"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168511"
 ---
-# <a name="edit-storage-targets"></a>Editar destinos de armazenamento
+# <a name="edit-storage-targets"></a>Adicionar destinos de armazenamento
 
 Você pode editar os destinos de armazenamento para modificar algumas de suas propriedades. Propriedades diferentes são editáveis para um tipo diferente de armazenamento:
 
@@ -47,7 +47,7 @@ Depois de fazer alterações, clique em **OK** para atualizar o destino de armaz
 
 ## <a name="update-an-azure-blob-storage-target"></a>Atualizar um destino de armazenamento de BLOBs do Azure
 
-A página de detalhes de um destino de armazenamento de BLOBs permite modificar o caminho do namespace virtual. 
+A página de detalhes de um destino de armazenamento de BLOBs permite modificar o caminho do namespace virtual.
 
 ![captura de tela da página de edição de um destino de armazenamento de BLOBs](media/hpc-cache-edit-storage-blob.png)
 

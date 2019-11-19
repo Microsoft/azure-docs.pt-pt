@@ -4,14 +4,14 @@ description: Como criar uma instância de cache do HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 11/11/2019
 ms.author: rohogue
-ms.openlocfilehash: 1b9d2d3c46aab2096dd9208e0bea7f7776c0e429
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 07aba1b1536635e414fc5fab4ece148683909188
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582714"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168554"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Criar um cache HPC do Azure
 
@@ -64,6 +64,7 @@ A criação do cache leva cerca de 10 minutos. Você pode acompanhar o progresso
 ![captura de tela das páginas "implantação em andamento" e "notificações" de criação de cache no portal](media/hpc-cache-deploy-status.png)
 
 Quando a criação for concluída, uma notificação será exibida com um link para a nova instância de cache do Azure HPC e o cache aparecerá na lista de **recursos** da sua assinatura.
+<!-- double check on notification -->
 
 ![captura de tela da instância de cache do HPC do Azure no portal do Azure](media/hpc-cache-new-overview.png)
 

@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: ekpgh
   ms.author: rohogue
-  ms.date: 10/30/2019
-  ms.openlocfilehash: 5bccf917762845df962e5bbb35b597739bae6d2e
-  ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+  ms.date: 11/07/2019
+  ms.openlocfilehash: 07a161066cdea57d42050986bc9e16d98a9310a6
+  ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/05/2019
-  ms.locfileid: "73620175"
+  ms.lasthandoff: 11/19/2019
+  ms.locfileid: "74166504"
 landingContent:
 - title: Acerca do Azure HPC Cache
   linkLists:
@@ -51,6 +51,8 @@ landingContent:
       url: hpc-cache-support-ticket.md
     - text: Editar um destino de armazenamento
       url: hpc-cache-edit-storage.md
+    - text: Contornar as definições de firewall para criar destinos de armazenamento de blobs
+      url: hpc-cache-blob-firewall-fix.md
   - linkListType: concept
     links:
     - text: Recuperar de uma falha regional

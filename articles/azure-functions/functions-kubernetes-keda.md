@@ -8,22 +8,22 @@ manager: jeconnoc
 keywords: Azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor, kubernetes
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 8e07032f84ead4bb003176af84cb4c731819ffa4
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 0b77946b24bcc2e329a5c4480e9bd5ef055ef82b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900057"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173692"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions em kubernetes com KEDA
 
-O tempo de execução de Azure Functions fornece flexibilidade na Hospedagem de onde e como você deseja.  Os pares de [Keda](https://github.com/kedacore/kore) (dimensionamento automático controlado por eventos baseados em kubernetes) diretamente com o tempo de execução Azure Functions e ferramentas para fornecer escala controlada por evento em kubernetes.
+O tempo de execução de Azure Functions fornece flexibilidade na Hospedagem de onde e como você deseja.  Os pares de [Keda](https://keda.sh) (dimensionamento automático controlado por eventos baseados em kubernetes) diretamente com o tempo de execução Azure Functions e ferramentas para fornecer escala controlada por evento em kubernetes.
 
 ## <a name="how-kubernetes-based-functions-work"></a>Como funcionam as funções baseadas em kubernetes
 
-O serviço de Azure Functions é composto por dois componentes principais: um tempo de execução e um controlador de escala.  O tempo de execução do Functions é executado e executa seu código.  O tempo de execução inclui a lógica sobre como disparar, registrar e gerenciar execuções de função.  O outro componente é um controlador de escala.  O controlador de escala monitora a taxa de eventos que estão direcionando sua função e dimensiona de forma proativa o número de instâncias que executam seu aplicativo.  Para saber mais, consulte [Azure Functions escala e hospedagem](functions-scale.md).
+O serviço de Azure Functions é composto por dois componentes principais: um tempo de execução e um controlador de escala.  O tempo de execução do Functions é executado e executa seu código.  O tempo de execução inclui a lógica sobre como disparar, registrar e gerenciar execuções de função.  O tempo de execução do Azure Functions pode ser executado *em qualquer lugar*.  O outro componente é um controlador de escala.  O controlador de escala monitora a taxa de eventos que estão direcionando sua função e dimensiona de forma proativa o número de instâncias que executam seu aplicativo.  Para saber mais, consulte [Azure Functions escala e hospedagem](functions-scale.md).
 
 As funções baseadas em kubernetes fornecem o tempo de execução de funções em um [contêiner do Docker](functions-create-function-linux-custom-image.md) com dimensionamento controlado por eventos por meio de Keda.  KEDA pode reduzir verticalmente para 0 instâncias (quando nenhum evento está ocorrendo) e até *n* instâncias. Ele faz isso expondo métricas personalizadas para o kubernetes AutoScaler (dimensionamento de escala horizontal).  O uso de contêineres de funções com KEDA torna possível replicar recursos de função sem servidor em qualquer cluster kubernetes.  Essas funções também podem ser implantadas usando o recurso de [nós virtuais do AKS (serviços Kubernetess do Azure)](../aks/virtual-nodes-cli.md) para a infraestrutura sem servidor.
 
@@ -86,14 +86,19 @@ func kubernetes remove --namespace keda
 
 ## <a name="supported-triggers-in-keda"></a>Gatilhos com suporte no KEDA
 
-O KEDA está atualmente em beta com suporte para os seguintes gatilhos de função do Azure:
+O KEDA tem suporte para os seguintes gatilhos de função do Azure:
 
 * [Filas do armazenamento do Azure](functions-bindings-storage-queue.md)
 * [Filas do barramento de serviço do Azure](functions-bindings-service-bus.md)
-* [HTTP](functions-bindings-http-webhook.md)
+* [Hub IoT/evento do Azure](functions-bindings-event-hubs.md)
 * [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
+* [RabbitMQ fila](https://github.com/azure/azure-functions-rabbitmq-extension)
 
-## <a name="next-steps"></a>Próximos Passos
+### <a name="http-trigger-support"></a>Suporte a gatilho HTTP
+
+Você pode usar Azure Functions que expõem gatilhos HTTP, mas KEDA não os gerencia diretamente.  O Azure Functions Core Tools instalará um projeto relacionado, Osiris, que permite o dimensionamento de pontos de extremidade HTTP de 0 para 1.  O dimensionamento de 1 para *n* dependerá das políticas tradicionais de dimensionamento de kubernetes.
+
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte os seguintes recursos:
 
 * [Criar uma função usando uma imagem personalizada](functions-create-function-linux-custom-image.md)

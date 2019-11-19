@@ -1,21 +1,15 @@
 ---
-title: 'Backup do Azure: monitorar cargas de trabalho protegidas de backup do Azure'
+title: Monitorar cargas de trabalho protegidas do backup do Azure
 description: Neste artigo, saiba mais sobre os recursos de monitoramento e notificação para cargas de trabalho de backup do Azure usando o portal do Azure.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Backup do Azure; Alertas
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
-ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: cd9e4e14771744b6275bb1dfe0a96bbef475a123
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: ea5102a95a9bef17f25219e00dec4654bf7f06d6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090963"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172869"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorando cargas de trabalho de backup do Azure
 
@@ -63,7 +57,7 @@ Há algumas exceções quando um alerta não é gerado em uma falha, eles são:
 
 As exceções acima foram projetadas desde a compreensão de que o resultado dessas operações (basicamente disparados pelo usuário) aparece imediatamente em clientes do portal/PS/CLI. Portanto, o usuário reconhece imediatamente e não precisa de uma notificação.
 
-### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Os alertas das seguintes soluções de backup do Azure são mostrados aqui:
+### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Os alertas das seguintes soluções de backup do Azure são mostrados aqui
 
 - Cópias de segurança de VMs do Azure
 - Cópias de segurança dos Ficheiros do Azure
@@ -73,7 +67,7 @@ As exceções acima foram projetadas desde a compreensão de que o resultado des
 > [!NOTE]
 > Os alertas do System Center Data Protection Manager (SC-DPM), Backup do Microsoft Azure Server (MABS) não são exibidos aqui.
 
-### <a name="alert-types"></a>Tipos de alerta
+### <a name="alert-types"></a>Tipos de alertas
 
 Com base na severidade do alerta, os alertas podem ser definidos em três tipos:
 

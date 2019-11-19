@@ -1,21 +1,15 @@
 ---
-title: 'Backup do Azure: fazer backup de VMs do Azure usando a API REST'
+title: Fazer backup de VMs do Azure usando a API REST
 description: Neste artigo, saiba como configurar, iniciar e gerenciar operações de backup do backup de VM do Azure usando a API REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API REST; Backup de VM do Azure; Restauração de VM do Azure;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 6f64f45aca6948665c088279002d3d8054ef8d80
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c929f820862f5d041b4a63a1ca9c083abf1a1e4c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929176"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173451"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Fazer backup de uma VM do Azure usando o backup do Azure via API REST
 
@@ -41,7 +35,7 @@ O URI de POSTAgem tem `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupNam
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Respostas
+#### <a name="responses"></a>Responses
 
 A operação ' refresh ' é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que essa operação cria outra operação que precisa ser controlada separadamente.
 
@@ -157,14 +151,14 @@ X-Powered-By: ASP.NET
 
 A resposta contém a lista de todas as VMs do Azure desprotegidas e cada `{value}` contém todas as informações exigidas pelo serviço de recuperação do Azure para configurar o backup. Para configurar o backup, observe o campo `{name}` e o campo `{virtualMachineId}` na seção `{properties}`. Construa duas variáveis com base nesses valores de campo, conforme mencionado abaixo.
 
-- ContainerName = "iaasvmcontainer;" +`{name}`
-- protectedItemName = "VM;" + `{name}`
+- containerName = "iaasvmcontainer;"+`{name}`
+- protectedItemName = "vm;"+ `{name}`
 - `{virtualMachineId}` é usado posteriormente no [corpo da solicitação](#example-request-body)
 
 No exemplo, os valores acima são convertidos em:
 
-- ContainerName = "iaasvmcontainer; iaasvmcontainerv2; testRG; testVM"
-- protectedItemName = "VM; iaasvmcontainerv2; testRG; testVM"
+- containerName = "iaasvmcontainer;iaasvmcontainerv2;testRG;testVM"
+- protectedItemName = "vm;iaasvmcontainerv2;testRG;testVM"
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Habilitando a proteção para a VM do Azure
 
@@ -208,7 +202,7 @@ O corpo da solicitação a seguir define as propriedades necessárias para criar
 
 O `{sourceResourceId}` é o `{virtualMachineId}` mencionado acima da [resposta da lista de itens protegíveis](#example-responses-1).
 
-#### <a name="responses"></a>Respostas
+#### <a name="responses"></a>Responses
 
 A criação de um item protegido é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que essa operação cria outra operação que precisa ser controlada separadamente.
 
@@ -319,7 +313,7 @@ O corpo da solicitação a seguir define as propriedades necessárias para dispa
 }
 ```
 
-### <a name="responses"></a>Respostas
+### <a name="responses"></a>Responses
 
 Disparar um backup sob demanda é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que essa operação cria outra operação que precisa ser controlada separadamente.
 

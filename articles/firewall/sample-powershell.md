@@ -1,31 +1,28 @@
 ---
-title: Exemplos de Firewall do Azure
-description: Exemplos do PowerShell de Firewall do Azure
+title: Exemplos de firewall do Azure
+description: Este artigo inclui links para Azure PowerShell exemplos de script que criam firewalls do Azure.
 services: firewall
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
 ms.service: firewall
 ms.topic: article
-ms.date: 7/11/2018
+ms.date: 11/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3dd751c5dd4edbc2c132859f142ef927e63298bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5e4fab3d632bca6eb62f1233f681a3611d7ccddf
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64691899"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168715"
 ---
-# <a name="azure-firewall-powershell-samples"></a>Exemplos do Azure PowerShell de Firewall
+# <a name="azure-firewall-powershell-samples"></a>Exemplos do PowerShell do firewall do Azure
 
-A tabela seguinte inclui ligações para exemplos de script do Azure PowerShell que criam firewalls:
+A tabela a seguir inclui links para Azure PowerShell exemplos de script que criam firewalls:
 
 
 | | |
 |----|----|
-|[Criar uma infraestrutura de Firewall do Azure e teste](scripts/sample-create-firewall-test.md)|Cria uma Firewall do Azure e uma infraestrutura de rede de teste.|
+|[Criar um firewall do Azure e testar a infraestrutura](scripts/sample-create-firewall-test.md)|Cria um firewall do Azure e uma infraestrutura de rede de teste.|
 
 
 

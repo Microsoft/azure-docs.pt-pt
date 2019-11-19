@@ -1,17 +1,14 @@
 ---
 title: Tutorial-testar módulos do Terraform no Azure usando o Terratest
 description: Saiba como utilizar o Terratest para testar os seus módulos do Terraform.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: bdb76fe2f87806c02a861ea84361b61a3e94b554
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 41f7f9c00f626cf622ea781f01da6db1f46cd805
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969224"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158956"
 ---
 # <a name="tutorial-test-terraform-modules-in-azure-using-terratest"></a>Tutorial: testar módulos do Terraform no Azure usando o Terratest
 
@@ -326,7 +323,7 @@ Usamos as funções Terratest e Classic Test do Go novamente no arquivo de teste
 
 Diferentemente dos testes de unidade, os testes de integração criam recursos reais no Azure. É por isso que você precisa ter cuidado para evitar conflitos de nomenclatura. (Preste atenção especial a alguns nomes globalmente exclusivos, como nomes de conta de armazenamento.) Portanto, a primeira etapa da lógica de teste é gerar um `websiteName` aleatório usando a função `UniqueId()` fornecida pelo Terratest. Essa função gera um nome aleatório que tem letras minúsculas, letras maiúsculas ou números. `tfOptions` faz todos os comandos Terraform que se destinam à pasta `./examples/hello-world/`. Ele também verifica se `website_name` está definido para o `websiteName`aleatório.
 
-Em seguida, são executados `terraform init`, `terraform apply` e `terraform output`, um a um. Usamos outra função auxiliar, `HttpGetWithCustomValidation()`, que é fornecida pelo Terratest. Usamos a função auxiliar para garantir que o HTML seja carregado na URL de `homepage` de saída retornada pelo `terraform output`. Comparamos o código de status HTTP GET com `200` e procuramos algumas palavras-chave no conteúdo HTML. Por fim, é “prometido” que se tira partido da funcionalidade `defer` do Go para executar `terraform destroy`.
+Em seguida, são executados `terraform init`, `terraform apply` e `terraform output`, um a um. Usamos outra função auxiliar, `HttpGetWithCustomValidation()`, que é fornecida pelo Terratest. Usamos a função auxiliar para garantir que o HTML seja carregado na URL de `homepage` de saída retornada pelo `terraform output`. Comparamos o código de status HTTP GET com `200` e procuramos algumas palavras-chave no conteúdo HTML. Por fim, é “prometido” que se tira partido da funcionalidade `terraform destroy` do Go para executar `defer`.
 
 ```go
 package test

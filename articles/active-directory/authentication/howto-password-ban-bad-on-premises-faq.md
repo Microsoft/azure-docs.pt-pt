@@ -4,19 +4,19 @@ description: Perguntas frequentes sobre proteção de senha do Azure AD local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c2e737360d6b1eeb8df28a95b8c36d4cca80ee4
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 473fe43bb4cf18c61f30d9b7e057da888dc6da62
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71268658"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167915"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Proteção por senha do Azure AD local – perguntas frequentes
 
@@ -101,7 +101,7 @@ Não. Como o servidor proxy não tem estado, não é importante qual servidor pr
 
 Sim. O serviço proxy de proteção de senha do Azure AD e Azure AD Connect nunca devem entrar em conflito diretamente entre si.
 
-Infelizmente, uma incompatibilidade foi encontrada entre a versão do serviço do atualizador do agente do Microsoft Azure AD Connect que é instalado pelo software de proxy de proteção de senha do Azure AD e a versão do serviço que é instalada pelo [Azure active ](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy)Software de proxy de aplicativo de diretório. Essa incompatibilidade pode fazer com que o serviço atualizador do agente não consiga contatar o Azure para atualizações de software. Não é recomendável instalar o proxy de proteção de senha do Azure AD e Proxy de Aplicativo do Azure Active Directory no mesmo computador.
+Infelizmente, uma incompatibilidade foi encontrada entre a versão do serviço do atualizador do agente do Microsoft Azure AD Connect que é instalado pelo software de proxy de proteção de senha do Azure AD e a versão do serviço que é instalada pelo software [proxy de aplicativo do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) . Essa incompatibilidade pode fazer com que o serviço atualizador do agente não consiga contatar o Azure para atualizações de software. Não é recomendável instalar o proxy de proteção de senha do Azure AD e Proxy de Aplicativo do Azure Active Directory no mesmo computador.
 
 **P: em que ordem os agentes de DC e os proxies serão instalados e registrados?**
 
@@ -113,7 +113,7 @@ O serviço de agente de DC de proteção de senha do Azure AD não deve afetar s
 
 Para a maioria das implantações Active Directory as operações de alteração de senha são uma pequena proporção da carga de trabalho geral em qualquer controlador de domínio específico. Como exemplo, imagine um domínio Active Directory com contas de usuário 10000 e uma política MaxPasswordAge definida como 30 dias. Em média, esse domínio verá 10000/30 = ~ 333 operações de alteração de senha por dia, que é um número secundário de operações para até mesmo um único controlador de domínio. Considere um possível cenário de pior caso: Suponha que essas ~ 333 alterações de senha em um único controlador de domínio tenham sido feitas em uma única hora. Por exemplo, esse cenário pode ocorrer quando muitos funcionários têm que trabalhar em uma manhã de segunda-feira. Mesmo nesse caso, ainda estamos olhando aproximadamente 333/60 minutos = seis alterações de senha por minuto, que novamente não é uma carga significativa.
 
-No entanto, se os controladores de domínio atuais já estiverem sendo executados em níveis de desempenho limitado (por exemplo, maximizado em relação à CPU, espaço em disco, e/s de disco, etc.), é aconselhável adicionar outros controladores de domínio ou expandir o espaço disponível em disco, antes Implantando esse recurso. Consulte também a pergunta acima sobre o uso do espaço em disco do SYSVOL acima.
+No entanto, se os controladores de domínio atuais já estiverem sendo executados em níveis de desempenho limitado (por exemplo, maximizado em relação à CPU, espaço em disco, e/s de disco, etc.), é aconselhável adicionar outros controladores de domínio ou expandir o espaço em disco disponível antes de implantar esse recurso. Consulte também a pergunta acima sobre o uso do espaço em disco do SYSVOL acima.
 
 **P: quero testar a proteção de senha do Azure AD em apenas alguns DCs em meu domínio. É possível forçar as alterações de senha do usuário para usar esses DCs específicos?**
 

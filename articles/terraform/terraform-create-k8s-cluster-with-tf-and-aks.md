@@ -1,17 +1,14 @@
 ---
 title: Tutorial-criar um cluster kubernetes com o AKS (serviço kubernetes do Azure) usando o Terraform
 description: Tutorial que demonstra como criar um Cluster do Kubernetes com o Azure Kubernetes Service e Terraform
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 1bfeef729bdb3f07fe2cc64cee4fd4f27c49ef67
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 792c075cfb40eb4904a30b63e9902a59ceda9bc1
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833614"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159293"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Tutorial: criar um cluster kubernetes com o serviço kubernetes do Azure usando o Terraform
 
@@ -30,7 +27,7 @@ Neste tutorial, você aprenderá a executar as seguintes tarefas:
 
 - **Configurar o Terraform**: Siga as instruções no artigo [Terraform e configuração do acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Principal de serviço do Azure**: siga as instruções na secção **Criar o principal de serviço** no artigo [Criar um principal de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Tome nota dos valores de appId, displayName, password e tenant.
+- **Principal de serviço do Azure**: siga as instruções na secção **Criar o principal de serviço** no artigo [Criar um principal de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Tome nota dos valores para appId, displayName, password, e tenant.
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 
@@ -42,7 +39,7 @@ O primeiro passo é criar o diretório que mantenha os seus ficheiros de configu
 
     ![Comandos do Cloud Shell](./media/terraform-create-k8s-cluster-with-tf-and-aks/azure-portal-cloud-shell-button-min.png)
 
-1. Mude para o diretório `clouddrive`.
+1. Altere os diretórios para o diretório `clouddrive`.
 
     ```bash
     cd clouddrive
@@ -395,7 +392,7 @@ As ferramentas do Kubernetes podem ser utilizadas para verificar o cluster acaba
 
 Quando o cluster do AKS foi criado, a monitorização foi ativada para capturar métricas de estado de funcionamento dos nós do cluster e dos pods. Estas métricas de estado de funcionamento estão disponíveis no portal do Azure. Para obter mais informações sobre o monitoramento de integridade do contêiner, consulte [monitorar a integridade do serviço kubernetes do Azure](/azure/azure-monitor/insights/container-insights-overview).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
 > [Saiba mais sobre como usar o Terraform no Azure](/azure/terraform)

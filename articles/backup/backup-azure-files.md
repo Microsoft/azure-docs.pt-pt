@@ -1,18 +1,14 @@
 ---
 title: Fazer backup e restaurar compartilhamentos de arquivos do Azure
 description: Este artigo apresenta detalhes sobre como fazer cópias de segurança e restaurar as partilhas de ficheiros do Azure e explica as tarefas de gestão.
-author: dcurwin
-ms.author: dacurwin
 ms.date: 07/29/2019
-ms.topic: tutorial
-ms.service: backup
-manager: carmonm
-ms.openlocfilehash: 6f1a793432fa6403639726dbe4340bae6804fb9f
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.topic: conceptual
+ms.openlocfilehash: 59dd46c42cdf94f06709d95f68cfb8d8693b9cce
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091101"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173083"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Criar cópias de segurança e restaurar partilhas de ficheiros do Azure
 
@@ -47,7 +43,7 @@ O backup para compartilhamentos de arquivos do Azure está em versão prévia. H
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Configurar cópia de segurança de uma partilha de ficheiros do Azure
 
-Este tutorial parte do princípio que já estabeleceu uma partilha de ficheiros do Azure. Para criar cópias de segurança da partilha de ficheiros do Azure:
+Este artigo pressupõe que você já estabeleceu um compartilhamento de arquivos do Azure. Para criar cópias de segurança da partilha de ficheiros do Azure:
 
 1. Crie um cofre dos Serviços de Recuperação na mesma região que a partilha de ficheiros. Se já tiver um cofre, abra a página de Descrição geral do cofre e clique em **Cópia de segurança**.
 
@@ -123,7 +119,7 @@ Pode executar várias tarefas de gestão para Cópias de segurança de partilhas
 * [Retomar a proteção numa partilha de ficheiros](backup-azure-files.md#resume-protection-for-azure-file-share)
 * [Eliminar dados de cópia de segurança](backup-azure-files.md#delete-backup-data)
 
-### <a name="monitor-jobs"></a>Monitorizar tarefas
+### <a name="monitor-jobs"></a>Monitorizar trabalhos
 
 Pode monitorizar o progresso de todas as tarefas na página **Tarefas de Cópia de Segurança**.
 

@@ -1,17 +1,14 @@
 ---
 title: Tutorial-criar um conjunto de dimensionamento de máquinas virtuais do Azure por meio de uma imagem personalizada do empacotador usando Terraform
 description: Utilize o Terraform para configurar e criar a versão de um conjunto de dimensionamento de máquinas virtuais do Azure a partir de uma imagem personalizada gerada pelo Packer (incluindo uma rede virtual e discos anexados geridos).
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 7d2813a51e63d86b56712bb6d07efc2f65ec65a0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 9d149a28f82100715035f435de56ff134ca685f5
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077818"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159280"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image-by-using-terraform"></a>Tutorial: criar um conjunto de dimensionamento de máquinas virtuais do Azure por meio de uma imagem personalizada do empacotador usando Terraform
 

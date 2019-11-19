@@ -1,19 +1,14 @@
 ---
 title: Fazer backup de cargas de trabalho SQL Server em Azure Stack
 description: Neste artigo, saiba como configurar o servidor de Backup do Microsoft Azure (MABS) para proteger SQL Server bancos de dados no Azure Stack.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.author: dacurwin
-ms.openlocfilehash: 397de7d1de9acc657fa0fd0cb93bd6e26e5606e2
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 03211e1147f96429a8406c4c95654161ed2bf308
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090897"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172317"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Fazer backup de SQL Server em Azure Stack
 
@@ -99,7 +94,7 @@ O gerenciamento do backup de SQL Server banco de dados no Azure e na recuperaç�
 
 12. Escolha o agendamento da política de retenção. Os detalhes sobre como a política de retenção funciona são fornecidos em [usar o backup do Azure para substituir o artigo de infraestrutura de fita](backup-azure-backup-cloud-as-tape.md).
 
-    ![Política de Retenção](./media/backup-azure-backup-sql/pg-retentionschedule.png)
+    ![Política de retenção](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     Neste exemplo:
 

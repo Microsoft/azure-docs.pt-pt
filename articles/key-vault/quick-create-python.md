@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 3be246402c4acd63aee3518f2333d50ec307e9c0
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: b8a6099bb4beb7a3c3b6b132584dcb397f69ead5
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648224"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158690"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>Início rápido: biblioteca de cliente Azure Key Vault para Python
 
@@ -53,7 +53,7 @@ pip install azure.identity
 
 ### <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e um cofre de chaves
 
-Este guia de início rápido usa um cofre de chaves do Azure criado previamente. Você pode criar um cofre de chaves seguindo as etapas na guia de início rápido [CLI do Azure](quick-create-cli.md), guia de início rápido [Azure PowerShell](quick-create-powershell.md)ou [portal do Azure início rápido](quick-create-portal.md). Como alternativa, você pode simplesmente executar os comandos de CLI do Azure abaixo.
+Este guia de início rápido usa um cofre de chaves do Azure criado previamente. Você pode criar um cofre de chaves seguindo as etapas na guia de início rápido [CLI do Azure](quick-create-cli.md), guia de início rápido [Azure PowerShell](quick-create-powershell.md)ou [portal do Azure início rápido](quick-create-portal.md). Como alternativa, você pode executar os comandos de CLI do Azure abaixo.
 
 > [!Important]
 > Cada cofre de chaves deve ter um nome exclusivo. Substitua < seu-Unique-keyvault-Name > pelo nome do seu cofre de chaves nos exemplos a seguir.
@@ -103,7 +103,7 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-se
 
 #### <a name="set-environmental-variables"></a>Definir variáveis de ambiente
 
-O método DefaultAzureCredential em nosso aplicativo depende de três variáveis ambientais: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`e `AZURE_TENANT_ID`. Defina essas variáveis para os valores clientId, clientSecret e tenantid que você anotou na etapa [criar uma entidade de serviço](#create-a-service-principal) usando o formato `export VARNAME=VALUE`. (Isso define apenas as variáveis para o shell atual e os processos criados a partir do Shell; para adicionar permanentemente essas variáveis ao seu ambiente, edite seu arquivo de `/etc/environment `.) 
+O método DefaultAzureCredential em nosso aplicativo depende de três variáveis ambientais: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`e `AZURE_TENANT_ID`. Defina essas variáveis para os valores clientId, clientSecret e tenantid que você anotou na etapa [criar uma entidade de serviço](#create-a-service-principal) usando o formato `export VARNAME=VALUE`. (Esse método define apenas as variáveis para o shell atual e os processos criados a partir do Shell; para adicionar permanentemente essas variáveis ao seu ambiente, edite seu arquivo de `/etc/environment `.) 
 
 Você também precisará salvar o nome do cofre de chaves como uma variável de ambiente chamada `KEY_VAULT_NAME`.
 
@@ -147,7 +147,7 @@ client = SecretClient(vault_endpoint=KVUri, credential=credential)
 
 ### <a name="save-a-secret"></a>Salvar um segredo
 
-Agora que seu aplicativo está autenticado, você pode colocar um segredo em seu cofre de chaves usando o [cliente. Método setsecret](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) requer um nome para o segredo – estamos usando "MySecret" neste exemplo.  
+Agora que seu aplicativo está autenticado, você pode colocar um segredo em seu cofre de chaves usando o cliente. Método setsecret] (/dotNet/API/Microsoft.Azure.keyvault.keyvaultclientextensions.setsecretasync) requer um nome para o segredo – estamos usando "MySecret" neste exemplo.  
 
 ```python
 client.set_secret(secretName, secretValue);

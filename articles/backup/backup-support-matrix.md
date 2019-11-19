@@ -1,18 +1,14 @@
 ---
 title: Matriz de suporte do Azure Backup
 description: Fornece um resumo das configurações de suporte e limitações para o serviço de backup do Azure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.author: dacurwin
-ms.openlocfilehash: 5adcf252fed4ac94ae4261886b24eb087424bdbe
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 2c33c71e579cc6fa5d01ba086fb1a9a4fc9c142c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533140"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172074"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para o backup do Azure
 
@@ -108,7 +104,7 @@ O backup do Azure dá suporte à criptografia para dados em trânsito e em repou
     > [!WARNING]
     > Depois de configurar o cofre, somente você terá acesso à chave de criptografia. A Microsoft nunca mantém uma cópia e não tem acesso à chave. Se a chave estiver incorreta, a Microsoft não poderá recuperar os dados de backup.
 
-### <a name="data-security"></a>Segurança dos dados
+### <a name="data-security"></a>Segurança de dados
 
 - Quando estiver fazendo backup de VMs do Azure, você precisará configurar a criptografia *na* máquina virtual.
 - O Azure Backup suporta o Azure Disk Encryption, que utiliza o BitLocker nas máquinas virtuais do Windows e **dm-crypt** nas máquinas virtuais do Linux.
@@ -121,7 +117,7 @@ O backup do Azure dá suporte à criptografia para dados em trânsito e em repou
 **Máquinas Windows locais ou VMs do Azure com o DPM** | ![Sim][green] | ![Sim][green]
 **Máquinas Windows locais ou VMs do Azure com MABS** | ![Sim][green] | ![Sim][green]
 
-## <a name="compression-support"></a>Suporte à compactação
+## <a name="compression-support"></a>Suporte de compressão
 
 O backup dá suporte à compactação de tráfego de backup, conforme resumido na tabela a seguir.
 
@@ -130,8 +126,8 @@ O backup dá suporte à compactação de tráfego de backup, conforme resumido n
 
 **Tradução** | **Compactar para MABS/DPM (TCP)** | **Compactar para o cofre (HTTPS)**
 --- | --- | ---
-**Backup direto de máquinas locais do Windows** | N/D | ![Sim][green]
-**Backup de VMs do Azure usando a extensão de VM** | N/D | N/D
+**Backup direto de máquinas locais do Windows** | ND | ![Sim][green]
+**Backup de VMs do Azure usando a extensão de VM** | ND | ND
 **Backup em computadores locais/do Azure usando o MABS/DPM** | ![Sim][green] | ![Sim][green]
 
 ## <a name="retention-limits"></a>Limites de retenção

@@ -1,18 +1,18 @@
 ---
 title: Implantar o Firewall do Azure usando um modelo
-description: Implantar o Firewall do Azure usando um modelo
+description: Implante o Firewall do Azure usando um modelo. A rede criada tem uma VNet com três sub-redes. Duas máquinas virtuais de dois núcleos do Windows Server são implantadas.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/9/2018
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: c0a6cda54a58e3cc03ba31e221fb57fc725dd779
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b9e82998283bf44eede88148a12d88aae521b1ca
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839395"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169206"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Implantar o Firewall do Azure usando um modelo
 

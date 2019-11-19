@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 21a66b7389df64a776cdecb45c41de56d7d258e4
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 279d7f2ac6481f3aa3ebd8e5a18a52b9e52f6201
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606369"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169309"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Manipuladores de eventos na grade de eventos do Azure
 
@@ -36,6 +36,7 @@ Se utilizar as Funções do Azure como o processador, utilize o acionador do Eve
 
 |Título  |Descrição  |
 |---------|---------|
+| [Início rápido: manipular eventos com a função](custom-event-to-function.md) | Envia um evento personalizado para uma função para processamento. |
 | [Gatilho de grade de eventos para Azure Functions](../azure-functions/functions-bindings-event-grid.md) | Visão geral do uso do gatilho de grade de eventos no functions. |
 | [Tutorial: automatizar o redimensionamento de imagens carregadas usando a grade de eventos](resize-images-on-storage-blob-upload-event.md) | Os usuários carregam imagens por meio do aplicativo Web para a conta de armazenamento. Quando um blob de armazenamento é criado, a grade de eventos envia um evento para o aplicativo de funções, que redimensiona a imagem carregada. |
 | [Tutorial: transmitir Big Data para um data warehouse](event-grid-event-hubs-integration.md) | Quando os hubs de eventos criam um arquivo de captura, a grade de eventos envia um evento para um aplicativo de funções. O aplicativo recupera o arquivo de captura e migra os dados para um data warehouse. |
@@ -72,10 +73,15 @@ Use aplicativos lógicos para automatizar processos de negócios para responder 
 | [Tutorial: enviar notificações por email sobre eventos do Hub IoT do Azure usando aplicativos lógicos](publish-iot-hub-events-to-logic-apps.md) | Um aplicativo lógico envia um email de notificação toda vez que um dispositivo é adicionado ao Hub IoT. |
 | [Tutorial: exemplos de integração do barramento de serviço do Azure para a grade de eventos do Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | A grade de eventos envia mensagens do tópico do barramento de serviço para o aplicativo de funções e o aplicativo lógico. |
 
-## <a name="service-bus-queue"></a>Fila do Service Bus 
+## <a name="service-bus"></a>Service Bus
+
+### <a name="service-bus-queues"></a>Filas do Service Bus
+
 Você pode rotear eventos na grade de eventos diretamente para filas do barramento de serviço para uso em buffer ou comando & cenários de controle em aplicativos empresariais.
 
-### <a name="using-cli-to-add-a-service-bus-handler"></a>Usando a CLI para adicionar um manipulador de barramento de serviço
+Na portal do Azure, ao criar uma assinatura de evento, selecione "fila do barramento de serviço" como tipo de ponto de extremidade e clique em "selecionar e ponto de extremidade" para escolher uma fila do barramento de serviço.
+
+#### <a name="using-cli-to-add-a-service-bus-queue-handler"></a>Usando a CLI para adicionar um manipulador de fila do barramento de serviço
 
 Por CLI do Azure, o exemplo a seguir assina e conecta um tópico da grade de eventos a uma fila do barramento de serviço:
 
@@ -91,7 +97,29 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
 ```
 
-## <a name="queue-storage"></a>Armazenamento de Filas
+### <a name="service-bus-topics"></a>Tópicos do Service Bus
+
+Você pode rotear eventos na grade de eventos diretamente nos tópicos do barramento de serviço para manipular eventos do sistema do Azure com tópicos de barramento de serviço ou para cenários de & de mensagens de controle de comando.
+
+Na portal do Azure, ao criar uma assinatura de evento, selecione "tópico do barramento de serviço" como tipo de ponto de extremidade e clique em "selecionar e ponto de extremidade" para escolher um tópico do barramento de serviço.
+
+#### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>Usando a CLI para adicionar um manipulador de tópico do barramento de serviço
+
+Por CLI do Azure, o exemplo a seguir assina e conecta um tópico da grade de eventos a uma fila do barramento de serviço:
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+    --name <my-event-subscription> \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
+    --endpoint-type servicebustopic \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
+```
+
+## <a name="queue-storage"></a>Armazenamento de filas
 
 Use o armazenamento de filas para receber eventos que precisam ser obtidos. Você pode usar o armazenamento de fila quando tiver um processo de longa execução que leva muito tempo para responder. Ao enviar eventos para o armazenamento de fila, o aplicativo pode efetuar pull e processar eventos em sua própria agenda.
 
@@ -113,4 +141,4 @@ Use WebHooks para pontos de extremidade personalizáveis que respondem a eventos
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).
-* Para começar a usar a grade de eventos rapidamente, consulte [criar e rotear eventos personalizados com a grade de eventos do Azure](custom-event-quickstart.md).
+* Para começar rapidamente com o Event Grid, veja [criar e encaminhar eventos personalizados com o Azure Event Grid](custom-event-quickstart.md).

@@ -3,7 +3,7 @@ title: Tutorial Criando a infraestrutura para um Cluster Service Fabric em VMs d
 description: Neste tutorial, você aprenderá a configurar a infraestrutura de VM do Azure para executar um Cluster Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: v-vasuke
+author: jpconnock
 manager: jpconnock
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/22/2019
-ms.author: v-vasuke
+ms.author: jeconnoc
 ms.custom: mvc
-ms.openlocfilehash: c9dd9cf0f0fb6d20d6837b07ab46d376e379ca25
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b24b4d95827dbd398c0eba43dcbad9fbfeb51469
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177721"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166272"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: criar uma infraestrutura de VM do Azure para hospedar um Cluster Service Fabric
 
@@ -60,7 +60,7 @@ Para concluir este tutorial, precisa de uma subscrição do Azure.  Se você ain
 
 8. Em seguida, defina o **grupo de segurança de rede NIC** como **avançado**. Crie um novo grupo de segurança, observando seu nome e crie as regras a seguir para permitir o tráfego TCP de qualquer fonte:
 
-   ![It-entrada][sf-inbound]
+   ![sf-inbound][sf-inbound]
 
    * Porta `3389`, para RDP e ICMP (conectividade básica).
    * Portas `19000-19003`, por Service Fabric.
@@ -72,7 +72,7 @@ Para concluir este tutorial, precisa de uma subscrição do Azure.  Se você ain
 
 9. Adicione outra regra. Defina a marca origem como **serviço** e defina a marca serviço de origem como **VirtualNetwork**. Service Fabric requer que as seguintes portas sejam abertas para comunicação dentro do cluster: 135137-139, 445, 20001-20031, 20606-20861.
 
-   ![vnet-entrada][vnet-inbound]
+   ![vnet-inbound][vnet-inbound]
 
 10. O restante das opções é aceitável em seu estado padrão. Examine-os se desejar e, em seguida, inicie sua máquina virtual.
 
@@ -90,12 +90,18 @@ Inicie mais duas **máquinas virtuais**, certificando-se de manter as mesmas con
  
 4. Abra o arquivo RDP e, quando solicitado, insira o nome de usuário e a senha fornecidos na configuração da VM.
 
-5. Quando estiver conectado a uma instância do, você precisará validar se o registro remoto estava em execução e abrir as portas necessárias.
+5. Quando estiver conectado a uma instância do, você precisará validar se o registro remoto estava em execução, habilitar o SMB e abrir as portas de requisito para SMB e registro remoto.
+
+   Para habilitar o SMB, este é o comando do PowerShell:
+
+   ```powershell
+   netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
+   ```
 
 6. Para abrir as portas na firewall, o comando do PowerShell é:
 
    ```powershell
-   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139
+   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
    ```
 
 7. Repita esse processo para suas outras instâncias, novamente observando os endereços IP privados.
@@ -111,6 +117,15 @@ Inicie mais duas **máquinas virtuais**, certificando-se de manter as mesmas con
    ```
 
    Se o resultado for semelhante a `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` repetido quatro vezes, a ligação entre as instâncias está a funcionar.
+
+3. Valide agora que a partilha SMB funciona com o seguinte comando:
+
+   ```
+   net use * \\172.31.20.163\c$
+   ```
+
+   Deverá devolver `Drive Z: is now connected to \\172.31.20.163\c$.` como resultado.
+
 
    Agora suas instâncias estão adequadamente preparadas para Service Fabric.
 

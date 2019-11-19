@@ -3,17 +3,13 @@ title: Tutorial – implantar aplicativos em conjuntos de dimensionamento de má
 description: Saiba como usar o Ansible para configurar conjuntos de dimensionamento de máquinas virtuais do Azure e implantar o aplicativo no conjunto de dimensionamento
 keywords: ansible, azure, devops, bash, manual de procedimentos, máquina virtual, conjunto de dimensionamento de máquinas virtuais, vmss
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: f9035259d466a50b83fe0094d43bc0fe985e8c4e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 7c54790a3d988341caa65bdf0ce33c240f0580fb
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241721"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156385"
 ---
 # <a name="tutorial-deploy-apps-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: implantar aplicativos em conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible
 
@@ -37,11 +33,11 @@ ms.locfileid: "72241721"
 [!INCLUDE [ansible-prereqs-vm-scale-set.md](../../includes/ansible-prereqs-vm-scale-set.md)]
 - O **git** - [git](https://git-scm.com) serve para transferir um exemplo do Java utilizado neste tutorial.
 - **Kit de Desenvolvimento SE do Java (JDK)** - o [JDK](https://aka.ms/azure-jdks) serve para compilar o projeto Java de exemplo.
-- O **Apache maven** - [Apache Maven](https://maven.apache.org/download.cgi) é usado para criar o projeto Java de exemplo.
+- **Apache maven** - [Apache Maven](https://maven.apache.org/download.cgi) é usado para criar o projeto Java de exemplo.
 
 ## <a name="get-host-information"></a>Obter informações dos anfitriões
 
-O código do guia estratégico nesta seção recupera informações do host para um grupo de máquinas virtuais. O código obtém os endereços IP públicos e o balanceador de carga em um grupo de recursos especificado e cria um grupo de hosts denominado `scalesethosts` no inventário.
+O código do guia estratégico nesta seção recupera informações do host para um grupo de máquinas virtuais. O código obtém os endereços IP públicos e o balanceador de carga dentro de um grupo de recursos especificado e cria um grupo de hosts chamado `scalesethosts` no inventário.
 
 Guarde o manual de procedimentos de exemplo seguinte como `get-hosts-tasks.yml`:
 
@@ -120,8 +116,8 @@ Depois de executar o guia estratégico, você verá uma saída semelhante aos se
 
 O código do guia estratégico nesta seção é usado para:
 
-* Instale o JRE em um grupo de hosts denominado `saclesethosts`
-* Implantar o aplicativo Java em um grupo de hosts chamado `saclesethosts`
+* Instale o JRE em um grupo de hosts chamado `saclesethosts`
+* Implante o aplicativo Java em um grupo de hosts chamado `saclesethosts`
 
 Há duas maneiras de obter o guia estratégico de exemplo:
 
@@ -167,16 +163,16 @@ Há duas maneiras de obter o guia estratégico de exemplo:
 
 Antes de executar o guia estratégico, consulte as seguintes observações:
 
-* Na seção `vars`, substitua o espaço reservado `{{ admin_password }}` por sua própria senha.
+* Na seção `vars`, substitua o espaço reservado `{{ admin_password }}` pela sua própria senha.
 * Para usar o tipo de conexão SSH com senhas, instale o programa sshpass:
 
-    Ubuntu
+    Ubuntu:
 
     ```bash
     apt-get install sshpass
     ```
 
-    CentOS
+    CentOS:
 
     ```bash
     yum install sshpass

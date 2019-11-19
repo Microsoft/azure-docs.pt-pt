@@ -1,19 +1,14 @@
 ---
-title: Azure Backup para cargas de trabalho do SQL com o DPM
+title: Fazer backup de SQL Server no Azure como uma carga de trabalho do DPM
 description: Uma introdução ao backup de bancos de dados SQL Server usando o serviço de backup do Azure
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 069d1e7cb81fe8d3528b27e676886710f57ea5f1
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b5709eb845d07e3638e0c100c857e5538e293317
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074259"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173255"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Fazer backup de SQL Server no Azure como uma carga de trabalho do DPM
 
@@ -97,7 +92,7 @@ Antes de começar, verifique se todos os [pré-requisitos](backup-azure-dpm-intr
 
 13. Escolha o agendamento da política de retenção. Os detalhes sobre como a política de retenção funciona são fornecidos em [usar o backup do Azure para substituir o artigo de infraestrutura de fita](backup-azure-backup-cloud-as-tape.md).
 
-    ![Política de Retenção](./media/backup-azure-backup-sql/pg-retentionschedule.png)
+    ![Política de retenção](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     Neste exemplo:
 

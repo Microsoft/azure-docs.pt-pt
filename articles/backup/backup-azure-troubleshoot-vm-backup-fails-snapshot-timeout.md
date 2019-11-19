@@ -1,20 +1,15 @@
 ---
-title: 'Solucionar problemas de falha de backup do Azure: problemas de agente e extensão'
+title: Solucionar problemas de agente e extensão
 description: Sintomas, causas e resoluções de falhas de backup do Azure relacionadas ao agente, à extensão e aos discos.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-keywords: Backup do Azure; Agente de VM; Conectividade de rede;
-ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: dacurwin
-ms.openlocfilehash: 50db82206bbc0b98dcc80bd504022799011697d4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4ee8cbeeec21c4af0cc3a7fd83844bc8c676add
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074125"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172593"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de backup do Azure: problemas com o agente ou extensão
 
@@ -224,7 +219,7 @@ A conclusão dessas etapas faz com que a extensão seja reinstalada durante o pr
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Remover o bloqueio do grupo de recursos do ponto de recuperação
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Opção ir para **todos os recursos**, selecione o grupo de recursos coleção de pontos de restauração no seguinte formato AzureBackupRG_`<Geo>`_`<number>`.
 3. Na seção **configurações** , selecione **bloqueios** para exibir os bloqueios.
 4. Para remover o bloqueio, selecione as reticências e clique em **excluir**.
@@ -253,7 +248,7 @@ Depois de remover o bloqueio, dispare um backup sob demanda. Isso garantirá que
 
 Para limpar manualmente a coleção de pontos de restauração, que não é limpa devido ao bloqueio no grupo de recursos, tente as seguintes etapas:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu **Hub** , clique em **todos os recursos**, selecione o grupo de recursos com o seguinte formato AzureBackupRG_`<Geo>`_`<number>` onde a VM está localizada.
 
     ![Excluir bloqueio](./media/backup-azure-arm-vms-prepare/resource-group.png)

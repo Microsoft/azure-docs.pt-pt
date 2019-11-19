@@ -3,17 +3,13 @@ title: Tutorial – atualizar a imagem personalizada dos conjuntos de dimensiona
 description: Saiba como usar o Ansible para atualizar conjuntos de dimensionamento de máquinas virtuais no Azure com imagem personalizada
 keywords: ansible, azure, devops, bash, manual de procedimentos, máquina virtual, conjunto de dimensionamento de máquinas virtuais, vmss
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 3b7baffe6ce0fadbac2dd56b9c8296c80546fa72
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b7d3053c09d2dcb667a4fc407035f4814f786932
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241337"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155841"
 ---
 # <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>Tutorial: atualizar a imagem personalizada dos conjuntos de dimensionamento de máquinas virtuais do Azure usando Ansible
 
@@ -173,13 +169,13 @@ Execute o guia estratégico usando o comando `ansible-playbook`, substituindo `m
 ansible-playbook create-vms.yml --extra-vars "resource_group=myrg"
 ```
 
-Devido às seções `debug` do guia estratégico, o comando `ansible-playbook` imprimirá o endereço IP de cada VM. Copie esses endereços IP para uso posterior.
+Devido às seções de `debug` do guia estratégico, o comando `ansible-playbook` imprimirá o endereço IP de cada VM. Copie esses endereços IP para uso posterior.
 
 ![Endereços IP da máquina virtual](media/ansible-vmss-update-image/vmss-update-vms-ip-addresses.png)
 
 ## <a name="connect-to-the-two-vms"></a>Conectar-se às duas VMs
 
-Nesta seção, você se conecta a cada VM. Conforme mencionado na seção anterior, as cadeias de caracteres `Image A` e `Image B` imitam duas VMs distintas com configurações diferentes.
+Nesta seção, você se conecta a cada VM. Conforme mencionado na seção anterior, as cadeias de caracteres `Image A` e `Image B` imitar duas VMs distintas com configurações diferentes.
 
 Usando os endereços IP da seção anterior, conecte-se a ambas as VMs:
 
@@ -189,7 +185,7 @@ Usando os endereços IP da seção anterior, conecte-se a ambas as VMs:
 
 ## <a name="create-images-from-each-vm"></a>Criar imagens de cada VM
 
-Neste ponto, você tem duas VMs com configurações um pouco diferentes (seus arquivos `index.html`).
+Neste ponto, você tem duas VMs com configurações um pouco diferentes (seus arquivos de `index.html`).
 
 O código do guia estratégico nesta seção cria uma imagem personalizada para cada VM:
 
@@ -239,7 +235,7 @@ ansible-playbook capture-images.yml --extra-vars "resource_group=myrg"
 Nesta seção, um guia estratégico é usado para configurar os seguintes recursos do Azure:
 
 * Endereço IP público
-* Balanceador de carga
+* Load balancer
 * Conjunto de dimensionamento que faz referência a `image_vmforimageA`
 
 Há duas maneiras de obter o guia estratégico de exemplo:
@@ -327,11 +323,11 @@ Nesta seção, você se conecta ao conjunto de dimensionamento.
 
 Usando o endereço IP da seção anterior, conecte-se ao conjunto de dimensionamento.
 
-Conforme mencionado na seção anterior, as cadeias de caracteres `Image A` e `Image B` imitam duas VMs distintas com configurações diferentes.
+Conforme mencionado na seção anterior, as cadeias de caracteres `Image A` e `Image B` imitar duas VMs distintas com configurações diferentes.
 
-O conjunto de dimensionamento faz referência à imagem personalizada chamada `image_vmforimageA`. A imagem personalizada `image_vmforimageA` foi criada a partir da VM cujas home page exibe `Image A`.
+O conjunto de dimensionamento faz referência à imagem personalizada chamada `image_vmforimageA`. A `image_vmforimageA` de imagem personalizada foi criada a partir da VM cujas home page exibe `Image A`.
 
-Como resultado, você verá um home page exibindo `Image A`:
+Como resultado, você verá uma home page exibir `Image A`:
 
 ![O conjunto de dimensionamento está associado à primeira VM.](media/ansible-vmss-update-image/vmss-update-browser-initial-vmss.png)
 
@@ -339,7 +335,7 @@ Deixe a janela do navegador aberta enquanto você continua para a próxima seç�
 
 ## <a name="change-custom-image-in-scale-set-and-upgrade-instances"></a>Alterar imagem personalizada em conjunto de dimensionamento e instâncias de atualização
 
-O código de guia estratégico nesta seção altera a imagem do conjunto de dimensionamento-de `image_vmforimageA` para `image_vmforimageB`. Além disso, todas as máquinas virtuais atuais implantadas pelo conjunto de dimensionamento são atualizadas.
+O código do guia estratégico nesta seção altera a imagem do conjunto de dimensionamento de `image_vmforimageA` para `image_vmforimageB`. Além disso, todas as máquinas virtuais atuais implantadas pelo conjunto de dimensionamento são atualizadas.
 
 Há duas maneiras de obter o guia estratégico de exemplo:
 

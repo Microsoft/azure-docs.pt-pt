@@ -1,17 +1,14 @@
 ---
 title: Tutorial-criar um conjunto de dimensionamento de máquinas virtuais do Azure usando Terraform
 description: Saiba como usar o Terraform para configurar e fazer a versão de um conjunto de dimensionamento de máquinas virtuais do Azure.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: e2b7d816a02eaf47ef50bfd2d814f7b26a813446
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ef2ce0a3ea8c50123cd51ab60a6b98894739d859
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838395"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159071"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>Tutorial: criar um conjunto de dimensionamento de máquinas virtuais do Azure usando Terraform
 
@@ -45,7 +42,7 @@ Neste tutorial, você aprenderá a usar [Azure cloud Shell](/azure/cloud-shell/o
 
     ![Comandos do Cloud Shell](./media/terraform-create-vm-scaleset-network-disks-hcl/azure-portal-cloud-shell-button-min.png)
 
-1. Mude para o diretório `clouddrive`.
+1. Altere os diretórios para o diretório `clouddrive`.
 
     ```bash
     cd clouddrive
@@ -521,7 +518,7 @@ terraform destroy
 
 O processo de destruição pode demorar vários minutos a ser concluído.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
 > [Saiba mais sobre como usar o Terraform no Azure](/azure/terraform)

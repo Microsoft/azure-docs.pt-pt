@@ -1,19 +1,15 @@
 ---
 title: Implementar no Serviço de Aplicações do Azure com o plug-in Jenkins
 description: Saiba como utilizar o plug-in Jenkins do Serviço de Aplicações do Azure para implementar uma aplicação Web Java no Azure através do Jenkins
-ms.service: jenkins
 keywords: jenkins, azure, devops, serviço de aplicações
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 9f7e0e23a04c6b141c6e0c5ff88b3d5ff2d76e1d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: de1bf0ea06210c86ff1da21dcac667754f11d7f4
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840441"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158526"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementar no Serviço de Aplicações do Azure com o plug-in Jenkins 
 
@@ -55,7 +51,7 @@ Para implementar na Aplicação Web para Contentores, instale o Docker na instâ
 Para implementar no Azure, precisa de um principal de serviço do Azure. 
 
 
-1. Para criar uma entidade de serviço do Azure, use o [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) ou o [portal do Azure](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+1. Para criar uma entidade de serviço do Azure, use o [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) ou o [portal do Azure](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 2. No dashboard do Jenkins, selecione **Credentials** > **System** (Credenciais > Sistema). Em seguida, selecione **Global credentials(unrestricted)** (Credenciais globais (sem restrições).
 3. Para adicionar um principal de serviço do Microsoft Azure, selecione **Add Credentials** (Adicionar Credenciais). Indique valores para os campos **Subscription ID** (ID da Subscrição), **Client ID** (ID do Cliente), **Client Secret** (Segredo do Cliente) e **OAuth 2.0 Token Endpoint** (Ponto Final de Tokens de OAuth 2.0). Defina o campo **ID** como **mySp**. Vamos utilizar este ID em passos subsequentes deste artigo.
 
@@ -71,7 +67,7 @@ Para implementar o seu projeto nas Aplicações Web, pode carregar os artefactos
 Antes de configurar o trabalho no Jenkins, precisa de um plano do Serviço de Aplicações e de uma aplicação Web para executar a aplicação Web.
 
 
-1. Utilize o [comando da CLI do Azure](/cli/azure/appservice/plan#az-appservice-plan-create) `az appservice plan create` para criar um plano do Serviço de Aplicações com o escalão de preço **GRATUITO**- O plano do Serviço de Aplicações define os recursos físicos utilizados para alojar as suas aplicações. Todas as aplicações atribuídas a um plano do Serviço de Aplicações partilham esses recursos. Os recursos partilhados ajudam-no a reduzir custos se alojar várias aplicações.
+1. Utilize o **comando da CLI do Azure** `az appservice plan create` para criar um plano do Serviço de Aplicações com o escalão de preço [GRATUITO](/cli/azure/appservice/plan#az-appservice-plan-create)- O plano do Serviço de Aplicações define os recursos físicos utilizados para alojar as suas aplicações. Todas as aplicações atribuídas a um plano do Serviço de Aplicações partilham esses recursos. Os recursos partilhados ajudam-no a reduzir custos se alojar várias aplicações.
 2. Crie uma aplicação Web. Pode utilizar o [portal do Azure](/azure/app-service/configure-common) ou o comando `az` da CLI do Azure:
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
@@ -163,7 +159,7 @@ No valor de **Docker registry URL** (URL do Docker Registry), indique o URL com 
 
 10. O nome da imagem do Docker e o valor da etiqueta no separador **Advanced** (Avançadas) são opcionais. Por predefinição, o valor do nome da imagem é obtido a partir do nome da imagem que configurou no portal do Azure, na definição **Contentor do Docker**. A marca é gerada de $BUILD _NUMBER.
     > [!NOTE]
-    > Confirme que especifica o nome da imagem no portal do Azure ou que fornece o valor de uma **Imagem do Docker** no separador **Advanced** (Avançadas). Neste exemplo, defina o valor de **Docker image** (Imagem do Docker) como &lt;your_Registry>.azurecr.io/calculator e deixe o valor de **Docker Image Tag** (Etiqueta da Imagem do Docker) em branco.
+    > Certifique-se de especificar o nome da imagem na portal do Azure ou fornecer um valor de **imagem do Docker** na guia **avançado** . Para este exemplo, defina o valor da **imagem do Docker** como &lt;your_Registry >. azurecr. Io/Calculator e deixe o valor da **marca da imagem do Docker** em branco.
 
 11. Se utilizar uma definição de imagem do Docker incorporada, a implementação falha. Altere a configuração do Docker para utilizar uma imagem personalizada na definição **Contentor do Docker** no portal do Azure. Para imagens incorporadas, utilize a abordagem de carregamento de ficheiro para implementar.
 12. Tal como na abordagem do carregamento de ficheiro, pode escolher um nome de **Slot** (Bloco) diferente de **production** (produção).
@@ -206,7 +202,7 @@ No valor de **Docker registry URL** (URL do Docker Registry), indique o URL com 
     Sun Jun 17 16:39:10 UTC 2017
     ```
 
-3. Aceda a http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Substitua &lt;x> e &lt;y> por números para obter a soma de x + y. A calculadora mostra a soma: ![Calculadora: Adicionar](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+3. Aceda a http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Substitua &lt;x> e &lt;y> por números para obter a soma de x + y. A calculadora mostra a soma: ![Calculator: add](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ### <a name="for-azure-app-service-on-linux"></a>No Serviço de Aplicações do Azure no Linux
 
@@ -231,7 +227,7 @@ No valor de **Docker registry URL** (URL do Docker Registry), indique o URL com 
 
 Se se deparar com erros nos plug-ins do Jenkins, comunique os problemas com os componentes específicos no [Jenkins JIRA](https://issues.jenkins-ci.org/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, utilizou o plug-in Jenkins do Serviço de Aplicações do Azure para implementar no Azure.
 

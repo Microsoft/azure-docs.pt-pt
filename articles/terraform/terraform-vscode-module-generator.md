@@ -1,17 +1,14 @@
 ---
 title: Tutorial-criar um modelo de base do Terraform no Azure usando o Yeoman
 description: Saiba como criar um modelo de base do Terraform no Azure usando o Yeoman.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 2f8cbc495a4b46255e7eb31bc1ff8b04fffcad15
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: ba81d0ee797fd879fdadc3a6b25ca8f310383f61
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969259"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159164"
 ---
 # <a name="tutorial-create-a-terraform-base-template-in-azure-using-yeoman"></a>Tutorial: criar um modelo de base do Terraform no Azure usando o Yeoman
 
@@ -35,7 +32,7 @@ Neste artigo, você aprenderá a executar as seguintes tarefas:
 >[!NOTE]
 >A maioria dos procedimentos neste tutorial envolve a interface de linha de comando. As etapas descritas se aplicam a todos os sistemas operacionais e ferramentas de linha de comando. Para os exemplos, o PowerShell foi escolhido para o ambiente local e o Git bash para o ambiente do Cloud Shell.
 
-## <a name="prepare-your-environment"></a>Prepare o seu ambiente
+## <a name="prepare-your-environment"></a>Preparar o ambiente
 
 ### <a name="install-nodejs"></a>Instalar o Node.js
 

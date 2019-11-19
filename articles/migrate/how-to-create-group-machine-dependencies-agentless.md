@@ -4,27 +4,25 @@ description: Descreve como criar grupos usando dependências de máquina de mane
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/23/2019
+ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: e9f9e812d5463f0a503b100780f9b988e43f748d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d0e002f0f1e620c108b23790dfc81574bee23795
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720261"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158428"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurar a visualização de dependência sem agente para avaliação
-
-> [!NOTE]
-> Se você ainda não tiver visto esse recurso no portal de migrações para Azure, aguarde. Ele será exibido na próxima semana ou assim.
 
 Este artigo descreve como configurar o mapeamento de dependência sem agente nas migrações para Azure: avaliação do servidor. Esse recurso está atualmente disponível em versão prévia para máquinas VMware descobertas usando um dispositivo de migrações para Azure. 
 
 > [!IMPORTANT]
 > A visualização de dependência sem agente está atualmente em versão prévia para VMs VMware do Azure descobertas usando um dispositivo de migrações para Azure.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="about-dependency-mapping"></a>Sobre mapeamento de dependência 
+## <a name="about-dependency-mapping"></a>Sobre mapeamento de dependência
 
 O mapeamento de dependência ajuda a Visualizar dependências entre computadores que você deseja avaliar e migrar. Normalmente, você usa o mapeamento de dependência quando deseja avaliar computadores com níveis mais altos de confiança.
 
@@ -38,7 +36,7 @@ A visualização de dependência sem agente não exige a instalação de agentes
 
 - Depois que a descoberta de dependência é iniciada, o dispositivo reúne dados de computadores em um intervalo de sondagem de cinco minutos.
 - Os seguintes dados são coletados:
-    - Conexões TCP
+    - Ligações TCP
     - Nomes de processos que têm conexões ativas
     - Nomes de aplicativos instalados que executam os processos acima
     - Não. de conexões detectadas em cada intervalo de sondagem
@@ -46,7 +44,7 @@ A visualização de dependência sem agente não exige a instalação de agentes
 ## <a name="current-limitations"></a>Limitações atuais
 
 - A visualização de dependência sem agente está disponível atualmente somente para VMs VMware.
-- Agora você não pode adicionar ou remover um servidor de um grupo, na exibição de análise de dependência. 
+- Agora você não pode adicionar ou remover um servidor de um grupo, na exibição de análise de dependência.
 - O mapa de dependências para um grupo de servidores não está disponível no momento.
 - No momento, os dados de dependência não podem ser baixados no formato tabular.
 
@@ -60,12 +58,12 @@ A visualização de dependência sem agente não exige a instalação de agentes
 
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos suportados
- 
+
 Os sistemas operacionais com suporte para a visualização de dependência sem agente são os seguintes.
 
 **Tipo** | **Sistemas operativos suportados**
---- | --- 
-**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64 bits) 
+--- | ---
+**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64 bits)
 **Linux** | Red Hat Enterprise Linux 7, 6, 5 <br/> Ubuntu Linux 14, 4, 16, 4 <br/> Debian 7, 8 <br/> Oracle Linux 6, 7 <br/> CentOS 5, 6, 7  
 
 
@@ -84,7 +82,7 @@ Adicione a conta da seguinte maneira:
 
 1. Abra o aplicativo de gerenciamento de dispositivo. Navegue até o painel **fornecer detalhes do vCenter** .
 2. Na seção **descobrir aplicativo e dependências nas VMs** , clique em **Adicionar credenciais**
-3. Escolha o **sistema operacional**. 
+3. Escolha o **sistema operacional**.
 4. Forneça um nome amigável para a conta.
 5. Forneça o **nome de usuário** e a **senha**
 6. Clique em **Guardar**.
@@ -113,8 +111,8 @@ Você poderá visualizar as dependências 6 horas depois de iniciar a descoberta
 2. Pesquise o computador para o qual você deseja exibir o mapa de dependências.
 3. Clique em **Exibir dependências** na coluna **dependências** .
 4. Altere o período de tempo para o qual você deseja exibir o mapa usando a lista suspensa **duração de tempo** .
-5. Expanda o grupo de **clientes** para listar os computadores que têm uma dependência no computador selecionado. 
-6. Expanda o grupo de **portas** para listar os computadores que têm uma dependência do computador selecionado. 
+5. Expanda o grupo de **clientes** para listar os computadores que têm uma dependência no computador selecionado.
+6. Expanda o grupo de **portas** para listar os computadores que têm uma dependência do computador selecionado.
 7. Para navegar até o modo de exibição de mapa de qualquer um dos computadores dependentes, clique no nome do computador e, em seguida, clique em **carregar mapa do servidor**
 
     ![Expandir o grupo de portas do servidor e carregar o mapa do servidor](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)

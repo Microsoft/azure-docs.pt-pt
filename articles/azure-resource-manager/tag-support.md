@@ -2,13 +2,13 @@
 title: Suporte a marcas para recursos
 description: Mostra quais tipos de recursos do Azure dão suporte a marcas. Fornece detalhes para todos os serviços do Azure.
 ms.topic: conceptual
-ms.date: 10/27/2019
-ms.openlocfilehash: c0f36568bbbf824285cfaa3385d2225e0a989639
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 11/18/2019
+ms.openlocfilehash: aa8736310a5c18a1f94d3920a4f88632212c7af4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149223"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173558"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group-using-tags.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo.
@@ -191,7 +191,7 @@ Ir para um namespace do provedor de recursos:
 > | representantes | Não | Não |
 > | anonymousapiusers | Não | Não |
 > | configuração | Não | Não |
-> | registos | Não | Não |
+> | logs | Não | Não |
 > | relatórios | Não | Não |
 > | servicehealthmetrics | Não | Não |
 > | services | Não | Não |
@@ -1364,14 +1364,12 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Dá suporte a marcas | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
-> | netAppAccounts | Sim | Sim |
-> | netAppAccounts/backupPolicies | Sim | Sim |
-> | netAppAccounts/capacityPools | Sim | Sim |
-> | netAppAccounts/capacityPools/volumes | Sim | Sim |
-> | netAppAccounts/capacityPools/volumes/backups | Não | Não |
-> | netAppAccounts/capacityPools/volumes/mountTargets | Sim | Sim |
-> | netAppAccounts/capacityPools/volumes/instantâneos | Sim | Sim |
-> | netAppAccounts/cofres | Não | Não |
+> | netAppAccounts | Sim | Não |
+> | netAppAccounts/capacityPools | Sim | Não |
+> | netAppAccounts/capacityPools/volumes | Sim | Não |
+> | netAppAccounts/capacityPools/volumes/mountTargets | Sim | Não |
+> | netAppAccounts/capacityPools/volumes/instantâneos | Sim | Não |
+
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]

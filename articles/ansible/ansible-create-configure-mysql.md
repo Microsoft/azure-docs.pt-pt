@@ -3,17 +3,13 @@ title: Tutorial – configurar bancos de dados no banco de dados do Azure para M
 description: Saiba como utilizar o Ansible para criar e configurar um servidor de Base de Dados do Azure para MySQL
 keywords: ansible, azure, devops, bash, manual de procedimentos, mysql, base de dados
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 1b6c9a9aa3abbda7ffd72db0ecb137b3c9da1a6c
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: d8c8fd361f37a9cb961012807fe40b905c10c047
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241831"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156523"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Tutorial: configurar bancos de dados no banco de dados do Azure para MySQL usando o Ansible
 
@@ -68,7 +64,7 @@ ansible-playbook rg.yml
 
 ## <a name="create-a-mysql-server-and-database"></a>Criar um servidor e base de dados MySQL
 
-O código do guia estratégico nesta seção cria um servidor MySQL e uma instância do banco de dados do Azure para MySQL. O novo servidor MySQL é um servidor de uso básico de Gen 5 com um vCore e é denominado `mysqlserveransible`. A instância do banco de dados é denominada `mysqldbansible`.
+O código do guia estratégico nesta seção cria um servidor MySQL e uma instância do banco de dados do Azure para MySQL. O novo servidor MySQL é um servidor de uso básico de Gen 5 com um vCore e chamado de `mysqlserveransible`. A instância do banco de dados é denominada `mysqldbansible`.
 
 Para obter mais informações sobre tipos de preço, consulte [tipos de preço do banco de dados do Azure para MySQL](/azure/mysql/concepts-pricing-tiers). 
 
@@ -217,7 +213,7 @@ Nesta seção, você usará o Azure cloud Shell para se conectar ao servidor que
     
 ## <a name="query-mysql-servers"></a>Consultar servidores MySQL
 
-O código do manual nesta seção consulta os servidores MySQL em `myResourceGroup` e lista os bancos de dados nos servidores encontrados.
+O código do guia estratégico nesta seção consulta os servidores MySQL em `myResourceGroup` e lista os bancos de dados nos servidores encontrados.
 
 Guarde o manual de procedimentos seguinte como `mysql_query.yml`:
 

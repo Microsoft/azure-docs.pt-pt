@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 225fcd475d488cedb8bd210fe2fa9371849314ac
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 27042809b0f60e1e4141d50d20acff1893c71fde
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615525"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158241"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com o AzCopy e o armazenamento de arquivos 
 
@@ -38,7 +38,7 @@ Para obter documentos de referência detalhados, consulte [Make azcopy](storage-
 
 Você pode usar o comando [azcopy Copy](storage-ref-azcopy-copy.md) para carregar arquivos e diretórios do seu computador local.
 
-Esta seção contém os seguintes exemplos:
+Esta secção contém os exemplos seguintes:
 
 > [!div class="checklist"]
 > * Carregar um ficheiro
@@ -126,7 +126,7 @@ As opções `--include-pattern` e `--exclude-pattern` se aplicam somente a nomes
 
 Você pode usar o comando [azcopy Copy](storage-ref-azcopy-copy.md) para baixar arquivos, diretórios e compartilhamentos de arquivos em seu computador local.
 
-Esta seção contém os seguintes exemplos:
+Esta secção contém os exemplos seguintes:
 
 > [!div class="checklist"]
 > * Transferir um ficheiro
@@ -146,16 +146,15 @@ Para documentos de referência detalhados, consulte [cópia azcopy](storage-ref-
 
 |    |     |
 |--------|-----------|
-| **Sintaxe** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>?<SAS-token>?<SAS-token>' '<local-file-path>'` |
+| **Sintaxe** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>?<SAS-token>' '<local-file-path>'` |
 | **Exemplo** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D' 'C:\myDirectory\myTextFile.txt'` |
 
 ### <a name="download-a-directory"></a>Baixar um diretório
 
 |    |     |
 |--------|-----------|
-| **Sintaxe** | ' azcopy Copy "https://< o nome da conta de armazenamento >. File. Core. Windows. net/< File-Share-Name >/< Directory-Path >? < SAS-token >" 
-"< diretório local-caminho >"--recursivo " |
-| **Exemplo** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"  --recursive` |
+| **Sintaxe** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>' '<local-directory-path>' --recursive`|
+| **Exemplo** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D' 'C:\myDirectory'  --recursive` |
 
 Este exemplo resulta em um diretório chamado `C:\myDirectory\myFileShareDirectory` que contém todos os arquivos baixados.
 
@@ -207,7 +206,7 @@ Você pode usar o AzCopy para copiar arquivos para outras contas de armazenament
 
 O AzCopy usa [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)de [servidor para servidor](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) , portanto, os dados são copiados diretamente entre os servidores de armazenamento. Essas operações de cópia não usam a largura de banda de rede do seu computador. Você pode aumentar a taxa de transferência dessas operações definindo o valor da variável de ambiente `AZCOPY_CONCURRENCY_VALUE`. Para saber mais, consulte [otimizar a taxa de transferência](storage-use-azcopy-configure.md#optimize-throughput).
 
-Esta seção contém os seguintes exemplos:
+Esta secção contém os exemplos seguintes:
 
 > [!div class="checklist"]
 > * Copiar um arquivo para outra conta de armazenamento

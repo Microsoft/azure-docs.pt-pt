@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: c2d652b31c264d7b17fcf303564c327d09d416f9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ef826239bc916b4ccf25785f92397286017d00f7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929143"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171394"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um balanceador de carga SKU padrão no serviço kubernetes do Azure (AKS)
 
-Para fornecer acesso aos seus aplicativos no AKS (serviço kubernetes do Azure), você pode criar e usar um Azure Load Balancer. Um balanceador de carga em execução no AKS pode ser usado como um balanceador de carga interno ou externo. Um balanceador de carga interno torna um serviço kubernetes acessível somente para aplicativos em execução na mesma rede virtual que o cluster AKS. Um balanceador de carga externo recebe um ou mais IPs públicos para entrada e torna um serviço kubernetes acessível externamente usando os IPs públicos.
+Para fornecer acesso a aplicativos por meio de serviços Kubernetess do tipo `LoadBalancer` no AKS (serviço kubernetes do Azure), você pode usar um Azure Load Balancer. Um balanceador de carga em execução no AKS pode ser usado como um balanceador de carga interno ou externo. Um balanceador de carga interno torna um serviço kubernetes acessível somente para aplicativos em execução na mesma rede virtual que o cluster AKS. Um balanceador de carga externo recebe um ou mais IPs públicos para entrada e torna um serviço kubernetes acessível externamente usando os IPs públicos.
 
-O Azure Load Balancer está disponível em dois SKUs- *básico* e *Standard*. Por padrão, o SKU *padrão* é usado quando você cria um cluster AKs. O uso de um balanceador de carga SKU *padrão* fornece recursos e funcionalidades adicionais, como tamanho e zonas de disponibilidade de pools de back-end maiores. É importante entender as diferenças entre os balanceadores de carga *padrão* e *básico* antes de escolher o que usar. Depois de criar um cluster AKS, você não pode alterar o SKU do balanceador de carga para esse cluster. Para obter mais informações sobre os SKUs *básico* e *Standard* , consulte [comparação de SKU do Azure Load Balancer][azure-lb-comparison].
+O Azure Load Balancer está disponível em dois SKUs- *básico* e *Standard*. Por padrão, o SKU *padrão* é usado quando você cria um cluster AKs. O uso de um balanceador de carga SKU *padrão* fornece recursos e funcionalidades adicionais, como um tamanho de pool de back-end maior e zonas de disponibilidade. É importante entender as diferenças entre os balanceadores de carga *padrão* e *básico* antes de escolher o que usar. Depois de criar um cluster AKS, você não pode alterar o SKU do balanceador de carga para esse cluster. Para obter mais informações sobre os SKUs *básico* e *Standard* , consulte [comparação de SKU do Azure Load Balancer][azure-lb-comparison].
 
 Este artigo pressupõe uma compreensão básica dos conceitos de kubernetes e de Azure Load Balancer. Para obter mais informações, consulte [kubernetes Core Concepts for Azure kubernetes Service (AKs)][kubernetes-concepts] e [o que é Azure Load Balancer?][azure-lb].
 
@@ -29,9 +29,18 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Se você optar por instalar e usar a CLI localmente, este artigo exigirá que você esteja executando o CLI do Azure versão 2.0.74 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="before-you-begin"></a>Antes de começar
+
 Este artigo pressupõe que você tenha um cluster AKS com o Azure Load Balancer SKU *padrão* . Se você precisar de um cluster AKS, consulte o guia de início rápido do AKS [usando o CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
 
 A entidade de serviço de cluster AKS precisa também de permissão para gerenciar recursos de rede se você usar uma sub-rede ou grupo de recursos existente. Em geral, atribua a função de *colaborador de rede* à sua entidade de serviço nos recursos delegados. Para obter mais informações sobre permissões, consulte [delegar acesso AKs a outros recursos do Azure][aks-sp].
+
+### <a name="moving-from-a-basic-sku-load-balancer-to-standard-sku"></a>Movendo de um Load Balancer de SKU básico para SKU Standard
+
+Se você tiver um cluster existente com o Load Balancer de SKU básico, haverá diferenças comportamentais importantes a serem observadas ao migrar para usar um cluster com o Load Balancer de SKU Standard.
+
+Por exemplo, fazer implantações azuis/verdes para migrar clusters é uma prática comum, Considerando que o tipo de `load-balancer-sku` de um cluster só pode ser definido no momento da criação do cluster. No entanto, os balanceadores de carga de *SKU básicos* usam endereços IP de *SKU básicos* que não são compatíveis com os balanceadores de carga *SKU padrão* , pois exigem endereços IP de *SKU padrão* . Ao migrar clusters para atualizar Load Balancer SKUs, um novo endereço IP com um SKU de endereço IP compatível será necessário.
+
+Para obter mais considerações sobre como migrar clusters, visite [nossa documentação sobre considerações de migração](acs-aks-migration.md) para exibir uma lista de tópicos importantes a serem considerados durante a migração. As limitações abaixo também são importantes diferenças comportamentais a serem observadas ao usar balanceadores de carga de SKU padrão no AKS.
 
 ### <a name="limitations"></a>Limitações
 
@@ -41,9 +50,10 @@ As seguintes limitações se aplicam quando você cria e gerencia clusters AKS q
     * Forneça seus próprios IPs públicos.
     * Forneça seus próprios prefixos IP públicos.
     * Especifique um número até 100 para permitir que o cluster AKS crie vários IPs públicos de SKU *padrão* no mesmo grupo de recursos criado como o cluster AKs, que geralmente é nomeado com *MC_* no início. AKS atribui o IP público ao balanceador de carga SKU *padrão* . Por padrão, um IP público será criado automaticamente no mesmo grupo de recursos que o cluster AKS, se nenhum IP público, prefixo de IP público ou número de IPs for especificado. Você também deve permitir endereços públicos e evitar a criação de qualquer Azure Policy que banimentos a criação de IP.
-* Ao usar o SKU *Standard* para um balanceador de carga, você deve usar o Kubernetes versão 1,13 ou superior.
+* Ao usar o SKU *Standard* para um balanceador de carga, você deve usar o Kubernetes versão *1,13 ou superior*.
 * Definir o SKU do balanceador de carga só pode ser feito quando você cria um cluster AKS. Você não pode alterar o SKU do balanceador de carga depois que um cluster AKS tiver sido criado.
-* Você só pode usar um SKU do balanceador de carga em um único cluster.
+* Você só pode usar um tipo de SKU do balanceador de carga (básico ou padrão) em um único cluster.
+* *Padrão* Os balanceadores de carga de SKU oferecem suporte apenas a endereços IP de SKU *padrão* .
 
 ## <a name="configure-the-load-balancer-to-be-internal"></a>Configurar o balanceador de carga para ser interno
 

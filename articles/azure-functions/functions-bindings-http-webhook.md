@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 9203f54989d010b8f1f10a7f90f00cc82fa41238
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 7cce1c9ee6ca5e01b91afd5284ca9abf84d0b56f
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574611"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158100"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions gatilhos e associações HTTP
 
@@ -29,13 +29,13 @@ Um gatilho HTTP pode ser personalizado para responder a [WebHooks](https://en.wi
 
 O código neste artigo usa como padrão a sintaxe do Functions 2. x, que usa o .NET Core. Para obter informações sobre a sintaxe 1. x, consulte os [modelos de funções 1. x](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
-## <a name="packages---functions-1x"></a>Pacotes – funções 1. x
+## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
 
 As associações HTTP são fornecidas no pacote NuGet [Microsoft. Azure. webjobs. Extensions. http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) , versão 1. x. O código-fonte do pacote está no repositório GitHub [Azure-webjobs-SDK-Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http) .
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x"></a>Pacotes – funções 2. x
+## <a name="packages---functions-2x"></a>Pacotes - funções 2.x
 
 As associações HTTP são fornecidas no pacote NuGet [Microsoft. Azure. webjobs. Extensions. http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) , versão 3. x. O código-fonte do pacote está no repositório GitHub [Azure-webjobs-SDK-Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) .
 
@@ -47,7 +47,7 @@ O gatilho HTTP permite invocar uma função com uma solicitação HTTP. Você po
 
 Por padrão, um gatilho HTTP retorna HTTP 200 OK com um corpo vazio em Functions 1. x ou HTTP 204 sem conteúdo com um corpo vazio no functions 2. x. Para modificar a resposta, configure uma [Associação de saída http](#output).
 
-## <a name="trigger---example"></a>Gatilho-exemplo
+## <a name="trigger---example"></a>Acionador - exemplo
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -77,7 +77,7 @@ public static async Task<IActionResult> Run(
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *Function. JSON* e uma [ C# função de script](functions-reference-csharp.md) que usa a associação. A função procura um parâmetro `name` na cadeia de caracteres de consulta ou no corpo da solicitação HTTP.
 
-Este é o arquivo *Function. JSON* :
+Aqui está o *Function* ficheiro:
 
 ```json
 {
@@ -102,7 +102,7 @@ Este é o arquivo *Function. JSON* :
 }
 ```
 
-A seção de [configuração](#trigger---configuration) explica essas propriedades.
+O [configuração](#trigger---configuration) seção explica essas propriedades.
 
 Aqui está C# o código de script que se associa a `HttpRequest`:
 
@@ -153,7 +153,7 @@ public class Person {
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *Function. JSON* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função procura um parâmetro `name` na cadeia de caracteres de consulta ou no corpo da solicitação HTTP.
 
-Este é o arquivo *Function. JSON* :
+Aqui está o *Function* ficheiro:
 
 ```json
 {
@@ -174,9 +174,9 @@ Este é o arquivo *Function. JSON* :
 }
 ```
 
-A seção de [configuração](#trigger---configuration) explica essas propriedades.
+O [configuração](#trigger---configuration) seção explica essas propriedades.
 
-Este é o código JavaScript:
+Eis o código JavaScript:
 
 ```javascript
 module.exports = function(context, req) {
@@ -202,7 +202,7 @@ module.exports = function(context, req) {
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *Function. JSON* e uma [função Python](functions-reference-python.md) que usa a associação. A função procura um parâmetro `name` na cadeia de caracteres de consulta ou no corpo da solicitação HTTP.
 
-Este é o arquivo *Function. JSON* :
+Aqui está o *Function* ficheiro:
 
 ```json
 {
@@ -224,7 +224,7 @@ Este é o arquivo *Function. JSON* :
 }
 ```
 
-A seção de [configuração](#trigger---configuration) explica essas propriedades.
+O [configuração](#trigger---configuration) seção explica essas propriedades.
 
 Este é o código Python:
 
@@ -263,7 +263,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 Os exemplos a seguir mostram a associação de gatilho HTTP em um arquivo *Function. JSON* e as respectivas [funções Java](functions-reference-java.md) que usam a associação. 
 
-Este é o arquivo *Function. JSON* :
+Aqui está o *Function* ficheiro:
 
 ```json
 {
@@ -463,7 +463,7 @@ public HttpResponseMessage run(
 
 ---
 
-## <a name="trigger---attributes"></a>Gatilho-atributos
+## <a name="trigger---attributes"></a>Acionador - atributos
 
 Em [ C# bibliotecas de classes](functions-dotnet-class-library.md) e Java, o atributo `HttpTrigger` está disponível para configurar a função.
 
@@ -516,21 +516,21 @@ Para obter um exemplo completo, consulte o [exemplo de gatilho](#trigger---examp
 
 ---
 
-## <a name="trigger---configuration"></a>Gatilho-configuração
+## <a name="trigger---configuration"></a>Acionador - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `HttpTrigger`.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `HttpTrigger` atributo.
 
-|Propriedade function. JSON | Propriedade de atributo |Descrição|
+|propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 | **tipo** | n/d| Obrigatório-deve ser definido como `httpTrigger`. |
 | **direção** | n/d| Obrigatório-deve ser definido como `in`. |
-| **nomes** | n/d| Obrigatório-o nome da variável usada no código de função para a solicitação ou o corpo da solicitação. |
+| **name** | n/d| Obrigatório-o nome da variável usada no código de função para a solicitação ou o corpo da solicitação. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina quais chaves, se houver, precisam estar presentes na solicitação para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;nenhuma chave de API é necessária.</li><li><code>function</code>&mdash;uma chave de API específica de função é necessária. Esse será o valor padrão se nenhum for fornecido.</li><li><code>admin</code>&mdash;chave mestra é necessária.</li></ul> Para obter mais informações, consulte a seção sobre [chaves de autorização](#authorization-keys). |
-| **maneiras** |**Maneiras** | Uma matriz dos métodos HTTP para os quais a função responde. Se não for especificado, a função responderá a todos os métodos HTTP. Consulte [Personalizar o ponto de extremidade http](#customize-the-http-endpoint). |
+| **methods** |**Methods** | Uma matriz dos métodos HTTP para os quais a função responde. Se não for especificado, a função responderá a todos os métodos HTTP. Consulte [Personalizar o ponto de extremidade http](#customize-the-http-endpoint). |
 | **rota** | **Rota** | Define o modelo de rota, controlando a quais URLs de solicitação sua função responde. O valor padrão, se nenhum for fornecido, será `<functionname>`. Para obter mais informações, consulte [Personalizar o ponto de extremidade http](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** | _Com suporte apenas para o tempo de execução da versão 1. x._<br/><br/>Configura o gatilho HTTP para atuar como um receptor de [webhook](https://en.wikipedia.org/wiki/Webhook) para o provedor especificado. Não defina a propriedade `methods` se você definir essa propriedade. O tipo de webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;um ponto de extremidade de webhook de finalidade geral sem lógica para um provedor específico. Essa configuração restringe as solicitações para apenas as que usam HTTP POST e com o tipo de conteúdo `application/json`.</li><li><code>github</code>&mdash;a função responde a [WebHooks do GitHub](https://developer.github.com/webhooks/). Não use a propriedade _authLevel_ com WebHooks do github. Para obter mais informações, consulte a seção WebHooks do GitHub posteriormente neste artigo.</li><li><code>slack</code>&mdash;a função responde a [WebHooks de margem de atraso](https://api.slack.com/outgoing-webhooks). Não use a propriedade _authLevel_ com WebHooks de margem de atraso. Para obter mais informações, consulte a seção da margem de atraso WebHooks posteriormente neste artigo.</li></ul>|
 
-## <a name="trigger---usage"></a>Gatilho-uso
+## <a name="trigger---usage"></a>Acionador - utilização
 
 O tipo de entrada do gatilho é declarado como `HttpRequest` ou um tipo personalizado. Se você escolher `HttpRequest`, obterá acesso completo ao objeto de solicitação. Para um tipo personalizado, o tempo de execução tenta analisar o corpo da solicitação JSON para definir as propriedades do objeto.
 
@@ -861,28 +861,28 @@ Se uma função que usa o gatilho HTTP não for concluída em cerca de 2,5 minut
 
 Use a associação de saída HTTP para responder ao remetente da solicitação HTTP. Essa associação requer um gatilho HTTP e permite que você personalize a resposta associada à solicitação do gatilho. Se uma associação de saída HTTP não for fornecida, um gatilho HTTP retornará HTTP 200 OK com um corpo vazio em Functions 1. x ou HTTP 204 sem conteúdo com um corpo vazio no functions 2. x.
 
-## <a name="output---configuration"></a>Saída-configuração
+## <a name="output---configuration"></a>Saída - configuração
 
 A tabela a seguir explica as propriedades de configuração de associação que você definiu no arquivo *Function. JSON* . Para C# bibliotecas de classes, não há propriedades de atributo que correspondam a essas propriedades *Function. JSON* .
 
 |Propriedade  |Descrição  |
 |---------|---------|
-| **tipo** |Deve ser definido como `http`. |
-| **direção** | Deve ser definido como `out`. |
-| **nomes** | O nome da variável usada no código de função para a resposta ou `$return` para usar o valor de retorno. |
+| **tipo** |Tem de ser definido como `http`. |
+| **direção** | Tem de ser definido como `out`. |
+| **name** | O nome da variável usada no código de função para a resposta ou `$return` para usar o valor de retorno. |
 
-## <a name="output---usage"></a>Saída-uso
+## <a name="output---usage"></a>Saída - utilização
 
 Para enviar uma resposta HTTP, use os padrões de resposta padrão de idioma. Em C# ou C# script, torne o tipo de retorno da função `IActionResult` ou `Task<IActionResult>`. No C#, um atributo de valor de retorno não é necessário.
 
 Por exemplo, respostas, consulte o [exemplo de gatilho](#trigger---example).
 
-## <a name="hostjson-settings"></a>configurações de host. JSON
+## <a name="hostjson-settings"></a>definições de Host. JSON
 
-Esta seção descreve as definições de configuração global disponíveis para essa associação na versão 2. x. O arquivo host. JSON de exemplo abaixo contém apenas as configurações de versão 2. x para essa associação. Para obter mais informações sobre definições de configuração global na versão 2. x, consulte [referência de host. JSON para Azure Functions versão 2. x](functions-host-json.md).
+Esta secção descreve as definições de configuração global disponíveis para essa ligação na versão 2.x. O ficheiro de Host. JSON de exemplo abaixo contém apenas as versão 2.x as definições para este enlace. Para obter mais informações sobre as definições de configuração global na versão 2.x, consulte [referência de Host. JSON para a versão das funções do Azure 2.x](functions-host-json.md).
 
 > [!NOTE]
-> Para obter uma referência de host. JSON nas funções 1. x, consulte [referência de host. JSON para Azure Functions 1. x](functions-host-json-v1.md#http).
+> Para obter uma referência de Host. JSON nas funções 1.x, consulte [referência de Host. JSON para as funções do Azure 1.x](functions-host-json-v1.md#http).
 
 ```json
 {
@@ -907,8 +907,8 @@ Esta seção descreve as definições de configuração global disponíveis para
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 | customHeaders|nenhuma|Permite que você defina cabeçalhos personalizados na resposta HTTP. O exemplo anterior adiciona o cabeçalho `X-Content-Type-Options` à resposta para evitar a detecção de tipo de conteúdo. |
-|dynamicThrottlesEnabled|verdadeiro<sup>\*</sup>|Quando habilitado, essa configuração faz com que o pipeline de processamento de solicitações Verifique periodicamente os contadores de desempenho do sistema como conexões/threads/processos/memória/CPU/etc. e, se qualquer um desses contadores estiver acima de um limite alto interno (80%), as solicitações serão rejeitado com uma resposta de 429 "muito ocupado" até que os contadores retornem aos níveis normais.<br/><sup>\*</sup> O padrão em um plano de consumo é `true`. O padrão em um plano dedicado é `false`.|
-|hsts|não habilitado|Quando `isEnabled` é definido como `true`, o [comportamento de HSTS (segurança de transporte estrito http) do .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) é imposto, conforme definido na [classe`HstsOptions`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). O exemplo acima também define a propriedade [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) como 10 dias. |
+|dynamicThrottlesEnabled|verdadeiro<sup>\*</sup>|Quando habilitado, essa configuração faz com que o pipeline de processamento de solicitações Verifique periodicamente os contadores de desempenho do sistema como conexões/threads/processos/memória/CPU/etc. e, se qualquer um desses contadores estiver acima de um limite alto interno (80%), as solicitações serão rejeitadas com uma resposta 429 "muito ocupado" até que os contadores retornem aos níveis normais.<br/><sup>\*</sup> O padrão em um plano de consumo é `true`. O padrão em um plano dedicado é `false`.|
+|hsts|não habilitado|Quando `isEnabled` é definido como `true`, o [comportamento de HSTS (segurança de transporte estrito http) do .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) é imposto, conforme definido na [classe`HstsOptions`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). O exemplo acima também define a propriedade [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) como 10 dias. As propriedades com suporte de `hsts` são: <table><tr><th>Propriedade</th><th>Descrição</th></tr><tr><td>excludedHosts</td><td>Uma matriz de cadeia de caracteres de nomes de host para a qual o cabeçalho HSTS não é adicionado.</td></tr><tr><td>includeSubDomains</td><td>Valor booliano que indica se o parâmetro includeSubDomain do cabeçalho Strict-Transport-Security está habilitado.</td></tr><tr><td>Período</td><td>Cadeia de caracteres que define o parâmetro Max-age do cabeçalho Strict-Transport-Security.</td></tr><tr><td>carregamento</td><td>Booliano que indica se o parâmetro PreLoad do cabeçalho Strict-Transport-Security está habilitado.</td></tr></table>|
 |maxConcurrentRequests|100<sup>\*</sup>|O número máximo de funções http que são executadas em paralelo. Isso permite que você controle a simultaneidade, o que pode ajudar a gerenciar a utilização de recursos. Por exemplo, você pode ter uma função http que usa muitos recursos do sistema (memória/CPU/soquetes), de modo que isso cause problemas quando a simultaneidade for muito alta. Ou você pode ter uma função que faça solicitações de saída para um serviço de terceiros, e essas chamadas precisam ser limitadas por taxa. Nesses casos, a aplicação de uma limitação aqui pode ajudar. <br/><sup>*</sup> O padrão para um plano de consumo é 100. O padrão para um plano dedicado é não associado (`-1`).|
 |maxOutstandingRequests|200<sup>\*</sup>|O número máximo de solicitações pendentes que são mantidas em um determinado momento. Esse limite inclui solicitações que estão na fila, mas não iniciaram a execução, bem como qualquer execução em andamento. Todas as solicitações de entrada acima desse limite são rejeitadas com uma resposta de 429 "muito ocupado". Isso permite que os chamadores empreguem estratégias de repetição baseadas em tempo, além de ajudar você a controlar as latências de solicitação máximas. Isso controla somente o enfileiramento que ocorre no caminho de execução do host de script. Outras filas, como a fila de solicitações ASP.NET, ainda estarão em vigor e não serão afetadas por essa configuração. <br/><sup>\*</sup>padrão \The para um plano de consumo é 200. O padrão para um plano dedicado é não associado (`-1`).|
 |routePrefix|api|O prefixo de rota que se aplica a todas as rotas. Use uma cadeia de caracteres vazia para remover o prefixo padrão. |
@@ -916,4 +916,4 @@ Esta seção descreve as definições de configuração global disponíveis para
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Saiba mais sobre os gatilhos e associações do Azure Functions](functions-triggers-bindings.md)
+[Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)

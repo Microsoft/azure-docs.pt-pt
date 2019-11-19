@@ -1,19 +1,14 @@
 ---
-title: Preparar o servidor DPM para fazer backup de cargas de trabalho no Azure
+title: Preparar o servidor DPM para fazer backup de cargas de trabalho
 description: Neste artigo, saiba como preparar os backups do System Center Data Protection Manager (DPM) para o Azure usando o serviço de backup do Azure.
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 5c89dc8b5c8ee420c94d61763770cd37e763f2df
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c7b662c07caecb7871ec9f8be89ffc76b8f7f5fb
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747508"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173142"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar para fazer backup de cargas de trabalho no Azure com o System Center DPM
 
@@ -56,7 +51,7 @@ Armazenamento do cofre | Não há limite para a quantidade de dados que você po
 Azure ExpressRoute | Se o Azure ExpressRoute estiver configurado com o emparelhamento privado ou da Microsoft, ele não poderá ser usado para fazer backup dos dados no Azure.<br/><br/> Se o Azure ExpressRoute estiver configurado com o emparelhamento público, ele poderá ser usado para fazer backup dos dados no Azure.<br/><br/> **Observação:** O emparelhamento público foi preterido para novos circuitos.
 Agente do Backup do Azure | Se o DPM estiver em execução no System Center 2012 SP1, instale o pacote cumulativo de atualizações 2 ou posterior para o DPM SP1. Isso é necessário para a instalação do agente.<br/><br/> Este artigo descreve como implantar a versão mais recente do agente de backup do Azure, também conhecido como agente MARS (Microsoft Azure Recovery Service). Se você tiver uma versão anterior implantada, atualize para a versão mais recente para garantir que o backup funcione conforme o esperado.
 
-Antes de começar, você precisa de uma conta do Azure com o recurso de backup do Azure habilitado. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Leia sobre os [preços do backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
+Antes de começar, você precisa de uma conta do Azure com o recurso de backup do Azure habilitado. Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Leia sobre os [preços do backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
 
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
@@ -102,7 +97,7 @@ Para obter as credenciais, baixe o arquivo de credencial do cofre por meio de um
 
 Baixe o arquivo de credenciais do cofre em um computador local da seguinte maneira:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Abra o cofre no qual você deseja registrar o servidor DPM.
 3. Em **configurações**, clique em **Propriedades**.
 

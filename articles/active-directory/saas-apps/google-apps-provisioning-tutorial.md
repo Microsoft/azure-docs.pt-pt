@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4c08802b9a19398e7968901974cad86d9d946a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: beaa8561028a9e21d0623c0eb8e19592f3cad055
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120318"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167857"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: configurar o G Suite para provisionamento automático de usuário
 
@@ -32,7 +32,7 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no G Suite 
 > [!NOTE]
 > O conector do G Suite foi atualizado recentemente em outubro de 2019. As alterações feitas no conector do G Suite incluem:
 - Adição de suporte para atributos adicionais de usuário e grupo do G Suite. 
-- Atualizado os nomes de atributo de destino do G Suite para corresponder ao que está definido [aqui](/azure/active-directory/manage-apps/customize-application-attributes).
+- Atualizado os nomes de atributo de destino do G Suite para corresponder ao que está definido [aqui](https://developers.google.com/admin-sdk/directory).
 - Mapeamentos de atributo padrão atualizados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -129,9 +129,12 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 > [!TIP]
 > Você também pode optar por habilitar o logon único baseado em SAML para o G Suite, seguindo as instruções fornecidas no [tutorial de logon único do g Suite](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
 
+> [!NOTE]
+> Para saber mais sobre o ponto de extremidade da API do diretório do G Suite, consulte [API de diretório](https://developers.google.com/admin-sdk/directory).
+
 ### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o G Suite no Azure AD:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
     ![Folha aplicativos empresariais](common/enterprise-applications.png)
 
@@ -196,15 +199,6 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **escopo** na seção **configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no G Suite.
 
 Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
-
-> [!NOTE]
-> Outra opção viável para automatizar o provisionamento de usuário para o G Suite é usar a [sincronização de diretório do Google Cloud](https://support.google.com/a/answer/106368?hl=en). Essa opção provisiona suas identidades de Active Directory locais para o G Suite.
-
-## <a name="common-issues"></a>Problemas comuns
-* O G Suite requer que todos os usuários provisionados sejam de domínios verificados. Verifique se qualquer usuário que você deseja provisionar tem um UPN de um domínio verificado no G Suite. Se um usuário de um domínio não verificado estiver no escopo para provisionamento, você verá um erro nos [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , como "GoogleAppsInvalidDomain". Você pode evitar esses erros e garantir que os usuários de domínios não verificados estejam fora do escopo usando um [filtro de escopo](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-    * Atributo de destino: userPrincipalName
-    * Operador: REGEX corresponder ou não correspondência de REGEX
-    * Valor:. *@domain.com
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -1,76 +1,76 @@
 ---
-title: Visualizar dados de monitorização remota com o Power BI - Azure | Documentos da Microsoft
-description: Este tutorial utiliza o ambiente de trabalho do Power BI e o Cosmos DB para integerate dados de uma solução de monitorização remota numa visualização personalizada. Esta forma como os utilizadores podem criar seus próprios dashboards personalizados e compartilhá-los com os utilizadores não na solução.
-author: asdonald
+title: Visualizar dados de monitoramento remoto usando o Power BI-Azure | Microsoft Docs
+description: Este tutorial usa Power BI Desktop e Cosmos DB para fazer o inteiros de dados de uma solução de monitoramento remoto em uma visualização personalizada. Dessa forma, os usuários podem criar seus próprios painéis personalizados e compartilhá-los para os usuários que não estão na solução.
+author: dominicbetts
 manager: hegate
-ms.author: asdonald
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3398c6d318e0e3c51d3f6cfe8af651a6e3f55c9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 13b10aa4f40b7c4b62b35e8580c2826c10e6683f
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61448132"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166293"
 ---
-# <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizar dados de monitorização remota com o Power BI
+# <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizar dados de monitoramento remotos usando o Power BI
 
-Este tutorial explica como conectar seus dados de solução de monitorização remota do cosmos DB para o Power BI. Com esta ligação estabelecida, em seguida, pode criar seus próprios dashboards personalizados e adicioná-los para o seu dashboard da solução de monitorização remota. Este workstream possibilita gráficos mais especializados a ser criado, para além daquelas prontas a utilizar. Em seguida, pode utilizar este tutorial para integrar com outros fluxos de dados ou criar dashboards personalizados para ser consumida fora da sua solução de monitorização remota. A criar dashboards no Power BI significa que pode também verificar cada painel interagir entre si, à medida que seleciona partes específicas. Por exemplo, poderia ter um filtro que mostra-lhe informações apenas sobre sua trucks simulados e cada parte do dashboard para mostrar a que simulated apenas informações de camião interagir. Se desejar usar uma ferramenta que não seja o Power BI, também pode expandir estes passos para utilizar a sua ferramenta de visualização de escolha e conectar-se na base de dados do Cosmos ou banco de dados personalizado se o ter configurado um. 
+Este tutorial explicará como conectar seus dados de solução de monitoramento remoto do CosmosDB ao Power BI. Com essa conexão estabelecida, você pode criar seus próprios painéis personalizados e adicioná-los de volta no painel da solução de monitoramento remoto. Esse workstream permite que gráficos mais especializados sejam criados, além daqueles prontos para uso. Você pode usar este tutorial para integrar com outros fluxos de dados ou criar painéis personalizados para serem consumidos fora da sua solução de monitoramento remoto. A criação de painéis no Power BI significa que você também pode fazer com que cada painel interaja um com o outro à medida que você seleciona partes específicas. Por exemplo, você pode ter um filtro que mostra apenas informações sobre o caminhões simulado e cada parte do seu painel interagiria para mostrar apenas informações simuladas do caminhão. Se você quiser usar uma ferramenta diferente de Power BI, também poderá estender essas etapas para usar a ferramenta de visualização de sua escolha e conectar-se ao banco de dados Cosmos ou ao banco de dados personalizado se tiver configurado um. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Tem de ter uma solução de monitorização remota atualmente em execução
-- Tem de ter acesso ao [Portal do Azure](https://portal.azure.com) e a sua subscrição no qual o IoT Hub e a solução estão a executar
-- Tem de ter [Power BI desktop](https://powerbi.microsoft.com) instalado, será feito qualquer versão
+- Você deve ter uma solução de monitoramento remoto em execução no momento
+- Você deve ter acesso ao [portal do Azure](https://portal.azure.com) e à sua assinatura na qual o Hub IOT e a solução estão em execução
+- Você deve ter o [Power bi desktop](https://powerbi.microsoft.com) instalado, qualquer versão do fará
 
 
-## <a name="information-needed-from-azure-portal"></a>Informações necessárias a partir do Portal do Azure
+## <a name="information-needed-from-azure-portal"></a>Informações necessárias do portal do Azure
 
-1. Navegue para [Portal do Azure](https://portal.azure.com) e início de sessão se for necessário
+1. Navegue até o [portal do Azure](https://portal.azure.com) e entre, se necessário
 
-2. No painel à esquerda, clique em grupos de recursos
+2. No painel esquerdo, clique em grupos de recursos
 
-    ![Barra de navegação do lado painel](./media/iot-accelerators-integrate-data-powerbi/side_panel.png)
+    ![Navegação do painel lateral](./media/iot-accelerators-integrate-data-powerbi/side_panel.png)
 
-3. Navegue para o grupo de recursos de que a sua solução de Iot está em execução no e clique para ir para página de descrição geral do grupo de recursos. 
+3. Navegue até o grupo de recursos do qual sua solução de IOT está em execução e clique para ser levado para a página de visão geral desse grupo de recursos. 
 
-4. Nessa página de descrição geral, clique no item, que tem o tipo "Conta do Azure Cosmos DB", será encaminhado para a página de descrição geral da transmissão em fluxo do Cosmos DB para essa solução de IoT.
+4. Nessa página de visão geral, clique no item, que tem o tipo "conta de Azure Cosmos DB", você será levado para a página de visão geral do fluxo de Cosmos DB para essa solução de IoT.
 
     ![Grupo de Recursos](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
 
-5. No painel à esquerda, clique a secção "Chaves" e tome nota dos seguintes valores a ser utilizado no Power BI:
+5. No painel à esquerda, clique na seção "chaves" e anote os seguintes valores a serem usados no Power BI:
 
    - URI
    - Chave primária
 
      ![keys](./media/iot-accelerators-integrate-data-powerbi/keys.png)
 
-## <a name="setting-up-the-stream-in-power-bi"></a>Como configurar o Stream no Power BI
+## <a name="setting-up-the-stream-in-power-bi"></a>Configurando o fluxo no Power BI
   
-1. Abrir a aplicação de ambiente de trabalho do Power BI e clique em "Get Data" no canto superior esquerdo. 
+1. Abra o aplicativo de área de trabalho Power BI e clique em "obter dados" no canto superior esquerdo. 
 
     ![Obter dados](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
 
-2. Quando solicitado a inserir dados, escolha a pesquisa para "Do Azure Cosmos DB" e selecione este conector. Este conector, essencialmente, extrai dados diretamente a partir de uma base de dados do cosmos da sua solução de IoT do Azure
+2. Quando solicitado a inserir dados, escolha procurar "Azure Cosmos DB" e selecione este conector. Essencialmente, esse conector extrai dados diretamente do banco de Cosmos de sua solução de IoT do Azure
   
     ![BD do Cosmos](./media/iot-accelerators-integrate-data-powerbi/cosmos_db.png)
   
-3. Introduza as informações que foram registradas acima:
+3. Insira as informações que você gravou acima:
 
     * URI
     * Chave primária
 
-4. Selecione todas as tabelas a serem importados para o Power BI. Esta ação irá iniciar o carregamento dos dados. Mais tempo a solução tem funcionado, quanto mais tempo pode demorar para que a data e carregar (até algumas horas). 
+4. Selecione todas as tabelas a serem importadas para Power BI. Esta ação iniciará o carregamento dos dados. Quanto mais longa sua solução estiver em execução, mais tempo poderá levar para que os dados sejam carregados (até algumas horas). 
 
     ![Importar tabelas](./media/iot-accelerators-integrate-data-powerbi/import_tables.png)
 
-5. Quando tem terminado dos dados de carregamento, clique em "Editar consultas" na linha superior do Power BI e expanda todas as tabelas ao clicar nas setas na barra amarela para cada tabela. Essencialmente, isto irá expandir para mostrar todas as colunas. Verá como os dados para tarefas como a humidade, acelerar o tempo, etc. não são do tipo correto.
+5. Depois que os dados tiverem terminado o carregamento, clique em "editar consultas" na linha superior de Power BI e expanda todas as tabelas clicando nas setas na barra amarela para cada tabela. Essencialmente, isso será expandido para mostrar todas as colunas. Você notará como os dados para coisas como umidade, tempo de velocidade, etc. não são do tipo correto.
 
     ![Nova coluna](./media/iot-accelerators-integrate-data-powerbi/new_column.png)
   
-    Por exemplo, os dados para o Power BI foi alterados em tempo de UNIX quando chegou através do conector. Para ajustar para esta conversão, daqui em diante pode criar uma nova coluna e, utilize esta equação para inseri-los no formato de hora de data: 
+    Por exemplo, os dados que entram em Power BI foram alterados para o tempo de UNIX quando ele chegou por meio do conector. Para ajustar essa conversão, você pode criar uma nova coluna e usar esta equação para colocá-la em formato de data/hora: 
 
     ```text
     #datetime(1970, 1, 1, 0, 0, 0) + #duration(0, 0, 0, [Document.device.msg.received]/1000)
@@ -78,33 +78,33 @@ Este tutorial explica como conectar seus dados de solução de monitorização r
 
     ![Tabela atualizada](./media/iot-accelerators-integrate-data-powerbi/updated_table.png)
   
-    Document.Device.msg.Received é apenas uma das colunas com a formatação de UNIX e podem ser substituídas com outras pessoas que necessitam de conversão. 
+    Document. Device. msg. Received é apenas uma das colunas com a formatação UNIX e pode ser substituída por outras que precisam de conversão. 
   
-    Outros pontos de dados foram convertidos para o tipo de que cadeia de caracteres pode ser alterada em duplicatas ou Int onde apropriado usar os mesmos passos como anteriormente.
+    Outros pontos de dados foram convertidos no tipo cadeia de caracteres podem ser alterados em duplos ou int, quando apropriado, usando as mesmas etapas acima.
 
-## <a name="creating-a-dashboard"></a>Criar um dashboard
+## <a name="creating-a-dashboard"></a>Criando um painel
 
-Assim que o fluxo foi ligado, está pronto para criar dashboards personalizados! O dashboard abaixo é um exemplo de colocar a telemetria que está a ser emitida pelo nosso dispositivos simulados e tabelas dinâmicas de diferentes que mostra em torno dele, tais como: 
+Depois que o fluxo estiver conectado, você estará pronto para criar seus painéis personalizados! O painel abaixo é um exemplo de como fazer a telemetria ser emitida por nossos dispositivos simulados e mostrar diferentes dinamizações em relação a ele, como: 
 
-* Localização do dispositivo num mapa (direita)
-* Dispositivos com o respetivo estado e gravidade. (canto superior esquerdo)
-* Dispositivos com regras no local e se existem quaisquer alertas vai para os mesmos (canto inferior esquerdo)
+* Local do dispositivo em um mapa (à direita)
+* Dispositivos com seu status e severidade. (superior à esquerda)
+* Dispositivos com regras em vigor e se houver alertas sendo desativados para eles (parte inferior esquerda)
 
-![Visualização do Power BI](./media/iot-accelerators-integrate-data-powerbi/visual_data.png)
+![Visualização do PowerBi](./media/iot-accelerators-integrate-data-powerbi/visual_data.png)
 
-## <a name="publishing-the-dashboard-and-refreshing-the-data"></a>Publicar o dashboard e atualizar os dados
+## <a name="publishing-the-dashboard-and-refreshing-the-data"></a>Publicando o painel e atualizando os dados
 
-Depois de ter criado com êxito os seus dashboards, recomendamos que [publicar dashboards do Power BI](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files) para partilhar com outras pessoas.
+Depois de criar seus painéis com êxito, recomendamos que você [publique seus painéis de Power bi](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files) para compartilhar com outras pessoas.
 
-Também vai querer [atualizar os dados](https://docs.microsoft.com/power-bi/refresh-data) no dashboard publicado para se certificar de que tem o conjunto de dados mais recentes.
+Você também desejará [atualizar os dados](https://docs.microsoft.com/power-bi/refresh-data) no painel publicado para ter certeza de que tem o conjunto de dados mais recente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu sobre como visualizar dados de monitorização remotos com o Power BI
+Neste artigo, você aprendeu sobre como Visualizar dados de monitoramento remoto usando Power BI
 
-Para obter mais informações sobre como personalizar a solução de monitorização remota, consulte:
+Para obter mais informações sobre como personalizar a solução de monitoramento remoto, consulte:
 
-* [Personalizar a solução de monitorização remota da interface do Usuário](iot-accelerators-remote-monitoring-customize.md)
+* [Personalizando a interface do usuário da solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize.md)
 * [Guia de Referência para Programadores](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Guia de Resolução de Problemas de Programadores](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 

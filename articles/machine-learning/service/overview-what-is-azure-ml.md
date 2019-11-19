@@ -8,18 +8,18 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: 7e07419115a6e9709879c71dfac1234408bda0ee
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 488616ab2068337331d589bbf5c61ae06b299f5d
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824068"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173981"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
 Neste artigo, você aprende sobre Azure Machine Learning, um ambiente baseado em nuvem que pode ser usado para treinar, implantar, automatizar, gerenciar e rastrear modelos de ML. 
 
-Azure Machine Learning pode ser usado para qualquer tipo de aprendizado de máquina, desde ml clássico até aprendizado profundo, aprendizado supervisionado e não supervisionado. Se você preferir escrever código Python ou R ou opções de código zero ou de código baixo, como o [Designer](ui-tutorial-automobile-price-train-score.md), poderá criar, treinar e acompanhar modelos de aprendizado de máquina e aprendizado profundo altamente precisos em um Workspace do Azure Machine Learning. 
+Azure Machine Learning pode ser usado para qualquer tipo de aprendizado de máquina, do ml clássico até aprendizado profundo, supervisionado e aprendizado não supervisionado. Se você preferir escrever código Python ou R ou opções de código zero ou de código baixo, como o [Designer](ui-tutorial-automobile-price-train-score.md), você pode criar, treinar e acompanhar modelos de aprendizado de máquina e aprendizado profundo altamente precisos em um Workspace do Azure Machine Learning. 
 
 Inicie o treinamento no computador local e, em seguida, escale horizontalmente para a nuvem. 
 
@@ -31,7 +31,7 @@ O serviço também interopera com ferramentas populares de software livre, como 
 > **Avaliação gratuita!**  Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje. Receberá créditos para gastar em serviços do Azure. Depois de serem utilizados, pode manter a conta e utilizar os [serviços gratuitos do Azure](https://azure.microsoft.com/free/). O seu cartão de crédito não será cobrado, a menos que altere explicitamente as suas definições e peça para ser cobrado.
 
 
-## <a name="what-is-machine-learning"></a>O que é a aprendizagem automática?
+## <a name="what-is-machine-learning"></a>O que é o Machine Learning?
 
 A aprendizagem automática é uma técnica da ciência de dados que permite aos computadores utilizar dados existentes para prever futuros comportamentos, resultados e tendências. Usando o Machine Learning, os computadores aprendem sem serem programados explicitamente.
 
@@ -54,7 +54,6 @@ Azure Machine Learning fornece todos os desenvolvedores de ferramentas e cientis
 
 Você pode até mesmo usar o [MLflow para acompanhar as métricas e implantar modelos](how-to-use-mlflow.md) ou Kubeflow para [Compilar pipelines de fluxo de trabalho de ponta a ponta](https://www.kubeflow.org/docs/azure/).
 
-
 ## <a name="build-ml-models-in-python-or-r"></a>Criar modelos de ML em Python ou R
 
 Inicie o treinamento em seu computador local usando o <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> do Azure Machine Learning Python ou o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK do R</a>. Em seguida, você pode escalar horizontalmente para a nuvem. 
@@ -69,7 +68,7 @@ Para treinamento e implantação sem código ou de baixo código, tente:
 
 + **Designer de Azure Machine Learning (versão prévia)**
 
-  Use o designer para preparar dados, treinar, testar, implantar, gerenciar e acompanhar modelos de aprendizado de máquina sem escrever nenhum código. Não há nenhuma programação necessária, você conecta visualmente conjuntos de os e módulos para construir seu modelo.   Experimente o [tutorial do designer](tutorial-designer-automobile-price-train-score.md).
+  Use o designer para preparar dados, treinar, testar, implantar, gerenciar e acompanhar modelos de aprendizado de máquina sem escrever nenhum código. Não há nenhuma programação necessária, você conecta visualmente conjuntos de os e módulos para construir seu modelo. Experimente o [tutorial do designer](tutorial-designer-automobile-price-train-score.md).
 
   Saiba mais no [artigo Visão geral do Azure Machine Learning designer](concept-designer.md). 
 
@@ -91,13 +90,31 @@ Esses modelos podem ser consumidos e retornar previsões em [tempo real](how-to-
 E com [pipelines](concept-ml-pipelines.md)avançados de aprendizado de máquina, você pode colaborar em cada etapa de preparação de dados, treinamento de modelo e avaliação, por meio da implantação. Os pipelines permitem que você:
 
 * Automatizar o processo de aprendizado de máquina de ponta a ponta na nuvem
-* Reutilizar componentes e executar novamente as etapas novamente quando necessário
+* Reutilizar componentes e executar apenas as etapas quando necessário
 * Usar diferentes recursos de computação em cada etapa
 * Executar tarefas de Pontuação do lote
 
 Se você quiser usar scripts para automatizar o fluxo de trabalho do Machine Learning, a [CLI do Machine Learning](reference-azure-machine-learning-cli.md) fornece ferramentas de linha de comando que executam tarefas comuns, como enviar uma execução de treinamento ou implantar um modelo.
 
 Para começar a usar o Azure Machine Learning, consulte [próximas etapas](#next-steps).
+
+## <a name="integration-with-other-services"></a>Integração com outros serviços
+
+Azure Machine Learning trabalha com outros serviços na plataforma do Azure e também se integra a ferramentas de software livre, como git e MLFlow.
+
++ Destinos de computação, como o __serviço kubernetes do Azure__, __instâncias de contêiner do Azure__, __Azure Databricks__, __Azure data Lake Analytics__e __Azure HDInsight__. Para obter mais informações sobre destinos de computação, consulte [o que são destinos de computação?](concept-compute-target.md).
++ __Grade de eventos do Azure__. Para obter mais informações, consulte [consumir eventos de Azure Machine Learning](concept-event-grid-integration.md).
++ __O Azure Monitor__. Para obter mais informações, consulte [monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
++ Armazenamentos de dados, como __contas de armazenamento do Azure__, __Azure data Lake Storage__, banco de dados __SQL do Azure__, __banco de dados do Azure para PostgreSQL e conjuntos de dados__ __abertos do Azure__. Para obter mais informações, consulte [acessar dados nos serviços de armazenamento do Azure](how-to-access-data.md) e [criar conjuntos de dados com conjuntos de dados abertos do Azure](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets).
++ __Redes virtuais do Azure__. Para obter mais informações, consulte [experimentação e inferência de segurança em uma rede virtual](how-to-enable-virtual-network.md).
++ __Pipelines do Azure__. Para obter mais informações, consulte [treinar e implantar modelos de aprendizado de máquina](/azure/devops/pipelines/targets/azure-machine-learning).
++ __Logs do repositório git__. Para obter mais informações, consulte [integração com o Git](concept-train-model-git-integration.md).
++ __MLFlow__. Para obter mais informações, consulte [MLflow para acompanhar métricas e implantar modelos](how-to-use-mlflow.md) 
++ __Kubeflow__. Para obter mais informações, consulte [criar pipelines de fluxo de trabalho de ponta a ponta](https://www.kubeflow.org/docs/azure/).
+
+### <a name="secure-communications"></a>Comunicações seguras
+
+Sua conta de armazenamento do Azure, destinos de computação e outros recursos podem ser usados com segurança dentro de uma rede virtual para treinar modelos e realizar a inferência. Para obter mais informações, consulte [experimentação e inferência de segurança em uma rede virtual](how-to-enable-virtual-network.md).
 
 ## <a name="sku"></a>Edições do Basic & Enterprise
 

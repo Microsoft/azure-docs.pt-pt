@@ -8,20 +8,16 @@ ms.topic: tutorial
 ms.date: 11/07/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 176dfdabeee6299bba0eb17085be25ced3e97993
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 075c60aed458be8a4bf45fafb2d06757862ff5ba
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091903"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158580"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparar para avaliação e migração de servidores físicos para o Azure
 
 Este artigo descreve como se preparar para a avaliação de servidores físicos locais com as [migrações para Azure](migrate-services-overview.md).
-
-
-> [!NOTE]
-> Se você ainda não vir alguns desses recursos no portal de migrações para Azure, aguarde. Eles serão exibidos na próxima semana ou assim.
 
 As [migrações para Azure](migrate-overview.md) fornecem um hub de ferramentas que ajudam a descobrir, avaliar e migrar aplicativos, infraestrutura e cargas de trabalho para Microsoft Azure. O Hub inclui ferramentas de migração do Azure e ofertas de fornecedores independentes de software (ISV) de terceiros. 
 
@@ -45,7 +41,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Você precisa configurar permissões para a implantação de migrações para Azure.
 
-- Permissões para sua conta do Azure para criar um projeto de migrações para Azure. 
+- Permissões para sua conta do Azure para criar um projeto de migrações para Azure.
 - Permissões para sua conta para registrar o dispositivo de migrações para Azure. O dispositivo é usado para descoberta e migração do Hyper-V. Durante o registro do dispositivo, as migrações para Azure criam dois aplicativos Azure Active Directory (Azure AD) que identificam exclusivamente o dispositivo:
     - O primeiro aplicativo se comunica com os pontos de extremidade de serviço de migrações para Azure.
     - O segundo aplicativo acessa uma Azure Key Vault que é criada durante o registro, para armazenar as informações de aplicativo do Azure AD e as configurações de dispositivo.
@@ -73,7 +69,7 @@ Você pode atribuir permissões para migrações para Azure para criar os aplica
 Vale a pena observar que:
 
 - Os aplicativos não têm nenhuma outra permissão de acesso na assinatura diferente daquelas descritas acima.
-- Você só precisa dessas permissões ao registrar um novo dispositivo. Você pode remover as permissões depois que o dispositivo for configurado. 
+- Você só precisa dessas permissões ao registrar um novo dispositivo. Você pode remover as permissões depois que o dispositivo for configurado.
 
 
 #### <a name="grant-account-permissions"></a>Permissões de conta de concessão
@@ -88,7 +84,7 @@ O locatário/administrador global pode conceder permissões da seguinte maneira:
 > [!NOTE]
 > Essa é uma configuração padrão que não é sensível. [Saiba mais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
-#### <a name="assign-application-developer-role"></a>Atribuir função de desenvolvedor de aplicativo 
+#### <a name="assign-application-developer-role"></a>Atribuir função de desenvolvedor de aplicativo
 
 O locatário/administrador global pode atribuir a função de desenvolvedor de aplicativo a uma conta. [Saiba mais](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
@@ -124,12 +120,12 @@ As migrações para Azure precisam de permissões para descobrir servidores loca
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:
- 
-> [!div class="checklist"] 
+
+> [!div class="checklist"]
 > * Configurar permissões de conta do Azure.
 > * Servidores físicos preparados para avaliação.
 
 Continue no próximo tutorial para criar um projeto de migrações para Azure e avaliar servidores físicos para migração para o Azure
 
-> [!div class="nextstepaction"] 
-> [Avaliar servidores físicos](./tutorial-assess-physical.md) 
+> [!div class="nextstepaction"]
+> [Avaliar servidores físicos](./tutorial-assess-physical.md)

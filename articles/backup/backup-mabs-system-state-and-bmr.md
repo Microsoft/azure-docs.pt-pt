@@ -1,19 +1,14 @@
 ---
-title: Proteger o estado do sistema & Restauração bare-metal-Servidor de Backup do Azure
+title: Proteção de recuperação bare-metal e estado do sistema
 description: Use Servidor de Backup do Azure para fazer backup do estado do sistema e fornecer proteção de BMR (recuperação bare-metal).
-author: dcurwin
-manager: carmonm
-keywords: ''
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: dacurwin
-ms.openlocfilehash: 50f534a5a682cd9e4f6aeb040b897e7aae48dddd
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 2940ef5b8c0c2a7d751c46209253d4f4dbe6d13f
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969036"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172253"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Fazer backup do estado do sistema e restaurar para bare-metal com Servidor de Backup do Azure
 
@@ -28,7 +23,7 @@ Servidor de Backup do Azure faz backup do estado do sistema e fornece proteção
 
 A tabela a seguir resume o que você pode fazer backup e recuperar. Para obter informações detalhadas sobre as versões de aplicativo que podem ser protegidas com o estado do sistema e a BMR, consulte [o que servidor de backup do Azure backup?](backup-mabs-protection-matrix.md).
 
-|Backup|Problema|Recuperar de Servidor de Backup do Azure backup|Recuperar do backup de estado do sistema|METAL|
+|Cópia de segurança|Problema|Recuperar de Servidor de Backup do Azure backup|Recuperar do backup de estado do sistema|METAL|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**Dados de arquivo**<br /><br />Backup de dados regular<br /><br />Backup de estado do sistema/BMR|Dados de arquivo perdidos|S|N|N|
 |**Dados de arquivo**<br /><br />Servidor de Backup do Azure backup de dados de arquivo<br /><br />Backup de estado do sistema/BMR|Sistema operacional perdido ou danificado|N|S|S|
@@ -42,7 +37,7 @@ A tabela a seguir resume o que você pode fazer backup e recuperar. Para obter i
 |Hyper-V<br /><br />Servidor de Backup do Azure backup de host ou convidado do Hyper-V<br /><br />BMR/backup de estado do sistema do host|Host Hyper-V perdido (VMs intactas)|N|N|S|
 |Hyper-V<br /><br />Servidor de Backup do Azure backup de host ou convidado do Hyper-V<br /><br />BMR/backup de estado do sistema do host|Host Hyper-V perdido (VMs perdidas)|N|N|S<br /><br />BMR, seguida de recuperação de Servidor de Backup do Azure regular|
 |SQL Server/Exchange<br /><br />Backup do aplicativo Servidor de Backup do Azure<br /><br />Backup de estado do sistema/BMR|Dados de aplicativo perdidos|S|N|N|
-|SQL Server/Exchange<br /><br />Backup do aplicativo Servidor de Backup do Azure<br /><br />Backup de estado do sistema/BMR|Sistema operacional perdido ou danificado|N|Iar|S|
+|SQL Server/Exchange<br /><br />Backup do aplicativo Servidor de Backup do Azure<br /><br />Backup de estado do sistema/BMR|Sistema operacional perdido ou danificado|N|Y|S|
 |SQL Server/Exchange<br /><br />Backup do aplicativo Servidor de Backup do Azure<br /><br />Backup de estado do sistema/BMR|Servidor perdido (banco de dados/logs de transações intactos)|N|N|S|
 |SQL Server/Exchange<br /><br />Backup do aplicativo Servidor de Backup do Azure<br /><br />Backup de estado do sistema/BMR|Servidor perdido (banco de dados/logs de transações perdidos)|N|N|S<br /><br />Recuperação BMR, seguida de recuperação regular de Servidor de Backup do Azure|
 
@@ -95,7 +90,7 @@ Quando o backup é concluído, o arquivo é transferido para o computador do ser
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-1. **Implantar servidor de backup do Azure**. Verifique se o servidor de backup está implantado corretamente. Para obter mais informações, veja:
+1. **Implantar servidor de backup do Azure**. Verifique se o servidor de backup está implantado corretamente. Para obter mais informações, consulte:
     * [Requisitos do sistema para Servidor de Backup do Azure](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
     * [Matriz de proteção do servidor de backup](backup-mabs-protection-matrix.md)
 

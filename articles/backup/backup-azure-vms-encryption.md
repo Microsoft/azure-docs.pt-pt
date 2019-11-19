@@ -1,19 +1,14 @@
 ---
-title: Fazer backup e restaurar VMs do Azure criptografadas com o backup do Azure
+title: Fazer backup e restaurar VMs do Azure criptografadas
 description: Descreve como fazer backup e restaurar VMs do Azure criptografadas com o serviço de backup do Azure.
-ms.reviewer: geg
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 004f15a1af11e3ed27f792e245888671b94fbb1a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4bc413e70d8e19f8006580c0631641651dcaf92
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074933"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172528"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Fazer backup e restaurar a VM do Azure criptografada
 
@@ -21,7 +16,7 @@ Este artigo descreve como fazer backup e restaurar VMs (máquinas virtuais) do A
 
 Se você quiser saber mais sobre como o backup do Azure interage com as VMs do Azure antes de começar, examine estes recursos:
 
-- [Examine](backup-architecture.md#architecture-direct-backup-of-azure-vms) a arquitetura de backup da VM do Azure.
+- [Examine](backup-architecture.md#architecture-built-in-azure-vm-backup) a arquitetura de backup da VM do Azure.
 - [Saiba mais](backup-azure-vms-introduction.md) Backup de VM do Azure e a extensão de backup do Azure.
 
 ## <a name="encryption-support"></a>Suporte à criptografia

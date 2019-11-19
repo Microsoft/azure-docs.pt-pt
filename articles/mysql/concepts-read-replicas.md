@@ -5,17 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.openlocfilehash: 6ad71cecfd088a92bdd41ae13cb530c286ebea4c
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 11/17/2019
+ms.openlocfilehash: 66864870f29729e54ad06aef1208641f673c0612
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970384"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158308"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na Base de Dados do Azure para MySQL
 
-A funcionalidade de réplica de leitura permite replicar dados de um servidor de Base de Dados do Azure para MySQL para um servidor só de leitura. Pode replicar do servidor mestre para até cinco réplicas. As réplicas são atualizadas de forma assíncrona com a tecnologia de replicação baseada na posição dos ficheiros de registo binário nativo (binlog) do motor MySQL. Para saber mais sobre a replicação do binlog, confira a [visão geral da replicação do MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+A funcionalidade de réplica de leitura permite replicar dados de uma Base de Dados do Azure para servidor MySQL para um servidor só de leitura. Pode replicar do servidor mestre para até cinco réplicas. As réplicas são atualizadas de forma assíncrona com a tecnologia de replicação baseada na posição dos ficheiros de registo binário nativo (binlog) do motor MySQL. Para saber mais sobre a replicação do binlog, confira a [visão geral da replicação do MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 Réplicas são novos servidores que você gerencia de forma semelhante ao banco de dados do Azure regular para servidores MySQL. Para cada réplica de leitura, você será cobrado pela computação provisionada em vCores e armazenamento em GB/mês.
 
@@ -36,7 +36,7 @@ Você pode criar uma réplica de leitura em uma região diferente do servidor me
 
 Você pode ter um servidor mestre em qualquer [região do banco de dados do Azure para MySQL](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  Um servidor mestre pode ter uma réplica em sua região emparelhada ou nas regiões de réplica universal. A figura abaixo mostra quais regiões de réplica estão disponíveis dependendo de sua região mestra.
 
-[regiões de réplica ![Read](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[![ler regiões de réplica](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Regiões de réplica universal
 Você pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente de onde o servidor mestre está localizado. As regiões de réplica universal com suporte incluem:
@@ -51,9 +51,9 @@ Se você estiver usando réplicas entre regiões para planejamento de recuperaç
 
 No entanto, há limitações a serem consideradas: 
 
-* Disponibilidade regional: O banco de dados do Azure para MySQL está disponível no oeste dos EUA 2, França central, Norte dos EAU e Alemanha central. No entanto, suas regiões emparelhadas não estão disponíveis.
+* Disponibilidade regional: o banco de dados do Azure para MySQL está disponível no oeste dos EUA 2, França central, Norte dos EAU e Alemanha central. No entanto, suas regiões emparelhadas não estão disponíveis.
     
-* Pares unidirecionais: Algumas regiões do Azure são emparelhadas somente em uma direção. Essas regiões incluem Índia ocidental, sul do Brasil e US Gov-Virgínia. 
+* Pares unidirecionais: algumas regiões do Azure são emparelhadas apenas em uma direção. Essas regiões incluem Índia ocidental, sul do Brasil e US Gov-Virgínia. 
    Isso significa que um servidor mestre na Índia ocidental pode criar uma réplica na Índia Sul. No entanto, um servidor mestre na Índia Sul não pode criar uma réplica na Índia ocidental. Isso ocorre porque a região secundária da Índia ocidental é sul da Índia, mas a região secundária do Sul da Índia não é oeste da Índia.
 
 
@@ -69,7 +69,7 @@ Saiba como [criar uma réplica de leitura no portal do Azure](howto-read-replica
 
 ## <a name="connect-to-a-replica"></a>Conectar-se a uma réplica
 
-Quando você cria uma réplica, ela não herda as regras de firewall ou o ponto de extremidade de serviço VNet do servidor mestre. Essas regras devem ser configuradas independentemente para a réplica.
+Na criação, uma réplica herda as regras de firewall ou o ponto de extremidade de serviço VNet do servidor mestre. Posteriormente, essas regras são independentes do servidor mestre.
 
 A réplica herda a conta do administrador do servidor mestre. Todas as contas de usuário no servidor mestre são replicadas para as réplicas de leitura. Você só pode se conectar a uma réplica de leitura usando as contas de usuário que estão disponíveis no servidor mestre.
 
@@ -85,7 +85,7 @@ No prompt, digite a senha da conta de usuário.
 
 O banco de dados do Azure para MySQL fornece a métrica **atraso de replicação em segundos** no Azure monitor. Essa métrica está disponível somente para réplicas.
 
-Essa métrica é calculada usando a métrica `seconds_behind_master` disponível no comando `SHOW SLAVE STATUS` do MySQL.
+Essa métrica é calculada usando a métrica de `seconds_behind_master` disponível no comando `SHOW SLAVE STATUS` do MySQL.
 
 Defina um alerta para informá-lo quando o retardo de replicação atingir um valor que não é aceitável para sua carga de trabalho.
 
@@ -121,6 +121,8 @@ Uma réplica é criada usando a mesma configuração de servidor que o mestre. D
 
 > [!IMPORTANT]
 > Antes de uma configuração de servidor mestre ser atualizada para novos valores, atualize a configuração de réplica para valores iguais ou superiores. Esta ação garante que a réplica pode acompanhar quaisquer alterações feitas no mestre.
+
+As regras de firewall, as regras de rede virtual e as configurações de parâmetros são herdadas do servidor mestre para a réplica quando a réplica é criada. Posteriormente, as regras da réplica são independentes.
 
 ### <a name="stopped-replicas"></a>Réplicas interrompidas
 

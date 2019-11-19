@@ -1,17 +1,14 @@
 ---
 title: Tutorial – criar uma rede spoke no Azure usando o Terraform
 description: Saiba como implementar dois VNets spoke conectados a um Hub em uma topologia hub-spoke
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: e717424330706a6a4ebcadc543cdb2cf9bebe774
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 2a36b8ac22fb52f6b8f1246fd254d9c3ff22fc82
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969356"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159019"
 ---
 # <a name="tutorial-create-a-spoke-network-in-azure-using-terraform"></a>Tutorial: criar uma rede spoke no Azure usando o Terraform
 
@@ -39,9 +36,9 @@ Dois scripts spoke são criados nesta seção. Cada script define uma rede virtu
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se não tiver selecionado um ambiente anteriormente, selecione **Bash** como o seu ambiente.
 
-    ![Comando do Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
+    ![Comandos do Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
 
-1. Mude para o diretório `clouddrive`.
+1. Altere os diretórios para o diretório `clouddrive`.
 
     ```bash
     cd clouddrive

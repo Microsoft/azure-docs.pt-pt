@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: zarhoads
-ms.openlocfilehash: bc74ac660c5bba0624416d0a1724d959a4c385a7
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: fc808fee66dee573aecd423e375d30bf3f5b696a
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305282"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170716"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalar aplicativos com o Helm no AKS (serviço kubernetes do Azure)
 
@@ -56,7 +56,7 @@ subjects:
     namespace: kube-system
 ```
 
-Crie a conta de serviço e a associação de `kubectl apply` função com o comando:
+Crie a conta de serviço e a associação de função com o comando `kubectl apply`:
 
 ```console
 kubectl apply -f helm-rbac.yaml
@@ -70,15 +70,15 @@ Com um cluster kubernetes habilitado para RBAC, você pode controlar o nível de
 
 ## <a name="configure-helm"></a>Configurar o Helm
 
-Para implantar um gaveta básico em um cluster AKS, use o comando [init Helm][helm-init] . Se o cluster não estiver habilitado para RBAC, remova `--service-account` o argumento e o valor. Os exemplos a seguir também definem o [histórico-máximo][helm-history-max] como 200.
+Para implantar um gaveta básico em um cluster AKS, use o comando [init Helm][helm-init] . Se o cluster não estiver habilitado para RBAC, remova o argumento `--service-account` e o valor. Os exemplos a seguir também definem o [histórico-máximo][helm-history-max] como 200.
 
-Se você configurou o TLS/SSL para o gaveta e o Helm, pule essa etapa básica de inicialização e `--tiller-tls-` forneça o necessário, conforme mostrado no exemplo a seguir.
+Se você configurou o TLS/SSL para o `--tiller-tls-` e o Helm, ignore essa etapa de inicialização básica e forneça as instruções necessárias, conforme mostrado no exemplo a seguir.
 
 ```console
 helm init --history-max 200 --service-account tiller --node-selectors "beta.kubernetes.io/os=linux"
 ```
 
-Se você configurou o TLS/SSL entre o Helm e o `--tiller-tls-*` gaveta, forneça os parâmetros e os nomes dos seus próprios certificados, conforme mostrado no exemplo a seguir:
+Se você configurou o TLS/SSL entre o Helm e o gaveta, forneça os parâmetros `--tiller-tls-*` e os nomes dos seus próprios certificados, conforme mostrado no exemplo a seguir:
 
 ```console
 helm init \
@@ -148,7 +148,7 @@ Update Complete.
 
 ## <a name="run-helm-charts"></a>Executar gráficos do Helm
 
-Para instalar gráficos com o Helm, use o comando de [instalação do Helm][helm-install] e especifique o nome do gráfico a ser instalado. Para ver a instalação de um gráfico do Helm em ação, vamos instalar uma implantação básica do Nginx usando um gráfico do Helm. Se você configurou o TLS/SSL, `--tls` adicione o parâmetro para usar seu certificado de cliente do Helm.
+Para instalar gráficos com o Helm, use o comando de [instalação do Helm][helm-install] e especifique o nome do gráfico a ser instalado. Para ver a instalação de um gráfico do Helm em ação, vamos instalar uma implantação básica do Nginx usando um gráfico do Helm. Se você configurou o TLS/SSL, adicione o parâmetro `--tls` para usar seu certificado de cliente Helm.
 
 ```console
 helm install stable/nginx-ingress \
@@ -187,7 +187,7 @@ Leva um minuto ou dois para o endereço *IP externo* do serviço Nginx-ingress-C
 
 ## <a name="list-helm-releases"></a>Listar versões do Helm
 
-Para ver uma lista de versões instaladas no cluster, use o comando [Helm List][helm-list] . O exemplo a seguir mostra a versão Nginx-ingress implantada na etapa anterior. Se você configurou o TLS/SSL, `--tls` adicione o parâmetro para usar seu certificado de cliente do Helm.
+Para ver uma lista de versões instaladas no cluster, use o comando [Helm List][helm-list] . O exemplo a seguir mostra a versão Nginx-ingress implantada na etapa anterior. Se você configurou o TLS/SSL, adicione o parâmetro `--tls` para usar seu certificado de cliente Helm.
 
 ```console
 $ helm list
@@ -198,7 +198,7 @@ flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingres
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando você implanta um gráfico do Helm, vários recursos do kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, use o `helm delete` comando e especifique o nome da versão, conforme encontrado no comando anterior. `helm list` O exemplo a seguir exclui a versão chamada *flailing-alpaca*:
+Quando você implanta um gráfico do Helm, vários recursos do kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, use o comando `helm delete` e especifique o nome da versão, conforme encontrado no comando `helm list` anterior. O exemplo a seguir exclui a versão chamada *flailing-alpaca*:
 
 ```console
 $ helm delete flailing-alpaca
@@ -206,7 +206,7 @@ $ helm delete flailing-alpaca
 release "flailing-alpaca" deleted
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como gerenciar implantações de aplicativos kubernetes com o Helm, consulte a documentação do Helm.
 
@@ -215,18 +215,18 @@ Para obter mais informações sobre como gerenciar implantações de aplicativos
 
 <!-- LINKS - external -->
 [helm]: https://github.com/kubernetes/helm/
-[helm-documentation]: https://docs.helm.sh/
-[helm-init]: https://docs.helm.sh/helm/#helm-init
-[helm-install]: https://docs.helm.sh/using_helm/#installing-helm
+[helm-documentation]: https://v2.helm.sh/docs/
+[helm-init]: https://v2.helm.sh/docs/helm/#helm-init
+[helm-install]: https://v2.helm.sh/docs/using_helm/#installing-helm
 [helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
-[helm-list]: https://docs.helm.sh/helm/#helm-list
-[helm-history-max]: https://helm.sh/docs/using_helm/#initialize-helm-and-install-tiller
-[helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
-[helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
-[helm-search]: https://docs.helm.sh/helm/#helm-search
-[tiller-rbac]: https://docs.helm.sh/using_helm/#tiller-namespaces-and-rbac
-[helm-ssl]: https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller
-
+[helm-list]: https://v2.helm.sh/docs/helm/#helm-list
+[helm-history-max]: https://v2.helm.sh/docs/using_helm/#initialize-helm-and-install-tiller
+[helm-rbac]: https://v2.helm.sh/docs/using_helm/#role-based-access-control
+[helm-repo-update]: https://v2.helm.sh/docs/helm/#helm-repo-update
+[helm-search]: https://v2.helm.sh/docs/helm/#helm-search
+[tiller-rbac]: https://v2.helm.sh/docs/using_helm/#tiller-namespaces-and-rbac
+[helm-ssl]: https://v2.helm.sh/docs/using_helm/#using-ssl-between-helm-and-tiller
+            
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md

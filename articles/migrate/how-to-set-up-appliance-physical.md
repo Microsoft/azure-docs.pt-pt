@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: raynew
-ms.openlocfilehash: a3212e4dac6856a5fd032c731d877453965584ae
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
-ms.translationtype: MT
+ms.openlocfilehash: 1e67c36753239940b15e3cb47b5b75820ea43689
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907159"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158343"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um dispositivo para servidores físicos
 
@@ -55,14 +55,15 @@ Verifique se o arquivo compactado é seguro, antes de implantá-lo.
 2. Execute o comando a seguir para gerar o hash para o VHD
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  Para a versão do dispositivo 1.19.05.10, o hash gerado deve corresponder a essas configurações.
+3.  Para a versão mais recente do dispositivo, o hash gerado deve corresponder a essas configurações.
 
   **Algoritmo** | **Valor de hash**
   --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+  MD5 | 5b98cf68dad495696c789bdad8f0d91b
+  SHA256 | c2364887738875a31634eb0cf5defd0398f813d41069875976ca076297071e6f
 
 
-  
+
 ## <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalador de migrações para Azure
 = O script do instalador faz o seguinte:
 
@@ -110,7 +111,7 @@ Configure o dispositivo pela primeira vez.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrar o dispositivo com as migrações para Azure
 
 1. Clique em **fazer logon**. Se não aparecer, verifique se você desabilitou o bloqueador de pop-ups no navegador.
-2. Na nova guia, entre usando suas credenciais do Azure. 
+2. Na nova guia, entre usando suas credenciais do Azure.
     - Entre com seu nome de usuário e senha.
     - Não há suporte para a entrada com um PIN.
 3. Depois de entrar com êxito, volte para o aplicativo Web.
@@ -132,14 +133,14 @@ Você pode adicionar um conjunto de credenciais para servidores Windows e Linux.
     - Para remover um servidor, selecione > **excluir**.
 4. Após a validação, clique em **salvar e inicie a descoberta** para iniciar o processo de descoberta.
 
-Isso inicia a descoberta. Leva cerca de 15 minutos para que os metadados de VMs descobertas apareçam na portal do Azure. 
+Isso inicia a descoberta. Leva cerca de 15 minutos para que os metadados de VMs descobertas apareçam na portal do Azure.
 
 ## <a name="verify-servers-in-the-portal"></a>Verificar servidores no portal
 
 Após a conclusão da descoberta, você pode verificar se os servidores aparecem no Portal.
 
 1. Abra o painel migrações para Azure.
-2. Na página **migrações para Azure – servidores** > **migrações para Azure: avaliação do servidor** , clique no ícone que exibe a contagem de **servidores descobertos**. 
+2. Na página **migrações para Azure – servidores** > **migrações para Azure: avaliação do servidor** , clique no ícone que exibe a contagem de **servidores descobertos**.
 
 
 ## <a name="next-steps"></a>Passos seguintes

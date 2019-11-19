@@ -4,15 +4,15 @@ description: Disponibiliza uma descrição geral do serviço do Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/06/2019
+ms.date: 11/18/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: af9305aafc3a77df9d7c4cffa65f6c61c53ad8a4
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
-ms.translationtype: MT
+ms.openlocfilehash: 9eb70d74752b3db5fcbc185f596d518100992672
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715390"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158566"
 ---
 # <a name="whats-new-in-azure-migrate"></a>O que há de novo nas migrações para Azure
 
@@ -22,16 +22,11 @@ As [migrações para Azure](migrate-services-overview.md) ajudam a descobrir, av
 
 ## <a name="update-november-2019"></a>Atualização (novembro de 2019)
 
-
-
 Vários novos recursos foram adicionados à migração do Azure:
-
-> [!NOTE]
-> Se você ainda não vir alguns desses recursos no portal de migrações para Azure, aguarde. Eles serão exibidos na próxima semana ou assim.
 
 - **Avaliação do servidor físico**. Agora há suporte para a avaliação de servidores físicos locais, além da migração de servidor físico que já tem suporte.
 - **Avaliação baseada em importação**. Agora há suporte para a avaliação de computadores que usam metadados e dados de desempenho fornecidos em um arquivo CSV.
-- **Descoberta de aplicativos**: o migrações para Azure agora dá suporte à descoberta em nível de aplicativo de aplicativos, funções e recursos usando o dispositivo de migrações para Azure. Atualmente, isso tem suporte apenas para VMs VMware e é limitado apenas à descoberta (atualmente, não há suporte para avaliação). [Saber mais](how-to-discover-applications.md)
+- **Descoberta de aplicativos**: o migrações para Azure agora dá suporte à descoberta em nível de aplicativo de aplicativos, funções e recursos usando o dispositivo de migrações para Azure. Atualmente, isso tem suporte apenas para VMs VMware e é limitado apenas à descoberta (atualmente, não há suporte para avaliação). [Saiba mais](how-to-discover-applications.md)
 - **Visualização de dependência sem agente**: você não precisa mais instalar agentes explicitamente para visualização de dependência. Agora há suporte para ambos baseados em agente e em agente.
 - **Área de trabalho virtual**: Use ferramentas de ISV para avaliar e migrar a infraestrutura de área de trabalho virtual (VDI) local para a área de trabalho virtual do Windows no Azure.
 - **Aplicativo Web**: o serviço de Azure app assistente de migração, usado para avaliar e migrar aplicativos Web, agora está integrado às migrações para Azure.
@@ -45,9 +40,9 @@ Novas ferramentas de avaliação e migração foram adicionadas às migrações 
 
 ## <a name="release-version-july-2019"></a>Versão de lançamento (julho de 2019)
 
-A versão atual do migrações para Azure foi lançada em julho de 2019. 
+A versão atual do migrações para Azure foi lançada em julho de 2019.
 
-- **Versão atual**: Use esta versão para criar projetos de migrações para Azure, descobrir computadores locais e orquestrar avaliações e migrações. 
+- **Versão atual**: Use esta versão para criar projetos de migrações para Azure, descobrir computadores locais e orquestrar avaliações e migrações.
 - **Versão anterior**: para o cliente que usa a versão anterior da migração do Azure (somente a avaliação de VMs do VMware local foi suportada), agora você deve usar a versão atual. Na versão anterior, você não pode mais criar novos projetos de migrações para Azure ou executar novas descobertas. Você ainda pode acessar projetos existentes. Para fazer isso no portal do Azure > **todos os serviços**, procure **migrações para Azure**. Nas notificações de migração do Azure, há um link para acessar projetos antigos de migrações para Azure.
 
 
@@ -63,9 +58,9 @@ A versão atual do migrações para Azure fornece vários recursos novos:
 - **Dispositivo de migrações para Azure**: as migrações para Azure implantam um dispositivo leve para descoberta e avaliação de VMs VMware locais e VMs do Hyper-V.
     - Esse dispositivo é usado pela avaliação de servidor de migrações para Azure e migração de servidor de migrações para Azure para migração sem agente.
     - O dispositivo descobre continuamente os metadados do servidor e os dados de desempenho para fins de avaliação e migração.  
-- **Migração de VM do VMware**: migração de servidor de migrações para Azure fornece alguns métodos para migrar VMs VMware locais para o Azure.  Uma migração sem agente usando o dispositivo de migrações para Azure e uma migração baseada em agente que usa um dispositivo de replicação e implanta um agente em cada VM que você deseja migrar. [Saber mais](server-migrate-overview.md)
+- **Migração de VM do VMware**: migração de servidor de migrações para Azure fornece alguns métodos para migrar VMs VMware locais para o Azure.  Uma migração sem agente usando o dispositivo de migrações para Azure e uma migração baseada em agente que usa um dispositivo de replicação e implanta um agente em cada VM que você deseja migrar. [Saiba mais](server-migrate-overview.md)
  - **Avaliação e migração de banco de dados**: de migrações para Azure, você pode avaliar bancos de dados locais para migração para o Azure usando o assistente de migração de banco de dados do Azure. Você pode migrar bancos de dados usando o serviço de migração de banco de dados do Azure.
-- **Migração de aplicativo Web**: você pode avaliar aplicativos Web usando uma URL de ponto de extremidade pública com o serviço Azure app. Para a migração de aplicativos .NET internos, você pode baixar e executar o serviço de aplicativo Assistente de Migração. 
+- **Migração de aplicativo Web**: você pode avaliar aplicativos Web usando uma URL de ponto de extremidade pública com o serviço Azure app. Para a migração de aplicativos .NET internos, você pode baixar e executar o serviço de aplicativo Assistente de Migração.
 - **Data Box**: importe dados offline de grandes quantidades no azure usando Azure data Box em migrações para Azure.
 
 

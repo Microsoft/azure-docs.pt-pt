@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 11/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4932089b7315f2756f3760b252c7257868f640fa
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 26744791dd3abe732f56f69ca05dd7c781755e9b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74066042"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167970"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Definir as configurações de autenticação multifator do Azure
 
@@ -97,7 +97,7 @@ Configure o recurso de _alerta de fraude_ para que os usuários possam relatar t
 
 ### <a name="view-fraud-reports"></a>Exibir relatórios de fraude
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Azure Active Directory** > **entradas**. O relatório de fraude agora faz parte do relatório de entradas padrão do Azure AD.
 
 ## <a name="notifications"></a>Notificações
@@ -192,7 +192,7 @@ O recurso de _bypass único_ permite que um usuário autentique uma única vez s
 
 ### <a name="view-the-one-time-bypass-report"></a>Exibir o relatório de bypass único
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Navegue até **Azure Active Directory** > **Security** > **MFA** > **bypass único**.
 
 ## <a name="caching-rules"></a>Regras de cache
@@ -277,7 +277,7 @@ O Azure AD dá suporte à Federação, ou SSO (logon único), com o Windows Serv
 
 Por padrão, os usuários não podem criar senhas de aplicativo. O recurso senhas de aplicativo deve ser habilitado. Para conceder aos usuários a capacidade de criar senhas de aplicativo, use o seguinte procedimento:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Azure Active Directory** > **usuários**.
 3. Selecione **autenticação multifator**.
 4. Em autenticação multifator, selecione **configurações de serviço**.
@@ -300,7 +300,7 @@ Se sua organização implantar a extensão NPS para fornecer MFA a aplicativos l
 
 | Tipo de locatário do Azure AD | Opções de recursos de IPs confiáveis |
 |:--- |:--- |
-| Gerido |**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a verificação em duas etapas para os usuários que entram na intranet da empresa. Podem ser configurados no máximo 50 intervalos de IP confiáveis.|
+| Managed |**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a verificação em duas etapas para os usuários que entram na intranet da empresa. Podem ser configurados no máximo 50 intervalos de IP confiáveis.|
 | Federado |**Todos os usuários federados**: todos os usuários federados que entram de dentro da organização podem ignorar a verificação em duas etapas. Os usuários ignoram a verificação usando uma declaração emitida por Serviços de Federação do Active Directory (AD FS) (AD FS).<br/>**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a verificação em duas etapas para os usuários que entram na intranet da empresa. |
 
 O bypass de IPs confiáveis funciona somente de dentro da intranet da empresa. Se você selecionar a opção **todos os usuários federados** e um usuário entrar de fora da intranet da empresa, o usuário precisará se autenticar usando a verificação em duas etapas. O processo é o mesmo, mesmo que o usuário apresente uma declaração de AD FS. 
@@ -317,7 +317,7 @@ Independentemente de o recurso de IPs confiáveis estar habilitado, a verificaç
 
 ### <a name="enable-named-locations-by-using-conditional-access"></a>Habilitar locais nomeados usando o acesso condicional
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Azure Active Directory** > **segurança** > **acesso condicional** > **locais nomeados**.
 3. Selecione **novo local**.
 4. Insira um nome para o local.
@@ -327,7 +327,7 @@ Independentemente de o recurso de IPs confiáveis estar habilitado, a verificaç
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Habilitar o recurso IPs confiáveis usando o acesso condicional
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Azure Active Directory** > **segurança** >  **acesso condicional** > **locais nomeados**.
 3. Selecione **Configurar IPs confiáveis de MFA**.
 4. Na página **configurações de serviço** , em **IPs confiáveis**, escolha uma das duas opções a seguir:
@@ -345,7 +345,7 @@ Independentemente de o recurso de IPs confiáveis estar habilitado, a verificaç
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Habilitar o recurso IPs confiáveis usando as configurações de serviço
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Azure Active Directory** > **usuários**.
 3. Selecione **autenticação multifator**.
 4. Em autenticação multifator, selecione **configurações de serviço**.
@@ -371,13 +371,13 @@ Quando os usuários registram suas contas para a autenticação multifator do Az
 | Método | Descrição |
 |:--- |:--- |
 | Ligar para telefone |Coloca uma chamada de voz automática. O usuário responde à chamada e pressiona # no teclado do telefone para autenticar. O número de telefone não está sincronizado com o Active Directory local. |
-| Mensagem de texto para telefone |Envia uma mensagem de texto que contém um código de verificação. O usuário é solicitado a inserir o código de verificação na interface de entrada. Esse processo é chamado de SMS unidirecional. O SMS bidirecional significa que o usuário deve fazer o texto de um código específico. O SMS bidirecional foi preterido e não tem suporte após 14 de novembro de 2018. Os usuários configurados para o SMS bidirecional são automaticamente alternados para a verificação por _telefone_ nesse momento.|
+| Mensagem de texto para telefone |Envia uma mensagem de texto que contém um código de verificação. O usuário é solicitado a inserir o código de verificação na interface de entrada. Esse processo é chamado de SMS unidirecional. O SMS bidirecional significa que o usuário deve fazer o texto de um código específico. O SMS bidirecional foi preterido e não tem suporte após 14 de novembro de 2018. Os administradores devem habilitar outro método para os usuários que usaram o SMS bidirecional anteriormente.|
 | Notificação por meio do aplicativo móvel |Envia uma notificação por push para seu telefone ou dispositivo registrado. O usuário exibe a notificação e seleciona **verificar** para concluir a verificação. O aplicativo Microsoft Authenticator está disponível para [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072)e [Ios](https://go.microsoft.com/fwlink/?Linkid=825073). |
 | Código de verificação do aplicativo móvel ou token de hardware |O aplicativo Microsoft Authenticator gera um novo código de verificação OATH a cada 30 segundos. O usuário insere o código de verificação na interface de entrada. O aplicativo Microsoft Authenticator está disponível para [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072)e [Ios](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="enable-and-disable-verification-methods"></a>Habilitar e desabilitar métodos de verificação
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Azure Active Directory** > **usuários**.
 3. Selecione **autenticação multifator**.
 4. Em autenticação multifator, selecione **configurações de serviço**.
@@ -413,7 +413,7 @@ O recurso reduz o número de autenticações em aplicativos Web, que normalmente
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Habilitar lembrar a autenticação multifator
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Azure Active Directory** > **usuários**.
 3. Selecione **autenticação multifator**.
 4. Em autenticação multifator, selecione **configurações de serviço**.

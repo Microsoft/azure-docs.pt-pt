@@ -1,19 +1,14 @@
 ---
 title: Fazer backup de um farm do SharePoint no Azure Stack
 description: Use Servidor de Backup do Azure para fazer backup e restaurar os dados do SharePoint no Azure Stack. Este artigo fornece as informações para configurar seu farm do SharePoint para que os dados desejados possam ser armazenados no Azure. Você pode restaurar dados protegidos do SharePoint do disco ou do Azure.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.author: dacurwin
-ms.openlocfilehash: c15f3f899b856cb715406bf0e2f95914cd58cca0
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 06d64be4f09c6fb6ed9dee34a0c7ba0b1bd785e6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091675"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172497"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Fazer backup de um farm do SharePoint no Azure Stack
 
@@ -235,7 +230,7 @@ No exemplo a seguir, a *recuperação do item do SharePoint* foi acidentalmente 
     ![Protection13 SharePoint do MABS](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Neste ponto, siga as etapas de recuperação anteriores neste artigo para recuperar um banco de dados de conteúdo do SharePoint do disco.
 
-## <a name="faqs"></a>Perguntas mais frequentes
+## <a name="faqs"></a>FAQs
 
 P: posso recuperar um item do SharePoint no local original se o SharePoint estiver configurado usando o SQL AlwaysOn (com proteção em disco)?<br>
 R: Sim, o item pode ser recuperado para o site do SharePoint original.

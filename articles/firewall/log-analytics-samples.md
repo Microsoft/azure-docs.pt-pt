@@ -1,18 +1,18 @@
 ---
 title: Amostras do log Analytics do firewall do Azure
-description: Amostras do log Analytics do firewall do Azure
+description: Azure Monitor logs podem ser usados para analisar o Firewall do Azure. Um arquivo de exemplo é criado no designer de exibição no Azure Monitor.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: a4ab1263abac67714357594e5bd87a4b910953b1
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 714054b8e538b2fb1bfb3fb4f2293636802f3bc4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033989"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168898"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Amostras do log Analytics do firewall do Azure
 
@@ -166,6 +166,6 @@ AzureDiagnostics
 | sort by TimeGenerated desc | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action,Message
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o monitoramento e o diagnóstico do [Firewall do Azure, consulte o tutorial: Monitorar os logs e as métricas](tutorial-diagnostics.md)do firewall do Azure.
+Para saber mais sobre o monitoramento e o diagnóstico do firewall do Azure, consulte [tutorial: monitorar logs e métricas de firewall do Azure](tutorial-diagnostics.md).

@@ -1,19 +1,14 @@
 ---
-title: Usar Servidor de Backup do Azure para fazer backup de cargas de trabalho no Azure
+title: Usar Servidor de Backup do Azure para fazer backup de cargas de trabalho
 description: Neste artigo, saiba como preparar seu ambiente para proteger e fazer backup de cargas de trabalho usando o Backup do Microsoft Azure Server (MABS).
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: dacurwin
-ms.openlocfilehash: 5b1e417ecd41f93d7919b67ebdd3faf32521d8a4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 7379992eeb441372a9140621f9d90b337ad0d2e2
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012917"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172997"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar Servidor de Backup do Azure
 
@@ -95,7 +90,7 @@ Para editar a definição de replicação de armazenamento:
 
 ### <a name="downloading-the-software-package"></a>Baixando o pacote de software
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Se você já tiver um cofre dos serviços de recuperação aberto, vá para a etapa 3. Se você não tiver um cofre dos serviços de recuperação aberto, mas estiver na portal do Azure, no menu principal, clique em **procurar**.
 
    * Na lista de recursos, escreva **Serviços de Recuperação**.
@@ -335,8 +330,6 @@ Use as seguintes etapas para atualizar o MABS:
    > [!NOTE]
    >
    > Não sair enquanto a instância do SQL estiver sendo atualizada, a saída desinstalará a instância de relatórios SQL e, portanto, uma tentativa de atualizar novamente o MABS falhará.
-
-
 
    > [!IMPORTANT]
    >

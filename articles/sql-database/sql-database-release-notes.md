@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 56830e20b190958c1c411f5daa1d2a7e928f0f3d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5c70d1d7d62b41965d4c81e8bbe0e5b2dc3cbb92
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821203"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166249"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão do banco de dados SQL
 
@@ -57,7 +57,7 @@ Este artigo lista os recursos do banco de dados SQL que estão atualmente em vis
 
 ---
 
-## <a name="new-features"></a>Novas funcionalidades
+## <a name="new-features"></a>Novos recursos
 
 ### <a name="managed-instance-h2-2019-updates"></a>Atualizações 2019 de instância gerenciada H2
 
@@ -79,6 +79,8 @@ Os seguintes recursos estão habilitados no modelo de implantação de instânci
 ## <a name="fixed-known-issues"></a>Correção de problemas conhecidos
 
 - Os bancos de dados independentes de **agosto de 2019** têm suporte total na instância gerenciada.
+- **Oct 2019** -a restauração de banco de dados pontual interna da camada de Comercialmente Crítico para uso geral não terá sucesso se o banco de dados de origem contiver objetos OLTP na memória.
+- **2019 de novembro** -a consistência do banco de dados é verificada usando `DBCC CHECKDB` após restaurar o banco de dados do armazenamento de blob do Azure
 
 ## <a name="updates"></a>Atualizações
 

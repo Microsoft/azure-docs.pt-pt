@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 038773b41d84a7b2b4f845a8bf70e9eed849bc80
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: c92baf5c97597a0161f402cc458e90bb3e637d6c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120013"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170666"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -91,7 +91,7 @@ Conectar-se a fontes de dados locais de um servidor Azure Analysis Services requ
 
 ## <a name="specifying-a-different-provider"></a>Especificando um provedor diferente
 
-Os modelos de dados no Azure Analysis Services podem exigir provedores de dados diferentes ao se conectar a determinadas fontes de dados. Em alguns casos, os modelos de tabela que se conectam a fontes de dados usando provedores nativos como SQL Server Native Client (SQLNCLI11) podem retornar um erro. Se estiver usando provedores nativos diferentes de SQLOLEDB, você poderá ver a mensagem **de erro: o provedor ' sqlncli 11.1 ' não está registrado**. Ou, se você tiver um modelo DirectQuery conectando-se a fontes de dados locais e usar provedores nativos, poderá ver a mensagem de erro: **erro ao criar OLE DB conjunto de linhas. Sintaxe incorreta próxima a ' LIMIT '** .
+Os modelos de dados no Azure Analysis Services podem exigir provedores de dados diferentes ao se conectar a determinadas fontes de dados. Em alguns casos, os modelos de tabela que se conectam a fontes de dados usando provedores nativos como SQL Server Native Client (SQLNCLI11) podem retornar um erro. Se estiver usando provedores nativos diferentes de MSOLEDBSQL, você poderá ver a mensagem **de erro: o provedor ' sqlncli 11.1 ' não está registrado**. Ou, se você tiver um modelo DirectQuery conectando-se a fontes de dados locais e usar provedores nativos, poderá ver a mensagem de erro: **erro ao criar OLE DB conjunto de linhas. Sintaxe incorreta próxima a ' LIMIT '** .
 
 Ao migrar um modelo de tabela de SQL Server Analysis Services local para Azure Analysis Services, pode ser necessário alterar o provedor.
 

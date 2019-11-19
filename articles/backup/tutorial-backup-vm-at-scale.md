@@ -1,20 +1,15 @@
 ---
-title: Fazer cópia de segurança de máquinas virtuais do Azure em escala
+title: Tutorial – fazer backup de máquinas virtuais do Azure em escala
 description: Neste tutorial, saiba como criar um cofre dos serviços de recuperação, definir uma política de backup e fazer backup de várias máquinas virtuais simultaneamente.
-keywords: virtual machine backup; virtual machine back up; back up vm; backup vm; backup Azure vm; backup and disaster recovery
-author: dcurwin
-manager: carmonm
-ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
-ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 99a842704325e38cbf1ab9203a56a25bc2273827
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6034202649e6d9bce75f0069316b79b55e533490
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747011"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171858"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utilizar o portal do Azure para criar cópias de segurança de várias máquinas virtuais
 
@@ -23,21 +18,21 @@ Quando cria cópias de segurança de dados no Azure, esses dados são armazenado
 > [!div class="checklist"]
 >
 > * Criar um cofre dos Serviços de Recuperação
-> * Definir uma política de cópia de segurança
+> * Definir uma política de cópias de segurança
 > * Aplicar a política de cópia de segurança para proteger várias máquinas virtuais
 > * Acionar um trabalho de cópia de segurança a pedido para as máquinas virtuais protegidas
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
-O cofre dos Serviços de Recuperação contém os dados para os quais foi criada a cópia de segurança, bem como a política de cópia de segurança aplicada às máquinas virtuais protegidas. A cópia de segurança das máquinas virtuais é um processo local. Não pode criar cópias de segurança de máquinas virtuais de uma localização para um cofre dos Serviços de Recuperação noutra localização. Por isso, para cada localização do Azure com máquinas virtuais para as quais criar cópias de segurança, tem de existir, pelo menos, um cofre dos Serviços de Recuperação nessa localização.
+O cofre dos Serviços de Recuperação também contém os dados para os quais foi criada a cópia de segurança, bem como a política de cópia de segurança aplicada às máquinas virtuais protegidas. A cópia de segurança das máquinas virtuais é um processo local. Não pode criar cópias de segurança de máquinas virtuais de uma localização para um cofre dos Serviços de Recuperação noutra localização. Por isso, para cada localização do Azure com máquinas virtuais para as quais criar cópias de segurança, tem de existir, pelo menos, um cofre dos Serviços de Recuperação nessa localização.
 
 1. No menu da esquerda, selecione **All services** (Todos os serviços) e, na lista de serviços, escreva *Recovery Services* (Serviços de Recuperação). À medida que escreve, a lista de recursos filtra. Quando vir os cofres dos Serviços de Recuperação na lista, selecione-o para abrir o respetivo menu.
 
-    ![Abrir o menu Cofre dos Serviços de Recuperação](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
+    ![Abrir o menu Cofre dos Serviços de Recuperação](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png)
 
 2. No menu **Cofre dos Serviços de Recuperação**, clique em **Add** (Adicionar) para abrir o respetivo.
 
@@ -46,10 +41,10 @@ O cofre dos Serviços de Recuperação contém os dados para os quais foi criada
 3. No menu do cofre dos Serviços de Recuperação,
 
     * escreva *myRecoveryServicesVault* em **Name** (Nome).
-    * O ID da subscrição atual aparece em **Subscrição**. Se tiver subscrições adicionais, pode escolher outra subscrição para o cofre novo.
-    * Em **Resource group** (Grupo de recursos), selecione **Use existing** (Utilizar existente) *myResourceGroup*. Se *myResourceGroup* não existir, selecione **Create new** (Criar novo) e escreva *myResourceGroup*.
+    * O ID da subscrição atual aparece em **Subscription** (Subscrição). Se tiver subscrições adicionais, pode escolher outra subscrição para o cofre novo.
+    * Em **Resource group** (Grupo de recursos), selecione **Use existing** (Utilizar existente) *myResourceGroup*. Se *myResourceGroup* não existir, selecione **Criar novo** e escreva *myResourceGroup*.
     * No menu pendente **Location** (Localização), escolha *West Europe* (Europa Ocidental).
-    * Clique em **Criar** para criar o cofre dos Serviços de Recuperação.
+    * Clique em **Create** (Criar) para criar o cofre dos Serviços de Recuperação.
 
 Os cofres dos Serviços de Recuperação têm de estar na mesma localização das máquinas virtuais que estão a ser protegidas. Se tiver máquinas virtuais em várias regiões, crie um cofre dos Serviços de Recuperação em cada região. Este tutorial cria um cofre dos Serviços de Recuperação na *Europa Ocidental*, uma vez que *myVM* (a máquina virtual criada com o início rápido) foi criada aí.
 

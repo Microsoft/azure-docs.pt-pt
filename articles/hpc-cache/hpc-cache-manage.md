@@ -4,14 +4,14 @@ description: Como gerenciar e atualizar o cache HPC do Azure usando o portal do 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 11/18/2019
 ms.author: rohogue
-ms.openlocfilehash: 62b54bfe120acdde1fd22c4a0d04165ea7243b50
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 9cd5ad151c977838fea30f52c7d4a93b4663c8ff
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582205"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166698"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Gerenciar seu cache do portal do Azure
 
@@ -19,7 +19,7 @@ A página Visão geral do cache na portal do Azure mostra detalhes do projeto, s
 
 Para abrir a página Visão geral, selecione o recurso de cache na portal do Azure. Por exemplo, carregue a página **todos os recursos** e clique no nome do cache.
 
-![captura de tela de uma página de visão geral da instância do cache HPC do Azure](media/hpc-cache-overview.png) <!-- placeholder is identical to hpc-cache-new-overview.png; replace with better image (showing graphs, full sidebar) when available -->
+![captura de tela de uma página de visão geral da instância do cache HPC do Azure](media/hpc-cache-overview.png)
 
 Os botões na parte superior da página podem ajudá-lo a gerenciar o cache:
 
@@ -37,15 +37,17 @@ O botão **liberar** na página Visão geral informa o cache para gravar imediat
 > [!NOTE]
 > Durante o processo de liberação, o cache não pode atender às solicitações do cliente. O acesso ao cache é suspenso e continua após a conclusão da operação.
 
+![captura de tela dos botões superior com liberação realçada e uma mensagem pop-up descrevendo a ação de liberação e perguntando "deseja continuar?" com Sim (padrão) e nenhum botão](media/hpc-cache-flush.png)
+
 Quando você inicia a operação de liberação de cache, o cache para de aceitar solicitações de cliente e o status do cache na página de visão geral muda para a **liberação**.
 
-Os dados no cache são salvos nos destinos de armazenamento apropriados. O processo pode levar alguns minutos ou pode levar uma hora ou mais, dependendo da quantidade de dados gravados no cache recentemente.
+Os dados no cache são salvos nos destinos de armazenamento apropriados. Dependendo da quantidade de dados que precisa ser liberada, o processo pode levar alguns minutos ou mais de uma hora.
 
 Depois que todos os dados são salvos em destinos de armazenamento, o cache começa automaticamente a executar solicitações de cliente novamente. O status do cache retorna para **íntegro**.
 
 ## <a name="upgrade-cache-software"></a>Atualizar o software de cache
 
-Se uma nova versão de software estiver disponível, o botão **Atualizar** se tornará ativo. Você também poderá ver uma mensagem na parte superior da página sobre como atualizar o software.
+Se uma nova versão de software estiver disponível, o botão **Atualizar** se tornará ativo. Você também deverá ver uma mensagem na parte superior da página sobre como atualizar o software.
 
 ![captura de tela da linha superior de botões com o botão de atualização habilitado](media/hpc-cache-upgrade-button.png)
 
@@ -53,7 +55,7 @@ O acesso do cliente não é interrompido durante uma atualização de software, 
 
 A atualização de software pode levar várias horas. Os caches configurados com maior taxa de transferência levam mais tempo para atualizar que os caches com valores menores de taxa de transferência de pico.
 
-Quando uma atualização de software estiver disponível, você terá vários dias para aplicá-la manualmente. A data de término é listada na mensagem de atualização. Se você não atualizar durante esse tempo, o Azure aplicará automaticamente a atualização ao seu cache. O tempo de atualização automática não é configurável. Se você estiver preocupado em afetar o desempenho do cache, você deve atualizar o software por conta própria antes que o período de tempo expire.
+Quando uma atualização de software estiver disponível, você terá uma semana ou mais para aplicá-la manualmente. A data de término é listada na mensagem de atualização. Se você não atualizar durante esse tempo, o Azure aplicará automaticamente a atualização ao seu cache. O tempo de atualização automática não é configurável. Se você estiver preocupado com o impacto no desempenho do cache, atualize o software por conta própria antes que o período de tempo expire.
 
 Clique no botão **Atualizar** para iniciar a atualização de software. O status do cache muda para **atualizando** até que a operação seja concluída.
 

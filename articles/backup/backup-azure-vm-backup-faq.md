@@ -1,19 +1,15 @@
 ---
-title: Perguntas frequentes-fazendo backup de VMs do Azure com o backup do Azure
+title: Perguntas frequentes-fazendo backup de VMs do Azure
 description: Neste artigo, descubra respostas para perguntas comuns sobre como fazer backup de VMs do Azure com o serviço de backup do Azure.
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: dacurwin
-ms.openlocfilehash: ad5e715de2f3467d4530759cbb2acec0358e5597
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 30036d6cf241e1ac840b2be67ca78fbda6c60061
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747273"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172566"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-fazer backup de VMs do Azure
 
@@ -33,15 +29,15 @@ Não. Os custos de backup são separados dos custos de uma VM. Saiba mais sobre 
 
 Se você for um colaborador de VM, poderá habilitar o backup na VM. Se você estiver usando uma função personalizada, precisará das seguintes permissões para habilitar o backup na VM:
 
-- Microsoft. Recoveryservices/cofres/gravação
-- Microsoft. Recoveryservices/cofres/leitura
-- Microsoft. Recoveryservices/Locations/*
-- Microsoft. Recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/*/Read
-- Microsoft. Recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/Read
-- Microsoft. Recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/Write
-- Microsoft. Recoveryservices/Vaults/backupFabrics/backupProtectionIntent/Write
-- Microsoft. Recoveryservices/Vaults/backupPolicies/Read
-- Microsoft. Recoveryservices/Vaults/backupPolicies/Write
+- Microsoft.RecoveryServices/Vaults/write
+- Microsoft.RecoveryServices/Vaults/read
+- Microsoft.RecoveryServices/locations/*
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write
 
 Se o cofre e a VM dos serviços de recuperação tiverem grupos de recursos diferentes, verifique se você tem permissões de gravação no grupo de recursos para o cofre dos serviços de recuperação.  
 
