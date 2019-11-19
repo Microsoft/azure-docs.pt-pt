@@ -100,7 +100,7 @@
             - name: Configuração avançada para a extensão NPS
               href: howto-mfa-nps-extension-advanced.md
             - name: VPN do Azure e MFA do Azure
-              href: ../../vpn-gateway/vpn-gateway-radiuis-mfa-nsp.md
+              href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
             - name: Gateway de Ambiente de Trabalho Remoto
               href: howto-mfa-nps-extension-rdg.md
             - name: VPN
