@@ -1,14 +1,14 @@
 ---
 title: Exemplo de esquema dos Serviços Partilhados ISO 27001 - Descrição geral
 description: Descrição geral e arquitetura do exemplo de esquema Serviços Partilhados ISO 27001. Este exemplo de esquema ajuda os clientes a avaliar controlos ISO 27001 específicos.
-ms.date: 03/14/2019
+ms.date: 11/18/2019
 ms.topic: sample
-ms.openlocfilehash: 70c3b7838a2635b6befe4e7f624c505255f43998
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d4fe392cad669179c474c0a6ab12b29eef1f083d
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038369"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184368"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Descrição geral do exemplo de esquema dos Serviços Partilhados ISO 27001
 
