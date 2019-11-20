@@ -14,14 +14,14 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: f4ebbd4f37422c5aa2fea07a243eb624ec9e2961
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: e8f6f9ca610c515deca6ed1bdbee54f40cacf427
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687029"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184943"
 ---
-# <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Início rápido: Criar um aplicativo Spring Java com configuração Azure App
+# <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Início rápido: criar um aplicativo Spring Java com a configuração Azure App
 
 Neste guia de início rápido, você incorpora Azure App configuração em um aplicativo Spring Java para centralizar o armazenamento e o gerenciamento de configurações de aplicativo separadas do seu código.
 
@@ -37,7 +37,7 @@ Neste guia de início rápido, você incorpora Azure App configuração em um ap
 
 6. Selecione **Configuration Explorer** >  **+ criar** para adicionar os seguintes pares de chave-valor:
 
-    | Chave | Value |
+    | Chave | Valor |
     |---|---|
     | /application/config.message | Olá |
 
@@ -62,13 +62,13 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
 
 1. Depois de extrair os arquivos no sistema local, seu aplicativo Spring boot simples estará pronto para edição. Localize o arquivo *pom. xml* no diretório raiz do seu aplicativo.
 
-2. Abra o arquivo *pom. xml* em um editor de texto e adicione o iniciador de configuração do Spring Cloud do Azure à `<dependencies>`lista de:
+2. Abra o arquivo *pom. xml* em um editor de texto e adicione o iniciador de configuração do Spring Cloud do Azure à lista de `<dependencies>`:
 
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M4</version>
+        <version>1.1.0.M5</version>
     </dependency>
     ```
 
@@ -146,9 +146,7 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você criou um novo repositório de configuração de aplicativo e o utilizou com um aplicativo Spring Java. Para obter mais informações, consulte [Spring no Azure](https://docs.microsoft.com/java/azure/spring-framework/).
-
-Para saber mais sobre como usar a configuração de aplicativo, prossiga para o próximo tutorial que demonstra a autenticação.
+Neste guia de início rápido, você criou um novo repositório de configuração de aplicativo e o utilizou com um aplicativo Spring Java. Para obter mais informações, consulte [Spring no Azure](https://docs.microsoft.com/java/azure/spring-framework/). Para saber como usar uma identidade gerenciada do Azure para simplificar o acesso à configuração do aplicativo, prossiga para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Integração de identidade gerenciada](./howto-integrate-azure-managed-service-identity.md)

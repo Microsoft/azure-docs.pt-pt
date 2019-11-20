@@ -1,5 +1,5 @@
 ---
-title: Como atribuir acesso uma identidade gerida a um recurso do Azure no portal do Azure
+title: Atribuir um acesso de identidade gerenciada a um recurso usando o portal do Azure-Azure AD
 description: Instruções passo a passo para atribuir uma identidade gerida no acesso a recursos um ao outro recurso, com o portal do Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 958b3d72a3a8df4a3b67f62e7db788d7142ca667
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8660d5539d9cfc218667bc7bb077f9f6d1191eec
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66112907"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184146"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Atribuir um acesso de identidade gerida a um recurso com o portal do Azure
 
@@ -45,7 +45,7 @@ Depois de ativar a identidade gerida num recurso do Azure, tal como um [VM do Az
 
    ![Captura de ecrã de controlo (IAM) de acesso](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
      
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Identidade gerida para descrição geral de recursos do Azure](overview.md)
 - Para ativar a identidade gerida numa máquina virtual do Azure, consulte [configurar geridos identidades para recursos do Azure numa VM com o portal do Azure](qs-configure-portal-windows-vm.md).

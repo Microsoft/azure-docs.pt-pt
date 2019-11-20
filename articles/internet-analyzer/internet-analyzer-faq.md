@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 61cb6003549530f381b9cbbed74c1cb62c91431c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a4a5b058666fab3e9048a7d92726dccd1360ff37
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512902"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184260"
 ---
 # <a name="azure-internet-analyzer-faq-preview"></a>Perguntas frequentes do Azure Internet Analyzer (versão prévia)
 
@@ -73,11 +73,11 @@ Os seguintes pontos de extremidade pré-configurados estão disponíveis durante
     * Oeste do Japão
     * Europa do Norte
     * Norte da África do Sul
-    * Sudeste Asiático
+    * Sudeste asiático
     * Norte dos E.A.U.
     * Reino Unido Oeste  
-    * Europa Ocidental
-    * Oeste dos E.U.A.
+    * Europa ocidental
+    * EUA Oeste
     * EUA Oeste 2
 * **Várias combinações de regiões do Azure**
     * Leste dos EUA, sul do Brasil
@@ -98,6 +98,10 @@ Os seguintes pontos de extremidade pré-configurados estão disponíveis durante
 ## <a name="how-is-internet-analyzer-different-from-other-monitoring-services-provided-by-azure"></a>Como o Internet Analyzer é diferente dos outros serviços de monitoramento fornecidos pelo Azure?
 
 O Internet Analyzer ajuda você a entender o desempenho de seus usuários finais e ajuda a tomar decisões para melhorar seu desempenho. Enquanto outras ferramentas de monitoramento do Azure fornecem informações sobre seus serviços do Azure, o Internet Analyzer se concentra na medição do desempenho de ponta a ponta da Internet para seus usuários.
+
+## <a name="how-is-measurement-data-handled-by-internet-analyzer"></a>Como os dados de medição são manipulados pelo Internet Analyzer?
+
+O Azure tem [processos fortes de segurança e atende a uma ampla gama de padrões de conformidade](https://azure.microsoft.com/support/trust-center/). Somente você e sua equipe designada têm acesso aos seus dados. A equipe da Microsoft pode ter acesso restrito a ela somente sob circunstâncias limitadas específicas com seu conhecimento. Ele é criptografado em trânsito e em repouso.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: ad359a19cb42bf115189aca7905d1908d0dc5284
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4565eb86727e768ba894d701cbc5e0073c07ee01
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087063"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185512"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Solucionar um problema de VM do Azure usando a virtualização aninhada no Azure
 
@@ -34,13 +34,13 @@ Para montar a VM com problema, a VM de resgate deve atender aos seguintes pré-r
 
 -   A VM de resgate deve usar o mesmo tipo de conta de armazenamento (Standard ou Premium) que a VM com problema.
 
-## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Passo 1: Criar uma VM de resgate e instalar a função do Hyper-V
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Etapa 1: criar uma VM de resgate e instalar a função do Hyper-V
 
 1.  Criar uma nova VM de resgate:
 
-    -  Sistema Operacional: Windows Server 2016 Datacenter
+    -  Sistema operacional: Windows Server 2016 datacenter
 
-    -  Tamanho: Qualquer série V3 com pelo menos dois núcleos que dão suporte à virtualização aninhada. Para obter mais informações, consulte [apresentando os novos tamanhos de VM Dv3 e Ev3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
+    -  Tamanho: qualquer série V3 com pelo menos dois núcleos que dão suporte à virtualização aninhada. Para obter mais informações, consulte [apresentando os novos tamanhos de VM Dv3 e Ev3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
 
     -  Mesmo local, conta de armazenamento e grupo de recursos que a VM com problema.
 
@@ -48,13 +48,13 @@ Para montar a VM com problema, a VM de resgate deve atender aos seguintes pré-r
 
 2.  Após a criação da VM de resgate, a área de trabalho remota para a VM de resgate.
 
-3.  Em Gerenciador do servidor, selecione **gerenciar** > **adicionar funções e recursos**.
+3.  Em Gerenciador do Servidor, selecione **gerenciar** > **adicionar funções e recursos**.
 
 4.  Na seção **tipo de instalação** , selecione **instalação baseada em função ou recurso**.
 
 5.  Na seção **selecionar servidor de destino** , verifique se a VM de resgate está selecionada.
 
-6.  Selecione > a **função Hyper-V** **Adicionar recursos**.
+6.  Selecione a **função Hyper-V** > **Adicionar recursos**.
 
 7.  Selecione **Avançar** na seção **recursos** .
 
@@ -70,73 +70,58 @@ Para montar a VM com problema, a VM de resgate deve atender aos seguintes pré-r
 
 13. Permitir que o servidor instale a função Hyper-V. Isso levará alguns minutos e o servidor será reinicializado automaticamente.
 
-## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Passo 2: Criar a VM com problema no servidor Hyper-V da VM de resgate
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Etapa 2: criar a VM com problema no servidor Hyper-V da VM de resgate
 
-1.  Registre o nome do disco na VM com problema e, em seguida, exclua a VM com problema. Certifique-se de manter todos os discos anexados. 
+1.  [Crie um disco de instantâneo](troubleshoot-recovery-disks-portal-windows.md#take-a-snapshot-of-the-os-disk) para o disco do sistema operacional da VM que tem o problema e anexe o disco de instantâneo à VM recuse.
 
-2.  Anexe o disco do sistema operacional da VM com problema como um disco de dados da VM de resgate.
+2.  Área de trabalho remota para a VM de resgate.
 
-    1.  Depois que a VM com problema for excluída, vá para a VM de resgate.
+3.  Abra o gerenciamento de disco (diskmgmt. msc). Verifique se o disco da VM com problema está definido como **offline**.
 
-    2.  Selecione **discos**e, em seguida, **adicionar disco de dados**.
+4.  Abra o Gerenciador do Hyper-V: em **Gerenciador do servidor**, selecione a **função Hyper-v**. Clique com o botão direito do mouse no servidor e selecione o **Gerenciador do Hyper-V**.
 
-    3.  Selecione o disco da VM com problema e, em seguida, selecione **salvar**.
+5.  No Gerenciador do Hyper-V, clique com o botão direito do mouse na VM de resgate e selecione **novo** > **máquina virtual** > **Avançar**.
 
-3.  Depois que o disco for anexado com êxito, a área de trabalho remota será realizada na VM de resgate.
+6.  Digite um nome para a VM e, em seguida, selecione **Avançar**.
 
-4.  Abra o gerenciamento de disco (diskmgmt. msc). Verifique se o disco da VM com problema está definido como **offline**.
+7.  Selecione **geração 1**.
 
-5.  Abra o Gerenciador do Hyper-V: Em **Gerenciador do servidor**, selecione a **função Hyper-V**. Clique com o botão direito do mouse no servidor e selecione o **Gerenciador do Hyper-V**.
+8.  Defina a memória de inicialização em 1024 MB ou mais.
 
-6.  No Gerenciador do Hyper-V, clique com o botão direito do mouse na VM de resgate e selecione **nova** > **máquina** > virtual**Avançar**.
+9. Se aplicável, selecione o comutador de rede do Hyper-V que foi criado. Caso contrário, vá para a próxima página.
 
-7.  Digite um nome para a VM e, em seguida, selecione **Avançar**.
-
-8.  Selecione **geração 1**.
-
-9.  Defina a memória de inicialização em 1024 MB ou mais.
-
-10. Se aplicável, selecione o comutador de rede do Hyper-V que foi criado. Caso contrário, vá para a próxima página.
-
-11. Selecione **anexar um disco rígido virtual mais tarde**.
+10. Selecione **anexar um disco rígido virtual mais tarde**.
 
     ![a imagem sobre a opção anexar um disco rígido virtual mais tarde](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
-12. Selecione **concluir** quando a VM for criada.
+11. Selecione **concluir** quando a VM for criada.
 
-13. Clique com o botão direito do mouse na VM que você criou e selecione **configurações**.
+12. Clique com o botão direito do mouse na VM que você criou e selecione **configurações**.
 
-14. Selecione **controlador IDE 0**, selecione **disco rígido**e clique em **Adicionar**.
+13. Selecione **controlador IDE 0**, selecione **disco rígido**e clique em **Adicionar**.
 
     ![a imagem sobre adiciona uma nova unidade de disco rígido](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
-15. Em **disco rígido físico**, selecione o disco da VM com problema que você ANEXOU à VM do Azure. Se você não vir discos listados, verifique se o disco está definido como offline usando o gerenciamento de disco.
+14. Em **disco rígido físico**, selecione o disco da VM com problema que você ANEXOU à VM do Azure. Se você não vir discos listados, verifique se o disco está definido como offline usando o gerenciamento de disco.
 
     ![a imagem sobre a montagem do disco](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
-17. Selecione **Apply** (Aplicar) e **OK**.
+15. Selecione **Apply** (Aplicar) e **OK**.
 
-18. Clique duas vezes na VM e inicie-a.
+16. Clique duas vezes na VM e inicie-a.
 
-19. Agora você pode trabalhar na VM como a VM local. Você pode seguir as etapas de solução de problemas necessárias.
+17. Agora você pode trabalhar na VM como a VM local. Você pode seguir as etapas de solução de problemas necessárias.
 
-## <a name="step-3-re-create-your-azure-vm-in-azure"></a>Passo 3: Recriar sua VM do Azure no Azure
+## <a name="step-3-replace-the-os-disk-used-by-the-problem-vm"></a>Etapa 3: substituir o disco do sistema operacional usado pela VM com problema
 
 1.  Depois que você colocar a VM novamente online, desligue a VM no Gerenciador do Hyper-V.
 
-2.  Vá para a [portal do Azure](https://portal.azure.com) e selecione a VM de resgate > discos, copie o nome do disco. Você usará o nome na próxima etapa. Desanexe o disco fixo da VM de resgate.
+2.  [Desmonte e desanexe o disco do sistema operacional reparado](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk
+).
+3.  [Substitua o disco do sistema operacional usado pela VM pelo disco do sistema operacional reparado](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
+).
 
-3.  Vá para **todos os recursos**, procure o nome do disco e, em seguida, selecione o disco.
-
-     ![a imagem sobre pesquisa o disco](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
-
-4. Clique em **criar VM**.
-
-     ![a imagem sobre cria a VM a partir do disco](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
-
-Você também pode usar Azure PowerShell para criar a VM a partir do disco. Para obter mais informações, consulte [criar a nova VM de um disco existente usando o PowerShell](../windows/create-vm-specialized.md#create-the-new-vm). 
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você estiver tendo problemas para se conectar à sua VM, consulte [solucionar problemas de conexões RDP para uma VM do Azure](troubleshoot-rdp-connection.md). Para problemas com o acesso a aplicativos em execução na sua VM, consulte [solucionar problemas de conectividade do aplicativo em uma VM do Windows](troubleshoot-app-connection.md).

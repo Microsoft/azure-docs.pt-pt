@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 3283cfe9455ba29679d7c741941aa8863c47b1c0
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
-ms.translationtype: HT
+ms.openlocfilehash: 636fd5fd17838c729cdbc9e2a322c1f991d93948
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158289"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186429"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -95,7 +95,7 @@ As principais diferenças na sintaxe de `CREATE AUDIT` para a auditoria para o a
 - É fornecida uma nova sintaxe `TO URL` que você pode usar para especificar a URL do contêiner de armazenamento de BLOBs do Azure em que os arquivos de `.xel` são colocados.
 - Não há suporte para a sintaxe `TO FILE` porque uma instância gerenciada não pode acessar compartilhamentos de arquivos do Windows.
 
-Para obter mais informações, consulte: 
+Para obter mais informações, veja: 
 
 - [CRIAR AUDITORIA DE SERVIDOR](/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTERAR AUDITORIA DO SERVIDOR](/sql/t-sql/statements/alter-server-audit-transact-sql)
@@ -572,14 +572,6 @@ A instrução de `RESTORE` contínua, o processo de migração do serviço de mi
 [Resource governor](/sql/relational-databases/resource-governor/resource-governor) recurso que permite limitar os recursos atribuídos à carga de trabalho do usuário pode classificar incorretamente alguma carga de trabalho do usuário após o failover ou a alteração da camada de serviço iniciada pelo usuário (por exemplo, a alteração da instância máxima vCore ou máxima tamanho do armazenamento).
 
 **Solução alternativa**: execute `ALTER RESOURCE GOVERNOR RECONFIGURE` periodicamente ou como parte do trabalho do SQL Agent que executa a tarefa SQL quando a instância for iniciada se você estiver usando [resource governor](/sql/relational-databases/resource-governor/resource-governor).
-
-### <a name="cannot-authenticate-to-external-mail-servers-using-secure-connection-ssl"></a>Não é possível autenticar para servidores de email externos usando conexão segura (SSL)
-
-**Data:** 2019 de agosto
-
-O Database Mail [configurado usando a conexão segura (SSL)](/sql/relational-databases/database-mail/configure-database-mail) não pode autenticar em alguns servidores de email fora do Azure. Esse é um problema de configuração de segurança que será resolvido em breve.
-
-**Solução alternativa:** Remova temporariamente a conexão segura (SSL) da configuração do Database Mail até que o problema seja resolvido. 
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>As caixas de diálogo de Service Broker entre bancos de dados devem ser reinicializadas após a atualização da camada de serviço
 

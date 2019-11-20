@@ -1,14 +1,14 @@
 ---
 title: ISO 27001 ASE/esquema de carga de trabalho SQL exemplo-mapeamento de controle
 description: Mapeamento de controle da amostra do plano gráfico de carga de trabalho do banco de dados ISO 27001 Ambiente do Serviço de Aplicativo/SQL para Azure Policy e RBAC.
-ms.date: 03/14/2019
+ms.date: 11/18/2019
 ms.topic: sample
-ms.openlocfilehash: ff27f0d2076fc86454f547aaa67a112ed3c30f73
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ab650e35537213b0ce1e1d2b2f4692a09b0995ae
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032172"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184553"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapeamento de controle da amostra do esquema de carga de trabalho do ISO 27001 ASE/SQL
 

@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 11/18/2019
 ms.author: swmachan
-ms.openlocfilehash: f3bf784898f7f51beea890d8d2a8401af1403fbc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: dd3684cbd7c03851bfcc75293a9690f77b4652b2
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888124"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184822"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Como impedir a tradução de conteúdo com o API de Tradução de Texto
 
 O API de Tradução de Texto permite que você marque o conteúdo para que ele não seja traduzido. Por exemplo, você pode querer marcar o código, um nome da marca ou uma palavra/frase que não faça sentido quando localizada.
 
 ## <a name="methods-for-preventing-translation"></a>Métodos para impedir a tradução
-1. Escape para uma marca do Twitter @somethingtopassthrough ou #somethingtopassthrough. Cancele o escape após a tradução.
+1. Escape para uma marca do Twitter @somethingtopassthrough ou #somethingtopassthrough. Cancele o escape após a tradução. Esta é a expressão regular para as marcas válidas do Twitter: `\B@[A-Za-z]+[A-Za-z0-9_]+)`. Uma marca deve começar com um sinal de "@", seguido por um caractere e seguida por um ou vários caracteres, dígitos ou sublinhado. É recomendável manter as marcas curtas e a marca de abertura deve ser precedida por um espaço.
 
 2. Marque seu conteúdo com `notranslate`.
 

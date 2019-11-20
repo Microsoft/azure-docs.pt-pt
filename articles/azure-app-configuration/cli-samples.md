@@ -1,6 +1,6 @@
 ---
-title: Exemplos da CLI do Azure - configuração de aplicações do Azure | Documentos da Microsoft
-description: Fornece informações sobre scripts de exemplo disponíveis para configuração de aplicações do Azure
+title: Exemplos de CLI do Azure – Azure App configuração | Microsoft Docs
+description: Fornece informações sobre scripts de exemplo disponíveis para configuração de Azure App
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -14,25 +14,25 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: a8a60f23511f71128bea4cc560ad8401b238732d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b9d4c6447b8030c2ae5f7dc22857f77b57f91ea
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741415"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185314"
 ---
 # <a name="azure-cli-samples"></a>Exemplos da CLI do Azure
 
-A tabela seguinte inclui ligações para scripts bash para configuração de aplicações do Azure com a CLI do Azure.
+A tabela a seguir inclui links para scripts bash para Azure App configuração usando o CLI do Azure.
 
 | | |
 |-|-|
 |**Criar**||
-| [Criar um arquivo de configuração de aplicação](./scripts/cli-create-service.md) | Cria um grupo de recursos e uma instância de arquivo de configuração de aplicação.  |
+| [Criar um repositório de configurações de aplicativo](./scripts/cli-create-service.md) | Cria um grupo de recursos e uma instância de repositório de configuração de aplicativo.  |
 |**Utilizar**||
-| [Trabalhar com valores de chave](./scripts/cli-work-with-keys.md) | Cria, vistas, atualizações e elimina os valores de chave. |
-| [Valores de chave de importação](./scripts/cli-import.md) | Importa os valores de chave de outras origens. |
-| [Valores de chave de exportação](./scripts/cli-export.md) | Exporta os valores de chave a outros destinos. |
+| [Trabalhar com valores de chave](./scripts/cli-work-with-keys.md) | Cria, exibe exibições, atualiza e exclui valores de chave. |
+| [Importar valores de chave](./scripts/cli-import.md) | Importa valores de chave de outras fontes. |
+| [Exportar valores de chave](./scripts/cli-export.md) | Exporta valores de chave para outros destinos. |
 |**Eliminar**||
-| [Eliminar uma loja de configuração de aplicações](./scripts/cli-delete-service.md) | Elimina uma instância de arquivo de configuração de aplicação.  |
+| [Excluir um repositório de configurações de aplicativo](./scripts/cli-delete-service.md) | Exclui uma instância de repositório de configuração de aplicativo.  |
 | | |

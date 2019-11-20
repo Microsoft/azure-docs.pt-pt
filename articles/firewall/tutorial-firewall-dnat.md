@@ -1,19 +1,19 @@
 ---
-title: Filtrar tráfego de entrada com DNAT do Azure Firewall com o portal do Azure
+title: Filtrar o tráfego de entrada com o Firewall do Azure DNAT usando o portal
 description: Neste tutorial, vai aprender a implementar e configurar a DNAT do Azure Firewall com o portal do Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 11/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f0a58382b9825a7b32aee69c00b9801d1c77251a
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 2f390f3ad540a2a25055dfcc97cc3af1f22c2b73
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114638"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195725"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtrar tráfego de entrada com DNAT do Azure Firewall com o portal do Azure
 
@@ -62,7 +62,7 @@ Em primeiro lugar, crie as VNets e, em seguida, configure o peering entre elas.
 
      A firewall estará nesta sub-rede, e o nome da sub-rede **tem** de ser AzureFirewallSubnet.
      > [!NOTE]
-     > O tamanho da sub-rede AzureFirewallSubnet é/26. Para obter mais informações sobre o tamanho da sub-rede, consulte perguntas frequentes sobre o [Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+     > O tamanho da sub-rede AzureFirewallSubnet é/26. Para obter mais informações sobre o tamanho da sub-rede, consulte [perguntas frequentes sobre o Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 10. Para **intervalo de endereços**, digite **10.0.1.0/26**.
 11. Utilize as outras predefinições e, em seguida, clique em **Criar**.
@@ -151,11 +151,11 @@ Após a conclusão da implementação, tome nota do endereço IP privado para a 
 
    |Definição  |Valor  |
    |---------|---------|
-   |Name     |FW-DNAT-test|
-   |Subscription     |\<a sua subscrição\>|
-   |Resource group     |**Usar existente**: RG-DNAT-teste |
-   |Location     |Selecionar a mesma localização que utilizou anteriormente|
-   |Escolher uma rede virtual     |**Usar existente**: VN-Hub|
+   |Nome     |FW-DNAT-test|
+   |Subscrição     |\<a sua subscrição\>|
+   |Grupo de recursos     |**Utilizar existente**: RG-DNAT-Test |
+   |Localização     |Selecionar a mesma localização que utilizou anteriormente|
+   |Escolher uma rede virtual     |**Utilizar existente**: VN-Hub|
    |Endereço IP público     |**Crie um novo**. O endereço IP público tem de ser do tipo SKU Standard.|
 
 5. Clique em **Rever + criar**.
@@ -216,7 +216,7 @@ Na sub-rede **SN-Workload**, vai configurar a rota de saída predefinida para pa
 
 Pode manter os recursos da firewall para o próximo tutorial. Se já não precisar dos mesmos, elimine o grupo de recursos **RG-DNAT-Test** para eliminar todos os recursos relacionados com a firewall.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
@@ -230,4 +230,4 @@ Neste tutorial, ficou a saber como:
 Em seguida, pode monitorizar os registos do Azure Firewall.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitorar logs de firewall do Azure](./tutorial-diagnostics.md)
+> [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)

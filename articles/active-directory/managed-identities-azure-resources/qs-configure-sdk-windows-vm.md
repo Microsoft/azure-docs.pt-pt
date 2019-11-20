@@ -1,5 +1,5 @@
 ---
-title: Usar um SDK do Azure para configurar uma VM com identidades gerenciadas para recursos do Azure
+title: Usar um SDK para configurar identidades gerenciadas em uma VM-Azure AD
 description: Instruções passo a passo para configurar e usar identidades gerenciadas para recursos do Azure em uma VM do Azure, usando um SDK do Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/28/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b4f5a26f240656911fb9627d273de8b69edff6a
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: d11cd51984f82bc20c02669e796d9ba21b9ed5d7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809164"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183482"
 ---
 # <a name="configure-a-vm-with-managed-identities-for-azure-resources-using-an-azure-sdk"></a>Configurar uma VM com identidades gerenciadas para recursos do Azure usando um SDK do Azure
 
@@ -38,7 +38,7 @@ Neste artigo, você aprende a habilitar e a remover identidades gerenciadas de r
 
 O Azure dá suporte a várias plataformas de programação por meio de uma série de [SDKs do Azure](https://azure.microsoft.com/downloads). Várias delas foram atualizadas para dar suporte a identidades gerenciadas para recursos do Azure e fornecer exemplos correspondentes para demonstrar o uso. Essa lista é atualizada conforme o suporte adicional é adicionado:
 
-| SDK | Exemplo |
+| SDK | Sample |
 | --- | ------ | 
 | .NET   | [Gerenciar recursos de uma VM habilitada com identidades gerenciadas para recursos do Azure habilitados](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
 | Java   | [Gerenciar o armazenamento de uma VM habilitada com identidades gerenciadas para recursos do Azure](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8d7db428d7f71383abf5425d7cc1ddbbab3b7a52
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7e3d0f4ba178ef2cf44b9c5c3dd5b8c212f1c133
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037883"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186152"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os serviços de mídia do Azure v3
 
@@ -63,7 +63,7 @@ Ao usar o evento de passagem **ao vivo**, você depende de seu codificador ao vi
 
 Ao usar a codificação de nuvem com os serviços de mídia, você configuraria seu codificador ao vivo local para enviar um vídeo de taxa de bits única como o feed de contribuição (até 32Mbps agregado) para o evento ao vivo (usando o protocolo de entrada RTMP ou MP4 fragmentado). O evento ao vivo codifica o fluxo de taxa de bits única de entrada em [fluxos de vídeo de taxa](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) de bits múltipla em diferentes resoluções para melhorar a entrega e o disponibiliza para entrega a dispositivos de reprodução por meio de protocolos padrão do setor, como MPEG-Dash, Apple http Live streaming (hls) e Microsoft Smooth streaming. 
 
-### <a name="live-transcription"></a>Transcrição ao vivo
+### <a name="live-transcription-preview"></a>Transcrição ao vivo (versão prévia)
 
 A transcrição ao vivo é um recurso que você pode usar com eventos ao vivo que são de passagem ou codificação ativa. Para obter mais informações, consulte [transcrição ao vivo](live-transcription.md). Quando esse recurso é habilitado, o serviço usa o recurso de [conversão de fala em texto](../../cognitive-services/speech-service/speech-to-text.md) de serviços cognitivas para transcrever as palavras faladas no áudio de entrada em texto. Esse texto é disponibilizado para entrega junto com vídeo e áudio em protocolos MPEG-DASH e HLS.
 

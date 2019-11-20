@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: sagupt
-ms.openlocfilehash: 08af119e7f9e72de4a8ae4a1842289a4fd5d925e
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 82c77568a2c62a0e02bf00c164f4600e221376da
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144145"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183124"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Melhorar o desempenho de aplicativos do Azure com o Azure Advisor
 
@@ -122,7 +122,7 @@ Para saber mais sobre as recomendações do Advisor, consulte:
 
 * [Introdução ao Advisor](advisor-overview.md)
 * [Introdução ao Assistente](advisor-get-started.md)
-* [Recomendações de custo do Advisor](advisor-performance-recommendations.md)
+* [Recomendações de custo do Advisor](advisor-cost-recommendations.md)
 * [Recomendações de alta disponibilidade do Advisor](advisor-high-availability-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
 * [Recomendações de excelência operacional do Advisor](advisor-operational-excellence-recommendations.md)

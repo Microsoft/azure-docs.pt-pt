@@ -1,5 +1,5 @@
 ---
-title: Início Rápido do Azure - criar um perfil do Front Door para elevada disponibilidade de aplicações através do portal do Azure
+title: 'Início rápido: criar perfil de porta frontal para alta disponibilidade de aplicativos'
 description: Este artigo de início rápido descreve como criar um Front Door para a sua aplicação Web global de elevada disponibilidade e elevado desempenho.
 services: front-door
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 6bcd5bcc2463ec1ab9dcc97644d5046c31bfc78b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67a4f9eb3290ba09a2c19325464cf7ad224856e7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461991"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184505"
 ---
-# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Início rápido: Criar uma porta de entrada para um aplicativo web global de elevada disponibilidade
+# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Início Rápido: criar um Front Door para uma aplicação Web global de elevada disponibilidade
 
 Este início rápido descreve como criar um perfil do Front Door que proporciona elevada disponibilidade e elevado desempenho à sua aplicação Web global. 
 
@@ -39,10 +39,10 @@ Este início rápido requer que tenha implementado duas instâncias de uma aplic
 
      | Definição         | Valor     |
      | ---              | ---  |
-     | Name           | Introduza um nome exclusivo para a aplicação Web  |
+     | Nome           | Introduza um nome exclusivo para a aplicação Web  |
      | Grupo de recursos          | Selecione **Novo** e escreva *myResourceGroupFD1* |
      | Plano do Serviço de Aplicações/Localização         | Selecione **Novo**.  No plano do Serviço de Aplicações, introduza *myAppServicePlanEastUS* e selecione **OK**. 
-     |      Location  |   EUA Leste        |
+     |      Localização  |   EUA Leste        |
     |||
 
 3. Selecione **Criar**.
@@ -51,15 +51,15 @@ Este início rápido requer que tenha implementado duas instâncias de uma aplic
 
      | Definição         | Valor     |
      | ---              | ---  |
-     | Name           | Introduza um nome exclusivo para a aplicação Web  |
+     | Nome           | Introduza um nome exclusivo para a aplicação Web  |
      | Grupo de recursos          | Selecione **Novo** e escreva *myResourceGroupFD2* |
      | Plano do Serviço de Aplicações/Localização         | Selecione **Novo**.  No plano do Serviço de Aplicações, introduza *myAppServicePlanWestEurope* e selecione **OK**. 
-     |      Location  |   Europa Ocidental      |
+     |      Localização  |   Europa ocidental      |
     |||
 
 
 ## <a name="create-a-front-door-for-your-application"></a>Criar um Front Door para a sua aplicação
-### <a name="a-add-a-frontend-host-for-front-door"></a>R. Adicionar um anfitrião de front-end ao Front Door
+### <a name="a-add-a-frontend-host-for-front-door"></a>A. Adicionar um anfitrião de front-end ao Front Door
 Crie uma configuração do Front Door que direciona o tráfego de utilizador com base na latência mais baixa entre os dois back-ends.
 
 1. No canto superior esquerdo do ecrã, selecione **Criar um recurso** > **Rede** > **Front Door** > **Criar**.
@@ -82,7 +82,7 @@ Em seguida, terá de configurar os back-ends da aplicação num conjunto de back
 Por último, clique no ícone de “+” em Regras de encaminhamento para configurar uma regra de encaminhamento. Esta é necessária para mapear o seu anfitrião de front-end para o conjunto de back-ends que, basicamente, está a configurar que, se chegar um pedido ao `myappfrontend.azurefd.net`, é reencaminhado para o conjunto de back-ends `myBackendPool`. Clique em **Adicionar** para adicionar a regra de encaminhamento para o Front Door. Deve agora estar pronto para criar o Front Door: clique em **Rever e Criar**.
 
 >[!WARNING]
-> **Tem** de certificar-se de que cada anfitrião de front-end no Front Door tem uma regra de encaminhamento com um caminho predefinido (“/\*”) associado ao mesmo. Ou seja, em todas as regras de encaminhamento tem de existir, pelo menos, uma regra de encaminhamento para cada anfitrião de front-end definida no caminho predefinido (“/\*”). Não o fazer pode resultar no tráfego de utilizador final não ser encaminhado corretamente.
+> **Tem** de certificar-se de que cada anfitrião de front-end no Front Door tem uma regra de encaminhamento com um caminho predefinido (“/\*”) associado ao mesmo. Ou seja, em todas as regras de encaminhamento tem de existir, pelo menos, uma regra de encaminhamento para cada anfitrião de front-end definida no caminho predefinido (“/\*”). Se não o fizer, o tráfego de utilizador final poderá não ser encaminhado corretamente.
 
 ## <a name="view-front-door-in-action"></a>Ver o Front Door em ação
 Depois de criar um Front Door, irá demorar alguns minutos para que a configuração seja implementada globalmente em todos os lugares. Depois de concluir, aceda ao anfitrião de front-end que criou, ou seja, aceda a um browser e clique no URL `myappfrontend.azurefd.net`. O seu pedido é automaticamente encaminhado para o back-end mais próximo dos back-ends especificados no conjunto de back-ends. 
@@ -93,5 +93,5 @@ Se pretender testar a ativação pós-falha global instantânea do Front Door em
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando já não for necessário, elimine os grupos de recursos, as aplicações Web e todos os recursos relacionados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste início rápido, criou um Front Door que permite direcionar o tráfego de utilizador para aplicações Web que requerem elevada disponibilidade e desempenho máximo. Para saber mais sobre o encaminhamento de tráfego, leia os [Métodos de Encaminhamento](front-door-routing-methods.md) utilizados pelo Front Door.
