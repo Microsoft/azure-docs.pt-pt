@@ -11,12 +11,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 09/10/2019
-  ms.openlocfilehash: 926220dc7260798ed9b2ffd9f6317fc97be198ac
-  ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+  ms.openlocfilehash: 04a7d8a791b716b446101afe9b32ab83759c7a49
+  ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/17/2019
-  ms.locfileid: "72529525"
+  ms.lasthandoff: 11/20/2019
+  ms.locfileid: "74210159"
 highlightedContent:
   items:
   - title: Descrição geral da governação
@@ -112,7 +112,7 @@ additionalContent:
       - text: SDK do Azure para .NET
         url: /dotnet/api/overview/azure/managementgroups
       - text: SDK do Azure para Node
-        url: /javascript/api/azure-arm-resource/managementgroups
+        url: /javascript/api/@azure/arm-managementgroups/managementgroups
     - title: Azure Policy
       links:
       - text: CLI do Azure

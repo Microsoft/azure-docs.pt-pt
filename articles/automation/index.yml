@@ -12,12 +12,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/06/2019
   ms.author: robreed
-  ms.openlocfilehash: e168142ade25e7b92e6336b04753132056fd7de9
-  ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+  ms.openlocfilehash: 580ae2d2544b3db15ffd52a150c7bb02c2a44007
+  ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/15/2019
-  ms.locfileid: "72375996"
+  ms.lasthandoff: 11/20/2019
+  ms.locfileid: "74231573"
 landingContent:
 - title: Introdução à Automatização do Azure
   linkLists:
@@ -60,11 +60,11 @@ landingContent:
   - linkListType: concept
     links:
     - text: PowerShell DSC
-      url: /powershell/dsc/overview/overview
+      url: /powershell/scripting/dsc/overview/overview
   - linkListType: quickstart
     links:
     - text: Criar uma Configuração DSC a partir da Política de Grupo
-      url: /powershell/dsc/quickstarts/gpo-quickstart
+      url: /powershell/scripting/dsc/quickstarts/gpo-quickstart
   - linkListType: tutorial
     links:
     - text: Configurar Servidores e gerir desvios com o State Configuration

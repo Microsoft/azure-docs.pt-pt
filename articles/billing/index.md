@@ -6,18 +6,18 @@ services: billing
 author: cwatson-cat
 manager: dougeby
 ms.assetid: ''
-ms.service: billing
+ms.service: cost-management-billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: e150525b6f5fd1814f13595fbd4ea7e3bccde4fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67ce495767f31f7e7d39d34af4939d5d1c719b7c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368544"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74222589"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Documentação de gestão de custos e faturação do Azure
 

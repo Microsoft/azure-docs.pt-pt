@@ -7,15 +7,15 @@ metadata:
   ms.service: private-link
   ms.topic: landing-page
   ms.collection: collection
-  author: KumudD
-  ms.author: kumud
+  author: asudbring
+  ms.author: allensu
   ms.date: 09/16/2019
-  ms.openlocfilehash: 24b6d3ce2514ef25a015182e4a4fcd641ac76d50
-  ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+  ms.openlocfilehash: f42e747bd481f802c4961993ef8cb0184a45c05c
+  ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/18/2019
-  ms.locfileid: "71104596"
+  ms.lasthandoff: 11/20/2019
+  ms.locfileid: "74229352"
 landingContent:
 - title: Sobre a Ligação Privada do Azure
   linkLists:
