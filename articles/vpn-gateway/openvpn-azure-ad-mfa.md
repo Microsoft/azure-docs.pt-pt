@@ -7,18 +7,19 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: alzam
-ms.openlocfilehash: 3f407ecfcbfdff72b79bfe6b5bc3e6b7606b1cf0
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1b506f8439deabd110daaefab36442140e20d0d4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174632"
+ms.locfileid: "74185360"
 ---
 # <a name="enable-multi-factor-authentication-mfa-for-vpn-users"></a>Habilitar a MFA (autenticação multifator) para usuários VPN
 
 Você pode habilitar a MFA para usuários em seu locatário do Azure AD para que os usuários sejam solicitados a fornecer uma autenticação de segundo fator antes que o acesso seja concedido.
 
-> [! Pré-requisito] você configurou um locatário do Azure AD conforme descrito no documento "configurar um locatário".
+> [!NOTE]
+> Pré-requisito: você configurou um locatário do Azure AD conforme descrito no documento "configurar um locatário".
 >
 
 ### <a name="tenant"></a>1. faça logon no portal do Azure e navegue até **Azure Active Directory** , **todos os usuários** e clique em **autenticação multifator**

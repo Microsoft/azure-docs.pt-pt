@@ -1,19 +1,18 @@
 ---
-title: Matriz de suporte de migrações para Azure para avaliação e migração do VMware
-description: Resume as configurações de suporte e as limitações de avaliação e migração de VMs VMware para o Azure usando o serviço migrações para Azure.
-services: backup
+title: Suporte para avaliação e migração do VMware nas migrações para Azure
+description: Saiba mais sobre o suporte para avaliação/migração de VM do VMware nas migrações para Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4b07252aed2205917f6b43e3e09a2877663e5bab
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 135680a9b0b6c8b5520958c884d99a83f1f87c88
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838905"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196282"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de suporte para avaliar e migrar o VMware
 
@@ -27,7 +26,7 @@ A tabela resume os cenários com suporte para VMs VMware.
 **Implementação** | **Detalhes**
 --- | ---
 **Avaliar VMs VMware locais** | [Configure](tutorial-prepare-vmware.md) sua primeira avaliação.<br/><br/> [Execute](scale-vmware-assessment.md) uma avaliação em larga escala.
-**Migrar VMs VMware** | Você pode migrar usando a migração sem agente ou usar uma migração baseada em agente. [Saiba mais](server-migrate-overview.md)
+**Migrar VMs VMware** | Você pode migrar usando a migração sem agente ou usar uma migração baseada em agente. [Saber mais](server-migrate-overview.md)
 
 
 ## <a name="azure-migrate-projects"></a>Projetos de migrações para Azure
@@ -79,7 +78,13 @@ Esta tabela resume o suporte de avaliação e as limitações para servidores de
 
 ## <a name="assessment-vcenter-server-permissions"></a>VCenter Server de avaliação – permissões
 
-Para avaliação, você precisa de uma conta somente leitura para o vCenter Server.
+As migrações para Azure precisam acessar o vCenter Server para descobrir VMs para avaliação e migração sem agente.
+
+- Se você planeja descobrir aplicativos ou Visualizar dependências de maneira sem agente, crie uma conta de vCenter Server com acesso somente leitura junto com os privilégios habilitados para **máquinas virtuais** > **operações de convidado**.
+
+  ![privilégios de conta de vCenter Server](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
+
+- Se você não estiver planejando fazer a descoberta de aplicativos e a visualização de dependência sem agente, configure uma conta somente leitura para o vCenter Server.
 
 ## <a name="assessment-appliance-requirements"></a>Avaliação – requisitos de dispositivo
 
@@ -105,7 +110,7 @@ O dispositivo de migrações para Azure precisa de conectividade com a Internet.
 --- | --- |
 *.portal.azure.com  | Navegue até as migrações para Azure no portal do Azure.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com | Inicie sessão na subscrição do Azure.
-*.microsoftonline.com <br/> *. microsoftonline-p.com | Crie Active Directory aplicativos para o dispositivo se comunicar com o serviço migrações para Azure.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Crie Active Directory aplicativos para o dispositivo se comunicar com o serviço migrações para Azure.
 management.azure.com | Crie Active Directory aplicativos para o dispositivo se comunicar com o serviço migrações para Azure.
 dc.services.visualstudio.com | Carregar logs de aplicativo usados para monitoramento interno.
 *.vault.azure.net | Gerenciar segredos no Azure Key Vault.
@@ -116,7 +121,7 @@ https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/
 
 ## <a name="assessment-port-requirements"></a>Avaliação – requisitos de porta
 
-**Vice** | **Conexão**
+**Vice** | **ligação**
 --- | ---
 Baseado | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/><br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivo usando a URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Conexões de saída na porta 443, 5671 e 5672 para enviar metadados de descoberta e desempenho para migrações para Azure.
 vCenter Server | Conexões de entrada na porta TCP 443 para permitir que o dispositivo colete metadados de configuração e desempenho para avaliações. <br/><br/> O dispositivo se conecta ao vCenter na porta 443 por padrão. Se o servidor vCenter escutar em uma porta diferente, você poderá modificar a porta ao configurar a descoberta.
@@ -128,7 +133,7 @@ A visualização de dependência ajuda a Visualizar dependências entre computad
 - **Visualização de dependência sem agente**: essa opção está atualmente em visualização. Ele não exige a instalação de agentes em computadores.
     - Ele funciona capturando os dados de conexão TCP de computadores para os quais está habilitado. Depois que a descoberta de dependência é iniciada, o dispositivo reúne dados de computadores em um intervalo de sondagem de cinco minutos.
     - Os seguintes dados são coletados:
-        - Conexões TCP
+        - Ligações TCP
         - Nomes de processos que têm conexões ativas
         - Nomes de aplicativos instalados que executam os processos acima
         - Não. de conexões detectadas em cada intervalo de sondagem
@@ -208,7 +213,7 @@ O dispositivo de migrações para Azure precisa de conectividade com a Internet.
 --- | ---
 *.portal.azure.com | Navegue até as migrações para Azure no portal do Azure.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Inicie sessão na subscrição do Azure.
-*.microsoftonline.com <br/> *. microsoftonline-p.com | Crie Active Directory aplicativos para o dispositivo se comunicar com o serviço migrações para Azure.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Crie Active Directory aplicativos para o dispositivo se comunicar com o serviço migrações para Azure.
 management.azure.com | Crie Active Directory aplicativos para o dispositivo se comunicar com o serviço migrações para Azure.
 dc.services.visualstudio.com | Carregar logs de aplicativo usados para monitoramento interno.
 *.vault.azure.net | Gerenciar segredos no Azure Key Vault.
@@ -220,7 +225,7 @@ https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/
 
 ## <a name="agentless-migration-port-requirements"></a>Migração sem agente – requisitos de porta
 
-**Vice** | **Conexão**
+**Vice** | **ligação**
 --- | ---
 Baseado | Conexões de saída na porta 443 para carregar dados replicados no Azure e para se comunicar com os serviços de migração do Azure orquestrando a replicação e a migração.
 vCenter Server | Conexões de entrada na porta 443 para permitir que o dispositivo coordene a replicação-criar instantâneos, copiar dados, liberar instantâneos
@@ -268,7 +273,7 @@ TLS | O TLS 1,2 deve estar habilitado.
 MySQL | O MySQL deve ser instalado no dispositivo.<br/> O MySQL deve ser instalado. Você pode instalar manualmente ou Site Recovery pode instalá-lo durante a implantação do dispositivo.
 Outros aplicativos | Não execute outros aplicativos no dispositivo de replicação.
 Funções do Windows Server | Não habilite estas funções: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V
-Políticas de grupo | Não habilite essas políticas de Grupo: <br> -Impedir o acesso ao prompt de comando. <br> -Impedir o acesso às ferramentas de edição do registro. <br> -Lógica de confiança para anexos de arquivo. <br> -Ative a execução do script. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+Políticas de grupo | Não habilite essas políticas de Grupo: <br> -Impedir o acesso ao prompt de comando. <br> -Impedir o acesso às ferramentas de edição do registro. <br> -Lógica de confiança para anexos de arquivo. <br> -Ative a execução do script. <br> [Saber mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | -Nenhum site padrão já existente <br> -Nenhum site/aplicativo já existente escutando na porta 443 <br>-Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Habilitar configuração de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)
 **Configurações de rede** |
 Tipo de endereço IP | Estático
@@ -324,7 +329,7 @@ Baixar e instalar em migrações para Azure | Quando você instalar o dispositiv
 **Discos independentes** | Suportado.
 **Discos de passagem** | Suportado.
 **NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
-destinos iSCSI | Não há suporte para VMs com destinos iSCSI para migração sem agente.
+**destinos iSCSI** | Não há suporte para VMs com destinos iSCSI para migração sem agente.
 **E/s de vários caminhos** | Não suportado.
 **VMotion de armazenamento** | Suportado
 **NICs agrupadas** | Não suportado.
@@ -354,7 +359,7 @@ dc.services.visualstudio.com | Carregar logs de aplicativo usados para monitoram
 
 ## <a name="agent-based-migration-port-requirements"></a>Migração baseada em agente-requisitos de porta
 
-**Vice** | **Conexão**
+**Vice** | **ligação**
 --- | ---
 VMs | O serviço de mobilidade em execução nas VMs se comunica com o dispositivo de replicação local (servidor de configuração) na porta HTTPS 443 de entrada, para o gerenciamento de replicação.<br/><br/> As VMs enviam dados de replicação para o servidor de processo (em execução no computador do servidor de configuração) na porta HTTPS 9443 de entrada. Essa porta pode ser modificada.
 Dispositivo de replicação | O dispositivo de replicação orquestra a replicação com o Azure sobre a porta HTTPS 443 de saída.
