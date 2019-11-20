@@ -1,5 +1,5 @@
 ---
-title: Especificando as configurações de DNS em um arquivo de configuração de rede virtual | Microsoft Docs
+title: Especificar as configurações de DNS no arquivo de configuração de VNet do Azure
 description: Como alterar as configurações do servidor DNS em uma rede virtual usando um arquivo de configuração de rede virtual no modelo de implantação clássico
 services: virtual-network
 documentationcenter: na
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: genli
-ms.openlocfilehash: c15d73673c19383deabe15ef30026990dfd138b9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: db8b1817bb14d293632d16fe02792dbb85766559
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059095"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196645"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Especificando as configurações de DNS em um arquivo de configuração de rede virtual
-Um arquivo de configuração de rede tem dois elementos que você pode usar para especificar configurações de DNS (sistema de nomes de domínio): **Dnsservers** e **DnsServerRef**. Você pode adicionar uma lista de servidores DNS especificando seus endereços IP e nomes de referência para o elemento **dnsservers** . Em seguida, você pode usar um elemento **DnsServerRef** para especificar quais entradas do servidor DNS do elemento dnsservers são usadas para diferentes sites de rede em sua rede virtual.
+Um arquivo de configuração de rede tem dois elementos que você pode usar para especificar configurações de DNS (sistema de nomes de domínio): **dnsservers** e **DnsServerRef**. Você pode adicionar uma lista de servidores DNS especificando seus endereços IP e nomes de referência para o elemento **dnsservers** . Em seguida, você pode usar um elemento **DnsServerRef** para especificar quais entradas do servidor DNS do elemento dnsservers são usadas para diferentes sites de rede em sua rede virtual.
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
@@ -64,7 +64,7 @@ O arquivo de configuração de rede pode conter os seguintes elementos. O títul
 > 
 > 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Entenda o [esquema de configuração de rede virtual do Azure](https://go.microsoft.com/fwlink/?LinkId=248093).
 * Entenda o [esquema de configuração do serviço do Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
 * [Configure uma rede virtual usando arquivos de configuração de rede](virtual-networks-using-network-configuration-file.md).

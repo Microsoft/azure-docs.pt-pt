@@ -6,59 +6,69 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
-ms.date: 11/04/2019
-ms.openlocfilehash: ee97322e58fe7ab3a1474f55c6294822b8ce90da
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: peterlu
+author: peterclu
+ms.date: 11/12/2019
+ms.openlocfilehash: 73facea2b99ee038b16053fd818d93d35da4cbdd
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517868"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196199"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o designer de Azure Machine Learning (versão prévia)? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-O designer para Azure Machine Learning permite preparar dados, treinar, testar, implantar, gerenciar e acompanhar modelos de aprendizado de máquina sem escrever código.
+O designer de Azure Machine Learning permite que você conecte visualmente [conjuntos](#datasets) de informações e [módulos](#module) em uma tela interativa para criar modelos de aprendizado de máquina. Para saber como começar a usar o designer, consulte [tutorial: prever o preço do automóvel com o designer](tutorial-designer-automobile-price-train-score.md)
 
-Não há nenhuma programação necessária, você conecta visualmente [conjuntos](#datasets) de os e [módulos](#module) para construir seu modelo.
+![Exemplo de designer de Azure Machine Learning](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
-O designer usa seu [espaço de trabalho](concept-workspace.md) Azure Machine Learning para:
+O designer usa seu [espaço de trabalho](concept-workspace.md) Azure Machine Learning para organizar recursos compartilhados, como:
 
-+ Crie, edite e execute [pipelines](#pipeline) no espaço de trabalho.
-+ Acessar [conjuntos](#datasets)de os.
-+ Use os [recursos de computação](#compute) no espaço de trabalho para executar o pipeline. 
-+ Registrar [modelos](concept-azure-machine-learning-architecture.md#models).
-+ [Publicar](#publish) pipelines como pontos de extremidade REST.
-+ [Implante](#deployment) modelos como pontos de extremidade de pipeline (para inferência de lote) ou pontos de extremidade em tempo real em recursos de computação no espaço de trabalho.
++ [Pipelines](#pipeline)
++ [Conjuntos de dados](#datasets)
++ [Recursos de computação](#compute)
++ [Modelos registrados](concept-azure-machine-learning-architecture.md#models)
++ [Pipelines publicados](#publish)
++ [Pontos de extremidade em tempo real](#deploy)
 
-![Visão geral do designer](media/ui-concept-visual-interface/overview.png)
+## <a name="model-training-and-deployment"></a>Treinamento e implantação do modelo
 
-## <a name="workflow"></a>Fluxo de trabalho
+O designer fornece uma tela Visual para criar, testar e implantar modelos de aprendizado de máquina. Com o designer, você pode:
 
-O designer oferece uma tela Visual interativa para criar, testar e iterar rapidamente em um modelo. 
++ Os [conjuntos](#datasets) de Datae os [módulos](#module) de arrastar e soltar na tela.
++ Conecte os módulos juntos para criar um [rascunho de pipeline](#pipeline-draft).
++ Envie uma [execução de pipeline](#pipeline-run) usando os recursos de computação em seu espaço de trabalho Azure Machine Learning.
++ Converta seus **pipelines de treinamento** em **pipelines de inferência**.
++ [Publique](#publish) seus pipelines em um **ponto de extremidade de pipeline** REST para enviar novas execuções de pipeline com parâmetros e conjuntos de os diferentes.
+    + Publique um **pipeline de treinamento** para reutilizar um único pipeline para treinar vários modelos durante a alteração de parâmetros e conjuntos de valores.
+    + Publicar um **pipeline de inferência de lote** para fazer previsões sobre novos dados usando um modelo treinado anteriormente.
++ [Implante](#deploy) um **pipeline de inferência em tempo real** para um ponto de extremidade em tempo real para fazer previsões sobre novos dados em tempo real.
 
-+ Você arrasta e solta os [conjuntos](#datasets) de itens e os [módulos](#module) na tela.
-+ Conecte os módulos em conjunto para formar um [pipeline](#pipeline).
-+ Execute o pipeline usando o recurso de computação do espaço de trabalho do serviço Machine Learning.
-+ Itere em seu design de modelo editando o pipeline e executando-o novamente.
-+ Quando estiver pronto, converta seu **pipeline de treinamento** em um **pipeline de inferência**.
-+ [Publique](#publish) seu pipeline como um ponto de extremidade REST se você quiser reenviá-lo sem o código do Python construí-lo.
-+ [Implante](#deployment) o pipeline de inferência como um ponto de extremidade de pipeline ou ponto de extremidade em tempo real para que seu modelo possa ser acessado por outras pessoas.
+![Diagrama de fluxo de trabalho para treinamento, inferência de lote e inferência em tempo real no designer](media/ui-concept-visual-interface/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>Pipeline
 
-Crie um [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) de ml do zero ou use um pipeline de exemplo existente como modelo. Cada vez que você executa um pipeline, os artefatos são armazenados em seu espaço de trabalho. As execuções de pipeline são agrupadas em [experimentos](concept-azure-machine-learning-architecture.md#experiments).
+Um [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consiste em conjuntos de valores e módulos analíticos, que você conecta juntos. Os pipelines têm muitos usos: você pode criar um pipeline que treina um único modelo ou um que treina vários modelos. Você pode criar um pipeline que faça previsões em tempo real ou em lote, ou então crie um pipeline que limpa apenas os dados. Os pipelines permitem reutilizar seu trabalho e organizar seus projetos.
 
-Um pipeline consiste em conjuntos de valores e módulos analíticos, que você conecta juntos para construir um modelo. Especificamente, um pipeline válido tem estas características:
+### <a name="pipeline-draft"></a>Rascunho do pipeline
 
-* Os conjuntos de linhas só podem estar conectados a módulos.
-* Os módulos podem estar conectados a conjuntos de os ou outros módulos.
+À medida que você edita um pipeline no designer, seu progresso é salvo como um **rascunho de pipeline**. Você pode editar um rascunho de pipeline a qualquer momento adicionando ou removendo módulos, configurando destinos de computação, criando parâmetros e assim por diante.
+
+Um pipeline válido tem estas características:
+
+* Conjuntos de valores só podem se conectar a módulos.
+* Os módulos só podem se conectar a conjuntos de os ou outros módulos.
 * Todas as portas de entrada para módulos devem ter alguma conexão com o fluxo de dados.
 * Todos os parâmetros necessários para cada módulo devem ser definidos.
 
+Quando você estiver pronto para executar o rascunho do pipeline, envie uma execução de pipeline.
 
-Para saber como começar a usar o designer, consulte [tutorial: prever o preço do automóvel com o designer](tutorial-designer-automobile-price-train-score.md).
+### <a name="pipeline-run"></a>Execução de pipeline
+
+Cada vez que você executa um pipeline, a configuração do pipeline e seus resultados são armazenados em seu espaço de trabalho como uma **execução de pipeline**. Você pode voltar a qualquer execução de pipeline para inspecioná-lo para fins de solução de problemas ou auditoria. **Clone** uma execução de pipeline para criar um novo rascunho de pipeline para edição.
+
+As execuções de pipeline são agrupadas em [experimentos](concept-azure-machine-learning-architecture.md#experiments) para organizar o histórico de execução. Você pode definir o experimento para cada execução de pipeline. 
 
 ## <a name="datasets"></a>Conjuntos de dados
 
@@ -68,7 +78,7 @@ Um conjunto de dados de aprendizado de máquina facilita o acesso e o trabalho c
 
 Um módulo é um algoritmo que pode utilizar nos seus dados. O designer tem vários módulos que variam de funções de entrada de dados até processos de treinamento, pontuação e validação.
 
-Um módulo pode ter um conjunto de parâmetros que pode utilizar para configurar algoritmos internos do módulo. Quando você seleciona um módulo na tela, os parâmetros do módulo são exibidos no painel Propriedades à direita da tela. Pode modificar os parâmetros nesse painel para otimizar o seu modelo.
+Um módulo pode ter um conjunto de parâmetros que pode utilizar para configurar algoritmos internos do módulo. Quando você seleciona um módulo na tela, os parâmetros do módulo são exibidos no painel Propriedades à direita da tela. Pode modificar os parâmetros nesse painel para otimizar o seu modelo. Você pode definir os recursos de computação para módulos individuais no designer. 
 
 ![Propriedades do módulo](media/ui-concept-visual-interface/properties.png)
 
@@ -76,30 +86,33 @@ Para obter ajuda para navegar pela biblioteca de algoritmos de aprendizado de m�
 
 ## <a name="compute"></a>Recursos de computação
 
-Use os recursos de computação do seu espaço de trabalho para executar seu pipeline e hospedar seus modelos implantados como pontos de extremidade em tempo real ou pontos de extremidade de pipeline (para inferência de lote). Os destinos de computação com suporte são:
+Use os recursos de computação do seu espaço de trabalho para executar seu pipeline e hospedar seus modelos implantados como pontos de extremidade em tempo real ou pontos de extremidade de pipeline (para inferência de lote). Os destinos de computação suportados são:
 
 | Destino de computação | Formação | Implementação |
 | ---- |:----:|:----:|
-| Computação Azure Machine Learning | ✓ | |
+| Computação do Machine Learning do Azure | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
 Os destinos de computação são anexados ao seu [espaço de trabalho](concept-workspace.md)do Machine Learning. Você gerencia seus destinos de computação em seu espaço de trabalho no [Azure Machine Learning Studio](https://ml.azure.com).
 
-## <a name="publish"></a>Publicar
+## <a name="deploy"></a>Implementação
 
-Quando você tiver um pipeline pronto, poderá publicá-lo como um ponto de extremidade REST. Um [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) pode ser enviado sem o código Python que o construiu.
+Para executar inferência em tempo real, você deve implantar um pipeline como um **ponto de extremidade em tempo real**. O ponto de extremidade em tempo real cria uma interface entre um aplicativo externo e seu modelo de pontuação. Uma chamada para um ponto de extremidade em tempo real retorna resultados de previsão para o aplicativo em tempo real. Para fazer uma chamada para um ponto de extremidade em tempo real, você passa a chave de API que foi criada quando você implantou o ponto de extremidade. O ponto de extremidade é baseado em REST, uma opção de arquitetura popular para projetos de programação da Web.
 
-Além disso, um PublishedPipeline pode ser usado para reenviar um pipeline com diferentes valores e entradas de PipelineParameter.
-
-## <a name="deployment"></a>Implementação
-
-Quando seu modelo de previsão estiver pronto, implante-o como um ponto de extremidade de pipeline ou ponto de extremidade em tempo real diretamente do designer.
-
-O ponto de extremidade do pipeline é um PublishedPipeline, que você pode enviar uma execução de pipeline com diferentes valores de PipelineParameter e entradas para inferência de lote.
-
-O ponto de extremidade em tempo real fornece uma interface entre um aplicativo e seu modelo de pontuação. Um aplicativo externo pode se comunicar com o modelo de pontuação em tempo real. Uma chamada para um ponto de extremidade em tempo real retorna resultados de previsão para um aplicativo externo. Para fazer uma chamada para um ponto de extremidade em tempo real, você passa uma chave de API que foi criada quando você implantou o ponto de extremidade. O ponto de extremidade é baseado em REST, uma opção de arquitetura popular para projetos de programação da Web.
+Os pontos de extremidade em tempo real devem ser implantados em um cluster do serviço kubernetes do Azure.
 
 Para saber como implantar seu modelo, consulte [tutorial: implantar um modelo de aprendizado de máquina com o designer](tutorial-designer-automobile-price-deploy.md).
+
+## <a name="publish"></a>Publicar
+
+Você também pode publicar um pipeline para um **ponto de extremidade de pipeline**. Semelhante a um ponto de extremidade em tempo real, um ponto de extremidade de pipeline permite que você envie novas execuções de pipeline de aplicativos externos usando chamadas REST. No entanto, você não pode enviar ou receber dados em tempo real usando um ponto de extremidade de pipeline.
+
+Os pipelines publicados são flexíveis, eles podem ser usados para treinar ou treinar modelos, executar inferência de lote, processar novos dados e muito mais. Você pode publicar vários pipelines em um único ponto de extremidade de pipeline e especificar qual versão de pipeline executar.
+
+Um pipeline publicado é executado nos recursos de computação que você define no rascunho do pipeline para cada módulo.
+
+O designer cria o mesmo objeto [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) que o SDK.
+
 
 ## <a name="moving-from-the-visual-interface-to-the-designer"></a>Movendo da interface visual para o designer
 
@@ -109,7 +122,7 @@ Como resultado dessas atualizações, alguns conceitos e termos da interface vis
 
 | Conceito no designer | Anteriormente na interface visual |
 | ---- |:----:|
-| Rascunho do pipeline | Testes |
+| Rascunho do pipeline | Experimentação |
 | Ponto de extremidade em tempo real | Serviço Web |
 
 ### <a name="migrating-to-the-designer"></a>Migrando para o designer

@@ -1,19 +1,19 @@
 ---
-title: Preparar VMs do Hyper-V para avaliação e migração para o Azure com migrações para Azure | Microsoft Docs
-description: Descreve como preparar a avaliação e a migração de VMs do Hyper-V para o Azure usando as migrações para Azure.
+title: Preparar VMs do Hyper-V para avaliação/migração com as migrações para Azure
+description: Saiba como se preparar para a avaliação/migração de VMs do Hyper-V com migrações para Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/16/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2a70472518b72052f8338d6f14ea64fed6c6d4f1
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f93528e2a35661f8a233aea476a958a079d7cd59
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158334"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196267"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparar para avaliação e migração de VMs do Hyper-V para o Azure
 

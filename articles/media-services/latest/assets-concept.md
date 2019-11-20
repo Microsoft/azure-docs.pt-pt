@@ -1,6 +1,7 @@
 ---
-title: Ativos nos serviços de mídia do Azure | Microsoft Docs
-description: Este artigo fornece uma explicação sobre o que estão ativos, e como elas são usadas pelos serviços de multimédia do Azure.
+title: Elementos
+titleSuffix: Azure Media Services
+description: Saiba quais são os ativos e como eles são usados pelos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,20 +13,20 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3dc1866a3c0339bca0c27fb53894a14581e88490
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: ab4eebf56abd2d328ccf86929a043d4354ca157c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390504"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186319"
 ---
-# <a name="assets"></a>Elementos
+# <a name="assets-in-azure-media-services"></a>Ativos nos serviços de mídia do Azure
 
-Nos serviços de mídia do Azure, um [ativo](https://docs.microsoft.com/rest/api/media/assets) contém informações sobre arquivos digitais armazenados no armazenamento do Azure (incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda codificada). 
+Nos serviços de mídia do Azure, um [ativo](https://docs.microsoft.com/rest/api/media/assets) contém informações sobre arquivos digitais armazenados no armazenamento do Azure (incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda codificada).
 
 Um ativo é mapeado para um contêiner de blob na [conta de armazenamento do Azure](storage-account-concept.md) e os arquivos no ativo são armazenados como BLOBs de blocos nesse contêiner. Os serviços de mídia dão suporte a camadas de blob quando a conta usa o armazenamento de uso geral v2 (GPv2). Com o GPv2, você pode mover arquivos para o [armazenamento frio ou de arquivo morto](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). O armazenamento de **arquivo** é adequado para arquivar arquivos de origem quando não for mais necessário (por exemplo, depois que eles tiverem sido codificados).
 
-A camada de armazenamento de **arquivo** é recomendada somente para arquivos de origem muito grandes que já foram codificados e a saída do trabalho de codificação foi colocada em um contêiner de blob de saída. Os BLOBs no contêiner de saída que você deseja associar a um ativo e usam para transmitir ou analisar seu conteúdo devem existir em uma camada de armazenamento **quente** ou **fria** .
+A camada de armazenamento de **arquivo** é recomendada somente para arquivos de origem muito grandes que já foram codificados e a saída do trabalho de codificação foi colocada em um contêiner de blob de saída. Os BLOBs no contêiner de saída que você deseja associar a um ativo e usados para transmitir ou analisar seu conteúdo devem existir em uma camada de armazenamento **quente** ou **fria** .
 
 ### <a name="naming-blobs"></a>Nomeando BLOBs
 
@@ -33,31 +34,33 @@ Os nomes de Arquivos/blobs em um ativo devem seguir os [requisitos de nome do bl
 
 ## <a name="upload-digital-files-into-assets"></a>Carregar arquivos digitais em ativos
 
-Depois que os arquivos digitais são carregados no armazenamento e associados a um ativo, eles podem ser usados na codificação de serviços de mídia, no streaming, na análise de fluxos de trabalho de conteúdo. Um dos fluxos de trabalho comuns dos serviços de mídia é carregar, codificar e transmitir um arquivo. Esta seção descreve as etapas gerais.
+Depois que os arquivos digitais são carregados no armazenamento e associados a um ativo, eles podem ser usados na codificação de serviços de mídia, no streaming e na análise de fluxos de trabalho de conteúdo. Um dos fluxos de trabalho comuns dos serviços de mídia é carregar, codificar e transmitir um arquivo. Esta seção descreve as etapas gerais.
 
 > [!TIP]
-> Antes de começar a desenvolver, examine o [desenvolvimento com as APIs dos serviços de mídia v3](media-services-apis-overview.md) (inclui informações sobre como acessar APIs, convenções de nomenclatura, etc.)
+> Antes de começar a desenvolver, examine o [desenvolvimento com as APIs dos serviços de mídia v3](media-services-apis-overview.md) (inclui informações sobre como acessar APIs, convenções de nomenclatura e assim por diante).
 
-1. Utilize a API dos Serviços de Multimédia v3 para criar um Recurso “de entrada” novo. Esta operação cria um contentor na conta de armazenamento associada à sua conta dos Serviços de Multimédia. A API retorna o nome do contêiner (por exemplo `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`,).
-   
-    Se já tiver um contentor de blobs que queira associar a um Recurso, pode especificar o nome do contentor quando criar o Recurso. Atualmente, os Serviços de Multimédia só suportam blobs na raiz do contentor e sem caminhos no nome de ficheiro. Por esse motivo, um contentor com o nome de ficheiro “input.mp4” funcionará. Contudo, um contentor com o nome de ficheiro "videos/inputs/input.mp4" não funcionará.
+1. Utilize a API dos Serviços de Multimédia v3 para criar um Recurso “de entrada” novo. Esta operação cria um contentor na conta de armazenamento associada à sua conta dos Serviços de Multimédia. A API retorna o nome do contêiner (por exemplo, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
 
-    Pode utilizar a CLI do Azure para carregar diretamente para qualquer conta de armazenamento e para qualquer contentor para os quais tenha direitos na sua subscrição. <br/>O nome do contentor tem de ser exclusivo e seguir as diretrizes de nomenclatura do armazenamento. O nome não tem de seguir a formatação de nomes de contentores de Recursos dos Serviços de Multimédia (Recurso-GUID). 
-    
+    Se você já tiver um contêiner de BLOB que deseja associar a um ativo, poderá especificar o nome do contêiner ao criar o ativo. Atualmente, os Serviços de Multimédia só suportam blobs na raiz do contentor e sem caminhos no nome de ficheiro. Por esse motivo, um contentor com o nome de ficheiro “input.mp4” funcionará. No entanto, um contêiner com o nome de arquivo "vídeos/entradas/Input. mp4" não funcionará.
+
+    Pode utilizar a CLI do Azure para carregar diretamente para qualquer conta de armazenamento e para qualquer contentor para os quais tenha direitos na sua subscrição.
+
+    O nome do contentor tem de ser exclusivo e seguir as diretrizes de nomenclatura do armazenamento. O nome não tem de seguir a formatação de nomes de contentores de Recursos dos Serviços de Multimédia (Recurso-GUID).
+
     ```azurecli
     az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
     ```
 2. Obtenha um URL de SAS com permissões de leitura-escrita que será utilizado para carregar ficheiros digitais para o contentor de Recursos. Pode utilizar a API dos Serviços de Multimédia para [listar os URLs do contentor de recursos](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
-3. Use as APIs de armazenamento do Azure ou SDKs (por exemplo, a [API REST de armazenamento](../../storage/common/storage-rest-api-auth.md) ou o [SDK do .net](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para carregar arquivos no contêiner de ativos. 
+3. Use as APIs de armazenamento do Azure ou SDKs (por exemplo, a [API REST de armazenamento](../../storage/common/storage-rest-api-auth.md) ou o [SDK do .net](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para carregar arquivos no contêiner de ativos.
 4. Utilize as APIs dos Serviços de Multimédia v3 para criar uma Transformação e um Trabalho para processar o Recurso “de entrada”. Para obter mais informações, veja [Transforms and Jobs](transform-concept.md) (Transformações e Trabalhos).
 5. Transmita o conteúdo do ativo de "saída".
 
-Para obter um exemplo .NET completo que mostra como: criar o ativo, obtenha uma URL SAS gravável para o contêiner do ativo no armazenamento, carregue o arquivo no contêiner no armazenamento usando a URL SAS, consulte [criar uma entrada de trabalho de um arquivo local](job-input-from-local-file-how-to.md).
+Para obter um exemplo .NET completo que mostra como criar o ativo, obter uma URL SAS gravável para o contêiner do ativo no armazenamento e carregar o arquivo no contêiner no armazenamento usando a URL SAS, consulte [criar uma entrada de trabalho de um arquivo local](job-input-from-local-file-how-to.md).
 
 ### <a name="create-a-new-asset"></a>Criar um novo ativo
 
 > [!NOTE]
-> As propriedades do ativo do tipo DateTime estão sempre no formato UTC.
+> As propriedades de um ativo do tipo DateTime estão sempre no formato UTC.
 
 #### <a name="rest"></a>REST
 
@@ -67,7 +70,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Para obter um exemplo de REST, consulte o exemplo [criar um ativo com REST](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) .
 
-O exemplo mostra como criar o **Corpo do Pedido**, onde pode especificar informações úteis, como uma descrição, o nome do contentor, a conta de armazenamento, entre outras.
+O exemplo mostra como criar o **corpo da solicitação** , onde você pode especificar a descrição, o nome do contêiner, a conta de armazenamento e outras informações úteis.
 
 #### <a name="curl"></a>cURL
 
@@ -97,16 +100,16 @@ A tabela a seguir mostra como as propriedades do [ativo](https://docs.microsoft.
 
 |Propriedades v3|Propriedades de v2|
 |---|---|
-|ID-(exclusivo) o caminho de Azure Resource Manager completo, consulte os exemplos no [ativo](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
-|nome-(exclusivo) consulte [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions) ||
-|alternateId|AlternateId|
-|assetId|ID-o valor (exclusivo) começa com `nb:cid:UUID:` o prefixo.|
-|criado|Criado|
-|description|Name|
-|lastModified|lastModified|
-|storageAccountName|StorageAccountName|
-|storageEncryptionFormat| Opções (opções de criação)|
-|type||
+|`id`-(exclusivo) o caminho de Azure Resource Manager completo, consulte os exemplos no [ativo](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|`name`-(exclusivo) consulte [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions) ||
+|`alternateId`|`AlternateId`|
+|`assetId`|`Id`-o valor (exclusivo) começa com o prefixo de `nb:cid:UUID:`.|
+|`created`|`Created`|
+|`description`|`Name`|
+|`lastModified`|`LastModified`|
+|`storageAccountName`|`StorageAccountName`|
+|`storageEncryptionFormat`| `Options` (opções de criação)|
+|`type`||
 
 ## <a name="storage-side-encryption"></a>Encriptação do lado do armazenamento
 
@@ -114,19 +117,19 @@ Para proteger os seus ativos inativos, os recursos devem ser encriptados pela en
 
 |Opção de encriptação|Descrição|Serviços de Multimédia v2|Serviços de Multimédia v3|
 |---|---|---|---|
-|Encriptação de armazenamento dos serviços de multimédia|Encriptação AES-256, chave gerida pelos serviços de multimédia|Suportado<sup>(1)</sup>|Não suportado<sup>(2)</sup>|
-|[Encriptação do serviço de armazenamento para dados Inativos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Chave de encriptação do lado do servidor oferecidas pelo armazenamento do Azure, gerida pelo Azure ou pelo cliente|Suportadas|Suportadas|
-|[Encriptação do lado do cliente de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Oferecidas pelo armazenamento do Azure, chave gerida pelo cliente no Cofre de chaves de encriptação do lado do cliente|Não suportado|Não suportado|
+|Encriptação de armazenamento dos serviços de multimédia|Criptografia AES-256, chave gerenciada pelos serviços de mídia.|Suportado<sup>(1)</sup>|Não suportado<sup>(2)</sup>|
+|[Encriptação do serviço de armazenamento para dados Inativos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Criptografia do lado do servidor oferecida pelo armazenamento do Azure, chave gerenciada pelo Azure ou por cliente.|Suportado|Suportado|
+|[Encriptação do lado do cliente de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Criptografia do lado do cliente oferecida pelo armazenamento do Azure, chave gerenciada por cliente no Key Vault.|Não suportado|Não suportado|
 
-<sup>1</sup> enquanto os serviços de multimédia oferece suporte à manipulação de conteúdo de forma/sem qualquer outra forma de encriptação, ao fazê-lo por isso, não é recomendado.
+<sup>1</sup> enquanto os serviços de mídia dão suporte ao tratamento de conteúdo em claro/sem qualquer forma de criptografia, fazer isso não é recomendado.
 
-<sup>2</sup> em serviços de multimédia v3, a encriptação de armazenamento (encriptação AES-256) só é suportada para em versões anteriores compatibilidade quando os recursos foram criados com os serviços de multimédia v2. O que significa v3 funciona com o armazenamento existente encriptado ativos, mas não permitirá que a criação de novos itens.
+<sup>2</sup> em serviços de multimédia v3, a encriptação de armazenamento (encriptação AES-256) só é suportada para em versões anteriores compatibilidade quando os recursos foram criados com os serviços de multimédia v2. O que significa v3 funciona com ativos criptografados de armazenamento existentes, mas não permitirá a criação de novos.
 
 ## <a name="filtering-ordering-paging"></a>Paginação de filtragem, ordenação,
 
 Consulte [filtragem, ordenação, paginação de entidades de serviços de mídia](entities-overview.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Transmissão de um ficheiro](stream-files-dotnet-quickstart.md)
 * [Using a cloud DVR](live-event-cloud-dvr.md) (Utilizar um DVR na cloud)

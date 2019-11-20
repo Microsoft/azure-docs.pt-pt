@@ -1,17 +1,17 @@
 ---
-title: Arquitetura do dispositivo de migrações para Azure | Microsoft Docs
-description: Fornece uma visão geral do dispositivo de migrações para Azure
+title: Arquitetura do dispositivo de migrações para Azure
+description: Fornece uma visão geral do dispositivo de migrações para Azure usado em avaliação e migração de servidor.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 249cbea173afe1671118446e0714b721b8c7f72b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: bdc81820b1ac9867d45fd26e26d24c65e20641e4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685088"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185822"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -25,7 +25,7 @@ As [migrações para Azure](migrate-services-overview.md) fornecem um hub centra
 
 Os tipos de dispositivo de migração do Azure e o uso são os seguintes.
 
-**Implantado como** | **Usado para** | **Detalhes**
+**Implantado como** | **Utilizado para** | **Detalhes**
 --- | --- |  ---
 VM VMware | Avaliação de VM VMware com a ferramenta de avaliação de migrações para Azure.<br/><br/> Migração sem agente de VM do VMware com a ferramenta de migração de servidor de migrações para Azure | Baixe o modelo OVA e importe para vCenter Server para criar a VM do dispositivo.
 VM do Hyper-V | Avaliação de VM do Hyper-V com a ferramenta de avaliação de migrações para Azure. | Baixe o VHD compactado e importe para o Hyper-V para criar a VM do dispositivo.
@@ -60,14 +60,14 @@ Aqui estão os dados de desempenho da VM VMware que o dispositivo coleta e envia
 
 **Dados** | **Neutraliza** | **Impacto da avaliação**
 --- | --- | ---
-Utilização da CPU | CPU. Usage. Average | Tamanho/custo da VM recomendado
-Utilização de memória | mem. Usage. Average | Tamanho/custo da VM recomendado
-Taxa de transferência de leitura de disco (MB por segundo) | virtualDisk. Read. Average | Cálculo para tamanho do disco, custo de armazenamento, tamanho da VM
-Taxa de transferência de gravação do disco (MB por segundo) | virtualDisk. Write. Average | Cálculo para tamanho do disco, custo de armazenamento, tamanho da VM
-Operações de leitura de disco por segundo | virtualDisk. numberReadAveraged. Average | Cálculo para tamanho do disco, custo de armazenamento, tamanho da VM
-Operações de gravação de disco por segundo | virtualDisk. numberWriteAveraged. Average  | Cálculo para tamanho do disco, custo de armazenamento, tamanho da VM
+Utilização da CPU | cpu.usage.average | Tamanho/custo da VM recomendado
+Utilização de memória | mem.usage.average | Tamanho/custo da VM recomendado
+Taxa de transferência de leitura de disco (MB por segundo) | virtualDisk.read.average | Cálculo para tamanho do disco, custo de armazenamento, tamanho da VM
+Taxa de transferência de gravação do disco (MB por segundo) | virtualDisk.write.average | Cálculo para tamanho do disco, custo de armazenamento, tamanho da VM
+Operações de leitura de disco por segundo | virtualDisk.numberReadAveraged.average | Cálculo para tamanho do disco, custo de armazenamento, tamanho da VM
+Operações de gravação de disco por segundo | virtualDisk.numberWriteAveraged.average  | Cálculo para tamanho do disco, custo de armazenamento, tamanho da VM
 Taxa de transferência de leitura de NIC (MB por segundo) | NET. Received. média | Cálculo para o tamanho da VM
-Taxa de transferência de gravação da NIC (MB por segundo) | NET. transmitido. Average  |Cálculo para o tamanho da VM
+Taxa de transferência de gravação da NIC (MB por segundo) | net.transmitted.average  |Cálculo para o tamanho da VM
 
 
 ## <a name="collected-metadata-vmware"></a>Metadados coletados-VMware
@@ -80,45 +80,45 @@ Aqui está a lista completa de metadados de VM do VMware que o dispositivo colet
 **Dados** | **Neutraliza**
 --- | --- 
 **Detalhes do computador** | 
-ID DA VM | VM. Config. InstanceUuid 
-o nome da VM | VM. Config.Name
+ID DA VM | vm.Config.InstanceUuid 
+o nome da VM | vm.Config.Name
 ID de vCenter Server | VMwareClient.Instance.Uuid
-Descrição da VM | VM. Resumo. config. Annotation
-Nome do produto de licença | VM. Client. messagecontent. about. LicenseProductName
+Descrição da VM | vm.Summary.Config.Annotation
+Nome do produto de licença | vm.Client.ServiceContent.About.LicenseProductName
 Tipo de sistema operacional | vm.SummaryConfig.GuestFullName
-Tipo de inicialização | VM. Config. firmware
-Número de núcleos | VM. Config. hardware. NumCPU
-Memória (MB) | VM. Config. hardware. MemoryMB
+Tipo de inicialização | vm.Config.Firmware
+Número de núcleos | vm.Config.Hardware.NumCPU
+Memória (MB) | vm.Config.Hardware.MemoryMB
 Número de discos | VM. Config. hardware. Device. ToList (). FindAll (x = > é VirtualDisk). Count
 Lista tamanho do disco | VM. Config. hardware. Device. ToList (). FindAll (x = > é VirtualDisk)
 Lista de adaptadores de rede | VM. Config. hardware. Device. ToList (). FindAll (x = > é VirtualEthernet). Count
-Utilização da CPU | CPU. Usage. Average
-Utilização de memória |mem. Usage. Average
+Utilização da CPU | cpu.usage.average
+Utilização de memória |mem.usage.average
 **Detalhes de por disco** | 
 Valor de chave de disco | disco. Chaves
-Número de Dikunit | disco. UnitNumber
-Valor da chave do controlador de disco | disco. ControllerKey. Value
+Número de Dikunit | disk.UnitNumber
+Valor da chave do controlador de disco | disk.ControllerKey.Value
 Gigabytes provisionados | virtualDisk. DeviceInfo. Summary
 Nome do disco | Valor gerado usando disco. UnitNumber, disco. Chave, disco. ControllerKey. VAlue
-Operações de leitura por segundo | virtualDisk. numberReadAveraged. Average
-Operações de gravação por segundo | virtualDisk. numberWriteAveraged. Average
-Taxa de transferência de leitura (MB por segundo) | virtualDisk. Read. Average
-Taxa de transferência de gravação (MB por segundo) | virtualDisk. Write. Average
+Operações de leitura por segundo | virtualDisk.numberReadAveraged.average
+Operações de gravação por segundo | virtualDisk.numberWriteAveraged.average
+Taxa de transferência de leitura (MB por segundo) | virtualDisk.read.average
+Taxa de transferência de gravação (MB por segundo) | virtualDisk.write.average
 **Por detalhes da NIC** | 
 Nome do adaptador de rede | NIC. Chaves
 Endereço MAC | ((VirtualEthernetCard) NIC). MacAddress
-Endereços IPv4 | VM. Guest.Net
-Endereços IPv6 | VM. Guest.Net
+Endereços IPv4 | vm.Guest.Net
+Endereços IPv6 | vm.Guest.Net
 Taxa de transferência de leitura (MB por segundo) | NET. Received. média
-Taxa de transferência de gravação (MB por segundo) | NET. transmitido. Average
+Taxa de transferência de gravação (MB por segundo) | net.transmitted.average
 **Detalhes do caminho de inventário** | 
-Nome | Container. GetType (). Nomes
+Nome | container.GetType().Name
 Tipo de objeto filho | Container. ChildType
-Detalhes da referência | Container. MoRef
-Detalhes do pai | Contêiner. pai
-Detalhes da pasta por VM | (Contêiner (pasta)). ChildEntity. Type
-Detalhes do datacenter por VM | ((Datacenter) contêiner). VmFolder
-Detalhes do datacenter por pasta de host | ((Datacenter) contêiner). HostFolder
+Detalhes da referência | container.MoRef
+Detalhes do pai | Container.Parent
+Detalhes da pasta por VM | ((Folder)container).ChildEntity.Type
+Detalhes do datacenter por VM | ((Datacenter)container).VmFolder
+Detalhes do datacenter por pasta de host | ((Datacenter)container).HostFolder
 Detalhes do cluster por host | ((ClusterComputeResource)container).Host
 Detalhes do host por VM | ((HostSystem)container).VM
 

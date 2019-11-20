@@ -1,5 +1,5 @@
 ---
-title: Serviço de porta frontal do Azure-perguntas frequentes sobre a porta frontal | Microsoft Docs
+title: Serviço de porta frontal do Azure-perguntas frequentes
 description: Esta página fornece respostas para perguntas frequentes sobre o serviço de porta frontal do Azure
 services: frontdoor
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 4001b3ed8d7a92d8a751486ab4fd3a097d032373
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: c8f95a1de85fd2eb00b0525fca8e62ade87dd57f
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809732"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184648"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Perguntas frequentes sobre o serviço de porta frontal do Azure
 

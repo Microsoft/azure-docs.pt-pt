@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/18/2019
+ms.date: 11/19/2019
 ms.author: hamusa
-ms.openlocfilehash: 7187cb41fa7ea499035c57e83e04038b1269b418
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 595b6705b4e876ce5b42a7de831136cb0b62b1f5
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158663"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196454"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs VMware com migrações para Azure: avaliação do servidor
 
@@ -172,7 +172,7 @@ O dispositivo precisa se conectar ao vCenter Server para descobrir a configuraç
 
 ### <a name="specify-vcenter-server-details"></a>Especificar detalhes do vCenter Server
 1. Em **especificar vCenter Server detalhes**, especifique o nome (FQDN) ou o endereço IP do vCenter Server. Você pode deixar a porta padrão ou especificar uma porta personalizada na qual o vCenter Server escuta.
-2. Em **nome de usuário** e **senha**, especifique as credenciais de conta somente leitura que o dispositivo usará para descobrir as VMs no servidor do vCenter. Verifique se a conta tem as [permissões necessárias para a descoberta](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Você pode fazer o escopo da descoberta limitando o acesso à conta do vCenter de acordo; Saiba mais sobre a descoberta de escopo [aqui](tutorial-assess-vmware.md#scoping-discovery).
+2. Em **nome de usuário** e **senha**, especifique as credenciais de conta de vCenter Server que o dispositivo usará para descobrir as VMs no servidor do vCenter. Verifique se a conta tem as [permissões necessárias para a descoberta](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Você pode fazer o escopo da descoberta limitando o acesso à conta do vCenter de acordo; Saiba mais sobre a descoberta de escopo [aqui](tutorial-assess-vmware.md#scoping-discovery).
 3. Clique em **validar conexão** para garantir que o dispositivo possa se conectar ao vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Especificar credenciais de VM
@@ -222,7 +222,7 @@ Há duas abordagens para atribuir permissões em objetos de inventário no vCent
 
     Da mesma forma, para a migração de servidor, uma função definida pelo usuário (pode ser nomeada <em>Azure _Migrate</em>) com esses [privilégios](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) atribuídos deve ser aplicada à conta de usuário do vCenter para todos os objetos pai onde as VMs a serem migradas estão hospedadas.
 
-![Atribuir permissões](./media/tutorial-assess-vmware/assign-perms.png)
+  ![Atribuir permissões](./media/tutorial-assess-vmware/assign-perms.png)
 
 - A abordagem alternativa é atribuir a conta de usuário e a função no nível do datacenter e propagá-las aos objetos filho. Em seguida, dê à conta uma função **sem acesso** para cada objeto (como VMS) que você não deseja descobrir/migrar. Essa configuração é complicada. Ele expõe controles de acesso acidentais, pois cada novo objeto filho também recebe automaticamente o acesso herdado do pai. Portanto, recomendamos que você use a primeira abordagem.
 

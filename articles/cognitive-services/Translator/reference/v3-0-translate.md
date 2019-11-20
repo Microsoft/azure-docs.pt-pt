@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 11/12/2019
 ms.author: swmachan
-ms.openlocfilehash: b4daa04a4dbf87006147fb0d44d7b128a6d8ecf4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d58383b20e4311f8ab9490dc241722eee2e44ad6
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835788"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184796"
 ---
 # <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3,0: traduzir
 
@@ -33,23 +33,32 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 Os parâmetros de solicitação passados na cadeia de caracteres de consulta são:
 
+### <a name="required-parameters"></a>Parâmetros necessários
+
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
   <th>Descrição</th>
   <tr>
-    <td>versão da API</td>
+    <td>api-version</td>
     <td><em>Parâmetro obrigatório</em>.<br/>Versão da API solicitada pelo cliente. O valor deve ser <code>3.0</code>.</td>
-  </tr>
-  <tr>
-    <td>De</td>
-    <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Encontre quais idiomas estão disponíveis para tradução procurando por <a href="./v3-0-languages.md">idiomas com suporte</a> usando o escopo de <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem. <br/><br/>Você deve usar o parâmetro <code>from</code> em vez da detecção automática ao usar o recurso de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dicionário dinâmico</a> .</td>
   </tr>
   <tr>
     <td>para</td>
     <td><em>Parâmetro obrigatório</em>.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos <a href="./v3-0-languages.md">idiomas com suporte</a> incluídos no escopo de <code>translation</code>. Por exemplo, use <code>to=de</code> para converter para alemão.<br/>É possível traduzir para vários idiomas simultaneamente, repetindo o parâmetro na cadeia de caracteres de consulta. Por exemplo, use <code>to=de&to=it</code> para converter para alemão e italiano.</td>
   </tr>
+</table>
+
+### <a name="optional-parameters"></a>Parâmetros opcionais
+
+<table width="100%">
+  <th width="20%">Parâmetro de consulta</th>
+  <th>Descrição</th>
   <tr>
-    <td>Tipo de texto</td>
+    <td>from</td>
+    <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Encontre quais idiomas estão disponíveis para tradução procurando por <a href="./v3-0-languages.md">idiomas com suporte</a> usando o escopo de <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem. <br/><br/>Você deve usar o parâmetro <code>from</code> em vez da detecção automática ao usar o recurso de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dicionário dinâmico</a> .</td>
+  </tr>  
+  <tr>
+    <td>textType</td>
     <td><em>Parâmetro opcional</em>.<br/>Define se o texto que está sendo traduzido é texto sem formatação ou HTML. Qualquer HTML precisa ser um elemento bem formado e completo. Os valores possíveis são: <code>plain</code> (padrão) ou <code>html</code>.</td>
   </tr>
   <tr>
@@ -57,7 +66,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
     <td><em>Parâmetro opcional</em>.<br/>Uma cadeia de caracteres que especifica a categoria (domínio) da tradução. Esse parâmetro é usado para obter traduções de um sistema personalizado criado com o <a href="../customization.md">Tradutor personalizado</a>. Adicione a ID da categoria de seus <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">detalhes do projeto</a> do tradutor personalizado a esse parâmetro para usar seu sistema personalizado implantado. O valor padrão é: <code>general</code>.</td>
   </tr>
   <tr>
-    <td>ProfanityAction</td>
+    <td>profanityAction</td>
     <td><em>Parâmetro opcional</em>.<br/>Especifica como as obscenidades devem ser tratadas em traduções. Os valores possíveis são: <code>NoAction</code> (padrão), <code>Marked</code> ou <code>Deleted</code>. Para entender as maneiras de tratar a profanação, confira <a href="#handle-profanity">manipulação de profanação</a>.</td>
   </tr>
   <tr>
@@ -81,7 +90,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
     <td><em>Parâmetro opcional</em>.<br/>Especifica o script do texto de entrada.</td>
   </tr>
   <tr>
-    <td>toscript</td>
+    <td>toScript</td>
     <td><em>Parâmetro opcional</em>.<br/>Especifica o script do texto traduzido.</td>
   </tr>
   <tr>
@@ -105,7 +114,7 @@ Os cabeçalhos de solicitação incluem:
     <td><em>Cabeçalho de solicitação necessário</em>.<br/>Especifica o tipo de conteúdo da carga.<br/> O valor aceito é <code>application/json; charset=UTF-8</code>.</td>
   </tr>
   <tr>
-    <td>Comprimento do conteúdo</td>
+    <td>Content-Length</td>
     <td><em>Cabeçalho de solicitação necessário</em>.<br/>O comprimento do corpo da solicitação.</td>
   </tr>
   <tr>
@@ -155,7 +164,7 @@ Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada cadeia d
 
     O objeto `transliteration` não será incluído se o transliteração não ocorrer.
 
-    * `alignment`: um objeto com uma única propriedade de cadeia de caracteres chamada `proj`, que mapeia o texto de entrada para o texto traduzido. As informações de alinhamento só são fornecidas quando o parâmetro de solicitação `includeAlignment` é `true`. O alinhamento é retornado como um valor de cadeia de caracteres do seguinte formato: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  Os dois-pontos separa o índice inicial e final, o traço separa os idiomas e o espaço separa as palavras. Uma palavra pode ser alinhada com zero, uma ou várias palavras na outra linguagem, e as palavras alinhadas podem ser não contíguas. Quando nenhuma informação de alinhamento estiver disponível, o elemento Alignment estará vazio. Consulte [obter informações de alinhamento](#obtain-alignment-information) para obter um exemplo e restrições.
+    * `alignment`: um objeto com uma única propriedade de cadeia de caracteres chamada `proj`, que mapeia o texto de entrada para o texto traduzido. As informações de alinhamento só são fornecidas quando o parâmetro de solicitação `includeAlignment` é `true`. O alinhamento é retornado como um valor de cadeia de caracteres do seguinte formato: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  Os dois-pontos separa o índice inicial e final, o traço separa os idiomas e o espaço separa as palavras. Uma palavra pode alinhar com zero, uma ou várias palavras no outro idioma e as palavras alinhadas podem estar não contíguos. Quando nenhuma informação de alinhamento estiver disponível, o elemento Alignment estará vazio. Consulte [obter informações de alinhamento](#obtain-alignment-information) para obter um exemplo e restrições.
 
     * `sentLen`: um objeto que retorna limites de sentença nos textos de entrada e de saída.
 
@@ -205,7 +214,7 @@ A seguir estão os códigos de status HTTP possíveis que uma solicitação reto
   </tr>
   <tr>
     <td>403</td>
-    <td>A solicitação não é autorizada. Verifique a mensagem de erro detalhes. Isso geralmente indica que todas as traduções gratuitas fornecidas com uma assinatura de avaliação foram usadas.</td>
+    <td>O pedido não está autorizado. Verifique a mensagem de erro detalhes. Isso geralmente indica que todas as traduções gratuitas fornecidas com uma assinatura de avaliação foram usadas.</td>
   </tr>
   <tr>
     <td>408</td>
@@ -357,7 +366,7 @@ Se você quiser evitar a irprofanação na tradução, independentemente da pres
   <th>Ação</th>
   <tr>
     <td><code>NoAction</code></td>
-    <td>Esse é o comportamento padrão. A profanação passará da origem para a de destino.<br/><br/>
+    <td>Este é o comportamento padrão. A profanação passará da origem para a de destino.<br/><br/>
     <strong>Exemplo de origem (japonês)</strong>: 彼はジャッカスです Marketplace.<br/>
     <strong>Tradução de exemplo (inglês)</strong>: ele é um Jackass.
     </td>
@@ -474,7 +483,7 @@ Observe as seguintes restrições:
 
 * O alinhamento não está disponível para texto no formato HTML, ou seja, TextType = HTML
 * O alinhamento só é retornado para um subconjunto dos pares de idiomas:
-  - do inglês para qualquer outro idioma;
+  - inglês para qualquer outra linguagem;
   - de qualquer outro idioma para inglês, exceto para chinês simplificado, chinês tradicional e Letão para inglês;
   - de japonês a coreano ou de coreano para japonês.
 * Você não receberá alinhamento se a frase for uma tradução gravada. Um exemplo de uma tradução gravada é "Este é um teste", "Eu adoro você" e outras frases de alta frequência.

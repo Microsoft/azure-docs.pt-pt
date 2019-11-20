@@ -1,7 +1,7 @@
 ---
-title: Análises&#58; de livros de classificação do designer
+title: 'Designer: exemplo de classificação de análises de livros'
 titleSuffix: Azure Machine Learning
-description: Crie um modelo de aprendizado de máquina classificar análises de livros em diferentes categorias.
+description: Crie um classificador de regressão logística de multiclasse para prever a categoria da empresa com o Azure Machine Learning conjunto 500 de
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,20 +10,24 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 949ddc847a6011d460f2a3685008d12e64868767
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 43545c2d3bb3afe4e1c458f14c1ba30e41eea721
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647135"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196012"
 ---
-# <a name="sample-7---text-classification-predict-company-category"></a>Exemplo 7-classificação de texto: prever categoria da empresa 
+# <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Crie um classificador para prever a categoria da empresa usando o designer de Azure Machine Learning.
+
+**Designer (visualização) exemplo 7**
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Este exemplo demonstra como usar módulos de análise de texto para criar um pipeline de classificação de texto no designer de Azure Machine Learning (versão prévia).
 
 A meta da classificação de texto é atribuir uma parte do texto a uma ou mais classes ou categorias predefinidas. A parte do texto pode ser um documento, artigo de notícias, consulta de pesquisa, email, tweet, tíquetes de suporte, comentários do cliente, revisão do produto do usuário, etc. Aplicativos de classificação de texto incluem a categorização de artigos de jornal e conteúdo de emails de notícias em tópicos, organização de páginas da Web em categorias hierárquicas, filtragem de e-mail de spam, análise de sentimentos, previsão de intenção de usuário de consultas de pesquisa, roteamento suporte a tíquetes e análise de comentários do cliente. 
 
-Esse pipeline treina um **classificador de regressão logística de multiclasse** para prever a categoria da empresa com o conjunto de conjuntos da wikipédia SP 500 derivado da Wikipédia.  
+Esse pipeline treina um **classificador de regressão logística de multiclasse** para prever a categoria da empresa com o **conjunto de conjuntos da Wikipédia SP 500 derivado da Wikipédia**.  
 
 As etapas fundamentais de um modelo de aprendizado de máquina de treinamento com dados de texto são:
 

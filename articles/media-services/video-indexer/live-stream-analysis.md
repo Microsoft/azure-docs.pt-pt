@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
-ms.openlocfilehash: 4766d48a748fedd82532f2ac49223ab0460b9ef7
-ms.sourcegitcommit: fa41a56357de487b10e54711fbbdbd4a373fa67c
-ms.translationtype: HT
+ms.openlocfilehash: 89d0254fc758834c437f347e6ecb7bcafc1fe467
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74153554"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186003"
 ---
 # <a name="live-stream-analysis-with-video-indexer"></a>Análise de fluxo ao vivo com Video Indexer
 
@@ -27,7 +27,7 @@ Uma solução descrita neste artigo permite que os clientes usem Video Indexer e
 
 *Figura 1 – Player de exemplo exibindo os metadados de Video Indexer na transmissão ao vivo*
 
-A [solução de análise de fluxo](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/blob/master/media-functions-for-logic-app/LiveStreamAnalysis.md) em questão, usa Azure Functions e dois aplicativos lógicos para processar um programa ao vivo de um canal ao vivo nos serviços de mídia do Azure com Video indexer e exibe o resultado com player de mídia do Azure mostrando o fluxo resultante quase em tempo real.
+A [solução de análise de fluxo](https://aka.ms/livestreamanalysis) em questão, usa Azure Functions e dois aplicativos lógicos para processar um programa ao vivo de um canal ao vivo nos serviços de mídia do Azure com Video indexer e exibe o resultado com player de mídia do Azure mostrando o fluxo resultante quase em tempo real.
 
 Em alto nível, ele é composto de duas etapas principais. A primeira etapa é executada a cada 60 segundos e leva um subclipe dos últimos 60 segundos reproduzidos, cria um ativo a partir dele e o indexa por meio de Video Indexer. Em seguida, a segunda etapa é chamada após a conclusão da indexação. As informações capturadas são processadas, enviadas para Azure Cosmos DB e o subclipe indexado é excluído.
 

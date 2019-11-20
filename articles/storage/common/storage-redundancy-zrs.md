@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 0196e6fb4b2cd52fd66a26e07e8d4ce71983bc16
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 53441f5fedb4fa5e68cd1d8230ffe3ee6122e55b
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013199"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186666"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>ZRS (armazenamento com redundância de zona) para criar aplicativos de armazenamento do Azure altamente disponíveis
 
@@ -29,8 +29,8 @@ O ZRS está disponível para BLOBs de blocos, blobs de páginas que não são de
 Para contas v2 de uso geral, o ZRS está geralmente disponível nas seguintes regiões:
 
 - Sudeste Asiático
-- Europa Ocidental
 - Norte da Europa
+- Europa Ocidental
 - França Central
 - Leste do Japão
 - Reino Unido Sul
@@ -163,7 +163,7 @@ Para atualizar para o ZRS usando a CLI, chame o seguinte comando:
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 - [Replicação do Armazenamento do Azure](storage-redundancy.md)
 - [LRS (armazenamento com redundância local): redundância de dados de baixo custo para o armazenamento do Azure](storage-redundancy-lrs.md)
 - [Armazenamento com redundância geográfica (GRS): replicação entre regiões para o armazenamento do Azure](storage-redundancy-grs.md)

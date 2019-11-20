@@ -1,18 +1,18 @@
 ---
-title: Trabalhar com a versão anterior do migrações para Azure | Microsoft Docs
-description: Fornece um resumo para trabalhar com a versão antiga do migrações para Azure
+title: Trabalhar com a versão anterior do migrações para Azure
+description: Descreve como trabalhar com a versão anterior do migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 07/11/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2c63d63e57a23963f17b6773f244973b051b57eb
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 52fe4af87d1f5ed6684896aebf404926691ccb07
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162461"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186545"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior do migrações para Azure
 
@@ -22,7 +22,7 @@ Este artigo fornece informações sobre como trabalhar com a versão anterior do
 Há duas versões do serviço migrações para Azure:
 
 - **Versão atual**: Use esta versão para criar projetos de migrações para Azure, descobrir computadores locais e orquestrar avaliações e migrações. [Saiba mais](whats-new.md) sobre as novidades desta versão.
-- **Versão anterior**: Se você estiver usando a versão anterior do migrações para Azure (somente a avaliação de VMs do VMware local foi suportada), agora você deve usar a versão atual. Se você ainda precisar usar projetos de migrações para Azure criados na versão anterior, isso será o que você pode e não pode fazer:
+- **Versão anterior**: se você estiver usando a versão anterior da migração do Azure (somente a avaliação de VMs do VMware local foi suportada), agora você deve usar a versão atual. Se você ainda precisar usar projetos de migrações para Azure criados na versão anterior, isso será o que você pode e não pode fazer:
     - Você não pode mais criar projetos de migração.
     - Recomendamos que você não execute novas descobertas.
     - Você ainda pode acessar projetos existentes.
@@ -31,13 +31,13 @@ Há duas versões do serviço migrações para Azure:
 
 ## <a name="upgrade-between-versions"></a>Atualização entre versões
 
-Não é possível atualizar projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um novo projeto](how-to-add-tool-first-time.md)de migrações para Azure e adicionar ferramentas de avaliação e migração a ele.
+Não é possível atualizar projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um novo projeto de migrações para Azure](how-to-add-tool-first-time.md)e adicionar ferramentas de avaliação e migração a ele.
 
 ## <a name="find-projects-from-previous-version"></a>Localizar projetos da versão anterior
 
 Localize projetos da versão anterior da seguinte maneira:
 
-1. Na portal do Azure > **todos os serviços**, procure e selecione migrações para **Azure**. 
+1. Na portal do Azure > **todos os serviços**, procure e selecione **migrações para Azure**. 
 2. No painel migrações para Azure, há uma notificação e um link para acessar projetos antigos de migrações para Azure.
 3. Clique no link para abrir projetos v1.
 
@@ -92,7 +92,7 @@ A preparação leva em consideração uma série de propriedades da VM, para ide
 --- | --- | ---
 **Tipo de inicialização** | BIOS com suporte. UEFI sem suporte. | Condicionalmente pronto se o tipo de inicialização for UEFI.
 **Núcleos** | O núcleo de máquinas < = o número máximo de núcleos (128) com suporte para uma VM do Azure.<br/><br/> Se o histórico de desempenho estiver disponível, as migrações para Azure considerarão os núcleos utilizados.<br/>Se um fator de conforto for especificado nas configurações de avaliação, o número de núcleos utilizados será multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, as migrações para Azure usarão os núcleos alocados, sem aplicar o fator de conforto. | Pronto se for menor ou igual a limites.
-**Memória** | O tamanho da memória do computador < = a memória máxima (3892 GB no Azure série&nbsp;M Standard_M128m<sup>2</sup>) para uma VM do Azure. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Se o histórico de desempenho estiver disponível, as migrações para Azure considerarão a memória utilizada.<br/><br/>Se um fator de conforto for especificado, a memória utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver nenhum histórico, a memória alocada será usada, sem aplicar o fator de conforto.<br/><br/> | Pronto se estiver dentro dos limites.
+**Memória** | O tamanho da memória do computador < = a memória máxima (3892 GB na série M do Azure Standard_M128m&nbsp;<sup>2</sup>) para uma VM do Azure. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Se o histórico de desempenho estiver disponível, as migrações para Azure considerarão a memória utilizada.<br/><br/>Se um fator de conforto for especificado, a memória utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver nenhum histórico, a memória alocada será usada, sem aplicar o fator de conforto.<br/><br/> | Pronto se estiver dentro dos limites.
 **Disco de armazenamento** | O tamanho alocado de um disco deve ser de 4 TB (4096 GB) ou menos.<br/><br/> O número de discos anexados ao computador deve ser de 65 ou menos, incluindo o disco do sistema operacional. | Pronto se estiver dentro dos limites.
 **Redes** | Um computador deve ter 32 ou menos NICs conectados a ele. | Pronto se estiver dentro dos limites.
 
@@ -210,7 +210,7 @@ Para usar a visualização de dependência, você associa um espaço de trabalho
 
 Depois de configurar um espaço de trabalho, baixe e instale agentes em cada computador local que você deseja avaliar. Além disso, se você tiver computadores sem conectividade com a Internet, será necessário baixar e instalar [log Analytics gateway](../azure-monitor/platform/gateway.md) neles.
 
-1. Em **visão geral**, clique em **gerenciar** > **computadores**e selecione o computador necessário.
+1. Em **visão geral**, clique em **gerenciar** **computadores** > e selecione o computador necessário.
 2. Na coluna **dependências** , clique em **instalar agentes**.
 3. Na página **dependências** , baixe e instale o Microsoft Monitoring Agent (MMA) e o agente de dependência em cada VM que você deseja avaliar.
 4. Copie o ID e a chave da área de trabalho. Você precisará delas quando instalar o MMA no computador local.
@@ -261,9 +261,9 @@ Para máquinas monitorizadas pelo System Center Operations Manager 2012 R2 ou po
 
 ### <a name="create-a-group-with-dependency-mapping"></a>Criar um grupo com mapeamento de dependência
 
-1. Depois de instalar os agentes, acesse o portal e clique em **gerenciar** > **computadores**.
+1. Depois de instalar os agentes, acesse o portal e clique em gerenciar **computadores** > .
 2. Pesquise o computador onde você instalou os agentes.
-3. A coluna dependências para o computador agora deve ser mostrada como **Exibir dependências**. Clique na coluna para exibir as dependências do computador.
+3. A coluna **dependências** para o computador agora deve ser mostrada como **Exibir dependências**. Clique na coluna para exibir as dependências do computador.
 4. O mapa de dependências da máquina mostra os seguintes detalhes:
     - Conexões TCP de entrada (clientes) e saída (servidores) para/do computador
         - Os computadores dependentes que não têm o MMA e o agente de dependência instalados são agrupados por números de porta.
@@ -295,7 +295,7 @@ Para executar as consultas do Kusto:
 
 1. Depois de instalar os agentes, acesse o portal e clique em **visão geral**.
 2. Em **visão geral**, vá para a seção **Essentials** do projeto e clique no nome do espaço de trabalho fornecido ao lado de **espaço de trabalho do OMS**.
-3. Na página log Analytics espaço de trabalho, clique em**logs** **gerais** > .
+3. Na página Log Analytics espaço de trabalho, clique em **geral** > **logs**.
 4. Escreva sua consulta para coletar dados de dependência usando logs de Azure Monitor. Encontre consultas de exemplo na próxima seção.
 5. Execute sua consulta clicando em executar. 
 

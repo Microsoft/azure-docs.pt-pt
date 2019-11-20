@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abb6c2212549c3d92f9c1dbc42c31f838a704af2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 8c9acc1487fcbf8398b7a556c63f97963b264451
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144291"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74182718"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Definir configurações de função de recurso do Azure no Privileged Identity Management
 
@@ -57,6 +57,9 @@ Siga estas etapas para abrir as configurações de uma função de recurso do Az
     ![Guia atribuição de função na página Configurações de função](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
 
 1. Use a guia **notificação** ou o botão **Avançar: ativação** na parte inferior da página para acessar a guia Configuração de notificação para essa função. Essas configurações controlam todas as notificações por email relacionadas a essa função.
+
+    > [!NOTE]
+    > Esta interface do usuário de notificações está sendo revertida em regiões e assinaturas do Azure. Se você não puder configurar essas notificações granulares, verifique novamente em um ou dois dias.
 
     ![Guia notificações de função na página Configurações de função](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
 

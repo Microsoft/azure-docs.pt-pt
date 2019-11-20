@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 7fc7bd6fa0067857bde64d43be5799bd50712490
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f49161531753c217e31d0681bcd19043cb47de75
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469679"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185254"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: usar a configuração dinâmica em um aplicativo ASP.NET Core
 
@@ -49,7 +49,7 @@ Antes de continuar, conclua a [criação de um aplicativo ASP.NET Core com a con
 
 ## <a name="reload-data-from-app-configuration"></a>Recarregar dados da configuração do aplicativo
 
-1. Adicione uma referência ao pacote NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` executando o seguinte comando:
+1. Adicione uma referência ao pacote `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet executando o seguinte comando:
 
     ```CLI
         dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
@@ -201,8 +201,8 @@ Antes de continuar, conclua a [criação de um aplicativo ASP.NET Core com a con
 
     | Chave | Valor |
     |---|---|
-    | TestApp: configurações: BackgroundColor | green |
-    | TestApp: configurações: FontColor | lightGray |
+    | TestApp:Settings:BackgroundColor | verde |
+    | TestApp:Settings:FontColor | lightGray |
     | TestApp: configurações: mensagem | Dados da configuração do Azure App – agora com atualizações dinâmicas! |
 
 6. Atualize a página do navegador para ver as novas definições de configuração. Mais de uma atualização da página do navegador pode ser necessária para que as alterações sejam refletidas.
@@ -218,7 +218,7 @@ Antes de continuar, conclua a [criação de um aplicativo ASP.NET Core com a con
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você adicionou uma identidade de serviço gerenciado do Azure para simplificar o acesso à configuração de aplicativo e melhorar o gerenciamento de credenciais para seu aplicativo. Para saber mais sobre como usar a configuração de aplicativo, prossiga para os exemplos de CLI do Azure.
+Neste tutorial, você habilitou seu aplicativo Web ASP.NET Core para atualizar dinamicamente as definições de configuração da configuração do aplicativo. Para saber como usar uma identidade gerenciada do Azure para simplificar o acesso à configuração do aplicativo, prossiga para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Amostras de CLI](./cli-samples.md)
+> [Integração de identidade gerenciada](./howto-integrate-azure-managed-service-identity.md)

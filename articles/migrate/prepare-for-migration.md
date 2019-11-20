@@ -1,19 +1,19 @@
 ---
-title: Preparar computadores locais para migração para o Azure com migrações para Azure
-description: Este artigo descreve como preparar computadores locais para migração para o Azure com as migrações para Azure.
+title: Preparar computadores para migração com as migrações para Azure
+description: Saiba como preparar computadores locais para migração com as migrações para Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/03/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 61b4f41a0b36945413e45a357a5ca73ac75ceb98
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2c13bc79fccc74da431ba1a6399870b261b24c57
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480112"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196427"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar computadores locais para migração para o Azure
 
@@ -46,8 +46,7 @@ Neste artigo, irá:
 
 - Para VMs VMware, a migração de servidor migrações para Azure dá suporte à [migração baseada em agente ou sem agentes](server-migrate-overview.md). Verifique os requisitos/suporte de VM do VMware para migrações [baseadas em](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) agente e sem [agente](migrate-support-matrix-vmware.md#migration---limitations) .
 - Verifique [os requisitos de migração e o suporte](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) para VMs do Hyper-V.
-- Verifique [os requisitos de migração e o suporte](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) para computadores físicos locais ou outros servidores virtualizados. Esses requisitos são semelhantes aos requisitos de VM do VMware.
-
+- Verifique [os requisitos de migração e o suporte](migrate-support-matrix-physical.md) para computadores físicos locais ou outros servidores virtualizados. 
 
 
 
@@ -67,8 +66,8 @@ Os computadores podem precisar de acesso à Internet durante a migração.
 Algumas VMs podem exigir alterações para que possam ser executadas no Azure. As migrações para Azure fazem essas alterações automaticamente para VMs que executam estes sistemas operacionais:
 - Red Hat Enterprise Linux 6.5 +, 7.0 +
 - CentOS 6.5 +, 7.0 +
-- SUSE Linux Enterprise Server 12 SP1 +
-- Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS
+- SUSE Linux Enterprise Server 12 SP1+
+- Ubuntu 14.04LTS, 16.04LTS, 18.04LTS
 - Debian 7, 8
 
 Para outros sistemas operacionais, você precisa preparar as máquinas manualmente antes da migração. 

@@ -13,12 +13,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7e28cdacce8eac4774683013ae1c30ca34ebfaad
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 7cb76d5836055ce352373fa13449e27d81e84022
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821712"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185242"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutorial: usar a configuração dinâmica em um aplicativo .NET Framework
 
@@ -31,9 +31,8 @@ Este tutorial mostra como você pode implementar atualizações de configuraçã
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Configure seu aplicativo para atualizar sua configuração com um repositório de configuração de aplicativo sob demanda.
-> * Insira a configuração mais recente nos controladores do aplicativo.
-
+> * Configure seu aplicativo .NET Framework para atualizar sua configuração em resposta a alterações em um repositório de configuração de aplicativo.
+> * Insira a configuração mais recente em seu aplicativo.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
@@ -52,9 +51,9 @@ Neste tutorial, ficará a saber como:
 
     Deixe **rótulo** e **tipo de conteúdo** vazio por enquanto.
 
-## <a name="create-a-net-console-app"></a>Criar um aplicativo de console .NET
+## <a name="create-a-net-framework-console-app"></a>Criar um aplicativo de console .NET Framework
 
-1. Inicie o Visual Studio e selecione **arquivo** > **novo** **projeto** > .
+1. Inicie o Visual Studio e selecione **arquivo** > **novo** **projeto**de > .
 
 1. Em **criar um novo projeto**, filtre o tipo de projeto de **console** e clique em **aplicativo de console (.NET Framework)** . Clique em **Seguinte**.
 
@@ -135,7 +134,7 @@ Neste tutorial, ficará a saber como:
 
     ![Local de inicialização do aplicativo](./media/dotnet-app-run.png)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
 
 1. Selecione **Configuration Explorer**e atualize os valores das seguintes chaves:
 
@@ -148,7 +147,7 @@ Neste tutorial, ficará a saber como:
     ![Local de atualização do aplicativo](./media/dotnet-app-run-refresh.png)
     
     > [!NOTE]
-    > Como o tempo de expiração do cache foi definido como 10 segundos usando o método `SetCacheExpiration` ao especificar a configuração para a operação de atualização, o valor da definição de configuração só será atualizado se pelo menos 10 segundos tiver decorrido desde a última atualização para Essa configuração.
+    > Como o tempo de expiração do cache foi definido como 10 segundos usando o método `SetCacheExpiration` ao especificar a configuração para a operação de atualização, o valor da definição de configuração só será atualizado se pelo menos 10 segundos tiver decorrido desde a última atualização para essa configuração.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -156,7 +155,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você adicionou uma identidade de serviço gerenciado do Azure para simplificar o acesso à configuração de aplicativo e melhorar o gerenciamento de credenciais para seu aplicativo. Para saber como adicionar uma identidade de serviço gerenciada pelo Azure que simplifica o acesso à configuração do aplicativo, prossiga para o próximo tutorial.
+Neste tutorial, você habilitou seu aplicativo .NET Framework para atualizar dinamicamente as definições de configuração da configuração do aplicativo. Para saber como usar uma identidade gerenciada do Azure para simplificar o acesso à configuração do aplicativo, prossiga para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Integração de identidade gerenciada](./howto-integrate-azure-managed-service-identity.md)

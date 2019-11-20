@@ -1,5 +1,5 @@
 ---
-title: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Windows para aceder ao Armazenamento do Azure
+title: Tutorial`:` usar uma identidade gerenciada para acessar o armazenamento do Azure-Windows-Azure AD
 description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema de uma VM do Windows, para aceder ao Armazenamento do Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,20 +15,20 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 147ee2450a6a67f8ca02149105533401d038a53a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2449307936839d50fe0d48a0536ca4dd9c8d85c3
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191087"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74181909"
 ---
-# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Utilize uma VM do Windows atribuídos de sistema identidade gerida para aceder ao armazenamento do Azure por meio da chave de acesso
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Windows para aceder ao Armazenamento do Azure através de uma chave de acesso
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 
 > [!IMPORTANT] 
-> O armazenamento do Azure agora suporta autenticação do Azure AD. Como melhor prática, utilize [autenticação do Azure AD](tutorial-vm-windows-access-storage.md) em vez de chaves de acesso. 
+> O armazenamento do Azure agora dá suporte à autenticação do Azure AD. Como prática recomendada, use a [autenticação do Azure ad](tutorial-vm-windows-access-storage.md) em vez de chaves de acesso. 
 
 
 Este tutorial mostra-lhe como utilizar a identidade gerida atribuída pelo sistema de uma máquina virtual (VM) do Windows para recuperar as chaves de acesso à conta de armazenamento. Pode utilizar as chaves de acesso ao armazenamento como habitualmente ao fazer operações de armazenamento, por exemplo, ao utilizar o SDK de Armazenamento. Neste tutorial, vamos carregar e transferir blobs com o PowerShell do Armazenamento do Azure. Vai aprender a:
@@ -64,7 +64,7 @@ Mais tarde, iremos carregar e transferir um ficheiro para a nova conta de armaze
 
 1. Navegue de volta para a sua conta de armazenamento recentemente criada.
 2. Clique na ligação **Contentores** à esquerda, em "Serviço Blob".
-3. Clique em **+ Contentor**, na parte superior da página, e surge um painel "Novo contentor".
+3. Clique em **+ Contentor**, na parte superior da página e surge um painel "Novo contentor".
 4. Dê um nome ao contentor, selecione um nível de acesso e clique em **OK**. O nome que especificou será utilizado mais tarde no tutorial. 
 
     ![Criar contentor de armazenamento](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
@@ -75,10 +75,10 @@ O Armazenamento do Azure não suporta nativamente a autenticação do Azure AD. 
 
 1. Navegue de volta para a sua conta de armazenamento recentemente criada.  
 2. Clique na ligação **Controlo de acesso (IAM)** no painel esquerdo.  
-3. Clique em **+ adicionar atribuição de função** na parte superior da página para adicionar uma nova atribuição de função para a sua VM
+3. Clique em **+ Adicionar atribuição de função** na parte superior da página para adicionar uma nova atribuição de função para sua VM
 4. Defina a **Função** como “Função do Serviço de Operador de Chave da Conta de Armazenamento”, no lado direito da página. 
 5. Na lista pendente seguinte, defina **Atribuir acesso a** ao recurso "Máquina Virtual".  
-6. Em seguida, certifique-se de que a subscrição adequada está listada na lista pendente **Subscrição** e, em seguida, defina **Grupo de Recursos** para "Todos os grupos de recursos".  
+6. Em seguida, certifique-se de que a subscrição adequada está listada na lista pendente **Subscrição** e, em seguida, defina **Grupo de Recursos** como "Todos os grupos de recursos".  
 7. Por fim, em **Selecionar** escolha a sua Máquina Virtual do Windows na lista pendente e clique em **Guardar**. 
 
     ![Texto alternativo da imagem](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
@@ -174,7 +174,7 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial aprendeu a criar uma identidade gerida atribuída pelo sistema para aceder ao Armazenamento do Azure através de uma chave de acesso.  Para saber mais sobre as chaves de acesso ao Armazenamento do Azure, veja:
 

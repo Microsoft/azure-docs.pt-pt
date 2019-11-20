@@ -1,17 +1,17 @@
 ---
-title: Configurar um dispositivo para avaliação de servidores físicos com a avaliação de servidor de migrações para Azure
-description: Descreve como configurar um dispositivo para avaliação de servidores físicos usando a avaliação de servidor de migrações para Azure.
+title: Configurar um dispositivo de migrações para Azure para servidores físicos
+description: Saiba como configurar um dispositivo de migrações para Azure para avaliação de servidor físico.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 1e67c36753239940b15e3cb47b5b75820ea43689
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
-ms.translationtype: HT
+ms.openlocfilehash: ade2a76c168002e573a6504e31769b83f0c6eb37
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158343"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185898"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um dispositivo para servidores físicos
 

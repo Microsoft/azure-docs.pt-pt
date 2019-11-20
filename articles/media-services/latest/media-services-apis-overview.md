@@ -1,6 +1,7 @@
 ---
-title: Desenvolvendo com APIs v3 – Azure | Microsoft Docs
-description: Este artigo discute as regras que se aplicam a entidades e APIs ao desenvolver com os serviços de mídia v3.
+title: Desenvolver com APIs v3
+titleSuffix: Azure Media Services
+description: Saiba mais sobre as regras que se aplicam a entidades e APIs ao desenvolver com os serviços de mídia v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,39 +13,39 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 79f1bd95451709485f92050a882c790f9e281eb5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 4a3b699c90e1fefb834f8ddfe3a23fc2a97354ec
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049019"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186135"
 ---
-# <a name="developing-with-media-services-v3-apis"></a>Desenvolvendo com APIs dos serviços de mídia v3
+# <a name="develop-with-media-services-v3-apis"></a>Desenvolver com APIs do Media Services V3
 
 Como desenvolvedor, você pode usar a [API REST](https://aka.ms/ams-v3-rest-ref) dos serviços de mídia ou as bibliotecas de cliente que permitem que você interaja com a API REST para criar, gerenciar e manter facilmente fluxos de trabalho de mídia personalizados. A API [dos serviços de mídia v3](https://aka.ms/ams-v3-rest-sdk) é baseada na especificação openapi (anteriormente conhecida como Swagger).
 
-Este artigo discute as regras que se aplicam a entidades e APIs ao desenvolver com os serviços de mídia v3.
+Este artigo discute as regras que se aplicam a entidades e APIs quando você desenvolve com os serviços de mídia v3.
 
 ## <a name="accessing-the-azure-media-services-api"></a>Acessando a API dos serviços de mídia do Azure
 
 Para ser autorizado a acessar os recursos dos serviços de mídia e a API dos serviços de mídia, você deve primeiro ser autenticado. Os serviços de mídia oferecem suporte à autenticação [baseada no Azure Active Directory (AD do Azure)](../../active-directory/fundamentals/active-directory-whatis.md) . Duas opções comuns de autenticação são:
  
-* **Autenticação de entidade de serviço** – usada para autenticar um serviço (por exemplo: aplicativos Web, aplicativos de funções, aplicativos lógicos, API e microservices). Os aplicativos que normalmente usam esse método de autenticação são aplicativos que executam serviços daemon, serviços de camada intermediária ou trabalhos agendados. Por exemplo, para aplicativos Web, sempre deve haver uma camada intermediária que se conecte aos serviços de mídia com uma entidade de serviço.
-* **Autenticação de usuário** – usada para autenticar uma pessoa que está usando o aplicativo para interagir com os recursos dos serviços de mídia. O aplicativo interativo deve primeiro solicitar ao usuário as credenciais do usuário. Um exemplo é um aplicativo de console de gerenciamento usado por usuários autorizados para monitorar trabalhos de codificação ou transmissão ao vivo.
+* **Autenticação de entidade de serviço**: usada para autenticar um serviço (por exemplo: aplicativos Web, aplicativos de funções, aplicativos lógicos, API e microservices). Os aplicativos que normalmente usam esse método de autenticação são aplicativos que executam serviços daemon, serviços de camada intermediária ou trabalhos agendados. Por exemplo, para aplicativos Web, sempre deve haver uma camada intermediária que se conecte aos serviços de mídia com uma entidade de serviço.
+* **Autenticação de usuário**: usada para autenticar uma pessoa que está usando o aplicativo para interagir com os recursos dos serviços de mídia. O aplicativo interativo deve primeiro solicitar ao usuário as credenciais do usuário. Um exemplo é um aplicativo de console de gerenciamento usado por usuários autorizados para monitorar trabalhos de codificação ou transmissão ao vivo.
 
 A API dos serviços de mídia requer que o usuário ou aplicativo que faz as solicitações da API REST tenha acesso ao recurso de conta dos serviços de mídia e use uma função de **colaborador** ou **proprietário** . A API pode ser acessada com a função **leitor** , mas somente as operações **Get** ou **list** estarão disponíveis. Para obter mais informações, consulte [controle de acesso baseado em função para contas de serviços de mídia](rbac-overview.md).
 
 Em vez de criar uma entidade de serviço, considere o uso de identidades gerenciadas para recursos do Azure para acessar a API dos serviços de mídia por meio de Azure Resource Manager. Para saber mais sobre identidades gerenciadas para recursos do Azure, confira [o que são identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-### <a name="azure-ad-service-principal"></a>Entidade de serviço do Azure AD 
+### <a name="azure-ad-service-principal"></a>Entidade de serviço do Azure AD
 
-Se você estiver criando um aplicativo do Azure AD e uma entidade de serviço, o aplicativo terá que estar em seu próprio locatário. Depois de criar o aplicativo, conceda ao **colaborador** do aplicativo ou à função de **proprietário** acesso à conta dos serviços de mídia. 
+Se você estiver criando um aplicativo do Azure AD e uma entidade de serviço, o aplicativo precisará estar em seu próprio locatário. Depois de criar o aplicativo, conceda ao **colaborador** do aplicativo ou à função de **proprietário** acesso à conta dos serviços de mídia.
 
 Se você não tiver certeza se tem permissões para criar um aplicativo do Azure AD, consulte [permissões necessárias](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 Na figura a seguir, os números representam o fluxo das solicitações em ordem cronológica:
 
-![Aplicativos de camada intermediária](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+![Autenticação de aplicativo de camada intermediária com o AAD de uma API da Web](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
 1. Um aplicativo de camada intermediária solicita um token de acesso do Azure AD que tem os seguintes parâmetros:  
 
@@ -52,8 +53,8 @@ Na figura a seguir, os números representam o fluxo das solicitações em ordem 
    * URI de recurso dos serviços de mídia.
    * URI de recurso para serviços de mídia REST.
    * Valores de aplicativo do Azure AD: a ID do cliente e o segredo do cliente.
-   
-   Para obter todos os valores necessários, consulte [acessar a API dos serviços de mídia do Azure com o CLI do Azure](access-api-cli-how-to.md)
+
+   Para obter todos os valores necessários, consulte [acessar a API dos serviços de mídia do Azure com o CLI do Azure](access-api-cli-how-to.md).
 
 2. O token de acesso do AD do Azure é enviado para a camada intermediária.
 4. A camada intermediária envia a solicitação para a API REST de mídia do Azure com o token do Azure AD.
@@ -71,11 +72,11 @@ Consulte os seguintes exemplos que mostram como se conectar à entidade de servi
 
 ## <a name="naming-conventions"></a>Convenções de nomenclatura
 
-Os nomes de recursos dos Serviços de Multimédia do Azure v3 (por exemplo, Ativos, Tarefas, Transformações) estão sujeitos às restrições de nomenclatura do Azure Resource Manager. De acordo com o Azure Resource Manager, os nomes de recursos são sempre exclusivos. Desta forma, pode utilizar todas as cadeias de identificador exclusivo (por exemplo, GUIDs) para os nomes de recursos. 
+Os nomes de recursos dos Serviços de Multimédia do Azure v3 (por exemplo, Ativos, Tarefas, Transformações) estão sujeitos às restrições de nomenclatura do Azure Resource Manager. De acordo com o Azure Resource Manager, os nomes de recursos são sempre exclusivos. Desta forma, pode utilizar todas as cadeias de identificador exclusivo (por exemplo, GUIDs) para os nomes de recursos.
 
-Os nomes de recursos dos Serviços de Multimédia não podem incluir: "<", ">", "%", "&", ":", "&#92;", "?", "/", "*", "+", ".", a plica ou qualquer caráter de controlo. Todos os outros carateres são permitidos. O comprimento máximo de um nome de recurso é superior a 260 carateres. 
+Os nomes de recursos dos serviços de mídia não podem incluir: ' < ', ' > ', '% ', ' & ',&#92;': ', ' ', '? ', '/', ' * ', ' + ', '. ', o caractere de aspas simples ou quaisquer caracteres de controle. Todos os outros carateres são permitidos. O comprimento máximo de um nome de recurso é superior a 260 carateres.
 
-Para obter mais informações sobre a nomenclatura do Azure Resource Manager, veja: [Requisitos de nomenclatura](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) e [Convenções de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+Para obter mais informações sobre nomenclatura de Azure Resource Manager, consulte [requisitos de nomenclatura](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) e [convenções de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>Nomes de Arquivos/blobs em um ativo
 
@@ -115,7 +116,7 @@ Somente uma operação de execução longa tem suporte para um determinado event
 ## <a name="sdks"></a>SDKs
 
 > [!NOTE]
-> Não há garantia de que os SDKs dos serviços de mídia do Azure v3 sejam thread-safe. Ao desenvolver um aplicativo multi-threaded, você deve adicionar sua própria lógica de sincronização de thread para proteger o cliente ou usar um novo objeto AzureMediaServicesClient por thread. Você também deve ter cuidado com os problemas de multithreading introduzidos por objetos opcionais fornecidos pelo seu código para o cliente (como uma instância HttpClient no .NET).
+> Os SDKs dos serviços de mídia do Azure v3 não têm garantia de serem thread-safe. Ao desenvolver um aplicativo multi-threaded, você deve adicionar sua própria lógica de sincronização de thread para proteger o cliente ou usar um novo objeto AzureMediaServicesClient por thread. Você também deve ter cuidado com os problemas de multithreading introduzidos por objetos opcionais fornecidos pelo seu código para o cliente (como uma instância HttpClient no .NET).
 
 |SDK|Referência|
 |---|---|
@@ -126,7 +127,7 @@ Somente uma operação de execução longa tem suporte para um determinado event
 |[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Referência a Go](https://aka.ms/ams-v3-go-ref)|
 |[SDK Ruby](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>Consulte também
+### <a name="see-also"></a>Ver também
 
 - [SDK do .NET do EventGrid que inclui eventos do serviço de mídia](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definições dos eventos dos serviços de mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -135,17 +136,17 @@ Somente uma operação de execução longa tem suporte para um determinado event
 
 O [Gerenciador de serviços de mídia do Azure](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) é uma ferramenta disponível para clientes do Windows que desejam aprender sobre os serviços de mídia. O AMSE é um aplicativo WinForms/C# que carrega, baixa, codifica, transmite conteúdo de VOD e ao vivo com os serviços de mídia. A ferramenta AMSE é para clientes que desejam testar os serviços de mídia sem escrever nenhum código. O código AMSE é fornecido como um recurso para os clientes que desejam desenvolver com os serviços de mídia.
 
-AMSE é um projeto de software livre, o suporte é fornecido pela Comunidade (os problemas podem ser relatados para https://github.com/Azure/Azure-Media-Services-Explorer/issues). Este projeto adotou o [Microsoft Open Source Code of Conduct (Código de Conduta do Microsoft Open Source)](https://opensource.microsoft.com/codeofconduct/). Para obter mais informações, consulte as [perguntas frequentes sobre o código de conduta](https://opensource.microsoft.com/codeofconduct/faq/) ou contate opencode@microsoft.com com perguntas ou comentários adicionais.
+AMSE é um projeto de software livre, o suporte é fornecido pela Comunidade (os problemas podem ser relatados para https://github.com/Azure/Azure-Media-Services-Explorer/issues). Este projeto adotou o [Microsoft Open Source Code of Conduct (Código de Conduta do Microsoft Open Source)](https://opensource.microsoft.com/codeofconduct/). Para obter mais informações, consulte as [perguntas frequentes sobre o código de conduta](https://opensource.microsoft.com/codeofconduct/faq/) ou contate opencode@microsoft.com com quaisquer outras dúvidas ou comentários.
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtragem, ordenação, paginação de entidades de serviços de mídia
 
-Consulte [filtragem, ordenação, paginação de entidades dos serviços de mídia do Azure](entities-overview.md)
+Consulte [filtragem, ordenação, paginação de entidades dos serviços de mídia do Azure](entities-overview.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, envie comentários, obtenha atualizações
 
 Confira o artigo [da Comunidade dos serviços de mídia do Azure](media-services-community.md) para ver diferentes maneiras que você pode fazer perguntas, fornecer comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 

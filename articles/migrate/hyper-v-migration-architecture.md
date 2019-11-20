@@ -1,31 +1,31 @@
 ---
-title: Como funciona a migração do Hyper-V com migração do servidor de migrar do Azure? | Microsoft Docs
-description: Fornece uma descrição geral da migração do Hyper-V na migração do servidor de migrar do Azure
+title: Como funciona a migração do Hyper-V nas migrações para Azure?
+description: Saiba mais sobre a migração do Hyper-V com as migrações para Azure
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 9148e76a9f2abd369ae595422d785a347e58dfab
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 8bca88fc63a7fc04a22d2a68adbe59259b07f50e
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811716"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185884"
 ---
-# <a name="how-does-hyper-v-replication-work"></a>Como funciona a replicação de Hyper-V?
+# <a name="how-does-hyper-v-replication-work"></a>Como funciona a replicação do Hyper-V?
 
-Este artigo fornece uma descrição geral da arquitetura e processos utilizados para migrar VMs de Hyper-V com a ferramenta de migração do servidor de migrar do Azure.
+Este artigo fornece uma visão geral da arquitetura e dos processos usados ao migrar VMs do Hyper-V com a ferramenta de migração de servidor de migrações para Azure.
 
-[O Azure Migrate](migrate-services-overview.md) fornece um concentrador central para controlar a deteção, avaliação e migração de aplicações no local e cargas de trabalho e pública/privada na cloud VMs, para o Azure. O hub fornece ferramentas do Azure Migrate para avaliação e migração, bem como ofertas de (ISV fornecedor) de terceiros independentes de software.
+As [migrações para Azure](migrate-services-overview.md) fornecem um hub central para acompanhar a descoberta, avaliação e migração de seus aplicativos e cargas de trabalho locais e VMs de nuvem privada/pública, para o Azure. O Hub fornece ferramentas de migração do Azure para avaliação e migração, bem como ofertas de ISVs (fornecedores independentes de software) de terceiros.
 
 ## <a name="agentless-migration"></a>Migração sem agente
 
-A ferramenta de migração do servidor de migrar do Azure fornece replicação sem agente para VMs de Hyper-V no local, com um fluxo de trabalho de migração otimizada para o Hyper-V. Instalar um agente de software apenas em anfitriões Hyper-V ou nós de cluster. Nada tem de ser instalado em VMs de Hyper-V.
+A ferramenta de migração de servidor de migrações para Azure fornece replicação sem agente para VMs do Hyper-V locais, usando um fluxo de trabalho de migração otimizado para o Hyper-V. Você instala um agente de software somente em hosts ou nós de cluster do Hyper-V. Nada precisa ser instalado em VMs do Hyper-V.
 
-## <a name="server-migration-and-azure-site-recovery"></a>Migração do servidor e a recuperação de Site do Azure
+## <a name="server-migration-and-azure-site-recovery"></a>Migração e Azure Site Recovery do servidor
 
-Migração de servidor migrar do Azure é uma ferramenta para migrar cargas de trabalho no local e VMs com base na cloud, para o Azure. Site Recovery é uma ferramenta de recuperação após desastre. As ferramentas de partilham alguns componentes comuns de tecnologia utilizadas para a replicação de dados, mas servem objetivos diferentes. 
+A migração de servidor de migrações para Azure é uma ferramenta para migrar cargas de trabalho locais e VMs baseadas em nuvem para o Azure. Site Recovery é uma ferramenta de recuperação de desastre. As ferramentas compartilham alguns componentes de tecnologia comuns usados para replicação de dados, mas atendem a finalidades diferentes. 
 
 
 ## <a name="architectural-components"></a>Componentes da arquitetura
@@ -36,56 +36,56 @@ Migração de servidor migrar do Azure é uma ferramenta para migrar cargas de t
 
 **Componente** | **Implementação** | 
 --- | --- 
-**Fornecedor de replicação** | O fornecedor do Microsoft Azure Site Recovery é instalado em anfitriões Hyper-V e registado com a migração de servidor de migração do Azure.<br/> O fornecedor orquestra a replicação para as VMs de Hyper-V.
-**Serviços de recuperação** | O agente do serviço de recuperação do Microsoft Azure processa os replicação de dados. Ele funciona com o fornecedor para replicar dados a partir de VMs de Hyper-V para o Azure.<br/> Os dados replicados são carregados para uma conta de armazenamento na sua subscrição do Azure. A migração do servidor ferramenta os processos dos dados replicados e a aplica em discos de réplica na subscrição. Os discos de réplica são utilizados para criar as VMs do Azure quando migrar.
+**Provedor de replicação** | O provedor de Site Recovery Microsoft Azure é instalado em hosts Hyper-V e registrado com a migração do servidor de migração do Azure.<br/> O provedor orquestra a replicação para VMs do Hyper-V.
+**Agente dos serviços de recuperação** | O agente de serviço de recuperação Microsoft Azure lida com a replicação de dados. Ele funciona com o provedor para replicar dados de VMs do Hyper-V para o Azure.<br/> Os dados replicados são carregados em uma conta de armazenamento em sua assinatura do Azure. A ferramenta de migração de servidor processa os dados replicados e os aplica aos discos de réplica na assinatura. Os discos de réplica são usados para criar as VMs do Azure quando você migra.
 
-- Componentes são instalados por um ficheiro de configuração única, transferido a partir do Azure Migrate migração do servidor no portal.
-- O fornecedor e a aplicação utilizam ligações HTTPS de saída porta 443 para comunicar com o Azure Migrate migração do servidor.
-- As comunicações do fornecedor e agente são seguras e encriptadas.
+- Os componentes são instalados por um único arquivo de instalação, baixados da migração de servidor de migrações para Azure no Portal.
+- O provedor e o dispositivo usam conexões de saída de porta HTTPS 443 para se comunicar com a migração de servidor de migrações para Azure.
+- As comunicações do provedor e do agente são seguras e criptografadas.
 
 
 ## <a name="replication-process"></a>Processo de replicação
 
-1. Quando ativa a replicação para uma VM de Hyper-V, começa a replicação inicial.
-2. É criado um instantâneo de VM de Hyper-V.
-3. VHDs na VM são replicado um por um, até estarem todos copiados para o Azure. Tempo de replicação inicial depende do tamanho da VM e largura de banda de rede.
-4. As alterações de disco que ocorrem durante a replicação inicial são controladas através da réplica do Hyper-V e armazenados nos ficheiros de registo (hrl ficheiros).
-    - Ficheiros de registo estão na mesma pasta que os discos.
-    - Cada disco tem um ficheiro de hrl associado que é enviado para o armazenamento secundário.
+1. Quando você habilita a replicação para uma VM do Hyper-V, a replicação inicial começa.
+2. Um instantâneo de VM do Hyper-V é obtido.
+3. Os VHDs na VM são replicados um a um, até que eles sejam copiados para o Azure. O tempo de replicação inicial depende do tamanho da VM e da largura de banda da rede.
+4. As alterações de disco que ocorrem durante a replicação inicial são controladas usando a réplica do Hyper-V e armazenadas em arquivos de log (arquivos HRL).
+    - Os arquivos de log estão na mesma pasta que os discos.
+    - Cada disco tem um arquivo HRL associado que é enviado para o armazenamento secundário.
     - Os ficheiros de instantâneo e de registo consomem recursos do disco quando a replicação inicial está em curso.
-4. Depois de concluída a replicação inicial, o instantâneo VM é eliminado e começa a replicação de diferenças.
-5. Alterações de disco incrementais são controladas em arquivos de hrl. Os registos de replicação estão carregados periodicamente para uma conta de armazenamento do Azure, o agente dos serviços de recuperação.
+4. Após a conclusão da replicação inicial, o instantâneo da VM é excluído e a replicação delta começa.
+5. As alterações de disco incrementais são controladas em arquivos HRL. Os logs de replicação são carregados periodicamente em uma conta de armazenamento do Azure pelo agente dos serviços de recuperação.
 
 
 ## <a name="performance-and-scaling"></a>Desempenho e dimensionamento
 
-Desempenho de replicação de Hyper-V é influenciado por fatores que incluem o tamanho da VM, a taxa de alteração (renovação) de dados das VMs, o espaço disponível no anfitrião Hyper-V para o armazenamento de ficheiros de registo, largura de banda de carregamento de dados de replicação e armazenamento de destino no Azure.
+O desempenho de replicação para o Hyper-V é influenciado por fatores que incluem o tamanho da VM, a taxa de alteração de dados (variação) das VMs, o espaço disponível no host Hyper-V para armazenamento de arquivos de log, o upload da largura de banda para os dados de replicação e o armazenamento de destino no Azure.
 
-- Se estiver a replicar várias máquinas ao mesmo tempo, utilize o [do Azure Site Recovery Deployment Planner](../site-recovery/hyper-v-deployment-planner-overview.md) para Hyper-V, para ajudar a otimizar os replicação.
-- Planear a sua replicação de Hyper-V e distribuir os replicação através de contas de armazenamento do Azure, em conformidade com a capacidade.
+- Se você estiver replicando vários computadores ao mesmo tempo, use o [planejador de implantações do Azure site Recovery](../site-recovery/hyper-v-deployment-planner-overview.md) para Hyper-V, para ajudar a otimizar a replicação.
+- Planeje a replicação do Hyper-V e distribua a replicação nas contas de armazenamento do Azure, de acordo com a capacidade.
 
-### <a name="control-upload-throughput"></a>Débito de carregamento de controlo
+### <a name="control-upload-throughput"></a>Taxa de transferência de upload de controle
 
-Pode limitar a quantidade de largura de banda utilizada para carregar dados para o Azure em cada anfitrião de Hyper-V. Tenha cuidado. Se definir os valores muito baixos, que ele afetará negativamente a replicação e a migração de atraso.
+Você pode limitar a quantidade de largura de banda usada para carregar dados no Azure em cada host Hyper-V. Tenha cuidado. Se você definir os valores muito baixos, ele afetará negativamente a replicação e atrasará a migração.
 
 
-1. Inicie sessão para o nó de anfitrião ou cluster Hyper-V.
-2. Execute **C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc**, para abrir o snap-in MMC de cópia de segurança do Windows Azure.
+1. Entre no host do Hyper-V ou no nó do cluster.
+2. Execute **C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc**para abrir o snap-in MMC do Windows Azure backup.
 3. No snap-in, selecione **alterar propriedades**.
-4. Na **limitação**, selecione **ativar a limitação para operações de cópia de segurança de utilização de largura de banda de internet**. Defina os limites para o trabalho e de descanso. Intervalos válidos são entre 512 Kbps 1,023 Mbps.
+4. Em **limitação**, selecione **habilitar limitação de uso de largura de banda da Internet para operações de backup**. Defina os limites de horas de trabalho e de folga. Intervalos válidos são de 512 kbps a 1.023 Mbps.
 I
 
-### <a name="influence-upload-efficiency"></a>Eficiência de carregamento de influência
+### <a name="influence-upload-efficiency"></a>Influenciar a eficiência do carregamento
 
-Se o ter largura de banda livre para a replicação e desejar para carregamentos de aumentar, pode aumentar o número de threads alocados para a tarefa de carregamento, da seguinte forma:
+Se você tiver largura de banda sobressalente para replicação e quiser aumentar os carregamentos, poderá aumentar o número de threads alocados para a tarefa de carregamento, da seguinte maneira:
 
-1. Abra o registo com Regedit.
-2. Navegue até à chave HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
-3. Aumente o valor para o número de threads utilizados para carregamento de dados para cada VM da replicação. O valor predefinido é 4 e o valor máximo é 32. 
-
-
+1. Abra o registro com o regedit.
+2. Navegue até a chave HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
+3. Aumente o valor do número de threads usados para upload de dados para cada VM de replicação. O valor padrão é 4 e o valor máximo é 32. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
 
-Experimente [migração do Hyper-V](tutorial-migrate-hyper-v.md) utilizando a migração de servidor de migrar do Azure.
+
+## <a name="next-steps"></a>Passos seguintes
+
+Experimente [a migração do Hyper-V](tutorial-migrate-hyper-v.md) usando a migração de servidor de migrações para Azure.

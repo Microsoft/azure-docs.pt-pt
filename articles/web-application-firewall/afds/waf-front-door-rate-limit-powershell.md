@@ -1,5 +1,5 @@
 ---
-title: Configurar uma regra de limite de taxa de firewall do aplicativo Web para a porta frontal-Azure PowerShell
+title: Configurar a regra de limite de taxa de WAF para a porta frontal-Azure PowerShell
 description: Saiba como configurar uma regra de limite de taxa para um ponto de extremidade de porta frontal existente.
 author: vhorne
 ms.service: web-application-firewall
@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: ce9ace445d87479da4047da205b59e79402ece07
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 831d0876c67aa36248a54f3935e5ce7884c736ef
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517140"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186614"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurar uma regra de limite de taxa de firewall do aplicativo Web usando Azure PowerShell
 A regra de limite de taxa do firewall do aplicativo Web do Azure (WAF) para o Azure front door controla o número de solicitações permitidas de um único IP de cliente durante uma duração de um minuto.

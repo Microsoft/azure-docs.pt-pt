@@ -1,6 +1,6 @@
 ---
-title: Como ver o principal de serviço de uma identidade gerida com o PowerShell
-description: Obter instruções passo a passo para visualizar o principal de serviço de uma identidade gerida com o PowerShell.
+title: Exibir a entidade de serviço de uma identidade gerenciada usando o PowerShell-Azure AD
+description: Instruções passo a passo para exibir a entidade de serviço de uma identidade gerenciada usando o PowerShell.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,38 +15,38 @@ ms.workload: identity
 ms.date: 11/29/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aa5ab96ae85833e59ed40161cafcc1eb88379be
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ac2d1d4fc5e669f63bff49a7948db74ec1baa62
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441785"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184113"
 ---
-# <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>Ver o principal de serviço de uma identidade gerida com o PowerShell
+# <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>Exibir a entidade de serviço de uma identidade gerenciada usando o PowerShell
 
-Identidades geridas para recursos do Azure fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory. Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter credenciais em seu código. 
+Identidades gerenciadas para recursos do Azure fornecem serviços do Azure com uma identidade gerenciada automaticamente no Azure Active Directory. Você pode usar essa identidade para autenticar em qualquer serviço que ofereça suporte à autenticação do Azure AD, sem ter credenciais em seu código. 
 
-Neste artigo, irá aprender a ver o principal de serviço de uma identidade gerida com o PowerShell.
+Neste artigo, você aprenderá a exibir a entidade de serviço de uma identidade gerenciada usando o PowerShell.
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md).
-- Se ainda não tiver uma conta do Azure, [Inscreva-se numa conta gratuita](https://azure.microsoft.com/free/).
-- Ativar [identidade do sistema atribuído numa máquina virtual](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) ou [aplicação](/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity).
-- Instale a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps)
+- Se você ainda não tiver uma conta do Azure, [Inscreva-se para obter uma conta gratuita](https://azure.microsoft.com/free/).
+- Habilite [a identidade atribuída pelo sistema em uma máquina virtual](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) ou [aplicativo](/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity).
+- Instalar a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps)
 
-## <a name="view-the-service-principal"></a>Ver o principal de serviço
+## <a name="view-the-service-principal"></a>Exibir a entidade de serviço
 
-Este comando seguinte demonstra como visualizar o principal de serviço de uma VM ou a aplicação com a identidade de sistema atribuído ativada. Substitua `<VM or application name>` pelos seus próprios valores.
+Este comando a seguir demonstra como exibir a entidade de serviço de uma VM ou aplicativo com a identidade atribuída pelo sistema habilitada. Substitua `<VM or application name>` pelos seus próprios valores.
 
 ```powershell
 Get-AzADServicePrincipal -DisplayName <VM or application name>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a visualização de principais de serviço do Azure AD com o PowerShell, consulte [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
+Para obter mais informações sobre como exibir entidades de serviço do Azure AD usando o PowerShell, consulte [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
 
 

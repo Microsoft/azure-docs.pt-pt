@@ -8,18 +8,20 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: d5432c794c26e350b23fe47aa1574422143ca4b2
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: d1ef8852916e598373c104fb98a1c09ab656fbaf
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521959"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196212"
 ---
 # <a name="using-custom-security-policies-preview"></a>Usando políticas de segurança personalizadas (versão prévia)
 
 Para ajudar a proteger seus sistemas e ambientes, a central de segurança do Azure gera recomendações de segurança. Essas recomendações são baseadas em práticas recomendadas do setor, que são incorporadas à política de segurança padrão genérica fornecida para todos os clientes. Eles também podem vir do conhecimento da central de segurança de padrões do setor e regulamentadores.
 
-Com esse recurso de visualização, você pode adicionar suas próprias iniciativas *personalizadas* . Em seguida, você receberá recomendações se os computadores não seguirem as políticas que você criar.
+Com esse recurso de visualização, você pode adicionar suas próprias iniciativas *personalizadas* . Em seguida, você receberá recomendações se o seu ambiente não seguir as políticas que você criar.
+
+Conforme discutido [aqui](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) na documentação do Azure Policy, quando você especifica um local para sua iniciativa personalizada, ele deve ser um grupo de gerenciamento ou uma assinatura. 
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Para adicionar uma iniciativa personalizada à sua assinatura 
 
@@ -55,7 +57,7 @@ Com esse recurso de visualização, você pode adicionar suas próprias iniciati
     > [!NOTE]
     > A criação de novas iniciativas requer credenciais de proprietário da assinatura. Para obter mais informações sobre as funções do Azure, consulte [permissões na central de segurança do Azure](security-center-permissions.md).
 
-1. Para ver as recomendações resultantes para sua política, clique em **recomendações** na barra lateral para abrir a página recomendações. As recomendações serão exibidas com um rótulo "personalizado" e estarão disponíveis por até 30 minutos.
+1. Para ver as recomendações resultantes para sua política, clique em **recomendações** na barra lateral para abrir a página recomendações. As recomendações serão exibidas com um rótulo "personalizado" e estarão disponíveis em aproximadamente uma hora.
 
     [![recomendações personalizadas](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 

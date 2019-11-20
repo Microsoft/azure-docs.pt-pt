@@ -1,18 +1,18 @@
 ---
-title: Implantar o Firewall do Azure com vários endereços IP públicos usando Azure PowerShell
+title: Implantar o Firewall do Azure com vários endereços IP públicos usando o PowerShell
 description: Neste artigo, você aprenderá a implantar um firewall do Azure com vários endereços IP públicos usando o Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: ba2736ae69d0bf7feff5f852da2446bfa7a722a6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: ad54b60d8f15e36636f887015d97967740123669
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325239"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195870"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Implantar um firewall do Azure com vários endereços IP públicos usando Azure PowerShell
 
@@ -100,6 +100,6 @@ $azFw.RemovePublicIpAddress($pip)
 $azFw | Set-AzFirewall
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Tutorial: Monitorar logs de firewall do Azure](./tutorial-diagnostics.md)
+* [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)

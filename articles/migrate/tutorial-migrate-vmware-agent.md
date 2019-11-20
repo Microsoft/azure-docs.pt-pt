@@ -1,19 +1,19 @@
 ---
-title: Migrar VMs VMware locais para o Azure com migração de servidor de migrações do Azure baseada em agente | Microsoft Docs
-description: Este artigo descreve como executar uma migração baseada em agente de computadores locais para o Azure com a migração de servidor de migrações para Azure
+title: Migrar VMs VMware com migração de servidor de migrações do Azure baseada em agente
+description: Saiba como executar uma migração baseada em agente de VMs VMware com migrações para Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07e91abc1130505abc84f6687be7edd04522fa76
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 581014b89627905e3206705dffade5ba19443b65
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720184"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196285"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMs do VMware para o Azure (baseado em agente)
 
@@ -165,7 +165,7 @@ O Serviço de mobilidade tem de ser instalado em cada computador que queira repl
 Prepare a conta da seguinte forma:
 
 1. Prepare um domínio ou uma conta local com permissões para instalar na VM.
-2. Para VMs do Windows, se você não estiver usando uma conta de domínio, desabilite o controle de acesso de usuário remoto no computador local adicionando a entrada DWORD **LocalAccountTokenFilterPolicy**, com um valor de no registro, em **HKEY_LOCAL_MACHINE \Software\Microsoft\ Windows\CurrentVersion\Policies\System**
+2. Para VMs do Windows, se você não estiver usando uma conta de domínio, desabilite o controle de acesso de usuário remoto no computador local adicionando a entrada DWORD **LocalAccountTokenFilterPolicy**, com um valor de no registro, em **HKEY_LOCAL_MACHINE \Software\Microsoft\Windows\CurrentVersion\Policies\System**
 3. Para VMs do Linux, prepare uma conta raiz no servidor Linux de origem.
 
 
@@ -207,7 +207,7 @@ Se você não seguir o tutorial para avaliar as VMs do VMware, configure um proj
 
     **Geografia** | **Região**
     --- | ---
-    Ásia | Sudeste Asiático
+    Ásia | Sudeste asiático
     Europa | Europa Setentrional ou Europa Ocidental
     Estados Unidos | Leste dos EUA ou Oeste EUA Central
 
@@ -274,7 +274,7 @@ Depois de baixar o modelo OVF, você o importará para o VMware para criar o apl
 2. A VM arranca para uma experiência de instalação do Windows Server 2016. Aceite o contrato de licença e introduza uma palavra-passe de administrador.
 3. Após a conclusão da instalação, entre na VM como administrador, usando a senha de administrador.
 4. Na primeira vez que você entrar, a ferramenta de instalação do dispositivo de replicação (Azure Site Recovery ferramenta de configuração) será iniciada em alguns segundos.
-5. Insira um nome a ser usado para registrar o dispositivo com a migração de servidor de migrações para Azure. Clique depois em **Seguinte**.
+5. Insira um nome a ser usado para registrar o dispositivo com a migração de servidor de migrações para Azure. Em seguida, clique em **Seguinte**.
 6. A ferramenta verifica se a VM pode ligar ao Azure. Depois de a ligação estar estabelecida, selecione **Iniciar sessão** para iniciar sessão na sua subscrição do Azure.
 7. Aguarde até que a ferramenta termine de registrar um aplicativo do Azure AD para identificar o dispositivo. O dispositivo é reinicializado.
 1. Inicie sessão na máquina novamente. Em poucos segundos, o Assistente de Gestão do Servidor de Configuração inicia automaticamente.
@@ -333,8 +333,8 @@ Agora, selecione VMs para migração.
 10. Em **Rede Virtual**, selecione a VNet/sub-rede do Azure na qual as VMs do Azure vão ser associadas após a migração.
 11. Em **Benefício Híbrido do Azure**:
 
-    - Selecione **Não** se não quiser aplicar o Benefício Híbrido do Azure. Clique depois em **Seguinte**.
-    - Selecione **Sim** se tiver computadores Windows Server abrangidos com subscrições ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que está a migrar. Clique depois em **Seguinte**.
+    - Selecione **Não** se não quiser aplicar o Benefício Híbrido do Azure. Em seguida, clique em **Seguinte**.
+    - Selecione **Sim** se tiver computadores Windows Server abrangidos com subscrições ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que está a migrar. Em seguida, clique em **Seguinte**.
 
 12. Em **Computação**, analise o nome, o tamanho, o tipo de disco do SO e o conjunto de disponibilidade das VMs. As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
 
@@ -342,7 +342,7 @@ Agora, selecione VMs para migração.
     - **Disco do so**: especifique o disco do sistema operacional (inicialização) para a VM. O disco do SO é o disco que possui o carregador e o instalador do sistema operativo. 
     - **Conjunto de disponibilidade**: se a VM deve estar em um conjunto de disponibilidade do Azure após a migração, especifique o conjunto. O conjunto deve estar no grupo de recursos de destino especificado para a migração.
 
-13. Em **discos**, especifique se os discos de VM devem ser replicados no Azure e selecione o tipo de disco (SSD padrão/HDD ou discos gerenciados Premium) no Azure. Clique depois em **Seguinte**.
+13. Em **discos**, especifique se os discos de VM devem ser replicados no Azure e selecione o tipo de disco (SSD padrão/HDD ou discos gerenciados Premium) no Azure. Em seguida, clique em **Seguinte**.
     - Pode excluir discos da replicação.
     - Se excluir discos, estes não estarão presentes na VM do Azure após a migração. 
 

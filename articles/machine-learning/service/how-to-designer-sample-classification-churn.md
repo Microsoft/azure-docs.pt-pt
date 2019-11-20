@@ -1,7 +1,7 @@
 ---
-title: 'Designer: classificar, prever rotatividade'
+title: 'Designer: exemplo de rotatividade de previsão'
 titleSuffix: Azure Machine Learning
-description: Este pipeline de exemplo do designer (visualização) mostra a previsão do classificador binário de variação, uma tarefa comum para o gerenciamento de relacionamento com o cliente (CRM).
+description: Siga este exemplo de classificação para prever a rotatividade com Azure Machine Learning designer & árvores de decisão aumentadas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: a09060e16b877df4412b785edbb60930cb4122bc
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 5cf61d3446f960b65eb85538be9ea020671cced2
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647180"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196044"
 ---
-# <a name="sample-5---classification-predict-churn"></a>Exemplo 5-classificação: Previsão de rotatividade
+# <a name="use-boosted-decision-tree-to-predict-churn-with-azure-machine-learning-designer"></a>Use a árvore de decisão aumentada para prever a rotatividade com o designer de Azure Machine Learning
+
+**Designer (visualização) exemplo 5**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Saiba como criar um pipeline de aprendizado de máquina complexo sem escrever uma única linha de código usando o designer (versão prévia).

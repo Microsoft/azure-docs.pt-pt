@@ -1,17 +1,17 @@
 ---
-title: Configurar um dispositivo para migração/avaliação do servidor migrações para VMs VMware | Microsoft Docs
-description: Descreve como configurar um dispositivo para descoberta, avaliação e migração sem agente de VMs do VMware usando a migração/avaliação do servidor migrações para Azure.
+title: Configurar um dispositivo de migrações para Azure para VMware
+description: Saiba como configurar um dispositivo de migrações para Azure para avaliar e migrar VMs VMware.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 086d5bf2e0e2bd1e4c1db5960d402a8e1b129e94
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
-ms.translationtype: HT
+ms.openlocfilehash: 1489d29f854b02cf493493fe022c73dc050e2615
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158609"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185863"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um dispositivo para VMs VMware
 

@@ -22,6 +22,8 @@
   items:
     - name: FAQ do Internet Analyzer
       href: internet-analyzer-faq.md
+    - name: Referência da CLI do Internet Analyzer
+      href: 'https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest'
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Blogue

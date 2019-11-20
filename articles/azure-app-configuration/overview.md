@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b26fa822e17ad7e9444b75d4db516ea2ccf5340b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 01644054868ffc08738e67654ba181c76e7aed39
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129697"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185074"
 ---
 # <a name="what-is-azure-app-configuration"></a>O que é Azure App configuração?
 
@@ -63,7 +63,7 @@ A maneira mais fácil de adicionar um repositório de configuração de aplicati
 | Linguagem de programação e estrutura | Como ligar |
 |---|---|
 | .NET Core e ASP.NET Core | Provedor de configuração de aplicativo para .NET Core |
-| .NET e ASP.NET | Construtor de configuração de aplicativo para .NET |
+| .NET Framework e ASP.NET | Construtor de configuração de aplicativo para .NET |
 | Java Spring | Cliente de configuração de aplicativo para Spring Cloud |
 | Outros | API REST de configuração de aplicativo |
 
@@ -72,7 +72,7 @@ A maneira mais fácil de adicionar um repositório de configuração de aplicati
 * [Guia de início rápido ASP.NET Core](./quickstart-aspnet-core-app.md)
 * [Início rápido do .NET Core](./quickstart-dotnet-core-app.md)
 * [Guia de início rápido .NET Framework](./quickstart-dotnet-app.md)
-* [Início rápido da função do Azure](./quickstart-azure-function-csharp.md)
+* [Guia de início rápido Azure Functions](./quickstart-azure-functions-csharp.md)
 * [Início rápido do Java Spring](./quickstart-java-spring-app.md)
 * [Início rápido do sinalizador de recurso ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
 * [Início rápido do sinalizador de recursos do Spring boot](./quickstart-feature-flag-spring-boot.md)

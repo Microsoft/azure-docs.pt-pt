@@ -798,12 +798,14 @@
               items:
                 - name: Ativar descrição geral da monitorização
                   href: insights/container-insights-onboard.md
-                - name: Ativar para o novo cluster
+                - name: Ativar para o novo cluster do AKS
                   href: insights/container-insights-enable-new-cluster.md
-                - name: Ativar para o cluster existente
+                - name: Ativar para o cluster existente do AKS
                   href: insights/container-insights-enable-existing-clusters.md
                 - name: Ativar para cluster híbrido
                   href: insights/container-insights-hybrid-setup.md
+                - name: Ativar para o Azure Red Hat OpenShift
+                  href: insights/container-insights-azure-redhat-setup.md
                 - name: Mapeamentos de região
                   href: insights/container-insights-region-mapping.md
             - name: Monitorizar desempenho

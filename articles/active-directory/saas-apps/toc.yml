@@ -63,6 +63,8 @@
           href: aha-tutorial.md
         - name: Airstack
           href: airstack-tutorial.md
+        - name: Airtable
+          href: airtable-tutorial.md
         - name: AirWatch
           href: airwatch-tutorial.md
         - name: Alcumus Info Exchange
@@ -591,6 +593,8 @@
           href: hightail-tutorial.md
         - name: HireVue
           href: hirevue-tutorial.md
+        - name: Hootsuite
+          href: hootsuite-tutorial.md
         - name: Hornbill
           href: hornbill-tutorial.md
         - name: Hosted Graphite

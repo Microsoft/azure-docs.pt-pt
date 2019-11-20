@@ -1,25 +1,22 @@
 ---
-title: Tutorial – configurar a política de firewall do aplicativo Web de filtragem geográfica para o serviço de porta frontal do Azure
+title: Tutorial – configurar a política de WAF de filtragem geográfica – serviço de porta frontal do Azure
 description: Neste tutorial, vai aprender a criar uma política de filtragem geográfica de exemplo e associá-la ao anfitrião de front-end do Front Door existente
 services: frontdoor
 documentationcenter: ''
-author: KumudD
-manager: twooley
-editor: ''
+author: teresayao
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
-ms.author: kumud
-ms.reviewer: tyao
-ms.openlocfilehash: e40e99aa57d10bd69143efc8db38ac0071d8952f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.author: tyao
+ms.openlocfilehash: 393d7790aadc87237081aa5437f8316eda59c52e
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827765"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184528"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Como configurar uma política de WAF de filtragem geográfica para sua porta frontal
 Este tutorial mostra como utilizar o Azure PowerShell para criar uma política de filtragem geográfica de exemplo e associá-la ao anfitrião de front-end do Front Door existente. Esta política de filtragem geográfica de exemplo bloqueará solicitações de todos os outros países/regiões, exceto Estados Unidos.
@@ -50,7 +47,7 @@ Install-Module -Name Az.FrontDoor
 ```
 
 ### <a name="create-a-front-door-profile"></a>Criar um perfil de porta de front-end
-Crie um perfil de porta frontal seguindo as instruções descritas [em início rápido: Crie um perfil](quickstart-create-front-door.md)de porta frontal.
+Crie um perfil de porta frontal seguindo as instruções descritas em [início rápido: criar um perfil de porta frontal](quickstart-create-front-door.md).
 
 ## <a name="define-geo-filtering-match-condition"></a>Definir condição de correspondência de filtragem geográfica
 
@@ -66,7 +63,7 @@ $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
  
 ## <a name="add-geo-filtering-match-condition-to-a-rule-with-action-and-priority"></a>Adicionar condições de correspondência da filtragem geográfica a uma regra com Ação e Prioridade
 
-Crie um objeto `nonUSBlockRule` CustomRule com base na condição de correspondência, uma ação e uma prioridade usando [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  Um objeto CustomRule pode ter vários MatchCondition.  Neste exemplo, a Ação está definida como Bloquear e Prioridade como 1, a prioridade mais alta.
+Crie um objeto CustomRule `nonUSBlockRule` com base na condição de correspondência, em uma ação e em uma prioridade usando [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  Um objeto CustomRule pode ter vários MatchCondition.  Neste exemplo, a Ação está definida como Bloquear e Prioridade como 1, a prioridade mais alta.
 
 ```
 $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
@@ -78,9 +75,9 @@ $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 ```
 
 ## <a name="add-rules-to-a-policy"></a>Adicionar regras a uma política
-Localize o nome do grupo de recursos que contém o perfil de porta frontal `Get-AzResourceGroup`usando. Em seguida, crie `geoPolicy` um objeto de `nonUSBlockRule` política com o uso de [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) no grupo de recursos especificado que contém o perfil de porta frontal. Você deve fornecer um nome exclusivo para a política geográfica. 
+Localize o nome do grupo de recursos que contém o perfil de porta frontal usando `Get-AzResourceGroup`. Em seguida, crie um objeto de política de `geoPolicy` contendo `nonUSBlockRule` usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) no grupo de recursos especificado que contém o perfil de porta frontal. Você deve fornecer um nome exclusivo para a política geográfica. 
 
-O exemplo abaixo usa o nome do grupo de recursos *myResourceGroupFD1* com a suposição de que você criou o perfil de porta frontal usando [as instruções fornecidas no guia de início rápido: Crie um artigo de](quickstart-create-front-door.md) porta frontal. No exemplo abaixo, substitua o nome da política *geoPolicyAllowUSOnly* por um nome de política exclusivo.
+O exemplo abaixo usa o nome do grupo de recursos *myResourceGroupFD1* com a suposição de que você criou o perfil de porta frontal usando as instruções fornecidas no artigo [início rápido: criar uma porta frontal](quickstart-create-front-door.md) . No exemplo abaixo, substitua o nome da política *geoPolicyAllowUSOnly* por um nome de política exclusivo.
 
 ```
 $geoPolicy = New-AzFrontDoorWafPolicy `
@@ -101,7 +98,7 @@ $geoFrontDoorObjectExample = Get-AzFrontDoor -ResourceGroupName myResourceGroupF
 $geoFrontDoorObjectExample[0].FrontendEndpoints[0].WebApplicationFirewallPolicyLink = $geoPolicy.Id
 ```
 
-Em seguida, defina a propriedade front-end WebApplicationFirewallPolicyLink para o `geoPolicy`ResourceId do usando [set-AzFrontDoor](/powershell/module/az.frontdoor/set-azfrontdoor).
+Em seguida, defina a propriedade front-end WebApplicationFirewallPolicyLink como o ResourceId do `geoPolicy`usando [set-AzFrontDoor](/powershell/module/az.frontdoor/set-azfrontdoor).
 
 ```
 Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]

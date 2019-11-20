@@ -1,6 +1,6 @@
 ---
-title: Exemplo do Script da CLI do Azure – eliminar um Store de configuração de aplicações do Azure | Documentos da Microsoft
-description: Exemplo do Script da CLI do Azure – eliminar um arquivo de configuração de aplicações do Azure
+title: Exemplo de script de CLI do Azure – excluir um repositório de configuração de Azure App | Microsoft Docs
+description: Exemplo de script de CLI do Azure – excluir um repositório de configuração de Azure App
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -14,16 +14,16 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 3482cc14e73801af6d0db910ded84adf722bc6f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0983e7d68e7ad01683d588ef89827eaf79754d07
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234343"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184919"
 ---
-# <a name="delete-an-azure-app-configuration-store"></a>Eliminar um arquivo de configuração de aplicações do Azure
+# <a name="delete-an-azure-app-configuration-store"></a>Excluir um repositório de configuração de Azure App
 
-Este script de exemplo elimina uma instância da configuração de aplicações do Azure.
+Este script de exemplo exclui uma instância de configuração de Azure App.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Este script de exemplo elimina uma instância da configuração de aplicações 
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Tem de instalar a extensão de CLI de configuração de aplicações do Azure pela primeira vez ao executar o comando seguinte:
+Você precisa instalar a extensão da CLI de configuração do Azure App primeiro executando o seguinte comando:
 
         az extension add -n appconfig
 
@@ -40,7 +40,7 @@ Tem de instalar a extensão de CLI de configuração de aplicações do Azure pe
 ```azurecli-interactive
 #/bin/bash
 
-# Delete an app configuration store named myTestAppConfigStore from the Resource Group myResourceGroup
+# Delete an App Configuration store named myTestAppConfigStore from the Resource Group myResourceGroup
 az appconfig delete --name myTestAppConfigStore --resource-group myResourceGroup
 ```
 
@@ -48,14 +48,14 @@ az appconfig delete --name myTestAppConfigStore --resource-group myResourceGroup
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para eliminar uma loja de configuração de aplicações. Cada comando na tabela liga à documentação específica do comando.
+Esse script usa os comandos a seguir para excluir um repositório de configurações de aplicativo. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [az appconfig delete](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-delete) | Elimina um recurso de arquivo de configuração de aplicação. |
+| [az appconfig delete](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-delete) | Exclui um recurso de repositório de configuração de aplicativo. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Exemplos do script da CLI de configuração de aplicações adicionais podem ser encontrados no [documentação de configuração de aplicações do Azure](../cli-samples.md).
+Exemplos de script da CLI de configuração de aplicativo adicionais podem ser encontrados nos [exemplos da CLI de configuração do Azure app](../cli-samples.md).

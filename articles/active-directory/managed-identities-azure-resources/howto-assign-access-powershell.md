@@ -1,5 +1,5 @@
 ---
-title: Como atribuir acesso uma identidade gerida a um recurso do Azure com o PowerShell
+title: Atribuir um acesso de identidade gerenciada a um recurso usando o PowerShell-Azure AD
 description: Instruções passo a passo instruções para atribuir uma identidade gerida num recurso, o acesso a outro recurso, com o PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/06/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff36be7f87d0dd9e5cac5ee7f788eec0cda5a9fd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82fa5019e740d16d0b97111fcf8dbc4f6c91d57b
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60290698"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184006"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>Atribuir um acesso de identidade gerida a um recurso com o PowerShell
 
@@ -45,14 +45,14 @@ Depois de ativar a identidade gerida num recurso do Azure, [como uma VM do Azure
    ```powershell
    Connect-AzAccount
    ```
-2. Neste exemplo, estamos oferecendo um acesso de VM do Azure para uma conta de armazenamento. Primeiro, usamos [Get-AzVM](/powershell/module/az.compute/get-azvm) para obter o principal de serviço para a VM com o nome `myVM`, que foi criada quando, nós habilitamos a identidade gerida. Em seguida, utilize [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) para dar a VM **leitor** acesso a uma conta de armazenamento denominada `myStorageAcct`:
+2. Neste exemplo, estamos oferecendo um acesso de VM do Azure para uma conta de armazenamento. Primeiro, usamos [Get-AzVM](/powershell/module/az.compute/get-azvm) para obter a entidade de serviço para a VM chamada `myVM`, que foi criada quando habilitamos a identidade gerenciada. Em seguida, use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) para conceder ao **leitor** de VM acesso a uma conta de armazenamento chamada `myStorageAcct`:
 
     ```powershell
     $spID = (Get-AzVM -ResourceGroupName myRG -Name myVM).identity.principalid
     New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Identidade gerida para descrição geral de recursos do Azure](overview.md)
 - Para ativar a identidade gerida numa VM do Azure, consulte [configurar geridos identidades para recursos do Azure na VM do Azure com o PowerShell](qs-configure-powershell-windows-vm.md).

@@ -1,5 +1,5 @@
 ---
-title: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Windows para aceder à Graph API do Azure AD
+title: Tutorial`:`usar uma identidade gerenciada da VM do Windows para acessar o Azure AD Graph
 description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema numa VM do Windows para aceder à Graph API do Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60938f26c27b9f94046b1be8e3d0cb6b247017c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 43ef467adb8970d410404c151d0028ee4cda92b9
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307799"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183009"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Windows para aceder à Graph API do Azure AD
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra-lhe como utilizar uma identidade gerida atribuído de sistema para uma máquina virtual de Windows (VM) para aceder à API do Azure AD Graph para obter as respetivas associações a grupos. As identidades geridas dos recursos do Azure são geridas automaticamente pelo Azure e permitem que se autentique perante serviços que suportem Autenticação do Azure AD sem que seja necessário inserir as credenciais no seu código.  Neste tutorial, irá consultar a associação da identidade da sua VM em grupos do Azure AD. As informações de grupo são frequentemente utilizadas em decisões de autorização, por exemplo. Nos bastidores, a identidade gerida da sua VM é representada por um **Principal de Serviço** no Azure AD. Antes de realizar a consulta de grupo, adicione o principal de serviço que representa a identidade da VM a um grupo no Azure AD. Para fazê-lo, pode utilizar o Azure PowerShell, o Azure AD PowerShell ou a CLI do Azure.
+Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema para uma VM (máquina virtual) do Windows para acessar o API do Graph do Azure AD para recuperar suas associações de grupo. As identidades geridas dos recursos do Azure são geridas automaticamente pelo Azure e permitem que se autentique perante serviços que suportem Autenticação do Azure AD sem que seja necessário inserir as credenciais no seu código.  Neste tutorial, irá consultar a associação da identidade da sua VM em grupos do Azure AD. As informações de grupo são frequentemente utilizadas em decisões de autorização, por exemplo. Nos bastidores, a identidade gerida da sua VM é representada por um **Principal de Serviço** no Azure AD. Antes de realizar a consulta de grupo, adicione o principal de serviço que representa a identidade da VM a um grupo no Azure AD. Para fazê-lo, pode utilizar o Azure PowerShell, o Azure AD PowerShell ou a CLI do Azure.
 
 > [!div class="checklist"]
 > * Ligar ao Azure AD
@@ -39,11 +39,11 @@ Este tutorial mostra-lhe como utilizar uma identidade gerida atribuído de siste
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
 - Para conceder acesso à identidade da VM ao Azure AD Graph, tem de atribuir a função **Administrador Global** à conta no Azure AD.
-- Instalar a versão mais recente [do Azure AD PowerShell](/powershell/azure/active-directory/install-adv2) se ainda não o fez. 
+- Instale o [PowerShell do Azure ad](/powershell/azure/active-directory/install-adv2) mais recente, se ainda não tiver feito isso. 
 
 ## <a name="connect-to-azure-ad"></a>Ligar ao Azure AD
 
-Tem de ligar ao Azure AD para atribuir a VM a um grupo, bem como conceder à VM permissão para obter as respetivas associações a grupos. Pode utilizar o cmdlet Connect-AzureAD diretamente ou com o parâmetro do TenantId no caso de ter vários inquilinos.
+Tem de ligar ao Azure AD para atribuir a VM a um grupo, bem como conceder à VM permissão para obter as respetivas associações a grupos. Você pode usar o cmdlet Connect-AzureAD diretamente ou com o parâmetro Tenantid caso tenha vários locatários.
 
 ```powershell
 Connect-AzureAD
@@ -65,14 +65,14 @@ Add-AzureADGroupMember -ObjectId $AzureADGroup.ObjectID -RefObjectId $ManagedIde
 ```
 ## <a name="grant-your-vm-access-to-the-azure-ad-graph-api"></a>Conceder acesso à VM ao Graph API do Azure AD
 
-Com as identidades geridas para recursos do Azure, o seu código pode obter tokens de acesso para autenticação perante recursos que suportem a Autenticação do Azure AD. A API Graph do Microsoft Azure Active Directory suporta a autenticação do Azure AD. Neste passo, vai conceder acesso ao principal de serviço da identidade da VM ao Azure AD Graph, para que possa consultar as associações a grupos. É concedido acesso aos principais de serviços à Microsoft ou ao Azure AD Graph através das **Permissões de Aplicação**. O tipo de permissão de aplicação que tem de conceder depende da entidade à qual pretende aceder na MS ou no Azure AD Graph.
+Com as identidades geridas para recursos do Azure, o seu código pode obter tokens de acesso para autenticação em recursos que suportam a autenticação do Azure AD. A API Graph do Microsoft Azure Active Directory suporta a autenticação do Azure AD. Neste passo, vai conceder acesso ao principal de serviço da identidade da VM ao Azure AD Graph, para que possa consultar as associações a grupos. É concedido acesso aos principais de serviços à Microsoft ou ao Azure AD Graph através das **Permissões de Aplicação**. O tipo de permissão de aplicação que tem de conceder depende da entidade à qual pretende aceder na MS ou no Azure AD Graph.
 
 Neste tutorial, vai conceder à identidade da VM a capacidade de consultar associações a grupos com a permissão de aplicação ```Directory.Read.All```. Para conceder esta permissão, irá precisar de uma conta de utilizador que tenha atribuída a função de Administrador Global do Azure AD. Normalmente, concederia uma permissão de aplicação ao visitar o registo da sua aplicação no portal do Azure e adicionaria aí a permissão. No entanto, as identidades geridas de recursos do Azure não registam os objetos da aplicação no Azure AD, só são registados os principais de serviço. Para registar a permissão de aplicação vai utilizar a ferramenta de linha de comandos do Azure AD PowerShell. 
 
 Azure AD Graph:
-- AppId de Principal de serviço (utilizado quando a concessão de permissão da aplicação): 00000002-0000-0000-c000-000000000000
+- AppId do Principal de Serviço (utilizado ao conceder a permissão de aplicação): 00000002-0000-0000-c000-000000000000
 - ID do recurso (utilizado ao pedir o token de acesso de identidades geridas dos recursos do Azure): https://graph.windows.net
-- Referência de âmbito de permissão: [Referência de permissões do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
+- Referência de âmbito de permissão: [Referência de Permissões do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
 ### <a name="grant-application-permissions-using-azure-ad-powershell"></a>Conceder permissões de aplicação com o Azure AD PowerShell
 
@@ -83,7 +83,7 @@ Vai precisar do Azure AD PowerShell para utilizar esta opção. Se não o tiver 
    ```powershell
    Connect-AzureAD
    ```
-   Para ligar a um específicos do Azure Active Directory, utilize o _TenantId_ parâmetro, da seguinte forma:
+   Para se conectar a um Azure Active Directory específico, use o parâmetro _tenantid_ , da seguinte maneira:
 
    ```powershell
    Connect-AzureAD -TenantId "Object Id of the tenant"
@@ -140,7 +140,7 @@ Vai precisar do Azure AD PowerShell para utilizar esta opção. Se não o tiver 
    Remove-AzureADServiceAppRoleAssignment -AppRoleAssignmentId $ServiceAppRoleAssignment.ObjectId -ObjectId $ManagedIdentitiesServicePrincipal.ObjectId
    ```
  
-## <a name="get-an-access-token-using-the-vms-identity-to-call-azure-ad-graph"></a>Obter um token de acesso com a identidade da VM para chamar o Microsoft Azure AD Graph 
+## <a name="get-an-access-token-using-the-vms-identity-to-call-azure-ad-graph"></a>Obter um token de acesso com a identidade da VM para chamar o Azure AD Graph 
 
 Para utilizar a identidade gerida atribuída pelo sistema da VM para a autenticação no Azure AD Graph, terá de fazer pedidos a partir da VM.
 
@@ -165,7 +165,7 @@ Para utilizar a identidade gerida atribuída pelo sistema da VM para a autentica
    $AccessToken = $content.access_token
    ```
 
-5. Com o ID de Objeto do principal de serviço da identidade da VM (pode obter este valor a partir da variável declarada nos passos anteriores: ``$ManagedIdentitiesServicePrincipal.ObjectId``), pode consultar a Graph API do Azure AD para obter as respetivas associações a grupos. Substitua `<OBJECT ID>` com o ID de objeto do passo anterior e <`ACCESS-TOKEN>` com o token de acesso obtido anteriormente:
+5. Com o ID de Objeto do principal de serviço da identidade da VM (pode obter este valor a partir da variável declarada nos passos anteriores: ``$ManagedIdentitiesServicePrincipal.ObjectId``), pode consultar a Graph API do Azure AD para obter as respetivas associações a grupos. Substitua `<OBJECT ID>` pela ID de objeto da etapa anterior e <`ACCESS-TOKEN>` com o token de acesso obtido anteriormente:
 
    ```powershell
    Invoke-WebRequest 'https://graph.windows.net/<Tenant ID>/servicePrincipals/<VM Object ID>/getMemberGroups?api-version=1.6' -Method POST -Body '{"securityEnabledOnly":"false"}' -Headers @{Authorization="Bearer $AccessToken"} -ContentType "application/json"
@@ -179,7 +179,7 @@ Para utilizar a identidade gerida atribuída pelo sistema da VM para a autentica
    Content : {"odata.metadata":"https://graph.windows.net/<Tenant ID>/$metadata#Collection(Edm.String)","value":["<ObjectID of VM's group membership>"]}
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a utilizar uma identidade gerida atribuída pelo sistema da VM do Windows para aceder ao Azure AD Graph.  Para saber mais sobre o Azure AD Graph, veja:
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: ac8ef620948048ae26ef6f408b4bc86b2a2bfbdc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5fede76fbc97b31cbbcdaec1b17f838100d35511
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494574"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195840"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Usar Azure Toolkit for IntelliJ para depurar Apache Spark aplicativos remotamente no HDInsight por meio de VPN
 
@@ -35,7 +35,7 @@ Este artigo fornece orientações passo a passo sobre como usar as ferramentas d
 * **INTELLIJ ideia**. Este artigo usa a versão 2017,1. Você pode instalá-lo no [site do JetBrains](https://www.jetbrains.com/idea/download/).
 * **Ferramentas do HDInsight no Azure Toolkit for IntelliJ**. As ferramentas do HDInsight para IntelliJ estão disponíveis como parte do Azure Toolkit for IntelliJ. Para obter instruções sobre como instalar o kit de ferramentas do Azure, consulte [instalar Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
 * **Entre em sua assinatura do Azure do INTELLIJ Idea**. Siga as instruções em [usar Azure Toolkit for IntelliJ para criar Apache Spark aplicativos para um cluster HDInsight](apache-spark-intellij-tool-plugin.md).
-* **Exceção alternativa**. Ao executar o aplicativo do Spark escalar para depuração remota em um computador Windows, você pode obter uma exceção. Essa exceção é explicada em [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356) e ocorre devido a um arquivo WinUtils. exe ausente no Windows. Para contornar esse erro, você deve [baixar o arquivo executável](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) em um local como **C:\WinUtils\bin**. Adicione uma variável de ambiente **HADOOP_HOME** e, em seguida, defina o valor da variável para **C\WinUtils**.
+* **Exceção alternativa**. Ao executar o aplicativo do Spark escalar para depuração remota em um computador Windows, você pode obter uma exceção. Essa exceção é explicada em [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356) e ocorre devido a um arquivo WinUtils. exe ausente no Windows. Para contornar esse erro, você deve [baixar o arquivo executável](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) em um local como **C:\WinUtils\bin**. Adicione um **HADOOP_HOME** variável de ambiente e, em seguida, defina o valor da variável para **C\WinUtils**.
 
 ## <a name="step-1-create-an-azure-virtual-network"></a>Etapa 1: criar uma rede virtual do Azure
 
@@ -59,7 +59,7 @@ Recomendamos que você também crie um cluster Apache Spark no Azure HDInsight q
 
     ![Selecionar hosts no Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/apache-ambari-hosts1.png)
 
-1. Você verá uma lista de nós de cabeçalho, nós de trabalho e nós Zookeeper. Os nós de cabeçalho têm um prefixo **HN***. Selecione o primeiro nó principal.
+1. Você verá uma lista de nós de cabeçalho, nós de trabalho e nós Zookeeper. Os nós de cabeçalho têm um prefixo **HN**\*. Selecione o primeiro nó principal.
 
     ![Localizar o nó de cabeçalho no Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-cluster-headnodes.png)
 
@@ -203,9 +203,9 @@ Recomendamos que você também crie um cluster Apache Spark no Azure HDInsight q
                             "wasb:///HVACOut")
         }
     }
-        ```
+    ```
 
-1. Repeat steps 8 and 9 to add a new Scala object called `*SparkSample`. Add the following code to this class. This code reads the data from the HVAC.csv (available in all HDInsight Spark clusters). It retrieves the rows that only have one digit in the seventh column in the CSV file, and then writes the output to **/HVACOut** under the default storage container for the cluster.
+1. Repita as etapas 8 e 9 para adicionar um novo objeto escalar chamado `*SparkSample`. Adicione o código a seguir a essa classe. Esse código lê os dados do HVAC. csv (disponível em todos os clusters do HDInsight Spark). Ele recupera as linhas que têm apenas um dígito na sétima coluna no arquivo CSV e, em seguida, grava a saída em **/HVACOut** no contêiner de armazenamento padrão para o cluster.
 
     ```scala
     import org.apache.spark.SparkContext

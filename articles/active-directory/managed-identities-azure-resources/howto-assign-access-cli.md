@@ -1,5 +1,5 @@
 ---
-title: Como atribuir acesso uma identidade gerida a um recurso do Azure com a CLI do Azure
+title: Atribuir um acesso de identidade gerenciada a um recurso usando o CLI do Azure-Azure AD
 description: Instruções passo a passo instruções para atribuir uma identidade gerida num recurso, o acesso a outro recurso, com a CLI do Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/06/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fb16b1762f1e5330cf058c37a6b7e0f008eb447
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4153e038228d7ec4631fc5fec81303966a12b01b
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60290983"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184092"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Atribuir um acesso de identidade gerida a um recurso com a CLI do Azure
 
@@ -66,7 +66,7 @@ Depois de ativar a identidade gerida num recurso do Azure, tal como um [máquina
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Identidades geridas de descrição geral de recursos do Azure](overview.md)
 - Para ativar a identidade gerida numa máquina virtual do Azure, consulte [configurar geridos identidades para recursos do Azure na VM do Azure com a CLI do Azure](qs-configure-cli-windows-vm.md).

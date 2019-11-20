@@ -1,5 +1,5 @@
 ---
-title: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Armazenamento do Azure
+title: Tutorial`:` usar uma identidade gerenciada para acessar o armazenamento do Azure-Linux-Azure AD
 description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema de uma VM do Linux, para aceder ao Armazenamento do Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/09/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb7de72a435faf100d6992815ef8d5ec00cb3581
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 815e1a811d16e4c630e455e9c684c2b6b094a5d5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66236161"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183410"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Armazenamento do Azure 
 
@@ -83,8 +83,8 @@ Pode utilizar a identidade gerida da VM para obter os dados no blob de armazenam
 
 1. Navegue de volta para a sua conta de armazenamento recentemente criada.  
 2. Clique na ligação **Controlo de acesso (IAM)** no painel esquerdo.  
-3. Clique em **+ adicionar atribuição de função** na parte superior da página para adicionar uma nova atribuição de função para a sua VM.
-4. Sob **função**, na lista pendente, selecione **leitor de dados de Blob de armazenamento**. 
+3. Clique em **+ Adicionar atribuição de função** na parte superior da página para adicionar uma nova atribuição de função para sua VM.
+4. Em **função**, no menu suspenso, selecione **leitor de dados de blob de armazenamento**. 
 5. Na lista pendente seguinte, em **Atribuir acesso a**, selecione **Máquina Virtual**.  
 6. Em seguida, certifique-se de que a subscrição adequada está listada na lista pendente **Subscrição** e, em seguida, defina **Grupo de Recursos** para **Todos os grupos de recursos**.  
 7. Em **Selecionar**, selecione a VM e, em seguida, clique em **Guardar**.
@@ -116,9 +116,9 @@ Para concluir os passos seguintes, precisa de trabalhar a partir da VM que criou
    Hello world! :)
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a ativar uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Armazenamento do Azure.  Para saber mais sobre o Armazenamento do Azure, veja:
 
 > [!div class="nextstepaction"]
-> [Armazenamento do Azure](/azure/storage/common/storage-introduction)
+> [Storage do Azure](/azure/storage/common/storage-introduction)

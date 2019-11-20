@@ -14,22 +14,22 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cd1e54fc6cfbf254da010c03dfaa859a0ee8213c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 6399039a68279a5b734fb3d7cb5bfad60e2c35e1
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029808"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184999"
 ---
 # <a name="import-to-an-azure-app-configuration-store"></a>Importar para um repositório de configurações Azure App
 
-Este script de exemplo importa valores de chave para um repositório de configuração Azure App.
+Este script de exemplo importa as configurações de chave-valor para um repositório de configuração Azure App.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se você optar por instalar e usar o CLI do Azure localmente, este artigo exigirá que você esteja executando o CLI do Azure versão 2,0 ou posterior. Executar `az --version` para localizar a versão. Para instalar ou atualizar, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli).
 
 Você precisa instalar a extensão da CLI de configuração do Azure App primeiro executando o seguinte comando:
 
@@ -48,14 +48,14 @@ az appconfig kv import --name myTestAppConfigStore --source file --path ~/Import
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Esse script usa os comandos a seguir para importar um repositório de configurações de aplicativo. Cada comando na tabela liga à documentação específica do comando.
+Esse script usa os comandos a seguir para importar para um repositório de configuração de aplicativo. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [az appconfig import](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-import) | Importa para um recurso de repositório de configuração de aplicativo. |
+| [importação do AZ AppConfig kV](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-import) | Importa para um recurso de repositório de configuração de aplicativo. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
+Para obter mais informações sobre o CLI do Azure, consulte a [documentação do CLI do Azure](/cli/azure).
 
-Exemplos de script da CLI de configuração de aplicativo adicionais podem ser encontrados na [documentação de configuração do Azure app](../cli-samples.md).
+Exemplos de script da CLI de configuração de aplicativo adicionais podem ser encontrados nos [exemplos da CLI de configuração do Azure app](../cli-samples.md).

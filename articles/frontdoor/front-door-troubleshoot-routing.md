@@ -1,5 +1,5 @@
 ---
-title: Solucionando problemas-solucionar problemas com a configuração do serviço de porta frontal do Azure | Microsoft Docs
+title: Solucionar problemas de configuração do serviço de porta frontal do Azure
 description: Neste tutorial, você aprenderá a solucionar automaticamente alguns dos problemas comuns que você pode enfrentar na sua porta de frente.
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 420d7afe0d825da9149f2cb2ae1540a2805b357c
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c0d6303620b92368e422b54beab4f9c346d022a5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335893"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184567"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Solucionando problemas comuns de roteamento
 Este artigo descreve como solucionar alguns dos problemas de roteamento comuns que você pode enfrentar para a configuração do serviço de porta frontal do Azure. 
@@ -62,11 +62,11 @@ Há várias causas possíveis para esse sintoma:
 
 
 3. Verificar as configurações da regra de roteamento
-     - Navegue até a regra de roteamento que deve rotear do nome de host front-end em questão para um pool de back-end. Verifique se os protocolos aceitos estão configurados corretamente ou, se não estiverem, certifique-se de que a porta frontal do protocolo usará ao encaminhar a solicitação esteja configurada corretamente. Os _protocolos aceitos_ determinam quais solicitações a porta frontal deve aceitar e o _protocolo_ de encaminhamento determina qual porta frontal do protocolo deve usar para encaminhar a solicitação para o back-end.
+     - Navegue até a regra de roteamento que deve rotear do nome de host front-end em questão para um pool de back-end. Verifique se os protocolos aceitos estão configurados corretamente ou, se não estiverem, certifique-se de que a porta frontal do protocolo usará ao encaminhar a solicitação esteja configurada corretamente. Os _protocolos aceitos_ determinam quais solicitações a porta frontal deve aceitar e o _protocolo de encaminhamento_ determina qual porta frontal do protocolo deve usar para encaminhar a solicitação para o back-end.
           - Por exemplo, se o back-end aceitar somente solicitações HTTP, as seguintes configurações seriam válidas:
-               - Os _protocolos aceitos_ são http e HTTPS. O _protocolo_ de encaminhamento é http. A solicitação de correspondência não funcionará, já que HTTPS é um protocolo permitido e, se uma solicitação for enviada como HTTPS, a porta frontal tentará encaminhá-la usando HTTPS.
+               - Os _protocolos aceitos_ são http e HTTPS. O _protocolo de encaminhamento_ é http. A solicitação de correspondência não funcionará, já que HTTPS é um protocolo permitido e, se uma solicitação for enviada como HTTPS, a porta frontal tentará encaminhá-la usando HTTPS.
 
-               - Os _protocolos aceitos_ são http. O _protocolo_ de encaminhamento é uma solicitação de correspondência ou HTTPS.
+               - Os _protocolos aceitos_ são http. O _protocolo de encaminhamento_ é uma solicitação de correspondência ou HTTPS.
 
-   - A regravação de _URL_ é desabilitada por padrão e você só deve usar esse campo se quiser restringir o escopo de recursos hospedados por back-end que deseja disponibilizar. Quando desabilitada, a porta da frente encaminhará o mesmo caminho de solicitação que receber. É possível que esse campo esteja configurado incorretamente e a porta da frente esteja solicitando um recurso do back-end que não está disponível, retornando, assim, um código de status HTTP 404.
+   - A _regravação de URL_ é desabilitada por padrão e você só deve usar esse campo se quiser restringir o escopo de recursos hospedados por back-end que deseja disponibilizar. Quando desabilitada, a porta da frente encaminhará o mesmo caminho de solicitação que receber. É possível que esse campo esteja configurado incorretamente e a porta da frente esteja solicitando um recurso do back-end que não está disponível, retornando, assim, um código de status HTTP 404.
 

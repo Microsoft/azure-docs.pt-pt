@@ -1,11 +1,11 @@
 ---
-title: Implantar um aplicativo IPv6 dual stack na rede virtual do Azure-CLI
+title: Implantar aplicativo IPv6 dual stack-Standard Load Balancer-CLI
 titlesuffix: Azure Virtual Network
 description: Este artigo mostra como implantar um aplicativo IPv6 dual stack na rede virtual do Azure usando CLI do Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: d0968ddedb36ab7fb4ee515ef1d20a177d4d59fe
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: c2f6c331e1f769f3d24fde9ab2adbd820b704d3b
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821001"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186339"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Implantar um aplicativo IPv6 dual stack na rede virtual do Azure-CLI (visualização)
 
@@ -62,7 +62,7 @@ az group create \
 ```
 
 ## <a name="create-ipv4-and-ipv6-public-ip-addresses-for-load-balancer"></a>Criar endereços IP públicos IPv4 e IPv6 para o balanceador de carga
-Para acessar seus pontos de extremidade IPv4 e IPv6 na Internet, você precisa de endereços IP públicos IPv4 e IPv6 para o balanceador de carga. Criar um endereço IP público com [az network public-ip create](/cli/azure/network/public-ip). O exemplo a seguir cria o endereço IP público IPv4 e IPv6 denominado *dsPublicIP_v4* e *dsPublicIP_v6* no grupo de recursos *DsResourceGroup01* :
+Para acessar seus pontos de extremidade IPv4 e IPv6 na Internet, você precisa de endereços IP públicos IPv4 e IPv6 para o balanceador de carga. Criar um endereço IP público com [az network public-ip create](/cli/azure/network/public-ip). O exemplo a seguir cria o endereço IP público IPv4 e IPv6 chamado *dsPublicIP_v4* e *dsPublicIP_v6* no grupo de recursos *DsResourceGroup01* :
 
 ```azurecli
 # Create an IPV4 IP address
@@ -113,7 +113,7 @@ Nesta seção, você configurará o IP de front-end duplo (IPv4 e IPv6) e o pool
 
 ### <a name="create-load-balancer"></a>Criar um balanceador de carga
 
-Crie o Standard Load Balancer com [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) chamado **dsLB** que inclui um pool de front-end chamado **dsLbFrontEnd_v4**, um pool de back-end chamado **dsLbBackEndPool_v4** que está associado ao endereço **IP público IPv4 dsPublicIP_v4** que você criou na etapa anterior. 
+Crie o Standard Load Balancer com [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) chamado **dsLB** que inclui um pool de front-end chamado **dsLbFrontEnd_v4**, um pool de back-end chamado **dsLbBackEndPool_v4** que está associado ao endereço IP público IPv4 **dsPublicIP_v4** que você criou na etapa anterior. 
 
 ```azurecli
 az network lb create \
@@ -266,7 +266,7 @@ az network nsg rule create \
 ```
 
 
-### <a name="create-a-virtual-network"></a>Criar rede virtual
+### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
 Crie uma rede virtual com [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). O exemplo a seguir cria uma rede virtual chamada *dsVNET* com sub-redes *dsSubNET_v4* e *dsSubNET_v6*:
 

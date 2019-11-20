@@ -6,15 +6,15 @@ keywords: codificação; codificadores; mídia
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 10/10/2019
+ms.date: 11/18/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: aa5eae3e40b8578f826b1b275995bbb3d346e586
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 32ff975aa200e51e6a555f892a53b0ab9c73a84e
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300939"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186025"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificadores de transmissão ao vivo recomendados
 
@@ -49,6 +49,9 @@ Os Serviços de Multimédia recomendam utilizar um dos codificadores em direto s
 - Tricaster Mini HD-4
 - VMIX
 - xStream
+- [Ffmpeg](https://www.ffmpeg.org)
+- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hero 7 e Hero 8
+- [Restream.io](https://restream.io/)
 
 ## <a name="live-encoders-that-output-fragmented-mp4"></a>Codificadores ao vivo que geram MP4 fragmentado
 
@@ -60,9 +63,11 @@ Os serviços de mídia recomendam o uso de um dos seguintes codificadores ao viv
 - Envivio 4Caster C4 Gen III
 - Imagine Communications selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
+- [Ffmpeg](https://www.ffmpeg.org)
 
 > [!TIP]
 >  Se você estiver transmitindo eventos ao vivo em vários idiomas (por exemplo, uma faixa de áudio em inglês e uma faixa de áudio em espanhol), poderá fazer isso com o Media Excel Live Encoder configurado para enviar o feed ao vivo para um evento ao vivo de passagem.
+
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Configurando configurações de codificador dinâmico local
 
@@ -74,9 +79,9 @@ Para reproduzir o conteúdo, um fluxo de áudio e de vídeo deve estar presente.
 
 ### <a name="configuration-tips"></a>Dicas de configuração
 
-- Sempre que possível, use uma conexão de Internet conectada.
+- Sempre que possível, utilize uma ligação de internet conectada.
 - Ao determinar os requisitos de largura de banda, clique duas vezes nas taxas de bits de streaming. Embora não seja obrigatório, essa simples regra ajuda a reduzir o impacto do congestionamento da rede.
-- Ao usar codificadores baseados em software, feche todos os programas desnecessários.
+- Quando utilizar codificadores baseada em software, feche todos os programas desnecessários.
 - Alterar a configuração do codificador depois de começar a enviar por push tem efeitos negativos sobre o evento. As alterações de configuração podem fazer com que o evento se torne instável. 
 - Certifique-se de que você tenha bastante tempo para configurar seu evento. Para eventos de alta escala, é recomendável iniciar a configuração uma hora antes do evento.
 

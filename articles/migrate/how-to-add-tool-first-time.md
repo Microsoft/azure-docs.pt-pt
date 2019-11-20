@@ -1,17 +1,17 @@
 ---
-title: Adicionar uma ferramenta de avaliação/migração pela primeira vez nas migrações para Azure | Microsoft Docs
+title: Adicionar uma ferramenta de avaliação/migração em migrações para Azure
 description: Descreve como criar um projeto de migrações para Azure e adicionar uma ferramenta de avaliação/migração.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: a4e66175b20552e632702cb2ba46d0ae6c0956d4
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 319d97d96bd054aed90079777e2ff83d0e308e5e
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720238"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185940"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Adicionar uma ferramenta de avaliação/migração pela primeira vez
 

@@ -1,39 +1,39 @@
 ---
-title: Implantar o Firewall do Azure com zonas de disponibilidade com o Azure PowerShell
-description: Neste artigo, saiba como implementar uma Firewall do Azure com zonas de disponibilidade com o Azure PowerShell.
+title: Implantar o Firewall do Azure com Zonas de Disponibilidade usando o PowerShell
+description: Neste artigo, você aprenderá a implantar um firewall do Azure com Zonas de Disponibilidade usando o Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/10/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 56958eedceeb4602589d65d5e0eb7b10e8a9ff2d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 33dcebf14f4d534962783a30ec94f7ff6529ae0d
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704005"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195911"
 ---
-# <a name="deploy-an-azure-firewall-with-availability-zones-using-azure-powershell"></a>Implementar uma Firewall do Azure com zonas de disponibilidade com o Azure PowerShell
+# <a name="deploy-an-azure-firewall-with-availability-zones-using-azure-powershell"></a>Implantar um firewall do Azure com Zonas de Disponibilidade usando Azure PowerShell
 
-Firewall do Azure pode ser configurado durante a implementação para abranger várias zonas de disponibilidade para maior disponibilidade.
+O Firewall do Azure pode ser configurado durante a implantação para abranger vários Zonas de Disponibilidade para aumentar a disponibilidade.
 
-Esta funcionalidade permite que os seguintes cenários:
+Esse recurso habilita os seguintes cenários:
 
-- Pode aumentar a disponibilidade de 99,99% de tempo de atividade. Para obter mais informações, consulte o Firewall do Azure [contrato de nível de serviço (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). O tempo de atividade de 99,99% são oferecidos SLAS quando duas ou mais zonas de disponibilidade estão selecionadas.
-- Também pode associar Firewall do Azure para uma zona específica apenas por motivos de proximidade, usando o SLA de 99,95% standard do serviço.
+- Você pode aumentar a disponibilidade para 99,99% de tempo de atividade. Para obter mais informações, consulte o Contrato de Nível de Serviço de firewall do Azure [(SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). O SLA de tempo de atividade de 99,99% é oferecido quando duas ou mais Zonas de Disponibilidade são selecionadas.
+- Você também pode associar o Firewall do Azure a uma zona específica apenas por motivos de proximidade, usando o SLA do serviço Standard 99,95%.
 
-Para obter mais informações sobre as zonas de disponibilidade de Firewall do Azure, consulte [o que é o Firewall do Azure?](overview.md)
+Para obter mais informações sobre Zonas de Disponibilidade de firewall do Azure, consulte [o que é o Firewall do Azure?](overview.md)
 
-O exemplo do Azure PowerShell seguinte mostra como pode implementar uma Firewall do Azure com zonas de disponibilidade.
+O exemplo a seguir Azure PowerShell mostra como você pode implantar um firewall do Azure com Zonas de Disponibilidade.
 
-## <a name="create-a-firewall-with-availability-zones"></a>Criar uma firewall com zonas de disponibilidade
+## <a name="create-a-firewall-with-availability-zones"></a>Criar um firewall com Zonas de Disponibilidade
 
-Este exemplo cria uma firewall em zonas 1, 2 e 3.
+Este exemplo cria um firewall nas zonas 1, 2 e 3.
 
-Quando é criado o endereço IP público standard, não é especificada nenhuma zona específica. Esta ação cria um endereço IP com redundância de zona por predefinição. Endereços IP públicos Standard podem ser configurados no todas as zonas ou numa única zona.
+Quando o endereço IP público padrão é criado, nenhuma zona específica é especificada. Isso cria um endereço IP com redundância de zona por padrão. Os endereços IP públicos padrão podem ser configurados em todas as zonas ou em uma única zona.
 
-É importante saber, porque não pode ter um firewall na zona 1 e um endereço IP na zona 2. Mas pode ter um firewall na zona 1 e o endereço IP em todas as zonas, ou uma firewall e um endereço IP na mesma zona única para fins de proximidade.
+É importante saber, porque você não pode ter um firewall na zona 1 e um endereço IP na zona 2. Mas você pode ter um firewall na zona 1 e o endereço IP em todas as zonas, ou um firewall e um endereço IP na mesma zona única para fins de proximidade.
 
 ```azurepowershell
 $rgName = "resourceGroupName"
@@ -58,6 +58,6 @@ New-AzFirewall `
   -Zone 1,2,3
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: Monitorize registos de Firewall do Azure](./tutorial-diagnostics.md)
+- [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)

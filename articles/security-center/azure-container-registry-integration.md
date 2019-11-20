@@ -1,5 +1,5 @@
 ---
-title: Central de segurança do Azure e registro de contêiner do Azure | Microsoft Docs
+title: Central de segurança do Azure e registro de contêiner do Azure
 description: Saiba mais sobre a integração da central de segurança do Azure com o registro de contêiner do Azure
 services: security-center
 documentationcenter: na
@@ -10,22 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: f0de56f968488f0e5d551ad705cc6f8ca6e7bc47
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
-ms.translationtype: MT
+ms.openlocfilehash: f2a07774fa23173738bc33907dd00017ca260fd9
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521868"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196372"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Integração do registro de contêiner do Azure com a central de segurança (versão prévia)
 
 O ACR (registro de contêiner do Azure) é um serviço de registro gerenciado e privado do Docker que armazena e gerencia suas imagens de contêiner para implantações do Azure em um registro central. Ele é baseado no registro do Docker 2,0 de código aberto.
 
-Ao usar o ACR junto com a camada Standard da central de segurança do Azure (consulte [preços](security-center-pricing.md)), você obterá uma visibilidade mais profunda das vulnerabilidades do registro e das imagens.
+Para obter uma visibilidade mais profunda das vulnerabilidades do registro e das imagens, os usuários da camada Standard da central de segurança do Azure podem habilitar o pacote de registros de contêiner opcionais. Para obter mais informações, veja os [preços](security-center-pricing.md). Com o pacote habilitado, a central de segurança examina automaticamente as imagens em seu serviço ACR sempre que uma imagem é enviada por push para o registro. Quando a verificação for concluída (normalmente após aproximadamente 10 minutos), as descobertas estarão disponíveis na central de segurança em recomendações como esta:
 
-[![recomendações de ACR (registro de contêiner do Azure) dentro da central de segurança do Azure](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![exemplo de recomendação da central de segurança do Azure sobre vulnerabilidades descobertas em uma imagem hospedada do ACR (registro de contêiner do Azure)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 ## <a name="benefits-of-integration"></a>Benefícios da integração
 

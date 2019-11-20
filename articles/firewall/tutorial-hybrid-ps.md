@@ -1,5 +1,5 @@
 ---
-title: Implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell
+title: Implantar & configurar o Firewall do Azure na rede híbrida usando o PowerShell
 description: Neste artigo, você aprenderá a implantar e configurar o Firewall do Azure usando o Azure PowerShell.
 services: firewall
 author: vhorne
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: a5a008a795b88dbcb72ed9fba869e5251fd93567
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d198ee2e1fa8d3afeacda53c2ad6b91d69abca2a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163529"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195770"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell
 
@@ -464,7 +464,7 @@ No portal do Azure, ligue à máquina virtual **VM-Onprem**.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-Abra um navegador da Web em **VM-local**e navegue até http://\<VM-spoke-01 IP privado \>.
+Abra um navegador da Web em **VM-local**e navegue até http://\<VM-spoke-01 IP privado\>.
 
 Deverá ver a página predefinida dos Serviços de Informação Internet.
 

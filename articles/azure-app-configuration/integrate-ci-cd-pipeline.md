@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: e2f682a2782eb1a61dd44e02d665175e31c441f8
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: e9b81baed14b18c6db736bd94a2aba43a4e671ad
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357026"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185111"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrar num pipeline CI/CD
 
@@ -56,7 +56,7 @@ Para fazer uma compilação em nuvem, com o Azure DevOps, por exemplo, verifique
 
     Adicione o *ConnectionString* associado ao repositório de configuração do aplicativo como uma variável de ambiente.
 
-2. Abra *Program.cs*e atualize o `CreateWebHostBuilder` método para usar o arquivo JSON exportado chamando o `config.AddJsonFile()` método.
+2. Abra *Program.cs*e atualize o método `CreateWebHostBuilder` para usar o arquivo JSON exportado chamando o método `config.AddJsonFile()`.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -94,11 +94,11 @@ Para fazer uma compilação em nuvem, com o Azure DevOps, por exemplo, verifique
 
         dotnet run
 
-4. Abra uma janela do navegador e vá `http://localhost:5000`para, que é a URL padrão para o aplicativo Web hospedado localmente.
+4. Abra uma janela do navegador e vá para `http://localhost:5000`, que é a URL padrão para o aplicativo Web hospedado localmente.
 
     ![Local de inicialização do aplicativo de início rápido](./media/quickstarts/aspnet-core-app-launch-local.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você exportou Azure App dados de configuração a serem usados em um pipeline de implantação. Para saber mais sobre como usar a configuração de aplicativo, prossiga para os exemplos de CLI do Azure.
 

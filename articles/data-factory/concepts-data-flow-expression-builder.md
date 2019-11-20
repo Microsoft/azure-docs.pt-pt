@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 872c7ce6a0c39ab19165a5f16ea3e4f6ef8bd6a5
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 11/17/2019
+ms.openlocfilehash: 3664a7c311e15ce3aa61fc71f98a46e3f2618143
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388058"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184695"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Construtor de expressões de fluxo de dados de mapeamento
 
@@ -77,6 +77,40 @@ Com funções de expressão que retornam matrizes, use colchetes [] para endere�
 
 Quando você tem nomes de coluna que incluem caracteres especiais ou espaços, coloque o nome entre chaves.
 * ```{[dbo].this_is my complex name$$$}```
+
+## <a name="keyboard-shortcuts"></a>Atalhos de teclado
+
+* ```Ctrl-K Ctrl-C```: linha inteira de comentários
+* ```Ctrl-K Ctrl-U```: remover marca de comentário
+* ```F1```: fornecer comandos de ajuda do editor
+* ```Alt-Down Arrow```: mover a linha atual para baixo
+* ```Alt-Up Arrow```: mover a linha atual para cima
+* ```Cntrl-Space```: mostrar ajuda de contexto
+
+## <a name="manual-comments"></a>Comentários manuais
+
+* ```/* This is my comment */```
+
+* ```/* This is a```
+*   ```multi-line comment */```
+   
+* ```// This is a single line comment```
+
+Se você colocar um comentário na parte superior da expressão, ele será exibido na caixa de texto transformação para documentar suas expressões de transformação:
+
+![Comentários](media/data-flow/comments2.png "Comentários")
+
+## <a name="convert-to-dates-or-timestamps"></a>Converter em datas ou carimbos de data/hora
+
+```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+
+Observe que para incluir literais de cadeia de caracteres em sua saída de carimbo de data/hora, você precisa encapsular a conversão dentro de um toString ()
+
+## <a name="handling-column-names-with-special-characters"></a>Manipulando nomes de coluna com caracteres especiais
+
+Quando você tem nomes de coluna que incluem caracteres especiais ou espaços, coloque o nome entre chaves.
+
+```{[dbo].this_is my complex name$$$}```
 
 ## <a name="next-steps"></a>Passos seguintes
 

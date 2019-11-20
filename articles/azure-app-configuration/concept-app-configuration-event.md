@@ -1,57 +1,57 @@
 ---
-title: Reagir a eventos de chave-valor de configuração de aplicações do Azure | Documentos da Microsoft
-description: Utilize o Azure Event Grid para subscrever a eventos de configuração de aplicações.
+title: Reagindo a Azure App eventos de valor de chave de configuração | Microsoft Docs
+description: Use a grade de eventos do Azure para assinar eventos de configuração de aplicativo.
 services: azure-app-configuration,event-grid
 author: jimmyca
 ms.author: jimmyca
 ms.date: 05/30/2019
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: 601124aef37d2b285db71130f5c63b3620c7768f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5da64155f2823712eee7a60427b1c1e80abec068
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735650"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185288"
 ---
-# <a name="reacting-to-azure-app-configuration-events"></a>Reagir a eventos de configuração de aplicações do Azure
+# <a name="reacting-to-azure-app-configuration-events"></a>Reagindo a Azure App eventos de configuração
 
-Eventos de configuração de aplicações do Azure permitem aplicações reagir a alterações nos valores de chave. Isso é feito sem a necessidade de código complicado ou serviços de consulta dispendiosa e ineficiente. Em vez disso, os eventos são enviados por meio [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para os assinantes, tal como [as funções do Azure](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ou até mesmo para o seu próprio serviço de escuta de http personalizado e apenas pague apenas aquilo que utiliza.
+Azure App eventos de configuração permitem que os aplicativos reajam às alterações nos valores de chave. Isso é feito sem a necessidade de código complicado ou serviços de sondagem caros e ineficientes. Em vez disso, os eventos são enviados por Push por meio da [grade de eventos do Azure](https://azure.microsoft.com/services/event-grid/) para assinantes como [Azure Functions](https://azure.microsoft.com/services/functions/), [aplicativos lógicos do Azure](https://azure.microsoft.com/services/logic-apps/)ou até mesmo para seu próprio ouvinte HTTP personalizado e você paga apenas pelo que usar.
 
-Eventos de configuração de aplicações do Azure são enviados para o Azure Event Grid, que fornece serviços de entrega fiável às suas aplicações através de rich Repita políticas e entrega de mensagens não entregues. Para obter mais informações, consulte [entrega de mensagens do Event Grid e volte a tentar](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
+Azure App eventos de configuração são enviados para a grade de eventos do Azure, que fornece serviços de entrega confiáveis para seus aplicativos por meio de políticas de repetição avançadas e entrega de mensagens mortas. Para saber mais, confira [entrega e repetição de mensagem da grade de eventos](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
-Cenários de eventos de configuração de aplicações comuns incluem a atualizar a configuração da aplicação, acionamento de implementações, ou qualquer fluxo de trabalho e orientados a configuração. Quando as alterações são pouco frequentes, mas o seu cenário requer a capacidade de resposta imediata, com base em eventos arquitetura pode ser especialmente eficiente.
+Os cenários de evento de configuração de aplicativo comuns incluem a atualização da configuração do aplicativo, o disparo de implantações ou qualquer fluxo de trabalho orientado à configuração. Quando as alterações não são frequentes, mas seu cenário requer capacidade de resposta imediata, a arquitetura baseada em eventos pode ser especialmente eficiente.
 
-Dê uma olhada [ponto final - CLI de web de eventos de configuração de aplicações do Azure de rota para um personalizado](./howto-app-configuration-event.md) um exemplo rápido. 
+Dê uma olhada na [rota Azure app eventos de configuração para um ponto de extremidade da Web personalizado-CLI](./howto-app-configuration-event.md) para obter um exemplo rápido. 
 
-![Modelo de grade do evento](./media/event-grid-functional-model.png)
+![Modelo de grade de eventos](./media/event-grid-functional-model.png)
 
-## <a name="available-azure-app-configuration-events"></a>Eventos de configuração de aplicações do Azure disponíveis
-Grelha de eventos usa [subscrições de eventos](../event-grid/concepts.md#event-subscriptions) encaminhar mensagens de eventos para os assinantes. Subscrições de eventos de configuração de aplicações do Azure podem incluir dois tipos de eventos:  
+## <a name="available-azure-app-configuration-events"></a>Azure App eventos de configuração disponíveis
+A grade de eventos usa [assinaturas de evento](../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para assinantes. Azure App as assinaturas de evento de configuração podem incluir dois tipos de eventos:  
 
 > |Nome do evento|Descrição|
 > |----------|-----------|
 > |`Microsoft.AppConfiguration.KeyValueModified`|Acionado quando um valor de chave é criado ou substituído|
-> |`Microsoft.AppConfiguration.KeyValueDeleted`|Acionado quando é eliminado um valor de chave|
+> |`Microsoft.AppConfiguration.KeyValueDeleted`|Acionado quando um valor de chave é excluído|
 
 ## <a name="event-schema"></a>Esquema de eventos
-Eventos de configuração de aplicações do Azure contêm todas as informações que necessárias para responder a alterações nos seus dados. É possível identificar um evento de configuração de aplicação porque a propriedade eventType começa com "Microsoft.AppConfiguration". Informações adicionais sobre a utilização das propriedades de eventos do Event Grid estão documentadas no [esquema de eventos do Event Grid](../event-grid/event-schema.md).  
+Azure App eventos de configuração contêm todas as informações de que você precisa para responder às alterações em seus dados. Você pode identificar um evento de configuração de aplicativo porque a propriedade eventType começa com "Microsoft. AppConfiguration". Informações adicionais sobre o uso de propriedades de evento da grade de eventos estão documentadas no [esquema de eventos da grade de eventos](../event-grid/event-schema.md).  
 
 > |Propriedade|Tipo|Descrição|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |topic|string|Id do Azure Resource Manager completo da configuração da aplicação que emite o evento.|
-> |subject|string|O URI de chave-valor que é o assunto do evento.|
-> |eventTime|string|A data/hora que o evento foi gerado, no formato ISO 8601.|
-> |eventType|string|"Microsoft.AppConfiguration.KeyValueModified" ou "Microsoft.AppConfiguration.KeyValueDeleted".|
+> |tópico|string|ID de Azure Resource Manager completo da configuração do aplicativo que emite o evento.|
+> |subject|string|O URI do valor de chave que é o assunto do evento.|
+> |eventTime|string|A data/hora em que o evento foi gerado, no formato ISO 8601.|
+> |eventType|string|"Microsoft. AppConfiguration. KeyValueModified" ou "Microsoft. AppConfiguration. KeyValueDeleted".|
 > |Id|string|Um identificador exclusivo deste evento.|
 > |dataVersion|string|A versão do esquema do objeto de dados.|
 > |metadataVersion|string|A versão do esquema das propriedades de nível superior.|
-> |data|objeto|Recolha de dados de evento específico de configuração de aplicações do Azure|
-> |data.key|string|A chave de chave-valor que foi alterada ou eliminada.|
-> |data.label|string|A etiqueta, caso haja algum, de chave-valor que foi alterado ou eliminado.|
-> |data.etag|string|Para `KeyValueModified` a etag do novo valor de chave. Para `KeyValueDeleted` a etag de chave-valor que foi eliminada.|
+> |data|objeto|Coleção de dados de eventos específicos de configuração de Azure App|
+> |Data. Key|string|A chave do valor de chave que foi modificado ou excluído.|
+> |data.label|string|O rótulo, se houver, do valor de chave que foi modificado ou excluído.|
+> |data.etag|string|Por `KeyValueModified` a eTag do novo valor de chave. Por `KeyValueDeleted` a eTag do valor-chave que foi excluído.|
 
-Eis um exemplo de um evento de KeyValueModified:
+Aqui está um exemplo de um evento KeyValueModified:
 ```json
 [{
   "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
@@ -70,20 +70,20 @@ Eis um exemplo de um evento de KeyValueModified:
 
 ```
 
-Para obter mais informações, consulte [esquema de eventos de configuração de aplicações do Azure](../event-grid/event-schema-app-configuration.md).
+Para obter mais informações, consulte [Azure app esquema de eventos de configuração](../event-grid/event-schema-app-configuration.md).
 
-## <a name="practices-for-consuming-events"></a>Práticas recomendadas para o consumo de eventos
-Aplicações que processam os eventos de configuração de aplicação devem seguir algumas práticas recomendadas:
+## <a name="practices-for-consuming-events"></a>Práticas para consumo de eventos
+Os aplicativos que lidam com eventos de configuração de aplicativo devem seguir algumas práticas recomendadas:
 > [!div class="checklist"]
-> * Como várias subscrições podem ser configuradas para encaminhar eventos para o mesmo manipulador de eventos, é importante não partem do princípio de eventos são de uma origem específica, mas o tópico da mensagem para se certificar de que trata da configuração de aplicação que estiver à espera de verificação.
-> * Da mesma forma, verifique se o eventType é um estão preparados para o processo e não partem do princípio de que todos os eventos recebidos serão os tipos esperados.
-> * Como as mensagens podem chegar fora de ordem e, depois de algum atraso, utilize os campos de etag para saber se as informações sobre objetos são ainda atualizadas.  Além disso, utilize os campos do sequenciador para compreender a ordem dos eventos em qualquer objeto específico.
-> * Utilize o campo do requerente para aceder o chave-valor que foi modificado.
+> * Como várias assinaturas podem ser configuradas para rotear eventos para o mesmo manipulador de eventos, é importante não supor que os eventos sejam de uma fonte específica, mas para verificar o tópico da mensagem para garantir que ele venha da configuração do aplicativo que você espera.
+> * Da mesma forma, verifique se o eventType é um que você está preparado para processar e não presuma que todos os eventos recebidos serão os tipos esperados.
+> * Como as mensagens podem chegar fora de ordem e depois de algum atraso, use os campos ETag para entender se suas informações sobre objetos ainda estão atualizadas.  Além disso, use os campos do Sequencer para entender a ordem dos eventos em qualquer objeto específico.
+> * Use o campo assunto para acessar a chave-valor que foi modificado.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o Event Grid e dê uma chance de eventos de configuração de aplicações do Azure:
+Saiba mais sobre a grade de eventos e dê uma tentativa de Azure App eventos de configuração:
 
 - [Sobre o Event Grid](../event-grid/overview.md)
-- [Encaminhar eventos de configuração de aplicações do Azure para um ponto final web personalizado](./howto-app-configuration-event.md)
+- [Rotear eventos de configuração de Azure App para um ponto de extremidade da Web personalizado](./howto-app-configuration-event.md)

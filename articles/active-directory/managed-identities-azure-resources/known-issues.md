@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes e problemas conhecidos com identidades gerenciadas para recursos do Azure
+title: Perguntas frequentes e problemas conhecidos com identidades gerenciadas-Azure AD
 description: Problemas conhecidos com identidades gerenciadas para recursos do Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d882b34bc4f057035a16b7916249cfe8f0b8d0b
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: f0f0c678f2426d9de58d2ab337c56243394b4d0f
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983434"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183876"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Perguntas frequentes e problemas conhecidos com identidades gerenciadas para recursos do Azure
 
@@ -68,7 +68,7 @@ Algumas das limitações do uso do ponto de extremidade de extensão de VM são:
 - Apenas 32 identidades gerenciadas atribuídas pelo usuário podem ser atribuídas à VM.
 
 
-Nota: As identidades gerenciadas para extensão de VM de recursos do Azure ficarão sem suporte em janeiro de 2019. 
+Observação: as identidades gerenciadas para extensão de VM de recursos do Azure ficarão sem suporte em janeiro de 2019. 
 
 Para obter mais informações sobre o serviço de metadados de instância do Azure, consulte a [documentação do IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
@@ -84,8 +84,8 @@ Não. Atualmente, as identidades gerenciadas não dão suporte a cenários entre
 
 ### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Quais permissões do RBAC do Azure são necessárias para a identidade gerenciada em um recurso? 
 
-- Identidade gerenciada atribuída pelo sistema: Você precisa de permissões de gravação sobre o recurso. Por exemplo, para máquinas virtuais, você precisa do Microsoft. Compute/virtualMachines/Write. Essa ação é incluída em funções internas específicas do recurso, como [colaborador da máquina virtual](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
-- Identidade gerenciada atribuída pelo usuário: Você precisa de permissões de gravação sobre o recurso. Por exemplo, para máquinas virtuais, você precisa do Microsoft. Compute/virtualMachines/Write. Além da atribuição de função de [operador de identidade gerenciada](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) sobre a identidade gerenciada.
+- Identidade gerenciada atribuída pelo sistema: você precisa de permissões de gravação sobre o recurso. Por exemplo, para máquinas virtuais, você precisa do Microsoft. Compute/virtualMachines/Write. Essa ação é incluída em funções internas específicas do recurso, como [colaborador da máquina virtual](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- Identidade gerenciada atribuída pelo usuário: você precisa de permissões de gravação sobre o recurso. Por exemplo, para máquinas virtuais, você precisa do Microsoft. Compute/virtualMachines/Write. Além da atribuição de função de [operador de identidade gerenciada](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) sobre a identidade gerenciada.
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Como reiniciar as identidades gerenciadas para a extensão de recursos do Azure?
 No Windows e em determinadas versões do Linux, se a extensão for interrompida, o cmdlet a seguir poderá ser usado para reiniciá-lo manualmente:
@@ -94,9 +94,9 @@ No Windows e em determinadas versões do Linux, se a extensão for interrompida,
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
-Em que: 
+Onde: 
 - O nome e o tipo da extensão para o Windows é: ManagedIdentityExtensionForWindows
-- O nome e o tipo da extensão para Linux são: ManagedIdentityExtensionForLinux
+- O nome e o tipo da extensão para o Linux é: ManagedIdentityExtensionForLinux
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

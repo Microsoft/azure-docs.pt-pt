@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/26/2019
-ms.openlocfilehash: c71893ec9eae844fb213114f6a3805815ff5894f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: dd92f5aedd1fbc51531730e6a7826322570cd1b1
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555442"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195025"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Como configurar alertas para problemas de desempenho em Azure Monitor para contêineres
 Azure Monitor para contêineres monitora o desempenho de cargas de trabalho de contêiner que são implantadas em instâncias de contêiner do Azure ou em clusters kubernetes gerenciados hospedados no AKS (serviço kubernetes do Azure).
@@ -102,7 +102,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->As consultas a seguir usam os valores de espaço reservado \<your-cluster-Name > e \<your-Controller-Name > para representar o cluster e o controlador. Substitua-os por valores específicos do seu ambiente ao configurar alertas.
+>As consultas a seguir usam os valores de espaço reservado \<nome-do-cluster > e \<> nome-do-controlador para representar o cluster e o controlador. Substitua-os por valores específicos do seu ambiente ao configurar alertas.
 
 A consulta a seguir calcula a utilização média da CPU de todos os contêineres em um controlador como uma média da utilização da CPU de cada instância de contêiner em um controlador a cada minuto. A medida é uma porcentagem do limite configurado para um contêiner.
 
@@ -284,12 +284,12 @@ Siga estas etapas para criar um alerta de log no Azure Monitor usando uma das re
 >O procedimento a seguir para criar uma regra de alerta para utilização de recursos de contêiner exige que você alterne para uma nova API de alertas de log, conforme descrito em [preferência de API de switch para alertas de log](../platform/alerts-log-api-switch.md).
 >
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Monitor** no painel no lado esquerdo. Em **insights**, selecione **contêineres**.
 3. Na guia **clusters monitorados** , selecione um cluster na lista.
 4. No painel no lado esquerdo, em **monitoramento**, selecione **logs** para abrir a página logs de Azure monitor. Use essa página para gravar e executar consultas de Log Analytics do Azure.
 5. Na página **logs** , selecione **+ nova regra de alerta**.
-6. Na seção **condição** , selecione o **sempre que a pesquisa de logs personalizada for \<logic indefinida >** condição de log personalizado predefinida. O tipo de sinal de **pesquisa de log personalizado** é selecionado automaticamente porque estamos criando uma regra de alerta diretamente na página de logs de Azure monitor.  
+6. Na seção **condição** , selecione o **sempre que a pesquisa de logs personalizada estiver \<lógica indefinida > condição de** log personalizado predefinida. O tipo de sinal de **pesquisa de log personalizado** é selecionado automaticamente porque estamos criando uma regra de alerta diretamente na página de logs de Azure monitor.  
 7. Cole uma das [consultas](#resource-utilization-log-search-queries) fornecidas anteriormente no campo de **consulta de pesquisa** .
 8. Configure o alerta da seguinte maneira:
 
@@ -308,4 +308,4 @@ Siga estas etapas para criar um alerta de log no Azure Monitor usando uma das re
 ## <a name="next-steps"></a>Passos seguintes
 
 - Exiba [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para avaliar ou personalizar para alertar, Visualizar ou analisar seus clusters.
-- Para saber mais sobre Azure Monitor e como monitorar outros aspectos do cluster do AKS, consulte [exibir a integridade do serviço kubernetes do Azure](container-insights-analyze.md).
+- Para saber mais sobre Azure Monitor e como monitorar outros aspectos do cluster do kubernetes, consulte [Exibir o desempenho do cluster kubernetes](container-insights-analyze.md) e [exibir a integridade do cluster do kubernetes](container-insights-health.md).

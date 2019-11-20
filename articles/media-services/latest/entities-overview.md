@@ -1,6 +1,7 @@
 ---
-title: Filtragem, ordenação e paginação de entidades dos serviços de mídia – Azure | Microsoft Docs
-description: Este artigo aborda a filtragem, a ordenação e a paginação das entidades dos serviços de mídia do Azure.
+title: Filtragem, ordenação e paginação de entidades de serviços de mídia
+titleSuffix: Azure Media Services
+description: Saiba mais sobre filtragem, ordenação e paginação de entidades dos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,12 +13,12 @@ ms.topic: article
 ms.date: 10/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d13ff3944e53f103c03a92e03d217b0066bc97df
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 22b8c4e2454d6130ebcaf85346b767c843fbc1f0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693315"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186256"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtragem, ordenação e paginação de entidades de serviços de mídia
 
@@ -41,10 +42,10 @@ Operadores de intervalo:
 
 - `gt`: testar se um campo é *maior que* um valor constante.
 - `lt`: testar se um campo é *menor que* um valor constante.
-- `ge`: testar se um campo é *maior ou igual a* uma constante. valor
+- `ge`: testar se um campo é *maior ou igual a* um valor constante.
 - `le`: testar se um campo é *menor ou igual a* um valor constante.
 
-## <a name="filter"></a>Filtrar
+## <a name="filter"></a>Filtro
 
 Use `$filter` para fornecer um parâmetro de filtro OData para localizar somente os objetos nos quais você está interessado.
 
@@ -59,17 +60,17 @@ O exemplo C# a seguir filtra na data de criação do ativo:
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```    
+```
 
 ## <a name="order-by"></a>Ordenar por
 
-Use `$orderby` para classificar os objetos retornados pelo parâmetro especificado. Por exemplo:    
+Use `$orderby` para classificar os objetos retornados pelo parâmetro especificado. Por exemplo:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-Para classificar os resultados em ordem crescente ou decrescente, acrescente `asc` ou `desc` ao nome do campo, separados por um espaço. Por exemplo: `$orderby properties/created desc`.
+Para classificar os resultados em ordem crescente ou decrescente, acrescente um `asc` ou `desc` ao nome do campo, separados por um espaço. Por exemplo: `$orderby properties/created desc`.
 
 ## <a name="skip-token"></a>Ignorar token
 
@@ -77,7 +78,7 @@ Se uma resposta de consulta contiver muitos itens, o serviço retornará um valo
 
 No Media Services V3, não é possível configurar o tamanho da página. O tamanho da página varia de acordo com o tipo de entidade. Leia as seções individuais a seguir para obter detalhes.
 
-Se as entidades forem criadas ou excluídas enquanto você estiver paginando pela coleção, as alterações serão refletidas nos resultados retornados (se essas alterações estiverem na parte da coleção que não foi baixada). 
+Se as entidades forem criadas ou excluídas enquanto você estiver paginando pela coleção, as alterações serão refletidas nos resultados retornados (se essas alterações estiverem na parte da coleção que não foi baixada).
 
 > [!TIP]
 > Você sempre deve usar `nextLink` para enumerar a coleção e não depender de um tamanho de página específico.
@@ -155,29 +156,29 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 A tabela a seguir mostra como você pode aplicar as opções de filtragem e ordenação a diferentes entidades:
 
-|Nome da entidade|Nome da propriedade|Filtrar|Encomenda|
+|Nome da entidade|Nome da propriedade|Filtro|Encomenda|
 |---|---|---|---|
 |[Recursos](https://docs.microsoft.com/rest/api/media/assets/)|nome|`eq`, `gt`, `lt`, `ge`, `le`|`asc` e `desc`|
-||Propriedades. alternateid |`eq`||
-||Propriedades. AssetID |`eq`||
-||Propriedades. criado| `eq`, `gt`, `lt`| `asc` e `desc`|
+||properties.alternateId |`eq`||
+||properties.assetId |`eq`||
+||Properties.created| `eq`, `gt`, `lt`| `asc` e `desc`|
 |[Políticas de chave de conteúdo](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|nome|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
-||Propriedades. criado    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
-||Propriedades. Description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
-||Propriedades. lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
-||Propriedades. PolicyId|`eq`, `ne`||
+||Properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
+||Properties.Description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
+||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
+||properties.policyId|`eq`, `ne`||
 |[Tarefas](https://docs.microsoft.com/rest/api/media/jobs)| nome  | `eq`            | `asc` e `desc`|
-||Propriedades. State        | `eq`, `ne`        |                         |
-||Propriedades. criado      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
-||Propriedades. lastModified | `gt`, `ge`, `lt`, `le` | `asc` e `desc`| 
+||properties.state        | `eq`, `ne`        |                         |
+||Properties.created      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
+||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` e `desc`| 
 |[Localizadores de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators)|nome|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
-||Propriedades. criado    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
-||Properties. endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
+||Properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
+||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 |[Políticas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)|nome|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
-||Propriedades. criado    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
+||Properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` e `desc`|
 |[Transformações](https://docs.microsoft.com/rest/api/media/transforms)| nome | `eq`            | `asc` e `desc`|
-|| Propriedades. criado      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
-|| Propriedades. lastModified | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
+|| Properties.created      | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
+|| properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` e `desc`|
 
 ## <a name="next-steps"></a>Passos seguintes
 

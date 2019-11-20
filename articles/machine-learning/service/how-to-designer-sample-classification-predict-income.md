@@ -1,7 +1,7 @@
 ---
-title: 'Designer: classificar, prever renda'
+title: 'Designer: classificar, exemplo de renda de previsão'
 titleSuffix: Azure Machine Learning
-description: Saiba como criar um classificador de aprendizado de máquina sem escrever uma única linha de código usando o designer (versão prévia).
+description: Siga este exemplo criar um classificador sem código para prever a renda com o designer de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 383cbc11955598505730a4613c50536afac75f95
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 527db89be85cc5b095d33ba89c776a077119f08a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647969"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196053"
 ---
-# <a name="sample-3---classification-with-feature-selection-income-prediction"></a>Exemplo 3-classificação com seleção de recursos: Previsão de renda
+# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Criar um classificador & usar a seleção de recursos para prever a renda com o designer de Azure Machine Learning
+
+**Designer (visualização) exemplo 3**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Saiba como criar um classificador de aprendizado de máquina sem escrever uma única linha de código usando o designer (versão prévia). Este exemplo treina uma **árvore de decisão aumentada de duas classes** para prever censo de renda de adulto (> = 50 mil ou < = 50 mil).

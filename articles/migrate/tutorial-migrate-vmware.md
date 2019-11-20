@@ -1,18 +1,18 @@
 ---
-title: Migrar VMs VMware locais para o Azure com migração de servidor de migrações para Azure sem agente | Microsoft Docs
-description: Descreve como executar a migração sem agente de VMs do VMware locais para o Azure, usando as migrações para Azure.
+title: Migrar migração de servidor de migrações do Azure sem agente de VMs VMware
+description: Saiba como executar uma migração sem agente de VMs VMware com migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ec7d10a1d9fec43c149c068fb408211db76d19eb
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 2b4aad83abc92170df5a7e7cfa7f7751b49b3424
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309386"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196406"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrar VMs do VMware para o Azure (sem agente)
 
@@ -48,12 +48,11 @@ Para decidir se deseja usar a migração baseada em agente ou sem agente, leia e
 
 Antes de começar este tutorial, tem de:
 
-1. [Entenda](migrate-architecture.md) a arquitetura de migração do VMware.
-2. [Conclua o primeiro tutorial](tutorial-prepare-vmware.md) desta série para configurar o Azure e o VMware para migração. Especificamente, neste tutorial, você precisa:
+1. [Conclua o primeiro tutorial](tutorial-prepare-vmware.md) desta série para configurar o Azure e o VMware para migração. Especificamente, neste tutorial, você precisa:
     - [Prepare o Azure](tutorial-prepare-vmware.md#prepare-azure) para migração.
     - [Prepare o ambiente local](tutorial-prepare-vmware.md#prepare-for-agentless-vmware-migration) para migração.
     
-3. Recomendamos que você tente avaliar as VMs VMware com a avaliação de servidor de migrações para Azure antes de migrá-las para o Azure. Para configurar a avaliação, [conclua o segundo tutorial](tutorial-assess-vmware.md) desta série. Se você não quiser avaliar as VMs, poderá ignorar este tutorial. Embora seja recomendável experimentar uma avaliação, mas você não precisa executar uma avaliação antes de tentar uma migração.
+2. Recomendamos que você tente avaliar as VMs VMware com a avaliação de servidor de migrações para Azure antes de migrá-las para o Azure. Para configurar a avaliação, [conclua o segundo tutorial](tutorial-assess-vmware.md) desta série. Se você não quiser avaliar as VMs, poderá ignorar este tutorial. Embora seja recomendável experimentar uma avaliação, mas você não precisa executar uma avaliação antes de tentar uma migração.
 
 
 
@@ -72,7 +71,7 @@ Se você seguiu o segundo tutorial e já tiver um projeto de migrações para Az
 
     ![Selecionar ferramenta](./media/tutorial-migrate-vmware/select-migration-tool.png)
 
-4. Na lista de ferramentas, selecione **migrações para Azure: Ferramenta de** **adição** de migração > de servidor
+4. Na lista de ferramentas, selecione **migrações para Azure: migração de servidor** > **Adicionar ferramenta**
 
     ![Ferramenta de migração de servidor](./media/tutorial-migrate-vmware/server-migration-tool.png)
 
@@ -93,7 +92,7 @@ Siga as instruções neste [artigo](how-to-set-up-appliance-vmware.md) para conf
 
 As migrações para Azure exigem algumas alterações de VM para garantir que as VMs possam ser migradas para o Azure.
 
-- Para alguns sistemas operacionais, as migrações para Azure fazem essas alterações automaticamente. [Saiba mais](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)
+- Para alguns sistemas operacionais, as migrações para Azure fazem essas alterações automaticamente. [Saber mais](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)
 - Se você estiver migrando uma VM que não tem um desses sistemas operacionais, siga as instruções para preparar a VM.
 - É importante fazer essas alterações antes de começar a migração. Se você migrar a VM antes de fazer a alteração, a VM poderá não ser inicializada no Azure.
 - As alterações de configuração feitas em VMs locais são replicadas no Azure depois que a replicação para a VM é habilitada. Para garantir que as alterações sejam replicadas, verifique se o ponto de recuperação que você migra para o é posterior à hora em que as alterações de configuração foram feitas localmente.
@@ -101,16 +100,16 @@ As migrações para Azure exigem algumas alterações de VM para garantir que as
 
 ### <a name="prepare-windows-server-vms"></a>Preparar VMs do Windows Server
 
-**ação** | **Detalhes** | **Sobre**
+**Ação** | **Detalhes** | **Sobre**
 --- | --- | ---
-Verifique se os volumes do Windows na VM do Azure usam as mesmas atribuições de letra de unidade que a VM local. | Configure a política SAN como tudo online. | 1. Entre na VM com uma conta de administrador e abra uma janela de comando.<br/> 2. Digite **DiskPart** para executar o utilitário DiskPart.<br/> 3. Digite **San Policy = OnlineAll**<br/> 4. Digite Exit para sair do DiskPart e feche o prompt de comando.
+Verifique se os volumes do Windows na VM do Azure usam as mesmas atribuições de letra de unidade que a VM local. | Configure a política SAN como tudo online. | 1. entre na VM com uma conta de administrador e abra uma janela de comando.<br/> 2. digite **DiskPart** para executar o utilitário DiskPart.<br/> 3. digite **política de San = OnlineAll**<br/> 4. digite Exit para sair do DiskPart e feche o prompt de comando.
 Habilitar o console de acesso serial do Azure para a VM do Azure | Isso ajuda na solução de problemas. Você não precisa reinicializar a VM. A VM do Azure será inicializada usando a imagem de disco e isso será equivalente a uma reinicialização para a nova VM. | Siga [estas instruções](https://docs.microsoft.com/azure/virtual-machines/windows/serial-console) para habilitar o.
 Instalar a integração de convidado do Hyper-V | Se você estiver migrando computadores que executam o Windows Server 2003, instale o Integration Services convidado do Hyper-V no sistema operacional da VM. | [Saiba mais](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#install-or-update-integration-services).
 Ambiente de Trabalho Remoto | Habilite Área de Trabalho Remota na VM e verifique se o Firewall do Windows não está bloqueando o acesso Área de Trabalho Remota em nenhum perfil de rede. | [Saiba mais](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
 
 ### <a name="prepare-linux-vms"></a>Preparar VMs Linux
 
-**ação** | **Detalhes** 
+**Ação** | **Detalhes** 
 --- | --- | ---
 Instalar Integration Services Linux do Hyper-V | A maioria das novas versões das distribuições do Linux tem isso incluído por padrão.
 Recriar a imagem de inicialização do Linux para conter os drivers do Hyper-V necessários | Isso garante que a VM será inicializada no Azure e só será necessária em algumas distribuições.
@@ -131,7 +130,7 @@ Com a deteção concluída, pode começar a replicação de VMs do VMware no Azu
 > [!NOTE]
 > Você pode replicar até 10 computadores juntos. Se você precisar replicar mais, replique-os simultaneamente em lotes de 10. Para a migração sem agente, você pode executar até 100 replicações simultâneas.
 
-1. No projeto do Azure Migrate > **Servidores**, **Azure Migrate: Migração do Servidor**, clique em **Replicar**.
+1. No projeto de migração do Azure > **servidores**, **migrações para Azure: migração de servidor**, clique em **replicar**.
 
     ![Replicar VMs](./media/tutorial-migrate-vmware/select-replicate.png)
 
@@ -150,27 +149,27 @@ Com a deteção concluída, pode começar a replicação de VMs do VMware no Azu
 
     ![Selecionar avaliação](./media/tutorial-migrate-vmware/select-assessment.png)
 
-5. Em **Máquinas virtuais**, procure VMs conforme necessário e marque cada VM que quer migrar. Depois, clique em **Seguinte: Definições de destino**.
+5. Em **Máquinas virtuais**, procure VMs conforme necessário e marque cada VM que quer migrar. Em seguida, clique em **Avançar: configurações de destino**.
 
     ![Selecionar VMs](./media/tutorial-migrate-vmware/select-vms.png)
 
 6. Em **Definições de destino**, selecione a subscrição, assim como a região de destino para a qual vai migrar, e especifique o grupo de recursos no qual as VMs do Azure vão residir após a migração. Em **Rede Virtual**, selecione a VNet/sub-rede do Azure na qual as VMs do Azure vão ser associadas após a migração.
 7. Em **Benefício Híbrido do Azure**:
 
-    - Selecione **Não** se não quiser aplicar o Benefício Híbrido do Azure. Clique depois em **Seguinte**.
-    - Selecione **Sim** se tiver computadores Windows Server abrangidos com subscrições ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que está a migrar. Clique depois em **Seguinte**.
+    - Selecione **Não** se não quiser aplicar o Benefício Híbrido do Azure. Em seguida, clique em **Seguinte**.
+    - Selecione **Sim** se tiver computadores Windows Server abrangidos com subscrições ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que está a migrar. Em seguida, clique em **Seguinte**.
 
-    ![Definições de destino](./media/tutorial-migrate-vmware/target-settings.png)
+    ![Configurações de destino](./media/tutorial-migrate-vmware/target-settings.png)
 
 8. Em **Computação**, analise o nome, o tamanho, o tipo de disco do SO e o conjunto de disponibilidade das VMs. As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
 
-    - **Tamanho das VMs**: se estiver a utilizar recomendações de avaliação, a lista suspensa Tamanho de VMs incluirá o tamanho recomendado. Caso contrário, o Azure Migrate escolhe um tamanho com base na correspondência mais próxima na subscrição do Azure. Como alternativa, escolha um tamanho manual em **Tamanho de VMs do Azure**. 
-    - **Disco do SO**: especifique o disco (arranque) do SO da VM. O disco do SO é o disco que possui o carregador e o instalador do sistema operativo. 
-    - **Conjunto de disponibilidade**: se a VM deve estar num conjunto de disponibilidade do Azure após a migração, especifique o conjunto. O conjunto deve estar no grupo de recursos de destino especificado para a migração.
+    - **Tamanho da VM**: se você estiver usando recomendações de avaliação, a lista suspensa tamanho da VM conterá o tamanho recomendado. Caso contrário, o Azure Migrate escolhe um tamanho com base na correspondência mais próxima na subscrição do Azure. Como alternativa, escolha um tamanho manual em **Tamanho de VMs do Azure**. 
+    - **Disco do so**: especifique o disco do sistema operacional (inicialização) para a VM. O disco do SO é o disco que possui o carregador e o instalador do sistema operativo. 
+    - **Conjunto de disponibilidade**: se a VM deve estar em um conjunto de disponibilidade do Azure após a migração, especifique o conjunto. O conjunto deve estar no grupo de recursos de destino especificado para a migração.
 
     ![Configurações de computação da VM](./media/tutorial-migrate-vmware/compute-settings.png)
 
-9. Em **Discos**, especifique se os discos das VMs devem ser replicados para o Azure e selecione o tipo de disco (discos geridos SSD/HDD standard ou premium) no Azure. Clique depois em **Seguinte**.
+9. Em **Discos**, especifique se os discos das VMs devem ser replicados para o Azure e selecione o tipo de disco (discos geridos SSD/HDD standard ou premium) no Azure. Em seguida, clique em **Seguinte**.
     - Pode excluir discos da replicação.
     - Se excluir discos, estes não estarão presentes na VM do Azure após a migração. 
 
@@ -185,10 +184,10 @@ Com a deteção concluída, pode começar a replicação de VMs do VMware no Azu
 
 Se esta for a primeira VM que você está replicando no projeto de migrações para Azure, a migração de servidor de migrações para Azure provisiona automaticamente esses recursos no mesmo grupo de recursos que o projeto.
 
-- **Barramento de serviço**: A migração de servidor de migrações para Azure usa o barramento de serviço para enviar mensagens de orquestração de replicação para o dispositivo.
-- **Conta de armazenamento do gateway**: A migração de servidor usa a conta de armazenamento de gateway para armazenar informações de estado sobre as VMs que estão sendo replicadas.
-- **Conta de armazenamento de log**: O dispositivo de migração do Azure carrega logs de replicação para VMs em uma conta de armazenamento de log. As migrações para Azure aplicam as informações de replicação aos discos gerenciados de réplica.
-- **Cofre de chaves**: O dispositivo de migrações para Azure usa o cofre de chaves para gerenciar cadeias de conexão para o barramento de serviço e chaves de acesso para as contas de armazenamento usadas na replicação. Você deve ter configurado as permissões que o cofre de chaves precisa para acessar a conta de armazenamento quando você se preparou. [Revise essas permissões](tutorial-prepare-vmware.md#assign-role-assignment-permissions).   
+- **Barramento de serviço**: a migração de servidor de migrações para Azure usa o barramento de serviço para enviar mensagens de orquestração de replicação para o dispositivo.
+- **Conta de armazenamento do gateway**: a migração do servidor usa a conta de armazenamento do gateway para armazenar informações de estado sobre as VMs que estão sendo replicadas.
+- **Conta de armazenamento de log**: o dispositivo de migrações para Azure carrega logs de replicação para VMs em uma conta de armazenamento de log. As migrações para Azure aplicam as informações de replicação aos discos gerenciados de réplica.
+- **Cofre de chaves**: o dispositivo de migrações para Azure usa o cofre de chaves para gerenciar cadeias de conexão para o barramento de serviço e chaves de acesso para as contas de armazenamento usadas na replicação. Você deve ter configurado as permissões que o cofre de chaves precisa para acessar a conta de armazenamento quando você se preparou. [Revise essas permissões](tutorial-prepare-vmware.md#assign-role-assignment-permissions).   
 
 
 ## <a name="track-and-monitor"></a>Acompanhar e monitorar
@@ -201,8 +200,8 @@ Se esta for a primeira VM que você está replicando no projeto de migrações p
 
 Você pode acompanhar o status do trabalho nas notificações do Portal.
 
-Você pode monitorar o status de replicação clicando em **replicar servidores** nas **migrações para Azure: Migração**de servidor.
-![Monitorar a replicação](./media/tutorial-migrate-vmware/replicating-servers.png)
+Você pode monitorar o status de replicação clicando em **replicar servidores** no **Azure migrar: migração de servidor**.
+![](./media/tutorial-migrate-vmware/replicating-servers.png) de replicação do monitor
 
 
 
@@ -219,7 +218,7 @@ Quando a replicação delta é iniciada, você pode executar uma migração de t
 Faça uma migração de teste da seguinte maneira:
 
 
-1. Em **Objetivos de migração** > **Servidores** > **Azure Migrate: Migração do Servidor**, clique em **Testar servidores migrados**.
+1. Em **metas de migração** > **servidores** > **migrações para Azure: migração de servidor**, clique em **testar servidores migrados**.
 
      ![Testar servidores migrados](./media/tutorial-migrate-vmware/test-migrated-servers.png)
 
@@ -239,7 +238,7 @@ Faça uma migração de teste da seguinte maneira:
 
 Depois de verificar se a migração de teste funciona conforme o esperado, você pode migrar os computadores locais.
 
-1. No projeto do Azure Migrate > **Servidores** > **Azure Migrate: Migração do Servidor**, clique em **Replicar servidores**.
+1. No projeto de migração do Azure > **servidores** > **migrações para Azure: migração de servidor**, clique em **replicar servidores**.
 
     ![Replicar servidores](./media/tutorial-migrate-vmware/replicate-servers.png)
 
@@ -275,6 +274,6 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
 -  Considere implementar o [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração na nuvem](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) na estrutura de adoção de nuvem do Azure.

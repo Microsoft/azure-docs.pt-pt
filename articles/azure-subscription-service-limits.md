@@ -6,16 +6,16 @@ author: rothja
 manager: jeffreyg
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
-ms.service: billing
+ms.service: azure-policy
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: f9fe540611b1b773867e1f92439e13df91ad4bd3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: b6ce20196b6ffdcd6699611998260dc981cc4f44
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818362"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185032"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento lista alguns dos limites de Microsoft Azure mais comuns, que também são chamados de cotas. Este documento não abrange atualmente todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para abranger mais serviços.
@@ -25,7 +25,7 @@ Para saber mais sobre os preços do Azure, consulte [visão geral de preços do 
 > [!NOTE]
 > Se você quiser aumentar o limite ou a cota acima do limite padrão, [abra uma solicitação de atendimento ao cliente online sem encargos](azure-resource-manager/resource-manager-quota-errors.md). Os limites não podem ser gerados acima do valor de limite máximo mostrado nas tabelas a seguir. Se não houver uma coluna de limite máximo, o recurso não terá limites ajustáveis.
 >
-> As [assinaturas de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) não estão qualificadas para aumentos de cota ou limite. Se você tiver uma [assinatura de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), poderá atualizar para uma assinatura [paga conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) . Para obter mais informações, consulte [atualizar sua assinatura de avaliação gratuita do Azure para uma assinatura paga conforme o uso](billing/billing-upgrade-azure-subscription.md) e as [perguntas frequentes sobre assinatura de avaliação gratuita](https://azure.microsoft.com/free/free-account-faq).
+> As [assinaturas de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) não estão qualificadas para aumentos de cota ou limite. Se tiver um [subscrição de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), pode atualizar para uma [pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscrição. Para obter mais informações, consulte [atualizar sua assinatura de avaliação gratuita do Azure para uma assinatura paga conforme o uso](billing/billing-upgrade-azure-subscription.md) e as [perguntas frequentes sobre assinatura de avaliação gratuita](https://azure.microsoft.com/free/free-account-faq).
 >
 
 ## <a name="limits-and-azure-resource-manager"></a>Limites e Azure Resource Manager
@@ -47,10 +47,10 @@ Na lista de limites a seguir, uma nova tabela reflete as diferenças em limites 
 * [Gateway de Aplicação](#application-gateway-limits)
 * [Automatização](#automation-limits)
 * [Cache do Azure para Redis](#azure-cache-for-redis-limits)
-* [Serviços Cloud do Azure](#azure-cloud-services-limits)
+* [Azure Cloud Services](#azure-cloud-services-limits)
 * [Pesquisa Cognitiva do Azure](#azure-cognitive-search-limits)
 * [Serviços Cognitivos do Azure](#azure-cognitive-services-limits)
-* [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [BD do Cosmos para o Azure](#azure-cosmos-db-limits)
 * [Base de Dados do Azure para MySQL](#azure-database-for-mysql)
 * [Base de Dados do Azure para PostgreSQL](#azure-database-for-postgresql)
 * [DNS do Azure](#azure-dns-limits)
@@ -67,7 +67,7 @@ Na lista de limites a seguir, uma nova tabela reflete as diferenças em limites 
 * [Serviços BizTalk](#biztalk-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
-* [Rede de distribuição de conteúdo](#content-delivery-network-limits)
+* [Rede de Entrega de Conteúdos](#content-delivery-network-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -92,7 +92,7 @@ Na lista de limites a seguir, uma nova tabela reflete as diferenças em limites 
   * [Balanceador de Carga](#load-balancer)
   * [Observador de rede](#network-watcher-limits)
   * [Endereço IP público](#publicip-address)
-  * [Link privado](#private-link-limits)
+  * [Ligação Privada](#private-link-limits)
   * [Gestor de Tráfego](#traffic-manager-limits)
   * [Rede Virtual](#networking-limits)
   * [WAN virtual](#virtual-wan-limits)
@@ -402,7 +402,7 @@ Para os limites do banco de dados SQL, consulte [limites de recursos do banco de
 ### <a name="sql-data-warehouse-limits"></a>Limites de SQL Data Warehouse
 Para limites de SQL Data Warehouse, confira [SQL data warehouse limites de recursos](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 - [Entender os limites e as aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 - [Tamanhos de máquina virtual e serviço de nuvem para o Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Tamanhos dos serviços de nuvem do Azure](cloud-services/cloud-services-sizes-specs.md)

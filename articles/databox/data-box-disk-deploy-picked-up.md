@@ -10,12 +10,12 @@ ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 9f0bdbf69336f792479c0089be351e468d3babe2
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: b67e7bf0b6b79d2ae29c2ba8ed7c337f152faebc
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128692"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092082"
 ---
 ::: zone target="chromeless"
 
@@ -137,11 +137,25 @@ Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japo
     - Aceda a **Descrição Geral > Transferir guia de remessa** e obtenha uma guia de remessa para devolução.
     - Afixe a guia ao dispositivo. Certifique-se de que a guia está visível.
 
-2. Para solicitar a recolha:
-    - Ligue para a linha direta da **SingPost** através do número **6845 6485** durante o horário de expediente (das 09:00 às 17:00, de segunda a sexta-feira).  
-    - Indique *Microsoft Azure pickup* (Recolha do Microsoft Azure) e o número do pedido de serviço (número de rastreio na guia de remessa para devolução) para combinar uma recolha. 
-    - Recebe uma confirmação verbal do horário da recolha. 
-    - Se o estafeta não efetuar a recolha, ligue para a **SingPost** através do número **6845 6485** para combinar uma alternativa. 
+2. Para pedir uma recolha, envie um e-mail para o Suporte ao Cliente da SingPost através do seguinte modelo com o número de encomenda (o número de encomenda encontra-se na guia de devolução incluída no pacote entregue).
+
+    ```
+    To: kadcustcare@singpost.com
+    Subject: Microsoft Azure Pick-up - XZ00001234567 
+    Body: 
+     a. Requestor name
+     b. Requestor contact number
+     c. Requestor collection address
+     d. Preferred collection date
+    ```
+
+   > [!NOTE]
+   > Para pedidos de reserva recebidos num dia útil:
+   > - Antes das 15:00, a recolha será agendada para o dia útil seguinte entre as 9:00 e as 13:00.
+   > - Depois das 15:00, a recolha será agendada para o dia útil seguinte entre as 14:00 e as 18:00.
+
+   Se se deparar com algum problema, contacte o Data Box Operations Asia através de adbo@microsoft.com. Indique o nome da tarefa no cabeçalho do assunto e o problema encontrado.
+
 3. Entregue a caixa ao estafeta. 
 
 

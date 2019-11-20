@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 09/17/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 61ffd4857ca9a330a4cb0eeace89791fc0973f70
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c17f1094e562960e851204b40281f5b04c1d40ce
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575097"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186065"
 ---
 # <a name="azure-media-services-v3-overview"></a>Visão geral dos serviços de mídia do Azure v3
 
@@ -54,6 +54,10 @@ Saiba como codificar e empacotar conteúdo, transmitir vídeos sob demanda, tran
 > [!TIP]
 > Antes de começar a desenvolver, examine:<br/>* [conceitos fundamentais](concepts-overview.md) (inclui conceitos importantes, como empacotamento, codificação e proteção)<br/>* [desenvolvendo com APIs do Media Services V3](media-services-apis-overview.md) (inclui informações sobre como acessar APIs, convenções de nomenclatura e assim por diante)
 
+### <a name="sdks"></a>SDKs
+
+Comece a desenvolver com [SDKs do cliente dos serviços de mídia do Azure v3](media-services-apis-overview.md#sdks).
+
 ### <a name="quickstarts"></a>Inícios rápidos  
 
 Os guias de início rápido mostram as instruções fundamentais do dia 1 para que novos clientes experimentem rapidamente os serviços de mídia.
@@ -72,7 +76,7 @@ Os tutoriais mostram procedimentos baseados em cenários para algumas das princi
 * [Analise seu vídeo-.NET](analyze-videos-tutorial-with-api.md)
 * [Criptografia dinâmica AES-128-.NET](protect-with-aes128.md)
 
-### <a name="samples"></a>Exemplos
+### <a name="samples"></a>Amostras
 
 Use [este navegador de exemplos](https://docs.microsoft.com/samples/browse/?products=azure-media-services) para procurar exemplos de código dos serviços de mídia do Azure.
 

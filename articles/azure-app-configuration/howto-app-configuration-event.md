@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: d41ce06279536e3479b96d8d7afedf81624dbc9b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 32a3131c8ff6a01a35fbe42750384dd303a23140
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326591"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185177"
 ---
-# <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Início rápido: Rotear Azure App eventos de configuração para um ponto de extremidade da Web com CLI do Azure
+# <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Início rápido: rotear Azure App eventos de configuração para um ponto de extremidade da Web com CLI do Azure
 
 Neste guia de início rápido, você aprende a configurar Azure App assinaturas de evento de configuração para enviar eventos de modificação de chave-valor para um ponto de extremidade da Web. Azure App os usuários de configuração podem assinar eventos emitidos sempre que os valores de chave são modificados. Esses eventos podem disparar WebHooks, Azure Functions, filas de armazenamento do Azure ou qualquer outro manipulador de eventos com suporte na grade de eventos do Azure. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 
@@ -40,7 +40,7 @@ Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num gru
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group). 
 
-O exemplo a seguir cria um grupo de `<resource_group_name>` recursos chamado no local *westus* .  Substitua `<resource_group_name>` por um nome exclusivo para o seu grupo de recursos.
+O exemplo a seguir cria um grupo de recursos chamado `<resource_group_name>` no local *westus* .  Substitua `<resource_group_name>` por um nome exclusivo para o seu grupo de recursos.
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westus
@@ -48,7 +48,7 @@ az group create --name <resource_group_name> --location westus
 
 ## <a name="create-an-app-configuration"></a>Criar uma configuração de aplicativo
 
-Substitua `<appconfig_name>` por um nome exclusivo para a configuração do aplicativo e `<resource_group_name>` pelo grupo de recursos que você criou anteriormente. O nome deve ser exclusivo porque é usado como um nome DNS.
+Substitua `<appconfig_name>` por um nome exclusivo para a configuração do aplicativo e `<resource_group_name>` com o grupo de recursos que você criou anteriormente. O nome deve ser exclusivo porque é usado como um nome DNS.
 
 ```azurecli-interactive
 az appconfig create \
@@ -100,7 +100,7 @@ Verifique a aplicação Web novamente e repare que um evento de validação de s
 
 ## <a name="trigger-an-app-configuration-event"></a>Disparar um evento de configuração de aplicativo
 
-Agora, vamos acionar um evento para ver como o Event Grid distribui a mensagem para o ponto final. Crie um valor de chave usando o `<appconfig_name>` de antes.
+Agora, vamos acionar um evento para ver como o Event Grid distribui a mensagem para o ponto final. Crie um valor de chave usando o `<appconfig_name>` do anterior.
 
 ```azurecli-interactive
 az appconfig kv set --name <appconfig_name> --key Foo --value Bar --yes
@@ -134,7 +134,7 @@ Substitua `<resource_group_name>` pelo grupo de recursos que criou acima.
 az group delete --name <resource_group_name>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você sabe como criar tópicos e assinaturas de evento, saiba mais sobre os eventos de valor-chave e qual grade de eventos pode ajudá-lo:
 

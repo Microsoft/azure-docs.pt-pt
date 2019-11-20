@@ -1,5 +1,5 @@
 ---
-title: Como configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando o PowerShell
+title: Configurar identidades gerenciadas em uma VM do Azure usando o PowerShell-Azure AD
 description: Instruções passo a passo para configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando o PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ba8ce6fb8147736c8265148a9f3576390dcccc6
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 6e17b4a3f71e67b99bfbd4c52edc00f98d549ef2
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309767"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183700"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando o PowerShell
 
@@ -48,7 +48,7 @@ Para criar uma VM do Azure com a identidade gerenciada atribuída pelo sistema h
 
 1. Consulte um dos seguintes inícios rápidos de VM do Azure, concluindo apenas as seções necessárias ("entrar no Azure", "Criar grupo de recursos", "Criar grupo de rede", "criar a VM").
     
-    Quando você chegar à seção "criar a VM", faça uma pequena modificação na sintaxe do cmdlet [New-AzVMConfig](/powershell/module/az.compute/new-azvm) . Certifique-se de adicionar `-AssignIdentity:$SystemAssigned` um parâmetro para provisionar a VM com a identidade atribuída pelo sistema habilitada, por exemplo:
+    Quando você chegar à seção "criar a VM", faça uma pequena modificação na sintaxe do cmdlet [New-AzVMConfig](/powershell/module/az.compute/new-azvm) . Certifique-se de adicionar um parâmetro `-AssignIdentity:$SystemAssigned` para provisionar a VM com a identidade atribuída pelo sistema habilitada, por exemplo:
       
     ```powershell
     $vmConfig = New-AzVMConfig -VMName myVM -AssignIdentity:$SystemAssigned ...
@@ -69,7 +69,7 @@ Para habilitar a identidade gerenciada atribuída pelo sistema em uma VM que foi
    Connect-AzAccount
    ```
 
-2. Primeiro, recupere as propriedades da VM `Get-AzVM` usando o cmdlet. Em seguida, para habilitar uma identidade gerenciada atribuída pelo sistema `-AssignIdentity` , use a opção no cmdlet [Update-AzVM](/powershell/module/az.compute/update-azvm) :
+2. Primeiro, recupere as propriedades da VM usando o cmdlet `Get-AzVM`. Em seguida, para habilitar uma identidade gerenciada atribuída pelo sistema, use a opção `-AssignIdentity` no cmdlet [Update-AzVM](/powershell/module/az.compute/update-azvm) :
 
    ```powershell
    $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
@@ -88,13 +88,13 @@ Depois de habilitar a identidade atribuída pelo sistema em uma VM, você pode a
    Connect-AzAccount
    ```
 
-2. Recupere e observe o `ObjectID` (conforme especificado `Id` no campo dos valores retornados) da entidade de serviço da VM:
+2. Recupere e observe o `ObjectID` (conforme especificado no campo `Id` dos valores retornados) da entidade de serviço da VM:
 
    ```powerhshell
    Get-AzADServicePrincipal -displayname "myVM"
    ```
 
-3. Recupere e observe o `ObjectID` (conforme especificado `Id` no campo dos valores retornados) do Grupo:
+3. Recupere e observe a `ObjectID` (conforme especificado no campo `Id` dos valores retornados) do Grupo:
 
    ```powershell
    Get-AzADGroup -searchstring "myGroup"
@@ -118,7 +118,7 @@ Se você tiver uma máquina virtual que não precisa mais da identidade gerencia
    Connect-AzAccount
    ```
 
-2. Recupere as propriedades da VM usando `Get-AzVM` o cmdlet e defina `-IdentityType` o parâmetro `UserAssigned`como:
+2. Recupere as propriedades da VM usando o cmdlet `Get-AzVM` e defina o parâmetro `-IdentityType` como `UserAssigned`:
 
    ```powershell   
    $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM 
@@ -144,7 +144,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
 
 1. Consulte um dos seguintes inícios rápidos de VM do Azure, concluindo apenas as seções necessárias ("entrar no Azure", "Criar grupo de recursos", "Criar grupo de rede", "criar a VM"). 
   
-    Quando você chegar à seção "criar a VM", faça uma pequena modificação na sintaxe do [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet. Adicione os `-IdentityType UserAssigned` parâmetros `-IdentityID` e para provisionar a VM com uma identidade atribuída pelo usuário.  Substitua `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`e pelosseusprópriosvalores.`<USER ASSIGNED IDENTITY NAME>`  Por exemplo:
+    Quando você chegar à seção "criar a VM", faça uma pequena modificação na sintaxe do cmdlet [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) . Adicione os parâmetros `-IdentityType UserAssigned` e `-IdentityID` para provisionar a VM com uma identidade atribuída pelo usuário.  Substitua `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores.  Por exemplo:
     
     ```powershell 
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."
@@ -165,18 +165,18 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    Connect-AzAccount
    ```
 
-2. Crie uma identidade gerenciada atribuída pelo usuário usando o cmdlet [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) .  Observe o `Id` na saída, pois você precisará dele na próxima etapa.
+2. Crie uma identidade gerenciada atribuída pelo usuário usando o cmdlet [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) .  Observe a `Id` na saída, pois você precisará dela na próxima etapa.
 
    > [!IMPORTANT]
-   > A criação de identidades gerenciadas atribuídas pelo usuário dá suporte apenas a caracteres alfanuméricos, sublinhados e hifens \_ (0-9 ou a-z ou a-z ou-). Além disso, o nome deve ser limitado de 3 a 128 de comprimento de caractere para que a atribuição a VM/VMSS funcione corretamente. Para obter mais informações [, consulte perguntas frequentes e problemas conhecidos](known-issues.md)
+   > A criação de identidades gerenciadas atribuídas pelo usuário dá suporte apenas a caracteres alfanuméricos, sublinhados e hifens (0-9 ou a-z ou A-Z, \_ ou-). Além disso, o nome deve ser limitado de 3 a 128 de comprimento de caractere para que a atribuição a VM/VMSS funcione corretamente. Para obter mais informações [, consulte perguntas frequentes e problemas conhecidos](known-issues.md)
 
    ```powershell
    New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
    ```
-3. Recupere as propriedades da VM usando `Get-AzVM` o cmdlet. Em seguida, para atribuir uma identidade gerenciada atribuída pelo usuário à VM do Azure `-IdentityType` , `-IdentityID` use a opção e no cmdlet [Update-AzVM](/powershell/module/az.compute/update-azvm) .  O valor do`-IdentityId` parâmetro é o `Id` que você anotou na etapa anterior.  Substitua `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`e pelosseusprópriosvalores.`<USER ASSIGNED IDENTITY NAME>`
+3. Recupere as propriedades da VM usando o cmdlet `Get-AzVM`. Em seguida, para atribuir uma identidade gerenciada atribuída pelo usuário à VM do Azure, use a opção `-IdentityType` e `-IdentityID` no cmdlet [Update-AzVM](/powershell/module/az.compute/update-azvm) .  O valor do parâmetro`-IdentityId` é o `Id` que você anotou na etapa anterior.  Substitua `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores.
 
    > [!WARNING]
-   > Para manter quaisquer identidades gerenciadas previamente atribuídas ao usuário atribuídas à VM `Identity` , consulte a propriedade do objeto da VM ( `$vm.Identity`por exemplo,).  Se quaisquer identidades gerenciadas atribuídas ao usuário forem retornadas, inclua-as no comando a seguir junto com a nova identidade gerenciada atribuída pelo usuário que você deseja atribuir à VM.
+   > Para manter qualquer identidade gerenciada anteriormente atribuída pelo usuário atribuída à VM, consulte a propriedade `Identity` do objeto da VM (por exemplo, `$vm.Identity`).  Se quaisquer identidades gerenciadas atribuídas ao usuário forem retornadas, inclua-as no comando a seguir junto com a nova identidade gerenciada atribuída pelo usuário que você deseja atribuir à VM.
 
    ```powershell
    $vm = Get-AzVM -ResourceGroupName <RESOURCE GROUP> -Name <VM NAME>
@@ -189,7 +189,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
 
 Para remover uma identidade atribuída pelo usuário a uma VM, sua conta precisa da atribuição de função de [colaborador da máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) .
 
-Se sua VM tiver várias identidades gerenciadas atribuídas pelo usuário, você poderá remover tudo, exceto o último, usando os comandos a seguir. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY NAME>` é a propriedade Name da identidade gerenciada atribuída pelo usuário, que deve permanecer na VM. Essas informações podem ser encontradas consultando a `Identity` Propriedade do objeto da VM.  Por exemplo, `$vm.Identity`:
+Se sua VM tiver várias identidades gerenciadas atribuídas pelo usuário, você poderá remover tudo, exceto o último, usando os comandos a seguir. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY NAME>` é a propriedade Name da identidade gerenciada atribuída pelo usuário, que deve permanecer na VM. Essas informações podem ser encontradas consultando a propriedade `Identity` do objeto da VM.  Por exemplo, `$vm.Identity`:
 
 ```powershell
 $vm = Get-AzVm -ResourceGroupName myResourceGroup -Name myVm

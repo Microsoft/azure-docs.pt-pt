@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring Boot
 ms.workload: tbd
 ms.date: 09/26/2019
 ms.author: mametcal
-ms.openlocfilehash: fe943913f9d33923438efb91630c5a85c4d1b748
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: cae1e7b205869fd41850c1adfaeae97658dd02f0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687186"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184953"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Início rápido: Adicionar sinalizadores de recurso a um aplicativo Spring boot
 
@@ -37,9 +37,9 @@ As bibliotecas de gerenciamento de recursos do Spring boot estendem a estrutura 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Gerenciador** > de recursos **+ criar** para adicionar os seguintes sinalizadores de recurso:
+6. Selecione **Gerenciador de recursos** >  **+ criar** para adicionar os seguintes sinalizadores de recurso:
 
-    | Chave | State |
+    | Chave | Estado |
     |---|---|
     | Beta | Desativado |
 
@@ -86,7 +86,7 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conectar-se a um repositório de configuração de aplicativo
 
-1. Abra `bootstrap.properties`, que está sob o diretório de recursos do seu aplicativo, e adicione as linhas a seguir ao arquivo. Adicione as informações de configuração do aplicativo.
+1. Abra `bootstrap.properties` que está sob o diretório de recursos do seu aplicativo e adicione as linhas a seguir ao arquivo. Adicione as informações de configuração do aplicativo.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
@@ -232,7 +232,7 @@ Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo pro
 
 3. No portal de configuração do aplicativo, selecione **Gerenciador de recursos**e altere o estado da chave **beta** para **ativado**:
 
-    | Chave | State |
+    | Chave | Estado |
     |---|---|
     | Beta | Ativado |
 

@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 1b3ee75d1b24cab8211337cf1cdbd053327e16b8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ba309b864056b10fe6540e85ffbc4c013af00455
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823833"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186474"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure
 
@@ -226,3 +226,4 @@ Para obter mais informações, consulte [criar alertas do banco de dados SQL no 
 - Para um vídeo, consulte [curso de vídeo da Microsoft Virtual Academy sobre recursos elásticos do banco de dados SQL do Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 - Para saber mais sobre os padrões de estrutura de aplicações SaaS que utilizam conjuntos elásticos, consulte o artigo [Padrões de Estrutura de Aplicações SaaS Multi-inquilino com a Base de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 - Para obter um tutorial de SaaS usando pools elásticos, consulte [introdução ao aplicativo SaaS Wingtip](sql-database-wtp-overview.md).
+- Para saber mais sobre o gerenciamento de recursos em pools elásticos com muitos bancos de dados, consulte [Gerenciamento de recursos em pools elásticos densos](sql-database-elastic-pool-resource-management.md).

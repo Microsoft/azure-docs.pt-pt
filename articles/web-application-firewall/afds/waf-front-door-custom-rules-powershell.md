@@ -1,5 +1,5 @@
 ---
-title: Configurar uma política de WAF (firewall do aplicativo Web) com regras personalizadas e Ruse padrão definido para a porta frontal-Azure PowerShell
+title: Configurar regras personalizadas do WAF & conjunto de regras padrão para a porta frontal do Azure
 description: Saiba como configurar uma política de WAF consistir em regras personalizadas e gerenciadas para um ponto de extremidade de porta de recepção existente.
 services: web-application-firewall
 author: vhorne
@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: victorh
-ms.openlocfilehash: fec1ed5d51c4afe43df513b54595b4ce1e2f4bbb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 493ed1a31a23366a90b80d3ab510218c8dce0e9c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512551"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186639"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configurar uma política de firewall do aplicativo Web usando Azure PowerShell
 

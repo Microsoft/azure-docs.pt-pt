@@ -1,23 +1,23 @@
 ---
-title: Arquitetura de migração baseada em agente no Azure migrar migração de servidor
+title: Migração baseada em agente no Azure migrar migração de servidor
 description: Fornece uma visão geral da migração de VM do VMware baseada em agente com a migração de servidor de migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: f5ad3aa0fc51f47942750d3745ffef1d6e4a087d
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a8477b4c10ccbc76f36eed4d64ac12e8bb648a28
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232581"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186090"
 ---
 # <a name="agent-based-migration-architecture"></a>Arquitetura de migração baseada em agentes
 
 Este artigo fornece uma visão geral da arquitetura e dos processos usados para a replicação baseada em agente com a ferramenta de migração de servidor de migrações para Azure.
 
-As migrações para [Azure](migrate-services-overview.md) fornecem um hub central para acompanhar a descoberta, avaliação e migração de seus aplicativos e cargas de trabalho locais e instâncias de VM AWS/GCP para o Azure. O Hub fornece ferramentas de migração do Azure para avaliação e migração, bem como ofertas de ISVs (fornecedores independentes de software) de terceiros.
+As [migrações para Azure](migrate-services-overview.md) fornecem um hub central para acompanhar a descoberta, avaliação e migração de seus aplicativos e cargas de trabalho locais e instâncias de VM AWS/GCP para o Azure. O Hub fornece ferramentas de migração do Azure para avaliação e migração, bem como ofertas de ISVs (fornecedores independentes de software) de terceiros.
 
 ## <a name="agent-based-replication"></a>Replicação baseada em agente
 
@@ -42,15 +42,15 @@ A tabela resume os componentes usados para a migração baseada em agente.
 
 **Componente** | **Detalhes** | **Instalação**
 --- | --- | ---
-**Dispositivo de replicação** | O dispositivo de replicação (servidor de configuração) é um computador local que atua como uma ponte entre o ambiente local e a ferramenta de migração de servidor de migrações para Azure. O dispositivo descobre o inventário de VM local, para que a migração do servidor do Azure possa orquestrar a replicação e a migração. O dispositivo tem dois componentes:<br/><br/> **Servidor de configuração**: Conecta-se à migração do servidor de migrações para Azure e coordena a replicação.<br/> **Servidor de processos**: Lida com a replicação de dados. Ele recebe dados da VM, compacta e criptografa-os e envia para a assinatura do Azure. Lá, a migração do servidor grava os dados em discos gerenciados. | Por padrão, o servidor de processo é instalado junto com o servidor de configuração no dispositivo de replicação.
+**Dispositivo de replicação** | O dispositivo de replicação (servidor de configuração) é um computador local que atua como uma ponte entre o ambiente local e a ferramenta de migração de servidor de migrações para Azure. O dispositivo descobre o inventário de VM local, para que a migração do servidor do Azure possa orquestrar a replicação e a migração. O dispositivo tem dois componentes:<br/><br/> **Servidor de configuração**: conecta-se à migração do servidor de migrações para Azure e coordena a replicação.<br/> **Servidor de processo**: lida com a replicação de dados. Ele recebe dados da VM, compacta e criptografa-os e envia para a assinatura do Azure. Lá, a migração do servidor grava os dados em discos gerenciados. | Por padrão, o servidor de processo é instalado junto com o servidor de configuração no dispositivo de replicação.
 **Serviço de mobilidade** | O serviço de mobilidade é um agente instalado em cada computador que você deseja replicar e migrar. Ele envia dados de replicação do computador para o servidor de processo. Há vários agentes de serviço de mobilidade diferentes disponíveis. | Os arquivos de instalação do serviço de mobilidade estão localizados no dispositivo de replicação. Você baixa e instala o agente de que precisa, de acordo com o sistema operacional e a versão do computador que você deseja replicar.
 
 ### <a name="mobility-service-installation"></a>Instalação do serviço de Mobilidade
 
 Você pode implantar o serviço de mobilidade usando os seguintes métodos:
 
-- **Instalação por push**: O serviço de mobilidade é instalado pelo servidor de processo quando você habilita a proteção para um computador. 
-- **Instalar manualmente**: Você pode instalar o serviço de mobilidade manualmente em cada computador por meio da interface do usuário ou do prompt de comando.
+- **Instalação por push**: o serviço de mobilidade é instalado pelo servidor de processo quando você habilita a proteção para um computador. 
+- **Instalar manualmente**: você pode instalar o serviço de mobilidade manualmente em cada computador por meio da interface do usuário ou do prompt de comando.
 
 O serviço de mobilidade se comunica com o dispositivo de replicação e com máquinas replicadas. Se você tiver um software antivírus em execução no dispositivo de replicação, servidores de processo ou máquinas que estão sendo replicadas, as seguintes pastas deverão ser excluídas da verificação:
 
@@ -79,7 +79,7 @@ O serviço de mobilidade se comunica com o dispositivo de replicação e com má
 --- | --- 
 VMs | O serviço de mobilidade em execução nas VMs se comunica com o dispositivo de replicação local na porta HTTPS 443 de entrada para o gerenciamento de replicação.<br/><br/> As VMs enviam dados de replicação para o servidor de processo (em execução no dispositivo de replicação por padrão) na porta HTTPS 9443 de entrada. Essa porta pode ser modificada.
 Dispositivo de replicação | O dispositivo de replicação orquestra a replicação com o Azure sobre a porta HTTPS 443 de saída.
-Servidor de processos | O servidor de processo recebe dados de replicação, otimiza-os e criptografa-os e envia-os para o armazenamento do Azure pela porta 443 de saída.
+Servidor de processo | O servidor de processo recebe dados de replicação, otimiza-os e criptografa-os e envia-os para o armazenamento do Azure pela porta 443 de saída.
 
 
 ## <a name="performance-and-scaling"></a>Desempenho e dimensionamento
@@ -100,8 +100,8 @@ Os valores nesta tabela podem ser usados para descobrir se você precisa de um s
 **CPU** | **Memória** | **Espaço livre para cache de dados** | **Taxa de rotatividade** | **Limites de replicação**
 --- | --- | --- | --- | ---
 8 vCPUs (2 soquetes * 4 núcleos \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB ou menos | < computadores 100 
-12 vCPUs (2 soquetes x 6 núcleos \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB a 1 TB | 100-150 computadores.
-16 vCPUs (2 soquetes x 8 núcleos \@ 2,5 GHz) | 32 G1 |  1 TB | 1 TB a 2 TB | 151-200 computadores.
+12 vCPUs (2 soquetes * 6 núcleos \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB a 1 TB | 100-150 computadores.
+16 vCPUs (2 soquetes * 8 núcleos \@ 2,5 GHz) | 32 G1 |  1 TB | 1 TB a 2 TB | 151-200 computadores.
 
 ### <a name="scale-out-process-server-sizing"></a>Dimensionamento do servidor de processo de expansão
 
@@ -109,16 +109,16 @@ Se você precisar implantar um servidor de processo de expansão, essa tabela po
 
 **Servidor de processos** | **Espaço livre para cache de dados** | **Taxa de rotatividade** | **Limites de replicação**
 --- | --- | --- | --- 
-4 vCPUs (2 soquetes x 2 núcleos \@ 2,5 GHz), 8 GB de memória | 300 GB | 250 GB ou menos | Até 85 computadores 
+4 vCPUs (2 soquetes * 2 núcleos \@ 2,5 GHz), 8 GB de memória | 300 GB | 250 GB ou menos | Até 85 computadores 
 8 vCPUs (2 soquetes * 4 núcleos \@ 2,5 GHz), 12 GB de memória | 600 GB | 251 GB a 1 TB    | 86-150 computadores.
-12 vCPUs (2 soquetes x 6 núcleos \@ 2,5 GHz), 24 GB de memória | 1 TB | 1-2 TB | 151-225 computadores.
+12 vCPUs (2 soquetes * 6 núcleos \@ 2,5 GHz), 24 GB de memória | 1 TB | 1-2 TB | 151-225 computadores.
 
 ## <a name="control-upload-throughput"></a>Taxa de transferência de upload de controle
 
 
  O tráfego do VMware que Replica para o Azure passa por um servidor de processo específico. Você pode limitar a taxa de transferência de upload, limitando a largura de banda nos computadores que estão sendo executados como servidores de processo. Você pode influenciar a largura de banda usando essa chave do registro:
 
-- O valor do Registro HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM especifica o número de threads usados para transferência de dados (replicação inicial ou Delta) de um disco. Um valor mais alto aumenta a largura de banda de rede usada para replicação. O valor padrão é quatro. O valor máximo é 32. Monitorize o tráfego para otimizar o valor.
+- O valor do registro HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows do Backup\Replication\UploadThreadsPerVM do Azure especifica o número de threads usados para transferência de dados (replicação inicial ou Delta) de um disco. Um valor mais alto aumenta a largura de banda de rede usada para replicação. O valor padrão é quatro. O valor máximo é 32. Monitorize o tráfego para otimizar o valor.
 - Além disso, você pode limitar a largura de banda na máquina do servidor de processo da seguinte maneira:
 
     1. No computador do servidor de processo, abra o snap-in MMC do backup do Azure. Há um atalho na área de trabalho ou na pasta C:\Program Files\Microsoft Azure Recovery Services Agent\bin. 
@@ -126,6 +126,6 @@ Se você precisar implantar um servidor de processo de expansão, essa tabela po
     3. Em **limitação**, selecione **habilitar limitação de uso de largura de banda da Internet para operações de backup**. Defina os limites de horas de trabalho e de folga. Intervalos válidos são de 512 kbps a 1.023 Mbps.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente a [migração de VM VMware](tutorial-migrate-vmware-agent.md) baseada em agente usando a migração de servidor de migrações para Azure.

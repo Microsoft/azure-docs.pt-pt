@@ -1,6 +1,6 @@
 ---
-title: Configuração de aplicações após desastre e resiliência a recuperação do Azure | Documentos da Microsoft
-description: Uma visão geral de como implementar a recuperação após desastre e resiliência com a configuração de aplicações do Azure.
+title: Recuperação de desastre e resiliência de configuração de Azure App | Microsoft Docs
+description: Uma visão geral de como implementar resiliência e recuperação de desastre com a configuração do Azure App.
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -12,28 +12,28 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 05/29/2019
 ms.author: yegu
-ms.openlocfilehash: c05957cda16c96b841433483a90429aab2b4d22d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 291f6fe48d81397d293ab54a73e777831e25f6ea
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706505"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185283"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resiliência e recuperação após desastre
 
-Atualmente, a configuração de aplicações do Azure é um serviço regional. Cada arquivo de configuração é criado numa região do Azure específica. Uma interrupção de toda a região afeta todos os arquivos de nessa região. Configuração de aplicações não oferece a ativação pós-falha automática para outra região. Este artigo fornece orientações gerais sobre como pode usar vários arquivos de configuração entre regiões do Azure para aumentar a resiliência de georreplicação do seu aplicativo.
+Atualmente, Azure App configuração é um serviço regional. Cada repositório de configuração é criado em uma determinada região do Azure. Uma interrupção em toda a região afeta todas as lojas nessa região. A configuração do aplicativo não oferece failover automático para outra região. Este artigo fornece diretrizes gerais sobre como você pode usar vários armazenamentos de configuração em regiões do Azure para aumentar a resiliência geográfica do seu aplicativo.
 
-## <a name="high-availability-architecture"></a>Arquitetura de elevada disponibilidade
+## <a name="high-availability-architecture"></a>Arquitetura de alta disponibilidade
 
-Para obter redundância entre regiões, terá de criar vários arquivos de configuração de aplicação em regiões diferentes. Com esta configuração, a aplicação tem do arquivo de configuração adicionais, pelo menos, um recorrer ao se o arquivo primário ficar inacessível. O diagrama seguinte ilustra a topologia entre seu aplicativo e seus arquivos de configuração primários e secundários:
+Para perceber a redundância entre regiões, você precisa criar vários repositórios de configuração de aplicativo em regiões diferentes. Com essa configuração, seu aplicativo tem pelo menos um repositório de configuração adicional para fazer o fallback se o repositório primário se tornar inacessível. O diagrama a seguir ilustra a topologia entre seu aplicativo e seus armazenamentos de configuração primários e secundários:
 
-![Lojas com redundância geográfica](./media/geo-redundant-app-configuration-stores.png)
+![Armazenamentos com redundância geográfica](./media/geo-redundant-app-configuration-stores.png)
 
-A aplicação carrega a configuração das lojas primárias e secundárias em paralelo. Isso aumenta a possibilidade de obter com êxito os dados de configuração. É responsável por manter os dados em ambos os armazenamentos em sincronia. As secções seguintes explicam como criar geo-resiliência na sua aplicação.
+Seu aplicativo carrega sua configuração de armazenamentos primários e secundários em paralelo. Isso aumenta a chance de obter os dados de configuração com êxito. Você é responsável por manter os dados em ambos os repositórios sincronizados. As seções a seguir explicam como você pode criar resiliência geográfica em seu aplicativo.
 
-## <a name="failover-between-configuration-stores"></a>Ativação pós-falha entre arquivos de configuração
+## <a name="failover-between-configuration-stores"></a>Failover entre repositórios de configuração
 
-Tecnicamente, a aplicação não está a executar uma ativação pós-falha. Esta é a tentar obter o mesmo conjunto de dados de configuração a partir de dois arquivos de configuração de aplicações em simultâneo. Organize seu código para que ele carrega primeiro na loja secundária e, em seguida, armazenar a principal. Esta abordagem garante que os dados de configuração no arquivo primário tem precedência, sempre que está disponível. O fragmento de código seguinte mostra como implementar essa organização na CLI do núcleo do .NET:
+Tecnicamente, seu aplicativo não está executando um failover. Ele está tentando recuperar o mesmo conjunto de dados de configuração de dois repositórios de configuração de aplicativo simultaneamente. Organize seu código para que ele carregue a partir do armazenamento secundário primeiro e, em seguida, o repositório primário. Essa abordagem garante que os dados de configuração no repositório primário tenham precedência sempre que estiverem disponíveis. O trecho de código a seguir mostra como você pode implementar essa disposição no CLI do .NET Core:
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -48,27 +48,27 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     }
 ```
 
-Observe que o `optional` parâmetro passado para o `AddAzureAppConfiguration` função. Quando definido como `true`, este parâmetro impede a aplicação de conseguir continuar se a função não é possível carregar dados de configuração.
+Observe o parâmetro `optional` passado para a função `AddAzureAppConfiguration`. Quando definido como `true`, esse parâmetro impede que o aplicativo falhe se a função não puder carregar dados de configuração.
 
-## <a name="synchronization-between-configuration-stores"></a>Sincronização entre os arquivos de configuração
+## <a name="synchronization-between-configuration-stores"></a>Sincronização entre repositórios de configuração
 
-É importante que todos os seus arquivos de configuração com redundância geográfica têm o mesmo conjunto de dados. Pode utilizar o **exportar** função numa configuração de aplicação para copiar dados de arquivo primário para o secundário a pedido. Esta função está disponível através do portal do Azure e a CLI.
+É importante que sua configuração com redundância geográfica armazene todos tenham o mesmo conjunto de dados. Você pode usar a função de **exportação** na configuração do aplicativo para copiar dados do repositório primário para o secundário sob demanda. Essa função está disponível por meio do portal do Azure e da CLI.
 
-No portal do Azure, pode emitir uma alteração para outro arquivo de configuração ao seguir estes passos.
+No portal do Azure, você pode enviar uma alteração para outro repositório de configuração seguindo estas etapas.
 
-1. Vá para o **importação/exportação** separador e selecione **exportar** > **configuração de aplicações** > **destino**  >  **Selecionar um recurso**.
+1. Vá para a guia **importação/exportação** e selecione **Exportar** > **configuração de aplicativo** > **destino** > **Selecione um recurso**.
 
-2. No novo painel apresentado, especifique a subscrição, o grupo de recursos e o nome de recurso do seu armazenamento secundário e, em seguida, selecione **aplicar**.
+2. Na nova folha que é aberta, especifique a assinatura, o grupo de recursos e o nome do recurso do armazenamento secundário e, em seguida, selecione **aplicar**.
 
-3. A interface do Usuário é atualizada para que pode escolher os dados de configuração que pretende exportar para o seu armazenamento secundário. Pode deixar o valor de tempo predefinido como está e definir ambos **da etiqueta** e **etiqueta** para o mesmo valor. Selecione **Aplicar**.
+3. A interface do usuário é atualizada para que você possa escolher quais dados de configuração deseja exportar para o armazenamento secundário. Você pode deixar o valor de hora padrão como está e definir ambos **de rótulo** e **para rotular** para o mesmo valor. Selecione **Aplicar**.
 
-4. Repita os passos anteriores para todas as alterações de configuração.
+4. Repita as etapas anteriores para todas as alterações de configuração.
 
-Para automatizar este processo de exportação, utilize a CLI do Azure. O comando seguinte mostra como exportar uma alteração de configuração única do arquivo primário para o secundário:
+Para automatizar esse processo de exportação, use o CLI do Azure. O comando a seguir mostra como exportar uma única alteração de configuração do repositório primário para o secundário:
 
     az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a aumentar a sua aplicação para obter geo-resiliência durante o tempo de execução para a configuração de aplicação. Também pode incorporar dados de configuração de configuração de aplicações em tempo de compilação ou de implementação. Para obter mais informações, consulte [integrar com um pipeline CI/CD](./integrate-ci-cd-pipeline.md).
+Neste artigo, você aprendeu a aumentar seu aplicativo para obter resiliência geográfica durante o tempo de execução para a configuração do aplicativo. Você também pode inserir dados de configuração da configuração do aplicativo no momento da compilação ou implantação. Para obter mais informações, consulte [integrar com um pipeline de CI/CD](./integrate-ci-cd-pipeline.md).
 

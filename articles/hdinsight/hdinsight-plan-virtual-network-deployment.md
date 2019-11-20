@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 61b929756cbc4cf13103faa67a667128eaffeec8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 8d89031a3b27742149d450ab79c9febf0aaef1ff
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498171"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185630"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planejar uma rede virtual para o Azure HDInsight
 
@@ -221,7 +221,7 @@ Se você planeja usar **grupos de segurança de rede** para controlar o tráfego
 
 1. Identifique a região do Azure que você planeja usar para o HDInsight.
 
-2. Identifique os endereços IP exigidos pelo HDInsight. Para obter mais informações, veja [Endereços IP de gestão do HDInsight](hdinsight-management-ip-addresses.md).
+2. Identifique as marcas de serviço exigidas pelo HDInsight para sua região. Para obter mais informações, consulte [marcas de serviço do NSG (grupo de segurança de rede) para o Azure HDInsight](hdinsight-service-tags.md).
 
 3. Crie ou modifique os grupos de segurança de rede para a sub-rede na qual você planeja instalar o HDInsight.
 

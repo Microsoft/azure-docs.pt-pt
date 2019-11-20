@@ -1,7 +1,7 @@
 ---
-title: 'Designer: prever o risco de crédito (sensível ao custo)'
+title: 'Designer: prever exemplo de risco de crédito'
 titleSuffix: Azure Machine Learning
-description: Este artigo mostra como criar um pipeline de aprendizado de máquina complexo usando o designer (versão prévia). Você aprenderá a implementar scripts Python personalizados e a comparar vários modelos para escolher a melhor opção.
+description: Crie um classificador e use scripts Python personalizados para prever o risco de crédito usando o designer de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 7af0ee31c7d7e5dae4a38db7f6c74ff3e5f964bb
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 0bf69683fc5afe24e0e7977b05892c3c10b0cd46
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647991"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196097"
 ---
-# <a name="sample-4---classification-with-custom-python-script-predict-credit-risk"></a>Exemplo 4-classificação com script Python personalizado: prever risco de crédito
+# <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>Criar um classificador & usar scripts Python para prever o risco de crédito usando o designer de Azure Machine Learning
+
+**Designer (visualização) exemplo 4**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Este artigo mostra como criar um pipeline de aprendizado de máquina complexo usando o designer (versão prévia). Você aprenderá a implementar a lógica personalizada usando scripts Python e a comparar vários modelos para escolher a melhor opção.

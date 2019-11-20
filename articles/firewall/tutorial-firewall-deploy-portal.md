@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: implementar e configurar o Azure Firewall com o portal do Azure'
+title: 'Tutorial: implantar & configurar o Firewall do Azure usando o portal do Azure'
 description: Neste tutorial, irá aprender a implementar e configurar o Azure Firewall com o portal do Azure.
 services: firewall
 author: vhorne
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/28/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 124a87728a8d201c329b15d94ae7e61a225646ab
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: be39449c1c11acdbdc99bd96f917c51eebda44ae
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468446"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195783"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -126,8 +126,8 @@ Use as informações na tabela a seguir para configurar outra máquina virtual c
 |Definição  |Valor  |
 |---------|---------|
 |Subrede|**Carga de trabalho-SN**|
-|IP público|**None**|
-|Portas de entrada públicas|**None**|
+|IP público|**Nenhum**|
+|Portas de entrada públicas|**Nenhum**|
 
 ## <a name="deploy-the-firewall"></a>Implementar a firewall
 

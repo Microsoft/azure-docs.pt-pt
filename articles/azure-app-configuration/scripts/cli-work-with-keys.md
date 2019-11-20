@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 11/08/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: d89fa4c067e511e6210e8c1473bf1856297fc1de
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 51697aa426a638ad536390c4114df5faa18a41ef
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904080"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184873"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Trabalhar com valores de chave em um repositório de configuração de Azure App
 
@@ -88,12 +88,12 @@ Esse script usa os seguintes comandos para operar em valores de chave em um repo
 
 | Comando | Notas |
 |---|---|
-| [conjunto de kV AZ appconfig](/cli/azure/ext/appconfig/appconfig) | Cria ou atualiza um valor de chave. |
-| [lista AZ AppConfig kV](/cli/azure/ext/appconfig/appconfig) | Lista os valores de chave em um repositório de configuração de aplicativo. |
-| [AZ AppConfig kV Delete](/cli/azure/ext/appconfig/appconfig) | Exclui um valor de chave. |
+| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-set) | Cria ou atualiza um valor de chave. |
+| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Lista os valores de chave em um repositório de configuração de aplicativo. |
+| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-delete) | Exclui um valor de chave. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Exemplos de script da CLI de configuração de aplicativo adicionais podem ser encontrados na [documentação de configuração do Azure app](../cli-samples.md).
+Exemplos de script da CLI de configuração de aplicativo adicionais podem ser encontrados nos [exemplos da CLI de configuração do Azure app](../cli-samples.md).

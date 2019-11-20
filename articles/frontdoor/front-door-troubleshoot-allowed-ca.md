@@ -1,6 +1,6 @@
 ---
-title: Permitido autoridades de certificação para ativar o HTTPS personalizado no serviço de porta de entrada do Azure | Documentos da Microsoft
-description: Se estiver a utilizar o seu próprio certificado para ativar o HTTPS num domínio personalizado, tem de utilizar uma autoridade de certificados permitidos (AC) para criá-lo.
+title: Autoridade de certificação permitida para habilitar HTTPS personalizado no serviço de porta de recepção do Azure
+description: Se você estiver usando seu próprio certificado para habilitar o HTTPS em um domínio personalizado, deverá usar uma autoridade de certificação (CA) permitida para criá-lo.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: sharadag
-ms.openlocfilehash: e2bab9f9e1ae099952b34e66f7250e7ecbc8e689
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 62420889d9a4cb1e9d1c570a0845c704fca56cb3
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330759"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184585"
 ---
-# <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-front-door-service"></a>Permitido autoridades de certificação para ativar o HTTPS personalizado no serviço de porta de entrada do Azure
+# <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-front-door-service"></a>Autoridades de certificação permitidas para habilitar o HTTPS personalizado no serviço de porta frontal do Azure
 
-Para um domínio personalizado de serviço de porta de entrada do Azure, quando [ativar a funcionalidade HTTPS utilizando o seu próprio certificado](front-door-custom-domain-https.md?tabs=option-2-enable-https-with-your-own-certificate), tem de utilizar uma autoridade de certificados permitidos (AC) para criar o seu certificado SSL. Caso contrário, se utilizar uma AC não permitido ou um certificado autoassinado, sua solicitação será rejeitada.
+Para um domínio personalizado do serviço de porta frontal do Azure, ao [habilitar o recurso https usando seu próprio certificado](front-door-custom-domain-https.md?tabs=option-2-enable-https-with-your-own-certificate), você deve usar uma autoridade de certificação (CA) permitida para criar seu certificado SSL. Caso contrário, se você usar uma autoridade de certificação não permitida ou um certificado autoassinado, sua solicitação será rejeitada.
 
 [!INCLUDE [cdn-front-door-allowed-ca](../../includes/cdn-front-door-allowed-ca.md)]

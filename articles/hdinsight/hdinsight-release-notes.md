@@ -8,135 +8,86 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 7c31520efd881e8e0b5ed309f62d273bac59c0e3
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 54e28a9d434500915aa8cc8e07ade3592e5aa96c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945019"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185605"
 ---
 # <a name="release-notes"></a>Notas de versão
 
 Este artigo fornece informações sobre as atualizações de versão **mais recentes** do Azure HDInsight. Para obter informações sobre versões anteriores, consulte [arquivo de notas de versão do HDInsight](hdinsight-release-notes-archive.md).
 
-> [!IMPORTANT]  
-> O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, consulte o [artigo controle de versão do HDInsight](hdinsight-component-versioning.md).
-
 ## <a name="summary"></a>Resumo
 
 O Azure HDInsight é um dos serviços mais populares entre clientes corporativos para Apache Hadoop de software livre e análise de Apache Spark no Azure.
 
+## <a name="release-date-11072019"></a>Data de lançamento: 11/07/2019
+
+Esta versão se aplica tanto ao HDInsight 3,6 quanto ao 4,0.
+
+> [!IMPORTANT]  
+> O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, consulte o [artigo controle de versão do HDInsight](hdinsight-component-versioning.md).
+
+
 ## <a name="new-features"></a>Novos recursos
 
-Para obter mais informações sobre alterações importantes com o HDInsight 4,0., consulte [o que há de novo no HDI 4,0?](../hdinsight/hdinsight-version-release.md).
+### <a name="hdinsight-identity-broker-hib-preview"></a>Agente de identidade do HDInsight (HIB) (visualização)
 
-## <a name="component-versions"></a>Versões de componentes
+O HIB (agente de identidade do HDInsight) permite que os usuários entrem no Apache Ambari usando a MFA (autenticação multifator) e obtenham os tíquetes Kerberos necessários sem precisar de hashes de senha no Azure Active Directory Domain Services (AAD-DS). Atualmente, o HIB só está disponível para clusters implantados por meio do modelo ARM.
 
-As versões oficiais do Apache de todos os componentes do HDInsight 4,0 são fornecidas abaixo. Os componentes listados são versões das versões estáveis mais recentes disponíveis.
+### <a name="kafka-rest-api-proxy-preview"></a>Proxy da API REST do Kafka (visualização)
 
-- 2\.7.1 Apache Ambari
-- Apache Hadoop 3.1.1
-- Apache HBase 2.0.0
-- Apache Hive 3.1.0
-- Apache Kafka 1.1.1, 2.1.0
-- Apache Mahout 0.9.0 +
-- 4\.2.0 Apache Oozie
-- Apache Phoenix 4.7.0
-- 0\.16.0 Apache Pig
-- Apache Ranger 0.7.0
-- Apache Slider 0.92.0
-- Apache Spark 2.3.1, 2.4.0
-- 1\.4.7 Apache Sqoop
-- 0\.9.1 Apache TEZ
-- 0\.8.0 Apache Zeppelin
-- Apache ZooKeeper 3.4.6
+O proxy da API REST do Kafka fornece uma implantação de um único clique do proxy REST altamente disponível com o cluster Kafka por meio da autorização do AAD e do protocolo OAuth seguros. 
 
-As versões posteriores dos componentes do Apache, às vezes, são agrupadas na distribuição HDP, além das versões listadas acima. Nesse caso, essas versões posteriores são listadas na tabela de visualizações técnicas e não devem ser substituídas pelas versões do componente do Apache da lista acima em um ambiente de produção.
+### <a name="auto-scale"></a>Dimensionar automaticamente
 
-## <a name="apache-patch-information"></a>Informações de patch do Apache
+O dimensionamento automático para o Azure HDInsight agora está disponível em todas as regiões para tipos de cluster Apache Spark e Hadoop. Esse recurso possibilita o gerenciamento de cargas de trabalho de análise de Big Data de forma mais econômica e produtiva. Agora você pode otimizar o uso de seus clusters HDInsight e pagar apenas pelo que precisa.
 
-Para obter mais informações sobre os patches disponíveis no HDInsight 4,0, consulte a lista de patches para cada produto na tabela abaixo.
+Dependendo dos seus requisitos, você pode escolher entre dimensionamento automático baseado em carga e com base em agendamento. O dimensionamento automático baseado em carga pode dimensionar o tamanho do cluster para cima e para baixo com base nas necessidades do recurso atual, enquanto o dimensionamento automático baseado em agenda pode alterar o tamanho do cluster com base em uma agenda predefinida. 
 
-| Nome do produto | Informações de patch |
-|---|---|
-| Ambari | [Informações de patch do Ambari](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.1.0/bk_ambari-release-notes/content/ambari_relnotes-2.7.1.0-patch-information.html) |
-| Hadoop | [Informações de patch do Hadoop](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hadoop.html) |
-| HBase | [Informações de patch do HBase](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hbase.html) |
-| Hive  | Esta versão fornece 3.1.0 do hive sem patches adicionais do Apache.  |
-| Kafka | Esta versão fornece o Kafka 1.1.1 sem patches adicionais do Apache. |
-| Oozie | [Informações de patch do Oozie](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_oozie.html) |
-| Phoenix | [Informações de patch de Phoenix](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_phoenix.html) |
-| Pig | [Informações de patch do Pig](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_pig.html) |
-| Ranger | [Informações de patch do Ranger](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_ranger.html) |
-| Spark | [Informações de patch do Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_spark.html) |
-| Sqoop | Esta versão fornece Sqoop 1.4.7 sem patches adicionais do Apache. |
-| Tez | Esta versão fornece tez 0.9.1 sem patches adicionais do Apache. |
-| Zeppelin | Esta versão fornece Zeppelin 0.8.0 sem patches adicionais do Apache. |
-| Zookeeper | [Informações de patch do Zookeeper](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_zookeeper.html) |
+O suporte a AutoEscala para a carga de trabalho do HBase e do LLAP também é visualização pública. Para obter mais informações, consulte [dimensionar automaticamente clusters do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-autoscale-clusters).
 
-## <a name="fixed-common-vulnerabilities-and-exposures"></a>Correção de vulnerabilidades e exposições comuns
+### <a name="hdinsight-accelerated-writes-for-apache-hbase"></a>Gravações aceleradas do HDInsight para o Apache HBase 
 
-Para obter mais informações sobre os problemas de segurança resolvidos nesta versão, consulte Hortonworks ' unfixed [Common Vulnerabilities and Exposures for HDP 3.0.1](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/cve.html).
+As Escritas Aceleradas utilizam os discos geridos Premium SSD do Azure para melhorar o desempenho do Registo de Escrita Antecipada (WAL) do Apache HBase. Para obter mais informações, consulte [gravações aceleradas do Azure HDInsight para Apache HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes).
 
-## <a name="known-issues"></a>Problemas conhecidos
+### <a name="custom-ambari-db"></a>Ambari DB Personalizado
 
-### <a name="replication-is-broken-for-secure-hbase-with-default-installation"></a>A replicação foi interrompida para o HBase seguro com instalação padrão
+O HDInsight agora oferece uma nova capacidade para permitir que os clientes usem seu próprio BD SQL para Ambari. Agora, os clientes podem escolher o SQL DB correto para Ambari e atualizá-lo facilmente com base em seu próprio requisito de crescimento de negócios. A implantação é feita com um modelo de Azure Resource Manager. Para obter mais informações, consulte [Configurar clusters do HDInsight com um AMBARI DB personalizado](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
 
-Para o HDInsight 4,0, execute as seguintes etapas:
+### <a name="f-series-virtual-machines-are-now-available-with-hdinsight"></a>As máquinas virtuais da série F agora estão disponíveis com o HDInsight
 
-1. Habilite a comunicação entre clusters.
-1. Entre no cabeçalho ativo.
-1. Baixe um script para habilitar a replicação com o seguinte comando:
-
-    ```
-    sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
-    ```
-1. Digite o comando `sudo kinit <domainuser>`.
-1. Digite o seguinte comando para executar o script:
-
-    ```
-    sudo bash hdi_enable_replication.sh -m <hn0> -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
-    ```
-Para o HDInsight 3,6, faça o seguinte:
-
-1. Entre no Active HMaster ZK.
-1. Baixe um script para habilitar a replicação com o seguinte comando:
-    ```
-    sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
-    ```
-1. Digite o comando `sudo kinit -k -t /etc/security/keytabs/hbase.service.keytab hbase/<FQDN>@<DOMAIN>`.
-1. Escreva o seguinte comando:
-
-    ```bash
-    sudo bash hdi_enable_replication.sh -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
-    ```
-
-### <a name="phoenix-sqlline-stops-working-after-migrating-hbase-cluster-to-hdinsight-40"></a>O Phoenix sqlline para de funcionar após a migração do cluster HBase para o HDInsight 4,0
-
-Execute as seguintes etapas:
-
-1. Descarte as seguintes tabelas de Phoenix:
-    1. `SYSTEM.FUNCTION`
-    1. `SYSTEM.SEQUENCE`
-    1. `SYSTEM.STATS`
-    1. `SYSTEM.MUTEX`
-    1. `SYSTEM.CATALOG`
-1. Se você não puder excluir nenhuma das tabelas, reinicie o HBase para limpar todas as conexões com as tabelas.
-1. Execute novamente `sqlline.py`. O Phoenix recriará todas as tabelas que foram excluídas na etapa 1.
-1. Regenerar tabelas e exibições Phoenix para seus dados do HBase.
-
-### <a name="phoenix-sqlline-stops-working-after-replicating-hbase-phoenix-metadata-from-hdinsight-36-to-40"></a>O Phoenix sqlline para de funcionar após a replicação de metadados do HBase Phoenix do HDInsight 3,6 para o 4,0
-
-Execute as seguintes etapas:
-
-1. Antes de fazer a replicação, vá para o cluster de destino 4,0 `sqlline.py`e execute. Esse comando gerará tabelas Phoenix, `SYSTEM.MUTEX` como `SYSTEM.LOG` e que só existem em 4,0.
-1. Descartar as seguintes tabelas:
-    1. `SYSTEM.FUNCTION`
-    1. `SYSTEM.SEQUENCE`
-    1. `SYSTEM.STATS`
-    1. `SYSTEM.CATALOG`
-1. Iniciar a replicação do HBase
+As VMs (máquinas virtuais) da série F são boas opções para começar com o HDInsight com requisitos leves de processamento. A um preço de tabela por hora mais baixo, a série F é o melhor valor de desempenho por preço no portefólio do Azure com base na Unidade de Computação do Azure (ACU) por vCPU. Para obter mais informações, consulte [selecionando o tamanho correto da VM para o cluster HDInsight do Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-selecting-vm-size).
 
 ## <a name="deprecation"></a>Preterição
 
-Os serviços Apache Storm e ML não estão disponíveis no HDInsight 4,0.
+### <a name="g-series-virtual-machine-deprecation"></a>Substituição da máquina virtual da série G
+Nesta versão, as VMs da série G não são mais oferecidas no HDInsight.
+
+### <a name="dv1-virtual-machine-deprecation"></a>Reprovação de máquina virtual Dv1
+A partir desta versão, o uso de VMs Dv1 com o HDInsight foi preterido. Qualquer solicitação de cliente para Dv1 será servida com o Dv2 automaticamente. Não há nenhuma diferença de preço entre as VMs Dv1 e Dv2.
+
+## <a name="behavior-changes"></a>Alterações de comportamento
+
+### <a name="cluster-managed-disk-size-change"></a>Alteração do tamanho do disco gerenciado do cluster
+O HDInsight fornece o espaço em disco gerenciado com o cluster. A partir desta versão, o tamanho do disco gerenciado de cada nó no novo cluster criado é alterado para 128 GB.
+
+## <a name="upcoming-changes"></a>Alterações futuras
+As seguintes alterações ocorrerão nas versões futuras. 
+
+### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Migrando para conjuntos de dimensionamento de máquinas virtuais do Azure
+O HDInsight agora usa máquinas virtuais do Azure para provisionar o cluster. A partir de dezembro, o HDInsight usará os conjuntos de dimensionamento de máquinas virtuais do Azure em vez disso. Veja mais sobre os [conjuntos de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+
+### <a name="hbase-20-to-21"></a>HBase 2,0 a 2,1
+Na próxima versão do HDInsight 4,0, a versão do HBase será atualizada da versão 2,0 para a 2,1.
+
+### <a name="a-series-virtual-machine-deprecation-for-esp-cluster"></a>Reprovação de máquina virtual de série A para cluster ESP
+As VMs da série a podem causar problemas de cluster ESP devido à capacidade relativamente baixa de CPU e memória. Na próxima versão, as VMs da série A serão preteridas para a criação de novos clusters ESP.
+
+## <a name="bug-fixes"></a>Correções de erros
+O HDInsight continua a tornar as melhorias de desempenho e confiabilidade do cluster. 
+
+## <a name="component-version-change"></a>Alteração de versão do componente
+Não há nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para o HDInsight 4,0 Ad HDInsight 3,6 [aqui](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).

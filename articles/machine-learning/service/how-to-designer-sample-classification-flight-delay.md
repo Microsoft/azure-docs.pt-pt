@@ -1,7 +1,7 @@
 ---
-title: 'Designer: classificar, prever atrasos de voo'
+title: 'Designer: exemplo de previsão de atraso de voo'
 titleSuffix: Azure Machine Learning
-description: Este artigo mostra como criar um modelo de aprendizado de máquina para prever atrasos de voo usando o designer do tipo "arrastar e soltar" e o código R personalizado.
+description: Crie um classificador e use código R personalizado para prever atrasos de voo com o designer de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 10b3b78b4878eeddf2f786fda90ab9709e4bd2b4
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 06d158fb228ea82e61e785407fc0c59d66c2de15
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647201"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196027"
 ---
-# <a name="sample-6---classification-predict-flight-delays-using-r"></a>Exemplo 6-classificação: prever atrasos de voo usando o R
+# <a name="build-a-classifier--use-r-to-predict-flight-delays-with-azure-machine-learning-designer"></a>Criar um classificador & usar R para prever atrasos de voo com Azure Machine Learning designer
+
+**Designer (visualização) exemplo 6**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Esse pipeline usa dados históricos de vôo e clima para prever se um vôo de passageiro agendado será atrasado em mais de 15 minutos. Esse problema pode ser abordado como um problema de classificação, prevendo duas classes: atrasadas ou no prazo.

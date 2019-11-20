@@ -1,5 +1,5 @@
 ---
-title: Usar uma identidade gerenciada atribuída pelo sistema de VM do Windows para acessar o SQL do Azure
+title: Tutorial`:` usar uma identidade gerenciada para acessar o Azure SQL-Windows-Azure AD
 description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema numa VM do Windows para aceder ao SQL do Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/16/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a11c5489c97e1050e525c0b83c160c1360119b60
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: b0a743df545450f87a01785f6f8a15fe08b8eafe
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433168"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74181182"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema numa VM do Windows para aceder ao SQL do Azure
 
@@ -103,7 +103,7 @@ O código em execução na VM pode agora obter um token através da identidade g
 
 O SQL do Azure suporta nativamente a autenticação do Azure AD para que possa aceitar diretamente tokens de acesso obtidos através de identidades geridas para recursos do Azure. Vai utilizar o método de **token de acesso** de criação de uma ligação para o SQL. Isto faz parte da integração do SQL do Azure no Azure AD e é diferente de fornecer as credenciais na cadeia de ligação.
 
-Aqui está um exemplo de código .NET de abertura de uma conexão com o SQL usando um token de acesso. Este código tem de ser executado na VM para poder aceder ao ponto final da identidade gerida atribuída pelo sistema da VM. **.NET Framework 4,6** ou superior ou o **.NET Core 2,2** ou superior é necessário para usar o método de token de acesso. Substitua os valores de AZURE-SQL-SERVERNAME e DATABASE em conformidade. Observe que a ID de recurso para o SQL do Azure é `https://database.windows.net/`.
+Aqui está um exemplo de código .NET de abertura de uma conexão com o SQL usando um token de acesso. Este código tem de ser executado na VM para poder aceder ao ponto final da identidade gerida atribuída pelo sistema da VM. **.NET Framework 4,6** ou superior ou o **.NET Core 2,2** ou superior é necessário para usar o método de token de acesso. Substitua os valores de AZURE-SQL-SERVERNAME e DATABASE em conformidade. Observe que a ID de recurso do Azure SQL é `https://database.windows.net/`.
 
 ```csharp
 using System.Net;
