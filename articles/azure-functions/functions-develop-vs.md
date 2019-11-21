@@ -1,124 +1,120 @@
 ---
-title: Desenvolver Azure Functions usando o Visual Studio | Microsoft Docs
-description: Saiba como desenvolver e testar Azure Functions usando as ferramentas do Azure Functions para o Visual Studio 2019.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
+title: Develop Azure Functions using Visual Studio
+description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2019.
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: glenga
-ms.openlocfilehash: ebc900735dfbb25206c4b22e3d20da62d85c61df
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 04074579b3eb34175a6d29897bbd38b95ae3a596
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773148"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230662"
 ---
-# <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver Azure Functions usando o Visual Studio  
+# <a name="develop-azure-functions-using-visual-studio"></a>Develop Azure Functions using Visual Studio  
 
-O Visual Studio permite que você desenvolva, teste C# e implante funções de biblioteca de classes no Azure. Se essa experiência for sua primeira com Azure Functions, você poderá aprender mais em [uma introdução ao Azure Functions](functions-overview.md).
+Visual Studio lets you develop, test, and deploy C# class library functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
 
-O Visual Studio oferece os seguintes benefícios ao desenvolver suas funções: 
+Visual Studio provides the following benefits when develop your functions: 
 
-* Edite, crie e execute funções em seu computador de desenvolvimento local. 
-* Publique seu projeto de Azure Functions diretamente no Azure e crie recursos do Azure conforme necessário. 
-* Use C# atributos para declarar associações de função diretamente no C# código.
-* Desenvolva e implante C# funções pré-compiladas. As funções pré-instaladas fornecem um desempenho de início frio melhor do que C# as funções baseadas em script. 
-* Codifique suas funções no C# enquanto tem todos os benefícios do desenvolvimento do Visual Studio. 
+* Edit, build, and run functions on your local development computer. 
+* Publish your Azure Functions project directly to Azure, and create Azure resources as needed. 
+* Use C# attributes to declare function bindings directly in the C# code.
+* Develop and deploy pre-compiled C# functions. Pre-complied functions provide a better cold-start performance than C# script-based functions. 
+* Code your functions in C# while having all of the benefits of Visual Studio development. 
 
-Este artigo fornece detalhes sobre como usar o Visual Studio para desenvolver C# funções de biblioteca de classes e publicá-las no Azure. Antes de ler este artigo, conclua o guia de [início rápido do Functions para Visual Studio](functions-create-your-first-function-visual-studio.md). 
+This article provides details about how to use Visual Studio to develop C# class library functions and publish them to Azure. Before you read this article, you should complete the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
-Salvo indicação em contrário, os procedimentos e exemplos mostrados são para o Visual Studio 2019. 
+Unless otherwise noted, procedures and examples shown are for Visual Studio 2019. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Azure Functions ferramentas estão incluídas na carga de trabalho de desenvolvimento do Azure do Visual Studio, começando com o Visual Studio 2017. Certifique-se de incluir a carga de trabalho de **desenvolvimento do Azure** em sua instalação do Visual Studio.
+Azure Functions Tools is included in the Azure development workload of Visual Studio starting with Visual Studio 2017. Make sure you include the **Azure development** workload in your Visual Studio installation.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Outros recursos necessários, como uma conta de armazenamento do Azure, são criados em sua assinatura durante o processo de publicação.
+Other resources that you need, such as an Azure Storage account, are created in your subscription during the publishing process.
 
 > [!NOTE]
-> No Visual Studio 2017, a carga de trabalho de desenvolvimento do Azure instala as ferramentas de Azure Functions como uma extensão separada. Ao atualizar o Visual Studio 2017, verifique também se você está usando a [versão mais recente](#check-your-tools-version) das ferramentas de Azure functions. As seções a seguir mostram como verificar e (se necessário) atualizar sua extensão de ferramentas de Azure Functions no Visual Studio 2017. 
+> In Visual Studio 2017, the Azure development workload installs the Azure Functions Tools as a separate extension. When you update your Visual Studio 2017, also make sure that you are using the [most recent version](#check-your-tools-version) of the Azure Functions tools. The following sections show you how to check and (if needed) update your Azure Functions Tools extension in Visual Studio 2017. 
 >
-> Ignore esta seção ao usar o Visual Studio 2019.
+> Please skip these section when using Visual Studio 2019.
 
-### <a name="check-your-tools-version"></a>Verifique a versão das ferramentas no Visual Studio 2017
+### <a name="check-your-tools-version"></a>Check your tools version in Visual Studio 2017
 
-1. Partir do **ferramentas** menu, escolha **extensões e atualizações**. Expanda**ferramentas** **instaladas** > e escolha **Azure Functions e ferramentas de trabalhos Web**.
+1. From the **Tools** menu, choose **Extensions and Updates**. Expand **Installed** > **Tools** and choose **Azure Functions and Web Jobs Tools**.
 
-    ![Verificar a versão das ferramentas de funções](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
+    ![Verify the Functions tools version](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
 
-1. Anote a **versão**instalada. Você pode comparar essa versão com a versão mais recente listada [nas notas de versão](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
+1. Note the installed **Version**. You can compare this version with the latest version listed [in the release notes](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
 
-1. Se tiver uma versão mais antiga, Atualize as suas ferramentas no Visual Studio, conforme mostrado na seção a seguir.
+1. If your version is older, update your tools in Visual Studio as shown in the following section.
 
-### <a name="update-your-tools-in-visual-studio-2017"></a>Atualize suas ferramentas no Visual Studio 2017
+### <a name="update-your-tools-in-visual-studio-2017"></a>Update your tools in Visual Studio 2017
 
-1. Na caixa de diálogo **extensões e atualizações** , expanda **atualizações** > **Visual Studio Marketplace**, escolha **Azure Functions e ferramentas de trabalhos Web** e selecione **Atualizar**.
+1. In the **Extensions and Updates** dialog, expand **Updates** > **Visual Studio Marketplace**, choose **Azure Functions and Web Jobs Tools** and select **Update**.
 
-    ![Atualizar a versão das ferramentas do Functions](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
+    ![Update the Functions tools version](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
 
-1. Após a atualização das ferramentas é transferida, feche o Visual Studio ao acionar que as ferramentas de atualização através do instalador do VSIX.
+1. After the tools update is downloaded, close Visual Studio to trigger the tools update using the VSIX installer.
 
-1. No instalador, escolha **OK** para iniciar e, em seguida, **Modificar** para atualizar as ferramentas. 
+1. In the installer, choose **OK** to start and then **Modify** to update the tools. 
 
-1. Depois que a atualização for concluída, escolha **fechar** e reinicie o Visual Studio.
+1. After the update is complete, choose **Close** and restart Visual Studio.
 
 > [!NOTE]  
-No Visual Studio 2019 e posterior, a extensão de ferramentas de Azure Functions é atualizada como parte do Visual Studio.  
+In Visual Studio 2019 and later, the Azure Functions tools extension is updated as part of Visual Studio.  
 
 ## <a name="create-an-azure-functions-project"></a>Criar um projeto das Funções do Azure
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-O modelo de projeto cria C# um projeto, instala `Microsoft.NET.Sdk.Functions` o pacote NuGet e define a estrutura de destino. O novo projeto tem os seguintes arquivos:
+The project template creates a C# project, installs the `Microsoft.NET.Sdk.Functions` NuGet package, and sets the target framework. The new project has the following files:
 
-* **host.json**: Permite configurar o host do functions. Essas configurações se aplicam quando são executadas localmente e no Azure. Para obter mais informações, consulte [referência de host. JSON](functions-host-json.md).
+* **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
-* **local.settings.json**: Mantém as configurações usadas ao executar funções localmente. Essas configurações não são usadas durante a execução no Azure. Para obter mais informações, consulte [Local Settings File](#local-settings-file).
+* **local.settings.json**: Maintains settings used when running functions locally. These settings aren't used when running in Azure. For more information, see [Local settings file](#local-settings-file).
 
     >[!IMPORTANT]
-    >Como o arquivo local. Settings. JSON pode conter segredos, você deve excluí-lo do seu controle de origem do projeto. A configuração **copiar para diretório de saída** para esse arquivo deve sempre ser **cópia se for mais recente**. 
+    >Because the local.settings.json file can contain secrets, you must excluded it from your project source control. The **Copy to Output Directory** setting for this file should always be **Copy if newer**. 
 
-Para obter mais informações, consulte [funções de projeto de biblioteca de classes](functions-dotnet-class-library.md#functions-class-library-project).
+For more information, see [Functions class library project](functions-dotnet-class-library.md#functions-class-library-project).
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-As configurações em local. Settings. JSON não são carregadas automaticamente quando você publica o projeto. Para certificar-se de que essas configurações também existam em seu aplicativo de funções no Azure, você deve carregá-las depois de publicar o projeto. Para saber mais, confira [configurações do aplicativo de funções](#function-app-settings).
+Settings in local.settings.json aren't uploaded automatically when you publish the project. To make sure that these settings also exist in your function app in Azure, you must upload them after you publish your project. To learn more, see [Function app settings](#function-app-settings).
 
-Os valores em **connectionStrings** nunca são publicados.
+Values in **ConnectionStrings** are never published.
 
-Os valores das configurações do aplicativo de funções também podem ser lidos em seu código como variáveis de ambiente. Para obter mais informações, consulte [variáveis de ambiente](functions-dotnet-class-library.md#environment-variables).
+The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
 
-## <a name="configure-the-project-for-local-development"></a>Configurar o projeto para desenvolvimento local
+## <a name="configure-the-project-for-local-development"></a>Configure the project for local development
 
-O tempo de execução do Functions usa uma conta de armazenamento do Azure internamente. Para todos os tipos de gatilho diferentes de HTTP e WebHooks, você deve definir a chave **Values. AzureWebJobsStorage** para uma cadeia de conexão de conta de armazenamento do Azure válida. Seu aplicativo de funções também pode usar o [emulador de armazenamento do Azure](../storage/common/storage-use-emulator.md) para a configuração de conexão **AzureWebJobsStorage** que é exigida pelo projeto. Para usar o emulador, defina o valor de AzureWebJobsStorage `UseDevelopmentStorage=true`como. Altere essa configuração para uma cadeia de conexão de conta de armazenamento real antes da implantação.
+The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string. Your function app can also use the [Azure storage emulator](../storage/common/storage-use-emulator.md) for the **AzureWebJobsStorage** connection setting that is required by the project. To use the emulator, set the value of **AzureWebJobsStorage** to `UseDevelopmentStorage=true`. Change this setting to an actual storage account connection string before deployment.
 
-Para definir a cadeia de conexão da conta de armazenamento:
+To set the storage account connection string:
 
-1. No Visual Studio, abra **o Cloud Explorer**, expanda **conta** > de armazenamento**sua conta de armazenamento**e, na guia **Propriedades** , copie o valor da **cadeia de conexão primária** .
+1. In Visual Studio, open **Cloud Explorer**, expand **Storage Account** > **Your Storage Account**, then in the **Properties** tab copy the **Primary Connection String** value.
 
-2. Em seu projeto, abra o arquivo local. Settings. JSON e defina o valor da chave **AzureWebJobsStorage** para a cadeia de conexão que você copiou.
+2. In your project, open the local.settings.json file and set the value of the **AzureWebJobsStorage** key to the connection string you copied.
 
-3. Repita a etapa anterior para adicionar chaves exclusivas à matriz de **valores** para quaisquer outras conexões exigidas por suas funções. 
+3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions. 
 
-## <a name="add-a-function-to-your-project"></a>Adicionar uma função ao seu projeto
+## <a name="add-a-function-to-your-project"></a>Add a function to your project
 
-Em C# funções de biblioteca de classes, as associações usadas pela função são definidas pela aplicação de atributos no código. Quando você cria seus gatilhos de função a partir dos modelos fornecidos, os atributos de gatilho são aplicados para você. 
+In C# class library functions, the bindings used by the function are defined by applying attributes in the code. When you create your function triggers from the provided templates, the trigger attributes are applied for you. 
 
-1. No **Explorador de Soluções**, clique com o botão direito do rato no nó do projeto e selecione **Adicionar** > **Novo item**. Selecione **Azure function**, digite um **nome** para a classe e clique em **Adicionar**.
+1. No **Explorador de Soluções**, clique com o botão direito do rato no nó do projeto e selecione **Adicionar** > **Novo item**. Select **Azure Function**, type a **Name** for the class, and click **Add**.
 
-2. Escolha seu gatilho, defina as propriedades de associação e clique em **criar**. O exemplo a seguir mostra as configurações ao criar uma função disparada pelo armazenamento de filas. 
+2. Choose your trigger, set the binding properties, and click **Create**. The following example shows the settings when creating a Queue storage triggered function. 
 
-    ![Criar uma função disparada por fila](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
+    ![Create a queue triggered function](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
-    Este exemplo de gatilho usa uma cadeia de conexão com uma chave chamada **QueueStorage**. Essa configuração de cadeia de conexão deve ser definida no [arquivo local. Settings. JSON](functions-run-local.md#local-settings-file).
+    This trigger example uses a connection string with a key named **QueueStorage**. This connection string setting must be defined in the [local.settings.json file](functions-run-local.md#local-settings-file).
 
-3. Examine a classe recém-adicionada. Você vê um método **Run** estático, que é atribuído com o atributo **FunctionName** . Esse atributo indica que o método é o ponto de entrada para a função.
+3. Examine the newly added class. You see a static **Run** method, that is attributed with the **FunctionName** attribute. This attribute indicates that the method is the entry point for the function.
 
-    Por exemplo, a classe C# a seguir representa uma função básica disparada pelo armazenamento de filas:
+    For example, the following C# class represents a basic Queue storage triggered function:
 
     ```csharp
     using System;
@@ -140,21 +136,21 @@ Em C# funções de biblioteca de classes, as associações usadas pela função 
     }
     ```
 
-    Um atributo específico de associação é aplicado a cada parâmetro de associação fornecido ao método de ponto de entrada. O atributo usa as informações de associação como parâmetros. No exemplo anterior, o primeiro parâmetro tem um atributo **QueueTrigger** aplicado, indicando a função disparada pela fila. O nome da fila e o nome da configuração da cadeia de conexão são passados como parâmetros para o atributo **QueueTrigger** . Para obter mais informações, consulte [associações de armazenamento de filas do Azure para Azure Functions](functions-bindings-storage-queue.md#trigger---c-example).
+    A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters to the **QueueTrigger** attribute. For more information, see [Azure Queue storage bindings for Azure Functions](functions-bindings-storage-queue.md#trigger---c-example).
 
-Você pode usar o procedimento acima para adicionar mais funções ao seu projeto de aplicativo de funções. Cada função no projeto pode ter um gatilho diferente, mas uma função deve ter exatamente um gatilho. Para obter mais informações, consulte [Azure Functions os conceitos de gatilhos e associações](functions-triggers-bindings.md).
+You can use the above procedure to add more functions to your function app project. Each function in the project can have a different trigger, but a function must have exactly one trigger. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-## <a name="add-bindings"></a>Adicionar associações
+## <a name="add-bindings"></a>Adicionar enlaces
 
-Assim como acontece com gatilhos, as associações de entrada e saída são adicionadas à sua função como atributos de associação. Adicione associações a uma função da seguinte maneira:
+As with triggers, input and output bindings are added to your function as binding attributes. Add bindings to a function as follows:
 
-1. Verifique se você [configurou o projeto para o desenvolvimento local](#configure-the-project-for-local-development).
+1. Make sure you've [configured the project for local development](#configure-the-project-for-local-development).
 
-2. Adicione o pacote de extensão NuGet apropriado para a associação específica. Para obter mais informações, [consulte C# desenvolvimento local usando o Visual Studio](./functions-bindings-register.md#local-csharp) no artigo gatilhos e associações. Os requisitos de pacote NuGet específicos da associação são encontrados no artigo de referência para a associação. Por exemplo, encontre requisitos de pacote para o gatilho de hubs de eventos no [artigo de referência de associação de hubs de eventos](functions-bindings-event-hubs.md).
+2. Add the appropriate NuGet extension package for the specific binding. For more information, see [Local C# development using Visual Studio](./functions-bindings-register.md#local-csharp) in the Triggers and Bindings article. The binding-specific NuGet package requirements are found in the reference article for the binding. For example, find package requirements for the Event Hubs trigger in the [Event Hubs binding reference article](functions-bindings-event-hubs.md).
 
-3. Se houver configurações de aplicativo que a associação precisa, adicione-as à coleção de **valores** no [arquivo de configuração local](functions-run-local.md#local-settings-file). Esses valores são usados quando a função é executada localmente. Quando a função é executada no aplicativo de funções no Azure, as [configurações do aplicativo de funções](#function-app-settings) são usadas.
+3. If there are app settings that the binding needs, add them to the **Values** collection in the [local setting file](functions-run-local.md#local-settings-file). These values are used when the function runs locally. When the function runs in the function app in Azure, the [function app settings](#function-app-settings) are used.
 
-4. Adicione o atributo de associação apropriado à assinatura do método. No exemplo a seguir, uma mensagem de fila dispara a função e a associação de saída cria uma nova mensagem de fila com o mesmo texto em uma fila diferente.
+4. Add the appropriate binding attribute to the method signature. In the following example, a queue message triggers the function, and the output binding creates a new queue message with the same text in a different queue.
 
     ```csharp
     public static class SimpleExampleWithOutput
@@ -170,7 +166,7 @@ Assim como acontece com gatilhos, as associações de entrada e saída são adic
         }
     }
     ```
-   A conexão com o `AzureWebJobsStorage` armazenamento de fila é obtida da configuração. Para obter mais informações, consulte o artigo de referência para a associação específica. 
+   The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding. 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
@@ -180,60 +176,60 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar o projeto
 
 Para testar a sua função, prima F5. Se solicitado, aceite o pedido do Visual Studio para transferir e instalar as ferramentas de Núcleo das Funções do Azure (CLI). Também poderá ativar a exceção da firewall para que todas as ferramentas possam aceitar os pedidos de HTTP.
 
-Com o projeto em execução, você pode testar seu código da mesma forma que testaria a função implantada. Para obter mais informações, consulte [estratégias para testar seu código no Azure Functions](functions-test-a-function.md). Quando executado no modo de depuração, os pontos de interrupção são atingidos no Visual Studio como esperado. 
+With the project running, you can test your code as you would test deployed function. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md). When running in debug mode, breakpoints are hit in Visual Studio as expected. 
 
 <!---
 For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
 -->
 
-Para saber mais sobre como usar o Azure Functions Core Tools, confira [codificar e testar o Azure Functions localmente](functions-run-local.md).
+To learn more about using the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
 
 ## <a name="publish-to-azure"></a>Publicar no Azure
 
-Ao publicar do Visual Studio, um dos dois métodos de implantação é usado:
+When publishing from Visual Studio, one of two deployment methods are used:
 
-* [Implantação da Web](functions-deployment-technologies.md#web-deploy-msdeploy): empacota e implanta aplicativos do Windows em qualquer servidor IIS.
-* Implantação [de zip com execução do pacote habilitada](functions-deployment-technologies.md#zip-deploy): recomendado para implantações de Azure functions.
+* [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy): packages and deploys Windows apps to any IIS server.
+* [Zip Deploy with Run-From-Package enabled](functions-deployment-technologies.md#zip-deploy): recommended for Azure Functions deployments.
 
-Use as etapas a seguir para publicar seu projeto em um aplicativo de funções no Azure.
+Use the following steps to publish your project to a function app in Azure.
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-## <a name="function-app-settings"></a>Definições da aplicação de funções
+## <a name="function-app-settings"></a>Definições da Aplicação de funções
 
-Todas as configurações que você adicionou no local. Settings. JSON também devem ser adicionadas ao aplicativo de funções no Azure. Essas configurações não são carregadas automaticamente quando você publica o projeto.
+Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings aren't uploaded automatically when you publish the project.
 
-A maneira mais fácil de carregar as configurações necessárias para seu aplicativo de funções no Azure é usar o link **gerenciar configurações de aplicativo...** que é exibido depois que você publica com êxito o projeto.
+The easiest way to upload the required settings to your function app in Azure is to use the **Manage Application Settings...** link that is displayed after you successfully publish your project.
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings.png)
 
-Isso exibe a caixa de diálogo **configurações do aplicativo** para o aplicativo de funções, onde você pode adicionar novas configurações do aplicativo ou modificar as existentes.
+This displays the **Application Settings** dialog for the function app, where you can add new application settings or modify existing ones.
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
-**Local** representa um valor de configuração no arquivo local. Settings. JSON, e **Remote** é a configuração atual no aplicativo de funções no Azure.  Escolha **Adicionar configuração** para criar uma nova configuração de aplicativo. Use o link **Inserir valor do local** para copiar um valor de configuração para o campo **remoto** . As alterações pendentes são gravadas no arquivo de configurações local e no aplicativo de funções quando você seleciona **OK**.
+**Local** represents a setting value in the local.settings.json file, and **Remote** is the current setting in the function app in Azure.  Choose **Add setting** to create a new app setting. Use the **Insert value from Local** link to copy a setting value to the **Remote** field. Pending changes are written to the local settings file and the function app when you select **OK**.
 
 > [!NOTE]
-> Por padrão, o arquivo local. Settings. JSON não é verificado no controle do código-fonte. Isso significa que, quando você clona um projeto de funções locais do controle do código-fonte, o projeto não tem um arquivo local. Settings. JSON. Nesse caso, você precisa criar manualmente o arquivo local. Settings. JSON na raiz do projeto para que a caixa de diálogo **configurações do aplicativo** funcione conforme o esperado. 
+> By default, the local.settings.json file is not checked into source control. This means that when you clone a local Functions project from source control, the project doesn't have a local.settings.json file. In this case, you need to manually create the local.settings.json file in the project root so that the **Application Settings** dialog works as expected. 
 
-Você também pode gerenciar as configurações do aplicativo de uma dessas outras maneiras:
+You can also manage application settings in one of these other ways:
 
-* [Usando o portal do Azure](functions-how-to-use-azure-function-app-settings.md#settings).
-* [Usando a `--publish-local-settings` opção de publicação na Azure Functions Core Tools](functions-run-local.md#publish).
-* [Usando o CLI do Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+* [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
+* [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
+* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
-## <a name="monitoring-functions"></a>Funções de monitoramento
+## <a name="monitoring-functions"></a>Monitoring functions
 
-A maneira recomendada para monitorar a execução de suas funções é integrar seu aplicativo de funções com o Aplicativo Azure insights. Quando você cria um aplicativo de funções no portal do Azure, essa integração é feita para você por padrão. No entanto, quando você cria seu aplicativo de funções durante a publicação do Visual Studio, a integração em seu aplicativo de funções no Azure não é feita.
+The recommended way to monitor the execution of your functions is by integrating your function app with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app during Visual Studio publishing, the integration in your function app in Azure isn't done.
 
-Para habilitar Application Insights para seu aplicativo de funções:
+To enable Application Insights for your function app:
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
-Para saber mais, consulte [monitorar Azure Functions](functions-monitoring.md).
+To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o Azure Functions Core Tools, confira [codificar e testar o Azure Functions localmente](functions-run-local.md).
+To learn more about the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
 
-Para saber mais sobre como desenvolver funções como bibliotecas de classes do .NET, confira [ C# Azure Functions referência do desenvolvedor](functions-dotnet-class-library.md). Este artigo também fornece links para exemplos de como usar atributos para declarar os vários tipos de associações com suporte pelo Azure Functions.    
+To learn more about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md). This article also links to examples of how to use attributes to declare the various types of bindings supported by Azure Functions.    

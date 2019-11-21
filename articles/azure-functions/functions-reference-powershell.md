@@ -1,33 +1,29 @@
 ---
-title: Referência do desenvolvedor do PowerShell para Azure Functions
-description: Entenda como desenvolver funções usando o PowerShell.
+title: PowerShell developer reference for Azure Functions
+description: Understand how to develop functions by using PowerShell.
 author: eamonoreilly
-manager: gwallace
-ms.service: azure-functions
-ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: glenga
-ms.openlocfilehash: ae3b8294c7bd91bcd6a2e0e533f5903f44e8aaea
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 26e52e8aa498c37bd4cef95fb2b54b2fe9322f90
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173667"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226686"
 ---
-# <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do Azure Functions PowerShell
+# <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell developer guide
 
-Este artigo fornece detalhes sobre como você escreve Azure Functions usando o PowerShell.
+This article provides details about how you write Azure Functions using PowerShell.
 
-Uma função do PowerShell do Azure (função) é representada como um script do PowerShell que é executado quando disparado. Cada script de função tem um arquivo de `function.json` relacionado que define como a função se comporta, como a forma como ela é disparada e seus parâmetros de entrada e saída. Para saber mais, confira o [artigo gatilhos e Associação](functions-triggers-bindings.md). 
+A PowerShell Azure function (function) is represented as a PowerShell script that executes when triggered. Each function script has a related `function.json` file that defines how the function behaves, such as how it's triggered and its input and output parameters. To learn more, see the [Triggers and binding article](functions-triggers-bindings.md). 
 
-Assim como outros tipos de funções, as funções de script do PowerShell assumem parâmetros que correspondem aos nomes de todas as associações de entrada definidas no arquivo `function.json`. Um parâmetro `TriggerMetadata` também é passado que contém informações adicionais sobre o gatilho que iniciou a função.
+Like other kinds of functions, PowerShell script functions take in parameters that match the names of all the input bindings defined in the `function.json` file. A `TriggerMetadata` parameter is also passed that contains additional information on the trigger that started the function.
 
-Este artigo pressupõe que você já tenha lido o [Azure Functions referência do desenvolvedor](functions-reference.md). Você também deve ter concluído o guia de [início rápido do Functions para o PowerShell](functions-create-first-function-powershell.md) para criar sua primeira função do PowerShell.
+This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should have also completed the [Functions quickstart for PowerShell](functions-create-first-function-powershell.md) to create your first PowerShell function.
 
-## <a name="folder-structure"></a>Estrutura de pastas
+## <a name="folder-structure"></a>Folder structure
 
-A estrutura de pastas necessária para um projeto do PowerShell é semelhante ao seguinte. Esse padrão pode ser alterado. Para obter mais informações, consulte a seção [scriptfile](#configure-function-scriptfile) abaixo.
+The required folder structure for a PowerShell project looks like the following. This default can be changed. For more information, see the [scriptFile](#configure-function-scriptfile) section below.
 
 ```
 PSFunctionApp
@@ -52,26 +48,26 @@ PSFunctionApp
  | - bin
 ```
 
-Na raiz do projeto, há um arquivo de [`host.json`](functions-host-json.md) compartilhado que pode ser usado para configurar o aplicativo de funções. Cada função tem uma pasta com seu próprio arquivo de código (. ps1) e arquivo de configuração de associação (`function.json`). O nome do diretório pai do arquivo function. JSON é sempre o nome da sua função.
+At the root of the project, there's a shared [`host.json`](functions-host-json.md) file that can be used to configure the function app. Each function has a folder with its own code file (.ps1) and binding configuration file (`function.json`). The name of the function.json file's parent directory is always the name of your function.
 
-Determinadas associações exigem a presença de um arquivo de `extensions.csproj`. As extensões de associação, necessárias na [versão 2. x](functions-versions.md) do tempo de execução do functions, são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você deve [registrar extensões de associação](functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
+Certain bindings require the presence of an `extensions.csproj` file. Binding extensions, required in [version 2.x](functions-versions.md) of the Functions runtime, are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-bindings-register.md#extension-bundles). When developing functions in the Azure portal, this registration is done for you.
 
-Em aplicativos de funções do PowerShell, você pode, opcionalmente, ter um `profile.ps1` que é executado quando um aplicativo de funções começa a ser executado (caso contrário, é conhecido como um *[início frio](#cold-start)* . Para obter mais informações, consulte [perfil do PowerShell](#powershell-profile).
+In PowerShell Function Apps, you may optionally have a `profile.ps1` which runs when a function app starts to run (otherwise know as a *[cold start](#cold-start)* . For more information, see [PowerShell profile](#powershell-profile).
 
-## <a name="defining-a-powershell-script-as-a-function"></a>Definindo um script do PowerShell como uma função
+## <a name="defining-a-powershell-script-as-a-function"></a>Defining a PowerShell script as a function
 
-Por padrão, o tempo de execução do Functions procura sua função em `run.ps1`, em que `run.ps1` compartilha o mesmo diretório pai que seu `function.json`correspondente.
+By default, the Functions runtime looks for your function in `run.ps1`, where `run.ps1` shares the same parent directory as its corresponding `function.json`.
 
-Seu script é passado por vários argumentos na execução. Para lidar com esses parâmetros, adicione um bloco de `param` na parte superior do seu script, como no exemplo a seguir:
+Your script is passed a number of arguments on execution. To handle these parameters, add a `param` block to the top of your script as in the following example:
 
 ```powershell
 # $TriggerMetadata is optional here. If you don't need it, you can safely remove it from the param block
 param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 ```
 
-### <a name="triggermetadata-parameter"></a>Parâmetro TriggerMetadata
+### <a name="triggermetadata-parameter"></a>TriggerMetadata parameter
 
-O parâmetro `TriggerMetadata` é usado para fornecer informações adicionais sobre o gatilho. Os metadados adicionais variam de associação à associação, mas todos contêm uma propriedade `sys` que contém os seguintes dados:
+The `TriggerMetadata` parameter is used to supply additional information about the trigger. The additional metadata varies from binding to binding but they all contain a `sys` property that contains the following data:
 
 ```powershell
 $TriggerMetadata.sys
@@ -79,29 +75,29 @@ $TriggerMetadata.sys
 
 | Propriedade   | Descrição                                     | Tipo     |
 |------------|-------------------------------------------------|----------|
-| UtcNow     | Quando, em UTC, a função foi disparada        | DateTime |
-| MethodName | O nome da função que foi disparada     | string   |
-| RandGuid   | um GUID exclusivo para esta execução da função | string   |
+| UtcNow     | When, in UTC, the function was triggered        | DateTime |
+| MethodName | The name of the Function that was triggered     | string   |
+| RandGuid   | a unique guid to this execution of the function | string   |
 
-Cada tipo de gatilho tem um conjunto diferente de metadados. Por exemplo, o `$TriggerMetadata` para `QueueTrigger` contém a `InsertionTime`, `Id`, `DequeueCount`, entre outras coisas. Para obter mais informações sobre os metadados do gatilho de fila, acesse a [documentação oficial para gatilhos de fila](functions-bindings-storage-queue.md#trigger---message-metadata). Verifique a documentação nos [gatilhos](functions-triggers-bindings.md) com os quais você está trabalhando para ver o que acontece nos metadados do gatilho.
+Every trigger type has a different set of metadata. For example, the `$TriggerMetadata` for `QueueTrigger` contains the `InsertionTime`, `Id`, `DequeueCount`, among other things. For more information on the queue trigger's metadata, go to the [official documentation for queue triggers](functions-bindings-storage-queue.md#trigger---message-metadata). Check the documentation on the [triggers](functions-triggers-bindings.md) you're working with to see what comes inside the trigger metadata.
 
 ## <a name="bindings"></a>Enlaces
 
-No PowerShell, as [associações](functions-triggers-bindings.md) são configuradas e definidas no function. JSON de uma função. As funções interagem com associações de várias maneiras.
+In PowerShell, [bindings](functions-triggers-bindings.md) are configured and defined in a function's function.json. Functions interact with bindings a number of ways.
 
-### <a name="reading-trigger-and-input-data"></a>Lendo dados de gatilho e de entrada
+### <a name="reading-trigger-and-input-data"></a>Reading trigger and input data
 
-As associações de entrada e gatilho são lidas como parâmetros passados para sua função. As associações de entrada têm um `direction` definido como `in` em function. JSON. A propriedade `name` definida em `function.json` é o nome do parâmetro, no bloco de `param`. Como o PowerShell usa parâmetros nomeados para associação, a ordem dos parâmetros não importa. No entanto, é uma prática recomendada seguir a ordem das associações definidas no `function.json`.
+Trigger and input bindings are read as parameters passed to your function. Input bindings have a `direction` set to `in` in function.json. The `name` property defined in `function.json` is the name of the parameter, in the `param` block. Since PowerShell uses named parameters for binding, the order of the parameters doesn't matter. However, it's a best practice to follow the order of the bindings defined in the `function.json`.
 
 ```powershell
 param($MyFirstInputBinding, $MySecondInputBinding)
 ```
 
-### <a name="writing-output-data"></a>Gravando dados de saída
+### <a name="writing-output-data"></a>Writing output data
 
-No functions, uma associação de saída tem um `direction` definido como `out` no function. JSON. Você pode gravar em uma associação de saída usando o cmdlet `Push-OutputBinding`, que está disponível para o tempo de execução do functions. Em todos os casos, a propriedade `name` da associação, conforme definido em `function.json`, corresponde ao parâmetro `Name` do cmdlet `Push-OutputBinding`.
+In Functions, an output binding has a `direction` set to `out` in the function.json. You can write to an output binding by using the `Push-OutputBinding` cmdlet, which is available to the Functions runtime. In all cases, the `name` property of the binding as defined in `function.json` corresponds to the `Name` parameter of the `Push-OutputBinding` cmdlet.
 
-O seguinte mostra como chamar `Push-OutputBinding` em seu script de função:
+The following shows how to call `Push-OutputBinding` in your function script:
 
 ```powershell
 param($MyFirstInputBinding, $MySecondInputBinding)
@@ -109,7 +105,7 @@ param($MyFirstInputBinding, $MySecondInputBinding)
 Push-OutputBinding -Name myQueue -Value $myValue
 ```
 
-Você também pode passar um valor para uma ligação específica por meio do pipeline.
+You can also pass in a value for a specific binding through the pipeline.
 
 ```powershell
 param($MyFirstInputBinding, $MySecondInputBinding)
@@ -117,25 +113,25 @@ param($MyFirstInputBinding, $MySecondInputBinding)
 Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 ```
 
-`Push-OutputBinding` se comporta de maneira diferente com base no valor especificado para `-Name`:
+`Push-OutputBinding` behaves differently based on the value specified for `-Name`:
 
-* Quando o nome especificado não puder ser resolvido para uma associação de saída válida, um erro será gerado.
+* When the specified name cannot be resolved to a valid output binding, then an error     is thrown.
 
-* Quando a associação de saída aceita uma coleção de valores, você pode chamar `Push-OutputBinding` repetidamente para enviar vários valores por push.
+* When the output binding accepts a collection of values, you can call `Push-OutputBinding` repeatedly to push multiple values.
 
-* Quando a associação de saída aceita apenas um valor singleton, chamar `Push-OutputBinding` uma segunda vez gera um erro.
+* When the output binding only accepts a singleton value, calling `Push-OutputBinding` a second time raises an error.
 
-#### <a name="push-outputbinding-syntax"></a>sintaxe de `Push-OutputBinding`
+#### <a name="push-outputbinding-syntax"></a>`Push-OutputBinding` syntax
 
-Veja a seguir os parâmetros válidos para chamar `Push-OutputBinding`:
+The following are valid parameters for calling `Push-OutputBinding`:
 
-| Nome | Tipo | propostas | Descrição |
+| Nome | Tipo | Position | Descrição |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | Cadeia | 1 | O nome da Associação de saída que você deseja definir. |
-| **`-Value`** | Objeto | 2 | O valor da Associação de saída que você deseja definir, que é aceita do pipeline ByValue. |
-| **`-Clobber`** | SwitchParameter | Nomeado | Adicional Quando especificado, força o valor a ser definido para uma associação de saída especificada. | 
+| **`-Name`** | String | 1 | The name of the output binding you want to set. |
+| **`-Value`** | Object | 2 | The value of the output binding you want to set, which is accepted from the pipeline ByValue. |
+| **`-Clobber`** | SwitchParameter | Named | (Optional) When specified, forces the value to be set for a specified output binding. | 
 
-Os seguintes parâmetros comuns também têm suporte: 
+The following common parameters are also supported: 
 * `Verbose`
 * `Debug`
 * `ErrorAction`
@@ -146,11 +142,11 @@ Os seguintes parâmetros comuns também têm suporte:
 * `PipelineVariable`
 * `OutVariable` 
 
-Para obter mais informações, consulte [sobre CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+For more information, see [About CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-#### <a name="push-outputbinding-example-http-responses"></a>Exemplo de push-OutputBinding: respostas HTTP
+#### <a name="push-outputbinding-example-http-responses"></a>Push-OutputBinding example: HTTP responses
 
-Um gatilho HTTP retorna uma resposta usando uma associação de saída chamada `response`. No exemplo a seguir, a associação de saída de `response` tem o valor de "saída #1":
+An HTTP trigger returns a response using an output binding named `response`. In the following example, the output binding of `response` has the value of "output #1":
 
 ```powershell
 PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
@@ -159,7 +155,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 })
 ```
 
-Como a saída é para HTTP, que aceita apenas um valor singleton, um erro é gerado quando `Push-OutputBinding` é chamado uma segunda vez.
+Because the output is to HTTP, which accepts a singleton value only, an error is thrown when `Push-OutputBinding` is called a second time.
 
 ```powershell
 PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
@@ -168,7 +164,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 })
 ```
 
-Para saídas que aceitam apenas valores singleton, você pode usar o parâmetro `-Clobber` para substituir o valor antigo em vez de tentar adicionar a uma coleção. O exemplo a seguir pressupõe que você já adicionou um valor. Usando `-Clobber`, a resposta do exemplo a seguir substitui o valor existente para retornar um valor de "saída #3":
+For outputs that only accept singleton values, you can use the `-Clobber` parameter to override the old value instead of trying to add to a collection. The following example assumes that you have already added a value. By using `-Clobber`, the response from the following example overrides the existing value to return a value of "output #3":
 
 ```powershell
 PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
@@ -177,33 +173,33 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 }) -Clobber
 ```
 
-#### <a name="push-outputbinding-example-queue-output-binding"></a>Exemplo de push-OutputBinding: Associação de saída da fila
+#### <a name="push-outputbinding-example-queue-output-binding"></a>Push-OutputBinding example: Queue output binding
 
-`Push-OutputBinding` é usado para enviar dados para associações de saída, como uma [Associação de saída do armazenamento de filas do Azure](functions-bindings-storage-queue.md#output). No exemplo a seguir, a mensagem gravada na fila tem um valor de "saída #1":
+`Push-OutputBinding` is used to send data to output bindings, such as an [Azure Queue storage output binding](functions-bindings-storage-queue.md#output). In the following example, the message written to the queue has a value of "output #1":
 
 ```powershell
 PS >Push-OutputBinding -Name outQueue -Value "output #1"
 ```
 
-A associação de saída para uma fila de armazenamento aceita vários valores de saída. Nesse caso, chamar o exemplo a seguir após a primeira gravação na fila em uma lista com dois itens: "output #1" e "output #2".
+The output binding for a Storage queue accepts multiple output values. In this case, calling the following example after the first writes to the queue a list with two items: "output #1" and "output #2".
 
 ```powershell
 PS >Push-OutputBinding -Name outQueue -Value "output #2"
 ```
 
-O exemplo a seguir, quando chamado após os dois anteriores, adiciona mais dois valores à coleção de saída:
+The following example, when called after the previous two, adds two more values to the output collection:
 
 ```powershell
 PS >Push-OutputBinding -Name outQueue -Value @("output #3", "output #4")
 ```
 
-Quando gravado na fila, a mensagem contém estes quatro valores: "saída #1", "saída #2", "saída #3" e "#4 de saída".
+When written to the queue, the message contains these four values: "output #1", "output #2", "output #3", and "output #4".
 
 #### <a name="get-outputbinding-cmdlet"></a>`Get-OutputBinding` cmdlet
 
-Você pode usar o cmdlet `Get-OutputBinding` para recuperar os valores definidos atualmente para suas associações de saída. Esse cmdlet recupera uma tabela de hash que contém os nomes das associações de saída com seus respectivos valores. 
+You can use the `Get-OutputBinding` cmdlet to retrieve the values currently set for your output bindings. This cmdlet retrieves a hashtable that contains the names of the output bindings with their respective values. 
 
-Veja a seguir um exemplo de como usar `Get-OutputBinding` para retornar os valores de associação atuais:
+The following is an example of using `Get-OutputBinding` to return current binding values:
 
 ```powershell
 Get-OutputBinding
@@ -216,7 +212,7 @@ MyQueue                        myData
 MyOtherQueue                   myData
 ```
 
-`Get-OutputBinding` também contém um parâmetro chamado `-Name`, que pode ser usado para filtrar a associação retornada, como no exemplo a seguir:
+`Get-OutputBinding` also contains a parameter called `-Name`, which can be used to filter the returned binding, as in the following example:
 
 ```powershell
 Get-OutputBinding -Name MyQ*
@@ -228,30 +224,30 @@ Name                           Value
 MyQueue                        myData
 ```
 
-Há suporte para caracteres curinga (*) em `Get-OutputBinding`.
+Wildcards (*) are supported in `Get-OutputBinding`.
 
 ## <a name="logging"></a>Registo
 
-O registro em log nas funções do PowerShell funciona como log normal do PowerShell. Você pode usar os cmdlets de log para gravar em cada fluxo de saída. Cada cmdlet é mapeado para um nível de log usado pelas funções.
+Logging in PowerShell functions works like regular PowerShell logging. You can use the logging cmdlets to write to each output stream. Each cmdlet maps to a log level used by Functions.
 
-| Nível de log de funções | Cmdlet de registro em log |
+| Functions logging level | Logging cmdlet |
 | ------------- | -------------- |
 | Erro | **`Write-Error`** |
 | Aviso | **`Write-Warning`**  | 
-| Informações | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informações | Grava no log do nível de _informações_ . |
+| Proteção das | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Proteção das | Writes to _Information_ level logging. |
 | Depurar | **`Write-Debug`** |
 | Rastreio | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
-Além desses cmdlets, qualquer coisa gravada no pipeline é redirecionada para o nível de log `Information` e exibido com a formatação padrão do PowerShell.
+In addition to these cmdlets, anything written to the pipeline is redirected to the `Information` log level and displayed with the default PowerShell formatting.
 
 > [!IMPORTANT]
-> O uso dos cmdlets `Write-Verbose` ou `Write-Debug` não é suficiente para ver o log detalhado e de nível de depuração. Você também deve configurar o limite de nível de log, que declara o nível de logs que você realmente importa. Para saber mais, confira [Configurar o nível de log do aplicativo de funções](#configure-the-function-app-log-level).
+> Using the `Write-Verbose` or `Write-Debug` cmdlets is not enough to see verbose and debug level logging. You must also configure the log level threshold, which declares what level of logs you actually care about. To learn more, see [Configure the function app log level](#configure-the-function-app-log-level).
 
-### <a name="configure-the-function-app-log-level"></a>Configurar o nível de log do aplicativo de funções
+### <a name="configure-the-function-app-log-level"></a>Configure the function app log level
 
-Azure Functions permite que você defina o nível de limite para facilitar o controle da maneira como as funções são gravadas nos logs. Para definir o limite para todos os rastreamentos gravados no console, use a propriedade `logging.logLevel.default` na[referência de host. JSON]do [arquivo`host.json`]. Essa configuração se aplica a todas as funções em seu aplicativo de funções.
+Azure Functions lets you define the threshold level to make it easy to control the way Functions writes to the logs. To set the threshold for all traces written to the console, use the `logging.logLevel.default` property in the [`host.json` file][host.json reference]. This setting applies to all functions in your function app.
 
-O exemplo a seguir define o limite para habilitar o log detalhado para todas as funções, mas define o limite para habilitar o log de depuração para uma função chamada `MyFunction`:
+The following example sets the threshold to enable verbose logging for all functions, but sets the threshold to enable debug logging for a function named `MyFunction`:
 
 ```json
 {
@@ -264,21 +260,21 @@ O exemplo a seguir define o limite para habilitar o log detalhado para todas as 
 }  
 ```
 
-Para obter mais informações, consulte [referência de host. JSON].
+For more information, see [host.json reference].
 
-### <a name="viewing-the-logs"></a>Exibindo os logs
+### <a name="viewing-the-logs"></a>Viewing the logs
 
-Se o Aplicativo de funções estiver em execução no Azure, você poderá usar Application Insights para monitorá-lo. Leia [Azure Functions de monitoramento](functions-monitoring.md) para saber mais sobre como exibir e consultar logs de função.
+If your Function App is running in Azure, you can use Application Insights to monitor it. Read [monitoring Azure Functions](functions-monitoring.md) to learn more about viewing and querying function logs.
 
-Se você estiver executando o Aplicativo de funções localmente para desenvolvimento, os logs serão padrão para o sistema de arquivos. Para ver os logs no console, defina a variável de ambiente `AZURE_FUNCTIONS_ENVIRONMENT` como `Development` antes de iniciar a Aplicativo de funções.
+If you're running your Function App locally for development, logs default to the file system. To see the logs in the console, set the `AZURE_FUNCTIONS_ENVIRONMENT` environment variable to `Development` before starting the Function App.
 
-## <a name="triggers-and-bindings-types"></a>Tipos de associações e gatilhos
+## <a name="triggers-and-bindings-types"></a>Triggers and bindings types
 
-Há vários gatilhos e associações disponíveis para você usar com seu aplicativo de funções. A lista completa de gatilhos e associações [pode ser encontrada aqui](functions-triggers-bindings.md#supported-bindings).
+There are a number of triggers and bindings available to you to use with your function app. The full list of triggers and bindings [can be found here](functions-triggers-bindings.md#supported-bindings).
 
-Todos os gatilhos e associações são representados no código como alguns tipos de dados reais:
+All triggers and bindings are represented in code as a few real data types:
 
-* Tabela
+* Hashtable
 * string
 * byte[]
 * int
@@ -286,45 +282,45 @@ Todos os gatilhos e associações são representados no código como alguns tipo
 * HttpRequestContext
 * HttpResponseContext
 
-Os cinco primeiros tipos nessa lista são tipos .NET padrão. Os dois últimos são usados somente pelo [gatilho HttpTrigger](#http-triggers-and-bindings).
+The first five types in this list are standard .NET types. The last two are used only by the [HttpTrigger trigger](#http-triggers-and-bindings).
 
-Cada parâmetro de associação em suas funções deve ser um desses tipos.
+Each binding parameter in your functions must be one of these types.
 
-### <a name="http-triggers-and-bindings"></a>Gatilhos e associações HTTP
+### <a name="http-triggers-and-bindings"></a>HTTP triggers and bindings
 
-Os gatilhos HTTP e webhook e as associações de saída HTTP usam objetos Request e Response para representar as mensagens HTTP.
+HTTP and webhook triggers and HTTP output bindings use request and response objects to represent the HTTP messaging.
 
-#### <a name="request-object"></a>Objeto de solicitação
+#### <a name="request-object"></a>Request object
 
-O objeto de solicitação que é passado para o script é do tipo `HttpRequestContext`, que tem as seguintes propriedades:
+The request object that's passed into the script is of the type `HttpRequestContext`, which has the following properties:
 
 | Propriedade  | Descrição                                                    | Tipo                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Um objeto que contém o corpo da solicitação. `Body` é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, eles serão passados como uma tabela de hash. Se os dados forem uma cadeia de caracteres, eles serão passados como uma cadeia de caracteres. | objeto |
-| **`Headers`** | Um dicionário que contém os cabeçalhos de solicitação.                | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup>*</sup> |
-| **`Method`** | O método HTTP da solicitação.                                | string                    |
-| **`Params`**  | Um objeto que contém os parâmetros de roteamento da solicitação. | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup>*</sup> |
-| **`Query`** | Um objeto que contém os parâmetros de consulta.                  | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup>*</sup> |
-| **`Url`** | A URL da solicitação.                                        | string                    |
+| **`Body`**    | An object that contains the body of the request. `Body` is serialized into the best type based on the data. For example, if the data is JSON, it's passed in as a hashtable. If the data is a string, it's passed in as a string. | objeto |
+| **`Headers`** | A dictionary that contains the request headers.                | Dictionary<string,string><sup>*</sup> |
+| **`Method`** | The HTTP method of the request.                                | string                    |
+| **`Params`**  | An object that contains the routing parameters of the request. | Dictionary<string,string><sup>*</sup> |
+| **`Query`** | An object that contains the query parameters.                  | Dictionary<string,string><sup>*</sup> |
+| **`Url`** | The URL of the request.                                        | string                    |
 
-<sup>*</sup> Todas as chaves de `Dictionary<string,string>` não diferenciam maiúsculas de minúsculas.
+<sup>*</sup> All `Dictionary<string,string>` keys are case-insensitive.
 
 #### <a name="response-object"></a>Objeto de resposta
 
-O objeto de resposta que você deve enviar de volta é do tipo `HttpResponseContext`, que tem as seguintes propriedades:
+The response object that you should send back is of the type `HttpResponseContext`, which has the following properties:
 
 | Propriedade      | Descrição                                                 | Tipo                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Um objeto que contém o corpo da resposta.           | objeto                    |
-| **`ContentType`** | Uma pequena mão para definir o tipo de conteúdo para a resposta. | string                    |
-| **`Headers`** | Um objeto que contém os cabeçalhos de resposta.               | Dicionário ou Hashtable   |
-| **`StatusCode`**  | O código de status HTTP da resposta.                       | Cadeia de caracteres ou int             |
+| **`Body`**  | An object that contains the body of the response.           | objeto                    |
+| **`ContentType`** | A short hand for setting the content type for the response. | string                    |
+| **`Headers`** | An object that contains the response headers.               | Dictionary or Hashtable   |
+| **`StatusCode`**  | The HTTP status code of the response.                       | string or int             |
 
-#### <a name="accessing-the-request-and-response"></a>Acessando a solicitação e a resposta
+#### <a name="accessing-the-request-and-response"></a>Accessing the request and response
 
-Ao trabalhar com gatilhos HTTP, você pode acessar a solicitação HTTP da mesma maneira que faria com qualquer outra associação de entrada. Está no bloco de `param`.
+When you work with HTTP triggers, you can access the HTTP request the same way you would with any other input binding. It's in the `param` block.
 
-Use um objeto `HttpResponseContext` para retornar uma resposta, conforme mostrado a seguir:
+Use an `HttpResponseContext` object to return a response, as shown in the following:
 
 `function.json`
 
@@ -357,48 +353,48 @@ Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
 })
 ```
 
-O resultado da invocação dessa função seria:
+The result of invoking this function would be:
 
 ```
 PS > irm http://localhost:5001?Name=Functions
 Hello Functions!
 ```
 
-### <a name="type-casting-for-triggers-and-bindings"></a>Conversão de tipo para gatilhos e associações
+### <a name="type-casting-for-triggers-and-bindings"></a>Type-casting for triggers and bindings
 
-Para determinadas associações como a associação de BLOB, você pode especificar o tipo do parâmetro.
+For certain bindings like the blob binding, you're able to specify the type of the parameter.
 
-Por exemplo, para ter dados do armazenamento de BLOBs fornecidos como uma cadeia de caracteres, adicione a seguinte conversão de tipo ao meu bloco de `param`:
+For example, to have data from Blob storage supplied as a string, add the following type cast to my `param` block:
 
 ```powershell
 param([string] $myBlob)
 ```
 
-## <a name="powershell-profile"></a>Perfil do PowerShell
+## <a name="powershell-profile"></a>PowerShell profile
 
-No PowerShell, há o conceito de um perfil do PowerShell. Se você não estiver familiarizado com os perfis do PowerShell, consulte [about Profiles](/powershell/module/microsoft.powershell.core/about/about_profiles).
+In PowerShell, there's the concept of a PowerShell profile. If you're not familiar with PowerShell profiles, see [About profiles](/powershell/module/microsoft.powershell.core/about/about_profiles).
 
-Em funções do PowerShell, o script de perfil é executado quando o aplicativo de funções é iniciado. Os aplicativos de funções começam quando são implantados pela primeira vez e depois ficam ociosos ([inicialização a frio](#cold-start)).
+In PowerShell Functions, the profile script executes when the function app starts. Function apps start when first deployed and after being idled ([cold start](#cold-start)).
 
-Quando você cria um aplicativo de funções usando ferramentas, como Visual Studio Code e Azure Functions Core Tools, um `profile.ps1` padrão é criado para você. O perfil padrão é mantido [no repositório GitHub das ferramentas principais](https://github.com/Azure/azure-functions-core-tools/blob/dev/src/Azure.Functions.Cli/StaticResources/profile.ps1) e contém:
+When you create a function app using tools, such as Visual Studio Code and Azure Functions Core Tools, a default `profile.ps1` is created for you. The default profile is maintained [on the Core Tools GitHub repository](https://github.com/Azure/azure-functions-core-tools/blob/dev/src/Azure.Functions.Cli/StaticResources/profile.ps1) and contains:
 
-* Autenticação automática de MSI para o Azure.
-* A capacidade de ativar o Azure PowerShell `AzureRM` aliases do PowerShell, se desejar.
+* Automatic MSI authentication to Azure.
+* The ability to turn on the Azure PowerShell `AzureRM` PowerShell aliases if you would like.
 
-## <a name="powershell-version"></a>Versão do PowerShell
+## <a name="powershell-version"></a>PowerShell version
 
-A tabela a seguir mostra a versão do PowerShell usada por cada versão principal do tempo de execução do Functions:
+The following table shows the PowerShell version used by each major version of the Functions runtime:
 
-| Versão das funções | Versão do PowerShell                             |
+| Functions version | PowerShell version                             |
 |-------------------|------------------------------------------------|
-| 1.x               | Windows PowerShell 5,1 (bloqueado pelo tempo de execução) |
+| 1.x               | Windows PowerShell 5.1 (locked by the runtime) |
 | 2.x               | PowerShell Core 6                              |
 
-Você pode ver a versão atual imprimindo `$PSVersionTable` de qualquer função.
+You can see the current version by printing `$PSVersionTable` from any function.
 
 ## <a name="dependency-management"></a>Gestão de dependências
 
-O Functions permite aproveitar a [Galeria do PowerShell](https://www.powershellgallery.com) para gerenciar dependências. Com o gerenciamento de dependência habilitado, o arquivo Requirements. psd1 é usado para baixar automaticamente os módulos necessários. Você habilita esse comportamento definindo a propriedade `managedDependency` como `true` na raiz do [arquivo host. JSON](functions-host-json.md), como no exemplo a seguir:
+Functions lets you leverage [PowerShell gallery](https://www.powershellgallery.com) for managing dependencies. With dependency management enabled, the requirements.psd1 file is used to automatically download required modules. You enable this behavior by setting the `managedDependency` property to `true` in the root of the [host.json file](functions-host-json.md), as in the following example:
 
 ```json
 {
@@ -408,7 +404,7 @@ O Functions permite aproveitar a [Galeria do PowerShell](https://www.powershellg
 }
 ```
 
-Quando você cria um novo projeto de funções do PowerShell, o gerenciamento de dependência é habilitado por padrão, com o [módulo de`Az`](/powershell/azure/new-azureps-module-az) do Azure incluído. O número máximo de módulos com suporte no momento é 10. A sintaxe com suporte é _`MajorNumber`_ `.*` ou versão exata do módulo, conforme mostrado nos seguintes requisitos. psd1 exemplo:
+When you create a new PowerShell functions project, dependency management is enabled by default, with the Azure [`Az` module](/powershell/azure/new-azureps-module-az) included. The maximum number of modules currently supported is 10. The supported syntax is _`MajorNumber`_ `.*` or exact module version as shown in the following requirements.psd1 example:
 
 ```powershell
 @{
@@ -417,43 +413,43 @@ Quando você cria um novo projeto de funções do PowerShell, o gerenciamento de
 }
 ```
 
-Quando você atualiza o arquivo Requirements. psd1, os módulos atualizados são instalados após uma reinicialização.
+When you update the requirements.psd1 file, updated modules are installed after a restart.
 
 > [!NOTE]
-> As dependências gerenciadas exigem acesso ao www.powershellgallery.com para baixar módulos. Ao executar localmente, verifique se o tempo de execução pode acessar essa URL adicionando as regras de firewall necessárias. 
+> Managed dependencies requires access to www.powershellgallery.com to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules. 
 
-As configurações de aplicativo a seguir podem ser usadas para alterar a forma como as dependências gerenciadas são baixadas e instaladas. A atualização do aplicativo é iniciada no `MDMaxBackgroundUpgradePeriod`e o processo de atualização é concluído em aproximadamente o `MDNewSnapshotCheckPeriod`.
+The following application settings can be used to change how the managed dependencies are downloaded and installed. Your app upgrade starts within `MDMaxBackgroundUpgradePeriod`, and the upgrade process completes within approximately the `MDNewSnapshotCheckPeriod`.
 
-| Aplicativo de funções configuração              | Valor predefinido             | Descrição                                         |
+| Function App setting              | Valor predefinido             | Descrição                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
-| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 dias)     | Cada processo de trabalho do PowerShell inicia a verificação de atualizações de módulo no Galeria do PowerShell no início do processo e a cada `MDMaxBackgroundUpgradePeriod` depois disso. Quando uma nova versão de módulo está disponível no Galeria do PowerShell, ela é instalada no sistema de arquivos e disponibilizada para trabalhadores do PowerShell. Diminuir esse valor permite que seu aplicativo de funções obtenha versões mais recentes do módulo mais cedo, mas também aumenta o uso de recursos do aplicativo (e/s de rede, CPU, armazenamento). Aumentar esse valor diminui o uso de recursos do aplicativo, mas também pode atrasar a entrega de novas versões de módulo ao seu aplicativo. | 
-| **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 hora)       | Depois que novas versões de módulo são instaladas no sistema de arquivos, todos os processos de trabalho do PowerShell devem ser reiniciados. Reiniciar os trabalhadores do PowerShell afeta a disponibilidade do aplicativo, pois ele pode interromper a execução da função atual. Até que todos os processos de trabalho do PowerShell sejam reiniciados, as invocações de função podem usar as versões de módulo antiga ou nova. A reinicialização de todos os trabalhadores do PowerShell é concluída dentro do `MDNewSnapshotCheckPeriod`. Aumentar esse valor diminui a frequência de interrupções, mas também pode aumentar o período de tempo em que as invocações de função usam as versões de módulo antigo ou novo de forma não determinística. |
-| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00` (1 dia)     | Para evitar atualizações excessivas de módulo em reinicializações de trabalhador frequentes, a verificação de atualizações de módulo não será executada quando algum trabalho já tiver iniciado essa verificação na última `MDMinBackgroundUpgradePeriod`. |
+| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 days)     | Each PowerShell worker process initiates checking for module upgrades on the PowerShell Gallery on process start and every `MDMaxBackgroundUpgradePeriod` after that. When a new module version is available in the PowerShell Gallery, it's installed to the file system and made available to PowerShell workers. Decreasing this value lets your function app get newer module versions sooner, but it also increases the app resource usage (network I/O, CPU, storage). Increasing this value decreases the app's resource usage, but it may also delay delivering new module versions to your app. | 
+| **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 hour)       | After new module versions are installed to the file system, every PowerShell worker process must be restarted. Restarting PowerShell workers affects your app availability as it can interrupt current function execution. Until all PowerShell worker processes are restarted, function invocations may use either the old or the new module versions. Restarting all PowerShell workers complete within `MDNewSnapshotCheckPeriod`. Increasing this value decreases the frequency of interruptions, but may also increase the period of time when function invocations use either the old or the new module versions non-deterministically. |
+| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00` (1 day)     | To avoid excessive module upgrades on frequent Worker restarts, checking for module upgrades isn't performed when any worker has already initiated that check in the last `MDMinBackgroundUpgradePeriod`. |
 
-Aproveitar seus próprios módulos personalizados é um pouco diferente de como você faria normalmente.
+Leveraging your own custom modules is a little different than how you would do it normally.
 
-No computador local, o módulo é instalado em uma das pastas disponíveis globalmente em seu `$env:PSModulePath`. Ao executar no Azure, você não tem acesso aos módulos instalados em seu computador. Isso significa que o `$env:PSModulePath` para um aplicativo de funções do PowerShell difere de `$env:PSModulePath` em um script do PowerShell regular.
+On your local computer, the module gets installed in one of the globally available folders in your `$env:PSModulePath`. When running in Azure, you don't have access to the modules installed on your machine. This means that the `$env:PSModulePath` for a PowerShell function app differs from `$env:PSModulePath` in a regular PowerShell script.
 
-No functions, `PSModulePath` contém dois caminhos:
+In Functions, `PSModulePath` contains two paths:
 
-* Uma pasta `Modules` que existe na raiz do seu aplicativo de funções.
-* Um caminho para uma pasta de `Modules` que é controlada pelo operador de linguagem do PowerShell.
+* A `Modules` folder that exists at the root of your function app.
+* A path to a `Modules` folder that is controlled by the PowerShell language worker.
 
-### <a name="function-app-level-modules-folder"></a>Pasta de `Modules` no nível do aplicativo de funções
+### <a name="function-app-level-modules-folder"></a>Function app-level `Modules` folder
 
-Para usar módulos personalizados, você pode posicionar os módulos nos quais suas funções dependem de uma pasta `Modules`. Nessa pasta, os módulos ficam automaticamente disponíveis para o tempo de execução do functions. Qualquer função no aplicativo de funções pode usar esses módulos. 
+To use custom modules, you can place modules on which your functions depend in a `Modules` folder. From this folder, modules are automatically available to the functions runtime. Any function in the function app can use these modules. 
 
 > [!NOTE]
-> Os módulos especificados no arquivo Requirements. psd1 são baixados e incluídos automaticamente no caminho para que você não precise incluí-los na pasta modules. Eles são armazenados localmente na pasta `$env:LOCALAPPDATA/AzureFunctions` e na pasta `/data/ManagedDependencies` quando executados na nuvem.
+> Modules specified in the requirements.psd1 file are automatically downloaded and included in the path so you don't need to include them in the modules folder. These are stored locally in the `$env:LOCALAPPDATA/AzureFunctions` folder and in the `/data/ManagedDependencies` folder when run in the cloud.
 
-Para aproveitar o recurso de módulo personalizado, crie uma pasta `Modules` na raiz do seu aplicativo de funções. Copie os módulos que você deseja usar em suas funções para esse local.
+To take advantage of the custom module feature, create a `Modules` folder in the root of your function app. Copy the modules you want to use in your functions to this location.
 
 ```powershell
 mkdir ./Modules
 Copy-Item -Path /mymodules/mycustommodule -Destination ./Modules -Recurse
 ```
 
-Com uma pasta `Modules`, seu aplicativo de funções deve ter a seguinte estrutura de pastas:
+With a `Modules` folder, your function app should have the following folder structure:
 
 ```
 PSFunctionApp
@@ -469,22 +465,22 @@ PSFunctionApp
  | - requirements.psd1
 ```
 
-Quando você inicia seu aplicativo de funções, o operador de linguagem do PowerShell adiciona essa pasta `Modules` ao `$env:PSModulePath` para que você possa contar com o carregamento automático de módulo, exatamente como faria em um script do PowerShell regular.
+When you start your function app, the PowerShell language worker adds this `Modules` folder to the `$env:PSModulePath` so that you can rely on module autoloading just as you would in a regular PowerShell script.
 
-### <a name="language-worker-level-modules-folder"></a>Pasta `Modules` nível de trabalho de idioma
+### <a name="language-worker-level-modules-folder"></a>Language worker level `Modules` folder
 
-Vários módulos são geralmente usados pelo operador de linguagem do PowerShell. Esses módulos são definidos na última posição de `PSModulePath`. 
+Several modules are commonly used by the PowerShell language worker. These modules are defined in the last position of `PSModulePath`. 
 
-A lista atual de módulos é a seguinte:
+The current list of modules is as follows:
 
-* [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): módulo usado para trabalhar com arquivos mortos, como `.zip`, `.nupkg`e outros.
-* **ThreadJob**: uma implementação baseada em thread das APIs de trabalho do PowerShell.
+* [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): module used for working with archives, like `.zip`, `.nupkg`, and others.
+* **ThreadJob**: A thread-based implementation of the PowerShell job APIs.
 
-Por padrão, o Functions usa a versão mais recente desses módulos. Para usar uma versão de módulo específica, coloque essa versão específica na pasta `Modules` do seu aplicativo de funções.
+By default, Functions uses the most recent version of these modules. To use a specific module version, put that specific version in the `Modules` folder of your function app.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
-Em funções, [as configurações de aplicativo](functions-app-settings.md), como cadeias de conexão de serviço, são expostas como variáveis de ambiente durante a execução. Você pode acessar essas configurações usando `$env:NAME_OF_ENV_VAR`, conforme mostrado no exemplo a seguir:
+In Functions, [app settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings using `$env:NAME_OF_ENV_VAR`, as shown in the following example:
 
 ```powershell
 param($myTimer)
@@ -496,36 +492,36 @@ Write-Host $env:WEBSITE_SITE_NAME
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-Ao executar localmente, as configurações do aplicativo são lidas no arquivo de projeto [local. Settings. JSON](functions-run-local.md#local-settings-file) .
+When running locally, app settings are read from the [local.settings.json](functions-run-local.md#local-settings-file) project file.
 
 ## <a name="concurrency"></a>Simultaneidade
 
-Por padrão, o tempo de execução do PowerShell do Functions só pode processar uma invocação de uma função por vez. No entanto, esse nível de simultaneidade pode não ser suficiente nas seguintes situações:
+By default, the Functions PowerShell runtime can only process one invocation of a function at a time. However, this concurrency level might not be sufficient in the following situations:
 
-* Quando você está tentando lidar com um grande número de invocações ao mesmo tempo.
-* Quando você tem funções que invocam outras funções dentro do mesmo aplicativo de funções.
+* When you're trying to handle a large number of invocations at the same time.
+* When you have functions that invoke other functions inside the same function app.
 
-Você pode alterar esse comportamento definindo a seguinte variável de ambiente como um valor inteiro:
+You can change this behavior by setting the following environment variable to an integer value:
 
 ```
 PSWorkerInProcConcurrencyUpperBound
 ```
 
-Você define essa variável de ambiente nas [configurações de aplicativo](functions-app-settings.md) de seu aplicativo de funções.
+You set this environment variable in the [app settings](functions-app-settings.md) of your Function App.
 
-### <a name="considerations-for-using-concurrency"></a>Considerações sobre o uso de simultaneidade
+### <a name="considerations-for-using-concurrency"></a>Considerations for using concurrency
 
-O PowerShell é uma linguagem de script de _thread único_ por padrão. No entanto, a simultaneidade pode ser adicionada usando vários espaços de uso do PowerShell no mesmo processo. A quantidade de Runspaces criados corresponderá à configuração do aplicativo PSWorkerInProcConcurrencyUpperBound. A taxa de transferência será afetada pela quantidade de CPU e memória disponíveis no plano selecionado.
+PowerShell is a _single threaded_ scripting language by default. However, concurrency can be added by using multiple PowerShell runspaces in the same process. The amount of runspaces created will match the PSWorkerInProcConcurrencyUpperBound application setting. The throughput will be impacted by the amount of CPU and memory available in the selected plan.
 
-Azure PowerShell usa alguns contextos de _nível de processo_ e um estado para ajudá-lo a evitar a digitação de excesso de tipos. No entanto, se você ativar a simultaneidade em seu aplicativo de funções e invocar ações que alteram o estado, poderá acabar com condições de corrida. Essas condições de corrida são difíceis de depurar porque uma invocação depende de um determinado Estado e a outra invocação alterou o estado.
+Azure PowerShell uses some _process-level_ contexts and state to help save you from excess typing. However, if you turn on concurrency in your function app and invoke actions that change state, you could end up with race conditions. These race conditions are difficult to debug because one invocation relies on a certain state and the other invocation changed the state.
 
-Há um grande valor em simultaneidade com Azure PowerShell, já que algumas operações podem levar um tempo considerável. No entanto, você deve continuar com cautela. Se você suspeitar de que está enfrentando uma condição de corrida, defina a configuração de aplicativo PSWorkerInProcConcurrencyUpperBound como `1` e, em vez disso, use o [isolamento de nível de processo de trabalho de linguagem](functions-app-settings.md#functions_worker_process_count) para simultaneidade.
+There's immense value in concurrency with Azure PowerShell, since some operations can take a considerable amount of time. However, you must proceed with caution. If you suspect that you're experiencing a race condition, set the PSWorkerInProcConcurrencyUpperBound app setting to `1` and instead use [language worker process level isolation](functions-app-settings.md#functions_worker_process_count) for concurrency.
 
-## <a name="configure-function-scriptfile"></a>Configurar `scriptFile` de função
+## <a name="configure-function-scriptfile"></a>Configure function `scriptFile`
 
-Por padrão, uma função do PowerShell é executada a partir de `run.ps1`, um arquivo que compartilha o mesmo diretório pai que seu `function.json`correspondente.
+By default, a PowerShell function is executed from `run.ps1`, a file that shares the same parent directory as its corresponding `function.json`.
 
-A propriedade `scriptFile` na `function.json` pode ser usada para obter uma estrutura de pastas parecida com o exemplo a seguir:
+The `scriptFile` property in the `function.json` can be used to get a folder structure that looks like the following example:
 
 ```
 FunctionApp
@@ -536,7 +532,7 @@ FunctionApp
  | | - PSFunction.ps1
 ```
 
-Nesse caso, o `function.json` para `myFunction` inclui uma propriedade `scriptFile` referenciando o arquivo com a função exportada a ser executada.
+In this case, the `function.json` for `myFunction` includes a `scriptFile` property referencing the file with the exported function to run.
 
 ```json
 {
@@ -547,14 +543,14 @@ Nesse caso, o `function.json` para `myFunction` inclui uma propriedade `scriptFi
 }
 ```
 
-## <a name="use-powershell-modules-by-configuring-an-entrypoint"></a>Usar módulos do PowerShell Configurando um ponto de entrada
+## <a name="use-powershell-modules-by-configuring-an-entrypoint"></a>Use PowerShell modules by configuring an entryPoint
 
-Este artigo mostrou as funções do PowerShell no arquivo de script padrão `run.ps1` gerado pelos modelos.
-No entanto, você também pode incluir suas funções em módulos do PowerShell. Você pode referenciar seu código de função específico no módulo usando os campos `scriptFile` e `entryPoint` no arquivo de configuração function. JSON.
+This article has shown PowerShell functions in the default `run.ps1` script file generated by the templates.
+However, you can also include your functions in PowerShell modules. You can reference your specific function code in the module by using the `scriptFile` and `entryPoint` fields in the function.json` configuration file.
 
-Nesse caso, `entryPoint` é o nome de uma função ou cmdlet no módulo do PowerShell referenciado em `scriptFile`.
+In this case, `entryPoint` is the name of a function or cmdlet in the PowerShell module referenced in `scriptFile`.
 
-Considere a seguinte estrutura de pastas:
+Consider the following folder structure:
 
 ```
 FunctionApp
@@ -565,7 +561,7 @@ FunctionApp
  | | - PSFunction.psm1
 ```
 
-Onde `PSFunction.psm1` contém:
+Where `PSFunction.psm1` contains:
 
 ```powershell
 function Invoke-PSTestFunc {
@@ -577,7 +573,7 @@ function Invoke-PSTestFunc {
 Export-ModuleMember -Function "Invoke-PSTestFunc"
 ```
 
-Neste exemplo, a configuração de `myFunction` inclui uma propriedade `scriptFile` que faz referência a `PSFunction.psm1`, que é um módulo do PowerShell em outra pasta.  A propriedade `entryPoint` faz referência à função `Invoke-PSTestFunc`, que é o ponto de entrada no módulo.
+In this example, the configuration for `myFunction` includes a `scriptFile` property that references `PSFunction.psm1`, which is a PowerShell module in another folder.  The `entryPoint` property references the `Invoke-PSTestFunc` function, which is the entry point in the module.
 
 ```json
 {
@@ -589,19 +585,19 @@ Neste exemplo, a configuração de `myFunction` inclui uma propriedade `scriptFi
 }
 ```
 
-Com essa configuração, a `Invoke-PSTestFunc` é executada exatamente como uma `run.ps1`.
+With this configuration, the `Invoke-PSTestFunc` gets executed exactly as a `run.ps1` would.
 
-## <a name="considerations-for-powershell-functions"></a>Considerações para funções do PowerShell
+## <a name="considerations-for-powershell-functions"></a>Considerations for PowerShell functions
 
-Ao trabalhar com as funções do PowerShell, esteja ciente das considerações nas seções a seguir.
+When you work with PowerShell functions, be aware of the considerations in the following sections.
 
-### <a name="cold-start"></a>Início frio
+### <a name="cold-start"></a>Cold Start
 
-Ao desenvolver Azure Functions no [modelo de hospedagem sem servidor](functions-scale.md#consumption-plan), inícios frios são uma realidade. *Início frio* refere-se ao período de tempo que leva para seu aplicativo de funções iniciar a execução para processar uma solicitação. A inicialização a frio acontece com mais frequência no plano de consumo porque seu aplicativo de funções é desligado durante períodos de inatividade.
+When developing Azure Functions in the [serverless hosting model](functions-scale.md#consumption-plan), cold starts are a reality. *Cold start* refers to period of time it takes for your function app to start running to process a request. Cold start happens more frequently in the Consumption plan because your function app gets shut down during periods of inactivity.
 
-### <a name="bundle-modules-instead-of-using-install-module"></a>Agrupar módulos em vez de usar `Install-Module`
+### <a name="bundle-modules-instead-of-using-install-module"></a>Bundle modules instead of using `Install-Module`
 
-O script é executado em cada invocação. Evite usar `Install-Module` em seu script. Em vez disso, use `Save-Module` antes da publicação para que sua função não precise perder tempo baixando o módulo. Se a frio for iniciada, afetando suas funções, considere implantar seu aplicativo de funções em um [plano do serviço de aplicativo](functions-scale.md#app-service-plan) definido como *Always on* ou em um [plano Premium](functions-scale.md#premium-plan).
+Your script is run on every invocation. Avoid using `Install-Module` in your script. Instead use `Save-Module` before publishing so that your function doesn't have to waste time downloading the module. If cold starts are impacting your functions, consider deploying your function app to an [App Service plan](functions-scale.md#app-service-plan) set to *always on* or to a [Premium plan](functions-scale.md#premium-plan).
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -609,6 +605,6 @@ Para obter mais informações, consulte os seguintes recursos:
 
 * [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
 * [Referência para programadores das Funções do Azure](functions-reference.md)
-* [Azure Functions gatilhos e associações](functions-triggers-bindings.md)
+* [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 
-[referência de host. JSON]: functions-host-json.md
+[host.json reference]: functions-host-json.md

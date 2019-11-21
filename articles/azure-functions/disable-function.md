@@ -1,39 +1,33 @@
 ---
-title: Como desabilitar funções no Azure Functions
-description: Saiba como desabilitar e habilitar funções no Azure Functions 1. x e 2. x.
-services: functions
-documentationcenter: ''
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
+title: How to disable functions in Azure Functions
+description: Learn how to disable and enable functions in Azure Functions 1.x and 2.x.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.author: glenga
-ms.openlocfilehash: 498bb8c0f1e7bb674605d4a98f0be0f3e0b9a7c9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7968580fcaa40575571a41f067fa74fbdc0a3a34
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650484"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233049"
 ---
-# <a name="how-to-disable-functions-in-azure-functions"></a>Como desabilitar funções no Azure Functions
+# <a name="how-to-disable-functions-in-azure-functions"></a>How to disable functions in Azure Functions
 
-Este artigo explica como desabilitar uma função no Azure Functions. Para *desabilitar* uma função significa fazer com que o tempo de execução ignore o gatilho automático definido para a função. A maneira como você faz isso depende da versão de tempo de execução e da linguagem de programação:
+This article explains how to disable a function in Azure Functions. To *disable* a function means to make the runtime ignore the automatic trigger that is defined for the function. The way you do that depends on the runtime version and the programming language:
 
-* Funções 2. x:
-  * Uma maneira para todos os idiomas
-  * Maneira opcional para C# bibliotecas de classes
-* Funções 1. x:
-  * Linguagens de script
-  * C#bibliotecas de classes
+* Functions 2.x:
+  * One way for all languages
+  * Optional way for C# class libraries
+* Functions 1.x:
+  * Scripting languages
+  * C# class libraries
 
-## <a name="functions-2x---all-languages"></a>Funções 2. x-todos os idiomas
+## <a name="functions-2x---all-languages"></a>Functions 2.x - all languages
 
-No functions 2. x, você desabilita uma função usando uma configuração de aplicativo no formato `AzureWebJobs.<FUNCTION_NAME>.Disabled`. Você pode criar e modificar essa configuração de aplicativo de várias maneiras, incluindo usando o [CLI do Azure](/cli/azure/) e da guia **gerenciar** da função na [portal do Azure](https://portal.azure.com). 
+In Functions 2.x, you disable a function by using an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled`. You can create and modify this application setting in a number of ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Manage** tab in the [Azure portal](https://portal.azure.com). 
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-No CLI do Azure, você usa o [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) comando para criar e modificar a configuração do aplicativo. O comando a seguir desabilita uma função denominada `QueueTrigger` criando uma configuração de aplicativo chamada `AzureWebJobs.QueueTrigger.Disabled` set to `true`. 
+In the Azure CLI, you use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command to create and modify the app setting. The following command disables a function named `QueueTrigger` by creating an app setting named `AzureWebJobs.QueueTrigger.Disabled` set it to `true`. 
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <myFunctionApp> \
@@ -41,7 +35,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 --settings AzureWebJobs.QueueTrigger.Disabled=true
 ```
 
-Para reabilitar a função, execute novamente o mesmo comando com um valor de `false`.
+To re-enable the function, rerun the same command with a value of `false`.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <myFunctionApp> \
@@ -51,17 +45,17 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ### <a name="portal"></a>Portal
 
-Você também pode usar a opção **estado de função** na guia **gerenciar** da função. A opção funciona criando e excluindo a `AzureWebJobs.<FUNCTION_NAME>.Disabled` configuração do aplicativo.
+You can also use the **Function State** switch on the function's **Manage** tab. The switch works by creating and deleting the `AzureWebJobs.<FUNCTION_NAME>.Disabled` app setting.
 
-![Opção de estado de função](media/disable-function/function-state-switch.png)
+![Function state switch](media/disable-function/function-state-switch.png)
 
-## <a name="functions-2x---c-class-libraries"></a>Bibliotecas de classes 2. C# x de funções
+## <a name="functions-2x---c-class-libraries"></a>Functions 2.x - C# class libraries
 
-Em uma biblioteca de classes do Functions 2. x, recomendamos que você use o método que funciona para todos os idiomas. Mas se preferir, você pode [usar o atributo disable como nas funções 1. x](#functions-1x---c-class-libraries).
+In a Functions 2.x class library, we recommend that you use the method that works for all languages. But if you prefer, you can [use the Disable attribute as in Functions 1.x](#functions-1x---c-class-libraries).
 
-## <a name="functions-1x---scripting-languages"></a>Funções 1. x-linguagens de script
+## <a name="functions-1x---scripting-languages"></a>Functions 1.x - scripting languages
 
-Para linguagens de script, C# como script e JavaScript, você usa `disabled` a propriedade do arquivo *Function. JSON* para informar ao tempo de execução para não disparar uma função. Essa propriedade pode ser definida como `true` ou para o nome de uma configuração de aplicativo:
+For scripting languages such as C# script and JavaScript, you use the `disabled` property of the *function.json* file to tell the runtime not to trigger a function. This property can be set to `true` or to the name of an app setting:
 
 ```json
 {
@@ -86,15 +80,15 @@ ou
     "disabled": "IS_DISABLED"
 ```
 
-No segundo exemplo, a função é desabilitada quando há uma configuração de aplicativo chamada IS_DISABLED e é definida como `true` ou 1.
+In the second example, the function is disabled when there is an app setting that is named IS_DISABLED and is set to `true` or 1.
 
-Você pode editar o arquivo no portal do Azure ou usar a opção **estado da função** na guia **gerenciar** da função. O comutador do portal funciona alterando o arquivo *Function. JSON* .
+You can edit the file in the Azure portal or use the **Function State** switch on the function's **Manage** tab. The portal switch works by changing the *function.json* file.
 
-![Opção de estado de função](media/disable-function/function-state-switch.png)
+![Function state switch](media/disable-function/function-state-switch.png)
 
-## <a name="functions-1x---c-class-libraries"></a>Bibliotecas de classes 1. C# x de funções
+## <a name="functions-1x---c-class-libraries"></a>Functions 1.x - C# class libraries
 
-Em uma biblioteca de classes do Functions 1. x, `Disable` você usa um atributo para impedir que uma função seja disparada. Você pode usar o atributo sem um parâmetro de construtor, conforme mostrado no exemplo a seguir:
+In a Functions 1.x class library, you use a `Disable` attribute to prevent a function from being triggered. You can use the attribute without a constructor parameter, as shown in the following example:
 
 ```csharp
 public static class QueueFunctions
@@ -110,7 +104,7 @@ public static class QueueFunctions
 }
 ```
 
-O atributo sem um parâmetro de construtor requer que você recompile e reimplante o projeto para alterar o estado de desabilitado da função. Uma maneira mais flexível de usar o atributo é incluir um parâmetro de construtor que se refere a uma configuração de aplicativo booliana, conforme mostrado no exemplo a seguir:
+The attribute without a constructor parameter requires that you recompile and redeploy the project to change the function's disabled state. A more flexible way to use the attribute is to include a constructor parameter that refers to a Boolean app setting, as shown in the following example:
 
 ```csharp
 public static class QueueFunctions
@@ -126,15 +120,15 @@ public static class QueueFunctions
 }
 ```
 
-Esse método permite habilitar e desabilitar a função alterando a configuração do aplicativo, sem recompilar ou reimplantar. A alteração de uma configuração de aplicativo faz com que o aplicativo de funções seja reiniciado, portanto, a alteração de Estado desabilitada é reconhecida imediatamente.
+This method lets you enable and disable the function by changing the app setting, without recompiling or redeploying. Changing an app setting causes the function app to restart, so the disabled state change is recognized immediately.
 
 > [!IMPORTANT]
-> O `Disabled` atributo é a única maneira de desabilitar uma função de biblioteca de classes. O arquivo *Function. JSON* gerado para uma função da biblioteca de classes não deve ser editado diretamente. Se você editar esse arquivo, o que for feito para `disabled` a propriedade não terá nenhum efeito.
+> The `Disabled` attribute is the only way to disable a class library function. The generated *function.json* file for a class library function is not meant to be edited directly. If you edit that file, whatever you do to the `disabled` property will have no effect.
 >
-> O mesmo vale para a opção de **estado de função** na guia **gerenciar** , pois ela funciona alterando o arquivo *Function. JSON* .
+> The same goes for the **Function state** switch on the **Manage** tab, since it works by changing the *function.json* file.
 >
-> Além disso, observe que o portal pode indicar que a função está desabilitada quando não está.
+> Also, note that the portal may indicate the function is disabled when it isn't.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Este artigo é sobre a desabilitação de gatilhos automáticos. Para obter mais informações sobre gatilhos, consulte [gatilhos e associações](functions-triggers-bindings.md).
+This article is about disabling automatic triggers. For more information about triggers, see [Triggers and bindings](functions-triggers-bindings.md).

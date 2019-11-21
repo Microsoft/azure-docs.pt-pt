@@ -1,144 +1,144 @@
 ---
-title: 'Clustering K-means: referência de módulo'
+title: 'K-Means Clustering: Module Reference'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo de clustering K-means no Azure Machine Learning para treinar modelos de clustering.
+description: Learn how to use the K-Means Clustering module in the Azure Machine Learning to train clustering models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
-ms.openlocfilehash: 4634519f55582a3184472d28acfd98fa849be86a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: 135b425ca87a309bc171e252d8ff04b2027a3c50
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497771"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213921"
 ---
-# <a name="module-k-means-clustering"></a>Módulo: clustering K-means
+# <a name="module-k-means-clustering"></a>Module: K-Means Clustering
 
-Este artigo descreve como usar o módulo de *clustering k-* means no designer de Azure Machine Learning (versão prévia) para criar um modelo de clustering k-means não treinado. 
+This article describes how to use the *K-Means Clustering* module in Azure Machine Learning designer (preview) to create an untrained K-means clustering model. 
  
-K-means é um dos mais simples e mais conhecidos algoritmos de aprendizado não *supervisionados* . Você pode usar o algoritmo para uma variedade de tarefas de aprendizado de máquina, como: 
+K-means is one of the simplest and the best known *unsupervised* learning algorithms. You can use the algorithm for a variety of machine learning tasks, such as: 
 
-* [Detectando dados anormais](https://msdn.microsoft.com/magazine/jj891054.aspx).
-* Documentos de texto em cluster.
-* Analisar conjuntos de valores antes de usar outros métodos de classificação ou regressão. 
+* [Detecting abnormal data](https://msdn.microsoft.com/magazine/jj891054.aspx).
+* Clustering text documents.
+* Analyzing datasets before you use other classification or regression methods. 
 
-Para criar um modelo de clustering, você:
+To create a clustering model, you:
 
-* Adicione este módulo ao seu pipeline.
-* Conectar um conjunto de uma.
-* Defina parâmetros, como o número de clusters que você espera, a métrica de distância a ser usada na criação de clusters e assim por diante. 
+* Add this module to your pipeline.
+* Connect a dataset.
+* Set parameters, such as the number of clusters you expect, the distance metric to use in creating the clusters, and so forth. 
   
-Depois de configurar os hiperparâmetros do módulo, conecte o modelo não treinado ao [modelo treinar clustering](train-clustering-model.md). Como o algoritmo K-means é um método de aprendizado não supervisionado, uma coluna de rótulo é opcional. 
+After you've configured the module hyperparameters, you connect the untrained model to the [Train Clustering Model](train-clustering-model.md). Because the K-means algorithm is an unsupervised learning method, a label column is optional. 
 
-+ Se seus dados incluírem um rótulo, você poderá usar os valores de rótulo para orientar a seleção dos clusters e otimizar o modelo. 
++ If your data includes a label, you can use the label values to guide selection of the clusters and optimize the model. 
 
-+ Se os dados não tiverem nenhum rótulo, o algoritmo criará clusters que representam as categorias possíveis, com base apenas nos dados.  
++ If your data has no label, the algorithm creates clusters representing possible categories, based solely on the data.  
 
-##  <a name="understand-k-means-clustering"></a>Entender o clustering de K-means
+##  <a name="understand-k-means-clustering"></a>Understand K-means clustering
  
-Em geral, o clustering usa técnicas iterativas para agrupar casos em um conjunto de um em clusters que possuem características semelhantes. Esses agrupamentos são úteis para explorar dados, identificar anomalias nos dados e, eventualmente, para fazer previsões. Os modelos de clustering também podem ajudá-lo a identificar relações em um conjunto de um DataSet que você não pode derivar logicamente por meio de navegação ou observação simples. Por esses motivos, o clustering é geralmente usado nas primeiras fases das tarefas de aprendizado de máquina, para explorar os dados e descobrir correlações inesperadas.  
+In general, clustering uses iterative techniques to group cases in a dataset into clusters that possess similar characteristics. These groupings are useful for exploring data, identifying anomalies in the data, and eventually for making predictions. Clustering models can also help you identify relationships in a dataset that you might not logically derive by browsing or simple observation. For these reasons, clustering is often used in the early phases of machine learning tasks, to explore the data and discover unexpected correlations.  
   
- Ao configurar um modelo de clustering usando o método K-means, você deve especificar um número de destino *K* que indica o número de *centróides* que você deseja no modelo. O centróide é um ponto representativo de cada cluster. O algoritmo K-means atribui cada ponto de dados de entrada a um dos clusters minimizando a soma de quadrados dentro do cluster. 
+ When you configure a clustering model by using the K-means method, you must specify a target number *k* that indicates the number of *centroids* you want in the model. The centroid is a point that's representative of each cluster. The K-means algorithm assigns each incoming data point to one of the clusters by minimizing the within-cluster sum of squares. 
  
-Quando ele processa os dados de treinamento, o algoritmo K-means começa com um conjunto inicial de centróides escolhidos aleatoriamente. As centróides servem como pontos de partida para os clusters e aplicam o algoritmo de Lloyd para refinar seus locais iterativamente. O algoritmo K-means interrompe a criação e refinação de clusters quando ele atende a uma ou mais destas condições:  
+When it processes the training data, the K-means algorithm begins with an initial set of randomly chosen centroids. Centroids serve as starting points for the clusters, and they apply Lloyd's algorithm to iteratively refine their locations. The K-means algorithm stops building and refining clusters when it meets one or more of these conditions:  
   
--   Os centróides estabilizam, o que significa que as atribuições de cluster para pontos individuais não são mais alteradas e o algoritmo convergiu em uma solução.  
+-   The centroids stabilize, meaning that the cluster assignments for individual points no longer change and the algorithm has converged on a solution.  
   
--   O algoritmo concluiu a execução do número especificado de iterações.  
+-   The algorithm completed running the specified number of iterations.  
   
- Depois de concluir a fase de treinamento, use o módulo [atribuir dados aos clusters](assign-data-to-clusters.md) para atribuir novos casos a um dos clusters encontrados usando o algoritmo K-means. Você executa a atribuição de cluster computando a distância entre o novo caso e o centróide de cada cluster. Cada novo caso é atribuído ao cluster com o centróide mais próximo.  
+ After you've completed the training phase, you use the [Assign Data to Clusters](assign-data-to-clusters.md) module to assign new cases to one of the clusters that you found by using the K-means algorithm. You perform cluster assignment by computing the distance between the new case and the centroid of each cluster. Each new case is assigned to the cluster with the nearest centroid.  
 
-## <a name="configure-the-k-means-clustering-module"></a>Configurar o módulo de clustering K-means
+## <a name="configure-the-k-means-clustering-module"></a>Configure the K-Means Clustering module
   
-1.  Adicione o módulo de **clustering K-** means ao seu pipeline.  
+1.  Add the **K-Means Clustering** module to your pipeline.  
   
-2.  Para especificar como você deseja que o modelo seja treinado, selecione a opção **criar modo de instrutor** .  
+2.  To specify how you want the model to be trained, select the **Create trainer mode** option.  
   
-    -   **Parâmetro único**: se você souber os parâmetros exatos que deseja usar no modelo de clustering, poderá fornecer um conjunto específico de valores como argumentos.  
+    -   **Single Parameter**: If you know the exact parameters you want to use in the clustering model, you can provide a specific set of values as arguments.  
   
-3.  Para **número de centróides**, digite o número de clusters para o qual você deseja que o algoritmo comece.  
+3.  For **Number of centroids**, type the number of clusters you want the algorithm to begin with.  
   
-     Não há garantia de que o modelo produza exatamente esse número de clusters. O algoritmo começa com esse número de pontos de dados e itera para localizar a configuração ideal.  
+     The model isn't guaranteed to produce exactly this number of clusters. The algorithm starts with this number of data points and iterates to find the optimal configuration.  
   
-4.  A **inicialização** de propriedades é usada para especificar o algoritmo que é usado para definir a configuração de cluster inicial.  
+4.  The properties **Initialization** is used to specify the algorithm that's used to define the initial cluster configuration.  
   
-    -   **Primeiro N**: alguns números iniciais de pontos de dados são escolhidos a partir do DataSet e usados como o meio inicial. 
+    -   **First N**: Some initial number of data points are chosen from the dataset and used as the initial means. 
     
-         Esse método também é chamado de *método forjado*.  
+         This method is also called the *Forgy method*.  
   
-    -   **Random**: o algoritmo coloca aleatoriamente um ponto de dados em um cluster e, em seguida, computa a média inicial para ser o centróide dos pontos atribuídos aleatoriamente do cluster. 
+    -   **Random**: The algorithm randomly places a data point in a cluster and then computes the initial mean to be the centroid of the cluster's randomly assigned points. 
 
-         Esse método também é chamado de método de *partição aleatória* .  
+         This method is also called the *random partition* method.  
   
-    -   **K-means + +** : esse é o método padrão para inicializar clusters.  
+    -   **K-Means++** : This is the default method for initializing clusters.  
   
-         O algoritmo **k-means + +** foi proposto em 2007 por David Arthur e Sergei Vassilvitskii para evitar clustering ruim pelo algoritmo K-means padrão. O **k-means + +** melhora na k-means padrão usando um método diferente para escolher os centros de cluster iniciais.  
+         The **K-means++** algorithm was proposed in 2007 by David Arthur and Sergei Vassilvitskii to avoid poor clustering by the standard K-means algorithm. **K-means++** improves upon standard K-means by using a different method for choosing the initial cluster centers.  
   
     
-5.  Para **semente de número aleatório**, opcionalmente, digite um valor a ser usado como semente para a inicialização do cluster. Esse valor pode ter um efeito significativo na seleção de cluster.  
+5.  For **Random number seed**, optionally type a value to use as the seed for the cluster initialization. This value can have a significant effect on cluster selection.  
   
-6.  Para **métrica**, escolha a função a ser usada para medir a distância entre os vetores de cluster ou entre os novos pontos de dados e os centróides escolhidos aleatoriamente. O Azure Machine Learning dá suporte às seguintes métricas de distância do cluster:  
+6.  For **Metric**, choose the function to use for measuring the distance between cluster vectors, or between new data points and the randomly chosen centroid. Azure Machine Learning supports the following cluster distance metrics:  
   
-    -   **Euclidiana**: a distância de euclidiana é comumente usada como uma medida de dispersão de cluster para o clustering de K-means. Essa métrica é preferida porque minimiza a distância média entre pontos e as centróides.
+    -   **Euclidean**: The Euclidean distance is commonly used as a measure of cluster scatter for K-means clustering. This metric is preferred because it minimizes the mean distance between points and the centroids.
   
-7.  Para **iterações**, digite o número de vezes que o algoritmo deve iterar sobre os dados de treinamento antes de finalizar a seleção de centróides.  
+7.  For **Iterations**, type the number of times the algorithm should iterate over the training data before it finalizes the selection of centroids.  
   
-     Você pode ajustar esse parâmetro para equilibrar a precisão em relação ao tempo de treinamento.  
+     You can adjust this parameter to balance accuracy against training time.  
   
-8.  Para o **modo atribuir rótulo**, escolha uma opção que especifique como uma coluna de rótulo, se estiver presente no conjunto de um, deve ser tratada.  
+8.  For **Assign label mode**, choose an option that specifies how a label column, if it's present in the dataset, should be handled.  
   
-     Como o clustering K-means é um método de aprendizado de máquina não supervisionado, os rótulos são opcionais. No entanto, se o conjunto de seus conjuntos de seus já tiver uma coluna de rótulo, você poderá usar esses valores para orientar a seleção dos clusters ou pode especificar que os valores sejam ignorados.  
+     Because K-means clustering is an unsupervised machine learning method, labels are optional. However, if your dataset already has a label column, you can use those values to guide the selection of the clusters, or you can specify that the values be ignored.  
   
-    -   **Ignorar coluna de rótulo**: os valores na coluna de rótulo são ignorados e não são usados na criação do modelo.
+    -   **Ignore label column**: The values in the label column are ignored and are not used in building the model.
   
-    -   **Preencher valores ausentes**: os valores de coluna de rótulo são usados como recursos para ajudar a criar os clusters. Se alguma linha estiver sem um rótulo, o valor será imputados usando outros recursos.  
+    -   **Fill missing values**: The label column values are used as features to help build the clusters. If any rows are missing a label, the value is imputed by using other features.  
   
-    -   **Substituir do mais próximo ao centro**: os valores de coluna de rótulo são substituídos por valores de rótulo previstos, usando o rótulo do ponto mais próximo do centróide atual.  
+    -   **Overwrite from closest to center**: The label column values are replaced with predicted label values, using the label of the point that is closest to the current centroid.  
 
-8.  Selecione a opção **normalizar recursos** se desejar normalizar os recursos antes do treinamento.
+8.  Select the **Normalize features** option if you want to normalize features before training.
   
-     Se você aplicar a normalização, antes do treinamento, os pontos de dados serão normalizados para `[0,1]` pelo MinMaxNormalizer.
+     If you apply normalization, before training, the data points are normalized to `[0,1]` by MinMaxNormalizer.
 
-10. Treine o modelo.  
+10. Train the model.  
   
-    -   Se você definir **criar modo de instrutor** como um **único parâmetro**, adicione um conjunto de um DataSet marcado e treine o modelo usando o módulo [treinar modelo de clustering](train-clustering-model.md) .  
+    -   If you set **Create trainer mode** to **Single Parameter**, add a tagged dataset and train the model by using the [Train Clustering Model](train-clustering-model.md) module.  
   
 ### <a name="results"></a>Resultados
 
-Depois de concluir a configuração e o treinamento do modelo, você tem um modelo que pode ser usado para gerar pontuações. No entanto, há várias maneiras de treinar o modelo e várias maneiras de exibir e usar os resultados: 
+After you've finished configuring and training the model, you have a model that you can use to generate scores. However, there are multiple ways to train the model, and multiple ways to view and use the results: 
 
-#### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Capturar um instantâneo do modelo em seu espaço de trabalho
+#### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Capture a snapshot of the model in your workspace
 
-Se você usou o módulo [treinar modelo de clustering](train-clustering-model.md) :
+If you used the [Train Clustering Model](train-clustering-model.md) module:
 
-1. Clique com o botão direito do mouse no módulo **treinar modelo de clustering** .
+1. Right-click the **Train Clustering Model** module.
 
-2. Selecione **modelo treinado**e, em seguida, selecione **salvar como modelo treinado**.
+2. Select **Trained model**, and then select **Save as Trained Model**.
 
-O modelo salvo representa os dados de treinamento no momento em que você salvou o modelo. Se você atualizar mais tarde os dados de treinamento usados no pipeline, ele não atualizará o modelo salvo. 
+The saved model represents the training data at the time you saved the model. If you later update the training data used in the pipeline, it doesn't update the saved model. 
 
-#### <a name="see-the-clustering-result-dataset"></a>Consulte o conjunto de conjuntos de resultados de clustering 
+#### <a name="see-the-clustering-result-dataset"></a>See the clustering result dataset 
 
-Se você usou o módulo [treinar modelo de clustering](train-clustering-model.md) :
+If you used the [Train Clustering Model](train-clustering-model.md) module:
 
-1. Clique com o botão direito do mouse no módulo **treinar modelo de clustering** .
+1. Right-click the **Train Clustering Model** module.
 
-2. Selecione **os resultados DataSet**e, em seguida, selecione **Visualizar**.
+2. Select **Results dataset**, and then select **Visualize**.
 
-### <a name="tips-for-generating-the-best-clustering-model"></a>Dicas para gerar o melhor modelo de clustering  
+### <a name="tips-for-generating-the-best-clustering-model"></a>Tips for generating the best clustering model  
 
-É conhecido que o processo de *propagação* usado durante o clustering pode afetar significativamente o modelo. A propagação significa o posicionamento inicial de pontos em possíveis centróides.
+It is known that the *seeding* process that's used during clustering can significantly affect the model. Seeding means the initial placement of points into potential centroids.
  
-Por exemplo, se o conjunto de dados contiver muitas exceções e uma exceção for escolhida para propagar os clusters, nenhum outro ponto de dados se ajustará bem com esse cluster, e o cluster poderá ser um singleton. Ou seja, ele pode ter apenas um ponto.  
+For example, if the dataset contains many outliers, and an outlier is chosen to seed the clusters, no other data points would fit well with that cluster, and the cluster could be a singleton. That is, it might have only one point.  
   
-Você pode evitar esse problema de duas maneiras:  
+You can avoid this problem in a couple of ways:  
   
--   Altere o número de centróides e experimente vários valores de semente.  
+-   Change the number of centroids and try multiple seed values.  
   
--   Crie vários modelos, variando a métrica ou Iterando mais.  
+-   Create multiple models, varying the metric or iterating more.  
   
-Em geral, com modelos de clustering, é possível que qualquer configuração específica resulte em um conjunto de clusters otimizado localmente. Em outras palavras, o conjunto de clusters retornado pelo modelo atende apenas aos pontos de dados atuais e não é generalizado para outros dados. Se você usar uma configuração inicial diferente, o método K-means poderá encontrar uma configuração diferente, talvez superior. 
+In general, with clustering models, it's possible that any given configuration will result in a locally optimized set of clusters. In other words, the set of clusters that's returned by the model suits only the current data points and isn't generalizable to other data. If you use a different initial configuration, the K-means method might find a different, superior, configuration. 

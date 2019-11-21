@@ -1,126 +1,126 @@
 ---
-title: Perguntas frequentes sobre o Azure Spring Cloud | Microsoft Docs
-description: Este artigo responde às perguntas frequentes sobre o Azure Spring Cloud.
+title: Frequently asked questions about Azure Spring Cloud | Microsoft Docs
+description: This article answers frequently asked questions about Azure Spring Cloud.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 40275b3f643517236db26be8c2784144526fb7a1
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 6835132192040b4b943b156fb78ae1547522be0c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151755"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229241"
 ---
-# <a name="azure-spring-cloud-faq"></a>FAQ do Azure Spring Cloud
+# <a name="azure-spring-cloud-faq"></a>Azure Spring Cloud FAQ
 
-Este artigo responde às perguntas frequentes sobre o Azure Spring Cloud. 
+This article answers frequently asked questions about Azure Spring Cloud. 
 
 ## <a name="general"></a>Geral
 
-### <a name="why-azure-spring-cloud"></a>Por que o Azure Spring Cloud?
+### <a name="why-azure-spring-cloud"></a>Why Azure Spring Cloud?
 
-O Azure Spring Cloud fornece uma PaaS (plataforma como serviço) para desenvolvedores de nuvem Spring. O Azure Spring Cloud gerencia sua infraestrutura de aplicativo para que você possa se concentrar no código do aplicativo e na lógica de negócios. Os principais recursos incorporados ao Azure Spring Cloud incluem Eureka, servidor de configuração, servidor de registro de serviço, serviço de compilação dinâmica, implantações em verde-azulado e muito mais. Esse serviço também permite que os desenvolvedores associem seus aplicativos a outros serviços do Azure, como Azure Cosmos DB, banco de dados do Azure para MySQL e cache do Azure para Redis.
+Azure Spring Cloud provides a platform as a service (PaaS) for Spring Cloud developers. Azure Spring Cloud manages your application infrastructure so that you can focus on application code and business logic. Core features built into Azure Spring Cloud include Eureka, Config Server, Service Registry Server, Pivotal Build Service, Blue-green deployments, and more. This service also enables developers to bind their applications with other Azure services, such as Azure Cosmos DB, Azure Database for MySQL, and Azure Cache for Redis.
 
-O Azure Spring Cloud aprimora a experiência do Application Diagnostics para desenvolvedores e operadores integrando Azure Monitor, Application Insights e Log Analytics.
+Azure Spring Cloud enhances the application diagnostics experience for developers and operators by integrating Azure Monitor, Application Insights, and Log Analytics.
 
-### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Quais planos de serviço o Azure Spring Cloud oferece?
+### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>What service plans does Azure Spring Cloud offer?
 
-O Azure Spring Cloud oferece um plano de serviço durante o período de versão prévia.  Uma implantação de Spring Cloud contém 16 núcleos de vCPU e 32 gigabytes (GB) de memória.  O limite superior para cada instância de microserviço em uma implantação é de 4 núcleos vCPU com 8 GB de memória.
+Azure Spring Cloud offers one service plan during the preview period.  A Spring Cloud deployment contains 16 vCPU cores and 32 gigabytes (GB) of memory.  The upper bound for each microservice instance within a deployment is 4 vCPU cores with 8 GB of memory.
 
 Recurso | Montante
 ------- | -------
-Instâncias de aplicativo por aplicativo Spring Cloud | 20
-Total de instâncias de aplicativo por instância de serviço de nuvem do Azure Spring | 50 *
-Instâncias de serviço de nuvem do Azure Spring por região por assinatura | 2
-Volumes persistentes | 10 x 50 GB
+App instances per Spring application | 20
+Total app instances per Azure Spring Cloud service instance | 500
+Azure Spring Cloud service instances per region per subscription | 10
+Persistent volumes | 10 x 50 GBytes
 
-\* _aumentar o limite, abra um [tíquete de suporte](https://azure.microsoft.com/support/faq/)._
+\* _To raise the limit, open a [support ticket](https://azure.microsoft.com/support/faq/)._
 
-Para obter mais informações, consulte [perguntas frequentes sobre o suporte do Azure](https://azure.microsoft.com/support/faq/).
+For more information, see [Azure Support FAQ](https://azure.microsoft.com/support/faq/).
 
-### <a name="how-secure-is-azure-spring-cloud"></a>Quão seguro é o Azure Spring Cloud?
+### <a name="how-secure-is-azure-spring-cloud"></a>How secure is Azure Spring Cloud?
 
-A segurança e a privacidade estão entre as principais prioridades do Azure e dos clientes do Azure Spring Cloud. O Azure ajuda a garantir que somente os clientes tenham acesso a dados, logs ou configurações de aplicativos, criptografando com segurança todos esses dados. Todas as instâncias de serviço no Azure Spring Cloud são isoladas umas das outras.
+Security and privacy are among the top priorities for Azure and Azure Spring Cloud customers. Azure helps ensure that only customers have access to application data, logs, or configurations by securely encrypting all of this data. All the service instances in Azure Spring Cloud are isolated from each other.
 
-O Azure Spring Cloud fornece gerenciamento de certificados e SSL completo.
+Azure Spring Cloud provides complete SSL and certificate management.
 
-Os patches de segurança críticos para os tempos de execução OpenJDK e Spring Cloud são aplicados ao Azure Spring Cloud assim que possível.
+Critical security patches for OpenJDK and Spring Cloud runtimes are applied to Azure Spring Cloud as soon as possible.
 
-### <a name="in-which-regions-is-azure-spring-cloud-available"></a>Em quais regiões o Azure Spring Cloud está disponível?
+### <a name="in-which-regions-is-azure-spring-cloud-available"></a>In which regions is Azure Spring Cloud available?
 
-Leste dos EUA, oeste dos EUA 2, Europa Ocidental e sudeste asiático.
+East US, West US 2, West Europe, and Southeast Asia.
 
-### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Quais são as limitações conhecidas do Azure Spring Cloud?
+### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>What are the known limitations of Azure Spring Cloud?
 
-Durante a versão de visualização, o Azure Spring Cloud tem as seguintes limitações conhecidas:
+During preview release, Azure Spring Cloud has the following known limitations:
 
-* `spring.application.name` será substituído pelo nome do aplicativo usado para criar cada aplicativo.
-* `server.port` não é permitido no arquivo de configuração do repositório git. Adicioná-lo ao arquivo de configuração provavelmente tornará o aplicativo inacessível de outros aplicativos ou da Internet.
-* Os modelos portal do Azure e Azure Resource Manager não dão suporte ao carregamento de pacotes de aplicativos. Você pode carregar pacotes de aplicativos somente implantando o aplicativo por meio do CLI do Azure.
-* Para saber mais sobre limitações de cota, consulte [quais planos de serviço a oferta do Azure Spring Cloud oferece?](#what-service-plans-does-azure-spring-cloud-offer).
+* `spring.application.name` will be overridden by the application name that's used to create each application.
+* `server.port` is not allowed in the configuration file from the Git repo. Adding it to the configuration file will likely render your application unreachable from other applications or the internet.
+* The Azure portal and Azure Resource Manager templates do not support uploading application packages. You can upload application packages only by deploying the application via the Azure CLI.
+* To learn about quota limitations, see [What service plans does Azure Spring Cloud offer?](#what-service-plans-does-azure-spring-cloud-offer).
 
-### <a name="how-can-i-provide-feedback-and-report-issues"></a>Como posso fornecer comentários e relatar problemas?
+### <a name="how-can-i-provide-feedback-and-report-issues"></a>How can I provide feedback and report issues?
 
-Se você encontrar problemas com o Azure Spring Cloud, crie uma [solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Para enviar uma solicitação de recurso ou fornecer comentários, acesse [comentários do Azure](https://feedback.azure.com/forums/34192--general-feedback).
+If you encounter any issues with Azure Spring Cloud, create an [Azure Support Request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/forums/34192--general-feedback).
 
 ## <a name="development"></a>Desenvolvimento
 
-### <a name="i-am-a-spring-cloud-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-an-azure-spring-cloud-application"></a>Sou um desenvolvedor de nuvem Spring, mas novo no Azure. Qual é a maneira mais rápida de aprender a desenvolver um aplicativo de nuvem Spring do Azure?
+### <a name="i-am-a-spring-cloud-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-an-azure-spring-cloud-application"></a>I am a Spring Cloud developer but new to Azure. What is the quickest way for me to learn how to develop an Azure Spring Cloud application?
 
-Para obter a maneira mais rápida de começar a usar o Azure Spring Cloud, siga as instruções em [início rápido: iniciar um aplicativo do Azure Spring Cloud usando o portal do Azure](spring-cloud-quickstart-launch-app-portal.md).
+For the quickest way to get started with Azure Spring Cloud, follow the instructions in [Quickstart: Launch an Azure Spring Cloud application by using the Azure portal](spring-cloud-quickstart-launch-app-portal.md).
 
-### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Em qual tempo de execução do Java o Azure Spring Cloud dá suporte?
+### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>What Java runtime does Azure Spring Cloud support?
 
-O Azure Spring Cloud dá suporte a Java 8 e 11.
+Azure Spring Cloud supports Java 8 and 11.
 
-### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Onde posso exibir meus logs e métricas de aplicativos de nuvem Spring?
+### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Where can I view my Spring Cloud application logs and metrics?
 
-Encontre métricas na guia Visão geral do aplicativo e na guia [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics) .
+Find metrics in the App Overview tab and the [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics) tab.
 
-O Azure Spring Cloud dá suporte à exportação de métricas e logs de aplicativos de nuvem Spring para o armazenamento do Azure, o EventHub e o [log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries). O nome da tabela em Log Analytics é *AppPlatformLogsforSpring*. Para saber como habilitá-lo, consulte [serviços de diagnóstico](diagnostic-services.md).
+Azure Spring Cloud supports exporting Spring Cloud application logs and metrics to Azure Storage, EventHub, and [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries). The table name in Log Analytics is *AppPlatformLogsforSpring*. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
 
-### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>O Azure Spring Cloud dá suporte ao rastreamento distribuído?
+### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Does Azure Spring Cloud support distributed tracing?
 
-Sim. Para obter mais informações, consulte [tutorial: usar o rastreamento distribuído com o Azure Spring Cloud](spring-cloud-tutorial-distributed-tracing.md).
+Sim. For more information, see [Tutorial: Use Distributed Tracing with Azure Spring Cloud](spring-cloud-tutorial-distributed-tracing.md).
 
-### <a name="what-resource-types-does-service-binding-support"></a>Para quais tipos de recursos a associação de serviço dá suporte?
+### <a name="what-resource-types-does-service-binding-support"></a>What resource types does Service Binding support?
 
-Atualmente, há suporte para três serviços: Azure Cosmos DB, banco de dados do Azure para MySQL e cache do Azure para Redis.
+Three services are currently supported: Azure Cosmos DB, Azure Database for MySQL, and Azure Cache for Redis.
 
-### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Posso exibir, adicionar ou mover volumes persistentes de dentro de meus aplicativos?
+### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Can I view, add, or move persistent volumes from inside my applications?
 
 Sim.
 
 ## <a name="deployment"></a>Implementação
 
-### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>O Azure Spring Cloud dá suporte à implantação azul-verde?
-Sim. Para obter mais informações, consulte [configurar um ambiente de preparo](spring-cloud-howto-staging-environment.md).
+### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>Does Azure Spring Cloud support blue-green deployment?
+Sim. For more information, see [Set up a staging environment](spring-cloud-howto-staging-environment.md).
 
-### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>Posso acessar o kubernetes para manipular os contêineres do meu aplicativo?
+### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>Can I access Kubernetes to manipulate my application containers?
 
-Não.  O Azure Spring Cloud abstrai o desenvolvedor da arquitetura subjacente, permitindo que você se concentre no código do aplicativo e na lógica de negócios.
+Não.  Azure Spring Cloud abstracts the developer from the underlying architecture, allowing you to concentrate on application code and business logic.
 
-### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>O Azure Spring Cloud dá suporte à criação de contêineres da origem?
+### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>Does Azure Spring Cloud support building containers from source?
 
-Sim. Para obter mais informações, consulte [Iniciar seu aplicativo Spring Cloud do código-fonte](spring-cloud-launch-from-source.md).
+Sim. For more information, see [Launch your Spring Cloud application from source code](spring-cloud-launch-from-source.md).
 
-### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>O Azure Spring Cloud dá suporte ao dimensionamento automático em instâncias de aplicativo?
+### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Does Azure Spring Cloud support autoscaling in app instances?
 
 Não.
 
-### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>Quais são as práticas recomendadas para migrar os microserviços existentes do Spring Cloud para o Azure Spring Cloud?
+### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>What are the best practices for migrating existing Spring Cloud microservices to Azure Spring Cloud?
 
-À medida que estiver migrando os microserviços existentes do Spring Cloud para o Azure Spring Cloud, é uma boa ideia observar as seguintes práticas recomendadas:
-* Todas as dependências de aplicativo precisam ser resolvidas.
-* Prepare suas entradas de configuração, variáveis de ambiente e parâmetros JVM para que você possa compará-las com a implantação no Azure Spring Cloud.
-* Se você quiser usar a associação de serviço, passe pelos serviços do Azure e verifique se você definiu as permissões de acesso apropriadas.
-* Recomendamos que você remova ou desabilite os serviços inseridos que podem entrar em conflito com os serviços gerenciados pelo Azure Spring Cloud, como nosso serviço de descoberta de serviços, servidor de configuração e assim por diante.
-* Recomendamos que você use bibliotecas dinâmicas e estáveis do Spring pivot. Versões não oficiais, beta ou bifurcadas de bibliotecas de Spring dinâmicos não têm suporte de SLA (contrato de nível de serviço).
+As you're migrating existing Spring Cloud microservices to Azure Spring Cloud, it's a good idea to observe the following best practices:
+* All application dependencies need to be resolved.
+* Prepare your configuration entries, environment variables, and JVM parameters so that you can compare them with the deployment in Azure Spring Cloud.
+* If you want to use Service Binding, go through your Azure services and ensure that you've set the appropriate access permissions.
+* We recommend that you remove or disable any embedded services that might conflict with services that are managed by Azure Spring Cloud, such as our Service Discovery service, Config Server, and so on.
+* We recommend that you use official, stable Pivotal Spring libraries. Unofficial, beta, or forked versions of Pivotal Spring libraries have no service-level agreement (SLA) support.
 
-Após a migração, monitore suas métricas de CPU/RAM e o tráfego de rede para garantir que as instâncias do aplicativo sejam dimensionadas adequadamente.
+After the migration, monitor your CPU/RAM metrics and network traffic to ensure that the application instances are scaled appropriately.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você tiver outras dúvidas, consulte o [Guia de solução de problemas do Azure Spring Cloud](spring-cloud-troubleshoot.md).
+If you have further questions, see the [Azure Spring Cloud troubleshooting guide](spring-cloud-troubleshoot.md).

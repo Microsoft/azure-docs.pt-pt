@@ -5,163 +5,197 @@ services: active-directory
 author: msaburnley
 ms.service: active-directory
 ms.topic: include
-ms.date: 10/15/2019
+ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 6f2b5eb96eeb1c4b7d07219d5fe54a8a0ca9e28a
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: fb72ed337219f58481c094d68342dbf6f26493c7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73413001"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260833"
 ---
-## <a name="for-users-in-your-directory"></a>Para usuários em seu diretório
+## <a name="for-users-in-your-directory"></a>For users in your directory
 
-Siga estas etapas se desejar permitir que os usuários em seu diretório possam solicitar esse pacote de acesso. Ao definir a política de solicitação, você pode especificar usuários individuais ou grupos de usuários mais comuns. Por exemplo, sua organização pode já ter um grupo como **todos os funcionários**.  Se esse grupo for adicionado na política para usuários que podem solicitar acesso, então qualquer membro desse grupo poderá solicitar acesso.
+Follow these steps if you want to allow users in your directory to be able to request this access package. When defining the request policy, you can specify individual users, or more commonly groups of users. For example, your organization may already have a group such as **All employees**.  If that group is added in the policy for users who can request access, then any member of that group can then request access.
 
-1. Na seção **usuários que podem solicitar acesso** , clique em **para usuários em seu diretório**.
+1. In the **Users who can request access** section, click **For users in your directory**.
 
-    Quando você seleciona essa opção, novas opções aparecem para refinar ainda mais quem em seu diretório pode solicitar esse pacote de acesso.
+    When you select this option, new options appear to further refine who in your directory can request this access package.
 
-    ![Pacotes de acesso-solicitações-para usuários em seu diretório](./media/active-directory-entitlement-management-request-policy/for-users-in-your-directory.png)
+    ![Access package - Requests - For users in your directory](./media/active-directory-entitlement-management-request-policy/for-users-in-your-directory.png)
 
-1. Selecione uma das seguintes opções:
+1. Select one of the following options:
 
     |  |  |
     | --- | --- |
-    | **Usuários e grupos específicos** | Escolha esta opção se desejar que apenas os usuários e grupos em seu diretório especificados possam solicitar esse pacote de acesso. |
-    | **Todos os membros (exceto convidados)** | Escolha esta opção se desejar que todos os usuários Membros em seu diretório possam solicitar esse pacote de acesso. Essa opção não inclui nenhum usuário convidado que você possa ter convidado em seu diretório. |
-    | **Todos os usuários (incluindo convidados)** | Escolha esta opção se desejar que todos os usuários Membros e usuários convidados em seu diretório possam solicitar esse pacote de acesso. |
+    | **Specific users and groups** | Choose this option if you want only the users and groups in your directory that you specify to be able to request this access package. |
+    | **All members (excluding guests)** | Choose this option if you want all member users in your directory to be able to request this access package. This option doesn't include any guest users you might have invited into your directory. |
+    | **All users (including guests)** | Choose this option if you want all member users and guest users in your directory to be able to request this access package. |
 
-    Os usuários convidados se referem a usuários externos que foram convidados em seu diretório com o [Azure ad B2B](../articles/active-directory/b2b/what-is-b2b.md). Para obter informações sobre as diferenças entre usuários Membros e usuários convidados, consulte [quais são as permissões de usuário padrão no Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
+    Guest users refer to external users that have been invited into your directory with [Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). For more information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
 
-1. Se você selecionou **usuários e grupos específicos**, clique em **Adicionar usuários e grupos**.
+1. If you selected **Specific users and groups**, click **Add users and groups**.
 
-1. No painel Selecionar usuários e grupos, selecione os usuários e grupos que você deseja adicionar.
+1. In the Select users and groups pane, select the users and groups you want to add.
 
-    ![Pacotes de acesso-solicitações-Selecionar usuários e grupos](./media/active-directory-entitlement-management-request-policy/select-users-groups.png)
+    ![Access package - Requests - Select users and groups](./media/active-directory-entitlement-management-request-policy/select-users-groups.png)
 
-1. Clique em **selecionar** para adicionar os usuários e grupos.
+1. Click **Select** to add the users and groups.
 
-1. Pule para a seção [aprovação](#approval) .
+1. Skip down to the [Approval](#approval) section.
 
-## <a name="for-users-not-in-your-directory"></a>Para usuários que não estão em seu diretório
+## <a name="for-users-not-in-your-directory"></a>For users not in your directory
 
-Siga estas etapas se desejar permitir que os usuários que não estão em seu diretório possam solicitar esse pacote de acesso. Os **usuários que não estão em seu diretório** referem-se aos usuários que estão em outro diretório ou domínio do Azure AD e podem ainda não ter sido convidados em seu diretório. Os diretórios do AD do Azure devem ser configurados para permitir convites em **restrições de colaboração**. Para obter mais informações, consulte [habilitar colaboração externa B2B e gerenciar quem pode convidar convidados](../articles/active-directory/b2b/delegate-invitations.md).
+ **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to be allow invitations in **Collaboration restrictions**. For more information, see [Enable B2B external collaboration and manage who can invite guests](../articles/active-directory/b2b/delegate-invitations.md).
 
 > [!NOTE]
-> Uma conta de usuário convidado será criada para um usuário que ainda não está em seu diretório cuja solicitação foi aprovada ou aprovada automaticamente. O convidado será convidado, mas não receberá um email de convite. Em vez disso, eles receberão um email quando sua atribuição de pacote de acesso for entregue. Por padrão, mais tarde, quando o usuário convidado não tiver mais nenhuma atribuição de pacote de acesso, porque sua última atribuição expirou ou foi cancelada, essa conta de usuário convidado será bloqueada de entrar e excluída subsequentemente. Se você quiser que os usuários convidados permaneçam em seu diretório indefinidamente, mesmo que eles não tenham atribuições de pacote de acesso, você poderá alterar as configurações de sua configuração de gerenciamento de direitos. Para obter mais informações sobre o objeto de usuário convidado, consulte [Propriedades de um usuário de colaboração Azure Active Directory B2B](../articles/active-directory/b2b/user-properties.md).
+> A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of an Azure Active Directory B2B collaboration user](../articles/active-directory/b2b/user-properties.md).
 
-1. Na seção **usuários que podem solicitar acesso** , clique em **para usuários que não estão em seu diretório**.
+Follow these steps if you want to allow users not in your directory to request this access package:
 
-    Quando você seleciona essa opção, novas opções são exibidas.
+1. In the **Users who can request access** section, click **For users not in your directory**.
 
-    ![Pacotes de acesso-solicitações-para usuários que não estão em seu diretório](./media/active-directory-entitlement-management-request-policy/for-users-not-in-your-directory.png)
+    When you select this option, new options appear.
 
-1. Selecione uma das seguintes opções:
+    ![Access package - Requests - For users not in your directory](./media/active-directory-entitlement-management-request-policy/for-users-not-in-your-directory.png)
+
+1. Select one of the following options:
 
     |  |  |
     | --- | --- |
-    | **Organizações conectadas específicas** | Escolha esta opção se desejar selecionar em uma lista de organizações que o administrador adicionou anteriormente. Todos os usuários das organizações selecionadas poderão solicitar esse pacote de acesso. |
-    | **Todas as organizações conectadas** | Escolha esta opção se desejar que todos os usuários de todas as suas organizações conectadas possam solicitar este pacote de acesso. |
+    | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
+    | **All connected organizations** | Choose this option if all users from all your connected organizations can request this access package. |
 
-    Uma organização conectada é um diretório ou domínio externo do Azure AD com o qual você tem uma relação.
+    A connected organization is an external Azure AD directory or domain that you have a relationship with.
 
-1. Se você selecionou **organizações conectadas específicas**, clique em **adicionar diretórios** para selecionar em uma lista de organizações conectadas que seu administrador adicionou anteriormente.
+1. If you selected **Specific connected organizations**, click **Add directories** to select from a list of connected organizations that your administrator previously added.
 
-1. Digite o nome ou nome de domínio para procurar uma organização conectada anteriormente.
+1. Type the name or domain name to search for a previously connected organization.
 
-    ![Pacotes de acesso-solicitações-selecionar diretórios](./media/active-directory-entitlement-management-request-policy/select-directories.png)
+    ![Access package - Requests - Select directories](./media/active-directory-entitlement-management-request-policy/select-directories.png)
 
-    Se a organização com a qual você deseja colaborar não estiver na lista, você poderá pedir ao administrador para adicioná-la como uma organização conectada. Para obter mais informações, consulte [Adicionar uma organização conectada](../articles/active-directory/governance/entitlement-management-organization.md).
+    If the organization you want to collaborate with isn't in the list, you can ask your administrator to add it as a connected organization. For more information, see [Add a connected organization](../articles/active-directory/governance/entitlement-management-organization.md).
 
-1. Depois de selecionar todas as suas organizações conectadas, clique em **selecionar**.
+1. Once you've selected all your connected organizations, click **Select**.
 
     > [!NOTE]
-    > Todos os usuários das organizações conectadas selecionadas poderão solicitar esse pacote de acesso. Isso inclui os usuários no Azure AD de todos os subdomínios associados à organização, a menos que esses domínios sejam bloqueados pela lista de permissão ou negação B2B do Azure. Para obter mais informações, consulte [permitir ou bloquear convites para usuários B2B de organizações específicas](../articles/active-directory/b2b/allow-deny-list.md).
+    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../articles/active-directory/b2b/allow-deny-list.md).
 
-1. Pule para a seção [aprovação](#approval) .
+1. Skip down to the [Approval](#approval) section.
 
-## <a name="none-administrator-direct-assignments-only"></a>Nenhum (somente atribuições diretas do administrador)
+## <a name="none-administrator-direct-assignments-only"></a>None (administrator direct assignments only)
 
-Siga estas etapas se desejar ignorar as solicitações de acesso e permitir que os administradores atribuam usuários específicos diretamente a esse pacote de acesso. Os usuários não precisarão solicitar o pacote de acesso. Você ainda pode definir as configurações do ciclo de vida, mas não há configurações de solicitação.
+Follow these steps if you want to bypass access requests and allow administrators to directly assign specific users to this access package. Users won't have to request the access package. You can still set lifecycle settings, but there are no request settings.
 
-1. Na seção **usuários que podem solicitar acesso** , clique em **nenhum (somente atribuições diretas do administrador**.
+1. In the **Users who can request access** section, click **None (administrator direct assignments only**.
 
-    ![Pacotes de acesso-solicitações-nenhuma somente atribuições diretas de administrador](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
+    ![Access package - Requests - None administrator direct assignments only](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
-    Depois de criar o pacote do Access, você pode atribuir diretamente usuários internos e externos específicos ao pacote do Access. Se você especificar um usuário externo, uma conta de usuário convidado será criada em seu diretório. Para obter informações sobre como atribuir um usuário diretamente, consulte [Exibir, adicionar e remover atribuições para um pacote de acesso](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
+    After you create the access package, you can directly assign specific internal and external users to the access package. If you specify an external user, a guest user account will be created in your directory. For information about directly assigning a user, see [View, add, and remove assignments for an access package](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
 
-1. Pule para a seção [habilitar solicitações](#enable-requests) .
+1. Skip down to the [Enable requests](#enable-requests) section.
 
 ## <a name="approval"></a>Aprovação
 
-Na seção aprovação, você especifica se uma aprovação é necessária quando os usuários solicitam esse pacote de acesso. As configurações de aprovação funcionam da seguinte maneira:
+In the Approval section, you specify whether an approval is required when users request this access package. The approval settings work in the following way:
 
-- Somente um dos aprovadores ou aprovadores de fallback selecionados precisa aprovar uma solicitação. A aprovação de todos os aprovadores não é necessária.
-- A decisão de aprovação se baseia em qualquer aprovador que examine a solicitação primeiro.
+- Only one of the selected approvers or fallback approvers needs to approve a request for single-stage approval. 
+- Only one of the selected approvers from each stage needs to approve a request for 2-stage approval.
+- The approver can be a Manager, Internal sponsor, or External sponsor depending on who the policy is governing access.
+- Approval from every selected approver isn't required for single or 2-stage approval.
+- The approval decision is based on whichever approver reviews the request first.
 
-Siga estas etapas para especificar as configurações de aprovação para os usuários selecionados anteriormente.
+Follow these steps to specify the approval settings for requests for the access package:
 
-1. Para exigir aprovação para solicitações dos usuários selecionados, defina a opção **exigir aprovação** para **Sim**. Para que as solicitações sejam aprovadas automaticamente, defina a alternância para **não**.
+1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. Or, to have requests automatically approved, set the toggle to **No**.
 
-1. Para exigir que os usuários forneçam uma justificativa para solicitar o pacote de acesso, defina a alternância de **justificação exigir solicitante** como **Sim**.
+1. To require users to provide a justification to request the access package, set the **Require requestor justification** toggle to **Yes**.
+    
+1. Now determine if requests will require single or 2-stage approval. Set the **How many stages** toggle to **1** for single stage approval or set the toggle to **2** for 2-stage approval.
 
-    ![Pacotes de acesso-solicitações-configurações de aprovação](./media/active-directory-entitlement-management-request-policy/approval.png)
+    ![Access package - Requests - Approval settings](./media/active-directory-entitlement-management-request-policy/approval.png)
 
-### <a name="single-stage-approval"></a>Aprovação de estágio único
 
-1. Para Aprovadores, selecione **gerente como Aprovador** ou **escolha aprovadores específicos**.
+Use the following steps to add approvers after selecting how many stages you require: 
 
-    ![Pacotes de acesso-solicitações-configurações de estágio único](./media/active-directory-entitlement-management-request-policy/approval-single-stage.png)
+### <a name="single-stage-approval"></a>Single-stage approval
 
-1. Se você selecionou gerente como Aprovador, clique em **Adicionar fallback** para selecionar um ou mais usuários ou grupos em seu diretório para ser um Aprovador de fallback no caso de gerenciamento de direitos não conseguir localizar o Gerenciador.
+1. Add the **First Approver**:
+    
+    If the policy is set to govern access for users in your directory, you can select **Manager as approver**. Or, add a specific user by clicking **Add approvers** after selecting Choose specific approvers from the dropdown menu.
+    
+    ![Access package - Requests - For users in directory - First Approver](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
 
-    O gerente é determinado pelo atributo **Manager** no perfil do usuário do Azure AD. Para obter mais informações, consulte [Adicionar ou atualizar as informações de perfil de um usuário usando Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+    If this policy is set to govern access for users not in your directory, you can select **External sponsor** or **Internal sponsor**. Or, add a specific user by clicking **Add approvers** or groups under Choose specific approvers.
+    
+    ![Access package - Requests - For users out of directory - First Approver](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
+    
+1. If you selected **Manager** as the first approver, click **Add fallback** to select one or more users or groups in your directory to be a fallback approver. Fallback approvers receive the request if entitlement management can't find the manager for the user requesting access.
 
-1. Se você selecionou escolher aprovadores específicos, clique em **Adicionar aprovadores** para selecionar um ou mais usuários ou grupos em seu diretório para serem aprovadores.
+    The manager is found by entitlement management using the **Manager** attribute. The attribute is in the user's profile in Azure AD. For more information, see [Add or update a user's profile information using Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
-1. Em **decisão deve ser feita em quantos dias?** , especifique o número de dias que um aprovador precisa examinar uma solicitação para esse pacote de acesso.
+1. If you selected **Choose specific approvers**, click **Add approvers** to select one or more users or groups in your directory to be approvers.
 
-    Se uma solicitação não for aprovada nesse período de tempo, ela será negada automaticamente. O usuário precisará enviar outra solicitação para o pacote de acesso.
+1. In the box under **Decision must be made in how many days?** , specify the number of days that an approver has to review a request for this access package.
 
-1. Para exigir que os usuários forneçam uma justificativa para solicitar o pacote de acesso, defina a **justificação exigir aprovador** como **Sim**.
+    If a request isn't approved within this time period, it will be automatically denied. The user will have to submit another request for the access package.
 
-    Uma justificativa é visível para outros Aprovadores e o solicitante.
+1. To require approvers to provide a justification for their decision, set Require approver justification to **Yes**.
 
-### <a name="alternate-approvers"></a>Aprovadores alternativos
+    The justification is visible to other approvers and the requestor.
 
-Além de especificar os aprovadores primários que podem aprovar solicitações, você pode especificar aprovadores alternativos. Isso ajudará a garantir que as solicitações sejam aprovadas ou negadas antes de expirarem (tempo limite).
+### <a name="2-stage-approval-preview"></a>2-stage approval (Preview)
 
-Ao especificar aprovadores alternativos, caso os aprovadores primários não tenham sido capazes de aprovar ou negar a solicitação, a solicitação pendente é encaminhada para os aprovadores alternativos, de acordo com o agendamento de encaminhamento especificado durante a configuração da política. Eles recebem um email para aprovar ou negar a solicitação pendente.
+If you selected a 2-stage approval, you'll need to add a second approver.
 
-Depois que a solicitação é encaminhada para os aprovadores alternativos, os aprovadores primários ainda podem aprovar ou negar a solicitação. Os aprovadores alternativos usam o mesmo site meu acesso, como os aprovadores primários, para aprovar ou negar a solicitação pendente.
+1. Add the **Second Approver**: 
+    
+    If the users are in your directory, add a specific user as the second approver by clicking **Add approvers** under Choose specific approvers.
 
-Podemos listar pessoas ou grupos de pessoas para serem os aprovadores primários e aprovadores alternativos. Certifique-se de listar diferentes conjuntos de pessoas para serem os aprovadores primários e os aprovadores alternativos.
-Por exemplo, se você tiver listado Alice e Bob como Aprovador primário (s), liste Carol e Dave como aprovadores alternativos. Use as etapas a seguir para adicionar aprovadores alternativos a um pacote do Access:
+    ![Access package - Requests - For users in directory - Second Approver](./media/active-directory-entitlement-management-request-policy/in-directory-second-approver.png)
 
-1. Clique em **Mostrar configurações avançadas de solicitação**.
+    If the users aren't in your directory, select **Internal sponsor** or **External sponsor** as the second approver. After selecting the approver, add the fallback approvers.
 
-    ![Pacotes de acesso-política-Mostrar configurações avançadas de solicitação](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
+    ![Access package - Requests - For users out of directory - Second Approver](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
 
-1. Definir **se nenhuma ação foi executada, avançar para aprovadores alternativos?** alterne para **Sim**.
+1. Specify the number of days the second approver has to approve the request in the box under **Decision must be made in how many days?** . 
 
-1. Clique em **Adicionar aprovadores alternativos** e selecione os aprovadores alternativos na lista.
+1. Set the Require approver justification toggle to **Yes** or **No**.
 
-    ![Pacote de acesso-política-adicionar aprovadores alternativos](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+### <a name="alternate-approvers"></a>Alternate approvers
 
-1. Na caixa **Avançar para aprovadores alternativos após a quantidade de dias** , coloque o número de dias que os aprovadores precisam aprovar ou negar uma solicitação. Se nenhum aprovador tiver aprovado ou negado a solicitação antes da duração da solicitação, a solicitação expirará (tempo limite) e o usuário precisará enviar outra solicitação para o pacote de acesso. 
+You can specify alternate approvers, similar to specifying the first and second approvers who can approve requests. Having alternate approvers will help ensure that the requests are approved or denied before they expire (timeout). You can list alternate approvers the first approver and second approver for 2-stage approval. 
 
-    As solicitações só podem ser encaminhadas a aprovadores alternativos por dia após a duração da solicitação atingir a metade da vida útil. Neste exemplo, a duração da solicitação é de 14 dias. Isso significa que a duração da solicitação atinge a metade da vida no dia 7. Portanto, a solicitação pode ser encaminhada não antes do dia 8. Além disso, as solicitações não podem ser encaminhadas para o aprovador alternativo no último dia da duração da solicitação. Portanto, no exemplo, a última solicitação pode ser encaminhada é o dia 13.
+By specifying alternate approvers, in the event that the first or second approvers were unable to approve or deny the request, the pending request gets forwarded to the alternate approvers, per the forwarding schedule you specified during policy setup. They receive an email to approve or deny the pending request.
 
-## <a name="enable-requests"></a>Habilitar solicitações
+After the request is forwarded to the alternate approvers, the first or second approvers can still approve or deny the request. Alternate approvers use the same My Access site to approve or deny the pending request.
 
-1. Se você quiser que o pacote de acesso seja disponibilizado imediatamente para usuários na política de solicitação para solicitar, clique em **Sim** para habilitar.
+We can list people or groups of people to be approvers and alternate approvers. Please ensure that you list different sets of people to be the first, second, and alternate approvers.
+For example, if you listed Alice and Bob as the First Approver(s), list Carol and Dave as the alternate approvers. Use the following steps to add alternate approvers to an access package:
 
-    Você sempre poderá habilitá-lo no futuro depois de concluir a criação do pacote de acesso.
+1. Under the First Approver, Second Approver, or both, click **Show advanced request settings**.
 
-    Se você selecionou **nenhum (somente atribuições diretas do administrador)** e definir habilitar como **não**, os administradores não poderão atribuir diretamente este pacote de acesso.
+    ![Access package - Policy - Show advanced request settings](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
 
-    ![Pacote de acesso-configuração de política de habilitação de política](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
+1. Set **If no action taken, forward to alternate approvers?** toggle to **Yes**.
+
+1. Click **Add alternate approvers** and select the alternate approver(s) from the list.
+
+    ![Access package - Policy - Add Alternate Approvers](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+
+1. In the **Forward to alternate approver(s) after how many days** box, put in the number of days the approvers have to approve or deny a request. If no approvers have approved or denied the request before the request duration, the request expires (timeout), and the user will have to submit another request for the access package. 
+
+    Requests can only be forwarded to alternate approvers a day after the request duration reaches half-life. In this example, the duration of the request is 14 days. So, the request duration reaches half-life at day 7. So the request can't be forwarded earlier than day 8. Also, requests can't be forwarded on the last day of the request duration. So in the example, the latest the request can be forwarded is day 13.
+
+## <a name="enable-requests"></a>Enable requests
+
+1. If you want the access package to be made immediately available for users in the request policy to request, click **Yes** to enable.
+
+    You can always enable it in the future after you have finished creating the access package.
+
+    If you selected **None (administrator direct assignments only)** and you set enable to **No**, then administrators can't directly assign this access package.
+
+    ![Access package - Policy- Enable policy setting](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. Clique em **Seguinte**.
