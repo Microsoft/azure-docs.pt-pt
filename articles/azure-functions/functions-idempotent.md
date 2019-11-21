@@ -1,47 +1,45 @@
 ---
-title: Criando Azure Functions para entrada idêntica
-description: Criando Azure Functions para serem idempotentes
+title: Designing Azure Functions for identical input
+description: Building Azure Functions to be idempotent
 author: craigshoemaker
 ms.author: cshoe
 ms.date: 9/12/2019
 ms.topic: article
-ms.service: azure-functions
-manager: gwallace
-ms.openlocfilehash: 39e785a1ca7a158ddb90a3e6ba914582c405612a
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 15af60ac5a862e6fb20e65ba6fbb92482420b7c0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997396"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226865"
 ---
-# <a name="designing-azure-functions-for-identical-input"></a>Criando Azure Functions para entrada idêntica
+# <a name="designing-azure-functions-for-identical-input"></a>Designing Azure Functions for identical input
 
-A realidade da arquitetura baseada em eventos e orientada a mensagens determina a necessidade de aceitar solicitações idênticas, preservando a integridade dos dados e a estabilidade do sistema.
+The reality of event-driven and message-based architecture dictates the need to accept identical requests while preserving data integrity and system stability.
 
-Para ilustrar, considere um botão de chamada de elevador. À medida que você pressiona o botão, ele acende e um elevador é enviado para o andar. Alguns instantes depois, outra pessoa ingressa no lobby. Essa pessoa sorrisos em você e pressiona o botão iluminado uma segunda vez. Você vai fazer um sorriso e Chuckle como você está lembrado de que o comando para chamar um elevador é idempotente.
+To illustrate, consider an elevator call button. As you press the button, it lights up and an elevator is sent to your floor. A few moments later, someone else joins you in the lobby. This person smiles at you and presses the illuminated button a second time. You smile back and chuckle to yourself as you're reminded that the command to call an elevator is idempotent.
 
-Pressionar um botão de chamada de elevador uma segunda, terceira ou quarta vez não tem nenhuma influência sobre o resultado final. Quando você pressiona o botão, independentemente do número de vezes, o elevador é enviado para o andar. Os sistemas idempotentes, como o elevador, resultam no mesmo resultado, não importa quantas vezes comandos idênticos são emitidos.
+Pressing an elevator call button a second, third, or fourth time has no bearing on the final result. When you press the button, regardless of the number of times, the elevator is sent to your floor. Idempotent systems, like the elevator, result in the same outcome no matter how many times identical commands are issued.
 
-Quando se trata de criar aplicativos, considere os seguintes cenários:
+When it comes to building applications, consider the following scenarios:
 
-- O que acontece se o seu aplicativo de controle de inventário tentar excluir o mesmo produto mais de uma vez?
-- Como o aplicativo de recursos humanos se comporta se há mais de uma solicitação para criar um registro de funcionário para a mesma pessoa?
-- Onde o dinheiro vai se seu aplicativo bancário receber 100 solicitações para fazer a mesma retirada?
+- What happens if your inventory control application tries to delete the same product more than once?
+- How does your human resource application behave if there is more than one request to create an employee record for the same person?
+- Where does the money go if your banking app gets 100 requests to make the same withdrawal?
 
-Há muitos contextos em que as solicitações para uma função podem receber comandos idênticos. Algumas situações incluem:
+There are many contexts where requests to a function may receive identical commands. Some situations include:
 
-- Políticas de repetição enviando a mesma solicitação muitas vezes
-- Comandos em cache reproduzidos para o aplicativo
-- Erros de aplicativo enviando várias solicitações idênticas
+- Retry policies sending the same request many times
+- Cached commands replayed to the application
+- Application errors sending multiple identical requests
 
-Para proteger a integridade dos dados e a integridade do sistema, um aplicativo idempotente contém uma lógica que pode conter os seguintes comportamentos:
+To protect data integrity and system health, an idempotent application contains logic that may contain the following behaviors:
 
-- Verificando a existência de dados antes de tentar executar uma exclusão
-- Verificando se os dados já existem antes de tentar executar uma ação de criação
-- Reconciliação de lógica que cria consistência eventual nos dados
-- Controles de simultaneidade
-- Detecção de duplicação
-- Validação de atualização de dados
-- Lógica de proteção para verificar os dados de entrada
+- Verifying of the existence of data before trying to execute a delete
+- Checking to see if data already exists before trying to execute a create action
+- Reconciling logic that creates eventual consistency in data
+- Concurrency controls
+- Duplication detection
+- Data freshness validation
+- Guard logic to verify input data
 
-Em última instância, o Idempotência é obtido garantindo que uma determinada ação seja possível e seja executada apenas uma vez.
+Ultimately idempotency is achieved by ensuring a given action is possible and is only executed once.

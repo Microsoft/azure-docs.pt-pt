@@ -1,61 +1,58 @@
 ---
-title: Visão geral do diagnóstico de Azure Functions
-description: Saiba como você pode solucionar problemas com seu aplicativo de funções com o Azure Functions Diagnostics.
-keywords: funções, diagnósticos, suporte, sem servidor, solução de problemas, autoajuda
+title: Azure Functions diagnostics Overview
+description: Learn how you can troubleshoot issues with your function app with Azure Functions diagnostics.
 author: yunjchoi
-manager: gwallace
-ms.service: azure-functions
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: 96bfc133ef390f34712151733277ae6f9e9a8d70
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 71edb9a32254eeee123b874305dd25b699e05cc1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73722457"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227026"
 ---
-# <a name="azure-functions-diagnostics-overview"></a>Visão geral do diagnóstico de Azure Functions
+# <a name="azure-functions-diagnostics-overview"></a>Azure Functions diagnostics overview
 
-Quando você estiver executando um aplicativo de funções, você deseja estar preparado para quaisquer problemas que possam surgir, de erros de 4xx para disparar falhas. O diagnóstico de Azure Functions é uma experiência inteligente e interativa para ajudá-lo a solucionar problemas do seu aplicativo de funções sem nenhuma configuração ou custo adicional. Quando você tiver problemas com seu aplicativo de funções, o diagnóstico de Azure Functions indicará o que há de errado para orientá-lo sobre as informações corretas para solucionar problemas e resolver o problema com mais facilidade e rapidez. Este artigo mostra as noções básicas de como usar o diagnóstico de Azure Functions para diagnosticar e resolver mais rapidamente problemas comuns do aplicativo de funções.
+When you’re running a function app, you want to be prepared for any issues that may arise, from 4xx errors to trigger failures. Azure Functions diagnostics is an intelligent and interactive experience to help you troubleshoot your function app with no configuration or extra cost. When you do run into issues with your function app, Azure Functions diagnostics points out what’s wrong to guide you to the right information to more easily and quickly troubleshoot and resolve the issue. This article shows you the basics of how to use Azure Functions diagnostics to more quickly diagnose and solve common function app issues.
 
-## <a name="start-azure-functions-diagnostics"></a>Iniciar o diagnóstico de Azure Functions
+## <a name="start-azure-functions-diagnostics"></a>Start Azure Functions diagnostics
 
-Para acessar o diagnóstico de Azure Functions:
+To access Azure Functions diagnostics:
 
-1. Navegue até seu aplicativo de funções no [portal do Azure](https://portal.azure.com).
-2. Selecione a guia **recursos da plataforma** .
-3. Selecione **diagnosticar e solucionar problemas** no **Gerenciamento de recursos**, que abre o diagnóstico de Azure functions.
-4. Escolha uma categoria que melhor descreva o problema do seu aplicativo de funções usando as palavras-chave no bloco Home Page. Você também pode digitar uma palavra-chave que melhor descreva seu problema na barra de pesquisa. Por exemplo, você pode digitar `execution` para ver uma lista de relatórios de diagnóstico relacionados à sua execução de aplicativo de funções e abri-los diretamente da Home Page.
+1. Navigate to your function app in the [Azure portal](https://portal.azure.com).
+2. Select the **Platform features** tab.
+3. Select **Diagnose and solve problems** under **Resource Management**, which opens Azure Functions diagnostics.
+4. Choose a category that best describes the issue of your function app by using the keywords in the homepage tile. You can also type a keyword that best describes your issue in the search bar. For example, you could type `execution` to see a list of diagnostic reports related to your function app execution and open them directly from the homepage.
 
-![Principal](./media/functions-diagnostics/homepage.png)
+![Homepage](./media/functions-diagnostics/homepage.png)
 
-## <a name="use-the-interactive-interface"></a>Usar a interface interativa
+## <a name="use-the-interactive-interface"></a>Use the Interactive interface
 
-Depois de selecionar uma categoria de Home Page que melhor se alinha com o problema do seu aplicativo de funções, a interface interativa do Azure Functions Diagnostics, o gênio, pode orientá-lo no diagnóstico e na resolução do problema de seu aplicativo. Você pode usar os atalhos de bloco fornecidos pelo gênio para exibir o relatório de diagnóstico completo da categoria do problema que você está interessado. Os atalhos de bloco fornecem uma maneira direta de acessar suas métricas de diagnóstico.
+Once you select a homepage category that best aligns with your function app's problem, Azure Functions diagnostics' interactive interface, Genie, can guide you through diagnosing and solving problem of your app. You can use the tile shortcuts provided by Genie to view the full diagnostic report of the problem category that you are interested. The tile shortcuts provide you a direct way of accessing your diagnostic metrics.
 
-![Gênio](./media/functions-diagnostics/genie.png)
+![Genie](./media/functions-diagnostics/genie.png)
 
-Depois de selecionar um bloco, você poderá ver uma lista de tópicos relacionados ao problema descrito no bloco. Esses tópicos fornecem trechos de informações notáveis do relatório completo. Você pode selecionar qualquer um desses tópicos para investigar ainda mais os problemas. Além disso, você pode selecionar **Exibir relatório completo** para explorar todos os tópicos em uma única página.
+After selecting a tile, you can see a list of topics related to the issue described in the tile. These topics provide snippets of notable information from the full report. You can select any of these topics to investigate the issues further. Also, you can select **View Full Report** to explore all the topics on a single page.
 
-![Visualização do relatório de diagnóstico](./media/functions-diagnostics/preview-of-diagnostic-report.png)
+![Preview of diagnostic report](./media/functions-diagnostics/preview-of-diagnostic-report.png)
 
-## <a name="view-a-diagnostic-report"></a>Exibir um relatório de diagnóstico
+## <a name="view-a-diagnostic-report"></a>View a diagnostic report
 
-Depois de escolher um tópico, você pode exibir um relatório de diagnóstico específico para seu aplicativo de funções. Os relatórios de diagnóstico usam ícones de status para indicar se há problemas específicos com seu aplicativo. Você verá uma descrição detalhada do problema, as ações recomendadas, as métricas relacionadas e os documentos úteis. Relatórios de diagnóstico personalizados são gerados de uma série de verificações executadas em seu aplicativo de funções. Os relatórios de diagnóstico podem ser uma ferramenta útil para identificar problemas em seu aplicativo de funções e orientá-lo para resolver o problema.
+After you choose a topic, you can view a diagnostic report specific to your function app. Diagnostic reports use status icons to indicate if any specific issues with your app. You see detailed description of the issue, recommended actions, related-metrics, and helpful docs. Customized diagnostic reports are generated from a series of checks run on your function app. Diagnostic reports can be a useful tool for pinpointing problems in your function app and guiding you towards resolving the issue.
 
-## <a name="find-the-problem-code"></a>Localizar o código do problema 
+## <a name="find-the-problem-code"></a>Find the problem code 
 
-Para funções baseadas em script, você pode usar a **execução de função** e **erros em aplicativo de funções ou relatar erros** para restringir a linha de código causando exceções ou erros. Esse recurso pode ser uma ferramenta útil para chegar à causa raiz e corrigir problemas de uma linha de código específica. Essa opção não está disponível para funções pré-compiladas C# e Java.
+For script-based functions, you can use **Function Execution** and **Errors under Function App Down or Reporting Errors** to narrow down on the line of code causing exceptions or errors. This feature can be a useful tool for getting to the root cause and fixing issues from a specific line of code. This option isn't available for precompiled C# and Java functions.
 
-![Relatório de diagnóstico sobre erros de execução de função](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
+![Diagnostic report on function execution errors](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
 
-![Exceção de função](./media/functions-diagnostics/function-exception.png)
+![Function exception](./media/functions-diagnostics/function-exception.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você pode fazer perguntas ou fornecer comentários sobre o diagnóstico de Azure Functions no [UserVoice](https://feedback.azure.com/forums/355860-azure-functions). Inclua `[Diag]` no título de seus comentários.
+You can ask questions or provide feedback on Azure Functions diagnostics at [UserVoice](https://feedback.azure.com/forums/355860-azure-functions). Please include `[Diag]` in the title of your feedback.
 
 > [!div class="nextstepaction"]
-> [Monitorar seus aplicativos de funções](functions-monitoring.md)
+> [Monitor your function apps](functions-monitoring.md)

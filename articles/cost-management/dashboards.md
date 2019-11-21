@@ -1,300 +1,300 @@
 ---
-title: Veja métricas-chave com dashboards da Cloudyn no Azure | Documentos da Microsoft
-description: Este artigo descreve como pode ver as principais métricas com os dashboards no Cloudyn.
+title: View key metrics with Cloudyn dashboards in Azure | Microsoft Docs
+description: This article describes how you can view key metrics with dashboards in Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: b83368b913bf1303b49e3a56e3a15248af222cbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0651dd006585e4ed5b8b888d6e55974c5c45a1d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002056"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230078"
 ---
-# <a name="view-key-cost-metrics-with-dashboards"></a>Chave de ver as métricas com os dashboards de custos
+# <a name="view-key-cost-metrics-with-dashboards"></a>View key cost metrics with dashboards
 
-Dashboards no Cloudyn fornecem uma visão geral de relatórios. Dashboards permitem-lhe ver métricas de custo de chave numa única vista. Eles também fornecem a tendência comercial destaca-se para o ajudar a tomar decisões empresariais importantes.
+Dashboards in Cloudyn provide a high-level view of reports. Dashboards allow you to view key cost metrics in a single view. They also provide business trend highlights to help you make important business decisions.
 
-Dashboards também são utilizados para criar vistas para pessoas com responsabilidades diferentes na sua organização, que pode incluir:
+Dashboards are also used to create views for people with different responsibilities in your organization, which might include:
 
-- Controlador financeiro
-- Proprietário da aplicação ou projeto
-- Engenheiro de DevOps
-- Executivos
+- Financial controller
+- Application or project owner
+- DevOps engineer
+- Executives
 
-Dashboards são compostos de widgets e cada widget é essencialmente uma miniatura de relatório. Clique num widget para abrir o relatório. Quando personaliza os relatórios, guardá-los para os meus relatórios e estes serão adicionados ao dashboard.
+Dashboards are made up of widgets and each widget is essentially a report thumbnail. Click a widget to open its report. When you customize reports, you save them to My Reports and they're added to the dashboard.
 
-Versões de dashboard são diferentes para os utilizadores de gestão (MSP), Enterprise e Premium Cloudyn. As diferenças são determinadas pela níveis de acesso de entidade. Para obter mais informações sobre níveis de acesso, consulte [níveis de acesso de entidade](tutorial-user-access.md#entity-access-levels).
+Dashboard versions differ for Management (MSP), Enterprise, and Premium Cloudyn users. The differences are determined by entity access levels. For more information about access levels, see [Entity access levels](tutorial-user-access.md#entity-access-levels).
 
-Disponibilidade de dashboard depende do tipo de conta de fornecedor de serviço na cloud que é utilizado ao visualizar os dashboards. O tipo de informação disponível e recolhido pelo Cloudyn afeta relatórios nos dashboards. Por exemplo, se não tiver uma conta AWS, em seguida, não verá o dashboard do controlador de S3. Da mesma forma, se não ativar o acesso ao Cloudyn do Azure Resource Manager, em seguida, não verá quaisquer informações específicas do Azure em widgets do dashboard de otimizador.
+Dashboard availability depends on the type of cloud service provider account that is used when viewing dashboards. The type of information available and collected by Cloudyn affects reports in dashboards. For example, if you don't have an AWS account then you won't see the S3 Tracker dashboard. Similarly, if you don't enable Azure Resource Manager access to Cloudyn then you won't see any Azure-specific information in Optimizer dashboard widgets.
 
-Pode utilizar qualquer um dos dashboards pré-criados ou pode criar seu próprio dashboard com relatórios personalizados. Se não estiver familiarizado com os relatórios do Cloudyn, consulte [relatórios de utilização Cloudyn](use-reports.md).
+You can use any of the premade dashboards or you can create your own dashboard with customized reports. If you're unfamiliar with Cloudyn reports, see [Use Cloudyn reports](use-reports.md).
 
-## <a name="create-a-custom-dashboard"></a>Criar um dashboard personalizado
+## <a name="create-a-custom-dashboard"></a>Create a custom dashboard
 
-Para começar rapidamente com um dashboard personalizado, pode duplicar um já existente para utilizar as respetivas propriedades. Em seguida, pode modificá-lo para satisfazer as suas necessidades. No dashboard que pretende copiar, clique em **guardar como**. Pode duplicar apenas dashboards personalizados — não é possível duplicar os dashboards que estão incluídos no Cloudyn.
+To quickly get started with a custom dashboard, you can duplicate an existing one to use its properties. Then you can modify it to suit your needs. On the dashboard you want to copy, click **Save As**. You can only duplicate customized dashboards — you can't duplicate the dashboards that are included with Cloudyn.
 
-Para criar um dashboard personalizado:
+To create a custom dashboard:
 
-1. Na home page, clique em **adicionar novo +** . É apresentada a página de meu painel.  
-    ![Minha página de dashboard onde adiciona novos relatórios](./media/dashboards/my-dashboard.png)
-2. Clique em **adicione o novo relatório**. É apresentada a caixa Adicionar relatório.
-3. Selecione o relatório que pretende adicionar para o widget de dashboard. O widget é adicionado ao dashboard.
-4. Repita os passos anteriores até está concluído, o dashboard.
-5. Para alterar o nome do dashboard, clique no nome do dashboard na home page do Dashboard e escreva o novo nome.
+1. On the homepage, click **Add New +** . The My Dashboard page is displayed.  
+    ![My dashboard page where you add new reports](./media/dashboards/my-dashboard.png)
+2. Click **Add New Report**. The Add Report box is displayed.
+3. Select the report that you want to add to the dashboard widget. The widget is added to the dashboard.
+4. Repeat the preceding steps until the dashboard is complete.
+5. To change the name of the dashboard, click the name of the dashboard on the Dashboard home page and type the new name.
 
-## <a name="modify-a-custom-dashboard"></a>Modificar um dashboard personalizado
+## <a name="modify-a-custom-dashboard"></a>Modify a custom dashboard
 
-Como criar um dashboard personalizado, não é possível modificar dashboards que estão incluídos no Cloudyn. Para modificar um relatório de dashboard personalizado:
+Like creating a custom dashboard, you can't modify the dashboards included with Cloudyn. To modify a custom dashboard report:
 
-1. No dashboard, localizar o relatório que pretende modificar e clique em **editar**. O relatório é apresentado.
-2. Efetue as alterações que pretende para o relatório e clique em **guardar**. O relatório é atualizado e apresenta as suas alterações.
+1. In the dashboard, find the report you want to modify and click **Edit**. The report is displayed.
+2. Make any changes that you want to the report and click **Save**. The report is updated and displays your changes.
 
-## <a name="share-a-custom-dashboard"></a>Partilhar um dashboard personalizado
+## <a name="share-a-custom-dashboard"></a>Share a custom dashboard
 
-Pode partilhar um dashboard personalizado com outras pessoas _pública_ ou _minha entidade_. Quando partilha para público, todos os utilizadores podem ver o dashboard. Apenas os utilizadores com acesso à entidade atual podem ver o dashboard ao partilhar a minha entidade. Os passos para partilhar um dashboard personalizado com peering público e minha entidade são semelhantes.
+You can share a custom dashboard with others to _Public_ or _My Entity_. When you share to Public, all users can view the dashboard. Only users with access to the current entity can view the dashboard when you share to My Entity. The steps to share a custom dashboard with Public and My Entity are similar.
 
-Para partilhar um dashboard personalizado para público:
+To share a custom dashboard to Public:
 
-1. Num dashboard, clique em **definições do Dashboard**. É apresentada a caixa de definições do Dashboard.  
-    ![definições do dashboard para um dashboard personalizado](./media/dashboards/dashboard-options.png)
-2. Na caixa de definições do Dashboard, clique no símbolo de seta e, em seguida, clique em **público**. É apresentada a caixa de diálogo de confirmação de Dashboard público.
-3. Clique em **Sim**. O dashboard está agora disponível para outros utilizadores.
+1. In a dashboard, click **Dashboard Settings**. The Dashboard Settings box is displayed.  
+    ![dashboard settings for a custom dashboard](./media/dashboards/dashboard-options.png)
+2. In the Dashboard Settings box, click the arrow symbol and then click **Public**. The Public Dashboard confirmation dialog box is displayed.
+3. Click  **Yes**. The dashboard is now available to others.
 
-## <a name="delete-a-custom-dashboard-report"></a>Eliminar um relatório de dashboard personalizado
+## <a name="delete-a-custom-dashboard-report"></a>Delete a custom dashboard report
 
-Pode eliminar um componente de relatório personalizado a partir do dashboard. A eliminar o relatório a partir do dashboard não elimina o relatório na lista de relatórios. Em vez disso, a eliminar o relatório o remove do apenas o dashboard.
+You can delete a custom report component from the dashboard. Deleting the report from the dashboard doesn't delete the report from the reports list. Instead, deleting the report removes it from the dashboard only.
 
-Para eliminar um componente de dashboard, no componente de dashboard, clique em **eliminar**. Clicar **eliminar** elimina imediatamente o componente de dashboard.
+To delete a dashboard component, on the dashboard component, click **Delete**. Clicking **Delete**  immediately deletes the dashboard component.
 
-## <a name="share-a-dashboard-enterprise"></a>Partilhar um dashboard (Enterprise)
+## <a name="share-a-dashboard-enterprise"></a>Share a dashboard (Enterprise)
 
-Pode partilhar dashboards personalizados para todos os utilizadores na sua organização ou com os utilizadores da entidade atual. Partilhar um dashboard pode permitir que outras pessoas uma rápida visão geral dos seus KPIS. Quando partilha um dashboard, replica automaticamente o dashboard para todos os seus Cloudyn entidades/clientes. As alterações para o dashboard partilhado são atualizadas automaticamente.
+You can share custom dashboards to all users in your organization or with the users of the current entity. Sharing a dashboard can give others a quick high-level view of your KPI. When you share a dashboard, it automatically replicates the dashboard to all your Cloudyn entities/customers. Changes to the shared dashboard are automatically updated.
 
-Para partilhar um dashboard com todos os utilizadores, incluindo subentidades:
+To share a dashboard with all users including subentities:
 
-1. Na home page do dashboard, clique em **editar**.
-2. Clique em **partilha** e, em seguida, selecione **público**.
-3. É apresentada a caixa de confirmação de Dashboard público Global.
-4. Clique em **Sim** para definir o dashboard como um dashboard público global.
+1. On the dashboard home page, click **Edit**.
+2. Click **Share** and then select **Public**.
+3. The Global Public Dashboard confirmation box is displayed.
+4. Click **Yes** to set the dashboard as a global public dashboard.
 
-Para partilhar um dashboard com todos os utilizadores de uma entidade atual:
+To share a dashboard with all users of a current entity:
 
-1. A partir da home page do Dashboard, clique em **editar**.
-2. Clique em **partilha** e, em seguida, selecione **minha entidade**.
-3. Clique em **Sim** para definir o dashboard como um dashboard público.
+1. From the Dashboard home page, click **Edit**.
+2. Click **Share** and then select **My Entity**.
+3. Click **Yes** to set the dashboard as a public dashboard.
 
-## <a name="duplicate-a-custom-dashboard"></a>Duplicar um dashboard personalizado
+## <a name="duplicate-a-custom-dashboard"></a>Duplicate a custom dashboard
 
-Quando cria um novo dashboard, pode querer utilizar propriedades semelhantes a partir de um dashboard existente. Pode duplicar dashboard para criar um novo.
+When you create a new dashboard, you might want to use similar properties from an existing dashboard. You can duplicate the dashboard to create a new one.
 
-Pode duplicar apenas dashboards personalizados. Não é possível duplicar dashboards padrão.
+You can only duplicate custom dashboards. You can't duplicate standard dashboards.
 
-Duplicar dashboard (clona) personalizada:
+To duplicate (clone) a custom dashboard:
 
-1. No Dashboard que pretende duplicar, clique em **guardar como**. É aberto um novo dashboard com o mesmo nome e um número.
-2. Mudar o nome do dashboard duplicado e modificá-lo como desejar.
-
--Ou-
-
-1. Nas definições do Dashboard, clique em **guardar como** na linha do dashboard que pretende duplicar.
-2. É aberto o dashboard duplicado.
-3. Mudar o nome do dashboard e modificá-lo como desejar.
-
-## <a name="set-a-default-dashboard"></a>Definir um dashboard predefinido
-
-Pode definir qualquer dashboard como padrão. Defini-la como o padrão faz parecer como separador mais à esquerda da lista de guias de dashboard. O dashboard predefinido é apresentado quando abrir o portal da Cloudyn.
-
-- Clique no separador de dashboard que pretende definir como padrão, em seguida, clique em **predefinição** à direita.
+1. On the Dashboard that you want to duplicate, click **Save As**. A new dashboard opens with the same name and a number.
+2. Rename the duplicated dashboard and modify it as you like.
 
 -Ou-
 
-1. Clique em **definições do Dashboard** para ver a lista de dashboards disponíveis e selecione o dashboard que pretende definir como predefinição.  
-    ![Opções de dashboard para um dashboard predefinido](./media/dashboards/dashboard-options.png)
-2. Clique em **predefinido** na linha do dashboard. É apresentada a caixa de confirmação de Dashboard predefinido.
-3. Clique em **Sim**. O dashboard é definido como predefinido.
+1. In Dashboard Settings, click **Save As**  on the line of the dashboard that you want to duplicate.
+2. The duplicated dashboard opens.
+3. Rename the dashboard and modify it as you like.
+
+## <a name="set-a-default-dashboard"></a>Set a default dashboard
+
+You can set any dashboard as your default. Setting it to your default makes it appear as the left-most tab in the dashboard tab list. The default dashboard displays when open the Cloudyn portal.
+
+- Click the dashboard tab you would like to set as default, then click **Default** on the right.
+
+-Ou-
+
+1. Click **Dashboard Settings** to see the list of available dashboards and select the dashboard that you want to set as the default.  
+    ![dashboard options for a default dashboard](./media/dashboards/dashboard-options.png)
+2. Click **Default** in the line of the dashboard. The Default Dashboard confirmation box is displayed.
+3. Clique em **Sim**. The dashboard is set to default.
 
 ## <a name="management-dashboard"></a>Dashboard de gestão
-A gestão (ou dashboard MSP para utilizadores MSP) dashboard inclui destaques dos tipos de relatório principal.  
-![Dashboard de gestão que mostra os vários relatórios](./media/dashboards/management-dash.png)
+The Management (or MSP dashboard for MSP users) dashboard includes highlights of the main report types.  
+![Management dashboard showing various reports](./media/dashboards/management-dash.png)
 
-### <a name="cost-entity-summary-enterprise-only"></a>Resumo de entidade de custo (apenas para empresas)
-Este widget resume as entidades de custo gerenciado, incluindo o número de entidades e o número de contas.
-- Clique em do widget para abrir o relatório de detalhes do Enterprise.
+### <a name="cost-entity-summary-enterprise-only"></a>Cost Entity Summary (Enterprise only)
+This widget summarizes the managed cost entities, including the number of entities and number of accounts.
+- Click the widget to open the Enterprise Details report.
 
-### <a name="cost-over-time"></a>Custo ao longo do tempo
-Este widget pode ajudá-lo a detetar tendências de custo. Destaca o custo para o último dia, com base na tendência dos últimos 30 dias.
-- Clique em do widget para abrir o relatório de custo real ao longo do tempo para ver e filtrar os detalhes adicionais.
+### <a name="cost-over-time"></a>Cost Over Time
+This widget can help you spot cost trends. It highlights the cost for the last day, based on the trend of the last 30 days.
+- Click the widget to open the Actual Cost Over Time report to view and filter additional details.
 
-### <a name="asset-controller"></a>Controlador de recursos
-Este widget destaca o número de instâncias em execução do dia anterior, acima a tendência de utilização ao longo dos últimos 30 dias.
-- Clique em do widget para abrir o dashboard do controlador de recursos.
+### <a name="asset-controller"></a>Asset Controller
+This widget highlights the number of running instances from the previous day, above the usage trend over the last 30 days.
+- Click the widget to open the Asset Controller dashboard.
 
-### <a name="unused-ri-detector"></a>Detetor de RI não utilizado
-Este widget destaca o número de Amazon EC2 reservas não utilizadas.
-- Clique em do widget para abrir o relatório de reservas atualmente não utilizadas, onde pode ver os montantes não utilizados reservas pode modificar.
+### <a name="unused-ri-detector"></a>Unused RI Detector
+This widget highlights the number of Amazon EC2 unused reservations.
+- Click the widget to open the Currently Unused Reservations report where you can view the unused reservations you can modify.
 
-### <a name="cost-by-service"></a>Custo por serviço
-Este widget destaca os custos amortizados pelo serviço para os últimos 30 dias. Paire o rato sobre o gráfico de pizza para ver os custos por serviço.
-- Clique em do widget para abrir o relatório de análise de custo real.
+### <a name="cost-by-service"></a>Cost by Service
+This widget highlights amortized costs by service for the last 30 days. Hover over the pie chart to see the costs per service.
+- Click the widget to open the Actual Cost Analysis report.
 
-### <a name="potential-savings"></a>Potenciais poupanças
-Este widget mostra o tipo de instância preços recomendações para o Amazon EC2 e RDS do Amazon.
-- Clique em abrir o widget do relatório de análise de economia. Esta tabela indica os custos por tipos de instância com a economia em potencial.
+### <a name="potential-savings"></a>Potential savings
+This widget shows instance type pricing recommendations for Amazon EC2 and Amazon RDS.
+- Click the widget open the Savings Analysis report. It lists your costs by instance types with potential savings.
 
-### <a name="compute-instances---daily-trend"></a>Instâncias de computação - tendência diária
-Este widget mostra as instâncias ativas por tipo, nos últimos 30 dias.
-- Clique em do widget para abrir o relatório de instâncias ao longo do tempo, onde pode ver uma análise detalhada de todas as instâncias em execução durante os últimos 30 dias.
+### <a name="compute-instances---daily-trend"></a>Compute Instances - Daily Trend
+This widget displays the active instances by type, for the last 30 days.
+- Click the widget to open the Instances Over Time report, where you can view a breakdown of all instances running during the last 30 days.
 
-### <a name="storage-by-department"></a>Armazenamento por departamento
-Este widget apresenta os serviços de armazenamento utilizados pelos departamentos. Paire o rato sobre o gráfico de pizza para ver o consumo de armazenamento por departamento.
-- Clique em do widget para abrir o dashboard do controlador de S3.
+### <a name="storage-by-department"></a>Storage by department
+This widget displays the storage services used by departments. Hover over the pie chart to see your storage consumption by department.
+- Click the widget to open the S3 Tracker dashboard.
 
-## <a name="cost-controller-dashboard"></a>Dashboard do controlador de custos
-O dashboard do controlador de custos mostra destaques de alocação de custos predefinidas.  
-![Dashboard do controlador que mostra os vários relatórios de custos](./media/dashboards/cost-controller-dashboard.png)
+## <a name="cost-controller-dashboard"></a>Cost Controller dashboard
+The Cost Controller dashboard shows pre-set cost allocation highlights.  
+![Cost Controller dashboard showing various reports](./media/dashboards/cost-controller-dashboard.png)
 
-### <a name="cost-over-time"></a>Custo ao longo do tempo
-Este widget ajuda-o a detetar tendências de custo. Destaca o custo para o último dia, com base na tendência dos últimos 30 dias.
-- Clique em do widget para abrir o relatório de custo real ao longo do tempo para ver e filtrar os detalhes adicionais.
+### <a name="cost-over-time"></a>Cost Over Time
+This widget helps you spot cost trends. It highlights the cost for the last day, based on the trend of the last 30 days.
+- Click the widget to open the Actual Cost Over Time report to view and filter additional details.
 
-### <a name="monthly-cost-trends"></a>Tendências de custos mensais
-Este widget destaca gastos amortizado prevista e gasta o seu real desde o início do mês.
-- Clique em do widget para abrir o relatório de custo previsto do mês atual, que fornece um resumo de custo de mês até à data.
+### <a name="monthly-cost-trends"></a>Monthly Cost Trends
+This widget highlights projected amortized spending and your actual spend since the beginning of the month.
+- Click the widget to open the Current Month Projected Cost report, which provides a month-to-date cost summary.
 
-Este relatório mostra o custo do início do mês, o custo do mês anterior e o custo previsto do mês. O mês atual custo previsto é calculado ao adicionar o custo mensal atualizado e projeção. A projeção é baseada no custo monitorizado durante os últimos 30 dias.
+This report shows the cost from the beginning of month, the cost of previous month, and the current month projected cost. The current month projected cost is calculated by adding the up-to-date monthly cost and projection. The projection is based on the cost monitored over the last 30 days.
 
-### <a name="12-month-planner"></a>Planeador de implementações de 12 meses
-Este widget destaca os custos estimados ao longo dos próximos doze meses e a economia potencial.
-- Clique em do widget para abrir o relatório de custo previsto anual.
+### <a name="12-month-planner"></a>12 Month Planner
+This widget highlights the projected costs over the next 12 months and the potential savings.
+- Click the widget to open the Annual Projected Cost report.
 
-### <a name="cost-by-service"></a>Custo por serviço
-Este widget destaca os custos amortizados pelo serviço para os últimos 30 dias.
-- Paire o rato sobre o gráfico de pizza para ver os custos por serviço.
-- Clique em do widget para abrir o relatório de análise de custo real.
+### <a name="cost-by-service"></a>Cost by Service
+This widget highlights amortized costs by service for the last 30 days.
+- Hover over the pie chart to see the costs per service.
+- Click the widget to open the Actual Cost Analysis report.
 
-### <a name="cost-by-account"></a>Custo por conta
-Este widget destaca os custos amortizados por conta dos últimos 30 dias.
-- Paire o rato sobre o gráfico de pizza para ver os custos por conta.
-- Clique em do widget para abrir o relatório de análise de custo real.
+### <a name="cost-by-account"></a>Cost by Account
+This widget highlights amortized costs by account for the last 30 days.
+- Hover over the pie chart to see the costs per account.
+- Click the widget to open the Actual Cost Analysis report.
 
-### <a name="cost-trend-by-day"></a>Tendência de custo por dia
-Este widget destaques gastar durante os últimos 30 dias.
-- Paire o rato sobre o gráfico de barras para ver os custos por dia.
-- Clique em do widget para abrir o relatório de custo real ao longo do tempo.
+### <a name="cost-trend-by-day"></a>Cost Trend by Day
+This widget highlights spend over the last 30 days.
+- Hover over the bar graph to see costs per day.
+- Click the widget to open the Actual Cost Over Time report.
 
-### <a name="cost-trend-by-month---last-6-months"></a>Tendência de custo por mês - últimos 6 meses
+### <a name="cost-trend-by-month---last-6-months"></a>Cost Trend by Month - Last 6 months
 
-Este widget destaques gastar durante os últimos seis meses.
-- Paire o rato sobre o gráfico de barras para ver os custos por mês.
-- Clique em do widget para abrir o relatório de custo real ao longo do tempo.
+This widget highlights spend over the last six months.
+- Hover over the bar graph to see costs per month.
+- Click the widget to open the Actual Cost Over Time report.
 
-## <a name="asset-controller-dashboard"></a>Dashboard do controlador ativo
+## <a name="asset-controller-dashboard"></a>Asset Controller dashboard
 
-Este dashboard mostra o número de instâncias, discos disponíveis e em utilização, distribuição de tipos de instância e informações de armazenamento a executar.  
-![Dashboard do controlador ativo que mostra os vários relatórios](./media/dashboards/asset-controller-dashboard.png)
+This dashboard displays the number of running instances, available and in-use disks, distribution of instance types, and storage information.  
+![Asset Controller dashboard showing various reports](./media/dashboards/asset-controller-dashboard.png)
 
-### <a name="compute-instances"></a>Instâncias de computação
-Este widget mostra o número de instâncias de base a tendência de utilização ao longo dos últimos 30 dias em execução.
-- Clique em do widget para abrir o relatório de instâncias ao longo do tempo.
+### <a name="compute-instances"></a>Compute Instances
+This widget displays the number of running instances based on the usage trend over the last 30 days.
+- Click the widget to open the Instances Over Time report.
 
 ### <a name="disks"></a>Discos
-Este widget destaca o número total e o volume de discos, que estão em utilização e disponível.
-- Clique em do widget para abrir o relatório de discos ativos.
+This widget highlights the total number and volume of disks, that are in-use and available.
+- Click the widget to open the Active Disks report.
 
-### <a name="instance-type-distribution"></a>Distribuição de tipo de instância
-Este widget realça os tipos de instância num gráfico de pizza.
-- Clique no widget para abrir o relatório de distribuição de instância, que fornece uma análise detalhada das instâncias de Active Directory, a agregação selecionada.
+### <a name="instance-type-distribution"></a>Instance Type Distribution
+This widget highlights the instance types in a pie chart.
+- Click on the widget to open the Instance Distribution report, which provides a breakdown of your active instances by the selected aggregation.
 
-### <a name="compute-instances---daily-trend"></a>Instâncias de computação - tendência diária
-Este widget destaca as instâncias de computação (spot, reservadas e sob demanda) por dia nos últimos 30 dias.
-- Paire o rato sobre o gráfico para ver o número de instâncias de computação, por tipo por dia.
-- Clique em do widget para abrir o relatório de instâncias ao longo do tempo.
+### <a name="compute-instances---daily-trend"></a>Compute Instances - Daily Trend
+This widget highlights the compute instances (spot, reserved, and on-demand) per day for the last 30 days.
+- Hover over the graph to view the number of compute instances, per type per day.
+- Click the widget to open the Instances Over Time report.
 
-### <a name="all-buckets-s3"></a>Todos os registos (S3)
-Este widget destaca o total de armazenamento S3 e o número de objetos armazenados.
-- Clique em do widget para abrir o Dashboard do controlador de S3. O dashboard ajuda a localizar, analisar e apresentar a sua utilização de armazenamento atual e tendências.
+### <a name="all-buckets-s3"></a>All Buckets (S3)
+This widget highlights the total S3 storage and number of objects stored.
+- Click the widget to open the S3 Tracker Dashboard. The dashboard helps you find, analyze, and display your current storage usage and trends.
 
-### <a name="sql-db-instances-rds"></a>Instâncias de DB do SQL (RDS)
-Este widget destaca o número de instâncias de Amazon RDS com base na tendência dos últimos 30 dias em execução.
-- Clique em do widget para abrir o relatório de RDS instância ao longo do tempo.
+### <a name="sql-db-instances-rds"></a>SQL DB Instances (RDS)
+This widget highlights the number of running Amazon RDS instances based on the trend of the last 30 days.
+- Click the widget to open the RDS Instance Over Time report.
 
-## <a name="optimizer-dashboard"></a>Dashboard de otimizador
-Este dashboard apresenta recomendações downsizing, recursos não utilizados e economia potencial.  
-![Dashboard de otimizador que mostra os vários relatórios](./media/dashboards/optimizer-dashboard.png)
+## <a name="optimizer-dashboard"></a>Optimizer Dashboard
+This dashboard displays downsizing recommendations, unused resources, and potential savings.  
+![Optimizer dashboard showing various reports](./media/dashboards/optimizer-dashboard.png)
 
-### <a name="ri-calculator"></a>Calculadora de RI
-Este widget mostra o número de recomendações de compra de RI e realça as poupanças anuais potenciais.
-- Clique em do widget para abrir a Calculadora de instância reservada onde pode determinar quando deve utilizar a pedido versus reservado planos de preços.
+### <a name="ri-calculator"></a>RI Calculator
+This widget displays the number of RI buying recommendations and highlights the potential annual savings.
+- Click the widget to open the Reserved Instance Calculator where you can determine when to use on-demand vs. reserved pricing plans.
 
 ### <a name="sizing"></a>Dimensionamento
-Este widget destaca o dimensionamento recomendado e a economia em potencial, se implementada.
-- Clique para abrir o relatório de recomendações de dimensionamento económico EC2 widget.
+This widget highlights the sizing recommended and potential savings, if implemented.
+- Click the widget to open the EC2 Cost Effective Sizing Recommendations report.
 
-### <a name="unused-ri-detector"></a>Detetor de RI não utilizado
-Este widget destaca o número de Amazon EC2 reservas não utilizadas.
-- Clique em do widget para abrir o relatório de reservas atualmente não utilizadas, onde pode ver as reservas não utilizadas que pode modificar.
+### <a name="unused-ri-detector"></a>Unused RI Detector
+This widget highlights the number of Amazon EC2 unused reservations.
+- Click the widget to open the Currently Unused Reservations report where you can view the unused reservations that you can modify.
 
-###  <a name="available-disks"></a>Discos disponíveis
-Este widget destaca o número de discos desanexados na sua implementação.
-- Clique para abrir o relatório de discos Desanexados widget.
+###  <a name="available-disks"></a>Available Disks
+This widget highlights the number of unattached disks in your deployment.
+- Click the widget to open the Unattached Disks report.
 
-### <a name="rds-ri-calculator"></a>Calculadora de RI de RDS
-Este widget destaca o número de recomendações de reserva para as instâncias de RDS do Amazon e a economia potencial.
-- Clique em do widget para abrir o relatório de recomendações de compra de RI de RDS em que pode ver as recomendações do Cloudyn para utilizar instâncias reservadas em vez de instâncias a pedido.
+### <a name="rds-ri-calculator"></a>RDS RI Calculator
+This widget highlights the number of reservation recommendations for your Amazon RDS instances and the potential savings.
+- Click the widget to open the RDS RI Buying Recommendations report where you can see Cloudyn recommendations to use reserved instances instead of on-demand Instances.
 
-### <a name="rds-sizing"></a>Dimensionamento de RDS
-Este widget mostra o número de recomendações de dimensionamento e a economia potencial.
-- Clique em do widget para abrir o relatório de recomendações de dimensionamento de RDS, que mostra detalhadas RDS Amazon recomendações de dimensionamento.
+### <a name="rds-sizing"></a>RDS Sizing
+This widget shows the number of sizing recommendations and the potential savings.
+- Click the widget to open the RDS Sizing Recommendations report, which displays detailed Amazon RDS sizing recommendations.
 
-As recomendações de otimização baseiam-se nos dados de utilização e desempenho monitorizados no último mês.
+The optimization recommendations are based on the usage and performance data monitored in the last month.
 
-## <a name="s3-tracker-dashboard"></a>Dashboard de controlador de S3
-O dashboard do controlador de S3 ajuda a localizar, analisar e apresentar a sua utilização de armazenamento atual e tendências.  
-![Dashboard de controlador de S3 que mostra os vários relatórios](./media/dashboards/s3-tracker-dashboard.png)
+## <a name="s3-tracker-dashboard"></a>S3 Tracker dashboard
+The S3 Tracker dashboard helps you find, analyze, and display your current storage usage and trends.  
+![S3 Tracker dashboard showing various reports](./media/dashboards/s3-tracker-dashboard.png)
 
-### <a name="all-buckets"></a>Todos os registos
-Este widget destaca o tamanho total de todos os seus registos, em GB e o número total de objetos nos seus registos.
-- Clique em do widget para abrir o relatório de tamanho de distribuição de S3. O relatório ajuda a analisar o tamanho de S3 por bucket, pasta de nível superior, a classe de armazenamento e estado de controle de versão.
+### <a name="all-buckets"></a>All Buckets
+This widget highlights the total size of all your buckets, in GB, and the total number of objects in your buckets.
+- Click the widget to open the Distribution of S3 Size report. The report helps you analyze your S3 size by bucket, top-level folder, storage class, and versioning state.
 
-### <a name="bucket-properties"></a>Propriedades de registo
-Este widget destaca o número total de registos de armazenamento.
-- Clique em do widget para ver o relatório de propriedades de registo de S3.
+### <a name="bucket-properties"></a>Bucket Properties
+This widget highlights the total number of storage buckets.
+- Click the widget to view the S3 Bucket Properties report.
 
-### <a name="scan-status"></a>Estado da análise
-Este widget destaca quando a última análise de S3 foi concluída e quando a próxima sessão será iniciada.
-- Clique em do widget para abrir o relatório de estado de análise de S3.
+### <a name="scan-status"></a>Scan Status
+This widget highlights when the last S3 scan was done and when the next one will start.
+- Click the widget to open the S3 Scan Status report.
 
-### <a name="storage-by-bucket"></a>Armazenamento por Bucket
-Este widget realça a percentagem que cada classe de armazenamento de registo está a utilizar.
-- Clique em do widget para abrir o relatório de tamanho de distribuição de S3. O relatório ajuda a analisar o tamanho de S3 por bucket, pasta de nível superior, a classe de armazenamento e estado de controle de versão.
+### <a name="storage-by-bucket"></a>Storage by Bucket
+This widget highlights the percentage that each bucket storage class is using.
+- Click the widget to open the Distribution of S3 Size report. The report helps you analyze your S3 size by bucket, top-level folder, storage class, and versioning state.
 
-### <a name="number-of-objects-by-bucket"></a>Número de objetos por Bucket
-Este widget destaca o número de objetos por bucket no número real e a percentagem. Paire o rato sobre o registo para ver o total de objetos.
-- Clique em do widget para abrir o relatório de tamanho de distribuição de S3 (análise com base).
+### <a name="number-of-objects-by-bucket"></a>Number of Objects by Bucket
+This widget highlights the number of objects per bucket in actual number and percentage. Hover over the bucket to see the total objects.
+- Click the widget to open the Distribution of S3 Size report (Scan based).
 
-## <a name="cloud-comparison-dashboard"></a>Dashboard de comparação de cloud
-O dashboard de comparação na Cloud ajuda-o a comparar os custos de fornecedores de cloud diferentes com base nos preços, o tipo de CPU e o tamanho de RAM.  
-![Dashboard de comparação de cloud que mostra vários relatórios](./media/dashboards/cloud-comparison-dashboard.png)
+## <a name="cloud-comparison-dashboard"></a>Cloud Comparison Dashboard
+The Cloud Comparison dashboard helps you compare costs from different cloud providers based on pricing, CPU type, and RAM size.  
+![Cloud Comparison dashboard showing various reports](./media/dashboards/cloud-comparison-dashboard.png)
 
-### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Custo no Azure por tipo de instância
-Este widget destaca os últimos 30 dias de utilização nas taxas de sob demanda. Ele compara o custo com os vs atuais do custo de Amazon EC2 o potencial de custos no Azure.
-- Paire o rato sobre as barras para comparar os custos por tipo de instância.
-- Clique em do widget para abrir a migrar a implementação – relatório de análise de custo.
+### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Cost in Azure by Instance Type
+This widget highlights the last 30 days of usage in on-demand rates. It compares the cost with the current Amazon EC2 cost vs the potential cost in Azure.
+- Hover over the bars to compare costs per instance type.
+- Click the widget to open the Porting Your Deployment – Cost Analysis report.
 
-### <a name="ec2-cost-in-azure"></a>EC2 Custo no Azure
-Este widget mostra os custos de Amazon EC2 atuais e compara-os para o Azure. A comparação baseia-se nos últimos 30 dias de utilização nas taxas de sob demanda.
-- Clique em do widget para abrir a migrar a implementação - relatório de análise de custo.
+### <a name="ec2-cost-in-azure"></a>EC2 Cost in Azure
+This widget shows your current Amazon EC2 costs and compares them to Azure. The comparison is based on the last 30 days of usage in on-demand rates.
+- Click the widget to open the Porting Your Deployment - Cost Analysis report.
 
-### <a name="ec2azure-instance-type-mapping"></a>Mapeamento de tipo de instância EC2/do Azure
-Este widget destaca o melhor mapeamento de unidades de computação elástica entre Amazon EC2 e o Azure.
-- Clique em do widget para abrir o relatório de mapeamento de tipo de instâncias.
+### <a name="ec2azure-instance-type-mapping"></a>EC2/Azure Instance Type Mapping
+This widget highlights the best mapping of elastic compute units between Amazon EC2 and Azure.
+- Click the widget to open the Instances Type Mapping report.
 
-## <a name="next-steps"></a>Passos Seguintes
-- Leitura a [relatórios de utilização Cloudyn](use-reports.md) artigo para saber mais sobre os relatórios.
+## <a name="next-steps"></a>Passos seguintes
+- Read the [Use Cloudyn reports](use-reports.md) article to learn more about reports.

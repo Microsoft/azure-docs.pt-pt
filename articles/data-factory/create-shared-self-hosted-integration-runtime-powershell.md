@@ -1,55 +1,56 @@
 ---
-title: Criar um tempo de execução de integração auto-hospedado compartilhado no Azure Data Factory
-description: Saiba como criar um tempo de execução de integração hospedado internamente no Azure Data Factory, para que várias fábricas de dados possam acessar o Integration Runtime.
+title: Create a shared self-hosted integration runtime with PowerShell
+description: Learn how to create a shared self-hosted integration runtime in Azure Data Factory, so multiple data factories can access the integration runtime.
 services: data-factory
 documentationcenter: ''
-author: nabhishek
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: fcda60863f78dd338bbfc64c1679561262c554a9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+author: nabhishek
+manager: anansub
+ms.custom: seo-lt-2019
+ms.date: 10/31/2018
+ms.openlocfilehash: a8ac5bdaab915e46f5d5074c991703790d429e50
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73677062"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74218231"
 ---
-# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Criar um tempo de execução de integração auto-hospedado compartilhado no Azure Data Factory
+# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Create a shared self-hosted integration runtime in Azure Data Factory
 
-Este guia mostra como criar um tempo de execução de integração auto-hospedado compartilhado no Azure Data Factory. Em seguida, você pode usar o tempo de execução de integração auto-hospedado compartilhado em outra data factory.
+This guide shows you how to create a shared self-hosted integration runtime in Azure Data Factory. Then you can use the shared self-hosted integration runtime in another data factory.
 
-## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Criar um IR compartilhado auto-hospedado usando a interface do usuário do Azure Data Factory
+## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Create a shared self-hosted IR using Azure Data Factory UI
 
-Para criar um IR compartilhado auto-hospedado usando Azure Data Factory interface do usuário, você pode executar as seguintes etapas:
+To create a shared self-hosted IR using Azure Data Factory UI, you can take following steps:
 
-1. No IR auto-hospedado a ser compartilhado, Conceda permissão para o data factory no qual você deseja criar o IR vinculado.
+1. In the self-hosted IR to be shared, grant permission to the data factory in which you want to create the linked IR.
       
-    ![Botão para conceder permissão na guia compartilhamento](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
+    ![Button for granting permission on the Sharing tab](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
       
-    ![Seleções para atribuir permissões](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)     
+    ![Selections for assigning permissions](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)     
     
-2. Observe a ID de recurso do IR auto-hospedado a ser compartilhado.
+2. Note the resource ID of the self-hosted IR to be shared.
       
-   ![Local da ID do recurso](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
+   ![Location of the resource ID](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
     
-3. No data factory ao qual as permissões foram concedidas, crie um novo IR via hospedagem interna (vinculado) e insira a ID do recurso.
+3. In the data factory to which the permissions were granted, create a new self-hosted IR (linked) and enter the resource ID.
       
-   ![Botão para criar um Integration Runtime vinculado de hospedagem interna](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
+   ![Button for creating a linked self-hosted integration runtime](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
       
-    ![Caixas para ID de nome e recurso](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
+    ![Boxes for name and resource ID](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
-## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Criar um IR compartilhado auto-hospedado usando Azure PowerShell
+## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Create a shared self-hosted IR using Azure PowerShell
 
-Para criar um IR compartilhado auto-hospedado usando Azure PowerShell, você pode executar as seguintes etapas: 
+To create a shared self-hosted IR using Azure PowerShell, you can take following steps: 
 1. Criar uma fábrica de dados. 
 1. Criar um integration runtime autoalojado.
-1. Compartilhe o Integration Runtime de hospedagem interna com outras fábricas de dados.
-1. Criar um tempo de execução de integração vinculado.
-1. Revogue o compartilhamento.
+1. Share the self-hosted integration runtime with other data factories.
+1. Create a linked integration runtime.
+1. Revoke the sharing.
 
 ### <a name="prerequisites"></a>Pré-requisitos 
 
@@ -57,16 +58,16 @@ Para criar um IR compartilhado auto-hospedado usando Azure PowerShell, você pod
 
 - **Subscrição do Azure**. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
-- **Azure PowerShell**. Siga as instruções em [instalar Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). Use o PowerShell para executar um script para criar um tempo de execução de integração auto-hospedado que pode ser compartilhado com outras fábricas de dados. 
+- **Azure PowerShell**. Follow the instructions in [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). You use PowerShell to run a script to create a self-hosted integration runtime that can be shared with other data factories. 
 
 > [!NOTE]  
-> Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam em [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
+> For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on  [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
 
 ### <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Inicie o Windows PowerShell Integrated Scripting Environment (ISE).
 
-1. Criar variáveis. Copie e cole o script a seguir. Substitua as variáveis, como **subscriptionname** e **ResourceGroupName**, pelos valores reais: 
+1. Create variables. Copy and paste the following script. Replace the variables, such as **SubscriptionName** and **ResourceGroupName**, with actual values: 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -87,19 +88,19 @@ Para criar um IR compartilhado auto-hospedado usando Azure PowerShell, você pod
     $LinkedIntegrationRuntimeDescription = "[Description for Linked Integration Runtime]"
     ```
 
-1. Entre e selecione uma assinatura. Adicione o código a seguir ao script para entrar e selecionar sua assinatura do Azure:
+1. Sign in and select a subscription. Add the following code to the script to sign in and select your Azure subscription:
 
     ```powershell
     Connect-AzAccount
     Select-AzSubscription -SubscriptionName $SubscriptionName
     ```
 
-1. Crie um grupo de recursos e um data factory.
+1. Create a resource group and a data factory.
 
     > [!NOTE]  
-    > Este passo é opcional. Se você já tiver um data factory, ignore esta etapa. 
+    > Este passo é opcional. If you already have a data factory, skip this step. 
 
-    Crie um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usando o comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) . Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo. O exemplo a seguir cria um grupo de recursos chamado `myResourceGroup` no local WestEurope: 
+    Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) by using the [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) command. Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo. The following example creates a resource group named `myResourceGroup` in the WestEurope location: 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -116,9 +117,9 @@ Para criar um IR compartilhado auto-hospedado usando Azure PowerShell, você pod
 ### <a name="create-a-self-hosted-integration-runtime"></a>Criar um integration runtime autoalojado
 
 > [!NOTE]  
-> Este passo é opcional. Se você já tiver o Integration Runtime de hospedagem interna que deseja compartilhar com outras fábricas de dados, ignore esta etapa.
+> Este passo é opcional. If you already have the self-hosted integration runtime that you want to share with other data factories, skip this step.
 
-Execute o seguinte comando para criar um tempo de execução de integração auto-hospedado:
+Run the following command to create a self-hosted integration runtime:
 
 ```powershell
 $SharedIR = Set-AzDataFactoryV2IntegrationRuntime `
@@ -129,9 +130,9 @@ $SharedIR = Set-AzDataFactoryV2IntegrationRuntime `
     -Description $SharedIntegrationRuntimeDescription
 ```
 
-#### <a name="get-the-integration-runtime-authentication-key-and-register-a-node"></a>Obter a chave de autenticação do Integration Runtime e registrar um nó
+#### <a name="get-the-integration-runtime-authentication-key-and-register-a-node"></a>Get the integration runtime authentication key and register a node
 
-Execute o seguinte comando para obter a chave de autenticação para o tempo de execução de integração auto-hospedado:
+Run the following command to get the authentication key for the self-hosted integration runtime:
 
 ```powershell
 Get-AzDataFactoryV2IntegrationRuntimeKey `
@@ -140,34 +141,34 @@ Get-AzDataFactoryV2IntegrationRuntimeKey `
     -Name $SharedIntegrationRuntimeName
 ```
 
-A resposta contém a chave de autenticação para esse tempo de execução de integração auto-hospedado. Você usa essa chave ao registrar o nó do Integration Runtime.
+The response contains the authentication key for this self-hosted integration runtime. You use this key when you register the integration runtime node.
 
-#### <a name="install-and-register-the-self-hosted-integration-runtime"></a>Instalar e registrar o tempo de execução de integração auto-hospedado
+#### <a name="install-and-register-the-self-hosted-integration-runtime"></a>Install and register the self-hosted integration runtime
 
-1. Baixe o instalador do Integration Runtime auto-hospedado do [Azure Data Factory Integration Runtime](https://aka.ms/dmg).
+1. Download the self-hosted integration runtime installer from [Azure Data Factory Integration Runtime](https://aka.ms/dmg).
 
-2. Execute o instalador para instalar a integração auto-hospedada em um computador local.
+2. Run the installer to install the self-hosted integration on a local computer.
 
-3. Registre a nova integração de hospedagem interna com a chave de autenticação que você recuperou em uma etapa anterior.
+3. Register the new self-hosted integration with the authentication key that you retrieved in a previous step.
 
-### <a name="share-the-self-hosted-integration-runtime-with-another-data-factory"></a>Compartilhar o tempo de execução de integração auto-hospedado com outro data factory
+### <a name="share-the-self-hosted-integration-runtime-with-another-data-factory"></a>Share the self-hosted integration runtime with another data factory
 
-#### <a name="create-another-data-factory"></a>Criar outro data factory
+#### <a name="create-another-data-factory"></a>Create another data factory
 
 > [!NOTE]  
-> Este passo é opcional. Se você já tiver o data factory que deseja compartilhar com, ignore esta etapa.
+> Este passo é opcional. If you already have the data factory that you want to share with, skip this step.
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
     -Location $DataFactoryLocation `
     -Name $LinkedDataFactoryName
 ```
-#### <a name="grant-permission"></a>Conceder permissão
+#### <a name="grant-permission"></a>Grant permission
 
-Conceda permissão para o data factory que precisa acessar o tempo de execução de integração auto-hospedado que você criou e registrou.
+Grant permission to the data factory that needs to access the self-hosted integration runtime you created and registered.
 
 > [!IMPORTANT]  
-> Não ignore esta etapa!
+> Do not skip this step!
 
 ```powershell
 New-AzRoleAssignment `
@@ -176,9 +177,9 @@ New-AzRoleAssignment `
     -Scope $SharedIR.Id
 ```
 
-### <a name="create-a-linked-self-hosted-integration-runtime"></a>Criar um Integration Runtime vinculado de hospedagem interna
+### <a name="create-a-linked-self-hosted-integration-runtime"></a>Create a linked self-hosted integration runtime
 
-Execute o seguinte comando para criar um Integration Runtime vinculado de hospedagem interna:
+Run the following command to create a linked self-hosted integration runtime:
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime `
@@ -190,11 +191,11 @@ Set-AzDataFactoryV2IntegrationRuntime `
     -Description $LinkedIntegrationRuntimeDescription
 ```
 
-Agora você pode usar esse Integration Runtime vinculado em qualquer serviço vinculado. O tempo de execução de integração vinculado usa o tempo de execução de integração compartilhado para executar atividades.
+Now you can use this linked integration runtime in any linked service. The linked integration runtime uses the shared integration runtime to run activities.
 
-### <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>Revogar o compartilhamento do Integration Runtime de um data factory
+### <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>Revoke integration runtime sharing from a data factory
 
-Para revogar o acesso de um data factory do Integration Runtime compartilhado, execute o seguinte comando:
+To revoke the access of a data factory from the shared integration runtime, run the following command:
 
 ```powershell
 Remove-AzRoleAssignment `
@@ -203,7 +204,7 @@ Remove-AzRoleAssignment `
     -Scope $SharedIR.Id
 ```
 
-Para remover o tempo de execução de integração vinculado existente, execute o seguinte comando no Integration Runtime compartilhado:
+To remove the existing linked integration runtime, run the following command against the shared integration runtime:
 
 ```powershell
 Remove-AzDataFactoryV2IntegrationRuntime `
@@ -216,6 +217,6 @@ Remove-AzDataFactoryV2IntegrationRuntime `
 
 ### <a name="next-steps"></a>Passos seguintes
 
-- Examine os [conceitos do Integration Runtime em Azure data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
+- Review [integration runtime concepts in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
 
-- Saiba como [criar um tempo de execução de integração auto-hospedado no portal do Azure](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+- Learn how to [create a self-hosted integration runtime in the Azure portal](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).

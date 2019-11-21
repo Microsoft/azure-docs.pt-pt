@@ -1,6 +1,6 @@
 ---
-title: Como ver o principal de serviço de uma identidade gerida com a CLI do Azure
-description: Obter instruções passo a passo para visualizar o principal de serviço de uma identidade gerida com a CLI do Azure.
+title: View service principal of a managed identity - Azure CLI - Azure AD
+description: Step-by-step instructions for viewing the service principal of a managed identity using Azure CLI.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,41 +15,41 @@ ms.workload: identity
 ms.date: 11/29/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f379c78113a4edc1efc288617a8a1c205d03552a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ba60fdfefb5d741e92a56d2dc61eb058ac26b5ba
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60442289"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224610"
 ---
-# <a name="view-the-service-principal-of-a-managed-identity-using-azure-cli"></a>Ver o principal de serviço de uma identidade gerida com a CLI do Azure
+# <a name="view-the-service-principal-of-a-managed-identity-using-azure-cli"></a>View the service principal of a managed identity using Azure CLI
 
-Identidades geridas para recursos do Azure fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory. Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD sem ter credenciais em seu código. 
+Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication without having credentials in your code. 
 
-Neste artigo, irá aprender a ver o principal de serviço de uma identidade gerida com a CLI do Azure.
+In this article, you learn how to view the service principal of a managed identity using Azure CLI.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md).
-- Se ainda não tiver uma conta do Azure, [Inscreva-se numa conta gratuita](https://azure.microsoft.com/free/).
-- Ativar [identidade do sistema atribuído numa máquina virtual](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) ou [aplicação](/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity).
-- Para executar os exemplos de script da CLI, tem três opções:
-    - Uso [Azure Cloud Shell](../../cloud-shell/overview.md) do portal do Azure (consulte a secção seguinte).
-    - Utilize o embedded Azure Cloud Shell através do "Experimente-lo" botão do, localizado no canto superior direito de cada bloco de código.
-    - [Instalar a versão mais recente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) se preferir utilizar uma consola local da CLI e inicie sessão no Azure com `az login`
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md).
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
+- Enable [system assigned identity on a virtual machine](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) or [application](/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity).
+- To run the CLI script examples, you have three options:
+    - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
+    - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
+    - [Install the latest version of the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) if you prefer to use a local CLI console and sign in to Azure using `az login`
  
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="view-the-service-principal"></a>Ver o principal de serviço
+## <a name="view-the-service-principal"></a>View the service principal
 
-Este comando seguinte demonstra como visualizar o principal de serviço de uma VM ou a aplicação com a identidade gerida ativada. Substitua `<VM or application name>` pelos seus próprios valores. 
+This following command demonstrates how to view the service principal of a VM or application with managed identity enabled. Replace `<VM or application name>` with your own values. 
 
 ```azurecli-interactive
 az ad sp list --display-name <VM or application name>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre como gerir principais de serviço do Azure AD com a CLI do Azure, consulte [az ad sp](/cli/azure/ad/sp).
+For more information on managing Azure AD service principals using Azure CLI, see [az ad sp](/cli/azure/ad/sp).
 
 

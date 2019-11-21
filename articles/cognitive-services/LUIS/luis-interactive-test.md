@@ -1,7 +1,7 @@
 ---
-title: Aplicativo de teste no portal do LUIS
+title: Test app in LUIS portal
 titleSuffix: Azure Cognitive Services
-description: Use o Reconhecimento vocal (LUIS) para trabalhar continuamente em seu aplicativo para refiná-lo e melhorar a compreensão da linguagem.
+description: Use Language Understanding (LUIS) to continuously work on your application to refine it and improve its language understanding.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: ebc86d1cf91cf79ab83b0f49d9898a91d8be8a75
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 628547e8254bb0055cf1f09af50e79b68311a759
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500286"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74221746"
 ---
-# <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
+# <a name="test-your-luis-app-in-the-luis-portal"></a>Test your LUIS app in the LUIS portal
 
-[Testar](luis-concept-test.md) um aplicativo é um processo iterativo. Depois de treinar seu aplicativo LUIS, teste-o com o declarações de exemplo para ver se as intenções e as entidades são reconhecidas corretamente. Se não estiverem, faça atualizações no aplicativo LUIS, treine e teste novamente. 
+[Testing](luis-concept-test.md) an app is an iterative process. After training your LUIS app, test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 <!-- anchors for H2 name changes -->
 <a name="train-your-app"></a>
@@ -30,90 +30,98 @@ ms.locfileid: "73500286"
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
 
-## <a name="test-an-utterance"></a>Testar um expressão
+## <a name="train-before-testing"></a>Train before testing
 
-1. Acesse seu aplicativo selecionando seu nome na página **meus aplicativos** . 
+In order to test against the most recent version of the active app, select **Train** from the top menu, before testing. 
 
-1. Para acessar o painel de deslizamento de **teste** , selecione **teste** no painel superior do seu aplicativo.
+## <a name="test-an-utterance"></a>Test an utterance
 
-    ![Página treinar & testar aplicativo](./media/luis-how-to-interactive-test/test.png)
+The test utterance should not be exactly the same as any example utterances in the app. The test utterance should include word choice, phrase length, and entity usage you expect for a user. 
 
-1. Insira um expressão na caixa de texto e selecione Enter. Você pode digitar tantos declarações de teste quantos desejar no **teste**, mas apenas um expressão de cada vez.
+1. Access your app by selecting its name on the **My Apps** page. 
 
-1. O expressão, sua principal intenção e a pontuação são adicionados à lista de declarações na caixa de texto.
+1. To access the **Test** slide-out panel, select **Test** in your application's top panel.
 
-    ![O teste interativo identifica a intenção errada](./media/luis-how-to-interactive-test/test-weather-1.png)
+    > [!div class="mx-imgBorder"]
+    > ![Train & Test App page](./media/luis-how-to-interactive-test/test.png)
 
-## <a name="inspect-score"></a>Inspecionar Pontuação
+1. Enter an utterance in the text box and select Enter. You can type as many test utterances as you want in the **Test**, but only one utterance at a time.
 
-Você inspeciona detalhes do resultado do teste no painel **inspecionar** . 
+1. The utterance, its top intent, and score are added to the list of utterances under the text box.
+
+    ![Interactive testing identifies the wrong intent](./media/luis-how-to-interactive-test/test-weather-1.png)
+
+## <a name="inspect-score"></a>Inspect score
+
+You inspect details of the test result in the **Inspect** panel. 
  
-1. Com o painel deslizante de **teste** aberto, selecione **inspecionar** para um expressão que você deseja comparar. 
+1. With the **Test** slide-out panel open, select **Inspect** for an utterance you want to compare. 
 
-    ![Selecione o botão inspecionar para ver mais detalhes sobre os resultados do teste](./media/luis-how-to-interactive-test/inspect.png)
+    ![Select Inspect button to see more details about the test results](./media/luis-how-to-interactive-test/inspect.png)
 
-1. O painel de **inspeção** é exibido. O painel inclui a principal intenção de pontuação, bem como quaisquer entidades identificadas. O painel mostra o resultado do expressão selecionado.
+1. The **Inspection** panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 
-    ![O painel inclui a principal intenção de pontuação, bem como quaisquer entidades identificadas. O painel mostra o resultado do expressão selecionado.](./media/luis-how-to-interactive-test/inspect-panel.png)
+    ![The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
-## <a name="correct-top-scoring-intent"></a>Corrigir a principal tentativa de Pontuação
+## <a name="correct-top-scoring-intent"></a>Correct top scoring intent
 
-1. Se a principal tentativa de Pontuação estiver incorreta, selecione o botão **Editar** .
+1. If the top scoring intent is incorrect, select the **Edit** button.
 
-1.  Na lista suspensa, selecione a intenção correta para o expressão.
+1.  In the drop-down list, select the correct intent for the utterance.
 
-    ![Selecionar a intenção correta](./media/luis-how-to-interactive-test/intent-select.png)
+    ![Select correct intent](./media/luis-how-to-interactive-test/intent-select.png)
 
-## <a name="view-sentiment-results"></a>Exibir resultados de sentimentos
+## <a name="view-sentiment-results"></a>View sentiment results
 
-Se a **análise de sentimentos** estiver configurada na página **[publicar](luis-how-to-publish-app.md#enable-sentiment-analysis)** , os resultados do teste incluirão o sentimentos encontrado no expressão. 
+If **Sentiment analysis** is configured on the **[Publish](luis-how-to-publish-app.md#enable-sentiment-analysis)** page, the test results include the sentiment found in the utterance. 
 
-![Imagem do painel de teste com análise de sentimentos](./media/luis-how-to-interactive-test/sentiment.png)
+![Image of Test pane with sentiment analysis](./media/luis-how-to-interactive-test/sentiment.png)
 
-## <a name="correct-matched-patterns-intent"></a>Corrigir a intenção do padrão correspondente
+## <a name="correct-matched-patterns-intent"></a>Correct matched pattern's intent
 
-Se você estiver usando [padrões](luis-concept-patterns.md) e o expressão corresponder a um padrão, mas a intenção errada foi prevista, selecione o link **Editar** pelo padrão e, em seguida, selecione a intenção correta.
+If you are using [Patterns](luis-concept-patterns.md) and the utterance matched a pattern, but the wrong intent was predicted, select the **Edit** link by the pattern, then select the correct intent.
 
-## <a name="compare-with-published-version"></a>Comparar com versão publicada
+## <a name="compare-with-published-version"></a>Compare with published version
 
-Você pode testar a versão ativa do seu aplicativo com a versão do [ponto de extremidade](luis-glossary.md#endpoint) publicado. No painel **inspecionar** , selecione **comparar com publicado**. Qualquer teste no modelo publicado é deduzido do seu saldo de cota de assinatura do Azure. 
+You can test the active version of your app with the published [endpoint](luis-glossary.md#endpoint) version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance. 
 
-![Comparar com publicado](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
+![Compare with published](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
 
-## <a name="view-endpoint-json-in-test-panel"></a>Exibir JSON de ponto de extremidade no painel de teste
-Você pode exibir o ponto de extremidade JSON retornado para a comparação selecionando a **exibição mostrar JSON**.
+## <a name="view-endpoint-json-in-test-panel"></a>View endpoint JSON in test panel
+You can view the endpoint JSON returned for the comparison by selecting the **Show JSON view**.
 
-![Resposta JSON publicada](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
+![Published JSON response](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
 
 <!--Service name is 'Bing Spell Check v7 API' in the portal-->
-## <a name="additional-settings-in-test-panel"></a>Configurações adicionais no painel de teste
+## <a name="additional-settings-in-test-panel"></a>Additional settings in test panel
 
-### <a name="luis-endpoint"></a>Ponto de extremidade LUIS
+### <a name="luis-endpoint"></a>LUIS endpoint
 
-Se você tiver vários pontos de extremidade LUIS, use o link **configurações adicionais** no painel publicado do teste para alterar o ponto de extremidades usado para teste. Se você não tiver certeza de qual ponto de extremidade usar, selecione o **Starter_Key**padrão. 
+If you have several LUIS endpoints, use the **Additional Settings** link on the Test's Published pane to change the endpoint used for testing. If you are not sure which endpoint to use, select the default **Starter_Key**. 
 
-![Painel de teste com configurações adicionais link realçado](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+> [!div class="mx-imgBorder"]
+> ![Test panel with Additional Settings link highlighted](media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
 
+<!--
+###  View Bing Spell Check corrections in test panel
 
-### <a name="view-bing-spell-check-corrections-in-test-panel"></a>Exibir Verificação Ortográfica do Bing correções no painel de teste
+Requirements to view the spelling corrections: 
 
-Requisitos para exibir as correções ortográficas: 
+* Published app
+* Bing Spell Check [service key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). The service key is not stored and needs to be reset for each browser session. 
 
-* Aplicativo publicado
-* Verificação Ortográfica do Bing [chave de serviço](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). A chave de serviço não é armazenada e precisa ser redefinida para cada sessão do navegador. 
+Use the following procedure to include the [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) service  in the Test pane results. 
 
-Use o procedimento a seguir para incluir o serviço de [verificação ortográfica do Bing v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) nos resultados do painel de teste. 
+1. In the **Test** pane, enter an utterance. When the utterance is predicted, select **[Inspect](#inspect-score)** underneath the utterance you entered. 
 
-1. No painel de **teste** , insira um expressão. Quando o expressão for previsto, selecione **[inspecionar](#inspect-score)** abaixo do expressão que você inseriu. 
+1. When the **Inspect** panel opens, select **[Compare with Published](#compare-with-published-version)**. 
 
-1. Quando o painel **inspecionar** for aberto, selecione **[comparar com publicado](#compare-with-published-version)** . 
+1. When the **Published** panel opens, select **[Additional Settings](#additional-settings-in-test-panel)**.
 
-1. Quando o painel **publicado** for aberto, selecione **[configurações adicionais](#additional-settings-in-test-panel)** .
+1. In the pop-up dialog, check **Enable Bing Spell Check** and enter the key, then select **Done**. 
+    ![Enter Bing Spell Check service key](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
 
-1. Na caixa de diálogo pop-up, marque **habilitar verificação ortográfica do Bing** e insira a chave e, em seguida, selecione **concluído**. 
-    ![inserir Verificação Ortográfica do Bing chave de serviço](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
-
-1. Insira uma consulta com uma grafia incorreta, como `book flite to seattle` e selecione Enter. A grafia incorreta da palavra `flite` é substituída na consulta enviada para LUIS e o JSON resultante mostra a consulta original, como `query`e a grafia corrigida na consulta, como `alteredQuery`.
+1. Enter a query with an incorrect spelling such as `book flite to seattle` and select enter. The incorrect spelling of the word `flite` is replaced in the query sent to LUIS and the resulting JSON shows both the original query, as `query`, and the corrected spelling in the query, as `alteredQuery`.
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="import-a-dataset-file-for-batch-testing"></a>
@@ -125,13 +133,14 @@ Use o procedimento a seguir para incluir o serviço de [verificação ortográfi
 <a name="view single-point utterance data"></a>
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+-->
 
 ## <a name="batch-testing"></a>Testes em lote
-Consulte [conceitos](luis-concept-batch-test.md) de teste em lote e saiba [como](luis-how-to-batch-test.md) testar um lote de declarações.
+See batch testing [concepts](luis-concept-batch-test.md) and learn [how to](luis-how-to-batch-test.md) test a batch of utterances.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se o teste indicar que seu aplicativo LUIS não reconhece as intenções e as entidades corretas, você poderá trabalhar para melhorar a precisão do seu aplicativo LUIS ao rotular mais declarações ou adicionar recursos. 
+If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's accuracy by labeling more utterances or adding features. 
 
-* [Rótulo sugerido declarações com LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Use os recursos para melhorar o desempenho do aplicativo LUIS](luis-how-to-add-features.md) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 

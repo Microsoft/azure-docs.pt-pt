@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: este guia de início rápido mostra como provisionar um dispositivo X. 509 simulado para o Hub IoT do Azure usando C'
+title: Provision simulated X.509 device to Azure IoT Hub using C
 description: Este início rápido utiliza inscrições individuais. Neste início rápido, vai criar e aprovisionar um dispositivo X.509 simulado com o SDK de dispositivo C para o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure.
 author: wesmc7777
 ms.author: wesmc
@@ -7,14 +7,13 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: dbbdfb9ead31d11c760e6cbb0280ed1c4e5f3b24
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
-ms.translationtype: MT
+ms.openlocfilehash: 024d9f20ffc36460a4210df4b992bc5159550628
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904751"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228647"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Início Rápido: Aprovisionar um dispositivo X.509 simulado com o SDK C do Azure IoT
 
@@ -35,7 +34,7 @@ Este artigo irá demonstrar as inscrições individuais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou posterior com a carga de [trabalho C++' desenvolvimento de desktop com '](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
 
@@ -45,7 +44,7 @@ Este artigo irá demonstrar as inscrições individuais.
 
 Nesta secção, vai preparar um ambiente de desenvolvimento utilizado para criar o [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) que inclui o código de exemplo para a sequência de arranque X.509.
 
-1. Baixe o [sistema de Build CMake](https://cmake.org/download/).
+1. Download the [CMake build system](https://cmake.org/download/).
 
     É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho "Desenvolvimento do ambiente de trabalho em C++") estejam instalados no computador, **antes** de iniciar a instalação de `CMake`. Depois de os pré-requisitos estarem assegurados e a transferência verificada, instale o sistema de compilação CMake.
 
@@ -180,7 +179,7 @@ Nesta secção, atualize o código de exemplo para enviar a sequência de arranq
     test-docs-hub.azure-devices.net, deviceId: test-docs-cert-device    
     ```
 
-7. No portal, navegue até o Hub IoT vinculado ao serviço de provisionamento e clique na guia **dispositivos IOT** . No provisionamento bem-sucedido do dispositivo X. 509 simulado para o Hub, sua ID de dispositivo aparecerá na folha **dispositivos IOT** , com *status* como **habilitado**. Poderá ter de clicar no botão **Atualizar** na parte superior. 
+7. In the portal, navigate to the IoT hub linked to your provisioning service and click the **IoT Devices** tab. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. Poderá ter de clicar no botão **Atualizar** na parte superior. 
 
     ![O dispositivo é registado no hub IoT](./media/quick-create-simulated-device/hub-registration.png) 
 
@@ -190,7 +189,7 @@ Nesta secção, atualize o código de exemplo para enviar a sequência de arranq
 Se quiser continuar a trabalhar e a explorar o exemplo de cliente do dispositivo, não limpe os recursos criados neste Guia Rápido. Se não planear continuar, utilize os passos seguintes para eliminar todos os recursos criados no Guia Rápido.
 
 1. Feche a janela da saída do exemplo de dispositivo cliente no seu computador.
-1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Abra **gerenciar registros** para seu serviço e, em seguida, clique na guia registros **individuais** . Selecione a ID de *registro* do dispositivo que você registrou neste início rápido e clique no botão **excluir** na parte superior. 
+1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Open **Manage Enrollments** for your service, and then click the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this Quickstart, and click the **Delete** button at the top. 
 1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Abra **Dispositivos IoT** para o seu hub, selecione o *ID DE DISPOSITIVO* do dispositivo que registou neste Início Rápido e, em seguida, clique no botão **Eliminar** na parte superior.
 
 ## <a name="next-steps"></a>Passos seguintes

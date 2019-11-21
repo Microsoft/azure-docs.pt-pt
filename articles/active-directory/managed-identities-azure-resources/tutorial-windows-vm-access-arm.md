@@ -1,5 +1,5 @@
 ---
-title: Utilizar uma identidade gerida atribuída pelo sistema da VM do Windows para aceder ao Azure Resource Manager
+title: Tutorial`:` Use managed identity to access Azure Resource Manager - Windows - Azure AD
 description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema de uma VM do Windows, para aceder ao Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33079303f7f2239b7de4d8a92e78acaf205bfbd5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4431031e5e96c71c6488b57cc570271d763bb764
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66236079"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224259"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Utilizar uma identidade gerida atribuída pelo sistema de VM do Windows para aceder ao Resource Manager
 
@@ -42,7 +42,7 @@ Com as identidades geridas para recursos do Azure, o seu código pode obter toke
 1.  Navegue até ao separador para **Grupos de Recursos**. 
 2.  Selecione o **Grupo de Recursos** específico que criou para a sua **VM do Windows**. 
 3.  Aceda a **Controlo de acesso (IAM)** no painel esquerdo. 
-4.  Em seguida, **adicionar atribuição de função** uma nova atribuição de função para sua **Windows VM**.  Selecione **Função** como **Leitor**. 
+4.  Then **Add role assignment** a new role assignment for your **Windows VM**.  Selecione **Função** como **Leitor**. 
 5.  Na lista pendente seguinte, defina **Atribuir acesso a** para o recurso **Máquina Virtual**. 
 6.  Em seguida, certifique-se de que está listada a subscrição correta na lista pendente **Subscrição**. Para **Grupo de Recursos**, selecione **Todos os grupos de recursos**. 
 7.  Por fim, em **Selecionar**, selecione a sua VM do Windows na lista pendente e clique em **Guardar**.
@@ -56,7 +56,7 @@ Terá de utilizar o **PowerShell** nesta parte.  Se não tiver o **PowerShell** 
 1.  No portal, navegue para **Máquinas Virtuais**, aceda à sua máquina virtual do Windows e, em **Descrição Geral**, clique em **Ligar**. 
 2.  Introduza o seu **Nome de Utilizador** e a **Palavra-passe** que adicionou quando criou a VM do Windows. 
 3.  Agora que já criou uma **Ligação ao Ambiente de Trabalho Remoto** com a máquina virtual, abra o **PowerShell** na sessão remota. 
-4.  Utilizar o cmdlet Invoke-WebRequest, fazer um pedido para a identidade gerida local para o ponto final de recursos do Azure obter um token de acesso para o Azure Resource Manager.
+4.  Using the Invoke-WebRequest cmdlet, make a request to the local managed identity for Azure resources endpoint to get an access token for Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"}
@@ -76,7 +76,7 @@ Terá de utilizar o **PowerShell** nesta parte.  Se não tiver o **PowerShell** 
     $ArmToken = $content.access_token
     ```
     
-    Por fim, chame o Azure Resource Manager com o token de acesso. Neste exemplo, estamos também a utilizar o cmdlet Invoke-WebRequest para fazer a chamada para o Azure Resource Manager e incluem o token de acesso no cabeçalho de autorização.
+    Por fim, chame o Azure Resource Manager com o token de acesso. In this example, we're also using the Invoke-WebRequest cmdlet to make the call to Azure Resource Manager, and include the access token in the Authorization header.
     
     ```powershell
     (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $ArmToken"}).content
@@ -90,7 +90,7 @@ Terá de utilizar o **PowerShell** nesta parte.  Se não tiver o **PowerShell** 
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}}
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este início rápido mostra como utilizar uma identidade gerida atribuída pelo sistema para aceder à API do Azure Resource Manager.  Para saber mais sobre o Azure Resource Manager, veja:
 

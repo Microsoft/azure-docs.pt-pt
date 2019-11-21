@@ -1,74 +1,74 @@
 ---
-title: Processamento de eventos de streaming do Spark & exatamente uma vez – Azure HDInsight
-description: Como configurar Apache Spark streaming para processar um evento apenas uma vez.
-ms.service: hdinsight
+title: Spark Streaming & exactly-once event processing - Azure HDInsight
+description: How to set up Apache Spark Streaming to process an event once and only once.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 34cb3f4cdcc5bfc11bba300ff1aa04422e0fcc57
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.date: 11/15/2018
+ms.openlocfilehash: ee4f9b84e822cb370e5fe3d55fcceb9c8a9f2ab9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241142"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228977"
 ---
-# <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Criar Apache Spark trabalhos de streaming com processamento de eventos exatamente uma vez
+# <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Create Apache Spark Streaming jobs with exactly-once event processing
 
-Os aplicativos de processamento de fluxo assumem abordagens diferentes sobre como eles lidam com a reprocessamento de mensagens após alguma falha no sistema:
+Stream processing applications take different approaches to how they handle reprocessing messages after some failure in the system:
 
-* Pelo menos uma vez: cada mensagem é garantida para ser processada, mas pode ser processada mais de uma vez.
-* No máximo uma vez: cada mensagem pode ou não ser processada. Se uma mensagem for processada, ela será processada apenas uma vez.
-* Exatamente uma vez: cada mensagem é garantida para ser processada apenas uma vez.
+* At least once: Each message is guaranteed to be processed, but it may get processed more than once.
+* At most once: Each message may or may not be processed. If a message is processed, it's only processed once.
+* Exactly once: Each message is guaranteed to be processed once and only once.
 
-Este artigo mostra como configurar o streaming do Spark para obter um processamento exatamente uma vez.
+This article shows you how to configure Spark Streaming to achieve exactly-once processing.
 
-## <a name="exactly-once-semantics-with-apache-spark-streaming"></a>Semânticas exatamente uma vez com Apache Spark streaming
+## <a name="exactly-once-semantics-with-apache-spark-streaming"></a>Exactly-once semantics with Apache Spark Streaming
 
-Primeiro, considere como todos os pontos do sistema de falha são reiniciados depois de ter um problema e como você pode evitar a perda de dados. Um aplicativo Spark streaming tem:
+First, consider how all system points of failure restart after having an issue, and how you can avoid data loss. A Spark Streaming application has:
 
-* Uma fonte de entrada.
-* Um ou mais processos receptores que efetuam pull de dados da fonte de entrada.
-* Tarefas que processam os dados.
-* Um coletor de saída.
-* Um processo de driver que gerencia o trabalho de execução longa.
+* An input source.
+* One or more receiver processes that pull data from the input source.
+* Tasks that process the data.
+* An output sink.
+* A driver process that manages the long-running job.
 
-Semânticas exatamente uma vez exigem que nenhum dado seja perdido em qualquer ponto e que o processamento de mensagens seja reinicializável, independentemente de onde a falha ocorra.
+Exactly-once semantics require that no data is lost at any point, and that message processing is restartable, regardless of where the failure occurs.
 
-### <a name="replayable-sources"></a>Fontes reproduzidas
+### <a name="replayable-sources"></a>Replayable sources
 
-A fonte da qual seu aplicativo de streaming do Spark está lendo os eventos deve ser *reproduzida*. Isso significa que, nos casos em que a mensagem foi recuperada, mas o sistema falhou antes que a mensagem possa ser persistida ou processada, a origem deve fornecer a mesma mensagem novamente.
+The source your Spark Streaming application is reading your events from must be *replayable*. This means that in cases where the message was retrieved but then the system failed before the message could be persisted or processed, the source must provide the same message again.
 
-No Azure, os hubs de eventos do Azure e o [Apache Kafka](https://kafka.apache.org/) no HDInsight fornecem fontes que permitem reprodução. Outro exemplo de uma fonte que pode ser reproduzida é um sistema de arquivos tolerante a falhas como [Apache HADOOP HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), blobs de armazenamento do Azure ou Azure data Lake Storage, em que todos os dados são mantidos para sempre e a qualquer momento, você pode ler novamente os dados em sua totalidade.
+In Azure, both Azure Event Hubs and [Apache Kafka](https://kafka.apache.org/) on HDInsight provide replayable sources. Another example of a replayable source is a fault-tolerant file system like [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure Storage blobs, or Azure Data Lake Storage, where all data is kept forever and at any point you can re-read the data in its entirety.
 
-### <a name="reliable-receivers"></a>Receptores confiáveis
+### <a name="reliable-receivers"></a>Reliable receivers
 
-No streaming do Spark, fontes como hubs de eventos e Kafka têm *receptores confiáveis*, onde cada receptor controla seu progresso na leitura da origem. Um receptor confiável persiste seu estado no armazenamento tolerante a falhas, seja dentro [Apache ZooKeeper](https://zookeeper.apache.org/) ou em pontos de verificação de streaming do Spark gravados no HDFS. Se esse receptor falhar e for reiniciado posteriormente, ele poderá continuar de onde parou.
+In Spark Streaming, sources like Event Hubs and Kafka have *reliable receivers*, where each receiver keeps track of its progress reading the source. A reliable receiver persists its state into fault-tolerant storage, either within [Apache ZooKeeper](https://zookeeper.apache.org/) or in Spark Streaming checkpoints written to HDFS. If such a receiver fails and is later restarted, it can pick up where it left off.
 
-### <a name="use-the-write-ahead-log"></a>Usar o log write-ahead
+### <a name="use-the-write-ahead-log"></a>Use the Write-Ahead Log
 
-O streaming do Spark dá suporte ao uso de um log write-ahead, onde cada evento recebido é gravado primeiro no diretório de ponto de verificação do Spark no armazenamento tolerante a falhas e, em seguida, armazenado em um RDD (conjunto de registros distribuído resiliente). No Azure, o armazenamento tolerante a falhas é o HDFS apoiado pelo armazenamento do Azure ou Azure Data Lake Storage. No aplicativo Spark streaming, o log write-ahead é habilitado para todos os receptores, definindo o parâmetro de configuração `spark.streaming.receiver.writeAheadLog.enable` como `true`. O log write-ahead fornece tolerância a falhas para falhas do driver e dos executores.
+Spark Streaming supports the use of a Write-Ahead Log, where each received event is first written to Spark's checkpoint directory in fault-tolerant storage and then stored in a Resilient Distributed Dataset (RDD). In Azure, the fault-tolerant storage is HDFS backed by either Azure Storage or Azure Data Lake Storage. In your Spark Streaming application, the Write-Ahead Log is enabled for all receivers by setting the `spark.streaming.receiver.writeAheadLog.enable` configuration setting to `true`. The Write-Ahead Log provides fault tolerance for failures of both the driver and the executors.
 
-Para os trabalhos que executam tarefas em relação aos dados do evento, cada RDD é por definição replicada e distribuída entre vários trabalhadores. Se uma tarefa falhar porque o trabalho que a executa falhou, a tarefa será reiniciada em outro trabalho que tenha uma réplica dos dados do evento, de modo que o evento não seja perdido.
+For workers running tasks against the event data, each RDD is by definition both replicated and distributed across multiple workers. If a task fails because the worker running it crashed, the task will be restarted on another worker that has a replica of the event data, so the event isn't lost.
 
-### <a name="use-checkpoints-for-drivers"></a>Usar pontos de verificação para drivers
+### <a name="use-checkpoints-for-drivers"></a>Use checkpoints for drivers
 
-Os drivers de trabalho precisam ser reinicializáveis. Se o driver que executa o aplicativo Spark streaming falhar, ele desaparecerá com ele todos os receptores em execução, tarefas e qualquer RDDs de armazenamento de dados de evento. Nesse caso, você precisa ser capaz de salvar o progresso do trabalho para que possa retomá-lo mais tarde. Isso é feito por meio do ponto de verificação do DAG (grafo direcionado acíclico) do DStream periodicamente para o armazenamento tolerante a falhas. Os metadados do DAG incluem a configuração usada para criar o aplicativo de streaming, as operações que definem o aplicativo e os lotes que estão na fila, mas ainda não foram concluídos. Esses metadados permitem que um driver com falha seja reiniciado a partir das informações de ponto de verificação. Quando o driver for reiniciado, ele iniciará novos receptores que recuperam os dados de evento de volta no RDDs do log write-ahead.
+The job drivers need to be restartable. If the driver running your Spark Streaming application crashes, it takes down with it all running receivers, tasks, and any RDDs storing event data. In this case, you need to be able to save the progress of the job so you can resume it later. This is accomplished by checkpointing the Directed Acyclic Graph (DAG) of the DStream periodically to fault-tolerant storage. The DAG metadata includes the configuration used to create the streaming application, the operations that define the application, and any batches that are queued but not yet completed. This metadata enables a failed driver to be restarted from the checkpoint information. When the driver restarts, it will launch new receivers that themselves recover the event data back into RDDs from the Write-Ahead Log.
 
-Os pontos de verificação são habilitados no streaming do Spark em duas etapas. 
+Checkpoints are enabled in Spark Streaming in two steps.
 
-1. No objeto StreamingContext, configure o caminho de armazenamento para os pontos de verificação:
+1. In the StreamingContext object, configure the storage path for the checkpoints:
 
     ```Scala
     val ssc = new StreamingContext(spark, Seconds(1))
     ssc.checkpoint("/path/to/checkpoints")
     ```
 
-    No HDInsight, esses pontos de verificação devem ser salvos no armazenamento padrão anexado ao cluster, tanto no armazenamento do Azure quanto no Azure Data Lake Storage.
+    In HDInsight, these checkpoints should be saved to the default storage attached to your cluster, either Azure Storage or Azure Data Lake Storage.
 
-2. Em seguida, especifique um intervalo de ponto de verificação (em segundos) no DStream. Em cada intervalo, os dados de estado derivados do evento de entrada são persistidos no armazenamento. Os dados de estado persistentes podem reduzir a computação necessária ao recriar o estado a partir do evento de origem.
+2. Next, specify a checkpoint interval (in seconds) on the DStream. At each interval, state data derived from the input event is persisted to storage. Persisted state data can reduce the computation needed when rebuilding the state from the source event.
 
     ```Scala
     val lines = ssc.socketTextStream("hostname", 9999)
@@ -77,17 +77,17 @@ Os pontos de verificação são habilitados no streaming do Spark em duas etapas
     ssc.awaitTermination()
     ```
 
-### <a name="use-idempotent-sinks"></a>Usar coletores idempotentes
+### <a name="use-idempotent-sinks"></a>Use idempotent sinks
 
-O coletor de destino para o qual seu trabalho grava os resultados deve ser capaz de lidar com a situação em que ele recebe o mesmo resultado mais de uma vez. O coletor deve ser capaz de detectar esses resultados duplicados e ignorá-los. Um coletor *idempotente* pode ser chamado várias vezes com os mesmos dados sem nenhuma alteração de estado.
+The destination sink to which your job writes results must be able to handle the situation where it's given the same result more than once. The sink must be able to detect such duplicate results and ignore them. An *idempotent* sink can be called multiple times with the same data with no change of state.
 
-Você pode criar coletores idempotentes implementando a lógica que primeiro verifica a existência do resultado de entrada no repositório de armazenamento. Se o resultado já existir, a gravação deverá parecer ter sucesso da perspectiva do seu trabalho do Spark, mas, na realidade, o armazenamento de dados ignorou os dados duplicados. Se o resultado não existir, o coletor deverá inserir esse novo resultado em seu armazenamento. 
+You can create idempotent sinks by implementing logic that first checks for the existence of the incoming result in the datastore. If the result already exists, the write should appear to succeed from the perspective of your Spark job, but in reality your data store ignored the duplicate data. If the result doesn't exist, then the sink should insert this new result into its storage.
 
-Por exemplo, você pode usar um procedimento armazenado com o banco de dados SQL do Azure que insere eventos em uma tabela. Esse procedimento armazenado primeiro pesquisa o evento por campos de chave e somente quando nenhum evento correspondente encontrado é o registro inserido na tabela.
+For example, you could use a stored procedure with Azure SQL Database that inserts events into a table. This stored procedure first looks up the event by key fields, and only when no matching event found is the record inserted into the table.
 
-Outro exemplo é usar um sistema de arquivos particionado, como BLOBs de armazenamento do Azure ou Azure Data Lake Storage. Nesse caso, a lógica do coletor não precisa verificar a existência de um arquivo. Se o arquivo que representa o evento existir, ele será simplesmente substituído pelos mesmos dados. Caso contrário, um novo arquivo será criado no caminho computado.
+Another example is to use a partitioned file system, like Azure Storage blobs or Azure Data Lake Storage. In this case, your sink logic doesn't need to check for the existence of a file. If the file representing the event exists, it's simply overwritten with the same data. Otherwise, a new file is created at the computed path.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Visão geral de streaming de Apache Spark](apache-spark-streaming-overview.md)
-* [Criando trabalhos de streaming de Apache Spark altamente disponíveis no Apache Hadoop YARN](apache-spark-streaming-high-availability.md)
+* [Apache Spark Streaming Overview](apache-spark-streaming-overview.md)
+* [Creating highly available Apache Spark Streaming jobs in Apache Hadoop YARN](apache-spark-streaming-high-availability.md)

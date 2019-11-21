@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: criar um Standard Load Balancer público-CLI do Azure'
-titlesuffix: Azure Load Balancer
-description: Este guia de início rápido mostra como criar um balanceador de carga público com a CLI do Azure
+title: Quickstart:Create a public Standard Load Balancer - Azure CLI
+titleSuffix: Azure Load Balancer
+description: Este início rápido mostra como criar um balanceador de carga público com a CLI do Azure
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: fb292e268df57dda8ed2db56a915270b7fe51bb2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 30f2fa7537ed481c25940a2ed67c99c58a7a80ed
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839821"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214797"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início rápido: criar um Standard Load Balancer para balancear a carga de VMs usando CLI do Azure
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Quickstart: Create a Standard Load Balancer to load balance VMs using Azure CLI
 
 Este guia de introdução mostra como criar um Balanceador de Carga Standard. Para testar o balanceador de carga, implemente duas máquinas virtuais (VMs) com o servidor Ubuntu e faça o balanceamento de carga de uma aplicação Web entre as duas VMs.
 
@@ -108,7 +108,7 @@ Uma regra de balanceador de carga define a configuração de IP de front-end do 
 
 Antes de implementar algumas VMs e testar o balanceador de carga, crie os recursos de rede virtual de apoio.
 
-### <a name="create-a-virtual-network"></a>Criar uma rede virtual
+### <a name="create-a-virtual-network"></a>Criar rede virtual
 
 Crie uma rede virtual com o nome *myVnet*, com uma sub-rede de nome *mySubnet* em *myResourceGroup*, através de [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
@@ -197,7 +197,7 @@ Crie um conjunto de disponibilidade com [az vm availabilityset create](/cli/azur
     --name myAvailabilitySet
 ```
 
-### <a name="create-three-virtual-machines"></a>Criar três máquinas virtuais
+### <a name="create-three-virtual-machines"></a>Create three virtual machines
 
 Pode utilizar o ficheiro de configuração cloud-init para instalar o NGINX e executar uma aplicação Node.js "Hello World" numa máquina virtual Linux. Na shell atual, crie um ficheiro com o nome cloud-init.txt e copie e cole a seguinte configuração na shell. Certifique-se de que copia o ficheiro cloud-init completo corretamente, especialmente a primeira linha:
 

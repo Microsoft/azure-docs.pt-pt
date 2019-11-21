@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: implantar um modelo de aprendizado de máquina com o designer'
+title: 'Tutorial: Deploy a machine learning model with the designer'
 titleSuffix: Azure Machine Learning
-description: Saiba como criar uma solução de análise preditiva no designer de Azure Machine Learning (versão prévia). Treine, pontuate e implante um modelo de aprendizado de máquina usando os módulos arrastar e soltar.
+description: Learn how to build a predictive analytics solution in Azure Machine Learning designer (preview). Train, score, and deploy a machine learning model by using drag-and-drop modules.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,112 +9,112 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 724a38cb516e5689f817e9ddeaa867b17274971b
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 50ee0ad78ae0e54071d90c8118a1989f306b59e6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932033"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224949"
 ---
-# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: implantar um modelo de aprendizado de máquina com o designer (versão prévia)
+# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Deploy a machine learning model with the designer (preview)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Você pode implantar o modelo de previsão desenvolvido na [parte um do tutorial](tutorial-designer-automobile-price-train-score.md) para dar aos outros a oportunidade de usá-lo. Na parte um, você treinou seu modelo. Agora, é hora de gerar novas previsões com base na entrada do usuário. Nesta parte do tutorial, você vai:
+You can deploy the predictive model developed in [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to give others a chance to use it. In part one, you trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you will:
 
 > [!div class="checklist"]
-> * Crie um pipeline de inferência em tempo real.
-> * Crie um cluster inferência.
-> * Implante o ponto de extremidade em tempo real.
-> * Teste o ponto de extremidade em tempo real.
+> * Create a real-time inference pipeline.
+> * Create an inferencing cluster.
+> * Deploy the real-time endpoint.
+> * Test the real-time endpoint.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua a [parte um do tutorial](tutorial-designer-automobile-price-train-score.md) para aprender a treinar e pontuar um modelo de aprendizado de máquina no designer.
+Complete [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to learn how to train and score a machine learning model in the designer.
 
-## <a name="create-a-real-time-inference-pipeline"></a>Criar um pipeline de inferência em tempo real
+## <a name="create-a-real-time-inference-pipeline"></a>Create a real-time inference pipeline
 
-Para implantar seu pipeline, você deve primeiro converter o pipeline de treinamento em um pipeline de inferência em tempo real. Esse processo remove módulos de treinamento e adiciona entradas e saídas para solicitações inferência.
+To deploy your pipeline, you must first convert the training pipeline into a real-time inference pipeline. This process removes training modules and adds inputs and outputs for inferencing requests.
 
-### <a name="create-a-real-time-inference-pipeline"></a>Criar um pipeline de inferência em tempo real
+### <a name="create-a-real-time-inference-pipeline"></a>Create a real-time inference pipeline
 
-1. Acima da tela do pipeline, selecione **criar pipeline de inferência** > **pipeline de inferência em tempo real**.
+1. Above the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
 
-    Seu pipeline agora deve ser assim: 
+    Your pipeline should now look like this: 
 
-   ![Captura de tela mostrando a configuração esperada do pipeline depois de prepará-lo para implantação](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
+   ![Screenshot showing the expected configuration of the pipeline after preparing it for deployment](./media/tutorial-designer-automobile-price-deploy/real-time-inference-pipeline.png)
 
-    Quando você seleciona **criar pipeline de inferência**, várias coisas acontecem:
+    When you select **Create inference pipeline**, several things happen:
     
-    * O modelo treinado é armazenado como um módulo de **conjunto** de armazenamento na paleta de módulos. Você pode encontrá-lo em **meus conjuntos de valores**.
-    * Módulos de treinamento como **modelo** de treinamento e **dados divididos** são removidos.
-    * O modelo treinado salvo é adicionado de volta ao pipeline.
-    * Os módulos **entrada de serviço Web** e **saída de serviço Web** são adicionados. Esses módulos mostram onde os dados do usuário entram no modelo e onde os dados são retornados.
+    * The trained model is stored as a **Dataset** module in the module palette. You can find it under **My Datasets**.
+    * Training modules like **Train Model** and **Split Data** are removed.
+    * The saved trained model is added back into the pipeline.
+    * **Web Service Input** and **Web Service Output** modules are added. These modules show where user data enters the model and where data is returned.
 
     > [!NOTE]
-    > O *pipeline de treinamento* é salvo na nova guia na parte superior da tela do pipeline. Ele também pode ser encontrado como um pipeline publicado no designer.
+    > The *training pipeline* is saved under the new tab at the top of the pipeline canvas. It can also be found as a published pipeline in the designer.
     >
 
-1. Selecione **executar**e use o mesmo destino de computação e teste que você usou na parte um.
+1. Select **Run**, and use the same compute target and experiment that you used in part one.
 
-1. Selecione o módulo **modelo de Pontuação** .
+1. Select the **Score Model** module.
 
-1. No painel Propriedades, selecione **saídas** > **Visualizar** para verificar se o modelo ainda está funcionando. Você pode ver que os dados originais são exibidos junto com o preço previsto ("rótulos pontuados").
+1. In the properties pane, select **Outputs** > **Visualize** to verify the model is still working. You can see the original data is displayed along with the predicted price ("Scored Labels").
 
 1. Selecione **Implementar**.
 
-## <a name="create-an-inferencing-cluster"></a>Criar um cluster inferência
+## <a name="create-an-inferencing-cluster"></a>Create an inferencing cluster
 
-Na caixa de diálogo que aparece, você pode selecionar entre todos os clusters do AKS (serviço kubernetes do Azure) existentes para implantar o modelo. Se você não tiver um cluster AKS, use as etapas a seguir para criar um.
+In the dialog box that appears, you can select from any existing Azure Kubernetes Service (AKS) clusters to deploy your model to. If you don't have an AKS cluster, use the following steps to create one.
 
-1. Selecione **computação** na caixa de diálogo que aparece para ir para a página de **computação** .
+1. Select **Compute** in the dialog box that appears to go to the **Compute** page.
 
-1. Na faixa de opções de navegação, selecione **clusters de inferência** >  **+ novo**.
+1. On the navigation ribbon, select **Inference Clusters** >  **+ New**.
 
-    ![Captura de tela mostrando como chegar ao novo painel de cluster de inferência](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
+    ![Screenshot showing how to get to the new inference cluster pane](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
 
-1. No painel cluster de inferência, configure um novo serviço kubernetes.
+1. In the inference cluster pane, configure a new Kubernetes Service.
 
-1. Digite *AKs-Compute* para o **nome de computação**.
+1. Enter *aks-compute* for the **Compute name**.
     
-1. Selecione uma região próxima que esteja disponível para a **região**.
+1. Select a nearby region that's available for the **Region**.
 
 1. Selecione **Criar**.
 
     > [!NOTE]
-    > Leva aproximadamente 15 minutos para criar um novo serviço AKS. Você pode verificar o estado de provisionamento na página **clusters de inferência** .
+    > It takes approximately 15 minutes to create a new AKS service. You can check the provisioning state on the **Inference Clusters** page.
     >
 
-## <a name="deploy-the-real-time-endpoint"></a>Implantar o ponto de extremidade em tempo real
+## <a name="deploy-the-real-time-endpoint"></a>Deploy the real-time endpoint
 
-Depois que o serviço AKS tiver concluído o provisionamento, retorne ao pipeline inferência em tempo real para concluir a implantação.
+After your AKS service has finished provisioning, return to the real-time inferencing pipeline to complete deployment.
 
-1. Selecione **implantar** acima da tela.
+1. Select **Deploy** above the canvas.
 
-1. Selecione **implantar novo ponto de extremidade em tempo real**. 
+1. Select **Deploy new real-time endpoint**. 
 
-1. Selecione o cluster AKS que você criou.
+1. Select the AKS cluster you created.
 
 1. Selecione **Implementar**.
 
-    ![Captura de tela mostrando como configurar um novo ponto de extremidade em tempo real](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+    ![Screenshot showing how to set up a new real-time endpoint](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
 
-    Uma notificação de êxito acima da tela aparece após a conclusão da implantação. Pode levar alguns minutos.
+    A success notification above the canvas appears after deployment finishes. It might take a few minutes.
 
-## <a name="test-the-real-time-endpoint"></a>Testar o ponto de extremidade em tempo real
+## <a name="test-the-real-time-endpoint"></a>Test the real-time endpoint
 
-Após a conclusão da implantação, você pode testar seu ponto de extremidade em tempo real indo para a página **pontos** de extremidade.
+After deployment finishes, you can test your real-time endpoint by going to the **Endpoints** page.
 
-1. Na página **pontos** de extremidade, selecione o ponto de extremidade que você implantou.
+1. On the **Endpoints** page, select the endpoint you deployed.
 
-    ![Captura de tela mostrando a guia pontos de extremidade em tempo real com o ponto de extremidades recentemente criado realçado](./media/ui-tutorial-automobile-price-deploy/endpoints.png)
+    ![Screenshot showing the real-time endpoints tab with the recently created endpoint highlighted](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
 
-1. Selecione **testar**.
+1. Select **Test**.
 
-1. Você pode inserir dados de teste manualmente ou usar os dados de exemplo preenchidos automaticamente e selecionar **testar**.
+1. You can manually input testing data or use the autofilled sample data, and select **Test**.
 
-    O portal envia uma solicitação de teste para o ponto de extremidade e mostra os resultados. Embora um valor de preço seja gerado para os dados de entrada, ele não é usado para gerar o valor de previsão.
+    The portal submits a test request to the endpoint and shows the results. Although a price value is generated for the input data, it isn't used to generate the prediction value.
 
-    ![Captura de tela mostrando como testar o ponto de extremidade em tempo real com o rótulo pontuado para o preço realçado](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
+    ![Screenshot showing how to test the real-time endpoint with the scored label for price highlighted](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -122,7 +122,7 @@ Após a conclusão da implantação, você pode testar seu ponto de extremidade 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu as principais etapas em como criar, implantar e consumir um modelo de aprendizado de máquina no designer. Para saber mais sobre como você pode usar o designer para resolver outros tipos de problemas, consulte nossos outros pipelines de exemplo.
+In this tutorial, you learned the key steps in how to create, deploy, and consume a machine learning model in the designer. To learn more about how you can use the designer to solve other types of problems, see our other sample pipelines.
 
 > [!div class="nextstepaction"]
-> [Exemplo de classificação de risco de crédito](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+> [Credit risk classification sample](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)

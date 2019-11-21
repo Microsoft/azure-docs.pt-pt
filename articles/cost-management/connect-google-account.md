@@ -1,78 +1,78 @@
 ---
-title: Ligar a uma conta do Google Cloud Platform ao Cloudyn no Azure | Documentos da Microsoft
-description: Ligar uma conta do Google Cloud Platform para exibir dados de custo e a utilização em relatórios do Cloudyn.
+title: Connect a Google Cloud Platform account to Cloudyn in Azure | Microsoft Docs
+description: Connect a Google Cloud Platform account to view cost and usage data in Cloudyn reports.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 247d959abadc92d70bdd60555a090986743e9322
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 937d1b6e0bc9ece0507821538fafb0f5d8c0ef99
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002081"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230138"
 ---
-# <a name="connect-a-google-cloud-platform-account"></a>Ligar uma conta do Google Cloud Platform
+# <a name="connect-a-google-cloud-platform-account"></a>Connect a Google Cloud Platform account
 
-Pode ligar a sua conta do Google Cloud Platform existente ao Cloudyn. Depois de ligar a sua conta ao Cloudyn, dados de utilização e custos estão disponíveis nos relatórios do Cloudyn. Este artigo ajuda-o a configurar e ligar a sua conta Google no Cloudyn.
+You can connect your existing Google Cloud Platform account to Cloudyn. After you connect your account to Cloudyn, cost and usage data is available in Cloudyn reports. This article helps you to configure and connect your Google account with Cloudyn.
 
 
-## <a name="collect-project-information"></a>Recolher informações do projeto
+## <a name="collect-project-information"></a>Collect project information
 
-Comece a coleta de informações sobre o seu projeto.
+You start by gathering information about your project.
 
-1. Inicie sessão na consola do Google Cloud Platform em [ https://console.cloud.google.com ](https://console.cloud.google.com).
-2. Reveja as informações de projeto que pretende integrar ao Cloudyn e tenha em atenção a **nome do projeto** e o **ID do projeto**. Manter as informações úteis para os passos seguintes.  
-    ![Nome do projeto e o ID de projeto, mostrado na consola do Google Cloud Platform](./media/connect-google-account/gcp-console01.png)
-3. Se a faturação não está ativada e ligada ao seu projeto, crie uma conta de cobrança. Para obter mais informações, consulte [criar uma nova conta de faturação](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create/_a/_new/_billing/_account).
+1. Sign in to the Google Cloud Platform console at [https://console.cloud.google.com](https://console.cloud.google.com).
+2. Review the project information that you want to onboard to Cloudyn and note the **Project name** and the **Project ID**. Keep the information handy for later steps.  
+    ![Project name and Project ID shown in the Google Cloud Platform console](./media/connect-google-account/gcp-console01.png)
+3. If billing is not enabled and linked to your project, create a billing account. For more information, see [Create a new billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create/_a/_new/_billing/_account).
 
-## <a name="enable-storage-bucket-billing-export"></a>Ativar a exportação de faturação de bucket de armazenamento
+## <a name="enable-storage-bucket-billing-export"></a>Enable storage bucket billing export
 
-Cloudyn obtém seus dados de faturação do Google a partir de um bucket de armazenamento. Manter o **nome do Bucket** e **prefixo de relatório** informações úteis para utilizar mais tarde durante o registo do Cloudyn.
+Cloudyn retrieves your Google billing data from a storage bucket. Keep the **Bucket name** and **Report prefix** information handy for later use during Cloudyn registration.
 
-Utilizar o Google Cloud Storage para armazenar os relatórios de utilização, incorre em taxas mínimas. Para obter mais informações, consulte [preços de armazenamento na Cloud](https://cloud.google.com/storage/pricing).
+Using Google Cloud Storage to store usage reports incurs minimal fees. For more information, see [Cloud Storage Pricing](https://cloud.google.com/storage/pricing).
 
-1. Se não tiver ativado a exportação de faturação para um ficheiro, siga as instruções em [como ativar a exportação de faturação para um ficheiro](https://cloud.google.com/billing/docs/how-to/export-data-file#how_to_enable_billing_export_to_a_file). Pode utilizar o formato de exportação de faturação JSON ou CSV.
-2. Caso contrário, na consola do Google Cloud Platform, navegue até **faturação** > **exportação de faturação**. Tenha em atenção a sua cobrança **nome do Bucket** e **prefixo de relatório**.  
-    ![Informações de exportação de faturação mostradas na página de exportação de faturação](./media/connect-google-account/billing-export.png)
+1. If you have not enabled billing export to a file, follow the instructions at [How to enable billing export to a file](https://cloud.google.com/billing/docs/how-to/export-data-file#how_to_enable_billing_export_to_a_file). You can use either JSON or CSV billing export format.
+2. Otherwise, in the Google Cloud Platform console, navigate to **Billing** > **Billing export**. Note your billing **Bucket name** and **Report prefix**.  
+    ![Billing export information shown on the Billing export page](./media/connect-google-account/billing-export.png)
 
-## <a name="enable-google-cloud-platform-apis"></a>Ativar as APIs do Google Cloud Platform
+## <a name="enable-google-cloud-platform-apis"></a>Enable Google Cloud Platform APIs
 
-Para recolher informações de utilização e ativos, Cloudyn tem as seguintes APIs de plataforma de Cloud Google ativada:
+To collect usage and asset information, Cloudyn needs the following Google Cloud Platform APIs enabled:
 
-- API de BigQuery
+- BigQuery API
 - Google Cloud SQL
-- API do arquivo de dados do Google Cloud
-- Armazenamento na Cloud do Google
-- API de JSON do armazenamento de Google Cloud
-- API do motor de computação do Google
+- Google Cloud Datastore API
+- Google Cloud Storage
+- Google Cloud Storage JSON API
+- Google Compute Engine API
 
-### <a name="enable-or-verify-apis"></a>Ativar ou certifique-se de APIs
+### <a name="enable-or-verify-apis"></a>Enable or verify APIs
 
-1. Na consola do Google Cloud Platform, selecione o projeto que pretende registar no Cloudyn.
-2. Navegue para **APIs e serviços** > **biblioteca**.
-3. Utilize a pesquisa para encontrar que cada listados anteriormente apresentados pela API.
-4. Para cada API, certifique-se de que **API ativada** é mostrado. Caso contrário, clique em **ATIVAR**.
+1. In the Google Cloud Platform console, select the project that you want to register with Cloudyn.
+2. Navigate to **APIs & Services** > **Library**.
+3. Use search to find each previously listed API.
+4. For each API, verify that **API enabled** is shown. Otherwise, click **ENABLE**.
 
-## <a name="add-a-google-cloud-account-to-cloudyn"></a>Adicionar uma conta do Google Cloud ao Cloudyn
+## <a name="add-a-google-cloud-account-to-cloudyn"></a>Add a Google Cloud account to Cloudyn
 
-1. Abrir o portal da Cloudyn a partir do portal do Azure ou navegue até [ https://azure.cloudyn.com ](https://azure.cloudyn.com/) e iniciar sessão.
-2. Clique em **configurações** (símbolo de engrenagem) e, em seguida, selecione **contas da Cloud**.
-3. Na **gestão de contas**, selecione a **contas do Google** separador e, em seguida, clique em **adicionar novo +** .
-4. Na **nome da conta Google**, introduza o endereço de e-mail para a conta de cobrança, em seguida, clique em **próxima**.
-5. Na caixa de diálogo de autenticação de Google, selecione ou introduza uma conta do Google e, em seguida **permitir** cloudyn.com acesso à sua conta.
-6. Adicionar informações de pedidos de projeto que tinha anterior indicado. Eles incluem **ID do projeto**, **projeto** nome, **faturação** nome do registo, e **ficheiro faturação** prefixo de relatório, em seguida, clique em  **Guardar**.  
-    ![Adicionar o projeto Google à conta do Cloudyn](./media/connect-google-account/add-project.png)
+1. Open the Cloudyn portal from the Azure portal or navigate to [https://azure.cloudyn.com](https://azure.cloudyn.com/) and sign in.
+2. Click **Settings** (cog symbol) and then select **Cloud Accounts**.
+3. In **Accounts Management**, select the **Google Accounts** tab and then click **Add new +** .
+4. In **Google Account Name**, enter the email address for the billing account then click **Next**.
+5. In the Google authentication dialog, select or enter a Google account and then **ALLOW** cloudyn.com access to your account.
+6. Add the request project information that you had previous noted. They include **Project ID**, **Project** name, **billing** bucket name, and **billing file** Report prefix then click **Save**.  
+    ![Add Google project to Cloudyn account](./media/connect-google-account/add-project.png)
 
-Sua conta Google aparece na lista de contas e deverá indicar **autenticado**. Sob a mesma, o nome do projeto Google e o ID devem aparecer e ter um símbolo de marca de verificação verde. Estado da conta deverá indicar **concluído**.
+Your Google account appears in the list of accounts and it should say **Authenticated**. Under it, your Google project name and ID should appear and have a green check mark symbol. Account Status should say **Completed**.
 
-Em algumas horas, os relatórios do Cloudyn mostram informações de custo e a utilização do Google.
+Within a few hours, Cloudyn reports show Google cost and usage information.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre o Cloudyn, avance para o [rever a utilização e custos](./tutorial-review-usage.md) tutorial da Cloudyn.
+- To learn more about Cloudyn, continue to the [Review usage and costs](./tutorial-review-usage.md) tutorial for Cloudyn.

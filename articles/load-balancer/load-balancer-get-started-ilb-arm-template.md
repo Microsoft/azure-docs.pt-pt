@@ -1,6 +1,6 @@
 ---
-title: Criar um balanceador de carga interno – modelo do Azure
-titlesuffix: Azure Load Balancer
+title: Create an Internal Load Balancer - Azure template
+titleSuffix: Azure Load Balancer
 description: Saiba como criar um balanceador de carga interno com um modelo no Resource Manager
 services: load-balancer
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: f05c90948fe95f204f268d84c01e1e8773bec468
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: bdc9a8079c46a05e5045d72cd6d7b07a9a457899
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275388"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74215281"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Criar um balanceador de carga interno com um modelo
 
@@ -45,7 +45,7 @@ Para implementar o modelo que transferiu com o PowerShell, siga os passos abaixo
 1. Se nunca tiver utilizado o Azure PowerShell, veja [How to Install and Configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview) e siga as instruções até ao fim para iniciar sessão no Azure e selecionar a sua subscrição.
 2. Transfira o ficheiro de parâmetros para o disco local.
 3. Edite o ficheiro e guarde-o.
-4. Execute o cmdlet **New-AzResourceGroupDeployment** para criar um grupo de recursos usando o modelo.
+4. Run the **New-AzResourceGroupDeployment** cmdlet to create a resource group using the template.
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `
@@ -75,10 +75,10 @@ Para implementar o modelo com a CLI do Azure, siga os passos abaixo.
     azure group create --name TestRG --location westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json --parameters-file parameters.json
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Configurar um modo de distribuição de balanceador de carga com a afinidade do IP de origem](load-balancer-distribution-mode.md)
 
 [Configurar definições de tempo limite TCP inativo para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-Para obter a sintaxe JSON e as propriedades de um balanceador de carga em um modelo, consulte [Microsoft. Network/](/azure/templates/microsoft.network/loadbalancers)Load balancers.
+For the JSON syntax and properties of a load balancer in a template, see [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).

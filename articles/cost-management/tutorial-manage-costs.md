@@ -7,23 +7,23 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: b72e03f6901fbb2b904328992107e31021c76be6
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d4117e8a40f277c6ac0213272176b75a1c161eb1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969120"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229811"
 ---
-# <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Gerir os custos através do Cloudyn
+# <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Gerir os custos através da Cloudyn
 
 Pode gerir os custos e produzir relatórios de análise de custos na Cloudyn ao alocar os custos com base em etiquetas. O processo de alocação de custos atribui os custos aos recursos de cloud consumidos. Os custos estão totalmente alocados quando todos os recursos estiverem categorizados com etiquetas. Após a alocação dos custos, pode fornecer análise de custos ou estorno aos seus utilizadores através de dashboards e relatórios. No entanto, muitos recursos podem não estar marcados ou não poder ser marcados quando começar a utilizar a Cloudyn.
 
 Por exemplo, pode querer ser reembolsado relativamente aos custos de engenharia. Tem de conseguir mostrar à sua equipa de engenharia que precisa de um montante específico, com base nos custos de recursos. Pode mostrar-lhes um relatório para todos os recursos consumidos marcados como *engenharia*.
 
-Neste artigo, as etiquetas e as categorias por vezes são sinónimos. As categorias são coleções alargadas e podem ser muitas coisas. Poderão incluir unidades de negócio, centros, de custos, serviços Web ou qualquer coisa esteja marcada. As etiquetas são pares de nome/valor que permitem categorizar recursos e ver e gerir informações de faturação de consolidados aplicando a mesma etiqueta a vários recursos e grupos de recursos. Em versões anteriores do portal do Azure, um *nome da etiqueta* foi referido como uma *chave*. As etiquetas são criadas para e armazenadas por uma única subscrição do Azure. As etiquetas no AWS consistem em pares chave/valor. Uma vez que o Azure e o AWS utilizaram o termo *chave*, a Cloudyn utiliza esse termo. O Category Manager utiliza chaves (nomes da etiqueta) para unir as etiquetas.
+Neste artigo, as etiquetas e as categorias por vezes são sinónimos. As categorias são coleções alargadas e podem ser muitas coisas. Poderão incluir unidades de negócio, centros, de custos, serviços Web ou qualquer coisa esteja marcada. Tags are name/value pairs that enable you to categorize resources and to view and manage consolidated billing information by applying the same tag to multiple resources and resource groups. Em versões anteriores do portal do Azure, um *nome da etiqueta* foi referido como uma *chave*. As etiquetas são criadas para e armazenadas por uma única subscrição do Azure. As etiquetas no AWS consistem em pares chave/valor. Uma vez que o Azure e o AWS utilizaram o termo *chave*, a Cloudyn utiliza esse termo. O Category Manager utiliza chaves (nomes da etiqueta) para unir as etiquetas.
 
 Neste tutorial, ficará a saber como:
 
@@ -53,11 +53,11 @@ Quando inicia a alocação de custos, a primeira coisa a fizer é definir o âmb
 
 Para criar um modelo de alocação de custos personalizado, selecione **Custos** &gt; **Cost Management** &gt; **Cost Allocation 360°** no menu relatório.
 
-![Exemplo que mostra um dashboard, onde poderá selecionar Cost Allocation 360](./media/tutorial-manage-costs/cost-allocation-360.png)
+![Example showing a dashboard where you select Cost Allocation 360](./media/tutorial-manage-costs/cost-allocation-360.png)
 
 Na página **Cost Allocation 360**, selecione **Adicionar** e, em seguida, introduza um nome e uma descrição para o modelo de custos. Selecione todas as contas ou contas individuais. Se quiser utilizar contas individuais, pode selecionar múltiplas contas de vários fornecedores de serviços cloud. Em seguida, clique em **Categorização** para escolher as etiquetas detetadas que categorizam os dados de custo. Escolha as etiquetas (categorias) que quer incluir no modelo. No exemplo seguinte, a etiqueta **Unidade** está selecionada.
 
-![Categorização de modelos de exemplo que mostra custos](./media/tutorial-manage-costs/cost-model01.png)
+![Example showing cost model categorization](./media/tutorial-manage-costs/cost-model01.png)
 
 O exemplo mostra que o valor 19 680 $ não está categorizado (sem etiquetas).
 
@@ -87,15 +87,15 @@ A lista de modelos de custos mostra o novo modelo de custos com **Estado de proc
 
 O Category Manager é uma ferramenta de limpeza de dados que o ajuda a unir os valores de múltiplas categorias (etiquetas) para criar categorias novas. É uma ferramenta simples baseada em regras onde pode selecionar uma categoria e criar regras para unir os valores existentes. Por exemplo, pode ter categorias existentes para **R&amp;D** e **dev** em que ambos representam o grupo de desenvolvimento.
 
-No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e selecione **Category Manager**. Para criar uma nova categoria, selecione o símbolo de adição (**+**). Introduza um nome para a categoria e, em seguida, em **Chaves**, introduza as chaves de categoria que quer incluir na nova categoria.
+No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e selecione **Category Manager**. Para criar uma nova categoria, selecione o símbolo de adição ( **+** ). Introduza um nome para a categoria e, em seguida, em **Chaves**, introduza as chaves de categoria que quer incluir na nova categoria.
 
-Quando definir uma regra, pode adicionar múltiplos valores com uma condição OU. Também pode efetuar algumas operações básicas de cadeia. Para ambos os casos, clique no símbolo de reticências (**...**) à direita da **Regra**.
+Quando definir uma regra, pode adicionar múltiplos valores com uma condição OU. Também pode efetuar algumas operações básicas de cadeia. Para ambos os casos, clique no símbolo de reticências ( **...** ) à direita da **Regra**.
 
 Para definir uma nova regra, na área **Regras**, crie uma nova regra. Por exemplo, introduza **dev** em **Regras** e, em seguida, introduza **R&amp;D** em **Ações**. Quando tiver terminado, guarde a nova categoria.
 
 A imagem seguinte mostra um exemplo de regras criadas para uma nova categoria designada **Carga de Trabalho**:
 
-![Exemplo que mostra a nova categoria de carga de trabalho](./media/tutorial-manage-costs/category01.png)
+![Example showing the new work-load category](./media/tutorial-manage-costs/category01.png)
 
 ### <a name="tag-sources-and-reports"></a>Relatórios e origens de etiquetas
 
@@ -122,14 +122,14 @@ O método que as organizações utilizam para efetuar uma análise de custos e e
 
 Para ver os resultados da alocação de custos, abra o relatório Análise de Custos e selecione o modelo de custos que criou. Em seguida, adicione um agrupamento de uma ou mais das etiquetas selecionadas no modelo de custos.
 
-![Relatório de análise de custo que mostra um exemplo de dados do custo de novo](./media/tutorial-manage-costs/cost-analysis.png)
+![Cost Analysis report showing an example of data from the new cost](./media/tutorial-manage-costs/cost-analysis.png)
 
 Pode facilmente criar e guardar relatórios que se concentrem em serviços específicos consumidos por grupos específicos. Por exemplo, pode ter um departamento que utiliza extensivamente VMs do Azure. Pode criar um relatório que seja filtrado nas VMs do Azure para mostrar o consumo e os custos.
 
 Se precisar de fornecer dados de instantâneos a outras equipas, pode exportar qualquer relatório no formato PDF ou CSV.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

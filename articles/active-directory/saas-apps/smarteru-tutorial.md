@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com SmarterU | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e SmarterU.
+title: 'Tutorial: Azure Active Directory integration with SmarterU | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and SmarterU.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,224 +15,224 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 07c7a15ea713bb6f73e1174a681dcccb5e79e289
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61d7a2a7e4a60794710d602dab6b54e894bfc475
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090519"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232028"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: Integração do Active Directory do Azure com SmarterU
+# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: Azure Active Directory integration with SmarterU
 
-Neste tutorial, saiba como integrar SmarterU com o Azure Active Directory (Azure AD).
-Integrar SmarterU no Azure AD fornece as seguintes vantagens:
+In this tutorial, you learn how to integrate SmarterU with Azure Active Directory (Azure AD).
+Integrating SmarterU with Azure AD provides you with the following benefits:
 
-* Pode controlar no Azure AD que tenha acesso ao SmarterU.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para SmarterU (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* You can control in Azure AD who has access to SmarterU.
+* You can enable your users to be automatically signed-in to SmarterU (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com SmarterU, terá dos seguintes itens:
+To configure Azure AD integration with SmarterU, you need the following items:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* SmarterU logon único habilitado subscrição
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* SmarterU single sign-on enabled subscription
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Suporta SmarterU **IDP** iniciada SSO
+* SmarterU supports **IDP** initiated SSO
 
-## <a name="adding-smarteru-from-the-gallery"></a>Adicionando SmarterU da Galeria
+## <a name="adding-smarteru-from-the-gallery"></a>Adding SmarterU from the gallery
 
-Para configurar a integração do SmarterU com o Azure AD, terá de adicionar SmarterU a partir da Galeria à sua lista de aplicações de SaaS geridas.
+To configure the integration of SmarterU into Azure AD, you need to add SmarterU from the gallery to your list of managed SaaS apps.
 
-**Para adicionar SmarterU a partir da galeria, execute os seguintes passos:**
+**To add SmarterU from the gallery, perform the following steps:**
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. In the **[Azure portal](https://portal.azure.com)** , on the left navigation panel, click **Azure Active Directory** icon.
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. To add new application, click **New application** button on the top of dialog.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **SmarterU**, selecione **SmarterU** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. In the search box, type **SmarterU**, select **SmarterU** from result panel then click **Add** button to add the application.
 
-     ![SmarterU na lista de resultados](common/search-new-app.png)
+     ![SmarterU in the results list](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure and test Azure AD single sign-on
 
-Nesta secção, configure e teste do Azure AD início de sessão único com SmarterU com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no SmarterU deve ser estabelecido.
+In this section, you configure and test Azure AD single sign-on with SmarterU based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in SmarterU needs to be established.
 
-Para configurar e testar o Azure AD início de sessão único com SmarterU, tem de concluir os seguintes blocos de construção:
+To configure and test Azure AD single sign-on with SmarterU, you need to complete the following building blocks:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar SmarterU Single Sign-On](#configure-smarteru-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste SmarterU](#create-smarteru-test-user)**  - para ter um equivalente da Eduarda Almeida na SmarterU que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure SmarterU Single Sign-On](#configure-smarteru-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create SmarterU test user](#create-smarteru-test-user)** - to have a counterpart of Britta Simon in SmarterU that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD single sign-on
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-Para configurar o Azure AD início de sessão único com SmarterU, execute os seguintes passos:
+To configure Azure AD single sign-on with SmarterU, perform the following steps:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **SmarterU** página de integração de aplicações, selecione **início de sessão único**.
+1. In the [Azure portal](https://portal.azure.com/), on the **SmarterU** application integration page, select **Single sign-on**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Configure single sign-on link](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![SmarterU domínio e URLs únicas início de sessão em informações](common/idp-identifier.png)
+    ![SmarterU Domain and URLs single sign-on information](common/idp-identifier.png)
 
-    Na **identificador** caixa de texto, escreva o URL:  `https://www.smarteru.com/`
+    In the **Identifier** text box, type the URL:  `https://www.smarteru.com/`
 
-5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
-6. Sobre o **configurar SmarterU** secção, copie os URLs apropriados de acordo com seus requisitos.
+6. On the **Set up SmarterU** section, copy the appropriate URL(s) as per your requirement.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. Login URL
 
-    b. Identificador do Azure AD
+    b. Azure AD Identifier
 
-    c. URL de fim de sessão
+    c. Logout URL
 
-### <a name="configure-smarteru-single-sign-on"></a>Configurar SmarterU Single Sign-On
+### <a name="configure-smarteru-single-sign-on"></a>Configure SmarterU Single Sign-On
 
-1. Numa janela do browser web diferente, inicie sessão no site da sua empresa SmarterU como um administrador.
+1. In a different web browser window, sign in to your SmarterU company site as an administrator.
 
-1. Na barra de ferramentas na parte superior, clique em **definições de conta**.
+1. In the toolbar on the top, click **Account Settings**.
 
-    ![Definições da conta](./media/smarteru-tutorial/accountsettings.png)
+    ![Account Settings](./media/smarteru-tutorial/accountsettings.png)
 
-1. Na página de configuração da conta, execute os seguintes passos:
+1. On the account configuration page, perform the following steps:
 
-    ![Autorização externa](./media/smarteru-tutorial/externalauthorizationconfiguration.png) 
+    ![External Authorization](./media/smarteru-tutorial/externalauthorizationconfiguration.png) 
 
-    a. Selecione **ativar a autorização externa**.
+    a. Select **Enable External Authorization**.
   
-    b. Na **controle de logon do mestre** secção, selecione a **SmarterU** separador.
+    b. In the **Master Login Control** section, select the **SmarterU** tab.
   
-    c. Na **início de sessão do utilizador predefinido** secção, selecione a **SmarterU** separador.
+    c. In the **User Default Login** section, select the **SmarterU** tab.
   
-    d. Selecione **ativar SAML**.
+    d. Select **Enable SAML**.
   
-    e. Copie o conteúdo do ficheiro de metadados baixado e, em seguida, cole-o para o **metadados de IdP** caixa de texto.
+    e. Copy the content of the downloaded metadata file, and then paste it into the **IdP Metadata** textbox.
 
-    f. Selecione um **identificador. o atributo/afirmação**.
+    f. Select an **Identifier Attribute/Claim**.
   
     g. Clique em **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Create an Azure AD test user
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Select **New user** at the top of the screen.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![New user Button](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. In the User properties, perform the following steps.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![The User dialog box](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    a. In the **Name** field enter **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assign the Azure AD test user
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para SmarterU.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to SmarterU.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **SmarterU**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **SmarterU**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **SmarterU**.
+2. In the applications list, select **SmarterU**.
 
-    ![A ligação de SmarterU na lista de aplicações](common/all-applications.png)
+    ![The SmarterU link in the Applications list](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. In the menu on the left, select **Users and groups**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-### <a name="create-smarteru-test-user"></a>Criar utilizador de teste SmarterU
+### <a name="create-smarteru-test-user"></a>Create SmarterU test user
 
-Para ativar a utilizadores do Azure AD iniciar sessão no SmarterU, tem de ser aprovisionados em SmarterU. No caso de SmarterU, o aprovisionamento é uma tarefa manual.
+To enable Azure AD users to sign in to SmarterU, they must be provisioned into SmarterU. In the case of SmarterU, provisioning is a manual task.
 
-**Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
+**To provision a user account, perform the following steps:**
 
-1. Inicie sessão no seu **SmarterU** inquilino.
+1. sign in to your **SmarterU** tenant.
 
-1. Aceda a **utilizadores**.
+1. Go to **Users**.
 
-1. Na secção de utilizador, execute os seguintes passos:
+1. In the user section, perform the following steps:
 
-    ![Novo utilizador](./media/smarteru-tutorial/adduser.png)  
+    ![New User](./media/smarteru-tutorial/adduser.png)  
 
-    a. Clique em **+ utilizador**.
+    a. Click **+User**.
 
-    b. Escreva os valores de atributo relacionado da conta de utilizador do Azure AD para as caixas de texto seguintes: **E-Mail principal**, **identificação do funcionário**, **palavra-passe**, **verificar palavra-passe**, **nome fornecido**, **Apelido**.
+    b. Type the related attribute values of the Azure AD user account into the following textboxes: **Primary Email**, **Employee ID**, **Password**, **Verify Password**, **Given Name**, **Surname**.
 
-    c. Clique em **Active Directory**.
+    c. Click **Active**.
 
     d. Clique em **Guardar**.
 
 > [!NOTE]
-> Pode utilizar quaisquer outras SmarterU utilizador conta criação ferramentas ou APIs fornecidas pelo SmarterU para aprovisionar contas de utilizador do AAD.
+> You can use any other SmarterU user account creation tools or APIs provided by SmarterU to provision Azure AD user accounts.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-Quando clica no mosaico SmarterU no painel de acesso, deve ser automaticamente sessão iniciada no SmarterU para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the SmarterU tile in the Access Panel, you should be automatically signed in to the SmarterU for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

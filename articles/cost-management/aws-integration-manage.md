@@ -1,186 +1,186 @@
 ---
-title: Gerenciar custos e uso do AWS no gerenciamento de custos do Azure
-description: Este artigo ajuda você a entender como usar a análise de custos e os orçamentos no gerenciamento de custos para gerenciar os custos e o uso do AWS.
+title: Manage AWS costs and usage in Azure Cost Management
+description: This article helps you understand how to use cost analysis and budgets in Cost Management to manage your AWS costs and usage.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 04/26/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 772f6cdde575a9ac669c73ecca039914357ffe2f
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 04f607d7f592112013bcc6cf4cbd61d42a8116a8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338887"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230169"
 ---
-# <a name="manage-aws-costs-and-usage-in-azure"></a>Gerenciar os custos e o uso do AWS no Azure
+# <a name="manage-aws-costs-and-usage-in-azure"></a>Manage AWS costs and usage in Azure
 
-Depois de configurar e configurar a integração de relatório de uso e custo do AWS para o gerenciamento de custos do Azure, você estará pronto para começar a gerenciar os custos e o uso do AWS. Este artigo ajuda você a entender como usar a análise de custos e os orçamentos no gerenciamento de custos para gerenciar os custos e o uso do AWS.
+After you've set up and configured AWS Cost and Usage report integration for Azure Cost Management, you're ready to start managing your AWS costs and usage. This article helps you understand how to use cost analysis and budgets in Cost Management to manage your AWS costs and usage.
 
-Se você ainda não tiver configurado a integração, consulte [configurar e configurar a integração do relatório de uso do AWS](aws-integration-set-up-configure.md).
+If you haven't already configured the integration, see [Set up and configure AWS Usage report integration](aws-integration-set-up-configure.md).
 
-_Antes de começar_: Se você não estiver familiarizado com a análise de custo, consulte o início rápido [explorar e analisar custos com a análise de custo](quick-acm-cost-analysis.md) . E, se você não estiver familiarizado com orçamentos no Azure, consulte o tutorial [criar e gerenciar orçamentos do Azure](tutorial-acm-create-budgets.md) .
+_Before you begin_: If you're unfamiliar with cost analysis, see the [Explore and analyze costs with Cost analysis](quick-acm-cost-analysis.md) quickstart. And, if you're unfamiliar with budgets in Azure, see the [Create and manage Azure budgets](tutorial-acm-create-budgets.md) tutorial.
 
-## <a name="view-aws-costs-in-cost-analysis"></a>Exibir custos de AWS na análise de custo
+## <a name="view-aws-costs-in-cost-analysis"></a>View AWS costs in cost analysis
 
-Os custos de AWS estão disponíveis na análise de custo nos seguintes escopos:
+AWS costs are available in Cost Analysis in the following scopes:
 
-- AWS contas vinculadas em um grupo de gerenciamento
-- Custos da conta vinculada do AWS
-- Custos de conta consolidada do AWS
+- AWS linked accounts under a management group
+- AWS linked account costs
+- AWS consolidated account costs
 
-As próximas seções descrevem como usar os escopos para que você veja dados de custo e de uso para cada um.
+The next sections describe how to use the scopes so that you see cost and usage data for each one.
 
-### <a name="view-aws-linked-accounts-under-a-management-group"></a>Exibir contas vinculadas do AWS em um grupo de gerenciamento
+### <a name="view-aws-linked-accounts-under-a-management-group"></a>View AWS linked accounts under a management group
 
-A exibição de custos usando o escopo do grupo de gerenciamento é a única maneira de ver os custos agregados provenientes de assinaturas e contas vinculadas diferentes. O uso de um grupo de gerenciamento fornece uma exibição entre nuvens.
+Viewing costs by using the management group scope is the only way to see aggregated costs coming from different subscriptions and linked accounts. Using a management group provides a cross-cloud view.
 
-Em análise de custo, abra o seletor de escopo e selecione o grupo de gerenciamento que contém suas contas vinculadas do AWS. Aqui está um exemplo de imagem no portal do Azure:
+In cost analysis, open the scope picker and select the management group that holds your AWS linked accounts. Here's an example image in the Azure portal:
 
-![Exemplo da exibição selecionar escopo](./media/aws-integration-manage/select-scope01.png)
-
-
-
-Veja um exemplo que mostra o custo do grupo de gerenciamento na análise de custo, agrupado por provedor (Azure e AWS).
-
-![Exemplo mostrando os custos do Azure e do AWS para um trimestre na análise de custo](./media/aws-integration-manage/cost-analysis-aws-azure.png)
-
-### <a name="view-aws-linked-account-costs"></a>Exibir os custos da conta vinculada do AWS
-
-Para exibir os custos da conta do AWS link, abra o seletor de escopo e selecione a conta vinculada AWS. Observe que as contas vinculadas estão associadas a um grupo de gerenciamento, conforme definido no conector do AWS.
-
-Aqui está um exemplo que mostra a seleção de um escopo de conta vinculada AWS.
-
-![Exemplo da exibição selecionar escopo](./media/aws-integration-manage/select-scope02.png)
+![Example of the Select scope view](./media/aws-integration-manage/select-scope01.png)
 
 
 
-### <a name="view-aws-consolidated-account-costs"></a>Exibir os custos da conta consolidada do AWS
+Here's an example showing the management group cost in cost analysis, grouped by Provider (Azure and AWS).
 
-Para exibir os custos da conta consolidada do AWS, abra o seletor de escopo e selecione a conta consolidada AWS. Aqui está um exemplo que mostra a seleção de um escopo de conta consolidada AWS.
+![Example showing Azure and AWS costs for a quarter in cost analysis](./media/aws-integration-manage/cost-analysis-aws-azure.png)
 
-![Exemplo da exibição selecionar escopo](./media/aws-integration-manage/select-scope03.png)
+### <a name="view-aws-linked-account-costs"></a>View AWS linked account costs
+
+To view AWS link account costs, open the scope picker and select the AWS linked account. Note that linked accounts are associated to a management group, as defined in the AWS connector.
+
+Here's an example that shows selecting an AWS linked account scope.
+
+![Example of the Select scope view](./media/aws-integration-manage/select-scope02.png)
 
 
 
-Esse escopo fornece uma exibição agregada de todas as contas vinculadas do AWS associadas à conta consolidada do AWS. Veja um exemplo que mostra os custos de uma conta consolidada AWS, agrupada por nome de serviço.
+### <a name="view-aws-consolidated-account-costs"></a>View AWS consolidated account costs
 
-![Exemplo mostrando os custos consolidados do AWS na análise de custo](./media/aws-integration-manage/cost-analysis-aws-consolidated.png)
+To view AWS consolidated account costs, open the scope picker and select the AWS consolidated account. Here's an example that shows selecting an AWS consolidated account scope.
 
-### <a name="dimensions-available-for-filtering-and-grouping"></a>Dimensões disponíveis para filtragem e agrupamento
+![Example of the Select scope view](./media/aws-integration-manage/select-scope03.png)
 
-A tabela a seguir descreve as dimensões disponíveis para agrupar e filtrar por na análise de custo.
 
-| Dimensão | Cabeçalho do Amazon CUR | Âmbitos | Comentários |
+
+This scope provides an aggregated view of all AWS linked accounts associated with the AWS consolidated account. Here's an example showing costs for an AWS consolidated account, grouped by service name.
+
+![Example showing AWS consolidated costs in cost analysis](./media/aws-integration-manage/cost-analysis-aws-consolidated.png)
+
+### <a name="dimensions-available-for-filtering-and-grouping"></a>Dimensions available for filtering and grouping
+
+The following table describes dimensions available to group and filter by in cost analysis.
+
+| Dimensão | Amazon CUR header | Âmbitos | Comentários |
 | --- | --- | --- | --- |
-| Zona de disponibilidade | lineitem/AvailabilityZone | Todos |   |
-| Location | produto/região | Todos |   |
-| Medir |   | Todos |   |
-| Categoria do medidor | lineItem/ProductCode | Todos |   |
-| Subcategoria do medidor | LineItem/UsageType | Todos |   |
-| Operação | lineItem/operação | Todos |   |
-| Resource | lineItem/ResourceId | Todos |   |
-| Tipo de recurso | produto/InstanceType | Todos | Se Product/InstanceType for NULL, lineItem/UsageType será usado. |
-| ResourceGuid | N/A | Todos | GUID do medidor do Azure. |
-| Nome do serviço | produto/NomeDoProduto | Todos | Se Product/ProductName for NULL, lineItem/ProductCode será usado. |
-| Escalão do serviço |   |   |   |
-| ID da subscrição | lineItem/UsageAccountId | Conta consolidada e grupo de gerenciamento |   |
-| Nome da subscrição | N/A | Conta consolidada e grupo de gerenciamento | Os nomes de conta são coletados usando a API da organização AWS. |
-| Etiqueta | resourceTags/\* | Todos | O prefixo _User:_ é removido das marcas definidas pelo usuário para permitir marcas de nuvem cruzada. O prefixo _AWS:_ permanece intacto. |
-| ID da conta de faturação | bill/PayerAccountId | Grupo de gestão |   |
-| Nome da conta de faturação | N/A | Grupo de gestão | Os nomes de conta são coletados usando a API da organização AWS. |
-| Fornecedor | N/A | Grupo de gestão | AWS ou o Azure. |
+| Availability zone | lineitem/AvailabilityZone | Tudo |   |
+| Localização | product/Region | Tudo |   |
+| Medidor |   | Tudo |   |
+| Meter category | lineItem/ProductCode | Tudo |   |
+| Meter subcategory | lineitem/UsageType | Tudo |   |
+| Operação | lineItem/Operation | Tudo |   |
+| Recurso | lineItem/ResourceId | Tudo |   |
+| Tipo de recurso | product/instanceType | Tudo | If product/instanceType is null, lineItem/UsageType is used. |
+| ResourceGuid | N/A | Tudo | Azure meter GUID. |
+| Nome do serviço | product/ProductName | Tudo | If product/ProductName is null, lineItem/ProductCode is used. |
+| Escalão de serviço |   |   |   |
+| ID de Subscrição | lineItem/UsageAccountId | Consolidated account and management group |   |
+| Subscription name | N/A | Consolidated account and management group | Account names are collected using the AWS Organization API. |
+| Etiqueta | resourceTags/\* | Tudo | The _user:_ prefix is removed from user-defined tags to allow cross-cloud tags. The _aws:_ prefix is left intact. |
+| Billing account ID | bill/PayerAccountId | Grupo de gestão |   |
+| Billing account name | N/A | Grupo de gestão | Account names are collected using the AWS Organization API. |
+| Fornecedor | N/A | Grupo de gestão | Either AWS or Azure. |
 
-## <a name="set-budgets-on-aws-scopes"></a>Definir orçamentos em escopos AWS
+## <a name="set-budgets-on-aws-scopes"></a>Set budgets on AWS scopes
 
-Use orçamentos para gerenciar de forma proativa os custos e gerar responsabilidade em sua organização. Os orçamentos são definidos na conta consolidada AWS e nos escopos de conta vinculada AWS. Veja um exemplo de orçamentos para uma conta consolidada do AWS mostrada no gerenciamento de custos:
+Use budgets to proactively manage costs and drive accountability in your organization. Budgets are set on the AWS consolidated account and AWS linked account scopes. Here's an example of budgets for an AWS consolidated account shown in Cost Management:
 
-![Exemplo mostrando orçamentos para uma conta consolidada AWS](./media/aws-integration-manage/budgets-aws-consolidated-account01.png)
+![Example showing budgets for an AWS consolidated account](./media/aws-integration-manage/budgets-aws-consolidated-account01.png)
 
-## <a name="aws-data-collection-process"></a>Processo de coleta de dados AWS
+## <a name="aws-data-collection-process"></a>AWS data collection process
 
-Depois de configurar o conector do AWS, a coleta de dados e os processos de descoberta são iniciados. Pode levar algumas horas para coletar todos os dados de uso. A duração depende de:
+After setting up the AWS connector, data collection and discovery processes start. It might take few hours to collect all usage data. The duration depends on:
 
-- O tempo necessário para processar os arquivos de CUR que estão no Bucket AWS S3.
-- O tempo necessário para criar a conta consolidada AWS e escopos de conta vinculada AWS.
-- A hora e a frequência de AWS estão gravando os arquivos de relatório de custo e uso no Bucket S3
+- The time needed to process the CUR files that are in the AWS S3 bucket.
+- The time needed to create the AWS Consolidated account and AWS Linked account scopes.
+- The time and frequency of AWS are writing the Cost and Usage Report files in the S3 bucket
 
-## <a name="aws-integration-pricing"></a>Preços de integração do AWS
+## <a name="aws-integration-pricing"></a>AWS integration pricing
 
-Cada conector do AWS recebe 90 dias de avaliação gratuita. Durante a visualização pública, não há nenhum encargo.
+Each AWS connector gets 90 free trial days. During Public Preview, there is no charge.
 
-O preço da lista é de 1% dos seus custos mensais do AWS. Cada mês, você é cobrado com base nos custos faturados do mês anterior.
+The list price is 1% of your AWS monthly costs. Each month you are charged based on your invoiced costs from the previous month.
 
-O acesso às APIs do AWS pode incorrer em custos adicionais.
+Accessing AWS APIs may incur additional costs.
 
-## <a name="aws-integration-limitations"></a>Limitações de integração do AWS
+## <a name="aws-integration-limitations"></a>AWS integration limitations
 
-- O gerenciamento de custos não dá suporte a relatórios de custo que contenham vários tipos de moeda. Uma mensagem de erro será exibida se você selecionar um escopo que tenha várias moedas.
-- Os conectores de nuvem não dão suporte a AWS GovCloud (US), AWS gov ou AWS China.
-- O gerenciamento de custos mostra apenas _os custos de uso_ de AWS. O imposto, o suporte, os reembolsos, a RI, os créditos ou quaisquer outros tipos de cobrança ainda não têm suporte.
+- Cost Management doesn't support cost reports that contain multiple currency types. An error message is shown if you select a scope that has multiple currencies.
+- Cloud connectors don't support AWS GovCloud (US), AWS Gov, or AWS China.
+- Cost Management shows AWS _usage costs_ only. Tax, support, refunds, RI, credits or any other charge types aren't supported yet.
 
-## <a name="troubleshooting-aws-integration"></a>Solução de problemas de integração do AWS
+## <a name="troubleshooting-aws-integration"></a>Troubleshooting AWS integration
 
-Use as informações de solução de problemas a seguir para resolver problemas comuns.
+Use the following troubleshooting information to resolve common problems.
 
-### <a name="no-permission-to-aws-linked-accounts"></a>Sem permissão para contas vinculadas do AWS
+### <a name="no-permission-to-aws-linked-accounts"></a>No permission to AWS Linked accounts
 
-**Código de erro:** _Não autorizado_
+**Error code:** _Unauthorized_
 
-Há duas maneiras de obter permissões para acessar os custos de contas vinculadas do AWS:
+There are two ways to get permissions to access AWS linked accounts costs:
 
-- Obtenha acesso ao grupo de gerenciamento que tem as contas vinculadas do AWS.
-- Peça que alguém lhe conceda permissão para a conta vinculada do AWS.
+- Get access to the management group that has the AWS Linked accounts.
+- Have someone give you permission to the AWS linked account.
 
-Por padrão, o criador do conector do AWS é o proprietário de todos os objetos criados pelo conector. Incluindo, a conta consolidada do AWS e a conta vinculada do AWS.
+By default, the AWS connector creator is the owner of all the objects that the connector created. Including, the AWS consolidated account and the AWS linked account.
 
-Para poder verificar as configurações do conector, você precisará de pelo menos uma função de colaborador, o leitor não pode verificar as configurações do conector
+In order to be able to Verify the connector settings you will need at least a contributor role, reader can not Verify connector settings
 
-### <a name="collection-failed-with-assumerole"></a>Falha na coleta com AssumeRole
+### <a name="collection-failed-with-assumerole"></a>Collection failed with AssumeRole
 
-**Código de erro:** _FailedToAssumeRole_
+**Error code:** _FailedToAssumeRole_
 
-Esse erro significa que o gerenciamento de custos não pode chamar a API AWS AssumeRole. Esse problema pode ocorrer devido a um problema com a definição de função. Verifique se as seguintes condições são verdadeiras:
+This error means that Cost Management is unable to call the AWS AssumeRole API. This problem can happen because of an issue with the role definition. Verify that the following conditions are true:
 
-- A ID externa é igual à da definição de função e à definição de conector.
-- O tipo de função é definido como **outra conta do AWS que pertence a você ou a terceiros.**
-- A opção **exigir MFA** está desmarcada.
-- A conta AWS confiável na função AWS é _432263259397_.
+- The external ID is the same as the one in the role definition and the connector definition.
+- The role type is set to **Another AWS account Belonging to you or 3rd party.**
+- The **Require MFA** choice is cleared.
+- The trusted AWS account in the AWS Role is _432263259397_.
 
-### <a name="collection-failed-with-access-denied---cur-report-definitions"></a>Falha na coleta com acesso negado-definições de relatório CUR
+### <a name="collection-failed-with-access-denied---cur-report-definitions"></a>Collection failed with Access Denied - CUR report definitions
 
-**Código de erro:** _AccessDeniedReportDefinitions_ 
+**Error code:** _AccessDeniedReportDefinitions_ 
 
-Esse erro significa que o gerenciamento de custos não consegue ver as definições de relatório de custo e uso. Essa permissão é usada para validar que a CUR é definida como esperado pelo gerenciamento de custos do Azure. Confira [criar um relatório de custo e uso em AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
+This error means that Cost Management is unable to see the Cost and Usage report definitions. This permission is used to validate that the CUR is defined as expected by Azure Cost Management. See [Create a Cost and Usage report in AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
 
-### <a name="collection-failed-with-access-denied---list-reports"></a>Falha na coleta com relatórios de lista de acesso negado
+### <a name="collection-failed-with-access-denied---list-reports"></a>Collection failed with Access Denied - List reports
 
-**Código de erro:** _AccessDeniedListReports_ 
+**Error code:** _AccessDeniedListReports_ 
 
-Esse erro significa que o gerenciamento de custos não pode listar o objeto no Bucket S3 em que a CUR está localizada. A política IAM AWS requer uma permissão no Bucket e nos objetos no Bucket. Consulte [criar uma função e uma política no AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws).
+This error means that Cost Management is unable to list the object in the S3 bucket where the CUR is located. AWS IAM policy requires a permission on the bucket and on the objects in the bucket. See [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws).
 
-### <a name="collection-failed-with-access-denied---download-report"></a>Falha na coleta com acesso negado-relatório de download 
+### <a name="collection-failed-with-access-denied---download-report"></a>Collection failed with Access Denied - Download report 
 
-**Código de erro:** _AccessDeniedDownloadReport_ 
+**Error code:** _AccessDeniedDownloadReport_ 
 
-Esse erro significa que o gerenciamento de custos não pode acessar e baixar os arquivos de CUR armazenados no Bucket S3 da Amazon. Verifique se a política JSON AWS anexada à função é semelhante ao exemplo mostrado na parte inferior da seção [criar uma função e uma política no AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) .
+This error means that Cost Management is unable to access and download the CUR files stored in the Amazon S3 bucket. Make sure that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) section.
 
-### <a name="collection-failed-since-we-did-not-find-the-cost-and-usage-report"></a>Falha na coleta porque não encontramos o relatório de custos e uso
+### <a name="collection-failed-since-we-did-not-find-the-cost-and-usage-report"></a>Collection failed since we did not find the Cost and Usage Report
 
-**Código de erro:** _FailedToFindReport_
+**Error code:** _FailedToFindReport_
 
-Esse erro significa que o gerenciamento de custos não pode localizar o relatório de custo e uso que foi definido no conector. Verifique se ele não foi excluído e se a política JSON AWS anexada à função é semelhante ao exemplo mostrado na parte inferior da seção [criar uma função e uma política no AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) .
+This error means that Cost Management can't find the Cost and Usage report that was defined in the connector. Make sure it isn't deleted and that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) section.
 
-### <a name="unable-to-create-or-verify-connector-due-to-cost-and-usage-report-definitions-mismatch"></a>Não é possível criar ou verificar o conector devido à incompatibilidade das definições de relatório de uso e custo
+### <a name="unable-to-create-or-verify-connector-due-to-cost-and-usage-report-definitions-mismatch"></a>Unable to create or verify connector due to Cost and Usage Report definitions mismatch
 
-**Código de erro:** _ReportIsNotValid_
+**Error code:** _ReportIsNotValid_
 
-Esse erro está relacionado à definição do relatório de uso e custo de AWS, exigimos configurações específicas para esse relatório, consulte os requisitos em [criar um relatório de custo e uso em AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)
+This error relates to the definition of AWS Cost and Usage Report, we require specific settings for this report, see the requirements in [Create a Cost and Usage report in AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se você ainda não tiver configurado seu ambiente do Azure com grupos de gerenciamento, consulte [configuração inicial dos grupos de gerenciamento](../governance/management-groups/overview.md#initial-setup-of-management-groups).
+- If you haven't already configured your Azure environment with management groups, see [Initial setup of management groups](../governance/management-groups/overview.md#initial-setup-of-management-groups).

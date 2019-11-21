@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Kintone | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Kintone.
+title: 'Tutorial: Azure Active Directory integration with Kintone | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Kintone.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,99 +15,99 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: a9245ab5a2d51ee3995ff0c614cafaebdc20d00f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6786b44aca9ceed3cec5daf0f858a51e2dd12833
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67098793"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227586"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Tutorial: Integração do Active Directory do Azure com Kintone
+# <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Tutorial: Azure Active Directory integration with Kintone
 
-Neste tutorial, saiba como integrar Kintone com o Azure Active Directory (Azure AD).
-Integrar Kintone no Azure AD fornece as seguintes vantagens:
+In this tutorial, you learn how to integrate Kintone with Azure Active Directory (Azure AD).
+Integrating Kintone with Azure AD provides you with the following benefits:
 
-* Pode controlar no Azure AD que tenha acesso para Kintone.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Kintone (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* You can control in Azure AD who has access to Kintone.
+* You can enable your users to be automatically signed-in to Kintone (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Kintone, terá dos seguintes itens:
+To configure Azure AD integration with Kintone, you need the following items:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
-* Kintone logon único habilitado subscrição
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
+* Kintone single sign-on enabled subscription
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Suporta Kintone **SP** iniciada SSO
+* Kintone supports **SP** initiated SSO
 
-## <a name="adding-kintone-from-the-gallery"></a>Adicionando Kintone da Galeria
+## <a name="adding-kintone-from-the-gallery"></a>Adding Kintone from the gallery
 
-Para configurar a integração do Kintone com o Azure AD, terá de adicionar Kintone a partir da Galeria à sua lista de aplicações de SaaS geridas.
+To configure the integration of Kintone into Azure AD, you need to add Kintone from the gallery to your list of managed SaaS apps.
 
-**Para adicionar Kintone a partir da galeria, execute os seguintes passos:**
+**To add Kintone from the gallery, perform the following steps:**
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. In the **[Azure portal](https://portal.azure.com)** , on the left navigation panel, click **Azure Active Directory** icon.
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. To add new application, click **New application** button on the top of dialog.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Kintone**, selecione **Kintone** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. In the search box, type **Kintone**, select **Kintone** from result panel then click **Add** button to add the application.
 
-     ![Kintone na lista de resultados](common/search-new-app.png)
+     ![Kintone in the results list](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure and test Azure AD single sign-on
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Kintone com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Kintone deve ser estabelecido.
+In this section, you configure and test Azure AD single sign-on with Kintone based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Kintone needs to be established.
 
-Para configurar e testar o Azure AD início de sessão único com Kintone, tem de concluir os seguintes blocos de construção:
+To configure and test Azure AD single sign-on with Kintone, you need to complete the following building blocks:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Kintone Single Sign-On](#configure-kintone-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Kintone](#create-kintone-test-user)**  - para ter um equivalente da Eduarda Almeida na Kintone que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure Kintone Single Sign-On](#configure-kintone-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Kintone test user](#create-kintone-test-user)** - to have a counterpart of Britta Simon in Kintone that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD single sign-on
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-Para configurar o Azure AD início de sessão único com Kintone, execute os seguintes passos:
+To configure Azure AD single sign-on with Kintone, perform the following steps:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Kintone** página de integração de aplicações, selecione **início de sessão único**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Kintone** application integration page, select **Single sign-on**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Configure single sign-on link](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![Kintone domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
+    ![Kintone Domain and URLs single sign-on information](common/sp-identifier.png)
 
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.kintone.com`
+    a. In the **Sign on URL** text box, type a URL using the following pattern: `https://<companyname>.kintone.com`
 
-    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão:
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     
     | |
     |--|
@@ -115,150 +115,150 @@ Para configurar o Azure AD início de sessão único com Kintone, execute os seg
     | `https://<companyname>.kintone.com` |
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de cliente Kintone](https://www.kintone.com/contact/) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Kintone Client support team](https://www.kintone.com/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-    ![O link de download de certificado](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
-6. Sobre o **configurar Kintone** secção, copie os URLs apropriados de acordo com seus requisitos.
+6. On the **Set up Kintone** section, copy the appropriate URL(s) as per your requirement.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. Login URL
 
-    b. Identificador do Azure AD
+    b. Azure AD Identifier
 
-    c. URL de fim de sessão
+    c. Logout URL
 
-### <a name="configure-kintone-single-sign-on"></a>Configurar Kintone Single Sign-On
+### <a name="configure-kintone-single-sign-on"></a>Configure Kintone Single Sign-On
 
-1. Numa janela do browser web diferente, inicie sessão no seu **Kintone** site da empresa como administrador.
+1. In a different web browser window, sign into your **Kintone** company site as an administrator.
 
-1. Clique em **ícone de definições**.
+1. Click **Settings icon**.
 
-    ![As definições](./media/kintone-tutorial/ic785879.png "definições")
+    ![Definições](./media/kintone-tutorial/ic785879.png "Definições")
 
-1. Clique em **utilizadores e de administração do sistema**.
+1. Click **Users & System Administration**.
 
-    ![Utilizadores e de administração do sistema](./media/kintone-tutorial/ic785880.png "de utilizadores e de administração do sistema")
+    ![Users & System Administration](./media/kintone-tutorial/ic785880.png "Users & System Administration")
 
-1. Sob **de administração do sistema \> Security** clique em **início de sessão**.
+1. Under **System Administration \> Security** click **Login**.
 
-    ![Login](./media/kintone-tutorial/ic785881.png "Login")
+    ![Início de sessão](./media/kintone-tutorial/ic785881.png "Início de Sessão")
 
-1. Clique em **autenticação SAML ativar**.
+1. Click **Enable SAML authentication**.
 
-    ![Autenticação SAML](./media/kintone-tutorial/ic785882.png "autenticação SAML")
+    ![SAML Authentication](./media/kintone-tutorial/ic785882.png "SAML Authentication")
 
-1. Na secção autenticação SAML, execute os seguintes passos:
+1. In the SAML Authentication section, perform the following steps:
 
-    ![Autenticação SAML](./media/kintone-tutorial/ic785883.png "autenticação SAML")
+    ![SAML Authentication](./media/kintone-tutorial/ic785883.png "SAML Authentication")
 
-    a. Na **URL de início de sessão** caixa de texto, cole o valor de **URL de início de sessão** que copiou do portal do Azure.
+    a. In the **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
-    b. Na **URL de fim de sessão** caixa de texto, cole o valor de **URL de fim de sessão** que copiou do portal do Azure.
+    b. In the **Logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
 
-    c. Clique em **procurar** para carregar o ficheiro de certificado transferido a partir do portal do Azure.
+    c. Click **Browse** to upload your downloaded certificate file from Azure portal.
 
     d. Clique em **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Create an Azure AD test user
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Select **New user** at the top of the screen.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![New user Button](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. In the User properties, perform the following steps.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![The User dialog box](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    a. In the **Name** field enter **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo `brittasimon@yourcompanydomain.extension`  
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assign the Azure AD test user
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para Kintone.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Kintone.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Kintone**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Kintone**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Kintone**.
+2. In the applications list, select **Kintone**.
 
-    ![A ligação de Kintone na lista de aplicações](common/all-applications.png)
+    ![The Kintone link in the Applications list](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. In the menu on the left, select **Users and groups**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-### <a name="create-kintone-test-user"></a>Criar utilizador de teste Kintone
+### <a name="create-kintone-test-user"></a>Create Kintone test user
 
-Para ativar a utilizadores do Azure AD iniciar sessão para Kintone, tem de ser aprovisionados para Kintone. No caso de Kintone, o aprovisionamento é uma tarefa manual.
+To enable Azure AD users to sign in to Kintone, they must be provisioned into Kintone. In the case of Kintone, provisioning is a manual task.
 
-### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para Aprovisionar uma conta de utilizador, execute os seguintes passos:
+### <a name="to-provision-a-user-account-perform-the-following-steps"></a>To provision a user account, perform the following steps:
 
-1. Inicie sessão no seu **Kintone** site da empresa como administrador.
+1. Sign in to your **Kintone** company site as an administrator.
 
-1. Clique em **ícone de definições**.
+1. Click **Settings icon**.
 
-    ![As definições](./media/kintone-tutorial/ic785879.png "definições")
+    ![Definições](./media/kintone-tutorial/ic785879.png "Definições")
 
-1. Clique em **utilizadores e de administração do sistema**.
+1. Click **Users & System Administration**.
 
-    ![Administração de sistemas e usuários](./media/kintone-tutorial/ic785880.png "administração do sistema & utilizador")
+    ![User & System Administration](./media/kintone-tutorial/ic785880.png "User & System Administration")
 
-1. Sob **administração de utilizadores**, clique em **departamentos e usuários**.
+1. Under **User Administration**, click **Departments & Users**.
 
-    ![Departamento e utilizadores](./media/kintone-tutorial/ic785888.png "departamento & utilizadores")
+    ![Department & Users](./media/kintone-tutorial/ic785888.png "Department & Users")
 
-1. Clique em **novo utilizador**.
+1. Click **New User**.
 
-    ![Novos utilizadores](./media/kintone-tutorial/ic785889.png "novos utilizadores")
+    ![New Users](./media/kintone-tutorial/ic785889.png "New Users")
 
-1. Na **novo utilizador** secção, execute os seguintes passos:
+1. In the **New User** section, perform the following steps:
 
-    ![Novos utilizadores](./media/kintone-tutorial/ic785890.png "novos utilizadores")
+    ![New Users](./media/kintone-tutorial/ic785890.png "New Users")
 
-    a. Introduza um **nome a apresentar**, **nome de início de sessão**, **nova palavra-passe**, **Confirmar palavra-passe**, **endereço de correio eletrónico**, e outros detalhes de um válido do Azure AD da conta pretende aprovisionar em caixas de texto relacionadas.
+    a. Type a **Display Name**, **Login Name**, **New Password**, **Confirm Password**, **E-mail Address**, and other details of a valid Azure AD account you want to provision into the related textboxes.
 
     b. Clique em **Guardar**.
 
 > [!NOTE]
-> Pode utilizar quaisquer outras Kintone utilizador conta criação ferramentas ou APIs fornecidas pelo Kintone para aprovisionar contas de utilizador do AAD.
+> You can use any other Kintone user account creation tools or APIs provided by Kintone to provision Azure AD user accounts.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-Quando clica no mosaico Kintone no painel de acesso, deve ser automaticamente conectado para Kintone para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Kintone tile in the Access Panel, you should be automatically signed in to the Kintone for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: como registrar dispositivos X. 509 no serviço de provisionamento de dispositivos do Azure usando o Node. js'
+title: Enroll X.509 devices to Azure Device Provisioning Service using Node.js
 description: Este início rápido utiliza inscrições em grupo. Neste início rápido, vai inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure com o SDK do serviço Node.js
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 3b2c27b8fc595dae39ed7374ec3647e6b4ba6f23
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: b2995c6ba031e71cba9068b691cbedc1cf80c457
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903416"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228575"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos com Node.js
 
@@ -140,7 +139,7 @@ Para utilizar estas ferramentas de teste para gerar certificados, execute os seg
 Se quiser explorar os exemplos do serviço Node.js, não limpe os recursos criados neste Início Rápido. Se não planear continuar, utilize os passos seguintes para eliminar todos os recursos do Azure criados no Guia Rápido.
  
 1. Feche a janela da saída do exemplo de Node.js no seu computador.
-2. Navegue até o serviço de provisionamento de dispositivos no portal do Azure, clique em **gerenciar registros**e, em seguida, selecione a guia **grupos de registro** . Selecione a ID de *registro* da entrada de registro criada usando este início rápido e clique no botão **excluir** na parte superior da folha.  
+2. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Enrollment Groups** tab. Select the *Registration ID* for the enrollment entry you created using this Quickstart and click the **Delete** button at the top of the blade.  
 3. No serviço de Aprovisionamento de Dispositivos no portal do Azure, clique em **Certificados**, clique no certificado que carregou para este Guia Rápido e clique no botão **Eliminar** na parte superior da janela  **Detalhes do Certificado**.  
  
 ## <a name="next-steps"></a>Passos seguintes

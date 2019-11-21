@@ -1,134 +1,134 @@
 ---
-title: Ligar uma conta do Amazon Web Services ao Cloudyn no Azure | Documentos da Microsoft
-description: Ligar uma conta do Amazon Web Services para exibir dados de custo e a utilização em relatórios do Cloudyn.
+title: Connect an Amazon Web Services account to Cloudyn in Azure | Microsoft Docs
+description: Connect an Amazon Web Services account to view cost and usage data in Cloudyn reports.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: b39296e18b38180e1081866d6e8197973dc782b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 676c01a26d67b395340e5b1ed2dacc6b3b824742
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002163"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74219745"
 ---
-# <a name="connect-an-amazon-web-services-account"></a>Ligar uma conta do Amazon Web Services
+# <a name="connect-an-amazon-web-services-account"></a>Connect an Amazon Web Services account
 
-Tem duas opções para ligar a sua conta Amazon Web Services (AWS) ao Cloudyn. Pode ligar-se com uma função IAM ou com uma conta de utilizador IAM só de leitura. A função IAM é recomendada porque pode delegar o acesso com permissões definidas para entidades fidedignas. A função IAM não precisa de partilhar chaves de acesso de longo prazo. Depois de ligar uma conta AWS ao Cloudyn, dados de utilização e custos estão disponíveis nos relatórios do Cloudyn. Este documento orienta por meio de ambas as opções.
+You have two options to connect your Amazon Web Services (AWS) account to Cloudyn. You can connect with an IAM role or with a read-only IAM user account. The IAM role is recommended because it allows you to delegate access with defined permissions to trusted entities. The IAM role doesn't require you to share long-term access keys. After you connect an AWS account to Cloudyn, cost and usage data is available in Cloudyn reports. This document guides you through both options.
 
-Para obter mais informações sobre as identidades de IAM do AWS, consulte [identidades (utilizadores, grupos e funções)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html).
+For more information about AWS IAM identities, see [Identities (Users, Groups, and Roles)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html).
 
-Além disso, ative o AWS detalhadas relatórios de faturação e armazenar as informações num bucket de serviço (S3) de armazenamento simples do AWS. Relatórios de faturas detalhados incluem custos de faturas com informações de marca e recursos numa base horária. Armazenar os relatórios permite o Cloudyn para recuperá-los a partir do seu registo e exibir as informações nos seus relatórios.
-
-
-## <a name="aws-role-based-access"></a>Acesso baseado em funções do AWS
-
-As seções a seguir explicam como criar uma função IAM só de leitura para fornecer acesso ao Cloudyn.
-
-### <a name="get-your-cloudyn-account-external-id"></a>Obter o ID externo da conta Cloudyn
-
-A primeira etapa é obter a frase de acesso de ligação exclusivo a partir do portal do Cloudyn. Ele é usado no AWS como a **ID externo**.
-
-1. Abrir o portal da Cloudyn a partir do portal do Azure ou navegue até [ https://azure.cloudyn.com ](https://azure.cloudyn.com) e iniciar sessão.
-2. Clique no símbolo de engrenagem e, em seguida, selecione **contas da Cloud**.
-3. Na gestão de contas, selecione o **contas AWS** separador e, em seguida, clique em **adicionar novo +** .
-4. Na **adicionar conta AWS** caixa de diálogo, copie a **ID externo** e guarde o valor para a função de AWS criação os passos na secção seguinte. O ID externo é exclusivo para a sua conta. ID externo na imagem seguinte, o exemplo é _Contoso_ seguido de um número. O ID é diferente.  
-    ![ID externo apresentado na caixa de adicionar a conta do AWS](./media/connect-aws-account/external-id.png)
-
-### <a name="add-aws-read-only-role-based-access"></a>Adicionar AWS acesso só de leitura baseada em funções
-
-1. Inicie sessão na consola AWS https://console.aws.amazon.com/iam/home e selecione **funções**.
-2. Clique em **criar função** e, em seguida, selecione **conta AWS outro**.
-3. Na **ID da conta** caixa, cole `432263259397`. Este ID de conta é a conta de recoletor de dados do Cloudyn atribuída pelo AWS para o serviço do Cloudyn. Utilize o ID de conta exata apresentado.
-4. Junto a **opções**, selecione **necessitam de ID externo**. Cole o valor exclusivo que anteriormente copiados a partir da **ID externo** campo no Cloudyn. Em seguida, clique em **seguinte: Permissões**.  
-    ![Cole o ID externo do Cloudyn na página Criar função](./media/connect-aws-account/create-role01.png)
-5. Em **anexar as políticas de permissões**, na **tipo de política** pesquisa da caixa de filtro, escreva `ReadOnlyAccess`, selecione **ReadOnlyAccess**, em seguida, clique em **seguinte: Revisão**.  
-    ![Selecione o acesso só de leitura na lista de nomes de política](./media/connect-aws-account/readonlyaccess.png)
-6. Na página revisão, certifique-se as suas seleções estão corretas e escrevem um **nome da função**. Por exemplo, *custo-Azure-gestão*. Introduza um **descrição da função**. Por exemplo, _atribuição de função para o Cloudyn_, em seguida, clique em **criar função**.
-7. Na **funções** lista, clique na função que criou e copie a **função ARN** valor da página de resumida. Utilize o valor de função ARN (nome do recurso Amazon) mais tarde, quando se registra sua configuração no Cloudyn.  
-    ![Copie o ARN de função da página de resumida](./media/connect-aws-account/role-arn.png)
-
-### <a name="configure-aws-iam-role-access-in-cloudyn"></a>Configurar o acesso de função de AWS IAM no Cloudyn
-
-1. Abrir o portal da Cloudyn a partir do portal do Azure ou navegue para https://azure.cloudyn.com/ e iniciar sessão.
-2. Clique no símbolo de engrenagem e, em seguida, selecione **contas da Cloud**.
-3. Na gestão de contas, selecione o **contas AWS** separador e, em seguida, clique em **adicionar novo +** .
-4. Na **nome da conta**, escreva um nome para a conta.
-5. Junto a **tipo de acesso**, selecione **IAM função**.
-6. Na **função ARN** campo, cole o valor que copiou anteriormente e, em seguida, clique em **guardar**.  
-    ![Cole a função ARN na caixa de adicionar a conta do AWS](./media/connect-aws-account/add-aws-account-box.png)
+Also, you enable AWS detailed billing reports and store the information in an AWS simple storage service (S3) bucket. Detailed billing reports include billing charges with tag and resource information on an hourly basis. Storing the reports allows Cloudyn to retrieve them from your bucket and display the information in its reports.
 
 
-Sua conta AWS é apresentada na lista de contas. O **ID do proprietário** listados corresponde ao seu valor ARN de função. Sua **Status da conta** deve ter um símbolo de marca de verificação verde a indicar que o Cloudyn pode acessar sua conta AWS. Até ativar a faturação de AWS detalhada, seu estado de consolidação é apresentado como **autónomo**.
+## <a name="aws-role-based-access"></a>AWS role-based access
 
-![Estado da conta AWS mostrado na página Gestão de contas](./media/connect-aws-account/aws-account-status01.png)
+The following sections walk you through creating a read-only IAM role to provide access to Cloudyn.
 
-Começa a Cloudyn recolher os dados e preencher relatórios. Em seguida, [ativar a faturação do AWS detalhada](#enable-detailed-aws-billing).
+### <a name="get-your-cloudyn-account-external-id"></a>Get your Cloudyn account external ID
+
+The first step is to get the unique connection passphrase from the Cloudyn portal. It is used in AWS as the **External ID**.
+
+1. Open the Cloudyn portal from the Azure portal or navigate to  [https://azure.cloudyn.com](https://azure.cloudyn.com) and sign in.
+2. Click the cog symbol and then select **Cloud Accounts**.
+3. In Accounts Management, select the **AWS Accounts** tab and then click **Add new +** .
+4. In the **Add AWS Account** dialog, copy the **External ID** and save the value for AWS Role creation steps in the next section. The External ID is unique to your account. In the following image, the example External ID is _Contoso_ followed by a number. Your ID differs.  
+    ![External ID shown in the Add AWS Account box](./media/connect-aws-account/external-id.png)
+
+### <a name="add-aws-read-only-role-based-access"></a>Add AWS read-only role-based access
+
+1. Sign in to the AWS console at https://console.aws.amazon.com/iam/home and select **Roles**.
+2. Click **Create Role** and then select **Another AWS account**.
+3. In the **Account ID** box, paste `432263259397`. This Account ID is the Cloudyn data collector account assigned by AWS to the Cloudyn service. Use the exact Account ID shown.
+4. Next to **Options**, select **Require external ID**. Paste your unique value that copied previously from the **External ID** field in Cloudyn. Then click **Next: Permissions**.  
+    ![paste External ID from Cloudyn on the Create role page](./media/connect-aws-account/create-role01.png)
+5. Under **Attach permissions policies**, in the **Policy type** filter box search, type `ReadOnlyAccess`, select **ReadOnlyAccess**, then click **Next: Review**.  
+    ![select Read-only access in the list of policy names](./media/connect-aws-account/readonlyaccess.png)
+6. On the Review page, ensure your selections are correct and type a **Role name**. For example, *Azure-Cost-Mgt*. Enter a **Role description**. For example, _Role assignment for Cloudyn_, then click **Create role**.
+7. In the **Roles** list, click the role you created and copy the **Role ARN** value from the Summary page. Use the Role ARN (Amazon Resource Name) value later when you register your configuration in Cloudyn.  
+    ![copy the Role ARN from the Summary page](./media/connect-aws-account/role-arn.png)
+
+### <a name="configure-aws-iam-role-access-in-cloudyn"></a>Configure AWS IAM role access in Cloudyn
+
+1. Open the Cloudyn portal from the Azure portal or navigate to  https://azure.cloudyn.com/ and sign in.
+2. Click the cog symbol and then select **Cloud Accounts**.
+3. In Accounts Management, select the **AWS Accounts** tab and then click **Add new +** .
+4. In **Account Name**, type a name for the account.
+5. Next to **Access Type**, select **IAM Role**.
+6. In the **Role ARN** field, paste the value you previously copied and then click **Save**.  
+    ![paste the Role ARN in the Add AWS Account box](./media/connect-aws-account/add-aws-account-box.png)
 
 
-## <a name="aws-user-based-access"></a>Acesso com base no utilizador do AWS
+Your AWS account appears in the list of accounts. The **Owner ID** listed matches your Role ARN value. Your **Account Status** should have a green check mark symbol indicating that Cloudyn can access your AWS account. Until you enable detailed AWS billing, your consolidation status appears as **Standalone**.
 
-As seções a seguir explicam como criar um utilizador só de leitura para fornecer acesso ao Cloudyn.
+![AWS account status shown on the Accounts Management page](./media/connect-aws-account/aws-account-status01.png)
 
-### <a name="add-aws-read-only-user-based-access"></a>Adicionar AWS acesso só de leitura com base no utilizador
+Cloudyn starts collecting the data and populating reports. Next, [enable detailed AWS billing](#enable-detailed-aws-billing).
 
-1. Inicie sessão na consola AWS https://console.aws.amazon.com/iam/home e selecione **utilizadores**.
-2. Clique em **adicionar utilizador**.
-3. Na **nome de utilizador** , digite um nome de utilizador.
-4. Para **tipo de acesso**, selecione **acesso programático** e clique em **seguinte: Permissões**.  
-    ![Introduza um nome de utilizador na página Adicionar utilizador](./media/connect-aws-account/add-user01.png)
-5. Para permissões, selecione **anexar as políticas existentes diretamente**.
-6. Sob **políticas de permissões de anexar**, na **tipo de política** pesquisa da caixa de filtro, escreva `ReadOnlyAccess`, selecione **ReadOnlyAccess**e, em seguida, clique em **seguinte : Revisão**.  
-    ![Selecione ReadOnlyAccess para definir as permissões do utilizador](./media/connect-aws-account/set-permission-for-user.png)
-7. Na página revisão, certifique-se as suas seleções estão corretas, em seguida, clique em **criar utilizador**.
-8. Na página conclua, a sua chave ID e segredo de acesso à chave de acesso são apresentados. Utilize estas informações para configurar o registo no Cloudyn.
-9. Clique em **transferir. csv** e guarde o ficheiro de credentials.csv para uma localização segura.  
-    ![Clique em. csv de transferência para guardar as credenciais](./media/connect-aws-account/download-csv.png)
 
-### <a name="configure-aws-iam-user-based-access-in-cloudyn"></a>Configurar o acesso de utilizador com base de AWS IAM no Cloudyn
+## <a name="aws-user-based-access"></a>AWS user-based access
+
+The following sections walk you through creating a read-only user to provide access to Cloudyn.
+
+### <a name="add-aws-read-only-user-based-access"></a>Add AWS read-only user-based access
+
+1. Sign in to the AWS console at https://console.aws.amazon.com/iam/home and select **Users**.
+2. Click **Add User**.
+3. In the **User name** field, type a user name.
+4. For **Access type**, select **Programmatic access** and click **Next: Permissions**.  
+    ![enter a user name on the Add user page](./media/connect-aws-account/add-user01.png)
+5. For permissions, select **Attach existing policies directly**.
+6. Under **Attach permissions policies**, in the **Policy type** filter box search, type `ReadOnlyAccess`, select **ReadOnlyAccess**, and then click **Next: Review**.  
+    ![select ReadOnlyAccess to set permissions for the user](./media/connect-aws-account/set-permission-for-user.png)
+7. On the Review page, ensure your selections are correct then click **Create user**.
+8. On the Complete page, your Access key ID and Secret access key are shown. You use this information to configure registration in Cloudyn.
+9. Click **Download .csv** and save the credentials.csv file to a secure location.  
+    ![click Download .csv to save the credentials](./media/connect-aws-account/download-csv.png)
+
+### <a name="configure-aws-iam-user-based-access-in-cloudyn"></a>Configure AWS IAM user-based access in Cloudyn
 
 1. Abra o portal da Cloudyn a partir do portal do Azure ou navegue para https://azure.cloudyn.com/ e inicie sessão.
-2. Clique no símbolo de engrenagem e, em seguida, selecione **contas da Cloud**.
-3. Na gestão de contas, selecione o **contas AWS** separador e, em seguida, clique em **adicionar novo +** .
-4. Para **nome da conta**, escreva um nome de conta.
-5. Junto a **tipo de acesso**, selecione **IAM utilizador**.
-6. Na **chave de acesso**, cole a **acesso ID da chave** valor a partir do ficheiro credentials.csv.
-7. Na **chave secreta**, cole a **chave de acesso secreta** valor a partir do ficheiro credentials.csv e, em seguida, clique em **guardar**.  
+2. Click the cog symbol and then select **Cloud Accounts**.
+3. In Accounts Management, select the **AWS Accounts** tab and then click **Add new +** .
+4. For **Account Name**, type an account name.
+5. Next to **Access Type**, select **IAM User**.
+6. In **Access Key**, paste the **Access key ID** value from the credentials.csv file.
+7. In **Secret Key**, paste the **Secret access key** value from the credentials.csv file and then click **Save**.  
 
-Sua conta AWS é apresentada na lista de contas. Sua **Status da conta** deve ter um símbolo de marca de verificação verde.
+Your AWS account appears in the list of accounts. Your **Account Status** should have a green check mark symbol.
 
-Começa a Cloudyn recolher os dados e preencher relatórios. Em seguida, [ativar a faturação do AWS detalhada](#enable-detailed-aws-billing).
+Cloudyn starts collecting the data and populating reports. Next, [enable detailed AWS billing](#enable-detailed-aws-billing).
 
-## <a name="enable-detailed-aws-billing"></a>Ativar a faturação do AWS detalhada
+## <a name="enable-detailed-aws-billing"></a>Enable detailed AWS billing
 
-Utilize os seguintes passos para obter sua ARN de função do AWS. Utilize a função ARN para conceder as permissões de leitura para um bucket de faturação.
+Use the following steps to get your AWS Role ARN. You use the Role ARN to grant read permissions to a billing bucket.
 
-1. Inicie sessão na consola AWS https://console.aws.amazon.com e selecione **serviços**.
-2. Na pesquisa de serviço de tipo caixa *IAM*e selecione essa opção.
-3. Selecione **funções** no menu esquerdo.
-4. Na lista de funções, selecione a função que criou para o acesso ao Cloudyn.
-5. Na página de resumo de funções, clique para copiar o **função ARN**. Mantenha o ARN função útil para os passos seguintes.
+1. Sign in to the AWS console at https://console.aws.amazon.com and select **Services**.
+2. In the Service Search box type *IAM*, and select that option.
+3. Select **Roles** from the left-hand menu.
+4. In the list of Roles, select the role that you created for Cloudyn access.
+5. On the Roles Summary page, click to copy the **Role ARN**. Keep the Role ARN handy for later steps.
 
-### <a name="create-an-s3-bucket"></a>Criar um registo de S3
+### <a name="create-an-s3-bucket"></a>Create an S3 bucket
 
-Criar um registo de S3 para armazenar informações detalhadas de faturas.
+You create an S3 bucket to store detailed billing information.
 
-1. Inicie sessão na consola AWS https://console.aws.amazon.com e selecione **serviços**.
-2. Na pesquisa de serviço de tipo caixa *S3*e selecione **S3**.
-3. Na página do Amazon S3, clique em **bucket de criar**.
-4. No Assistente de registo de criar, escolha um nome de registo e a região e, em seguida, clique em **seguinte**.  
-    ![informações de exemplo, uma página de criação de bucket](./media/connect-aws-account/create-bucket.png)
-5. Sobre o **definir as propriedades** página, mantenha os valores predefinidos e, em seguida, clique em **próxima**.
-6. Na página revisão, clique em **bucket de criar**. É apresentada a lista de registo.
-7. Clique com o registo que criou e selecione o **permissões** separador e, em seguida, selecione **política de Bucket**. É aberto o editor de política de registo.
-8. Copie o seguinte exemplo JSON e cole-o no editor de políticas de registo.
-   - Substitua `<BillingBucketName>` com o nome do seu registo de S3.
-   - Substitua `<ReadOnlyUserOrRole>` com a função ou utilizador ARN que tinha anteriormente copiou.
+1. Sign in to the AWS console at https://console.aws.amazon.com and select **Services**.
+2. In the Service Search box type *S3*, and select **S3**.
+3. On the Amazon S3 page, click **Create bucket**.
+4. In the Create bucket wizard, choose a Bucket name and Region and then click **Next**.  
+    ![example information one the Create bucket page](./media/connect-aws-account/create-bucket.png)
+5. On the **Set properties** page, keep the default values, and then click **Next**.
+6. On the Review page, click **Create bucket**. Your bucket list is displayed.
+7. Click the bucket that you created and select the **Permissions** tab and then select **Bucket Policy**. The Bucket policy editor opens.
+8. Copy the following JSON example and paste it in the Bucket policy editor.
+   - Replace `<BillingBucketName>` with the name of your S3 bucket.
+   - Replace `<ReadOnlyUserOrRole>` with the Role or User ARN that you had previously copied.
 
    ```json
    {
@@ -173,24 +173,24 @@ Criar um registo de S3 para armazenar informações detalhadas de faturas.
    ```
 
 9. Clique em **Guardar**.  
-    ![Clique em Guardar no editor de políticas de Bucket](./media/connect-aws-account/bucket-policy-editor.png)
+    ![click Save in the Bucket policy editor](./media/connect-aws-account/bucket-policy-editor.png)
 
 
-### <a name="enable-aws-billing-reports"></a>Ativar os relatórios de faturação do AWS
+### <a name="enable-aws-billing-reports"></a>Enable AWS billing reports
 
-Depois de criar e configurar o registo de S3, navegue até [faturação preferências](https://console.aws.amazon.com/billing/home?#/preference) na consola do AWS.
+After you create and configure the S3 bucket, navigate to [Billing Preferences](https://console.aws.amazon.com/billing/home?#/preference) in the AWS console.
 
-1. Na página de preferências, selecione **receber relatórios de faturação**.
-2. Sob **receber relatórios de faturação**, introduza o nome do registo de que criou e, em seguida, clique em **verificar**.  
-3. Selecione todas as quatro opções de granularidade de relatório e, em seguida, clique em **salvar preferências**.  
-    ![Selecione a granularidade para ativar relatórios](./media/connect-aws-account/enable-reports.png)
+1. On the Preferences page, select **Receive Billing Reports**.
+2. Under **Receive Billing Reports**, enter the name of the bucket that you created and then click **Verify**.  
+3. Select all four report granularity options and then click **Save preferences**.  
+    ![select granularity to enable reports](./media/connect-aws-account/enable-reports.png)
 
-Cloudyn obtém informações detalhadas de faturas do seu registo de S3 e preenche relatórios depois detalhada a faturação é ativada. Pode demorar até 24 horas até que os dados de faturação detalhados surge na consola do Cloudyn. Quando os dados de faturação detalhados estão disponíveis, do Estado de consolidação da conta é apresentado como **consolidado**. Estado da conta é apresentado como **concluído**.
+Cloudyn retrieves detailed billing information from your S3 bucket and populates reports after detailed billing is enabled. It can take up to 24 hours until detailed billing data appears in the Cloudyn console. When detailed billing data is available, your account consolidation status appears as **Consolidated**. Account status appears as **Completed**.
 
-![Estado de consolidação apresentado no separador contas AWS](./media/connect-aws-account/consolidated-status.png)
+![consolidation status shown on the AWS Accounts tab](./media/connect-aws-account/consolidated-status.png)
 
-Alguns dos relatórios de otimização podem requerer alguns dias de dados e ter um tamanho de amostra de dados adequado para obter recomendações precisas.
+Some of the optimization reports may require a few days of data to get an adequate data sample size for accurate recommendations.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre o Cloudyn, avance para o [rever a utilização e custos](tutorial-review-usage.md) tutorial da Cloudyn.
+- To learn more about Cloudyn, continue to the [Review usage and costs](tutorial-review-usage.md) tutorial for Cloudyn.

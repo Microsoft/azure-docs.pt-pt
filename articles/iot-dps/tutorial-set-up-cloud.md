@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar a nuvem para o serviço de provisionamento de dispositivos no Hub IoT do Azure no portal'
-description: 'Tutorial: configurar os recursos de nuvem para o provisionamento de dispositivos no [portal do Azure](https://portal.azure.com) usando o DPS (serviço de provisionamento de dispositivos) do Hub IOT'
+title: Set up cloud for Azure IoT Hub Device Provisioning Service in portal
+description: Tutorial - Set up the cloud resources for device provisioning in the [Azure portal](https://portal.azure.com) using the IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e91627f934357cd67965ea8880db37ff9bfb3fb2
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: bdfe851532383e5a051f43cc4b20772f8053dbfc
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112789"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228319"
 ---
-# <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Tutorial: configurar recursos de nuvem para o provisionamento de dispositivos com o serviço de provisionamento de dispositivos no Hub IoT
+# <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Tutorial: Configure cloud resources for device provisioning with the IoT Hub Device Provisioning Service
 
 Este tutorial mostra como configurar a cloud para o aprovisionamento de dispositivos com o Serviço Aprovisionamento de Dispositivos no Hub IoT. Neste tutorial, ficará a saber como:
 
@@ -62,7 +62,7 @@ Siga estes passos para criar uma nova instância do Serviço Aprovisionamento de
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar cadeia de conexão para o Hub IoT
+### <a name="retrieve-connection-string-for-iot-hub"></a>Retrieve connection string for IoT hub
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -90,7 +90,7 @@ O passo seguinte é ligar o Serviço Aprovisionamento de Dispositivos e de hub I
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Definir a política de alocação no Serviço Aprovisionamento de Dispositivos
 
-A política de alocação é uma configuração de serviço de provisionamento de dispositivos no Hub IoT que determina como os dispositivos são atribuídos a um hub IoT. Existem três políticas de alocação suportadas: 
+The allocation policy is an IoT Hub Device Provisioning Service setting that determines how devices are assigned to an IoT hub. Existem três políticas de alocação suportadas: 
 
 1. **Latência mais baixa**: os dispositivos são aprovisionados para um hub IoT com base no hub com a latência mais baixa para o dispositivo.
 

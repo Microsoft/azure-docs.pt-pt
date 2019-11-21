@@ -1,23 +1,22 @@
 ---
-title: 'Início rápido: provisionar um dispositivo TPM simulado para o Hub IoT do Azure usando o Java'
-description: Início Rápido do Azure - criar e aprovisionar um dispositivo TPM simulado com o SDK de dispositivo Java com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure. Este início rápido utiliza inscrições individuais.
+title: Quickstart - Provision a simulated TPM device to Azure IoT Hub using Java
+description: Quickstart - Create and provision a simulated TPM device using Java device SDK for Azure IoT Hub Device Provisioning Service. Este início rápido utiliza inscrições individuais.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: d8dfb9bb74e1159c9e37f60595a74ae0d0d8f2f6
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
-ms.translationtype: MT
+ms.openlocfilehash: c94a9911fa29071a96111630cacd12712d07d70b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904882"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229646"
 ---
-# <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Início rápido: criar e provisionar um dispositivo TPM simulado usando o SDK do dispositivo Java para o serviço de provisionamento de dispositivos no Hub IoT do Azure
+# <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Quickstart: Create and provision a simulated TPM device using Java device SDK for Azure IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
@@ -131,8 +130,8 @@ Se quiser continuar a trabalhar e a explorar o exemplo de cliente do dispositivo
 
 1. Feche a janela da saída do exemplo de dispositivo cliente no seu computador.
 1. Feche a janela do simulador TPM no seu computador.
-1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Abra a folha **gerenciar registros** para seu serviço e clique na guia registros **individuais** . Selecione a *ID de registro* do dispositivo que você registrou neste início rápido e clique no botão **excluir** na parte superior. 
-1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Abra o painel **Dispositivos IoT** do seu hub, selecione o *ID DE DISPOSITIVO* do dispositivo que registou neste Manual de Início Rápido e, em seguida, clique no botão **Eliminar** na parte superior.
+1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Open the **Manage Enrollments** blade for your service, and then click the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this Quickstart, and click the **Delete** button at the top. 
+1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Abra o painel **Dispositivos IoT** do seu hub, selecione o *ID DE DISPOSITIVO* do dispositivo que registou neste Início Rápido e, em seguida, clique no botão **Eliminar** Na parte superior.
 
 ## <a name="next-steps"></a>Passos seguintes
 

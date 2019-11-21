@@ -1,37 +1,36 @@
 ---
-title: 'Início rápido: configurar o provisionamento de dispositivos usando um modelo de Azure Resource Manager'
-description: Início rápido do Azure-configurar o serviço de provisionamento de dispositivos no Hub IoT do Azure usando um modelo
+title: Set up Azure IoT Hub Device Provisioning using Azure Resource Manager template
+description: Azure quickstart - Set up the Azure IoT Hub Device Provisioning Service using a template
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f74260b5a2d088a6019653dcbcc6709e438916c4
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
-ms.translationtype: MT
+ms.openlocfilehash: 9a763a492496cef0f01468dc4b655a61e91a2a53
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151645"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229476"
 ---
-# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Início rápido: configurar o serviço de provisionamento de dispositivos no Hub IoT com um modelo de Azure Resource Manager
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Quickstart: Set up the IoT Hub Device Provisioning Service with an Azure Resource Manager template
 
-Pode utilizar o [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para configurar programaticamente os recursos de cloud do Azure necessários para aprovisionar os seus dispositivos. Estas etapas mostram como criar um hub IoT e um novo serviço de provisionamento de dispositivos no Hub IoT e vincular os dois serviços usando um modelo de Azure Resource Manager. Este guia de início rápido usa [CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) para executar as etapas programáticas necessárias para criar um grupo de recursos e implantar o modelo, mas você pode usar facilmente o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), o .net, o Ruby ou outras linguagens de programação para executar essas etapas e implantar o modelo. 
+Pode utilizar o [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para configurar programaticamente os recursos de cloud do Azure necessários para aprovisionar os seus dispositivos. These steps show how to create an IoT hub and a new IoT Hub Device Provisioning Service, and link the two services together using an Azure Resource Manager template. This quickstart uses [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) to perform the programmatic steps necessary to create a resource group and deploy the template, but you can easily use the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby, or other programming languages to perform these steps and deploy your template. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Este guia de início rápido requer que você execute o CLI do Azure localmente. Tem de ter instalada a versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- This quickstart requires that you run the Azure CLI locally. Tem de ter instalada a versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
 ## <a name="sign-in-to-azure-and-create-a-resource-group"></a>Iniciar sessão e criar um grupo de recursos
 
 Inicie sessão na sua conta do Azure e selecione a sua subscrição.
 
-1. No prompt de comando, execute o [comando de logon][lnk-login-command]:
+1. At the command prompt, run the [login command][lnk-login-command]:
     
     ```azurecli
     az login
@@ -39,7 +38,7 @@ Inicie sessão na sua conta do Azure e selecione a sua subscrição.
 
     Siga as instruções para se autenticar com o código e inicie sessão na sua conta do Azure através de um browser.
 
-2. Se tiver várias subscrições do Azure, iniciar sessão no Azure dá-lhe acesso a todas as contas do Azure associadas às suas credenciais. Use o seguinte [comando para listar as contas do Azure][lnk-az-account-command] disponíveis para uso:
+2. Se tiver várias subscrições do Azure, iniciar sessão no Azure dá-lhe acesso a todas as contas do Azure associadas às suas credenciais. Use the following [command to list the Azure accounts][lnk-az-account-command] available for you to use:
     
     ```azurecli
     az account list 
@@ -51,7 +50,7 @@ Inicie sessão na sua conta do Azure e selecione a sua subscrição.
     az account set --subscription {your subscription name or id}
     ```
 
-3. Quando cria recursos de cloud do Azure, como os hubs IoT e os serviços de aprovisionamento, cria-os em grupos de recursos separados. Use um grupo de recursos existente ou execute o seguinte [comando para criar um grupo de recursos][lnk-az-resource-command]:
+3. Quando cria recursos de cloud do Azure, como os hubs IoT e os serviços de aprovisionamento, cria-os em grupos de recursos separados. Either use an existing resource group, or run the following [command to create a resource group][lnk-az-resource-command]:
     
     ```azurecli
      az group create --name {your resource group name} --location westus
@@ -114,7 +113,7 @@ Utilize um modelo JSON para criar um serviço de aprovisionamento e um hub IoT a
 
    ```
 
-4. Para criar um hub IoT, adicione as seguintes linhas à coleção **resources**. O JSON especifica as propriedades mínimas necessárias para criar um hub IoT. As propriedades **name** e **location** são transmitidas como parâmetros. Para saber mais sobre as propriedades que você pode especificar para um hub IoT em um modelo, consulte [referência de modelo Microsoft. Devices/IotHubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
+4. Para criar um hub IoT, adicione as seguintes linhas à coleção **resources**. The JSON specifies the minimum properties required to create an IoT hub. As propriedades **name** e **location** são transmitidas como parâmetros. To learn more about the properties you can specify for an IoT hub in a template, see [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -235,7 +234,7 @@ Utilize um modelo JSON para criar um serviço de aprovisionamento e um hub IoT a
 
 ## <a name="create-a-resource-manager-parameter-file"></a>Criar um ficheiro de parâmetros do Resource Manager
 
-O modelo que você definiu na última etapa usa parâmetros para especificar o nome do Hub IoT, o nome do serviço de provisionamento e o local (região do Azure) para criá-los. Estes parâmetros são transmitidos num ficheiro à parte. Desta forma, pode utilizar o mesmo modelo para várias implementações. Para criar o ficheiro de parâmetros, siga estes passos:
+The template that you defined in the last step uses parameters to specify the name of the IoT hub, the name of the provisioning service, and the location (Azure region) to create them. Estes parâmetros são transmitidos num ficheiro à parte. Desta forma, pode utilizar o mesmo modelo para várias implementações. Para criar o ficheiro de parâmetros, siga estes passos:
 
 1. Utilize um editor de texto para criar um ficheiro de parâmetros do Azure Resource Manager com o nome **parameters.json** e o conteúdo de estrutura abaixo: 
 
@@ -248,7 +247,7 @@ O modelo que você definiu na última etapa usa parâmetros para especificar o n
    }
    ```
 
-2. Adicione o valor **iotHubName** à secção “parameters”.  Um nome de Hub IoT deve ser globalmente exclusivo no Azure, portanto, talvez você queira adicionar um prefixo ou sufixo exclusivo ao nome de exemplo ou escolher um novo nome totalmente. Verifique se seu nome segue as convenções de nomenclatura adequadas para um hub IoT: deve ter de 3-50 caracteres de comprimento e pode conter apenas caracteres alfanuméricos ou hifens ('-'). 
+2. Adicione o valor **iotHubName** à secção “parameters”.  An IoT hub name must be globally unique in Azure, so you may want to add a unique prefix or suffix to the example name, or choose a new name altogether. Make sure your name follows proper naming conventions for an IoT hub: it should be 3-50 characters in length, and can contain only upper or lower case alphanumeric characters or hyphens ('-'). 
 
    ```json
     "parameters": {
@@ -259,7 +258,7 @@ O modelo que você definiu na última etapa usa parâmetros para especificar o n
    
    ```
 
-3. Adicione o valor **provisioningServiceName** à secção “parameters”. Você também precisará escolher um nome globalmente exclusivo para seu serviço de provisionamento. Verifique se ele segue as convenções de nomenclatura adequadas para um serviço de provisionamento de dispositivos no Hub IoT: deve ter de 3-64 caracteres de comprimento e pode conter apenas caracteres alfanuméricos ou hifens ('-').
+3. Adicione o valor **provisioningServiceName** à secção “parameters”. You will also need to choose a globally unique name for your provisioning service. Make sure it follows proper naming conventions for an IoT Hub Device Provisioning Service: it should be 3-64 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-').
 
    ```json
     "parameters": {
@@ -321,7 +320,7 @@ Utilize os seguintes comandos da CLI do Azure para implementar os modelos e veri
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Outros guias de introdução desta coleção têm por base este guia de introdução. Se pretender continuar a trabalhar com guias de introdução subsequentes ou com os tutoriais, não limpe os recursos criados neste guia de introdução. Se você não planeja continuar, pode usar o CLI do Azure para [excluir um recurso individual][lnk-az-resource-command], como um hub IOT ou um serviço de provisionamento, ou para excluir um grupo de recursos e todos os seus recursos.
+Outros guias de introdução desta coleção têm por base este guia de introdução. Se pretender continuar a trabalhar com guias de introdução subsequentes ou com os tutoriais, não limpe os recursos criados neste guia de introdução. If you do not plan to continue, you can use the Azure CLI to [delete an individual resource][lnk-az-resource-command], such as an IoT hub or a provisioning service, or to delete a resource group and all of its resources.
 
 Para eliminar o serviço de aprovisionamento, execute o seguinte comando:
 
@@ -344,10 +343,10 @@ Também pode eliminar grupos de recursos e recursos individuais através do port
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você implantou um hub IoT e uma instância do serviço de provisionamento de dispositivos e vinculou os dois recursos. Para saber como usar essa configuração para provisionar um dispositivo simulado, continue no início rápido para criar um dispositivo simulado.
+In this quickstart, you’ve deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a simulated device, continue to the quickstart for creating a simulated device.
 
 > [!div class="nextstepaction"]
-> [Início rápido para criar um dispositivo simulado](./quick-create-simulated-device.md)
+> [Quickstart to create a simulated device](./quick-create-simulated-device.md)
 
 
 <!-- Links -->

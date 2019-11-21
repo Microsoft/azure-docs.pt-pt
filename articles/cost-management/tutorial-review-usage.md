@@ -7,24 +7,24 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 2b701e618bdcbd50709360c55cfb9ceb68781ebc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 41abf9d0675e7ea620a15656f97fcaed4fd0ff66
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969098"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229791"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
-# <a name="tutorial-review-usage-and-costs"></a>Tutorial: Rever a utilização e os custos
+# <a name="tutorial-review-usage-and-costs"></a>Tutorial: rever a utilização e os custos
 
 A Cloudyn mostra-lhe a utilização e os custos, de modo a que possa ver tendências, detetar ineficiências e criar alertas. Todos os dados de utilização e de custos são apresentados nos relatórios e nos dashboards da Cloudyn. Os exemplos neste tutorial orientam-no ao longo da revisão da utilização e dos custos através dos dashboards e dos relatórios.
 
-O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações, veja [Azure Cost Management](overview-cost-mgt.md).
+O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações, consulte [Azure Cost Management](overview-cost-mgt.md).
 
 Neste tutorial, ficará a saber como:
 
@@ -51,15 +51,15 @@ O dinheiro efetivamente gasto para utilização e custos é controlado com os re
 
 Segue-se um exemplo de relatório:
 
-![Relatório de custo Efetivo ao longo do tempo de exemplo](./media/tutorial-review-usage/actual-cost01.png)
+![Example Actual Cost Over Time report](./media/tutorial-review-usage/actual-cost01.png)
 
 O relatório mostra todos os gastos ao longo dos últimos 30 dias. Para ver os gastos apenas para serviços do Azure, aplique o grupo Serviços e filtre por todos os serviços do Azure. A imagem seguinte mostra os serviços filtrados.
 
-![A mostrar exemplo filtrado serviços do Azure](./media/tutorial-review-usage/actual-cost02.png)
+![Example showing filtered Azure services](./media/tutorial-review-usage/actual-cost02.png)
 
 No exemplo anterior, foi gasto menos dinheiro a partir de 29-10-2018. No entanto, haver demasiadas colunas pode ocultar uma tendência óbvia. Pode alterar a vista do relatório para uma linha ou área do gráfico para ver os dados apresentados noutras vistas. A imagem seguinte mostra a tendência com mais clareza.
 
-![Exemplo que mostra uma tendência de custo de VM do Azure diminuir](./media/tutorial-review-usage/actual-cost03.png)
+![Example showing a decreasing Azure VM cost trend](./media/tutorial-review-usage/actual-cost03.png)
 
 Continuando com o exemplo, pode ver que o custo de VMs do Azure diminuiu. Os custos para outros serviços do Azure também começou a diminuir nesse dia. Então, o que é que originou a redução nas despesas? Neste exemplo, um projeto grande de trabalho foi concluído, pelo que o consumo de muitos serviços do Azure também diminuíram.
 
@@ -77,45 +77,45 @@ O relatório Recomendações de Dimensionamento Económico identifica potenciais
 
 No menu na parte superior do portal, clique em **Otimizador** > **Otimização de Dimensionamento** > **Recomendações de Dimensionamento Económico**. Se for útil, aplique um filtro para reduzir os resultados. Segue-se uma imagem de exemplo.
 
-![Custo eficaz de dimensionar os relatórios de recomendação para VMs do Azure](./media/tutorial-review-usage/sizing01.png)
+![Cost effective sizing recommendation report for Azure VMs](./media/tutorial-review-usage/sizing01.png)
 
 Neste exemplo, seguir as recomendações para alterar os tipos de instância de VM levaria a uma poupança de 2382 $. Clique no sinal de adição (+) em **Detalhes** na primeira recomendação. Seguem-se os detalhes da primeira recomendação.
 
-![Detalhes de recomendação do exemplo que mostra](./media/tutorial-review-usage/sizing02.png)
+![Example showing recommendation details](./media/tutorial-review-usage/sizing02.png)
 
 Clique no sinal de mais junto a **Lista de Candidatos** para ver os IDs das instâncias de VMs.
 
-![Exemplo que mostra uma lista de candidatos VM para redimensionar](./media/tutorial-review-usage/sizing03.png)
+![Example showing a list of VM candidates to resize](./media/tutorial-review-usage/sizing03.png)
 
 Para ver um tutorial em vídeo sobre como detetar ineficiências de utilização, veja [Optimizing VM Size in Cloudyn](https://youtu.be/1xaZBNmV704) (Otimizar o Tamanho das VMs na Cloudyn).
 
-O Azure Cost Management também fornece recomendações de poupança de custos para serviços do Azure. Para obter mais informações, consulte [Tutorial: Otimizar os custos de recomendações](tutorial-acm-opt-recommendations.md).
+O Azure Cost Management também fornece recomendações de poupança de custos para serviços do Azure. Para obter mais informações, veja [Tutorial: otimizar os custos de recomendações](tutorial-acm-opt-recommendations.md).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Criar alertas para despesas invulgares
 
-Alertas permitem-lhe automaticamente notificar intervenientes de anomalias de gastos e riscos de ultrapassar o limite. Pode criar alertas através de relatórios que os alertas de suporte com base no orçamento e limiares de custo.
+Alerts allow you to automatically notify stakeholders of spending anomalies and overspending risks. You can create alerts using reports that support alerts based on budget and cost thresholds.
 
-Este exemplo utiliza a **custo Efetivo ao longo do tempo** relatório para enviar uma notificação quando seus gastos na VM do Azure está prestes a seu orçamento total. Neste cenário, tem um orçamento total de US $20.000 e pretender receber uma notificação quando os custos estão prestes a atingir metade do seu orçamento, US $9,000 e um alerta adicional quando os custos de atingir US $10.000.
+This example uses the **Actual Cost Over Time** report to send a notification when your spending on an Azure VM  nears your total budget. In this scenario, you have a total budget of $20,000 and you want to receive a notification when costs are approaching half of your budget, $9,000, and an additional alert when costs reach $10,000.
 
-1. No menu na parte superior do portal do Cloudyn, selecione **custos** > **análise de custo** > **custo Efetivo ao longo do tempo**.
+1. From the menu at the top of the Cloudyn portal, select **Costs** > **Cost Analysis** > **Actual Cost Over Time**.
 2. Defina **Grupos** como **Serviços** e defina **Filtrar por serviço** como **Azure/VM**.
-3. No canto superior direito do relatório, selecione **ações** e, em seguida, selecione **agendar relatório**.
-4. Para enviar si próprio um e-mail do relatório no intervalo agendado, selecione o **agendamento** separador a **guardar ou agendar esta** caixa de diálogo do relatório. Lembre-se de selecionar **Enviar por e-mail**. Todas as marcas de agrupamento e filtragem que uso são incluídos no relatório enviado por e-mail.
-5. Selecione o **limiar** separador e, em seguida, selecione **custo Efetivo vs. Limiar**.
-   1. Na **alerta vermelho** caixa limiar introduza 10000.
-   2. Na **alerta amarelo** caixa limiar introduza 9000.
-   3. Na **número de alertas consecutivos** , introduza o número de alertas consecutivos para receber. Quando receber o número total de alertas que especificou, não são enviados alertas adicionais.
+3. In the top right of the report, select **Actions** and then select **Schedule report**.
+4. To send yourself an email of the report at scheduled interval, select the **Scheduling** tab in the **Save or Schedule this** report dialog. Lembre-se de selecionar **Enviar por e-mail**. Any tags, grouping, and filtering you use are included in the emailed report.
+5. Select the **Threshold** tab and then select  **Actual Cost vs. Threshold**.
+   1. In the **Red alert** threshold box enter 10000.
+   2. In the **Yellow alert** threshold box enter 9000.
+   3. In the **Number of consecutive alerts** box, enter the number of consecutive alerts to receive. Quando receber o número total de alertas que especificou, não são enviados alertas adicionais.
 6. Selecione **Guardar**.
 
-![Exemplo que mostra alertas amarelas e vermelhas, com base nos limites de gastos](./media/tutorial-review-usage/schedule-alert01.png)
+![Example showing red and yellow alerts based on spending thresholds](./media/tutorial-review-usage/schedule-alert01.png)
 
-Também pode escolher o **percentagem de custos vs. Orçamento** métrica de limiar para criar alertas. Isto permite-lhe especificar os limiares como percentagens de seu orçamento em vez de valores de moeda.
+You can also choose the **Cost Percentage vs. Budget** threshold metric to create alerts. This allows you to specify the thresholds as percentages of your budget instead of currency values.
 
 ## <a name="export-data"></a>Exportar dados
 
 Da mesma forma que cria alertas para relatórios, também pode exportar dados a partir de qualquer relatório. Por exemplo, poderá exportar uma lista de contas do Cloudyn ou outros dados do utilizador. Para exportar qualquer relatório, abra o relatório e, em seguida, no canto superior direito do relatório, clique em **Ações**. Algumas das ações que poderá realizar são **Exportar todos os dados de relatório**, para transferir ou imprimir as informações. Em alternativa, pode selecionar **Agendar relatório**, para agendar o relatório para ser enviado como um e-mail.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 09/19/2019
 ms.topic: quickstart
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 53ac79c257e88380d462e5ef69ed494ae9967c07
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 77ea61d6aafad556a90b934d77569b8166aeafef
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155173"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230181"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Ativar subscrições e contas do Azure com o Cloudyn
 
@@ -41,7 +41,7 @@ Se estiver atribuída a função **Contribuidor** à sua conta, não tem permiss
 3. No Azure Active Directory, selecione **Definições do utilizador**.
 4. Verifique a opção **Registos das aplicações**.
     - Se estiver definida para **Sim**, os utilizadores que não forem administradores podem registar aplicações do AD. Esta definição significa que qualquer utilizador no inquilino do Azure AD pode registar uma aplicação.  
-    ![selecionar registos das aplicações nas definições de utilizador](./media/activate-subs-accounts/app-register.png)
+    ![select App registrations in User settings](./media/activate-subs-accounts/app-register.png)
     - Se a opção **Registos das aplicações** estiver definida para **Não**, apenas os utilizadores administrativos do inquilino podem registar aplicações do Azure Active Directory. O administrador do seu inquilino tem de registar a aplicação CloudynCollector.
 
 
@@ -53,12 +53,12 @@ Ao adicionar uma conta ou atualizar uma subscrição, concede ao Cloudyn acesso 
 
 1. No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e selecione **Contas da Cloud**.
 2. Clique em **Adicionar nova conta** para apresentar a caixa **Adicionar nova conta**. Introduza as informações necessárias.  
-    ![Introduza as informações necessárias na caixa de adicionar nova conta](./media/activate-subs-accounts/add-new-account.png)
+    ![enter required information in the Add new account box](./media/activate-subs-accounts/add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Atualizar uma subscrição
 
 1. Se quiser atualizar uma subscrição _desativada_ já existente no Cloudyn, em Gestão de Contas, clique no símbolo de lápis de edição à direita do _GUID de inquilino_ principal. As subscrições são agrupadas num inquilino principal, pelo que deve evitar ativar subscrições individualmente.
-    ![Selecione o seu ID de inquilino na caixa de subscrições de detetar novamente](./media/activate-subs-accounts/existing-sub.png)
+    ![select your tenant ID in the Rediscover subscriptions box](./media/activate-subs-accounts/existing-sub.png)
 2. Se for necessário, introduza o ID de Inquilino. Se não souber o ID de Inquilino, siga os passos abaixo para o encontrar:
     1. Inicie sessão no [portal do Azure](https://portal.azure.com).
     2. No portal do Azure, selecione **Azure Active Directory**.
@@ -87,7 +87,7 @@ Ao utilizar o portal do Cloudyn pela primeira vez, poderão ser apresentadas as 
 
 - *A chave de API especificada não é uma chave de inscrição de nível superior*, apresentada no assistente de **Configuração do Cloudyn**.
 - *Inscrição Direta – Não*, apresentada no portal do Contrato Enterprise.
-- *Não foram encontrados dados de utilização nos últimos 30 dias. Contacte o seu distribuidor para garantir que a marcação foi ativada para a sua conta do Azure*, apresentada no portal do Cloudyn.
+- *No usage data was found for the last 30 days. Please contact your distributor to make sure markup was enabled for your Azure account* displayed in the Cloudyn portal.
 
 As mensagens anteriores indicam que adquiriu um Contrato Enterprise do Azure através de um revendedor ou CSP. O seu revendedor ou CSP tem de ativar a _marcação_ para a sua conta do Azure, para que possa ver os dados no Cloudyn.
 
@@ -131,6 +131,6 @@ $url = "https://login.windows.net/"+$tenant+"/oauth2/authorize?api-version=1&res
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Se ainda não tiver concluído o primeiro tutorial para o Cloudyn, leia-o em [Rever a utilização e os custos](tutorial-review-usage.md).

@@ -1,24 +1,15 @@
 ---
-title: Armazenar dados não estruturados com o Azure Cosmos DB e as Funções | Microsoft Docs
+title: Store unstructured data using Azure Cosmos DB and Functions
 description: Armazenar dados não estruturados usando as funções do Azure e o Cosmos DB
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
-keywords: funções do azure, funções, processamento de eventos, Cosmos DB, computação dinâmica, arquitetura sem servidor
-ms.assetid: ''
-ms.service: azure-functions
-ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/01/2018
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: cdae0a04d09b7985935bee0ae636d7f88fbff541
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bae5e82bfe9091c2b2003b4f1735f51e3d37222d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107009"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230551"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Armazenar dados não estruturados usando as funções do Azure e o Azure Cosmos DB
 
@@ -29,7 +20,7 @@ O [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é uma óti
 
 Nas Funções do Azure, os enlaces de entrada e saída proporcionam uma forma declarativa para ligar aos dados do serviço externo a partir da sua função. Neste artigo, saiba como atualizar uma função existente para adicionar um enlace de saída que armazena dados não estruturados num documento do Azure Cosmos DB.
 
-![BD do Cosmos](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
+![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -167,7 +158,7 @@ Adicionou um enlace com êxito ao acionador de HTTP para armazenar os dados não
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o enlace a uma base de dados do Cosmos DB, veja [Enlaces do Cosmos DB das Funções do Azure](functions-bindings-cosmosdb.md).
 

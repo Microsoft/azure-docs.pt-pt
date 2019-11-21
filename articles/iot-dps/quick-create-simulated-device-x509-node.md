@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: provisionar um dispositivo X. 509 simulado para o Hub IoT do Azure usando node. js'
+title: Provision simulated X.509 device to Azure IoT Hub using Node.js
 description: Criar e aprovisionar um dispositivo X.509 simulado com o SDK de dispositivo Node.js com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure. Este início rápido utiliza inscrições individuais.
 author: wesmc7777
 ms.author: wesmc
@@ -7,17 +7,16 @@ ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: e28f0c19918cb29ca6850b1957a403af5aafb1a4
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
-ms.translationtype: MT
+ms.openlocfilehash: 8b9ea3457a99edf81e9fe217ba6708bcec40a84c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904799"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228636"
 ---
-# <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Início rápido: criar e provisionar um dispositivo simulado X. 509 usando o SDK do dispositivo node. js para o serviço de provisionamento de dispositivos no Hub IoT
+# <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Create and provision an X.509 simulated device using Node.js device SDK for IoT Hub Device Provisioning Service
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Estes passos mostram como criar uma entrada de inscrição no Serviço de Aprovisionamento de Dispositivos, simular um dispositivo x.509 no seu computador de desenvolvimento, ligar o dispositivo simulado com o Serviço de Aprovisionamento de Dispositivos e registar o dispositivo no seu hub IoT com o [SDK de Dispositivo Node.js do Hub IoT](https://github.com/Azure/azure-iot-sdk-node).
@@ -90,7 +89,7 @@ Vai utilizar o código de exemplo do SDK do [Azure IoT para Node.js](https://git
 
      [![Adicionar inscrição individual para fins de atestado X.509 no portal](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
 
-     Após o registro bem-sucedido, o dispositivo X. 509 aparece como **{CertificateName}** na coluna *ID de registro* na guia registros *individuais* . Observe esse valor para mais tarde.
+     On successful enrollment, your X.509 device appears as **{certificatename}** under the *Registration ID* column in the *Individual Enrollments* tab. Note this value for later.
 
 ## <a name="simulate-the-device"></a>Simular o dispositivo
 
@@ -138,8 +137,8 @@ O [SDK de Dispositivo Node.js do Hub IoT do Azure](https://github.com/Azure/azur
 Se quiser continuar a trabalhar e a explorar o exemplo de cliente do dispositivo, não limpe os recursos criados neste Guia Rápido. Se não planear continuar, utilize os passos seguintes para eliminar todos os recursos criados no Guia Rápido.
 
 1. Feche a janela da saída do exemplo de dispositivo cliente no seu computador.
-2. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Abra a folha **gerenciar registros** para seu serviço e clique na guia registros **individuais** . Selecione a *ID de registro* do dispositivo que você registrou neste início rápido e clique no botão **excluir** na parte superior. 
-3. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Abra o painel **Dispositivos IoT** do seu hub, selecione o *ID DE DISPOSITIVO* do dispositivo que registou neste Manual de Início Rápido e, em seguida, clique no botão **Eliminar** na parte superior.
+2. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Open the **Manage Enrollments** blade for your service, and then click the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this Quickstart, and click the **Delete** button at the top. 
+3. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Abra o painel **Dispositivos IoT** do seu hub, selecione o *ID DE DISPOSITIVO* do dispositivo que registou neste Início Rápido e, em seguida, clique no botão **Eliminar** Na parte superior.
 
 
 ## <a name="next-steps"></a>Passos seguintes

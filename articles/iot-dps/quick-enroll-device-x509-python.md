@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: como registrar dispositivos X. 509 no serviço de provisionamento de dispositivos do Azure usando o Python'
+title: Enroll X.509 devices to Azure Device Provisioning Service using Python
 description: Este início rápido utiliza inscrições em grupo. Neste guia de início rápido, irá inscrever dispositivos X.509 no Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure com o Python.
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 23ae0bd9e66cbb592db0ec9adea5e4332a9aa19b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 5be204b49611c47519c3fa9bbfa1e81dbedc0ca0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904728"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229506"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos com Python
 
@@ -141,7 +140,7 @@ Se quiser explorar o exemplo de serviço Java, não limpe os recursos criados ne
 
 1. Feche a janela da saída do exemplo de Java no seu computador.
 1. Feche a janela do _X509 Cert Generator_ no seu computador.
-1. Navegue até o serviço de provisionamento de dispositivos no portal do Azure, clique em **gerenciar registros**e, em seguida, selecione a guia **grupos de registro** . Selecione o nome do *grupo* para os dispositivos X. 509 que você registrou usando este guia de início rápido e clique no botão **excluir** na parte superior da folha.  
+1. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Enrollment Groups** tab. Select the *GROUP NAME* for the X.509 devices you enrolled using this Quickstart, and click the **Delete** button at the top of the blade.  
 
 
 ## <a name="next-steps"></a>Passos seguintes
