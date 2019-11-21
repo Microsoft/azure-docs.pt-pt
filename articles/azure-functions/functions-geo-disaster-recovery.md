@@ -1,65 +1,60 @@
 ---
-title: Azure Functions recuperação de desastres geograficamente e alta disponibilidade | Microsoft Docs
-description: Como usar regiões geográficas para redundância e para fazer failover em Azure Functions.
-services: functions
-documentationcenter: na
+title: Azure Functions geo-disaster recovery and high availability
+description: How to use geographical regions for redundancy and to fail over in Azure Functions.
 author: wesmc7777
-manager: jeconnoc
-keywords: Azure functions, padrões, práticas recomendadas, funções
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: jehollan
-ms.openlocfilehash: 1d75d58a6df622ffb1b277f75ceedc2c2a66369d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: db072d90c39b3856127925306cb1407c5837a0bb
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576266"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226963"
 ---
-# <a name="azure-functions-geo-disaster-recovery"></a>Azure Functions recuperação de desastres geograficamente
+# <a name="azure-functions-geo-disaster-recovery"></a>Azure Functions geo-disaster recovery
 
-Quando todas as regiões ou datacenters do Azure têm experiência com tempo de inatividade, é fundamental para a computação continuar o processamento em uma região diferente.  Este artigo explicará algumas das estratégias que você pode usar para implantar funções para permitir a recuperação de desastres.
+When entire Azure regions or datacenters experience downtime, it is critical for compute to continue processing in a different region.  This article will explain some of the strategies that you can use to deploy functions to allow for disaster recovery.
 
 ## <a name="basic-concepts"></a>Conceitos básicos
 
-Azure Functions executado em uma região específica.  Para obter maior disponibilidade, você pode implantar as mesmas funções em várias regiões.  Quando em várias regiões, você pode ter suas funções em execução no padrão *ativo/ativo* ou no padrão *ativo/passivo* .  
+Azure Functions run in a specific region.  To get higher availability, you can deploy the same functions to multiple regions.  When in multiple regions you can have your functions running in the *active/active* pattern or *active/passive* pattern.  
 
-* Modo ativo/ativo. Ambas as regiões estão ativas e recebendo eventos (duplicados ou rotacionalmente). Ativo/ativo é recomendado para funções HTTPS em combinação com a porta frontal do Azure.
-* Ativo/passivo. Uma região está ativa e recebendo eventos, enquanto um secundário está ocioso.  Quando o failover é necessário, a região secundária é ativada e assume o processamento.  Isso é recomendado para funções não HTTP, como barramento de serviço e hubs de eventos.
+* Modo ativo/ativo. Both regions are active and receiving events (duplicate or rotationally). Active/active is recommended for HTTPS functions in combination with Azure Front Door.
+* Active/passive. One region is active and receiving events, while a secondary is idle.  When failover is required, the secondary region is activated and takes over processing.  This is recommended for non-HTTP functions like Service Bus and Event Hubs.
 
-Leia como [executar aplicativos em várias regiões](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) para obter mais informações sobre implantações de várias regiões.
+Read how to [run apps in multiple regions](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) for more information on multi-region deployments.
 
-## <a name="activeactive-for-https-functions"></a>Ativo/ativo para funções HTTPS
+## <a name="activeactive-for-https-functions"></a>Active/active for HTTPS functions
 
-Para obter implantações ativas/ativas de funções, é necessário um componente que possa coordenar os eventos entre ambas as regiões.  Para funções HTTPS, essa coordenação é realizada usando a [porta frontal do Azure](../frontdoor/front-door-overview.md).  A porta frontal do Azure pode rotear e redirecionar solicitações HTTPS entre várias funções regionais.  Ele também verifica periodicamente a integridade de cada ponto de extremidade.  Se uma função regional parar de responder às verificações de integridade, a porta frontal do Azure a retirará da rotação e apenas encaminhará o tráfego para as funções íntegras.  
+To achieve active/active deployments of functions, it requires some component that can coordinate the events between both regions.  For HTTPS functions, this coordination is accomplished using [Azure Front Door](../frontdoor/front-door-overview.md).  Azure Front Door can route and round-robin HTTPS requests between multiple regional functions.  It also periodically checks the health of each endpoint.  If a regional function stops responding to health checks, Azure Front Door will take it out of rotation and only forward traffic to healthy functions.  
 
-![Arquitetura para a porta e a função front do Azure](media/functions-geo-dr/front-door.png)  
+![Architecture for Azure Front Door and Function](media/functions-geo-dr/front-door.png)  
 
-## <a name="activeactive-for-non-https-functions"></a>Ativo/ativo para funções não-HTTPS
+## <a name="activeactive-for-non-https-functions"></a>Active/active for non-HTTPS functions
 
-Você ainda pode obter implantações ativas/ativas para funções não-HTTPS.  No entanto, você precisa considerar como as duas regiões interagirão ou serão coordenadas umas com as outras.  Se você implantou o mesmo aplicativo de funções em duas regiões, cada um disparando na mesma fila do barramento de serviço, ele atuaria como consumidores concorrentes na remoção da fila dessa fila.  Embora isso signifique que cada mensagem está sendo processada apenas por uma das instâncias, isso também significa que ainda há um único ponto de falha no barramento de serviço único.  Se você implantar duas filas do barramento de serviço (uma em uma região primária, uma em uma região secundária) e os dois aplicativos de função apontados para sua fila de região, o desafio agora é o modo como as mensagens de fila são distribuídas entre as duas regiões.  Geralmente, isso significa que cada publicador tenta publicar uma mensagem em *ambas as* regiões e cada mensagem é processada por ambos os aplicativos de funções ativas.  Embora isso crie um padrão ativo/ativo, ele cria outros desafios em relação à duplicação de computação e quando ou como os dados são consolidados.  Por esses motivos, é recomendável que gatilhos não-HTTPS usem o padrão ativo/passivo.
+You can still achieve active/active deployments for non-HTTPS functions.  However, you need to consider how the two regions will interact or coordinate with one another.  If you deployed the same function app into two regions, each triggering on the same Service Bus queue, they would act as competing consumers on de-queueing that queue.  While this means each message is only being processed by one of the instances, it also means there is still a single point of failure on the single service bus.  If you deploy two service bus queues (one in a primary region, one in a secondary region), and the two function apps pointed to their region queue, the challenge now comes in how the queue messages are distributed between the two regions.  Often this means that each publisher attempts to publish a message to *both* regions, and each message is processed by both active function apps.  While this creates an active/active pattern, it creates other challenges around duplication of compute and when or how data is consolidated.  For these reasons, it is recommended for non-HTTPS triggers to use the active/passive pattern.
 
-## <a name="activepassive-for-non-https-functions"></a>Ativo/passivo para funções não HTTPS
+## <a name="activepassive-for-non-https-functions"></a>Active/passive for non-HTTPS functions
 
-Ativo/passivo fornece uma maneira para apenas uma única função processar cada mensagem, mas fornece um mecanismo para fazer failover para uma região secundária em caso de desastre.  Azure Functions funciona junto [com a recuperação geográfica do barramento de serviço do](../service-bus-messaging/service-bus-geo-dr.md) Azure e [com a recuperação geográfica dos hubs de eventos do Azure](../event-hubs/event-hubs-geo-dr.md).
+Active/passive provides a way for only a single function to process each message, but provides a mechanism to fail over to a secondary region in case of a disaster.  Azure Functions works alongside [Azure Service Bus geo-recovery](../service-bus-messaging/service-bus-geo-dr.md) and [Azure Event Hubs geo-recovery](../event-hubs/event-hubs-geo-dr.md).
 
-Usando gatilhos de hubs de eventos do Azure como exemplo, o padrão ativo/passivo envolveria o seguinte:
+Using Azure Event Hubs triggers as an example, the active/passive pattern would involve the following:
 
-* Hub de eventos do Azure implantado em uma região primária e secundária.
-* Desastre geográfico habilitado para emparelhar o Hub de eventos primário e secundário.  Isso também cria um "alias" que você pode usar para se conectar aos hubs de eventos e alternar de primário para secundário sem alterar as informações de conexão.
-* Aplicativos de funções implantados em uma região primária e secundária.
-* Os aplicativos de funções estão sendo disparados na cadeia de conexão *direta* (sem alias) para seu respectivo Hub de eventos. 
-* Os editores para o Hub de eventos devem publicar na cadeia de conexão do alias. 
+* Azure Event Hub deployed to both a primary and secondary region.
+* Geo-disaster enabled to pair the primary and secondary Event Hub.  This also creates an "alias" you can use to connect to event hubs and switch from primary to secondary without changing the connection info.
+* Function apps deployed to both a primary and secondary region.
+* The function apps are triggering on the *direct* (non-alias) connection string for its respective event hub. 
+* Publishers to the event hub should publish to the alias connection string. 
 
-![Arquitetura de exemplo ativo-passivo](media/functions-geo-dr/active-passive.png)
+![Active-passive example architecture](media/functions-geo-dr/active-passive.png)
 
-Antes do failover, os editores que enviarem para o alias compartilhado rotearão para o Hub de eventos primário.  O aplicativo de funções primário está ouvindo exclusivamente o Hub de eventos primário.  O aplicativo de funções secundário será passivo e ocioso.  Assim que o failover for iniciado, os Publicadores que enviarem para o alias compartilhado agora serão roteados para o Hub de eventos secundário.  O aplicativo de função secundário agora ficará ativo e começará a disparar automaticamente.  O failover efetivo para uma região secundária pode ser totalmente controlado do hub de eventos, com as funções se tornando ativas somente quando o respectivo Hub de eventos estiver ativo.
+Before failover, publishers sending to the shared alias will route to the primary event hub.  The primary function app is listening exclusively to the primary event hub.  The secondary function app will be passive and idle.  As soon as failover is initiated, publishers sending to the shared alias will now route to the secondary event hub.  The secondary function app will now become active and start triggering automatically.  Effective failover to a secondary region can be driven entirely from the event hub, with the functions becoming active only when the respective event hub is active.
 
-Leia mais sobre informações e considerações sobre failover com o [barramento de serviço](../service-bus-messaging/service-bus-geo-dr.md) e os hubs de [eventos](../event-hubs/event-hubs-geo-dr.md).
+Read more on information and considerations for failover with [service bus](../service-bus-messaging/service-bus-geo-dr.md) and [event hubs](../event-hubs/event-hubs-geo-dr.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Criar porta frontal do Azure](../frontdoor/quickstart-create-front-door.md)
-* [Considerações sobre failover de hubs de eventos](../event-hubs/event-hubs-geo-dr.md#considerations)
+* [Create Azure Front Door](../frontdoor/quickstart-create-front-door.md)
+* [Event Hubs failover considerations](../event-hubs/event-hubs-geo-dr.md#considerations)

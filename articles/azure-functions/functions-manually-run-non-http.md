@@ -1,83 +1,79 @@
 ---
-title: Executar manualmente das funções não acionada por HTTP do Azure
-description: Utilize uma solicitação HTTP para executar um não-HTTP acionada as funções do Azure
-services: functions
-keywords: ''
+title: Manually run a non HTTP-triggered Azure Functions
+description: Use an HTTP request to run a non-HTTP triggered Azure Functions
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: cfebe5c783018cfab51f384cce578e43383c3905
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8198ff6579aff839ff9aacb729e2f3f8d3472fae
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479829"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230465"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Executar manualmente uma função não acionada por HTTP
 
-Este artigo demonstra como executar manualmente uma função não acionada por HTTP através de pedido HTTP formatado de modo especial.
+This article demonstrates how to manually run a non HTTP-triggered function via specially formatted HTTP request.
 
-Em alguns contextos, poderá ter de executar "on-demand" uma função do Azure que é acionada indiretamente.  Exemplos de acionadores indiretos [funções com base numa agenda](./functions-create-scheduled-function.md) ou as funções que são executados como o resultado da [ação de outro recurso](./functions-create-storage-blob-triggered-function.md). 
+In some contexts, you may need to run "on-demand" an Azure Function that is indirectly triggered.  Examples of indirect triggers include [functions on a schedule](./functions-create-scheduled-function.md) or functions that run as the result of [another resource's action](./functions-create-storage-blob-triggered-function.md). 
 
-[Postman](https://www.getpostman.com/) é utilizado no exemplo a seguir, mas pode usar [cURL](https://curl.haxx.se/), [Fiddler](https://www.telerik.com/fiddler) ou qualquer outro como ferramenta para enviar pedidos HTTP.
+[Postman](https://www.getpostman.com/) is used in the following example, but you may use [cURL](https://curl.haxx.se/), [Fiddler](https://www.telerik.com/fiddler) or any other like tool to send HTTP requests.
 
-## <a name="define-the-request-location"></a>Defina a localização do pedido
+## <a name="define-the-request-location"></a>Define the request location
 
-Para executar uma função não acionada por HTTP, terá de uma forma de enviar um pedido para o Azure para executar a função. O URL utilizado para fazer este pedido leva um formulário específico.
+To run a non HTTP-triggered function, you need to a way to send a request to Azure to run the function. The URL used to make this request takes a specific form.
 
-![Defina a localização do pedido: nome + a caminho da pasta + a função de anfitrião nome](./media/functions-manually-run-non-http/azure-functions-admin-url-anatomy.png)
+![Define the request location: host name + folder path + function name](./media/functions-manually-run-non-http/azure-functions-admin-url-anatomy.png)
 
-- **Nome do anfitrião:** Localização pública da aplicação de função que é composta por do nome da aplicação de função adição *azurewebsites.net* ou o seu domínio personalizado.
-- **Caminho da pasta:** Para aceder às funções não acionada por HTTP através de um pedido HTTP, terá de enviar o pedido através das pastas *administrador/funções*.
-- **Nome da função:** O nome da função que pretende executar.
+- **Host name:** The function app's public location that is made up from the function app's name plus *azurewebsites.net* or your custom domain.
+- **Folder path:** To access non HTTP-triggered functions via an HTTP request, you have to send the request through the folders *admin/functions*.
+- **Function name:** The name of the function you want to run.
 
-Utilize esta localização de pedido no Postman, juntamente com a chave mestra da função no pedido para o Azure para executar a função.
+You use this request location in Postman along with the function's master key in the request to Azure to run the function.
 
 > [!NOTE]
-> Ao executar localmente, não é necessária a chave de principal da função. Pode diretamente [chamar a função](#call-the-function) omitindo o `x-functions-key` cabeçalho.
+> When running locally, the function's master key is not required. You can directly [call the function](#call-the-function) omitting the `x-functions-key` header.
 
-## <a name="get-the-functions-master-key"></a>Obter a chave mestra da função
+## <a name="get-the-functions-master-key"></a>Get the function's master key
 
-Navegue para a sua função no portal do Azure e clique em **Manage** e localize a **chaves de anfitrião** secção. Clique nas **cópia** botão no *_master* linha para copiar a chave mestra para a área de transferência.
+Navigate to your function in the Azure portal and click on **Manage** and find the **Host Keys** section. Click on the **Copy** button in the *_master* row to copy the master key to your clipboard.
 
-![Copiar a chave mestra do ecrã de gestão de função](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
+![Copy master key from Function Management screen](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
 
-Depois de copiar a chave mestra, clique no nome da função para regressar à janela de arquivo de código. Em seguida, clique nas **registos** separador. Verá mensagens a partir da função registado, aqui, quando executa manualmente a função do Postman.
+After copying the master key, click on the function name to return to the code file window. Next, click on the **Logs** tab. You'll see messages from the function logged here when you manually run the function from Postman.
 
 > [!CAUTION]  
-> Devido a permissões elevadas na sua aplicação de função concedidas pela chave mestra, não deve partilhar esta chave com terceiros ou distribuí-la num aplicativo.
+> Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in an application.
 
-## <a name="call-the-function"></a>Chamar a função
+## <a name="call-the-function"></a>Call the function
 
-Abra o Postman e siga estes passos:
+Open Postman and follow these steps:
 
-1. Introduza o **solicitam a localização na caixa de texto URL**.
-2. Certifique-se de que o método HTTP está definido como **POST**.
-3. **Clique em** sobre o **cabeçalhos** separador.
-4. Introduza **x-funções-key** como o primeiro **chave** e cole a chave mestra (da área de transferência) para o **valor** caixa.
-5. Introduza **Content-Type** como o segundo **chave** e introduza **application/json** como o **valor**.
+1. Enter the **request location in the URL text box**.
+2. Ensure the HTTP method is set to **POST**.
+3. **Click** on the **Headers** tab.
+4. Enter **x-functions-key** as the first **key** and paste the master key (from the clipboard) into the **value** box.
+5. Enter **Content-Type** as the second **key** and enter **application/json** as the **value**.
 
-    ![Definições de cabeçalhos do postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
+    ![Postman headers settings](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
 
-6. **Clique em** sobre o **corpo** separador.
-7. Introduza **{"de entrada": "teste"}** como o corpo da solicitação.
+6. **Click** on the **Body** tab.
+7. Enter **{ "input": "test" }** as the body for the request.
 
-    ![Definições de corpo do postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
+    ![Postman body settings](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
 
-8. Clique em **enviar**.
+8. Click **Send**.
 
-    ![Enviar um pedido com o Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
+    ![Sending a request with Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
 
-Postman, em seguida, relatórios de estado **aceite 202**.
+Postman then reports a status of **202 Accepted**.
 
-Em seguida, regresse à função no portal do Azure. Localize a *registos* janela e verá mensagens recebidas da chamada manual para a função.
+Next, return to your function in the Azure portal. Locate the *Logs* window and you'll see messages coming from the manual call to the function.
 
-![Resultados do registo de função de chamada manual](./media/functions-manually-run-non-http/azure-portal-function-log.png)
+![Function log results from manual call](./media/functions-manually-run-non-http/azure-portal-function-log.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Estratégias para testar seu código nas funções do Azure](./functions-test-a-function.md)
-- [Função do Azure Event Grid acionador Local depuração](./functions-debug-event-grid-trigger-local.md)
+- [Strategies for testing your code in Azure Functions](./functions-test-a-function.md)
+- [Azure Function Event Grid Trigger Local Debugging](./functions-debug-event-grid-trigger-local.md)

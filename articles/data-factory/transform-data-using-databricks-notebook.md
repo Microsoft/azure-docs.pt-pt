@@ -1,22 +1,22 @@
 ---
-title: Executar um Databricks Notebook com a atividade Databricks Notebook no Azure Data Factory
+title: Run a Databricks Notebook with the Databricks Notebook activity
 description: Saiba como pode utilizar a Atividade do Databricks Notebook num Azure Data Factory para executar um Databricks Notebook no cluster de tarefas do Databricks.
 services: data-factory
-documentationcenter: ''
-author: nabhishek
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 03/12/2018
 ms.author: abnarain
+author: nabhishek
+manager: shwang
 ms.reviewer: douglasl
-ms.openlocfilehash: b6426017b7608742866cedb08b5ac9298400d433
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.custom: seo-lt-2019
+ms.date: 03/12/2018
+ms.openlocfilehash: 7ad7c8e70d8669612baf00f19d3695dc7fab07f5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140892"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217867"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Executar um Databricks Notebook com a Atividade do Databricks Notebook no Azure Data Factory
 
@@ -70,7 +70,7 @@ Para uma introdução e demonstração de onze minutos desta funcionalidade, vej
 
 1.  Em **Localização**, selecione a localização para a fábrica de dados.
 
-    Para obter uma lista de regiões do Azure nas quais Data Factory está disponível no momento, selecione as regiões que lhe interessam na página a seguir e expanda **análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (como o Armazenamento do Azure e a Base de Dados SQL do Azure) e as computações (como o HDInsight) utilizados pelo Data Factory podem estar noutras regiões.
+    Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (como o Armazenamento do Azure e a Base de Dados SQL do Azure) e as computações (como o HDInsight) utilizados pelo Data Factory podem estar noutras regiões.
 1.  Selecione **Criar**.
 
 
@@ -108,7 +108,7 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
     1.  Para **Token de Acesso**, gere-o a partir da área de trabalho do Azure Databricks. Pode encontrar os passos [aqui](https://docs.databricks.com/api/latest/authentication.html#generate-token).
 
-    1.  Para a **versão do cluster**, selecione **4,2** (com Apache Spark 2.3.1, escala 2,11)
+    1.  For **Cluster version**, select **4.2** (with Apache Spark 2.3.1, Scala 2.11)
 
     1.  Para este tutorial, em **Tipo de nó do cluster**, selecione **Standard\_D3\_v2** na categoria **Fins Gerais (HDD)** . 
     
@@ -150,7 +150,7 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
           ![Criar uma nova pasta](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       1. [Criar um novo bloco de anotações](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), vamos chamá-lo de mynotebook na pasta **adftutorial** , clicar em **Create (criar).**
+       1. [Create a new notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), let’s call it **mynotebook** under **adftutorial** Folder, click **Create.**
 
           ![Criar um novo Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
@@ -174,11 +174,11 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
 1.  Volte à **ferramenta de criação da IU do Data Factory**. Navegue para o separador **Definições** em **Atividade do Notebook1**.
 
-    a.  **Adicione o parâmetro** à atividade do Notebook. Vai utilizar o mesmo parâmetro que adicionou anteriormente ao **Pipeline**.
+    a.  **Adicione o parâmetro** à atividade do Notebook. Utiliza o mesmo parâmetro adicionado anteriormente ao **Pipeline**.
 
        ![Adicionar um parâmetro](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
-    b.  Nomeie o parâmetro como **entrada** e forneça o valor como pipeline de expressão  **\@(). Parameters. Name**.
+    b.  Name the parameter as **input** and provide the value as expression **\@pipeline().parameters.name**.
 
 1.  Para validar o pipeline, selecione o botão **Validar** na barra de ferramentas. Para fechar a janela de validação, selecione o botão **\>\>** (seta para a direita).
 
@@ -200,7 +200,7 @@ A caixa de diálogo **Execução do Pipeline** pede-lhe o parâmetro **name**. U
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorizar a execução do pipeline.
 
-1.  Mude para o separador **Monitorizar**. Confirme que vê uma execução de pipeline. A criação de um cluster de trabalhos do Databricks, onde o Notebook vai ser executado, demora aproximadamente entre 5 a 8 minutos.
+1.  Switch to the **Monitor** tab. Confirm that you see a pipeline run. A criação de um cluster de trabalhos do Databricks, onde o Notebook vai ser executado, demora aproximadamente entre 5 a 8 minutos.
 
     ![Monitorizar o pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
 
@@ -218,7 +218,7 @@ Pode iniciar sessão na **Área de trabalho do Azure Databricks**, aceder a **Cl
 
 ![Ver o cluster de trabalhos e o trabalho](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png)
 
-Pode clicar no **Nome do trabalho** e navegar para ver mais detalhes. Numa execução bem-sucedida, pode validar os parâmetros transmitidos e o resultado do Python Notebook.
+Pode clicar no **Nome da tarefa** e navegar para ver mais detalhes. Numa execução bem-sucedida, pode validar os parâmetros transmitidos e o resultado do Python Notebook.
 
 ![Ver os detalhes de execução e o resultado](media/transform-data-using-databricks-notebook/databricks-output.png)
 

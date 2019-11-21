@@ -1,6 +1,6 @@
 ---
-title: Atualizar seu perfil e conta no portal meus aplicativos – Azure AD
-description: Saiba como atualizar seu perfil e suas informações de conta corporativa ou de estudante, incluindo alterar sua senha, ativar a redefinição de senha, atualizar seus métodos de verificação de segurança, exibir a instrução de termos de uso da sua organização e sair do em qualquer lugar em que você tenha entrado usando sua conta corporativa ou de estudante.
+title: Update profile & account info from the My Apps portal - Azure AD
+description: Learn how to update your profile and your work or school account information, including changing your password, turning on password reset, updating your security verification methods, viewing your organization's terms of use statement, and signing out of everywhere you've signed in using your work or school account.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,131 +13,131 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4416b35d2e2204cec2a9ffe2f50e92983d6204c0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3ecdffae61fbadfd5d975af942861e24589c6fbf
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820386"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233155"
 ---
-# <a name="update-your-profile-and-account-info-on-the-my-apps-portal"></a>Atualizar suas informações de perfil e conta no portal meus aplicativos
+# <a name="update-your-profile-and-work-or-school-account-information-on-the-my-apps-portal"></a>Update your profile and work or school account information on the My Apps portal
 
-Você pode usar sua conta corporativa ou de estudante com o portal **meus aplicativos** baseado na Web, para exibir e iniciar muitos dos aplicativos baseados em nuvem da sua organização, para atualizar algumas das informações de seu perfil e de sua conta, para ver as informações de seus **grupos** e para executar  **revisões de acesso** para seus aplicativos e grupos. Se você não tiver acesso ao portal **meus aplicativos** , deverá entrar em contato com a assistência técnica para obter permissão.
+You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Este conteúdo destina-se aos utilizadores. Se você for um administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na documentação do gerenciamento de [aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Este conteúdo destina-se aos utilizadores. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
-## <a name="view-your-organization-related-profile-information"></a>Exibir informações de perfil relacionadas à organização
+## <a name="view-your-organization-related-profile-information"></a>View your organization-related profile information
 
-Dependendo do que a sua organização escolheu incluir em sua página de **perfil** do portal **meus aplicativos** , você poderá ver seus detalhes específicos relacionados ao trabalho, juntamente com seus dispositivos e atividades, e todas as organizações adicionais às quais você pertence.
+Depending on what your organization has chosen to include on your **Profile** page of the **My Apps** portal, you might see your specific work-related details, along with your devices and activity, and any additional organizations to which you belong.
 
-### <a name="to-view-your-profile-information"></a>Para exibir suas informações de perfil
+### <a name="to-view-your-profile-information"></a>To view your profile information
 
-1. Entre em sua conta corporativa ou de estudante, [vá para o portal **meus aplicativos** ](my-apps-portal-end-user-access.md).
+1. Sign in to your work or school account, [go to the **My Apps** portal](my-apps-portal-end-user-access.md).
 
-2. Na página **aplicativos** , selecione a imagem do seu perfil no canto superior direito, onde ele diz seu nome e sua organização e, em seguida, selecione **perfil**.
+2. From the **Apps** page, select your profile picture from the upper-right corner, where it says your name and your organization, and then select **Profile**.
 
-    A página **perfil** é exibida, mostrando suas informações de perfil.
+    The **Profile** page appears, showing your profile information.
 
-    ![Página de perfil, mostrando todas as informações disponíveis](media/my-apps-portal/my-apps-portal-profile-page.png)
+    ![Profile page, showing all of the available information](media/my-apps-portal/my-apps-portal-profile-page.png)
 
-3. Na página **perfil** , você pode:
+3. From the **Profile** page, you can:
 
-    - **Examine os detalhes relacionados à organização.** Exiba sua foto, nome, título, endereços de email associados e informações do Office. Essas informações são gerenciadas pela sua organização e você não poderá alterá-las. Se você vir um erro, entre em contato com a assistência técnica.
+    - **Review your organization-related details.** View your photo, name, title, associated email addresses, and office information. This information is managed by your organization and you won't be able to change it. If you see an error, contact your Helpdesk.
 
-    - **Examine seus dispositivos & atividade**. Verifique se cada dispositivo está familiarizado e conectado corretamente à sua organização. Se você não reconhece um dispositivo, selecione **desabilitar dispositivo** para remover a associação com sua conta. Depois de desabilitar um dispositivo, ele é removido desta página.
+    - **Review your Devices & activity**. Make sure each device is familiar and properly connected to your organization. If you don’t recognize a device, select **Disable device** to remove the association with your account. After you disable a device, it’s removed from this page.
 
-    - **Examine suas organizações.** Certifique-se de que você ainda trabalha com cada uma das organizações especificadas. Se você não trabalhar mais com uma organização, é altamente recomendável que você selecione **entrar para sair da organização**. Depois de sair da organização, ela será removida desta página.
+    - **Review your Organizations.** Make sure that you still work with each of the specified organizations. If you no longer work with an organization, we highly recommend that you select **Sign in to leave organization**. After you leave the organization, it’s removed from this page.
 
-## <a name="manage-your-work-or-school-account-information"></a>Gerenciar suas informações de conta corporativa ou de estudante
+## <a name="manage-your-work-or-school-account-information"></a>Manage your work or school account information
 
-Atualize e gerencie suas informações de conta corporativa ou de estudante na página **perfil** do portal **meus aplicativos** . Esta página ajuda você a:
+Update and manage your work or school account information from the **Profile** page of the **My Apps** portal. This page helps you to:
 
-- Altere sua senha de conta corporativa ou de estudante.
+- Change your work or school account password.
 
-- Ative a redefinição de senha (se o administrador tiver ativado esse recurso).
+- Turn on password reset (if your administrator has turned on this feature).
 
-- Forneça informações adicionais de verificação de segurança.
+- Provide additional security verification information.
 
-- Examine os termos de uso da sua organização.
+- Review your organization’s terms of use.
 
-- Saia de qualquer lugar.
+- Sign out of everywhere.
 
-## <a name="change-your-password"></a>Alterar sua senha
+## <a name="change-your-password"></a>Alterar a palavra-passe
 
-Se você quiser alterar a senha de sua conta corporativa ou de estudante, poderá selecionar **alterar senha** na área **gerenciar conta** da página de **perfil** .
+If you want to change the password for your work or school account, you can select **Change password** from the **Manage account** area of the **Profile** page.
 
-### <a name="to-change-your-password"></a>Para alterar sua senha
+### <a name="to-change-your-password"></a>To change your password
 
-1. Na área **gerenciar conta** da página de **perfil** , selecione **alterar senha**.
+1. From the **Manage account** area of the **Profile** page, select **Change password**.
 
-2. Na página **alterar senha** , verifique se sua ID de usuário está correta e digite sua senha antiga e sua nova senha nas caixas.
+2. On the **Change password** page, make sure your User ID is correct, and then type your old password and your new password into the boxes.
 
-    ![Página Alterar senha](media/my-apps-portal/my-apps-portal-change-password-page.png)
+    ![Change password page](media/my-apps-portal/my-apps-portal-change-password-page.png)
 
-3. Selecione **Enviar**.
+3. Select **Submit**.
 
-    Sua senha foi alterada. Você será solicitado a entrar em qualquer aplicativo no qual você tenha entrado anteriormente usando sua conta corporativa ou de estudante.
+    Your password is changed. You’ll be required to sign-in to any apps you’ve previously signed in to using your work or school account.
 
-## <a name="set-up-and-use-password-reset"></a>Configurar e usar a redefinição de senha
+## <a name="set-up-and-use-password-reset"></a>Set up and use password reset
 
-Se você esqueceu sua senha, nunca obteve uma de seu suporte de empresa ou foi bloqueada por sua conta, você pode redefinir sua própria senha.
+If you forgot your password, never got one from your company support, or have been locked out of your account, you can reset your own password.
 
 >[!Important]
->O administrador deve ativar esse recurso e você deve se registrar para participar. Para obter detalhes sobre como registrar e como redefinir sua senha, consulte [registrar para redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md) e [redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md).
+>Your administrator must turn on this feature and you must register to participate. For details about how to register and how to reset your password, see [Register for self-service password reset](active-directory-passwords-reset-register.md) and [Reset your work or school password](active-directory-passwords-update-your-own-password.md).
 
-## <a name="change-your-security-verification-information"></a>Alterar suas informações de verificação de segurança
+## <a name="change-your-security-verification-information"></a>Change your security verification information
 
-Se sua organização exigir que você use a verificação de dois fatores, você poderá adicionar, atualizar e excluir suas informações de segurança associadas da página de **verificação de segurança adicional** .
+If your organization requires you to use two-factor verification, you can add, update, and delete your associated security information from the **Additional security verification** page.
 
-A verificação de dois fatores exige que você use duas partes de informações de verificação, como uma senha e um PIN, antes de poder acessar sua conta ou as informações da sua organização. Para obter mais informações sobre a verificação de dois fatores, consulte [configurar minha conta para verificação em duas etapas](multi-factor-authentication-end-user-first-time.md).
+Two-factor verification requires you to use two pieces of verification info, like a password and a PIN, before you can get to your account or to your organization’s information. For more information about two-factor verification, see [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md).
 
-### <a name="to-change-your-security-information"></a>Para alterar suas informações de segurança
+### <a name="to-change-your-security-information"></a>To change your security information
 
-1. Na área **gerenciar conta** da página de **perfil** , selecione **verificação de segurança adicional**.
+1. From the **Manage account** area of the **Profile** page, select **Additional security verification**.
 
-    ![Página de verificação de segurança adicional](media/my-apps-portal/my-apps-portal-additional-verification-page.png)
+    ![Additional security verification page](media/my-apps-portal/my-apps-portal-additional-verification-page.png)
 
-2. Na página **verificação de segurança adicional** , você pode adicionar, alterar ou excluir as seguintes informações:
+2. On the **Additional security verification** page, you can add, change, or delete the following information:
 
-    - **Opção de verificação padrão.** Selecione o método secundário padrão a ser usado para verificação de dois fatores. Esse método é usado automaticamente sempre que a verificação de dois fatores for necessária depois que você inserir seu nome de usuário e senha.
+    - **Default verification option.** Select the default secondary method to use for two-factor verification. This method is automatically used any time two-factor verification is required after you enter your username and password.
 
-    - **Adicionar, atualizar ou remover métodos de verificação.** Você pode adicionar novas, atualizar existentes ou excluir informações antigas que não se aplicam mais.
+    - **Add, update, or remove verification methods.** You can add new, update existing, or delete old information that no longer applies.
 
-    - **Configure o aplicativo Microsoft Authenticator.** Você pode optar por configurar o aplicativo Microsoft Authenticator para trabalhar como seu método de verificação. Para obter mais informações sobre o aplicativo Microsoft Authenticator, consulte [o que é o aplicativo Microsoft Authenticator?](user-help-auth-app-overview.md)
+    - **Set up the Microsoft Authenticator app.** You can choose to set up the Microsoft Authenticator app to work as your verification method. For more information about the Microsoft Authenticator app, see [What is the Microsoft Authenticator app?](user-help-auth-app-overview.md)
 
-3. Selecione **salvar** para salvar as alterações.
+3. Select **Save** to save your changes.
 
-## <a name="review-your-organizations-terms-of-use-statement"></a>Examinar a instrução de termos de uso da sua organização
+## <a name="review-your-organizations-terms-of-use-statement"></a>Review your organization’s terms of use statement
 
-Você pode optar por examinar a instrução de termos de uso da sua organização, se ela estiver disponível.
+You can choose to review your organization’s terms of use statement, if it’s available.
 
-1. Na área **gerenciar conta** da página **perfil** , selecione examinar os **termos de uso**.
+1. From the **Manage account** area of the **Profile** page, select **Review terms of use**.
 
-2. Examine os termos de uso da sua organização e selecione **aceitar** para confirmar que você leu e entendeu os termos de uso da sua organização.
+2. Review your organization's terms of use and select **Accept** to confirm that you've read and understood the terms of use for your organization.
 
-    ![Termos de uso página no portal meus aplicativos](media/my-apps-portal/my-apps-portal-tou-page.png)
+    ![Terms of use page from the My Apps portal](media/my-apps-portal/my-apps-portal-tou-page.png)
 
-    Se sua organização não tiver os termos de uso, você poderá selecionar **concluído** para retornar à página de **perfil** .
+    If your organization doesn't have a terms of use, you can select **Done** to return to the **Profile** page.
 
-## <a name="sign-out-of-everywhere"></a>Sair de qualquer lugar
+## <a name="sign-out-of-everywhere"></a>Sign out of everywhere
 
-Você pode optar por sair de todos os lugares em que estiver conectado no momento usando sua conta corporativa ou de estudante. Isso inclui todos os aplicativos e dispositivos.
+You can choose to sign out of everywhere you’re currently signed in to using your work or school account. This includes all apps and devices.
 
-### <a name="to-sign-out-of-everywhere"></a>Para sair de qualquer lugar
+### <a name="to-sign-out-of-everywhere"></a>To sign out of everywhere
 
-1. Na área **gerenciar conta** da página de **perfil** , selecione **sair em todos os lugares**.
+1. From the **Manage account** area of the **Profile** page, select **Sign out everywhere**.
 
-2. Na caixa de confirmação sair de todos os **lugares** , selecione **Sim** para confirmar que deseja sair de todas as suas sessões e dispositivos. Selecione **não** se você mudar de ideia.
+2. In the **Sign out everywhere** confirmation box, select **Yes** to confirm that you want to sign out of all your sessions and devices. Select **No** if you change your mind.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de concluir as atualizações na página de **perfil** , você pode:
+After you finish your updates on the **Profile** page, you can:
 
-- [Acesse e use aplicativos no portal meus aplicativos](my-apps-portal-end-user-access.md).
+- [Access and use apps on the My Apps portal](my-apps-portal-end-user-access.md).
 
-- [Exiba e atualize suas informações relacionadas a grupos](my-apps-portal-end-user-groups.md).
+- [View and update your groups-related information](my-apps-portal-end-user-groups.md).
 
-- [Execute suas próprias revisões de acesso](my-apps-portal-end-user-access-reviews.md).
+- [Perform your own access reviews](my-apps-portal-end-user-access-reviews.md).

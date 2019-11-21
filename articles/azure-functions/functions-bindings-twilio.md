@@ -1,52 +1,47 @@
 ---
-title: Azure Functions Associação de twilio
-description: Entenda como usar associações twilio com Azure Functions.
-services: functions
-documentationcenter: na
+title: Azure Functions Twilio binding
+description: Understand how to use Twilio bindings with Azure Functions.
 author: craigshoemaker
-manager: gwallace
-keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32f987caed915aff8c581b974dec7689fc90b007
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: ee78234b43e94a5c537161556410ee6246e625ca
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114358"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230951"
 ---
-# <a name="twilio-binding-for-azure-functions"></a>Associação de twilio para Azure Functions
+# <a name="twilio-binding-for-azure-functions"></a>Twilio binding for Azure Functions
 
-Este artigo explica como enviar mensagens de texto usando associações [twilio](https://www.twilio.com/) no Azure functions. Azure Functions dá suporte a associações de saída para twilio.
+This article explains how to send text messages by using [Twilio](https://www.twilio.com/) bindings in Azure Functions. Azure Functions supports output bindings for Twilio.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
+## <a name="packages---functions-1x"></a>Packages - Functions 1.x
 
-As associações twilio são fornecidas no pacote NuGet [Microsoft. Azure. webjobs. Extensions. twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) , versão 1. x. Código-fonte para o pacote está no [sdk do webjobs do azure](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/) repositório do GitHub.
+The Twilio bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet package, version 1.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/) GitHub repository.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x"></a>Pacotes - funções 2.x
+## <a name="packages---functions-2x"></a>Packages - Functions 2.x
 
-As associações twilio são fornecidas no pacote NuGet [Microsoft. Azure. webjobs. Extensions. twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) , versão 3. x. Código-fonte para o pacote está no [sdk do webjobs do azure](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) repositório do GitHub.
+The Twilio bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub repository.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="example---functions-1x"></a>Exemplo – funções 1. x
+## <a name="example---functions-1x"></a>Example - Functions 1.x
 
-Veja o exemplo de idioma específico:
+See the language-specific example:
 
 * [C#](#c-example)
-* [Script do c# (.csx)](#c-script-example)
+* [C# script (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
-### <a name="c-example"></a>C#exemplo
+### <a name="c-example"></a>C# example
 
-O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que envia uma mensagem de texto quando disparada por uma mensagem da fila.
+The following example shows a [C# function](functions-dotnet-class-library.md) that sends a text message when triggered by a queue message.
 
 ```cs
 [FunctionName("QueueTwilio")]
@@ -67,15 +62,15 @@ public static SMSMessage Run(
 }
 ```
 
-Este exemplo usa o `TwilioSms` atributo com o valor de retorno do método. Uma alternativa é usar o atributo com um `out SMSMessage` parâmetro ou um `ICollector<SMSMessage>` parâmetro ou `IAsyncCollector<SMSMessage>` .
+This example uses the `TwilioSms` attribute with the method return value. An alternative is to use the attribute with an `out SMSMessage` parameter or an `ICollector<SMSMessage>` or `IAsyncCollector<SMSMessage>` parameter.
 
-### <a name="c-script-example"></a>C#exemplo de script
+### <a name="c-script-example"></a>C# script example
 
-O exemplo a seguir mostra uma associação de saída twilio em um arquivo *Function. JSON* e uma [ C# função de script](functions-reference-csharp.md) que usa a associação. A função usa um `out` parâmetro para enviar uma mensagem de texto.
+The following example shows a Twilio output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses an `out` parameter to send a text message.
 
-Aqui estão os dados de associação no arquivo *Function. JSON* :
+Here's binding data in the *function.json* file:
 
-Function. JSON de exemplo:
+Example function.json:
 
 ```json
 {
@@ -90,7 +85,7 @@ Function. JSON de exemplo:
 }
 ```
 
-Aqui está C# o código de script:
+Here's C# script code:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -121,7 +116,7 @@ public static void Run(string myQueueItem, out SMSMessage message,  TraceWriter 
 }
 ```
 
-Você não pode usar parâmetros de saída no código assíncrono. Este é um exemplo C# de código de script assíncrono:
+You can't use out parameters in asynchronous code. Here's an asynchronous C# script code example:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -155,13 +150,13 @@ public static async Task Run(string myQueueItem, IAsyncCollector<SMSMessage> mes
 }
 ```
 
-### <a name="javascript-example"></a>Exemplo de JavaScript
+### <a name="javascript-example"></a>JavaScript example
 
-O exemplo a seguir mostra uma associação de saída twilio em um arquivo *Function. JSON* e uma [função JavaScript](functions-reference-node.md) que usa a associação.
+The following example shows a Twilio output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
 
-Aqui estão os dados de associação no arquivo *Function. JSON* :
+Here's binding data in the *function.json* file:
 
-Function. JSON de exemplo:
+Example function.json:
 
 ```json
 {
@@ -176,7 +171,7 @@ Function. JSON de exemplo:
 }
 ```
 
-Eis o código JavaScript:
+Here's the JavaScript code:
 
 ```javascript
 module.exports = function (context, myQueueItem) {
@@ -202,17 +197,17 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="example---functions-2x"></a>Exemplo – funções 2. x
+## <a name="example---functions-2x"></a>Example - Functions 2.x
 
-Veja o exemplo de idioma específico:
+See the language-specific example:
 
-* [2.xC#](#2x-c-example)
-* [script 2. C# x (. CSX)](#2x-c-script-example)
-* [2. x JavaScript](#2x-javascript-example)
+* [2.x C#](#2x-c-example)
+* [2.x C# script (.csx)](#2x-c-script-example)
+* [2.x JavaScript](#2x-javascript-example)
 
-### <a name="2x-c-example"></a>exemplo 2. C# x
+### <a name="2x-c-example"></a>2.x C# example
 
-O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que envia uma mensagem de texto quando disparada por uma mensagem da fila.
+The following example shows a [C# function](functions-dotnet-class-library.md) that sends a text message when triggered by a queue message.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -243,15 +238,15 @@ namespace TwilioQueueOutput
 }
 ```
 
-Este exemplo usa o `TwilioSms` atributo com o valor de retorno do método. Uma alternativa é usar o atributo com um `out CreateMessageOptions` parâmetro ou um `ICollector<CreateMessageOptions>` parâmetro ou `IAsyncCollector<CreateMessageOptions>` .
+This example uses the `TwilioSms` attribute with the method return value. An alternative is to use the attribute with an `out CreateMessageOptions` parameter or an `ICollector<CreateMessageOptions>` or `IAsyncCollector<CreateMessageOptions>` parameter.
 
-### <a name="2x-c-script-example"></a>exemplo de script C# 2. x
+### <a name="2x-c-script-example"></a>2.x C# script example
 
-O exemplo a seguir mostra uma associação de saída twilio em um arquivo *Function. JSON* e uma [ C# função de script](functions-reference-csharp.md) que usa a associação. A função usa um `out` parâmetro para enviar uma mensagem de texto.
+The following example shows a Twilio output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses an `out` parameter to send a text message.
 
-Aqui estão os dados de associação no arquivo *Function. JSON* :
+Here's binding data in the *function.json* file:
 
-Function. JSON de exemplo:
+Example function.json:
 
 ```json
 {
@@ -265,7 +260,7 @@ Function. JSON de exemplo:
 }
 ```
 
-Aqui está C# o código de script:
+Here's C# script code:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -297,7 +292,7 @@ public static void Run(string myQueueItem, out CreateMessageOptions message,  IL
 }
 ```
 
-Você não pode usar parâmetros de saída no código assíncrono. Este é um exemplo C# de código de script assíncrono:
+You can't use out parameters in asynchronous code. Here's an asynchronous C# script code example:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -331,13 +326,13 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 }
 ```
 
-### <a name="2x-javascript-example"></a>exemplo de JavaScript 2. x
+### <a name="2x-javascript-example"></a>2.x JavaScript example
 
-O exemplo a seguir mostra uma associação de saída twilio em um arquivo *Function. JSON* e uma [função JavaScript](functions-reference-node.md) que usa a associação.
+The following example shows a Twilio output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
 
-Aqui estão os dados de associação no arquivo *Function. JSON* :
+Here's binding data in the *function.json* file:
 
-Function. JSON de exemplo:
+Example function.json:
 
 ```json
 {
@@ -351,7 +346,7 @@ Function. JSON de exemplo:
 }
 ```
 
-Eis o código JavaScript:
+Here's the JavaScript code:
 
 ```javascript
 module.exports = function (context, myQueueItem) {
@@ -378,9 +373,9 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="attributes"></a>Atributos
 
-Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), use o atributo [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) .
+In [C# class libraries](functions-dotnet-class-library.md), use the [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) attribute.
 
-Para obter informações sobre as propriedades de atributo que você pode configurar, consulte [Configuration](#configuration). Aqui está um `TwilioSms` exemplo de atributo numa assinatura do método:
+For information about attribute properties that you can configure, see [Configuration](#configuration). Here's a `TwilioSms` attribute example in a method signature:
 
 ```csharp
 [FunctionName("QueueTwilio")]
@@ -392,26 +387,26 @@ public static CreateMessageOptions Run(
 }
  ```
 
-Para obter um exemplo completo, consulte [ C# exemplo](#c-example).
+For a complete example, see [C# example](#c-example).
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `TwilioSms` atributo.
+The following table explains the binding configuration properties that you set in the *function.json* file and the `TwilioSms` attribute.
 
-| Propriedade de função. JSON v1 | Propriedade de função v2. JSON | Propriedade de atributo |Descrição|
+| v1 function.json property | v2 function.json property | Attribute property |Descrição|
 |---------|---------|---------|----------------------|
-|**type**|**type**| deve ser definido como `twilioSms`.|
-|**direction**|**direction**| deve ser definido como `out`.|
-|**name**|**name**| Nome da variável usada no código de função para a mensagem de texto SMS twilio. |
-|**accountSid**|**accountSidSetting**| **AccountSidSetting**| Esse valor deve ser definido como o nome de uma configuração de aplicativo que contém o Sid de sua conta do twilio, por exemplo, TwilioAccountSid. Se não estiver definido, o nome da configuração do aplicativo padrão será "AzureWebJobsTwilioAccountSid". |
-|**authToken**|**authTokenSetting**|**AuthTokenSetting**| Esse valor deve ser definido como o nome de uma configuração de aplicativo que contém o token de autenticação twilio, por exemplo, TwilioAccountAuthToken. Se não estiver definido, o nome da configuração do aplicativo padrão será "AzureWebJobsTwilioAuthToken". |
-|**Para**| N/A-especificar no código | **To**| Esse valor é definido como o número de telefone para o qual o texto SMS é enviado.|
-|**De**|**De** | **From**| Esse valor é definido como o número de telefone do qual o texto SMS é enviado.|
-|**conteúdo**|**conteúdo** | **Corpo**| Esse valor pode ser usado para codificar a mensagem de texto SMS se você não precisar defini-la dinamicamente no código para sua função. |  
+|**tipo**|**tipo**| must be set to `twilioSms`.|
+|**direção**|**direção**| must be set to `out`.|
+|**name**|**name**| Variable name used in function code for the Twilio SMS text message. |
+|**accountSid**|**accountSidSetting**| **AccountSidSetting**| This value must be set to the name of an app setting that holds your Twilio Account Sid e.g. TwilioAccountSid. If not set, the default app setting name is "AzureWebJobsTwilioAccountSid". |
+|**authToken**|**authTokenSetting**|**AuthTokenSetting**| This value must be set to the name of an app setting that holds your Twilio authentication token e.g. TwilioAccountAuthToken. If not set, the default app setting name is "AzureWebJobsTwilioAuthToken". |
+|**to**| N/A - specify in code | **Para**| This value is set to the phone number that the SMS text is sent to.|
+|**from**|**from** | **From**| This value is set to the phone number that the SMS text is sent from.|
+|**body**|**body** | **Corpo**| This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. |  
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
+> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)

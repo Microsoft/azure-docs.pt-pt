@@ -1,30 +1,30 @@
 ---
 author: rothja
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 6/15/2019
 ms.author: victorh
-ms.openlocfilehash: e8e65c0c1302523af5aefab297ffbafe2a90d2b4
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 2e6fa48894339b993410435f982d0948715de4e0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68589993"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211005"
 ---
-**Zonas DNS públicas**
+**Public DNS zones**
 
-| Resource | Limite predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
-| Zonas DNS público por assinatura |250 <sup>1</sup> |
-| Conjuntos de registros por zona DNS pública |10.000 <sup>1</sup> |
-| Registros por conjunto de registro na zona DNS pública |20 |
-| Número de registros de alias para um único recurso do Azure |20|
-| Zonas de DNS privado por assinatura |1000|
-| Conjuntos de registros por zona DNS privada |25000|
-| Registros por conjunto de registro para zonas DNS privadas |20|
-| Links de rede virtual por zona DNS privada |1000|
-| Links de redes virtuais por zonas DNS privadas com o registro automático habilitado |100|
-| Número de zonas DNS privadas às quais uma rede virtual pode ser vinculada com o registro automático habilitado |1|
-| Número de zonas DNS privadas que uma rede virtual pode obter vinculada |1000|
+| Public DNS Zones per subscription |250 <sup>1</sup> |
+| Record sets per public DNS zone |10,000 <sup>1</sup> |
+| Records per record set in public DNS zone |20 |
+| Number of Alias records for a single Azure resource |20|
+| Private DNS zones per subscription |1000|
+| Record sets per private DNS zone |25000|
+| Records per record set for private DNS zones |20|
+| Virtual Network Links per private DNS zone |1000|
+| Virtual Networks Links per private DNS zones with auto-registration enabled |100|
+| Number of private DNS zones a virtual network can get linked to with auto-registration enabled |1|
+| Number of private DNS zones a virtual network can get linked |1000|
 
-<sup>1</sup> Se você precisar aumentar esses limites, entre em contato com o suporte do Azure.
+<sup>1</sup>If you need to increase these limits, contact Azure Support.

@@ -1,60 +1,60 @@
 ---
 author: rothja
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: e61b804c20063e87c19df4484291f81fdbb03a7b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 49150daa783280f47cb9401434ebfab8f6204090
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72601077"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224523"
 ---
 >[!NOTE]
->Para recursos que não são corrigidos, abra um tíquete de suporte para solicitar um aumento nas cotas. Não crie outras contas dos serviços de mídia do Azure em uma tentativa de obter limites mais altos.
+>For resources that aren't fixed, open a support ticket to ask for an increase in the quotas. Don't create additional Azure Media Services accounts in an attempt to obtain higher limits.
 
 | Recurso | Limite predefinido | 
 | --- | --- | 
-| Contas dos serviços de mídia do Azure em uma única assinatura | 25 (fixo) |
-| Unidades reservadas de mídia por conta de serviços de mídia |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
-| Trabalhos por conta de serviços de mídia | 50 000<sup>2</sup> |
+| Azure Media Services accounts in a single subscription | 25 (fixo) |
+| Media reserved units per Media Services account |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
+| Jobs per Media Services account | 50 000<sup>2</sup> |
 | Tarefas em cadeia por trabalho | 30 (fixo) |
-| Ativos por conta de serviços de mídia | 1 000 000|
+| Assets per Media Services account | 1 000 000|
 | Elementos por tarefa | 50 |
 | Elementos por trabalho | 100 |
 | Localizadores exclusivos associados a um elemento ao mesmo tempo | 5<sup>4</sup> |
-| Canais ao vivo por conta de serviços de mídia |5|
+| Live channels per Media Services account |5|
 | Programas no estado de paragem por canal |50|
 | Programas no estado parado por canal |3|
-| Pontos de extremidade de streaming que são interrompidos ou em execução por conta de serviços de mídia|2|
+| Streaming endpoints that are stopped or running per Media Services account|2|
 | Unidades de transmissão em fluxo por ponto final de transmissão em fluxo |10 |
 | Contas de armazenamento | 1000<sup>5</sup> (fixo) |
 | Políticas | 1 000 000<sup>6</sup> |
-| Tamanho dos ficheiros| Em alguns cenários, há um limite no tamanho máximo de arquivo com suporte para processamento nos serviços de mídia. <sup>7</sup> |
+| Tamanho dos ficheiros| In some scenarios, there's a limit on the maximum file size supported for processing in Media Services.<sup>7</sup> |
 
-<sup>1</sup> Se você alterar o tipo, por exemplo, de S2 para S1, os limites de unidade reservados máximos serão redefinidos.
+<sup>1</sup>If you change the type, for example, from S2 to S1, the maximum reserved unit limits are reset.
 
-<sup>2</sup> Esse número inclui trabalhos enfileirados, concluídos, ativos e cancelados. Ele não inclui trabalhos excluídos. Você pode excluir trabalhos antigos usando **IJob. Delete** ou a solicitação HTTP **delete** .
+<sup>2</sup>This number includes queued, finished, active, and canceled jobs. It doesn't include deleted jobs. You can delete old jobs by using **IJob.Delete** or the **DELETE** HTTP request.
 
-A partir de 1º de abril de 2017, qualquer registro de trabalho em sua conta com mais de 90 dias será excluído automaticamente, juntamente com seus registros de tarefa associados. A exclusão automática ocorre mesmo que o número total de registros esteja abaixo da cota máxima. Para arquivar as informações de trabalho e tarefa, use o código descrito em [gerenciar ativos com o SDK do .net dos serviços de mídia](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
+As of April 1, 2017, any job record in your account older than 90 days is automatically deleted, along with its associated task records. Automatic deletion occurs even if the total number of records is below the maximum quota. To archive the job and task information, use the code described in [Manage assets with the Media Services .NET SDK](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup> Quando você faz uma solicitação para listar entidades de trabalho, um máximo de 1.000 trabalhos é retornado por solicitação. Para manter o controle de todos os trabalhos enviados, use as consultas Top ou Skip conforme descrito em [Opções de consulta do sistema OData](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
+<sup>3</sup>When you make a request to list job entities, a maximum of 1,000 jobs is returned per request. To keep track of all submitted jobs, use the top or skip queries as described in [OData system query options](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
 
-<sup>4</sup> Os localizadores não foram projetados para gerenciar o controle de acesso por usuário. Para conceder direitos de acesso diferentes a usuários individuais, use soluções de DRM (gerenciamento de direitos digitais). Para obter mais informações, consulte [proteger seu conteúdo com os serviços de mídia do Azure](../articles/media-services/previous/media-services-content-protection-overview.md).
+<sup>4</sup>Locators aren't designed for managing per-user access control. To give different access rights to individual users, use digital rights management (DRM) solutions. For more information, see [Protect your content with Azure Media Services](../articles/media-services/previous/media-services-content-protection-overview.md).
 
-<sup>5</sup> As contas de armazenamento devem ser da mesma assinatura do Azure.
+<sup>5</sup>The storage accounts must be from the same Azure subscription.
 
-<sup>6</sup> Há um limite de 1 milhão políticas para diferentes políticas de serviços de mídia. Um exemplo é para a política do localizador ou ContentKeyAuthorizationPolicy. 
+<sup>6</sup>There's a limit of 1,000,000 policies for different Media Services policies. An example is for the Locator policy or ContentKeyAuthorizationPolicy. 
 
 >[!NOTE]
-> Se você sempre usar os mesmos dias e permissões de acesso, use a mesma ID de política. Para obter informações e um exemplo, consulte [gerenciar ativos com o SDK do .net dos serviços de mídia](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies).
+> If you always use the same days and access permissions, use the same policy ID. For information and an example, see [Manage assets with the Media Services .NET SDK](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies).
 
-<sup>7</sup> O tamanho máximo com suporte para um único blob atualmente é de até 5 TB no armazenamento de BLOBs do Azure. Limites adicionais se aplicam aos serviços de mídia com base nos tamanhos de VM que são usados pelo serviço. O limite de tamanho se aplica aos arquivos que você carrega e também aos arquivos que são gerados como resultado do processamento de serviços de mídia (codificação ou análise). Se o arquivo de origem for maior do que 260 GB, provavelmente haverá falha no trabalho. 
+<sup>7</sup>The maximum size supported for a single blob is currently up to 5 TB in Azure Blob Storage. Additional limits apply in Media Services based on the VM sizes that are used by the service. The size limit applies to the files that you upload and also the files that get generated as a result of Media Services processing (encoding or analyzing). If your source file is larger than 260-GB, your Job will likely fail. 
 
-A tabela a seguir mostra os limites nas unidades reservadas de mídia S1, S2 e S3. Se o arquivo de origem for maior do que os limites definidos na tabela, o trabalho de codificação falhará. Se você codificar fontes de resolução de 4K de longa duração, será necessário usar unidades reservadas de mídia S3 para atingir o desempenho necessário. Se você tiver um conteúdo de 4K maior do que o limite de 260 GB nas unidades reservadas de mídia S3, abra um tíquete de suporte.
+The following table shows the limits on the media reserved units S1, S2, and S3. If your source file is larger than the limits defined in the table, your encoding job fails. If you encode 4K resolution sources of long duration, you're required to use S3 media reserved units to achieve the performance needed. If you have 4K content that's larger than the 260-GB limit on the S3 media reserved units, open a support ticket.
 
-|Tipo de unidade reservada de mídia   |Tamanho máximo de entrada (GB)|
+|Media reserved unit type   |Maximum input size (GB)|
 |---|---|
 |S1 |   26|
 |S2 | 60|

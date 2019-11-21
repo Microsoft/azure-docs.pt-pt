@@ -1,137 +1,134 @@
 ---
-title: Azure Functions o processamento confiável de eventos
-description: Evitar mensagens do hub de eventos ausentes no Azure Functions
-services: functions
+title: Azure Functions reliable event processing
+description: Avoid missing Event Hub messages in Azure Functions
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: d38ef46abae12886fb04a30f5efc26992cde4443
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 019c44cedba166dc1ac06a0244fa2b2e7930e673
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955539"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230373"
 ---
-# <a name="azure-functions-reliable-event-processing"></a>Azure Functions o processamento confiável de eventos
+# <a name="azure-functions-reliable-event-processing"></a>Azure Functions reliable event processing
 
-O processamento de eventos é um dos cenários mais comuns associados à arquitetura sem servidor. Este artigo descreve como criar um processador de mensagens confiável com Azure Functions para evitar a perda de mensagens.
+Event processing is one of the most common scenarios associated with serverless architecture. This article describes how to create a reliable message processor with Azure Functions to avoid losing messages.
 
-## <a name="challenges-of-event-streams-in-distributed-systems"></a>Desafios dos fluxos de eventos em sistemas distribuídos
+## <a name="challenges-of-event-streams-in-distributed-systems"></a>Challenges of event streams in distributed systems
 
-Considere um sistema que envia eventos a uma taxa constante de 100 eventos por segundo. A essa taxa, em minutos, várias instâncias de funções paralelas podem consumir os eventos 100 de entrada a cada segundo.
+Consider a system that sends events at a constant rate  of 100 events per second. At this rate, within minutes multiple parallel Functions instances can consume the incoming 100 events every second.
 
-No entanto, qualquer uma das seguintes condições menos ideais é possível:
+However, any of the following less-optimal conditions are possible:
 
-- E se o Publicador de eventos enviar um evento corrompido?
-- E se sua instância do Functions encontrar exceções sem tratamento?
-- E se um sistema downstream ficar offline?
+- What if the event publisher sends a corrupt event?
+- What if your Functions instance encounters unhandled exceptions?
+- What if a downstream system goes offline?
 
-Como lidar com essas situações enquanto preserva a taxa de transferência de seu aplicativo?
+How do you handle these situations while preserving the throughput of your application?
 
-Com as filas, as mensagens confiáveis são naturalmente. Quando emparelhado com um gatilho functions, a função cria um bloqueio na mensagem da fila. Se o processamento falhar, o bloqueio será liberado para permitir que outra instância seja processada novamente. Em seguida, o processamento continua até que a mensagem seja avaliada com êxito ou adicionada a uma fila de suspeitas.
+With queues, reliable messaging comes naturally. When paired with a Functions trigger, the function creates a lock on the queue message. If processing fails, the lock is released to allow another instance to retry processing. Processing then continues until either the message is evaluated successfully, or it is added to a poison queue.
 
-Mesmo que uma única mensagem de fila possa permanecer em um ciclo de repetição, outras execuções paralelas continuam a manter a remoção da fila de mensagens restantes. O resultado é que a taxa de transferência geral permanece em grande parte não afetada por uma mensagem inadequada. No entanto, as filas de armazenamento não garantem pedidos e não são otimizadas para as demandas de alta taxa de transferência exigidas pelos hubs de eventos
+Even while a single queue message may remain in a retry cycle, other parallel executions continue to keep to dequeueing remaining messages. The result is that the overall throughput remains largely unaffected by one bad message. However, storage queues don’t guarantee ordering and aren’t optimized for the high throughput demands required by Event Hubs.
 
-Por outro lado, os hubs de eventos do Azure não incluem um conceito de bloqueio. Para permitir recursos como alta taxa de transferência, vários grupos de consumidores e capacidade de reprodução, os eventos de hubs de eventos se comportam mais como um player de vídeo. Os eventos são lidos de um único ponto no fluxo por partição. No ponteiro, você pode ler ou retroceder a partir desse local, mas você precisa escolher mover o ponteiro para eventos a serem processados.
+By contrast, Azure Event Hubs doesn't include a locking concept. To allow for features like high-throughput, multiple consumer groups, and replay-ability, Event Hubs events behave more like a video player. Events are read from a single point in the stream per partition. From the pointer you can read forwards or backwards from that location, but you have to choose to move the pointer for events to process.
 
-Quando ocorrerem erros em um fluxo, se você decidir manter o ponteiro no mesmo ponto, o processamento de eventos será bloqueado até que o ponteiro seja avançado. Em outras palavras, se o ponteiro for interrompido para lidar com problemas de processamento de um único evento, os eventos não processados começarão a empilhando-los.
+When errors occur in a stream, if you decide to keep the pointer in the same spot, event processing is blocked until the pointer is advanced. In other words, if the pointer is stopped to deal with problems processing a single event, the unprocessed events begin piling up.
 
-Azure Functions evita deadlocks avançando o ponteiro do fluxo, independentemente de êxito ou falha. Como o ponteiro continua avançando, suas funções precisam lidar com falhas adequadamente.
+Azure Functions avoids deadlocks by advancing the stream's pointer regardless of success or failure. Since the pointer keeps advancing, your functions need to deal with failures appropriately.
 
-## <a name="how-azure-functions-consumes-event-hubs-events"></a>Como o Azure Functions consome eventos de hubs de eventos
+## <a name="how-azure-functions-consumes-event-hubs-events"></a>How Azure Functions consumes Event Hubs events
 
-O Azure Functions consome eventos do hub de eventos ao percorrer as seguintes etapas:
+Azure Functions consumes Event Hub events while cycling through the following steps:
 
-1. Um ponteiro é criado e mantido no armazenamento do Azure para cada partição do hub de eventos.
-2. Quando novas mensagens são recebidas (em um lote por padrão), o host tenta disparar a função com o lote de mensagens.
-3. Se a função concluir a execução (com ou sem exceção), o ponteiro avançará e um ponto de verificação será salvo na conta de armazenamento.
-4. Se as condições impedirem a conclusão da execução da função, o host não conseguirá progredir o ponteiro. Se o ponteiro não for avançado, as verificações posteriores acabarão processando as mesmas mensagens.
-5. Repita as etapas 2 a 4
+1. A pointer is created and persisted in Azure Storage for each partition of the event hub.
+2. When new messages are received (in a batch by default), the host attempts to trigger the function with the batch of messages.
+3. If the function completes execution (with or without exception) the pointer advances and a checkpoint is saved to the storage account.
+4. If conditions prevent the function execution from completing, the host fails to progress the pointer. If the pointer isn't advanced, then later checks end up processing the same messages.
+5. Repeat steps 2–4
 
-Esse comportamento revela alguns pontos importantes:
+This behavior reveals a few important points:
 
-- *Exceções sem tratamento podem causar a perda de mensagens.* As execuções que resultam em uma exceção continuarão a progredir o ponteiro.
-- *As funções garantem a entrega pelo menos uma vez.* Seu código e sistemas dependentes podem precisar [considerar o fato de que a mesma mensagem pode ser recebida duas vezes](./functions-idempotent.md).
+- *Unhandled exceptions may cause you to lose messages.* Executions that result in an exception will continue to progress the pointer.
+- *Functions guarantees at-least-once delivery.* Your code and dependent systems may need to [account for the fact that the same message could be received twice](./functions-idempotent.md).
 
 ## <a name="handling-exceptions"></a>Processamento de exceções
 
-Como regra geral, cada função deve incluir um [bloco try/catch](./functions-bindings-error-pages.md) no nível mais alto de código. Especificamente, todas as funções que consomem eventos de hubs de eventos devem ter um bloco `catch`. Dessa forma, quando uma exceção é gerada, o bloco catch trata o erro antes de o ponteiro progredir.
+As a general rule, every function should include a [try/catch block](./functions-bindings-error-pages.md) at the highest level of code. Specifically, all functions that consume Event Hubs events should have a `catch` block. That way, when an exception is raised, the catch block handles the error before the pointer progresses.
 
-### <a name="retry-mechanisms-and-policies"></a>Mecanismos e políticas de repetição
+### <a name="retry-mechanisms-and-policies"></a>Retry mechanisms and policies
 
-Algumas exceções são transitórias por natureza e não são reexibidas quando uma operação é tentada novamente mais tarde. É por isso que a primeira etapa é sempre repetir a operação. Você pode escrever novas regras de processamento, mas elas são tão comuns que várias ferramentas disponíveis. O uso dessas bibliotecas permite que você defina políticas de repetição robustas, que também podem ajudar a preservar a ordem de processamento.
+Some exceptions are transient in nature and don't reappear when an operation is attempted again moments later. This is why the first step is always to retry the operation. You could write retry processing rules yourself, but they are so commonplace that a number of tools available. Using these libraries allow you to define robust retry-policies, which can also help preserve processing order.
 
-A introdução de bibliotecas de tratamento de falhas às suas funções permite que você defina políticas básicas e avançadas de repetição. Por exemplo, você pode implementar uma política que segue um fluxo de trabalho ilustrado pelas seguintes regras:
+Introducing fault-handling libraries to your functions allow you to define both basic and advanced retry policies. For instance, you could implement a policy that follows a workflow illustrated by the following rules:
 
-- Tente inserir uma mensagem três vezes (potencialmente com um atraso entre repetições).
-- Se o resultado eventual de todas as novas tentativas for uma falha, adicione uma mensagem a uma fila para que o processamento possa continuar no fluxo.
-- As mensagens corrompidas ou não processadas são tratadas posteriormente.
+- Try to insert a message three times (potentially with a delay between retries).
+- If the eventual outcome of all retries is a failure, then add a message to a queue so processing can continue on the stream.
+- Corrupt or unprocessed messages are then handled later.
 
 > [!NOTE]
-> [Polly](https://github.com/App-vNext/Polly) é um exemplo de uma biblioteca de resiliência e de tratamento de falhas transitórias C# para aplicativos.
+> [Polly](https://github.com/App-vNext/Polly) is an example of a resilience and transient-fault-handling library for C# applications.
 
-Ao trabalhar com bibliotecas de C# classes previamente compatíveis, os [filtros de exceção](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) permitem que você execute o código sempre que uma exceção sem tratamento ocorrer.
+When working with pre-complied C# class libraries, [exception filters](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) allow you to run code whenever an unhandled exception occurs.
 
-Exemplos que demonstram como usar filtros de exceção estão disponíveis no repositório [SDK do Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) .
+Samples that demonstrate how to use exception filters are available in the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) repo.
 
-## <a name="non-exception-errors"></a>Erros de não exceção
+## <a name="non-exception-errors"></a>Non-exception errors
 
-Alguns problemas surgem mesmo quando um erro não está presente. Por exemplo, considere uma falha que ocorra no meio de uma execução. Nesse caso, se uma função não concluir a execução, o ponteiro de deslocamento nunca será progredido. Se o ponteiro não avançar, qualquer instância que for executada após uma falha de execução continuará lendo as mesmas mensagens. Essa situação fornece uma garantia "pelo menos uma vez".
+Some issues arise even when an error is not present. For example, consider a failure that occurs in the middle of an execution. In this case, if a function doesn’t complete execution, the offset pointer is never progressed. If the pointer doesn't advance, then any instance that runs after a failed execution continues to read the same messages. This situation provides an "at-least-once" guarantee.
 
-A garantia de que cada mensagem seja processada pelo menos uma vez implica que algumas mensagens podem ser processadas mais de uma vez. Seus aplicativos de funções precisam estar cientes dessa possibilidade e devem ser criados com base nos [princípios do Idempotência](./functions-idempotent.md).
+The assurance that every message is processed at least one time implies that some messages may be processed more than once. Your function apps need to be aware of this possibility and must be built around the [principles of idempotency](./functions-idempotent.md).
 
-## <a name="stop-and-restart-execution"></a>Parar e reiniciar a execução
+## <a name="stop-and-restart-execution"></a>Stop and restart execution
 
-Embora alguns erros possam ser aceitáveis, e se seu aplicativo apresentar falhas significativas? Talvez você queira parar de disparar eventos até que o sistema alcance um estado íntegro. Ter o processamento de pausa de oportunidade geralmente é obtido com um padrão de disjuntor. O padrão de disjuntor permite que seu aplicativo "quebre o circuito" do processo de evento e retome em um momento posterior.
+While a few errors may be acceptable, what if your app experiences significant failures? You may want to stop triggering on events until the system reaches a healthy state. Having the opportunity pause processing is often achieved with a circuit breaker pattern. The circuit breaker pattern allows your app to "break the circuit" of the event process and resume at a later time.
 
-Há duas partes necessárias para implementar um disjuntor em um processo de evento:
+There are two pieces required to implement a circuit breaker in an event process:
 
-- Estado compartilhado em todas as instâncias para acompanhar e monitorar a integridade do circuito
-- Processo mestre que pode gerenciar o estado do circuito (aberto ou fechado)
+- Shared state across all instances to track and monitor health of the circuit
+- Master process that can manage the circuit state (open or closed)
 
-Os detalhes da implementação podem variar, mas para compartilhar o estado entre as instâncias, você precisa de um mecanismo de armazenamento. Você pode optar por armazenar o estado no armazenamento do Azure, um cache Redis ou qualquer outra conta que possa ser acessada por uma coleção de funções.
+Implementation details may vary, but to share state among instances you need a storage mechanism. You may choose to store state in Azure Storage, a Redis cache, or any other account that is accessible by a collection of functions.
 
-Os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) ou as [entidades duráveis](./durable/durable-functions-overview.md) são uma opção natural para gerenciar o fluxo de trabalho e o estado do circuito. Outros serviços também podem funcionar, mas os aplicativos lógicos são usados para este exemplo. Usando aplicativos lógicos, você pode pausar e reiniciar a execução de uma função, dando a você o controle necessário para implementar o padrão de disjuntor.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) or [durable entities](./durable/durable-functions-overview.md) are a natural fit to manage the workflow and circuit state. Other services may work just as well, but logic apps are used for this example. Using logic apps, you can pause and restart a function's execution giving you the control required to implement the circuit breaker pattern.
 
-### <a name="define-a-failure-threshold-across-instances"></a>Definir um limite de falha entre instâncias
+### <a name="define-a-failure-threshold-across-instances"></a>Define a failure threshold across instances
 
-Para considerar várias instâncias processando eventos simultaneamente, é necessário persistir o estado externo compartilhado para monitorar a integridade do circuito.
+To account for multiple instances processing events simultaneously, persisting shared external state is needed to monitor the health of the circuit.
 
-Uma regra que você pode optar por implementar pode impor isso:
+A rule you may choose to implement might enforce that:
 
-- Se houver mais de 100 falhas eventuals dentro de 30 segundos em todas as instâncias, quebre o circuito e pare de disparar em novas mensagens.
+- If there are more than 100 eventual failures within 30 seconds across all instances, then break the circuit and stop triggering on new messages.
 
-Os detalhes da implementação variam de acordo com suas necessidades, mas, em geral, você pode criar um sistema que:
+The implementation details will vary given your needs, but in general you can create a system that:
 
-1. Registrar falhas em uma conta de armazenamento (armazenamento do Azure, Redis, etc.)
-1. Quando uma nova falha for registrada, inspecione a contagem de rolagem para ver se o limite foi atingido (por exemplo, mais de 100 nos últimos 30 segundos).
-1. Se o limite for atingido, emita um evento para a grade de eventos do Azure informando ao sistema para interromper o circuito.
+1. Log failures to a storage account (Azure Storage, Redis, etc.)
+1. When new failure is logged, inspect the rolling count to see if the threshold is met (for example, more than 100 in last 30 seconds).
+1. If the threshold is met, emit an event to Azure Event Grid telling the system to break the circuit.
 
-### <a name="managing-circuit-state-with-azure-logic-apps"></a>Gerenciando o estado do circuito com os aplicativos lógicos do Azure
+### <a name="managing-circuit-state-with-azure-logic-apps"></a>Managing circuit state with Azure Logic Apps
 
-A descrição a seguir destaca uma maneira de criar um aplicativo lógico do Azure para interromper o processamento de um aplicativo de funções.
+The following description highlights one way you could create an Azure Logic App to halt a Functions app from processing.
 
-Os aplicativos lógicos do Azure vêm com conectores internos para diferentes serviços, recursos de orquestrações com monitoração de estado e é uma opção natural para gerenciar o estado do circuito. Depois de detectar que o circuito precisa ser interrompido, você pode criar um aplicativo lógico para implementar o seguinte fluxo de trabalho:
+Azure Logic Apps comes with built-in connectors to different services, features stateful orchestrations, and is a natural choice to manage circuit state. After detecting the circuit needs to break, you can build a logic app to implement the following workflow:
 
-1. Disparar um fluxo de trabalho de grade de eventos e parar a função do Azure (com o conector de recursos do Azure)
-1. Enviar um email de notificação que inclui uma opção para reiniciar o fluxo de trabalho
+1. Trigger an Event Grid workflow and stop the Azure Function (with the Azure Resource connector)
+1. Send a notification email that includes an option to restart the workflow
 
-O destinatário do email pode investigar a integridade do circuito e, quando apropriado, reiniciar o circuito por meio de um link no email de notificação. À medida que o fluxo de trabalho reinicia a função, as mensagens são processadas a partir do último ponto de verificação do hub de eventos.
+The email recipient can investigate the health of the circuit and, when appropriate, restart the circuit via a link in the notification email. As the workflow restarts the function, messages are processed from the last Event Hub checkpoint.
 
-Usando essa abordagem, nenhuma mensagem é perdida, todas as mensagens são processadas em ordem e você pode dividir o circuito, desde que seja necessário.
+Using this approach, no messages are lost, all messages are processed in order, and you can break the circuit as long as necessary.
 
 ## <a name="resources"></a>Recursos
 
-- [Exemplos de processamento de eventos confiáveis](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
-- [Disjuntor de Durable Functions do Azure](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
+- [Reliable event processing samples](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
+- [Azure Durable Functions Circuit Breaker](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 
-- [Tratamento de erros de funções do Azure](./functions-bindings-error-pages.md)
+- [Azure Functions error handling](./functions-bindings-error-pages.md)
 - [Utilizar o Event Grid para automatizar o redimensionamento de imagens carregadas](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet)
 - [Criar uma função que se integra nas Azure Logic Apps](./functions-twitter-email.md)

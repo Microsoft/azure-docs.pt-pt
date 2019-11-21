@@ -1,49 +1,45 @@
 ---
-title: Padrões e expressões de associações de Azure Functions
-description: Aprenda a criar diferentes expressões de associação de Azure Functions com base em padrões comuns.
-services: functions
-documentationcenter: na
+title: Azure Functions bindings expressions and patterns
+description: Learn to create different Azure Functions binding expressions based on common patterns.
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: db6f4f938b1555091dc51e310d4d31f96f93200c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f00637ff2c8cf39b683056b041fe0e991276a065
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097359"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227227"
 ---
-# <a name="azure-functions-binding-expression-patterns"></a>Padrões de expressão de associação de Azure Functions
+# <a name="azure-functions-binding-expression-patterns"></a>Azure Functions binding expression patterns
 
-Um dos recursos mais poderosos de [gatilhos e associações](./functions-triggers-bindings.md) é a *Associação de expressões*. No arquivo *Function. JSON* e em parâmetros de função e código, você pode usar expressões que são resolvidas para valores de várias fontes.
+One of the most powerful features of [triggers and bindings](./functions-triggers-bindings.md) is *binding expressions*. In the *function.json* file and in function parameters and code, you can use expressions that resolve to values from various sources.
 
-A maioria das expressões é identificada encapsulando-as entre chaves. Por exemplo, em uma função de gatilho de `{queueTrigger}` fila, o resolve para o texto da mensagem da fila. Se a `path` propriedade para uma associação de saída de `container/{queueTrigger}` blob for e a função for disparada `HelloWorld`por uma mensagem da `HelloWorld` fila, um blob chamado será criado.
+Most expressions are identified by wrapping them in curly braces. For example, in a queue trigger function, `{queueTrigger}` resolves to the queue message text. If the `path` property for a blob output binding is `container/{queueTrigger}` and the function is triggered by a queue message `HelloWorld`, a blob named `HelloWorld` is created.
 
-Tipos de expressões de associação
+Types of binding expressions
 
-* [Configurações do aplicativo](#binding-expressions---app-settings)
-* [Nome do arquivo de gatilho](#trigger-file-name)
-* [Metadados de gatilho](#trigger-metadata)
-* [Cargas JSON](#json-payloads)
-* [Novo GUID](#create-guids)
-* [Data e hora atuais](#current-time)
+* [App settings](#binding-expressions---app-settings)
+* [Trigger file name](#trigger-file-name)
+* [Trigger metadata](#trigger-metadata)
+* [JSON payloads](#json-payloads)
+* [New GUID](#create-guids)
+* [Current date and time](#current-time)
 
-## <a name="binding-expressions---app-settings"></a>Expressões de associação – configurações de aplicativo
+## <a name="binding-expressions---app-settings"></a>Binding expressions - app settings
 
-Como prática recomendada, os segredos e as cadeias de conexão devem ser gerenciados usando as configurações do aplicativo, em vez dos arquivos de configuração. Isso limita o acesso a esses segredos e torna seguro armazenar arquivos como *Function. JSON* em repositórios de controle do código-fonte público.
+As a best practice, secrets and connection strings should be managed using app settings, rather than configuration files. This limits access to these secrets and makes it safe to store files such as *function.json* in public source control repositories.
 
-As configurações do aplicativo também são úteis sempre que você deseja alterar a configuração com base no ambiente. Por exemplo, em um ambiente de teste, talvez você queira monitorar um contêiner de armazenamento de BLOB ou de fila diferente.
+App settings are also useful whenever you want to change configuration based on the environment. For example, in a test environment, you may want to monitor a different queue or blob storage container.
 
-As expressões de associação de configuração de aplicativo são identificadas de forma diferente de outras expressões de associação: são encapsuladas em sinais de porcentagem em vez de chaves. `%Environment%/newblob.txt` Por exemplo `Environment` ,se`Development`o caminho de associação de saída de blob for e o valor de configuração do aplicativo for, um blob será criado no contêiner.`Development`
+App setting binding expressions are identified differently from other binding expressions: they are wrapped in percent signs rather than curly braces. For example if the blob output binding path is `%Environment%/newblob.txt` and the `Environment` app setting value is `Development`, a blob will be created in the `Development` container.
 
-Quando uma função é executada localmente, os valores de configuração de aplicativo são provenientes do arquivo *local. Settings. JSON* .
+When a function is running locally, app setting values come from the *local.settings.json* file.
 
-Observe que a `connection` propriedade de gatilhos e associações é um caso especial e resolve automaticamente os valores como configurações do aplicativo, sem sinais de porcentagem. 
+Note that the `connection` property of triggers and bindings is a special case and automatically resolves values as app settings, without percent signs. 
 
-O exemplo a seguir é um gatilho de armazenamento de filas do Azure que `%input-queue-name%` usa uma configuração de aplicativo para definir a fila na qual disparar.
+The following example is an Azure Queue Storage trigger that uses an app setting `%input-queue-name%` to define the queue to trigger on.
 
 ```json
 {
@@ -59,7 +55,7 @@ O exemplo a seguir é um gatilho de armazenamento de filas do Azure que `%input-
 }
 ```
 
-Você pode usar a mesma abordagem em bibliotecas de classes:
+You can use the same approach in class libraries:
 
 ```csharp
 [FunctionName("QueueTrigger")]
@@ -71,11 +67,11 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-file-name"></a>Nome do arquivo de gatilho
+## <a name="trigger-file-name"></a>Trigger file name
 
-O `path` para um gatilho de blob pode ser um padrão que permite que você consulte o nome do blob de gatilho em outras associações e código de função. O padrão também pode incluir critérios de filtragem que especificam quais BLOBs podem disparar uma invocação de função.
+The `path` for a Blob trigger can be a pattern that lets you refer to the name of the triggering blob in other bindings and function code. The pattern can also include filtering criteria that specify which blobs can trigger a function invocation.
 
-Por exemplo, na seguinte Associação de gatilho de BLOB, `path` o padrão `sample-images/{filename}`é, que cria uma expressão de `filename`Associação denominada:
+For example, in the following Blob trigger binding, the `path` pattern is `sample-images/{filename}`, which creates a binding expression named `filename`:
 
 ```json
 {
@@ -90,7 +86,7 @@ Por exemplo, na seguinte Associação de gatilho de BLOB, `path` o padrão `samp
     ...
 ```
 
-A expressão `filename` pode então ser usada em uma associação de saída para especificar o nome do blob que está sendo criado:
+The expression `filename` can then be used in an output binding to specify the name of the blob being created:
 
 ```json
     ...
@@ -105,7 +101,7 @@ A expressão `filename` pode então ser usada em uma associação de saída para
 }
 ```
 
-O código de função tem acesso a esse mesmo valor `filename` usando como um nome de parâmetro:
+Function code has access to this same value by using `filename` as a parameter name:
 
 ```csharp
 // C# example of binding to {filename}
@@ -119,7 +115,7 @@ public static void Run(Stream image, string filename, Stream imageSmall, ILogger
 <!--TODO: add JavaScript example -->
 <!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
 
-A mesma capacidade de usar expressões de associação e padrões se aplica a atributos em bibliotecas de classes. No exemplo a seguir, os parâmetros do construtor de atributo são `path` os mesmos valores que os exemplos de *Function. JSON* anteriores: 
+The same ability to use binding expressions and patterns applies to attributes in class libraries. In the following example, the attribute constructor parameters are the same `path` values as the preceding *function.json* examples: 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -135,23 +131,23 @@ public static void Run(
 
 ```
 
-Você também pode criar expressões para partes do nome do arquivo, como a extensão. Para obter mais informações sobre como usar expressões e padrões na cadeia de caracteres de caminho de BLOB, consulte a [referência de associação de blob de armazenamento](functions-bindings-storage-blob.md).
+You can also create expressions for parts of the file name such as the extension. For more information on how to use expressions and patterns in the Blob path string, see the [Storage blob binding reference](functions-bindings-storage-blob.md).
 
-## <a name="trigger-metadata"></a>Metadados de gatilho
+## <a name="trigger-metadata"></a>Trigger metadata
 
-Além da carga de dados fornecida por um gatilho (como o conteúdo da mensagem da fila que disparou uma função), muitos disparadores fornecem valores de metadados adicionais. Esses valores podem ser usados como parâmetros de entrada C# nas F# `context.bindings` Propriedades e ou no objeto em JavaScript. 
+In addition to the data payload provided by a trigger (such as the content of the queue message that triggered a function), many triggers provide additional metadata values. These values can be used as input parameters in C# and F# or properties on the `context.bindings` object in JavaScript. 
 
-Por exemplo, um gatilho de armazenamento de filas do Azure dá suporte às seguintes propriedades:
+For example, an Azure Queue storage trigger supports the following properties:
 
-* QueueTrigger – disparando o conteúdo da mensagem se uma cadeia de caracteres válida
+* QueueTrigger - triggering message content if a valid string
 * DequeueCount
 * ExpirationTime
-* ID
-* Inserttime
+* Id
+* InsertionTime
 * NextVisibleTime
 * PopReceipt
 
-Esses valores de metadados são acessíveis nas propriedades do arquivo *Function. JSON* . Por exemplo, suponha que você use um gatilho de fila e a mensagem da fila contenha o nome de um blob que você deseja ler. No arquivo *Function. JSON* , você pode usar `queueTrigger` a propriedade Metadata na propriedade blob `path` , conforme mostrado no exemplo a seguir:
+These metadata values are accessible in *function.json* file properties. For example, suppose you use a queue trigger and the queue message contains the name of a blob you want to read. In the *function.json* file, you can use `queueTrigger` metadata property in the blob `path` property, as shown in the following example:
 
 ```json
   "bindings": [
@@ -171,13 +167,13 @@ Esses valores de metadados são acessíveis nas propriedades do arquivo *Functio
   ]
 ```
 
-Os detalhes das propriedades de metadados de cada gatilho são descritos no artigo de referência correspondente. Para obter um exemplo, consulte [metadados de gatilho de fila](functions-bindings-storage-queue.md#trigger---message-metadata). A documentação também está disponível na guia **integrar** do portal, na seção **documentação** abaixo da área configuração de associação.  
+Details of metadata properties for each trigger are described in the corresponding reference article. For an example, see [queue trigger metadata](functions-bindings-storage-queue.md#trigger---message-metadata). Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
 
-## <a name="json-payloads"></a>Cargas JSON
+## <a name="json-payloads"></a>JSON payloads
 
-Quando uma carga de gatilho é JSON, você pode consultar suas propriedades na configuração de outras associações na mesma função e no código de função.
+When a trigger payload is JSON, you can refer to its properties in configuration for other bindings in the same function and in function code.
 
-O exemplo a seguir mostra o arquivo *Function. JSON* para uma função webhook que recebe um nome de BLOB em `{"BlobName":"HelloWorld.txt"}`JSON:. Uma associação de entrada de blob lê o blob e a associação de saída HTTP retorna o conteúdo do blob na resposta HTTP. Observe que a associação de entrada de blob Obtém o nome do blob referindo `BlobName` -se`"path": "strings/{BlobName}"`diretamente à propriedade ()
+The following example shows the *function.json* file for a webhook function that receives a blob name in JSON: `{"BlobName":"HelloWorld.txt"}`. A Blob input binding reads the blob, and the HTTP output binding returns the blob contents in the HTTP response. Notice that the Blob input binding gets the blob name by referring directly to the `BlobName` property (`"path": "strings/{BlobName}"`)
 
 ```json
 {
@@ -204,7 +200,7 @@ O exemplo a seguir mostra o arquivo *Function. JSON* para uma função webhook q
 }
 ```
 
-Para que isso funcione no C# e F#no, você precisa de uma classe que defina os campos a serem desserializados, como no exemplo a seguir:
+For this to work in C# and F#, you need a class that defines the fields to be deserialized, as in the following example:
 
 ```csharp
 using System.Net;
@@ -229,7 +225,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, str
 }
 ```
 
-No JavaScript, a desserialização JSON é executada automaticamente.
+In JavaScript, JSON deserialization is automatically performed.
 
 ```javascript
 module.exports = function (context, info) {
@@ -247,9 +243,9 @@ module.exports = function (context, info) {
 }
 ```
 
-### <a name="dot-notation"></a>Notação de ponto
+### <a name="dot-notation"></a>Dot notation
 
-Se algumas das propriedades em seu conteúdo JSON forem objetos com propriedades, você poderá consultá-las diretamente usando a notação de ponto. Por exemplo, suponha que seu JSON tenha a seguinte aparência:
+If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot notation. For example, suppose your JSON looks like this:
 
 ```json
 {
@@ -260,13 +256,13 @@ Se algumas das propriedades em seu conteúdo JSON forem objetos com propriedades
 }
 ```
 
-Você pode fazer referência diretamente `FileName` a `BlobName.FileName`como. Com esse formato JSON, aqui está a aparência `path` da propriedade no exemplo anterior:
+You can refer directly to `FileName` as `BlobName.FileName`. With this JSON format, here's what the `path` property in the preceding example would look like:
 
 ```json
 "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
 ```
 
-No C#, você precisaria de duas classes:
+In C#, you would need two classes:
 
 ```csharp
 public class BlobInfo
@@ -280,9 +276,9 @@ public class BlobName
 }
 ```
 
-## <a name="create-guids"></a>Criar GUIDs
+## <a name="create-guids"></a>Create GUIDs
 
-A `{rand-guid}` expressão de associação cria um GUID. O caminho de blob a seguir `function.json` em um arquivo cria um blob com um nome como *50710cb5-84b9-4d87-9d83-a03d6976a682. txt*.
+The `{rand-guid}` binding expression creates a GUID. The following blob path in a `function.json` file creates a blob with a name like *50710cb5-84b9-4d87-9d83-a03d6976a682.txt*.
 
 ```json
 {
@@ -293,9 +289,9 @@ A `{rand-guid}` expressão de associação cria um GUID. O caminho de blob a seg
 }
 ```
 
-## <a name="current-time"></a>Hora atual
+## <a name="current-time"></a>Current time
 
-A expressão `DateTime` de associação é resolvida `DateTime.UtcNow`como. O caminho de blob a seguir `function.json` em um arquivo cria um blob com um nome como *2018-02-16T17-59 -55z. txt*.
+The binding expression `DateTime` resolves to `DateTime.UtcNow`. The following blob path in a `function.json` file creates a blob with a name like *2018-02-16T17-59-55Z.txt*.
 
 ```json
 {
@@ -305,10 +301,10 @@ A expressão `DateTime` de associação é resolvida `DateTime.UtcNow`como. O ca
   "path": "my-output-container/{DateTime}"
 }
 ```
-## <a name="binding-at-runtime"></a>Associação em tempo de execução
+## <a name="binding-at-runtime"></a>Binding at runtime
 
-No C# e em outras linguagens .net, você pode usar um padrão de associação imperativo, em oposição às associações declarativas em *Function. JSON* e atributos. A associação imperativa é útil quando parâmetros de associação precisam ser computados em tempo de execução em vez de tempo de design. Para saber mais, consulte a [ C# referência do desenvolvedor](functions-dotnet-class-library.md#binding-at-runtime) ou a [ C# referência do desenvolvedor de script](functions-reference-csharp.md#binding-at-runtime).
+In C# and other .NET languages, you can use an imperative binding pattern, as opposed to the declarative bindings in *function.json* and attributes. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. To learn more, see the [C# developer reference](functions-dotnet-class-library.md#binding-at-runtime) or the [C# script developer reference](functions-reference-csharp.md#binding-at-runtime).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
-> [Usando o valor de retorno da função do Azure](./functions-bindings-return-value.md)
+> [Using the Azure Function return value](./functions-bindings-return-value.md)

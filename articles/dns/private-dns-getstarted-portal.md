@@ -1,58 +1,58 @@
 ---
-title: Início rápido-criar uma zona DNS privada do Azure usando o portal do Azure
-description: Neste guia de início rápido, você cria e testa uma zona DNS privada e registro no DNS do Azure. Este é um guia passo a passo para criar e gerenciar sua primeira zona e registro de DNS privado usando o portal do Azure.
+title: Quickstart - Create an Azure private DNS zone using the Azure portal
+description: In this quickstart, you create and test a private DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first private DNS zone and record using the Azure portal.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: quickstart
 ms.date: 10/11/2019
-ms.author: victorh
-ms.openlocfilehash: 352a63e611e3823e03bedb01a9c1a5071d628c4f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.author: allensu
+ms.openlocfilehash: 48c5684dd491a91b6da212f78c535433ac2aecf7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163821"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74210757"
 ---
-# <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Início rápido: criar uma zona DNS privada do Azure usando o portal do Azure
+# <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Quickstart: Create an Azure private DNS zone using the Azure portal
 
-Este guia de início rápido orienta você pelas etapas para criar sua primeira zona e registro de DNS privado usando o portal do Azure.
+This quickstart walks you through the steps to create your first private DNS zone and record using the Azure portal.
 
-Uma zona DNS é utilizada para alojar os registos de DNS de um domínio específico. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada registo DNS para o seu domínio é então criado no interior desta zona DNS. Para publicar uma zona DNS privada na sua rede virtual, especifique a lista de redes virtuais autorizadas a resolver registos na zona.  Elas são chamadas de redes virtuais *vinculadas* . Quando o Autoregistro está habilitado, o DNS do Azure também atualiza os registros de zona sempre que uma máquina virtual é criada, altera seu ' endereço IP ' ou é excluído.
+Uma zona DNS é utilizada para alojar os registos de DNS de um domínio específico. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada registo DNS para o seu domínio é então criado no interior desta zona DNS. Para publicar uma zona DNS privada na sua rede virtual, especifique a lista de redes virtuais autorizadas a resolver registos na zona.  These are called *linked* virtual networks. When autoregistration is enabled, Azure DNS also updates the zone records whenever a virtual machine is created, changes its' IP address, or is deleted.
 
 Neste início rápido, vai aprender a:
 
 > [!div class="checklist"]
-> * Criar uma zona DNS privada
+> * Create a private DNS zone
 > * Criar rede virtual
-> * Vincular a rede virtual
+> * Link the virtual network
 > * Criar máquinas virtuais de teste
 > * Criar um registo DNS adicional
 > * Testar a zona privada
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Se preferir, você pode concluir este início rápido usando [Azure PowerShell](private-dns-getstarted-powershell.md) ou [CLI do Azure](private-dns-getstarted-cli.md).
+If you prefer, you can complete this quickstart using [Azure PowerShell](private-dns-getstarted-powershell.md) or [Azure CLI](private-dns-getstarted-cli.md).
 
-## <a name="create-a-private-dns-zone"></a>Criar uma zona DNS privada
+## <a name="create-a-private-dns-zone"></a>Create a private DNS zone
 
-O exemplo a seguir cria uma zona DNS chamada **Private.contoso.com** em um grupo de recursos chamado **MyAzureResourceGroup**.
+The following example creates a DNS zone called **private.contoso.com** in a resource group called **MyAzureResourceGroup**.
 
-Uma zona DNS contém as entradas DNS para um domínio. Para iniciar a hospedagem de seu domínio no DNS do Azure, você cria uma zona DNS para esse nome de domínio.
+A DNS zone contains the DNS entries for a domain. To start hosting your domain in Azure DNS, you create a DNS zone for that domain name.
 
-![Pesquisa de zonas de DNS privado](media/private-dns-portal/search-private-dns.png)
+![Private DNS zones search](media/private-dns-portal/search-private-dns.png)
 
-1. Na barra de pesquisa do portal, digite **zonas DNS privadas** na caixa de texto Pesquisar e pressione **Enter**.
-1. Selecione **DNS privado zona**.
-2. Selecione **criar zona DNS privada**.
+1. On the portal search bar, type **private dns zones** in the search text box and press **Enter**.
+1. Select **Private DNS zone**.
+2. Select **Create private dns zone**.
 
-1. Na página **criar zona de DNS privado** , digite ou selecione os seguintes valores:
+1. On the **Create Private DNS zone** page, type or select the following values:
 
-   - **Grupo de recursos**: selecione **criar novo**, insira *MyAzureResourceGroup*e selecione **OK**. O nome do grupo de recursos deve ser exclusivo na assinatura do Azure. 
-   -  **Nome**: digite *Private.contoso.com* para este exemplo.
-1. Para **local do grupo de recursos**, selecione **EUA Central ocidental**.
+   - **Resource group**: Select **Create new**, enter *MyAzureResourceGroup*, and select **OK**. The resource group name must be unique within the Azure subscription. 
+   -  **Name**: Type *private.contoso.com* for this example.
+1. For **Resource group location**, select **West Central US**.
 
-1. Selecione **revisão + criar**.
+1. Select **Review + Create**.
 
 1. Selecione **Criar**.
 
@@ -60,62 +60,62 @@ A criação da zona pode demorar alguns minutos.
 
 ## <a name="create-a-virtual-network"></a>Criar rede virtual
 
-1. Na parte superior esquerda da página do portal, selecione **criar um recurso**, depois **rede**e, em seguida, selecione **rede virtual**.
-2. Para **nome**, digite **myAzureVNet**.
-3. Para **grupo de recursos**, selecione **MyAzureResourceGroup**.
-4. Para **local**, selecione **Oeste EUA Central**.
-5. Aceite os outros valores padrão e selecione **criar**.
+1. On the portal page upper left, select **Create a resource**, then **Networking**, then select **Virtual network**.
+2. For **Name**, type **myAzureVNet**.
+3. For **Resource group**, select **MyAzureResourceGroup**.
+4. For **Location**, select **West Central US**.
+5. Accept the other default values and select **Create**.
 
-## <a name="link-the-virtual-network"></a>Vincular a rede virtual
+## <a name="link-the-virtual-network"></a>Link the virtual network
 
-Para vincular a zona DNS privada a uma rede virtual, você cria um link de rede virtual.
+To link the private DNS zone to a virtual network, you create a virtual network link.
 
-![Adicionar link de rede virtual](media/private-dns-portal/dns-add-virtual-network-link.png)
+![Add virtual network link](media/private-dns-portal/dns-add-virtual-network-link.png)
 
-1. Abra o grupo de recursos **MyAzureResourceGroup** e selecione a zona privada **Private.contoso.com** .
-2. No painel esquerdo, selecione **links de rede virtual**.
+1. Open the **MyAzureResourceGroup** resource group and select the **private.contoso.com** private zone.
+2. On the left pane, select **Virtual network links**.
 3. Selecione **Adicionar**.
-4. Digite **MyLink** para o **nome do link**.
-5. Para **rede virtual**, selecione **myAzureVNet**.
-6. Marque a caixa de seleção **habilitar registro automático** .
+4. Type **myLink** for the **Link name**.
+5. For **Virtual network**, select **myAzureVNet**.
+6. Select the **Enable auto registration** check box.
 7. Selecione **OK**.
 
 ## <a name="create-the-test-virtual-machines"></a>Criar as máquinas virtuais de teste
 
 Agora, vai criar duas máquinas virtuais para testar a zona DNS privada:
 
-1. Na parte superior esquerda da página do portal, selecione **criar um recurso**e, em seguida, selecione **Windows Server 2016 datacenter**.
-1. Selecione **MyAzureResourceGroup** para o grupo de recursos.
-1. Digite **myVM01** -para o nome da máquina virtual.
-1. Selecione **EUA Central ocidental** para a **região**.
-1. Digite **azureadmin** para o nome de usuário do administrador.
-2. Digite **Azure12345678** para a senha e confirme a senha.
+1. On the portal page upper left, select **Create a resource**, and then select **Windows Server 2016 Datacenter**.
+1. Select **MyAzureResourceGroup** for the resource group.
+1. Type **myVM01** - for the name of the virtual machine.
+1. Select **West Central US** for the **Region**.
+1. Type **azureadmin** for the administrator user name.
+2. Type **Azure12345678** for the password and confirm the password.
 
-5. Para **portas de entrada públicas**, selecione **permitir portas selecionadas**e, em seguida, selecione **RDP (3389)** para **selecionar portas de entrada**.
-10. Aceite os outros padrões para a página e clique em **Avançar: discos >** .
-11. Aceite os padrões na página **discos** e clique em **avançar: rede >** .
-1. Verifique se **myAzureVNet** está selecionado para a rede virtual.
-1. Aceite os outros padrões para a página e clique em **Avançar: > de gerenciamento**.
-2. Para **diagnóstico de inicialização**, selecione **desativado**, aceite os outros padrões e, em seguida, selecione **revisar + criar**.
-1. Examine as configurações e clique em **criar**.
+5. For **Public inbound ports**, select **Allow selected ports**, and then select **RDP (3389)** for **Select inbound ports**.
+10. Accept the other defaults for the page and then click **Next: Disks >** .
+11. Accept the defaults on the **Disks** page, then click **Next: Networking >** .
+1. Make sure that **myAzureVNet** is selected for the virtual network.
+1. Accept the other defaults for the page, and then click **Next: Management >** .
+2. For **Boot diagnostics**, select **Off**, accept the other defaults, and then select **Review + create**.
+1. Review the settings and then click **Create**.
 
-Repita essas etapas e crie outra máquina virtual chamada **myVM02**.
+Repeat these steps and create another virtual machine named **myVM02**.
 
-Levará alguns minutos para que ambas as máquinas virtuais sejam concluídas.
+It will take a few minutes for both virtual machines to complete.
 
 ## <a name="create-an-additional-dns-record"></a>Criar um registo DNS adicional
 
- O exemplo a seguir cria um registro com o nome relativo **DB** na zona DNS **Private.contoso.com**, no grupo de recursos **MyAzureResourceGroup**. O nome totalmente qualificado do conjunto de registros é **DB.Private.contoso.com**. O tipo de registro é "A", com o endereço IP de **myVM01**.
+ The following example creates a record with the relative name **db** in the DNS Zone **private.contoso.com**, in resource group **MyAzureResourceGroup**. The fully qualified name of the record set is **db.private.contoso.com**. The record type is "A", with the IP address of **myVM01**.
 
-1. Abra o grupo de recursos **MyAzureResourceGroup** e selecione a zona privada **Private.contoso.com** .
+1. Open the **MyAzureResourceGroup** resource group and select the **private.contoso.com** private zone.
 2. Selecione **+ Conjunto de registos**.
-3. Para **nome**, digite **DB**.
-4. Para **endereço IP**, digite o endereço IP que você vê para **myVM01**. Isso deve ser registrado automaticamente quando a máquina virtual for iniciada.
+3. For **Name**, type **db**.
+4. For **IP Address**, type the IP address you see for **myVM01**. This should be auto registered when the virtual machine started.
 5. Selecione **OK**.
 
 ## <a name="test-the-private-zone"></a>Testar a zona privada
 
-Agora você pode testar a resolução de nome para sua zona privada **Private.contoso.com** .
+Now you can test the name resolution for your **private.contoso.com** private zone.
 
 ### <a name="configure-vms-to-allow-inbound-icmp"></a>Configurar as VMs para permitir ICMP de entrada
 
@@ -175,11 +175,11 @@ Repita para myVM02.
 
 ## <a name="delete-all-resources"></a>Eliminar todos os recursos
 
-Quando não for mais necessário, exclua o grupo de recursos **MyAzureResourceGroup** para excluir os recursos criados neste guia de início rápido.
+When no longer needed, delete the **MyAzureResourceGroup** resource group to delete the resources created in this quickstart.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Cenários de Zonas Privadas do DNS do Azure](private-dns-scenarios.md)
+> [Azure DNS Private Zones scenarios](private-dns-scenarios.md)
 

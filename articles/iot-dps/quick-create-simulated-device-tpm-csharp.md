@@ -1,26 +1,25 @@
 ---
-title: 'Início rápido: provisionar um dispositivo TPM simulado para o Hub IoT do Azure usandoC#'
-description: Início Rápido do Azure - criar e aprovisionar um dispositivo TPM simulado com o SDK de dispositivo C# com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure. Este início rápido utiliza inscrições individuais.
+title: Quickstart - Provision a simulated TPM device to Azure IoT Hub using C#
+description: Quickstart - Create and provision a simulated TPM device using C# device SDK for Azure IoT Hub Device Provisioning Service. Este início rápido utiliza inscrições individuais.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b850cddfeb36cefe3d205c83628780ee4766a833
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
-ms.translationtype: MT
+ms.openlocfilehash: 65e914700749fca2011d189dc1fbce701a05f16d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903544"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228697"
 ---
-# <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Início rápido: criar e provisionar um dispositivo TPM C# simulado usando o SDK do dispositivo para o serviço de provisionamento de dispositivos no Hub IOT
+# <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Create and provision a simulated TPM device using C# device SDK for IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
-Estas etapas mostram como usar os exemplos de [IOT do Azure para C# ](https://github.com/Azure-Samples/azure-iot-samples-csharp) para simular um dispositivo TPM em um computador de desenvolvimento que executa o sistema operacional Windows. O exemplo também conecta o dispositivo simulado a um hub IoT usando o serviço de provisionamento de dispositivos. 
+These steps show you how to use the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) to simulate a TPM device on a development machine running the Windows OS. The sample also connects the simulated device to an IoT Hub using the Device Provisioning Service. 
 
 O código de exemplo utiliza o simulador de TPM do Windows como o [Módulo de Segurança de Hardware (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) do dispositivo. 
 
@@ -38,11 +37,11 @@ Este artigo irá demonstrar as inscrições individuais.
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento 
 
-1. Verifique se você tem o [SDK do .NET Core 2,1 ou posterior](https://www.microsoft.com/net/download/windows) instalado em seu computador. 
+1. Make sure you have the [.NET Core 2.1 SDK or later](https://www.microsoft.com/net/download/windows) installed on your machine. 
 
 1. Verifique se `git` está instalado no computador e que é adicionado às variáveis de ambiente às quais a janela de comandos pode aceder. Veja as [ferramentas de cliente Git da Software Freedom Conservancy](https://git-scm.com/download/) relativamente à mais recente versão das ferramentas de `git` a instalar, que incluem o **Git Bash**, a aplicação de linha de comandos que pode utilizar para interagir com o seu repositório Git local. 
 
-1. Abra uma linha de comandos ou o Git Bash. Clone os exemplos de IoT do C# Azure para o repositório github:
+1. Abra uma linha de comandos ou o Git Bash. Clone the Azure IoT Samples for C# GitHub repo:
 
     ```cmd
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
@@ -66,9 +65,9 @@ Este artigo irá demonstrar as inscrições individuais.
     dotnet run <IDScope>
     ```
 
-    Esse comando iniciará o simulador de chip do TPM em um prompt de comando separado. No Windows, você pode encontrar um alerta de segurança do Windows que pergunta se você deseja permitir que o Simulator. exe se comunique em redes públicas. Para os fins deste exemplo, você pode cancelar a solicitação.
+    This command will launch the TPM chip simulator in a separate command prompt. On Windows, you may encounter a Windows Security Alert that asks whether you want to allow Simulator.exe to communicate on public networks. For the purposes of this sample, you may cancel the request.
 
-1. A janela de comandos apresenta a **_Chave de Endossamento_** , o **_ID de Registo_** e um **_ID de Dispositivo_** necessários para a inscrição do dispositivo. Anote esses valores. Você usará esse valor para criar um registro individual em sua instância do serviço de provisionamento de dispositivos. 
+1. A janela de comandos apresenta a **_Chave de Endossamento_** , o **_ID de Registo_** e um **_ID de Dispositivo_** necessários para a inscrição do dispositivo. Take note of these values. You will use these value to create an individual enrollment in your Device Provisioning Service instance. 
    > [!NOTE]
    > Não confunda a janela que contém a saída do comando com a janela que contém a saída do simulador do TPM. Poderá ter de clicar na janela de comando para colocá-lo em primeiro plano.
 
@@ -78,10 +77,10 @@ Este artigo irá demonstrar as inscrições individuais.
 
 5. Em **Adicionar Inscrição**, introduza as seguintes informações:
    - Selecione **TPM** como o *Mecanismo* de atestado de identidades.
-   - Insira a *ID de registro* e a *chave de endosso* do seu dispositivo TPM que você anotou anteriormente.
+   - Enter the *Registration ID* and *Endorsement key* for your TPM device that you noted earlier.
    - Opcionalmente, selecione um hub IoT ligado ao seu serviço de aprovisionamento.
    - Introduza um ID de dispositivo exclusivo. Pode introduzir o ID de dispositivo sugerido na saída de exemplo ou introduza o seu próprio. Se utilizar o seu próprio, certifique-se de que evita dados confidenciais quando der o nome ao seu dispositivo. 
-   - Opcionalmente, atualize o **estado inicial do dispositivo** de atualização com a configuração inicial desejada para o dispositivo.
+   - Optionally update the **Initial device twin state** with the desired initial configuration for the device.
    - Quando tiver terminado, clique no botão **Guardar**. 
 
      ![Introduza as informações de inscrição de dispositivos no painel do portal](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com mesclar os Thoughtworks | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e mesclar os Thoughtworks.
+title: 'Tutorial: Azure Active Directory integration with Thoughtworks Mingle | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Thoughtworks Mingle.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,226 +15,226 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4ea2a88c92dcd52e99bb98563cf76d2c5501ef6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a12d4dca61734275ef0e56dfe2a800c64dc52540
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088756"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233297"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Tutorial: Integração do Active Directory do Azure com mesclar os Thoughtworks
+# <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Tutorial: Azure Active Directory integration with Thoughtworks Mingle
 
-Neste tutorial, saiba como integrar a Thoughtworks ser combinado com o Azure Active Directory (Azure AD).
-Integrar a Thoughtworks ser combinado com o Azure AD fornece as seguintes vantagens:
+In this tutorial, you learn how to integrate Thoughtworks Mingle with Azure Active Directory (Azure AD).
+Integrating Thoughtworks Mingle with Azure AD provides you with the following benefits:
 
-* Pode controlar no Azure AD que tenha acesso ao Thoughtworks mesclar.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para mesclar os Thoughtworks (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* You can control in Azure AD who has access to Thoughtworks Mingle.
+* You can enable your users to be automatically signed-in to Thoughtworks Mingle (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com mesclar os Thoughtworks, terá dos seguintes itens:
+To configure Azure AD integration with Thoughtworks Mingle, you need the following items:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Mesclar os Thoughtworks logon único habilitado subscrição
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* Thoughtworks Mingle single sign-on enabled subscription
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Oferece suporte a Thoughtworks mesclar **SP** iniciada SSO
+* Thoughtworks Mingle supports **SP** initiated SSO
 
-## <a name="adding-thoughtworks-mingle-from-the-gallery"></a>Adicionando a Thoughtworks mesclar da Galeria
+## <a name="adding-thoughtworks-mingle-from-the-gallery"></a>Adding Thoughtworks Mingle from the gallery
 
-Para configurar a integração do Thoughtworks ser combinado com o Azure AD, terá de adicionar mesclar os Thoughtworks partir da Galeria à sua lista de aplicações de SaaS geridas.
+To configure the integration of Thoughtworks Mingle into Azure AD, you need to add Thoughtworks Mingle from the gallery to your list of managed SaaS apps.
 
-**Para adicionar a Thoughtworks ser combinado a partir da galeria, execute os seguintes passos:**
+**To add Thoughtworks Mingle from the gallery, perform the following steps:**
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. In the **[Azure portal](https://portal.azure.com)** , on the left navigation panel, click **Azure Active Directory** icon.
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. To add new application, click **New application** button on the top of dialog.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **mesclar os Thoughtworks**, selecione **mesclar os Thoughtworks** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. In the search box, type **Thoughtworks Mingle**, select **Thoughtworks Mingle** from result panel then click **Add** button to add the application.
 
-     ![Mesclar os Thoughtworks na lista de resultados](common/search-new-app.png)
+     ![Thoughtworks Mingle in the results list](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure and test Azure AD single sign-on
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Thoughtworks ser combinado com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no mesclar os Thoughtworks deve ser estabelecido.
+In this section, you configure and test Azure AD single sign-on with Thoughtworks Mingle based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Thoughtworks Mingle needs to be established.
 
-Para configurar e testar o Azure AD início de sessão único com mesclar os Thoughtworks, tem de concluir os seguintes blocos de construção:
+To configure and test Azure AD single sign-on with Thoughtworks Mingle, you need to complete the following building blocks:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Thoughtworks mesclar os início de sessão único](#configure-thoughtworks-mingle-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste de mesclar os Thoughtworks](#create-thoughtworks-mingle-test-user)**  - para ter um equivalente da Eduarda Almeida na Thoughtworks mesclar os que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure Thoughtworks Mingle Single Sign-On](#configure-thoughtworks-mingle-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Thoughtworks Mingle test user](#create-thoughtworks-mingle-test-user)** - to have a counterpart of Britta Simon in Thoughtworks Mingle that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD single sign-on
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-Para configurar o Azure AD início de sessão único com mesclar os Thoughtworks, execute os seguintes passos:
+To configure Azure AD single sign-on with Thoughtworks Mingle, perform the following steps:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **mesclar os Thoughtworks** página de integração de aplicações, selecione **início de sessão único**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Thoughtworks Mingle** application integration page, select **Single sign-on**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Configure single sign-on link](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![Domínio de mesclar os Thoughtworks e URLs únicas início de sessão em informações](common/sp-signonurl.png)
+    ![Thoughtworks Mingle Domain and URLs single sign-on information](common/sp-signonurl.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://<companyname>.mingle.thoughtworks.com`
+    In the **Sign-on URL** text box, type a URL using the following pattern:  `https://<companyname>.mingle.thoughtworks.com`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente de mesclar os Thoughtworks](https://support.thoughtworks.com/hc/categories/201743486-Mingle-Community-Support) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > The value is not real. Update the value with the actual Sign-On URL. Contact [Thoughtworks Mingle Client support team](https://support.thoughtworks.com/hc/categories/201743486-Mingle-Community-Support) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
-6. Sobre o **configurar mesclar os Thoughtworks** secção, copie os URLs apropriados de acordo com seus requisitos.
+6. On the **Set up Thoughtworks Mingle** section, copy the appropriate URL(s) as per your requirement.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. Login URL
 
-    b. Identificador do Azure AD
+    b. Azure AD Identifier
 
-    c. URL de fim de sessão
+    c. Logout URL
 
-### <a name="configure-thoughtworks-mingle-single-sign-on"></a>Configurar Thoughtworks mesclar os início de sessão único
+### <a name="configure-thoughtworks-mingle-single-sign-on"></a>Configure Thoughtworks Mingle Single Sign-On
 
-1. Inicie sessão no seu **mesclar os Thoughtworks** site da empresa como administrador.
+1. Sign in to your **Thoughtworks Mingle** company site as administrator.
 
-2. Clique nas **administrador** separador e, em seguida, clique em **SSO Config**.
+2. Click the **Admin** tab, and then, click **SSO Config**.
    
-    ![Guia do administrador](./media/thoughtworks-mingle-tutorial/ic785157.png "SSO Config")
+    ![Admin tab](./media/thoughtworks-mingle-tutorial/ic785157.png "SSO Config")
 
-3. Na **SSO Config** secção, execute os seguintes passos:
+3. In the **SSO Config** section, perform the following steps:
    
-    ![Configuração SSO](./media/thoughtworks-mingle-tutorial/ic785158.png "SSO Config")
+    ![SSO Config](./media/thoughtworks-mingle-tutorial/ic785158.png "SSO Config")
     
-    a. Para carregar o ficheiro de metadados, clique em **Escolher ficheiro**. 
+    a. To upload the metadata file, click **Choose file**. 
 
-    b. Clique em **guardar alterações**.
+    b. Click **Save Changes**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Create an Azure AD test user 
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Select **New user** at the top of the screen.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![New user Button](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. In the User properties, perform the following steps.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![The User dialog box](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    a. In the **Name** field enter **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
+    b. In the **User name** field type brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assign the Azure AD test user
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para ser combinado a Thoughtworks.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Thoughtworks Mingle.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **mesclar os Thoughtworks**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Thoughtworks Mingle**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **mesclar os Thoughtworks**.
+2. In the applications list, select **Thoughtworks Mingle**.
 
-    ![A ligação ser combinado a Thoughtworks, na lista de aplicações](common/all-applications.png)
+    ![The Thoughtworks Mingle link in the Applications list](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. In the menu on the left, select **Users and groups**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-### <a name="create-thoughtworks-mingle-test-user"></a>Criar utilizador de teste de mesclar os Thoughtworks
+### <a name="create-thoughtworks-mingle-test-user"></a>Create Thoughtworks Mingle test user
 
-Para utilizadores do Azure AD possam iniciar sessão, tem de ser aprovisionados para a aplicação Thoughtworks ser combinado com seus nomes de utilizador do Azure Active Directory. No caso de ser combinado a Thoughtworks, o aprovisionamento é uma tarefa manual.
+For Azure AD users to be able to sign in, they must be provisioned to the Thoughtworks Mingle application using their Azure Active Directory user names. In the case of Thoughtworks Mingle, provisioning is a manual task.
 
-**Para configurar o aprovisionamento de utilizadores, execute os seguintes passos:**
+**To configure user provisioning, perform the following steps:**
 
-1. Inicie sessão para mesclar os Thoughtworks site da sua empresa, como administrador.
+1. Sign in to your Thoughtworks Mingle company site as administrator.
 
-2. Clique em **perfil**.
+2. Click **Profile**.
    
-    ![Seu primeiro projeto](./media/thoughtworks-mingle-tutorial/ic785160.png "seu primeiro projeto")
+    ![Your First Project](./media/thoughtworks-mingle-tutorial/ic785160.png "Your First Project")
 
-3. Clique nas **administrador** separador e, em seguida, clique em **utilizadores**.
+3. Click the **Admin** tab, and then click **Users**.
    
-    ![Os utilizadores](./media/thoughtworks-mingle-tutorial/ic785161.png "utilizadores")
+    ![Utilizadores](./media/thoughtworks-mingle-tutorial/ic785161.png "Utilizadores")
 
-4. Clique em **novo utilizador**.
+4. Click **New User**.
    
-    ![Novo utilizador](./media/thoughtworks-mingle-tutorial/ic785162.png "novo utilizador")
+    ![New User](./media/thoughtworks-mingle-tutorial/ic785162.png "New User")
 
-5. Sobre o **novo utilizador** caixa de diálogo página, execute os seguintes passos:
+5. On the **New User** dialog page, perform the following steps:
    
-    ![Caixa de diálogo do nova usuário](./media/thoughtworks-mingle-tutorial/ic785163.png "novo utilizador")  
+    ![New User dialog](./media/thoughtworks-mingle-tutorial/ic785163.png "New User")  
  
-    a. Tipo de **nome de início de sessão**, **nome a apresentar**, **palavra-passe de escolha**, **Confirmar palavra-passe** de um Azure válido conta AD que pretende aprovisionar para as caixas de texto relacionadas. 
+    a. Type the **Sign-in name**, **Display name**, **Choose password**, **Confirm password** of a valid Azure AD account you want to provision into the related textboxes. 
 
-    b. Como **tipo de utilizador**, selecione **utilizador completo**.
+    b. As **User type**, select **Full user**.
 
-    c. Clique em **criar este perfil**.
+    c. Click **Create This Profile**.
 
 >[!NOTE]
->Pode utilizar quaisquer outras mesclar os Thoughtworks utilizador conta criação ferramentas ou APIs fornecidas pelo mesclar os Thoughtworks, para aprovisionar contas de utilizador do AAD.
+>You can use any other Thoughtworks Mingle user account creation tools or APIs provided by Thoughtworks Mingle to provision Azure AD user accounts.
 > 
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-Quando clica no mosaico de mesclar os Thoughtworks de mensagens em fila no painel de acesso, deve ser automaticamente conectado para a Thoughtworks ser combinado para os quais configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Thoughtworks Mingle tile in the Access Panel, you should be automatically signed in to the Thoughtworks Mingle for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

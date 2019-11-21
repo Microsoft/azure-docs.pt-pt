@@ -1,51 +1,45 @@
 ---
-title: Durable Functions publicação na grade de eventos do Azure (visualização)
-description: Saiba como configurar a publicação automática da grade de eventos do Azure para Durable Functions.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
+title: Durable Functions publishing to Azure Event Grid (preview)
+description: Learn how to configure automatic Azure Event Grid publishing for Durable Functions.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: glenga
-ms.openlocfilehash: 4e1a714a6d46a9422fb298749cfe30ac70ffc8c3
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: f0fbb46320b896008b6a1343357f016a9f57b0fe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614913"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231454"
 ---
-# <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Durable Functions publicação na grade de eventos do Azure (visualização)
+# <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Durable Functions publishing to Azure Event Grid (preview)
 
-Este artigo mostra como configurar Durable Functions para publicar eventos de ciclo de vida de orquestração (como criado, concluído e com falha) em um [tópico personalizado da grade de eventos do Azure](https://docs.microsoft.com/azure/event-grid/overview).
+This article shows how to set up Durable Functions to publish orchestration lifecycle events (such as created, completed, and failed) to a custom [Azure Event Grid Topic](https://docs.microsoft.com/azure/event-grid/overview).
 
-A seguir, alguns cenários em que esse recurso é útil:
+Following are some scenarios where this feature is useful:
 
-* **Cenários de DevOps como implantações azuis/verdes**: Talvez você queira saber se alguma tarefa está em execução antes de implementar a [estratégia de implantação lado a lado](durable-functions-versioning.md#side-by-side-deployments).
+* **DevOps scenarios like blue/green deployments**: You might want to know if any tasks are running before implementing the [side-by-side deployment strategy](durable-functions-versioning.md#side-by-side-deployments).
 
-* **Monitoramento avançado e suporte a diagnósticos**: você pode manter o controle das informações de status de orquestração em um repositório externo otimizado para consultas, como o banco de dados SQL ou CosmosDB.
+* **Advanced monitoring and diagnostics support**: You can keep track of orchestration status information in an external store optimized for queries, such as SQL database or CosmosDB.
 
-* **Atividade de segundo plano de execução longa**: se você usar Durable Functions para uma atividade de segundo plano de execução longa, esse recurso ajudará você a saber o status atual.
+* **Long-running background activity**: If you use Durable Functions for a long-running background activity, this feature helps you to know the current status.
 
 [!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instale [Microsoft. Azure. webjobs. Extensions. DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) em seu projeto Durable functions.
-* Instale o [emulador de armazenamento do Azure](../../storage/common/storage-use-emulator.md).
-* Instalar [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) ou usar [Azure cloud Shell](../../cloud-shell/overview.md)
+* Install [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) in your Durable Functions project.
+* Install [Azure Storage Emulator](../../storage/common/storage-use-emulator.md).
+* Install [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) or use [Azure Cloud Shell](../../cloud-shell/overview.md)
 
-## <a name="create-a-custom-event-grid-topic"></a>Criar um tópico de grade de eventos personalizado
+## <a name="create-a-custom-event-grid-topic"></a>Create a custom event grid topic
 
-Crie um tópico de grade de eventos para enviar eventos de Durable Functions. As instruções a seguir mostram como criar um tópico usando CLI do Azure. Para obter informações sobre como fazer isso usando o PowerShell ou o portal do Azure, consulte os seguintes artigos:
+Create an event grid topic for sending events from Durable Functions. The following instructions show how to create a topic by using Azure CLI. For information about how to do it by using PowerShell or the Azure portal, refer to the following articles:
 
-* [EventGrid início rápido: criar evento personalizado-PowerShell](../../event-grid/custom-event-quickstart-powershell.md)
-* [Início rápido do EventGrid: criar evento personalizado-portal do Azure](../../event-grid/custom-event-quickstart-portal.md)
+* [EventGrid Quickstarts: Create custom event - PowerShell](../../event-grid/custom-event-quickstart-powershell.md)
+* [EventGrid Quickstarts: Create custom event - Azure portal](../../event-grid/custom-event-quickstart-portal.md)
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando `az group create`. Atualmente, a grade de eventos do Azure não dá suporte a todas as regiões. Para obter informações sobre quais regiões têm suporte, consulte [visão geral da grade de eventos do Azure](../../event-grid/overview.md).
+Crie um grupo de recursos com o comando `az group create`. Currently, Azure Event Grid doesn't support all regions. For information about which regions are supported, see the [Azure Event Grid overview](../../event-grid/overview.md).
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -53,33 +47,33 @@ az group create --name eventResourceGroup --location westus2
 
 ### <a name="create-a-custom-topic"></a>Criar um tópico personalizado
 
-Um tópico da grade de eventos fornece um ponto de extremidade definido pelo usuário no qual você posta seu evento. Substitua `<topic_name>` por um nome exclusivo para o seu tópico. O nome do tópico deve ser exclusivo porque se torna uma entrada DNS.
+An event grid topic provides a user-defined endpoint that you post your event to. Substitua `<topic_name>` por um nome exclusivo para o seu tópico. The topic name must be unique because it becomes a DNS entry.
 
 ```bash
 az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
 ```
 
-## <a name="get-the-endpoint-and-key"></a>Obter o ponto de extremidade e a chave
+## <a name="get-the-endpoint-and-key"></a>Get the endpoint and key
 
-Obtenha o ponto de extremidade do tópico. Substitua `<topic_name>` pelo nome escolhido.
+Get the endpoint of the topic. Replace `<topic_name>` with the name you chose.
 
 ```bash
 az eventgrid topic show --name <topic_name> -g eventResourceGroup --query "endpoint" --output tsv
 ```
 
-Obtenha a chave do tópico. Substitua `<topic_name>` pelo nome escolhido.
+Get the topic key. Replace `<topic_name>` with the name you chose.
 
 ```bash
 az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "key1" --output tsv
 ```
 
-Agora você pode enviar eventos para o tópico.
+Now you can send events to the topic.
 
-## <a name="configure-azure-event-grid-publishing"></a>Configurar publicação da grade de eventos do Azure
+## <a name="configure-azure-event-grid-publishing"></a>Configure Azure Event Grid publishing
 
-No projeto Durable Functions, localize o arquivo `host.json`.
+In your Durable Functions project, find the `host.json` file.
 
-Adicione `eventGridTopicEndpoint` e `eventGridKeySettingName` em uma propriedade `durableTask`.
+Add `eventGridTopicEndpoint` and `eventGridKeySettingName` in a `durableTask` property.
 
 ```json
 {
@@ -90,9 +84,9 @@ Adicione `eventGridTopicEndpoint` e `eventGridKeySettingName` em uma propriedade
 }
 ```
 
-As propriedades de configuração da grade de eventos do Azure possíveis podem ser encontradas na [documentação do host. JSON](../functions-host-json.md#durabletask). Depois de configurar o arquivo de `host.json`, seu aplicativo de funções envia eventos de ciclo de vida para o tópico da grade de eventos. Isso funciona quando você executa seu aplicativo de funções localmente e no Azure. ' ' '
+The possible Azure Event Grid configuration properties can be found in the [host.json documentation](../functions-host-json.md#durabletask). After you configure the `host.json` file, your function app sends lifecycle events to the event grid topic. This works when you run your function app both locally and in Azure.```
 
-Defina a configuração do aplicativo para a chave de tópico no Aplicativo de funções e `local.setting.json`. O JSON a seguir é um exemplo de `local.settings.json` para depuração local. Substitua `<topic_key>` pela chave do tópico.  
+Set the app setting for the topic key in the Function App and `local.setting.json`. The following JSON is a sample of the `local.settings.json` for local debugging. Replace `<topic_key>` with the topic key.  
 
 ```json
 {
@@ -105,29 +99,29 @@ Defina a configuração do aplicativo para a chave de tópico no Aplicativo de f
 }
 ```
 
-Verifique se o [emulador de armazenamento](../../storage/common/storage-use-emulator.md) está funcionando. É uma boa ideia executar o comando `AzureStorageEmulator.exe clear all` antes de executar.
+Make sure that [Storage Emulator](../../storage/common/storage-use-emulator.md) is working. It's a good idea to run the `AzureStorageEmulator.exe clear all` command before executing.
 
-## <a name="create-functions-that-listen-for-events"></a>Criar funções que escutam eventos
+## <a name="create-functions-that-listen-for-events"></a>Create functions that listen for events
 
-Crie um Aplicativo de funções. É melhor localizá-lo na mesma região que o tópico da grade de eventos.
+Create a Function App. It's best to locate it in the same region as the event grid topic.
 
-### <a name="create-an-event-grid-trigger-function"></a>Criar uma função de gatilho de grade de eventos
+### <a name="create-an-event-grid-trigger-function"></a>Create an event grid trigger function
 
-Crie uma função para receber os eventos do ciclo de vida. Selecione **função personalizada**.
+Create a function to receive the lifecycle events. Select **Custom Function**.
 
-![Selecione um criar uma função personalizada.](./media/durable-functions-event-publishing/functions-portal.png)
+![Select a Create a custom function.](./media/durable-functions-event-publishing/functions-portal.png)
 
-Escolha gatilho de grade de eventos e selecione `C#`.
+Choose Event Grid Trigger, and select `C#`.
 
-![Selecione o gatilho de grade de eventos.](./media/durable-functions-event-publishing/eventgrid-trigger.png)
+![Select the Event Grid Trigger.](./media/durable-functions-event-publishing/eventgrid-trigger.png)
 
-Insira o nome da função e, em seguida, selecione `Create`.
+Enter the name of the function, and then select `Create`.
 
-![Crie o gatilho de grade de eventos.](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
+![Create the Event Grid Trigger.](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
 
-Uma função com o código a seguir é criada:
+A function with the following code is created:
 
-#### <a name="precompiled-c"></a>Pré-compiladoC#
+#### <a name="precompiled-c"></a>Precompiled C#
 ```csharp
 public static void Run([HttpTrigger] JObject eventGridEvent, ILogger log)
 {
@@ -135,7 +129,7 @@ public static void Run([HttpTrigger] JObject eventGridEvent, ILogger log)
 }
 ```
 
-#### <a name="c-script"></a>C#Prescritiva
+#### <a name="c-script"></a>C# Script
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -149,21 +143,21 @@ public static void Run(JObject eventGridEvent, ILogger log)
 }
 ```
 
-Selecione `Add Event Grid Subscription`. Esta operação adiciona uma assinatura de grade de eventos para o tópico da grade de eventos que você criou. Para obter mais informações, consulte [conceitos na grade de eventos do Azure](https://docs.microsoft.com/azure/event-grid/concepts)
+Selecione `Add Event Grid Subscription`. This operation adds an event grid subscription for the event grid topic that you created. For more information, see [Concepts in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
 
-![Selecione o link disparador de grade de eventos.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
+![Select the Event Grid Trigger link.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-Selecione `Event Grid Topics` para **tipo de tópico**. Selecione o grupo de recursos que você criou para o tópico da grade de eventos. Em seguida, selecione a instância do tópico da grade de eventos. Pressione `Create`.
+Select `Event Grid Topics` for **Topic Type**. Select the resource group that you created for the event grid topic. Then select the instance of the event grid topic. Press `Create`.
 
 ![Crie uma subscrição do Event Grid.](./media/durable-functions-event-publishing/eventsubscription.png)
 
-Agora você está pronto para receber eventos de ciclo de vida.
+Now you're ready to receive lifecycle events.
 
-## <a name="create-durable-functions-to-send-the-events"></a>Criar Durable Functions para enviar os eventos
+## <a name="create-durable-functions-to-send-the-events"></a>Create Durable Functions to send the events
 
-Em seu projeto de Durable Functions, inicie a depuração no computador local.  O código a seguir é o mesmo que o código de modelo para o Durable Functions. Você já configurou `host.json` e `local.settings.json` no computador local.
+In your Durable Functions project, start debugging on your local machine.  The following code is the same as the template code for the Durable Functions. You already configured `host.json` and `local.settings.json` on your local machine.
 
-### <a name="precompiled-c"></a>Pré-compiladoC#
+### <a name="precompiled-c"></a>Precompiled C#
 
 ```csharp
 using System.Collections.Generic;
@@ -217,11 +211,11 @@ namespace LifeCycleEventSpike
 ```
 
 > [!NOTE]
-> O código anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`, `OrchestrationClient` atributo em vez do atributo `DurableClient`, e deve usar o tipo de parâmetro `DurableOrchestrationClient` em vez de `IDurableOrchestrationClient`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`, `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-Se você chamar o `Sample_HttpStart` com o postmaster ou seu navegador, a função durável começará a enviar eventos de ciclo de vida. O ponto de extremidade geralmente é `http://localhost:7071/api/Sample_HttpStart` para depuração local.
+If you call the `Sample_HttpStart` with Postman or your browser, Durable Function starts to send lifecycle events. The endpoint is usually `http://localhost:7071/api/Sample_HttpStart` for local debugging.
 
-Consulte os logs da função que você criou na portal do Azure.
+See the logs from the function that you created in the Azure portal.
 
 ```
 2019-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)
@@ -263,32 +257,32 @@ Consulte os logs da função que você criou na portal do Azure.
 2019-04-20T09:28:37.098 [Info] Function completed (Success, Id=36fadea5-198b-4345-bb8e-2837febb89a2, Duration=0ms)
 ```
 
-## <a name="event-schema"></a>Esquema de evento
+## <a name="event-schema"></a>Event Schema
 
-A lista a seguir explica o esquema de eventos de ciclo de vida:
+The following list explains the lifecycle events schema:
 
-* **`id`** : identificador exclusivo para o evento da grade de eventos.
-* **`subject`** : caminho para o assunto do evento. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` será `Running`, `Completed`, `Failed`e `Terminated`.  
-* **`data`** : Durable Functions parâmetros específicos.
-  * **`hubName`** : nome do [TaskHub](durable-functions-task-hubs.md) .
-  * **`functionName`** : nome da função de orquestrador.
-  * **`instanceId`** : Durable Functions InstanceId.
-  * **`reason`** : dados adicionais associados ao evento de rastreamento. Para obter mais informações, consulte [Diagnostics in Durable Functions (Azure Functions)](durable-functions-diagnostics.md)
-  * **`runtimeStatus`** : status do tempo de execução de orquestração. Em execução, concluído, com falha, cancelado.
+* **`id`** : Unique identifier for the event grid event.
+* **`subject`** : Path to the event subject. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` will be `Running`, `Completed`, `Failed`, and `Terminated`.  
+* **`data`** : Durable Functions Specific Parameters.
+  * **`hubName`** : [TaskHub](durable-functions-task-hubs.md) name.
+  * **`functionName`** : Orchestrator function name.
+  * **`instanceId`** : Durable Functions instanceId.
+  * **`reason`** : Additional data associated with the tracking event. For more information, see [Diagnostics in Durable Functions (Azure Functions)](durable-functions-diagnostics.md)
+  * **`runtimeStatus`** : Orchestration Runtime Status. Running, Completed, Failed, Canceled.
 * **`eventType`** : "orchestratorEvent"
-* **`eventTime`** : hora do evento (UTC).
-* **`dataVersion`** : versão do esquema de eventos do ciclo de vida.
-* **`metadataVersion`** : versão dos metadados.
-* **`topic`** : recurso de tópico da grade de eventos.
+* **`eventTime`** : Event time (UTC).
+* **`dataVersion`** : Version of the lifecycle event schema.
+* **`metadataVersion`** :  Version of the metadata.
+* **`topic`** : Event grid topic resource.
 
-## <a name="how-to-test-locally"></a>Como testar localmente
+## <a name="how-to-test-locally"></a>How to test locally
 
-Para testar localmente, use [ngrok](../functions-bindings-event-grid.md#local-testing-with-ngrok).
+To test locally, use [ngrok](../functions-bindings-event-grid.md#local-testing-with-ngrok).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Aprenda o gerenciamento de instâncias no Durable Functions](durable-functions-instance-management.md)
+> [Learn instance management in Durable Functions](durable-functions-instance-management.md)
 
 > [!div class="nextstepaction"]
-> [Aprenda o controle de versão no Durable Functions](durable-functions-versioning.md)
+> [Learn versioning in Durable Functions](durable-functions-versioning.md)

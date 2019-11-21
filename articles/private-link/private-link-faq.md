@@ -1,81 +1,81 @@
 ---
-title: Perguntas frequentes sobre o link privado do Azure
-description: Saiba mais sobre o link privado do Azure.
+title: Azure Private Link frequently asked questions (FAQ)
+description: Learn about Azure Private Link.
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: 32e570e098c9a3f95dfc5393348cccb1ebe1fb60
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.author: allensu
+ms.openlocfilehash: 53cb9b91d62c65cefb33451c716e677599306e9c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104590"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229338"
 ---
-# <a name="azure-private-link-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o link privado do Azure
+# <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure Private Link frequently asked questions (FAQ)
 
 ## <a name="private-link"></a>Ligação Privada
 
-### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>O que é o ponto de extremidade privado do Azure e o serviço de vínculo privado do Azure?
+### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>What is Azure Private Endpoint and Azure Private Link Service?
 
-- **[Ponto de extremidade privado do Azure](private-endpoint-overview.md)** : O ponto de extremidade privado do Azure é uma interface de rede que conecta você de forma privada e segura a um serviço da plataforma Azure link privado. Você pode usar pontos de extremidade privados para se conectar a um serviço de PaaS do Azure que dá suporte ao link privado ou ao seu próprio serviço de vínculo privado.
-- **[Serviço de link privado do Azure](private-link-service-overview.md)** : O serviço de vínculo privado do Azure é um serviço criado por um provedor de serviços. Atualmente, um serviço de vínculo privado pode ser anexado à configuração de IP de front-end de um Standard Load Balancer. 
+- **[Azure Private Endpoint](private-endpoint-overview.md)** : Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. You can use Private Endpoints to connect to an Azure PaaS service that supports Private Link or to your own Private Link Service.
+- **[Azure Private Link Service](private-link-service-overview.md)** : Azure Private Link service is a service created by a service provider. Currently, a Private Link service can be attached to the frontend IP configuration of a Standard Load Balancer. 
 
-### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Como o tráfego é enviado ao usar o link privado?
-O tráfego é enviado de forma privada usando o backbone da Microsoft. Ele não atravessa a Internet.  
+### <a name="how-is-traffic-being-sent-when-using-private-link"></a>How is traffic being sent when using Private Link?
+Traffic is sent privately using Microsoft backbone. It doesn’t traverse the internet.  
  
-### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>Qual é a diferença entre um ponto de extremidade de serviço e um ponto de extremidade privado?
-- Ao usar pontos de extremidade privados, o acesso à rede é concedido a recursos específicos por trás de um determinado serviço, fornecendo segmentação granular, além disso, o tráfego pode acessar o recurso de serviço no local sem usar pontos de extremidade públicos.
+### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>What is the difference between a Service Endpoints and a Private Endpoints?
+- When using Private Endpoints, network access is granted to specific resources behind a given service providing granular segmentation, also traffic can reach the service resource from on premises without using public endpoints.
 
-### <a name="what-is-the-relationship-between-private-link-service-and-private-endpoint"></a>Qual é a relação entre o serviço de link privado e o ponto de extremidade privado?
-O ponto de extremidade privado fornece acesso a vários tipos de recursos de link privado, incluindo os serviços de PaaS do Azure e seu próprio serviço de vínculo privado. É uma relação um-para-muitos. Um serviço de vínculo privado pode receber conexões de vários pontos de extremidade privados. Por outro lado, um ponto de extremidade privado só pode se conectar a um serviço de vínculo privado.    
+### <a name="what-is-the-relationship-between-private-link-service-and-private-endpoint"></a>What is the relationship between Private Link service and Private Endpoint?
+Private Endpoint provides access to multiple private link resource types, including Azure PaaS services and your own Private Link Service. It is a one-to-many relationship. One Private Link service can receive connections from multiple private endpoints. On the other hand, one private endpoint can only connect to one Private Link service.    
 
 ## <a name="private-endpoint"></a>Ponto Final Privado 
  
-### <a name="can-i-create-multiple-private-endpoints-in-same-vnet-can-they-connect-to-different-services"></a>Posso criar vários pontos de extremidade privados na mesma VNet? Eles podem se conectar a diferentes serviços? 
-Sim. Você pode ter vários pontos de extremidade privados na mesma VNet ou sub-rede. Eles podem se conectar a diferentes serviços.  
+### <a name="can-i-create-multiple-private-endpoints-in-same-vnet-can-they-connect-to-different-services"></a>Can I create multiple Private Endpoints in same VNet? Can they connect to different Services? 
+Sim. You can have multiple private endpoints in same VNet or subnet. They can connect to different services.  
  
-### <a name="do-i-require-a-dedicated-subnet-for-private-endpoints"></a>Eu preciso de uma sub-rede dedicada para pontos de extremidade privados? 
-Não. Você não precisa de uma sub-rede dedicada para pontos de extremidade privados. Você pode escolher um IP de ponto de extremidade privado de qualquer sub-rede da VNet na qual seu serviço está implantado.  
+### <a name="do-i-require-a-dedicated-subnet-for-private-endpoints"></a>Do I require a dedicated subnet for private endpoints? 
+Não. You don't require a dedicated subnet for private endpoints. You can choose a private endpoint IP from any subnet from the VNet where your service is deployed.  
  
-### <a name="can-private-endpoint-connect-to-private-link-service-across-azure-active-directory-tenants"></a>O ponto de extremidade privado pode conectar-se ao serviço de vínculo privado entre Azure Active Directory locatários? 
-Sim. Pontos de extremidade privados podem se conectar a serviços de vínculo privado ou a PaaS do Azure entre locatários do AD.  
+### <a name="can-private-endpoint-connect-to-private-link-service-across-azure-active-directory-tenants"></a>Can Private Endpoint connect to Private Link service across Azure Active Directory Tenants? 
+Sim. Private endpoints can connect to Private Link services or Azure PaaS across AD tenants.  
  
-### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>O ponto de extremidade privado pode se conectar aos recursos de PaaS do Azure nas regiões do Azure?
-Sim. Pontos de extremidade privados podem se conectar aos recursos de PaaS do Azure nas regiões do Azure.
+### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>Can private endpoint connect to Azure PaaS resources across Azure regions?
+Sim. Private endpoints can connect to Azure PaaS resources across Azure regions.
 
-## <a name="private-link-service"></a>Serviço de Ligação Privada
+## <a name="private-link-service"></a>Serviço Ligação Privada
  
-### <a name="what-are-the-pre-requisites-for-creating-a-private-link-service"></a>Quais são os pré-requisitos para criar um serviço de link privado? 
-Os back-ends de seu serviço devem estar em uma rede virtual e por trás de um Standard Load Balancer.
+### <a name="what-are-the-pre-requisites-for-creating-a-private-link-service"></a>What are the pre-requisites for creating a Private Link service? 
+Your service backends should be in a Virtual network and behind a Standard Load Balancer.
  
-### <a name="how-can-i-scale-my-private-link-service"></a>Como posso dimensionar meu serviço de vínculo privado? 
-Você pode dimensionar seu serviço de vínculo privado de algumas maneiras diferentes: 
-- Adicionar VMs de back-end ao pool por trás de seu Standard Load Balancer 
-- Adicione um IP ao serviço de vínculo privado. Permitimos até 8 IPs por serviço de link privado.  
-- Adicione um novo serviço de vínculo privado a Standard Load Balancer. Permitimos até oito serviços de link privado por balanceador de carga.   
+### <a name="how-can-i-scale-my-private-link-service"></a>How can I scale my Private Link service? 
+You can scale your Private Link service in a few different ways: 
+- Add Backend VMs to the pool behind your Standard Load Balancer 
+- Add an IP to the Private Link service. We allow up to 8 IPs per Private Link service.  
+- Add new Private Link service to Standard Load Balancer. We allow up to eight Private Link services per load balancer.   
 
-### <a name="can-i-connect-my-service-to-multiple-private-endpoints"></a>Posso conectar meu serviço a vários pontos de extremidade privados?
-Sim. Um serviço de vínculo privado pode receber conexões de vários pontos de extremidade privados. No entanto, um ponto de extremidade privado só pode se conectar a um serviço de link privado.  
+### <a name="can-i-connect-my-service-to-multiple-private-endpoints"></a>Can I connect my service to multiple Private Endpoints?
+Sim. One Private Link service can receive connections from multiple Private Endpoints. However one Private Endpoint can only connect to one Private Link service.  
  
-### <a name="how-should-i-control-the-exposure-of-my-private-link-service"></a>Como devo controlar a exposição do meu serviço de vínculo privado?
-Você pode controlar a exposição usando a configuração de visibilidade no serviço de vínculo privado. A visibilidade dá suporte a três configurações:
+### <a name="how-should-i-control-the-exposure-of-my-private-link-service"></a>How should I control the exposure of my Private Link service?
+You can control the exposure using the visibility configuration on Private Link service. Visibility supports three settings:
 
-- **Nenhum** -somente assinaturas com acesso RBAC podem localizar o serviço. 
-- Assinaturas somente **restritivas** que estão na lista de permissões e com acesso de RBAC podem localizar o serviço. 
-- **Todos** -todos podem localizar o serviço. 
+- **None** - Only subscriptions with RBAC access can locate the service. 
+- **Restrictive** - Only subscriptions that are whitelisted and with RBAC access can locate the service. 
+- **All** - Everyone can locate the service. 
  
-### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Posso criar um serviço de vínculo privado com Load Balancer básica? 
-Não. Não há suporte para o serviço de vínculo privado em um Load Balancer básico.
+### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Can I create a Private Link service with Basic Load Balancer? 
+Não. Private Link service over a Basic Load Balancer is not supported.
  
-### <a name="is-a-dedicated-subnet-required-for-private-link-service"></a>Uma sub-rede dedicada é necessária para o serviço de vínculo privado? 
-Não. O serviço de vínculo privado não requer uma sub-rede dedicada. Você pode escolher qualquer sub-rede em sua VNet onde o serviço é implantado.   
+### <a name="is-a-dedicated-subnet-required-for-private-link-service"></a>Is a dedicated subnet required for Private Link service? 
+Não. Private Link service doesn’t require a dedicated subnet. You can choose any subnet in your VNet where your service is deployed.   
 
-### <a name="i-am-a-service-provider-using-azure-private-link-do-i-need-to-make-sure-all-my-customers-have-unique-ip-space-and-dont-overlap-with-my-ip-space"></a>Sou um provedor de serviços usando o link privado do Azure. É necessário ter certeza de que todos os meus clientes têm espaço IP exclusivo e não se sobrepõem ao meu espaço de IP? 
-Não. O link privado do Azure fornece essa funcionalidade para você. Portanto, não é necessário ter espaço de endereço não sobreposto com o espaço de endereço do seu cliente. 
+### <a name="i-am-a-service-provider-using-azure-private-link-do-i-need-to-make-sure-all-my-customers-have-unique-ip-space-and-dont-overlap-with-my-ip-space"></a>I am a service provider using Azure Private Link. Do I need to make sure all my customers have unique IP space and don’t overlap with my IP space? 
+Não. Azure Private Link provides this functionality for you. Hence, you are not required to have non-overlapping address space with your customer's address space. 
 
-##  <a name="next-steps"></a>Passos Seguintes
+##  <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [link privado do Azure](private-link-overview.md)
+- Learn about [Azure Private Link](private-link-overview.md)

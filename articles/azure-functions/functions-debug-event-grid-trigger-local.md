@@ -1,116 +1,111 @@
 ---
-title: Azure Functions depuração local da grade de eventos
-description: Saiba como depurar localmente o Azure Functions disparado por um evento de grade de eventos
-services: functions
-documentationcenter: na
+title: Azure Functions Event Grid local debugging
+description: Learn to locally debug Azure functions triggered by an Event Grid event
 author: craigshoemaker
-manager: gwallace
-keywords: Azure functions, funções, arquitetura sem servidor
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: e28abbe8d44094d8599545479f4611a84e9d9bd5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 97509001aa66c2c1bf0c91b6b2a5ab25f9d6ec88
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085678"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227073"
 ---
-# <a name="azure-function-event-grid-trigger-local-debugging"></a>Depuração local do gatilho de grade de eventos do Azure function
+# <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure Function Event Grid Trigger Local Debugging
 
-Este artigo demonstra como depurar uma função local que manipula um evento de grade de eventos do Azure gerado por uma conta de armazenamento. 
+This article demonstrates how to debug a local function that handles an Azure Event Grid event raised by a storage account. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Criar ou usar um aplicativo de funções existente
-- Criar ou usar uma conta de armazenamento existente
-- Baixe o [ngrok](https://ngrok.com/) para permitir que o Azure chame sua função local
+- Create or use an existing function app
+- Create or use an existing storage account
+- Download [ngrok](https://ngrok.com/) to allow Azure to call your local function
 
 ## <a name="create-a-new-function"></a>Criar uma nova função
 
-Abra seu aplicativo de funções no Visual Studio e, em seguida, clique com o botão direito do mouse no nome do projeto na Gerenciador de Soluções e clique em **adicionar > nova função do Azure**.
+Open your function app in Visual Studio and, right-click on the project name in the Solution Explorer and click **Add > New Azure Function**.
 
-Na janela *nova função do Azure* , selecione **gatilho de grade de eventos** e clique em **OK**.
+In the *New Azure Function* window, select **Event Grid trigger** and click **OK**.
 
 ![Criar função nova](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-function.png)
 
-Depois que a função for criada, abra o arquivo de código e copie a URL comentada na parte superior do arquivo. Esse local é usado ao configurar o gatilho de grade de eventos.
+Once the function is created, open the code file and copy the URL commented out at the top of the file. This location is used when configuring the Event Grid trigger.
 
-![Local da cópia](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-copy-location.png)
+![Copy location](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-copy-location.png)
 
-Em seguida, defina um ponto de interrupção na linha que `log.LogInformation`começa com.
+Then, set a breakpoint on the line that begins with `log.LogInformation`.
 
-![Definir ponto de interrupção](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-set-breakpoint.png)
+![Set breakpoint](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-set-breakpoint.png)
 
 
-Em seguida, **pressione F5** para iniciar uma sessão de depuração.
+Next, **press F5** to start a debugging session.
 
-## <a name="allow-azure-to-call-your-local-function"></a>Permitir que o Azure chame sua função local
+## <a name="allow-azure-to-call-your-local-function"></a>Allow Azure to call your local function
 
-Para dividir uma função que está sendo depurada em seu computador, você deve habilitar uma maneira para o Azure se comunicar com sua função local da nuvem.
+To break into a function being debugged on your machine, you must enable a way for Azure to communicate with your local function from the cloud.
 
-O utilitário [ngrok](https://ngrok.com/) fornece uma maneira para o Azure chamar a função em execução no seu computador. Inicie o *ngrok* usando o seguinte comando:
+The [ngrok](https://ngrok.com/) utility provides a way for Azure to call the function running on your machine. Start *ngrok* using the following command:
 
 ```bash
 ngrok http -host-header=localhost 7071
 ```
-À medida que o utilitário é configurado, a janela de comando deve ser semelhante à captura de tela a seguir:
+As the utility is set up, the command window should look similar to the following screenshot:
 
-![Iniciar ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
+![Start ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
 
-Copie a URL **https** gerada quando *ngrok* for executado. Esse valor é usado ao configurar o ponto de extremidade do evento de grade de eventos.
+Copy the **HTTPS** URL generated when *ngrok* is run. This value is used when configuring the event grid event endpoint.
 
-## <a name="add-a-storage-event"></a>Adicionar um evento de armazenamento
+## <a name="add-a-storage-event"></a>Add a storage event
 
-Abra o portal do Azure e navegue até uma conta de armazenamento e clique na opção **eventos** .
+Open the Azure portal and navigate to a storage account and click on the **Events** option.
 
-![Adicionar evento de conta de armazenamento](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
+![Add storage account event](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
 
-Na janela *eventos* , clique no botão **assinatura de evento** . Na janela de *assinatura uniforme* , clique na lista suspensa *tipo de ponto de extremidade* e selecione **gancho da Web**.
+In the *Events* window, click on the **Event Subscription** button. In the *Even Subscription* window, click on the *Endpoint Type* dropdown and select **Web Hook**.
 
-![Selecionar tipo de assinatura](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
+![Select subscription type](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
 
-Depois que o tipo de ponto de extremidade for configurado, clique em **selecionar um ponto de extremidade** para configurar o valor do ponto de extremidade.
+Once the endpoint type is configured, click on **Select an endpoint** to configure the endpoint value.
 
-![Selecionar tipo de ponto de extremidade](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint.png)
+![Select endpoint type](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint.png)
 
-O valor do *ponto de extremidade* do assinante é composto de três valores diferentes. O prefixo é a URL HTTPS gerada por *ngrok*. O restante da URL é proveniente da URL encontrada no arquivo de código da função, com o nome da função adicionado no final. Começando com a URL do arquivo de código de função, a URL ngrok `http://localhost:7071` substitui e o nome da `{functionname}`função é substituído.
+The *Subscriber Endpoint* value is made up from three different values. The prefix is the HTTPS URL generated by *ngrok*. The  remainder of the URL comes from the URL found in the function code file, with the function name added at the end. Starting with the URL from the function code file, the *ngrok* URL replaces `http://localhost:7071` and the function name replaces `{functionname}`.
 
-A captura de tela a seguir mostra como a URL final deve ser a seguinte:
+The following screenshot shows how the final URL should look:
 
-![Seleção de ponto de extremidade](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint-selection.png)
+![Endpoint selection](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint-selection.png)
 
-Depois de inserir o valor apropriado, clique em **confirmar seleção**.
+Once you've entered the appropriate value, click **Confirm Selection**.
 
 > [!IMPORTANT]
-> Toda vez que você inicia o *ngrok*, a URL https é regenerada e o valor é alterado. Portanto, você deve criar uma nova assinatura de evento sempre que você expor sua função para o Azure por meio do *ngrok*.
+> Every time you start *ngrok*, the HTTPS URL is regenerated and the value changes. Therefore you must create a new Event Subscription each time you expose your function to Azure via *ngrok*.
 
 ## <a name="upload-a-file"></a>Carregar um ficheiro
 
-Agora você pode carregar um arquivo em sua conta de armazenamento para disparar um evento de grade de eventos para a função local manipular. 
+Now you can upload a file to your storage account to trigger an Event Grid event for your local function to handle. 
 
-Abra [Gerenciador de armazenamento](https://azure.microsoft.com/features/storage-explorer/) e conecte-se à sua conta de armazenamento. 
+Open [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) and connect to the your storage account. 
 
-- Expandir **contêineres de blob** 
-- Clique com o botão direito do mouse e selecione **criar contêiner de blob**.
-- Nomear o **teste** do contêiner
-- Selecione o contêiner de *teste*
-- Clique no botão **carregar**
-- Clique em **carregar arquivos**
-- Selecionar um arquivo e carregá-lo no contêiner de BLOBs
+- Expand **Blob Containers** 
+- Right-click and select **Create Blob Container**.
+- Name the container **test**
+- Select the *test* container
+- Click the **Upload** button
+- Click **Upload Files**
+- Select a file and upload it to the blob container
 
-## <a name="debug-the-function"></a>Depurar a função
+## <a name="debug-the-function"></a>Debug the function
 
-Quando a grade de eventos reconhece que um novo arquivo é carregado no contêiner de armazenamento, o ponto de interrupção é atingido na função local.
+Once the Event Grid recognizes a new file is uploaded to the storage container, the break point is hit in your local function.
 
-![Iniciar ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-breakpoint.png)
+![Start ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-breakpoint.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para limpar os recursos criados neste artigo, exclua o contêiner de **teste** em sua conta de armazenamento.
+To clean up the resources created in this article, delete the **test** container in your storage account.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Utilizar o Event Grid para automatizar o redimensionamento de imagens carregadas](../event-grid/resize-images-on-storage-blob-upload-event.md)
-- [Gatilho de grade de eventos para Azure Functions](./functions-bindings-event-grid.md)
+- [Event Grid trigger for Azure Functions](./functions-bindings-event-grid.md)

@@ -1,6 +1,6 @@
 ---
 title: Função de Trabalho de Runbook Híbrida do Windows da Automatização do Azure
-description: Este artigo fornece informações sobre como instalar um Azure Automation Runbook Worker híbrido que pode utilizar para executar runbooks nos computadores baseados em Windows no seu local datacenter ou o ambiente na cloud.
+description: This article provides information on installing an Azure Automation Hybrid Runbook Worker that you can use to run runbooks on Windows-based computers in your local datacenter or cloud environment.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,67 +9,67 @@ ms.author: robreed
 ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8f6d46b8db6761204e39f14bbb51a493445ad26
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 695fffdcd73c2500c50f22d1b5706834ea77545c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477905"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231606"
 ---
-# <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um Runbook Worker híbrido do Windows
+# <a name="deploy-a-windows-hybrid-runbook-worker"></a>Deploy a Windows Hybrid Runbook Worker
 
-Pode utilizar a funcionalidade de trabalho de Runbook híbrida da automatização do Azure para executar runbooks diretamente no computador que aloja a função e relativamente aos recursos no ambiente para gerir esses recursos locais. Runbooks são armazenados e gerenciados na automatização do Azure e, em seguida, entregue a um ou mais computadores designados. Este artigo descreve como instalar a função de trabalho de Runbook híbrida numa máquina Windows.
+You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the computer that's hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers. This article describes how to install the Hybrid Runbook Worker on a Windows machine.
 
-## <a name="installing-the-windows-hybrid-runbook-worker"></a>Instalar a função de trabalho de Runbook do Windows híbrida
+## <a name="installing-the-windows-hybrid-runbook-worker"></a>Installing the Windows Hybrid Runbook Worker
 
-Para instalar e configurar um Runbook Worker híbrido do Windows, pode usar dois métodos. O método recomendado é utilizar um runbook da automatização para automatizar completamente o processo de configuração de um computador Windows. O segundo método está a seguir um procedimento passo a passo para instalar e configurar a função manualmente.
+To install and configure a Windows Hybrid Runbook Worker, you can use two methods. The recommended method is using an Automation runbook to completely automate the process of configuring a Windows computer. The second method is following a step-by-step procedure to manually install and configure the role.
 
 > [!NOTE]
-> Para gerir a configuração dos seus servidores que suportam a função de trabalho de Runbook híbrida com o Desired State Configuration (DSC), terá de adicioná-los como nós de DSC.
+> To manage the configuration of your servers that support the Hybrid Runbook Worker role with Desired State Configuration (DSC), you need to add them as DSC nodes.
 
-Os requisitos mínimos para uma função de trabalho de Runbook do Windows híbrida são:
+The minimum requirements for a Windows Hybrid Runbook Worker are:
 
-* Windows Server 2012 ou posterior.
-* Windows PowerShell 5.1 ou posterior ([transferir WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)).
-* .NET framework 4.6.2 ou posterior.
-* Dois núcleos.
-* 4 GB de RAM.
-* Porta 443 (saída).
+* Windows Server 2012 or later.
+* Windows PowerShell 5.1 or later ([download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)).
+* .NET Framework 4.6.2 or later.
+* Two cores.
+* 4 GB of RAM.
+* Port 443 (outbound).
 
-Para obter mais requisitos de rede para a função de trabalho de Runbook híbrida, veja [configurar a rede](automation-hybrid-runbook-worker.md#network-planning).
+To get more networking requirements for the Hybrid Runbook Worker, see [Configuring your network](automation-hybrid-runbook-worker.md#network-planning).
 
-Para obter mais informações sobre servidores de integração para a gestão com DSC, veja [integrar computadores para gestão pelo Azure Automation DSC](automation-dsc-onboarding.md).
-Se ativar a [solução de gestão de atualizações](../operations-management-suite/oms-solution-update-management.md), qualquer computador Windows que está ligado à sua área de trabalho do Log Analytics do Azure é automaticamente configurado como uma função de trabalho de Runbook híbrida para suportar os runbooks incluídos nesta solução. No entanto, não está registado com quaisquer grupos de função de trabalho híbrida já definidos na sua conta de automatização. 
+For more information about onboarding servers for management with DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).
+If you enable the [Update Management solution](../operations-management-suite/oms-solution-update-management.md), any Windows computer that's connected to your Azure Log Analytics workspace is  automatically configured as a Hybrid Runbook Worker to support runbooks included in this solution. However, it isn't registered with any Hybrid Worker groups already defined in your Automation account. 
 
-O computador pode ser adicionado a um grupo de trabalho de Runbook híbrida na conta de automatização para suportar runbooks de automatização, desde que estiver a utilizar a mesma conta para a solução e a associação ao grupo de trabalho de Runbook híbrida. Esta funcionalidade foi adicionada à versão 7.2.12024.0 da Função de Trabalho de Runbook Híbrida.
+The computer can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you're using the same account for both the solution and the Hybrid Runbook Worker group membership. Esta funcionalidade foi adicionada à versão 7.2.12024.0 da Função de Trabalho de Runbook Híbrida.
 
-Depois de implementar com êxito uma função de trabalho de runbook, reveja [executar runbooks numa função de trabalho de Runbook híbrida](automation-hrw-run-runbooks.md) para aprender a configurar seus runbooks para automatizar processos no seu datacenter no local ou outro ambiente de cloud.
+After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
-### <a name="automated-deployment"></a>Implementação automatizada
+### <a name="automated-deployment"></a>Automated deployment
 
-Execute os seguintes passos para automatizar a instalação e configuração da função da função de trabalho do Windows híbrida:
+Perform the following steps to automate the installation and configuration of the Windows Hybrid Worker role:
 
-1. Transferir o script New-OnPremiseHybridWorker.ps1 a partir da [galeria do PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker) diretamente a partir do computador que executa a função de trabalho de Runbook híbrida ou de outro computador no seu ambiente. Copie o script para a função de trabalho.
+1. Download the New-OnPremiseHybridWorker.ps1 script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker) directly from the computer running the Hybrid Runbook Worker role or from another computer in your environment. Copy the script to the worker.
 
-   O script New-OnPremiseHybridWorker.ps1 requer os seguintes parâmetros durante a execução:
+   The New-OnPremiseHybridWorker.ps1 script requires the following parameters during execution:
 
-   * *AutomationAccountName* (obrigatório): O nome da sua conta de automatização.
-   * *AAResourceGroupName* (obrigatório): O nome do grupo de recursos que está associada à sua conta de automatização.
-   * *OMSResourceGroupName* (opcional): O nome do grupo de recursos para a área de trabalho do Log Analytics. Se este grupo de recursos não for especificado, *AAResourceGroupName* é utilizado.
-   * *HybridGroupName* (obrigatório): O nome de um grupo de trabalho de Runbook híbrida que especificar como um destino para os runbooks que suportar este cenário.
-   * *SubscriptionID* (obrigatório): O ID de subscrição do Azure que pertença a sua conta de automatização.
-   * *WorkspaceName* (opcional): O nome de área de trabalho do Log Analytics. Se não tiver uma área de trabalho do Log Analytics, o script cria e configura uma.
+   * *AutomationAccountName* (mandatory): The name of your Automation account.
+   * *AAResourceGroupName* (mandatory): The name of the resource group that's associated with your Automation account.
+   * *OMSResourceGroupName* (optional): The name of the resource group for the Log Analytics workspace. If this resource group is not specified, *AAResourceGroupName* is used.
+   * *HybridGroupName* (mandatory): The name of a Hybrid Runbook Worker group that you specify as a target for the runbooks that support this scenario.
+   * *SubscriptionID* (mandatory): The Azure subscription ID that your Automation account is in.
+   * *WorkspaceName* (optional): The Log Analytics workspace name. If you don't have a Log Analytics workspace, the script creates and configures one.
 
    > [!NOTE]
    > Quando ativar soluções, apenas são suportadas determinadas regiões para associar uma área de trabalho do Log Analytics e uma Conta de Automatização.
    >
-   > Para obter uma lista dos pares de mapeamento suportados, consulte [mapeamento de região para a área de trabalho de conta de automatização e o Log Analytics](how-to/region-mappings.md).
+   > For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](how-to/region-mappings.md).
 
-2. No seu computador, abra **Windows PowerShell** partir do **iniciar** ecrã no modo de administrador.
-3. A partir da shell de linha de comandos do PowerShell, navegue até à pasta que contém o script que transferiu. Alterar os valores para os parâmetros *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, e *- WorkspaceName*. Em seguida, execute o script.
+2. On your computer, open **Windows PowerShell** from the **Start** screen in Administrator mode.
+3. From the PowerShell command-line shell, browse to the folder that contains the script that you downloaded. Change the values for the parameters *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId*, and *-WorkspaceName*. Then run the script.
 
      > [!NOTE]
-     > Lhe for pedido para autenticar com o Azure depois de executar o script. *Tem* iniciar sessão com uma conta que seja membro da função administradores da subscrição e coadministrador da subscrição.
+     > You're prompted to authenticate with Azure after you run the script. You *must* sign in with an account that's a member of the Subscription Admins role and co-administrator of the subscription.
 
    ```powershell-interactive
    .\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> -AAResourceGroupName <NameofResourceGroup>`
@@ -77,76 +77,76 @@ Execute os seguintes passos para automatizar a instalação e configuração da 
    -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
    ```
 
-4. Lhe for pedido para aceitar instalar o NuGet, e se lhe for pedido para autenticar com as suas credenciais do Azure.
+4. You're prompted to agree to install NuGet, and you're prompted to authenticate with your Azure credentials.
 
-5. Depois do script estiver concluído, o **grupos de trabalho híbrido** página mostra o novo grupo e o número de membros. Se for um grupo existente, o número de membros é incrementado. Pode selecionar o grupo da lista na **grupos de trabalho híbrido** página e selecione o **funções de trabalho híbridas** mosaico. Sobre o **funções de trabalho híbridas** página, verá cada membro do grupo listado.
+5. After the script is finished, the **Hybrid Worker Groups** page shows the new group and the number of members. If it's an existing group, the number of members is incremented. You can select the group from the list on the **Hybrid Worker Groups** page and select the **Hybrid Workers** tile. On the **Hybrid Workers** page, you see each member of the group listed.
 
-### <a name="manual-deployment"></a>Implementação manual
+### <a name="manual-deployment"></a>Manual deployment
 
-Execute os primeiros dois passos uma vez para o seu ambiente de automatização e, em seguida, repita os passos restantes para cada computador de trabalho.
+Perform the first two steps once for your Automation environment, and then repeat the remaining steps for each worker computer.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-#### <a name="1-create-a-log-analytics-workspace"></a>1. Criar uma área de trabalho do Log Analytics
+#### <a name="1-create-a-log-analytics-workspace"></a>1. Create a Log Analytics workspace
 
-Se ainda não tiver uma área de trabalho do Log Analytics, crie uma utilizando as instruções em [gerir a sua área de trabalho](../azure-monitor/platform/manage-access.md). Pode utilizar uma área de trabalho existente se já tiver um.
+If you don't already have a Log Analytics workspace, create one by using the instructions at [Manage your workspace](../azure-monitor/platform/manage-access.md). You can use an existing workspace if you already have one.
 
-#### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Adicionar a solução de automatização à área de trabalho do Log Analytics
+#### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Add the Automation solution to the Log Analytics workspace
 
-A solução de registos de automatização do Azure Monitor adiciona funcionalidade para a automatização do Azure, incluindo suporte para o Runbook Worker híbrido. Quando adiciona a solução para a área de trabalho, envia automaticamente componentes de trabalho para o computador de agente que pretende instalar no próximo passo.
+The Automation Azure Monitor logs solution adds functionality for Azure Automation, including support for Hybrid Runbook Worker. When you add the solution to your workspace, it automatically pushes worker components to the agent computer that you will install in the next step.
 
-Para adicionar o **automatização** Azure Monitor registos de solução para a área de trabalho, execute o PowerShell seguinte.
+To add the **Automation** Azure Monitor logs solution to your workspace, run the following PowerShell.
 
 ```powershell-interactive
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
 ```
 
-#### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Instalar o Microsoft Monitoring Agent
+#### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Install the Microsoft Monitoring Agent
 
-O Microsoft Monitoring Agent liga-se os computadores para os registos do Azure Monitor. Quando instalar o agente no seu computador no local e ligá-la à sua área de trabalho, transfere automaticamente os componentes que são necessários para o Runbook Worker híbrido.
+The Microsoft Monitoring Agent connects computers to Azure Monitor logs. When you install the agent on your on-premises computer and connect it to your workspace, it automatically downloads the components that are required for Hybrid Runbook Worker.
 
-Para instalar o agente no computador no local, siga as instruções em [computadores Windows ligar aos registos do Azure Monitor](../log-analytics/log-analytics-windows-agent.md). Pode repetir este processo para vários computadores adicionar múltiplos workers para o seu ambiente.
+To install the agent on the on-premises computer, follow the instructions at [Connect Windows computers to Azure Monitor logs](../log-analytics/log-analytics-windows-agent.md). You can repeat this process for multiple computers to add multiple workers to your environment.
 
-Quando o agente foi ligado com êxito para os registos do Azure Monitor, é apresentada no **origens ligadas** separador da análise de registos **definições** página. Pode verificar que o agente transferiu corretamente a solução de automatização quando tem uma pasta denominada **AzureAutomationFiles** em C:\Program Files\Microsoft Monitoring Agent\Agent. Para confirmar a versão da função de trabalho de Runbook híbrida, pode procurar em C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ e tenha em atenção a \\ *versão* subpasta.
+When the agent has successfully connected to Azure Monitor logs, it's listed on the **Connected Sources** tab of the log analytics **Settings** page. You can verify that the agent has correctly downloaded the Automation solution when it has a folder called **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent. To confirm the version of the Hybrid Runbook Worker, you can browse to C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ and note the \\*version* subfolder.
 
-#### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Instalar o ambiente de runbook e ligar a automatização do Azure
+#### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Install the runbook environment and connect to Azure Automation
 
-Quando adiciona um agente para registos do Azure Monitor, a solução de automatização envia por push para baixo a **HybridRegistration** módulo do PowerShell, que contém o **Add-HybridRunbookWorker** cmdlet. Utilize este cmdlet para instalar o ambiente de runbook no computador e registá-lo a automatização do Azure.
+When you add an agent to Azure Monitor logs, the Automation solution pushes down the **HybridRegistration** PowerShell module, which contains the **Add-HybridRunbookWorker** cmdlet. You use this cmdlet to install the runbook environment on the computer and register it with Azure Automation.
 
-Abra uma sessão do PowerShell no modo de administrador e execute os seguintes comandos para importar o módulo:
+Open a PowerShell session in Administrator mode and run the following commands to import the module:
 
 ```powershell-interactive
 cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
 Import-Module .\HybridRegistration.psd1
 ```
 
-Em seguida, execute o **Add-HybridRunbookWorker** cmdlet utilizando a seguinte sintaxe:
+Then run the **Add-HybridRunbookWorker** cmdlet by using the following syntax:
 
 ```powershell-interactive
 Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 ```
 
-Pode obter as informações necessárias para este cmdlet a partir da **gerir chaves** página no portal do Azure. Abra a página ao selecionar o **chaves** opção da **definições** página na conta de automatização.
+You can get the information required for this cmdlet from the **Manage Keys** page in the Azure portal. Open this page by selecting the **Keys** option from the **Settings** page in your Automation account.
 
-![Página "Gerenciar chaves"](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
+!["Manage Keys" page](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
-* **GroupName** é o nome do grupo de trabalho de Runbook híbrida. Se este grupo já existir na conta de automatização, o computador atual é adicionado a ele. Se este grupo não existir, é adicionado.
-* **Ponto final** é o **URL** entrada sobre o **gerir chaves** página.
-* **Token** é o **chave de acesso primária** entrada sobre o **gerir chaves** página.
+* **GroupName** is the name of the Hybrid Runbook Worker group. If this group already exists in the Automation account, the current computer is added to it. If this group doesn't exist, it's added.
+* **EndPoint** is the **URL** entry on the **Manage Keys** page.
+* **Token** is the **PRIMARY ACCESS KEY** entry on the **Manage Keys** page.
 
-Para receber informações detalhadas sobre a instalação, utilize o **-verboso** mudar com **Add-HybridRunbookWorker**.
+To receive detailed information about the installation, use the **-Verbose** switch with **Add-HybridRunbookWorker**.
 
-#### <a name="5-install-powershell-modules"></a>5. Instalar os módulos do PowerShell
+#### <a name="5-install-powershell-modules"></a>5. Install PowerShell modules
 
-Runbooks, pode utilizar qualquer uma das atividades e cmdlets definidos nos módulos que estão instalados no seu ambiente de automatização do Azure. Estes módulos não são implementados automaticamente em computadores no local, tem das instalar manualmente. A exceção é o módulo do Azure, o que é instalado por padrão e fornece acesso a cmdlets para todos os serviços do Azure e as atividades para a automatização do Azure.
+Runbooks can use any of the activities and cmdlets defined in the modules that are installed in your Azure Automation environment. These modules are not automatically deployed to on-premises computers, so you must install them manually. The exception is the Azure module, which is installed by default and provides access to cmdlets for all Azure services and activities for Azure Automation.
 
-Como é a principal finalidade da funcionalidade do Runbook Worker híbrido gerir recursos locais, é mais provável que precisa instalar os módulos que suportam esses recursos. Para obter informações sobre como instalar os módulos do Windows PowerShell, consulte [instalar módulos](/powershell/developer/windows-powershell). 
+Because the primary purpose of the Hybrid Runbook Worker feature is to manage local resources, you most likely need to install the modules that support these resources. For information on installing Windows PowerShell modules, see [Installing Modules](/powershell/scripting/developer/windows-powershell). 
 
-Tem de ser num local referenciado por módulos que estão instalados os **PSModulePath** variável de ambiente para que a função de trabalho híbrida pode importá-los automaticamente. Para obter mais informações, consulte [modificar o caminho de instalação PSModulePath](/powershell/developer/windows-powershell).
+Modules that are installed must be in a location referenced by the **PSModulePath** environment variable so that the hybrid worker can automatically import them. For more information, see [Modifying the PSModulePath Installation Path](/powershell/scripting/developer/windows-powershell).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para saber como configurar os seus runbooks para automatizar processos no seu datacenter no local ou outro ambiente de cloud, veja [executar runbooks numa função de trabalho de Runbook híbrida](automation-hrw-run-runbooks.md).
-* Para obter instruções sobre como remover os Runbook Workers híbridos, consulte [remover Azure Automation os Runbook Workers híbridos](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
-* Para saber como resolver problemas de suas funções de trabalho de Runbook híbridas, consulte [resolução de problemas do Windows os Runbook Workers híbridos](troubleshoot/hybrid-runbook-worker.md#windows)
-* Para obter passos adicionais sobre como resolver problemas de gerenciamento de atualizações, consulte [gestão de atualizações: Resolução de problemas](troubleshoot/update-management.md).
+* To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+* For instructions on how to remove Hybrid Runbook Workers, see [Remove Azure Automation Hybrid Runbook Workers](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
+* To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshooting Windows Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#windows)
+* For additional steps on how to troubleshoot issues with Update Management, see [Update Management: troubleshooting](troubleshoot/update-management.md).

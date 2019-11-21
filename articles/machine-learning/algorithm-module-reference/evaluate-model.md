@@ -1,129 +1,128 @@
 ---
-title: 'Avaliar modelo: referência de módulo'
+title: 'Evaluate Model: Module Reference'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo modelo de avaliação no Azure Machine Learning para medir a precisão de um modelo treinado.
+description: Learn how to use the Evaluate Model module in Azure Machine Learning to measure the accuracy of a trained model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
-ms.openlocfilehash: ddc6a35d5959a2d1f85c151a6f229223db9ba566
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: 192aae4da4d9b07804f473ec6e98615f46e2ee86
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497924"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214576"
 ---
-# <a name="evaluate-model-module"></a>Módulo avaliar modelo
+# <a name="evaluate-model-module"></a>Evaluate Model module
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+This article describes a module in Azure Machine Learning designer (preview).
 
-Use este módulo para medir a precisão de um modelo treinado. Você fornece um conjunto de resultados que contém pontuações geradas de um modelo e o módulo **avaliar modelo** computa um conjunto de métricas de avaliação padrão do setor.
+Use this module to measure the accuracy of a trained model. You provide a dataset containing scores generated from a model, and the **Evaluate Model** module computes a set of industry-standard evaluation metrics.
   
- As métricas retornadas pelo **modelo de avaliação** dependem do tipo de modelo que você está avaliando:  
+ The metrics returned by **Evaluate Model** depend on the type of model that you are evaluating:  
   
--   **Modelos de classificação**    
--   **Modelos de regressão**    
-
+-   **Classification Models**    
+-   **Regression Models**    
 
 
 > [!TIP]
-> Se você for novo na avaliação do modelo, recomendamos a série de vídeos de Dr. Stephen Elston, como parte do [curso do Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) do EdX. 
+> If you are new to model evaluation, we recommend the video series by Dr. Stephen Elston, as part of the [machine learning course](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) from EdX. 
 
 
-Há três maneiras de usar o módulo **avaliar modelo** :
+There are three ways to use the **Evaluate Model** module:
 
-+ Gerar pontuações sobre seus dados de treinamento e avaliar o modelo com base nessas pontuações
-+ Gerar pontuações no modelo, mas comparar essas pontuações com pontuações em um conjunto de teste reservado
-+ Comparar pontuações para dois modelos diferentes, mas relacionados, usando o mesmo conjunto de dados
++ Generate scores over your training data, and evaluate the model based on these scores
++ Generate scores on the model, but compare those scores to scores on a reserved testing set
++ Compare scores for two different but related models, using the same set of data
 
-## <a name="use-the-training-data"></a>Usar os dados de treinamento
+## <a name="use-the-training-data"></a>Use the training data
 
-Para avaliar um modelo, você deve conectar um conjunto de dados que contém um conjunto de colunas de entrada e pontuações.  Se nenhum outro dado estiver disponível, você poderá usar seu conjunto de dados original.
+To evaluate a model, you must connect a dataset that contains a set of input columns and scores.  If no other data is available, you can use your original dataset.
 
-1. Conecte a saída do conjunto de dados **pontuado** do [modelo de Pontuação](./score-model.md) à entrada do **modelo de avaliação**. 
-2. Clique em **avaliar módulo modelo** e execute o pipeline para gerar as pontuações de avaliação.
+1. Connect the **Scored dataset** output of the [Score Model](./score-model.md) to the input of **Evaluate Model**. 
+2. Click **Evaluate Model** module, and run the pipeline to generate the evaluation scores.
 
-## <a name="use-testing-data"></a>Usar dados de teste
+## <a name="use-testing-data"></a>Use testing data
 
-Um cenário comum no aprendizado de máquina é separar o conjunto de dados original em conjuntos de dados de treinamento e teste, usando o módulo [dividir](./split-data.md) ou o módulo [partição e exemplo](./partition-and-sample.md) . 
+A common scenario in machine learning is to separate your original data set into training and testing datasets, using the [Split](./split-data.md) module, or the [Partition and Sample](./partition-and-sample.md) module. 
 
-1. Conecte a saída do conjunto de dados **pontuado** do [modelo de Pontuação](score-model.md) à entrada do **modelo de avaliação**. 
-2. Conecte a saída do módulo dividir dados que contém os dados de teste à entrada do lado direito do **modelo de avaliação**.
-2. Clique em **avaliar módulo modelo** e selecione **executar selecionado** para gerar as pontuações de avaliação.
+1. Connect the **Scored dataset** output of the [Score Model](score-model.md) to the input of **Evaluate Model**. 
+2. Connect the output of the Split Data module that contains the testing data to the right-hand input of **Evaluate Model**.
+2. Click **Evaluate Model** module, and select **Run selected** to generate the evaluation scores.
 
-## <a name="compare-scores-from-two-models"></a>Comparar pontuações de dois modelos
+## <a name="compare-scores-from-two-models"></a>Compare scores from two models
 
-Você também pode conectar um segundo conjunto de pontuações para **avaliar o modelo**.  As pontuações podem ser um conjunto de avaliação compartilhado com resultados conhecidos ou um conjunto de resultados de um modelo diferente para os mesmos dados.
+You can also connect a second set of scores to **Evaluate Model**.  The scores might be a shared evaluation set that has known results, or a set of results from a different model for the same data.
 
-Esse recurso é útil porque você pode comparar facilmente os resultados de dois modelos diferentes nos mesmos dados. Ou, você pode comparar pontuações de duas execuções diferentes nos mesmos dados com parâmetros diferentes.
+This feature is useful because you can easily compare results from two different models on the same data. Or, you might compare scores from two different runs over the same data with different parameters.
 
-1. Conecte a saída do conjunto de dados **pontuado** do [modelo de Pontuação](score-model.md) à entrada do **modelo de avaliação**. 
-2. Conecte a saída do módulo modelo de Pontuação para o segundo modelo à entrada do lado direito do **modelo de avaliação**.
-3. Clique com o botão direito do mouse em **avaliar modelo**e selecione **executar selecionado** para gerar as pontuações de avaliação.
+1. Connect the **Scored dataset** output of the [Score Model](score-model.md) to the input of **Evaluate Model**. 
+2. Connect the output of the Score Model module for the second model to the right-hand input of **Evaluate Model**.
+3. Right-click **Evaluate Model**, and select **Run selected** to generate the evaluation scores.
 
 ## <a name="results"></a>Resultados
 
-Depois de executar o **modelo**de avaliação, clique com o botão direito do mouse no módulo e selecione **resultados da avaliação** para ver os resultados. Pode:
+After you run **Evaluate Model**, right-click the module and select **Evaluation results** to see the results. Pode:
 
-+ Salvar os resultados como um conjunto de um, para uma análise mais fácil com outras ferramentas
-+ Gerar uma visualização no designer
++ Save the results as a dataset, for easier analysis with other tools
++ Generate a visualization in the designer
 
-Se você conectar conjuntos de dados a ambas as entradas do **modelo de avaliação**, os resultados conterão métricas para ambos os conjuntos ou ambos os modelos.
-O modelo ou os dados anexados à porta à esquerda são apresentados primeiro no relatório, seguidos pelas métricas para o conjunto de dados ou modelo anexado na porta correta.  
+If you connect datasets to both inputs of **Evaluate Model**, the results will contain metrics for both set of data, or both models.
+The model or data attached to the left port is presented first in the report, followed by the metrics for the dataset, or model attached on the right port.  
 
-Por exemplo, a imagem a seguir representa uma comparação de resultados de dois modelos de clustering que foram criados nos mesmos dados, mas com parâmetros diferentes.  
+For example, the following image represents a comparison of results from two clustering models that were built on the same data, but with different parameters.  
 
-![Comparing2Models&#95;AML](media/module/aml-comparing2models.png "AML_Comparing2Models")  
+![AML&#95;Comparing2Models](media/module/aml-comparing2models.png "AML_Comparing2Models")  
 
-Como esse é um modelo de clustering, os resultados da avaliação são diferentes de se você comparasse pontuações de dois modelos de regressão ou compararam dois modelos de classificação. No entanto, a apresentação geral é a mesma. 
+Because this is a clustering model, the evaluation results are different than if you compared scores from two regression models, or compared two classification models. However, the overall presentation is the same. 
 
 ## <a name="metrics"></a>Métricas
 
-Esta seção descreve as métricas retornadas para os tipos específicos de modelos com suporte para uso com o **modelo de avaliação**:
+This section describes the metrics returned for the specific types of models supported for use with **Evaluate Model**:
 
-+ [modelos de classificação](#bkmk_classification)
-+ [modelos de regressão](#bkmk_regression)
++ [classification models](#bkmk_classification)
++ [regression models](#bkmk_regression)
 
-###  <a name="bkmk_classification"></a>Métricas para modelos de classificação
+###  <a name="bkmk_classification"></a> Metrics for classification models
 
-As métricas a seguir são relatadas ao avaliar modelos de classificação. Se você comparar modelos, eles serão classificados pela métrica selecionada para avaliação.  
+The following metrics are reported when evaluating classification models. If you compare models, they are ranked by the metric you select for evaluation.  
   
--   A **precisão** mede a imsorte de um modelo de classificação como a proporção de resultados verdadeiros para casos totais.  
+-   **Accuracy** measures the goodness of a classification model as the proportion of true results to total cases.  
   
--   **Precisão** é a proporção de resultados verdadeiros em todos os resultados positivos.  
+-   **Precision** is the proportion of true results over all positive results.  
   
--   **Recall** é a fração de todos os resultados corretos retornados pelo modelo.  
+-   **Recall** is the fraction of all correct results returned by the model.  
   
--   A **Pontuação de f** é calculada como a média ponderada de precisão e RECALL entre 0 e 1, em que o valor ideal de Pontuação F é 1.  
+-   **F-score** is computed as the weighted average of precision and recall between 0 and 1, where the ideal F-score value is 1.  
   
--   **Auc** mede a área sob a curva plotada com verdadeiros positivos no eixo y e falsos positivos no eixo x. Essa métrica é útil porque fornece um único número que permite comparar modelos de tipos diferentes.  
+-   **AUC** measures the area under the curve plotted with true positives on the y axis and false positives on the x axis. This metric is useful because it provides a single number that lets you compare models of different types.  
   
-- A **perda de log média** é uma única Pontuação usada para expressar a penalidade para resultados incorretos. Ele é calculado como a diferença entre duas distribuições de probabilidade – a verdadeira e a do modelo.  
+- **Average log loss** is a single score used to express the penalty for wrong results. It is calculated as the difference between two probability distributions – the true one, and the one in the model.  
   
-- A **perda do log de treinamento** é uma única pontuação que representa a vantagem do classificador em uma previsão aleatória. A perda de log mede a incerteza de seu modelo comparando as probabilidades que gera para os valores conhecidos (verdade) nos rótulos. Você deseja minimizar a perda de log para o modelo como um todo.
+- **Training log loss** is a single score that represents the advantage of the classifier over a random prediction. The log loss measures the uncertainty of your model by comparing the probabilities it outputs to the known values (ground truth) in the labels. You want to minimize log loss for the model as a whole.
 
-##  <a name="bkmk_regression"></a>Métricas para modelos de regressão
+##  <a name="bkmk_regression"></a> Metrics for regression models
  
-As métricas retornadas para modelos de regressão geralmente são projetadas para estimar a quantidade de erros.  Um modelo é considerado adequado para os dados se a diferença entre os valores observados e previstos for pequena. No entanto, observar o padrão dos resíduos (a diferença entre qualquer ponto previsto e seu valor real correspondente) pode informá-lo muito sobre a possível diferença no modelo.  
+The metrics returned for regression models are designed to estimate the amount of error.  A model is considered to fit the data well if the difference between observed and predicted values is small. However, looking at the pattern of the residuals (the difference between any one predicted point and its corresponding actual value) can tell you a lot about potential bias in the model.  
   
- As métricas a seguir são relatadas para avaliar modelos de regressão. Quando você compara modelos, eles são classificados pela métrica selecionada para avaliação.  
+ The following metrics are reported for evaluating regression models. When you compare models, they are ranked by the metric you select for evaluation.  
   
-- O **erro de média absoluta (Mae)** mede o quão próximo as previsões são para os resultados reais; Portanto, uma pontuação mais baixa é melhor.  
+- **Mean absolute error (MAE)** measures how close the predictions are to the actual outcomes; thus, a lower score is better.  
   
-- **Erro de quadrado médio de raiz (RMSE)** cria um único valor que resume o erro no modelo. Ao elevar a diferença, a métrica não considera a diferença entre a previsão de excesso e a subprevisão.  
+- **Root mean squared error (RMSE)** creates a single value that summarizes the error in the model. By squaring the difference, the metric disregards the difference between over-prediction and under-prediction.  
   
-- **Erro absoluto relativo (RAE)** é a diferença absoluta relativa entre os valores esperado e real; relativo porque a diferença média é dividida pela média aritmética.  
+- **Relative absolute error (RAE)** is the relative absolute difference between expected and actual values; relative because the mean difference is divided by the arithmetic mean.  
   
-- O **erro quadrado relativo (RSE)** normaliza, de forma semelhante, o erro quadrado total dos valores previstos dividindo pelo erro quadrado total dos valores reais.  
+- **Relative squared error (RSE)** similarly normalizes the total squared error of the predicted values by dividing by the total squared error of the actual values.  
   
-- **Significa zero um erro (MZOE)** indica se a previsão foi correta ou não.  Em outras palavras: `ZeroOneLoss(x,y) = 1` quando `x!=y`; caso contrário `0`.
+- **Mean Zero One Error (MZOE)** indicates whether the prediction was correct or not.  In other words: `ZeroOneLoss(x,y) = 1` when `x!=y`; otherwise `0`.
   
-- O **coeficiente de determinação**, geralmente referido como R<sup>2</sup>, representa a potência preditiva do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (explica nada); 1 significa que há um ajuste perfeito. No entanto, cuidado deve ser usado na interpretação de valores de R<sup>2</sup> , já que valores baixos podem ser totalmente normais e valores altos podem ser suspeitos.
+- **Coefficient of determination**, often referred to as R<sup>2</sup>, represents the predictive power of the model as a value between 0 and 1. Zero means the model is random (explains nothing); 1 means there is a perfect fit. However, caution should be used in interpreting  R<sup>2</sup> values, as low values can be entirely normal and high values can be suspect.
   
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

@@ -1,6 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple-escolha uma solução de balanceamento de carga para nuvens privadas do CloudSimple
-description: Descreve as opções de balanceamento de carga implantando um aplicativo em uma nuvem privada
+title: Azure VMware Solution by CloudSimple - Choose a load balancing solution for CloudSimple Private Clouds
+description: Describes the load balancing options deploying an application in a Private Cloud
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -8,39 +8,39 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f6fc5112f7106c6cc8f8736237ce803da43cd882
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d26eb0160316737c9ad31d98c8cf23bdcad42d32
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881050"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74206507"
 ---
-# <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Escolher uma solução de balanceamento de carga para nuvens privadas do CloudSimple
+# <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Choose a load balancing solution for CloudSimple Private Clouds
 
-Ao implantar um aplicativo em uma nuvem privada do CloudSimple, você pode escolher qualquer uma das várias opções para o balanceamento de carga.
+When deploying an application in a CloudSimple Private Cloud, you can choose any of several options for load balancing.
 
-Você pode escolher um balanceador de carga baseado em software ou virtual em sua nuvem privada do CloudSimple ou até mesmo usar o Azure L7 Load Balancer em execução na sua assinatura do Azure para front-end suas VMs de camada da Web em execução na nuvem privada do CloudSimple. Aqui, listamos algumas opções:
+You can choose a virtual or software-based load balancer in your CloudSimple private cloud or even use Azure L7 load balancer running in your Azure subscription to front end your web tier VMs running in the CloudSimple Private Cloud. Here, we list a few options:
 
-## <a name="virtual-load-balancers"></a>Balanceadores de carga virtuais
+## <a name="virtual-load-balancers"></a>Virtual load balancers
 
-Você pode implantar dispositivos de balanceador de carga virtual em seu ambiente VMware por meio da interface do vCenter e configurá-los para front-end do tráfego do aplicativo.
+You can deploy virtual load balancer appliances in your VMware environment through the vCenter interface and configure them to front end your application traffic.
 
-Alguns fornecedores populares são: NginX http://nginx.org/en/docs/http/load_balancing.html F5-BigIP-Gerenciador de tráfego: https://www.f5.com/products/big-ip-services/virtual-editions Citrix ADC: https://www.citrix.com/products/citrix-adc/
+Some popular vendors are: NginX: http://nginx.org/en/docs/http/load_balancing.html F5- BigIP - Traffic Manager: https://www.f5.com/products/big-ip-services/virtual-editions Citrix ADC: https://www.citrix.com/products/citrix-adc/
 
-## <a name="azure-l7-load-balancer"></a>Balanceador de carga L7 do Azure
+## <a name="azure-l7-load-balancer"></a>Azure L7 load balancer
 
-Ao usar Aplicativo Azure Gateway como um balanceador de carga L7 para seu aplicativo em execução em uma nuvem privada, você não precisa gerenciar o software do balanceador de carga. O software do balanceador de carga é gerenciado pelo Azure. Todas as VMs da camada da Web na nuvem privada usam endereços IP privados e não exigem regras NAT adicionais ou endereços IPs públicos para resolver nomes. As VMs da camada da Web se comunicam com o gateway de Aplicativo Azure por uma conexão privada, de baixa latência e de largura de banda alta.
+When you use Azure Application Gateway as a L7 load balancer for your application running in a Private Cloud, you don’t need to manage the load balancer software. The load balancer software is managed by Azure. All the web tier VMs in the Private Cloud use private IP addresses and don’t require additional NAT rules or public IPs addresses to resolve names. Web tier VMs communicate with the Azure Application Gateway over a private, low-latency, high-bandwidth connection.
 
-Para saber mais sobre como configurar essa solução, consulte o guia de solução sobre como usar Aplicativo Azure Gateway como um balanceador de carga L7.
+To learn more about how to configure this solution, refer to the solution guide on Using Azure Application Gateway as a L7 load balancer.
 
-## <a name="azure-internal-load-balancer"></a>Balanceador de carga interno do Azure
+## <a name="azure-internal-load-balancer"></a>Azure internal load balancer
 
-Se você optar por executar seu aplicativo em uma implantação híbrida em que a camada de front-end da Web está sendo executada em uma vNet do Azure em sua assinatura do Azure e a camada de BD do aplicativo estiver sendo executada em VMs VMware na nuvem privada do CloudSimple, você poderá usar a carga interna do Azure balanceador (balanceador de carga L4) na frente de suas VMs de camada de BD para o gerenciamento de tráfego.
+If you choose to run your application in a hybrid deployment where the web front-end tier is running within an Azure vNet in your Azure subscription and the DB tier of the application is running in VMware VMs in CloudSimple Private Cloud, you can use Azure internal load balancer (L4 load balancer) in front of your DB tier VMs for traffic management.
 
-Para saber mais, consulte a documentação de [Load balancer interno](../load-balancer/load-balancer-overview.md#internalloadbalancer) do Azure.
+To learn more, see Azure [Internal Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer) documentation.
 
-## <a name="global-server-load-balancer"></a>Balanceador de carga do servidor global
+## <a name="global-server-load-balancer"></a>Global server load balancer
 
-Se você estiver procurando um balanceador de carga baseado em DNS, poderá usar soluções de terceiros disponíveis no Azure Marketplace ou ir com a solução nativa do Azure.
+If you are looking for a DNS-based load balancer, then you may either use third party solutions available in Azure Marketplace or go with the native Azure solution.
 
-O Gerenciador de tráfego do Azure é um balanceador de carga de tráfego baseado em DNS que permite distribuir o tráfego de forma ideal para serviços em regiões globais do Azure e locais, fornecendo alta disponibilidade e capacidade de resposta. Para saber mais, consulte a documentação do [Gerenciador de tráfego](../traffic-manager/traffic-manager-configure-geographic-routing-method.md) do Azure.
+Azure Traffic Manager is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions and on-premises, while providing high availability and responsiveness. To learn more, see Azure [Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md) documentation.

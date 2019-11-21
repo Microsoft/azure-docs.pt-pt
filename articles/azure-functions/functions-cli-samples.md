@@ -1,22 +1,17 @@
 ---
-title: Exemplos da CLI do Azure - Funções do Azure | Microsoft Docs
+title: Exemplos da CLI do Azure - Funções do Azure
 description: Exemplos da CLI do Azure - Funções do Azure
-services: functions
-documentationcenter: functions
 author: syntaxc4
-manager: jeconnoc
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
-ms.service: azure-functions
 ms.topic: sample
 ms.date: 01/09/2018
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a5cfa6e7a054003750536fbb5c8206ebabafe966
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: b875d2a478ccbd2fa99f43e584e02018866fc5cd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514444"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230920"
 ---
 # <a name="azure-cli-samples"></a>Exemplos da CLI do Azure
 
@@ -24,7 +19,7 @@ A tabela seguinte inclui ligações para scripts bash de Funções do Azure que 
 
 <a id="create"></a>
 
-| Criar aplicação | Descrição |
+| Create app | Descrição |
 |---|---|
 | [Criar uma aplicação de funções para execução sem servidor](scripts/functions-cli-create-serverless.md) | Cria uma aplicação de funções num plano de Consumo.  |
 | [Criar uma aplicação de funções num plano do Serviço de Aplicações](scripts/functions-cli-create-app-service-plan.md) | Crie uma aplicação de funções num plano do Serviço de Aplicações dedicado. |
@@ -37,7 +32,7 @@ A tabela seguinte inclui ligações para scripts bash de Funções do Azure que 
 | Implementação contínua | Descrição|
 |---|---|
 | [Implementar a partir do GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Crie uma aplicação de funções que é implementada a partir de um repositório do GitHub.  |
-| [Implementar a partir do Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Crie uma aplicação de função que implementa a partir de um repositório de DevOps do Azure.  |
+| [Implementar a partir do Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Create a function app that deploys from an Azure DevOps repository.  |
 
 | Configurar aplicação | Descrição |
 |---|---|

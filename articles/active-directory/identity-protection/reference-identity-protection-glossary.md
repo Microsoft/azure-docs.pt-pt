@@ -1,6 +1,6 @@
 ---
-title: Glossário de Azure Active Directory Identity Protection
-description: Glossário de Azure Active Directory Identity Protection
+title: Azure Active Directory Identity Protection Glossary
+description: Azure Active Directory Identity Protection Glossary
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -11,152 +11,152 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5439b8626d1fa0ea502d33455db8b2564fbd45f0
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 9a3e2df956aaa4f9fd0af83dd2a18e04d731c714
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72886925"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232349"
 ---
-# <a name="azure-active-directory-identity-protection-glossary"></a>Glossário de Azure Active Directory Identity Protection
+# <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection Glossary
 
-### <a name="at-risk-user"></a>Em risco (usuário)
-Um usuário com uma ou mais detecções de risco ativas. 
+### <a name="at-risk-user"></a>At risk (User)
+A user with one or more active risk detections. 
 
-### <a name="atypical-sign-in-location"></a>Local de entrada do atípicos
-Uma entrada de uma localização geográfica que não é típica para o usuário específico, usuários semelhantes ou o locatário.
+### <a name="atypical-sign-in-location"></a>Atypical sign-in location
+A sign-in from a geographic location that is not typical for the specific user, similar users, or the tenant.
 
 ### <a name="azure-ad-identity-protection"></a>Azure AD Identity Protection
-Um módulo de segurança do Azure Active Directory que fornece uma visão consolidada das detecções de risco e das possíveis vulnerabilidades que afetam as identidades de uma organização.
+A security module of Azure Active Directory that provides a consolidated view into risk detections and potential vulnerabilities affecting an organization’s identities.
 
 ### <a name="conditional-access"></a>Acesso Condicional
-Uma política para proteger o acesso aos recursos. As regras de acesso condicional são armazenadas no Azure Active Directory e são avaliadas pelo Azure AD antes de conceder acesso ao recurso.  As regras de exemplo incluem a restrição do acesso com base no local do usuário, na integridade do dispositivo ou no método de autenticação do usuário.
+A policy for securing access to resources. Conditional Access rules are stored in the Azure Active Directory and are evaluated by Azure AD before granting access to the resource.  Example rules include restricting access based on user location, device health, or user authentication method.
 
 ### <a name="credentials"></a>Credenciais
-Informações que incluem identificação e prova de identificação que são usadas para obter acesso a recursos locais e de rede. Exemplos de credenciais são nomes de usuário e senhas, cartões inteligentes e certificados.
+Information that includes identification and proof of identification that is used to gain access to local and network resources. Examples of credentials are user names and passwords, smart cards, and certificates.
 
 ### <a name="event"></a>Evento
-Um registro de uma atividade no Azure Active Directory.
+A record of an activity in Azure Active Directory.
 
-### <a name="false-positive-risk-detection"></a>Falso-positivo (detecção de risco)
-Um status de detecção de risco definido manualmente por um usuário de proteção de identidade, indicando que a detecção de risco foi investigada e foi sinalizada incorretamente como uma detecção de risco.
+### <a name="false-positive-risk-detection"></a>False-positive (risk detection)
+A risk detection status set manually by an Identity Protection user, indicating that the risk detection was investigated and was incorrectly flagged as a risk detection.
 
 ### <a name="identity"></a>Identidade
-Uma pessoa ou entidade que deve ser verificada por meio de autenticação, com base em critérios como senha ou um certificado.
+A person or entity that must be verified by means of authentication, based on criteria such as password or a certificate.
 
-### <a name="identity-risk-detection"></a>Detecção de risco de identidade
-Evento do AAD que foi sinalizado como anômala pela proteção de identidade e pode indicar que uma identidade foi comprometida.
+### <a name="identity-risk-detection"></a>Identity risk detection
+Azure AD event that was flagged as anomalous by Identity Protection, and may indicate that an identity has been compromised.
 
-### <a name="ignored-risk-detection"></a>Ignorado (detecção de risco)
-Um status de detecção de risco definido manualmente por um usuário de proteção de identidade, indicando que a detecção de risco está fechada sem realizar uma ação de correção.
+### <a name="ignored-risk-detection"></a>Ignored (risk detection)
+A risk detection status set manually by an Identity Protection user, indicating that the risk detection is closed without taking a remediation action.
 
-### <a name="impossible-travel-from-atypical-locations"></a>Viagem impossível de locais atípicoss
-Uma detecção de risco disparada quando duas entradas para o mesmo usuário são detectadas, em que pelo menos uma delas é de um local de entrada do atípicos e onde o tempo entre as entradas é menor do que o tempo mínimo necessário para viajar fisicamente entre elas locais.  
+### <a name="impossible-travel-from-atypical-locations"></a>Impossible travel from atypical locations
+A risk detection triggered when two sign-ins for the same user are detected, where at least one of them is from an atypical sign-in location, and where the time between the sign-ins is shorter than the minimum time it would take to physically travel between these locations.  
 
 ### <a name="investigation"></a>Investigação
-O processo de revisar as atividades, os logs e outras informações relevantes relacionadas a uma detecção de risco para decidir se as etapas de correção ou mitigação são necessárias, entender se e como a identidade foi comprometida e entender como o comprometimento a identidade foi usada.
+The process of reviewing the activities, logs, and other relevant information related to a risk detection to decide whether remediation or mitigation steps are necessary, understand if and how the identity was compromised, and understand how the compromised identity was used.
 
-### <a name="leaked-credentials"></a>Credenciais vazadas
-Uma detecção de risco disparada quando as credenciais do usuário atual (nome de usuário e senha) são encontradas publicadas publicamente na Web escura por nossos pesquisadores.
+### <a name="leaked-credentials"></a>Leaked credentials
+A risk detection triggered when current user credentials (user name and password) are found posted publicly in the Dark   web by our researchers.
 
 ### <a name="mitigation"></a>Mitigação
-Uma ação para limitar ou eliminar a capacidade de um invasor explorar uma identidade ou um dispositivo comprometido sem restaurar a identidade ou o dispositivo para um estado seguro. Uma mitigação não resolve as detecções de riscos anteriores associadas à identidade ou ao dispositivo.
+An action to limit or eliminate the ability of an attacker to exploit a compromised identity or device without restoring the identity or device to a safe state. A mitigation does not resolve previous risk detections associated with the identity or device.
 
 ### <a name="multi-factor-authentication"></a>Autenticação multifator
-Um método de autenticação que requer dois ou mais métodos de autenticação, que podem incluir algo que o usuário tem, tal certificado; algo que o usuário sabe, como nomes de usuário, senhas ou frases secretas; atributos físicos, como uma impressão digital; e atributos pessoais, como uma assinatura pessoal.
+An authentication method that requires two or more authentication methods, which may include something the user has, such a certificate; something the user knows, such as user names, passwords, or pass phrases; physical attributes, such as a thumbprint; and personal attributes, such as a personal signature.
 
-### <a name="offline-detection"></a>Detecção offline
-A detecção de anomalias e a avaliação do risco de um evento, como a tentativa de entrada após o fato, para um evento que já aconteceu.
+### <a name="offline-detection"></a>Offline detection
+The detection of anomalies and evaluation of the risk of an event such as sign-in attempt after the fact, for an event that has already happened.
 
-### <a name="policy-condition"></a>Condição da política
-Uma parte de uma política de segurança, que define as entidades (grupos, usuários, aplicativos, plataformas de dispositivo, Estados de dispositivo, intervalos de IP, tipos de cliente) incluídos na política ou excluídos dela.
+### <a name="policy-condition"></a>Policy condition
+A part of a security policy, which defines the entities (groups, users, apps, device platforms, Device states, IP ranges, client types) included in the policy or excluded from it.
 
-### <a name="policy-rule"></a>Regra de política
-A parte de uma política de segurança que descreve as circunstâncias que dispararia a política e as ações tomadas quando a política é disparada.
+### <a name="policy-rule"></a>Policy rule
+The part of a security policy that describes the circumstances that would trigger the policy, and the actions taken when the policy is triggered.
 
 ### <a name="prevention"></a>Prevenção
-Uma ação para evitar danos à organização por meio do abuso de uma identidade ou um dispositivo suspeito ou de saber que está comprometido. Uma ação de prevenção não protege o dispositivo ou a identidade e não resolve as detecções de riscos anteriores.
+An action to prevent damage to the organization through abuse of an identity or device suspected or know to be compromised. A prevention action does not secure the device or identity, and does not resolve previous risk detections.
 
-### <a name="privileged-user"></a>Com privilégios (usuário)
-Um usuário que, no momento de uma detecção de risco, tinha permissões de administrador permanentes ou temporárias para um ou mais recursos no Azure Active Directory, como um administrador global, administrador de cobrança, administrador de serviços, administrador de usuários e senha Administradores. 
+### <a name="privileged-user"></a>Privileged (user)
+A user that at the time of a risk detection, had permanent or temporary admin permissions to one or more resources in Azure Active Directory, such as a Global Administrator, Billing Administrator, Service Administrator, User administrator, and Password Administrator. 
 
-### <a name="real-time"></a>Tempo real
-Consulte detecção em tempo real.
+### <a name="real-time"></a>Real-time
+See Real-time detection.
 
-### <a name="real-time-detection"></a>Detecção em tempo real
-A detecção de anomalias e a avaliação do risco de um evento, como a tentativa de entrada, antes que o evento possa continuar.
+### <a name="real-time-detection"></a>Real-time detection
+The detection of anomalies and evaluation of the risk of an event such as sign-in attempt before the event is allowed to proceed.
 
-### <a name="remediated-risk-detection"></a>Corrigido (detecção de risco)
-Um status de detecção de risco definido automaticamente pela proteção de identidade, indicando que a detecção de risco foi corrigida usando a ação de correção padrão para esse tipo de detecção de risco. Por exemplo, quando a senha do usuário é redefinida, muitas detecções de risco que indicam que a senha anterior foi comprometida são automaticamente corrigidas.
+### <a name="remediated-risk-detection"></a>Remediated (risk detection)
+A risk detection status set automatically by Identity Protection, indicating that the risk detection was remediated using the standard remediation action for this type of risk detection. For example, when the user password is reset, many risk detections that indicate that the previous password was compromised are automatically remediated.
 
-### <a name="remediation"></a>Corre
-Uma ação para proteger uma identidade ou um dispositivo que foi suspeito ou comprometido anteriormente. Uma ação de correção restaura a identidade ou o dispositivo para um estado seguro e resolve as detecções de risco anteriores associadas à identidade ou ao dispositivo.
+### <a name="remediation"></a>Remediation
+An action to secure an identity or a device that were previously suspected or known to be compromised. A remediation action restores the identity or device to a safe state, and resolves previous risk detections associated with the identity or device.
 
-### <a name="resolved-risk-detection"></a>Resolvido (detecção de risco)
-Um status de detecção de risco definido manualmente por um usuário de proteção de identidade, indicando que o usuário realizou uma ação de correção apropriada fora da proteção de identidade e que a detecção de risco deve ser considerada fechada.
+### <a name="resolved-risk-detection"></a>Resolved (risk detection)
+A risk detection status set manually by an Identity Protection user, indicating that the user took an appropriate remediation action outside Identity Protection, and that the risk detection should be considered closed.
 
-### <a name="risk-detection-status"></a>Status de detecção de risco
-Uma propriedade de uma detecção de risco, que indica se o evento está ativo e, se fechado, o motivo para fechá-lo.
+### <a name="risk-detection-status"></a>Risk detection status
+A property of a risk detection, indicating whether the event is active, and if closed, the reason for closing it.
 
-### <a name="risk-detection-type"></a>Tipo de detecção de risco
-Uma categoria para a detecção de risco, que indica o tipo de anomalia que fez com que o evento fosse considerado arriscado.
+### <a name="risk-detection-type"></a>Risk detection type
+A category for the risk detection, indicating the type of anomaly that caused the event to be considered risky.
 
-### <a name="risk-level-risk-detection"></a>Nível de risco (detecção de risco)
-Uma indicação (alta, média ou baixa) da severidade da detecção de risco para ajudar os usuários de proteção de identidade a priorizar as ações que eles levam para reduzir o risco para sua organização. 
+### <a name="risk-level-risk-detection"></a>Risk level (risk detection)
+An indication (High, Medium, or Low) of the severity of the risk detection to help Identity Protection users prioritize the actions they take to reduce the risk to their organization. 
 
-### <a name="risk-level-sign-in"></a>Nível de risco (entrada)
-Uma indicação (alta, média ou baixa) da probabilidade de uma entrada específica, outra pessoa está tentando usar a identidade do usuário.
+### <a name="risk-level-sign-in"></a>Risk level (sign-in)
+An indication (High, Medium, or Low) of the likelihood that for a specific sign-in, someone else is attempting to use the user’s identity.
 
-### <a name="risk-level-user-compromise"></a>Nível de risco (comprometimento do usuário)
-Uma indicação (alta, média ou baixa) da probabilidade de que uma identidade tenha sido comprometida.
+### <a name="risk-level-user-compromise"></a>Risk level (user compromise)
+An indication (High, Medium, or Low) of the likelihood that an identity has been compromised.
 
-### <a name="risk-level-vulnerability"></a>Nível de risco (vulnerabilidade)
-Uma indicação (alta, média ou baixa) da severidade da vulnerabilidade para ajudar os usuários de proteção de identidade a priorizar as ações que eles levam para reduzir o risco para sua organização.
+### <a name="risk-level-vulnerability"></a>Risk level (vulnerability)
+An indication (High, Medium, or Low) of the severity of the vulnerability to help Identity Protection users prioritize the actions they take to reduce the risk to their organization.
 
-### <a name="secure-identity"></a>Seguro (identidade)
-Faça uma ação de correção como uma alteração de senha ou recriação de imagem de computador para restaurar uma identidade potencialmente comprometida para um estado descomprometido.
+### <a name="secure-identity"></a>Secure (identity)
+Take remediation action such as a password change or machine reimaging to restore a potentially compromised identity to an uncompromised state.
 
 ### <a name="security-policy"></a>Política de segurança
-Uma coleção de regras e condições de política. Uma política pode ser aplicada a entidades como usuários, grupos, aplicativos, dispositivos, plataformas de dispositivo, Estados de dispositivo, intervalos de IP e tipos de cliente auth 2.0. Quando uma política é habilitada, ela é avaliada sempre que uma entidade incluída na política recebe um token para um recurso.
+A collection of policy rules and condition. A policy can be applied to entities such as users, groups, apps, devices, device platforms, device states, IP ranges, and Auth2.0 client types. When a policy is enabled, it is evaluated whenever an entity included in the policy is issued a token for a resource.
 
-### <a name="sign-in-v"></a>Entrar (v)
-Para autenticar em uma identidade no Azure Active Directory.
+### <a name="sign-in-v"></a>Sign in (v)
+To authenticate to an identity in Azure Active Directory.
 
-### <a name="sign-in-n"></a>Entrada (n)
-O processo ou a ação de autenticar uma identidade no Azure Active Directory e o evento que captura essa operação.
+### <a name="sign-in-n"></a>Sign-in (n)
+The process or action of authenticating an identity in Azure Active Directory, and the event that captures this operation.
 
-### <a name="sign-in-from-anonymous-ip-address"></a>Entrar de um endereço IP anônimo
-Uma detecção de risco disparada após uma entrada bem-sucedida do endereço IP que foi identificada como um endereço IP de proxy anônimo.
+### <a name="sign-in-from-anonymous-ip-address"></a>Sign in from anonymous IP address
+A risk detection triggered after a successful sign-in from IP address that has been identified as an anonymous proxy IP address.
 
-### <a name="sign-in-from-infected-device"></a>Entrar do dispositivo infectado
-Uma detecção de risco disparada quando uma entrada é originada de um endereço IP, que é conhecido por ser usado por um ou mais dispositivos comprometidos, que estão ativamente tentando se comunicar com um servidor de bot.
+### <a name="sign-in-from-infected-device"></a>Sign in from infected device
+A risk detection triggered when a sign-in originates from an IP address, which is known to be used by one or more compromised devices, which are actively attempting to communicate with a bot server.
 
-### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Entrar do endereço IP com atividade suspeita
-Uma detecção de risco disparada após uma entrada bem-sucedida de um endereço IP com um número alto de tentativas de logon com falha em várias contas de usuário em um curto período de tempo.
+### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Sign in from IP address with suspicious activity
+A risk detection triggered after a successful sign-in from an IP address with a high number of failed login attempts across multiple user accounts over a short period of time.
 
-### <a name="sign-in-from-unfamiliar-location"></a>Entrar de um local desconhecido
-Uma detecção de risco disparada quando um usuário entra com êxito de um novo local (IP, latitude/longitude e ASN).
+### <a name="sign-in-from-unfamiliar-location"></a>Sign in from unfamiliar location
+A risk detection triggered when a user successfully signs in from a new location (IP, Latitude/Longitude, and ASN).
 
-### <a name="sign-in-risk"></a>Risco de entrada
-Ver o nível de risco (entrar)
+### <a name="sign-in-risk"></a>Sign-in risk
+See Risk level (sign-in)
 
-### <a name="sign-in-risk-policy"></a>Política de risco de entrada
-Uma política de acesso condicional que avalia o risco para uma entrada específica e aplica mitigações com base em condições e regras predefinidas.
+### <a name="sign-in-risk-policy"></a>Sign-in risk policy
+A Conditional Access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
 
-### <a name="user-compromise-risk"></a>Risco de comprometimento do usuário
-Ver o nível de risco (comprometimento do usuário)
+### <a name="user-compromise-risk"></a>User compromise risk
+See Risk level (user compromise)
 
-### <a name="user-risk"></a>Risco do usuário
-Consulte nível de risco (comprometimento do usuário).
+### <a name="user-risk"></a>User risk
+See Risk level (user compromise).
 
-### <a name="user-risk-policy"></a>Política de risco do usuário
-Uma política de acesso condicional que considera a entrada e aplica mitigações com base em condições e regras predefinidas.
+### <a name="user-risk-policy"></a>User risk policy
+A Conditional Access policy that considers the sign-in and applies mitigations based on predefined conditions and rules.
 
 ### <a name="users-flagged-for-risk"></a>Utilizadores marcados em risco
-Usuários que têm detecções de risco, que são ativas ou corrigidas
+Users that have risk detections, which are either active or remediated
 
-### <a name="vulnerability"></a>Vulnerabilidade
-Uma configuração ou condição no Azure Active Directory, o que torna o diretório suscetível a explorações ou ameaças.
+### <a name="vulnerability"></a>Vulnerability
+A configuration or condition in Azure Active Directory, which makes the directory susceptible to exploits or threats.
 
 ## <a name="see-also"></a>Ver também
 

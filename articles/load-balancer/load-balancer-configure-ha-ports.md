@@ -1,7 +1,7 @@
 ---
-title: Configurar portas elevada disponibilidade para o Balanceador de carga do Azure
-titlesuffix: Azure Load Balancer
-description: Saiba como utilizar as portas de elevada disponibilidade para o tráfego interno em todas as portas de balanceamento de carga
+title: Configure High Availability Ports for Azure Load Balancer
+titleSuffix: Azure Load Balancer
+description: Learn how to use High Availability Ports for load balancing internal traffic on all ports
 services: load-balancer
 documentationcenter: na
 author: rdhillon
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: allensu
-ms.openlocfilehash: c0cf1eb62c8e01988c9014478ff72816e45ea64c
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c2e787a1f81d9f3d31b981c31a0249dd362b7bb9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275622"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225413"
 ---
-# <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurar portas elevada disponibilidade para um balanceador de carga interno
+# <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configure High Availability Ports for an internal load balancer
 
-Este artigo fornece um exemplo de implementação de elevada disponibilidade portas no balanceador de carga interno. Para obter mais informações sobre configurações específicas de aplicações virtuais (NVAs) de rede, consulte os sites correspondentes do fornecedor.
+This article provides an example deployment of High Availability Ports on an internal load balancer. For more information on configurations specific to network virtual appliances (NVAs), see the corresponding provider websites.
 
 >[!NOTE]
->Azure Load Balancer dá suporte a dois tipos diferentes: Basic e Standard. Este artigo aborda o Balanceador de carga Standard. Para obter mais informações sobre o Balanceador de carga básico, consulte [descrição geral do Balanceador de carga](load-balancer-overview.md).
+>O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. This article discusses Standard Load Balancer. For more information about Basic Load Balancer, see [Load Balancer overview](load-balancer-overview.md).
 
-A ilustração mostra o exemplo de implementação descrito neste artigo, a seguinte configuração:
+The illustration shows the following configuration of the deployment example described in this article:
 
-- As NVAs são implementadas no conjunto de back-end de Balanceador de carga interno subjacente à configuração de portas de elevada disponibilidade. 
-- A rota definida pelo utilizador (UDR) aplicado as rotas de sub-rede de rede de Perímetro todo o tráfego para as NVAs, tornando o salto seguinte como o internos IP virtual do Balanceador de carga. 
-- O Balanceador de carga interno distribui o tráfego para uma das NVAs Active Directory, de acordo com o algoritmo do Balanceador de carga.
-- A NVA processa o tráfego e a encaminha para o destino original na sub-rede de back-end.
-- O caminho de retorno pode seguir a mesma rota, se um UDR correspondente está configurado na sub-rede de back-end. 
+- The NVAs are deployed in the back-end pool of an internal load balancer behind the High Availability Ports configuration. 
+- The user-defined route (UDR) applied on the DMZ subnet routes all traffic to the NVAs by making the next hop as the internal load balancer virtual IP. 
+- The internal load balancer distributes the traffic to one of the active NVAs according to the load balancer algorithm.
+- The NVA processes the traffic and forwards it to the original destination in the back-end subnet.
+- The return path can take the same route if a corresponding UDR is configured in the back-end subnet. 
 
-![Exemplo de implementação de portas de elevada disponibilidade](./media/load-balancer-configure-ha-ports/haports.png)
+![High Availability Ports example deployment](./media/load-balancer-configure-ha-ports/haports.png)
 
-## <a name="configure-high-availability-ports"></a>Configurar portas elevada disponibilidade
+## <a name="configure-high-availability-ports"></a>Configure High Availability Ports
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para configurar portas elevada disponibilidade, configure um balanceador de carga interno com as NVAs no conjunto de back-end. Configure uma configuração de pesquisa do Estado de funcionamento de Balanceador de carga correspondente para detetar o estado de funcionamento da NVA e a regra de Balanceador de carga com portas de elevada disponibilidade. A configuração de relacionadas com o Balanceador de carga geral é descrita em [começar](load-balancer-get-started-ilb-arm-portal.md). Este artigo destaca a configuração de portas de elevada disponibilidade.
+To configure High Availability Ports, set up an internal load balancer with the NVAs in the back-end pool. Set up a corresponding load balancer health probe configuration to detect NVA health and the load balancer rule with High Availability Ports. The general load balancer-related configuration is covered in [Get started](load-balancer-get-started-ilb-arm-portal.md). This article highlights the High Availability Ports configuration.
 
-A configuração envolve, essencialmente, a porta de front-end e o valor de porta de back-end para a definição **0**. Defina o valor de protocolo para **todos os**. Este artigo descreve como configurar portas de elevada disponibilidade com o portal do Azure, PowerShell e CLI do Azure.
+The configuration essentially involves setting the front-end port and the back-end port value to **0**. Set the protocol value to **All**. This article describes how to configure High Availability Ports by using the Azure portal, PowerShell, and Azure CLI.
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>Configurar uma regra de Balanceador de carga de portas de elevada disponibilidade com o portal do Azure
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>Configure a High Availability Ports load balancer rule with the Azure portal
 
-Para configurar portas de elevada disponibilidade com o portal do Azure, selecione o **portas HA** caixa de verificação. Quando selecionada, a configuração de porta e protocolo relacionada é preenchida automaticamente. 
+To configure High Availability Ports by using the Azure portal, select the **HA Ports** check box. When selected, the related port and protocol configuration is automatically populated. 
 
-![Configuração de portas de elevada disponibilidade através do portal do Azure](./media/load-balancer-configure-ha-ports/haports-portal.png)
+![High Availability Ports configuration via the Azure portal](./media/load-balancer-configure-ha-ports/haports-portal.png)
 
-### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Configurar uma regra de balanceamento de carga para portas de alta disponibilidade por meio do modelo do Resource Manager
+### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Configure a High Availability Ports load-balancing rule via the Resource Manager template
 
-Pode configurar portas de elevada disponibilidade, utilizando a versão de API de 2017-08-01 para Network/loadbalancers no recurso do Balanceador de carga. O fragmento JSON seguinte ilustra as alterações na configuração de Balanceador de carga para alta disponibilidade portas através da API REST:
+You can configure High Availability Ports by using the 2017-08-01 API version for Microsoft.Network/loadBalancers in the Load Balancer resource. The following JSON snippet illustrates the changes in the load balancer configuration for High Availability Ports via the REST API:
 
 ```json
     {
@@ -85,22 +85,22 @@ Pode configurar portas de elevada disponibilidade, utilizando a versão de API d
     }
 ```
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-powershell"></a>Configurar uma regra de Balanceador de carga de portas de elevada disponibilidade com o PowerShell
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-powershell"></a>Configure a High Availability Ports load balancer rule with PowerShell
 
-Utilize o seguinte comando para criar a regra de Balanceador de carga de alta disponibilidade portas enquanto cria o Balanceador de carga interno com o PowerShell:
+Use the following command to create the High Availability Ports load balancer rule while you create the internal load balancer with PowerShell:
 
 ```powershell
 lbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>Configurar uma regra de Balanceador de carga de portas de elevada disponibilidade com a CLI do Azure
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>Configure a High Availability Ports load balancer rule with Azure CLI
 
-No passo 4 da [criar um conjunto de balanceadores de carga interno](load-balancer-get-started-ilb-arm-cli.md), utilize o seguinte comando para criar a regra de Balanceador de carga de alta disponibilidade portas:
+In step 4 of [Create an internal load balancer set](load-balancer-get-started-ilb-arm-cli.md), use the following command to create the High Availability Ports load balancer rule:
 
 ```azurecli
 azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [alta disponibilidade portas](load-balancer-ha-ports-overview.md).
+Learn more about [High Availability Ports](load-balancer-ha-ports-overview.md).

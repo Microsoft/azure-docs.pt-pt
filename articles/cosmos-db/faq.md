@@ -1,429 +1,429 @@
 ---
 title: Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
-description: Obtenha respostas para perguntas frequentes sobre Azure Cosmos DB, um serviço de banco de dados multimodelo distribuído globalmente. Saiba mais sobre a capacidade, os níveis de desempenho e o dimensionamento.
+description: Get answers to frequently asked questions about Azure Cosmos DB, a globally distributed, multi-model database service. Learn about capacity, performance levels, and scaling.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 15e4fc3ce412807908c75fe25acecac0fe86d261
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 8c8d33a2cd9a25942e1df7eacc7a676debf29ec1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72262796"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74220244"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
 
-### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Quais são os casos de uso típicos para Azure Cosmos DB?
+### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>What are the typical use cases for Azure Cosmos DB?
 
-Azure Cosmos DB é uma boa opção para novos aplicativos Web, móveis, de jogos e IoT em que a escala automática, o desempenho previsível, os tempos de resposta rápidos da ordem de milissegundos e a capacidade de consultar dados sem esquemas é importante. Azure Cosmos DB presta-se ao desenvolvimento rápido e ao suporte à iteração contínua de modelos de dados de aplicativos. Os aplicativos que gerenciam conteúdo e dados gerados pelo usuário são [casos de uso comuns para Azure Cosmos DB](use-cases.md).
+Azure Cosmos DB is a good choice for new web, mobile, gaming, and IoT applications where automatic scale, predictable performance, fast order of millisecond response times, and the ability to query over schema-free data is important. Azure Cosmos DB lends itself to rapid development and supporting the continuous iteration of application data models. Applications that manage user-generated content and data are [common use cases for Azure Cosmos DB](use-cases.md).
 
-### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Como Azure Cosmos DB oferece desempenho previsível?
+### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>How does Azure Cosmos DB offer predictable performance?
 
-Uma ru ( [unidade de solicitação](request-units.md) ) é a medida de taxa de transferência em Azure Cosmos DB. Uma taxa de transferência de 1RU corresponde à taxa de transferência da obtenção de um documento de 1 KB. Cada operação no Azure Cosmos DB, incluindo leituras, gravações, consultas SQL e execuções de procedimento armazenado, tem um valor de RU determinístico baseado na taxa de transferência necessária para concluir a operação. Em vez de pensar sobre CPU, e/s e memória e como cada um deles afeta a taxa de transferência do seu aplicativo, você pode pensar em uma medida única de RU.
+A [request unit](request-units.md) (RU) is the measure of throughput in Azure Cosmos DB. A 1RU throughput corresponds to the throughput of the GET of a 1-KB document. Every operation in Azure Cosmos DB, including reads, writes, SQL queries, and stored procedure executions, has a deterministic RU value that's based on the throughput required to complete the operation. Instead of thinking about CPU, IO, and memory and how they each affect your application throughput, you can think in terms of a single RU measure.
 
-Você pode configurar cada contêiner Cosmos do Azure com taxa de transferência provisionada em termos de RUs de taxa de transferência por segundo. Para aplicativos de qualquer escala, você pode fazer o benchmark de solicitações individuais para medir seus valores de RU e provisionar um contêiner para lidar com o total de unidades de solicitação em todas as solicitações. Você também pode escalar ou reduzir verticalmente a taxa de transferência do contêiner conforme as necessidades do seu aplicativo evoluem. Para obter mais informações sobre unidades de solicitação e ajuda para determinar suas necessidades de contêiner, experimente a [calculadora de produtividade](https://www.documentdb.com/capacityplanner).
+You can configure each Azure Cosmos container with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision a container to handle the total of request units across all requests. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information about request units and for help with determining your container needs, try the [throughput calculator](https://www.documentdb.com/capacityplanner).
 
-### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Como Azure Cosmos DB dá suporte a vários modelos de dados, como chave/valor, colunar, documento e grafo?
+### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>How does Azure Cosmos DB support various data models such as key/value, columnar, document, and graph?
 
-Os modelos de dados de chave/valor (tabela), coluna, documento e gráfico têm suporte nativo por causa do design ARS (átomos, registros e sequências) no qual Azure Cosmos DB é criado. Os átomos, os registros e as sequências podem ser facilmente mapeados e projetados para vários modelos de dados. As APIs para um subconjunto de modelos estão disponíveis no momento (SQL, MongoDB, Table e Gremlin) e outras específicas para modelos de dados adicionais estarão disponíveis no futuro.
+Key/value (table), columnar, document, and graph data models are all natively supported because of the ARS (atoms, records, and sequences) design that Azure Cosmos DB is built on. Atoms, records, and sequences can be easily mapped and projected to various data models. The APIs for a subset of models are available right now (SQL, MongoDB, Table, and Gremlin) and others specific to additional data models will be available in the future.
 
-Azure Cosmos DB tem um mecanismo de indexação independente de esquema capaz de indexar automaticamente todos os dados ingeridos sem a necessidade de nenhum esquema ou de índices secundários do desenvolvedor. O mecanismo depende de um conjunto de layouts de índice lógico (invertido, colunar, árvore) que dissocia o layout de armazenamento dos subsistemas de índice e de processamento de consulta. O Cosmos DB também tem a capacidade de dar suporte a um conjunto de protocolos de transmissão e APIs de maneira extensível e traduzi-los com eficiência para o modelo de dados principal (1) e os layouts de índice lógico (2) tornando-o exclusivamente capaz de dar suporte a mais de um modelo de dados nativamente.
+Azure Cosmos DB has a schema agnostic indexing engine capable of automatically indexing all the data it ingests without requiring any schema or secondary indexes from the developer. The engine relies on a set of logical index layouts (inverted, columnar, tree) which decouple the storage layout from the index and query processing subsystems. Cosmos DB also has the ability to support a set of wire protocols and APIs in an extensible manner and translate them efficiently to the core data model (1) and the logical index layouts (2) making it uniquely capable of supporting more than one data model natively.
 
-### <a name="can-i-use-multiple-apis-to-access-my-data"></a>Posso usar várias APIs para acessar meus dados?
+### <a name="can-i-use-multiple-apis-to-access-my-data"></a>Can I use multiple APIs to access my data?
 
-Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. Onde vários modelos significam Azure Cosmos DB dá suporte a várias APIs e a vários modelos de dados, diferentes APIs usam formatos de dados diferentes para o protocolo de armazenamento e de conexão. Por exemplo, o SQL usa JSON, o MongoDB usa BSON, a tabela usa o EDM, o Cassandra usa CQL, Gremlin usa GraphSON. Como resultado, é recomendável usar a mesma API para todo o acesso aos dados em uma determinada conta.
+Azure Cosmos DB is Microsoft's globally distributed, multi-model database service. Where multi-model means Azure Cosmos DB supports multiple APIs and multiple data models, different APIs use different data formats for storage and wire protocol. For example, SQL uses JSON, MongoDB uses BSON, Table uses EDM, Cassandra uses CQL, Gremlin uses GraphSON. As a result, we recommend using the same API for all access to the data in a given account.
 
-Cada API Opera de forma independente, exceto o Gremlin e a API do SQL, que são interoperáveis.
+Each API operates independently, except the Gremlin and SQL API, which are interoperable.
 
-### <a name="is-azure-cosmos-db-hipaa-compliant"></a>O é Azure Cosmos DB compatível com HIPAA?
+### <a name="is-azure-cosmos-db-hipaa-compliant"></a>Is Azure Cosmos DB HIPAA compliant?
 
-Sim, Azure Cosmos DB é compatível com HIPAA. A HIPAA estabelece requisitos para a utilização, divulgação e salvaguarda das informações médicas pessoalmente identificáveis. Para obter mais informações, consulte o [Centro de Fidedignidade da Microsoft](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
+Yes, Azure Cosmos DB is HIPAA-compliant. A HIPAA estabelece requisitos para a utilização, divulgação e salvaguarda das informações médicas pessoalmente identificáveis. Para obter mais informações, consulte o [Centro de Fidedignidade da Microsoft](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
 
-### <a name="what-are-the-storage-limits-of-azure-cosmos-db"></a>Quais são os limites de armazenamento de Azure Cosmos DB?
+### <a name="what-are-the-storage-limits-of-azure-cosmos-db"></a>What are the storage limits of Azure Cosmos DB?
 
-Não há limite para a quantidade total de dados que um contêiner pode armazenar em Azure Cosmos DB.
+There's no limit to the total amount of data that a container can store in Azure Cosmos DB.
 
-### <a name="what-are-the-throughput-limits-of-azure-cosmos-db"></a>Quais são os limites de taxa de transferência de Azure Cosmos DB?
+### <a name="what-are-the-throughput-limits-of-azure-cosmos-db"></a>What are the throughput limits of Azure Cosmos DB?
 
-Não há limite para a quantidade total de produtividade que um contêiner pode dar suporte em Azure Cosmos DB. A ideia principal é distribuir sua carga de trabalho aproximadamente de forma uniforme entre um número suficientemente grande de chaves de partição.
+There's no limit to the total amount of throughput that a container can support in Azure Cosmos DB. The key idea is to distribute your workload roughly evenly among a sufficiently large number of partition keys.
 
-### <a name="are-direct-and-gateway-connectivity-modes-encrypted"></a>Os modos de conectividade direta e de gateway são criptografados?
+### <a name="are-direct-and-gateway-connectivity-modes-encrypted"></a>Are Direct and Gateway connectivity modes encrypted?
 
-Sim os dois modos são sempre totalmente criptografados.
+Yes both modes are always fully encrypted.
 
-### <a name="how-much-does-azure-cosmos-db-cost"></a>Quanto custa Azure Cosmos DB?
+### <a name="how-much-does-azure-cosmos-db-cost"></a>How much does Azure Cosmos DB cost?
 
-Para obter detalhes, consulte a página de [detalhes de preços de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) . Azure Cosmos DB encargos de uso são determinados pelo número de contêineres provisionados, pelo número de horas em que os contêineres estavam online e pela taxa de transferência provisionada para cada contêiner.
+For details, refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/cosmos-db/) page. Azure Cosmos DB usage charges are determined by the number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container.
 
-### <a name="is-a-free-account-available"></a>Há uma conta gratuita disponível?
+### <a name="is-a-free-account-available"></a>Is a free account available?
 
-Sim, você pode se inscrever para uma conta de tempo limitado sem custos, sem compromisso. Para se inscrever, visite [tentar Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) ou Leia mais nas [perguntas frequentes sobre Experimente Azure Cosmos DB](#try-cosmos-db).
+Yes, you can sign up for a time-limited account at no charge, with no commitment. To sign up, visit [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) or read more in the [Try Azure Cosmos DB FAQ](#try-cosmos-db).
 
-Se você for novo no Azure, poderá se inscrever para uma [conta gratuita do Azure](https://azure.microsoft.com/free/), que oferece 30 dias e um crédito para experimentar todos os serviços do Azure. Se você tiver uma assinatura do Visual Studio, você também estará qualificado para [créditos gratuitos do Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usar em qualquer serviço do Azure.
+If you're new to Azure, you can sign up for an [Azure free account](https://azure.microsoft.com/free/), which gives you 30 days and a credit to try all the Azure services. If you have a Visual Studio subscription, you're also eligible for [free Azure credits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service.
 
-Você também pode usar o [emulador de Azure Cosmos DB](local-emulator.md) para desenvolver e testar seu aplicativo localmente gratuitamente, sem criar uma assinatura do Azure. Quando estiver satisfeito com o funcionamento da sua aplicação no Emulador do Azure Cosmos DB, pode mudar e começar a utilizar uma conta do Azure Cosmos DB na cloud.
+You can also use the [Azure Cosmos DB Emulator](local-emulator.md) to develop and test your application locally for free, without creating an Azure subscription. Quando estiver satisfeito com o funcionamento da sua aplicação no Emulador do Azure Cosmos DB, pode mudar e começar a utilizar uma conta do Azure Cosmos DB na cloud.
 
-### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Como posso obter ajuda adicional com Azure Cosmos DB?
+### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>How can I get additional help with Azure Cosmos DB?
 
-Para fazer uma pergunta técnica, você pode postar em um desses dois fóruns de perguntas e respostas:
+To ask a technical question, you can post to one of these two question and answer forums:
 
 * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow é melhor para perguntas de programação. Verifique se sua pergunta está [no tópico](https://stackoverflow.com/help/on-topic) e [forneça o máximo de detalhes possível, tornando a pergunta clara e pode ser respondida](https://stackoverflow.com/help/how-to-ask).
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
 
-Para solicitar novos recursos, crie uma nova solicitação no [User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
+To request new features, create a new request on [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 Para corrigir um problema na sua conta, crie um [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
 
-Outras perguntas podem ser enviadas para a equipe em [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com); no entanto, esse não é um alias de suporte técnico.
+Other questions can be submitted to the team at [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com); however this isn't a technical support alias.
 
-## <a id="try-cosmos-db"></a>Experimentar Azure Cosmos DB assinaturas
+## <a id="try-cosmos-db"></a>Try Azure Cosmos DB subscriptions
 
-Agora você pode desfrutar de uma experiência de Azure Cosmos DB de tempo limitado sem uma assinatura, sem encargos e compromissos. Para se inscrever em uma assinatura do try Azure Cosmos DB, vá para [experimentar Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/). Essa assinatura é separada da [avaliação gratuita do Azure](https://azure.microsoft.com/free/)e pode ser usada junto com uma avaliação gratuita do Azure ou uma assinatura paga do Azure.
+You can now enjoy a time-limited Azure Cosmos DB experience without a subscription, free of charge and commitments. To sign up for a Try Azure Cosmos DB subscription, go to [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/). This subscription is separate from the [Azure Free Trial](https://azure.microsoft.com/free/), and can be used along with an Azure Free Trial or an Azure paid subscription.
 
-Tente Azure Cosmos DB assinaturas sejam exibidas na portal do Azure próximas outras assinaturas associadas à sua ID de usuário.
+Try Azure Cosmos DB subscriptions appear in the Azure portal next other subscriptions associated with your user ID.
 
-As seguintes condições se aplicam para experimentar Azure Cosmos DB assinaturas:
+The following conditions apply to Try Azure Cosmos DB subscriptions:
 
-* Um [contêiner de taxa de transferência provisionado](./set-throughput.md#set-throughput-on-a-container) por assinatura para SQL, API Gremlin e contas de tabela.
-* Até três [coleções de taxa de transferência provisionada](./set-throughput.md#set-throughput-on-a-container) por assinatura para contas do MongoDB.
-* Uma [taxa de transferência de banco de dados provisionada](./set-throughput.md#set-throughput-on-a-database) por assinatura. Os bancos de dados provisionados pela taxa de transferência podem conter qualquer número de contêineres dentro do.
-* capacidade de armazenamento de 10 GB.
-* A replicação global está disponível nas seguintes [regiões do Azure](https://azure.microsoft.com/regions/): EUA Central, Europa setentrional e sudeste asiático
-* Taxa de transferência máxima de 5 K RU/s quando provisionado no nível de contêiner.
-* Taxa de transferência máxima de 20 K RU/s quando provisionado no nível do banco de dados.
-* As assinaturas expiram após 30 dias e podem ser estendidas para um máximo de 31 dias.
-* Tíquetes de suporte do Azure não podem ser criados para contas try Azure Cosmos DB; no entanto, o suporte é fornecido para assinantes com planos de suporte existentes.
+* One [throughput provisioned container](./set-throughput.md#set-throughput-on-a-container) per subscription for SQL, Gremlin API, and Table accounts.
+* Up to three [throughput provisioned collections](./set-throughput.md#set-throughput-on-a-container) per subscription for MongoDB accounts.
+* One [throughput provisioned database](./set-throughput.md#set-throughput-on-a-database) per subscription. Throughput provisioned databases can contain any number of containers inside.
+* 10-GB storage capacity.
+* Global replication is available in the following [Azure regions](https://azure.microsoft.com/regions/): Central US, North Europe, and Southeast Asia
+* Maximum throughput of 5 K RU/s when provisioned at the container level.
+* Maximum throughput of 20 K RU/s when provisioned at the database level.
+* Subscriptions expire after 30 days, and can be extended to a maximum of 31 days total.
+* Azure support tickets can't be created for Try Azure Cosmos DB accounts; however, support is provided for subscribers with existing support plans.
 
-## <a name="set-up-azure-cosmos-db"></a>Configurar Azure Cosmos DB
+## <a name="set-up-azure-cosmos-db"></a>Set up Azure Cosmos DB
 
-### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Como fazer inscrever-se no Azure Cosmos DB?
+### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>How do I sign up for Azure Cosmos DB?
 
-Azure Cosmos DB está disponível na portal do Azure. Primeiro, Inscreva-se para uma assinatura do Azure. Depois de se inscrever, você pode adicionar uma conta de Azure Cosmos DB à sua assinatura do Azure.
+Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB account to your Azure subscription.
 
 ### <a name="what-is-a-master-key"></a>O que é uma chave mestra?
 
-Uma chave mestra é um token de segurança para aceder a todos os recursos de uma conta. Indivíduos com a chave têm acesso de leitura e gravação a todos os recursos na conta do banco de dados. Tenha cuidado ao distribuir chaves mestras. A chave mestra primária e a chave mestra secundária estão disponíveis na folha **chaves** da [portal do Azure][azure-portal]. Para mais informações sobre chaves, consulte [Ver, copiar e voltar a gerar chaves de acesso](manage-with-cli.md#list-account-keys).
+Uma chave mestra é um token de segurança para aceder a todos os recursos de uma conta. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute master keys. The primary master key and secondary master key are available on the **Keys** blade of the [Azure portal][azure-portal]. Para mais informações sobre chaves, consulte [Ver, copiar e voltar a gerar chaves de acesso](manage-with-cli.md#list-account-keys).
 
-### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>Quais são as regiões às quais PreferredLocations pode ser definido?
+### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>What are the regions that PreferredLocations can be set to?
 
-O valor de PreferredLocations pode ser definido como qualquer uma das regiões do Azure nas quais Cosmos DB está disponível. Para obter uma lista de regiões disponíveis, consulte [regiões do Azure](https://azure.microsoft.com/regions/).
+The PreferredLocations value can be set to any of the Azure regions in which Cosmos DB is available. For a list of available regions, see [Azure regions](https://azure.microsoft.com/regions/).
 
-### <a name="is-there-anything-i-should-be-aware-of-when-distributing-data-across-the-world-via-the-azure-datacenters"></a>Há alguma coisa que eu deva saber ao distribuir dados pelo mundo por meio dos data centers do Azure?
+### <a name="is-there-anything-i-should-be-aware-of-when-distributing-data-across-the-world-via-the-azure-datacenters"></a>Is there anything I should be aware of when distributing data across the world via the Azure datacenters?
 
-Azure Cosmos DB está presente em todas as regiões do Azure, conforme especificado na página de [regiões do Azure](https://azure.microsoft.com/regions/) . Por ser o serviço principal, cada novo datacenter tem uma presença Azure Cosmos DB.
+Azure Cosmos DB is present across all Azure regions, as specified on the [Azure regions](https://azure.microsoft.com/regions/) page. Because it's the core service, every new datacenter has an Azure Cosmos DB presence.
 
-Quando você define uma região, lembre-se de que Azure Cosmos DB respeita as nuvens soberanas e governamental. Ou seja, se você criar uma conta em uma [região soberanas](https://azure.microsoft.com/global-infrastructure/), não poderá replicar fora dessa [região soberanas](https://azure.microsoft.com/global-infrastructure/). Da mesma forma, você não pode habilitar a replicação em outros locais soberanas de uma conta externa.
+When you set a region, remember that Azure Cosmos DB respects sovereign and government clouds. That is, if you create an account in a [sovereign region](https://azure.microsoft.com/global-infrastructure/), you can't replicate out of that [sovereign region](https://azure.microsoft.com/global-infrastructure/). Similarly, you can't enable replication into other sovereign locations from an outside account.
 
-### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>É possível mudar do provisionamento de taxa de transferência no nível de contêiner para o provisionamento de taxa de transferência no nível do banco de dados? Ou vice-versa
+### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>Is it possible to switch from container level throughput provisioning to database level throughput provisioning? Or vice versa
 
-O provisionamento de taxa de transferência de nível de banco de dados e contêiner são ofertas separadas e a alternância entre uma delas exige a migração de dados da origem para o destino. Isso significa que você precisa criar um novo banco de dados ou um novo contêiner e, em seguida, migrá-los usando a [biblioteca de executores em massa](bulk-executor-overview.md) ou [Azure data Factory](../data-factory/connector-azure-cosmos-db.md).
+Container and database level throughput provisioning are separate offerings and switching between either of these require migrating data from source to destination. Which means you need to create a new database or a new container and then migrate data by using [bulk executor library](bulk-executor-overview.md) or [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
-### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>O Azure CosmosDB dá suporte à análise de série temporal?
+### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Does Azure CosmosDB support time series analysis?
 
-Sim o Azure CosmosDB dá suporte à análise de série temporal, aqui está um exemplo de [padrão de série temporal](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). Este exemplo mostra como usar o feed de alterações para criar exibições agregadas em dados de série temporal. Você pode estender essa abordagem usando o streaming do Spark ou outro processador de dados de fluxo.
+Yes Azure CosmosDB supports time series analysis, here is a sample for [time series pattern](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). This sample shows how to use change feed to build aggregated views over time series data. You can extend this approach by using spark streaming or another stream data processor.
 
-## <a name="what-are-the-azure-cosmos-db-service-quotas-and-throughput-limits"></a>Quais são as cotas de serviço Azure Cosmos DB e os limites de taxa de transferência
+## <a name="what-are-the-azure-cosmos-db-service-quotas-and-throughput-limits"></a>What are the Azure Cosmos DB service quotas and throughput limits
 
-Consulte os artigos Azure Cosmos DB [cotas de serviço](concepts-limits.md) e [limites por contêiner e banco de dados](set-throughput.md#comparison-of-models) para obter mais informações.
+See the Azure Cosmos DB [service quotas](concepts-limits.md) and [throughout limits per container and database](set-throughput.md#comparison-of-models) articles for more information.
 
 ## <a name="sql-api"></a>SQL API
 
-### <a name="how-do-i-start-developing-against-the-sql-api"></a>Como fazer começar a desenvolver na API do SQL?
+### <a name="how-do-i-start-developing-against-the-sql-api"></a>How do I start developing against the SQL API?
 
-Primeiro, você deve se inscrever para uma assinatura do Azure. Depois de se inscrever para uma assinatura do Azure, você pode adicionar um contêiner da API do SQL à sua assinatura do Azure. Para obter instruções sobre como adicionar uma conta de Azure Cosmos DB, consulte [criar uma conta de banco de dados Cosmos do Azure](create-sql-api-dotnet.md#create-account).
+First you must sign up for an Azure subscription. Once you sign up for an Azure subscription, you can add a SQL API container to your Azure subscription. For instructions on adding an Azure Cosmos DB account, see [Create an Azure Cosmos database account](create-sql-api-dotnet.md#create-account).
 
-Existem [SDKs](sql-api-sdk-dotnet.md) disponíveis para .NET, Python, Node.js, JavaScript e Java. Os desenvolvedores também podem usar as [APIs http RESTful](/rest/api/cosmos-db/) para interagir com Azure Cosmos DB recursos de várias plataformas e linguagens.
+Existem [SDKs](sql-api-sdk-dotnet.md) disponíveis para .NET, Python, Node.js, JavaScript e Java. Developers can also use the [RESTful HTTP APIs](/rest/api/cosmos-db/) to interact with Azure Cosmos DB resources from various platforms and languages.
 
-### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Posso acessar alguns exemplos prontos para começar a usar?
+### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Can I access some ready-made samples to get a head start?
 
-Exemplos para os SDKs [.net](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [node. js](sql-api-nodejs-samples.md)e [Python](sql-api-python-samples.md) da API do SQL estão disponíveis no github.
+Samples for the SQL API [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md), and [Python](sql-api-python-samples.md) SDKs are available on GitHub.
 
-### <a name="does-the-sql-api-database-support-schema-free-data"></a>O banco de dados da API do SQL dá suporte a informações sem esquema?
+### <a name="does-the-sql-api-database-support-schema-free-data"></a>Does the SQL API database support schema-free data?
 
-Sim, a API do SQL permite que os aplicativos armazenem documentos JSON arbitrários sem definições ou dicas de esquema. Os dados ficam imediatamente disponíveis para consulta por meio da interface de consulta do Azure Cosmos DB SQL.
+Yes, the SQL API allows applications to store arbitrary JSON documents without schema definitions or hints. Data is immediately available for query through the Azure Cosmos DB SQL query interface.
 
-### <a name="does-the-sql-api-support-acid-transactions"></a>A API do SQL dá suporte a transações ACID?
+### <a name="does-the-sql-api-support-acid-transactions"></a>Does the SQL API support ACID transactions?
 
-Sim, a API do SQL dá suporte a transações entre documentos expressas como procedimentos e gatilhos armazenados em JavaScript. As transações são delimitadas a uma única partição dentro de cada contêiner e executadas com semântica ACID como "tudo ou nada", isoladas de outras solicitações de código e usuário executadas simultaneamente. Se as exceções forem geradas por meio da execução do código do aplicativo JavaScript no lado do servidor, toda a transação será revertida. 
+Yes, the SQL API supports cross-document transactions expressed as JavaScript-stored procedures and triggers. Transactions are scoped to a single partition within each container and executed with ACID semantics as "all or nothing," isolated from other concurrently executing code and user requests. If exceptions are thrown through the server-side execution of JavaScript application code, the entire transaction is rolled back. 
 
-### <a name="what-is-a-container"></a>O que é um contêiner?
+### <a name="what-is-a-container"></a>What is a container?
 
-Um contêiner é um grupo de documentos e sua lógica de aplicativo JavaScript associada. Um contêiner é uma entidade Faturável, em que o [custo](performance-levels.md) é determinado pela taxa de transferência e pelo armazenamento usado. Os contêineres podem abranger uma ou mais partições ou servidores e podem ser dimensionados para lidar com volumes praticamente ilimitados de armazenamento ou taxa de transferência.
+A container is a group of documents and their associated JavaScript application logic. A container is a billable entity, where the [cost](performance-levels.md) is determined by the throughput and used storage. Containers can span one or more partitions or servers and can scale to handle practically unlimited volumes of storage or throughput.
 
-* Para a API do SQL, um contêiner é mapeado para um contêiner.
-* Para as contas da API de Cosmos DB para MongoDB, um contêiner é mapeado para uma coleção.
-* Para contas Cassandra e API de Tabela, um contêiner é mapeado para uma tabela.
-* Para contas de API Gremlin, um contêiner é mapeado para um grafo.
+* For SQL API, a container maps to a Container.
+* For Cosmos DB's API for MongoDB accounts, a container maps to a Collection.
+* For Cassandra and Table API accounts, a container maps to a Table.
+* For Gremlin API accounts, a container maps to a Graph.
 
-Os contêineres também são as entidades de cobrança para Azure Cosmos DB. Cada contêiner é cobrado por hora, com base na taxa de transferência provisionada e no espaço de armazenamento usado. Para obter mais informações, consulte [preços de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
+Containers are also the billing entities for Azure Cosmos DB. Each container is billed hourly, based on the provisioned throughput and used storage space. For more information, see [Azure Cosmos DB Pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ### <a name="how-do-i-create-a-database"></a>Como crio uma base de dados?
 
-Você pode criar bancos de dados usando o [portal do Azure](https://portal.azure.com), conforme descrito em [Adicionar um contêiner](create-sql-api-java.md#add-a-container), um dos SDKs de [Azure Cosmos DB](sql-api-sdk-dotnet.md)ou as [APIs REST](/rest/api/cosmos-db/).
+You can create databases by using the [Azure portal](https://portal.azure.com), as described in [Add a container](create-sql-api-java.md#add-a-container), one of the [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md), or the [REST APIs](/rest/api/cosmos-db/).
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Como posso configurar utilizadores e permissões?
 
-Você pode criar usuários e permissões usando um dos SDKs de [API Cosmos DB](sql-api-sdk-dotnet.md) ou as [APIs REST](/rest/api/cosmos-db/).
+You can create users and permissions by using one of the [Cosmos DB API SDKs](sql-api-sdk-dotnet.md) or the [REST APIs](/rest/api/cosmos-db/).
 
-### <a name="does-the-sql-api-support-sql"></a>A API do SQL dá suporte ao SQL?
+### <a name="does-the-sql-api-support-sql"></a>Does the SQL API support SQL?
 
-A linguagem de consulta SQL com suporte das contas da API do SQL é um subconjunto aprimorado da funcionalidade de consulta com suporte pelo SQL Server. A linguagem de consulta do Azure Cosmos DB SQL fornece operadores hierárquicos e relacionais avançados e extensibilidade por meio de UDFs (funções definidas pelo usuário) baseadas em JavaScript. A gramática JSON permite modelar documentos JSON como árvores com nós rotulados, que são usados pelo Azure Cosmos DB técnicas de indexação automática e o dialeto de consulta SQL de Azure Cosmos DB. Para obter informações sobre como usar a gramática SQL, consulte o artigo [consulta SQL][query] .
+The SQL query language supported by SQL API accounts is an enhanced subset of the query functionality that's supported by SQL Server. The Azure Cosmos DB SQL query language provides rich hierarchical and relational operators and extensibility via JavaScript-based, user-defined functions (UDFs). JSON grammar allows for modeling JSON documents as trees with labeled nodes, which are used by both the Azure Cosmos DB automatic indexing techniques and the SQL query dialect of Azure Cosmos DB. For information about using SQL grammar, see the [SQL Query][query] article.
 
-### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>A API do SQL dá suporte às funções de agregação do SQL?
+### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>Does the SQL API support SQL aggregation functions?
 
-A API do SQL dá suporte à agregação de baixa latência em qualquer escala por meio de funções de agregação `COUNT`, `MIN`, `MAX`, `AVG` e `SUM` por meio da gramática do SQL. Para obter mais informações, consulte [funções de agregação](sql-query-aggregates.md).
+The SQL API supports low-latency aggregation at any scale via aggregate functions `COUNT`, `MIN`, `MAX`, `AVG`, and `SUM` via the SQL grammar. For more information, see [Aggregate functions](sql-query-aggregates.md).
 
-### <a name="how-does-the-sql-api-provide-concurrency"></a>Como a API do SQL fornece simultaneidade?
+### <a name="how-does-the-sql-api-provide-concurrency"></a>How does the SQL API provide concurrency?
 
-A API do SQL dá suporte a OCC (controle de simultaneidade otimista) por meio de marcas de entidade HTTP ou ETags. Cada recurso da API do SQL tem uma ETag e a ETag é definida no servidor sempre que um documento é atualizado. O cabeçalho ETag e o valor atual são incluídos em todas as mensagens de resposta. As ETags podem ser usadas com o cabeçalho If-match para permitir que o servidor decida se um recurso deve ser atualizado. O valor de If-match é o valor de ETag a ser verificado. Se o valor de ETag corresponder ao valor de ETag do servidor, o recurso será atualizado. Se a ETag não for mais atual, o servidor rejeitará a operação com um código de resposta "erro de pré-condição HTTP 412". O cliente então busca novamente o recurso para adquirir o valor de ETag atual para o recurso. Além disso, as ETags podem ser usadas com o cabeçalho If-None-Match para determinar se uma rebusca de um recurso é necessária.
+The SQL API supports optimistic concurrency control (OCC) through HTTP entity tags, or ETags. Every SQL API resource has an ETag, and the ETag is set on the server every time a document is updated. The ETag header and the current value are included in all response messages. ETags can be used with the If-Match header to allow the server to decide whether a resource should be updated. The If-Match value is the ETag value to be checked against. If the ETag value matches the server ETag value, the resource is updated. If the ETag is no longer current, the server rejects the operation with an "HTTP 412 Precondition failure" response code. The client then refetches the resource to acquire the current ETag value for the resource. In addition, ETags can be used with the If-None-Match header to determine whether a refetch of a resource is needed.
 
-Para usar a simultaneidade otimista no .NET, use a classe [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) . Para obter um exemplo do .NET, consulte [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) no exemplo de DocumentManagement no github.
+To use optimistic concurrency in .NET, use the [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) class. For a .NET sample, see [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) in the DocumentManagement sample on GitHub.
 
-### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>Como fazer executar transações na API do SQL?
+### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>How do I perform transactions in the SQL API?
 
-A API do SQL dá suporte a transações integradas à linguagem por meio de procedimentos e gatilhos armazenados em JavaScript. Todas as operações de banco de dados dentro de scripts são executadas sob isolamento de instantâneo. Se for um contêiner de partição única, a execução será delimitada para o contêiner. Se o contêiner for particionado, a execução será delimitada para documentos com o mesmo valor de chave de partição no contêiner. Um instantâneo das versões do documento (ETags) é tirado no início da transação e consolidado apenas se o script for concluído com êxito. Se o JavaScript emitir um erro, a transação é revertida. Para obter mais informações, consulte [programação de JavaScript do lado do servidor para Azure Cosmos DB](stored-procedures-triggers-udfs.md).
+The SQL API supports language-integrated transactions via JavaScript-stored procedures and triggers. All database operations inside scripts are executed under snapshot isolation. If it's a single-partition container, the execution is scoped to the container. If the container is partitioned, the execution is scoped to documents with the same partition-key value within the container. Um instantâneo das versões do documento (ETags) é tirado no início da transação e consolidado apenas se o script for concluído com êxito. Se o JavaScript emitir um erro, a transação é revertida. For more information, see [Server-side JavaScript programming for Azure Cosmos DB](stored-procedures-triggers-udfs.md).
 
-### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>Como posso inserir documentos em massa no Cosmos DB?
+### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>How can I bulk-insert documents into Cosmos DB?
 
-Você pode inserir documentos em massa no Azure Cosmos DB de uma das seguintes maneiras:
+You can bulk-insert documents into Azure Cosmos DB in one of the following ways:
 
-* A ferramenta executor em massa, conforme descrito em [usando a biblioteca .net do executor em](bulk-executor-dot-net.md) massa e [usando a biblioteca Java do executor em massa](bulk-executor-java.md)
-* A ferramenta de migração de dados, conforme descrito na [ferramenta de migração de banco de dado para Azure Cosmos DB](import-data.md).
-* Procedimentos armazenados, conforme descrito na [programação JavaScript do lado do servidor para Azure Cosmos DB](stored-procedures-triggers-udfs.md).
+* The bulk executor tool, as described in [Using bulk executor .NET library](bulk-executor-dot-net.md) and [Using bulk executor Java library](bulk-executor-java.md)
+* The data migration tool, as described in [Database migration tool for Azure Cosmos DB](import-data.md).
+* Stored procedures, as described in [Server-side JavaScript programming for Azure Cosmos DB](stored-procedures-triggers-udfs.md).
 
-### <a name="does-the-sql-api-support-resource-link-caching"></a>A API do SQL dá suporte ao cache de link de recursos?
+### <a name="does-the-sql-api-support-resource-link-caching"></a>Does the SQL API support resource link caching?
 
-Sim, como Azure Cosmos DB é um serviço RESTful, os links de recursos são imutáveis e podem ser armazenados em cache. Os clientes da API do SQL podem especificar um cabeçalho "If-None-Match" para leituras em qualquer documento ou contêiner do tipo recurso e, em seguida, atualizar suas cópias locais depois que a versão do servidor for alterada.
+Yes, because Azure Cosmos DB is a RESTful service, resource links are immutable and can be cached. SQL API clients can specify an "If-None-Match" header for reads against any resource-like document or container and then update their local copies after the server version has changed.
 
-### <a name="is-a-local-instance-of-sql-api-available"></a>Uma instância local da API do SQL está disponível?
+### <a name="is-a-local-instance-of-sql-api-available"></a>Is a local instance of SQL API available?
 
-Sim. O [emulador de Azure Cosmos DB](local-emulator.md) fornece uma emulação de alta fidelidade do serviço Cosmos DB. Ele dá suporte à funcionalidade que é idêntica à Azure Cosmos DB, incluindo suporte para criar e consultar documentos JSON, provisionamento e dimensionamento de coleções e execução de procedimentos armazenados e gatilhos. Você pode desenvolver e testar aplicativos usando o emulador de Azure Cosmos DB e implantá-los no Azure em uma escala global fazendo uma única alteração de configuração para o ponto de extremidade de conexão para Azure Cosmos DB.
+Sim. The [Azure Cosmos DB Emulator](local-emulator.md) provides a high-fidelity emulation of the Cosmos DB service. It supports functionality that's identical to Azure Cosmos DB, including support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications by using the Azure Cosmos DB Emulator, and deploy them to Azure at a global scale by making a single configuration change to the connection endpoint for Azure Cosmos DB.
 
-### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Por que os valores longos de ponto flutuante em um documento são arredondados quando exibidos no data Explorer no Portal.
+### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Why are long floating-point values in a document rounded when viewed from data explorer in the portal.
 
-Isso é a limitação do JavaScript. O JavaScript usa números de formato de ponto flutuante de precisão dupla conforme especificado no IEEE 754 e pode conter com segurança números entre-(2<sup>53</sup> -1) e 2<sup>53</sup>-1 (ou seja, 9007199254740991) somente.
+This is limitation of JavaScript. JavaScript uses double-precision floating-point format numbers as specified in IEEE 754 and it can safely hold numbers between -(2<sup>53</sup> - 1) and 2<sup>53</sup>-1 (i.e., 9007199254740991) only.
 
-### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Onde as permissões são permitidas na hierarquia de objetos?
+### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Where are permissions allowed in the object hierarchy?
 
-A criação de permissões usando ResourceTokens é permitida no nível de contêiner e seus descendentes (como documentos, anexos). Isso significa que a tentativa de criar uma permissão no banco de dados ou em um nível de conta não é permitida no momento.
+Creating permissions by using ResourceTokens is allowed at the container level and its descendants (such as documents, attachments). This implies that trying to create a permission at the database or an account level isn't currently allowed.
 
 ## <a name="azure-cosmos-dbs-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB
 
-### <a name="what-is-the-azure-cosmos-dbs-api-for-mongodb"></a>Qual é a API do Azure Cosmos DB para MongoDB?
+### <a name="what-is-the-azure-cosmos-dbs-api-for-mongodb"></a>What is the Azure Cosmos DB's API for MongoDB?
 
-A API do Azure Cosmos DB para MongoDB é uma camada de compatibilidade de protocolo Wire que permite que os aplicativos se comuniquem de forma fácil e transparente com o mecanismo de banco de dados nativo do Azure Cosmos usando SDKs e drivers existentes com suporte da Comunidade para o MongoDB. Os desenvolvedores agora podem usar cadeias e habilidades existentes do MongoDB para criar aplicativos que tiram proveito do Azure Cosmos DB. Os desenvolvedores se beneficiam dos recursos exclusivos do Azure Cosmos DB, que incluem a distribuição global com replicação de vários mestres, indexação automática, manutenção de backup, SLAs (contratos de nível de serviço) com suporte financeiro etc.
+The Azure Cosmos DB's API for MongoDB is a wire-protocol compatibility layer that allows applications to easily and transparently communicate with the native Azure Cosmos database engine by using existing, community-supported SDKs and drivers for MongoDB. Developers can now use existing MongoDB toolchains and skills to build applications that take advantage of Azure Cosmos DB. Developers benefit from the unique capabilities of Azure Cosmos DB, which include global distribution with multi-master replication, auto-indexing, backup maintenance, financially backed service level agreements (SLAs) etc.
 
-### <a name="how-do-i-connect-to-my-database"></a>Como fazer conectar-se ao meu banco de dados?
+### <a name="how-do-i-connect-to-my-database"></a>How do I connect to my database?
 
-A maneira mais rápida de se conectar a um banco de dados cosmos com a API de Azure Cosmos DB para MongoDB é ir para o [portal do Azure](https://portal.azure.com). Vá para sua conta e, no menu de navegação à esquerda, clique em **início rápido**. O início rápido é a melhor maneira de obter trechos de código para se conectar ao banco de dados.
+The quickest way to connect to a Cosmos database with Azure Cosmos DB's API for MongoDB is to head over to the [Azure portal](https://portal.azure.com). Go to your account and then, on the left navigation menu, click **Quick Start**. Quickstart is the best way to get code snippets to connect to your database.
 
-Azure Cosmos DB impõe requisitos e padrões de segurança estritos. Azure Cosmos DB contas exigem autenticação e comunicação segura via SSL, portanto, certifique-se de usar o TLSv 1.2.
+Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via SSL, so be sure to use TLSv1.2.
 
-Para obter mais informações, consulte [conectar-se ao banco de dados do cosmos com a API do Azure Cosmos DB para MongoDB](connect-mongodb-account.md).
+For more information, see [Connect to your Cosmos database with Azure Cosmos DB's API for MongoDB](connect-mongodb-account.md).
 
-### <a name="are-there-additional-error-codes-that-i-need-to-deal-with-while-using-azure-cosmos-dbs-api-for-mongodb"></a>Há códigos de erro adicionais com os quais preciso lidar ao usar a API do Azure Cosmos DB para MongoDB?
+### <a name="are-there-additional-error-codes-that-i-need-to-deal-with-while-using-azure-cosmos-dbs-api-for-mongodb"></a>Are there additional error codes that I need to deal with while using Azure Cosmos DB's API for MongoDB?
 
-Junto com os códigos de erro comuns do MongoDB, a API do Azure Cosmos DB para MongoDB tem seus próprios códigos de erro específicos:
+Along with the common MongoDB error codes, the Azure Cosmos DB's API for MongoDB has its own specific error codes:
 
 | Erro               | Código  | Descrição  | Solução  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | O número total de unidades de solicitação consumidas é maior que a taxa de unidade de solicitação provisionada para o contêiner e foi limitada. | Considere dimensionar a taxa de transferência atribuída a um contêiner ou a um conjunto de contêineres do portal do Azure ou tentar novamente. |
-| ExceededMemoryLimit | 16501 | Como um serviço multilocatário, a operação passou pela alocação de memória do cliente. | Reduza o escopo da operação por meio de critérios de consulta mais restritivos ou entre em contato com o suporte da [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exemplo: <em> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4dB. GetCollection (' Users '). Aggregate ([<br>&nbsp; @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7 {$match: {Name: "Andy"}}, <br>&nbsp; @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7 {$sort: {Age:-1}}<br>&nbsp; @ no__t-1 @ no__t-2 @ no__t-3]) </em>) |
+| TooManyRequests     | 16500 | The total number of request units consumed is more than the provisioned request-unit rate for the container and has been throttled. | Consider scaling the throughput  assigned to a container or a set of containers from the Azure portal or retrying again. |
+| ExceededMemoryLimit | 16501 | As a multi-tenant service, the operation has gone over the client's memory allotment. | Reduce the scope of the operation through more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Example: <em>&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
 
-### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>O driver Simba para MongoDB tem suporte para uso com a API do Azure Cosmos DB para MongoDB?
+### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>Is the Simba driver for MongoDB supported for use with Azure Cosmos DB's API for MongoDB?
 
-Sim, você pode usar o driver ODBC do Mongo da Simba com a API do Azure Cosmos DB para MongoDB
+Yes, you can use Simba’s Mongo ODBC driver with Azure Cosmos DB's API for MongoDB
 
 ## <a id="table"></a>API de Tabela
 
-### <a name="how-can-i-use-the-table-api-offering"></a>Como posso usar a oferta de API de Tabela?
+### <a name="how-can-i-use-the-table-api-offering"></a>How can I use the Table API offering?
 
-O API de Tabela de Azure Cosmos DB está disponível no [portal do Azure][azure-portal]. Primeiro, você deve se inscrever para uma assinatura do Azure. Depois de se inscrever, você pode adicionar uma conta de API de Tabela Azure Cosmos DB à sua assinatura do Azure e, em seguida, adicionar tabelas à sua conta.
+The Azure Cosmos DB Table API is available in the [Azure portal][azure-portal]. First you must sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB Table API account to your Azure subscription, and then add tables to your account.
 
-Você pode encontrar os idiomas com suporte e as inicializações rápidas associadas na [introdução ao Azure Cosmos DB API de tabela](table-introduction.md).
+You can find the supported languages and associated quick-starts in the [Introduction to Azure Cosmos DB Table API](table-introduction.md).
 
-### <a name="do-i-need-a-new-sdk-to-use-the-table-api"></a>Preciso de um novo SDK para usar o API de Tabela?
+### <a name="do-i-need-a-new-sdk-to-use-the-table-api"></a>Do I need a new SDK to use the Table API?
 
-Não, os SDKs de armazenamento existentes ainda devem funcionar. No entanto, é recomendável que um sempre obtenha os SDKs mais recentes para obter o melhor suporte e, em muitos casos, um desempenho superior. Consulte a lista de idiomas disponíveis na [introdução ao Azure Cosmos DB API de tabela](table-introduction.md).
+No, existing storage SDKs should still work. However, it's recommended that one always gets the latest SDKs for the best support and in many cases superior performance. See the list of available languages in the [Introduction to Azure Cosmos DB Table API](table-introduction.md).
 
-### <a name="where-is-table-api-not-identical-with-azure-table-storage-behavior"></a>Onde API de Tabela não é idêntico ao comportamento do armazenamento de tabelas do Azure?
+### <a name="where-is-table-api-not-identical-with-azure-table-storage-behavior"></a>Where is Table API not identical with Azure Table storage behavior?
 
-Há algumas diferenças de comportamento que os usuários provenientes do armazenamento de tabelas do Azure que desejam criar tabelas com o Azure Cosmos DB API de Tabela devem estar cientes:
+There are some behavior differences that users coming from Azure Table storage who want to create tables with the Azure Cosmos DB Table API should be aware of:
 
-* Azure Cosmos DB API de Tabela usa um modelo de capacidade reservado para garantir o desempenho garantido, mas isso significa que um paga pela capacidade assim que a tabela é criada, mesmo que a capacidade não esteja sendo usada. Com o armazenamento de tabelas do Azure, um só paga pela capacidade usada. Isso ajuda a explicar por que API de Tabela pode oferecer uma leitura de 10 ms e um SLA de gravação de 15 ms no 99 º percentil, enquanto o armazenamento de tabelas do Azure oferece um SLA de 10 segundos. Mas, como consequência, com API de Tabela tabelas, até mesmo tabelas vazias sem nenhuma solicitação, custam dinheiro para garantir que a capacidade esteja disponível para lidar com todas as solicitações para elas no SLA oferecido pelo Azure Cosmos DB.
-* Os resultados da consulta retornados pelo API de Tabela não são classificados em ordem de chave de partição/chave de linha, pois estão no armazenamento de tabelas do Azure.
-* As chaves de linha podem ter até 255 bytes
-* Os lotes só podem ter até 2 MBs
-* Atualmente, não há suporte para CORS
-* Os nomes de tabela no armazenamento de tabelas do Azure não diferenciam maiúsculas de minúsculas, mas estão em Azure Cosmos DB API de Tabela
-* Alguns dos formatos internos de Azure Cosmos DB para informações de codificação, como campos binários, atualmente não são tão eficientes quanto o que se pode desejar. Portanto, isso pode causar limitações inesperadas no tamanho dos dados. Por exemplo, no momento, não foi possível usar o MB completo de uma entidade de tabela para armazenar dados binários porque a codificação aumenta o tamanho dos dados.
-* O nome da propriedade de entidade ' ID ' não tem suporte no momento
-* TableQuery TakeCount não está limitado a 1000
+* Azure Cosmos DB Table API uses a reserved capacity model in order to ensure guaranteed performance but this means that one pays for the capacity as soon as the table is created, even if the capacity isn't being used. With Azure Table storage one only pays for capacity that's used. This helps to explain why Table API can offer a 10 ms read and 15 ms write SLA at the 99th percentile while Azure Table storage offers a 10-second SLA. But as a consequence, with Table API tables, even empty tables without any requests, cost money in order to ensure the capacity is available to handle any requests to them at the SLA offered by Azure Cosmos DB.
+* Query results returned by the Table API aren't sorted in partition key/row key order as they are in Azure Table storage.
+* Row keys can only be up to 255 bytes
+* Batches can only have up to 2 MBs
+* CORS isn't currently supported
+* Table names in Azure Table storage aren't case-sensitive, but they are in Azure Cosmos DB Table API
+* Some of Azure Cosmos DB's internal formats for encoding information, such as binary fields, are currently not as efficient as one might like. Therefore this can cause unexpected limitations on data size. For example, currently one couldn't use the full one Meg of a table entity to store binary data because the encoding increases the data's size.
+* Entity property name 'ID' currently not supported
+* TableQuery TakeCount isn't limited to 1000
 
-Em termos da API REST, há um número de pontos de extremidade/opções de consulta que não têm suporte pelo Azure Cosmos DB API de Tabela:
+In terms of the REST API there are a number of endpoints/query options that aren't supported by Azure Cosmos DB Table API:
 
-| Método (s) REST | Opção ponto de extremidade/consulta REST | URLs do documento | Explicação |
+| Rest Method(s) | Rest Endpoint/Query Option | Doc URLs | Explicação |
 | ------------| ------------- | ---------- | ----------- |
-| OBTER, COLOCAR | /? ResType = service@comp = Propriedades| [Definir propriedades do serviço tabela](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) e [obter propriedades do serviço tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Esse ponto de extremidade é usado para definir regras de CORS, configuração de análise de armazenamento e configurações de log. Atualmente, o CORS não tem suporte e a análise e o registro em log são tratados de forma diferente em Azure Cosmos DB do que nas tabelas do armazenamento |
-| Opções | / @ no__t-1Table-nome-do-recurso > | [Solicitação de tabela CORS de simulação](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Isso faz parte do CORS ao qual Azure Cosmos DB não oferece suporte no momento. |
-| GET | /? ResType = service@comp = estatísticas | [Obter estatísticas do serviço tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fornece informações sobre como os dados são replicados com rapidez entre primários e secundários. Isso não é necessário na Cosmos DB, pois a replicação faz parte das gravações. |
-| OBTER, COLOCAR | /MyTable? comp = ACL | [Obter](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) ACL de tabela e [definir ACL de tabela](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Isso obtém e define as políticas de acesso armazenadas usadas para gerenciar assinaturas de acesso compartilhado (SAS). Embora haja suporte para SAS, elas são definidas e gerenciadas de forma diferente. |
+| GET, PUT | /?restype=service@comp=properties| [Set Table Service Properties](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) and [Get Table Service Properties](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | This endpoint is used to set CORS rules, storage analytics configuration, and logging settings. CORS is currently not supported and analytics and logging are handled differently in Azure Cosmos DB than Azure Storage Tables |
+| OPTIONS | /\<table-resource-name> | [Pre-flight CORS table request](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | This is part of CORS which Azure Cosmos DB doesn't currently support. |
+| GET | /?restype=service@comp=stats | [Get Table Service Stats](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Provides information how quickly data is replicating between primary and secondaries. This isn't needed in Cosmos DB as the replication is part of writes. |
+| GET, PUT | /mytable?comp=acl | [Get Table ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) and [Set Table ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | This gets and sets the stored access policies used to manage Shared Access Signatures (SAS). Although SAS is supported, they are set and managed differently. |
 
-Além disso Azure Cosmos DB API de Tabela dá suporte apenas ao formato JSON, não ao ATOM.
+In addition Azure Cosmos DB Table API only supports the JSON format, not ATOM.
 
-Embora Azure Cosmos DB suporte a SAS (assinaturas de acesso compartilhado), há determinadas políticas que não são compatíveis, especificamente aquelas relacionadas a operações de gerenciamento, como o direito de criar novas tabelas.
+While Azure Cosmos DB supports Shared Access Signatures (SAS) there are certain policies it doesn't support, specifically those related to management operations such as the right to create new tables.
 
-Para o SDK do .NET em particular, há algumas classes e métodos para os quais Azure Cosmos DB não oferece suporte no momento.
+For the .NET SDK in particular, there are some classes and methods that Azure Cosmos DB doesn't currently support.
 
-| Classe | Método sem suporte |
+| Classe | Unsupported Method |
 |-------|-------- |
-| CloudTableClient | \*ServiceProperties * |
-|                  | \*ServiceStats * |
-| CloudTable | SetPermissions |
-|            | GetPermissions |
-| TableServiceContext | * (essa classe é preterida) |
+| CloudTableClient | \*ServiceProperties* |
+|                  | \*ServiceStats* |
+| CloudTable | SetPermissions* |
+|            | GetPermissions* |
+| TableServiceContext | * (this class is deprecated) |
 | TableServiceEntity | " " |
 | TableServiceExtensions | " " |
 | TableServiceQuery | " " |
 
-Se qualquer uma dessas diferenças for um problema para seu projeto, entre em contato com [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) e avise-nos.
+If any of these differences are a problem for your project, contact [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) and let us know.
 
-### <a name="how-do-i-provide-feedback-about-the-sdk-or-bugs"></a>Como fazer fornecer comentários sobre o SDK ou bugs?
+### <a name="how-do-i-provide-feedback-about-the-sdk-or-bugs"></a>How do I provide feedback about the SDK or bugs?
 
-Você pode compartilhar seus comentários de qualquer uma das seguintes maneiras:
+You can share your feedback in any of the following ways:
 
-* [Voz do usuário](https://feedback.azure.com/forums/263030-azure-cosmos-db)
+* [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow é melhor para perguntas de programação. Verifique se sua pergunta está [no tópico](https://stackoverflow.com/help/on-topic) e [forneça o máximo de detalhes possível, tornando a pergunta clara e pode ser respondida](https://stackoverflow.com/help/how-to-ask).
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
 
-### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Qual é a cadeia de conexão que preciso usar para se conectar ao API de Tabela?
+### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>What is the connection string that I need to use to connect to the Table API?
 
-A cadeia de conexão é:
+The connection string is:
 
 ```
 DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountName>.table.cosmosdb.azure.com
 ```
 
-Você pode obter a cadeia de conexão da página cadeia de conexão na portal do Azure.
+You can get the connection string from the Connection String page in the Azure portal.
 
-### <a name="how-do-i-override-the-config-settings-for-the-request-options-in-the-net-sdk-for-the-table-api"></a>Como fazer substituir as configurações de configuração das opções de solicitação no SDK do .NET para o API de Tabela?
+### <a name="how-do-i-override-the-config-settings-for-the-request-options-in-the-net-sdk-for-the-table-api"></a>How do I override the config settings for the request options in the .NET SDK for the Table API?
 
-Algumas configurações são tratadas no método CreateCloudTableClient e outras por meio do App. config na seção appSettings no aplicativo cliente. Para obter informações sobre configurações de configuração, consulte [recursos de Azure Cosmos DB](tutorial-develop-table-dotnet.md).
+Some settings are handled on the CreateCloudTableClient method and other via the app.config in the appSettings section in the client application. For information about config settings, see [Azure Cosmos DB capabilities](tutorial-develop-table-dotnet.md).
 
-### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdks"></a>Há alguma alteração para os clientes que estão usando os SDKs de armazenamento de tabelas do Azure existentes?
+### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdks"></a>Are there any changes for customers who are using the existing Azure Table storage SDKs?
 
-Nenhum. Não há alterações para clientes novos ou existentes que estejam usando os SDKs de armazenamento de tabela do Azure existentes.
+Nenhum. There are no changes for existing or new customers who are using the existing Azure Table storage SDKs.
 
-### <a name="how-do-i-view-table-data-thats-stored-in-azure-cosmos-db-for-use-with-the-table-api"></a>Como fazer exibir dados de tabela armazenados em Azure Cosmos DB para uso com o API de Tabela?
+### <a name="how-do-i-view-table-data-thats-stored-in-azure-cosmos-db-for-use-with-the-table-api"></a>How do I view table data that's stored in Azure Cosmos DB for use with the Table API?
 
-Você pode usar o portal do Azure para procurar os dados. Você também pode usar o código de API de Tabela ou as ferramentas mencionadas na próxima resposta.
+You can use the Azure portal to browse the data. You can also use the Table API code or the tools mentioned in the next answer.
 
-### <a name="which-tools-work-with-the-table-api"></a>Quais ferramentas funcionam com o API de Tabela?
+### <a name="which-tools-work-with-the-table-api"></a>Which tools work with the Table API?
 
-Você pode usar o [Gerenciador de armazenamento do Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+You can use the [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-As ferramentas com a flexibilidade para obter uma cadeia de conexão no formato especificado anteriormente podem dar suporte à nova API de Tabela. Uma lista de ferramentas de tabela é fornecida na página [ferramentas de cliente de armazenamento do Azure](../storage/common/storage-explorers.md) .
+Tools with the flexibility to take a connection string in the format specified previously can support the new Table API. A list of table tools is provided on the [Azure Storage Client Tools](../storage/common/storage-explorers.md) page.
 
-### <a name="is-the-concurrency-on-operations-controlled"></a>A simultaneidade é controlada por operações?
+### <a name="is-the-concurrency-on-operations-controlled"></a>Is the concurrency on operations controlled?
 
-Sim, a simultaneidade otimista é fornecida por meio do uso do mecanismo ETag.
+Yes, optimistic concurrency is provided via the use of the ETag mechanism.
 
-### <a name="is-the-odata-query-model-supported-for-entities"></a>Há suporte para o modelo de consulta OData para entidades?
+### <a name="is-the-odata-query-model-supported-for-entities"></a>Is the OData query model supported for entities?
 
-Sim, o API de Tabela dá suporte à consulta OData e consulta LINQ.
+Yes, the Table API supports OData query and LINQ query.
 
-### <a name="can-i-connect-to-azure-table-storage-and-azure-cosmos-db-table-api-side-by-side-in-the-same-application"></a>Posso me conectar ao armazenamento de tabelas do Azure e Azure Cosmos DB API de Tabela lado a lado no mesmo aplicativo?
+### <a name="can-i-connect-to-azure-table-storage-and-azure-cosmos-db-table-api-side-by-side-in-the-same-application"></a>Can I connect to Azure Table Storage and Azure Cosmos DB Table API side by side in the same application?
 
-Sim, você pode se conectar criando duas instâncias separadas do CloudTableClient, cada uma apontando para seu próprio URI por meio da cadeia de conexão.
+Yes, you can connect by creating two separate instances of the CloudTableClient, each pointing to its own URI via the connection string.
 
-### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>Como fazer migrar um aplicativo de armazenamento de tabelas do Azure existente para esta oferta?
+### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>How do I migrate an existing Azure Table storage application to this offering?
 
-O [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) e a [ferramenta de migração de dados Azure Cosmos DB](import-data.md) têm suporte.
+[AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) and the [Azure Cosmos DB Data Migration Tool](import-data.md) are both supported.
 
-### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>Como a expansão do tamanho do armazenamento é feita para esse serviço se, por exemplo, eu começar com *n* GB de dados e meus dados aumentarem para 1 TB ao longo do tempo?
+### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>How is expansion of the storage size done for this service if, for example, I start with *n* GB of data and my data will grow to 1 TB over time?
 
-O Azure Cosmos DB foi projetado para fornecer armazenamento ilimitado por meio do uso de dimensionamento horizontal. O serviço pode monitorar e aumentar efetivamente o armazenamento.
+Azure Cosmos DB is designed to provide unlimited storage via the use of horizontal scaling. The service can monitor and effectively increase your storage.
 
-### <a name="how-do-i-monitor-the-table-api-offering"></a>Como fazer monitorar a oferta de API de Tabela?
+### <a name="how-do-i-monitor-the-table-api-offering"></a>How do I monitor the Table API offering?
 
-Você pode usar o painel API de Tabela **métricas** para monitorar as solicitações e o uso do armazenamento.
+You can use the Table API **Metrics** pane to monitor requests and storage usage.
 
-### <a name="how-do-i-calculate-the-throughput-i-require"></a>Como fazer calcular a taxa de transferência que eu preciso?
+### <a name="how-do-i-calculate-the-throughput-i-require"></a>How do I calculate the throughput I require?
 
-Você pode usar o avaliador de capacidade para calcular o TableThroughput necessário para as operações. Para obter mais informações, consulte [estimar unidades de solicitação e armazenamento de dados](https://www.documentdb.com/capacityplanner). Em geral, você pode mostrar sua entidade como JSON e fornecer os números para suas operações.
+You can use the capacity estimator to calculate the TableThroughput that's required for the operations. For more information, see [Estimate Request Units and Data Storage](https://www.documentdb.com/capacityplanner). In general, you can show your entity as JSON and provide the numbers for your operations.
 
-### <a name="can-i-use-the-table-api-sdk-locally-with-the-emulator"></a>Posso usar o SDK do API de Tabela localmente com o emulador?
+### <a name="can-i-use-the-table-api-sdk-locally-with-the-emulator"></a>Can I use the Table API SDK locally with the emulator?
 
 Neste momento, não.
 
-### <a name="can-my-existing-application-work-with-the-table-api"></a>Meu aplicativo existente pode funcionar com o API de Tabela?
+### <a name="can-my-existing-application-work-with-the-table-api"></a>Can my existing application work with the Table API?
 
-Sim, há suporte para a mesma API.
+Yes, the same API is supported.
 
-### <a name="do-i-need-to-migrate-my-existing-azure-table-storage-applications-to-the-sdk-if-i-dont-want-to-use-the-table-api-features"></a>Preciso migrar meus aplicativos de armazenamento de tabelas do Azure existentes para o SDK se não quiser usar os recursos de API de Tabela?
+### <a name="do-i-need-to-migrate-my-existing-azure-table-storage-applications-to-the-sdk-if-i-dont-want-to-use-the-table-api-features"></a>Do I need to migrate my existing Azure Table storage applications to the SDK if I don't want to use the Table API features?
 
-Não, você pode criar e usar ativos de armazenamento de tabelas do Azure existentes sem interrupção de nenhum tipo. No entanto, se você não usar o API de Tabela, não poderá se beneficiar do índice automático, da opção de consistência adicional ou da distribuição global.
+No, you can create and use existing Azure Table storage assets without interruption of any kind. However, if you don't use the Table API, you can't benefit from the automatic index, the additional consistency option, or global distribution.
 
-### <a name="how-do-i-add-replication-of-the-data-in-the-table-api-across-more-than-one-region-of-azure"></a>Como fazer adicionar a replicação dos dados no API de Tabela em mais de uma região do Azure?
+### <a name="how-do-i-add-replication-of-the-data-in-the-table-api-across-more-than-one-region-of-azure"></a>How do I add replication of the data in the Table API across more than one region of Azure?
 
-Você pode usar as [configurações de replicação global](tutorial-global-distribution-sql-api.md#portal) do portal de Azure Cosmos DB para adicionar regiões adequadas para seu aplicativo. Para desenvolver um aplicativo distribuído globalmente, você também deve adicionar seu aplicativo com o conjunto de informações PreferredLocation à região local para fornecer baixa latência de leitura.
+You can use the Azure Cosmos DB portal's [global replication settings](tutorial-global-distribution-sql-api.md#portal) to add regions that are suitable for your application. To develop a globally distributed application, you should also add your application with the PreferredLocation information set to the local region for providing low read latency.
 
-### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api"></a>Como fazer alterar a região de gravação primária da conta na API de Tabela?
+### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api"></a>How do I change the primary write region for the account in the Table API?
 
-Você pode usar o painel Azure Cosmos DB portal de replicação global para adicionar uma região e, em seguida, fazer failover para a região necessária. Para obter instruções, consulte [desenvolvendo com contas de Azure Cosmos DB de várias regiões](high-availability.md).
+You can use the Azure Cosmos DB global replication portal pane to add a region and then fail over to the required region. For instructions, see [Developing with multi-region Azure Cosmos DB accounts](high-availability.md).
 
-### <a name="how-do-i-configure-my-preferred-read-regions-for-low-latency-when-i-distribute-my-data"></a>Como fazer configurar minhas regiões de leitura preferenciais para baixa latência quando eu distribuir meus dados?
+### <a name="how-do-i-configure-my-preferred-read-regions-for-low-latency-when-i-distribute-my-data"></a>How do I configure my preferred read regions for low latency when I distribute my data?
 
-Para ajudar a ler a partir do local local, use a chave PreferredLocation no arquivo app. config. Para aplicativos existentes, o API de Tabela gera um erro se Locationmode estiver definido. Remova esse código, pois o API de Tabela pega essas informações do arquivo app. config. 
+To help read from the local location, use the PreferredLocation key in the app.config file. For existing applications, the Table API throws an error if LocationMode is set. Remove that code, because the Table API picks up this information from the app.config file. 
 
-### <a name="how-should-i-think-about-consistency-levels-in-the-table-api"></a>Como devo pensar nos níveis de consistência na API de Tabela?
+### <a name="how-should-i-think-about-consistency-levels-in-the-table-api"></a>How should I think about consistency levels in the Table API?
 
-O Azure Cosmos DB fornece compensações bem ponderadas entre consistência, disponibilidade e latência. O Azure Cosmos DB oferece cinco níveis de consistência para API de Tabela desenvolvedores, para que você possa escolher o modelo de consistência certo no nível da tabela e fazer solicitações individuais ao consultar os dados. Quando um cliente se conecta, ele pode especificar um nível de consistência. Você pode alterar o nível por meio do argumento consistencyLevel de CreateCloudTableClient.
+Azure Cosmos DB provides well-reasoned trade-offs between consistency, availability, and latency. Azure Cosmos DB offers five consistency levels to Table API developers, so you can choose the right consistency model at the table level and make individual requests while querying the data. When a client connects, it can specify a consistency level. You can change the level via the consistencyLevel argument of CreateCloudTableClient.
 
-O API de Tabela fornece leituras de baixa latência com "ler suas próprias gravações", com consistência de desatualização limitada como padrão. Para obter mais informações, consulte [níveis de consistência](consistency-levels.md).
+The Table API provides low-latency reads with "Read your own writes," with Bounded-staleness consistency as the default. For more information, see [Consistency levels](consistency-levels.md).
 
-Por padrão, o armazenamento de tabelas do Azure fornece uma consistência forte em uma região e consistência eventual nos locais secundários.
+By default, Azure Table storage provides Strong consistency within a region and Eventual consistency in the secondary locations.
 
-### <a name="does-azure-cosmos-db-table-api-offer-more-consistency-levels-than-azure-table-storage"></a>O Azure Cosmos DB API de Tabela oferece mais níveis de consistência do que o armazenamento de tabelas do Azure?
+### <a name="does-azure-cosmos-db-table-api-offer-more-consistency-levels-than-azure-table-storage"></a>Does Azure Cosmos DB Table API offer more consistency levels than Azure Table storage?
 
-Sim, para obter informações sobre como se beneficiar da natureza distribuída do Azure Cosmos DB, consulte [níveis de consistência](consistency-levels.md). Como as garantias são fornecidas para os níveis de consistência, você pode usá-las com confiança.
+Yes, for information about how to benefit from the distributed nature of Azure Cosmos DB, see [Consistency levels](consistency-levels.md). Because guarantees are provided for the consistency levels, you can use them with confidence.
 
-### <a name="when-global-distribution-is-enabled-how-long-does-it-take-to-replicate-the-data"></a>Quando a distribuição global está habilitada, quanto tempo leva para replicar os dados?
+### <a name="when-global-distribution-is-enabled-how-long-does-it-take-to-replicate-the-data"></a>When global distribution is enabled, how long does it take to replicate the data?
 
-Azure Cosmos DB confirma os dados permanentemente na região local e envia os dados para outras regiões imediatamente em questão de milissegundos. Essa replicação é dependente apenas do RTT (tempo de ida e volta) do datacenter. Para saber mais sobre a capacidade de distribuição global do Azure Cosmos DB, confira [Azure Cosmos DB: um serviço de banco de dados distribuído globalmente no Azure](distribute-data-globally.md).
+Azure Cosmos DB commits the data durably in the local region and pushes the data to other regions immediately in a matter of milliseconds. This replication is dependent only on the round-trip time (RTT) of the datacenter. To learn more about the global-distribution capability of Azure Cosmos DB, see [Azure Cosmos DB: A globally distributed database service on Azure](distribute-data-globally.md).
 
-### <a name="can-the-read-request-consistency-level-be-changed"></a>O nível de consistência da solicitação de leitura pode ser alterado?
+### <a name="can-the-read-request-consistency-level-be-changed"></a>Can the read request consistency level be changed?
 
-Com Azure Cosmos DB, você pode definir o nível de consistência no nível de contêiner (na tabela). Usando o SDK do .NET, você pode alterar o nível fornecendo o valor para a chave TableConsistencyLevel no arquivo app. config. Os valores possíveis são: Strong, desatualização limitada, sessão, prefixo consistente e eventual. Para obter mais informações, consulte [níveis de consistência de dados ajustáveis em Azure Cosmos DB](consistency-levels.md). A ideia principal é que você não pode definir o nível de consistência da solicitação em mais do que a configuração da tabela. Por exemplo, você não pode definir o nível de consistência para a tabela em eventual e o nível de consistência da solicitação em alta.
+With Azure Cosmos DB, you can set the consistency level at the container level (on the table). By using the .NET SDK, you can change the level by providing the value for TableConsistencyLevel key in the app.config file. The possible values are: Strong, Bounded Staleness, Session, Consistent Prefix, and Eventual. For more information, see [Tunable data consistency levels in Azure Cosmos DB](consistency-levels.md). The key idea is that you can't set the request consistency level at more than the setting for the table. For example, you can't set the consistency level for the table at Eventual and the request consistency level at Strong.
 
-### <a name="how-does-the-table-api-handle-failover-if-a-region-goes-down"></a>Como o API de Tabela lida com failover se uma região fica inoperante?
+### <a name="how-does-the-table-api-handle-failover-if-a-region-goes-down"></a>How does the Table API handle failover if a region goes down?
 
-O API de Tabela aproveita a plataforma distribuída globalmente do Azure Cosmos DB. Para garantir que seu aplicativo possa tolerar o tempo de inatividade do datacenter, habilite pelo menos mais uma região para a conta no portal de Azure Cosmos DB [desenvolvendo com contas de Azure Cosmos DB de várias regiões](high-availability.md). Você pode definir a prioridade da região usando o portal [desenvolvendo com contas de Azure Cosmos DB de várias regiões](high-availability.md).
+The Table API leverages the globally distributed platform of Azure Cosmos DB. To ensure that your application can tolerate datacenter downtime, enable at least one more region for the account in the Azure Cosmos DB portal [Developing with multi-region Azure Cosmos DB accounts](high-availability.md). You can set the priority of the region by using the portal [Developing with multi-region Azure Cosmos DB accounts](high-availability.md).
 
-Você pode adicionar quantas regiões desejar para a conta e o controle para o qual ela pode fazer failover fornecendo uma prioridade de failover. Para usar o banco de dados, você precisa fornecer um aplicativo também. Quando você fizer isso, seus clientes não terão tempo de inatividade. O [SDK do cliente .net mais recente](table-sdk-dotnet.md) é a hospedagem automática, mas os outros SDKs não são. Ou seja, ele pode detectar a região que está inoperante e fazer failover automaticamente para a nova região.
+You can add as many regions as you want for the account and control where it can fail over to by providing a failover priority. To use the database, you need to provide an application there too. When you do so, your customers won't experience downtime. The [latest .NET client SDK](table-sdk-dotnet.md) is auto homing but the other SDKs aren't. That is, it can detect the region that's down and automatically fail over to the new region.
 
-### <a name="is-the-table-api-enabled-for-backups"></a>O API de Tabela está habilitado para backups?
+### <a name="is-the-table-api-enabled-for-backups"></a>Is the Table API enabled for backups?
 
-Sim, o API de Tabela aproveita a plataforma de Azure Cosmos DB para backups. Os backups são feitos automaticamente. Para obter mais informações, consulte [backup e restauração online com o Azure Cosmos DB](online-backup-and-restore.md).
+Yes, the Table API leverages the platform of Azure Cosmos DB for backups. Backups are made automatically. For more information, see [Online backup and restore with Azure Cosmos DB](online-backup-and-restore.md).
 
-### <a name="does-the-table-api-index-all-attributes-of-an-entity-by-default"></a>O API de Tabela indexa todos os atributos de uma entidade por padrão?
+### <a name="does-the-table-api-index-all-attributes-of-an-entity-by-default"></a>Does the Table API index all attributes of an entity by default?
 
-Sim, todos os atributos de uma entidade são indexados por padrão. Para obter mais informações, consulte [Azure Cosmos DB: políticas de indexação](index-policy.md).
+Yes, all attributes of an entity are indexed by default. For more information, see [Azure Cosmos DB: Indexing policies](index-policy.md).
 
-### <a name="does-this-mean-i-dont-have-to-create-more-than-one-index-to-satisfy-the-queries"></a>Isso significa que não preciso criar mais de um índice para atender às consultas?
+### <a name="does-this-mean-i-dont-have-to-create-more-than-one-index-to-satisfy-the-queries"></a>Does this mean I don't have to create more than one index to satisfy the queries?
 
-Sim, Azure Cosmos DB API de Tabela fornece a indexação automática de todos os atributos sem nenhuma definição de esquema. Essa automação libera os desenvolvedores para se concentrarem no aplicativo, e não na criação e no gerenciamento de índices. Para obter mais informações, consulte [Azure Cosmos DB: políticas de indexação](index-policy.md).
+Yes, Azure Cosmos DB Table API provides automatic indexing of all attributes without any schema definition. This automation frees developers to focus on the application rather than on index creation and management. For more information, see [Azure Cosmos DB: Indexing policies](index-policy.md).
 
-### <a name="can-i-change-the-indexing-policy"></a>Posso alterar a política de indexação?
+### <a name="can-i-change-the-indexing-policy"></a>Can I change the indexing policy?
 
-Sim, você pode alterar a política de indexação fornecendo a definição do índice. Você precisa codificar e escapar corretamente as configurações.
+Yes, you can change the indexing policy by providing the index definition. You need to properly encode and escape the settings.
 
-Para os SDKs do non-.NET, a política de indexação só pode ser definida no portal em **Data Explorer**, navegue até a tabela específica que você deseja alterar e, em seguida, vá para a **escala & configurações**-> política de indexação, faça a alteração desejada e, em seguida, **salve** .
+For the non-.NET SDKs, the indexing policy can only be set in the portal at **Data Explorer**, navigate to the specific table you want to change and then go to the **Scale & Settings**->Indexing Policy, make the desired change and then **Save**.
 
-No SDK do .NET, ele pode ser enviado no arquivo app. config:
+From the .NET SDK it can be submitted in the app.config file:
 
 ```JSON
 {
@@ -455,131 +455,131 @@ No SDK do .NET, ele pode ser enviado no arquivo app. config:
 }
 ```
 
-### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Azure Cosmos DB como uma plataforma parece ter muitos recursos, como classificação, agregações, hierarquia e outras funcionalidades. Você estará adicionando esses recursos ao API de Tabela?
+### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Azure Cosmos DB as a platform seems to have lot of capabilities, such as sorting, aggregates, hierarchy, and other functionality. Will you be adding these capabilities to the Table API?
 
-O API de Tabela fornece a mesma funcionalidade de consulta que o armazenamento de tabelas do Azure. Também suporta ordenação, agregações, consultas geoespaciais, hierarquias e um vasto conjunto de funções incorporadas. Para obter mais informações, consulte [consultas SQL](how-to-sql-query.md).
+The Table API provides the same query functionality as Azure Table storage. Também suporta ordenação, agregações, consultas geoespaciais, hierarquias e um vasto conjunto de funções incorporadas. For more information, see [SQL queries](how-to-sql-query.md).
 
-### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Quando devo alterar TableThroughput para o API de Tabela?
+### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>When should I change TableThroughput for the Table API?
 
-Você deve alterar TableThroughput quando uma das seguintes condições se aplicar:
+You should change TableThroughput when either of the following conditions applies:
 
-* Você está executando um ETL (extração, transformação e carregamento) de dados ou deseja carregar muitos dados em um curto período de tempo.
-* Você precisa de mais taxa de transferência do contêiner ou de um conjunto de contêineres no back-end. Por exemplo, você verá que a taxa de transferência usada é mais do que a taxa de transferência provisionada e que você está ficando limitado. Para obter mais informações, consulte [definir taxa de transferência para contêineres de Cosmos do Azure](set-throughput.md).
+* You're performing an extract, transform, and load (ETL) of data, or you want to upload a lot of data in short amount of time.
+* You need more throughput from the container or from a set of containers at the back end. For example, you see that the used throughput is more than the provisioned throughput, and you're getting throttled. For more information, see [Set throughput for Azure Cosmos containers](set-throughput.md).
 
-### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-table"></a>Posso escalar ou reduzir verticalmente a taxa de transferência da minha tabela de API de Tabela?
+### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-table"></a>Can I scale up or scale down the throughput of my Table API table?
 
-Sim, você pode usar o painel escala do Azure Cosmos DB portal para dimensionar a taxa de transferência. Para obter mais informações, consulte [definir taxa de transferência](set-throughput.md).
+Yes, you can use the Azure Cosmos DB portal's scale pane to scale the throughput. For more information, see [Set throughput](set-throughput.md).
 
-### <a name="is-a-default-tablethroughput-set-for-newly-provisioned-tables"></a>É um conjunto de TableThroughput padrão para tabelas provisionadas recentemente?
+### <a name="is-a-default-tablethroughput-set-for-newly-provisioned-tables"></a>Is a default TableThroughput set for newly provisioned tables?
 
-Sim, se você não substituir o TableThroughput por meio de App. config e não usar um contêiner criado previamente em Azure Cosmos DB, o serviço criará uma tabela com a taxa de transferência de 400.
+Yes, if you don't override the TableThroughput via app.config and don't use a pre-created container in Azure Cosmos DB, the service creates a table with throughput of 400.
 
-### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-azure-table-storage-service"></a>Há alguma alteração de preço para os clientes existentes do serviço de armazenamento de tabelas do Azure?
+### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-azure-table-storage-service"></a>Is there any change of pricing for existing customers of the Azure Table storage service?
 
-Nenhum. Não há nenhuma alteração no preço para clientes existentes do armazenamento de tabelas do Azure.
+Nenhum. There's no change in price for existing Azure Table storage customers.
 
-### <a name="how-is-the-price-calculated-for-the-table-api"></a>Como o preço é calculado para o API de Tabela?
+### <a name="how-is-the-price-calculated-for-the-table-api"></a>How is the price calculated for the Table API?
 
-O preço depende do TableThroughput alocado.
+The price depends on the allocated TableThroughput.
 
-### <a name="how-do-i-handle-any-rate-limiting-on-the-tables-in-table-api-offering"></a>Como fazer lidar com qualquer limitação de taxa nas tabelas na oferta de API de Tabela?
+### <a name="how-do-i-handle-any-rate-limiting-on-the-tables-in-table-api-offering"></a>How do I handle any rate limiting on the tables in Table API offering?
 
-Se a taxa de solicitação for maior que a capacidade da taxa de transferência provisionada para o contêiner subjacente ou um conjunto de contêineres, você receberá um erro e o SDK tentará novamente a chamada aplicando a política de repetição.
+If the request rate is more than the capacity of the provisioned throughput for the underlying container or a set of containers, you get an error, and the SDK retries the call by applying the retry policy.
 
-### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>Por que preciso escolher uma taxa de transferência além de PartitionKey e RowKey para aproveitar a oferta API de Tabela de Azure Cosmos DB?
+### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>Why do I need to choose a throughput apart from PartitionKey and RowKey to take advantage of the Table API offering of Azure Cosmos DB?
 
-Azure Cosmos DB define uma taxa de transferência padrão para seu contêiner se você não fornecer um no arquivo app. config ou por meio do Portal.
+Azure Cosmos DB sets a default throughput for your container if you don't provide one in the app.config file or via the portal.
 
-Azure Cosmos DB fornece garantias de desempenho e latência, com limites superiores na operação. Essa garantia é possível quando o mecanismo pode impor a governança nas operações do locatário. A definição de TableThroughput garante que você obtenha a taxa de transferência e a latência garantidas, porque a plataforma reserva essa capacidade e garante o êxito operacional.
+Azure Cosmos DB provides guarantees for performance and latency, with upper bounds on operation. This guarantee is possible when the engine can enforce governance on the tenant's operations. Setting TableThroughput ensures that you get the guaranteed throughput and latency, because the platform reserves this capacity and guarantees operational success.
 
-Usando a especificação de taxa de transferência, você pode alterá-la de forma elástica para se beneficiar da sazonalidade de seu aplicativo, atender às necessidades de produtividade e economizar custos.
+By using the throughput specification, you can elastically change it to benefit from the seasonality of your application, meet the throughput needs, and save costs.
 
-### <a name="azure-table-storage-has-been-inexpensive-for-me-because-i-pay-only-to-store-the-data-and-i-rarely-query-the-azure-cosmos-db-table-api-offering-seems-to-be-charging-me-even-though-i-havent-performed-a-single-transaction-or-stored-anything-can-you-explain"></a>O armazenamento de tabelas do Azure foi barato para mim, porque paguei apenas para armazenar os dados e eu raramente a consulta. A oferta de API de Tabela Azure Cosmos DB parece estar se cobrando mesmo que eu não tenha realizado uma única transação nem armazenado nada. Você pode explicar?
+### <a name="azure-table-storage-has-been-inexpensive-for-me-because-i-pay-only-to-store-the-data-and-i-rarely-query-the-azure-cosmos-db-table-api-offering-seems-to-be-charging-me-even-though-i-havent-performed-a-single-transaction-or-stored-anything-can-you-explain"></a>Azure Table storage has been inexpensive for me, because I pay only to store the data, and I rarely query. The Azure Cosmos DB Table API offering seems to be charging me even though I haven't performed a single transaction or stored anything. Can you explain?
 
-O Azure Cosmos DB foi projetado para ser um sistema baseado em SLA, distribuído globalmente, com garantias de disponibilidade, latência e taxa de transferência. Quando você reserva a taxa de transferência na Azure Cosmos DB, ela é garantida, ao contrário da taxa de transferência de outros sistemas. Azure Cosmos DB fornece recursos adicionais que os clientes solicitaram, como índices secundários e distribuição global.
+Azure Cosmos DB is designed to be a globally distributed, SLA-based system with guarantees for availability, latency, and throughput. When you reserve throughput in Azure Cosmos DB, it's guaranteed, unlike the throughput of other systems. Azure Cosmos DB provides additional capabilities that customers have requested, such as secondary indexes and global distribution.
 
-### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Nunca recebo uma notificação de uma cota cheia (indicando que uma partição está cheia) quando ingerir dados no armazenamento de tabelas do Azure. Com o API de Tabela, eu obtenho essa mensagem. Essa oferta está me limitando e me forçando a alterar meu aplicativo existente?
+### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>I never get a quota full" notification (indicating that a partition is full) when I ingest data into Azure Table storage. With the Table API, I do get this message. Is this offering limiting me and forcing me to change my existing application?
 
-O Azure Cosmos DB é um sistema baseado em SLA que fornece escala ilimitada, com garantias de latência, taxa de transferência, disponibilidade e consistência. Para garantir o desempenho premium garantido, verifique se o tamanho e o índice dos dados são gerenciáveis e escalonáveis. O limite de 10 GB no número de entidades ou itens por chave de partição é garantir que possamos fornecer um ótimo desempenho de pesquisa e consulta. Para garantir que seu aplicativo dimensione bem, mesmo para o armazenamento do Azure, recomendamos que você *não* crie uma partição ativa armazenando todas as informações em uma partição e consultando-as.
+Azure Cosmos DB is an SLA-based system that provides unlimited scale, with guarantees for latency, throughput, availability, and consistency. To ensure guaranteed premium performance, make sure that your data size and index are manageable and scalable. The 10-GB limit on the number of entities or items per partition key is to ensure that we provide great lookup and query performance. To ensure that your application scales well, even for Azure Storage, we recommend that you *not* create a hot partition by storing all information in one partition and querying it.
 
-### <a name="so-partitionkey-and-rowkey-are-still-required-with-the-table-api"></a>Portanto, PartitionKey e RowKey ainda são necessários com o API de Tabela?
+### <a name="so-partitionkey-and-rowkey-are-still-required-with-the-table-api"></a>So PartitionKey and RowKey are still required with the Table API?
 
-Sim. Como a área de superfície da API de Tabela é semelhante à do SDK de armazenamento de tabelas do Azure, a chave de partição fornece uma maneira eficiente de distribuir os dados. A chave de linha é exclusiva dentro dessa partição. A chave de linha precisa estar presente e não pode ser nula como no SDK padrão. O comprimento de RowKey é de 255 bytes e o comprimento de PartitionKey é 1 KB.
+Sim. Because the surface area of the Table API is similar to that of the Azure Table storage SDK, the partition key provides an efficient way to distribute the data. The row key is unique within that partition. The row key needs to be present and can't be null as in the standard SDK. The length of RowKey is 255 bytes and the length of PartitionKey is 1 KB.
 
-### <a name="what-are-the-error-messages-for-the-table-api"></a>Quais são as mensagens de erro do API de Tabela?
+### <a name="what-are-the-error-messages-for-the-table-api"></a>What are the error messages for the Table API?
 
-O armazenamento de tabelas do Azure e Azure Cosmos DB API de Tabela usar os mesmos SDKs, de modo que a maioria dos erros será a mesma.
+Azure Table storage and Azure Cosmos DB Table API use the same SDKs so most of the errors will be the same.
 
-### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api"></a>Por que estou limitado quando tento criar muitas tabelas uma após a outra na API de Tabela?
+### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api"></a>Why do I get throttled when I try to create lot of tables one after another in the Table API?
 
-O Azure Cosmos DB é um sistema baseado em SLA que fornece garantia de latência, taxa de transferência, disponibilidade e consistência. Como ele é um sistema provisionado, ele reserva recursos para garantir esses requisitos. A taxa rápida de criação de tabelas é detectada e limitada. Recomendamos que você examine a taxa de criação de tabelas e reduza-a para menos de 5 por minuto. Lembre-se de que o API de Tabela é um sistema provisionado. No momento em que provisioná-lo, você começará a pagar por ele.
+Azure Cosmos DB is an SLA-based system that provides latency, throughput, availability, and consistency guarantees. Because it's a provisioned system, it reserves resources to guarantee these requirements. The rapid rate of creation of tables is detected and throttled. We recommend that you look at the rate of creation of tables and lower it to less than 5 per minute. Remember that the Table API is a provisioned system. The moment you provision it, you'll begin to pay for it.
 
 ## <a name="gremlin-api"></a>API do Gremlin
 
-### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>Para C#o desenvolvimento de/.net, devo usar o pacote Microsoft. Azure. graphs ou Gremlin.net?
+### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>For C#/.NET development, should I use the Microsoft.Azure.Graphs package or Gremlin.NET?
 
-Azure Cosmos DB API Gremlin aproveita os drivers de software livre como os conectores principais para o serviço. Portanto, a opção recomendada é usar [drivers compatíveis com o Apache Tinkerpop](https://tinkerpop.apache.org/).
+Azure Cosmos DB Gremlin API leverages the open-source drivers as the main connectors for the service. So the recommended option is to use [drivers that are supported by Apache Tinkerpop](https://tinkerpop.apache.org/).
 
-### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>Como as RU/s são cobradas durante a execução de consultas em um banco de dados de grafo?
+### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>How are RU/s charged when running queries on a graph database?
 
-Todos os objetos, vértices e bordas do grafo são mostrados como documentos JSON no back-end. Como uma consulta Gremlin pode modificar um ou vários objetos de grafo de cada vez, o custo associado a ele está diretamente relacionado aos objetos, bordas que são processadas pela consulta. Esse é o mesmo processo que o Azure Cosmos DB usa para todas as outras APIs. Para obter mais informações, consulte [unidades de solicitação no Azure Cosmos DB](request-units.md).
+All graph objects, vertices, and edges, are shown as JSON documents in the backend. Since one Gremlin query can modify one or many graph objects at a time, the cost associated with it is directly related to the objects, edges that are processed by the query. This is the same process that Azure Cosmos DB uses for all other APIs. For more information, see [Request Units in Azure Cosmos DB](request-units.md).
 
-O encargo de RU é baseado no conjunto de dados de trabalho da passagem e não no conjunto de resultados. Por exemplo, se uma consulta pretende obter um único vértice como resultado, mas precisa atravessar mais de um outro objeto no caminho, o custo será baseado em todos os objetos de grafo que serão necessários para calcular o vértice de um resultado.
+The RU charge is based on the working data set of the traversal, and not the result set. For example, if a query aims to obtain a single vertex as a result but needs to traverse more than one other object on the way, then the cost will be based on all the graph objects that it will take to compute the one result vertex.
 
-### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Qual é a escala máxima que um banco de dados de grafo pode ter em Azure Cosmos DB API Gremlin?
+### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>What’s the maximum scale that a graph database can have in Azure Cosmos DB Gremlin API?
 
-Azure Cosmos DB usa o [particionamento horizontal](partition-data.md) para abordar automaticamente o aumento nos requisitos de armazenamento e taxa de transferência. A taxa de transferência máxima e a capacidade de armazenamento de uma carga de trabalho são determinadas pelo número de partições associadas a um determinado contêiner. No entanto, um contêiner de API do Gremlin tem um conjunto específico de diretrizes para garantir uma experiência de desempenho adequada em escala. Para obter mais informações sobre particionamento e práticas recomendadas, consulte o artigo sobre [particionamento no Azure Cosmos DB](partition-data.md) .
+Azure Cosmos DB makes use of [horizontal partitioning](partition-data.md) to automatically address increase in storage and throughput requirements. The maximum throughput and storage capacity of a workload is determined by the number of partitions that are associated with a given container. However, a Gremlin API container has a specific set of guidelines to ensure a proper performance experience at scale. For more information about partitioning, and best practices, see [partitioning in Azure Cosmos DB](partition-data.md) article.
 
-### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Como posso proteger contra ataques de injeção usando drivers Gremlin?
+### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>How can I protect against injection attacks using Gremlin drivers?
 
-A maioria dos drivers Tinkerpop Gremlin do Apache nativos permitem a opção de fornecer um dicionário de parâmetros para a execução da consulta. Este é um exemplo de como fazer isso no [Gremlin.net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) e no [Gremlin-JavaScript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+Most native Apache Tinkerpop Gremlin drivers allow the option to provide a dictionary of parameters for query execution. This is an example of how to do it in [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) and in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
-### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Por que estou recebendo o erro "erro de compilação de consulta Gremlin: não foi possível encontrar nenhum método"?
+### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Why am I getting the “Gremlin Query Compilation Error: Unable to find any method” error?
 
-Azure Cosmos DB API Gremlin implementa um subconjunto da funcionalidade definida na área de superfície Gremlin. Para obter as etapas com suporte e obter mais informações, consulte o artigo de [suporte do Gremlin](gremlin-support.md) .
+Azure Cosmos DB Gremlin API implements a subset of the functionality defined in the Gremlin surface area. For supported steps and more information, see [Gremlin support](gremlin-support.md) article.
 
-A melhor solução alternativa é reescrever as etapas necessárias do Gremlin com a funcionalidade com suporte, já que todas as etapas essenciais do Gremlin são suportadas pelo Azure Cosmos DB.
+The best workaround is to rewrite the required Gremlin steps with the supported functionality, since all essential Gremlin steps are supported by Azure Cosmos DB.
 
-### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>Por que estou recebendo o "websocketexception: o servidor retornou o código de status ' 200 ' quando o código de status ' 101 ' era esperado"?
+### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>Why am I getting the “WebSocketException: The server returned status code '200' when status code '101' was expected” error?
 
-Esse erro é provavelmente gerado quando o ponto de extremidade incorreto está sendo usado. O ponto de extremidade que gera esse erro tem o seguinte padrão:
+This error is likely thrown when the wrong endpoint is being used. The endpoint that generates this error has the following pattern:
 
 `https:// YOUR_DATABASE_ACCOUNT.documents.azure.com:443/`
 
-Este é o ponto de extremidade de documentos para seu banco de dados de grafo.  O ponto de extremidade correto a ser usado é o ponto de extremidade Gremlin, que tem o seguinte formato:
+This is the documents endpoint for your graph database.  The correct endpoint to use is the Gremlin Endpoint, which has the following format:
 
 `https://YOUR_DATABASE_ACCOUNT.gremlin.cosmosdb.azure.com:443/`
 
-### <a name="why-am-i-getting-the-requestrateistoolarge-error"></a>Por que estou recebendo o erro "RequestRateIsTooLarge"?
+### <a name="why-am-i-getting-the-requestrateistoolarge-error"></a>Why am I getting the “RequestRateIsTooLarge” error?
 
-Esse erro significa que as unidades de solicitação alocadas por segundo não são suficientes para atender à consulta. Esse erro geralmente é visto quando você executa uma consulta que obtém todos os vértices:
+This error means that the allocated Request Units per second aren't enough to serve the query. This error is usually seen when you run a query that obtains all vertices:
 
 ```
 // Query example:
 g.V()
 ```
 
-Essa consulta tentará recuperar todos os vértices do grafo. Portanto, o custo dessa consulta será igual ao mínimo do número de vértices em termos de RUs. A configuração de RU/s deve ser ajustada para resolver essa consulta.
+This query will attempt to retrieve all vertices from the graph. So, the cost of this query will be equal to at least the number of vertices in terms of RUs. The RU/s setting should be adjusted to address this query.
 
-### <a name="why-do-my-gremlin-driver-connections-get-dropped-eventually"></a>Por que minhas conexões de driver Gremlin são removidas eventualmente?
+### <a name="why-do-my-gremlin-driver-connections-get-dropped-eventually"></a>Why do my Gremlin driver connections get dropped eventually?
 
-Uma conexão Gremlin é feita por meio de uma conexão WebSocket. Embora as conexões WebSocket não tenham uma vida útil específica, Azure Cosmos DB API Gremlin encerrará conexões ociosas após 30 minutos de inatividade.
+A Gremlin connection is made through a WebSocket connection. Although WebSocket connections don't have a specific time to live, Azure Cosmos DB Gremlin API will terminate idle connections after 30 minutes of inactivity.
 
-### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>Por que não consigo usar chamadas de API fluentes nos drivers Gremlin nativos?
+### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>Why can’t I use fluent API calls in the native Gremlin drivers?
 
-As chamadas à API fluente ainda não têm suporte pela API do Azure Cosmos DB Gremlin. Chamadas à API fluentes exigem um recurso de formatação interno conhecido como suporte a código de bytes que atualmente não tem suporte pela API Gremlin do Azure Cosmos DB. Devido ao mesmo motivo, o driver Gremlin-JavaScript mais recente também não tem suporte no momento.
+Fluent API calls aren't yet supported by the Azure Cosmos DB Gremlin API. Fluent API calls require an internal formatting feature known as bytecode support that currently isn't supported by Azure Cosmos DB Gremlin API. Due to the same reason, the latest Gremlin-JavaScript driver is also currently not supported.
 
-### <a name="how-can-i-evaluate-the-efficiency-of-my-gremlin-queries"></a>Como posso avaliar a eficiência das minhas consultas do Gremlin?
+### <a name="how-can-i-evaluate-the-efficiency-of-my-gremlin-queries"></a>How can I evaluate the efficiency of my Gremlin queries?
 
-A etapa de visualização **executionProfile ()** pode ser usada para fornecer uma análise do plano de execução de consulta. Esta etapa precisa ser adicionada ao final de qualquer consulta Gremlin, conforme ilustrado pelo exemplo a seguir:
+The **executionProfile()** preview step can be used to provide an analysis of the query execution plan. This step needs to be added to the end of any Gremlin query as illustrated by the following example:
 
-**Exemplo de consulta**
+**Query example**
 
 ```
 g.V('mary').out('knows').executionProfile()
 ```
 
-**Exemplo de saída**
+**Example output**
 
 ```json
 [
@@ -639,25 +639,25 @@ g.V('mary').out('knows').executionProfile()
 ]
 ```
 
-A saída do perfil acima mostra quanto tempo é gasto para obter os objetos de vértice, os objetos de borda e o tamanho do conjunto de dados de trabalho. Isso está relacionado às medidas de custo padrão para consultas de Azure Cosmos DB.
+The output of the above profile shows how much time is spent obtaining the vertex objects, the edge objects, and the size of the working data set. This is related to the standard cost measurements for Azure Cosmos DB queries.
 
-## <a id="cassandra"></a>API do Cassandra
+## <a id="cassandra"></a> Cassandra API
 
-### <a name="what-is-the-protocol-version-supported-by-azure-cosmso-db-cassandra-api-is-there-a-plan-to-support-other-protocols"></a>Qual é a versão de protocolo com suporte pelo Azure Cosmso API do Cassandra DB? Há um plano para dar suporte a outros protocolos?
+### <a name="what-is-the-protocol-version-supported-by-azure-cosmso-db-cassandra-api-is-there-a-plan-to-support-other-protocols"></a>What is the protocol version supported by Azure Cosmso DB Cassandra API? Is there a plan to support other protocols?
 
-API do Apache Cassandra para Azure Cosmos DB dá suporte à versão 4 do CQL hoje. Se você tiver comentários sobre como dar suporte a outros protocolos, avise-nos por meio [dos comentários do User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db) ou envie um email para [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
+Apache Cassandra API for Azure Cosmos DB supports today CQL version 4. If you have feedback about supporting other protocols, let us know via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db) or send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
 
-### <a name="why-is-choosing-a-throughput-for-a-table-a-requirement"></a>Por que a escolha de uma taxa de transferência para uma tabela é um requisito?
+### <a name="why-is-choosing-a-throughput-for-a-table-a-requirement"></a>Why is choosing a throughput for a table a requirement?
 
-Azure Cosmos DB define a taxa de transferência padrão para seu contêiner com base em onde você cria a tabela do-portal ou CQL.
-Azure Cosmos DB fornece garantias de desempenho e latência, com limites superiores na operação. Essa garantia é possível quando o mecanismo pode impor a governança nas operações do locatário. A configuração da taxa de transferência garante que você obtenha a taxa de transferência e a latência garantidas, porque a plataforma reserva essa capacidade e garante o êxito da operação.
-Você pode alterar a taxa de transferência de forma elástica para se beneficiar da sazonalidade de seu aplicativo e economizar custos.
+Azure Cosmos DB sets default throughput for your container based on where you create the table from - portal or CQL.
+Azure Cosmos DB provides guarantees for performance and latency, with upper bounds on operation. This guarantee is possible when the engine can enforce governance on the tenant's operations. Setting throughput ensures that you get the guaranteed throughput and latency, because the platform reserves this capacity and guarantees operation success.
+You can elastically change throughput to benefit from the seasonality of your application and save costs.
 
-O conceito de taxa de transferência é explicado nas [unidades de solicitação no artigo Azure Cosmos DB](request-units.md) . A taxa de transferência de uma tabela é distribuída entre as partições físicas subjacentes igualmente.
+The throughput concept is explained in the [Request Units in Azure Cosmos DB](request-units.md) article. The throughput for a table is distributed across the underlying physical partitions equally.
 
-### <a name="what-is-the-default-rus-of-table-when-created-through-cql-what-if-i-need-to-change-it"></a>Qual é o RU/s padrão da tabela quando criada por meio de CQL? What If preciso alterá-lo?
+### <a name="what-is-the-default-rus-of-table-when-created-through-cql-what-if-i-need-to-change-it"></a>What is the default RU/s of table when created through CQL? What If I need to change it?
 
-O Azure Cosmos DB usa unidades de solicitação por segundo (RU/s) como uma moeda para fornecer a taxa de transferência. As tabelas criadas por meio de CQL têm 400 RU. Você pode alterar a RU do Portal.
+Azure Cosmos DB uses request units per second (RU/s) as a currency for providing throughput. Tables created through CQL have 400 RU. You can change the RU from the portal.
 
 CQL
 
@@ -675,119 +675,119 @@ outgoingPayload["cosmosdb_provisioned_throughput"] = Encoding.UTF8.GetBytes(prov
 simpleStatement.SetOutgoingPayload(outgoingPayload);
 ```
 
-### <a name="what-happens-when-throughput-is-used-up"></a>O que acontece quando a taxa de transferência é usada?
+### <a name="what-happens-when-throughput-is-used-up"></a>What happens when throughput is used up?
 
-Azure Cosmos DB fornece garantias de desempenho e latência, com limites superiores na operação. Essa garantia é possível quando o mecanismo pode impor a governança nas operações do locatário. Isso é possível com base na definição da taxa de transferência, o que garante que você obtenha a taxa de transferência e a latência garantidas, porque a plataforma reserva essa capacidade e garante o êxito da operação.
-Ao passar por essa capacidade, você receberá uma mensagem de erro sobrecarregada indicando que a capacidade foi usada.
-0x1001 sobrecarregado: a solicitação não pode ser processada porque "a taxa de solicitação é grande". Neste momento, é essencial ver quais operações e seu volume causam esse problema. Você pode ter uma ideia da capacidade consumida de passar pela capacidade provisionada com métricas no Portal. Em seguida, você precisa garantir que a capacidade seja consumida quase igualmente em todas as partições subjacentes. Se você vir a maior parte da taxa de transferência é consumida por uma partição, você tem uma distorção de carga de trabalho.
+Azure Cosmos DB provides guarantees for performance and latency, with upper bounds on operation. This guarantee is possible when the engine can enforce governance on the tenant's operations. This is possible based on setting the throughput, which ensures that you get the guaranteed throughput and latency, because platform reserves this capacity and guarantees operation success.
+When you go over this capacity, you get overloaded error message indicating your capacity was used up.
+0x1001 Overloaded: the request can't be processed because "Request Rate is large". At this juncture, it's essential to see what operations and their volume causes this issue. You can get an idea about consumed capacity going over the provisioned capacity with metrics on the portal. Then you need to ensure capacity is consumed nearly equally across all underlying partitions. If you see most of the throughput is consumed by one partition, you have skew of workload.
 
-Há métricas disponíveis que mostram como a taxa de transferência é usada em horas, dias e por sete dias, em partições ou em agregação. Para obter mais informações, consulte [monitorando e Depurando com métricas em Azure Cosmos DB](use-metrics.md).
+Metrics are available that show you how throughput is used over hours, days, and per seven days, across partitions or in aggregate. For more information, see [Monitoring and debugging with metrics in Azure Cosmos DB](use-metrics.md).
 
-Os logs de diagnóstico são explicados no artigo [Azure Cosmos DB log de diagnóstico](logging.md) .
+Diagnostic logs are explained in the [Azure Cosmos DB diagnostic logging](logging.md) article.
 
-### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>A chave primária é mapeada para o conceito de chave de partição de Azure Cosmos DB?
+### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>Does the primary key map to the partition key concept of Azure Cosmos DB?
 
-Sim, a chave de partição é usada para posicionar a entidade no local certo. No Azure Cosmos DB, ele é usado para localizar a partição lógica correta que é armazenada em uma partição física. O conceito de particionamento é bem explicado na [partição e escala no artigo Azure Cosmos DB](partition-data.md) . O essencial é que uma partição lógica não deve ultrapassar o limite de 10 GB hoje.
+Yes, the partition key is used to place the entity in right location. In Azure Cosmos DB, it's used to find right logical partition that's stored on a physical partition. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](partition-data.md) article. The essential take away here is that a logical partition shouldn't go over the 10-GB limit today.
 
-### <a name="what-happens-when-i-get-a-quota-full-notification-indicating-that-a-partition-is-full"></a>O que acontece quando obtenho uma cota completa ", indicando que uma partição está cheia?
+### <a name="what-happens-when-i-get-a-quota-full-notification-indicating-that-a-partition-is-full"></a>What happens when I get a quota full" notification indicating that a partition is full?
 
-O Azure Cosmos DB é um sistema baseado em SLA que fornece escala ilimitada, com garantias de latência, taxa de transferência, disponibilidade e consistência. Esse armazenamento ilimitado baseia-se na escala horizontal dos dados usando o particionamento como o conceito-chave. O conceito de particionamento é bem explicado na [partição e escala no artigo Azure Cosmos DB](partition-data.md) .
+Azure Cosmos DB is a SLA-based system that provides unlimited scale, with guarantees for latency, throughput, availability, and consistency. This unlimited storage is based on horizontal scale out of data using partitioning as the key concept. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](partition-data.md) article.
 
-O limite de 10 GB no número de entidades ou itens por partição lógica que você deve aderir. Para garantir que seu aplicativo seja dimensionado bem, recomendamos que você *não* crie uma partição ativa armazenando todas as informações em uma partição e consultando-as. Esse erro só poderá ser dado se os dados estiverem distorcidos: ou seja, se você tiver muitos dados para uma chave de partição (mais de 10 @ no__t-0GB). Você pode encontrar a distribuição de dados usando o portal de armazenamento. A maneira de corrigir esse erro é recriar a tabela e escolher uma primária granular (chave de partição), o que permite uma melhor distribuição dos dados.
+The 10-GB limit on the number of entities or items per logical partition you should adhere to. To ensure that your application scales well, we recommend that you *not* create a hot partition by storing all information in one partition and querying it. This error can only come if your data is skewed: that is, you have lot of data for one partition key (more than 10&nbsp;GB). You can find the distribution of data using the storage portal. Way to fix this error is to recreate the table and choose a granular primary (partition key), which allows better distribution of data.
 
-### <a name="is-it-possible-to-use-cassandra-api-as-key-value-store-with-millions-or-billions-of-individual-partition-keys"></a>É possível usar API do Cassandra como armazenamento de valor de chave com milhões ou bilhões de chaves de partição individuais?
+### <a name="is-it-possible-to-use-cassandra-api-as-key-value-store-with-millions-or-billions-of-individual-partition-keys"></a>Is it possible to use Cassandra API as key value store with millions or billions of individual partition keys?
 
-Azure Cosmos DB pode armazenar dados ilimitados expandindo o armazenamento. Isso é independente da taxa de transferência. Sim, você sempre pode usar apenas API do Cassandra para armazenar e recuperar chaves/valores especificando a chave primária/de partição correta. Essas chaves individuais obtêm sua própria partição lógica e ficam acima da partição física sem problemas.
+Azure Cosmos DB can store unlimited data by scaling out the storage. This is independent of the throughput. Yes you can always just use Cassandra API to store and retrieve key/values by specifying right primary/partition key. These individual keys get their own logical partition and sit atop physical partition without issues.
 
-### <a name="is-it-possible-to-create-more-than-one-table-with-apache-cassandra-api-of-azure-cosmos-db"></a>É possível criar mais de uma tabela com API do Apache Cassandra de Azure Cosmos DB?
+### <a name="is-it-possible-to-create-more-than-one-table-with-apache-cassandra-api-of-azure-cosmos-db"></a>Is it possible to create more than one table with Apache Cassandra API of Azure Cosmos DB?
 
-Sim, é possível criar mais de uma tabela com API do Apache Cassandra. Cada uma dessas tabelas é tratada como uma unidade para taxa de transferência e armazenamento.
+Yes, it's possible to create more than one table with Apache Cassandra API. Each of those tables is treated as unit for throughput and storage.
 
-### <a name="is-it-possible-to-create-more-than-one-table-in-succession"></a>É possível criar mais de uma tabela sucessivamente?
+### <a name="is-it-possible-to-create-more-than-one-table-in-succession"></a>Is it possible to create more than one table in succession?
 
-Azure Cosmos DB é um sistema controlado por recursos para atividades de plano de controle e de dados. Contêineres como coleções, tabelas são entidades de tempo de execução que são provisionadas para determinada capacidade de taxa de transferência. A criação desses contêineres em sucessão rápida não é uma atividade esperada e limitada. Se você tiver testes que descartam/criam tabelas imediatamente, tente espaçar.
+Azure Cosmos DB is resource governed system for both data and control plane activities. Containers like collections, tables are runtime entities that are provisioned for given throughput capacity. The creation of these containers in quick succession isn't expected activity and throttled. If you have tests that drop/create tables immediately, try to space them out.
 
-### <a name="what-is-maximum-number-of-tables-that-can-be-created"></a>O que é o número máximo de tabelas que podem ser criadas?
+### <a name="what-is-maximum-number-of-tables-that-can-be-created"></a>What is maximum number of tables that can be created?
 
-Não há nenhum limite físico no número de tabelas, envie um email em [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) se você tiver um grande número de tabelas (em que o tamanho constante total vai mais de 10 TB de dados) que precisam ser criados a partir de 10s ou 100s usuais.
+There's no physical limit on number of tables, send an email at [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) if you have large number of tables (where the total steady size goes over 10 TB of data) that need to be created from usual 10s or 100s.
 
-### <a name="what-is-the-maximum--of-keyspace-that-we-can-create"></a>Qual é o número máximo de keyspace que podemos criar?
+### <a name="what-is-the-maximum--of-keyspace-that-we-can-create"></a>What is the maximum # of keyspace that we can create?
 
-Não há nenhum limite físico para o número de keyspaces, pois eles são contêineres de metadados, envie um email em [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) se você tiver um grande número de keyspaces por algum motivo.
+There's no physical limit on number of keyspaces as they're metadata containers, send an email at [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) if you have large number of keyspaces for some reason.
 
-### <a name="is-it-possible-to-bring-in-lot-of-data-after-starting-from-normal-table"></a>É possível colocar muitos dados depois de iniciar da tabela normal?
+### <a name="is-it-possible-to-bring-in-lot-of-data-after-starting-from-normal-table"></a>Is it possible to bring in lot of data after starting from normal table?
 
-A capacidade de armazenamento é gerenciada automaticamente e aumenta à medida que você envia mais dados por push. Portanto, você pode importar com segurança tantos dados quantos forem necessários sem gerenciar e provisionar nós e muito mais.
+The storage capacity is automatically managed and increases as you push in more data. So you can confidently import as much data as you need without managing and provisioning nodes, and more.
 
-### <a name="is-it-possible-to-supply-yaml-file-settings-to-configure-apache-casssandra-api-of-azure-cosmos-db-behavior"></a>É possível fornecer configurações de arquivo YAML para configurar a API do Apache Casssandra do comportamento Azure Cosmos DB?
+### <a name="is-it-possible-to-supply-yaml-file-settings-to-configure-apache-casssandra-api-of-azure-cosmos-db-behavior"></a>Is it possible to supply yaml file settings to configure Apache Casssandra API of Azure Cosmos DB behavior?
 
-API do Apache Cassandra de Azure Cosmos DB é um serviço de plataforma. Ele fornece compatibilidade no nível de protocolo para executar operações. Ele oculta a complexidade do gerenciamento, do monitoramento e da configuração. Como desenvolvedor/usuário, você não precisa se preocupar com a disponibilidade, marcas para exclusão, cache de chave, cache de linha, filtro de flor e diversas outras configurações. Os API do Apache Cassandra de Azure Cosmos DB se concentram em fornecer desempenho de leitura e gravação que você precisa sem a sobrecarga de configuração e gerenciamento.
+Apache Cassandra API of Azure Cosmos DB is a platform service. It provides protocol level compatibility for executing operations. It hides away the complexity of management, monitoring, and configuration. As a developer/user, you don't need to worry about availability, tombstones, key cache, row cache, bloom filter, and multitude of other settings. Azure Cosmos DB's Apache Cassandra API focuses on providing read and write performance that you require without the overhead of configuration and management.
 
-### <a name="will-apache-cassandra-api-for-azure-cosmos-db-support-node-additioncluster-statusnode-status-commands"></a>API do Apache Cassandra Azure Cosmos DB comandos de status de nó/status de cluster de adição/nó de suporte?
+### <a name="will-apache-cassandra-api-for-azure-cosmos-db-support-node-additioncluster-statusnode-status-commands"></a>Will Apache Cassandra API for Azure Cosmos DB support node addition/cluster status/node status commands?
 
-O API do Apache Cassandra é um serviço de plataforma que torna o planejamento de capacidade, respondendo às demandas de elasticidade para taxa de transferência & armazenamento de uma Breeze. Com Azure Cosmos DB você provisiona a taxa de transferência, precisa. Em seguida, você pode dimensioná-lo para cima e para baixo várias vezes no dia sem se preocupar em adicionar/excluir nós ou gerenciá-los. Isso implica que você não precisa usar o nó, a ferramenta de gerenciamento de cluster também.
+Apache Cassandra API is a platform service that makes capacity planning, responding to the elasticity demands for throughput & storage a breeze. With Azure Cosmos DB you provision throughput, you need. Then you can scale it up and down any number of times through the day without worrying about adding/deleting nodes or managing them. This implies you don't need to use the node, cluster management tool too.
 
-### <a name="what-happens-with-respect-to-various-config-settings-for-keyspace-creation-like-simplenetwork"></a>O que acontece com relação a várias definições de configuração para a criação de keyspace como simples/rede?
+### <a name="what-happens-with-respect-to-various-config-settings-for-keyspace-creation-like-simplenetwork"></a>What happens with respect to various config settings for keyspace creation like simple/network?
 
-O Azure Cosmos DB fornece distribuição global pronta para uso por motivos de baixa latência e disponibilidade. Você não precisa configurar réplicas ou outras coisas. Todas as gravações são sempre o quorum permanentemente confirmado em qualquer região em que você escreve enquanto fornece garantias de desempenho.
+Azure Cosmos DB provides global distribution out of the box for availability and low latency reasons. You don't need to setup replicas or other things. All writes are always durably quorum committed in any region where you write while providing performance guarantees.
 
-### <a name="what-happens-with-respect-to-various-settings-for-table-metadata-like-bloom-filter-caching-read-repair-change-gc_grace-compression-memtable_flush_period-and-more"></a>O que acontece com relação a várias configurações para metadados de tabela como filtro de flor, cache, alteração de reparo de leitura, gc_grace, compactação memtable_flush_period e muito mais?
+### <a name="what-happens-with-respect-to-various-settings-for-table-metadata-like-bloom-filter-caching-read-repair-change-gc_grace-compression-memtable_flush_period-and-more"></a>What happens with respect to various settings for table metadata like bloom filter, caching, read repair change, gc_grace, compression memtable_flush_period, and more?
 
-Azure Cosmos DB fornece desempenho para leituras/gravações e taxa de transferência sem necessidade de tocar em qualquer um dos parâmetros de configuração e manipulá-los acidentalmente.
+Azure Cosmos DB provides performance for reads/writes and throughput without need for touching any of the configuration settings and accidentally manipulating them.
 
-### <a name="is-time-to-live-ttl-supported-for-cassandra-tables"></a>O tempo de vida (TTL) tem suporte para tabelas Cassandra?
+### <a name="is-time-to-live-ttl-supported-for-cassandra-tables"></a>Is time-to-live (TTL) supported for Cassandra tables?
 
-Sim, há suporte para TTL.
+Yes, TTL is supported.
 
-### <a name="is-it-possible-to-monitor-node-status-replica-status-gc-and-os-parameters-earlier-with-various-tools-what-needs-to-be-monitored-now"></a>É possível monitorar o status do nó, o status da réplica, o GC e OS parâmetros de so anteriormente com várias ferramentas? O que precisa ser monitorado agora?
+### <a name="is-it-possible-to-monitor-node-status-replica-status-gc-and-os-parameters-earlier-with-various-tools-what-needs-to-be-monitored-now"></a>Is it possible to monitor node status, replica status, gc, and OS parameters earlier with various tools? What needs to be monitored now?
 
-O Azure Cosmos DB é um serviço de plataforma que ajuda você a aumentar a produtividade e não se preocupar com o gerenciamento e monitoramento da infraestrutura. Você só precisa cuidar da taxa de transferência disponível nas métricas do portal para descobrir se você está ficando limitado e aumentar ou diminuir essa taxa de transferência.
-Monitorar [SLAs](monitor-accounts.md).
-Usar [métricas](use-metrics.md) use [logs de diagnóstico](logging.md).
+Azure Cosmos DB is a platform service that helps you increase productivity and not worry about managing and monitoring infrastructure. You just need to take care of throughput that's available on portal metrics to find if you're getting throttled and increase or decrease that throughput.
+Monitor [SLAs](monitor-accounts.md).
+Use [Metrics](use-metrics.md) Use [Diagnostic logs](logging.md).
 
-### <a name="which-client-sdks-can-work-with-apache-cassandra-api-of-azure-cosmos-db"></a>Quais SDKs de cliente podem trabalhar com API do Apache Cassandra de Azure Cosmos DB?
+### <a name="which-client-sdks-can-work-with-apache-cassandra-api-of-azure-cosmos-db"></a>Which client SDKs can work with Apache Cassandra API of Azure Cosmos DB?
 
-Os drivers de cliente do Apache Cassandra SDK que usam CQLv3 foram usados para programas cliente. Se você tiver outros drivers que você usa ou se estiver enfrentando problemas, envie um email para [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
+Apache Cassandra SDK's client drivers that use CQLv3 were used for client programs. If you have other drivers that you use or if you're facing issues, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
 
-### <a name="is-composite-partition-key-supported"></a>Há suporte para chave de partição composta?
+### <a name="is-composite-partition-key-supported"></a>Is composite partition key supported?
 
-Sim, você pode usar a sintaxe regular para criar a chave de partição composta.
+Yes, you can use regular syntax to create composite partition key.
 
-### <a name="can-i-use-sstableloader-for-data-loading"></a>Posso usar sstableloader para carregamento de dados?
+### <a name="can-i-use-sstableloader-for-data-loading"></a>Can I use sstableloader for data loading?
 
-Não, não há suporte para sstableloader.
+No, sstableloader isn't supported.
 
-### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>Um cluster apache Cassandra local pode ser emparelhado com API do Cassandra do Azure Cosmos DB?
+### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>Can an on-premises Apache Cassandra cluster be paired with Azure Cosmos DB's Cassandra API?
 
-No momento, a Azure Cosmos DB tem uma experiência otimizada para o ambiente de nuvem sem sobrecarga de operações. Se você precisar de emparelhamento, envie um email para [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) com uma descrição do seu cenário. Estamos trabalhando na oferta para ajudar a emparelhar o cluster Cassandra de nuvem local/diferente para o API do Cassandra do Cosomos DB.
+At present Azure Cosmos DB has an optimized experience for cloud environment without overhead of operations. If you require pairing, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) with a description of your scenario. We are working on offering to help pair the on-premises/different cloud Cassandra cluster to Cosomos DB's Cassandra API.
 
-### <a name="does-cassandra-api-provide-full-backups"></a>API do Cassandra fornecer backups completos?
+### <a name="does-cassandra-api-provide-full-backups"></a>Does Cassandra API provide full backups?
 
-Azure Cosmos DB fornece dois backups completos gratuitos feitos no intervalo de quatro horas hoje em todas as APIs. Isso garante que você não precise configurar um agendamento de backup e outras coisas.
-Se você quiser modificar a retenção e a frequência, envie um email para [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) ou gere um caso de suporte. Informações sobre o recurso de backup são fornecidas no artigo [backup e restauração online automáticos com Azure Cosmos DB](online-backup-and-restore.md) .
+Azure Cosmos DB provides two free full backups taken at four hours interval today across all APIs. This ensures you don't need to set up a backup schedule and other things.
+If you want to modify retention and frequency, send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) or raise a support case. Information about backup capability is provided in the [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md) article.
 
-### <a name="how-does-the-cassandra-api-account-handle-failover-if-a-region-goes-down"></a>Como a conta de API do Cassandra lida com o failover se uma região fica inativa?
+### <a name="how-does-the-cassandra-api-account-handle-failover-if-a-region-goes-down"></a>How does the Cassandra API account handle failover if a region goes down?
 
-O Azure Cosmos DB API do Cassandra emprestado da plataforma de Azure Cosmos DB distribuída globalmente. Para garantir que seu aplicativo possa tolerar o tempo de inatividade do datacenter, habilite pelo menos mais uma região para a conta no portal de Azure Cosmos DB [desenvolvendo com contas de Azure Cosmos DB de várias regiões](high-availability.md). Você pode definir a prioridade da região usando o portal [desenvolvendo com contas de Azure Cosmos DB de várias regiões](high-availability.md).
+The Azure Cosmos DB Cassandra API borrows from the globally distributed platform of Azure Cosmos DB. To ensure that your application can tolerate datacenter downtime, enable at least one more region for the account in the Azure Cosmos DB portal [Developing with multi-region Azure Cosmos DB accounts](high-availability.md). You can set the priority of the region by using the portal [Developing with multi-region Azure Cosmos DB accounts](high-availability.md).
 
-Você pode adicionar quantas regiões desejar para a conta e o controle para o qual ela pode fazer failover fornecendo uma prioridade de failover. Para usar o banco de dados, você precisa fornecer um aplicativo também. Quando você fizer isso, seus clientes não terão tempo de inatividade.
+You can add as many regions as you want for the account and control where it can fail over to by providing a failover priority. To use the database, you need to provide an application there too. When you do so, your customers won't experience downtime.
 
-### <a name="does-the-apache-cassandra-api-index-all-attributes-of-an-entity-by-default"></a>O API do Apache Cassandra indexa todos os atributos de uma entidade por padrão?
+### <a name="does-the-apache-cassandra-api-index-all-attributes-of-an-entity-by-default"></a>Does the Apache Cassandra API index all attributes of an entity by default?
 
-API do Cassandra está planejando dar suporte à indexação secundária para ajudar a criar um índice seletivo em determinados atributos. 
+Cassandra API is planning to support Secondary indexing to help create selective index on certain attributes. 
 
 
-### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>Posso usar o novo SDK do API do Cassandra localmente com o emulador?
+### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>Can I use the new Cassandra API SDK locally with the emulator?
 
-Sim, há suporte para isso.
+Yes this is supported.
 
-### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-change-feed-and-other-functionality-will-these-capabilities-be-added-to-the-cassandra-api"></a>Azure Cosmos DB como uma plataforma parece ter muitos recursos, como o feed de alterações e outras funcionalidades. Esses recursos serão adicionados ao API do Cassandra?
+### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-change-feed-and-other-functionality-will-these-capabilities-be-added-to-the-cassandra-api"></a>Azure Cosmos DB as a platform seems to have lot of capabilities, such as change feed and other functionality. Will these capabilities be added to the Cassandra API?
 
-O API do Apache Cassandra fornece a mesma funcionalidade de CQL que o Apache Cassandra. Planejamos examinar a viabilidade de dar suporte a vários recursos no futuro.
+The Apache Cassandra API provides the same CQL functionality as Apache Cassandra. We do plan to look into feasibility of supporting various capabilities in future.
 
-### <a name="feature-x-of-regular-cassandra-api-isnt-working-as-today-where-can-the-feedback-be-provided"></a>O recurso x de API do Cassandra regular não está funcionando como hoje, onde os comentários podem ser fornecidos?
+### <a name="feature-x-of-regular-cassandra-api-isnt-working-as-today-where-can-the-feedback-be-provided"></a>Feature x of regular Cassandra API isn't working as today, where can the feedback be provided?
 
-Forneça comentários por meio de [comentários de voz do usuário](https://feedback.azure.com/forums/263030-azure-cosmos-db).
+Provide feedback via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
 [query]: sql-api-sql-query.md

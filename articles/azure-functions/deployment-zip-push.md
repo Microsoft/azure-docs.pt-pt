@@ -1,95 +1,89 @@
 ---
-title: Implantação por push de zip para Azure Functions | Microsoft Docs
-description: Use os recursos de implantação de arquivo. zip do serviço de implantação kudu para publicar seu Azure Functions.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
+title: Zip push deployment for Azure Functions
+description: Use the .zip file deployment facilities of the Kudu deployment service to publish your Azure Functions.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.author: glenga
-ms.openlocfilehash: c411ff6b3a7152adaaf29045f4c3b3a3deb22d09
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 88455e85607c608757067cea9d54b60e30cacb50
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087597"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233068"
 ---
-# <a name="zip-deployment-for-azure-functions"></a>Implantação de zip para Azure Functions
+# <a name="zip-deployment-for-azure-functions"></a>Zip deployment for Azure Functions
 
-Este artigo descreve como implantar seus arquivos de projeto de aplicativo de funções no Azure por meio de um arquivo. zip (compactado). Você aprende como fazer uma implantação por push, usando CLI do Azure e usando as APIs REST. [Azure Functions Core Tools](functions-run-local.md) também usa essas APIs de implantação ao publicar um projeto local no Azure.
+This article describes how to deploy your function app project files to Azure from a .zip (compressed) file. You learn how to do a push deployment, both by using Azure CLI and by using the REST APIs. [Azure Functions Core Tools](functions-run-local.md) also uses these deployment APIs when publishing a local project to Azure.
 
-Azure Functions tem a gama completa de opções de implantação e integração contínuas fornecidas pelo serviço Azure App. Para obter mais informações, consulte [implantação contínua para Azure Functions](functions-continuous-deployment.md).
+Azure Functions has the full range of continuous deployment and integration options that are provided by Azure App Service. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
 
-Para agilizar o desenvolvimento, você pode achar mais fácil implantar seus arquivos de projeto de aplicativo de funções diretamente de um arquivo. zip. A API de implantação. zip usa o conteúdo de um arquivo. zip e extrai o conteúdo para a `wwwroot` pasta do seu aplicativo de funções. Essa implantação de arquivo. zip usa o mesmo serviço kudu que capacita implantações baseadas em integração contínua, incluindo:
+To speed development, you may find it easier to deploy your function app project files directly from a .zip file. The .zip deployment API takes the contents of a .zip file and extracts the contents into the `wwwroot` folder of your function app. This .zip file deployment uses the same Kudu service that powers continuous integration-based deployments, including:
 
-+ Exclusão de arquivos que foram deixados de implantações anteriores.
-+ Personalização da implantação, incluindo a execução de scripts de implantação.
-+ Logs de implantação.
-+ Sincronizando gatilhos de função em um aplicativo de função de [plano de consumo](functions-scale.md) .
++ Deletion of files that were left over from earlier deployments.
++ Deployment customization, including running deployment scripts.
++ Deployment logs.
++ Syncing function triggers in a [Consumption plan](functions-scale.md) function app.
 
-Para obter mais informações, consulte a [referência de implantação. zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
+For more information, see the [.zip deployment reference](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
-## <a name="deployment-zip-file-requirements"></a>Requisitos de arquivo. zip de implantação
+## <a name="deployment-zip-file-requirements"></a>Deployment .zip file requirements
 
-O arquivo. zip que você usa para a implantação por push deve conter todos os arquivos necessários para executar a função.
+The .zip file that you use for push deployment must contain all of the files needed to run your function.
 
 >[!IMPORTANT]
-> Quando você usa a implantação. zip, todos os arquivos de uma implantação existente que não são encontrados no arquivo. zip são excluídos do seu aplicativo de funções.  
+> When you use .zip deployment, any files from an existing deployment that aren't found in the .zip file are deleted from your function app.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Um aplicativo de funções inclui todos os arquivos e pastas no `wwwroot` diretório. Uma implantação de arquivo. zip inclui o conteúdo do `wwwroot` diretório, mas não o próprio diretório. Ao implantar um C# projeto de biblioteca de classes, você deve incluir os arquivos de biblioteca compilados e `bin` as dependências em uma subpasta no pacote. zip.
+A function app includes all of the files and folders in the `wwwroot` directory. A .zip file deployment includes the contents of the `wwwroot` directory, but not the directory itself. When deploying a C# class library project, you must include the compiled library files and dependencies in a `bin` subfolder in your .zip package.
 
-## <a name="download-your-function-app-files"></a>Baixar seus arquivos de aplicativo de funções
+## <a name="download-your-function-app-files"></a>Download your function app files
 
-Quando você está desenvolvendo em um computador local, é fácil criar um arquivo. zip da pasta de projeto do aplicativo de funções em seu computador de desenvolvimento.
+When you are developing on a local computer, it's easy to create a .zip file of the function app project folder on your development computer.
 
-No entanto, você pode ter criado suas funções usando o editor no portal do Azure. Você pode baixar um projeto de aplicativo de funções existente de uma das seguintes maneiras:
+However, you might have created your functions by using the editor in the Azure portal. You can download an existing function app project in one of these ways:
 
-+ **No portal do Azure:**
++ **From the Azure portal:**
 
-  1. Entre no [portal do Azure](https://portal.azure.com)e, em seguida, vá para seu aplicativo de funções.
+  1. Sign in to the [Azure portal](https://portal.azure.com), and then go to your function app.
 
-  2. Na guia **visão geral** , selecione **baixar conteúdo do aplicativo**. Selecione as opções de download e, em seguida, selecione **baixar**.
+  2. On the **Overview** tab, select **Download app content**. Select your download options, and then select **Download**.
 
-      ![Baixar o projeto de aplicativo de funções](./media/deployment-zip-push/download-project.png)
+      ![Download the function app project](./media/deployment-zip-push/download-project.png)
 
-     O arquivo. zip baixado está no formato correto para ser republicado em seu aplicativo de funções usando a implantação por push do. zip. O download do portal também pode adicionar os arquivos necessários para abrir seu aplicativo de funções diretamente no Visual Studio.
+     The downloaded .zip file is in the correct format to be republished to your function app by using .zip push deployment. The portal download can also add the files needed to open your function app directly in Visual Studio.
 
-+ **Usando APIs REST:**
++ **Using REST APIs:**
 
-    Use a seguinte API Get de implantação para baixar os arquivos do `<function_app>` seu projeto: 
+    Use the following deployment GET API to download the files from your `<function_app>` project: 
 
         https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
 
-    Incluir `/site/wwwroot/` garante que o arquivo zip inclua apenas os arquivos de projeto do aplicativo de funções e não todo o site. Se você ainda não tiver entrado no Azure, será solicitado a fazê-lo.  
+    Including `/site/wwwroot/` makes sure your zip file includes only the function app project files and not the entire site. If you are not already signed in to Azure, you will be asked to do so.  
 
-Você também pode baixar um arquivo. zip de um repositório GitHub. Quando você baixa um repositório GitHub como um arquivo. zip, o GitHub adiciona um nível de pasta extra para a ramificação. Esse nível de pasta extra significa que você não pode implantar o arquivo. zip diretamente, pois o baixou do GitHub. Se você estiver usando um repositório GitHub para manter seu aplicativo de funções, deverá usar a [integração contínua](functions-continuous-deployment.md) para implantar seu aplicativo.  
+You can also download a .zip file from a GitHub repository. When you download a GitHub repository as a .zip file, GitHub adds an extra folder level for the branch. This extra folder level means that you can't deploy the .zip file directly as you downloaded it from GitHub. If you're using a GitHub repository to maintain your function app, you should use [continuous integration](functions-continuous-deployment.md) to deploy your app.  
 
-## <a name="cli"></a>Implantar usando CLI do Azure
+## <a name="cli"></a>Deploy by using Azure CLI
 
-Você pode usar CLI do Azure para disparar uma implantação de envio por push. Envie por push um arquivo. zip para seu aplicativo de funções usando o comando [AZ functionapp Deployment Source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) . Para usar esse comando, você deve usar CLI do Azure versão 2.0.21 ou posterior. Para ver o que CLI do Azure versão que você está usando, `az --version` use o comando.
+You can use Azure CLI to trigger a push deployment. Push deploy a .zip file to your function app by using the [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command. To use this command, you must use Azure CLI version 2.0.21 or later. To see what Azure CLI version you are using, use the `az --version` command.
 
-No comando a seguir, substitua o `<zip_file_path>` espaço reservado pelo caminho para o local do arquivo. zip. Além disso, `<app_name>` substitua pelo nome exclusivo do seu aplicativo de funções. 
+In the following command, replace the `<zip_file_path>` placeholder with the path to the location of your .zip file. Also, replace `<app_name>` with the unique name of your function app. 
 
 ```azurecli-interactive
 az functionapp deployment source config-zip  -g myResourceGroup -n \
 <app_name> --src <zip_file_path>
 ```
 
-Este comando implanta arquivos de projeto do arquivo. zip baixado em seu aplicativo de funções no Azure. Em seguida, ele reinicia o aplicativo. Para exibir a lista de implantações para este aplicativo de funções, você deve usar as APIs REST.
+This command deploys project files from the downloaded .zip file to your function app in Azure. It then restarts the app. To view the list of deployments for this function app, you must use the REST APIs.
 
-Quando você estiver usando CLI do Azure em seu computador local, `<zip_file_path>` será o caminho para o arquivo. zip em seu computador. Você também pode executar CLI do Azure em [Azure cloud Shell](../cloud-shell/overview.md). Ao usar Cloud Shell, você deve primeiro carregar o arquivo. zip de implantação na conta de arquivos do Azure associada ao seu Cloud Shell. Nesse caso, `<zip_file_path>` é o local de armazenamento que sua conta de Cloud Shell usa. Para obter mais informações, consulte [arquivos de persistência em Azure cloud Shell](../cloud-shell/persisting-shell-storage.md).
+When you're using Azure CLI on your local computer, `<zip_file_path>` is the path to the .zip file on your computer. You can also run Azure CLI in [Azure Cloud Shell](../cloud-shell/overview.md). When you use Cloud Shell, you must first upload your deployment .zip file to the Azure Files account that's associated with your Cloud Shell. In that case, `<zip_file_path>` is the storage location that your Cloud Shell account uses. For more information, see [Persist files in Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]
 
-## <a name="run-functions-from-the-deployment-package"></a>Executar funções do pacote de implantação
+## <a name="run-functions-from-the-deployment-package"></a>Run functions from the deployment package
 
-Você também pode optar por executar suas funções diretamente do arquivo do pacote de implantação. Esse método ignora a etapa de implantação de copiar arquivos do pacote para o `wwwroot` diretório do seu aplicativo de funções. Em vez disso, o arquivo de pacote é montado pelo tempo de execução do Functions `wwwroot` e o conteúdo do diretório torna-se somente leitura.  
+You can also choose to run your functions directly from the deployment package file. This method skips the deployment step of copying files from the package to the `wwwroot` directory of your function app. Instead, the package file is mounted by the Functions runtime, and the contents of the `wwwroot` directory become read-only.  
 
-A implantação de zip integra-se com esse recurso, que você pode habilitar definindo a configuração `WEBSITE_RUN_FROM_PACKAGE` do aplicativo de funções `1`com um valor de. Para obter mais informações, consulte [executar suas funções de um arquivo de pacote de implantação](run-functions-from-deployment-package.md).
+Zip deployment integrates with this feature, which you can enable by setting the function app setting `WEBSITE_RUN_FROM_PACKAGE` to a value of `1`. For more information, see [Run your functions from a deployment package file](run-functions-from-deployment-package.md).
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 

@@ -1,7 +1,7 @@
 ---
-title: Criar zonas DNS e conjuntos de registros usando o SDK do .NET
+title: Create DNS zones and record sets using the .NET SDK
 titleSuffix: Azure DNS
-description: Como criar zonas DNS e conjuntos de registros no DNS do Azure usando o SDK do .NET.
+description: In this learning path, get started creating DNS zones and record sets in Azure DNS by using the .NET SDK.
 services: dns
 documentationcenter: na
 author: asudbring
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: allensu
-ms.openlocfilehash: b51dd4ea3b36a9d0420a60883ebc29276a7d6b8a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0dd57bb30a993baadac41552669a629aaaaff6df
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076713"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74210961"
 ---
-# <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Criar zonas DNS e conjuntos de registros usando o SDK do .NET
+# <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Create DNS zones and record sets using the .NET SDK
 
-Você pode automatizar operações para criar, excluir ou atualizar zonas DNS, conjuntos de registros e registros usando o SDK do DNS com a biblioteca de gerenciamento do DNS do .NET. Um projeto completo do Visual Studio está disponível [aqui.](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)
+You can automate operations to create, delete, or update DNS zones, record sets, and records by using the DNS SDK with the .NET DNS Management library. A full Visual Studio project is available [here.](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)
 
-## <a name="create-a-service-principal-account"></a>Criar uma conta de entidade de serviço
+## <a name="create-a-service-principal-account"></a>Create a service principal account
 
-Normalmente, o acesso programático aos recursos do Azure é concedido por meio de uma conta dedicada em vez de suas próprias credenciais de usuário. Essas contas dedicadas são chamadas de contas de "entidade de serviço". Para usar o projeto de exemplo do SDK do DNS do Azure, primeiro você precisa criar uma conta de entidade de serviço e atribuir a ela as permissões corretas.
+Typically, programmatic access to Azure resources is granted via a dedicated account rather than your own user credentials. These dedicated accounts are called 'service principal' accounts. To use the Azure DNS SDK sample project, you first need to create a service principal account and assign it the correct permissions.
 
-1. Siga [estas instruções](../active-directory/develop/howto-authenticate-service-principal-powershell.md) para criar uma conta de entidade de serviço (o projeto de exemplo do SDK do DNS do Azure pressupõe autenticação baseada em senha).
-2. Crie um grupo de recursos ([Veja como](../azure-resource-manager/resource-group-template-deploy-portal.md)).
-3. Use o RBAC do Azure para conceder as permissões ' colaborador da zona DNS ' da conta da entidade de serviço ao grupo de recursos ([Veja como](../role-based-access-control/role-assignments-portal.md).)
-4. Se você estiver usando o projeto de exemplo do SDK do DNS do Azure, edite o arquivo ' Program. cs ' da seguinte maneira:
+1. Follow [these instructions](../active-directory/develop/howto-authenticate-service-principal-powershell.md) to create a service principal account (the Azure DNS SDK sample project assumes password-based authentication.)
+2. Create a resource group ([here's how](../azure-resource-manager/resource-group-template-deploy-portal.md)).
+3. Use Azure RBAC to grant the service principal account 'DNS Zone Contributor' permissions to the resource group ([here's how](../role-based-access-control/role-assignments-portal.md).)
+4. If using the Azure DNS SDK sample project, edit the 'program.cs' file as follows:
 
-   * Insira os valores corretos para o `tenantId`, `clientId` (também conhecido como ID da conta), `secret` (senha da conta da entidade de serviço) e `subscriptionId` conforme usado na etapa 1.
-   * Insira o nome do grupo de recursos escolhido na etapa 2.
-   * Insira um nome de zona DNS de sua escolha.
+   * Insert the correct values for the `tenantId`, `clientId` (also known as account ID), `secret` (service principal account password) and `subscriptionId` as used in step 1.
+   * Enter the resource group name chosen in step 2.
+   * Enter a DNS zone name of your choice.
 
-## <a name="nuget-packages-and-namespace-declarations"></a>Pacotes NuGet e declarações de namespace
+## <a name="nuget-packages-and-namespace-declarations"></a>NuGet packages and namespace declarations
 
-Para usar o SDK do .NET do Azure DNS, você precisa instalar o pacote NuGet da **biblioteca de gerenciamento do DNS do Azure** e outros pacotes do Azure necessários.
+To use the Azure DNS .NET SDK, you need to install the **Azure DNS Management Library** NuGet package and other required Azure packages.
 
-1. No **Visual Studio**, abra um projeto ou um novo projeto.
-2. Vá para **ferramentas** **>** **Gerenciador de pacotes NuGet** **>** **gerenciar pacotes NuGet para solução...** .
-3. Clique em **procurar**, habilite a caixa de seleção **incluir pré-lançamento** e digite **Microsoft. Azure. Management. DNS** na caixa de pesquisa.
-4. Selecione o pacote e clique em **instalar** para adicioná-lo ao seu projeto do Visual Studio.
-5. Repita o processo acima para instalar também os seguintes pacotes: **Microsoft. REST. ClientRuntime. Azure. Authentication** e **Microsoft. Azure. Management. ResourceManager**.
+1. In **Visual Studio**, open a project or new project.
+2. Go to **Tools** **>** **NuGet Package Manager** **>** **Manage NuGet Packages for Solution...** .
+3. Click **Browse**, enable the **Include prerelease** checkbox, and type **Microsoft.Azure.Management.Dns** into the search box.
+4. Select the package and click **Install** to add it to your Visual Studio project.
+5. Repeat the process above to also install the following packages: **Microsoft.Rest.ClientRuntime.Azure.Authentication** and **Microsoft.Azure.Management.ResourceManager**.
 
 ## <a name="add-namespace-declarations"></a>Adicionar declarações de espaço de nomes
 
-Adicionar as seguintes declarações de namespace
+Add the following namespace declarations
 
 ```cs
 using Microsoft.Rest.Azure.Authentication;
@@ -58,9 +58,9 @@ using Microsoft.Azure.Management.Dns;
 using Microsoft.Azure.Management.Dns.Models;
 ```
 
-## <a name="initialize-the-dns-management-client"></a>Inicializar o cliente de gerenciamento DNS
+## <a name="initialize-the-dns-management-client"></a>Initialize the DNS management client
 
-O `DnsManagementClient` contém os métodos e as propriedades necessários para gerenciar zonas DNS e conjuntos de registros.  O código a seguir faz logon na conta da entidade de serviço e cria um objeto `DnsManagementClient`.
+The `DnsManagementClient` contains the methods and properties necessary for managing DNS zones and record sets.  The following code logs into the service principal account and creates a `DnsManagementClient` object.
 
 ```cs
 // Build the service credentials and DNS management client
@@ -69,16 +69,16 @@ var dnsClient = new DnsManagementClient(serviceCreds);
 dnsClient.SubscriptionId = subscriptionId;
 ```
 
-## <a name="create-or-update-a-dns-zone"></a>Criar ou atualizar uma zona DNS
+## <a name="create-or-update-a-dns-zone"></a>Create or update a DNS zone
 
-Para criar uma zona DNS, primeiro um objeto "zona" é criado para conter os parâmetros de zona DNS. Como as zonas DNS não estão vinculadas a uma região específica, o local é definido como ' global '. Neste exemplo, um [Azure Resource Manager ' tag '](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) também é adicionado à zona.
+To create a DNS zone, first a "Zone" object is created to contain the DNS zone parameters. Because DNS zones are not linked to a specific region, the location is set to 'global'. In this example, an [Azure Resource Manager 'tag'](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) is also added to the zone.
 
-Para realmente criar ou atualizar a zona no DNS do Azure, o objeto de zona que contém os parâmetros de zona é passado para o método `DnsManagementClient.Zones.CreateOrUpdateAsyc`.
+To actually create or update the zone in Azure DNS, the zone object containing the zone parameters is passed to the `DnsManagementClient.Zones.CreateOrUpdateAsyc` method.
 
 > [!NOTE]
-> O DnsManagementClient dá suporte a três modos de operação: síncrono (' CreateOrUpdate '), assíncrono (' CreateOrUpdateAsync ') ou assíncrono com acesso à resposta HTTP (' CreateOrUpdateWithHttpMessagesAsync ').  Você pode escolher qualquer um desses modos, dependendo das necessidades do seu aplicativo.
+> DnsManagementClient supports three modes of operation: synchronous ('CreateOrUpdate'), asynchronous ('CreateOrUpdateAsync'), or asynchronous with access to the HTTP response ('CreateOrUpdateWithHttpMessagesAsync').  You can choose any of these modes, depending on your application needs.
 
-O DNS do Azure dá suporte à simultaneidade otimista, chamada [ETags](dns-getstarted-create-dnszone.md). Neste exemplo, a especificação de "*" para o cabeçalho "If-None-Match" informa ao DNS do Azure para criar uma zona DNS, caso ainda não exista uma.  A chamada falhará se uma zona com o nome fornecido já existir no grupo de recursos fornecido.
+Azure DNS supports optimistic concurrency, called [Etags](dns-getstarted-create-dnszone.md). In this example, specifying "*" for the 'If-None-Match' header tells Azure DNS to create a DNS zone if one does not already exist.  The call fails if a zone with the given name already exists in the given resource group.
 
 ```cs
 // Create zone parameters
@@ -95,13 +95,13 @@ dnsZoneParams.Tags.Add("dept", "finance");
 var dnsZone = await dnsClient.Zones.CreateOrUpdateAsync(resourceGroupName, zoneName, dnsZoneParams, null, "*");
 ```
 
-## <a name="create-dns-record-sets-and-records"></a>Criar registros e conjuntos de registros DNS
+## <a name="create-dns-record-sets-and-records"></a>Create DNS record sets and records
 
-Os registros DNS são gerenciados como um conjunto de registros. Um conjunto de registros é um conjunto de registros com o mesmo nome e tipo de registro dentro de uma zona.  O nome do conjunto de registros é relativo ao nome da zona, não ao nome DNS totalmente qualificado.
+DNS records are managed as a record set. A record set is a set of records with the same name and record type within a zone.  The record set name is relative to the zone name, not the fully qualified DNS name.
 
-Para criar ou atualizar um conjunto de registros, um objeto de parâmetros "RecordSet" é criado e passado para `DnsManagementClient.RecordSets.CreateOrUpdateAsync`. Assim como acontece com as zonas DNS, há três modos de operação: síncrono (' CreateOrUpdate '), assíncrono (' CreateOrUpdateAsync ') ou assíncrono com acesso à resposta HTTP (' CreateOrUpdateWithHttpMessagesAsync ').
+To create or update a record set, a "RecordSet" parameters object is created and passed to `DnsManagementClient.RecordSets.CreateOrUpdateAsync`. As with DNS zones, there are three modes of operation: synchronous ('CreateOrUpdate'), asynchronous ('CreateOrUpdateAsync'), or asynchronous with access to the HTTP response ('CreateOrUpdateWithHttpMessagesAsync').
 
-Assim como ocorre com as zonas DNS, as operações em conjuntos de registros incluem suporte para simultaneidade otimista.  Neste exemplo, como nenhuma ' If-Match ' nem ' If-None-Match ' são especificados, o conjunto de registros é sempre criado.  Essa chamada substitui qualquer conjunto de registros existente com o mesmo nome e tipo de registro nesta zona DNS.
+As with DNS zones, operations on record sets include support for optimistic concurrency.  In this example, since neither 'If-Match' nor 'If-None-Match' are specified, the record set is always created.  This call overwrites any existing record set with the same name and record type in this DNS zone.
 
 ```cs
 // Create record set parameters
@@ -121,17 +121,17 @@ recordSetParams.Metadata.Add("user", "Mary");
 var recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zoneName, recordSetName, RecordType.A, recordSetParams);
 ```
 
-## <a name="get-zones-and-record-sets"></a>Obter zonas e conjuntos de registros
+## <a name="get-zones-and-record-sets"></a>Get zones and record sets
 
-Os métodos `DnsManagementClient.Zones.Get` e `DnsManagementClient.RecordSets.Get` recuperam zonas e conjuntos de registros individuais, respectivamente. Os conjuntos de registros são identificados por seu tipo, nome e zona e grupo de recursos em que existem. As zonas são identificadas por seu nome e o grupo de recursos em que existem.
+The `DnsManagementClient.Zones.Get` and `DnsManagementClient.RecordSets.Get` methods retrieve individual zones and record sets, respectively. RecordSets are identified by their type, name, and the zone and resource group they exist in. Zones are identified by their name and the resource group they exist in.
 
 ```cs
 var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);
 ```
 
-## <a name="update-an-existing-record-set"></a>Atualizar um conjunto de registros existente
+## <a name="update-an-existing-record-set"></a>Update an existing record set
 
-Para atualizar um conjunto de registros DNS existente, primeiro recupere o conjunto de registros e, em seguida, atualize o conteúdo do conjunto de registros e, em seguida, envie a alteração.  Neste exemplo, especificamos ' ETag ' do conjunto de registros recuperado no parâmetro ' If-Match '. A chamada falhará se uma operação simultânea tiver modificado o conjunto de registros enquanto isso ocorre.
+To update an existing DNS record set, first retrieve the record set, then update the record set contents, then submit the change.  In this example, we specify the 'Etag' from the retrieved record set in the 'If-Match' parameter. The call fails if a concurrent operation has modified the record set in the meantime.
 
 ```cs
 var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);
@@ -144,11 +144,11 @@ recordSet.ARecords.Add(new ARecord("5.6.7.8"));
 recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zoneName, recordSetName, RecordType.A, recordSet, recordSet.Etag);
 ```
 
-## <a name="list-zones-and-record-sets"></a>Listar zonas e conjuntos de registros
+## <a name="list-zones-and-record-sets"></a>List zones and record sets
 
-Para listar zonas, use os métodos *DnsManagementClient. Zones. List...* , que dão suporte à listagem de todas as zonas em um determinado grupo de recursos ou todas as zonas em uma determinada assinatura do Azure (entre grupos de recursos.) Para listar conjuntos de registros, use os métodos *DnsManagementClient. Recordsets. List...* , que dão suporte à listagem de todos os conjuntos de registros em uma determinada zona ou apenas aos conjuntos de registros de um tipo específico.
+To list zones, use the *DnsManagementClient.Zones.List...* methods, which support listing either all zones in a given resource group or all zones in a given Azure subscription (across resource groups.) To list record sets, use *DnsManagementClient.RecordSets.List...* methods, which support either listing all record sets in a given zone or only those record sets of a specific type.
 
-Observação ao listar zonas e conjuntos de registros que os resultados podem ser paginados.  O exemplo a seguir mostra como iterar pelas páginas de resultados. (Um tamanho de página artificialmente pequeno de ' 2 ' é usado para forçar a paginação; na prática, esse parâmetro deve ser omitido e o tamanho de página padrão usado.)
+Note  when listing zones and record sets that results may be paginated.  The following example shows how to iterate through the pages of results. (An artificially small page size of '2' is used to force paging; in practice this parameter should be omitted and the default page size used.)
 
 ```cs
 // Note: in this demo, we'll use a very small page size (2 record sets) to demonstrate paging
@@ -166,4 +166,4 @@ while (page.NextPageLink != null)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Baixe o [projeto de exemplo do SDK do .net do Azure DNS](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True), que inclui mais exemplos de como usar o SDK do .net do Azure DNS, incluindo exemplos para outros tipos de registro DNS.
+Download the [Azure DNS .NET SDK sample project](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True), which includes further examples on how to use the Azure DNS .NET SDK, including examples for other DNS record types.

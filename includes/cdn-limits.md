@@ -1,22 +1,22 @@
 ---
 author: mdgattuso
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 04/29/2019
 ms.author: magattus
-ms.openlocfilehash: 0c989aa32c4f4defc9d22a2e510d85d7583ed1c8
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: f5cef027dfa38bfb68f24c990047719e540ff0a1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67184647"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224503"
 ---
-| Resource | Limite predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
-| Perfis de rede de distribuição de conteúdo do Azure |25 |
-| Pontos de extremidade de rede de distribuição de conteúdo por perfil |25 |
-| Domínios personalizados por ponto de extremidade |25 |
+| Azure Content Delivery Network profiles |25 |
+| Content Delivery Network endpoints per profile |25 |
+| Custom domains per endpoint |25 |
 
-Uma assinatura de rede de distribuição de conteúdo pode conter um ou mais perfis de rede de distribuição de conteúdo. Um perfil de rede de distribuição de conteúdo pode conter um ou mais pontos de extremidade de rede de distribuição de conteúdo. Talvez você queira usar vários perfis para organizar os pontos de extremidade da rede de distribuição de conteúdo por domínio da Internet, aplicativo Web ou algum outro critério. 
+A Content Delivery Network subscription can contain one or more Content Delivery Network profiles. A Content Delivery Network profile can contain one or more Content Delivery Network endpoints. You might want to use multiple profiles to organize your Content Delivery Network endpoints by internet domain, web application, or some other criteria. 
 
 

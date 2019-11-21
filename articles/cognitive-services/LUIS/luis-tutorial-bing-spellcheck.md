@@ -1,7 +1,7 @@
 ---
-title: Corrigir palavras incorretas-LUIS
+title: Correct misspelled words - LUIS
 titleSuffix: Azure Cognitive Services
-description: Palavras com erros ortográficos corretas em expressões com adicionando Bing ortográfica verificar a API V7 às consultas de ponto final do LUIS.
+description: Correct misspelled words in utterances by adding Bing Spell Check API V7 to LUIS endpoint queries.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,76 +9,78 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 238b76040559148c48aa67b99e856a5987b71a7e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 51b0d02443df872a7fae13116ea77b13d05055fa
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123170"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225456"
 ---
-# <a name="correct-misspelled-words-with-bing-spell-check"></a>Palavras com erros ortográficos corretas com verificação de ortografia do Bing
+# <a name="correct-misspelled-words-with-bing-spell-check"></a>Correct misspelled words with Bing Spell Check
 
-Pode integrar a sua aplicação LUIS com [Bing ortográfica verificar a API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) para corrigir palavras com erros ortográficos em expressões com antes do LUIS prevê a pontuação e entidades da expressão. 
+You can integrate your LUIS app with [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) to correct misspelled words in utterances before LUIS predicts the score and entities of the utterance. 
 
 [!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
 
-## <a name="create-first-key-for-bing-spell-check-v7"></a>Criar a primeira chave para V7 de verificação de ortografia do Bing
-Sua [primeira chave da API de verificação ortográfica do Bing v7](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) é gratuito. 
+## <a name="create-first-key-for-bing-spell-check-v7"></a>Create first key for Bing Spell Check V7
 
-![Criar chave gratuita](./media/luis-tutorial-bing-spellcheck/free-key.png)
+Your [first Bing Spell Check API v7 key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) is free. 
+
+![Create free key](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
 <a name="create-subscription-key"></a>
 
-## <a name="create-endpoint-key"></a>Criar chave de ponto final
-Se a sua chave gratuita expirou, crie uma chave de ponto final.
+## <a name="create-endpoint-key"></a>Create Endpoint key
+If your free key expired, create an endpoint key.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 
-2. Selecione **criar um recurso** no canto superior esquerdo.
+2. Select **Create a resource** in the top left corner.
 
 3. Na caixa de pesquisa, introduza `Bing Spell Check API V7`.
 
-    ![A API V7 de verificação de pesquisa de ortografia do Bing](./media/luis-tutorial-bing-spellcheck/portal-search.png)
+    ![Search for Bing Spell Check API V7](./media/luis-tutorial-bing-spellcheck/portal-search.png)
 
-4. Selecione o serviço. 
+4. Select the service. 
 
-5. É apresentado um painel de informações à direita que contém informações, incluindo o aviso Legal. Selecione **criar** para iniciar o processo de criação de subscrição. 
+5. An information panel appears to the right containing information including the Legal Notice. Select **Create** to begin the subscription creation process. 
 
-6. No painel seguinte, introduza as definições de serviço. Aguarde que o processo de criação de serviço concluir.
+6. In the next panel, enter your service settings. Wait for service creation process to finish.
 
-    ![Introduza as definições de serviço](./media/luis-tutorial-bing-spellcheck/subscription-settings.png)
+    ![Enter service settings](./media/luis-tutorial-bing-spellcheck/subscription-settings.png)
 
-7. Selecione **todos os recursos** sob a **Favoritos** título na navegação do lado esquerdo.
+7. Select **All resources** under the **Favorites** title on the left side navigation.
 
-8. Selecione o novo serviço. Jeho typ Je **dos serviços cognitivos** e a localização é **global**. 
+8. Select the new service. Its type is **Cognitive Services** and the location is **global**. 
 
-9. No painel principal, selecione **chaves** para ver as suas novas chaves.
+9. In the main panel, select **Keys** to see your new keys.
 
-    ![Obter chaves](./media/luis-tutorial-bing-spellcheck/grab-keys.png)
+    ![Grab keys](./media/luis-tutorial-bing-spellcheck/grab-keys.png)
 
-10. Copie a primeira chave. Só precisa de uma das duas chaves. 
+10. Copy the first key. You only need one of the two keys. 
 
-## <a name="using-the-key-in-luis-test-panel"></a>Utilizando a chave no painel de teste de LUIS
-Existem dois locais no LUIS para utilizar a chave. A primeira é no [painel de teste](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). A chave não é guardada no LUIS, mas em vez disso, é uma variável de sessão. Tem de definir a chave sempre que desejar que o painel de teste para aplicar o serviço da API de verificação ortográfica do Bing v7 para a expressão. Ver [instruções](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) no painel de teste para definir a chave.
+<!--
+## Using the key in LUIS test panel
+There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
+-->
+## <a name="adding-the-key-to-the-endpoint-url"></a>Adding the key to the endpoint URL
+The endpoint query needs the key passed in the query string parameters for each query you want to apply spelling correction. You may have a chatbot that calls LUIS or you may call the LUIS endpoint API directly. Regardless of how the endpoint is called, each and every call must include the required information for spelling corrections to work properly.
 
-## <a name="adding-the-key-to-the-endpoint-url"></a>Adicionar a chave para o URL de ponto final
-A consulta de ponto final tem da chave transmitida os parâmetros de cadeia de caracteres de consulta para cada consulta que pretende aplicar a correção ortográfica. Pode ter um chatbot que chama o LUIS ou pode chamar o ponto de extremidade do LUIS API diretamente. Independentemente de como o ponto final é chamado, cada chamada tem de incluir as informações necessárias para correção ortográfica será funcione corretamente.
-
-O ponto final do URL tem vários valores que precisam ser passados corretamente. A chave da API de verificação ortográfica do Bing v7 é apenas mais um deles. Tem de definir o **verificação ortográfica** parâmetro para true e tem de definir o valor de **bing-ortográfica-check-subscription-key** para o valor da chave:
+The endpoint URL has several values that need to be passed correctly. The Bing Spell Check API v7 key is just another one of these. You must set the **spellCheck** parameter to true and you must set the value of **bing-spell-check-subscription-key** to the key value:
 
 `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}`
 
-## <a name="send-misspelled-utterance-to-luis"></a>Enviar a expressão com erros ortográficos para LUIS
-1. Num browser, copie a cadeia de caracteres anterior e substitua a `region`, `appId`, `luisKey`, e `bingKey` pelos seus próprios valores. Certifique-se de utilizar a região de ponto final, se for diferente da sua publicação [região](luis-reference-regions.md).
+## <a name="send-misspelled-utterance-to-luis"></a>Send misspelled utterance to LUIS
+1. In a web browser, copy the preceding string and replace the `region`, `appId`, `luisKey`, and `bingKey` with your own values. Make sure to use the endpoint region, if it is different from your publishing [region](luis-reference-regions.md).
 
-2. Adicione uma expressão com erros ortográficos, como "até que ponto é o mountainn?". Em inglês, `mountain`, com um `n`, é a ortografia correta. 
+2. Add a misspelled utterance such as "How far is the mountainn?". In English, `mountain`, with one `n`, is the correct spelling. 
 
-3. Selecione enter para enviar a consulta para o LUIS.
+3. Select enter to send the query to LUIS.
 
-4. LUIS responde com um resultado JSON para `How far is the mountain?`. Se a API de verificação ortográfica do Bing v7 detectar um problema de ortografia, o `query` campo na resposta JSON da aplicação LUIS contém a consulta original e o `alteredQuery` campo contém a consulta corrigida enviada para o LUIS.
+4. LUIS responds with a JSON result for `How far is the mountain?`. If Bing Spell Check API v7 detects a misspelling, the `query` field in the LUIS app's JSON response contains the original query, and the `alteredQuery` field contains the corrected query sent to LUIS.
 
 ```json
 {
@@ -92,17 +94,17 @@ O ponto final do URL tem vários valores que precisam ser passados corretamente.
 }
 ```
 
-## <a name="ignore-spelling-mistakes"></a>Ignorar erros de ortografia
+## <a name="ignore-spelling-mistakes"></a>Ignore spelling mistakes
 
-Se você não quiser usar o serviço do Verificação Ortográfica do Bing API v7, será necessário adicionar a grafia correta e incorreta. 
+If you don't want to use the Bing Spell Check API v7 service, you need to add the correct and incorrect spelling. 
 
-Duas soluções são:
+Two solutions are:
 
-* Exemplo de rótulo declarações que têm todas as diferentes ortografias para que o LUIS possa aprender a grafia adequada, bem como erros de digitação. Esta opção requer maior esforço de etiquetagem que usar um corretor ortográfico.
-* Crie uma lista de frases com todas as variações da palavra. Com essa solução, você não precisa rotular as variações de palavras no exemplo declarações. 
+* Label example utterances that have the all the different spellings so that LUIS can learn proper spelling as well as typos. This option requires more labeling effort than using a spell checker.
+* Create a phrase list with all variations of the word. With this solution, you do not need to label the word variations in the example utterances. 
 
-## <a name="publishing-page"></a>Página de publicação
-O [publicação](luis-how-to-publish-app.md) página tem uma **corretor ortográfico Bing ativar** caixa de verificação. Esta é uma conveniência para criar a chave e compreender como o URL de ponto final é alterado. Ainda terá de utilizar os parâmetros de ponto final correto para ter corrigida em cada ocorrência de pronunciação de ortografia. 
+## <a name="publishing-page"></a>Publishing page
+The [publishing](luis-how-to-publish-app.md) page has an **Enable Bing spell checker** checkbox. This is a convenience to create the key and understand how the endpoint URL changes. You still have to use the correct endpoint parameters in order to have spelling corrected for each utterance. 
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre expressões de exemplo](luis-how-to-add-example-utterances.md)
+> [Learn more about example utterances](luis-how-to-add-example-utterances.md)

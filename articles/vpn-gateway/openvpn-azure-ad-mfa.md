@@ -1,46 +1,46 @@
 ---
-title: 'Habilitar MFA para usuários VPN: autenticação do Azure AD | Microsoft Docs'
-description: Habilitar a autenticação multifator para usuários VPN
+title: 'Enable MFA for VPN users: Azure AD authentication| Microsoft Docs'
+description: Enable multi-factor authentication for VPN users
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: alzam
-ms.openlocfilehash: 1b506f8439deabd110daaefab36442140e20d0d4
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.openlocfilehash: b09b66ee7088b879b01a8ea0ee2068267034d9b6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185360"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209512"
 ---
-# <a name="enable-multi-factor-authentication-mfa-for-vpn-users"></a>Habilitar a MFA (autenticação multifator) para usuários VPN
+# <a name="enable-multi-factor-authentication-mfa-for-vpn-users"></a>Enable Multi-Factor Authentication (MFA) for VPN users
 
-Você pode habilitar a MFA para usuários em seu locatário do Azure AD para que os usuários sejam solicitados a fornecer uma autenticação de segundo fator antes que o acesso seja concedido.
+You can enable MFA for users in your Azure AD tenant so that users are prompted for a second factor authentication before access is granted.
 
 > [!NOTE]
-> Pré-requisito: você configurou um locatário do Azure AD conforme descrito no documento "configurar um locatário".
+> Prerequisite: You have configured an Azure AD tenant as described in the "Configure a tenant" document.
 >
 
-### <a name="tenant"></a>1. faça logon no portal do Azure e navegue até **Azure Active Directory** , **todos os usuários** e clique em **autenticação multifator**
+#### <a name="tenant"></a>1. Login to the Azure portal and navigate to **Azure Active Directory** , **All users** and click on **Multi-Factor Authentication**
 
 
-   ![Novo locatário do Azure AD](./media/openvpn-azure-ad-mfa/mfa1.jpg)
+   ![New Azure AD tenant](./media/openvpn-azure-ad-mfa/mfa1.jpg)
 
-### <a name="users"></a>2. Selecione os usuários para os quais você deseja habilitar a MFA e clique em **habilitar**
+#### <a name="users"></a>2. Select the user(s) that you want to enable MFA for and click **enable**
 
-   ![Novo locatário do Azure AD](./media/openvpn-azure-ad-mfa/mfa2.jpg)
+   ![New Azure AD tenant](./media/openvpn-azure-ad-mfa/mfa2.jpg)
 
-### <a name="enable-authentication"></a>3. Navegue até **Azure Active Directory** , **aplicativos empresariais**, **todos os aplicativos** e clique em **VPN do Azure**
+#### <a name="enable-authentication"></a>3. Navigate to **Azure Active Directory** , **Enterprise applications**, **All applications**  and click on **Azure VPN**
 
 
-   ![ID do diretório](./media/openvpn-azure-ad-mfa/user1.jpg)
+   ![Directory ID](./media/openvpn-azure-ad-mfa/user1.jpg)
 
-### <a name="users"></a>4. Verifique se o **habilitado para que os usuários entrem?** está definido como Sim. Se você quiser apenas os usuários que têm permissões para a VPN do Azure serem capazes de fazer logon, defina a **atribuição de usuário necessária?** para Sim, caso contrário, todos os usuários no locatário do AD poderão se conectar à VPN com êxito.
+#### <a name="users"></a>4. Make sure the **Enabled for users to sign-in?** is set to yes. If you want just the users that have permissions to the Azure VPN to be able to login then Set **User assignment required?** to yes as well otherwise all users in the AD tenant will be able to connect to VPN successfully.
 
    ![Permissões](./media/openvpn-azure-ad-mfa/user2.jpg)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para se conectar à sua rede virtual, você deve criar e configurar um perfil de cliente VPN. Consulte [configurar um cliente VPN para conexões VPN P2S](openvpn-azure-ad-client.md).
+In order to connect to your virtual network, you must create and configure a VPN client profile. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).

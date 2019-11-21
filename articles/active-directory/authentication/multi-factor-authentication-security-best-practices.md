@@ -1,6 +1,6 @@
 ---
-title: Orientações de segurança para o Azure multi-factor Authentication - Azure Active Directory
-description: Este documento fornece orientações sobre como utilizar o MFA do Azure com contas do Azure
+title: Security guidance for Azure Multi-Factor Authentication - Azure Active Directory
+description: This document provides guidance around using Azure MFA with Azure accounts
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,109 +11,109 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 436b7899b1a9d4f9cab1ca2581ff9b5b162de8ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2756d39a93751271c8c7bf2a51108b9fe5b09b1e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60357971"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208438"
 ---
-# <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Orientações de segurança para o Azure multi-factor Authentication com contas do Azure AD
+# <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Security guidance for using Azure Multi-Factor Authentication with Azure AD accounts
 
-Verificação de dois passos é a opção preferencial para a maioria das organizações que deseja aprimorar seu processo de autenticação. O Azure multi-factor Authentication (MFA) ajuda as empresas a cumprir os respetivos requisitos de segurança e conformidade ao mesmo tempo, uma experiência de início de sessão simples para os seus utilizadores. Este artigo aborda algumas dicas que deve considerar quando planear a adoção do MFA do Azure.
+Two-step verification is the preferred choice for most organizations that want to enhance their authentication process. Azure Multi-Factor Authentication (MFA) helps companies meet their security and compliance requirements while providing a simple sign-in experience for their users. This article covers some tips that you should consider when planning for the adoption of Azure MFA.
 
-## <a name="deploy-azure-mfa-in-the-cloud"></a>Implementar o MFA do Azure na cloud
+## <a name="deploy-azure-mfa-in-the-cloud"></a>Deploy Azure MFA in the cloud
 
-Existem duas formas de [ativar o MFA do Azure para todos os seus utilizadores](howto-mfa-getstarted.md).
+There are two ways to [enable Azure MFA for all your users](howto-mfa-getstarted.md).
 
-* Comprar licenças para cada utilizador (o MFA do Azure, Azure AD Premium ou Enterprise Mobility + Security)
-* Criar um fornecedor do multi-factor Auth e pagar por usuário ou por autenticação
+* Buy licenses for each user (Either Azure MFA, Azure AD Premium, or Enterprise Mobility + Security)
+* Create a Multi-Factor Auth Provider and pay per-user or per-authentication
 
-### <a name="licenses"></a>Licenças
+### <a name="licenses"></a>Licenses
 
-![Aplicar as licenças aos utilizadores, ativar, notificar](./media/multi-factor-authentication-security-best-practices/ems.png)
+![Apply licenses to users, enable, notify](./media/multi-factor-authentication-security-best-practices/ems.png)
 
-Se tiver o Azure AD Premium ou Enterprise Mobility + licenças de segurança, já tem MFA do Azure. Sua organização não precise de nada adicional para expandir a capacidade de verificação de dois passos para todos os utilizadores. Só tem de atribuir uma licença a um utilizador e, em seguida, pode ativar o MFA.
+If you have Azure AD Premium or Enterprise Mobility + Security licenses, you already have Azure MFA. Your organization doesn't need anything additional to extend the two-step verification capability to all users. You only need to assign a license to a user, and then you can turn on MFA.
 
-Quando configurar o multi-factor Authentication, considere as sugestões seguintes:
+When setting up Multi-Factor Authentication, consider the following tips:
 
-* Não crie um fornecedor do multi-factor Auth por autenticação. Se o fizer, poderia acabar por pagar para pedidos de verificação de utilizadores que já tem licenças.
-* Se não tiver licenças suficientes para todos os seus utilizadores, pode criar um fornecedor de autenticação do multi-factor de por utilizador para cobrir o resto da sua organização. 
-* Azure AD Connect é apenas necessário se estiver a sincronizar o seu ambiente do Active Directory no local com um diretório do Azure AD. Se utilizar um diretório do Azure AD que não está sincronizado com uma instância no local do Active Directory, não é necessário o Azure AD Connect.
+* Do not create a per-authentication Multi-Factor Auth Provider. If you do, you could end up paying for verification requests from users that already have licenses.
+* If you don't have enough licenses for all your users, you can create a per-user Multi-Factor Auth Provider to cover the rest of your organization. 
+* Azure AD Connect is only required if you are synchronizing your on-premises Active Directory environment with an Azure AD directory. If you use an Azure AD directory that is not synchronized with an on-premises instance of Active Directory, you do not need Azure AD Connect.
 
-### <a name="multi-factor-auth-provider"></a>Fornecedor do multi-factor Auth
+### <a name="multi-factor-auth-provider"></a>Multi-Factor Auth Provider
 
-![Fornecedor de multi-factor Authentication](./media/multi-factor-authentication-security-best-practices/authprovider.png)
+![Multi-Factor Authentication Provider](./media/multi-factor-authentication-security-best-practices/authprovider.png)
 
-Se não tiver licenças que incluem o MFA do Azure, em seguida, pode [criar um fornecedor de autenticação de MFA](concept-mfa-authprovider.md).
+If you don't have licenses that include Azure MFA, then you can [create an MFA Auth Provider](concept-mfa-authprovider.md).
 
-Ao criar o fornecedor de autenticação, tem de selecionar um diretório e considere os seguintes detalhes:
+When creating the Auth Provider, you need to select a directory and consider the following details:
 
-* Não é necessário um diretório do Azure AD para criar um fornecedor do multi-factor Auth, mas obtém mais funcionalidade com um. As seguintes funcionalidades estão ativadas quando associa o fornecedor de autenticação com um diretório do Azure AD:
-  * Expandir a verificação de dois passos para todos os seus utilizadores
-  * Oferecem funcionalidades adicionais, como o portal de gestão, saudações personalizadas e os relatórios dos administradores globais.
-* Se sincronizar o seu ambiente do Active Directory no local com um diretório do Azure AD, terá de DirSync ou o AAD Sync. Se utilizar um diretório do Azure AD que não está sincronizado com uma instância no local do Active Directory, não é necessário DirSync ou o AAD Sync.
-* Selecione o modelo de consumo que melhor se adequa aos seus negócios. Depois de selecionar o modelo de uso, não é possível alterá-lo. Os dois modelos são:
-  * Por autenticação: os custos de para cada verificação. Use esse modelo se pretender que a verificação de dois passos para qualquer pessoa que acede a uma determinada aplicação, não para utilizadores específicos.
-  * Por utilizador ativado: os custos de para cada utilizador que ativar para a MFA do Azure. Use esse modelo se tiver alguns utilizadores com o Azure AD Premium ou licenças do Enterprise Mobility Suite e outros, sem.
+* You do not need an Azure AD directory to create a Multi-Factor Auth Provider, but you get more functionality with one. The following features are enabled when you associate the Auth Provider with an Azure AD directory:
+  * Extend two-step verification to all your users
+  * Offer your global administrators additional features, such as the management portal, custom greetings, and reports.
+* If you synchronize your on-premises Active Directory environment with an Azure AD directory, you need DirSync or Azure AD Sync. If you use an Azure AD directory that is not synchronized with an on-premises instance of Active Directory, you do not need DirSync or Azure AD Sync.
+* Choose the consumption model that best suits your business. Once you select the usage model, you can’t change it. The two models are:
+  * Per authentication: charges you for each verification. Use this model if you want two-step verification for anyone that accesses a certain app, not for specific users.
+  * Per enabled user: charges you for each user that you enable for Azure MFA. Use this model if you have some users with Azure AD Premium or Enterprise Mobility Suite licenses, and some without.
 
 ### <a name="supportability"></a>Suportabilidade
 
-Uma vez que a maioria dos usuários estão acostumados a utilizar apenas as palavras-passe para autenticar, é importante que sua empresa traz reconhecimento a todos os utilizadores em relação a esse processo. Esta deteção pode reduzir a probabilidade de que os utilizadores, ligue o suporte técnico para problemas secundários relacionados com a MFA. No entanto, existem alguns cenários em que é necessário desativar temporariamente a MFA. Utilize as diretrizes seguintes para compreender como lidar com esses cenários:
+Since most users are accustomed to using only passwords to authenticate, it is important that your company brings awareness to all users regarding this process. This awareness can reduce the likelihood that users call your help desk for minor issues related to MFA. However, there are some scenarios where temporarily disabling MFA is necessary. Use the following guidelines to understand how to handle those scenarios:
 
-* Treine sua equipe de suporte técnico para manipular os cenários em que o utilizador não pode iniciar sessão uma vez que a aplicação móvel ou por telefone não está a receber uma notificação ou uma chamada telefónica. Suporte técnico pode [ativar uma omissão de uso individual](howto-mfa-mfasettings.md#one-time-bypass) para permitir que um utilizador seja autenticado uma vez por "Ignorar" verificação de dois passos. A omissão é temporária e expira após um número de segundos especificado.
-* Considere a [capacidade de IPs fidedignos](howto-mfa-mfasettings.md#trusted-ips) na MFA do Azure como uma forma para minimizar a verificação de dois passos. Com esta funcionalidade, os administradores de um inquilino gerido ou Federado podem ignorar a verificação de dois passos para os utilizadores que são iniciar sessão a partir da intranet local da empresa. As funcionalidades estão disponíveis para inquilinos do Azure AD que têm licenças do Azure AD Premium, o Enterprise Mobility Suite ou o Azure multi-factor Authentication.
+* Train your technical support staff to handle scenarios where the user can't sign in because the mobile app or phone is not receiving a notification or phone call. Technical support can [enable a one-time bypass](howto-mfa-mfasettings.md#one-time-bypass) to allow a user to authenticate a single time by "bypassing" two-step verification. The bypass is temporary and expires after a specified number of seconds.
+* Consider the [Trusted IPs capability](howto-mfa-mfasettings.md#trusted-ips) in Azure MFA as a way to minimize two-step verification. With this feature, administrators of a managed or federated tenant can bypass two-step verification for users that are signing in from the company’s local intranet. The features are available for Azure AD tenants that have Azure AD Premium, Enterprise Mobility Suite, or Azure Multi-Factor Authentication licenses.
 
-## <a name="best-practices-for-an-on-premises-deployment"></a>Melhores práticas para uma implementação no local
+## <a name="best-practices-for-an-on-premises-deployment"></a>Best Practices for an on-premises deployment
 
-Se a empresa decidiu aproveitar sua própria infraestrutura para ativar a MFA, então precisa [implementar um servidor de autenticação multi-factor do Azure no local](howto-mfaserver-deploy.md). Os componentes de servidor MFA são apresentados no diagrama seguinte:
+If your company decided to leverage its own infrastructure to enable MFA, then you need to [deploy an Azure Multi-Factor Authentication Server on-premises](howto-mfaserver-deploy.md). The MFA Server components are shown in the following diagram:
 
-![Os componentes padrão do servidor MFA](./media/multi-factor-authentication-security-best-practices/server.png) \*não instalado por predefinição \** instalado mas não ativado por predefinição
+![The default MFA Server components](./media/multi-factor-authentication-security-best-practices/server.png) \*Not installed by default \**Installed but not enabled by default
 
-O Azure multi-factor Authentication Server pode obter as cloud recursos de recursos e no local utilizando Federação. Tem de ter o AD FS e fazer com que ele federadas com o inquilino do Azure AD.
-Quando configurar o servidor multi-factor Authentication, considere os seguintes detalhes:
+Azure Multi-Factor Authentication Server can secure cloud resources and on-premises resources by using federation. You must have AD FS and have it federated with your Azure AD tenant.
+When setting up Multi-Factor Authentication Server, consider the following details:
 
-* Se estiver a proteger recursos do Azure AD com serviços de Federação do Active Directory (AD FS), em seguida, o primeiro passo de verificação é executado no local através do AD FS. O segundo passo é executado no local honrando a afirmação.
-* Não tem de instalar o servidor multi-factor Authentication do Azure seu servidor de Federação do AD FS. No entanto, o adaptador do multi-factor Authentication para AD FS tem de ser instalado num Windows Server 2012 R2 a executar o AD FS. Pode instalar o servidor num computador diferente, desde que é uma versão suportada e instalar o adaptador AD FS separadamente no seu servidor de Federação do AD FS. 
-* O Assistente de instalação do adaptador do multi-factor Authentication. o AD FS cria um grupo de segurança chamado PhoneFactor Admins no Active Directory e, em seguida, adiciona a conta de serviço do AD FS a este grupo. Verifique se o grupo PhoneFactor Admins foi criado no controlador de domínio e se a conta de serviço do AD FS faz parte deste grupo. Se necessário, adicione a conta de serviço do AD FS manualmente ao grupo PhoneFactor Admins no seu controlador de domínio.
+* If you are securing Azure AD resources using Active Directory Federation Services (AD FS), then the first verification step is performed on-premises using AD FS. O segundo passo é executado no local honrando a afirmação.
+* You don't have to install the Azure Multi-Factor Authentication Server your AD FS federation server. However, the Multi-Factor Authentication Adapter for AD FS must be installed on a Windows Server 2012 R2 running AD FS. You can install the server on a different computer, as long as it is a supported version, and install the AD FS adapter separately on your AD FS federation server. 
+* The Multi-Factor Authentication AD FS Adapter installation wizard creates a security group called PhoneFactor Admins in your Active Directory, and then adds your AD FS service account to this group. Verifique se o grupo PhoneFactor Admins foi criado no controlador de domínio e se a conta de serviço do AD FS faz parte deste grupo. Se necessário, adicione a conta de serviço do AD FS manualmente ao grupo PhoneFactor Admins no seu controlador de domínio.
 
 ### <a name="user-portal"></a>Portal de Utilizador
 
-O portal de utilizador permite capacidades self-service e fornece um conjunto completo de capacidades de administração do utilizador. Ele é executado num site do servidor de informação Internet (IIS). Utilize as diretrizes seguintes para configurar este componente:
+The user portal allows self-service capabilities and provides a full set of user administration capabilities. It runs in an Internet Information Server (IIS) web site. Use the following guidelines to configure this component:
 
-* Usar o IIS 6 ou superior
-* Instalar e registar o ASP.NET v2.0.507207
-* Certifique-se de que este servidor de pode ser implementado numa rede de perímetro
+* Use IIS 6 or greater
+* Install and register ASP.NET v2.0.507207
+* Ensure that this server can be deployed in a perimeter network
 
-### <a name="app-passwords"></a>Palavras-passe de aplicação
+### <a name="app-passwords"></a>App Passwords
 
-Se sua organização estiver federada para SSO com o Azure AD e vai estar a utilizar o MFA do Azure, em seguida, tenha em atenção os seguintes detalhes:
+If your organization is federated for SSO with Azure AD and you are going to be using Azure MFA, then be aware of the following details:
 
-* A palavra-passe de aplicação é verificada pelo Azure AD e, por conseguinte, ignora o Federação. A Federação apenas é utilizada quando configurar as palavras-passe de aplicação.
-* Para os utilizadores federados (SSO), as senhas são armazenadas no ID organizacional. Se o utilizador sai da empresa, tem de fluir para o ID organizacional utilizando DirSync essas informações. A desativação/eliminação de conta pode demorar até três horas para sincronização, o que atrasa a desativação/eliminação de palavras-passe de aplicação no Azure AD.
+* The app password is verified by Azure AD and therefore bypasses federation. Federation is only used when setting up app passwords.
+* For federated (SSO) users, passwords are stored in the organizational ID. If the user leaves the company, that info has to flow to organizational ID using DirSync. Account disable/deletion may take up to three hours to sync, which delays disable/deletion of app passwords in Azure AD.
 * As definições de Controlo de Acesso de Cliente no local não são honradas pela Palavra-passe de Aplicação.
-* Sem capacidade de log/auditoria da autenticação no local está disponível para as palavras-passe de aplicação.
-* Determinados designs de arquiteturais avançadas podem requerer a utilização de uma combinação de nome de utilizador organizacional e palavras-passe e palavras-passe de aplicação ao utilizar a verificação de dois passos com clientes, dependendo de onde se autenticar. Para clientes de autenticação em relação a uma infraestrutura no local, usaria um nome de utilizador organizacional e a palavra-passe. Para clientes que se autenticar no Azure AD, tem de utilizar a palavra-passe de aplicação.
-* Por predefinição, os utilizadores não é possível criar palavras-passe de aplicação. Se tiver de permitir aos utilizadores criar palavras-passe aplicação, selecione o **permitir que os utilizadores criem palavras-passe de aplicação para iniciar sessão em aplicações não baseadas no browser** opção.
+* No on-premises authentication logging/auditing capability is available for app passwords.
+* Certain advanced architectural designs may require using a combination of organizational username and passwords and app passwords when using two-step verification with clients, depending on where they authenticate. For clients that authenticate against an on-premises infrastructure, you would use an organizational username and password. For clients that authenticate against Azure AD, you would use the app password.
+* By default, users cannot create app passwords. If you need to allow users to create app passwords, select the **Allow users to create app passwords to sign into non-browser applications** option.
 
-## <a name="additional-considerations"></a>Considerações adicionais
+## <a name="additional-considerations"></a>Additional Considerations
 
-Utilize esta lista para obter considerações adicionais e orientações para cada componente que é implementado no local:
+Use this list for additional considerations and guidance for each component that is deployed on-premises:
 
 * Configure a Multi-Factor Authentication com o [Serviço de Federação do Active Directory](multi-factor-authentication-get-started-adfs.md).
 * Defina e configure o Servidor MFA do Azure com [Autenticação RADIUS](howto-mfaserver-dir-radius.md).
-* Definir e configurar o servidor de MFA do Azure com [autenticação do IIS](howto-mfaserver-iis.md).
-* Definir e configurar o servidor de MFA do Azure com [autenticação do Windows](howto-mfaserver-windows.md).
-* Definir e configurar o servidor de MFA do Azure com [autenticação LDAP](howto-mfaserver-dir-ldap.md).
-* Definir e configurar o servidor de MFA do Azure com [Gateway de ambiente de trabalho remoto e servidor de autenticação do multi-factor do Azure com o RADIUS](howto-mfaserver-nps-rdg.md).
-* Definir e configurar a sincronização entre o servidor de MFA do Azure e [Windows Server Active Directory](howto-mfaserver-dir-ad.md).
+* Set up and configure the Azure MFA Server with [IIS Authentication](howto-mfaserver-iis.md).
+* Set up and configure the Azure MFA Server with [Windows Authentication](howto-mfaserver-windows.md).
+* Set up and configure the Azure MFA Server with [LDAP Authentication](howto-mfaserver-dir-ldap.md).
+* Set up and configure the Azure MFA Server with [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md).
+* Set up and configure synchronization between the Azure MFA Server and [Windows Server Active Directory](howto-mfaserver-dir-ad.md).
 * [Implemente o Serviço Web de Aplicações Móveis do Servidor Multi-Factor Authentication do Azure](howto-mfaserver-deploy-mobileapp.md).
-* [Avançadas de configuração de VPN com multi-factor Authentication](howto-mfaserver-nps-vpn.md) para ASA da Cisco, Citrix Netscaler, Juniper/Pulse Secure VPN e aplicações através de LDAP ou RADIUS.
+* [Advanced VPN Configuration with Azure Multi-Factor Authentication](howto-mfaserver-nps-vpn.md) for Cisco ASA, Citrix Netscaler, and Juniper/Pulse Secure VPN appliances using LDAP or RADIUS.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Embora este artigo destaca algumas das melhores práticas para a MFA do Azure, existem outros recursos que também pode utilizar ao planear a implementação de MFA. A lista abaixo tem alguns artigos principais que podem ajudá-lo durante este processo:
+While this article highlights some best practices for Azure MFA, there are other resources that you can also use while planning your MFA deployment. The list below has some key articles that can assist you during this process:
 
-* [Relatórios no Azure multi-factor Authentication](howto-mfa-reporting.md)
-* [A experiência de registo de verificação de dois passos](../user-help/multi-factor-authentication-end-user-first-time.md)
-* [FAQ do multi-factor Authentication](multi-factor-authentication-faq.md)
+* [Reports in Azure Multi-Factor Authentication](howto-mfa-reporting.md)
+* [The two-step verification registration experience](../user-help/multi-factor-authentication-end-user-first-time.md)
+* [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)

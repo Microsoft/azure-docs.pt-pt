@@ -1,33 +1,33 @@
 ---
-title: 'Início rápido: biblioteca de cliente do Análise de Texto | Microsoft Docs'
+title: 'Quickstart: Text Analytics client library | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, detecte o idioma usando o API de Análise de Texto dos serviços cognitivas do Azure.
+description: In this quickstart, detect language by using the Text Analytics API from Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 11/06/2019
+ms.date: 11/19/2019
 ms.author: aahi
 zone_pivot_groups: programming-languages-set-five
-ms.openlocfilehash: 8b07e6b08e34e701aa4c3b254aee7245926085b6
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 93912ef93ab1065bf3b7c5010c485f99229a06a6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750219"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74220789"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library-for-detecting-language"></a>Início rápido: usar a biblioteca de cliente Análise de Texto para detectar a linguagem
+# <a name="quickstart-use-the-text-analytics-client-library"></a>Quickstart: Use the Text Analytics client library
 
-Introdução à biblioteca de cliente do Análise de Texto. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas.
+Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks.
 
-Use a biblioteca de cliente Análise de Texto para executar:
+Use the Text Analytics client library to perform:
 
 * Análise de sentimentos
 * Deteção de idioma
 * Reconhecimento de entidades
-* Extração de expressões-chave
+* Extração de expressões chave
 
 ::: zone pivot="programming-language-csharp"
 
@@ -61,7 +61,7 @@ Use a biblioteca de cliente Análise de Texto para executar:
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá excluir o recurso ou grupo de recursos. Excluir o grupo de recursos também exclui todos os outros recursos associados a ele.
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
@@ -73,7 +73,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 
 
 * [Descrição Geral da Análise de Texto](../overview.md)
-* [Análise de sentimentos](../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Reconhecimento de entidade](../how-tos/text-analytics-how-to-entity-linking.md)
-* [Detectar idioma](../how-tos/text-analytics-how-to-keyword-extraction.md)
-* [Reconhecimento de idioma](../how-tos/text-analytics-how-to-language-detection.md)
+* [Sentiment analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Entity recognition](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Detect language](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Language recognition](../how-tos/text-analytics-how-to-language-detection.md)

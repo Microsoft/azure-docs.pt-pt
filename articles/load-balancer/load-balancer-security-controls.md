@@ -1,66 +1,66 @@
 ---
-title: Controles de segurança para Azure Load Balancer
-description: Uma lista de verificação de controles de segurança para avaliar Load Balancer
+title: Security controls for Azure Load Balancer
+description: A checklist of security controls for evaluating Load Balancer
 services: load-balancer
-author: msmbaldwin
-manager: barbkess
+author: asudbring
+manager: KumudD
 ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: mbaldwin
-ms.openlocfilehash: e0be6635a0916183e1dfe776bef4c547578383dc
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.author: allensu
+ms.openlocfilehash: 6043e574697489b6566641c352bc21a2b6d87f51
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886527"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214906"
 ---
-# <a name="security-controls-for-azure-load-balancer"></a>Controles de segurança para Azure Load Balancer
+# <a name="security-controls-for-azure-load-balancer"></a>Security controls for Azure Load Balancer
 
-Este artigo documenta os controles de segurança internos do Azure Load Balancer.
+This article documents the security controls built into Azure Load Balancer.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
 ## <a name="network"></a>Rede
 
-| Controle de segurança | Sim/Não | Notas |
+| Security control | Sim/Não | Notas |
 |---|---|--|
-| Suporte ao ponto de extremidade de serviço| N/A | |
-| Suporte à injeção de VNet| N/A | |
-| Isolamento de rede e suporte de firewall| N/A |  |
-| Suporte a túnel forçado| N/A | |
+| Service endpoint support| N/A | |
+| VNet injection support| N/A | |
+| Network Isolation and Firewalling support| N/A |  |
+| Forced tunneling support| N/A | |
 
-## <a name="monitoring--logging"></a>Monitorando & log
+## <a name="monitoring--logging"></a>Monitoring & logging
 
-| Controle de segurança | Sim/Não | Notas|
+| Security control | Sim/Não | Notas|
 |---|---|--|
-| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Consulte [logs de Azure monitor para Load Balancer básica pública](load-balancer-monitor-log.md). |
-| Registro e auditoria do plano de gerenciamento e controle| Sim | Consulte [logs de Azure monitor para Load Balancer básica pública](load-balancer-monitor-log.md). |
-| Log e auditoria do plano de dados | N/A |  |
+| Azure monitoring support (Log analytics, App insights, etc.)| Sim | See [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md). |
+| Control and management plane logging and audit| Sim | See [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md). |
+| Data plane logging and audit | N/A |  |
 
-## <a name="identity"></a>identidade
+## <a name="identity"></a>Identidade
 
-| Controle de segurança | Sim/Não | Notas|
+| Security control | Sim/Não | Notas|
 |---|---|--|
-| Authentication| N/A |  |
+| Autenticação| N/A |  |
 | Autorização| N/A |  |
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controle de segurança | Sim/Não | Notas |
+| Security control | Sim/Não | Notas |
 |---|---|--|
-| Criptografia no lado do servidor em repouso: Chaves gerenciadas pela Microsoft | N/A | |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| N/A | |
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | N/A | |
-| Criptografia em nível de coluna (serviços de dados do Azure)| N/A | |
-| Chamadas de API criptografadas| Sim | Por meio do [Azure Resource Manager](../azure-resource-manager/index.yml). |
+| Server-side encryption at rest: Microsoft-managed keys | N/A | |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| N/A | |
+| Server-side encryption at rest: customer-managed keys (BYOK) | N/A | |
+| Column level encryption (Azure Data Services)| N/A | |
+| API calls encrypted| Sim | Via the [Azure Resource Manager](../azure-resource-manager/index.yml). |
 
-## <a name="configuration-management"></a>Gestão de configuração
+## <a name="configuration-management"></a>Gestão de configurações
 
-| Controle de segurança | Sim/Não | Notas|
+| Security control | Sim/Não | Notas|
 |---|---|--|
-| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| N/A |  | 
+| Configuration management support (versioning of configuration, etc.)| N/A |  | 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre os [controles de segurança internos nos serviços do Azure](../security/fundamentals/security-controls.md).
+- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).

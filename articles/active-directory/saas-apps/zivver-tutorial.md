@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o ZIVVER | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o ZIVVER.
+title: 'Tutorial: Azure Active Directory integration with ZIVVER | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and ZIVVER.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,222 +15,222 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: cc78b08c25ada2bf1ed67f4c27246bc873823516
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 02b292c5db3d20f56d7b8291ea31d8da9863809b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68943128"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233247"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Tutorial: Integração do Azure Active Directory com o ZIVVER
+# <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Tutorial: Azure Active Directory integration with ZIVVER
 
-Neste tutorial, você aprenderá a integrar o ZIVVER com o Azure Active Directory (Azure AD).
-A integração do ZIVVER ao Azure AD oferece os seguintes benefícios:
+In this tutorial, you learn how to integrate ZIVVER with Azure Active Directory (Azure AD).
+Integrating ZIVVER with Azure AD provides you with the following benefits:
 
-* No Azure AD, é possível controlar quem tem acesso ao ZIVVER.
-* Você pode permitir que seus usuários sejam conectados automaticamente ao ZIVVER (logon único) com suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* You can control in Azure AD who has access to ZIVVER.
+* You can enable your users to be automatically signed-in to ZIVVER (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao ZIVVER, você precisará dos seguintes itens:
+To configure Azure AD integration with ZIVVER, you need the following items:
 
-* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/)
-* Assinatura habilitada para logon único do ZIVVER
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
+* ZIVVER single sign-on enabled subscription
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* ZIVVER dá suporte ao SSO iniciado pelo **IDP**
+* ZIVVER supports **IDP** initiated SSO
 
-## <a name="adding-zivver-from-the-gallery"></a>Adicionando o ZIVVER da Galeria
+## <a name="adding-zivver-from-the-gallery"></a>Adding ZIVVER from the gallery
 
-Para configurar a integração do ZIVVER ao Azure AD, você precisará adicionar o ZIVVER da Galeria à sua lista de aplicativos SaaS gerenciados.
+To configure the integration of ZIVVER into Azure AD, you need to add ZIVVER from the gallery to your list of managed SaaS apps.
 
-**Para adicionar o ZIVVER da galeria, execute as seguintes etapas:**
+**To add ZIVVER from the gallery, perform the following steps:**
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. In the **[Azure portal](https://portal.azure.com)** , on the left navigation panel, click **Azure Active Directory** icon.
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
-2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. To add new application, click **New application** button on the top of dialog.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **ZIVVER**, selecione **ZIVVER** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. In the search box, type **ZIVVER**, select **ZIVVER** from result panel then click **Add** button to add the application.
 
-     ![ZIVVER na lista de resultados](common/search-new-app.png)
+     ![ZIVVER in the results list](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure and test Azure AD single sign-on
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o ZIVVER, com base em um usuário de teste chamado **Brenda Simon**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no ZIVVER.
+In this section, you configure and test Azure AD single sign-on with ZIVVER based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in ZIVVER needs to be established.
 
-Para configurar e testar o logon único do Azure AD com o ZIVVER, você precisa concluir os seguintes blocos de construção:
+To configure and test Azure AD single sign-on with ZIVVER, you need to complete the following building blocks:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar o logon único do ZIVVER](#configure-zivver-single-sign-on)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar usuário de teste do ZIVVER](#create-zivver-test-user)** – para ter um equivalente de Brenda Simon no ZIVVER que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure ZIVVER Single Sign-On](#configure-zivver-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create ZIVVER test user](#create-zivver-test-user)** - to have a counterpart of Britta Simon in ZIVVER that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD single sign-on
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-Para configurar o logon único do Azure AD com o ZIVVER, execute as seguintes etapas:
+To configure Azure AD single sign-on with ZIVVER, perform the following steps:
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **ZIVVER** , selecione **logon único**.
+1. In the [Azure portal](https://portal.azure.com/), on the **ZIVVER** application integration page, select **Single sign-on**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Configure single sign-on link](common/select-sso.png)
 
-2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-** enalimentado para habilitar o logon único.
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-    ![Modo de seleção de logon único](common/select-saml-option.png)
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    ![Editar configuração básica de SAML](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. Na seção **configuração básica do SAML** , execute as seguintes etapas:
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![Informações de logon único de domínio e URLs do ZIVVER](common/idp-identifier.png)
+    ![ZIVVER Domain and URLs single sign-on information](common/idp-identifier.png)
 
-    Na caixa de texto **identificador** , digite uma URL:`https://app.zivver.com/SAML/Zivver`
+    In the **Identifier** text box, type a URL:  `https://app.zivver.com/SAML/Zivver`
 
-5. O aplicativo ZIVVER espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão, onde o **nameidentifier** é mapeado com **User. UserPrincipalName**. O aplicativo ZIVVER espera que **nameidentifier** seja mapeado com **User. mail**, portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributo.
+5. ZIVVER application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. ZIVVER application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
-6. Além de acima, o aplicativo ZIVVER espera que mais alguns atributos sejam passados de volta na resposta SAML. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
+6. In addition to above, ZIVVER application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
-    | Nome | Espaço de Nomes | Atributo de origem|
+    | Nome | Namespace | Source Attribute|
     | ---------------| --------------- |
-    | ZivverAccountKey | https:\//zivver.com/SAML/Attributes | User. ObjectId |
+    | ZivverAccountKey | https:\//zivver.com/SAML/Attributes | user.objectid |
 
     >[!NOTE]
-    >Se você estiver usando uma instalação híbrida com Active Directory ferramenta local e Azure AD Connect, o valor deverá ser definido como`user.objectGUID`
+    >If you are using a hybrid setup with Active Directory on-premises and Azure AD Connect Tool, VALUE should be set to `user.objectGUID`
 
-    a. Clique em **Adicionar nova declaração** para abrir a caixa de diálogo **gerenciar declarações do usuário** .
+    a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-    ![image](common/new-save-attribute.png)
+    ![imagem](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![imagem](common/new-attribute-details.png)
 
-    b. Na caixa de texto **nome** , digite o nome do atributo mostrado para essa linha.
+    b. In the **Name** textbox, type the attribute name shown for that row.
 
-    c. Deixe o **namespace** em branco.
+    c. Leave the **Namespace** blank.
 
-    d. Selecione origem como **atributo**.
+    d. Select Source as **Attribute**.
 
-    e. Na lista **atributo de origem** , digite o valor do atributo mostrado para essa linha.
+    e. From the **Source attribute** list, type the attribute value shown for that row.
 
     f. Clique em **Guardar**.
 
-7. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o XML de **metadados de Federação** e clique em **copiar** ícone para copiar a **URL de metadados de Federação do aplicativo** de as opções fornecidas de acordo com seu requisito e salvá-las no computador.
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** and click **Copy** icon to copy the **App Federation Metadata url** from the given options as per your requirement and save it on your computer.
 
-    ![O link de download da URL do certificado](./media/zivver-tutorial/metadataxmlurl.png)
+    ![The Certificate URL download link](./media/zivver-tutorial/metadataxmlurl.png)
 
-8. Na seção **Configurar ZIVVER** , copie as URLs apropriadas de acordo com seu requisito.
+8. On the **Set up ZIVVER** section, copy the appropriate URL(s) as per your requirement.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. Login URL
 
-    b. Identificador do Azure AD
+    b. Azure AD Identifier
 
-    c. URL de fim de sessão
+    c. Logout URL
 
-### <a name="configure-zivver-single-sign-on"></a>Configurar o logon único do ZIVVER
+### <a name="configure-zivver-single-sign-on"></a>Configure ZIVVER Single Sign-On
 
-1. Em uma janela diferente do navegador da Web, entre no [site](https://app.zivver.com/login) da empresa do ZIVVER como um administrador.
+1. In a different web browser window, sign in to your ZIVVER company [site](https://app.zivver.com/login) as an administrator.
 
-2. Clique no ícone **configurações da organização** na parte inferior esquerda da janela do navegador.
+2. Click the **Organization settings** icon at the bottom left of your browser window.
 
-3. Vá para **logon único**.
+3. Go to **Single sign-on**.
 
-4. Abra o arquivo XML de metadados de Federação que você baixou do portal do Azure.
+4. Open the Federation Metadata XML file that you downloaded from Azure portal.
 
-5. Na caixa de texto **URL de metadados do provedor de identidade** , Cole a URL de metadados de Federação do **aplicativo** que você salvou anteriormente da portal do Azure.
+5. In the **Identity Provider metadata URL** text box, paste the **App Federation Metadata URL** you have saved previously from the Azure portal.
 
-6. Marque a caixa de seleção **Ativar SSO**.
+6. Check the checkbox **Turn on SSO**.
 
 7. Clique em **GUARDAR**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Create an Azure AD test user 
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Select **New user** at the top of the screen.
 
-    ![Botão novo usuário](common/new-user.png)
+    ![New user Button](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. In the User properties, perform the following steps.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![The User dialog box](common/user-properties.png)
 
-    a. No campo **nome** , insira **brendafernandes**.
+    a. In the **Name** field enter **BrittaSimon**.
   
-    b. No campo **nome de usuário** , `brittasimon@yourcompanydomain.extension`digite. Por exemplo, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
-    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assign the Azure AD test user
 
-Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao ZIVVER.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to ZIVVER.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **ZIVVER**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **ZIVVER**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **ZIVVER**.
+2. In the applications list, select **ZIVVER**.
 
-    ![O link do ZIVVER na lista de aplicativos](common/all-applications.png)
+    ![The ZIVVER link in the Applications list](common/all-applications.png)
 
-3. No menu à esquerda, selecione **usuários e grupos**.
+3. In the menu on the left, select **Users and groups**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-### <a name="create-zivver-test-user"></a>Criar usuário de teste do ZIVVER
+### <a name="create-zivver-test-user"></a>Create ZIVVER test user
 
-Nesta seção, você criará um usuário chamado Brenda Simon no ZIVVER. Trabalhe com a [equipe de suporte do ZIVVER](https://support.zivver.com/) para adicionar os usuários na plataforma do ZIVVER. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+In this section, you create a user called Britta Simon in ZIVVER. Work with [ZIVVER support team](https://support.zivver.com/) to add the users in the ZIVVER platform. Users must be created and activated before you use single sign-on.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-Ao clicar no bloco do ZIVVER no painel de acesso, você deverá ser conectado automaticamente ao ZIVVER para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the ZIVVER tile in the Access Panel, you should be automatically signed in to the ZIVVER for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

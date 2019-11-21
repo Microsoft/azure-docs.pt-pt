@@ -1,22 +1,16 @@
 ---
-title: Criar uma função no Azure acionada pelo Armazenamento de blobs | Microsoft Docs
+title: Create a function in Azure triggered by Blob storage
 description: Utilize as Funções do Azure para criar uma função sem servidores que é invocada por itens que são adicionados ao Armazenamento de blobs do Azure.
-services: azure-functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 10/01/2018
-ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: b8855fa061e07ec77482ca960971db8252608b51
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: be8d7abc6d7bb583516ca75f316edd18965ac395
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096869"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227154"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Criar uma função acionada pelo Armazenamento de blobs do Azure
 
@@ -43,11 +37,11 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
 
-   ![Página de início rápido das funções no portal do Azure](./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-portal.png)
+   ![Início rápido das funções no portal do Azure](./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-portal.png)
 
 1. Escolha **Mais modelos** e **Terminar e ver os modelos**.
 
-    ![Início rápido das funções, escolher mais modelos](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
+    ![Início Rápido das funções, escolher mais modelos](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
 1. No campo de pesquisa, escreva `blob` e escolha o modelo **Acionador de blob**.
 
@@ -61,7 +55,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
     | Definição | Valor sugerido | Descrição |
     |---|---|---|
-    | **Name** | Exclusivo na aplicação Function App | Nome desta função acionada por blob. |
+    | **Nome** | Exclusivo na aplicação Function App | Nome desta função acionada por blob. |
     | **Caminho**   | samples-workitems/{name}    | Localização no Armazenamento de blobs a ser monitorizado. O nome do ficheiro do blob é transmitido no enlace como o parâmetro _name_.  |
     | **Ligação da conta de armazenamento** | AzureWebJobsStorage | Pode utilizar a ligação da conta de armazenamento que já está a ser utilizada pela sua aplicação Function App ou criar uma nova.  |
 
@@ -110,7 +104,7 @@ Agora que já tem um contentor de blobs, pode carregar um ficheiro para o mesmo 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Criou uma função que é executada quando um blob é adicionado ou atualizado no Armazenamento de blobs. Para obter mais informações sobre os acionadores do Armazenamento de blobs, veja [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md) (Enlaces do Armazenamento de blobs das Funções do Azure).
 

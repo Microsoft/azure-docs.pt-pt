@@ -1,37 +1,33 @@
 ---
-title: Usando o valor de retorno de uma função do Azure
-description: Saiba como gerenciar valores de retorno para Azure Functions
-services: functions
-documentationcenter: na
+title: Using return value from an Azure Function
+description: Learn to manage return values for Azure Functions
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 8dd5a4d9d869c879ed402c5450690f0a691e1d2c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 30c9caf267482d7c3731d4848cfb26cc8120b1ac
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074407"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231077"
 ---
-# <a name="using-the-azure-function-return-value"></a>Usando o valor de retorno da função do Azure
+# <a name="using-the-azure-function-return-value"></a>Using the Azure Function return value
 
-Este artigo explica como os valores de retorno funcionam dentro de uma função.
+This article explains how return values work inside a function.
 
-Em idiomas que têm um valor de retorno, você pode associar uma [Associação de saída](./functions-triggers-bindings.md#binding-direction) de função ao valor de retorno:
+In languages that have a return value, you can bind a function [output binding](./functions-triggers-bindings.md#binding-direction) to the return value:
 
-* Em uma C# biblioteca de classes, aplique o atributo de associação de saída ao valor de retorno do método.
-* Em outros idiomas, defina a propriedade `name` em *Function. JSON* como `$return`.
+* In a C# class library, apply the output binding attribute to the method return value.
+* In other languages, set the `name` property in *function.json* to `$return`.
 
-Se houver várias associações de saída, use o valor de retorno para apenas uma delas.
+If there are multiple output bindings, use the return value for only one of them.
 
-No C# e C# script, maneiras alternativas de enviar dados para uma associação de saída são `out` parâmetros e [objetos do coletor](functions-reference-csharp.md#writing-multiple-output-values).
+In C# and C# script, alternative ways to send data to an output binding are `out` parameters and [collector objects](functions-reference-csharp.md#writing-multiple-output-values).
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Aqui está C# o código que usa o valor de retorno para uma associação de saída, seguido por um exemplo assíncrono:
+Here's C# code that uses the return value for an output binding, followed by an async example:
 
 ```cs
 [FunctionName("QueueTrigger")]
@@ -55,9 +51,9 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
-Aqui está a associação de saída no arquivo *Function. JSON* :
+Here's the output binding in the *function.json* file:
 
 ```json
 {
@@ -68,7 +64,7 @@ Aqui está a associação de saída no arquivo *Function. JSON* :
 }
 ```
 
-Este é o C# código de script, seguido por um exemplo de Async:
+Here's the C# script code, followed by an async example:
 
 ```cs
 public static string Run(WorkItem input, ILogger log)
@@ -90,7 +86,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 
 # <a name="ftabfsharp"></a>[F#](#tab/fsharp)
 
-Aqui está a associação de saída no arquivo *Function. JSON* :
+Here's the output binding in the *function.json* file:
 
 ```json
 {
@@ -101,7 +97,7 @@ Aqui está a associação de saída no arquivo *Function. JSON* :
 }
 ```
 
-Aqui está o F# código:
+Here's the F# code:
 
 ```fsharp
 let Run(input: WorkItem, log: ILogger) =
@@ -112,7 +108,7 @@ let Run(input: WorkItem, log: ILogger) =
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Aqui está a associação de saída no arquivo *Function. JSON* :
+Here's the output binding in the *function.json* file:
 
 ```json
 {
@@ -123,7 +119,7 @@ Aqui está a associação de saída no arquivo *Function. JSON* :
 }
 ```
 
-No JavaScript, o valor de retorno vai no segundo parâmetro para `context.done`:
+In JavaScript, the return value goes in the second parameter for `context.done`:
 
 ```javascript
 module.exports = function (context, input) {
@@ -135,7 +131,7 @@ module.exports = function (context, input) {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Aqui está a associação de saída no arquivo *Function. JSON* :
+Here's the output binding in the *function.json* file:
 
 ```json
 {
@@ -145,7 +141,7 @@ Aqui está a associação de saída no arquivo *Function. JSON* :
     "path": "output-container/{id}"
 }
 ```
-Este é o código Python:
+Here's the Python code:
 
 ```python
 def main(input: azure.functions.InputStream) -> str:
@@ -161,4 +157,4 @@ def main(input: azure.functions.InputStream) -> str:
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Manipular erros de associação de Azure Functions](./functions-bindings-errors.md)
+> [Handle Azure Functions binding errors](./functions-bindings-errors.md)

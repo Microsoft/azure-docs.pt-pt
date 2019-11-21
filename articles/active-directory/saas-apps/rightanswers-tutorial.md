@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o RightAnswers | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o RightAnswers.
+title: 'Tutorial: Azure Active Directory integration with RightAnswers | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and RightAnswers.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,194 +15,194 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: f242b2e33b50aa955446ae2b1f62421d39e58418
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8b1f7590e13be97841aae95ec47eaaa61ab004a9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098908"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233479"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Tutorial: Integração do Azure Active Directory com o RightAnswers
+# <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Tutorial: Azure Active Directory integration with RightAnswers
 
-Neste tutorial, você aprenderá a integrar o RightAnswers com o Azure Active Directory (Azure AD).
-A integração do RightAnswers ao Azure AD oferece os seguintes benefícios:
+In this tutorial, you learn how to integrate RightAnswers with Azure Active Directory (Azure AD).
+Integrating RightAnswers with Azure AD provides you with the following benefits:
 
-* No Azure AD, é possível controlar quem tem acesso ao RightAnswers.
-* Você pode permitir que seus usuários sejam conectados automaticamente ao RightAnswers (logon único) com suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* You can control in Azure AD who has access to RightAnswers.
+* You can enable your users to be automatically signed-in to RightAnswers (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao RightAnswers, você precisará dos seguintes itens:
+To configure Azure AD integration with RightAnswers, you need the following items:
 
-* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/)
-* Assinatura habilitada para logon único do RightAnswers
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
+* RightAnswers single sign-on enabled subscription
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* O RightAnswers dá suporte ao SSO iniciado por **SP**
+* RightAnswers supports **SP** initiated SSO
 
-## <a name="adding-rightanswers-from-the-gallery"></a>Adicionando o RightAnswers da Galeria
+## <a name="adding-rightanswers-from-the-gallery"></a>Adding RightAnswers from the gallery
 
-Para configurar a integração do RightAnswers ao Azure AD, você precisará adicionar o RightAnswers da Galeria à sua lista de aplicativos SaaS gerenciados.
+To configure the integration of RightAnswers into Azure AD, you need to add RightAnswers from the gallery to your list of managed SaaS apps.
 
-**Para adicionar o RightAnswers da galeria, execute as seguintes etapas:**
+**To add RightAnswers from the gallery, perform the following steps:**
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. In the **[Azure portal](https://portal.azure.com)** , on the left navigation panel, click **Azure Active Directory** icon.
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
-2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. To add new application, click **New application** button on the top of dialog.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **RightAnswers**, selecione **RightAnswers** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. In the search box, type **RightAnswers**, select **RightAnswers** from result panel then click **Add** button to add the application.
 
-     ![RightAnswers na lista de resultados](common/search-new-app.png)
+     ![RightAnswers in the results list](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure and test Azure AD single sign-on
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o RightAnswers, com base em um usuário de teste chamado **Brenda Simon**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no RightAnswers.
+In this section, you configure and test Azure AD single sign-on with RightAnswers based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in RightAnswers needs to be established.
 
-Para configurar e testar o logon único do Azure AD com o RightAnswers, você precisa concluir os seguintes blocos de construção:
+To configure and test Azure AD single sign-on with RightAnswers, you need to complete the following building blocks:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar o logon único do RightAnswers](#configure-rightanswers-single-sign-on)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar usuário de teste do RightAnswers](#create-rightanswers-test-user)** – para ter um equivalente de Brenda Simon no RightAnswers que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure RightAnswers Single Sign-On](#configure-rightanswers-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create RightAnswers test user](#create-rightanswers-test-user)** - to have a counterpart of Britta Simon in RightAnswers that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD single sign-on
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-Para configurar o logon único do Azure AD com o RightAnswers, execute as seguintes etapas:
+To configure Azure AD single sign-on with RightAnswers, perform the following steps:
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **RightAnswers** , selecione **logon único**.
+1. In the [Azure portal](https://portal.azure.com/), on the **RightAnswers** application integration page, select **Single sign-on**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Configure single sign-on link](common/select-sso.png)
 
-2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-** enalimentado para habilitar o logon único.
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-    ![Modo de seleção de logon único](common/select-saml-option.png)
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    ![Editar configuração básica de SAML](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. Na seção **configuração básica do SAML** , execute as seguintes etapas:
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![Informações de logon único de domínio e URLs do RightAnswers](common/sp-identifier.png)
+    ![RightAnswers Domain and URLs single sign-on information](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://<subdomain>.rightanswers.com/portal/ss/`
+    a. In the **Sign on URL** text box, type a URL using the following pattern: `https://<subdomain>.rightanswers.com/portal/ss/`
 
-    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão:`https://<subdomain>.rightanswers.com:<identifier>/portal`
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern: `https://<subdomain>.rightanswers.com:<identifier>/portal`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do RightAnswers](https://support.rightanswers.com) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [RightAnswers Client support team](https://support.rightanswers.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o XML de **metadados de Federação** das opções determinadas de acordo com seu requisito e salvá-lo em seu computador.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
-6. Na seção **Configurar RightAnswers** , copie as URLs apropriadas de acordo com seu requisito.
+6. On the **Set up RightAnswers** section, copy the appropriate URL(s) as per your requirement.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. Login URL
 
-    b. Identificador do Azure AD
+    b. Azure AD Identifier
 
-    c. URL de fim de sessão
+    c. Logout URL
 
-### <a name="configure-rightanswers-single-sign-on"></a>Configurar o logon único do RightAnswers
+### <a name="configure-rightanswers-single-sign-on"></a>Configure RightAnswers Single Sign-On
 
-Para configurar o logon único no lado do **RightAnswers** , é necessário enviar o XML de **metadados de Federação** baixado e as URLs copiadas apropriadas de portal do Azure para a equipe de suporte do [RightAnswers](https://support.rightanswers.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+To configure single sign-on on **RightAnswers** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [RightAnswers support team](https://support.rightanswers.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!NOTE]
-> Sua equipe de suporte do RightAnswers precisa fazer a configuração real do SSO. Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.
+> Your RightAnswers support team has to do the actual SSO configuration. You will get a notification when SSO has been enabled for your subscription.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Create an Azure AD test user
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Select **New user** at the top of the screen.
 
-    ![Botão novo usuário](common/new-user.png)
+    ![New user Button](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. In the User properties, perform the following steps.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![The User dialog box](common/user-properties.png)
 
-    a. No campo **nome** , insira **brendafernandes**.
+    a. In the **Name** field enter **BrittaSimon**.
   
-    b. No tipo de campo **nome de usuário**`brittasimon@yourcompanydomain.extension`  
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assign the Azure AD test user
 
-Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao RightAnswers.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to RightAnswers.
 
-1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **RightAnswers**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **RightAnswers**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **RightAnswers**.
+2. In the applications list, select **RightAnswers**.
 
-    ![O link do RightAnswers na lista de aplicativos](common/all-applications.png)
+    ![The RightAnswers link in the Applications list](common/all-applications.png)
 
-3. No menu à esquerda, selecione **usuários e grupos**.
+3. In the menu on the left, select **Users and groups**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-### <a name="create-rightanswers-test-user"></a>Criar usuário de teste do RightAnswers
+### <a name="create-rightanswers-test-user"></a>Create RightAnswers test user
 
-Para permitir que os usuários do Azure AD entrem no RightAnswers, eles devem ser provisionados no RightAnswers. Quando o RightAnswers, o provisionamento é uma tarefa automatizada, portanto, não há nenhum item de ação para você.
+To enable Azure AD users to sign in to RightAnswers, they must be provisioned into RightAnswers. When RightAnswers, provisioning is an automated task so there is no action item for you.
 
-Os usuários são criados automaticamente se necessário durante a primeira tentativa de logon único.
+Users are automatically created if necessary during the first single sign-on attempt.
 
 > [!NOTE]
-> Você pode usar qualquer outra ferramenta de criação de conta de usuário RightAnswers ou APIs fornecidas pelo RightAnswers para provisionar contas de usuário do AAD.
+> You can use any other RightAnswers user account creation tools or APIs provided by RightAnswers to provision Azure AD user accounts.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-Ao clicar no bloco do RightAnswers no painel de acesso, você deverá ser conectado automaticamente ao RightAnswers para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the RightAnswers tile in the Access Panel, you should be automatically signed in to the RightAnswers for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

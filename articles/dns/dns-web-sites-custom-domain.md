@@ -2,21 +2,21 @@
 title: Tutorial - criar registos DNS do Azure personalizados para uma aplicação Web
 description: Neste tutorial, vai criar registos DNS de domínio personalizado para uma aplicação Web com o DNS do Azure.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
-ms.author: victorh
-ms.openlocfilehash: 9d7a277db7550c1850ec0c9d555553064ab19f7c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.author: allensu
+ms.openlocfilehash: e0a0129f45e5e7612b6ecd79475a49822b42ba19
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730277"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211210"
 ---
-# <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: Criar registos DNS num domínio personalizado para uma aplicação web 
+# <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: criar registos DNS num domínio personalizado para uma aplicação Web 
 
-Pode configurar o DNS do Azure para alojar um domínio personalizado para as suas aplicações Web. Por exemplo, pode criar uma aplicação web do Azure e ter o acesso de utilizadores com qualquer um dos www\.contoso.com ou contoso.com como um nome de domínio completamente qualificado (FQDN).
+Pode configurar o DNS do Azure para alojar um domínio personalizado para as suas aplicações Web. For example, you can create an Azure web app and have your users access it using either www\.contoso.com or contoso.com as a fully qualified domain name (FQDN).
 
 > [!NOTE]
 > Contoso.com é utilizado como um exemplo neste tutorial. Substitua o seu nome de domínio por contoso.com.
@@ -47,7 +47,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Tem de ter um nome de domínio disponível para testar com o que pode alojar no DNS do Azure. Deve ter controlo total sobre este domínio. O controlo total inclui a capacidade de definir os registos do servidor de nomes (NS) do domínio.
+* You must have a domain name available to test with that you can host in Azure DNS . Deve ter controlo total sobre este domínio. O controlo total inclui a capacidade de definir os registos do servidor de nomes (NS) do domínio.
 * [Crie uma aplicação do Serviço de Aplicações](../app-service/app-service-web-get-started-html.md) ou utilize uma aplicação que tenha criado para outro tutorial.
 
 * Crie uma zona DNS no DNS do Azure e delegue a zona na sua entidade de registo ao DNS do Azure.
@@ -84,7 +84,7 @@ New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 Os Serviços Aplicacionais utilizam este registo apenas no momento da configuração, para verificar que é o proprietário do domínio personalizado. Pode eliminar este registo TXT após a validação e configuração do domínio personalizado no Serviço de Aplicações.
 
 > [!NOTE]
-> Se pretender verificar o nome de domínio, mas não encaminhar o tráfego de produção para a aplicação web, basta especificar o registo TXT para o passo de verificação.  Verificação não necessita de um registo A ou CNAME, além do registo TXT.
+> If you want to verify the domain name, but not route production traffic to the web app, you only need to specify the TXT record for the verification step.  Verification does not require an A or CNAME record in addition to the TXT record.
 
 ```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
@@ -173,7 +173,7 @@ set-AzWebApp `
 Abra um browser e navegue até `http://www.<your domainname>` e `http://<you domain name>`.
 
 > [!NOTE]
-> Certifique-se de incluir o `http://` prefixo, caso contrário, é que o seu browser pode tentar prever um URL para!
+> Make sure you include the `http://` prefix, otherwise your browser may attempt to predict a URL for you!
 
 Deverá ver a mesma página para ambos os URLs. Por exemplo:
 
@@ -184,7 +184,7 @@ Deverá ver a mesma página para ambos os URLs. Por exemplo:
 
 Quando já não precisar dos recursos criados neste tutorial, pode eliminar o grupo de recursos **myresourcegroup**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como criar zonas privadas do DNS do Azure.
 

@@ -5,19 +5,19 @@ metadata:
   title: Documentação da Gestão de Aplicações
   description: Saiba como utilizar a colaboração de empresa para empresa (B2B) do Azure AD para partilhar em segurança as aplicações e serviços da sua empresa com utilizadores convidados e parceiros externos de qualquer organização, e manter o controlo sobre os seus próprios dados empresariais.
   ms.service: active-directory
-  ms.subservice: manage-apps
+  ms.subservice: B2B
   ms.workload: identity
   ms.topic: landing-page
   ms.date: 08/27/2019
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: a1822b3bd6ec7950bc3c0ab9304ea2f60a7127e4
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.openlocfilehash: 2c0f418249d470c1454474012fb25e6670630108
+  ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70125164"
+  ms.lasthandoff: 11/21/2019
+  ms.locfileid: "74272688"
 landingContent:
 - title: Sobre a colaboração B2B
   linkLists:
