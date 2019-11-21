@@ -427,6 +427,33 @@
           href: 'https://aka.ms/csspeech/pythonref'
         - name: Notas de versão do SDK de Voz
           href: releasenotes.md
+- name: Dispositivos
+  exanded: false
+  items:
+    - name: Descrição geral
+      items:
+        - name: Acerca do SDK de Dispositivos de Voz
+          href: speech-devices-sdk.md
+        - name: Obter o SDK de Dispositivos de Voz
+          href: get-speech-devices-sdk.md
+    - name: Hardware
+      items:
+        - name: Recomendações da matriz de microfones
+          href: speech-devices-sdk-microphone.md
+        - name: Kit do Roobo v1
+          href: speech-devices-sdk-roobo-v1.md
+    - name: Inícios rápidos
+      items:
+        - name: Windows
+          href: speech-devices-sdk-windows-quickstart.md
+        - name: Linux
+          href: speech-devices-sdk-linux-quickstart.md
+        - name: Android
+          href: speech-devices-sdk-android-quickstart.md
+    - name: Recursos
+      items:
+        - name: Resolver problemas do SDK de Dispositivos de Voz
+          href: speech-devices-sdk-troubleshooting.md
 - name: Migração
   exanded: false
   items:

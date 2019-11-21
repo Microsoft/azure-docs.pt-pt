@@ -112,14 +112,6 @@
               items:
                 - name: Introdução à auditoria da Base de Dados SQL
                   href: sql-database-auditing.md
-        - name: Segurança da rede
-          items:
-            - name: Pontos finais de rede virtual
-              href: sql-database-vnet-service-endpoint-rule-overview.md
-            - name: Pontos finais de rede virtual - PowerShell
-              href: sql-database-vnet-service-endpoint-rule-powershell.md
-            - name: Ligação Privada
-              href: sql-database-private-endpoint-overview.md
         - name: Gestão de segurança
           items:
             - name: Segurança de dados avançada
@@ -136,14 +128,22 @@
               href: sql-database-feature-restrictions.md
         - name: Segurança numa base de dados individual
           items:
+            - name: Controlos de acesso à rede
+              href: sql-database-networkaccess-overview.md
+            - name: Firewall baseada em IP
+              href: sql-database-firewall-configure.md
+            - name: Regras de firewall da vNet
+              items:
+                - name: Pontos finais da vNet
+                  href: sql-database-vnet-service-endpoint-rule-overview.md
+                - name: Pontos finais da vNet - PowerShell
+                  href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: Ligação Privada
+              href: sql-database-private-endpoint-overview.md
             - name: Formato do Registo de Auditoria
               href: sql-database-audit-log-format.md
             - name: Acesso Condicional
               href: sql-database-conditional-access.md
-            - name: Regras de firewall de IP ao nível do servidor
-              items:
-                - name: Criar e gerir
-                  href: sql-database-firewall-configure.md
         - name: Segurança da instância gerida
           items:
             - name: Pontos finais públicos seguros
@@ -278,6 +278,8 @@
                   href: sql-database-xevent-code-ring-buffer.md
         - name: Diagnóstico de desempenho do Hyperscale
           href: sql-database-hyperscale-performance-diagnostics.md
+        - name: Gestão de recursos em conjuntos elásticos densos
+          href: sql-database-elastic-pool-resource-management.md
     - name: Escalabilidade
       items:
         - name: Documentação de escalabilidade

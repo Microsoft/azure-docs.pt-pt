@@ -225,9 +225,9 @@
           items:
             - name: Novidades do HDInsight 4.0
               href: ./hdinsight-version-release.md
-            - name: Notas de versão completas do HDInsight 4.0
+            - name: Notas de versão
               href: ./hdinsight-release-notes.md
-            - name: Notas de versão completas do HDInsight 3.6
+            - name: Notas de versão arquivadas do Azure HDInsight
               href: ./hdinsight-release-notes-archive.md
         - name: Perguntas Mais Frequentes (FAQ)
           href: ./hdinsight-faq.md
@@ -355,7 +355,7 @@
                   href: ./spark/apache-spark-jupyter-notebook-kernels.md
                 - name: Utilizar pacotes externos com o Jupyter através de magia de células
                   href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
-                - name: Utilizar pacotes externos com o Jupyter através de ações de script
+                - name: Gerir com segurança o ambiente do Python no Azure HDInsight com a Ação de Script
                   href: ./spark/apache-spark-python-package-installation.md
                 - name: Utilizar blocos de notas do Apache Zeppelin
                   href: ./spark/apache-spark-zeppelin-notebook.md
@@ -837,6 +837,8 @@
           href: ./hdinsight-plan-virtual-network-deployment.md
         - name: Endereços IP necessários para NSGs e UDRs
           href: ./hdinsight-management-ip-addresses.md
+        - name: Etiquetas de serviço da firewall do Azure
+          href: ./hdinsight-service-tags.md
     - name: Procedimento
       items:
         - name: Criar clusters ESP e sincronizar com o local

@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentação do Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure
 metadata:
-  title: 'Documentação do Serviço de Aprovisionamento de Dispositivos no Hub IoT - tutoriais, Referência de API'
+  title: Documentação do Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure
   description: 'Documentação do Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure - Tutoriais, Inícios Rápidos, Manuais de Instruções e Referência da API'
   author: nberdy
   ms.service: iot-dps
@@ -11,7 +11,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: nberdy
 abstract:
-  description: 'O serviço de Aprovisionamento de Dispositivos no Hub IoT é um serviço auxiliar para o Hub IoT que permite o aprovisionamento sem toque e just-in-time no hub IoT certo sem que seja necessária intervenção humana, possibilitando aos clientes aprovisionar milhares de dispositivos de forma segura e dimensionável. Saiba como aprovisionar dispositivos no hub ou hubs IoT com os nossos inícios rápidos, tutoriais e exemplos.'
+  description: 'O Serviço de Aprovisionamento de Dispositivos (DPS) no Hub IoT é um serviço auxiliar para o Hub IoT que permite o aprovisionamento sem toque e just-in-time no hub IoT certo sem que seja necessária intervenção humana, o que permite aos clientes aprovisionar milhões de dispositivos de forma segura e dimensionável. Saiba como aprovisionar dispositivos no hub ou hubs IoT com os nossos inícios rápidos, tutoriais e exemplos.'
 sections:
   - title: Inícios rápidos de cinco minutos
     items:

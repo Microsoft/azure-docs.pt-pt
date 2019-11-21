@@ -3,12 +3,12 @@ title: Exemplo de esquema IRS 1075 - Descrição geral
 description: Descrição geral do exemplo de esquema IRS 1075. Este exemplo de esquema ajuda os clientes a avaliar controlos IRS 1075 específicos.
 ms.date: 11/19/2019
 ms.topic: sample
-ms.openlocfilehash: f713f6a59f439b2d5cb9df0860d16ff761304b4b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1d2fdac47c590e663a51c11f54a3a135a7a0ed3d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210193"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267380"
 ---
 # <a name="overview-of-the-irs-1075-blueprint-sample"></a>Descrição geral do exemplo de esquema IRS 1075
 
@@ -24,6 +24,7 @@ Analisou a descrição geral do exemplo de esquema IRS 1075. A seguir, visite os
 
 > [!div class="nextstepaction"]
 > [Esquema IRS 1075 - Mapeamento de controlo](./control-mapping.md)
+> [Esquema IRS 1075 - Passos de implementação](./deploy.md)
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

@@ -168,6 +168,12 @@
               href: backup-azure-vms-encryption.md
             - name: Restaurar chaves e o segredo para VMs encriptadas
               href: backup-azure-restore-key-secret.md
+    - name: Eventos de Diagnóstico para os Cofres dos Serviços de Recuperação
+      items:
+        - name: Utilizar Definições de Diagnóstico para os Cofres dos Serviços de Recuperação
+          href: backup-azure-diagnostic-events.md
+        - name: Modelo de Dados do Log Analytics para Eventos de Diagnóstico Específicos de Recurso
+          href: backup-azure-log-analytics-new-data-model.md
     - name: Configurar relatórios do Azure Backup
       items:
         - name: Configurar relatórios do Azure Backup

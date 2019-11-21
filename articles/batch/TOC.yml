@@ -211,10 +211,14 @@
           href: batch-task-fail-event.md
 - name: Recursos
   items:
-    - name: Mapa do Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Comunidade em Lote
+    - name: Atualizações do Azure
+      href: 'https://azure.microsoft.com/updates/'
+    - name: Comunidade do Batch
       href: 'https://github.com/Azure/Batch'
+    - name: Comentários do Batch
+      href: 'https://feedback.azure.com/forums/269742-batch'
+    - name: Fórum do Batch
+      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch'
     - name: Batch Shipyard
       href: 'https://github.com/Azure/batch-shipyard'
     - name: Blogue
