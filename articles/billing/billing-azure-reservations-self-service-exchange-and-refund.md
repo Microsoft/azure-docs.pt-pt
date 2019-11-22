@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 828bc3784a118a81adc4391b1bf222c00ee2025a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9e3c999de1804684e77a6224330b2d7077046964
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "69543015"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052164"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Self-service exchanges and refunds for Azure Reservations (Trocas e reembolsos self-service para Reservas do Azure)
 
@@ -44,7 +44,7 @@ Primeiro, a Microsoft cancela a reserva existente e reembolsa o valor rateado de
 
 ### <a name="enterprise-agreement-customers"></a>Clientes do contrato Enterprise
 
-O dinheiro é adicionado à alocação monetária para trocas e reembolsos se a compra original tiver sido feita com uma. Quaisquer faturas de utilização excedida desde as compras originais são reabertas e reclassificadas para garantir que a alocação monetária é utilizada. Se o termo de alocação monetária que usa a reserva comprado já não estiver ativo, o crédito será adicionado ao seu termo de alocação monetária do contrato Enterprise atual.
+O dinheiro é adicionado à alocação monetária para trocas e reembolsos se a compra original tiver sido feita com uma. Quaisquer faturas de utilização excedida desde as compras originais são reabertas e reclassificadas para garantir que a alocação monetária é utilizada. Se o termo de alocação monetária que usa a reserva comprado já não estiver ativo, o crédito será adicionado ao seu termo de alocação monetária do contrato Enterprise atual. O crédito é válido durante 90 dias a partir da data de reembolso. O crédito não utilizado expira após 90 dias.
 
 Se a compra original foi feita como utilização excedida, a Microsoft emite uma nota de crédito.
 
@@ -91,10 +91,10 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://port
 
 - Para saber como gerir uma reserva, veja [Gerir Reservas do Azure](billing-manage-reserved-vm-instance.md).
 - Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
-    - [O que são as Reservas do Azure?](billing-save-compute-costs-reservations.md)
+    - [O que são as reservas do Azure?](billing-save-compute-costs-reservations.md)
     - [Gerir Reservas no Azure](billing-manage-reserved-vm-instance.md)
     - [Compreender como o desconto das reservas é aplicado](billing-understand-vm-reservation-charges.md)
     - [Compreender a utilização de reservas na sua subscrição Pay As You Go](billing-understand-reserved-instance-usage.md)
     - [Compreender a utilização de reservas na inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)
     - [Custos de software Windows não incluídos nas reservas](billing-reserved-instance-windows-software-costs.md)
-    - [Azure Reservations no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros](/partner-center/azure-reservations)
+    - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations) (Reservas do Azure no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros)

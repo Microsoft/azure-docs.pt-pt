@@ -2,7 +2,7 @@
 title: Documentação do Azure Blockchain Tokens
 summary: Saiba como criar, emitir e gerir tokens de blockchain.
 metadata:
-  title: Documentação do Azure Blockchain Tokens - Tutoriais, Referência da API
+  title: Documentação do Azure Blockchain Tokens
   description: Saiba como emitir e gerir tokens de blockchain. Os tutoriais, referências de API e outras documentações mostram-lhe como utilizar o Azure Blockchain Tokens para criar e gerir tokens de blockchain no Azure.
   services: azure-blockchain
   ms.service: azure-blockchain
@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 11/04/2019
-  ms.openlocfilehash: 6df625c2264db279e29c4ebcf5aab5695b335a0e
-  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.openlocfilehash: 1bc9c7e862a987747887b536f8657bda12eb1c40
+  ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73508436"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74325097"
 landingContent:
 - title: Acerca do Azure Blockchain Tokens
   linkLists:

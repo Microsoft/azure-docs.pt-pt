@@ -2,7 +2,7 @@
 title: Documentação de Pré-visualização do Azure Blockchain Workbench
 summary: Saiba como criar aplicações de blockchain. Os tutoriais, referências de API e outras documentações mostram-lhe como implementar o Azure Blockchain Workbench e criar e gerir aplicações de blockchain no Azure.
 metadata:
-  title: Documentação de Pré-visualização do Azure Blockchain Workbench – Tutoriais, Referência da API
+  title: Documentação de Pré-visualização do Azure Blockchain Workbench
   description: Saiba como criar aplicações de blockchain. Os tutoriais, referências de API e outras documentações mostram-lhe como implementar o Azure Blockchain Workbench e criar e gerir aplicações de blockchain no Azure.
   services: azure-blockchain
   ms.service: azure-blockchain
@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 09/05/2019
-  ms.openlocfilehash: cc493ae3813cc1c53670b8f6ea46f915d7f9efee
-  ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+  ms.openlocfilehash: 2dda68b1f8fff25759ff250646747f1faf63beb4
+  ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/10/2019
-  ms.locfileid: "70845019"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74324643"
 landingContent:
 - title: Sobre o Azure Blockchain Workbench
   linkLists:

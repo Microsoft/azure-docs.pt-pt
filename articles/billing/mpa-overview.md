@@ -8,20 +8,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2019
+ms.date: 10/24/2019
 ms.author: banders
-ms.openlocfilehash: 9c6c28ef296f3b1346fd82641d8c557a500273d8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 6bb0f3ea1b4e3bf17ed3bf26b838da8f2a694673
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376693"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898553"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Introdução à conta de faturação do Contrato de Parceiro da Microsoft
 
 Ao inscrever-se para utilizar o Azure, é criada uma conta de faturação. Utiliza a conta de faturação para gerir faturas, pagamentos e controlar custos. Pode ter acesso a múltiplas contas de faturação. Por exemplo, talvez se tenha inscrito no Azure com o objetivo de desenvolver projetos pessoais. Também poderá ter acesso ao Azure através do Contrato Enterprise, do Contrato de Cliente da Microsoft ou do Contrato de Parceiro da Microsoft da sua organização. Para cada um desses cenários, teria uma conta de faturação separada.
 
-Este artigo aplica-se às contas de faturação dos Contratos de Parceiro da Microsoft. Estas contas foram criadas para os Fornecedores de Soluções Cloud (CSPs) gerirem a faturação dos clientes na nova experiência comercial. A nova experiência está disponível apenas para os parceiros, que têm pelo menos um cliente que aceitou um Contrato de Cliente da Microsoft (MCA) e tem um Plano do Azure. [Verifique se tem acesso a um Contrato de Parceiro da Microsoft](#check-access-to-a-microsoft-partner-agreement).
+Este artigo aplica-se às contas de faturação dos Contratos de Parceiro da Microsoft. Estas contas foram criadas para os Fornecedores de Soluções Cloud (CSPs) gerirem a faturação dos clientes na nova experiência comercial. A nova experiência está disponível apenas para os parceiros que tenham pelo menos um cliente que tenha celebrado um Contrato de Cliente da Microsoft e tenha um Plano do Azure. [Verifique se tem acesso a um Contrato de Parceiro da Microsoft](#check-access-to-a-microsoft-partner-agreement). O [plano do Azure](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) dá aos clientes acesso a serviços do Azure com base em taxas pay as you go ao abrigo de um Contrato de Cliente da Microsoft.
 
 ## <a name="your-billing-account"></a>A sua conta de faturação
 
@@ -35,7 +35,7 @@ Os utilizadores com funções de **Administrador Global**  e de **Agentes de Adm
 
 ## <a name="billing-profiles"></a>Perfis de faturação
 
-Utilize um perfil de faturação para gerir as suas faturas numa moeda. Uma fatura mensal é gerada no início do mês para cada perfil de faturação na sua conta. A fatura contém os custos na moeda do perfil de faturação para todas as subscrições do Azure e outras compras do mês anterior. 
+Utilize um perfil de faturação para gerir as suas faturas numa moeda. Uma fatura mensal é gerada no início do mês para cada perfil de faturação na sua conta. A fatura contém os custos na moeda do perfil de faturação para todas as subscrições do Azure e outras compras do mês anterior.
 
 Pode visualizar a fatura e transferir os documentos relacionados, como o ficheiro de utilização e a folha de preços, no portal do Azure. Para obter mais informações, veja [Transferir as faturas de um Contrato de Parceiro da Microsoft](billing-download-azure-invoice.md).
 
@@ -45,11 +45,11 @@ Pode visualizar a fatura e transferir os documentos relacionados, como o ficheir
 
 ## <a name="customers"></a>Clientes
 
-Pode visualizar e gerir os clientes que aceitaram um Contrato de Cliente da Microsoft e têm um Plano do Azure no portal do Azure. Pode visualizar os custos e as transações, bem como criar e gerir subscrições do Azure para estes clientes. 
+Pode visualizar e gerir os clientes que aceitaram um Contrato de Cliente da Microsoft e têm um Plano do Azure no portal do Azure. Pode visualizar os custos e as transações, bem como criar e gerir subscrições do Azure para estes clientes.
 
 ### <a name="enable-policy-to-give-visibility-into-cost"></a>Ativar a política para ter uma melhor visibilidade do custo
 
-Aplique a política para controlar se os utilizadores na organização dos clientes podem ver e analisar o custo com as tarifas Pay As You Go relativamente ao consumo do Azure. Por predefinição, a política está desativada e os utilizadores não podem ver o custo. Quando está ativada, os utilizadores que têm o acesso [RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) adequado numa subscrição podem ver e analisar o custo da subscrição. 
+Aplique a política para controlar se os utilizadores na organização dos clientes podem ver e analisar o custo com as tarifas Pay As You Go relativamente ao consumo do Azure. Por predefinição, a política está desativada e os utilizadores não podem ver o custo. Quando está ativada, os utilizadores que têm o acesso [RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) adequado numa subscrição podem ver e analisar o custo da subscrição.
 
 Para ativar a política:
 
@@ -60,7 +60,7 @@ Para ativar a política:
    ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/mpa-overview/search-cmb.png)
 
 1. Selecione **Clientes** no lado esquerdo e, em seguida, selecione um cliente na lista.
-   
+
    ![Captura de ecrã a mostrar a seleção de um cliente](./media/mpa-overview/mpa-customers.png)
 
 1. Selecione **Políticas** no lado esquerdo.

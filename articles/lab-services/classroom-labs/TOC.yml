@@ -40,6 +40,8 @@
           href: class-type-ethical-hacking.md
         - name: Gestão de bases de dados
           href: class-type-database-management.md
+        - name: Blocos de Notas do Jupyter e Python
+          href: class-type-jupyter-notebook.md
     - name: Criar e configurar contas de laboratório (proprietário de conta de laboratório)
       items:
         - name: Criar e gerir contas de laboratório

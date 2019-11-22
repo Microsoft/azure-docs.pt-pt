@@ -28,6 +28,8 @@
       href: tutorial-restore-files.md
     - name: Fazer cópia de segurança do SQL Server na VM do Azure
       href: tutorial-sql-backup.md
+    - name: Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
+      href: tutorial-backup-sap-hana-db.md
     - name: Fazer Cópias de Segurança das Partilhas de Ficheiros dos Ficheiros do Azure
       href: tutorial-backup-azure-files.md
     - name: Fazer uma cópia de segurança do Windows Server
@@ -52,6 +54,8 @@
           href: backup-support-matrix-mabs-dpm.md
         - name: Matriz de suporte do agente MARS
           href: backup-support-matrix-mars-agent.md
+        - name: Matriz de suporte de cópia de segurança do SAP HANA
+          href: sap-hana-backup-support-matrix.md
     - name: Segurança
       items:
         - name: Controlo de Acesso Baseado em Funções
@@ -74,6 +78,8 @@
           href: backup-azure-files-faq.md
         - name: FAQ - Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
           href: faq-backup-sql-server.md
+        - name: FAQ - Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
+          href: sap-hana-faq-backup-azure-vm.md
         - name: FAQ - Azure Backup Server e DPM
           href: backup-azure-dpm-azure-server-faq.md
         - name: FAQ- Alerta do Azure Backup monitor
@@ -228,8 +234,14 @@
           href: restore-sql-database-azure-vm.md
         - name: Gerir bases de dados do SQL Server guardadas na cópia de segurança
           href: manage-monitor-sql-database-backup.md
-    - name: Fazer cópias de segurança de bases de dados SAP HANA em VMs do Azure
-      href: backup-azure-sap-hana-database.md
+    - name: Bases de dados SAP HANA nas VMs do Azure
+      items:
+        - name: Fazer cópias de segurança de bases de dados SAP HANA em VMs do Azure
+          href: backup-azure-sap-hana-database.md
+        - name: Restaurar bases de dados SAP HANA nas VMs do Azure
+          href: sap-hana-db-restore.md
+        - name: Gerir bases de dados SAP HANA guardadas em cópia de segurança
+          href: sap-hana-db-manage.md
     - name: Windows Server
       items:
         - name: Fazer cópias de segurança de ficheiros e pastas do Windows Server
