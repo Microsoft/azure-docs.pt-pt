@@ -1,5 +1,6 @@
 ---
-title: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual – guia de início rápido – Azure PowerShell | Microsoft Docs
+title: 'Início rápido: diagnosticar um problema de filtro de tráfego de rede VM-Azure PowerShell'
+titleSuffix: Azure Network Watcher
 description: Neste guia de início rápido, saiba como diagnosticar um problema de filtro de tráfego de rede de máquina virtual ao utilizar a capacidade de verificação do fluxo IP do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,16 +18,16 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 5cc735c6ad3986161b155ab97bbb3d6be5713d15
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 756c8d4d7e227d477c3031aab0d0a478454c35bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729879"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276060"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Início rápido: Diagnosticar um problema de filtragem de tráfego de rede de máquina virtual - Azure PowerShell
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Guia de Início Rápido: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual – Azure PowerShell
 
-Neste guia de início rápido, implemente uma máquina virtual (VM) e, em seguida, verifique as comunicações para um endereço IP e URL e de um endereço IP. Vai determinar a causa de uma falha de comunicação e aprender a resolvê-la.
+Neste guia de início rápido, implemente uma máquina virtual (VM) e, em seguida, verifique as comunicações para um endereço IP e URL e de um endereço IP. Determine a causa de uma falha de comunicação e como pode resolvê-la.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -34,19 +35,19 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este início rápido requer o Azure PowerShell `Az` módulo. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este guia de início rápido exigirá o módulo Azure PowerShell `Az`. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
 
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
-Antes de criar uma VM, tem de criar um grupo de recursos para conter a VM. Criar um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
+Antes de criar uma VM, tem de criar um grupo de recursos para conter a VM. Crie um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-Criar a VM com [novo-AzVM](/powershell/module/az.compute/new-azvm). Ao executar este passo, serão pedidas credenciais. Os valores que introduzir são configurados, como o nome de utilizador e a palavra-passe para a VM.
+Crie a VM com [New-AzVM](/powershell/module/az.compute/new-azvm). Ao executar este passo, serão pedidas credenciais. Os valores que introduzir são configurados, como o nome de utilizador e a palavra-passe para a VM.
 
 ```azurepowershell-interactive
 $vM = New-AzVm `
@@ -63,7 +64,7 @@ Para testar a comunicação de rede com o Observador de Rede, tem primeiro ativa
 
 ### <a name="enable-network-watcher"></a>Ativar o observador de rede
 
-Se já tiver um observador de rede ativado na região E.U.A. leste, utilize [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) para recuperar o observador de rede. O seguinte exemplo obtém um observador de rede existente com o nome *NetworkWatcher_eastus* que se encontra no grupo de recursos *NetworkWatcherRG*:
+Se você já tiver um observador de rede habilitado na região leste dos EUA, use [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) para recuperar o observador de rede. O seguinte exemplo obtém um observador de rede existente com o nome *NetworkWatcher_eastus* que se encontra no grupo de recursos *NetworkWatcherRG*:
 
 ```azurepowershell-interactive
 $networkWatcher = Get-AzNetworkWatcher `
@@ -71,7 +72,7 @@ $networkWatcher = Get-AzNetworkWatcher `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-Se ainda não tiver um observador de rede ativado na região E.U.A. leste, utilize [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) para criar um observador de rede na região E.U. a leste:
+Se você ainda não tiver um observador de rede habilitado na região leste dos EUA, use [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) para criar um observador de rede na região leste dos EUA:
 
 ```azurepowershell-interactive
 $networkWatcher = New-AzNetworkWatcher `
@@ -82,9 +83,9 @@ $networkWatcher = New-AzNetworkWatcher `
 
 ### <a name="use-ip-flow-verify"></a>Utilizar a verificação do fluxo IP
 
-Quando cria uma VM, o Azure permite e recusa o tráfego de rede de e para a VM, por predefinição. Posteriormente, poderá substituir as predefinições do Azure, ao permitir ou recusar tipos de tráfego adicionais. Para testar se o tráfego é permitido ou negado para diversos destinos e de um endereço IP de origem, utilize o [teste AzNetworkWatcherIPFlow](/powershell/module/az.network/test-aznetworkwatcheripflow) comando.
+Quando cria uma VM, o Azure permite e recusa o tráfego de rede de e para a VM, por predefinição. Posteriormente, poderá substituir as predefinições do Azure, ao permitir ou recusar tipos de tráfego adicionais. Para testar se o tráfego é permitido ou negado a destinos diferentes e de um endereço IP de origem, use o comando [Test-AzNetworkWatcherIPFlow](/powershell/module/az.network/test-aznetworkwatcheripflow) .
 
-Teste a comunicação de saída da VM para um dos endereços IP para www.bing.com:
+Teste a comunicação de saída a partir da VM para um dos endereços IP para www.bing.com:
 
 ```azurepowershell-interactive
 Test-AzNetworkWatcherIPFlow `
@@ -134,7 +135,7 @@ O resultado devolvido informa-o de que o acesso foi recusado devido a uma regra 
 
 ## <a name="view-details-of-a-security-rule"></a>Ver detalhes de uma regra de segurança
 
-Para determinar por que as regras no [testar a comunicação de rede](#test-network-communication) estão a permitir ou impedir a comunicação, consulte as regras de segurança efetivas para a interface de rede com [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup):
+Para determinar por que as regras na [comunicação de rede de teste](#test-network-communication) estão permitindo ou impedindo a comunicação, examine as regras de segurança em vigor para a interface de rede com [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup):
 
 ```azurepowershell-interactive
 Get-AzEffectiveNetworkSecurityGroup `
@@ -239,13 +240,13 @@ As verificações neste guia de início rápido testaram a configuração do Azu
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, pode utilizar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que contém:
+Quando não for mais necessário, você pode usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, criou uma VM e diagnosticou filtros de tráfego de rede de entrada e saída. Aprendeu que as regras do grupo de segurança de rede permitem ou recusam tráfego de e para uma VM. Saiba mais sobre [regras de segurança](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e como [criar regras de segurança](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 

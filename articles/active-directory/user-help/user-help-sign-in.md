@@ -13,21 +13,21 @@ ms.date: 07/18/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c79e82680ae81137ee4164e88e62235f934565a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f595013d5404f0cbcb17a0d24d6395a84fa5b607
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028516"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74266975"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Entrar usando a verificação em duas etapas ou informações de segurança
 
-Depois de configurar a verificação em duas etapas ou as informações de segurança, você poderá entrar em sua conta usando o método de autenticação especificado.
+Depois de configurar a verificação em duas etapas ou as informações de segurança, você poderá entrar em sua conta usando o método de verificação especificado.
 
 > [!Note]
-> Se você ainda estiver usando a experiência de verificação em duas etapas, precisará configurar seus métodos de autenticação seguindo as instruções no artigo [configurar minha conta para a verificação em duas etapas](multi-factor-authentication-end-user-first-time.md) .
+> Se você ainda estiver usando a experiência de verificação em duas etapas, precisará configurar seus métodos de verificação seguindo as instruções no artigo [configurar minha conta para a verificação em duas etapas](multi-factor-authentication-end-user-first-time.md) .
 >
-> Se o administrador tiver ativado a experiência de informações de segurança, você precisará definir seus métodos de autenticação usando estes artigos passo a passo:<ul><li>[Configurar informações de segurança para usar um aplicativo de autenticação](security-info-setup-auth-app.md)</li><li>[Configurar as informações de segurança para utilizar mensagens de texto](security-info-setup-text-msg.md)</li><li>[Configurar informações de segurança para usar uma chamada telefônica](security-info-setup-phone-number.md)</li><li>[Configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md)</li></ul>
+> Se o administrador tiver ativado a experiência de informações de segurança, você precisará definir seus métodos de verificação usando estes artigos passo a passo:<ul><li>[Configurar informações de segurança para usar um aplicativo de autenticação](security-info-setup-auth-app.md)</li><li>[Configurar as informações de segurança para utilizar mensagens de texto](security-info-setup-text-msg.md)</li><li>[Configurar informações de segurança para usar uma chamada telefônica](security-info-setup-phone-number.md)</li><li>[Configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Entrar usando uma notificação de aplicativo autenticador em seu dispositivo móvel
 

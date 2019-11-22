@@ -1,21 +1,17 @@
 ---
 title: Desenvolvimento em equipe no kubernetes usando o Azure Dev Spaces
-titleSuffix: Azure Dev Spaces
-author: zr-msft
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 04/25/2019
 ms.topic: quickstart
 description: Team kubernetes Development com contêineres e microservices no Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 9bdd52f2c120d338859259b046f7f4b97bbc4eed
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: MT
+ms.openlocfilehash: b6afd4193c38e414937fc0e57461d403f47cbd6d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585201"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279775"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: desenvolvimento de equipe no kubernetes usando Azure Dev Spaces
 
@@ -94,7 +90,7 @@ helm init --wait
 helm install -n bikesharing . --dep-up --namespace dev --atomic 
 ```
 > [!Note]
-> **Se você estiver usando um cluster habilitado para RBAC**, certifique-se de configurar [uma conta de serviço para o gaveta](https://helm.sh/docs/using_helm/#role-based-access-control). Caso contrário, ocorrerá falha nos comandos `helm`.
+> **Se você estiver usando um cluster habilitado para RBAC**, certifique-se de configurar [uma conta de serviço para o gaveta](https://helm.sh/docs/using_helm/#role-based-access-control). Caso contrário, `helm` comandos falharão.
 
 O comando `helm install` pode levar vários minutos para ser concluído. A saída do comando mostra o status de todos os serviços implantados no cluster quando concluído:
 
@@ -204,7 +200,7 @@ Navegue até o serviço *bikesharingweb* para o espaço de desenvolvimento de *d
 ![Aplicativo de exemplo de compartilhamento de bicicletas de Azure Dev Spaces atualizado](media/quickstart-team-development/bikeshare-update.png)
 
 > [!NOTE]
-> Quando você navega até o serviço durante a execução de `azds up`, os rastreamentos de solicitação HTTP também são exibidos na saída do comando `azds up`. Esses rastreamentos podem ajudá-lo a solucionar problemas e depurar seu serviço. Você pode desabilitar esses rastreamentos usando `--disable-http-traces` ao executar o `azds up`.
+> Quando você navega até o serviço durante a execução do `azds up`, os rastreamentos de solicitação HTTP também são exibidos na saída do comando `azds up`. Esses rastreamentos podem ajudá-lo a solucionar problemas e depurar seu serviço. Você pode desabilitar esses rastreamentos usando `--disable-http-traces` ao executar o `azds up`.
 
 ## <a name="verify-other-dev-spaces-are-unchanged"></a>Verificar se outros espaços de desenvolvimento estão inalterados
 

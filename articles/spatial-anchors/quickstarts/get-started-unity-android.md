@@ -1,21 +1,21 @@
 ---
-title: Início rápido-criar um aplicativo do Unity para Android com âncoras espaciais do Azure | Microsoft Docs
+title: 'Início rápido: criar um aplicativo do Unity para Android'
 description: Neste guia de início rápido, você aprende a criar um aplicativo Android com o Unity usando âncoras espaciais.
 author: craigktreasure
-manager: aliemami
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3ba50b8317e85d09aeaf32c1acc62342ee2683bc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 213cf9b64f2c43274192c22efa2fa5a7dfbce5e5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847721"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277068"
 ---
-# <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Início rápido: Criar um aplicativo do Unity para Android com âncoras espaciais do Azure
+# <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Início rápido: criar um aplicativo do Unity para Android com âncoras espaciais do Azure
 
 Este guia de início rápido aborda como criar um aplicativo Android [do Unity usando âncoras espaciais do Azure](../overview.md). As âncoras espaciais do Azure são um serviço de desenvolvedor de plataforma cruzada que permite que você crie experiências de realidade mista usando objetos que persistem seu local entre dispositivos ao longo do tempo. Quando tiver terminado, você terá um aplicativo ARCore Android criado com o Unity que pode salvar e recuperar uma âncora espacial.
 
@@ -36,7 +36,7 @@ Para concluir este início rápido, certifique-se de que tem:
 
 - Um computador com Windows ou macOS com o <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 +</a> incluindo o suporte de compilação do Android e SDK do Android & módulos de ferramentas NDK.
   - Se estiver executando no Windows, você também precisará <a href="https://git-scm.com/download/win" target="_blank">do git para Windows</a>.
-  - Se estiver em execução no macOS, obtenha o Git instalado via HomeBrew. Digite o seguinte comando em uma única linha do terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, `brew install git`execute.
+  - Se estiver em execução no macOS, obtenha o Git instalado via HomeBrew. Digite o seguinte comando em uma única linha do terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, execute `brew install git`.
 - Um dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado por desenvolvedor</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">com ARCore</a> .
   - Drivers de dispositivo adicionais podem ser necessários para que seu computador se comunique com seu dispositivo Android. Consulte [aqui](https://developer.android.com/studio/run/device.html) para obter informações e instruções adicionais.
 
@@ -52,7 +52,7 @@ Para concluir este início rápido, certifique-se de que tem:
 
 ## <a name="configure-account-identifier-and-key"></a>Configurar o identificador e a chave da conta
 
-No painel **projeto** , navegue até `Assets/AzureSpatialAnchors.Examples/Scenes` e abra o arquivo `AzureSpatialAnchorsBasicDemo.unity` de cena.
+No painel **projeto** , navegue até `Assets/AzureSpatialAnchors.Examples/Scenes` e abra o `AzureSpatialAnchorsBasicDemo.unity` arquivo de cena.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
@@ -62,7 +62,7 @@ Salve a cena selecionando **arquivo** -> **salvar**.
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-Selecione seu dispositivo em **executar dispositivo** e clique em **Compilar e executar**. Você será solicitado a salvar um `.apk` arquivo para o qual pode escolher qualquer nome.
+Selecione seu dispositivo em **executar dispositivo** e clique em **Compilar e executar**. Você será solicitado a salvar um arquivo de `.apk` para o qual pode escolher qualquer nome.
 
 Siga as instruções no aplicativo para colocá-lo e relembrar uma âncora.
 
@@ -75,4 +75,4 @@ Ao executar o aplicativo, se você não vir a câmera como segundo plano (por ex
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Tutorial: Compartilhar âncoras espaciais entre dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Tutorial: compartilhar âncoras espaciais entre dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)

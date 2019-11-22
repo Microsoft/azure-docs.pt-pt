@@ -1,21 +1,17 @@
 ---
 title: Depurar e iterar com Visual Studio Code e node. js em kubernetes usando Azure Dev Spaces
-titleSuffix: Azure Dev Spaces
-author: zr-msft
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 07/08/2019
 ms.topic: quickstart
 description: Desenvolvimento rápido de kubernetes com contêineres, microservices e node. js no Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: b53e18d4b759bc86dd0bc8f913e02b9523fb328b
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
-ms.translationtype: MT
+ms.openlocfilehash: e255a2f751a4747331ed959def67517a7e95baa9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815802"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279569"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: Depurar e iterar com Visual Studio Code e node. js em kubernetes usando Azure Dev Spaces
 
@@ -48,7 +44,7 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --gen
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar Azure Dev Spaces em seu cluster AKS
 
-Use o `use-dev-spaces` comando para habilitar espaços de desenvolvimento em seu cluster AKs e siga os prompts. O comando abaixo habilita espaços de desenvolvimento no cluster *MyAKS* no grupo *MyResource* Group e cria um espaço de desenvolvimento *padrão* .
+Use o comando `use-dev-spaces` para habilitar espaços de desenvolvimento em seu cluster AKS e siga os prompts. O comando abaixo habilita espaços de desenvolvimento no cluster *MyAKS* no grupo *MyResource* Group e cria um espaço de desenvolvimento *padrão* .
 
 > [!NOTE]
 > O comando `use-dev-spaces` também instalará a CLI do Azure Dev Spaces, se ainda não estiver instalada. Não é possível instalar a CLI do Azure Dev Spaces no Azure Cloud Shell.
@@ -87,11 +83,11 @@ Abra Visual Studio Code, clique em *arquivo* e, em seguida, *abra...* , navegue 
 
 Agora você tem o projeto de *WebFrontEnd* aberto no Visual Studio Code. Para executar o aplicativo em seu espaço de desenvolvimento, gere os ativos do gráfico do Docker e do Helm usando a extensão Azure Dev Spaces na paleta de comandos.
 
-Para abrir a paleta de comandos no Visual Studio Code, clique em *Exibir* na *paleta de comandos*. Comece a `Azure Dev Spaces` digitar e clique `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`em.
+Para abrir a paleta de comandos no Visual Studio Code, clique em *Exibir* na *paleta de comandos*. Comece digitando `Azure Dev Spaces` e clique em `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
 ![Preparar arquivos de configuração para Azure Dev Spaces](./media/common/command-palette.png)
 
-Quando Visual Studio Code também solicita que você configure seu ponto de extremidade público, `Yes` escolha habilitar um ponto de extremidade público.
+Quando Visual Studio Code também solicita que você configure seu ponto de extremidade público, escolha `Yes` para habilitar um ponto de extremidade público.
 
 ![Selecionar ponto de extremidade público](media/common/select-public-endpoint.png)
 
@@ -117,7 +113,7 @@ Clique em *depurar* e em *parar depuração* para interromper o depurador.
 Para implantar uma versão atualizada do serviço, você pode atualizar qualquer arquivo em seu projeto e executar novamente o *servidor de inicialização*. Por exemplo:
 
 1. Se seu aplicativo ainda estiver em execução, clique em *depurar* e *interrompa a depuração* para interrompê-la.
-1. Atualize a [linha 13 `server.js` em](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) :
+1. Atualize a [linha 13 em `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) para:
     
     ```javascript
         res.send('Hello from webfrontend in Azure');
@@ -138,7 +134,7 @@ Abra seu serviço em um navegador e observe que nenhuma mensagem é exibida. Ret
 
 Ao executar o serviço no kubernetes com um depurador anexado, você tem acesso completo para depurar informações como a pilha de chamadas, variáveis locais e informações de exceção.
 
-Remova o ponto de interrupção colocando o cursor na linha 13 em `server.js` e pressionando *F9*.
+Remova o ponto de interrupção, colocando o cursor na linha 13 em `server.js` e pressionando *F9*.
 
 Clique em *depurar* e em *parar depuração* para interromper o depurador.
 
@@ -152,7 +148,7 @@ Esse comando cria e executa seu serviço no Azure Dev Spaces. Ele também inicia
 
 Depois que o serviço for iniciado, navegue até ele usando seu navegador e interaja com ele.
 
-Enquanto o serviço estiver em execução, retorne para VS Code e atualize a `server.js`linha 13 em. Por exemplo:
+Enquanto o serviço estiver em execução, retorne para VS Code e atualize a linha 13 em `server.js`. Por exemplo:
 ```javascript
     res.send('Hello from webfrontend in Azure while debugging!');
 ```

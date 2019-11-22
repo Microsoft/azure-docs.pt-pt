@@ -1,6 +1,6 @@
 ---
-title: Início rápido do Azure-criar uma fila no armazenamento do Azure usando o portal do Azure | Microsoft Docs
-description: Neste guia de início rápido, você usa o portal do Azure para criar uma fila. Em seguida, use a portal do Azure para adicionar uma mensagem, exibir as propriedades da mensagem e remover a mensagem da fila.
+title: 'Início rápido: criar filas do armazenamento do Azure no portal'
+description: Use o portal do Azure para criar uma fila. Em seguida, use a portal do Azure para adicionar uma mensagem, exibir as propriedades da mensagem e remover a mensagem da fila.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/06/2019
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.openlocfilehash: d2f7b01c03b877a3dede496fc02f0d0cc9525cef
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 2876d2a680aa41372557a9f04c1d6a5eed56b8ae
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721324"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269250"
 ---
-# <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Início rápido: Criar uma fila e adicionar uma mensagem com o portal do Azure
+# <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Início rápido: criar uma fila e adicionar uma mensagem com o portal do Azure
 
 Neste guia de início rápido, você aprende a usar o [portal do Azure](https://portal.azure.com/) para criar uma fila no armazenamento do Azure e para adicionar e remover as mensagens da fila.
 
@@ -61,7 +61,7 @@ A remoção da fila sempre remove a mensagem mais antiga na fila.
 
 ![Captura de tela mostrando como remover uma mensagem da fila do portal](media/storage-quickstart-queues-portal/dequeue-message.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você aprendeu como criar uma fila, adicionar uma mensagem, exibir propriedades de mensagem e remover uma mensagem da fila na portal do Azure.
 

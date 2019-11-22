@@ -1,43 +1,43 @@
 ---
-title: Como criar e localizar as âncoras usando âncoras espaciais do Azure | Documentos da Microsoft
-description: Explicação detalhada sobre como criar e localizar as âncoras usando âncoras espaciais do Azure.
+title: Criar & Visão geral de localizar âncoras
+description: Explicação detalhada de como criar e localizar âncoras usando âncoras espaciais do Azure.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: bbb2eb6cca09c496328d35e075b7d2e548898b4c
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: f406edb42204e7ffc94bcbfa1e22b269aea67b32
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65964730"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270443"
 ---
-# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors"></a>Como criar e localizar as âncoras usando âncoras espaciais do Azure
+# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors"></a>Como criar e localizar âncoras usando âncoras espaciais do Azure
 
-Âncoras espaciais do Azure permitem-lhe partilhar as âncoras no mundo entre diferentes dispositivos.
+As âncoras espaciais do Azure permitem compartilhar âncoras no mundo entre diferentes dispositivos.
 
-Ele oferece suporte a vários ambientes de desenvolvimento diferentes.
+Ele dá suporte a vários ambientes de desenvolvimento diferentes.
 
-## <a name="next-steps"></a>Passos Seguintes
-Para saber mais, continue ao escolher o seu ambiente de desenvolvimento:
+## <a name="next-steps"></a>Passos seguintes
+Para saber mais, continue escolhendo seu ambiente de desenvolvimento:
 
 > [!div class="nextstepaction"]
-> [C#no Unity (para o HoloLens, iOS e Android)](how-tos/create-locate-anchors-unity.md)
+> [C#no Unity (para HoloLens, iOS e Android)](how-tos/create-locate-anchors-unity.md)
 
 > [!div class="nextstepaction"]
 > [Objective-C no iOS](how-tos/create-locate-anchors-objc.md)
 
 > [!div class="nextstepaction"]
-> [SWIFT no iOS](how-tos/create-locate-anchors-swift.md)
+> [Swift no iOS](how-tos/create-locate-anchors-swift.md)
 
 > [!div class="nextstepaction"]
 > [Java no Android](how-tos/create-locate-anchors-java.md)
 
 > [!div class="nextstepaction"]
-> [C++ /CLI NDK no Android](how-tos/create-locate-anchors-cpp-ndk.md)
+> [C++/NDK no Android](how-tos/create-locate-anchors-cpp-ndk.md)
 
 > [!div class="nextstepaction"]
-> [C++ /CLI WinRT no HoloLens](how-tos/create-locate-anchors-cpp-winrt.md)
+> [C++/WinRT no HoloLens](how-tos/create-locate-anchors-cpp-winrt.md)

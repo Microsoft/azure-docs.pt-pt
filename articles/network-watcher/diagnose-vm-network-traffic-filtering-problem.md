@@ -1,5 +1,6 @@
 ---
-title: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual – guia de início rápido – Portal do Azure | Microsoft Docs
+title: 'Início rápido: diagnosticar um problema de filtro de tráfego de rede VM-portal do Azure'
+titleSuffix: Azure Network Watcher
 description: Neste guia de início rápido, saiba como diagnosticar um problema de filtro de tráfego de rede de máquina virtual ao utilizar a capacidade de verificação do fluxo IP do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,16 +18,16 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 6478c82a93cd35eead3972bb4dccf402219d9b7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d436fab100dc05cde8a434af564c67477b33d8d3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702905"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276017"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Início rápido: Diagnosticar um problema de filtragem do tráfego do máquina virtual rede com o portal do Azure
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Guia de Início Rápido: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual com o portal do Azure
 
-Neste guia de início rápido, implemente uma máquina virtual (VM) e, em seguida, verifique as comunicações para um endereço IP e URL e de um endereço IP. Vai determinar a causa de uma falha de comunicação e aprender a resolvê-la.
+Neste guia de início rápido, implemente uma máquina virtual (VM) e, em seguida, verifique as comunicações para um endereço IP e URL e de um endereço IP. Determine a causa de uma falha de comunicação e como pode resolvê-la.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -37,17 +38,17 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 ## <a name="create-a-vm"></a>Criar uma VM
 
 1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do Portal do Azure.
-2. Selecione **computação**e, em seguida, selecione **do Windows Server 2016 Datacenter** ou uma versão de **Ubuntu Server**.
+2. Selecione **computação**e, em seguida, selecione **Windows Server 2016 datacenter** ou uma versão do **servidor Ubuntu**.
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **OK**:
 
     |Definição|Valor|
     |---|---|
-    |Name|myVm|
+    |Nome|myVm|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza **myResourceGroup**.|
-    |Location| Selecione **E.U.A. Leste**|
+    |Localização| Selecione **E.U.A. Leste**|
 
 4. Escolha um tamanho para a VM e selecione **Selecionar**.
 5. Em **Definições**, aceite todas as predefinições e selecione **OK**.
@@ -76,16 +77,16 @@ Quando cria uma VM, o Azure permite e recusa o tráfego de rede de e para a VM, 
 2. Selecione **Verificação do fluxo de IP**, em **FERRAMENTAS DE DIAGNÓSTICO DE REDE**.
 3. Selecione a sua subscrição, introduza ou selecione os seguintes valores e, em seguida, selecione **Verificar**, conforme apresentado na imagem que se segue:
 
-    |Definição            |Value                                                                                              |
+    |Definição            |Valor                                                                                              |
     |---------          |---------                                                                                          |
     | Grupo de recursos    | Selecionar myResourceGroup                                                                            |
     | Máquina virtual   | Selecionar myVm                                                                                       |
     | Interface de rede | myvm – O nome da interface de rede que o portal criou quando criou a VM é diferente. |
     | Protocolo          | TCP                                                                                               |
-    | Direction         | Saída                                                                                          |
+    | Direção         | Saída                                                                                          |
     | Endereço IP local  | 10.0.0.4                                                                                          |
     | Porta local      | 60000                                                                                                |
-    | Endereço IP remoto | 13.107.21.200 - um dos endereços para < www.bing.com>.                                             |
+    | Endereço IP remoto | 13.107.21.200-um dos endereços para < > www. Bing. com.                                             |
     | Porta remota       | 80                                                                                                |
 
     ![Verificação do fluxo de IP](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)
@@ -118,11 +119,11 @@ As verificações neste guia de início rápido testaram a configuração do Azu
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
-1. Introduza *myResourceGroup* na caixa **Pesquisar** na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
+1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, criou uma VM e diagnosticou filtros de tráfego de rede de entrada e saída. Aprendeu que as regras do grupo de segurança de rede permitem ou recusam tráfego de e para uma VM. Saiba mais sobre [regras de segurança](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e como [criar regras de segurança](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 
