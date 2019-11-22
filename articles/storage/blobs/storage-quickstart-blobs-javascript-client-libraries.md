@@ -1,6 +1,6 @@
 ---
-title: Início Rápido do Azure - Criar um blob no armazenamento de objeto com JavaScript e HTML no browser
-description: Saiba como utilizar uma instância de BlobService para carregar, lista e eliminar blobs com JavaScript numa página HTML.
+title: 'Início rápido: armazenamento de BLOBs do Azure para JavaScript V2 no navegador'
+description: Aprenda a usar uma instância de BlobService para carregar, listar e excluir BLOBs usando o SDK v2 do JavaScript em uma página HTML.
 keywords: armazenamento, javascript, html
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,16 +8,16 @@ ms.date: 08/29/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 3dbd78f9c233515c675cd511924b3d4600b72fbd
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 1bf71f899a38fa4ce36f8f0ffc78de0c64f6c3f3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173094"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270044"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Início rápido: Carregar, listar e excluir BLOBs usando JavaScript/HTML no navegador
+# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Início Rápido: Utilizar JavaScript/HTML no browser para carregar, listar e eliminar blobs
 
 Este início rápido demonstra como gerir os blobs a partir do código em execução inteiramente no browser. A abordagem utilizada aqui mostra como utilizar as medidas de segurança necessárias para garantir acesso protegido para a sua conta do blob storage. Para concluir este início rápido, precisa de uma [subscrição do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -76,9 +76,9 @@ az storage account generate-sas
 ```
 Poderá achar que as séries de valores a seguir a cada parâmetro são algo crípticas. Estes valores de parâmetros são obtidos a partir da primeira letra da respetiva permissão. A tabela seguinte explica a proveniência dos valores: 
 
-| Parâmetro        | Value   | Descrição  |
+| Parâmetro        | Valor   | Descrição  |
 |------------------|---------|---------|
-| *permissões* (permissões)    | racwdl  | Esta SAS permite capacidades de *leitura*, *acrescento*, *criação*, *escrita*, *eliminação* e *listagem*. |
+| *permissions* (permissões)    | racwdl  | Esta SAS permite capacidades de *leitura*, *acrescento*, *criação*, *escrita*, *eliminação* e *listagem*. |
 | *resource-types* (tipos de recursos) | sco     | Os recursos que a SAS afeta são *serviço*, *contentor* e *objeto*. |
 | *services* (serviços)       | b       | O serviço que a SAS afeta é o serviço de *blobs*. |
 
@@ -249,9 +249,9 @@ document.getElementById('delete-button').addEventListener('click', () => {
 > Para que este exemplo de código funcione, tem de indicar um valor para a cadeia de *blobName*.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Para limpar os recursos criados durante este início rápido, regresse ao [portal do Azure](https://portal.azure.com) e selecione a sua conta de armazenamento. Depois de selecionado, você pode excluir a conta de armazenamento indo para: **Visão geral > excluir conta de armazenamento**.
+Para limpar os recursos criados durante este início rápido, regresse ao [portal do Azure](https://portal.azure.com) e selecione a sua conta de armazenamento. Depois de selecionada, pode eliminar a conta de armazenamento ao aceder a **Descrição geral > Eliminar conta de armazenamento**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Explore os exemplos para saber como transferir blobs e comunicar o progresso durante o carregamentos de ficheiros.
 
 > [!div class="nextstepaction"]
