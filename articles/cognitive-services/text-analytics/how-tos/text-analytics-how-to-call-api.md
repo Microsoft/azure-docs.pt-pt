@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 5697ae4c8864e0b9c4cbfc9e1e1048e1c3d60f77
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: afb576c265ccdd4a014ed678331f030a0442a197
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837217"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286611"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST do Análise de Texto
 
@@ -25,8 +25,7 @@ Cada solicitação deve incluir sua chave de acesso e um ponto de extremidade HT
 
 Lembre-se de que Análise de Texto é sem estado, portanto, não há ativos de dados a serem gerenciados. O texto é carregado, analisado após o recebimento, e os resultados são retornados imediatamente para o aplicativo de chamada.
 
-> [!Tip]
-> Para chamadas de um desligamento para ver como a API funciona, você pode enviar solicitações POST do console de **teste de API**interno, disponível em qualquer [página de documento de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Não há nenhuma configuração, e os únicos requisitos são colar uma chave de acesso e os documentos JSON na solicitação. 
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -91,7 +90,7 @@ O serviço aceita a solicitação de até 1 MB de tamanho. Se você estiver usan
 
    No postmaster, a resposta é exibida na próxima janela abaixo, como um único documento JSON, com um item para cada ID de documento fornecida na solicitação.
 
-## <a name="see-also"></a>Consultar também 
+## <a name="see-also"></a>Consulte também 
 
  [Text Analytics Overview](../overview.md) (Descrição Geral da Análise de Texto)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)

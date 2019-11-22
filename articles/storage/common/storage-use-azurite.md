@@ -1,5 +1,5 @@
 ---
-title: Usar o emulador de código-fonte aberto azurite para desenvolvimento e teste do armazenamento do Azure (versão prévia)
+title: Usar o emulador azurite para o desenvolvimento de armazenamento local do Azure
 description: O emulador de código-fonte aberto do azurite (versão prévia) fornece um ambiente local gratuito para testar seus aplicativos de armazenamento do Azure.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,14 +7,14 @@ ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: e611afd6f10154636eb2e0dd08437b4f7468d6b3
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0421f49b31eba688542adc0a5b62e1cf75028836
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309546"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269463"
 ---
-# <a name="use-the-azurite-open-source-emulator-for-azure-storage-development-and-testing-preview"></a>Usar o emulador de código-fonte aberto azurite para desenvolvimento e teste do armazenamento do Azure (versão prévia)
+# <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Usar o emulador azurite para desenvolvimento e teste do armazenamento local do Azure (versão prévia)
 
 O emulador de código-fonte aberto do azurite versão 3,2 (visualização) fornece um ambiente local gratuito para testar seus aplicativos de armazenamento de BLOBs e filas do Azure. Quando estiver satisfeito com o modo como seu aplicativo está funcionando localmente, alterne para o usando uma conta de armazenamento do Azure na nuvem. O emulador fornece suporte de plataforma cruzada no Windows, Linux e MacOS. O azurite v3 dá suporte a APIs implementadas pelo serviço blob do Azure.
 
@@ -39,15 +39,15 @@ Você pode iniciar ou fechar o azurite rapidamente clicando em **[serviço blob 
 
 A extensão oferece suporte aos seguintes comandos de Visual Studio Code:
 
-   * **Azurite: Iniciar** -iniciar todos os serviços Azurites
-   * **Azurite: Fechar** -fechar todos os serviços Azurites
-   * **Azurite: Limpar** -redefinir todos os dados de persistência dos serviços Azurites
-   * **Azurite: Iniciar serviço** blob-iniciar serviço blob
-   * **Azurite: Fechar serviço** blob-fechar serviço blob
-   * **Azurite: Limpar serviço** blob-limpar serviço blob
-   * **Azurite: Iniciar serviço** de fila-iniciar serviço de fila
-   * **Azurite: Fechar serviço** de fila-fechar serviço de fila
-   * **Azurite: Limpar serviço** de fila – limpar serviço de fila
+   * **Azurite: iniciar** todos os serviços do azurite
+   * **Azurite: fechar** todos os serviços do azurite
+   * **Azurite: Clean** -redefinir todos os serviços do azurite persistência dados
+   * **Azurite: iniciar serviço blob** -iniciar serviço blob
+   * **Azurite: fechar serviço blob** -fechar serviço blob
+   * **Azurite: limpar serviço blob** -limpar serviço blob
+   * **Azurite: iniciar serviço de fila** -iniciar serviço de fila
+   * **Azurite: fechar serviço de fila** -fechar serviço de fila
+   * **Azurite: limpar serviço de fila** -serviço de fila de limpeza
 
 Para configurar o azurite em Visual Studio Code, selecione o painel extensões. Selecione o ícone **gerenciar** (engrenagem) para **azurite**. Selecione **definir configurações de extensão**.
 
@@ -55,13 +55,13 @@ Para configurar o azurite em Visual Studio Code, selecione o painel extensões. 
 
 Há suporte para as seguintes configurações:
 
-   * **Azurite: Host** de blob-o ponto de extremidade de escuta do serviço BLOB. A configuração padrão é 127.0.0.1.
-   * **Azurite: Porta** de blob-a porta de escuta do serviço BLOB. A porta padrão é 10000.
+   * **Azurite: host de blob** -o ponto de extremidade de escuta do serviço BLOB. A configuração padrão é 127.0.0.1.
+   * **Azurite: porta de blob** -a porta de escuta do serviço BLOB. A porta padrão é 10000.
    * **Azurite: Depurar** -saída do log de depuração para o canal azurite. O valor predefinido é **false**.
-   * **Azurite: Local** -o caminho do local do espaço de trabalho. O padrão é a pasta de trabalho Visual Studio Code.
-   * **Azurite: Host** de fila-o ponto de extremidade de escuta serviço fila. A configuração padrão é 127.0.0.1.
-   * **Azurite: Porta** da fila-a porta de escuta do serviço fila. A porta padrão é 10001.
-   * **Azurite: Silencioso** – o modo silencioso desabilita o log de acesso. O valor predefinido é **false**.
+   * **Azurite: Location** -o caminho do local do espaço de trabalho. O padrão é a pasta de trabalho Visual Studio Code.
+   * **Azurite: host de fila** -o ponto de extremidade de escuta serviço fila. A configuração padrão é 127.0.0.1.
+   * **Azurite: porta da fila** -a porta de escuta do serviço fila. A porta padrão é 10001.
+   * **Azurite:** o modo silencioso-silencioso desabilita o log de acesso. O valor predefinido é **false**.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Instalar e executar o azurite usando o NPM
 
@@ -83,7 +83,7 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 
 **Execute a imagem do Docker azurite**:
 
-O comando a seguir executa a imagem do Docker azurite. O `-p 10000:10000` parâmetro redireciona as solicitações da porta 10000 da máquina host para a instância do Docker.
+O comando a seguir executa a imagem do Docker azurite. O parâmetro `-p 10000:10000` redireciona as solicitações da porta 10000 da máquina host para a instância do Docker.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
@@ -91,7 +91,7 @@ docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
 
 **Especifique o local do espaço de trabalho**:
 
-No exemplo a seguir, o `-v c:/azurite:/data` parâmetro especifica *c:/azurite* como o local de dados persistentes azurite. O diretório, *c:/azurite*, deve ser criado antes da execução do comando Docker.
+No exemplo a seguir, o parâmetro `-v c:/azurite:/data` especifica *c:/azurite* como o local de dados persistentes azurite. O diretório, *c:/azurite*, deve ser criado antes da execução do comando Docker.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
@@ -290,8 +290,8 @@ Conecte-se ao azurite de SDKs ou ferramentas do armazenamento do Azure, como [Ge
 
 Você pode usar o seguinte nome de conta e chave com azurite. Essa é a mesma conta bem conhecida e chave usada pelo emulador de armazenamento do Azure herdado.
 
-* Nome da conta:`devstoreaccount1`
-* Chave de conta:`Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
+* Nome da conta: `devstoreaccount1`
+* Chave de conta: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
 > [!NOTE]
 > Além da autenticação SharedKey, o azurite dá suporte à autenticação de SAS de serviço e conta. O acesso anônimo também está disponível quando um contêiner é definido para permitir acesso público.
@@ -354,7 +354,7 @@ O azurite dá suporte à replicação com redundância geográfica com acesso de
 
 As contribuições e sugestões para azurite são boas-vindas. Vá para a página do [projeto azurite GitHub](https://github.com/Azure/Azurite/projects) ou problemas do [GitHub](https://github.com/Azure/Azurite/issues) para Marcos e itens de trabalho que estamos acompanhando para futuros recursos e correções de bugs. Os itens de trabalho detalhados também são acompanhados no GitHub.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Use o emulador de armazenamento do Azure para desenvolvimento e teste](storage-use-emulator.md) de documentos o emulador de armazenamento do Azure herdado, que está sendo substituído pelo azurite.
 * [Configurar cadeias de conexão do armazenamento do Azure](storage-configure-connection-string.md) explica como montar uma cadeia de conexão válida do armazenamento do Azure.

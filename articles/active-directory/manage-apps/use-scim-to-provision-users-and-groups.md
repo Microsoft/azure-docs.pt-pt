@@ -1,5 +1,5 @@
 ---
-title: SCIM o provisionamento de usuário com o Azure Active Directory | Microsoft Docs
+title: Automatizar o provisionamento de aplicativos usando o SCIM no Azure AD
 description: Aprenda a criar um ponto de extremidade do SCIM, integrar sua API do SCIM com Azure Active Directory e começar a automatizar o provisionamento de usuários e grupos em seus aplicativos.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8bb9b507763c935ab244c42584120a279063954
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 1d4694dfa92d282e1dc098a510ac82dd9c703c1e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195455"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276494"
 ---
 # <a name="scim-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM provisionamento de usuário com o Azure Active Directory (Azure AD)
 

@@ -1,23 +1,14 @@
 ---
 title: Apresentar um bloco de notas do Jupyter como uma apresentação de diapositivos no Azure
 description: Como configurar células para o modo de apresentação de slides num bloco de notas do Jupyter e, em seguida, apresentar a apresentação de slides usando a extensão de aumento.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: c372175b-beb5-4b45-b2f8-34cb06990117
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 04612dc8892a544397251580b3494badc84e2ad5
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d180eaf571fa57191e3b0856020b02f05d05e344
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973118"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277584"
 ---
 # <a name="run-a-notebook-slideshow"></a>Executar uma apresentação de slides do bloco de notas
 
@@ -101,7 +92,7 @@ Uma vez que a apresentação de slides renderiza fragmentos com mais vertical es
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [How to: Configurar e gerenciar projetos @ no__t-0
-- [How to: Instalar pacotes de dentro de um bloco de anotações @ no__t-0
-- [How to: Trabalhar com arquivos de dados @ no__t-0
-- [How to: Acessar recursos de dados @ no__t-0
+- [Como: configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
+- [Como: instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
+- [Como: trabalhar com arquivos de dados](work-with-project-data-files.md)
+- [Como: aceder aos recursos de dados](access-data-resources-jupyter-notebooks.md)

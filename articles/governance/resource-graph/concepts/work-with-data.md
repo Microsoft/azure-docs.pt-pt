@@ -1,14 +1,14 @@
 ---
 title: Trabalhar com grandes conjuntos de dados
-description: Entenda como obter e controlar grandes conjuntos de dados ao trabalhar com o grafo de recursos do Azure.
+description: Entenda como obter, Formatar, paginar e ignorar registros em grandes conjuntos de dados ao trabalhar com o grafo de recursos do Azure.
 ms.date: 10/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: a7258534b867c57f89eeb432b579e87070b4fc1d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 2c6aca0c468630cee79222bc77bdc20dc9d95b19
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959016"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304013"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhando com grandes conjuntos de dados de recursos do Azure
 

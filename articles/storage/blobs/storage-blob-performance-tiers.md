@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 64efd1a02b903ec3874066f6c663b86a8080f746
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932262"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270230"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Níveis de desempenho para armazenamento de blobs de blocos
 
@@ -54,6 +54,12 @@ O armazenamento de desempenho Premium é ideal para cargas de trabalho que exige
 ## <a name="standard-performance"></a>Desempenho padrão
 
 O desempenho padrão dá suporte a diferentes [níveis de acesso](storage-blob-storage-tiers.md) para armazenar dados da maneira mais econômica. Ele é otimizado para alta capacidade e alta taxa de transferência em conjuntos de dados grandes.
+
+- **Conjuntos de backup e recuperação de desastres**. O armazenamento de desempenho padrão oferece camadas econômicas, tornando-o um caso de uso perfeito para conjuntos de dados de recuperação de desastres de curto e longo prazo, backups secundários e arquivamento de data de conformidade.
+
+- **Conteúdo de mídia**. Imagens e vídeos geralmente são acessados com frequência quando criados e armazenados pela primeira vez, mas esse tipo de conteúdo é usado com menos frequência, pois ele é mais antigo. O armazenamento de desempenho padrão oferece camadas adequadas para as necessidades de conteúdo de mídia. 
+
+- **Processamento de dados em massa**. Esses tipos de cargas de trabalho são adequados para o armazenamento Standard porque exigem armazenamento econômico de alta taxa de transferência em vez de baixa latência consistente. Conjuntos de grandes volumes de valores brutos são preparados para processamento e eventualmente migram para camadas mais friadas.
 
 ## <a name="migrate-from-standard-to-premium"></a>Migrar do Standard para o Premium
 

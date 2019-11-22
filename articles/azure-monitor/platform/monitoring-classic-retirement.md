@@ -1,6 +1,6 @@
 ---
-title: Alertas unificados & monitoramento no Azure Monitor substitui alertas clássicos & monitoramento
-description: Visão geral da desativação dos serviços e funcionalidades de monitoramento clássicos, mostrados anteriormente em portal do Azure em alertas (clássico). O monitoramento clássico de alertas & inclui alertas de métrica clássicos para recursos do Azure, alertas de métrica clássicos para Application Insights, alertas clássicos do WebTest para Application Insights, alertas com base em métricas personalizadas clássicas para Application Insights e clássico alertas para Application Insights SmartDetection v1
+title: Atualização do monitoramento clássico de & de alertas no Azure Monitor
+description: Descrição da desativação de serviços e funcionalidades de monitoramento clássicos, mostrada anteriormente em portal do Azure em alertas (clássico).
 author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: ea50a4f10aa1d794f875cb1eb9601774bec146cd
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: f4639d46a796924b4fe1dcbb46735abea128388f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676900"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307091"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Alertas unificados & monitoramento no Azure Monitor substitui alertas clássicos & monitoramento
 
 Azure Monitor agora se tornou um serviço de monitoramento de pilha completo unificado, que agora dá suporte a ' uma métrica ' e a ' um alerta ' entre os recursos; para obter mais informações, consulte nossa [postagem no blog sobre novos Azure monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). As novas plataformas de monitoramento e alerta do Azure foram criadas para serem mais rápidas, inteligentes e extensíveis – mantendo o ritmo com os crescentes extensãos de computação em nuvem e em linha com a filosofia de nuvem inteligente da Microsoft. 
 
-Com a nova plataforma de monitoramento e alerta do Azure em vigor, iremos desativá-la na seção "clássico" de monitoramento e alerta da plataforma de alertas na exibição de alerta *clássico* dos alertas do Azure, **será preterida em agosto de 2019 em nuvens públicas do Azure** . A [nuvem do Azure governamental](../../azure-government/documentation-government-welcome.md) e o [Azure China 21vianet](https://docs.azure.cn/) não serão afetados.
+Com a nova plataforma de monitoramento e alerta do Azure em vigor, desativaremos a seção "clássica" de monitoramento e alertas da plataforma de alertas hospedados na exibição de alerta *clássico* dos alertas do Azure, **serão preteridas em agosto de 2019 em nuvens públicas do Azure**. A [nuvem do Azure governamental](../../azure-government/documentation-government-welcome.md) e o [Azure China 21vianet](https://docs.azure.cn/) não serão afetados.
 
 > [!NOTE]
 > Devido ao atraso na distribuição da ferramenta de migração, a data de desativação da migração de alertas clássicos foi [prorrogada para 31 de agosto de 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) da data de lançamento original de 30 de junho de 2019.

@@ -1,6 +1,6 @@
 ---
 title: 'Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure v2 para JavaScript'
-description: Crie uma conta de armazenamento e um contentor no armazenamento de objetos (blobs). Em seguida, use a biblioteca de cliente de armazenamento do Azure para node. js v2 para carregar um blob no armazenamento do Azure, baixar um blob e listar os BLOBs em um contêiner.
+description: Crie uma conta de armazenamento e um contentor no armazenamento de objetos (blobs). Use a biblioteca de cliente de armazenamento do Azure para node. js v2 para carregar um blob, baixar um blob e listar os BLOBs em um contêiner.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 02/04/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 12078300b36412a1507991507a39654acdeb7c69
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7300d4eccec5b1e4b3b5b7dc292cf6150a42e7b4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825337"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269691"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v2-for-javascript"></a>Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure v2 para JavaScript
 

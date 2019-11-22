@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 11/20/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8f95dfd6410ae22a4596ac7d5d72add57e8029d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 49081ba72559b021d2e4846e7d9feffd61ae7b36
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373897"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284904"
 ---
 # <a name="service-to-service-apps"></a>Aplicativos de serviço a serviço
 
@@ -40,7 +40,7 @@ Aplicativos de serviço a serviço podem ser um aplicativo de daemon ou de servi
 
 ![Diagrama de daemon ou aplicativo de servidor para API da Web](./media/authentication-scenarios/daemon_server_app_to_web_api.png)
 
-## <a name="dprotocol-flow"></a>Fluxo de DProtocol
+## <a name="protocol-flow"></a>Fluxo de protocolo
 
 ### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Identidade do aplicativo com concessão de credenciais de cliente OAuth 2,0
 
@@ -59,11 +59,11 @@ O fluxo discutido abaixo pressupõe que um usuário tenha sido autenticado em ou
 
 ## <a name="code-samples"></a>Exemplos de código
 
-Consulte os exemplos de código para cenários de aplicativo de daemon ou de servidor para API da Web. E volte com frequência à medida que novos exemplos são adicionados com frequência. [Aplicativo de servidor ou daemon para API da Web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+Consulte os exemplos de código para o aplicativo daemon ou de servidor para cenários da API Web: [servidor ou aplicativo daemon para API da Web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
 ## <a name="app-registration"></a>Registo da aplicação
 
-* Locatário único – para a identidade do aplicativo e casos de identidade de usuário delegado, o aplicativo de daemon ou de servidor deve ser registrado no mesmo diretório no Azure AD. A API da Web pode ser configurada para expor um conjunto de permissões, que são usadas para limitar o acesso do daemon ou do servidor a seus recursos. Se um tipo de identidade de usuário delegado estiver sendo usado, o aplicativo de servidor precisará selecionar as permissões desejadas no menu suspenso "permissões para outros aplicativos" no portal do Azure. Esta etapa não será necessária se o tipo de identidade do aplicativo estiver sendo usado.
+* Locatário único – para a identidade do aplicativo e casos de identidade de usuário delegado, o aplicativo de daemon ou de servidor deve ser registrado no mesmo diretório no Azure AD. A API da Web pode ser configurada para expor um conjunto de permissões, que são usadas para limitar o acesso do daemon ou do servidor a seus recursos. Se um tipo de identidade de usuário delegado estiver sendo usado, o aplicativo de servidor precisará selecionar as permissões desejadas. Na página **permissão de API** para o registro do aplicativo, depois de selecionar **Adicionar uma permissão** e escolher a família de API, escolha **permissões delegadas**e, em seguida, selecione suas permissões. Esta etapa não será necessária se o tipo de identidade do aplicativo estiver sendo usado.
 * Multilocatário-primeiro, o daemon ou aplicativo de servidor é configurado para indicar as permissões que ele requer para ser funcional. Essa lista de permissões necessárias é mostrada em uma caixa de diálogo quando um usuário ou administrador no diretório de destino dá consentimento ao aplicativo, o que o torna disponível para sua organização. Alguns aplicativos exigem apenas permissões em nível de usuário, às quais qualquer usuário na organização pode consentir. Outros aplicativos exigem permissões de nível de administrador, às quais um usuário da organização não pode consentir. Somente um administrador de diretório pode dar consentimento a aplicativos que exigem esse nível de permissões. Quando o usuário ou administrador consentir, ambas as APIs da Web serão registradas em seu diretório.
 
 ## <a name="token-expiration"></a>Expiração do token

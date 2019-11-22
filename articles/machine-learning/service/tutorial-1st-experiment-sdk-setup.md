@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: criar seu primeiro experimento do ML: instalação'
+title: 'Tutorial: criar seu primeiro experimento do ML'
 titleSuffix: Azure Machine Learning
 description: Neste tutorial, você começará a usar o SDK Azure Machine Learning Python em execução em notebooks Jupyter.  Na parte 1, você cria um espaço de trabalho no qual você gerenciará experimentos e modelos de ML.
 services: machine-learning
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: b2434102e0355d5c26c501588c360f74eb98404d
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: d2247ba965c5e6db6e2da0218859d207d2fc61b8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049146"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276614"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: introdução à criação de seu primeiro experimento do ML com o SDK do Python
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

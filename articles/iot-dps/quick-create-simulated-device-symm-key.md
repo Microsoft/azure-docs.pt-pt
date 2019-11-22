@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Use symmetric key to provision simulated device to Azure IoT Hub using C
+title: Início rápido – usar chave simétrica para provisionar dispositivo simulado para o Hub IoT do Azure usando C
 description: Neste guia de início rápido irá utilizar o SDK de dispositivo C para criar um dispositivo simulado que utiliza uma chave simétrica com o Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 152e09c0644c5193f5f356a0fbdf8f72bd65956d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 63446200f66982c1bb2688c2c972f6ddd3b993ed
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229661"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276538"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Guia de Início Rápido: aprovisionar um dispositivo simulado com chaves simétricas
 
@@ -34,7 +34,7 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
+* O [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou posterior com a carga de [trabalho C++' desenvolvimento de desktop com '](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
 
@@ -46,7 +46,7 @@ Nesta secção, irá preparar um ambiente de programação utilizado para criar 
 
 O SDK inclui o código de exemplo para um dispositivo simulado. Esse dispositivo simulado irá tentar fazer o aprovisionamento durante a respetiva sequência de arranque.
 
-1. Download the [CMake build system](https://cmake.org/download/).
+1. Baixe o [sistema de Build CMake](https://cmake.org/download/).
 
     É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho "Desenvolvimento do ambiente de trabalho em C++") estejam instalados no computador, **antes** de iniciar a instalação de `CMake`. Depois de os pré-requisitos estarem assegurados e a transferência verificada, instale o sistema de compilação CMake.
 
@@ -90,27 +90,25 @@ O SDK inclui o código de exemplo para um dispositivo simulado. Esse dispositivo
     -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
     ```
 
-
-
 ## <a name="create-a-device-enrollment-entry-in-the-portal"></a>Criar uma entrada de inscrição de dispositivos no portal
 
-1. Inicie sessão no portal do Azure, clique no botão **Todos os recursos**, no menu do lado esquerdo, e abra o Serviço Aprovisionamento de Dispositivos.
+1. Entre no portal do Azure, selecione o botão **todos os recursos** no menu esquerdo e abra o serviço de provisionamento de dispositivos.
 
-2. Selecione o separador **Gerir inscrições** e, em seguida, clique no botão **Adicionar inscrição individual** na parte superior. 
+2. Selecione a guia **gerenciar** registros e, em seguida, selecione o botão **adicionar registro individual** na parte superior. 
 
-3. Em **Adicionar inscrição**, introduza as seguintes informações e clique no botão **Guardar**.
+3. No painel **adicionar registro** , insira as informações a seguir e pressione o botão **salvar** .
 
    - **Mecanismo:** selecione **Chave Simétrica** como o *Mecanismo* de atestado de identidades.
 
-   - **Chaves de Geração Automática**: selecione esta caixa.
+   - **Gerar chaves automaticamente**: Marque esta caixa.
 
-   - **ID de Registo**: introduza um ID de registo para identificar a inscrição. Utilize apenas carateres alfanuméricos em minúsculas e travessões ("-"). Por exemplo, `symm-key-device-007`.
+   - **ID de Registo**: introduza um ID de registo para identificar a inscrição. Utilize apenas carateres alfanuméricos em minúsculas e travessões ("-"). Por exemplo, **Symm-Key-Device-007**.
 
    - **ID do Dispositivo do Hub IoT:** introduza o identificador de um dispositivo. Por exemplo, **device-007**.
 
      ![Adicionar inscrição individual para o atestado de chave simétrica no portal](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
-4. Depois de guardar a inscrição, a **Chave Primária** e a **Chave Secundária** serão geradas e adicionadas à entrada de inscrição. A inscrição do dispositivo de chave simétrica é apresentada como **symm-key-device-007** na coluna *ID de Registo* do separador *Inscrições Individuais*. 
+4. Depois de salvar o registro, a chave **primária** e a **chave secundária** serão geradas e adicionadas à entrada de registro. A inscrição do dispositivo de chave simétrica é apresentada como **symm-key-device-007** na coluna *ID de Registo* do separador *Inscrições Individuais*. 
 
     Abra a inscrição e copie o valor da **Chave Primária** gerada.
 
@@ -124,7 +122,7 @@ Nesta secção, atualize o código de exemplo para enviar a sequência de arranq
 
 
 
-1. No portal do Azure, selecione o separador **Descrição Geral** do Serviço de Aprovisionamento de Dispositivos e anote o valor de **_Âmbito do ID_** .
+1. Na portal do Azure, selecione a guia **visão geral** para o serviço de provisionamento de dispositivos e anote o valor de **_escopo da ID_** .
 
     ![Extrair informações de ponto final do Serviço Aprovisionamento de Dispositivos do painel do portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -151,14 +149,14 @@ Nesta secção, atualize o código de exemplo para enviar a sequência de arranq
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Find the call to `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** which is commented out.
+6. Localize a chamada para `prov_dev_set_symmetric_key_info()` em **prov\_dev\_cliente\_exemplo. c** , que é comentado.
 
     ```c
     // Set the symmetric key if using they auth type
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    Uncomment the function call, and replace the placeholder values (including the angle brackets) with your registration ID and primary key values.
+    Remova a marca de comentário da chamada de função e substitua os valores de espaço reservado (incluindo os colchetes angulares) por sua ID de registro e valores de chave primária.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -169,7 +167,7 @@ Nesta secção, atualize o código de exemplo para enviar a sequência de arranq
 
 7. Clique com o botão direito do rato no projeto **prov\_dev\_client\_sample** e selecione **Definir como Projeto de Arranque**. 
 
-8. No menu do Visual Studio, selecione **Debug** (Depurar)  > **Start without debugging** (Iniciar sem depuração) para executar a solução. Na linha de comandos para recriar o projeto, clique em **Yes** (Sim) para recriar o projeto antes da execução.
+8. No menu do Visual Studio, selecione **Debug** (Depurar)  > **Start without debugging** (Iniciar sem depuração) para executar a solução. No prompt para recriar o projeto, selecione **Sim**para recompilar o projeto antes de executá-lo.
 
     O resultado seguinte é um exemplo do dispositivo simulado a arrancar com êxito e a ligar à instância do serviço de aprovisionamento para atribuição a um hub IoT:
 
@@ -187,22 +185,22 @@ Nesta secção, atualize o código de exemplo para enviar a sequência de arranq
     Press enter key to exit:
     ```
 
-9. In the portal, navigate to the IoT hub your simulated device was assigned to and click the **IoT Devices** tab. On successful provisioning of the simulated to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. Poderá ter de clicar no botão **Atualizar** na parte superior. 
+9. No portal, navegue até o Hub IoT ao qual o dispositivo simulado foi atribuído e selecione a guia **dispositivos IOT** . No provisionamento bem-sucedido da Simulated para o Hub, sua ID de dispositivo aparece na folha **dispositivos IOT** , com *status* como **habilitado**. Talvez seja necessário pressionar o botão **Atualizar** na parte superior. 
 
-    ![O dispositivo é registado no hub IoT](./media/quick-create-simulated-device/hub-registration.png) 
+    ![O dispositivo é registado no hub IoT](./media/quick-create-simulated-device-symm-key/hub-registration.png) 
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se quiser continuar a trabalhar e a explorar o exemplo de cliente do dispositivo, não limpe os recursos criados neste Guia Rápido. Se não planear continuar, utilize os passos seguintes para eliminar todos os recursos criados no Guia Rápido.
+Se você planeja continuar trabalhando e explorando o exemplo de cliente do dispositivo, não limpe os recursos criados neste guia de início rápido. Se você não planeja continuar, use as etapas a seguir para excluir todos os recursos criados por este guia de início rápido.
 
 1. Feche a janela da saída do exemplo de dispositivo cliente no seu computador.
-1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Open **Manage Enrollments** for your service, and then click the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this Quickstart, and click the **Delete** button at the top. 
-1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Abra **Dispositivos IoT** para o seu hub, selecione o *ID DE DISPOSITIVO* do dispositivo que registou neste Início Rápido e, em seguida, clique no botão **Eliminar** na parte superior.
+1. No menu à esquerda na portal do Azure, selecione **todos os recursos** e, em seguida, selecione o serviço de provisionamento de dispositivos. Abra **gerenciar registros** para seu serviço e, em seguida, selecione a guia registros **individuais** . Marque a caixa de seleção ao lado da *ID de registro* do dispositivo registrado neste guia de início rápido e pressione o botão **excluir** na parte superior do painel. 
+1. No menu à esquerda na portal do Azure, selecione **todos os recursos** e, em seguida, selecione o Hub IOT. Abra **dispositivos IOT** para seu hub, marque a caixa de seleção ao lado da *ID do dispositivo* do dispositivo registrado neste guia de início rápido e, em seguida, pressione o botão **excluir** na parte superior do painel.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste Guia de Início Rápido, criou um dispositivo simulado no seu computador Windows e aprovisionou-o no seu hub IoT ao utilizar a Chave simétrica com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure, no portal. Para saber como inscrever o seu dispositivo programaticamente, continue para o Guia de Início Rápido para inscrição programática de dispositivos X.509. 
+Neste guia de início rápido, você criou um dispositivo simulado em seu computador Windows e o provisionou para o Hub IoT usando a chave simétrica com o serviço de provisionamento de dispositivos no Hub IoT do Azure no Portal. Para saber como registrar seu dispositivo programaticamente, vá para o guia de início rápido para o registro programático de dispositivos X. 509. 
 
 > [!div class="nextstepaction"]
-> [Manual de Início Rápido do Azure - Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure](quick-enroll-device-x509-java.md)
+> [Início rápido do Azure-registrar dispositivos X. 509 no serviço de provisionamento de dispositivos no Hub IoT do Azure](quick-enroll-device-x509-java.md)

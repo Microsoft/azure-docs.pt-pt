@@ -1,20 +1,16 @@
 ---
 title: Usar Azure Dev Spaces para interagir com contêineres do Windows
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/25/2019
 ms.topic: conceptual
 description: Saiba como executar Azure Dev Spaces em um cluster existente com contêineres do Windows
 keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, contêineres do Windows
-ms.openlocfilehash: 90d7c8e5fc08405178ab6596b765f289b9bd716f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: MT
+ms.openlocfilehash: ad91d8e48a9242795d4f5d5cd165e658339ebe08
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582778"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280037"
 ---
 # <a name="use-azure-dev-spaces-to-interact-with-windows-containers"></a>Usar Azure Dev Spaces para interagir com contêineres do Windows
 

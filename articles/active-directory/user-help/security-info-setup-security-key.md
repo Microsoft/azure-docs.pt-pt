@@ -1,6 +1,6 @@
 ---
-title: Configurar informações de segurança (versão prévia) para uma chave de segurança-Azure AD
-description: Como configurar suas informações de segurança para verificar sua identidade usando uma chave de segurança de FIDO2 (Fast Identity online).
+title: Configurar uma chave de segurança como seu método de verificação – Azure AD
+description: Como configurar sua página de informações de segurança (versão prévia) para verificar sua identidade para usar uma chave de segurança do Fast Identity online (FIDO2) como seu método de verificação.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d86d594f0918e6a9ffed49142a81a0f7834e86
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7d02ca3a8b5b617edb8ee00ae7d15ea7e94cae80
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803793"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278953"
 ---
-# <a name="set-up-security-info-preview-for-a-security-key"></a>Configurar informações de segurança (versão prévia) para uma chave de segurança
+# <a name="set-up-a-security-key-as-your-verification-method"></a>Configurar uma chave de segurança como seu método de verificação
 
-Você pode usar as chaves de segurança como um método de entrada sem senha dentro de sua organização. Uma chave de segurança é um dispositivo físico que é usado com um PIN exclusivo para entrar em sua conta corporativa ou de estudante. Como as chaves de segurança exigem que você tenha o dispositivo físico e algo que só saiba, ele é considerado um método de autenticação mais forte do que um nome de usuário e senha.
+Você pode usar as chaves de segurança como um método de entrada sem senha dentro de sua organização. Uma chave de segurança é um dispositivo físico que é usado com um PIN exclusivo para entrar em sua conta corporativa ou de estudante. Como as chaves de segurança exigem que você tenha o dispositivo físico e algo que só saiba, ele é considerado um método de verificação mais forte do que um nome de usuário e senha.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
 
@@ -35,7 +35,7 @@ Atualmente, damos suporte a vários designs e provedores de chaves de segurança
 O administrador ou sua organização fornecerá uma chave de segurança se precisar dela para sua conta corporativa ou de estudante. Há diferentes tipos de chaves de segurança que você pode usar, por exemplo, uma chave USB que você conecta ao seu dispositivo ou uma chave NFC que você toca em um leitor NFC. Você pode encontrar mais informações sobre sua chave de segurança, incluindo qual tipo é, da documentação do fabricante.
 
 > [!Note]
-> Se não for possível usar uma chave de segurança FIDO2, haverá outros métodos de autenticação com senha que você pode usar, como o aplicativo Microsoft Authenticator ou o Windows Hello. Para obter mais informações sobre o aplicativo Microsoft Authenticator, consulte [o que é o aplicativo Microsoft Authenticator?](user-help-auth-app-overview.md). Para obter mais informações sobre o Windows Hello, consulte [visão geral do Windows Hello](https://www.microsoft.com/windows/windows-hello).
+> Se não for possível usar uma chave de segurança FIDO2, haverá outros métodos de verificação com senha que você pode usar, como o aplicativo Microsoft Authenticator ou o Windows Hello. Para obter mais informações sobre o aplicativo Microsoft Authenticator, consulte [o que é o aplicativo Microsoft Authenticator?](user-help-auth-app-overview.md). Para obter mais informações sobre o Windows Hello, consulte [visão geral do Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -150,7 +150,7 @@ Para registrar uma chave de segurança, você deve ter pelo menos um método de 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre métodos de autenticação com senha, leia o [Microsoft Azure ad inicia a visualização pública de chaves de segurança FIDO2, habilitando](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) o blog de logons com senha ou leia o [que é o aplicativo Microsoft Authenticator?](user-help-auth-app-overview.md) e [ Artigos de visão geral do Windows Hello](https://www.microsoft.com/windows/windows-hello) .
+- Para obter mais informações sobre métodos de verificação com senha, leia o [Microsoft Azure ad começa a visualização pública de chaves de segurança FIDO2, habilitando](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) o blog de logons com senha ou leia o artigo o [que é o aplicativo Microsoft Authenticator?](user-help-auth-app-overview.md) e os artigos de [visão geral do Windows Hello](https://www.microsoft.com/windows/windows-hello) .
 
 - Para obter informações mais detalhadas sobre [as chaves de segurança em conformidade com a Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 

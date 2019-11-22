@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd50ca8b81b933a61a67ac36db6a656791a8121f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0bfd75f54e2b57e57fcadc27df2ca43d8be5cf37
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832859"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285511"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
@@ -33,9 +33,9 @@ Há muitos benefícios em usar a autenticação do Azure AD para fazer logon em 
 - Não precisa mais gerenciar contas de administrador local.
 - O RBAC do Azure permite conceder o acesso apropriado às VMs com base na necessidade e removê-la quando não for mais necessária.
 - Antes de permitir o acesso a uma VM, o acesso condicional do Azure AD pode impor requisitos adicionais, como: 
-   - Multi-Factor Authentication
-   - Risco de entrada
-- Automatize e dimensione o ingresso no Azure AD para VMs do Windows baseadas no Azure.
+   - Autenticação multifator
+   - Verificação de risco de entrada
+- Automatize e dimensione o ingresso no Azure AD de VMs do Windows do Azure que fazem parte para suas implantações de VDI.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -68,7 +68,7 @@ Para usar o logon do Azure AD no para VM do Windows no Azure, você precisa prim
 Há várias maneiras pelas quais você pode habilitar o logon do Azure AD para sua VM do Windows:
 
 - Usando a experiência de portal do Azure ao criar uma VM do Windows
-- Usando a experiência de Azure Cloud Shell ao criar uma VM do Windows ou para uma VM do Windows existente
+- Usando a experiência de Azure Cloud Shell ao criar uma VM **do Windows ou para uma VM do Windows existente**
 
 ### <a name="using-azure-portal-create-vm-experience-to-enable-azure-ad-login"></a>Usando portal do Azure criar experiência de VM para habilitar o logon do Azure AD
 
@@ -187,6 +187,13 @@ Para obter mais informações sobre como usar o RBAC para gerenciar o acesso aos
 - [Manage access to Azure resources using RBAC and the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)
 - [Gerencie o acesso aos recursos do Azure usando RBAC e Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
+## <a name="using-conditional-access"></a>Usando o acesso condicional
+
+Você pode impor políticas de acesso condicional, como a autenticação multifator ou a verificação de risco de entrada do usuário antes de autorizar o acesso às VMs do Windows no Azure que estão habilitadas com o logon do Azure AD. Para aplicar a política de acesso condicional, você deve selecionar o aplicativo "entrada de VM do Azure Windows" na opção de atribuição de aplicativos ou ações de nuvem e, em seguida, usar o risco de entrada como uma condição e/ou exigir autenticação multifator como um controle de acesso de concessão. 
+
+> [!NOTE]
+> Se você usar "exigir autenticação multifator" como um controle de acesso de concessão para solicitar acesso ao aplicativo "entrada de VM do Azure Windows", deverá fornecer a declaração de autenticação multifator como parte do cliente que inicia a sessão RDP para a VM Windows de destino no Azure. A única maneira de conseguir isso em um cliente Windows 10 é usar o PIN do Windows Hello para empresas ou a autenticação biométrica durante o RDP. O suporte para autenticação biométrica durante o RDP foi adicionado no Windows 10 1809. O uso do Windows Hello para empresas auth durante o RDP só está disponível para implantações que usam o modelo de confiança de certificado e que não estão disponíveis no momento para o modelo de confiança de chave.
+
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Fazer logon usando as credenciais do Azure AD para uma VM do Windows
 
 > [!IMPORTANT]
@@ -196,7 +203,7 @@ Para fazer logon na sua máquina virtual do Windows Server 2019 usando o Azure A
 
 1. Navegue até a página Visão geral da máquina virtual que foi habilitada com o logon do Azure AD.
 1. Selecione **conectar** para abrir a folha conectar-se à máquina virtual.
-1. Selecione **baixar arquivo RDP**.
+1. Selecione **transferir ficheiro RDP**.
 1. Selecione **abrir** para iniciar o cliente de conexão de área de trabalho remota.
 1. Selecione **conectar** para iniciar a caixa de diálogo de logon do Windows.
 1. Faça logon usando suas credenciais do Azure AD.
@@ -337,7 +344,12 @@ Se você vir a seguinte mensagem de erro ao iniciar uma conexão de área de tra
 
 ![O método de entrada que você está tentando usar não é permitido.](./media/howto-vm-sign-in-azure-ad-windows/mfa-sign-in-method-required.png)
 
-Se você tiver configurado uma política de acesso condicional que exige que o MFA seja feito antes de poder acessar o recurso do RBAC, você precisará garantir que o PC com Windows 10 que inicia a conexão de área de trabalho remota para sua VM se conecte usando um método de autenticação forte, como como o Windows Hello. Se você não usar um método de autenticação forte para sua conexão de área de trabalho remota, você verá o erro a seguir.
+Se você tiver configurado uma política de acesso condicional que exige que o MFA seja feito antes de poder acessar o recurso do RBAC, você precisará garantir que o PC com Windows 10 que inicia a conexão de área de trabalho remota para sua VM se conecte usando um método de autenticação forte, como como o Windows Hello. Se você não usar um método de autenticação forte para sua conexão de área de trabalho remota, você verá o erro a seguir. 
+
+Se você não tiver implantado o Windows Hello para empresas e se isso não for uma opção por enquanto, você poderá exlcude o requisito de MFA Configurando a política de acesso condicional que exclui o aplicativo "entrada de VM do Windows do Azure" na lista de aplicativos de nuvem que exigem MFA. Para saber mais sobre o Windows Hello para empresas, consulte [visão geral do Windows Hello para empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+
+> [!NOTE]
+> A autenticação de PIN do Windows Hello para empresas durante o RDP tem suporte no Windows 10 por um tempo agora. O suporte para autenticação biométrica durante o RDP foi adicionado no Windows 10 1809. O uso do Windows Hello para empresas auth durante o RDP só está disponível para implantações que usam o modelo de confiança de certificado e que não estão disponíveis no momento para o modelo de confiança de chave.
  
 ## <a name="preview-feedback"></a>Visualizar comentários
 

@@ -5,14 +5,14 @@ author: musa-57
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/21/2019
 ms.author: hamusa
-ms.openlocfilehash: 468c87e176cc61c48ba4caabd1c5a26f94d5fb5b
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 12f8f64c051d33ac2518edbe8b937521318a9e71
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970641"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284491"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -88,8 +88,8 @@ Para excluir um projeto na versão mais antiga do migrações para Azure:
 ### <a name="delete-a-workspace"></a>Eliminar uma área de trabalho
 
 Navegue até o espaço de trabalho Log Analytics anexado ao projeto.
-* Se você não tiver excluído o projeto de migrações para Azure, poderá encontrar o link para o espaço de trabalho na**avaliação de servidor**do **Essentials** > .
-       Espaço de trabalho ![LA @ no__t-1
+* Se você não tiver excluído o projeto de migrações para Azure, poderá encontrar o link para o espaço de trabalho na avaliação do **Essentials** > **Server**.
+       Espaço de trabalho ![LA](./media/troubleshooting-general/loganalytics-workspace.png)
 
      * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it.
 
@@ -106,13 +106,13 @@ Ao criar um projeto, esse erro pode indicar que você não tem acesso ao locatá
 
 ## <a name="error-invalid-ovf-manifest-entry"></a>Erro "entrada de manifesto OVF inválida"
 
-Se você receber o erro "o arquivo de manifesto fornecido é inválido: Entrada de manifesto OVF inválida ", faça o seguinte:
+Se você receber o erro "o arquivo de manifesto fornecido é inválido: entrada de manifesto OVF inválida", faça o seguinte:
 
 1. Verifique se o arquivo OVA do dispositivo de migração do Azure foi baixado corretamente verificando seu valor de hash. [Saiba mais](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). Se o valor de hash não corresponder, baixe o arquivo OVA novamente e repita a implantação.
 2. Se a implantação ainda falhar e você estiver usando o VMware vSphere cliente para implantar o arquivo OVF, tente implantá-lo por meio do cliente Web vSphere. Se a implantação ainda falhar, tente usar um navegador da Web diferente.
 3. Se você estiver usando o cliente Web vSphere e tentando implantá-lo no vCenter Server 6,5 ou 6,7, tente implantar o OVA diretamente no host ESXi:
    - Conecte-se diretamente ao host ESXi (em vez de vCenter Server) com o cliente Web (*endereço IP do host*do https://< >/UI).
-   - Em **início** > **inventário**, selecione **arquivo** > **implantar modelo OVF**. Navegue até o OVA e conclua a implantação.
+   - Em **início** > **inventário**, selecione **arquivo** > **implantar o modelo OVF**. Navegue até o OVA e conclua a implantação.
 4. Se a implantação ainda falhar, entre em contato com o suporte para migrações para Azure.
 
 ## <a name="appliance-cant-connect-to-the-internet"></a>O dispositivo não pode se conectar à Internet
@@ -152,7 +152,7 @@ Se você receber esse erro de conexão, talvez não consiga se conectar ao vCent
     4. Verifique se vCenter Server está em execução.
 
 
-## <a name="error-appliance-might-not-be-registered"></a>Erro: O dispositivo pode não estar registrado
+## <a name="error-appliance-might-not-be-registered"></a>Erro: o dispositivo pode não estar registrado
 
 - O erro 60052, "o dispositivo pode não estar registrado com êxito no projeto de migrações para Azure" ocorrerá se a conta do Azure usada para registrar o dispositivo não tiver permissões suficientes.
     - Verifique se a conta de usuário do Azure usada para registrar o dispositivo tem pelo menos permissões de colaborador na assinatura.
@@ -161,7 +161,7 @@ Se você receber esse erro de conexão, talvez não consiga se conectar ao vCent
     - No portal do Azure e verifique se o projeto existe no grupo de recursos.
     - Se o projeto não existir, crie um novo projeto de migrações para Azure em seu grupo de recursos e registre o dispositivo novamente. [Saiba como](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) criar um novo projeto.
 
-## <a name="error-key-vault-management-operation-failed"></a>Erro: Falha na operação de gerenciamento de Key Vault
+## <a name="error-key-vault-management-operation-failed"></a>Erro: falha na operação de gerenciamento de Key Vault
 
 Se você receber o erro 60030 ou 60031, "falha em uma operação de gerenciamento de Azure Key Vault", faça o seguinte:
 - Verifique se a conta de usuário do Azure usada para registrar o dispositivo tem pelo menos permissões de colaborador na assinatura.
@@ -169,16 +169,16 @@ Se você receber o erro 60030 ou 60031, "falha em uma operação de gerenciament
 - Se o problema persistir, entre em contato com o suporte da Microsoft.
 - [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) sobre as funções e permissões do Azure necessárias.
 
-## <a name="fix-discovery-couldnt-be-initiated"></a>Soluciona Não foi possível iniciar a descoberta
+## <a name="fix-discovery-couldnt-be-initiated"></a>Correção: não foi possível iniciar a descoberta
 
-Erro 60028: "Não foi possível iniciar a descoberta devido a um erro. A operação falhou para a lista especificada de hosts ou clusters "indica que a descoberta não pôde ser iniciada nos hosts listados no erro devido a um problema no acesso ou na recuperação de informações da VM. O restante dos hosts foi adicionado com êxito.
+Erro 60028: "não foi possível iniciar a descoberta devido a um erro. A operação falhou para a lista especificada de hosts ou clusters "indica que a descoberta não pôde ser iniciada nos hosts listados no erro devido a um problema no acesso ou na recuperação de informações da VM. O restante dos hosts foi adicionado com êxito.
 
 - Adicione os hosts listados no erro novamente, usando a opção **Adicionar host** .
 - Se houver um erro de validação, examine as diretrizes de correção para corrigir os erros e tente a opção **salvar e iniciar descoberta** novamente.
 
-## <a name="fix-azure-ad-operation-failed-60025"></a>Soluciona Falha na operação do Azure AD (60025)
+## <a name="fix-azure-ad-operation-failed-60025"></a>Correção: falha na operação do Azure AD (60025)
 
-Erro 60025: "Falha em uma operação do Azure AD. O erro ocorreu ao criar ou atualizar o aplicativo do Azure AD "ocorre quando a conta de usuário do Azure usada para iniciar a descoberta é diferente da conta usada para registrar o dispositivo. Efetue uma das seguintes ações:
+Erro 60025: "falha em uma operação do Azure AD. O erro ocorreu ao criar ou atualizar o aplicativo do Azure AD "ocorre quando a conta de usuário do Azure usada para iniciar a descoberta é diferente da conta usada para registrar o dispositivo. Efetue uma das seguintes ações:
 
 - Verifique se a conta de usuário que está iniciando a descoberta é a mesma usada para registrar o dispositivo.
 - Forneça Azure Active Directory permissões de acesso do aplicativo à conta de usuário para a qual a operação de descoberta está falhando.
@@ -217,9 +217,9 @@ Se você tiver implantado um dispositivo que descobre continuamente seu ambiente
     1. Aguarde a conclusão da operação de atualização. Agora você deve ver informações atualizadas.
 
 
-## <a name="fix-cant-connect-to-host-or-cluster"></a>Soluciona Não é possível conectar-se ao host ou cluster
+## <a name="fix-cant-connect-to-host-or-cluster"></a>Correção: não é possível conectar-se ao host ou cluster
 
-Erro 50004: "Não é possível se conectar a um host ou cluster porque o nome do servidor não pode ser resolvido. Código de erro WinRM: 0x803381B9 "poderá ocorrer se o serviço DNS do Azure para o dispositivo não puder resolver o cluster ou o nome do host fornecido.
+Erro 50004: "não é possível se conectar a um host ou cluster porque o nome do servidor não pode ser resolvido. Código de erro WinRM: 0x803381B9 "poderá ocorrer se o serviço DNS do Azure para o dispositivo não puder resolver o cluster ou o nome do host fornecido.
 
 - Se você vir esse erro no cluster, o FQDN do cluster.
 - Você também pode ver esse erro para hosts em um cluster. Isso indica que o dispositivo pode se conectar ao cluster, mas o cluster retorna nomes de host que não são FQDNs. Para resolver esse erro, atualize o arquivo de hosts no dispositivo adicionando um mapeamento do endereço IP e nomes de host:
@@ -229,6 +229,31 @@ Erro 50004: "Não é possível se conectar a um host ou cluster porque o nome do
     4. Guarde e feche o ficheiro de anfitriões.
     5. Verifique se o dispositivo pode se conectar aos hosts, usando o aplicativo de gerenciamento de dispositivo. Após 30 minutos, você deverá ver as informações mais recentes para esses hosts na portal do Azure.
 
+## <a name="application-discovery-issues"></a>Problemas de descoberta de aplicativos
+
+Atualmente, a descoberta de aplicativos só tem suporte para VMs VMware. O suporte para VMs Hyper-V e servidores físicos será habilitado no futuro. A descoberta de aplicativos exige que você forneça credenciais de VM no dispositivo. Saiba mais sobre os privilégios de acesso necessários para vCenter Server e para VMs VMware. A descoberta pode falhar devido a um dos seguintes problemas, examine a ação recomendada conforme prescrito abaixo para resolver o problema:
+
+**Código de erro** | **Mensagem** | **Causa possível** | **Ação recomendada**
+--- | --- | --- | ---
+10000 | Não é possível descobrir os aplicativos instalados no servidor. | Isso pode acontecer se o sistema operacional em execução no servidor não for o Windows nem o Linux. | A descoberta de aplicativos instalados só tem suporte em servidores Windows e Linux.
+10001 | Não é possível recuperar os aplicativos que instalaram o servidor. | Isso ocorre devido a um erro interno, pois há alguns arquivos ausentes no dispositivo. | Entre em contato com Suporte da Microsoft.
+10002 | Não é possível recuperar os aplicativos que instalaram o servidor. | Isso pode acontecer se o agente de descoberta no dispositivo de migrações para Azure não estiver funcionando corretamente. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
+10003 | Não é possível recuperar os aplicativos que instalaram o servidor. | Isso pode acontecer se o agente de descoberta não estiver funcionando corretamente. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
+10004 | Não é possível descobrir os aplicativos instalados para < computadores > Windows/Linux. |  As credenciais para acessar < computadores > Windows/Linux não foram fornecidas no dispositivo de migrações para Azure | Adicione uma credencial no dispositivo de migrações para Azure que tenha acesso ao < computadores > Windows/Linux.
+10005 | Não é possível acessar o servidor local. | Isso pode acontecer se as credenciais fornecidas para o computador acessar o servidor estiverem incorretas. | Atualize as credenciais fornecidas no dispositivo e verifique se o servidor está acessível usando a credencial.
+10006 | Não é possível acessar o servidor local. | Isso pode acontecer se o sistema operacional em execução no servidor não for o Windows nem o Linux. | A descoberta de aplicativos instalados só tem suporte em servidores Windows e Linux.
+9000 | Não é possível descobrir os aplicativos instalados na VM. | As ferramentas do VMware podem não estar instaladas ou corrompidas. | Instale/reinstale as ferramentas do VMware na VM e verifique se ela está em execução.
+9001 | Não é possível descobrir os aplicativos instalados na VM. | As ferramentas do VMware podem não estar instaladas ou corrompidas. | Instale/reinstale as ferramentas do VMware na VM e verifique se ela está em execução.
+9002 | Não é possível descobrir os aplicativos instalados na VM. | As ferramentas do VMware podem não estar em execução. | Instale/reinstale as ferramentas do VMware na VM e verifique se ela está em execução.
+9003 | Não é possível descobrir os aplicativos instalados no servidor. | Isso pode acontecer se o sistema operacional em execução no servidor não for o Windows nem o Linux. | A descoberta de aplicativos instalados só tem suporte em servidores Windows e Linux.
+9004 | Não é possível descobrir os aplicativos instalados no servidor. | Isso pode acontecer se a VM estiver desligada. | Para descobrir os aplicativos instalados no servidor, verifique se a VM está ligada.
+9005 | Não é possível descobrir os aplicativos instalados na VM. | Isso pode acontecer se o sistema operacional em execução na VM não for Windows nem Linux. | A descoberta de aplicativos instalados só tem suporte em servidores Windows e Linux.
+9006 | Não é possível recuperar os aplicativos que instalaram o servidor. | Isso pode acontecer se o agente de descoberta não estiver funcionando corretamente. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
+9007 | Não é possível recuperar os aplicativos que instalaram o servidor. | Isso pode acontecer se o agente de descoberta não estiver funcionando corretamente. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
+9008 | Não é possível recuperar os aplicativos que instalaram o servidor. | O problema pode ocorrer devido a um erro interno.  | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
+9009 | Não é possível recuperar os aplicativos que instalaram o servidor. | O problema pode ocorrer se as configurações do controle de conta de usuário (UAC) do Windows no servidor são restritivas e impedem a descoberta de aplicativos instalados. | Procure as configurações de ' controle de conta de usuário ' no servidor e defina a configuração do UAC no servidor para estar em um dos dois níveis inferiores.
+9010 | Não é possível recuperar os aplicativos que instalaram o servidor. | O problema pode ocorrer devido a um erro interno.  | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
+8084 | Não é possível descobrir aplicativos devido a um erro do VMware: <Exception from VMware> | O dispositivo de migrações para Azure usa APIs do VMware para descobrir aplicativos. Esse problema pode ocorrer devido a uma exceção gerada pelo vCenter Server ao tentar descobrir aplicativos. A mensagem de falha do VMware é exibida na mensagem de erro mostrada no Portal. | Examine a [documentação do VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html), procure a mensagem de falha e siga as etapas de solução de problemas no artigo do VMware para corrigir o problema. Se você ainda não conseguir corrigir o problema, acesse Suporte da Microsoft.
 
 
 ## <a name="fix-assessment-readiness"></a>Corrigir preparação de avaliação
@@ -237,21 +262,21 @@ Corrija os problemas de preparação da avaliação da seguinte maneira:
 
 **Lo** | **Soluciona**
 --- | ---
-Tipo de arranque não suportado | O Azure não dá suporte a VMs com um tipo de inicialização EFI. Recomendamos que você converta o tipo de inicialização para BIOS antes de executar uma migração. <br/><br/>Você pode usar a migração de servidor de migrações para o Azure para lidar com a migração dessas VMs. Ele converterá o tipo de inicialização da VM para BIOS durante a migração.
+Tipo de inicialização sem suporte | O Azure não dá suporte a VMs com um tipo de inicialização EFI. Recomendamos que você converta o tipo de inicialização para BIOS antes de executar uma migração. <br/><br/>Você pode usar a migração de servidor de migrações para o Azure para lidar com a migração dessas VMs. Ele converterá o tipo de inicialização da VM para BIOS durante a migração.
 Sistema operacional Windows com suporte condicional | O sistema operacional passou pela data de fim do suporte e precisa de um contrato de suporte personalizado (CSA) para [dar suporte no Azure](https://aka.ms/WSosstatement). Considere a atualização antes de migrar para o Azure.
 Sistema operacional Windows sem suporte | O Azure dá suporte apenas a [versões selecionadas do sistema operacional Windows](https://aka.ms/WSosstatement). Considere atualizar o computador antes de migrar para o Azure.
-SO Linux condicionalmente endossado | O Azure endossa apenas [as versões selecionadas do sistema operacional Linux](../virtual-machines/linux/endorsed-distros.md). Considere atualizar o computador antes de migrar para o Azure.
-SO Linux não endossado | O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. Considere atualizar para uma [versão do Linux endossada](../virtual-machines/linux/endorsed-distros.md) antes de migrar para o Azure.
+Sistema operacional Linux endossado condicionalmente | O Azure endossa apenas [as versões selecionadas do sistema operacional Linux](../virtual-machines/linux/endorsed-distros.md). Considere atualizar o computador antes de migrar para o Azure.
+Sistema operacional Linux não endossado | O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. Considere atualizar para uma [versão do Linux endossada](../virtual-machines/linux/endorsed-distros.md) antes de migrar para o Azure.
 Sistema operacional desconhecido | O sistema operacional da VM foi especificado como "other" em vCenter Server. Esse comportamento impede que as migrações para Azure verifiquem a prontidão do Azure da VM. Verifique se o sistema operacional tem [suporte](https://aka.ms/azureoslist) do Azure antes de migrar o computador.
 Versão de bits sem suporte | As VMs com sistemas operacionais de 32 bits podem ser inicializadas no Azure, mas recomendamos que você atualize para 64 bits antes de migrar para o Azure.
 Requer uma assinatura Microsoft Visual Studio | O computador está executando um sistema operacional cliente Windows, que tem suporte apenas por meio de uma assinatura do Visual Studio.
 VM não encontrada para o desempenho de armazenamento necessário | O desempenho de armazenamento (operações de entrada/saída por segundo [IOPS] e taxa de transferência) necessários para o computador excede o suporte à VM do Azure. Reduza os requisitos de armazenamento para a máquina antes da migração.
 VM não encontrada para o desempenho de rede necessário | O desempenho de rede (entrada/saída) necessário para o computador excede o suporte de VM do Azure. Reduza os requisitos de rede para o computador.
 VM não encontrada no local especificado | Use um local de destino diferente antes da migração.
-Um ou mais discos não são adequados | Um ou mais discos anexados à VM não atendem aos requisitos do Azure. Um<br/><br/> Azure Migrate: Atualmente, a avaliação do servidor não dá suporte a discos SSD Ultra e avalia os discos com base nos limites de disco para discos gerenciados Premium (32 TB).<br/><br/> Para cada disco anexado à VM, verifique se o tamanho do disco é < 64 TB (com suporte de discos SSD Ultra).<br/><br/> Se não estiver, reduza o tamanho do disco antes de migrar para o Azure, ou use vários discos no Azure e distribua [-os juntos](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) para obter limites de armazenamento maiores. Certifique-se de que o desempenho (IOPS e taxa de transferência) necessário para cada disco tem suporte dos [discos de máquina virtual gerenciada](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits)pelo Azure.
+Um ou mais discos inadequados | Um ou mais discos anexados à VM não atendem aos requisitos do Azure. Um<br/><br/> Migrações para Azure: a avaliação do servidor atualmente não dá suporte a discos SSD Ultra e avalia os discos com base nos limites de disco para discos gerenciados Premium (32 TB).<br/><br/> Para cada disco anexado à VM, verifique se o tamanho do disco é < 64 TB (com suporte de discos SSD Ultra).<br/><br/> Se não estiver, reduza o tamanho do disco antes de migrar para o Azure, ou use vários discos no Azure e distribua [-os juntos](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) para obter limites de armazenamento maiores. Certifique-se de que o desempenho (IOPS e taxa de transferência) necessário para cada disco tem suporte dos [discos de máquina virtual gerenciada](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits)pelo Azure.
 Um ou mais adaptadores de rede inadequados. | Remova adaptadores de rede não utilizados do computador antes da migração.
-A contagem do disco excede o limite | Remova os discos não utilizados do computador antes da migração.
-O tamanho do disco excede o limite | Azure Migrate: Atualmente, a avaliação do servidor não dá suporte a discos SSD Ultra e avalia os discos com base nos limites de disco Premium (32 TB).<br/><br/> No entanto, o Azure dá suporte a discos com tamanho de até 64 TB (com suporte de discos SSD Ultra). Reduza os discos para menos de 64 TB antes da migração ou use vários discos no Azure e distribua [-os juntos](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) para obter limites de armazenamento mais altos.
+A contagem de discos excede o limite | Remova os discos não utilizados do computador antes da migração.
+O tamanho do disco excede o limite | Migrações para Azure: a avaliação do servidor atualmente não dá suporte a discos SSD Ultra e avalia os discos com base nos limites de disco Premium (32 TB).<br/><br/> No entanto, o Azure dá suporte a discos com tamanho de até 64 TB (com suporte de discos SSD Ultra). Reduza os discos para menos de 64 TB antes da migração ou use vários discos no Azure e distribua [-os juntos](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) para obter limites de armazenamento mais altos.
 Disco não disponível no local especificado | Verifique se o disco está em seu local de destino antes de migrar.
 Disco não disponível para a redundância especificada | O disco deve usar o tipo de armazenamento de redundância definido nas configurações de avaliação (LRS por padrão).
 Não foi possível determinar a adequação do disco devido a um erro interno | Tente criar uma nova avaliação para o grupo.
@@ -276,7 +301,7 @@ A avaliação de servidor de migrações para Azure pode recomendar SKUs de VM d
 
 
 - A recomendação de SKU de VM depende das propriedades de avaliação.
-- Isso é afetado pelo tipo de avaliação que você executa na avaliação do servidor: *Baseado em desempenho*ou *como local*.
+- Isso é afetado pelo tipo de avaliação que você executa na avaliação do servidor: *baseada em desempenho*ou *como local*.
 - Para avaliações baseadas em desempenho, a avaliação do servidor considera os dados de utilização das VMs locais (CPU, memória, disco e utilização de rede) para determinar o SKU de VM de destino correto para suas VMs locais. Ele também adiciona um fator de conforto ao determinar a utilização efetiva.
 - Para o dimensionamento local, os dados de desempenho não são considerados e o SKU de destino é recomendado com base na alocação local.
 
@@ -297,7 +322,7 @@ A avaliação de servidor de migrações para Azure pode recomendar um disco mai
 
 Por exemplo, se você tiver um disco local com 32 GB de memória, mas o IOPS agregado de leitura e gravação para o disco for de 800 IOPS, a avaliação do servidor recomendará um disco Premium (devido aos requisitos de IOPS mais altos) e, em seguida, recomendará uma SKU de disco que possa dar suporte ao r IOPS e tamanho de ecessário. A correspondência mais próxima neste exemplo seria P15 (256 GB, IOPS de 1100). Embora o tamanho exigido pelo disco local tenha 32 GB, a avaliação do servidor recomenda um disco maior devido ao requisito de IOPS alto do disco local.
 
-## <a name="fix-percentage-of-utilized-core-or-memory-missing"></a>Soluciona Porcentagem de núcleo utilizado ou memória ausente
+## <a name="fix-percentage-of-utilized-core-or-memory-missing"></a>Correção: porcentagem do núcleo utilizado ou memória ausente
 
 A avaliação do servidor relata "PercentageOfCoresUtilizedMissing" ou "PercentageOfMemoryUtilizedMissing" quando o dispositivo de migrações para Azure não pode coletar dados de desempenho para as VMs locais relevantes.
 
@@ -321,13 +346,11 @@ A Avaliação do Servidor recolhe continuamente os dados de desempenho das máqu
 - Se você quiser escolher o pico de uso do período e não quiser perder as exceções, deverá selecionar o 99 º percentil para utilização de percentil.
 
 
-
 ## <a name="i-cant-find-dependency-visualization-for-azure-government"></a>Não consigo encontrar a visualização de dependência para o Azure governamental
 
 As migrações para Azure dependem Mapa do Serviço para a funcionalidade de visualização de dependência. Como Mapa do Serviço não está disponível no Azure governamental no momento, essa funcionalidade não está disponível no Azure governamental.
 
 ## <a name="dependencies-dont-show-after-installing-agents"></a>As dependências não são mostradas após a instalação de agentes
-
 
 Depois de instalar os agentes de visualização de dependência em VMs locais, as migrações para Azure normalmente leva 15-30 minutos para exibir as dependências no Portal. Se você tiver aguardado por mais de 30 minutos, verifique se o Microsoft Monitoring Agent (MMA) pode se conectar ao espaço de trabalho Log Analytics.
 
@@ -375,7 +398,7 @@ Após a migração de computadores com a visualização de dependência habilita
 
 Colete logs da seguinte maneira:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 2. Pressione F12 para iniciar a Ferramentas para Desenvolvedores. Se necessário, desmarque a configuração **Limpar entradas na navegação** .
 3. Selecione a guia **rede** e inicie a captura do tráfego de rede:
    - No Chrome, selecione **preservar log**. A gravação deve ser iniciada automaticamente. Um círculo vermelho indica que o tráfego está sendo capturado. Se o círculo vermelho não aparecer, selecione o círculo preto para iniciar.

@@ -1,5 +1,5 @@
 ---
-title: Configurar o consentimento do usuário para um aplicativo-Azure Active Directory | Microsoft Docs
+title: Configurar o consentimento do usuário para um aplicativo-Azure Active Directory
 description: Saiba como gerenciar a maneira como os usuários concordam com permissões de aplicativo. Você pode simplificar a experiência do usuário concedendo consentimento ao administrador. Esses métodos se aplicam a todos os usuários finais em seu locatário do Azure Active Directory (Azure AD).
 services: active-directory
 author: msmimart
@@ -12,12 +12,12 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bd746e79bc9d70be23771f97b1757f090f6375f
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 4a187ea9d22efa40c482ea8930be0271d84a899a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709276"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273995"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Configurar a maneira como os usuários finais consentirem para um aplicativo no Azure Active Directory
 Saiba como configurar a maneira como os usuários consentirão as permissões do aplicativo. Você pode simplificar a experiência do usuário concedendo consentimento ao administrador. Este artigo fornece as diferentes maneiras como você pode configurar o consentimento do usuário. Os métodos se aplicam a todos os usuários finais em seu locatário do Azure Active Directory (Azure AD). 

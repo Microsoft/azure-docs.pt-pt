@@ -1,5 +1,5 @@
 ---
-title: Descubra quando um usuário específico poderá acessar um aplicativo | Microsoft Docs
+title: Descubra quando um usuário específico poderá acessar um aplicativo
 description: Como descobrir quando um usuário extremamente importante pode acessar um aplicativo que você configurou para o provisionamento de usuários com o Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3b334df8cd24a1d8ca88c8ac2e3117bdd24d8b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 25ac9ad5877c6a1408d4045df4d4e1fd8f64ea94
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057772"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275745"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verificar o status do provisionamento do usuário
 
@@ -40,7 +40,7 @@ Quando você configura o provisionamento automático pela primeira vez, a seçã
 
 Após a conclusão de um ciclo de provisionamento, a seção **estatísticas até a data** mostra os números cumulativos de usuários e grupos que foram provisionados até a data, junto com a data de conclusão e a duração do último ciclo. A **ID da atividade** identifica exclusivamente o ciclo de provisionamento mais recente. A **ID do trabalho** é um identificador exclusivo para o trabalho de provisionamento e é específica para o aplicativo em seu locatário.
 
-O progresso do provisionamento pode ser exibido na portal do Azure, na guia **provisionamento de &gt; nome\] &gt; &gt; de aplicativo do \[Azure Active Directory Enterprise apps** .
+O progresso do provisionamento pode ser exibido na portal do Azure, no **Azure Active Directory &gt; Enterprise Apps &gt; \[nome do aplicativo**\] &gt; guia de provisionamento.
 
 ![Barra de progresso da página de provisionamento](media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
@@ -48,7 +48,7 @@ O progresso do provisionamento pode ser exibido na portal do Azure, na guia **pr
 
 Para ver o status de provisionamento de um usuário selecionado, consulte os [logs de provisionamento (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) no Azure AD. Todas as operações executadas pelo serviço de provisionamento de usuário são registradas nos logs de provisionamento do Azure AD. Isso inclui todas as operações de leitura e gravação feitas nos sistemas de origem e de destino, bem como os dados de usuário que foram lidos ou gravados durante cada operação.
 
-Você pode acessar os logs de provisionamento no portal do Azure selecionando **Azure Active Directory** &gt; **aplicativos** &gt; empresariais **logs de provisionamento (versão prévia)** na seção **atividade** . Você pode pesquisar os dados de provisionamento com base no nome do usuário ou no identificador no sistema de origem ou no sistema de destino. Para obter detalhes, consulte [Provisionando logs (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+Você pode acessar os logs de provisionamento no portal do Azure selecionando **Azure Active Directory** &gt; **aplicativos empresariais** &gt; **Provisionando logs (versão prévia)** na seção **atividade** . Você pode pesquisar os dados de provisionamento com base no nome do usuário ou no identificador no sistema de origem ou no sistema de destino. Para obter detalhes, consulte [Provisionando logs (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
 Os logs de provisionamento registram todas as operações executadas pelo serviço de provisionamento, incluindo:
 
@@ -66,7 +66,7 @@ O tempo necessário para que um determinado usuário seja provisionado depende p
 
 - Para o **ciclo inicial**, o tempo de trabalho depende de muitos fatores, incluindo o número de usuários e grupos no escopo para provisionamento e o número total de usuários e grupo no sistema de origem. A primeira sincronização entre o Azure AD e um aplicativo pode levar de 20 minutos a várias horas, dependendo do tamanho do diretório do Azure AD e do número de usuários no escopo para provisionamento. Uma lista abrangente de fatores que afetam o desempenho inicial do ciclo é resumida mais adiante nesta seção.
 
-- Para **ciclos incrementais** após o ciclo inicial, os tempos de trabalho tendem a ser mais rápidos (por exemplo, em 10 minutos), pois o serviço de provisionamento armazena marcas d' água que representam o estado de ambos os sistemas após o ciclo inicial, melhorando o desempenho do subseqüente sincronizações. A hora do trabalho depende do número de alterações detectadas no ciclo de provisionamento. Se houver menos de 5.000 alterações de associação de usuário ou de grupo, o trabalho poderá ser concluído em um único ciclo de provisionamento incremental. 
+- Para **ciclos incrementais** após o ciclo inicial, os tempos de trabalho tendem a ser mais rápidos (por exemplo, em 10 minutos), pois o serviço de provisionamento armazena as marcas d' água que representam o estado de ambos os sistemas após o ciclo inicial, melhorando o desempenho das sincronizações subsequentes. A hora do trabalho depende do número de alterações detectadas no ciclo de provisionamento. Se houver menos de 5.000 alterações de associação de usuário ou de grupo, o trabalho poderá ser concluído em um único ciclo de provisionamento incremental. 
 
 A tabela a seguir resume os tempos de sincronização para cenários de provisionamento comuns. Nesses cenários, o sistema de origem é o Azure AD e o sistema de destino é um aplicativo SaaS. Os tempos de sincronização derivam de uma análise estatística de trabalhos de sincronização para os aplicativos SaaS ServiceNow, Workplace, Salesforce e G Suite.
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/04/2019
 ms.author: aahi
-ms.openlocfilehash: 19421788eea59ea250efbaa656266da49dc3b42f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f11d23207a21af5c73831d0edd5ffc9eaa59c119
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73742728"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280663"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Cenários de usuário de exemplo para o API de Análise de Texto
 
@@ -41,7 +41,7 @@ Use Extração de Frases-chave e o reconhecimento de entidade para processar sol
 
 ## <a name="monitor-your-products-social-media-feeds"></a>Monitorar os feeds de mídia social de seu produto
 
-Monitore os comentários sobre o produto do usuário na página do Twitter ou do Facebook do seu produto. Use os dados para analisar os sentimentos do cliente em direção a lançamentos de novos produtos, extrair frases-chave sobre recursos e solicitações de recurso ou resolver reclamações de clientes à medida que elas acontecem.
+Monitore os comentários sobre o produto do usuário na página do Twitter ou do Facebook do seu produto. Use os dados para analisar os sentimentos do cliente em direção a lançamentos de novos produtos, extrair frases-chave sobre recursos e solicitações de recurso ou resolver reclamações de clientes à medida que elas acontecem. Consulte o [modelo de Microsoft Flow](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/)de exemplo.
 
 ![Uma imagem que descreve como monitorar seus comentários de produto e empresa na mídia social usando a extração de frases-chave](media/use-cases/social-feed.svg)
 

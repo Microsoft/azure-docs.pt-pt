@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 11/18/2019
 ms.topic: overview
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 9fcf75a07d1caf7b411c315d11ce984cbe35df75
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: MT
+ms.openlocfilehash: 55c4c3f2c6a7856f3e7c0aea81ce013d3ff56f8b
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577189"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284791"
 ---
 # <a name="what-is-azure-blockchain-service"></a>O que é o Azure Blockchain Service?
 
@@ -31,7 +31,7 @@ Estas funcionalidades não exigem praticamente qualquer ação de administraçã
 
 ## <a name="network-deployment-and-operations"></a>Implantação e operações de rede
 
-A implantação do serviço Blockchain do Azure pode ser feita por meio da portal do Azure, CLI do Azure, bem como pelo código do Visual Studio usando a extensão Blockchain do Azure.  A implantação é simplificada, incluindo o provisionamento de nós de transação e validação, redes virtuais do Azure para o isolamento de segurança, bem como o armazenamento gerenciado por serviços.  Além disso, ao implantar um novo membro blockchain, os usuários também criam ou ingressam em um consórcio.  Os consórcios permitem que várias partes em diferentes assinaturas do Azure possam se comunicar com segurança umas com as outras em um blockchain compartilhado.  Essa implantação simplificada reduz a implantação de rede blockchain de dias para minutos.
+A implantação do serviço Blockchain do Azure é feita por meio do portal do Azure, CLI do Azure ou por meio do Visual Studio Code usando a extensão Blockchain do Azure. A implantação é simplificada, incluindo o provisionamento de nós de transação e validação, redes virtuais do Azure para o isolamento de segurança, bem como o armazenamento gerenciado por serviços.  Além disso, ao implantar um novo membro blockchain, os usuários também criam ou ingressam em um consórcio.  Os consórcios permitem que várias partes em diferentes assinaturas do Azure possam se comunicar com segurança umas com as outras em um blockchain compartilhado.  Essa implantação simplificada reduz a implantação de rede blockchain de dias para minutos.
 
 ### <a name="performance-and-service-tiers"></a>Camadas de desempenho e de serviço
 
@@ -43,13 +43,13 @@ Além de oferecer dois nós de validador, a camada *Standard* fornece 2 *vCores*
 
 ### <a name="security-and-maintenance"></a>Segurança e manutenção
 
-Depois de provisionar seu primeiro membro blockchain, você tem a capacidade de adicionar nós de transação adicionais ao seu membro.  Por padrão, os nós de transação são protegidos por meio de regras de firewall e precisarão ser configurados para acesso.  Além disso, todos os nós de transação criptografam dados em movimento via TLS.  Existem várias opções para proteger o acesso ao nó da transação, incluindo regras de firewall, autenticação básica, chaves de acesso, bem como integração de Azure Active Directory. Para obter mais informações, consulte [Configurar nós de transação](configure-transaction-nodes.md) e [Configurar o acesso de Azure Active Directory](configure-aad.md).
+Depois de provisionar seu primeiro membro blockchain, você tem a capacidade de adicionar nós de transação adicionais ao seu membro.  Por padrão, os nós de transação são protegidos por meio de regras de firewall e exigem a configuração de acesso.  Além disso, todos os nós de transação criptografam dados em movimento via TLS.  Existem várias opções para proteger o acesso ao nó da transação, incluindo regras de firewall, autenticação básica, chaves de acesso e integração de Azure Active Directory. Para obter mais informações, consulte [Configurar nós de transação](configure-transaction-nodes.md) e [Configurar o acesso de Azure Active Directory](configure-aad.md).
 
 Como um serviço gerenciado, o serviço Blockchain do Azure garante que os nós de seus membros do Blockchain sejam corrigidos com as atualizações mais recentes do sistema operacional do host e da pilha de software do razão, configurados para alta disponibilidade (somente camada Standard), eliminando grande parte do DevOps necessário para nós blockchain de IaaS tradicionais.  Para obter mais informações sobre patches e atualizações, consulte [versões do razão do serviço Blockchain do Azure com suporte](ledger-versions.md).
 
 ### <a name="monitoring-and-logging"></a>Monitorização e registos
 
-Além disso, o serviço Blockchain do Azure fornece métricas avançadas por meio de Azure Monitor serviço que fornece informações sobre a CPU, a memória e o uso de armazenamento dos nós, bem como informações úteis sobre a atividade de rede Blockchain, como transações e blocos minados, profundidade da fila de transações, bem como conexões ativas.  As métricas podem ser personalizadas para fornecer exibições para as informações que são importantes para seu aplicativo blockchain.  Além disso, os limites podem ser definidos por meio de alertas, permitindo que os usuários disparem ações como enviar um email ou mensagem de texto, executar um aplicativo lógico, o Azure Function ou enviar para um webhook definido pelo personalizado.
+Além disso, o serviço Blockchain do Azure fornece métricas avançadas por meio do serviço de Azure Monitor fornecendo informações sobre a CPU, memória e uso de armazenamento dos nós.  Azure Monitor também fornece informações úteis sobre a atividade de rede blockchain, como transações e blocos minados, profundidade da fila de transações e conexões ativas.  As métricas podem ser personalizadas para fornecer exibições para as informações que são importantes para seu aplicativo blockchain.  Além disso, os limites podem ser definidos por meio de alertas, permitindo que os usuários disparem ações como enviar um email ou mensagem de texto, executar um aplicativo lógico, o Azure Function ou enviar para um webhook definido pelo personalizado.
 
 ![Métricas](./media/overview/metrics.png)
 

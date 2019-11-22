@@ -1,21 +1,17 @@
 ---
 title: Introdução ao Azure Dev Spaces
-titleSuffix: Azure Dev Spaces
-author: zr-msft
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 05/07/2019
 ms.topic: overview
 description: Introdução ao Azure Dev Spaces
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: c87aee26f5f9a4c3f919150a22a8b2f5a7b57352
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
-ms.translationtype: MT
+ms.openlocfilehash: 1065ea65c338aadbff9818ad7f7d26ddbed42602
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889742"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280261"
 ---
 # <a name="azure-dev-spaces"></a>Espaços de Programador do Azure
 

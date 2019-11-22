@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3fd97e33c88e7767e1d9b230792aea675a744f27
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: c16abd02dfef5fb8b74cd5c0cafa97e5f29cc6b2
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619772"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286972"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conhecidos e solução de problemas Azure Machine Learning
 
@@ -25,7 +25,7 @@ Este artigo ajuda você a encontrar e corrigir erros ou falhas encontrados ao us
 
 A computação do Azure atualizará os SKUs do NCv3 a partir de 1º de novembro de 2019 para dar suporte a todas as implementações e versões de MPI e verbos de RDMA para máquinas virtuais equipados com InfiniBand. Isso exigirá um breve tempo de inatividade- [Leia mais sobre a atualização de Sr-IOV](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
 
-Como cliente da AmlCompute (oferta de computação gerenciada) de Azure Machine Learning, não é necessário fazer nenhuma alteração no momento. Com base na [agenda de atualização](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) , você precisaria planejar um pequeno intervalo de treinamento. O serviço assumirá a responsabilidade de atualizar as imagens de VM em seus nós de cluster e escalonar automaticamente o cluster. Depois que a atualização for concluída, você poderá usar todos os outros discibutions MPI (como o OpenMPi com Pytorch) Além de obter largura de banda InfiniBand mais alta, latências menores e melhor desempenho de aplicativo distribuído.
+Como cliente da AmlCompute (oferta de computação gerenciada) de Azure Machine Learning, não é necessário fazer nenhuma alteração no momento. Com base na [agenda de atualização](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) , você precisaria planejar um pequeno intervalo de treinamento. O serviço assumirá a responsabilidade de atualizar as imagens de VM em seus nós de cluster e escalonar automaticamente o cluster. Depois que a atualização for concluída, você poderá usar todas as outras distribuições MPI (como OpenMPi com Pytorch) Além de obter maior largura de banda InfiniBand, latências menores e melhor desempenho de aplicativo distribuído.
 
 ## <a name="azure-machine-learning-designer-issues"></a>Problemas do designer de Azure Machine Learning
 
@@ -46,9 +46,9 @@ A imagem abaixo mostra como: ![visulize-data](./media/resource-known-issues/aml-
 
 ## <a name="sdk-installation-issues"></a>Problemas de instalação do SDK
 
-**Mensagem de erro: não é possível desinstalar ' PyYAML '**
+**Mensagem de erro: não é possível desinstalar 'PyYAML'**
 
-Azure Machine Learning SDK para Python: PyYAML é um projeto distutils instalado. Portanto, não podemos determinar com precisão quais arquivos pertencem a ele se houver uma desinstalação parcial. Para continuar a instalação do SDK ao ignorar esse erro, use:
+SDK de Aprendizado de máquina do Azure para Python: PyYAML é um projeto de distutils instalado. Portanto, não podemos determinar com precisão quais arquivos pertencem a ele se houver uma desinstalação parcial. Para continuar a instalação do SDK ao ignorar este erro, utilize:
 
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
@@ -62,13 +62,13 @@ conda create -n <env-name> python=3.7.3
 ```
 Que cria um ambiente Conda usando o Python 3.7.3, que não tem o problema de instalação presente no 3.7.4.
 
-## <a name="trouble-creating-azure-machine-learning-compute"></a>Problemas ao criar Azure Machine Learning computação
+## <a name="trouble-creating-azure-machine-learning-compute"></a>Problemas ao criar a computação do Azure Machine Learning
 
-Há uma rara chance de que alguns usuários que criaram seus Azure Machine Learning espaço de trabalho do portal do Azure antes da versão GA não possam criar Azure Machine Learning computação nesse espaço de trabalho. Você pode gerar uma solicitação de suporte em relação ao serviço ou criar um novo espaço de trabalho por meio do portal ou do SDK para desbloquear-se imediatamente.
+Há uma chance de rara que alguns usuários que criou a sua área de trabalho do Azure Machine Learning do portal do Azure antes do lançamento de DG poderão não conseguir criar a computação do Azure Machine Learning nessa área de trabalho. Pode emitir um pedido de suporte com o serviço ou criar uma nova área de trabalho através do Portal ou o SDK para desbloquear-se imediatamente.
 
-## <a name="image-building-failure"></a>Falha na criação da imagem
+## <a name="image-building-failure"></a>Falha de criação de imagem
 
-Falha na criação da imagem ao implantar o serviço Web. A solução alternativa é adicionar "pynacl = = 1.2.1" como uma dependência Pip ao arquivo Conda para configuração de imagem.
+Imagem de criação Falha ao implementar o serviço web. Solução alternativa é adicionar "pynacl = = 1.2.1" como uma dependência de pip Conda ficheiro para a configuração de imagem.
 
 ## <a name="deployment-failure"></a>Falha na implantação
 
@@ -76,7 +76,7 @@ Se você observar `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' die
 
 ## <a name="fpgas"></a>FPGAs
 
-Você não poderá implantar modelos no FPGAs até ter solicitado e aprovado para a cota de FPGA. Para solicitar acesso, preencha o formulário de solicitação de cota: https://aka.ms/aml-real-time-ai
+Não será capaz de implementar os modelos no FPGAs até que tiver solicitado e foi aprovada para a quota FPGA. Para pedir acesso, preencha o formulário de pedido de quota: https://aka.ms/aml-real-time-ai
 
 ## <a name="automated-machine-learning"></a>Aprendizagem automática automatizada
 
@@ -108,11 +108,11 @@ pip install --upgrade azureml-dataprep
 
 ## <a name="databricks"></a>Databricks
 
-Databricks e problemas de Azure Machine Learning.
+Problemas de Databricks e o Azure Machine Learning.
 
 ### <a name="failure-when-installing-packages"></a>Falha ao instalar pacotes
 
-A instalação do SDK do Azure Machine Learning falha em Azure Databricks quando mais pacotes são instalados. Alguns pacotes, como `psutil`, podem causar conflitos. Para evitar erros de instalação, instale pacotes congelando a versão da biblioteca. Esse problema está relacionado ao databricks e não ao SDK do Azure Machine Learning. Você também pode experimentar esse problema com outras bibliotecas. Exemplo:
+A instalação do SDK do Azure Machine Learning falha em Azure Databricks quando mais pacotes são instalados. Alguns pacotes e, por exemplo, `psutil`, pode causar conflitos. Para evitar erros de instalação, instale pacotes congelando a versão da biblioteca. Esse problema está relacionado ao databricks e não ao SDK do Azure Machine Learning. Você também pode experimentar esse problema com outras bibliotecas. Exemplo:
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -161,11 +161,11 @@ Se você vir um erro de `FailToSendFeather` ao ler dados no cluster Azure Databr
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-Se você for diretamente para exibir o espaço de trabalho de um link de compartilhamento no SDK ou no portal, não será possível exibir a página de visão geral normal com as informações de assinatura na extensão. Você também não será capaz de alternar para outro espaço de trabalho. Se você precisar exibir outro espaço de trabalho, a solução alternativa é ir diretamente para [Azure Machine Learning Studio](https://ml.azure.com) e pesquisar o nome do espaço de trabalho.
+Se vá diretamente para ver a sua área de trabalho a partir de uma ligação de partilha do SDK ou o portal, não será capaz de exibir a página de descrição geral normal com informações de subscrição na extensão. Também não será capaz de alternar para outra área de trabalho. Se você precisar exibir outro espaço de trabalho, a solução alternativa é ir diretamente para [Azure Machine Learning Studio](https://ml.azure.com) e pesquisar o nome do espaço de trabalho.
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
 
-Às vezes, pode ser útil se você puder fornecer informações de diagnóstico ao solicitar ajuda. Para ver alguns logs, visite [Azure Machine Learning Studio](https://ml.azure.com) e vá para seu espaço de trabalho e selecione **espaço de trabalho > teste > executar logs do >** .  
+Por vezes, pode ser útil se pode fornecer informações de diagnóstico quando pedir ajuda. Para ver alguns logs, visite [Azure Machine Learning Studio](https://ml.azure.com) e vá para seu espaço de trabalho e selecione **espaço de trabalho > teste > executar logs do >** .  
 
 > [!NOTE]
 > Azure Machine Learning registra as informações de uma variedade de fontes durante o treinamento, como AutoML ou o contêiner do Docker que executa o trabalho de treinamento. Muitos desses logs não estão documentados. Se você encontrar problemas e entrar em contato com o suporte da Microsoft, eles podem ser capazes de usar esses logs durante a solução de problemas.

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 6cb970a59118a93c7a9023cc7c0448019dc77362
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 599f59df1a18dfe77d66c497c52a05d7d2e3b6d6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125578"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280452"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,7 +25,7 @@ Antes de começar, certifique-se de:
 > [!div class="checklist"]
 >
 > * [Criar um recurso de fala do Azure](../../../../get-started.md)
-> * [Criar um aplicativo LUIS e obter uma chave de ponto de extremidade](../../../../quickstarts/create-luis.md)
+> * [Criar um aplicativo Reconhecimento vocal (LUIS) e obter uma chave de ponto de extremidade](../../../../quickstarts/create-luis.md)
 > * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?tabs=dotnet)
 

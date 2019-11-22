@@ -1,5 +1,5 @@
 ---
-title: Permitir ou bloquear convites para organizações específicas – Azure Active Directory | Microsoft Docs
+title: Permitir ou bloquear convites para organizações específicas-Azure AD
 description: Mostra como um administrador pode usar o portal do Azure ou o PowerShell para definir uma lista de acesso ou de negação para permitir ou bloquear usuários B2B de determinados domínios.
 services: active-directory
 ms.service: active-directory
@@ -12,14 +12,14 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cd0cc6b2343a84287bd2ffdfd9df8d832f17fc8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b5100c4406cfd4a8395dfa177dc3cd5e911decb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474166"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273429"
 ---
-# <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para usuários B2B de organizações específicas
+# <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para utilizadores B2B de organizações específicos
 
 Você pode usar uma lista de permissões ou uma lista de negações para permitir ou bloquear convites para usuários B2B de organizações específicas. Por exemplo, se você quiser bloquear domínios de endereço de email pessoal, poderá configurar uma lista de negações que contém domínios como Gmail.com e Outlook.com. Ou, se sua empresa tiver uma parceria com outras empresas, como Contoso.com, Fabrikam.com e Litware.com, e você quiser restringir convites apenas para essas organizações, poderá adicionar Contoso.com, Fabrikam.com e Litware.com à sua lista de permissões.
   
@@ -49,7 +49,7 @@ Para adicionar uma lista de negações:
 
    ![Mostra a opção Deny com domínios adicionados](./media/allow-deny-list/DenyListSettings.png)
  
-6. Quando terminar, clique em **salvar**.
+6. Quando tiver terminado, clique em **guardar**.
 
 Depois de definir a política, se você tentar convidar um usuário de um domínio bloqueado, receberá uma mensagem informando que o domínio do usuário está bloqueado no momento pela sua política de convite.
  
@@ -70,7 +70,7 @@ Para adicionar uma lista de permissões:
 
    ![Mostra a opção Allow com domínios adicionados](./media/allow-deny-list/AllowListSettings.png)
  
-6. Quando terminar, clique em **salvar**.
+6. Quando tiver terminado, clique em **guardar**.
 
 Depois de definir a política, se você tentar convidar um usuário de um domínio que não está na lista de permissões, você receberá uma mensagem informando que o domínio do usuário está bloqueado no momento pela sua política de convite.
 

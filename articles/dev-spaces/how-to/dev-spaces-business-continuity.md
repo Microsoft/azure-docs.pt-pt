@@ -1,102 +1,100 @@
 ---
-title: Recuperação de desastre e continuidade de negócio nos espaços de desenvolvimento do Azure
-titleSuffix: Azure Dev Spaces
+title: Continuidade dos negócios e recuperação de desastres no Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 01/28/2019
 ms.topic: conceptual
-description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
-keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
+description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
+keywords: 'Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S '
 manager: gwallace
-ms.openlocfilehash: 2da92b4fcd98024ada8d852d65e08fe8c70e3884
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
-ms.translationtype: MT
+ms.openlocfilehash: f2c2767d23a99644ee4ecb4e1040162c58a72b1a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704045"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280094"
 ---
-# <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Recuperação de desastre e continuidade de negócio nos espaços de desenvolvimento do Azure
+# <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Continuidade dos negócios e recuperação de desastres no Azure Dev Spaces
 
-## <a name="review-disaster-recovery-guidance-for-azure-kubernetes-service-aks"></a>Reveja as orientações sobre a recuperação após desastre para o Azure Kubernetes Service (AKS)
+## <a name="review-disaster-recovery-guidance-for-azure-kubernetes-service-aks"></a>Examinar as diretrizes de recuperação de desastre para o serviço kubernetes do Azure (AKS)
 
-Espaços de desenvolvimento do Azure é um recurso do Azure Kubernetes Service (AKS). Deve estar ciente de diretrizes para recuperação após desastre no AKS e considerar se aplicam-se para os clusters do AKS que utiliza para espaços de desenvolvimento. Para obter mais informações, consulte [melhores práticas para o negócio continuidade e recuperação após desastre no Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region)
+Azure Dev Spaces é um recurso do AKS (serviço kubernetes do Azure). Você deve estar ciente das diretrizes para a recuperação de desastres em AKS e considerar se elas se aplicam aos clusters AKS que você usa para espaços de desenvolvimento. Para obter mais informações, consulte [as práticas recomendadas para continuidade dos negócios e recuperação de desastres no serviço de kubernetes do Azure (AKs)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region)
 
-## <a name="enable-dev-spaces-on-aks-clusters-in-different-regions"></a>Ativar os espaços de desenvolvimento em clusters do AKS em regiões diferentes
+## <a name="enable-dev-spaces-on-aks-clusters-in-different-regions"></a>Habilitar espaços de desenvolvimento em clusters AKS em regiões diferentes
 
-Ativar espaços de desenvolvimento em clusters do AKS em regiões diferentes permite-lhe continuar a utilizar espaços de desenvolvimento imediatamente após uma falha de região do Azure.
+Habilitar espaços de desenvolvimento em clusters AKS em regiões diferentes permite que você retome usando espaços de desenvolvimento imediatamente após uma falha de região do Azure.
 
-Para obter informações gerais sobre implementações em várias regiões do AKS, consulte [planear a implementação em várias regiões](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
+Para obter informações gerais sobre implantações de várias regiões do AKS, consulte [planejar a implantação em várias regiões](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
-Para obter informações sobre como implementar um cluster do AKS que é compatível com os espaços de desenvolvimento do Azure, consulte [criar um cluster de Kubernetes com o Azure Cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
+Para obter informações sobre como implantar um cluster AKS compatível com o Azure Dev Spaces, consulte [criar um cluster kubernetes usando Azure cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
 
-### <a name="enable-dev-spaces-via-the-azure-portal"></a>Ativar os espaços de desenvolvimento através do portal do Azure
+### <a name="enable-dev-spaces-via-the-azure-portal"></a>Habilitar espaços de desenvolvimento por meio do portal do Azure
 
-Clique nas **Dev espaços** item de navegação em Propriedades de cada cluster no portal do Azure. Em seguida, escolha a opção para ativar os espaços de desenvolvimento.
+Clique no item de navegação **espaços de desenvolvimento** nas propriedades de cada cluster na portal do Azure. Em seguida, escolha a opção para habilitar espaços de desenvolvimento.
 
-![Ativar espaços de desenvolvimento através do portal do Azure](../media/common/enable-dev-spaces.jpg)
+![Habilitando espaços de desenvolvimento via portal do Azure](../media/common/enable-dev-spaces.jpg)
 
-Repita este processo para cada cluster.
+Repita esse processo para cada cluster.
 
-### <a name="enable-dev-spaces-via-the-azure-cli"></a>Ativar os espaços de desenvolvimento através da CLI do Azure
+### <a name="enable-dev-spaces-via-the-azure-cli"></a>Habilitar espaços de desenvolvimento por meio do CLI do Azure
 
-Também pode ativar os espaços de desenvolvimento na linha de comandos:
+Você também pode habilitar espaços de desenvolvimento na linha de comando:
 
 ```cmd
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
-## <a name="deploy-your-teams-baseline-to-each-cluster"></a>Implementar a linha de base da sua equipe a cada cluster
+## <a name="deploy-your-teams-baseline-to-each-cluster"></a>Implantar a linha de base da sua equipe em cada cluster
 
-Ao trabalhar com os espaços de desenvolvimento, normalmente, implementa toda a aplicação para um espaço de desenvolvimento principal no seu cluster de Kubernetes. Por predefinição, o `default` espaço é utilizado. A implementação inicial inclui todos os serviços, bem como os recursos externos que esses serviços estão dependentes, tais como bases de dados ou filas. Isso é conhecido como o *linha de base*. Depois de configurar uma linha de base no espaço de desenvolvimento principal, que reanalisa e depurar serviços individuais dentro de espaços de desenvolvimento do filho.
+Ao trabalhar com espaços de desenvolvimento, normalmente você implanta todo o aplicativo em um espaço de desenvolvimento pai no cluster kubernetes. Por padrão, o espaço de `default` é usado. A implantação inicial inclui todos os serviços, bem como os recursos externos dos quais esses serviços dependem, como bancos de dados ou filas. Isso é conhecido como a *linha de base*. Depois de configurar uma linha de base no espaço de desenvolvimento pai, você itera e depura serviços individuais dentro de espaços de desenvolvimento filho.
 
-Deve implementar as versões mais recentes do seu conjunto de linha de base dos serviços de clusters em várias regiões. A atualizar os serviços de linha de base desta forma, garante que pode continuar a utilizar espaços de desenvolvimento se ocorrer uma falha de região do Azure. Por exemplo, se implementar a linha de base por meio de um pipeline CI/CD, modifique o pipeline, para que o implementa vários clusters em regiões diferentes.
+Você deve implantar as versões mais recentes do conjunto de serviços de linha de base em clusters em várias regiões. Atualizar os serviços de linha de base dessa maneira garante que você possa continuar a usar espaços de desenvolvimento se houver uma falha de região do Azure. Por exemplo, se você implantar sua linha de base por meio de um pipeline de CI/CD, modifique o pipeline para que ele seja implantado em vários clusters em regiões diferentes.
 
-## <a name="select-the-correct-aks-cluster-to-use-for-dev-spaces"></a>Selecione o cluster do AKS correto a utilizar para espaços de desenvolvimento
+## <a name="select-the-correct-aks-cluster-to-use-for-dev-spaces"></a>Selecione o cluster AKS correto a ser usado para espaços de desenvolvimento
 
-Uma vez que configurou corretamente um cluster de cópia de segurança com a linha de base da sua equipe, pode alternar rapidamente ao longo para o cluster de cópia de segurança em qualquer altura. Em seguida, pode executar novamente os serviços individuais que lhe está a trabalhar nos espaços de desenvolvimento.
+Depois de configurar corretamente um cluster de backup executando a linha de base da sua equipe, você pode alternar rapidamente para o cluster de backup a qualquer momento. Em seguida, você pode executar novamente os serviços individuais nos quais está trabalhando em espaços de desenvolvimento.
 
-Selecione outro cluster com o seguinte comando da CLI:
+Selecione um cluster diferente com o seguinte comando da CLI:
 
 ```cmd
 az aks use-dev-spaces -g <new resource group name> -n <new cluster name>
 ```
 
-Pode listar os espaços de desenvolvimento disponíveis no novo cluster com o seguinte comando:
+Você pode listar os espaços de desenvolvimento disponíveis no novo cluster com o seguinte comando:
 
 ```cmd
 azds space list
 ```
 
-Pode criar um novo espaço de desenvolvimento para trabalhar, ou selecione um espaço de desenvolvimento existente, com o seguinte comando:
+Você pode criar um novo espaço de desenvolvimento para trabalhar no ou selecionar um espaço de desenvolvimento existente, com o seguinte comando:
 
 ```cmd
 azds space select -n <space name>
 ```
 
-Depois de executar estes comandos, o cluster selecionado e o espaço de desenvolvimento serão utilizados para operações subsequentes da CLI e para depuração de projetos usando a extensão do Visual Studio Code para espaços de desenvolvimento do Azure.
+Depois de executar esses comandos, o cluster selecionado e o espaço de desenvolvimento serão usados para operações de CLI subsequentes e para depurar projetos usando a extensão de Visual Studio Code para Azure Dev Spaces.
 
-Se estiver a utilizar o Visual Studio, pode alternar o cluster utilizado por um projeto existente, os seguintes passos:
+Se você estiver usando o Visual Studio, poderá alternar o cluster usado por um projeto existente por meio das seguintes etapas:
 
-1. Abra o projeto no Visual Studio.
-1. Clique com o botão direito no nome do projeto no Explorador de soluções e clique em **propriedades**
+1. Abra seu projeto no Visual Studio.
+1. Clique com o botão direito do mouse no nome do projeto em Gerenciador de Soluções e clique em **Propriedades**
 1. No painel esquerdo, clique em **depurar**
-1. Na página de propriedades de depuração, clique nas **perfil** pendente lista e escolha **Azure Dev espaços**.
-1. Clique nas **alteração** botão.
-1. Na caixa de diálogo que aparece, selecione o cluster do AKS que deseja usar. Se assim o desejar, escolher um espaço de desenvolvimento diferentes para funcionar em ou criar um novo espaço de desenvolvimento, selecionando a opção adequada a partir da **espaço** na lista pendente.
+1. Na página Propriedades de depuração, clique na lista suspensa **perfil** e escolha **Azure dev Spaces**.
+1. Clique no botão **alterar** .
+1. Na caixa de diálogo que aparece, selecione o cluster AKS que você deseja usar. Se desejar, escolha um espaço de desenvolvimento diferente para trabalhar ou crie um novo espaço de desenvolvimento, selecionando a opção apropriada na lista suspensa **espaço** .
 
-Assim que tiver selecionado o cluster correto e o espaço, pode premir F5 para executar o serviço nos espaços de desenvolvimento.
+Depois de selecionar o cluster e o espaço corretos, você pode pressionar F5 para executar o serviço em espaços de desenvolvimento.
 
-Repita estes passos para todos os outros projetos configurados para utilizar o cluster original.
+Repita essas etapas para todos os outros projetos configurados para usar o cluster original.
 
-## <a name="access-a-service-on-a-backup-cluster"></a>Aceder a um serviço num cluster de cópia de segurança
+## <a name="access-a-service-on-a-backup-cluster"></a>Acessar um serviço em um cluster de backup
 
-Se tiver configurado o seu serviço para utilizar um nome DNS público, em seguida, o serviço terá um URL diferente se executá-lo num cluster de cópia de segurança. Nomes DNS públicos são sempre no formato `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io`. Se mudar para outro cluster, o GUID do cluster e, possivelmente, a região serão alterado.
+Se você tiver configurado seu serviço para usar um nome DNS público, o serviço terá uma URL diferente se você executá-lo em um cluster de backup. Os nomes DNS públicos sempre estão no formato `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io`. Se você alternar para um cluster diferente, o GUID do cluster e, possivelmente, a região será alterado.
 
-Espaços de desenvolvimento sempre mostra o URL correto para o serviço ao executar o `azds up`, ou na janela de saída no Visual Studio sob **do Azure Dev espaços**.
+Os espaços de desenvolvimento sempre mostram a URL correta para o serviço ao executar `azds up`ou na janela de saída no Visual Studio em **Azure dev Spaces**.
 
-Também pode encontrar o URL ao executar o `azds list-uris` comando:
+Você também pode encontrar a URL executando o comando `azds list-uris`:
 ```
 $ azds list-uris
 Uri                                                     Status
@@ -104,4 +102,4 @@ Uri                                                     Status
 http://default.mywebapi.d05afe7e006a4fddb73c.eus.azds.io/  Available
 ```
 
-Utilize este URL ao acessar o serviço.
+Use essa URL ao acessar o serviço.

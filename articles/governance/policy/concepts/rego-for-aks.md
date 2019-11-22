@@ -3,12 +3,12 @@ title: Saiba Azure Policy do serviço kubernetes do Azure
 description: Saiba como Azure Policy usa o rego e o agente de política aberto para gerenciar clusters no serviço kubernetes do Azure.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: dbac1ee762066fb59cd57c04839666026a2bd89b
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: d8d5c1ebeded62f475804e4e704f823aba2c10eb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959805"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279401"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Entender Azure Policy para o serviço kubernetes do Azure
 
@@ -257,6 +257,6 @@ As informações coletadas pelo complemento não são dados pessoais. Os detalhe
 - Veja a [Estrutura de definição do Policy](definition-structure.md).
 - Veja [Compreender os efeitos do Policy](effects.md).
 - Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).
-- Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).
+- Saiba como [obter dados de conformidade](../how-to/get-compliance-data.md).
 - Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
 - Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

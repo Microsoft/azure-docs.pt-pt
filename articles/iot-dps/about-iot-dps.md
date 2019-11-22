@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 8331161cde9e7717834dabd2228848de40f7be23
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: e02f0de685dc1f67633e13fed1f4114c399afdea
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360284"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280539"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Aprovisionar dispositivos com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure
 O Microsoft Azure fornece um conjunto avançado de serviços de cloud pública integrada para todas as suas necessidades de solução IoT. O Serviço Aprovisionamento de Dispositivos no Hub IoT é um serviço auxiliar para o Hub IoT que permite o aprovisionamento sem toques e just-in-time no hub IoT certo sem que seja necessária a intervenção humana, permitindo aos clientes aprovisionar milhões de dispositivos de forma segura e dimensionável.
@@ -78,7 +78,7 @@ O Serviço de Aprovisionamento de Dispositivos tem muitas funcionalidades, o que
 
 * Suporte de **atestado seguro** para identidades baseadas em X.509 e TPM.
 * **Lista de inscrição** que contém o registo completo de dispositivos/grupos de dispositivos que podem ser registados em qualquer momento. A lista de inscrição contém informações sobre a configuração pretendida do dispositivo, depois de ser registado, e pode ser atualizada em qualquer altura.
-* **Várias políticas de alocação** para controlar a forma como o Serviço de Aprovisionamento de Dispositivos atribui dispositivos aos hubs IoT para suportar os seus cenários.
+* **Várias políticas de alocação** para controlar como o serviço de provisionamento de dispositivos atribui dispositivos a hubs IOT para dar suporte a seus cenários: latência mais baixa, distribuição uniformemente ponderada (padrão) e configuração estática por meio da lista de registro. Observe que a latência é determinada usando o mesmo método que o [Gerenciador de tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
 * **Monitorização e registo de diagnóstico** para garantir que tudo está a funcionar corretamente.
 * O **suporte de vários hubs** permite que o Serviço de Aprovisionamento de Dispositivos atribua dispositivos a mais do que um hub IoT. O Serviço de Aprovisionamento de Dispositivos pode comunicar com hubs em várias subscrições do Azure.
 * O **suporte de várias regiões** permite que o Serviço de Aprovisionamento de Dispositivos atribua dispositivos a hubs IoT noutras regiões.
@@ -116,7 +116,7 @@ Para obter mais detalhes sobre os limites de quotas:
 ## <a name="related-azure-components"></a>Componentes do Azure relacionados
 O Serviço de Aprovisionamento de Dispositivos automatiza o aprovisionamento de dispositivos com o Hub IoT do Azure. Saiba mais sobre o [Hub IoT](https://docs.microsoft.com/azure/iot-hub/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora já tem uma descrição geral do aprovisionamento de dispositivos IoT no Azure. O passo seguinte é experimentar um cenário de IoT ponto a ponto.
 > [!div class="nextstepaction"]
 > [Configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure](quick-setup-auto-provision.md)

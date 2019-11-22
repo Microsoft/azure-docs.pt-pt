@@ -1,20 +1,20 @@
 ---
 title: Gerir atualizações para várias máquinas virtuais do Azure
-description: Este artigo descreve como gerenciar atualizações para máquinas virtuais do Azure.
+description: Este artigo descreve como gerenciar atualizações para máquinas virtuais do Azure e não Azure.
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/02/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 11/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 367a4409c004c98cc4b5ec844aab5b05ec74abcb
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 70f4f4163a143354cd1fe5adf031c4d9cd87a46e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374500"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278659"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
@@ -31,6 +31,8 @@ Para usar Gerenciamento de Atualizações, você precisa de:
 
 - Uma máquina virtual ou um computador que tenha instalado um dos sistemas operativos suportados.
 
+- Acesso a um repositório de atualizações para VMs do Linux integradas à solução.
+
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
 Gerenciamento de Atualizações tem suporte nos seguintes sistemas operacionais:
@@ -39,17 +41,13 @@ Gerenciamento de Atualizações tem suporte nos seguintes sistemas operacionais:
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Dá suporte apenas a avaliações de atualização.         |
 |Windows Server 2008 R2 SP1 e posterior     |O Windows PowerShell 4,0 ou posterior é necessário. ([Baixe o WMF 4,0](https://www.microsoft.com/download/details.aspx?id=40855))</br> O Windows PowerShell 5,1 é recomendado para maior confiabilidade. ([Baixe o WMF 5,1](https://www.microsoft.com/download/details.aspx?id=54616))         |
-|CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
-|Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
-|SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
-|Ubuntu 14, 4 LTS, 16, 4 LTS e 18, 4 LTS (x86/x64)      |Os agentes do Linux têm de ter acesso a um repositório de atualização.         |
+|CentOS 6 (x86/x64) e 7 (x64)      | |
+|Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | |
+|SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | |
+|Ubuntu 14, 4 LTS, 16, 4 LTS e 18, 4 LTS (x86/x64)      | |
 
 > [!NOTE]
 > Para evitar que as atualizações sejam aplicadas fora de uma janela de manutenção no Ubuntu, reconfigure o pacote Unattended-Upgrade para desativar as atualizações automáticas. Para obter informações, veja [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html) (Tópico de Atualizações Automáticas no Guia do Ubuntu Server).
-
-Os agentes do Linux têm de ter acesso a um repositório de atualização.
-
-Esta solução não dá suporte a um agente de Log Analytics para Linux configurado para relatar a vários espaços de trabalho do Azure Log Analytics.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Habilitar Gerenciamento de Atualizações para máquinas virtuais do Azure
 
@@ -69,13 +67,11 @@ Quando a integração for concluída, Gerenciamento de Atualizações será habi
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Habilitar Gerenciamento de Atualizações para máquinas virtuais e computadores não Azure
 
-Para saber como habilitar Gerenciamento de Atualizações para máquinas virtuais e computadores com Windows não Azure, consulte [conectar computadores Windows ao serviço de Azure monitor no Azure](../log-analytics/log-analytics-windows-agent.md).
-
-Para saber como habilitar o Gerenciamento de Atualizações para máquinas virtuais e computadores com Linux não Azure, consulte [conectar seus computadores Linux a logs de Azure monitor](../log-analytics/log-analytics-agent-linux.md).
+O agente de Log Analytics para Windows e Linux precisa ser instalado nas VMs que estão em execução na sua rede corporativa ou em outro ambiente de nuvem para habilitá-las com Gerenciamento de Atualizações. Para saber os requisitos do sistema e os métodos com suporte para implantar o agente em computadores hospedados fora do Azure, consulte [visão geral do agente de log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Exibir computadores anexados à sua conta de automação
 
-Depois de habilitar Gerenciamento de Atualizações para seus computadores, você poderá exibir as informações do computador selecionando **computadores**. Você pode ver informações sobre o *nome do computador*, o status de *conformidade*, o *ambiente*, o *tipo de sistema operacional*, *as atualizações críticas e de segurança instaladas*, *outras atualizações instaladas*e a *preparação do agente de atualização* para seu nos.
+Depois de habilitar Gerenciamento de Atualizações para seus computadores, você poderá exibir as informações do computador selecionando **computadores**. Você pode ver informações sobre o *nome do computador*, o status de *conformidade*, o *ambiente*, o *tipo de sistema operacional*, *as atualizações críticas e de segurança instaladas*, *outras atualizações instaladas*e a *preparação do agente de atualização* para seus computadores.
 
   ![Separador Ver computadores](./media/manage-update-multi/update-computers-tab.png)
 
@@ -103,7 +99,7 @@ Os agentes instalados em máquinas virtuais e computadores coletam dados sobre a
 
 A tabela seguinte descreve as origens ligadas que são suportadas por esta solução:
 
-| Origem ligada | Suportadas | Descrição |
+| Origem ligada | Suportado | Descrição |
 | --- | --- | --- |
 | Agentes do Windows |Sim |Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes do Windows e, em seguida, inicia a instalação das atualizações necessárias. |
 | Agentes do Linux |Sim |Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes do Linux e inicia a instalação de atualizações necessárias em distribuições com suporte. |
@@ -130,8 +126,13 @@ No painel **nova implantação de atualização** , especifique as seguintes inf
 
 - **Nome**: Insira um nome exclusivo para identificar a implantação da atualização.
 - **Sistema operacional**: selecione **Windows** ou **Linux**.
-- **Grupos a atualizar (pré-visualização)** : defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para saber mais, veja [Grupos Dinâmicos](automation-update-management-groups.md)
-- **Computadores a serem atualizados**: selecione uma pesquisa salva, um grupo importado ou selecione computadores para escolher os computadores que deseja atualizar. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**. Você pode ver o estado de integridade do computador antes de agendar a implantação da atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores em logs de Azure Monitor, consulte [grupos de computadores em logs de Azure monitor](../azure-monitor/platform/computer-groups.md)
+- **Grupos a serem atualizados**: defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e marcas para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. Para VMs não Azure, as pesquisas salvas são usadas para criar um grupo dinâmico para incluir em sua implantação. Para saber mais, consulte [grupos dinâmicos](automation-update-management-groups.md).
+- **Computadores a serem atualizados**: selecione uma pesquisa salva, um grupo importado ou selecione computadores para escolher os computadores que deseja atualizar.
+
+   >[!NOTE]
+   >A seleção da opção de pesquisa salva não retorna identidades de computador, apenas seus nomes. Se você tiver várias VMs com o mesmo nome em vários grupos de recursos, elas serão retornadas nos resultados. O uso da opção **grupos a serem atualizados** é recomendado para garantir que você inclua VMs exclusivas que correspondam aos seus critérios.
+
+   Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**. Você pode ver o estado de integridade do computador antes de agendar a implantação da atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores em logs de Azure Monitor, consulte [grupos de computadores em logs de Azure monitor](../azure-monitor/platform/computer-groups.md)
 
   ![Novo painel de implantação de atualização](./media/manage-update-multi/update-select-computers.png)
 
@@ -196,5 +197,5 @@ Para ver informações detalhadas sobre os erros da implementação, selecione *
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre Gerenciamento de Atualizações, incluindo logs, saída e erros, confira [Gerenciamento de atualizações solução no Azure](../operations-management-suite/oms-solution-update-management.md).
+Para saber mais sobre Gerenciamento de Atualizações, incluindo logs, saída e erros, confira [Gerenciamento de atualizações solução no Azure](../operations-management-suite/oms-solution-update-management.md).
 

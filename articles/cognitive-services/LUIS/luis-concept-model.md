@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 4cbca96ed95167615f3ff2876e27e546d08d92f5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d721ceb25b3ce2408563a0bed16457d05affe7b4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507717"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280872"
 ---
 # <a name="design-with-intent-and-entity-models"></a>Design com modelos de intenção e entidade 
 
@@ -37,7 +37,7 @@ A decomposição do modelo tem as seguintes partes:
 * [entidades aprendidas por computador](#machine-learned-entities)
     * [Subcomponentes](#entity-subcomponents-help-extract-data) (também entidades aprendidas por máquina)
         * [descritores](#descriptors-are-features) fornecidos pelos recursos 
-        * [restrições](#constraints-are-text-rules) fornecidas por entidades não aprendidas por computador, como (expressões regulares e listas)
+        * [restrições](#constraints-are-text-rules) fornecidas por entidades não aprendidas por computador, como expressões regulares e listas
 
 ## <a name="v2-authoring-models"></a>Modelos de criação v2
 
@@ -134,7 +134,7 @@ Uma intenção é o resultado desejado de _todo_ o expressão, enquanto as entid
 
 Este expressão _deve_ ter uma intenção e _pode_ ter entidades:
 
-`Buy a airline ticket from Seattle to Cairo`
+`Buy an airline ticket from Seattle to Cairo`
 
 Este expressão tem uma única intenção:
 

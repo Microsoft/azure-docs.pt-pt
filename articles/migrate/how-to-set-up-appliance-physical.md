@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: ade2a76c168002e573a6504e31769b83f0c6eb37
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: db67defc72dcc7d913f897c6fb61548c5c33cf52
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185898"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278321"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um dispositivo para servidores físicos
 
@@ -59,8 +59,8 @@ Verifique se o arquivo compactado é seguro, antes de implantá-lo.
 
   **Algoritmo** | **Valor de hash**
   --- | ---
-  MD5 | 5b98cf68dad495696c789bdad8f0d91b
-  SHA256 | c2364887738875a31634eb0cf5defd0398f813d41069875976ca076297071e6f
+  MD5 | 96fd99581072c400aa605ab036a0a7c0
+  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
 
 
 

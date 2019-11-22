@@ -2,18 +2,18 @@
 title: 'Benefícios: migrar Apache Hadoop locais para o Azure HDInsight'
 description: Conheça a motivação e os benefícios para migrar clusters Hadoop locais para o Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
-ms.author: hrasheed
-ms.openlocfilehash: 7f67b85b66748ae98cbb520bf4ebc11a2eef9efb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/15/2019
+ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494945"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267330"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar clusters de Apache Hadoop locais para o Azure HDInsight-motivação e benefícios
 
@@ -39,13 +39,13 @@ O Azure HDInsight é uma distribuição em nuvem de componentes do Hadoop. O Azu
 
 - **Hardware e configuração gerenciados** – não há necessidade de se preocupar com o hardware ou a infraestrutura física com um cluster HDInsight. Basta especificar a configuração do cluster e o Azure o configura.
 
-- **Facilmente escalonável** – o HDInsight permite que você [dimensione](../hdinsight-administer-use-portal-linux.md) as cargas de trabalho para cima ou para baixo. O Azure cuida da redistribuição de dados e do rebalanceamento de carga de trabalho sem interromper os trabalhos de processamento de dados.
+- **Facilmente escalonável** – o HDInsight permite [escala](../hdinsight-administer-use-portal-linux.md) que você dimensione as cargas de trabalho para cima ou para baixo. O Azure cuida da redistribuição de dados e do rebalanceamento de carga de trabalho sem interromper os trabalhos de processamento de dados.
 
 - **Disponibilidade global** – o HDInsight está disponível em mais [regiões](https://azure.microsoft.com/regions/services/) do que qualquer outra oferta de análise de Big Data. O Azure HDInsight também está disponível no Azure Government, na China e na Alemanha, o que lhe permite satisfazer as suas necessidades empresariais nas principais áreas soberanas.
 
 - **Seguro e compatível** – o HDInsight permite que você proteja seus ativos de dados corporativos com a rede virtual, [criptografia](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)e integração [do Azure](../hdinsight-plan-virtual-network-deployment.md)com o [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). O HDInsight também atende aos [padrões de conformidade](https://azure.microsoft.com/overview/trusted-cloud)mais populares do setor e do governo.
 
-- **Gerenciamento de versão simplificado** – o Azure HDInsight gerencia a versão dos componentes do sistema de eco do Hadoop e os mantém atualizados. Atualizações de software geralmente são um processo complexo para implantações locais.
+- **Gerenciamento de versão simplificado** – o Azure HDInsight gerencia a versão dos componentes do sistema de eco do Hadoop e os mantém atualizado. Atualizações de software geralmente são um processo complexo para implantações locais.
 
 - **Clusters menores otimizados para cargas de trabalho específicas com menos dependências entre componentes** – uma configuração do Hadoop local típica usa um único cluster que atende a muitas finalidades. Com o Azure HDInsight, os clusters específicos da carga de trabalho podem ser criados. A criação de clusters para cargas de trabalho específicas elimina a complexidade de manter um único cluster com complexidade crescente.
 
@@ -91,16 +91,16 @@ Esta seção fornece questionários de modelo para ajudar a coletar informaçõe
 |---|---|---|
 |**Tópico**: **ambiente**|||
 |Versão de distribuição do cluster|HDP 2.6.5, CDH 5,7|
-|Componentes de sistema de eco de Big data|HDFS, yarn, Hive, LLAP, Impala, kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
+|Componentes de sistema de eco de Big data|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |Tipos de cluster|Hadoop, Spark, Kafkas, Storm, Solr|
 |Número de clusters|4|
 |Número de nós mestres|2|
 |Número de nós de trabalho|100|
 |Número de nós de borda| 5|
 |Espaço total em disco|100 TB|
-|Configuração do nó mestre|m/y, CPU, disco, etc.|
-|Configuração de nós de dados|m/y, CPU, disco, etc.|
-|Configuração de nós de borda|m/y, CPU, disco, etc.|
+|Configuração do nó mestre|m/y, cpu, disk, etc.|
+|Configuração de nós de dados|m/y, cpu, disk, etc.|
+|Configuração de nós de borda|m/y, cpu, disk, etc.|
 |Criptografia HDFS?|Sim|
 |Elevada Disponibilidade|HDFS de alta disponibilidade, metastore HA|
 |Recuperação de desastre/backup|Cluster de backup?|  
@@ -136,7 +136,7 @@ Esta seção fornece questionários de modelo para ajudar a coletar informaçõe
 |Pesquisas em memória|Apache Ignite, Redis||
 |Destinos de dados|HDFS, RDBMS, Kafka, MPP ||
 |**Tópico**: **metadados**|||
-|Tipo de BD do hive|MySQL, Postgres||
+|Tipo de BD do hive|Mysql, Postgres||
 |Número de metastores do hive|2||
 |Número de tabelas do hive|100||
 |Número de políticas de Ranger|20||
@@ -166,7 +166,7 @@ Esta seção fornece questionários de modelo para ajudar a coletar informaçõe
 |**Tópico**: **infraestrutura** |||
 |---|---|---|
 |**Pergunta**|**Exemplo**|**Atenda**|
-| Região preferida|E.U.A Leste||
+| Região preferida|Este dos EUA||
 |VNet preferencial?|Sim||
 |HA/DR necessários?|Sim||
 |Integração com outros serviços de nuvem?|ADF, CosmosDB||

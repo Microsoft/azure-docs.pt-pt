@@ -10,30 +10,30 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: dad28da0b481467633bebf664fea2be39a50200b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e72e6c112913d646b6dc1479a9b80acc6d4ec7b1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681044"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280759"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados do DB2 usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-onprem-db2-connector.md)
 > * [Versão atual](connector-db2.md)
 
-Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de um banco de dado DB2. Ele se baseia no artigo [visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de um banco de dado DB2. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
-## <a name="supported-capabilities"></a>Recursos com suporte
+## <a name="supported-capabilities"></a>Capacidades suportadas
 
 Este conector de banco de dados DB2 tem suporte para as seguintes atividades:
 
 - [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
-Você pode copiar dados de um banco de dados DB2 para qualquer armazenamento de dado de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como fontes/coletores pela atividade de cópia, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
+Você pode copiar dados de um banco de dados DB2 para qualquer armazenamento de dado de coletor com suporte. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
 Especificamente, esse conector do DB2 dá suporte às seguintes plataformas e versões do IBM DB2 com o DRDA (Distributed Relacionative Database Architecture) versão 9, 10 e 11:
 
@@ -64,7 +64,7 @@ O Integration Runtime fornece um driver do DB2 interno, portanto, você não pre
 
 As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas ao conector do DB2.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
 As propriedades a seguir têm suporte para o serviço vinculado do DB2:
 
@@ -75,8 +75,10 @@ As propriedades a seguir têm suporte para o serviço vinculado do DB2:
 | base de dados |Nome do banco de dados DB2. |Sim |
 | authenticationType |Tipo de autenticação usado para se conectar ao banco de dados DB2.<br/>O valor permitido é: **básico**. |Sim |
 | o nome de utilizador |Especifique o nome de usuário para se conectar ao banco de dados DB2. |Sim |
-| palavra-passe |Especifique a senha para a conta de usuário especificada para o nome do usuário. Marque este campo como uma SecureString para armazená-lo com segurança no Data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usará o Azure Integration Runtime padrão. |Não |
+| palavra-passe |Especifique a senha para a conta de usuário especificada para o nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| pacotecollection | Especifique em onde os pacotes necessários são criados automaticamente pelo ADF ao consultar o banco de dados | Não |
+| certificateCommonName | Ao usar o protocolo SSL (SSL) ou a criptografia TLS, você deve inserir um valor para o nome comum do certificado. | Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 **Exemplo:**
 
@@ -103,9 +105,9 @@ As propriedades a seguir têm suporte para o serviço vinculado do DB2:
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades de DataSet
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de banco de e do DB2.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de banco de e do DB2.
 
 Para copiar dados do DB2, há suporte para as seguintes propriedades:
 
@@ -113,7 +115,7 @@ Para copiar dados do DB2, há suporte para as seguintes propriedades:
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **Db2Table** | Sim |
 | schema | Nome do esquema. |Não (se for especificada "query" na origem de atividade)  |
-| tabela | Nome da tabela. |Não (se for especificada "query" na origem de atividade)  |
+| table | Nome da tabela. |Não (se for especificada "query" na origem de atividade)  |
 | tableName | Nome da tabela com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Use `schema` e `table` para uma nova carga de trabalho. | Não (se for especificada "query" na origem de atividade) |
 
 **Exemplo**
@@ -138,7 +140,7 @@ Se você estivesse usando `RelationalTable` dataset tipado, ele ainda tem suport
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de seções e propriedades disponíveis para definir atividades, consulte o artigo [pipelines](concepts-pipelines-activities.md) . Esta seção fornece uma lista das propriedades com suporte pela origem do DB2.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista das propriedades com suporte pela origem do DB2.
 
 ### <a name="db2-as-source"></a>DB2 como fonte
 
@@ -147,7 +149,7 @@ Para copiar dados do DB2, há suporte para as seguintes propriedades na seção 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como: **Db2Source** | Sim |
-| consulta | Use a consulta SQL personalizada para ler os dados. Por exemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Não (se "TableName" no DataSet for especificado) |
+| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
@@ -185,40 +187,40 @@ Se você estivesse usando `RelationalSource` fonte tipada, ainda há suporte no 
 
 ## <a name="data-type-mapping-for-db2"></a>Mapeamento de tipo de dados para DB2
 
-Ao copiar dados do DB2, os seguintes mapeamentos são usados de tipos de dados do DB2 para Azure Data Factory tipos de dados provisórios. Consulte [mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md) para saber mais sobre como a atividade de cópia mapeia o tipo de dados e o esquema de origem para o coletor.
+Ao copiar dados do DB2, os seguintes mapeamentos são usados de tipos de dados do DB2 para Azure Data Factory tipos de dados provisórios. Ver [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
 
-| Tipo de banco de dados DB2 | Tipo de dados provisório do data Factory |
+| Tipo de banco de dados DB2 | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | BigInt |Int64 |
-| binário |Byte [] |
-| Blobs |Byte [] |
-| º |String |
-| CLOB |String |
-| Date |Horário |
-| DB2DynArray |String |
-| DbClob |String |
-| Vírgula |Vírgula |
-| DecimalFloat |Vírgula |
-| Clique |Clique |
-| Barra |Clique |
-| Gráfico |String |
+| Binário |Byte[] |
+| Blobs |Byte[] |
+| char |Cadeia |
+| Clob |Cadeia |
+| Data |Datetime |
+| DB2DynArray |Cadeia |
+| DbClob |Cadeia |
+| decimal |decimal |
+| DecimalFloat |decimal |
+| Valor de duplo |Valor de duplo |
+| Float |Valor de duplo |
+| Graphic |Cadeia |
 | Número inteiro |Int32 |
-| LongVarBinary |Byte [] |
-| LongVarChar |String |
-| LongVarGraphic |String |
-| numeric |Vírgula |
-| Real |Único |
+| LongVarBinary |Byte[] |
+| LongVarChar |Cadeia |
+| LongVarGraphic |Cadeia |
+| Numeric |decimal |
+| Real |Single |
 | SmallInt |Int16 |
-| Hora |Período |
+| Hora |TimeSpan |
 | Carimbo de data/hora |DateTime |
-| VarBinary |Byte [] |
-| VarChar |String |
-| VarGraphic |String |
-| XML |Byte [] |
+| VarBinary |Byte[] |
+| VarChar |Cadeia |
+| VarGraphic |Cadeia |
+| Xml |Byte[] |
 
 ## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

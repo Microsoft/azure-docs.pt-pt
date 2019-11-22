@@ -3,12 +3,12 @@ title: Saiba Azure Policy para o mecanismo AKS
 description: Saiba como Azure Policy usa o CustomResourceDefinitions e o agente de política aberto do gatekeeper V3 para gerenciar clusters com o mecanismo do AKS.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 904575680b62233ad5ec7422abbf66cf57dc4e11
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 2d1ae33755dcb52c5fe65ec46f0d02e090f6f417
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072052"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267258"
 ---
 # <a name="understand-azure-policy-for-aks-engine"></a>Entender Azure Policy para o mecanismo AKS
 
@@ -233,7 +233,7 @@ Para remover o complemento de Azure Policy e o gatekeeper do seu cluster de meca
 
   1. Remover restrições antigas
 
-     Atualmente, o mecanismo de desinstalação remove apenas o sistema gatekeeper, ele não remove nenhum recurso _constrainttemplate_, de _restrição_ou de _configuração_ que foi criado pelo usuário, nem remove o crds que o acompanha.
+     Atualmente, o mecanismo de desinstalação remove apenas o sistema gatekeeper, ele não remove nenhum recurso _constrainttemplate_, de _restrição_ou de _configuração_ criado pelo usuário, nem remove o _crds_que o acompanha.
 
      Quando o gatekeeper está em execução, é possível remover restrições indesejadas da:
 
@@ -282,6 +282,6 @@ As informações coletadas pelo complemento não são dados pessoais. Os detalhe
 - Veja a [Estrutura de definição do Policy](definition-structure.md).
 - Veja [Compreender os efeitos do Policy](effects.md).
 - Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).
-- Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).
+- Saiba como [obter dados de conformidade](../how-to/get-compliance-data.md).
 - Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
 - Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

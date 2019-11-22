@@ -1,23 +1,14 @@
 ---
 title: Importar e exportar dados com projetos com blocos de notas do Azure
 description: Como colocar dados num projeto de blocos de notas do Azure a partir de origens externas e como exportar dados de um projeto.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 586b423b-6668-4bdd-9592-4c237d7458fb
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: b33d5dbfa354061b9b25069b3b300010b7cd49bf
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: bd7ba27859e9d05c0d57c2f78b6449c2bc48ca33
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970200"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277389"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Trabalhar com arquivos de dados em projetos de bloco de notas do Azure
 
@@ -41,11 +32,11 @@ Pode colocar arquivos num projeto do dashboard do projeto, ou dentro de um bloco
 
 1. Selecione o **carregue** comando, então **de URL** ou **do computador** e os detalhes necessários para os dados que pretende importar do projeto:
 
-   - **Da URL**: Insira o endereço de origem no campo **URL do arquivo** e o nome do arquivo para atribuir ao bloco de anotações em seu projeto no campo nome do **arquivo** . Em seguida, selecione **+ adicionar ficheiro** para adicionar o URL para a lista de carregamento. Repita o processo para todos os URLs adicionais, em seguida, selecione **feito**.
+   - **Partir do URL**: introduza o endereço de origem na **URL do ficheiro** campo e o nome de ficheiro para atribuir ao bloco de notas no seu projeto no **nome do ficheiro** campo. Em seguida, selecione **+ adicionar ficheiro** para adicionar o URL para a lista de carregamento. Repita o processo para todos os URLs adicionais, em seguida, selecione **feito**.
 
      ![Carregar a partir do pop-up de URL](media/quickstarts/upload-from-url-popup.png)
 
-   - **Do computador**: Arraste e solte arquivos no pop-up, ou selecione **escolher arquivos**, navegue até e selecione os arquivos de dados que deseja importar. Pode remover ou escolher qualquer número de ficheiros, de qualquer tipo e o formato, porque é o código no bloco de notas, abra o ficheiro e analisar os dados.
+   - **Do computador**: arrastar e soltar arquivos em pop-up ou selecione **escolher ficheiros**, em seguida, procure e selecione os ficheiros de dados que pretende importar. Pode remover ou escolher qualquer número de ficheiros, de qualquer tipo e o formato, porque é o código no bloco de notas, abra o ficheiro e analisar os dados.
 
      ![Carregar a partir do pop-up de computador](media/quickstarts/upload-from-computer-popup.png)
 
@@ -61,7 +52,7 @@ Pode colocar arquivos num projeto do dashboard do projeto, ou dentro de um bloco
 
 1. Na **estado do carregamento** pop-up que é apresentada, selecione um **pasta de destino** na lista pendente:
 
-    - Pasta de sessão ( *~/* ): Carrega arquivos na sessão atual do bloco de anotações, mas não cria arquivos no projeto. A pasta de sessão é um elemento de rede para a pasta de projeto, mas não persistem após a sessão termina. Para acessar arquivos de sessão no código, os nomes de arquivo com o caminho relativo do prefixo *.... /* .
+    - Pasta de sessão ( *~/* ): carrega ficheiros para a sessão atual do bloco de notas, mas não cria ficheiros no projeto. A pasta de sessão é um elemento de rede para a pasta de projeto, mas não persistem após a sessão termina. Para acessar arquivos de sessão no código, os nomes de arquivo com o caminho relativo do prefixo *.... /* .
 
         Com a pasta de sessão é útil para a experimentação e evita a sobrecarregar o projeto com arquivos, pode ou não poderá ter de forma longa duração. Também pode carregar ficheiros para a pasta de sessão que têm nomes idênticos para ficheiros do projeto sem causar conflitos e sem ter de mudar o nome de ficheiros. Por exemplo, digamos que tenha uma versão do *CSV* no projeto, mas pretende experimentar com uma versão diferente do *CSV*. Ao carregar o ficheiro para a pasta de sessão, pode executar o bloco de notas com dados no arquivo carregado (faça referência a ele no código usando *... /data.csv*) em vez dos dados no arquivo do projeto.
 
@@ -119,6 +110,6 @@ Também pode selecionar um ficheiro e utilizar o **transferir** comando (atalho 
 
 1. O bloco de notas prepara uma única *. zip* ficheiro que contém os ficheiros selecionados, o que, em seguida, Salvar como normalmente fazer a partir do seu browser. O bloco de notas cria um *. zip* , mesmo quando baixar um único arquivo de ficheiros.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Aceder a dados na cloud num bloco de notas](access-data-resources-jupyter-notebooks.md)

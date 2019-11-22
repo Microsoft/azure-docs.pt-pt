@@ -1,6 +1,6 @@
 ---
-title: Implementar Nozzle do Azure Log Analytics para a Cloud Foundry monitorização | Documentos da Microsoft
-description: Orientações passo a passo sobre como implementar o Cloud Foundry loggregator Nozzle para o Azure Log Analytics. Utilize o Nozzle para monitorizar as métricas de estado de funcionamento e desempenho de sistema do Cloud Foundry.
+title: Implantar o bocal do Azure Log Analytics para monitoramento de Cloud Foundry
+description: Orientações passo a passo sobre como implantar o Cloud Foundry bocal agregador para o Log Analytics do Azure. Use o bocal para monitorar as métricas de desempenho e integridade do sistema Cloud Foundry.
 services: virtual-machines-linux
 author: ningk
 manager: jeconnoc
@@ -12,105 +12,105 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 6220aebdef6970f3d5f7017e4ae48f6f409ae0ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d71f1d6af0944a676e35dfe6347fafb8706f21b8
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199402"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286633"
 ---
-# <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implementar Nozzle do Azure Log Analytics para o monitoramento de sistema do Cloud Foundry
+# <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implantar o bocal do Azure Log Analytics para monitoramento do sistema Cloud Foundry
 
-[O Azure Monitor](https://azure.microsoft.com/services/log-analytics/) é um serviço no Azure. Ele ajuda a recolher e analisar os dados que são gerados a partir da nuvem e de ambientes no local.
+[Azure monitor](https://azure.microsoft.com/services/log-analytics/) é um serviço no Azure. Ele ajuda a coletar e analisar dados que são gerados de seus ambientes de nuvem e locais.
 
-O Log Analytics Nozzle (o Nozzle) é um componente de Cloud Foundry (CF), que encaminha as métricas do [Cloud Foundry loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) firehose aos registos do Azure Monitor. Com o Nozzle do utilizador, pode recolher, ver e analisar seu CF estado de funcionamento e desempenho as métricas do sistema, entre múltiplas implementações.
+O bocal de Log Analytics (o bocal) é um componente de Cloud Foundry (CF), que encaminha as métricas da [Cloud Foundry agregador](https://docs.cloudfoundry.org/loggregator/architecture.html) firehose para logs de Azure monitor. Com o bocal, você pode coletar, exibir e analisar as métricas de desempenho e integridade do sistema do CF em várias implantações.
 
-Neste documento, saiba como implementar o Nozzle do seu ambiente de CF e, em seguida, acessar os dados a partir da consola de registos do Azure Monitor.
+Neste documento, você aprenderá a implantar o bocal no ambiente do CF e, em seguida, acessar os dados no console de logs de Azure Monitor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os seguintes passos são pré-requisitos para implementar o Nozzle do utilizador.
+As etapas a seguir são pré-requisitos para implantar o bocal.
 
-### <a name="1-deploy-a-cf-or-pivotal-cloud-foundry-environment-in-azure"></a>1. Implementar um ambiente CF ou Pivotal Cloud Foundry no Azure
+### <a name="1-deploy-a-cf-or-pivotal-cloud-foundry-environment-in-azure"></a>1. implantar um ambiente de Cloud Foundry do CF ou Pivotal no Azure
 
-Pode usar o Nozzle com uma implementação de CF de código-fonte aberto ou uma implementação da Pivotal Cloud Foundry (PCF).
+Você pode usar o bocal com uma implantação de CF de software livre ou uma implantação do PCF (Cloud Foundry Pivotal).
 
-* [Implementar o Cloud Foundry no Azure](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md)
+* [Implantar Cloud Foundry no Azure](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/blob/master/docs/guidance.md)
 
-* [Implementar a Pivotal Cloud Foundry no Azure](https://docs.pivotal.io/pivotalcf/1-11/customizing/azure.html)
+* [Implantar Cloud Foundry dinâmicos no Azure](https://docs.pivotal.io/pivotalcf/1-11/customizing/azure.html)
 
-### <a name="2-install-the-cf-command-line-tools-for-deploying-the-nozzle"></a>2. Instalar as ferramentas de linha de comando CF para implementar o Nozzle do
+### <a name="2-install-the-cf-command-line-tools-for-deploying-the-nozzle"></a>2. instalar as ferramentas de linha de comando do CF para implantar o bocal
 
-O Nozzle é executado como uma aplicação no ambiente de CF. Precisa CF CLI para implementar a aplicação.
+O bocal é executado como um aplicativo no ambiente do CF. Você precisa da CLI do CF para implantar o aplicativo.
 
-O Nozzle também necessita da permissão de acesso para o firehose loggregator e o controlador de Cloud. Para criar e configurar o utilizador, terá do serviço de conta de utilizador e autenticação (UAA).
+O bocal também precisa de permissão de acesso para o fIREHOSE agregador e o controlador de nuvem. Para criar e configurar o usuário, você precisa do serviço de autenticação e conta de usuário (UAA).
 
-* [Instalar a CLI do Cloud Foundry](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
+* [Instalar Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
 
-* [Instalar o cliente de linha de comandos do Cloud Foundry UAA](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
+* [Instalar Cloud Foundry cliente de linha de comando UAA](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
 
-Antes de configurar o cliente de linha de comando UAA, certifique-se de que o RubyGems está instalada.
+Antes de configurar o cliente de linha de comando UAA, verifique se o RubyGems está instalado.
 
-### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Criar uma área de trabalho do Log Analytics no Azure
+### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. criar um espaço de trabalho Log Analytics no Azure
 
-É possível criar a área de trabalho do Log Analytics manualmente ou utilizando um modelo. O modelo implementa uma configuração de pré-configurado de KPI de vistas e alertas para a consola de registos do Azure Monitor. 
+Você pode criar o espaço de trabalho Log Analytics manualmente ou usando um modelo. O modelo implantará uma configuração de exibições de KPI pré-configuradas e alertas para o console de logs de Azure Monitor. 
 
-#### <a name="to-create-the-workspace-manually"></a>Para criar manualmente a área de trabalho:
+#### <a name="to-create-the-workspace-manually"></a>Para criar o espaço de trabalho manualmente:
 
-1. No portal do Azure, pesquise a lista de serviços no Azure Marketplace e, em seguida, selecione as áreas de trabalho do Log Analytics.
-2. Selecione **criar**e, em seguida, selecione opções para os seguintes itens:
+1. Na portal do Azure, pesquise a lista de serviços no Azure Marketplace e, em seguida, selecione Log Analytics espaços de trabalho.
+2. Selecione **criar**e, em seguida, selecione as opções para os seguintes itens:
 
-   * **Área de trabalho de análise de registo**: Escreva um nome para a área de trabalho.
-   * **Subscrição**: Se tiver várias subscrições, selecione aquele que é o mesmo que a implementação de CF.
-   * **Grupo de recursos**: Pode criar um novo grupo de recursos ou utilize a mesma com a sua implementação CF.
-   * **Localização**: Introduza a localização.
-   * **Escalão de preço**: Selecione **OK** para concluir.
+   * **Espaço de trabalho log Analytics**: digite um nome para seu espaço de trabalho.
+   * **Assinatura**: se você tiver várias assinaturas, escolha aquela que seja a mesma que a sua implantação do CF.
+   * **Grupo de recursos**: você pode criar um novo grupo de recursos ou usar o mesmo com a implantação do CF.
+   * **Local**: Insira o local.
+   * **Tipo de preço**: selecione **OK** para concluir.
 
-Para obter mais informações, consulte [começar a utilizar com os registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+Para obter mais informações, consulte Introdução [aos logs de Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-#### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Para criar a área de trabalho do Log Analytics através do modelo de monitorização no lugar de mercado do Azure:
+#### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Para criar o espaço de trabalho Log Analytics por meio do modelo de monitoramento do Azure Market Place:
 
-1. Abra o portal do Azure.
-1. Clique no sinal "+" ou "Criar um recurso" no canto superior esquerdo.
-1. Escreva "Cloud Foundry" na janela de pesquisa, selecione "Cloud Foundry monitorização solução".
-1. O Cloud Foundry monitorização solução modelo front-página é carregada, clique em "Criar" para iniciar o painel de modelo.
-1. Introduza os parâmetros necessários:
-    * **Subscrição**: Selecione uma subscrição do Azure para a área de trabalho do Log Analytics, normalmente, o mesmo com a implementação de Cloud Foundry.
-    * **Grupo de recursos**: Selecione um grupo de recursos existente ou crie um novo para a área de trabalho do Log Analytics.
-    * **Localização do grupo de recursos**: Selecione a localização do grupo de recursos.
-    * **OMS_Workspace_Name**: Introduza um nome de área de trabalho, se a área de trabalho não existir, o modelo irá criar um novo.
-    * **OMS_Workspace_Region**: Selecione a localização para a área de trabalho.
-    * **OMS_Workspace_Pricing_Tier**: Selecione a área de trabalho do Log Analytics SKU. Consulte a [preços orientações](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
-    * **Termos legais**: Clique em termos legais e, em seguida, clique em "Criar" para aceitar o termo legal.
-1. Depois de todos os parâmetros forem especificados, clique em "Criar" para implementar o modelo. Quando a implementação estiver concluída, o estado aparecerá no separador de notificação.
+1. Abra portal do Azure.
+1. Clique no sinal "+" ou em "criar um recurso" no canto superior esquerdo.
+1. Digite "Cloud Foundry" na janela de pesquisa, selecione "solução de monitoramento de Cloud Foundry".
+1. A página frontal do modelo de solução de monitoramento de Cloud Foundry está carregada, clique em "criar" para iniciar a folha do modelo.
+1. Insira os parâmetros necessários:
+    * **Assinatura**: selecione uma assinatura do Azure para o espaço de trabalho log Analytics, geralmente o mesmo com Cloud Foundry implantação.
+    * **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo para o espaço de trabalho log Analytics.
+    * **Local do grupo de recursos**: selecione o local do grupo de recursos.
+    * **OMS_Workspace_Name**: Insira um nome de espaço de trabalho, se o espaço de trabalho não existir, o modelo criará um novo.
+    * **OMS_Workspace_Region**: selecione o local para o espaço de trabalho.
+    * **OMS_Workspace_Pricing_Tier**: selecione o SKU do espaço de trabalho log Analytics. Consulte as [diretrizes de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
+    * **Termos legais**: clique em termos legais e, em seguida, clique em "criar" para aceitar o termo legal.
+1. Depois que todos os parâmetros forem especificados, clique em "criar" para implantar o modelo. Quando a implantação for concluída, o status aparecerá na guia notificação.
 
 
-## <a name="deploy-the-nozzle"></a>Implementar Nozzle do
+## <a name="deploy-the-nozzle"></a>Implantar o bocal
 
-Existem duas formas diferentes de implementar o Nozzle: como um mosaico PCF ou como uma aplicação CF.
+Há algumas maneiras diferentes de implantar o bocal: como um bloco PCF ou como um aplicativo CF.
 
-### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>Implementar Nozzle do como um mosaico de PCF Ops Manager
+### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>Implantar o bocal como um bloco do Gerenciador de operações do PCF
 
-Siga os passos para [instalar e configurar o Nozzle do Azure Log Analytics para o PCF](https://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Essa é a abordagem simplificada, o mosaico do Gestor de operações do PCF irá configurar e enviar por push o nozzle do automaticamente. 
+Siga as etapas para [instalar e configurar o bocal do Azure log Analytics para PCF](https://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Essa é a abordagem simplificada, o bloco do Gerenciador de ops do PCF configurará e enviará automaticamente o bocal. 
 
-### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>Implementar Nozzle do manualmente como uma aplicação de CF
+### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>Implantar o bocal manualmente como um aplicativo CF
 
-Se não estiver a utilizar o PCF Ops Manager, implemente o Nozzle como uma aplicação. As secções seguintes descrevem este processo.
+Se você não estiver usando o PCF Ops Manager, implante o bocal como um aplicativo. As seções a seguir descrevem esse processo.
 
-#### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>Inicie sessão na sua implementação CF como um administrador através do CF CLI
+#### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>Entre em sua implantação do CF como um administrador por meio da CLI do CF
 
 Execute o seguinte comando:
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
 
-"SYSTEM_DOMAIN" é o seu nome de domínio CF. Pode recuperá-lo ao pesquisar "SYSTEM_DOMAIN" em seu arquivo de manifesto de implantação CF. 
+"SYSTEM_DOMAIN" é o nome de domínio do CF. Você pode recuperá-lo pesquisando o "SYSTEM_DOMAIN" em seu arquivo de manifesto de implantação do CF. 
 
-"CF_User" é o nome de administrador CF. Pode obter o nome e a palavra-passe ao pesquisar a seção "scim", procurando o nome e o "cf_admin_password" em seu arquivo de manifesto de implantação CF.
+"CF_User" é o nome do administrador do CF. Você pode recuperar o nome e a senha pesquisando a seção "SCIM", procurando o nome e o "cf_admin_password" em seu arquivo de manifesto de implantação do CF.
 
-#### <a name="create-a-cf-user-and-grant-required-privileges"></a>Criar um utilizador CF e conceder privilégios necessários
+#### <a name="create-a-cf-user-and-grant-required-privileges"></a>Criar um usuário do CF e conceder os privilégios necessários
 
 Execute os seguintes comandos:
 ```
@@ -121,9 +121,9 @@ uaac member add cloud_controller.admin ${FIREHOSE_USER}
 uaac member add doppler.firehose ${FIREHOSE_USER}
 ```
 
-"SYSTEM_DOMAIN" é o seu nome de domínio CF. Pode recuperá-lo ao pesquisar "SYSTEM_DOMAIN" em seu arquivo de manifesto de implantação CF.
+"SYSTEM_DOMAIN" é o nome de domínio do CF. Você pode recuperá-lo pesquisando o "SYSTEM_DOMAIN" em seu arquivo de manifesto de implantação do CF.
 
-#### <a name="download-the-latest-log-analytics-nozzle-release"></a>Baixe a versão mais recente do Nozzle do Log Analytics
+#### <a name="download-the-latest-log-analytics-nozzle-release"></a>Baixe a versão mais recente do bocal Log Analytics
 
 Execute o seguinte comando:
 ```
@@ -133,7 +133,7 @@ cd oms-log-analytics-firehose-nozzle
 
 #### <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
-Agora pode definir variáveis de ambiente no ficheiro manifest.yml no seu diretório atual. O código a seguir mostra o manifesto da aplicação para o Nozzle do utilizador. Substitua os valores com as suas informações de área de trabalho do Log Analytics específicas.
+Agora você pode definir variáveis de ambiente no arquivo manifest. yml em seu diretório atual. O seguinte mostra o manifesto do aplicativo para o bocal. Substitua os valores pelas informações específicas do espaço de trabalho Log Analytics.
 
 ```
 OMS_WORKSPACE             : Log Analytics workspace ID: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
@@ -154,97 +154,97 @@ LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle h
 LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Azure Monitor logs. The default is 60 seconds.
 ```
 
-### <a name="push-the-application-from-your-development-computer"></a>Envie a aplicação do seu computador de desenvolvimento
+### <a name="push-the-application-from-your-development-computer"></a>Enviar por push o aplicativo do seu computador de desenvolvimento
 
-Certifique-se de que está sob a pasta log-analytics-firehose-nozzle do oms. Execute o seguinte comando:
+Verifique se você está na pasta OMS-log-Analytics-firehose-bocal. Execute o seguinte comando:
 ```
 cf push
 ```
 
-## <a name="validate-the-nozzle-installation"></a>Validar a instalação de Nozzle
+## <a name="validate-the-nozzle-installation"></a>Validar a instalação do bocal
 
-### <a name="from-apps-manager-for-pcf"></a>A partir do Gestor de aplicações (para o PCF)
+### <a name="from-apps-manager-for-pcf"></a>Do Gerenciador de aplicativos (para PCF)
 
-1. Inicie sessão no Ops Manager e certifique-se de que o mosaico é apresentado no dashboard de instalação.
-2. Inicie sessão no Gestor de aplicações, certifique-se de que o espaço que criou para o Nozzle está listado no relatório de utilização e confirme que o estado é normal.
+1. Entre no Ops Manager e verifique se o bloco é exibido no painel de instalação.
+2. Entre no Gerenciador de aplicativos, verifique se o espaço que você criou para o bocal está listado no relatório de uso e confirme se o status é normal.
 
 ### <a name="from-your-development-computer"></a>Do seu computador de desenvolvimento
 
-Na janela da CLI de CF, escreva:
+Na janela da CLI do CF, digite:
 ```
 cf apps
 ```
-Certificar-se de que o aplicativo Nozzle do OMS está em execução.
+Verifique se o aplicativo bocal do OMS está em execução.
 
-## <a name="view-the-data-in-the-azure-portal"></a>Ver os dados no portal do Azure
+## <a name="view-the-data-in-the-azure-portal"></a>Exibir os dados no portal do Azure
 
-Se tiver implementado a solução de monitorização através do modelo do mercado, aceda ao portal do Azure e localize a solução. Pode encontrar a solução no grupo de recursos que especificou no modelo. Clique a solução, navegue para "log analytics consola", as vistas pré-configuradas estão listadas, com KPIs de sistema do Cloud Foundry superior, os dados da aplicação, alertas e métricas de estado de funcionamento da VM. 
+Se você tiver implantado a solução de monitoramento por meio do modelo do mercado, vá para portal do Azure e localize a solução. Você pode encontrar a solução no grupo de recursos especificado no modelo. Clique na solução, navegue até o "console do log Analytics", as exibições pré-configuradas são listadas, com os principais KPIs do sistema Cloud Foundry, dados do aplicativo, alertas e métricas de integridade da VM. 
 
-Se tiver criado a área de trabalho do Log Analytics manualmente, siga os passos abaixo para criar as vistas e alertas:
+Se você criou o espaço de trabalho Log Analytics manualmente, siga as etapas abaixo para criar os modos de exibição e os alertas:
 
-### <a name="1-import-the-oms-view"></a>1. Importar o modo de exibição do OMS
+### <a name="1-import-the-oms-view"></a>1. importar a exibição do OMS
 
-No portal do OMS, navegue até **estruturador de vistas** > **importação** > **procurar**e selecione um dos ficheiros omsview. Por exemplo, seleccione *Cloud Foundry.omsview*e guarde o modo de exibição. Agora um mosaico é apresentado no **descrição geral** página. Selecione-o para ver as métricas de visualizados.
+No portal do OMS, navegue até o **Designer de exibição** > **importar** > **procurar**e selecione um dos arquivos omsview. Por exemplo, selecione *Cloud Foundry. omsview*e salve o modo de exibição. Agora, um bloco é exibido na página **visão geral** . Selecione-o para ver as métricas visualizadas.
 
-Pode personalizar estas vistas ou criar novas vistas através de **estruturador de vistas**.
+Você pode personalizar essas exibições ou criar novas exibições por meio do **Designer de exibição**.
 
-O *"Cloud Foundry.omsview"* é uma versão de pré-visualização do modelo de exibição do Cloud Foundry OMS. Este é um modelo padrão totalmente configurado. Se tiver sugestões ou comentários sobre o modelo, enviá-las para o [emitir secção](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
+O *"Cloud Foundry. omsview"* é uma versão de visualização do modelo de exibição do Cloud Foundry OMS. Esse é um modelo padrão totalmente configurado. Se você tiver sugestões ou comentários sobre o modelo, envie-os para a [seção de problemas](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
 
-### <a name="2-create-alert-rules"></a>2. Criar regras de alertas
+### <a name="2-create-alert-rules"></a>2. criar regras de alerta
 
-Pode [criar os alertas](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts)e personalizar as consultas e os valores de limiar conforme necessário. A seguir são apresentadas alertas:
+Você pode [criar os alertas](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts)e personalizar as consultas e os valores de limite conforme necessário. Estes são os alertas recomendados:
 
 | Consulta de pesquisa                                                                  | Gerar alerta com base em | Descrição                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
-| Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Número de resultados < 1   | **BBS. Aplicações de Domain.cf** indica se o domínio de aplicativos está atualizado. Isso significa que os pedidos de aplicação CF do controlador de Cloud são sincronizados com bbs. LRPsDesired (AIs Diego desejada) para execução. Não foram recebidos dados significa que domínio cf-aplicações não está atualizado na janela de tempo especificado. |
-| Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Número de resultados > 0   | Para as células Diego, 0 significa bom estado de funcionamento e 1 significa mau estado de funcionamento. Defina o alerta se várias células Diego mau estado de funcionamento são detetadas na janela de tempo especificado. |
-| Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Número de resultados > 0 | 1 significa que o sistema está em bom estado e 0 significa que o sistema não está em bom estado. |
-| Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Número de resultados > 0   | Consul emite periodicamente o estado de funcionamento. 0 significa que o sistema está em bom estado e 1 significa que o emissor de rota Deteta que Consul está desativado. |
-| Tipo = CF_CounterEvent_CL Origin_s = Delta_d DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" ou Name_s="doppler.shedEnvelopes") > 0 | Número de resultados > 0 | O número de delta de mensagens caiu intencionalmente Doppler devido a pressão. |
-| Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Número de resultados > 0   | Loggregator emite **LGR** para indicar problemas com o processo de Registro em log. Um exemplo desse problema é quando o resultado de mensagem do registo é demasiado elevado. |
-| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Quando o Nozzle recebe um alerta de consumo lentos de loggregator, envia os **slowConsumerAlert** regista ValueMetric para o Azure Monitor. |
-| Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Número de resultados > 0   | Se o número de delta de eventos perdidos atinge um limiar, significa que o Nozzle pode ter um problema ao executar. |
+| Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Número de resultados < 1   | **BBS. Domain.cf-apps** indica se o domínio CF-apps está atualizado. Isso significa que as solicitações de aplicativo do CF do controlador de nuvem são sincronizadas com o BBS. LRPsDesired (AIs de Diego desejado) para execução. Nenhum dado recebido significa que o domínio CF-apps não está atualizado na janela de tempo especificada. |
+| Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Número de resultados > 0   | Para células Diego, 0 significa íntegro e 1 significa não íntegro. Defina o alerta se várias células de Diego não íntegros forem detectadas na janela de tempo especificada. |
+| Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Número de resultados > 0 | 1 significa que o sistema está íntegro e 0 significa que o sistema não está íntegro. |
+| Type = CF_ValueMetric_CL Origin_s = route_emitter Name_s = ConsulDownMode Value_d > 0 | Número de resultados > 0   | O Consul emite seu status de integridade periodicamente. 0 significa que o sistema está íntegro e 1 significa que o emissor de rota detecta que o Consul está inoperante. |
+| Type = CF_CounterEvent_CL Origin_s = DopplerServer (Name_s = "TruncatingBuffer. DroppedMessages" ou Name_s = "Doppler. shedEnvelopes") Delta_d > 0 | Número de resultados > 0 | O número Delta de mensagens descartadas intencionalmente por Doppler devido à pressão de retorno. |
+| Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Número de resultados > 0   | Agregador emite **LGR** para indicar problemas com o processo de log. Um exemplo desse problema é quando a saída da mensagem de log é muito alta. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Quando o bocal recebe um alerta de consumidor lento do agregador, ele envia o **valuemetric slowconsumeralert** ao para logs de Azure monitor. |
+| Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Número de resultados > 0   | Se o número Delta de eventos perdidos atingir um limite, isso significará que o bocal pode ter um problema em execução. |
 
 ## <a name="scale"></a>Escala
 
-Pode dimensionar o Nozzle do utilizador e a loggregator.
+Você pode dimensionar o bocal e o agregador.
 
-### <a name="scale-the-nozzle"></a>Dimensionar o Nozzle do
+### <a name="scale-the-nozzle"></a>Dimensionar o bocal
 
-Deve começar com, pelo menos, duas instâncias do Nozzle do utilizador. O firehose distribui a carga de trabalho em todas as instâncias do Nozzle do utilizador.
-Para certificar-se de que o Nozzle pode acompanhar o tráfego de dados do firehose, configure as **slowConsumerAlert** alerta (listada na secção anterior, "Criar regras de alerta"). Depois de ter sido alertado, siga os [orientações para Nozzle lenta](https://docs.pivotal.io/pivotalcf/1-11/loggregator/log-ops-guide.html#slow-noz) para determinar se o dimensionamento é necessário.
-Para aumentar verticalmente o bocal, utilize o Gestor de aplicações ou a CLI CF para aumentar os números de instância ou os recursos de memória ou disco para o Nozzle do utilizador.
+Você deve começar com pelo menos duas instâncias do bocal. O fIREHOSE distribui a carga de trabalho em todas as instâncias do bocal.
+Para garantir que o bocal possa acompanhar o tráfego de dados do fIREHOSE, configure o alerta **valuemetric slowconsumeralert** (listado na seção anterior, "criar regras de alerta"). Depois de ter sido alertado, siga as [diretrizes para bocal lenta](https://docs.pivotal.io/pivotalcf/1-11/loggregator/log-ops-guide.html#slow-noz) para determinar se o dimensionamento é necessário.
+Para escalar verticalmente o bocal, use o Gerenciador de aplicativos ou a CLI do CF para aumentar os números de instância ou a memória ou os recursos de disco para o bocal.
 
-### <a name="scale-the-loggregator"></a>Dimensionar o loggregator
+### <a name="scale-the-loggregator"></a>Dimensionar o agregador
 
-Loggregator envia uma **LGR** mensagem do registo para indicar problemas com o processo de Registro em log. Pode monitorizar o alerta para determinar se o loggregator tem de ser aumentado.
-Para aumentar verticalmente o loggregator, aumentar o tamanho do Doppler buffer ou adicionar as instâncias de servidor Doppler adicional no manifesto CF. Para obter mais informações, consulte [as orientações para dimensionar o loggregator](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling).
+Agregador envia uma mensagem de log **LGR** para indicar problemas com o processo de log. Você pode monitorar o alerta para determinar se o agregador precisa ser escalado verticalmente.
+Para escalar verticalmente o agregador, aumente o tamanho do buffer Doppler ou adicione instâncias de servidor Doppler adicionais no manifesto do CF. Para obter mais informações, consulte [a orientação para dimensionar o agregador](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling).
 
 ## <a name="update"></a>Atualizar
 
-Para atualizar o Nozzle com uma versão mais recente, transferir a nova versão de Nozzle, siga os passos na secção "Implementar Nozzle do" anterior e enviar por push o aplicativo novamente.
+Para atualizar o bocal com uma versão mais recente, baixe a nova versão do bocal, siga as etapas na seção "implantar o bocal" anterior e envie o aplicativo novamente.
 
-### <a name="remove-the-nozzle-from-ops-manager"></a>Remover o Nozzle do Ops Manager
+### <a name="remove-the-nozzle-from-ops-manager"></a>Remover o bocal do Ops Manager
 
-1. Inicie sessão no Ops Manager.
-2. Localize a **Nozzle do Microsoft Azure Log Analytics para o PCF** mosaico.
-3. Selecione o ícone de lixo e confirme a eliminação.
+1. Entre no Ops Manager.
+2. Localize o **Microsoft Azure log Analytics bocal para** o bloco PCF.
+3. Selecione o ícone de lixo e confirme a exclusão.
 
-### <a name="remove-the-nozzle-from-your-development-computer"></a>Remover o Nozzle do seu computador de desenvolvimento
+### <a name="remove-the-nozzle-from-your-development-computer"></a>Remover o bocal do seu computador de desenvolvimento
 
-Na janela da CLI de CF, escreva:
+Na janela da CLI do CF, digite:
 ```
 cf delete <App Name> -r
 ```
 
-Se remover o bocal, os dados no portal do OMS não são removidos automaticamente. Data de expiração com base na sua configuração de retenção do registos do Azure Monitor.
+Se você remover o bocal, os dados no portal do OMS não serão removidos automaticamente. Ele expira com base na configuração de retenção de logs de Azure Monitor.
 
 ## <a name="support-and-feedback"></a>Suporte e comentários
 
-Nozzle de análise de registo do Azure é de código fonte aberto. Envie suas dúvidas e comentários para o [secção do GitHub](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues). Para abrir um pedido de suporte do Azure, escolha "Executar fundição de nuvem de Máquina Virtual" como a categoria de serviço. 
+O bocal do Azure Log Analytics está em código aberto. Envie suas perguntas e seus comentários para a [seção do GitHub](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues). Para abrir uma solicitação de suporte do Azure, escolha "máquina virtual em execução Cloud Foundry" como a categoria de serviço. 
 
 ## <a name="next-step"></a>Passo seguinte
 
-A partir de PCF2.0, métricas de desempenho da VM são transferidas para nozzle do Log Analytics do Azure, o reencaminhador de métricas do sistema e integradas para a área de trabalho do Log Analytics. Já não tem o agente Log Analytics para as métricas de desempenho da VM. No entanto pode ainda utilizar o agente Log Analytics para recolher informações do Syslog. O agente Log Analytics é instalado como um complemento Bosh às suas VMs CF. 
+No PCF 2.0, as métricas de desempenho da VM são transferidas para o Azure Log Analytics bocal pelo encaminhador de métricas do sistema e integradas ao espaço de trabalho Log Analytics. Você não precisa mais do agente de Log Analytics para as métricas de desempenho da VM. No entanto, você ainda pode usar o agente de Log Analytics para coletar informações de syslog. O agente de Log Analytics é instalado como um complemento Bosh em suas VMs do CF. 
 
-Para obter detalhes, consulte [agente de implementar o Log Analytics para a implementação de Cloud Foundry](https://github.com/Azure/oms-agent-for-linux-boshrelease).
+Para obter detalhes, consulte [implantar log Analytics Agent na sua implantação do Cloud Foundry](https://github.com/Azure/oms-agent-for-linux-boshrelease).

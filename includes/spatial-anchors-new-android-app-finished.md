@@ -1,21 +1,21 @@
 ---
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.date: 04/03/2019
 ms.topic: include
 ms.author: rgarcia
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: fcc6c10419b46d31fde20001fefccb32b7a421ce
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8bef7b12f4d9d9a63e41441ef22b029b2ee5afd1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184844"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276925"
 ---
-## <a name="putting-everything-together"></a>Colocando tudo junto
+## <a name="putting-everything-together"></a>Colocando tudo em conjunto
 
-Eis como o completa `MainActivity` arquivo de classe deve ser semelhante a, depois de todos os elementos diferentes foram colocados em conjunto. Pode utilizá-lo como referência para comparar em relação a seu próprio ficheiro e detetar se pode ter quaisquer diferenças à esquerda.
+Veja como o arquivo de classe de `MainActivity` completo deve ser semelhante, depois que todos os elementos diferentes tiverem sido agrupados. Você pode usá-lo como uma referência para comparar com seu próprio arquivo e identificar se você pode ter qualquer diferença restante.
 
 ```java
 package com.example.myfirstapp;
@@ -242,9 +242,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, viu como criar uma nova aplicação Android que se integra a funcionalidade de ARCore âncoras espaciais do Azure. Para saber mais sobre a biblioteca de âncoras espaciais do Azure, avance para o nosso guia sobre como criar e localizar as âncoras.
+Neste tutorial, você viu como criar um novo aplicativo Android que integra a funcionalidade ARCore com âncoras espaciais do Azure. Para saber mais sobre a biblioteca de âncoras espaciais do Azure, vá para nosso guia sobre como criar e localizar âncoras.
 
 > [!div class="nextstepaction"]
-> [Criar e localizar as âncoras usando âncoras espaciais do Azure](/azure/spatial-anchors/create-locate-anchors-overview)
+> [Criar e localizar âncoras usando âncoras espaciais do Azure](/azure/spatial-anchors/create-locate-anchors-overview)

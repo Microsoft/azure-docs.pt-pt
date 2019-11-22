@@ -1,5 +1,5 @@
 ---
-title: Como criar e localizar âncoras usando sensores no dispositivo em Objective-C | Microsoft Docs
+title: Relocalidade alta no Objective-C
 description: Uma explicação detalhada de como criar e localizar âncoras usando sensores no dispositivo em Objective-C.
 author: bucurb
 manager: dacoghl
@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d08f578ddf17c2666c88081dc7b10c89d04beeb4
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: d60bb9dbb546db1af6f689dbdcb485354fb7174e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093217"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277228"
 ---
 # <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-objective-c"></a>Como criar e localizar âncoras usando sensores no dispositivo no Objective-C
 

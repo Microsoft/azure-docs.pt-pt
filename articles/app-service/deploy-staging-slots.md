@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: f9b1af14bd986f1fa6fb5feb398a7f1fdf982f77
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 02d8c511b799a4caee185f7ecb847e6cc15f3c87
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669102"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304739"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no serviço Azure App
 <a name="Overview"></a>
@@ -215,7 +216,7 @@ Para obter mais informações sobre como personalizar o elemento `applicationIni
 
 Você também pode personalizar o comportamento de aquecimento com uma ou ambas as seguintes configurações de [aplicativo](configure-common.md):
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`: o caminho para o ping para aquecimento do seu site. Adicione essa configuração de aplicativo especificando um caminho personalizado que começa com uma barra como o valor. Um exemplo é `/statuscheck`. O valor padrão é `/`. 
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: o caminho para o ping para aquecimento do seu site. Adicione essa configuração de aplicativo especificando um caminho personalizado que começa com uma barra como o valor. Um exemplo é `/statuscheck`. O valor predefinido é `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: códigos de resposta HTTP válidos para a operação de aquecimento. Adicione essa configuração de aplicativo com uma lista separada por vírgulas de códigos HTTP. Um exemplo é `200,202`. Se o código de status retornado não estiver na lista, as operações aquecimento e swap serão interrompidas. Por padrão, todos os códigos de resposta são válidos.
 
 > [!NOTE]
@@ -248,6 +249,10 @@ Para rotear o tráfego de produção automaticamente:
 Depois que a configuração é salva, a porcentagem especificada de clientes é roteada aleatoriamente para o slot de não produção. 
 
 Depois que um cliente é roteado automaticamente para um slot específico, ele é "fixado" a esse slot durante a vida útil dessa sessão de cliente. No navegador do cliente, você pode ver em qual slot sua sessão está fixa examinando o `x-ms-routing-name` cookie em seus cabeçalhos HTTP. Uma solicitação que é roteada para o slot de "preparo" tem o cookie `x-ms-routing-name=staging`. Uma solicitação que é roteada para o slot de produção tem o cookie `x-ms-routing-name=self`.
+
+   > [!NOTE]
+   > Ao lado do portal do Azure, você também pode usar o comando [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing.md#az-webapp-traffic-routing-set) na CLI do Azure para definir as porcentagens de roteamento de ferramentas de CI/CD, como pipelines DevOps ou outros sistemas de automação.
+   > 
 
 ### <a name="route-production-traffic-manually"></a>Rotear tráfego de produção manualmente
 

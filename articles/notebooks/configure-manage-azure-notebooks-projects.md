@@ -1,23 +1,14 @@
 ---
 title: Configurar e gerir projetos de bloco de notas do Azure
 description: Como gerir metadados de projeto, arquivos de projeto, passos de configuração e de ambiente do projeto através da IU de blocos de notas do Azure e o acesso direto de terminal.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/13/2019
-ms.author: kraigb
-ms.openlocfilehash: fca98594be08f04b2f266f3aa574837ac024ecf4
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 56c265122894412e79b3d5a7b256964c49ab81a6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973135"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277647"
 ---
 # <a name="manage-and-configure-projects"></a>Gerir e configurar projetos
 
@@ -70,7 +61,7 @@ O **+ novo** comando (atalho de teclado: n) cria novos ficheiros ou pastas. Ao u
 
 ### <a name="upload-files"></a>Carregar ficheiros
 
-O comando **upload** fornece duas opções para importar dados de outros locais: **Da URL** e **do computador**. Para obter mais informações, consulte [trabalhar com arquivos de dados em projetos de bloco de notas do Azure](work-with-project-data-files.md).
+O **carregue** comando fornece duas opções para importar dados a partir de outras localizações: **de URL** e **de computador**. Para obter mais informações, consulte [trabalhar com arquivos de dados em projetos de bloco de notas do Azure](work-with-project-data-files.md).
 
 ### <a name="select-file-specific-commands"></a>Selecione a comandos específicos de ficheiro
 
@@ -115,7 +106,7 @@ São aplicados a todos os formulários de configuração do projeto sempre que a
 
 ### <a name="one-time-initialization-script"></a>Script de inicialização única
 
-Os blocos de notas do Azure de iniciantes cria um servidor para o projeto, ele procura por um arquivo no projeto chamado *aznbsetup.sh*. Se este ficheiro está presente, blocos de notas do Azure executa-o. A saída do script é armazenada na pasta do projeto, como *. aznbsetup.log*.
+O Azure Notebooks da primeira vez que cria um servidor para o projeto, ele procura um arquivo no projeto chamado *aznbsetup.sh*. Se esse arquivo estiver presente, Azure Notebooks o executará. A saída do script é armazenada na pasta do projeto, como *. aznbsetup.log*.
 
 ### <a name="environment-setup-steps"></a>Passos de configuração do ambiente
 
@@ -131,11 +122,11 @@ Para adicionar um passo, selecione **+ adicionar**, em seguida, selecione um tip
 
 As informações que, em seguida, do projeto dependem do tipo de operação que escolheu:
 
-- **Requirements. txt**: Na segunda lista suspensa, selecione um arquivo *requirements. txt* que já está no projeto. Em seguida, selecione uma versão de Python a terceiro na lista pendente que é apresentada. Ao utilizar um *Requirements. txt* execuções de blocos de notas do Azure, de ficheiros `pip install -r` com o *Requirements. txt* quando a partir de um servidor de ficheiros. Não precisa de instalar explicitamente os pacotes a partir do bloco de notas.
+- **Requirements. txt**: na segunda lista pendente, selecione uma *Requirements. txt* ficheiros que já se encontra no projeto. Em seguida, selecione uma versão de Python a terceiro na lista pendente que é apresentada. Ao utilizar um *Requirements. txt* execuções de blocos de notas do Azure, de ficheiros `pip install -r` com o *Requirements. txt* quando a partir de um servidor de ficheiros. Não precisa de instalar explicitamente os pacotes a partir do bloco de notas.
 
-- **Script de shell**: Na segunda lista suspensa, selecione um script de shell bash no projeto (normalmente um arquivo com a extensão *. sh* ) que contém os comandos que você deseja executar para inicializar o ambiente.
+- **Script de shell**: na segunda lista pendente, selecione um script de shell de bash no projeto (normalmente, um ficheiro com o *. SH* extensão) que contém todos os comandos que pretende executar para inicializar o ambiente.
 
-- **Environment. yml**: Na segunda lista suspensa, selecione um arquivo *Environments. yml* para projetos do Python usando um ambiente Conda.
+- **Environment.yml**: na segunda lista pendente, selecione uma *environments.yml* ficheiro para projetos Python usando um ambiente de conda.
 
 Quando tiver terminado de adicionar passos, selecione **guardar**.
 
@@ -190,5 +181,5 @@ Também pode utilizar o comando a partir de uma célula de código num bloco de 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [How to: Trabalhar com arquivos de dados do projeto @ no__t-0
+- [Como: trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
 - [Aceder a dados na cloud num bloco de notas](access-data-resources-jupyter-notebooks.md)

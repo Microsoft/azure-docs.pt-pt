@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 11/20/2019
 ms.author: damaerte
-ms.openlocfilehash: ee68400d000ca823816c8efc6bcbc224d1388832
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 8e04e7c1919deaf60e083aba4588943147ebd6bf
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082986"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284816"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Manter arquivos em Azure Cloud Shell
 O Cloud Shell utiliza o armazenamento de arquivos do Azure para manter arquivos entre sessões. Na inicialização inicial, Cloud Shell solicita que você associe um compartilhamento de arquivos novo ou existente para manter os arquivos entre as sessões.
@@ -38,14 +38,11 @@ Quando você usa configurações básicas e seleciona apenas uma assinatura, Clo
 
 O compartilhamento de arquivos é montado como `clouddrive` em seu diretório `$Home`. Essa é uma ação única e o compartilhamento de arquivos é montado automaticamente em sessões subsequentes. 
 
-> [!NOTE]
-> Para segurança, cada usuário deve provisionar sua própria conta de armazenamento.  Para o RBAC (controle de acesso baseado em função), os usuários devem ter acesso de colaborador ou acima no nível da conta de armazenamento.
-
 O compartilhamento de arquivos também contém uma imagem de 5 GB que é criada para você, que persiste automaticamente os dados em seu diretório `$Home`. Isso se aplica tanto ao bash quanto ao PowerShell.
 
 ## <a name="use-existing-resources"></a>Usar recursos existentes
 
-Usando a opção avançado, você pode associar os recursos existentes. Ao selecionar uma região de Cloud Shell, você deve selecionar uma conta de armazenamento de backup colocalizada na mesma região. Por exemplo, se sua região atribuída for oeste dos EUA do que você deve associar um compartilhamento de arquivos que reside dentro do oeste dos EUA também.
+Usando a opção avançado, você pode associar os recursos existentes. Ao selecionar uma região de Cloud Shell, você deve selecionar uma conta de armazenamento de backup colocalizada na mesma região. Por exemplo, se a região atribuída for oeste dos EUA, você deverá associar um compartilhamento de arquivos que reside dentro do oeste dos EUA também.
 
 Quando o prompt de configuração de armazenamento for exibido, selecione **Mostrar configurações avançadas** para exibir opções adicionais. O filtro opções de armazenamento populadas para LRS (armazenamento com redundância local), GRS (armazenamento com redundância geográfica) e contas de ZRS (armazenamento com redundância de zona). 
 
@@ -54,7 +51,14 @@ Quando o prompt de configuração de armazenamento for exibido, selecione **Most
 
 ![A configuração do grupo de recursos](media/persisting-shell-storage/advanced-storage.png)
 
-### <a name="supported-storage-regions"></a>Regiões de armazenamento com suporte
+## <a name="securing-storage-access"></a>Protegendo o acesso de armazenamento
+Para segurança, cada usuário deve provisionar sua própria conta de armazenamento.  Para o RBAC (controle de acesso baseado em função), os usuários devem ter acesso de colaborador ou acima no nível da conta de armazenamento.
+
+Cloud Shell usa um compartilhamento de arquivos do Azure em uma conta de armazenamento, dentro de uma assinatura especificada. Devido a permissões herdadas, os usuários com direitos de acesso suficientes para a assinatura poderão acessar todas as contas de armazenamento e os compartilhamentos de arquivos contidos na assinatura.
+
+Os usuários devem bloquear o acesso aos seus arquivos definindo as permissões na conta de armazenamento ou no nível de assinatura.
+
+## <a name="supported-storage-regions"></a>Regiões de armazenamento com suporte
 As contas de armazenamento do Azure associadas devem residir na mesma região que o computador Cloud Shell no qual você está montando. Para localizar sua região atual, você pode executar `env` em bash e localizar a variável `ACC_LOCATION`. Os compartilhamentos de arquivos recebem uma imagem de 5 GB criada para que você persista o diretório `$Home`.
 
 As máquinas Cloud Shell existem nas seguintes regiões:
@@ -67,8 +71,6 @@ As máquinas Cloud Shell existem nas seguintes regiões:
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restringir a criação de recursos com uma política de recursos do Azure
 As contas de armazenamento que você cria no Cloud Shell são marcadas com `ms-resource-usage:azure-cloud-shell`. Se você quiser impedir que os usuários criem contas de armazenamento no Cloud Shell, crie uma [política de recursos do Azure para marcas](../azure-policy/json-samples.md) disparadas por essa marca específica.
-
-
 
 ## <a name="how-cloud-shell-storage-works"></a>Como funciona Cloud Shell armazenamento 
 Cloud Shell persiste arquivos por meio dos dois métodos a seguir: 

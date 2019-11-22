@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: 7d31dd004c879fd3e689f4ba7a8ae58cb223ae70
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 99a705c3923821739ddc1dedd8f7c079dc534a1a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484938"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277294"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Usar pontos de extremidade de serviço de rede virtual com o barramento de serviço do Azure
 
@@ -31,7 +31,6 @@ O resultado é uma relação privada e isolada entre as cargas de trabalho vincu
 > Os serviços confiáveis da Microsoft não têm suporte quando as redes virtuais são implementadas.
 >
 > Cenários comuns do Azure que não funcionam com redes virtuais (Observe que a lista **não** é exaustiva) –
-> - Azure Monitor
 > - Azure Stream Analytics
 > - Integração com a grade de eventos do Azure
 > - Rotas do Hub IoT do Azure
@@ -48,11 +47,11 @@ O resultado é uma relação privada e isolada entre as cargas de trabalho vincu
 
 Uma consideração importante ao usar pontos de extremidade de serviço de VNet com o barramento de serviço é que você não deve habilitar esses pontos de extremidade em aplicativos que combinam os namespaces do barramento de serviço da camada Standard e Premium. Como a camada Standard não dá suporte a VNets, o ponto de extremidade é restrito apenas aos namespaces da camada Premium.
 
-## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários de segurança avançada habilitados pela integração de VNet 
+## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários de segurança avançada ativados pela integração de VNet 
 
-Soluções que exigem segurança rígida e segmentada e onde as sub-redes da rede virtual fornecem a segmentação entre os serviços em compartimentalização, geralmente ainda precisam de caminhos de comunicação entre os serviços que residem nesses compartimentos.
+Soluções que requerem uma segurança forte e compartimentalizada e, em que sub-redes da rede virtual fornecem a segmentação de fornecida entre os serviços compartmentalized, geralmente ainda precisam de caminhos de comunicação entre serviços que residem em compartimentos desses.
 
-Qualquer rota de IP imediata entre os compartimentos, incluindo aqueles que realizam HTTPS sobre TCP/IP, traz o risco de exploração de vulnerabilidades da camada de rede em funcionamento. Os serviços de mensagens fornecem caminhos de comunicação completamente isolados, em que as mensagens são gravadas no disco à medida que fazem a transição entre as partes. As cargas de trabalho em duas redes virtuais distintas associadas à mesma instância do barramento de serviço podem se comunicar de forma eficiente e confiável por meio de mensagens, enquanto a respectiva integridade de limite de isolamento de rede é preservada.
+Qualquer rotas IP imediata entre compartimentos, incluindo aquelas com HTTPS por TCP/IP, carrega o risco de exploração de vulnerabilidades da camada de rede em segurança. Serviços de mensagens fornecem caminhos de comunicação completamente isolado, onde as mensagens até mesmo são escritas no disco à medida que eles fazem a transição entre partes. As cargas de trabalho em duas redes virtuais distintas associadas à mesma instância do barramento de serviço podem se comunicar de forma eficiente e confiável por meio de mensagens, enquanto a respectiva integridade de limite de isolamento de rede é preservada.
  
 Isso significa que suas soluções de nuvem sensíveis à segurança não só têm acesso aos recursos de mensagens assíncronas confiáveis e escalonáveis líderes do setor do Azure, mas agora podem usar o sistema de mensagens para criar caminhos de comunicação entre compartimentos de solução seguros que são inerentemente mais seguras do que o que é atingível com qualquer modo de comunicação ponto a ponto, incluindo HTTPS e outros protocolos de soquete protegidos por TLS.
 
@@ -71,13 +70,13 @@ O modelo do Resource Manager a seguir permite adicionar uma regra de rede virtua
 Parâmetros do modelo:
 
 * **NamespaceName**: namespace do barramento de serviço.
-* **virtualNetworkingSubnetId**: caminho do Gerenciador de recursos totalmente qualificado para a sub-rede da rede virtual; por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
+* **virtualNetworkingSubnetId**: caminho totalmente qualificado do Resource Manager para a sub-rede de rede virtual; por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede de predefinição de uma rede virtual.
 
 > [!NOTE]
 > Embora não haja nenhuma regra de negação possível, o modelo de Azure Resource Manager tem a ação padrão definida como **"permitir"** , que não restringe as conexões.
 > Ao tornar as regras de rede virtual ou firewalls, devemos alterar o ***"DefaultAction"***
 > 
-> De
+> from
 > ```json
 > "defaultAction": "Allow"
 > ```
@@ -191,7 +190,7 @@ Para implantar o modelo, siga as instruções para [Azure Resource Manager][lnk-
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre redes virtuais, consulte os links a seguir:
+Para obter mais informações sobre as redes virtuais, consulte as seguintes ligações:
 
 - [Pontos de extremidade de serviço de rede virtual do Azure][vnet-sep]
 - [Filtragem de IP do barramento de serviço do Azure][ip-filtering]

@@ -1,6 +1,6 @@
 ---
-title: Configurar informações de segurança (versão prévia) de um prompt de entrada-Azure AD
-description: Como configurar informações de segurança para sua conta corporativa ou de estudante, se você for solicitado na página de entrada da sua organização.
+title: Configurar suas informações de segurança (versão prévia) de um prompt de entrada-Azure AD
+description: Como configurar suas informações de segurança (versão prévia) para sua conta corporativa ou de estudante, depois que você for solicitado na página de entrada da sua organização.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ae1856c7934c658bd244445306b4bb78c666e38
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 710e43aec82c5d154b2e17a20abb2ce4dd481129
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820292"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278987"
 ---
-# <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configurar suas informações de segurança (versão prévia) no prompt da página de entrada
+# <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Configurar suas informações de segurança (versão prévia) de um prompt de entrada
 
 Você pode seguir estas etapas se for solicitado a configurar suas informações de segurança imediatamente depois de entrar em sua conta corporativa ou de estudante.
 

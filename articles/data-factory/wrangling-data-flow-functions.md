@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3274641f7b118e13b3ed727f609ce7471fd66b54
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e2517ec4a02a5d61fb3ce1d9ca9ffa2b5f4e8bf8
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682290"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287032"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funções de transformação no fluxo de dados Wrangling
 
@@ -73,7 +73,7 @@ Use [Table. Group](https://docs.microsoft.com/powerquery-m/table-group) para agr
 * Deve ser usado com uma função de agregação
 * Funções de agregação com suporte: [tabela. RowCount](https://docs.microsoft.com/powerquery-m/table-rowcount), [lista. soma](https://docs.microsoft.com/powerquery-m/list-sum), [lista. contagem](https://docs.microsoft.com/powerquery-m/list-count), [lista. média](https://docs.microsoft.com/powerquery-m/list-average), [lista. mín](https://docs.microsoft.com/powerquery-m/list-min)., [lista. máx](https://docs.microsoft.com/powerquery-m/list-max). [lista. i](https://docs.microsoft.com/powerquery-m/list-standarddeviation), lista. [primeiro](https://docs.microsoft.com/powerquery-m/list-first), lista [. último](https://docs.microsoft.com/powerquery-m/list-last)
 
-## <a name="sorting"></a>feita
+## <a name="sorting"></a>Feita
 
 Use [Table. Sort](https://docs.microsoft.com/powerquery-m/table-sort) para classificar valores.
 
@@ -81,12 +81,21 @@ Use [Table. Sort](https://docs.microsoft.com/powerquery-m/table-sort) para class
 
 Manter e remover Top, manter o intervalo (funções de M correspondentes, somente contagens de suporte, não condições: [Table. firstn](https://docs.microsoft.com/powerquery-m/table-firstn), [tabela. Skip](https://docs.microsoft.com/powerquery-m/table-skip), [tabela. removefirstn](https://docs.microsoft.com/powerquery-m/table-removefirstn), [tabela. Range](https://docs.microsoft.com/powerquery-m/table-range), tabela. [Minnesota](https://docs.microsoft.com/powerquery-m/table-minn), [Table. MaxN](https://docs.microsoft.com/powerquery-m/table-maxn))
 
-## <a name="known-unsupported-functionality"></a>Funcionalidade conhecida sem suporte
+## <a name="known-unsupported-functions"></a>Funções conhecidas sem suporte
 
-Abaixo estão as funções que não têm suporte. Esta lista não é exaustiva e está sujeita a alterações.
-* Mesclar colunas (pode ser obtida com AddColumn)
-* Dividir coluna
-* Acrescentar consultas
-* ' Usar primeira linha como cabeçalhos ' e ' usar cabeçalhos como primeira linha '
+| Função | Estado |
+| -- | -- |
+| Table. PromoteHeaders | Não suportado. O mesmo resultado pode ser obtido com a configuração "primeira linha como cabeçalho" no conjunto de resultados. |
+| Table. CombineColumns | Esse é um cenário comum que não tem suporte direto, mas pode ser obtido com a adição de uma nova coluna que concatena duas colunas especificadas.  Por exemplo, Table. AddColumn (RemoveEmailColumn, "Name", cada [FirstName] & "" & [LastName]) |
+| Table. TransformColumnTypes | Isso tem suporte na maioria dos casos. Os cenários a seguir não têm suporte: transformando cadeia de caracteres para tipo de moeda, transformando cadeia de caracteres em tipo de hora, transformando cadeia de caracteres para tipo de porcentagem. |
+| Table. NestedJoin | Apenas fazer uma junção resultará em um erro de validação. As colunas devem ser expandidas para que funcionem. |
+| Tabela. Distinct | Não há suporte para a remoção de linhas duplicadas. |
+| Tabela. movelasn | Não há suporte para remover linhas inferiores. |
+| Table. RowCount | Sem suporte, mas pode ser obtido com a adição de uma coluna com todas as células vazia (a coluna de condição pode ser usada) e, em seguida, o uso de Group by nessa coluna. Table. Group tem suporte. | 
+| Tratamento de erros em nível de linha | No momento, não há suporte para o tratamento de erros em nível de linha. Por exemplo, para filtrar valores não numéricos de uma coluna, uma abordagem seria transformar a coluna de texto em um número. Todas as células que não forem transformadas na transformação estarão em um estado de erro e precisarão ser filtradas. Esse cenário não é possível no fluxo de dados Wrangling. |
+| Tabela. transpor | Não suportado |
+| Tabela. pivot | Não suportado |
 
 ## <a name="next-steps"></a>Passos seguintes
+
+Saiba como [criar um fluxo de dados do Wrangling](wrangling-data-flow-tutorial.md).

@@ -1,6 +1,6 @@
 ---
-title: Register authentication info to reset your own password - Azure AD
-description: Register your authentication method information for Azure AD self-service password reset, so you can reset your own password without administrator help.
+title: Registrar informações de autenticação para redefinir sua própria senha-Azure AD
+description: Registre suas informações de método de verificação para redefinição de senha de autoatendimento do Azure AD, para que você possa redefinir sua própria senha sem a ajuda do administrador.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,55 +13,55 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01cae72ac4752d5d1f6135312d578eb1a277ccd9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: b9748c0d04f958648f7919b7ac29dc58d5a137ac
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231906"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279057"
 ---
-# <a name="register-your-authentication-method-info-to-reset-your-own-password"></a>Register your authentication method info to reset your own password
+# <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registre suas informações do método de verificação para redefinir sua própria senha
 
 > [!IMPORTANT]
-> Are you here because you can't sign in? If so, see [Reset your work or school password](active-directory-passwords-update-your-own-password.md).
+> Você está aqui porque não consegue entrar? Nesse caso, consulte [redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md).
 
-As an end user, you can reset your password or unlock your account by yourself if you use Azure Active Directory (Azure AD) self-service password reset (SSPR). Before you can use this functionality, you have to register your authentication methods or confirm the predefined authentication methods that your administrator has populated.
+Como um usuário final, você pode redefinir sua senha ou desbloqueá-la por conta própria se você Azure Active Directory usar a SSPR (redefinição de senha de autoatendimento) do AD do Azure. Antes de usar essa funcionalidade, você precisa registrar seus métodos de verificação ou confirmar os métodos de verificação predefinidos que o administrador preencheu.
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Registar ou confirmar dados de autenticação com SSPR
 
-1. Open the web browser on your device and go to the [password reset registration page](https://aka.ms/ssprsetup).
-2. Enter your username and the password that your administrator provided.
-3. Depending on how your IT staff has configured things, one or more of the following options are available for you to configure and verify. If your administrator has your permission to use your information, they can populate some of the information for you.
-    * **Office phone**: Only your administrator can set this option.
-    * **Authentication Phone**: Set this option to another phone number that you have access to. An example is a cell phone that can receive a text or a call.
-    * **Authentication Email**: Set this option to an alternate email address that you can access without using the password you want to reset.
-    * **Security Questions**: Your administrator has approved this list of questions for you to answer. You can't use the same question or answer more than once.
-4. Provide and verify the information that your administrator requires. If more than one option is available, we suggest that you register multiple methods. This gives you flexibility when one of the methods isn't available. An example is when you're traveling and you're unable to access your office phone.
+1. Abra o navegador da Web em seu dispositivo e vá para a [página de registro de redefinição de senha](https://aka.ms/ssprsetup).
+2. Insira seu nome de usuário e a senha que o administrador forneceu.
+3. Dependendo de como sua equipe de ti configurou as coisas, uma ou mais das opções a seguir estão disponíveis para você configurar e verificar. Se o administrador tiver sua permissão para usar suas informações, eles poderão preencher algumas das informações para você.
+    * **Telefone comercial**: somente o administrador pode definir essa opção.
+    * **Telefone de autenticação**: defina essa opção para outro número de telefone ao qual você tenha acesso. Um exemplo é um telefone celular que pode receber um texto ou uma chamada.
+    * **Email de autenticação**: defina essa opção como um endereço de email alternativo que você pode acessar sem usar a senha que deseja redefinir.
+    * **Perguntas de segurança**: o administrador aprovou esta lista de perguntas para que você responda. Você não pode usar a mesma pergunta ou resposta mais de uma vez.
+4. Forneça e verifique as informações exigidas pelo administrador. Se mais de uma opção estiver disponível, sugerimos que você registre vários métodos. Isso oferece flexibilidade quando um dos métodos não está disponível. Um exemplo é quando você está viajando e não consegue acessar seu telefone comercial.
 
-    ![Register authentication methods and select finish][Register]
+    ![Registrar métodos de verificação e selecionar concluir][Register]
 
-5. Select **finish**. You can now use SSPR when you need to in the future.
+5. Selecione **concluir**. Agora você pode usar SSPR quando precisar no futuro.
 
-If you enter data for **Authentication Phone** or **Authentication Email**, it's not visible in the global directory. As únicas pessoas que podem ver estes dados são os administradores. Only you can see the answers to your security questions.
+Se você inserir dados para o **telefone de autenticação** ou email de **autenticação**, ele não estará visível no diretório global. As únicas pessoas que podem ver estes dados são os administradores. Somente você pode ver as respostas para suas perguntas de segurança.
 
-Your administrators might require you to confirm your authentication methods after a period of time to make sure you still have the appropriate methods registered.
+Seus administradores podem exigir que você confirme seus métodos de verificação após um período de tempo para garantir que você ainda tenha os métodos apropriados registrados.
 
-## <a name="common-problems-and-their-solutions"></a>Common problems and their solutions
+## <a name="common-problems-and-their-solutions"></a>Problemas comuns e suas soluções
 
- Here are some common error cases and their solutions:
+ Aqui estão alguns casos de erro comuns e suas soluções:
 
-| Error case| What error do you see?| Solução |
+| Caso de erro| Que erro você vê?| Solução |
 | --- | --- | --- |
-| I get a "please contact your administrator" page after entering my user ID | Please contact your administrator. <br> <br> We've detected that your user account password is not managed by Microsoft. As a result, we are unable to automatically reset your password. <br> <br> Contact your IT staff for any further assistance. | You're seeing this message because your IT staff manages your password in your on-premises environment and does not allow you to reset your password from the **Can't access your account** link. <br> <br> To reset your password, contact your IT staff directly for help. Let them know you want to reset your password so they can enable this feature for you.|
-| I get a "your account is not enabled for password reset" error after entering my user ID | Your account is not enabled for password reset. <br> <br> We're sorry, but your IT staff has not set up your account for use with this service. <br> <br> If you'd like, we can contact an administrator in your organization to reset your password for you. | You're seeing this message because your IT staff has not enabled password reset for your organization from the **Can't access your account** link or hasn't licensed you to use the feature. <br> <br> To reset your password, select the **contact an administrator** link. An email will be sent to your company's IT staff. The email lets them know you want to reset your password, so they can enable this feature for you. |
-| I get a "we could not verify your account" error after entering my user ID | We could not verify your account. <br> <br> If you'd like, we can contact an administrator in your organization to reset your password for you. | You're seeing this message because you're enabled for password reset, but you haven't registered to use the service. To register for password reset, go to the [password reset registration page](https://aka.ms/ssprsetup) after you have regained access to your account. <br> <br> To reset your password, select the **contact an administrator** link to send an email to your company's IT staff. |
+| Recebo uma página "entre em contato com seu administrador" depois de inserir minha ID de usuário | Contacte o administrador. <br> <br> Detectamos que a senha da sua conta de usuário não é gerenciada pela Microsoft. Como resultado, não é possível redefinir sua senha automaticamente. <br> <br> Entre em contato com a equipe de ti para obter mais assistência. | Você está vendo esta mensagem porque sua equipe de ti gerencia sua senha em seu ambiente local e não permite que você Redefina sua senha no link **não consegue acessar sua conta** . <br> <br> Para redefinir sua senha, entre em contato com a equipe de ti diretamente para obter ajuda. Informe que você deseja redefinir sua senha para que ela possa habilitar esse recurso para você.|
+| Recebo um erro "sua conta não está habilitada para redefinição de senha" depois de inserir minha ID de usuário | Sua conta não está habilitada para redefinição de senha. <br> <br> Lamentamos, mas sua equipe de ti não configurou sua conta para uso com este serviço. <br> <br> Se desejar, poderemos entrar em contato com um administrador em sua organização para redefinir sua senha para você. | Você está vendo esta mensagem porque sua equipe de ti não habilitou a redefinição de senha para sua organização no link **não consegue acessar sua conta** ou não licenciou você para usar o recurso. <br> <br> Para redefinir sua senha, selecione o link **contate um administrador** . Um email será enviado para a equipe de ti da sua empresa. O email permite que eles saibam que você deseja redefinir sua senha, para que eles possam habilitar esse recurso para você. |
+| Recebo um erro "não foi possível verificar sua conta" depois de inserir minha ID de usuário | Não foi possível verificar sua conta. <br> <br> Se desejar, poderemos entrar em contato com um administrador em sua organização para redefinir sua senha para você. | Você está vendo esta mensagem porque você está habilitado para redefinição de senha, mas não se registrou para usar o serviço. Para se registrar para a redefinição de senha, vá para a [página de registro de redefinição de senha](https://aka.ms/ssprsetup) depois que você tiver reobtido o acesso à sua conta. <br> <br> Para redefinir sua senha, selecione o link **entre em contato com um administrador** para enviar um email para a equipe de ti da sua empresa. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Change your password by using self-service password reset](active-directory-passwords-update-your-own-password.md)
+* [Alterar sua senha usando a redefinição de senha de autoatendimento](active-directory-passwords-update-your-own-password.md)
 * [Página de registo de reposição de palavra-passe](https://aka.ms/ssprsetup)
 * [Portal de reposição de palavra-passe](https://passwordreset.microsoftonline.com/)
-* [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+* [Quando não for possível entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
-[Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Password Reset Registration page showing the registered methods and the finish button"
+[Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Página de registro de redefinição de senha mostrando os métodos registrados e o botão concluir"
 

@@ -1,5 +1,5 @@
 ---
-title: B2B código de colaboração e exemplos do PowerShell - Azure Active Directory | Documentos da Microsoft
+title: Exemplos do código de colaboração B2B e do PowerShell – Azure AD
 description: Exemplos do PowerShell e de código para a colaboração do Azure Active Directory B2B
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79352c2c82cae8fe77ef6313d74e60432c710ec0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f3a43ce4c560e89d88594d173aae7b2ad2db99ee
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812510"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273099"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Exemplos do PowerShell e de código para a colaboração do Azure Active Directory B2B
 
@@ -26,7 +26,7 @@ Pode convidar utilizadores externos em massa para uma organização a partir dos
 
 1. Preparar o ficheiro .CSV – crie um novo ficheiro CSV e dê-lhe o nome convites.csv. Neste exemplo, o ficheiro é guardado em C:\data e contém as seguintes informações:
   
-   Name                  |  InvitedUserEmailAddress
+   Nome                  |  InvitedUserEmailAddress
    --------------------- | --------------------------
    Gmail B2B Invitee     | b2binvitee@gmail.com
    Outlook B2B invitee   | b2binvitee@outlook.com
@@ -229,7 +229,7 @@ namespace SampleInviteApp
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 

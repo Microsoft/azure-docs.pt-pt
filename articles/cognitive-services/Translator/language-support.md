@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 5e96ced1bd87a0ed8be19bf4e07f7b0d9b319aad
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 25ab298a8b72b3734e41daf66ef5063b8e43a96e
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837334"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286627"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Suporte a idiomas e regiões para o API de Tradução de Texto
 
@@ -42,28 +42,28 @@ O API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 
 |Idioma|  Código do idioma|  API V2| API V3|
 |:-----|:-----:|:-----|:-----|
-|Africâner| `af`    |Somente estatística|  Neural|
+|Afrikaans| `af`    |Somente estatística|  Neural|
 |Árabe|    `ar`    |Neural disponível|  Neural|
-|Bengali|    `bn`    |Neural disponível|  Neural|
-|Bósnio (latino)|   `bs`    |Neural disponível|  Neural|
+|Bangla|    `bn`    |Neural disponível|  Neural|
+|Bósnio (Latim)|   `bs`    |Neural disponível|  Neural|
 |Búlgaro| `bg`    |Neural disponível|  Neural|
 |Cantonês (tradicional)|   `yue`   |Somente estatística|  Multiplex|
 |Catalão|   `ca`    |Somente estatística|  Multiplex|
 |Chinês simplificado|    `zh-Hans`   |Padrão neural |Neural|
 |Chinês tradicional|   `zh-Hant`   |Padrão neural |Neural|
 |Croata|  `hr`    |Neural disponível|  Neural|
-|Tcheco| `cs`    |Neural disponível|  Neural|
+|Checo| `cs`    |Neural disponível|  Neural|
 |Dinamarquês|    `da`    |Neural disponível   |Neural|
-|Holandês| `nl`    |Neural disponível|  Neural|
+|Neerlandês| `nl`    |Neural disponível|  Neural|
 |Português|   `en`    |Neural disponível|  Neural|
-|Estoniano|  `et`    |Neural disponível|  Neural|
-|Fijiano|    `fj`    |Somente estatística|  Multiplex|
-|Filipinas|  `fil`   |Somente estatística|  Multiplex|
+|Estónio|  `et`    |Neural disponível|  Neural|
+|Fijian|    `fj`    |Somente estatística|  Multiplex|
+|Filipino|  `fil`   |Somente estatística|  Multiplex|
 |Finlandês|   `fi`    |Neural disponível|  Neural|
 |Francês|    `fr`    |Neural disponível|  Neural|
 |Alemão|    `de`    |Neural disponível|  Neural|
 |Grego| `el`    |Neural disponível|  Neural|
-|Haitiano|    `ht`    |Somente estatística   |Multiplex|
+|Haitian Creole|    `ht`    |Somente estatística   |Multiplex|
 |Hebraico |`he`   |Neural disponível   |Neural|
 |Hindi| `hi`    |Padrão neural|    Neural|
 |Hmong Daw| `mww`   |Somente estatística|  Multiplex|
@@ -78,9 +78,10 @@ O API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 |Coreano |`ko`   |Neural disponível|  Neural|
 |Letão|   `lv`    |Neural disponível|  Neural|
 |Lituano|    `lt`    |Neural disponível|  Neural|
-|Malagache|  `mg`    |Somente estatística|  Multiplex|
+|Ariary|  `mg`    |Somente estatística|  Multiplex|
 |Malaio| `ms`    |Somente estatística   |Multiplex|
 |Maltês|   `mt`    |Somente estatística|  Multiplex|
+|Maori| `mi`  |Somente neural| Neural|
 |Norueguês| `nb`    |Neural disponível|  Neural|
 |Persa|   `fa`    |Neural disponível|  Neural|
 |Polaco|    `pl`    |Neural disponível|  Neural|
@@ -90,16 +91,16 @@ O API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 |Russo|   `ru`    |Neural disponível|  Neural|
 |Samoan|    `sm`    |Somente estatística|  Multiplex|
 |Sérvio (Cirílico)|    `sr-Cyrl`   |Somente estatística|  Multiplex|
-|Sérvio (latino)|   `sr-Latn`   |Somente estatística   |Multiplex|
+|Sérvio (Latim)|   `sr-Latn`   |Somente estatística   |Multiplex|
 |Eslovaco|    `sk`    |Neural disponível|  Neural|
 |Esloveno| `sl`    |Neural disponível|  Neural|
 |Espanhol|   `es`    |Neural disponível|  Neural|
 |Sueco|   `sv`    |Neural disponível   |Neural|
 |Tahitian|  `ty`    |Somente estatística|  Multiplex|
-|Tâmil| `ta`    |Somente estatística|  Multiplex|
-|Telugu|    `te`    |Somente neural|   Neural|
+|Tamil| `ta`    |Somente estatística|  Multiplex|
+|Télego|    `te`    |Somente neural|   Neural|
 |Tailandês|  `th`    |Neural disponível|  Neural|
-|Tonganês|    `to`    |Somente estatística|  Multiplex|
+|Tongan|    `to`    |Somente estatística|  Multiplex|
 |Turco|   `tr`    |Neural disponível   |Neural|
 |Ucraniano| `uk`    |Neural disponível|  Neural|
 |Urdu|  `ur`    |Somente estatística|  Multiplex|
@@ -114,24 +115,24 @@ O método transliterate dá suporte aos seguintes idiomas. No "to/from", "<-->" 
 | Idioma    | Código do idioma | Script | De/para | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | `Arab` árabe | <--> | `Latn` latino |
-|Bengali  | `bn` | `Beng` Bengali | <--> | `Latn` latino |
+|Bangla  | `bn` | `Beng` Bengali | <--> | `Latn` latino |
 | Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | `Latn` latino |
 | Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Chinês tradicional `Hant`|
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | `Latn` latino |
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês simplificado `Hans` |
-| Guzerate | `gu`  | `Gujr` Guzerate | --> | `Latn` latino |
+| Guzarate | `gu`  | `Gujr` Guzerate | --> | `Latn` latino |
 | Hebraico | `he` | Hebraico `Hebr` | <--> | `Latn` latino |
-| Hindi | `hi` | `Deva` de Devanágari | <--> | `Latn` latino |
+| Hindi | `hi` | Devanagari `Deva` | <--> | `Latn` latino |
 | Japonês | `ja` | `Jpan` japonesas | <--> | `Latn` latino |
-| Kannada | `kn` | `Knda` de Kannada | --> | `Latn` latino |
-| Malaiala | `ml` | `Mlym` malaiala | --> | `Latn` latino |
-| Marata | `mr` | `Deva` de Devanágari | --> | `Latn` latino |
+| Canarim | `kn` | `Knda` de Kannada | --> | `Latn` latino |
+| Malayalam | `ml` | `Mlym` malaiala | --> | `Latn` latino |
+| Marata | `mr` | Devanagari `Deva` | --> | `Latn` latino |
 | Oriá | `or` | `Orya` odia | <--> | `Latn` latino |
-| Punjabi | `pa` | `Guru` Gurmukhi  | <--> | `Latn` latino  |
+| Punjabi | `pa` | Gurmukhi `Guru`  | <--> | `Latn` latino  |
 | Sérvio (Cirílico) | `sr-Cyrl` | `Cyrl` cirílica  | --> | `Latn` latino |
-| Sérvio (latino) | `sr-Latn` | `Latn` latino | --> | `Cyrl` cirílica|
-| Tâmil | `ta` | `Taml` Tamil | --> | `Latn` latino |
-| Telugu | `te` | `Telu` de Telugu | --> | `Latn` latino |
+| Sérvio (Latim) | `sr-Latn` | `Latn` latino | --> | `Cyrl` cirílica|
+| Tamil | `ta` | `Taml` Tamil | --> | `Latn` latino |
+| Télego | `te` | `Telu` de Telugu | --> | `Latn` latino |
 | Tailandês | `th` | `Thai` tailandês | <--> | `Latn` latino |
 
 ## <a name="dictionary"></a>Dicionário
@@ -140,23 +141,23 @@ O dicionário dá suporte aos seguintes idiomas de ou para o inglês usando os m
 
 | Idioma    | Código do idioma |
 |:----------- |:-------------:|
-| Africâner      | `af`          |
+| Afrikaans      | `af`          |
 | Árabe       | `ar`          |
-| Bengali      | `bn`          |
-| Bósnio (latino)      | `bs`          |
+| Bangla      | `bn`          |
+| Bósnio (Latim)      | `bs`          |
 | Búlgaro      | `bg`          |
 | Catalão      | `ca`          |
 | Chinês simplificado      | `zh-Hans`          |
 | Croata      | `hr`          |
-| Tcheco      | `cs`          |
+| Checo      | `cs`          |
 | Dinamarquês      | `da`          |
-| Holandês      | `nl`          |
-| Estoniano      | `et`          |
+| Neerlandês      | `nl`          |
+| Estónio      | `et`          |
 | Finlandês      | `fi`          |
 | Francês      | `fr`          |
 | Alemão      | `de`          |
 | Grego      | `el`          |
-| Haitiano      | `ht`          |
+| Haitian Creole      | `ht`          |
 | Hebraico      | `he`          |
 | Hindi      | `hi`          |
 | Hmong Daw      | `mww`          |
@@ -178,12 +179,12 @@ O dicionário dá suporte aos seguintes idiomas de ou para o inglês usando os m
 | Português      | `pt`          |
 | Romeno      | `ro`          |
 | Russo      | `ru`          |
-| Sérvio (latino)      | `sr-Latn`          |
+| Sérvio (Latim)      | `sr-Latn`          |
 | Eslovaco     | `sk`          |
 | Esloveno      | `sl`          |
 | Espanhol      | `es`          |
 | Sueco      | `sv`          |
-| Tâmil      | `ta`          |
+| Tamil      | `ta`          |
 | Tailandês      | `th`          |
 | Turco      | `tr`          |
 | Ucraniano      | `uk`          |
@@ -209,17 +210,17 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Idioma    | Código do idioma |
 |:----------- |:-------------:|
 | Árabe       | `ar`          |
-| Bengali      | `bn`          |
-| Bósnio (latino)      | `bs`          |
+| Bangla      | `bn`          |
+| Bósnio (Latim)      | `bs`          |
 | Búlgaro      | `bg`          |
 | Chinês simplificado      | `zh-Hans`          |
 |Chinês tradicional|   `zh-Hant`   |
 | Croata      | `hr`          |
-| Tcheco      | `cs`          |
+| Checo      | `cs`          |
 | Dinamarquês      | `da`          |
-| Holandês      | `nl`          |
+| Neerlandês      | `nl`          |
 | Português    | `en`     |
-| Estoniano      | `et`          |
+| Estónio      | `et`          |
 | Finlandês      | `fi`          |
 | Francês      | `fr`          |
 | Alemão      | `de`          |
@@ -236,7 +237,8 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
-|Malagache|  `mg`    |
+|Ariary|  `mg`    |
+|Maori| `mi`  |
 | Norueguês      | `nb`          |
 | Persa      | `fa`          |
 | Polaco      | `pl`          |
@@ -244,7 +246,7 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Romeno      | `ro`          |
 | Russo      | `ru`          |
 |Samoan|    `sm`    |
-| Sérvio (latino)      | `sr-Latn`          |
+| Sérvio (Latim)      | `sr-Latn`          |
 | Eslovaco     | `sk`          |
 | Esloveno      | `sl`          |
 | Espanhol      | `es`          |

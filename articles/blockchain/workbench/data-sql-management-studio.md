@@ -1,25 +1,25 @@
 ---
-title: Utilizar os Dados do Azure Blockchain Workbench com o SQL Server Management Studio
+title: Usar dados do Azure Blockchain Workbench com um banco de dado SQL
 description: Saiba como ligar à Base de Dados SQL do Azure Blockchain Workbench no SQL Server Management Studio.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/09/2019
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: db43dd04da601650b3592dc74cdd804fae394c00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 3a734c09b3a74fbe4165f4de25ce450fd3fbde1d
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510901"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286733"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Utilizar os dados do Azure Blockchain Workbench com o SQL Server Management Studio
 
-Microsoft SQL Server Management Studio fornece a capacidade de escrever e testar consultas em relação a BD do SQL Azure Blockchain Workbench rapidamente. Esta secção contém instruções passo a passo para saber como ligar à Base de Dados SQL do Azure Blockchain Workbench no SQL Server Management Studio.
+Microsoft SQL Server Management Studio fornece a capacidade de escrever e testar rapidamente consultas no BD SQL do Azure Blockchain Workbench. Esta seção contém uma explicação passo a passo de como se conectar ao banco de dados SQL do Azure Blockchain Workbench de dentro SQL Server Management Studio.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,13 +43,13 @@ Microsoft SQL Server Management Studio fornece a capacidade de escrever e testar
       ![Lista de bases de dados](./media/data-sql-management-studio/db-list.png)
 
 5. Para ver os dados associados a qualquer uma das vistas de base de dados, pode gerar automaticamente uma instrução select através dos seguintes passos.
-6. Clique com botão direito qualquer uma das vistas da base de dados no pesquisador de objetos.
+6. Clique com o botão direito do mouse em qualquer exibição do banco de dados no Pesquisador de objetos.
 7. Selecione **Vista de script como**.
 8. Selecione **SELECT para**.
 9. Selecione **Nova Janela do Editor de Consultas**.
 10. É possível criar uma nova consulta ao selecionar **Nova Consulta**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Vistas de base de dados no Azure Blockchain Workbench](database-views.md)

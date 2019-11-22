@@ -4,14 +4,14 @@ description: Descreve como descobrir aplicativos, funções e recursos em servid
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/18/2019
+ms.date: 11/20/2019
 ms.author: snehaa
-ms.openlocfilehash: 14ecc6454c3d0f167c671532dd8e659e767cda66
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 279e326ace308b354d7bcb8366d3286980e7b8c6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158643"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278479"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Descobrir aplicativos, funções e recursos de computador
 
@@ -19,10 +19,10 @@ Este artigo descreve como descobrir aplicativos, funções e recursos em servido
 
 Descobrir o inventário de aplicativos e funções/recursos em execução em suas máquinas locais ajuda você a identificar e planejar um caminho de migração para o Azure adaptado para suas cargas de trabalho.
 
-Descoberta de aplicativos usando migrações para Azure: a avaliação do servidor é sem agente. Nada precisa ser instalado em máquinas e VMs. A avaliação do servidor usa o dispositivo de migrações para Azure para executar a descoberta junto com as credenciais de convidado do computador. O dispositivo acessa remotamente computadores usando chamadas de WMI e SSH.
-
 > [!NOTE]
 > Atualmente, o app Discovery tem suporte apenas para VMs VMware e é limitado apenas à descoberta. Ainda não oferecemos a avaliação baseada em aplicativo.  Atualmente, a avaliação do servidor avalia as VMs VMware locais, as VMs do Hyper-V e os servidores físicos no nível do computador, para migrações de comparação e deslocamento.
+
+Descoberta de aplicativos usando migrações para Azure: a avaliação do servidor é sem agente. Nada precisa ser instalado em máquinas e VMs. A avaliação do servidor usa o dispositivo de migrações para Azure para executar a descoberta junto com as credenciais de convidado do computador. O dispositivo acessa remotamente as máquinas VMware usando APIs do VMware.
 
 
 ## <a name="before-you-start"></a>Antes de começar

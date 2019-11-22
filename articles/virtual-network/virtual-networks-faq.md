@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 30398b5f81ac1893129ba222c5f1a2d762ad1e7f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 81384bb784e3417dabfd673ef746463f55fc3063
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595067"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304722"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure
 
@@ -35,7 +35,7 @@ Use VNets para:
 
 * Habilite cenários de nuvem híbrida. O VNets oferece a flexibilidade para dar suporte a uma variedade de cenários de nuvem híbrida. Você pode conectar aplicativos baseados em nuvem com segurança a qualquer tipo de sistema local, como mainframes e sistemas UNIX.
 
-### <a name="how-do-i-get-started"></a>Como começo?
+### <a name="how-do-i-get-started"></a>Como posso começar?
 Visite a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/) para começar. Este conteúdo fornece informações de visão geral e de implantação para todos os recursos de VNet.
 
 ### <a name="can-i-use-vnets-without-cross-premises-connectivity"></a>Posso usar VNets sem conectividade entre locais?
@@ -63,7 +63,7 @@ Qualquer intervalo de endereços IP definido no [RFC 1918](https://tools.ietf.or
 * 168.63.129.16/32 (DNS interno)
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Posso ter endereços IP públicos em meu VNets?
-Sim. Para obter mais informações sobre intervalos de endereços IP públicos, consulte [criar uma rede virtual](manage-virtual-network.md#create-a-virtual-network). Os endereços IP públicos não são acessíveis diretamente da Internet.
+Sim. Para obter mais informações sobre intervalos de endereços IP públicos, consulte [criar uma rede virtual](manage-virtual-network.md#create-a-virtual-network). Endereços IP públicos não são diretamente acessíveis a partir da internet.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>Há um limite para o número de sub-redes na minha VNet?
 Sim. Consulte [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para obter detalhes. Espaços de endereço de sub-rede não podem se sobrepor um ao outro.
@@ -188,7 +188,7 @@ Sim. Você pode implantar aplicativos Web dentro de uma VNet usando um ASE (Ambi
 
 * [Recursos de rede do serviço de aplicativo](../app-service/networking-features.md)
 * [Criando aplicativos Web em um Ambiente do Serviço de Aplicativo](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Integrar seu aplicativo a uma rede virtual do Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Integrar uma aplicação Web com uma Rede Virtual do Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Restrições de acesso do serviço de aplicativo](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>Posso implantar serviços de nuvem com as funções Web e de trabalho (PaaS) em uma VNet?
@@ -232,7 +232,7 @@ Sim. Saiba mais sobre como usar:
 - PowerShell para gerenciar o VNets implantado por meio do [Resource Manager](/powershell/module/az.network) e dos modelos de implantação [clássicos](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) .
 - A CLI (interface de linha de comando) do Azure para implantar e gerenciar VNets implantadas por meio do [Resource Manager](/cli/azure/network/vnet) e dos modelos de implantação [clássicos](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) .  
 
-## <a name="vnet-peering"></a>VNet Peering
+## <a name="vnet-peering"></a>VNet peering
 
 ### <a name="what-is-vnet-peering"></a>O que é emparelhamento VNet?
 O emparelhamento VNet (ou emparelhamento de rede virtual) permite que você conecte redes virtuais. Uma conexão de emparelhamento VNet entre redes virtuais permite rotear o tráfego entre elas de forma privada por meio de endereços IPv4. As máquinas virtuais no VNets emparelhado podem se comunicar entre si como se estivessem dentro da mesma rede. Essas redes virtuais podem estar na mesma região ou em regiões diferentes (também conhecidas como emparelhamento de VNet global). As conexões de emparelhamento VNet também podem ser criadas nas assinaturas do Azure.
@@ -241,8 +241,8 @@ O emparelhamento VNet (ou emparelhamento de rede virtual) permite que você cone
 Sim. O emparelhamento de VNet global permite emparelhar VNets em regiões diferentes. O emparelhamento VNet global está disponível em todas as regiões públicas do Azure, nas regiões de nuvem da China e nas regiões de nuvem do governo. Não é possível globalmente emparelhar de regiões públicas do Azure para regiões de nuvem nacionais.
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Quais são as restrições relacionadas ao emparelhamento de VNet global e aos balanceadores de carga?
-Se as duas redes virtuais estiverem em regiões diferentes (emparelhamento VNet global), você não poderá se conectar a recursos que usam Load Balancer básica. Você pode se conectar a recursos que usam Standard Load Balancer.
-Os recursos a seguir usam balanceadores de carga básicos, o que significa que você não pode se comunicar com eles entre o emparelhamento VNet global:
+Se as duas redes virtuais em duas regiões diferentes estiverem emparelhadas sobre o emparelhamento VNet global, você não poderá se conectar aos recursos que estão atrás de um Load Balancer básico por meio do IP de front-end do Load Balancer. Essa restrição não existe para um Standard Load Balancer.
+Os recursos a seguir podem usar balanceadores de carga básicos, o que significa que você não pode acessá-los por meio do IP de front-end Load Balancer sobre o emparelhamento VNet global. No entanto, você pode usar o emparelhamento de VNet global para alcançar os recursos diretamente por meio de seus IPs de VNet privada, se permitido. 
 - VMs por trás de balanceadores de carga básicos
 - Conjuntos de dimensionamento de máquinas virtuais com balanceadores de carga básicos 
 - Cache de Redis 
@@ -251,7 +251,7 @@ Os recursos a seguir usam balanceadores de carga básicos, o que significa que v
 - MI SQL
 - Gestão de API
 - Serviço de Domínio do Active Directory (ADDS)
-- Logic Apps
+- Aplicações Lógicas
 - HDInsight
 -   Azure Batch
 - Ambiente do Serviço de Aplicações
@@ -402,13 +402,13 @@ Não há limite para o número total de pontos de extremidade de serviço de VNe
 |||
 |---|---|
 |Serviço do Azure| Limites nas regras de VNet|
-|Armazenamento do Azure| 100|
+|Storage do Azure| 100|
 |SQL do Azure| 128|
-|Armazém de Dados SQL do Azure|  128|
+|Azure SQL Data Warehouse|  128|
 |Cofre de chaves do Azure|    127|
 |Azure Cosmos DB|   64|
 |Hub de Eventos do Azure|   128|
-|Azure Service Bus| 128|
+|Service Bus do Azure| 128|
 |Azure Data Lake Store v1|  100|
  
 >[!NOTE]

@@ -1,7 +1,7 @@
 ---
 title: Recursos-LUIS
 titleSuffix: Azure Cognitive Services
-description: Adicione recursos a um modelo de linguagem para fornecer dicas sobre como reconhecer a entrada que você deseja rotular ou classificar.
+description: Adicione recursos para um modelo de idioma para fornecer sugestões sobre como a reconhecer a entrada que deseja identificar ou classificar.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: 0cab6eb38459a632f1e7bd1a21e6a7251d33f683
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: b151043babd6c67a17f704bb671a415fcc3ba7b2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647424"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280904"
 ---
 # <a name="machine-learned-features"></a>Recursos aprendidos por máquina 
 
-No Machine Learning, um *recurso* é uma característica ou atributo diferenciado dos dados que seu sistema observa & aprende. No Reconhecimento vocal (LUIS), um recurso descreve e explica o que é significativo sobre suas intenções e entidades.
+No Machine Learning, um _recurso_ é uma característica ou atributo diferenciado dos dados que seu sistema observa & aprende. No Reconhecimento vocal (LUIS), um recurso descreve e explica o que é significativo sobre suas intenções e entidades.
 
 No [portal do Luis de visualização](https://preview.luis.ai), os recursos são _descritores_ porque são usados para _descrever_ a intenção ou a entidade.  
 
@@ -43,7 +43,7 @@ Com uma lista de frases, LUIS considera contexto e generalizações para identif
 
 Quando você quiser ser capaz de reconhecer novas instâncias, como um Agendador de reunião que deve reconhecer os nomes de novos contatos ou um aplicativo de inventário que deve reconhecer novos produtos, comece com uma entidade aprendida por computador. Em seguida, crie uma lista de frases que ajude a LUIS a localizar palavras com significado semelhante. Esta lista de frases orienta o LUIS a reconhecer exemplos adicionando um significado adicional ao valor dessas palavras. 
 
-As listas de frases são como vocabulário específico de domínio que ajudam a aprimorar a qualidade da compreensão de intenções e de entidades. 
+Listas de frase são como vocabulário específicas de domínio que o ajudam a com a melhorar a qualidade da compreensão dos objetivos e entidades. 
 
 ## <a name="considerations-when-using-a-phrase-list"></a>Considerações ao usar uma lista de frases
 
@@ -57,7 +57,7 @@ O sinalizador `enabledForAllModels` controla esse escopo de modelo na API.
 
 ### <a name="how-to-use-a-phrase-list"></a>Como usar uma lista de frases
 
-[Crie uma lista de lista de frases](luis-how-to-add-features.md) quando sua intenção ou entidade tiver palavras ou frases importantes, como:
+[Crie uma lista de frases](luis-how-to-add-features.md) quando sua intenção ou entidade tiver palavras ou frases importantes, como:
 
 * termos do setor
 * gírias
@@ -82,13 +82,13 @@ Por exemplo, se a intenção é para reservar um vôo e a entidade são informa�
 
 ### <a name="entity-as-a-feature-to-another-entity"></a>Entidade como um recurso para outra entidade
 
-Uma entidade (A) deve ser adicionada como um recurso a outra entidade (B) quando a detecção dessa entidade (A) for significativa para o (B).
+Uma entidade (A) deve ser adicionada como um recurso a outra entidade (B) quando a detecção dessa entidade (A) é significativa para a previsão da entidade (B).
 
 Por exemplo, se a entidade endereço (a) for detectada, a localização do endereço (A) adiciona peso à previsão para a entidade endereço de envio (B). 
 
 ## <a name="best-practices"></a>Melhores práticas
-Conheça [as práticas recomendadas](luis-concept-best-practices.md).
+Saiba mais [melhores práticas](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte [Adicionar recursos](luis-how-to-add-features.md) para saber mais sobre como adicionar recursos ao seu aplicativo Luis.
+Ver [adicionar funcionalidades](luis-how-to-add-features.md) para saber mais sobre como adicionar funcionalidades à sua aplicação LUIS.

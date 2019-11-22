@@ -1,5 +1,6 @@
 ---
-title: Diagnosticar um problema de encaminhamento de rede de máquina virtual – tutorial – Portal do Azure | Microsoft Docs
+title: 'Tutorial: diagnosticar um problema de roteamento de rede VM-portal do Azure'
+titleSuffix: Azure Network Watcher
 description: Neste tutorial, saiba como diagnosticar um problema de encaminhamento de rede de máquina virtual ao utilizar a funcionalidade de próximo salto do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,14 +18,14 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3ad9cd8b620b55aaa17e84343a82ac361081de44
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f9c7139dc9c27ed5b4f97f38e98b4663e9676288
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684525"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276052"
 ---
-# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Tutorial: Diagnosticar um problema encaminhamento de rede de máquina virtual com o portal do Azure
+# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Tutorial: diagnosticar um problema de encaminhamento de rede de máquina virtual com o Portal do Azure
 
 Quando implementa uma máquina virtual (VM), o Azure cria várias rotas predefinidas para a mesma. Pode criar rotas personalizadas para substituir as rotas predefinidas do Azure. Por vezes, uma rota personalizada pode fazer com que uma VM não consiga comunicar com outros recursos. Neste tutorial, ficará a saber como:
 
@@ -45,17 +46,17 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 ## <a name="create-a-vm"></a>Criar uma VM
 
 1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do Portal do Azure.
-2. Selecione **Computação** e, em seguida, **Windows Server 2016 Datacenter** ou **VM do Ubuntu Server 17.10**.
+2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter** ou **VM do Ubuntu Server 17.10**.
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **OK**:
 
     |Definição|Valor|
     |---|---|
-    |Name|myVm|
+    |Nome|myVm|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza **myResourceGroup**.|
-    |Location| Selecione **E.U.A. Leste**|
+    |Localização| Selecione **E.U.A. Leste**|
 
 4. Escolha um tamanho para a VM e selecione **Selecionar**.
 5. Em **Definições**, aceite todas as predefinições e selecione **OK**.
@@ -83,13 +84,13 @@ O Azure cria automaticamente rotas para destinos predefinidos. Pode criar rotas 
 1. No portal do Azure, selecione **Próximo salto**, em **Observador de Rede**.
 2. Selecione a sua subscrição, introduza ou selecione os seguintes valores e, em seguida, selecione **Próximo salto**, conforme apresentado na imagem que se segue:
 
-    |Definição                  |Value                                                   |
+    |Definição                  |Valor                                                   |
     |---------                |---------                                               |
     | Grupo de recursos          | Selecionar myResourceGroup                                 |
     | Máquina virtual         | Selecionar myVm                                            |
     | Interface de rede       | myvm – o nome de interface de rede pode ser diferente.   |
     | Endereço IP de origem       | 10.0.0.4                                               |
-    | Endereço IP de destino  | 13.107.21.200 - um dos endereços para < www.bing.com>. |
+    | Endereço IP de destino  | 13.107.21.200-um dos endereços para < > www. Bing. com. |
 
     ![Próximo salto](./media/diagnose-vm-network-routing-problem/next-hop.png)
 
@@ -112,11 +113,11 @@ O Azure cria automaticamente rotas para destinos predefinidos. Pode criar rotas 
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
-1. Introduza *myResourceGroup* na caixa **Pesquisar** na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
+1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma VM e diagnosticou o encaminhamento de rede a partir da VM. Aprendeu que o Azure cria várias rotas predefinidas e testa o encaminhamento para dois destinos diferentes. Saiba mais sobre o [encaminhamento no Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e como [criar rotas personalizadas](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
 

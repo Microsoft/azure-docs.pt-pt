@@ -1,30 +1,26 @@
 ---
-title: Como gerir segredos ao trabalhar com um espaço de desenvolvimento do Azure
-titleSuffix: Azure Dev Spaces
+title: Como gerenciar segredos ao trabalhar com um espaço de desenvolvimento do Azure
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 05/11/2018
 ms.topic: conceptual
-description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores
-ms.openlocfilehash: 900529d54a26729d9d0fb949d9217d5e2d618254
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
+keywords: Docker, kubernetes, Azure, AKS, serviço de contêiner do Azure, contêineres
+ms.openlocfilehash: 49f53683b2499e790414d139dcb0bc0833005647
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515297"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279997"
 ---
-# <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Como gerir segredos ao trabalhar com um espaço de desenvolvimento do Azure
+# <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Como gerenciar segredos ao trabalhar com um espaço de desenvolvimento do Azure
 
-Os serviços poderão precisar determinadas palavras-passe, cadeias de ligação e outros segredos, como para bases de dados ou outros serviços do Azure seguros. Ao definir os valores destes segredos nos arquivos de configuração, pode disponibilizá-los em seu código como variáveis de ambiente.  Estes devem ser tratados com cuidado para evitar comprometer a segurança dos segredos.
+Seus serviços podem exigir determinadas senhas, cadeias de conexão e outros segredos, como bancos de dados ou outros serviços seguros do Azure. Ao definir os valores desses segredos em arquivos de configuração, você pode torná-los disponíveis em seu código como variáveis de ambiente.  Eles devem ser tratados com cuidado para evitar comprometer a segurança dos segredos.
 
-Espaços de desenvolvimento do Azure fornece duas opções de recomendado, otimizadas para armazenar segredos em gráficos Helm gerados pelo cliente do Azure Dev espaços ferramentas: no ficheiro de values.dev.yaml e inline, diretamente no azds.yaml. Não é recomendado para armazenar segredos no Values. Fora as duas abordagens para Helm gráficos gerados pelo cliente de ferramentas definido neste artigo, se criar seu próprio gráfico Helm, pode utilizar o gráfico Helm diretamente para gerir e armazenar segredos.
+O Azure Dev Spaces fornece duas opções recomendadas e simplificadas para armazenar segredos em gráficos Helm gerados pela Azure Dev Spaces ferramentas de cliente: no arquivo Values. dev. YAML e embutido diretamente em azds. YAML. Não é recomendável armazenar segredos em Values. YAML. Fora das duas abordagens para gráficos Helm gerados pela ferramenta do cliente definida neste artigo, se você criar seu próprio gráfico do Helm, poderá usar o gráfico do Helm diretamente para gerenciar e armazenar segredos.
 
-## <a name="method-1-valuesdevyaml"></a>Método 1: values.dev.yaml
-1. Abra o VS Code com o seu projeto que está ativado para espaços de desenvolvimento do Azure.
-2. Adicionar um arquivo chamado _values.dev.yaml_ na mesma pasta que existente _azds.yaml_ e definir a chave secreta e valores, como no exemplo seguinte:
+## <a name="method-1-valuesdevyaml"></a>Método 1: Values. dev. YAML
+1. Abra VS Code com seu projeto habilitado para Azure Dev Spaces.
+2. Adicione um arquivo chamado _Values. dev. YAML_ na mesma pasta que o _azds. YAML_ existente e defina sua chave secreta e valores, como no exemplo a seguir:
 
     ```yaml
     secrets:
@@ -34,7 +30,7 @@ Espaços de desenvolvimento do Azure fornece duas opções de recomendado, otimi
         key: "secretkeyhere"
     ```
      
-3. _azds.yaml_ já referencia a _values.dev.yaml_ ficheiro se existir. Se preferir um nome de ficheiro diferente, atualize a secção de install.values:
+3. _azds. YAML_ já faz referência ao arquivo _Values. dev. YAML_ , se existir. Se você preferir um nome de arquivo diferente, atualize a seção install. Values:
 
     ```yaml
     install:
@@ -43,7 +39,7 @@ Espaços de desenvolvimento do Azure fornece duas opções de recomendado, otimi
       - secrets.dev.yaml?
     ```
  
-4. Modifique o código de serviço para fazer referência a estes segredos, como variáveis de ambiente, como no exemplo seguinte:
+4. Modifique seu código de serviço para se referir a esses segredos como variáveis de ambiente, como no exemplo a seguir:
 
     ```
     var redisPort = process.env.REDIS_PORT
@@ -51,23 +47,23 @@ Espaços de desenvolvimento do Azure fornece duas opções de recomendado, otimi
     var theKey = process.env.REDIS_KEY
     ```
     
-5. Atualize os serviços em execução no seu cluster com essas alterações. Na linha de comandos, execute o comando:
+5. Atualize os serviços em execução no cluster com essas alterações. Na linha de comando, execute o comando:
 
     ```
     azds up
     ```
  
-6. (Opcional) Na linha de comando, verifique que foram criados estes segredos:
+6. Adicional Na linha de comando, verifique se esses segredos foram criados:
 
       ```
       kubectl get secret --namespace default -o yaml 
       ```
 
-7. Certifique-se de que adicione _values.dev.yaml_ para o _. gitignore_ arquivo para evitar a consolidar os segredos no controle de origem.
+7. Certifique-se de adicionar _valores. dev. YAML_ ao arquivo _. gitignore_ para evitar a confirmação de segredos no controle do código-fonte.
  
  
-## <a name="method-2-inline-directly-in-azdsyaml"></a>Método 2: Inline, diretamente no azds.yaml
-1.  Na _azds.yaml_, defina os segredos no yaml secção configurações/desenvolver/instalar. Apesar de poder introduzir segredo valores diretamente, não é recomendado porque _azds.yaml_ check-in no controle de origem. Em vez disso, adicione marcadores de posição usando a sintaxe "$PLACEHOLDER".
+## <a name="method-2-inline-directly-in-azdsyaml"></a>Método 2: embutido diretamente em azds. YAML
+1.  Em _azds. YAML_, defina segredos na seção YAML configurações/desenvolver/instalar. Embora você possa inserir valores secretos diretamente ali, isso não é recomendável porque _azds. YAML_ é verificado no controle do código-fonte. Em vez disso, adicione espaços reservados usando a sintaxe "$PLACEHOLDER".
 
     ```yaml
     configurations:
@@ -82,14 +78,14 @@ Espaços de desenvolvimento do Azure fornece duas opções de recomendado, otimi
                 key: "$REDIS_KEY"
     ```
      
-2.  Criar uma _. env_ ficheiro na mesma pasta que _azds.yaml_. Introduza segredos através de chave padrão = notação de valor. Não consolidar os _. env_ ficheiro ao controlo de origem. (Para omitir a partir do controlo de origem em sistemas de controle de versão baseada no git, adicione-o para o _. gitignore_ ficheiro.) A exemplo a seguir mostra um _. env_ ficheiro:
+2.  Crie um arquivo _. env_ na mesma pasta que _azds. YAML_. Insira segredos usando a notação padrão = valor. Não confirme o arquivo _. env_ para o controle do código-fonte. (Para omitir do controle do código-fonte em sistemas de controle de versão baseados em git, adicione-o ao arquivo _. gitignore_ .) O exemplo a seguir mostra um arquivo _. env_ :
 
     ```
     REDIS_PORT=3333
     REDIS_HOST=myredishost
     REDIS_KEY=myrediskey
     ```
-2.  Modifique o código de origem de serviço para fazer referência a estes segredos no código, como no exemplo seguinte:
+2.  Modifique o código-fonte do serviço para referenciar esses segredos no código, como no exemplo a seguir:
 
     ```
     var redisPort = process.env.REDIS_PORT
@@ -97,19 +93,19 @@ Espaços de desenvolvimento do Azure fornece duas opções de recomendado, otimi
     var theKey = process.env.REDIS_KEY
     ```
  
-3.  Atualize os serviços em execução no seu cluster com essas alterações. Na linha de comandos, execute o comando:
+3.  Atualize os serviços em execução no cluster com essas alterações. Na linha de comando, execute o comando:
 
     ```
     azds up
     ```
 
-4.  (opcional) Segredos do modo de exibição de kubectl:
+4.  adicional Exibir segredos do kubectl:
 
     ```
     kubectl get secret --namespace default -o yaml
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Através destes métodos, pode agora ligar a uma base de dados, uma Cache do Azure para Redis, ou de forma segura aceder aos serviços do Azure seguros.
+Com esses métodos, agora você pode se conectar com segurança a um banco de dados, um cache do Azure para Redis ou acessar serviços seguros do Azure.
  

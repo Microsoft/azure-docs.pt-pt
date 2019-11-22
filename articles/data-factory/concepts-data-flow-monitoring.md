@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: e92471bd467557f3ac8eb0404d672355ccab8449
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: e522ede7da669f6e684fc9a07adcc506a69e77e9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597098"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267895"
 ---
 # <a name="monitor-data-flows"></a>Monitorar fluxos de dados
 
@@ -51,7 +51,7 @@ Quando o fluxo de dados é executado no Spark, Azure Data Factory determina cami
   * Tempo de inicialização do cluster: a quantidade de tempo para adquirir o ambiente de computação do Spark JIT para a execução do fluxo de dados
   * Número de transformações: quantas etapas de transformação estão sendo executadas em seu fluxo
   
-![Monitoramento do fluxo de dados do ACIT](media/data-flow/monitornew.png "Novo monitoramento de fluxo de dados")  
+![Monitorização de Fluxo de Dados](media/data-flow/monitornew.png "Novo monitoramento de fluxo de dados")  
   
 ## <a name="monitor-icons"></a>Ícones de monitor
 

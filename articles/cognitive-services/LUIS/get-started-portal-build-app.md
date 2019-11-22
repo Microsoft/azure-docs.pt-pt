@@ -10,18 +10,18 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 087b3a61902c533648b5d6e1b4b763f88ee5d794
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cbfb0ddb0ee901545443fc127f80a1837c7bde9b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669683"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278582"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Início rápido: criar um novo aplicativo no portal do LUIS
 
 [!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
-Neste guia de início rápido, você cria um novo aplicativo no [portal do Luis](https://www.luis.ai). Primeiro, você cria as partes básicas de um aplicativo, **intenções**e **entidades**. Em seguida, você testa o aplicativo fornecendo um expressão de usuário de exemplo no painel de teste interativo para obter a intenção prevista.
+Neste guia de início rápido, você cria um novo aplicativo no portal do LUIS. Primeiro, você cria as partes básicas de um aplicativo, **intenções**e **entidades**. Em seguida, você testa o aplicativo fornecendo um expressão de usuário de exemplo no painel de teste interativo para obter a intenção prevista.
 
 A criação de um aplicativo é gratuita e não requer uma assinatura do Azure. Quando estiver pronto para implantar seu aplicativo, consulte o guia de [início rápido para implantar um aplicativo](get-started-portal-deploy-app.md). Ele mostra como criar um recurso de serviço do Azure cognitiva e atribuí-lo ao aplicativo.
 
@@ -39,7 +39,7 @@ A criação de um aplicativo é gratuita e não requer uma assinatura do Azure. 
    |--|--|--|
    |Nome|`myEnglishApp`|Nome do aplicativo LUIS exclusivo<br>Necessário|
    |Cultura|**Inglês**|Idioma do declarações dos usuários, **en-US**<br>Necessário|
-   |Descrição (opcional)|`App made with LUIS Portal`|Descrição do aplicativo<br>Adicional|
+   |Descrição (opcional)|`App made with LUIS Portal`|Descrição do aplicativo<br>adicional|
    |Recurso de previsão (opcional) |-  |Não selecione. O LUIS fornece uma chave inicial para ser usada gratuitamente para solicitações de criação e de ponto de extremidade de previsão 1.000. |
 
    ![Inserir novas configurações de aplicativo](./media/get-started-portal-build-app/create-new-app-settings.png)
@@ -66,7 +66,7 @@ Para criar tentativas, conclua as seguintes etapas:
 
 1. Insira o nome da intenção, `FindForm`e, em seguida, selecione **concluído**.
 
-## <a name="add-an-example-utterance"></a>Adicionar um exemplo de expressão
+## <a name="add-an-example-utterance"></a>Adicionar uma expressão de exemplo
 
 Você adiciona o exemplo declarações depois de criar tentativas. O exemplo declarações é um texto que um usuário insere em um bot de chat ou outro aplicativo cliente. Eles mapeiam a intenção do texto do usuário para uma intenção LUIS.
 

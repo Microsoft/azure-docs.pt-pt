@@ -1,21 +1,21 @@
 ---
-title: Versões, aplicação de patches e atualização do razão do serviço Blockchain do Azure
+title: Versões do razão do serviço Blockchain do Azure, aplicação de patches, atualização &
 description: Visão geral das versões de razões com suporte no serviço Blockchain do Azure, incluindo políticas relacionadas à aplicação de patches de sistemas e atualizações gerenciadas pelo usuário e pelo sistema.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 16d0f0876e7d75dfd0266468ddc3005b86fc632f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: MT
+ms.openlocfilehash: 03eaf86ece191cce7eef6647a582a66495692db2
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579807"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284930"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>Versões do razão do serviço Blockchain do Azure com suporte
 
@@ -27,7 +27,7 @@ Atualmente, o serviço Blockchain do Azure dá suporte à [versão de quorum 2.2
 
 O controle de versão em quorum é feito por meio de versões principais, secundárias e de patches. Por exemplo, se a versão de quorum for 2.0.1, o tipo de versão será Categorizado da seguinte maneira:
 
-|Principal | Secundária  | Distribuído  |
+|Principais | Pequenas  | Distribuído  |
 | :--- | :----- | :----- |
 | 2 | 0 | 1 | 
 

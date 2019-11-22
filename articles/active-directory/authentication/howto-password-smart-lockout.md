@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a762009a7aaf1a965333ac573efe55d792c3f04b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: d4cb2d424d242fd9ea078d981a85516a00c8115f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125007"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74268674"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueio inteligente de Azure Active Directory
 
@@ -56,8 +56,8 @@ Use as instruções a seguir para verificar sua política de bloqueio de conta A
 
 1. Abra a ferramenta de gerenciamento de Política de Grupo.
 2. Edite a política de grupo que inclui a política de bloqueio de conta da sua organização, por exemplo, a **política de domínio padrão**.
-3. Navegue até **configuração** > do computador > políticasconfigurações > do Windows configuração de**segurança** **políticas de conta bloqueio de** >  > **conta Política**.
-4. Verifique seu **limite de bloqueio de conta** e redefina o contador de bloqueios de **conta após** os valores.
+3. Navegue até **configuração do computador** > **políticas** > **configurações do Windows** > **configurações de segurança** > políticas de **conta** > política de **bloqueio de conta**.
+4. Verifique seu **limite de bloqueio de conta** e **redefina o contador de bloqueios de conta após** os valores.
 
 ![Modificar a política de bloqueio de conta Active Directory local](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
@@ -67,7 +67,8 @@ Com base nos requisitos organizacionais, os valores de bloqueio inteligente pode
 
 Para verificar ou modificar os valores de bloqueio inteligente para sua organização, use as seguintes etapas:
 
-1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory** > **métodos** > de autenticação**proteção por senha**.
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Procure e selecione *Azure Active Directory*. Selecione os **métodos de autenticação** > proteção por **senha**.
 1. Defina o **limite de bloqueio**, com base em quantas entradas com falha são permitidas em uma conta antes de seu primeiro bloqueio. O padrão é 10.
 1. Defina a **duração do bloqueio em segundos**, para o comprimento em segundos de cada bloqueio. O padrão é 60 segundos (um minuto).
 

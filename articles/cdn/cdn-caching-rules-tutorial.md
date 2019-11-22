@@ -14,23 +14,23 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c6da3270de94fd0d5525f28cdd31039f5bd85dbd
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 5330c99f4d42f591944ddc5c58ac98bea6387da5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594064"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278152"
 ---
-# <a name="tutorial-set-azure-cdn-caching-rules"></a>Tutorial: Definir as regras de cache de CDN do Azure
+# <a name="tutorial-set-azure-cdn-caching-rules"></a>Tutorial: Definir regras de colocação em cache da CDN do Azure
 
 > [!NOTE] 
-> As regras de colocação em cache da CDN do Azure estão disponíveis apenas para a **CDN Standard do Azure da Verizon** e para a **CDN Standard do Azure da Akamai**. Para a **CDN Premium do Azure da Verizon**, utilize o [motor de regras da CDN do Azure](cdn-rules-engine.md) no portal **Gerir** para obter uma funcionalidade semelhante.
+> As regras de cache estão disponíveis apenas para os perfis da **CDN standard do Azure da Verizon** e **da CDN standard do Azure da Akamai** . Para os perfis **da CDN do Azure da Microsoft** , você deve usar o [mecanismo de regras padrão](cdn-standard-rules-engine-reference.md) para perfis **da CDN Premium do Azure da Verizon** . você deve usar o [mecanismo de regras do Verizon Premium](cdn-rules-engine.md) no portal de **Gerenciamento** para funcionalidade semelhante.
  
 
 Este tutorial descreve como pode utilizar regras de colocação em cache da Rede de Entrega de Conteúdos (CDN) do Azure para definir ou modificar o comportamento predefinido de expiração da cache globalmente e com condições personalizadas, tais como um caminho de URL e uma extensão de ficheiro. A CDN do Azure dispõe de dois tipos de regras de colocação em cache:
-- Regras de colocação em cache globais: Pode definir uma regra de colocação em cache global para cada ponto de extremidade no seu perfil, o que afeta todos os pedidos para o ponto final. A regra global de colocação em cache substitui quaisquer cabeçalhos de diretivas de cache HTTP, se for definido algum.
+- Regras globais de colocação em cache: pode definir uma regra global de colocação em cache para cada ponto final no seu perfil, o que afeta todos os pedidos para o ponto final. A regra global de colocação em cache substitui quaisquer cabeçalhos de diretivas de cache HTTP, se for definido algum.
 
-- Personalizar regras de colocação em cache: Pode definir uma ou mais regras colocação em cache personalizadas para cada ponto de extremidade no seu perfil. As regras personalizadas de colocação em cache correspondem a extensões de ficheiro e a caminhos específicos, são processadas por ordem e substituem a regra global de colocação em cache, se definida. 
+- Regras personalizadas de colocação em cache: pode configurar uma ou mais regras personalizadas de colocação em cache para cada ponto final no seu perfil. As regras personalizadas de colocação em cache correspondem a extensões de ficheiro e a caminhos específicos, são processadas por ordem e substituem a regra global de colocação em cache, se definida. 
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -42,7 +42,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de concluir os passos neste tutorial, tem primeiro de criar um perfil da CDN e, pelo menos, um ponto final da CDN. Para obter mais informações, consulte [início rápido: Criar um perfil de CDN do Azure e o ponto final](cdn-create-new-endpoint.md).
+Antes de concluir os passos neste tutorial, tem primeiro de criar um perfil da CDN e, pelo menos, um ponto final da CDN. Para obter mais informações, veja [Início Rápido: Criar um perfil e um ponto final da CDN do Azure](cdn-create-new-endpoint.md).
 
 ## <a name="open-the-azure-cdn-caching-rules-page"></a>Abrir a página de regras de colocação em cache da CDN do Azure
 
@@ -101,7 +101,7 @@ Nos passos anteriores, criou regras de colocação em cache. Se já não quiser 
 6. Na parte superior da página, selecione **Guardar**.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

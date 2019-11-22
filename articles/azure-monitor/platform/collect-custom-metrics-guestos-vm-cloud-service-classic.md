@@ -1,6 +1,6 @@
 ---
-title: Enviar métricas do SO convidado para os serviços de nuvem clássicos do repositório de métricas de Azure Monitor
-description: Enviar métricas do sistema operacional convidado para os serviços de nuvem do repositório de métricas Azure Monitor
+title: Enviar métricas clássicas dos serviços de nuvem para Azure Monitor banco de dados de métricas
+description: Descreve o processo para enviar métricas de desempenho do SO convidado para serviços de nuvem clássicos do Azure para o repositório de métrica Azure Monitor.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 56138277866d3b2bf02733a2c595a5a232faed8c
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1c742daf29cbbef5e6f51af5363be7fd949aaebf
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844944"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304780"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Enviar métricas do SO convidado para os serviços de nuvem clássicos do repositório de métricas de Azure Monitor 
 
@@ -31,7 +31,7 @@ O processo descrito neste artigo funciona apenas para contadores de desempenho n
 
 - Você deve ser um [administrador de serviços ou coadministrador](~/articles/billing/billing-add-change-azure-subscription-administrator.md) em sua assinatura do Azure. 
 
-- Sua assinatura deve ser registrada com [Microsoft.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)insights. 
+- Sua assinatura deve ser registrada com [Microsoft. insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - Você precisa ter o [Azure PowerShell](/powershell/azure) ou [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
 
@@ -190,7 +190,7 @@ Você usa os recursos de filtragem e divisão de dimensão para exibir a memóri
 
  ![Métricas portal do Azure](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
 

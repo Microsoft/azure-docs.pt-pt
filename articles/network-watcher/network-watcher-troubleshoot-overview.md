@@ -1,6 +1,7 @@
 ---
-title: Introdução aos recursos de resolução de problemas no observador de rede do Azure | Documentos da Microsoft
-description: Esta página fornece uma descrição geral das capacidades de resolução de problemas de recurso de observador de rede
+title: Introdução à solução de problemas de recursos
+titleSuffix: Azure Network Watcher
+description: Esta página fornece uma visão geral dos recursos de solução de problemas de recursos do observador de rede
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -14,109 +15,109 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 65ce9e7d298131486ae4e5f3584c7975ca81e1ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 736bbd16456dd0abda3292b9b9e73ea5b941e7ed
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64684250"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277780"
 ---
-# <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução aos recursos de resolução de problemas no observador de rede do Azure
+# <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à solução de problemas de recursos no observador de rede do Azure
 
-Gateways de rede virtual fornecer conectividade entre recursos no local e a outras redes virtuais no Azure. Monitorizar os gateways e respetivas ligações é fundamental para garantir que a comunicação não é interrompida. Observador de rede fornece a capacidade de resolver problemas de ligações e gateways. O recurso pode ser chamado através do portal, o PowerShell, a CLI do Azure ou a REST API. Quando chamado, o observador de rede diagnostica o estado de funcionamento do gateway ou ligação e devolve os resultados apropriados. O pedido é uma transação de longa execução. Os resultados devolvidos assim que o diagnóstico esteja concluído.
+Os gateways de rede virtual fornecem conectividade entre os recursos locais e outras redes virtuais no Azure. Monitorizar os gateways e respetivas ligações é fundamental para garantir que a comunicação não é interrompida. O observador de rede fornece a capacidade de solucionar problemas de gateways e conexões. O recurso pode ser chamado por meio do portal, do PowerShell, do CLI do Azure ou da API REST. Quando chamado, o observador de rede diagnostica a integridade do gateway, ou a conexão, e retorna os resultados apropriados. A solicitação é uma transação de longa execução. Os resultados são retornados quando o diagnóstico é concluído.
 
 ![portal][2]
 
 ## <a name="results"></a>Resultados
 
-Os resultados preliminares devolvidos dar uma visão geral do Estado de funcionamento do recurso. Informações mais aprofundadas podem ser fornecidas para recursos, conforme mostrado na seção a seguir:
+Os resultados preliminares retornados fornecem uma visão geral da integridade do recurso. Informações mais profundas podem ser fornecidas para os recursos, conforme mostrado na seção a seguir:
 
-A lista seguinte é os valores devolvidos com a API de resolução de problemas:
+A lista a seguir é os valores retornados com a API de solução de problemas:
 
-* **startTime** -este valor é a hora de início da chamada de API de resolução de problemas.
-* **endTime** -este valor é a hora quando a solução de problemas terminou.
-* **código** -este valor é mau estado de funcionamento, se ocorrer uma falha de diagnóstico único.
-* **resultados** -resultados é um conjunto de resultados devolvidos na ligação ou o gateway de rede virtual.
-    * **ID** -este valor é o tipo de falha.
-    * **resumo** -este valor é um resumo sobre a falha.
-    * **detalhadas** -este valor fornece uma descrição detalhada sobre a falha.
-    * **recommendedActions** -esta propriedade é uma coleção de ações recomendadas.
-      * **actionText** -este valor contém o texto que descreve a ação a tomar.
-      * **actionUri** -este valor fornece o URI para a documentação sobre como agir.
-      * **actionUriText** -este valor é uma breve descrição do texto de ação.
+* **StartTime** -esse valor é a hora em que a chamada à API de solução de problemas foi iniciada.
+* **EndTime** -esse valor é a hora em que a solução de problemas terminou.
+* **código** -esse valor não está íntegro, se houver uma única falha de diagnóstico.
+* **resultados** -resultados é uma coleção de resultados retornados na conexão ou no gateway de rede virtual.
+    * **ID** -esse valor é o tipo de falha.
+    * **Resumo** -esse valor é um resumo da falha.
+    * **detalhado** – esse valor fornece uma descrição detalhada da falha.
+    * **recommendedActions** -essa propriedade é uma coleção de ações recomendadas a serem executadas.
+      * **actionText** -esse valor contém o texto que descreve a ação a ser tomada.
+      * **actionUri** -esse valor fornece o URI para a documentação sobre como agir.
+      * **actionUriText** -esse valor é uma breve descrição do texto da ação.
 
-As tabelas seguintes mostram os tipos de falhas diferentes (id em resultados na lista anterior) que estão disponíveis e, se a falha cria registos.
+As tabelas a seguir mostram os diferentes tipos de falha (ID em resultados da lista anterior) que estão disponíveis e se a falha cria logs.
 
 ### <a name="gateway"></a>Gateway
 
 | Tipo de falha | Razão | Registar|
 |---|---|---|
-| NoFault | Quando não é detetado nenhum erro |Sim|
-| GatewayNotFound | Não é possível encontrar o gateway ou gateway não está aprovisionada |Não|
-| PlannedMaintenance |  Instância de gateway está em manutenção  |Não|
-| UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador está em curso. A atualização pode ser uma operação de redimensionamento. | Não |
-| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser alcançada devido a uma falha de sonda de estado de funcionamento. | Não |
-| PlatformInActive | Existe um problema com a plataforma. | Não|
+| Nofault | Quando nenhum erro é detectado |Sim|
+| GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado |Não|
+| PlannedMaintenance |  A instância do gateway está em manutenção  |Não|
+| UserDrivenUpdate | Essa falha ocorre quando uma atualização do usuário está em andamento. A atualização pode ser uma operação de redimensionamento. | Não |
+| VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | Não |
+| PlatformInActive | Há um problema com a plataforma. | Não|
 | ServiceNotRunning | O serviço subjacente não está em execução. | Não|
-| NoConnectionsFoundForGateway | Sem ligações existem no gateway. Esta falha é apenas um aviso.| Não|
-| ConnectionsNotConnected | Ligações não estão ligadas. Esta falha é apenas um aviso.| Sim|
-| GatewayCPUUsageExceeded | O gateway atual, a utilização da CPU é > 95%. | Sim |
+| NoConnectionsFoundForGateway | Não existem conexões no gateway. Essa falha é apenas um aviso.| Não|
+| ConnectionsNotConnected | As conexões não estão conectadas. Essa falha é apenas um aviso.| Sim|
+| GatewayCPUUsageExceeded | O uso da CPU do gateway atual é > 95%. | Sim |
 
 ### <a name="connection"></a>Ligação
 
 | Tipo de falha | Razão | Registar|
 |---|---|---|
-| NoFault | Quando não é detetado nenhum erro |Sim|
-| GatewayNotFound | Não é possível encontrar o gateway ou gateway não está aprovisionada |Não|
-| PlannedMaintenance | Instância de gateway está em manutenção  |Não|
-| UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador está em curso. A atualização pode ser uma operação de redimensionamento.  | Não |
-| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser alcançada devido a uma falha de sonda de estado de funcionamento. | Não |
-| ConnectionEntityNotFound | Configuração de ligação está em falta | Não |
-| ConnectionIsMarkedDisconnected | A ligação foi marcada como "desligada" |Não|
-| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem uma ligação configurada. | Sim |
-| ConnectionMarkedStandby | O serviço subjacente é marcado como modo de espera.| Sim|
-| Authentication | Erro de correspondência de chave pré-partilhada | Sim|
-| PeerReachability | O gateway de ponto a ponto não está acessível. | Sim|
-| IkePolicyMismatch | O gateway de mesmo nível tem políticas de IKE que não são suportadas pelo Azure. | Sim|
-| WfpParse Error | Ocorreu um erro ao analisar o registo da WFP. |Sim|
+| Nofault | Quando nenhum erro é detectado |Sim|
+| GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado |Não|
+| PlannedMaintenance | A instância do gateway está em manutenção  |Não|
+| UserDrivenUpdate | Essa falha ocorre quando uma atualização do usuário está em andamento. A atualização pode ser uma operação de redimensionamento.  | Não |
+| VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | Não |
+| ConnectionEntityNotFound | A configuração da conexão está ausente | Não |
+| ConnectionIsMarkedDisconnected | A conexão está marcada como "desconectada" |Não|
+| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | Sim |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Sim|
+| Autenticação | Incompatibilidade de chave pré-compartilhada | Sim|
+| PeerReachability | O gateway de mesmo nível não está acessível. | Sim|
+| IkePolicyMismatch | O gateway par tem políticas IKE que não são suportadas pelo Azure. | Sim|
+| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|
 
-## <a name="supported-gateway-types"></a>Tipos de Gateway suportados
+## <a name="supported-gateway-types"></a>Tipos de gateway com suporte
 
-A tabela seguinte lista os gateways e ligações são suportadas na resolução de problemas do observador de rede:
+A tabela a seguir lista quais gateways e conexões têm suporte com a solução de problemas do observador de rede:
 
 |  |  |
 |---------|---------|
 |**Tipos de gateway**   |         |
-|VPN      | Suportadas        |
-|ExpressRoute | Não suportado |
+|VPN      | Suportado        |
+|ExpressRoute | Não Suportado |
 |**Tipos de VPN** | |
-|Rota com base | Suportadas|
-|Baseado na política | Não suportado|
-|**Tipos de ligação**||
-|IPSec| Suportadas|
-|VNet2Vnet| Suportadas|
-|ExpressRoute| Não suportado|
-|VPNClient| Não suportado|
+|Baseado em rota | Suportado|
+|Baseado em política | Não Suportado|
+|**Tipos de conexão**||
+|IPSec| Suportado|
+|VNet2Vnet| Suportado|
+|ExpressRoute| Não Suportado|
+|VPNClient| Não Suportado|
 
 ## <a name="log-files"></a>Ficheiros de registo
 
-Os ficheiros de registo de resolução de problemas de recursos são armazenados numa conta de armazenamento após a conclusão da resolução de problemas de recursos. A imagem seguinte mostra os conteúdos de exemplo de uma chamada que resultou num erro.
+Os arquivos de log de solução de problemas de recursos são armazenados em uma conta de armazenamento após a conclusão da solução de problemas de recursos. A imagem a seguir mostra o conteúdo de exemplo de uma chamada que resultou em um erro.
 
-![ficheiro zip][1]
+![arquivo zip][1]
 
 > [!NOTE]
-> Em alguns casos, apenas um subconjunto dos ficheiros de registo é escrito para o armazenamento.
+> Em alguns casos, apenas um subconjunto dos arquivos de log é gravado no armazenamento.
 
-Para obter instruções sobre o download de arquivos de contas de armazenamento do azure, consulte [introdução ao armazenamento de Blobs do Azure com o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser utilizada é o Explorador de armazenamento. Obter mais informações sobre o Explorador de armazenamento podem ser encontradas aqui na seguinte hiperligação: [Explorador de armazenamento](https://storageexplorer.com/)
+Para obter instruções sobre como baixar arquivos de contas de armazenamento do Azure, consulte Introdução ao [armazenamento de BLOBs do Azure usando o .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é Gerenciador de Armazenamento. Mais informações sobre Gerenciador de Armazenamento podem ser encontradas aqui no seguinte link: [Gerenciador de armazenamento](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 
-O **ConnectionStats.txt** arquivo contém estatísticas geral da ligação, incluindo bytes de entrada e saída, o estado da ligação e a hora a ligação foi estabelecida.
+O arquivo **ConnectionStats. txt** contém estatísticas gerais da conexão, incluindo bytes de entrada e saída, status da conexão e a hora em que a conexão foi estabelecida.
 
 > [!NOTE]
-> Se a chamada para a resolução de problemas API devolve em bom estado, a única coisa que devolvido no ficheiro zip é um **ConnectionStats.txt** ficheiro.
+> Se a chamada para a API de solução de problemas retornar íntegro, a única coisa retornada no arquivo zip será um arquivo **ConnectionStats. txt** .
 
-O conteúdo deste ficheiro é semelhante ao seguinte exemplo:
+O conteúdo desse arquivo é semelhante ao exemplo a seguir:
 
 ```
 Connectivity State : Connected
@@ -128,17 +129,17 @@ Connected Since : 2/1/2017 8:22:06 PM
 
 ### <a name="cpustatstxt"></a>CPUStats.txt
 
-O **CPUStats.txt** ficheiro contém a utilização da CPU e memória disponível no momento de teste.  O conteúdo deste ficheiro é semelhante ao seguinte exemplo:
+O arquivo **CPUStats. txt** contém uso de CPU e memória disponível no momento do teste.  O conteúdo desse arquivo é semelhante ao exemplo a seguir:
 
 ```
 Current CPU Usage : 0 % Current Memory Available : 641 MBs
 ```
 
-### <a name="ikeerrorstxt"></a>IKEErrors.txt
+### <a name="ikeerrorstxt"></a>IKEErrors. txt
 
-O **IKEErrors.txt** arquivo contém quaisquer erros de IKE que foram encontrados durante a monitorização.
+O arquivo **IKEErrors. txt** contém erros de Ike que foram encontrados durante o monitoramento.
 
-O exemplo seguinte mostra o conteúdo de um arquivo de IKEErrors.txt. Os erros podem ser diferentes dependendo do problema.
+O exemplo a seguir mostra o conteúdo de um arquivo IKEErrors. txt. Seus erros podem ser diferentes dependendo do problema.
 
 ```
 Error: Authentication failed. Check shared key. Check crypto. Check lifetimes. 
@@ -149,9 +150,9 @@ Error: On-prem device sent invalid payload.
 
 ### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag.txt
 
-O **Scrubbed wfpdiag.txt** ficheiro de registo contém o registo da wfp. Este registo contém o registo de largada de pacotes e falhas de IKE/AuthIP.
+O arquivo de log **scrubbed-Wfpdiag. txt** contém o log WFP. Esse log contém o registro em log do descarte de pacotes e falhas de IKE/AuthIP.
 
-O exemplo seguinte mostra o conteúdo do arquivo Scrubbed wfpdiag.txt. Neste exemplo, a chave partilhada de uma conexão não estava correta como pode ser visto na terceira linha na parte inferior de. O exemplo seguinte é apenas um fragmento de todo o registo, como o registo pode ser demorado, dependendo do problema.
+O exemplo a seguir mostra o conteúdo do arquivo scrubbed-Wfpdiag. txt. Neste exemplo, a chave compartilhada de uma conexão não estava correta, pois pode ser vista na terceira linha da parte inferior. O exemplo a seguir é apenas um trecho de todo o log, pois o log pode ser demorado dependendo do problema.
 
 ```
 ...
@@ -182,9 +183,9 @@ O exemplo seguinte mostra o conteúdo do arquivo Scrubbed wfpdiag.txt. Neste exe
 
 ### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.sum
 
-O **wfpdiag.txt.sum** ficheiro é um registo que mostra os eventos processados e buffers.
+O arquivo **arquivo Wfpdiag. txt. Sum** é um log que mostra os buffers e os eventos processados.
 
-O exemplo seguinte é o conteúdo de um ficheiro de wfpdiag.txt.sum.
+O exemplo a seguir é o conteúdo de um arquivo arquivo Wfpdiag. txt. Sum.
 ```
 Files Processed:
     C:\Resources\directory\924336c47dd045d5a246c349b8ae57f2.GatewayTenantWorker.DiagnosticsStorage\2017-02-02T17-34-23\wfpdiag.etl
@@ -210,9 +211,9 @@ Elapsed Time            330 sec
 |        12    ikeext               ike_sa_management_c3307  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber como diagnosticar um problema com um gateway ou a ligação de gateway, veja [diagnosticar problemas de comunicação entre redes](diagnose-communication-problem-between-networks.md).
+Para saber como diagnosticar um problema com uma conexão de gateway ou gateway, consulte [diagnosticar problemas de comunicação entre redes](diagnose-communication-problem-between-networks.md).
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png

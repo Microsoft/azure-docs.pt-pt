@@ -1,5 +1,5 @@
 ---
-title: Problemas ao configurar o logon único com senha para o aplicativo da galeria do Azure AD | Microsoft Docs
+title: Problemas ao configurar o SSO de senha para o aplicativo da galeria do Azure AD
 description: Entenda os problemas comuns que as pessoas enfrentam ao configurar o logon único com senha para aplicativos que já estão listados na Galeria de aplicativos do Azure AD
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc75346b1093cc41a44edad1376c5f10dfec2409
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 96e729bee0ac9beac447893ed8dbf1bba633e412
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381140"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274184"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar o logon único com senha para um aplicativo da galeria do Azure AD
 
@@ -41,13 +41,13 @@ Para resolver esse problema, primeiro tente estas coisas:
 
   * Se a entrada funcionar, faça com que o usuário clique no botão **Atualizar credenciais** no **bloco do aplicativo** na seção **aplicativos** do painel de [acesso do aplicativo](https://myapps.microsoft.com/) para atualizá-los para o nome de usuário e a senha mais recentes conhecidos.
 
-  * Se você ou outro administrador tiver atribuído as credenciais para esse usuário, localize a atribuição de aplicativo do usuário ou do grupo navegando até a guia **usuários & grupos** do aplicativo, selecionando a atribuição e clicando nas **credenciais de atualização** botão.
+  * Se você ou outro administrador tiver atribuído as credenciais para esse usuário, localize a atribuição de aplicativo do usuário ou do grupo navegando até a guia **usuários & grupos** do aplicativo, selecionando a atribuição e clicando no botão **Atualizar credenciais** .
 
 - Se o usuário tiver atribuído suas próprias credenciais, faça com que o usuário Verifique se a **senha não expirou no aplicativo** e, se estiver, **Atualize sua senha expirada** entrando diretamente no aplicativo.
 
-  * Depois que a senha tiver sido atualizada no aplicativo, solicite que o usuário clique no botão **Atualizar credenciais** no **bloco do aplicativo** na seção **aplicativos** do painel de [acesso do aplicativo](https://myapps.microsoft.com/) para atualizá-los para a versão mais recente conhecida nome de usuário e senha de trabalho.
+  * Depois que a senha tiver sido atualizada no aplicativo, solicite que o usuário clique no botão **Atualizar credenciais** no **bloco do aplicativo** na seção **aplicativos** do painel de [acesso do aplicativo](https://myapps.microsoft.com/) para atualizá-los para o nome de usuário e a senha mais recentes conhecidos.
 
-  * Se você ou outro administrador tiver atribuído as credenciais para esse usuário, localize a atribuição de aplicativo do usuário ou do grupo navegando até a guia **usuários & grupos** do aplicativo, selecionando a atribuição e clicando nas **credenciais de atualização** botão.
+  * Se você ou outro administrador tiver atribuído as credenciais para esse usuário, localize a atribuição de aplicativo do usuário ou do grupo navegando até a guia **usuários & grupos** do aplicativo, selecionando a atribuição e clicando no botão **Atualizar credenciais** .
 
 - Faça com que o usuário atualize a extensão do navegador do painel de acesso seguindo as etapas abaixo na seção [como instalar a extensão do navegador do painel de acesso](#how-to-install-the-access-panel-browser-extension) .
 
@@ -89,7 +89,7 @@ Para instalar a extensão do navegador do painel de acesso, siga as etapas abaix
 
 1.  Abra o [painel de acesso](https://myapps.microsoft.com) em um dos navegadores com suporte e entre como um **usuário** no Azure AD.
 
-2.  clique em um **aplicativo de SSO de senha** no painel de acesso.
+2.  Clique em um **aplicativo de SSO de senha** no painel de acesso.
 
 3.  No prompt solicitando a instalação do software, selecione **instalar agora**.
 
@@ -97,7 +97,7 @@ Para instalar a extensão do navegador do painel de acesso, siga as etapas abaix
 
 5.  Se seu navegador perguntar, selecione para **habilitar** ou **permitir** a extensão.
 
-6.  Depois de instalado  , reinicie a sessão do navegador.
+6.  Depois de instalado, **reinicie** a sessão do navegador.
 
 7.  Entre no painel de acesso e veja se você pode **Iniciar** seus aplicativos de SSO de senha
 
@@ -107,6 +107,6 @@ Você também pode baixar a extensão para o Chrome e Firefox nos links diretos 
 
 -   [Extensão do painel de acesso do Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Fornecer início de sessão único às suas aplicações com o Proxy de aplicações](application-proxy-configure-single-sign-on-with-kcd.md)
 

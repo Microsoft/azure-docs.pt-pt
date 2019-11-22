@@ -1,23 +1,14 @@
 ---
 title: Migrar de um bloco de notas Jupyter local para blocos de notas do Azure
 description: Rapidamente, transferir um bloco de notas do Jupyter para blocos de notas do Azure a partir do seu computador local ou um URL de web, em seguida, partilhá-lo para colaboração.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 2e935425-3923-4a33-89b2-0f2100b0c0c4
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 2151d5b04b0fe5d47e8e2ddfb750ac279b6f74fa
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 3b7d5aab05923fb4356e0d45aaf21a77076a870a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970192"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277471"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Início rápido: Migrar um bloco de notas Jupyter local
 
@@ -25,7 +16,7 @@ Blocos de notas do Jupyter que criar localmente no seu próprio computador estã
 
 Ao migrar seus blocos de notas do locais ou baseada no repositório para blocos de notas do Azure, armazená-las na cloud a partir do qual pode instantaneamente partilhá-los com seus colaboradores. Os funcionários precisam apenas um browser para ver e executar o bloco de notas e se eles [iniciar sessão](quickstart-sign-in-azure-notebooks.md) para blocos de notas do Azure também fazer alterações.
 
-Este início rápido demonstra o processo de migração de um bloco de notas do seu computador local ou outra URL do arquivo acessível. Para migrar blocos de anotações de um repositório GitHub, consulte [Quickstart: Clone um bloco de anotações @ no__t-0.
+Este início rápido demonstra o processo de migração de um bloco de notas do seu computador local ou outra URL do arquivo acessível. Para migrar blocos de notas a partir de um repositório do GitHub, consulte [início rápido: clonar um bloco de notas](quickstart-clone-jupyter-notebook.md).
 
 ## <a name="create-a-project-on-azure-notebooks"></a>Criar um projeto em blocos de notas do Azure
 
@@ -47,7 +38,7 @@ Este início rápido demonstra o processo de migração de um bloco de notas do 
 
     ![Comando para carregar um bloco de notas de um URL ou o computador local](media/quickstarts/upload-from-computer-url-command.png)
 
-   (Novamente, se o seu notebook estiver em um repositório GitHub, siga as etapas em [Quickstart: Clonar um bloco de anotações @ no__t-0 em vez disso.)
+   (Novamente, se seu bloco de notas estiver num repositório do GitHub, siga os passos [início rápido: clonar um bloco de notas](quickstart-clone-jupyter-notebook.md) em vez disso.)
 
    - Se utilizar **de computador**, arraste e largue sua *.ipynb* ficheiros para o pop-up ou selecione o **escolher ficheiros**, em seguida, procure e selecione os ficheiros que pretende importar. Em seguida, selecione **carregar**. Os ficheiros carregados recebem o mesmo nome que os ficheiros locais. (Não precisa de carregar o conteúdo de qualquer *.ipynb_checkpoints* pastas.)
 
@@ -63,7 +54,7 @@ Este início rápido demonstra o processo de migração de um bloco de notas do 
 
 1. Para editar ficheiros diferentes dos blocos de notas, clique com botão direito no projeto e selecione o ficheiro de **Editar ficheiro** (atalho de teclado: eu). A ação de predefinição **executar** (atalho de teclado: r), apenas mostra o conteúdo do ficheiro e não permite a edição.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: criar uma execução de um bloco de notas do Jupyter para fazer a regressão linear](tutorial-create-run-jupyter-notebook.md)

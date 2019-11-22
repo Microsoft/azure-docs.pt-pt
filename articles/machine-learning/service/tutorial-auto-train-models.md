@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial do modelo de regressão: ML automatizado'
+title: 'Tutorial de regressão: ML automatizado'
 titleSuffix: Azure Machine Learning
 description: Saiba como gerar um modelo de aprendizado de máquina usando o aprendizado de máquina automatizado. Azure Machine Learning pode executar o pré-processamento de dados, a seleção de algoritmos e a seleção de hiperparâmetro de forma automatizada para você. Em seguida, o modelo final é implantado com Azure Machine Learning.
 services: machine-learning
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: 23441fb64293647698921c17c06731ab413b7699
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 5e7d897b3a845580d7830e2cf816417f2282dd27
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582462"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271869"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: usar o Machine Learning automatizado para prever as tarifas de táxi
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -70,7 +70,7 @@ green_taxi_df.head(10)
 ```
 
 <div>
-<style scoped>. dataframe tbody TR th: somente de tipo {vertical-align: Middle;}
+<style scoped> .dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -90,14 +90,14 @@ green_taxi_df.head(10)
       <th>passengerCount</th>
       <th>tripDistance</th>
       <th>puLocationId</th>
-      <th>dolocationid</th>
+      <th>doLocationId</th>
       <th>pickupLongitude</th>
       <th>pickupLatitude</th>
       <th>dropoffLongitude</th>
       <th>...</th>
       <th>pagamentotype</th>
       <th>fareAmount</th>
-      <th>Especiais</th>
+      <th>extra</th>
       <th>mtaTax</th>
       <th>improvementSurcharge</th>
       <th>tipAmount</th>
@@ -130,7 +130,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>16,30</td>
-      <td>1, 0</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>1129817</th>
@@ -146,15 +146,15 @@ green_taxi_df.head(10)
       <td>-73,96</td>
       <td>...</td>
       <td>2</td>
-      <td>4,50</td>
-      <td>1, 0</td>
+      <td>4.50</td>
+      <td>1,00</td>
       <td>0,50</td>
       <td>0,3</td>
       <td>0, 0</td>
       <td>0, 0</td>
       <td>Nan</td>
       <td>6,30</td>
-      <td>1, 0</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>1278620</th>
@@ -178,7 +178,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>4,80</td>
-      <td>1, 0</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>348430</th>
@@ -202,7 +202,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>13,80</td>
-      <td>1, 0</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>1269627</th>
@@ -225,8 +225,8 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>0, 0</td>
       <td>Nan</td>
-      <td>5, 0</td>
-      <td>1, 0</td>
+      <td>5,00</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>811755</th>
@@ -250,7 +250,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>7,80</td>
-      <td>1, 0</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>737281</th>
@@ -274,7 +274,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>6,80</td>
-      <td>1, 0</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>113951</th>
@@ -298,7 +298,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>13,80</td>
-      <td>1, 0</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>150436</th>
@@ -322,7 +322,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>9,55</td>
-      <td>1, 0</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>432136</th>
@@ -338,7 +338,7 @@ green_taxi_df.head(10)
       <td>-73,94</td>
       <td>...</td>
       <td>2</td>
-      <td>5, 0</td>
+      <td>5,00</td>
       <td>0,50</td>
       <td>0,50</td>
       <td>0,3</td>
@@ -346,7 +346,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>6,30</td>
-      <td>1, 0</td>
+      <td>1,00</td>
     </tr>
   </tbody>
 </table>
@@ -371,7 +371,7 @@ green_taxi_df.head(10)
 ```
 
 <div>
-<style scoped>. dataframe tbody TR th: somente de tipo {vertical-align: Middle;}
+<style scoped> .dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -391,7 +391,7 @@ green_taxi_df.head(10)
       <th>passengerCount</th>
       <th>tripDistance</th>
       <th>puLocationId</th>
-      <th>dolocationid</th>
+      <th>doLocationId</th>
       <th>pickupLongitude</th>
       <th>pickupLatitude</th>
       <th>dropoffLongitude</th>
@@ -427,7 +427,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>16,30</td>
-      <td>1, 0</td>
+      <td>1,00</td>
       <td>1</td>
       <td>11</td>
       <td>6</td>
@@ -451,7 +451,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>6,30</td>
-      <td>1, 0</td>
+      <td>1,00</td>
       <td>1</td>
       <td>20</td>
       <td>1</td>
@@ -475,7 +475,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>4,80</td>
-      <td>1, 0</td>
+      <td>1,00</td>
       <td>1</td>
       <td>1</td>
       <td>3</td>
@@ -499,7 +499,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>13,80</td>
-      <td>1, 0</td>
+      <td>1,00</td>
       <td>1</td>
       <td>17</td>
       <td>5</td>
@@ -522,8 +522,8 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>0, 0</td>
       <td>Nan</td>
-      <td>5, 0</td>
-      <td>1, 0</td>
+      <td>5,00</td>
+      <td>1,00</td>
       <td>1</td>
       <td>1</td>
       <td>3</td>
@@ -547,7 +547,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>7,80</td>
-      <td>1, 0</td>
+      <td>1,00</td>
       <td>1</td>
       <td>4</td>
       <td>6</td>
@@ -571,7 +571,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>6,80</td>
-      <td>1, 0</td>
+      <td>1,00</td>
       <td>1</td>
       <td>3</td>
       <td>5</td>
@@ -595,7 +595,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>13,80</td>
-      <td>1, 0</td>
+      <td>1,00</td>
       <td>1</td>
       <td>9</td>
       <td>4</td>
@@ -619,7 +619,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>9,55</td>
-      <td>1, 0</td>
+      <td>1,00</td>
       <td>1</td>
       <td>11</td>
       <td>6</td>
@@ -643,7 +643,7 @@ green_taxi_df.head(10)
       <td>0, 0</td>
       <td>Nan</td>
       <td>6,30</td>
-      <td>1, 0</td>
+      <td>1,00</td>
       <td>1</td>
       <td>22</td>
       <td>3</td>
@@ -676,7 +676,7 @@ green_taxi_df.describe()
 ```
 
 <div>
-<style scoped>. dataframe tbody TR th: somente de tipo {vertical-align: Middle;}
+<style scoped> .dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -721,7 +721,7 @@ green_taxi_df.describe()
       <td>48000, 0</td>
     </tr>
     <tr>
-      <th>Significa</th>
+      <th>média</th>
       <td>1,78</td>
       <td>1,37</td>
       <td>2,87</td>
@@ -737,22 +737,22 @@ green_taxi_df.describe()
     </tr>
     <tr>
       <th>padrão</th>
-      <td>0,41</td>
+      <td>0.41</td>
       <td>1, 4</td>
       <td>2,93</td>
       <td>2,76</td>
       <td>1,52</td>
-      <td>2,61</td>
+      <td>2.61</td>
       <td>1,44</td>
       <td>12, 8</td>
-      <td>3,45</td>
+      <td>3.45</td>
       <td>8,45</td>
       <td>1,95</td>
       <td>6,83</td>
     </tr>
     <tr>
       <th>min.</th>
-      <td>1, 0</td>
+      <td>1,00</td>
       <td>0, 0</td>
       <td>0, 0</td>
       <td>-74,66</td>
@@ -760,22 +760,22 @@ green_taxi_df.describe()
       <td>-74,66</td>
       <td>0, 0</td>
       <td>-300, 0</td>
-      <td>1, 0</td>
-      <td>1, 0</td>
+      <td>1,00</td>
+      <td>1,00</td>
       <td>0, 0</td>
       <td>0, 0</td>
     </tr>
     <tr>
       <th>25%</th>
       <td>2, 0</td>
-      <td>1, 0</td>
+      <td>1,00</td>
       <td>1, 6</td>
       <td>-73,96</td>
       <td>40,70</td>
       <td>-73,97</td>
       <td>40,70</td>
       <td>7,80</td>
-      <td>3,75</td>
+      <td>3.75</td>
       <td>8,00</td>
       <td>2, 0</td>
       <td>9, 0</td>
@@ -783,7 +783,7 @@ green_taxi_df.describe()
     <tr>
       <th>50%</th>
       <td>2, 0</td>
-      <td>1, 0</td>
+      <td>1,00</td>
       <td>1,90</td>
       <td>-73,94</td>
       <td>40,75</td>
@@ -792,13 +792,13 @@ green_taxi_df.describe()
       <td>11,30</td>
       <td>6,50</td>
       <td>15, 0</td>
-      <td>3, 0</td>
+      <td>Digite 3,00</td>
       <td>15, 0</td>
     </tr>
     <tr>
       <th>75%</th>
       <td>2, 0</td>
-      <td>1, 0</td>
+      <td>1,00</td>
       <td>3,60</td>
       <td>-73,92</td>
       <td>40,80</td>
@@ -807,7 +807,7 @@ green_taxi_df.describe()
       <td>17,80</td>
       <td>9,25</td>
       <td>22, 0</td>
-      <td>5, 0</td>
+      <td>5,00</td>
       <td>19, 0</td>
     </tr>
     <tr>
@@ -869,7 +869,7 @@ ws = Workspace.from_config()
 
 Divida os dados em conjuntos de treinamento e teste usando a função `train_test_split` na biblioteca `scikit-learn`. Essa função separa os dados no conjunto de dados x (**recursos**) para treinamento de modelo e o conjunto de dados y (**valores a prever**) para teste.
 
-O parâmetro `test_size` determina a porcentagem de dados a serem alocados para teste. O parâmetro `random_state` define uma semente para o gerador aleatório, de forma que suas divisões de treinamento de treino sejam determinísticas.
+O `test_size` parâmetro determina a percentagem de dados para alocar ao teste. O parâmetro `random_state` define uma semente para o gerador aleatório, de forma que suas divisões de treinamento de treino sejam determinísticas.
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -884,7 +884,7 @@ A finalidade desta etapa é ter pontos de dados para testar o modelo concluído 
 
 Em outras palavras, um modelo bem treinado deve ser capaz de fazer previsões com precisão dos dados que ele ainda não viu. Agora você tem dados preparados para treinar automaticamente um modelo de aprendizado de máquina.
 
-## <a name="automatically-train-a-model"></a>Treinar automaticamente um modelo
+## <a name="automatically-train-a-model"></a>Preparar automaticamente um modelo
 
 Para treinar um modelo automaticamente, execute as seguintes etapas:
 1. Defina as configurações para a execução do experimento. Anexe seus dados de treinamento à configuração e modifique as configurações que controlam o processo de treinamento.
@@ -892,7 +892,7 @@ Para treinar um modelo automaticamente, execute as seguintes etapas:
 
 ### <a name="define-training-settings"></a>Definir configurações de treinamento
 
-Defina o parâmetro experimento e as configurações de modelo para treinamento. Exiba a lista completa de [configurações](how-to-configure-auto-train.md). O envio do experimento com essas configurações padrão levará aproximadamente 5-20 min, mas se você quiser um tempo de execução menor, reduza o parâmetro `experiment_timeout_minutes`.
+Defina o parâmetro experimento e as configurações de modelo para treinamento. Ver a lista completa dos [definições](how-to-configure-auto-train.md). O envio do experimento com essas configurações padrão levará aproximadamente 5-20 min, mas se você quiser um tempo de execução menor, reduza o parâmetro `experiment_timeout_minutes`.
 
 |Propriedade| Valor neste tutorial |Descrição|
 |----|----|---|
@@ -901,7 +901,7 @@ Defina o parâmetro experimento e as configurações de modelo para treinamento.
 |**enable_early_stopping**|Verdadeiro|Sinalizador para enble encerramento antecipado se a pontuação não estiver melhorando em curto prazo.|
 |**primary_metric**| spearman_correlation | Métrica que pretende otimizar. O modelo de melhor ajuste será escolhido com base nessa métrica.|
 |**personalização**| Automático | Usando **auto**, o experimento pode pré-processar os dados de entrada (manipulando dados ausentes, convertendo texto em numérico, etc.)|
-|**detalhamento**| logging.INFO | Controla o nível de registro em log.|
+|**Verbosidade**| logging.INFO | Controla o nível de registo.|
 |**n_cross_validations**|5|Número de divisões de validação cruzada a serem executadas quando os dados de validação não forem especificados.|
 
 ```python
@@ -933,7 +933,7 @@ automl_config = AutoMLConfig(task='regression',
 > [!NOTE]
 > As etapas de pré-processamento automatizado do Machine Learning (normalização de recursos, manipulação de dados ausentes, conversão de texto em numeric, etc.) tornam-se parte do modelo subjacente. Ao usar o modelo para previsões, as mesmas etapas de pré-processamento aplicadas durante o treinamento são aplicadas aos dados de entrada automaticamente.
 
-### <a name="train-the-automatic-regression-model"></a>Treinar o modelo de regressão automática
+### <a name="train-the-automatic-regression-model"></a>Preparar o modelo de regressão automática
 
 Crie um objeto de experimento em seu espaço de trabalho. Um experimento atua como um contêiner para suas execuções individuais. Passe o objeto `automl_config` definido para o experimento e defina a saída como `True` para exibir o andamento durante a execução.
 
@@ -996,7 +996,7 @@ RunDetails(local_run).show()
 ![detalhes de execução do widget do Jupyter](./media/tutorial-auto-train-models/automl-dash-output.png)
 ![diagrama de Jupyter do widget](./media/tutorial-auto-train-models/automl-chart-output.png)
 
-### <a name="retrieve-the-best-model"></a>Recuperar o melhor modelo
+### <a name="retrieve-the-best-model"></a>Obter o melhor modelo
 
 Selecione o melhor modelo de suas iterações. A função `get_output` retorna a melhor execução e o modelo ajustado para a última invocação de ajuste. Usando as sobrecargas em `get_output`, você pode recuperar o melhor modelo de execução e ajustada para qualquer métrica registrada ou uma iteração específica.
 
@@ -1006,9 +1006,9 @@ print(best_run)
 print(fitted_model)
 ```
 
-### <a name="test-the-best-model-accuracy"></a>Testar a melhor precisão do modelo
+### <a name="test-the-best-model-accuracy"></a>A maior precisão do modelo de teste
 
-Use o melhor modelo para executar previsões no conjunto de dados de teste para prever tarifas de táxi. A função `predict` usa o melhor modelo e prevê os valores de y, **custo de viagem**, do conjunto de dados de `x_test`. Imprima os 10 primeiros valores de custo previstos de `y_predict`.
+Use o melhor modelo para executar previsões no conjunto de dados de teste para prever tarifas de táxi. A função `predict` usa o melhor modelo e prevê os valores de y, **custo de viagem**, do conjunto de dados de `x_test`. Imprimir os primeiros 10 prevista valores a partir de custos `y_predict`.
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
@@ -1056,7 +1056,7 @@ print(1 - mean_abs_percent_error)
 
 Das duas métricas de precisão da previsão, você vê que o modelo é muito bom na previsão de passagens de táxi dos recursos do conjunto de dados, normalmente dentro de +-$4 e aproximadamente 15% de erro.
 
-O processo de desenvolvimento do modelo de aprendizado de máquina tradicional é altamente intensivo de recursos e requer um investimento significativo de conhecimento e tempo de domínio para executar e comparar os resultados de dezenas de modelos. Usar o Machine Learning automatizado é uma ótima maneira de testar rapidamente vários modelos diferentes para seu cenário.
+A processo de desenvolvimento do modelo de aprendizagem tradicional é altamente com muitos recursos e requer investimento de dados de conhecimento e a hora de domínio significativo para executar e comparar os resultados de dezenas de modelos. Usar o Machine Learning automatizado é uma ótima maneira de testar rapidamente vários modelos diferentes para seu cenário.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -1086,4 +1086,4 @@ Neste tutorial de aprendizado de máquina automatizado, você fez as seguintes t
 > * Treinado com o uso de um modelo de regressão automatizado localmente com parâmetros personalizados.
 > * Resultados de treinamento explorados e revisados.
 
-[Implante seu modelo](tutorial-deploy-models-with-aml.md) com Azure Machine Learning.
+[Implementar o seu modelo](tutorial-deploy-models-with-aml.md) com o Azure Machine Learning.

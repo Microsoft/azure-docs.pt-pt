@@ -1,6 +1,6 @@
 ---
-title: Diretrizes para experiências de âncora eficaz que utilizam as âncoras espaciais do Azure | Documentos da Microsoft
-description: Diretrizes e as considerações para criar e localizar as âncoras com eficiência usando âncoras espaciais do Azure.
+title: Diretrizes para experiências de ancoragem efetivas
+description: Diretrizes e considerações para criar e localizar âncoras com eficiência usando âncoras espaciais do Azure.
 author: mattwojo
 manager: jken
 services: azure-spatial-anchors
@@ -8,108 +8,108 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9e77dcd96ffa0fbd57aa0ed1b4f857279ca768a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9a24da8d76f401f534eccf33312fbf0c2bee9f5d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60566050"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270527"
 ---
-# <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Criar uma experiência de âncora efetiva com âncoras espaciais do Azure
+# <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Criar uma experiência de ancoragem eficaz usando âncoras espaciais do Azure
 
-Este artigo fornece diretrizes e considerações para o ajudar a efetivamente cria e localizar as âncoras, utilizando as âncoras espaciais.
+Este artigo fornece diretrizes e considerações para ajudá-lo a criar e localizar âncoras com eficiência usando âncoras espaciais.
 
-## <a name="good-anchors"></a>Boa âncoras
+## <a name="good-anchors"></a>Boas âncoras
 
-Âncoras geográficos ajuda-o a criar âncoras boa. É importante investir tempo na treinar ou a orientação dos usuários na sua experiência de usuário (UX) criar âncoras boa. Ao investir na criação de boa âncoras com antecedência, ajudar os utilizadores finais, de forma fiável encontrar as âncoras de:
+As âncoras espaciais ajudam a criar boas âncoras. É importante investir tempo na conscientização ou na orientação de usuários em sua experiência do usuário (UX) para criar boas âncoras. Ao investir na criação de boas âncoras antecipadamente, você ajuda os usuários finais a localizar âncoras de maneira confiável:
 
 - Em diferentes dispositivos.
 - Em vários momentos.
 - Em condições de iluminação diferentes.
-- Das perspectivas desejadas dentro do espaço de.
+- Das perspectivas desejadas dentro do espaço.
 
-## <a name="static-and-dynamic-locations"></a>Localizações estáticas e dinâmicas
+## <a name="static-and-dynamic-locations"></a>Locais estáticos e dinâmicos
 
-Parte de projetar a experiência de âncora é a escolha dos locais. As localizações será estático e definido por um administrador do espaço? Ou eles serão dinâmicos e definidos pelo utilizador?
+Parte da criação da experiência de ancoragem é escolher os locais. Os locais serão estáticos e definidos por um administrador do espaço? Ou eles serão dinâmicos e definidos pelo usuário?
 
-Gerente de loja de varejo pode querer uma experiência na loja estática para convencer usuários a visitar. Mas o desenvolvedor de um jogo de quadro de realidade mista seria aconselhável permitir aos utilizadores escolher onde a reproduzir.
+Um gerente de loja de varejo pode querer uma experiência estática na loja para convencer os usuários a visitarem. Mas o desenvolvedor de um jogo de tabuleiro de realidade misturada provavelmente desejaria permitir que os usuários escolham onde jogar.
 
-Para localizações estáticas, pode te ensinar administradores gastar tempo moderação o espaço com boa âncoras.
+Para locais estáticos, você pode ensinar os administradores a gastar tempo ao organizar o espaço com boas âncoras.
 
-Para os locais dinâmicos, deve pensar em como ensinar ou orientam os utilizadores na sua experiência do Usuário para criar âncoras boa.
+Para locais dinâmicos, você deve pensar em como ensinar ou orientar os usuários em sua experiência de usuário para criar boas âncoras.
 
-## <a name="stable-visual-features"></a>Recursos do visual estáveis
+## <a name="stable-visual-features"></a>Recursos visuais estáveis
 
-Sistemas de controle de Visual utilizado na realidade mista e dispositivos de realidade aumentada contam com recursos visuais do ambiente. Para obter a experiência mais confiável:  
+Os sistemas de controle visual usados na realidade mista e nos dispositivos de realidade aumentada contam com os recursos visuais do ambiente. Para obter a experiência mais confiável:
 
-- *Fazer* criar âncoras em locais com recursos visuais estáveis (ou seja, os recursos que não são alterados frequentemente).
+- *Crie* âncoras em locais que tenham recursos visuais estáveis (ou seja, recursos que não são alterados com frequência).
 
-- *Não* criar âncoras em superfícies em branco grandes que não tenham nenhuma distinção características.
+- *Não* crie âncoras em grandes superfícies em branco que não têm características de distinção.
 
-- *Não* criar âncoras em materiais altamente reflexiva.
+- *Não* crie âncoras em materiais altamente refletidos.
 
-- *Não* criar âncoras nas superfícies em que o padrão se repete como alcatifa ou imagem de fundo.
+- *Não* crie âncoras em superfícies nas quais o padrão se repete, como carpete ou papel de parede.
 
-![Exemplos de um ambiente de bom para âncoras e um ambiente incorreto para âncoras](./media/stable-visual.png)
+![Exemplos de um bom ambiente para âncoras e um ambiente ruim para âncoras](./media/stable-visual.png)
 
-## <a name="various-viewing-perspectives"></a>Várias perspectivas de visualização
+## <a name="various-viewing-perspectives"></a>Várias perspectivas de exibição
 
-Ao criar uma âncora, considere as pessoas que mais tarde irão tentar localizar a âncora.
+Ao criar uma âncora, pense nas pessoas que tentarão localizar mais tarde a âncora.
 
-Considere, por exemplo, uma âncora no meio de uma sala com duas portas. É provável que deseja permitir que os utilizadores entrarem na sala a partir de qualquer porta. Ao criar a âncora, terá de analisar sua posição de ambos os doorways. Alterar perspetivas para capturar dados de ambiente em torno de âncora para que os utilizadores possam localizar a âncora de qualquer porta.
+Considere, por exemplo, uma âncora no meio de uma sala que tem duas portas. Você provavelmente desejará permitir que os usuários insiram a sala de qualquer porta. Ao criar a âncora, você precisará verificar sua posição de ambos os doorways. Altere as perspectivas para capturar dados de ambiente em toda a âncora para que os usuários possam localizar a âncora de qualquer porta.
 
-Em geral, ao criar uma âncora, analise-o de perspectivas das pessoas que tentarão localizá-la. Portanto, se estiver colocando o conteúdo virtual num sculpture equipamentos esportivos, faz sentido andando sculpture, ao procurar, à medida que cria a âncora. Se sua âncora no canto de uma sala, há apenas uma direção de abordá-lo a partir. Ao criar este âncora, pode lê-lo apenas dessa perspectiva.
+Em geral, ao criar uma âncora, digitalize-a das perspectivas das pessoas que tentarão localizá-la. Portanto, se você estiver colocando conteúdo virtual em um Sculpture externo, faz sentido percorrer o sculpture, ao mesmo tempo em que você cria a âncora. Se sua âncora estiver no canto de uma sala, haverá apenas uma direção para abordá-la. Ao criar essa âncora, você pode examiná-la apenas dessa perspectiva.
 
-## <a name="multiple-anchors"></a>Vários âncoras
+## <a name="multiple-anchors"></a>Várias âncoras
 
-Iluminação pode fazer uma diferença nos recursos visual que Deteta uma aplicação. Âncoras criadas no forte light natural talvez seja difícil localizar sob a perspectiva artificial e vice-versa.  
+A iluminação pode fazer uma diferença nos recursos visuais que um aplicativo detecta. Âncoras criadas em luz natural forte podem ser difíceis de localizar em luz artificial e vice-versa.
 
-Se tiver este problema, pode ajudar a criar duas âncoras. No mesmo lugar, crie uma âncora na hora de Verão e outro sob a perspectiva artificial. A aplicação, em seguida, pode consultar as duas âncoras. Quando qualquer um dos âncora é localizada, a aplicação terá uma posição para a âncora. 
+Se você tiver esse problema, ele poderá ajudar a criar duas âncoras. No mesmo ponto, crie uma âncora no horário de verão e outra em luz artificial. Seu aplicativo pode então consultar ambas as âncoras. Quando a âncora estiver localizada, o aplicativo terá uma pose para a âncora.
 
-Da mesma forma, em ambientes onde os recursos visual alterar porque a maioria dos objetos mover, as âncoras de vários podem ajudar. Quando uma âncora se torna muito difícil encontrar devido a alterações significativas no ambiente, pode substituir a âncora de por um novo. Pode fazer isso, por exemplo, numa loja de revenda em que o esquema é atualizado todos os meses.
+Da mesma forma, em ambientes em que os recursos visuais mudam porque a maioria dos objetos se movem, várias âncoras podem ajudar. Quando uma âncora fica muito difícil de ser encontrada devido a alterações significativas no ambiente, você pode substituir a âncora por uma nova. Você pode fazer isso, por exemplo, em uma loja de varejo em que o layout é atualizado em intervalos de meses.
 
 ## <a name="targets-and-rooms"></a>Destinos e salas
 
-Em muitos casos, uma âncora é um ponto de entrada para a experiência da sua aplicação. Vai querer dar este passo, o mais rapidamente e fiável para que os utilizadores podem introduzir a sua experiência. Perderem tempo em como os utilizadores irão encontrar seu âncoras é uma etapa de design importantes. É útil pensar sobre como localizar as âncoras em termos de dois cenários ampla: *destinos* e *salas*.
+Em muitos casos, uma âncora é um ponto de entrada para a experiência do seu aplicativo. Você desejará passar por essa etapa de forma rápida e confiável para que os usuários possam entrar em sua experiência. Gastar tempo em como os usuários encontrará suas âncoras é uma etapa de design importante. É útil pensar em encontrar âncoras em termos de dois cenários amplos: *destinos* e *salas*.
 
-### <a name="targets"></a>Destinos
+### <a name="targets"></a>Aos
 
-No cenário de destino, a localização de uma âncora é bem conhecida. Por exemplo, num aplicativo de pintura de realidade mista fictícia, um usuário coloca uma tela virtual na parede. Ela instrui os outros utilizadores na sala para apontar os respetivos dispositivos no mesmo lugar na parede para localizar a âncora e comece a experiência do utilizador.  
+No cenário de destino, o local de uma âncora é bem conhecido. Por exemplo, em um aplicativo de pintura de realidade misturada fictícia, um usuário coloca uma tela virtual na parede. Ela instrui os outros usuários na sala a apontarem seus dispositivos no mesmo local do mural para localizar a âncora e começar a experiência.
 
-Outro exemplo de um cenário de destino pode ser um início de sessão numa cafeteria que lê, "Análise de negócios". O café tiver efetuado uma âncora aqui. Como o início de sessão de análise de utilizadores, eles localizar a âncora e introduza a experiência de realidade aumentada para encontrar ofertas no café.
+Outro exemplo de um cenário de destino pode ser um sinal em uma cafeteria que lê, "procurar negociações". A cafeteria colocou uma âncora aqui. À medida que os usuários examinam o sinal, eles localizam a âncora e inserem a experiência de realidade aumentada para encontrar as ofertas em café.
 
-No cenário de destino, podem ajudar a fotos. Se a mostrar os utilizadores de uma fotografia do destino pretendido no respetivo dispositivo, eles podem identificar rapidamente o que analise no mundo real. Por exemplo, pode ajudar os utilizadores que são recebidos dentro da área geral de um destino pretendido com o GPS. Quando o usuário chega, a aplicação mostra uma fotografia do destino. O utilizador procura em todo o espaço, localiza o destino e verifica a existência de âncora.
+No cenário de destino, as fotos podem ajudar. Se você mostrar aos usuários uma foto do destino pretendido em seu dispositivo, eles poderão identificar rapidamente o que examinar no mundo real. Por exemplo, você pode ajudar os usuários a chegarem na área geral de um destino pretendido usando GPS. Quando o usuário chega, seu aplicativo mostra uma foto do destino. O usuário procura o espaço, localiza o destino e verifica a âncora.
 
-![Ilustração de uma âncora, que mostra uma fotografia do destino no dispositivo móvel de um utilizador](./media/start-here-edit.png)
+![Ilustração de uma âncora, mostrando uma foto do destino no dispositivo móvel de um usuário](./media/start-here-edit.png)
 
-### <a name="rooms"></a>ambientes
+### <a name="rooms"></a>salas
 
-No cenário de espaço, os utilizadores introduzir um espaço apenas saber que há uma âncora aqui em algum lugar. Os utilizadores analisar o espaço com o respetivo dispositivo e localize rapidamente a âncora.
+No cenário de sala, os usuários inserem um espaço simplesmente sabendo que há uma âncora aqui em algum lugar. Os usuários verificam o espaço com seu dispositivo e localizam rapidamente a âncora.
 
-Esta experiência normalmente requer a criar âncoras bem organizadas, conforme discutido em diversas perspectivas de visualização. Se analisados a sala de muitas perspectivas quando criou a âncora, os utilizadores podem analisar praticamente qualquer lugar quando tentarem a localizá-la.
+Essa experiência normalmente exige que você crie âncoras bem organizadas, conforme discutido em várias perspectivas de exibição. Se você examinou a sala de muitas perspectivas quando criou a âncora, os usuários podem verificar quase todos os lugares quando tentarem localizá-la.
 
-![Ilustração de como um utilizador pode analisar um espaço para encontrar uma âncora](./media/scan-room.png)
+![Ilustração de como um usuário pode digitalizar um espaço para encontrar uma âncora](./media/scan-room.png)
 
-Essencialmente, gastar mais tempo a analisar o espaço ao criar a âncora para que os utilizadores posteriores podem analisar e localize a âncora rapidamente. Como criar a sua experiência, precisará considerar desta compensação importante.
+Essencialmente, você passa mais tempo verificando o espaço ao criar a âncora para que os usuários posteriores possam verificar e localizar a âncora rapidamente. Ao criar sua experiência, você precisará considerar essa compensação importante.
 
-O exemplo do aplicativo de pintura de realidade mista que abordamos anteriormente não funciona bem como um cenário de espaço. Aqui, o utilizador que coloca a âncora quer que outras pessoas para associar a experiência rapidamente. Os utilizadores não desejam esperar para começar a experiência até que o espaço é bem analisado. Uma vez que todos os utilizadores sabem exatamente onde apontar o seu dispositivo para localizar as âncoras, este exemplo funciona melhor como um cenário de destino.
+O exemplo do aplicativo de pintura de realidade misturada que discutimos anteriormente não funciona bem como um cenário de sala. Aqui, o usuário que coloca a âncora quer que outras pessoas ingressem na experiência rapidamente. Os usuários não querem esperar para iniciar a experiência até que a sala seja bem verificada. Como todos os usuários sabem exatamente onde apontar seu dispositivo para localizar as âncoras, este exemplo funciona melhor como um cenário de destino.
 
-## <a name="anchor-location"></a>Localização de âncora
+## <a name="anchor-location"></a>Local de âncora
 
-Sistemas de controle de Visual contam com os recursos visual num ambiente. As funcionalidades mais visual que inclui uma análise, maior será a probabilidade de encontrar uma âncora.
+Os sistemas de controle visual dependem dos recursos visuais em um ambiente. Quanto mais recursos visuais forem incluídos em uma verificação, maior será a probabilidade de encontrar uma âncora.
 
-Siga as diretrizes gerais desta secção para criar uma experiência do Usuário que incentiva uma análise úteis do ambiente.
+Siga as diretrizes gerais nesta seção para criar uma experiência do sistema que incentiva uma verificação útil do ambiente.
 
-Em primeiro lugar, se o utilizador não localizar uma âncora dentro de alguns segundos, a aplicação deve incentivar os utilizadores movam o dispositivo para capturar mais perspetivas. A aplicação também pode incentivar os utilizadores movam próprios em todo o ambiente para procurar a âncora de mais perspetivas. As mais perspetivas de funcionalidade que o dispositivo vê, melhor.
+Primeiro, se o usuário não localizar uma âncora em alguns segundos, o aplicativo deverá encorajar os usuários a moverem o dispositivo para capturar mais perspectivas. O aplicativo também pode incentivar os usuários a se moverem em todo o ambiente para verificar a âncora de mais perspectivas. Quanto mais perspectivas de recursos o dispositivo perceber, melhor.
 
-Para cenários de destino, peça ao utilizador para mover o destino para vê-la a partir de diferentes perspectivas. Em outras palavras, peça ao utilizador capturar o destino de novas perspectivas, até que a âncora está localizada.
+Para cenários de destino, peça ao usuário para se mover pelo destino para exibi-lo de diferentes perspectivas. Em outras palavras, peça ao usuário para capturar o destino de novas perspectivas até que a âncora seja localizada.
 
-Para cenários de espaço, peça ao utilizador para analisar lentamente sala. Por exemplo, pedir ao utilizador para ativar para capturar a 180 graus ou até mesmo de 360 graus da sala. Ou pedir ao utilizador para ver o espaço de uma perspectiva de novo. 
+Para cenários de sala, peça ao usuário para verificar a sala lentamente. Por exemplo, peça ao usuário para ativar a captura de 180 graus ou até mesmo 360 graus da sala. Ou peça ao usuário para exibir a sala de uma nova perspectiva.
 
-O método mais significativo é analisar na sala. Uma análise na sala captura mais recursos do visual do ambiente de que uma análise de uma parede próximas, por exemplo. Uma análise de uma parede próximas não capture tantos recursos úteis de visual do ambiente.
+O método mais significativo é examinar toda a sala. Uma verificação na sala captura mais recursos visuais do ambiente do que uma verificação de uma parede próxima, por exemplo. Uma verificação de uma parede próxima não capturará tantos recursos visuais úteis do ambiente.
 
-Não é útil para repetidamente mover o dispositivo de lado a lado ao procurar uma âncora. Isso simplesmente captura os mesmos pontos da perspectiva do mesmo.
+Não é útil mover repetidamente o dispositivo do lado a lado ao procurar uma âncora. Isso simplesmente captura os mesmos pontos da mesma perspectiva.
 
 ## <a name="experience-tests"></a>Testes de experiência
 
-Neste artigo, discutimos as diretrizes gerais. Com as âncoras espaciais, estiver escrevendo aplicativos que interagem com o mundo real. Por isso, deve dedicar tempo a cenários de âncora da sua aplicação de teste em ambientes reais. Isso é especialmente verdadeiro para ambientes que representam a onde espera que os seus utilizadores para utilizar a aplicação.
+Neste artigo, discutimos as diretrizes gerais. Com âncoras espaciais, você está escrevendo aplicativos que interagem com o mundo real. Por isso, você deve dedicar tempo para testar os cenários de âncora de seu aplicativo em ambientes reais. Isso é especialmente verdadeiro para ambientes que representam onde você espera que os usuários usem o aplicativo.

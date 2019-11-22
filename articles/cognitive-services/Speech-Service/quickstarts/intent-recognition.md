@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 0ae332bf08a0e45dd0c2f380ef41bbaf2202b5fd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b385c9bed1a6cf2aa1163d35fade69ddc15ff8b3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682022"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280401"
 ---
-# <a name="quickstart-recognize-speech-intents-and-entities-with-luis"></a>Início rápido: reconhecer fala, intenções e entidades com LUIS
+# <a name="quickstart-recognize-speech-intents-and-entities-with-language-understanding-luis"></a>Início rápido: reconhecer fala, intenções e entidades com Reconhecimento vocal (LUIS)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/intent-recognition/header.md)]

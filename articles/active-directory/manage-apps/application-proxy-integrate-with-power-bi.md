@@ -1,5 +1,5 @@
 ---
-title: Habilitar o acesso remoto para Power BI com o Proxy de Aplicativo do AD do Azure | Microsoft Docs
+title: Habilitar o acesso remoto para Power BI com o Azure Proxy de Aplicativo do AD
 description: Aborda as noções básicas sobre como integrar um Power BI local com o Proxy de Aplicativo do AD do Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845ffda22cae9464870786cc5997b9f5521c03e1
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 9faa1fffde5553168c8b76ea40cebc001c1e27b2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795633"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275514"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Habilitar o acesso remoto para Power BI Mobile com o Azure Proxy de Aplicativo do AD
 
@@ -37,7 +37,7 @@ Este artigo pressupõe que você já implantou os serviços de relatório e o [p
 
 ## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>Etapa 1: configurar a delegação restrita de Kerberos (KCD)
 
-Para aplicativos locais que usam a autenticação do Windows, você pode obter SSO (logon único) com o protocolo de autenticação Kerberos e um recurso chamado KCD (delegação restrita de Kerberos). Quando configurado, o KCD permite que o conector do proxy de aplicativo obtenha um token do Windows para um usuário, mesmo que o usuário não tenha entrado no Windows diretamente. Para saber mais sobre o KCD, confira [visão geral da delegação restrita de Kerberos](https://technet.microsoft.com/library/jj553400.aspx) e [delegação restrita de Kerberos para logon único em seus aplicativos com o proxy de aplicativo](application-proxy-configure-single-sign-on-with-kcd.md).
+Para aplicações no local que utilizam a autenticação do Windows, pode obter início de sessão único (SSO) com o protocolo de autenticação Kerberos e um recurso chamado delegação restringida de Kerberos (KCD). Quando configurado, o KCD permite que o conector do proxy de aplicativo obtenha um token do Windows para um usuário, mesmo que o usuário não tenha entrado no Windows diretamente. Para saber mais sobre o KCD, confira [visão geral da delegação restrita de Kerberos](https://technet.microsoft.com/library/jj553400.aspx) e [delegação restrita de Kerberos para logon único em seus aplicativos com o proxy de aplicativo](application-proxy-configure-single-sign-on-with-kcd.md).
 
 Não há muito a ser configurada no lado do Reporting Services. Apenas certifique-se de ter um SPN (nome da entidade de serviço) válido para permitir que a autenticação Kerberos adequada ocorra. Verifique também se o servidor de Reporting Services está habilitado para autenticação de negociação.
 
@@ -46,7 +46,7 @@ Para configurar o KCD para o Reporting Services, continue com as etapas a seguir
 ### <a name="configure-the-service-principal-name-spn"></a>Configurar o SPN (nome da entidade de serviço)
 
 O SPN é um identificador exclusivo para um serviço que usa a autenticação Kerberos. Você precisará verificar se tem um SPN HTTP adequado presente para seu servidor de relatório. Para obter informações sobre como configurar o SPN (nome da entidade de serviço) adequado para o servidor de relatório, consulte [registrar um SPN (nome da entidade de serviço) para um servidor de relatório](https://msdn.microsoft.com/library/cc281382.aspx).
-Você pode verificar se o SPN foi adicionado executando o comando setspn com a opção-L. Para saber mais sobre esse comando, consulte [setspn](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spn-setspn-syntax.aspx).
+Você pode verificar se o SPN foi adicionado executando o comando setspn com a opção-L. Para saber mais sobre este comando, consulte [Setspn](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spn-setspn-syntax.aspx).
 
 ### <a name="enable-negotiate-authentication"></a>Habilitar autenticação de negociação
 
@@ -63,14 +63,14 @@ Para habilitar um servidor de relatório para usar a autenticação Kerberos, co
 Para obter mais informações, consulte [modificar um arquivo de configuração de Reporting Services](https://msdn.microsoft.com/library/bb630448.aspx) e [Configurar a autenticação do Windows em um servidor de relatório](https://msdn.microsoft.com/library/cc281253.aspx).
 
 ### <a name="ensure-the-connector-is-trusted-for-delegation-to-the-spn-added-to-the-reporting-services-application-pool-account"></a>Verifique se o conector é confiável para delegação para o SPN adicionado à conta do pool de aplicativos Reporting Services
-Configure o KCD para que o serviço de Proxy de Aplicativo do AD do Azure possa delegar identidades de usuário para a conta do pool de aplicativos Reporting Services. Configure o KCD habilitando o conector de proxy de aplicativo para recuperar tíquetes Kerberos para seus usuários que foram autenticados no Azure AD. Em seguida, esse servidor passa o contexto para o aplicativo de destino ou Reporting Services nesse caso.
+Configure o KCD para que o serviço de Proxy de Aplicativo do AD do Azure possa delegar identidades de usuário para a conta do pool de aplicativos Reporting Services. Configure o KCD ao ativar o conector do Proxy de aplicações para obter permissões de Kerberos para seus usuários que tiverem sido autenticados no Azure AD. Em seguida, esse servidor passa o contexto para o aplicativo de destino ou Reporting Services nesse caso.
 
 Para configurar o KCD, repita as seguintes etapas para cada computador do conector:
 
 1. Entre em um controlador de domínio como um administrador de domínio e, em seguida, abra **Active Directory usuários e computadores**.
-2. Localize o computador no qual o conector está sendo executado.  
+2. Encontre o que o conector está em execução no computador.  
 3. Clique duas vezes no computador e selecione a guia **delegação** .
-4. Defina as configurações de delegação para **confiar neste computador para delegação somente para os serviços especificados**. Em seguida, selecione **usar qualquer protocolo de autenticação**.
+4. Defina as configurações de delegação para **confiar neste computador para delegação somente para os serviços especificados**. Em seguida, selecione **utilizar qualquer protocolo de autenticação**.
 5. Selecione **Adicionar**e, em seguida, selecione **usuários ou computadores**.
 6. Insira a conta de serviço que você está usando para Reporting Services. Essa é a conta à qual você adicionou o SPN dentro da configuração de Reporting Services.
 7. Clique em **OK**. Para salvar as alterações, clique em **OK** novamente.
@@ -89,17 +89,17 @@ Agora você está pronto para configurar o Azure Proxy de Aplicativo do AD.
 
    - **Método de pré-autenticação**: Azure Active Directory
 
-2. Depois que seu aplicativo for publicado, configure as configurações de logon único com as seguintes etapas:
+2. Assim que a sua aplicação for publicada, configure as definições de início de sessão únicas com os seguintes passos:
 
-   a. Na página aplicativo no portal, selecione **logon único**.
+   a. Na página da aplicação no portal, selecione **início de sessão único**.
 
    b. Para o **modo de logon único**, selecione **autenticação integrada do Windows**.
 
    c. Defina **SPN do aplicativo interno** para o valor que você definiu anteriormente.  
 
-   d. Escolha a **identidade de logon delegada** para o conector a ser usado em nome dos usuários. Para obter mais informações, consulte [trabalhando com diferentes identidades locais e na nuvem](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
+   d. Escolha o **identidade delegada de início de sessão** para o conector para utilizar em nome dos seus utilizadores. Para obter mais informações, consulte [trabalhando com diferentes identidades locais e na nuvem](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
 
-   e. Clique em **salvar** para salvar as alterações.
+   e. Clique em **guardar** para guardar as alterações.
 
 Para concluir a configuração do aplicativo, vá para **a seção usuários e grupos** e atribua usuários para acessar este aplicativo.
 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: 9de8819e82db12cb5625a449e4ea5bf2f028a44d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f1b4166df2290c1250e3807b4a7133c3afae8e44
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691413"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304082"
 ---
 # <a name="use-powershell-to-restore-a-managed-instance-database-to-another-geo-region"></a>Usar o PowerShell para restaurar um banco de dados Instância Gerenciada para outra região geográfica
 
@@ -53,8 +53,8 @@ $backup = Get-AzSqlInstanceDatabaseGeoBackup `
 -Name $SourceDatabaseName
 
 $backup | Restore-AzSqlInstanceDatabase -FromGeoBackup `
--TargetInstanceDatabaseName $TargetInstanceName `
--TargetInstanceName $TargetDatabaseName `
+-TargetInstanceDatabaseName $TargetDatabaseName `
+-TargetInstanceName $TargetInstanceName `
 -TargetResourceGroupName $TargetResourceGroupName
 
 ```

@@ -1,5 +1,5 @@
 ---
-title: Experiências do usuário final para aplicativos-Azure Active Directory | Microsoft Docs
+title: Experiências do usuário final para aplicativos-Azure Active Directory
 description: O Azure Active Directory (AD do Azure) fornece várias maneiras personalizáveis de implantar aplicativos para usuários finais em sua organização.
 services: active-directory
 author: msmimart
@@ -12,12 +12,12 @@ ms.date: 09/27/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4a091abff02e544f97f5621b56836cf6ba6e237
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 330f3100858d517666ac14fa8c206b4c06998c4f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175967"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274211"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências do usuário final para aplicativos no Azure Active Directory
 

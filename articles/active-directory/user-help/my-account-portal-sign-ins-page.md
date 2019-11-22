@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9d134e522575f30fd1f1be8176e0e1589faa7ac
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a45caeed8b601a845b0eb0fbcd25f1ec097a77a1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587631"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279042"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Exibir e pesquisar sua atividade de entrada recente na página minhas entradas (versão prévia)
 
@@ -29,7 +29,7 @@ Você pode exibir todas as atividades recentes de entrada da conta corporativa o
 
 - Quais aplicativos o invasor tentou acessar.
 
-## <a name="view-your-recent-sign-in-activity"></a>Exibir sua atividade de entrada recente
+## <a name="view-your-recent-sign-in-activity"></a>Ver a sua atividade de início de sessão recente
 
 1. Entre em sua conta corporativa ou de estudante e, em seguida, vá para a página https://myprofile.microsoft.com/.
 
@@ -49,7 +49,7 @@ Antes de determinar que algo está incorreto, verifique se você não está vend
 
 ### <a name="if-you-see-an-unsuccessful-sign-in"></a>Se você vir uma entrada malsucedida
 
-Uma entrada malsucedida, sem atividade de sessão, significa que o método de autenticação principal (nome de usuário/senha) falhou. Isso pode significar que você digitou indigitadamente seu nome de usuário ou senha, mas também pode significar que um invasor estava tentando adivinhar sua senha. Se você acha que foi um invasor tentando sem êxito adivinhar sua senha, não precisa alterar sua senha, mas sugerimos fortemente que você se registre na MFA (autenticação multifator do Azure). Com o MFA, mesmo que o hacker eventualmente Adivinhe sua senha, ele não será suficiente para acessar sua conta.
+Uma entrada malsucedida, sem atividade de sessão, significa que o método de verificação principal (nome de usuário/senha) falhou. Isso pode significar que você digitou indigitadamente seu nome de usuário ou senha, mas também pode significar que um invasor estava tentando adivinhar sua senha. Se você acha que foi um invasor tentando sem êxito adivinhar sua senha, não precisa alterar sua senha, mas sugerimos fortemente que você se registre na MFA (autenticação multifator do Azure). Com o MFA, mesmo que o hacker eventualmente Adivinhe sua senha, ele não será suficiente para acessar sua conta.
 
 Se você vir uma entrada malsucedida, com uma observação sob a atividade de sessão que diz, a **verificação adicional falhou, código inválido**, significa que sua autenticação principal (nome de usuário/senha) foi bem-sucedida, mas a MFA falhou. Se esse era um invasor, ele adivinhou corretamente sua senha, mas ainda não conseguiu passar o desafio de MFA. Nesse caso, recomendamos que você ainda altere sua senha, uma vez que o invasor obteve a parte certa e, em seguida, vá para a página [informações de segurança](https://mysignins.microsoft.com/security-info) para atualizar suas configurações de segurança.
 

@@ -1,23 +1,14 @@
 ---
 title: Aceder a recursos de dados de blocos de notas do Jupyter no Azure
 description: Como aceder a ficheiros, REST APIs, bases de dados e diferentes recursos de armazenamento do Azure a partir de um bloco de notas do Jupyter.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: ee867303-a5e5-4686-b2da-8a0108247d18
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: e1284072db8ca8aa7a49bd3c4d52f54e5d09420a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 23acdf99f6cb69f100e484e236580f3b2b43ba94
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970264"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277687"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Aceder a dados na cloud num bloco de notas
 
@@ -79,12 +70,12 @@ Ao trabalhar com o Cosmos DB, pode utilizar o [azure-cosmos DB-table](https://py
 
 O Azure fornece uma série de outros tipos de base de dados que pode utilizar. Os artigos abaixo fornecem orientações para aceder a essas bases de dados a partir de Python:
 
-- Banco de dados [Azure para PostgreSQL: Usar o Python para conectar e consultar dados @ no__t-0
-- [Quickstart: Usar o cache Redis do Azure com Python @ no__t-0
-- Banco de dados [Azure para MySQL: Usar o Python para conectar e consultar dados @ no__t-0
+- [Base de dados do Azure para PostgreSQL: utilizar o Python para ligar e consultar dados](https://docs.microsoft.com/azure/postgresql/connect-python)
+- [Início rápido: Utilizar a Cache de Redis do Azure com Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
+- [Base de dados do Azure para MySQL: utilizar o Python para ligar e consultar dados](https://docs.microsoft.com/azure/mysql/connect-python)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Assistente para copiar para a fábrica de dados do Azure](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [How to: Trabalhar com arquivos de dados do projeto @ no__t-0
+- [Como: trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)

@@ -1,29 +1,29 @@
 ---
-title: Registo e diagnóstico no âncoras espaciais do Azure | Documentos da Microsoft
-description: Explicação detalhada sobre como gerar e obter o registo e diagnóstico no âncoras espaciais do Azure.
+title: Registo e diagnóstico
+description: Explicação detalhada de como gerar e recuperar logs e diagnósticos em âncoras espaciais do Azure.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b66dc7d6ec9d11fe645587fe791824009231b7c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4359db1deda2295a66bcb97cf374d0fe9bc3ef7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964753"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270136"
 ---
-# <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Registo e diagnóstico no âncoras espaciais do Azure
+# <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Registro em log e diagnósticos nas âncoras espaciais do Azure
 
-Âncoras espaciais do Azure fornece um mecanismo de log padrão que é útil para desenvolvimento de aplicações. O modo de registo de diagnóstico de âncoras espaciais é útil quando precisa de mais informações para depuração. Registo de diagnósticos armazena imagens do ambiente.
+As âncoras espaciais do Azure fornecem um mecanismo de registro em log padrão que é útil para o desenvolvimento de aplicativos. O modo de log de diagnóstico de âncoras espaciais é útil quando você precisa de mais informações para depuração. O log de diagnóstico armazena imagens do ambiente.
 
 ## <a name="standard-logging"></a>Log padrão
-A API de âncoras espaciais, pode subscrever o mecanismo de log para obter registos úteis para o desenvolvimento de aplicativos e a depuração. As APIs de log padrão não armazene imagens do ambiente no disco do dispositivo. O SDK fornece estes registos como retornos de chamada do evento. Cabe-lhe integrar estes registos no mecanismo de log do aplicativo.
+Na API de âncoras espaciais, você pode assinar o mecanismo de registro em log para obter logs úteis para desenvolvimento e depuração de aplicativos. As APIs de log padrão não armazenam fotos do ambiente no disco do dispositivo. O SDK fornece esses logs como retornos de chamada de evento. Cabe a você integrar esses logs ao mecanismo de registro em log do aplicativo.
 
-### <a name="configuration-of-log-messages"></a>Configuração de mensagens de registo
-Existem dois retornos de chamada de interesse para o utilizador. O exemplo a seguir mostra como configurar a sessão.
+### <a name="configuration-of-log-messages"></a>Configuração de mensagens de log
+Há dois retornos de chamada de interesse para o usuário. O exemplo a seguir mostra como configurar a sessão.
 
 ```csharp
     cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
@@ -40,25 +40,25 @@ Existem dois retornos de chamada de interesse para o utilizador. O exemplo a seg
 
 ### <a name="events-and-properties"></a>Eventos e propriedades
 
-Esses retornos de chamada de evento são fornecidos para processar registos e erros da sessão:
+Esses retornos de chamada de evento são fornecidos para processar logs e erros da sessão:
 
-- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): Especifica o nível de detalhe para os eventos receber do tempo de execução.
-- [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): Fornece eventos de registo de depuração padrão.
-- [Erro](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): Fornece eventos de registo que o tempo de execução considera ser erros.
+- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): especifica o nível de detalhes dos eventos a serem recebidos do tempo de execução.
+- [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): fornece eventos de log de depuração padrão.
+- [Erro](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): fornece eventos de log que o tempo de execução considera erros.
 
-## <a name="diagnostics-logging"></a>Registo de diagnósticos
+## <a name="diagnostics-logging"></a>Log de diagnóstico
 
-Além do modo padrão de operação para o registo, as âncoras espaciais também tem um modo de diagnóstico. Modo de diagnóstico captura de imagens do ambiente e regista-los no disco. Pode utilizar este modo para certos tipos de problemas, como falha de forma previsível localizar uma âncora de depuração. Ative diagnósticos de registo apenas para reproduzir um problema específico. Em seguida, desativá-la. Não ative o diagnóstico quando estiver a executar as suas aplicações normalmente.
+Além do modo padrão de operação para registro em log, as âncoras espaciais também têm um modo de diagnóstico. O modo de diagnóstico captura imagens do ambiente e os registra no disco. Você pode usar esse modo para depurar determinados tipos de problemas, como falha para localizar uma âncora de forma previsível. Habilite o log de diagnóstico apenas para reproduzir um problema específico. Em seguida, desabilite-o. Não habilite o diagnóstico quando estiver executando seus aplicativos normalmente.
 
-Durante uma interação de suporte com a Microsoft, um representante da Microsoft pode perguntar se estiver disposto a enviar um pacote de diagnóstico para uma investigação mais aprofundada. Neste caso, pode optar por ativar os diagnósticos e reproduzir o problema para que pode enviar o pacote de diagnóstico. 
+Durante uma interação de suporte com a Microsoft, um representante da Microsoft pode perguntar se você está disposto a enviar um pacote de diagnóstico para uma investigação mais aprofundada. Nesse caso, você pode optar por habilitar o diagnóstico e reproduzir o problema para que possa enviar o pacote de diagnóstico.
 
-Se submeter um log de diagnóstico à Microsoft sem confirmação anterior de um representante da Microsoft, a submissão entram não respondida.
+Se você enviar um log de diagnóstico à Microsoft sem confirmação prévia de um representante da Microsoft, o envio não será respondido.
 
-As secções seguintes mostram como ativar o modo de diagnóstico e também como submeter os registos de diagnóstico para a Microsoft.
+As seções a seguir mostram como habilitar o modo de diagnóstico e também como enviar logs de diagnóstico para a Microsoft.
 
 ### <a name="enable-diagnostics-logging"></a>Ativar o registo de diagnósticos
 
-Quando ativa uma sessão para o log de diagnósticos, todas as operações na sessão tem diagnóstico correspondente, iniciar sessão no sistema de arquivos local. Durante o Registro em log, imagens de ambiente são guardadas no disco.
+Quando você habilita uma sessão para o log de diagnóstico, todas as operações na sessão têm o registro em log de diagnóstico correspondente no sistema de arquivos local. Durante o registro em log, as imagens do ambiente são salvas no disco.
 
 ```csharp
 private void ConfigureSession()
@@ -88,7 +88,7 @@ private void ConfigureSession()
 
 ### <a name="submit-the-diagnostics-bundle"></a>Enviar o pacote de diagnóstico
 
-O fragmento de código seguinte mostra como submeter um pacote de diagnóstico para a Microsoft. Este pacote inclui imagens do ambiente capturadas pela sessão depois de ativar o diagnóstico. 
+O trecho de código a seguir mostra como enviar um pacote de diagnóstico para a Microsoft. Esse pacote incluirá imagens do ambiente capturado pela sessão depois que você habilitar o diagnóstico.
 
 ```csharp
 // method to handle the diagnostics bundle submission
@@ -107,6 +107,6 @@ private async Task CreateAndSubmitBundle()
 ### <a name="parts-of-a-diagnostics-bundle"></a>Partes de um pacote de diagnóstico
 O pacote de diagnóstico pode conter as seguintes informações:
 
-- **Imagens de quadro-chave**: Imagens do ambiente capturado durante a sessão enquanto a diagnóstico foram ativado.
-- **Registos**: Inicie a sessão de eventos registados pelo tempo de execução.
-- **Metadados de sessão**: Metadados que identifica a sessão.
+- **Imagens de quadro-chave**: imagens do ambiente capturadas durante a sessão enquanto os diagnósticos foram habilitados.
+- **Logs**: eventos de log registrados pelo tempo de execução.
+- **Metadados de sessão**: metadados que identificam a sessão.

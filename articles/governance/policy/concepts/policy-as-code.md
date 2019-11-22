@@ -3,12 +3,12 @@ title: Criar fluxos de trabalho de Política como Código
 description: Aprenda a criar fluxos de trabalho para implantar suas definições de Azure Policy como código e validar automaticamente os recursos.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 935616145ee32bea8c3b514c495690ce4105cb80
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0914ba6510c9d2ef87d3f83417f97340d42c8bce
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072080"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267264"
 ---
 # <a name="design-policy-as-code-workflows"></a>Criar fluxos de trabalho de Política como Código
 
@@ -128,6 +128,6 @@ Este artigo aborda o fluxo de trabalho geral da política como código e também
 - Saiba mais sobre a [estrutura de definição de política](./definition-structure.md).
 - Saiba mais sobre a [estrutura de atribuição de política](./assignment-structure.md).
 - Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).
-- Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).
+- Saiba como [obter dados de conformidade](../how-to/get-compliance-data.md).
 - Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
 - Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

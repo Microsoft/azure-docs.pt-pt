@@ -1,14 +1,14 @@
 ---
 title: Documentação de orientação para pedidos limitados
-description: Aprenda a criar consultas melhores para evitar que as solicitações para o grafo de recursos do Azure sejam limitadas.
-ms.date: 10/18/2019
+description: Aprenda a colocar em lote, escalonar, paginar e consultar em paralelo para evitar que as solicitações sejam limitadas pelo grafo de recursos do Azure.
+ms.date: 11/21/2019
 ms.topic: conceptual
-ms.openlocfilehash: 651a5daa9e7e19a5dc157ba0cfa17da2c8abe3db
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4405cce567a75f83823cc2d441b2a59985c196ad
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038333"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304671"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Diretrizes para solicitações limitadas no grafo de recursos do Azure
 

@@ -8,19 +8,19 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 2392eb1f02ede13aca88419c00ea33ae38cfd8ab
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: bd727e9c68a34c8e182a6726b257a6bf37178837
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73023895"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306767"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do feed de alterações do .NET: download e notas de versão
 
 > [!div class="op_single_selector"]
 >
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -34,10 +34,13 @@ ms.locfileid: "73023895"
 
 |   |   |
 |---|---|
-|**Download do SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**Transferência de SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentação da API**|[Documentação de referência da API da biblioteca do processador de feed de alterações](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Get started**|[Introdução ao SDK do .NET do processador do feed de alterações](change-feed.md)|
-|**Estrutura com suporte atual**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Núcleo de Microsoft .NET](https://www.microsoft.com/net/download/core) |
+|**Introdução**|[Introdução ao SDK do .NET do processador do feed de alterações](change-feed.md)|
+|**Estrutura de suporte atual**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Núcleo de Microsoft .NET](https://www.microsoft.com/net/download/core) |
+
+> [!NOTE]
+> Se você estiver usando o processador do feed de alterações, consulte a versão mais recente 3. x do [SDK do .net](change-feed-processor.md), que tem o feed de alterações interno do SDK. 
 
 ## <a name="release-notes"></a>Notas de versão
 
@@ -99,24 +102,24 @@ ms.locfileid: "73023895"
 * Correção de uma condição de corrida que ocorre durante a divisão da partição. A condição de corrida pode levar à aquisição da concessão e à sua perda imediata durante a divisão da partição e à causa da contenção. O problema da condição de corrida é corrigido com esta versão.
 
 ### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
-* SDK DE GA
+* SDK DE DISPONIBILIDADE GERAL
 
-### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-pré-lançamento
+### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
 * Foram corrigidos os problemas seguintes:
   * Quando a divisão de partição acontece, pode haver processamento duplicado de documentos modificados antes da divisão.
   * A API GetEstimatedRemainingWork retornou 0 quando nenhuma concessão estava presente na coleção de concessão.
 
 * As seguintes exceções se tornam públicas. As extensões que implementam IPartitionProcessor podem gerar essas exceções.
-  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. LeaseLostException. 
-  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. Partitionexception. 
-  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. PartitionNotFoundException.
-  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. PartitionSplitException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.LeaseLostException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionSplitException. 
 
-### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-pré-lançamento
+### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-prerelease
 * Alterações secundárias da API:
   * Removeu ChangeFeedProcessorOptions. IsAutoCheckpointEnabled que foi marcado como obsoleto.
 
-### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1 – pré-lançamento
+### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
 * Aprimoramentos de estabilidade:
   * Melhor manipulação da inicialização do armazenamento de concessão. Quando o repositório de concessão está vazio, apenas uma instância do processador pode inicializá-lo, os outros esperam.
   * Renovação/lançamento de concessão mais estável/eficiente. A renovação e a liberação de uma partição de concessão de uma só é independente da renovação de outras. Em v1, que foi feito sequencialmente para todas as partições.
@@ -164,20 +167,20 @@ ms.locfileid: "73023895"
 * Compatível com o [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.13.2 e posteriores.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* SDK DE GA
+* SDK DE DISPONIBILIDADE GERAL
 * Compatível com as versões 1.14.1 e abaixo do [SDK do SQL .net](sql-api-sdk-dotnet.md) .
 
 ## <a name="release--retirement-dates"></a>Datas de lançamento & desativação
 
-A Microsoft fornecerá uma notificação com pelo menos **12 meses** de antecedência para desativar um SDK a fim de suavizar a transição para uma versão mais recente/com suporte.
+A Microsoft irá fornecer, pelo menos, notificação **12 meses** antecedência extinguir um SDK para facilitar a transição para uma versão mais recente/suportadas.
 
 Novos recursos e funcionalidades e otimizações são adicionados somente ao SDK atual, por isso é recomendável que você sempre atualize para a versão mais recente do SDK o mais cedo possível. 
 
-Qualquer solicitação para Cosmos DB usando um SDK desativado será rejeitada pelo serviço.
+Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
 <br/>
 
-| Versão | Data de lançamento | Data de aposentadoria |
+| Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
 | [2.2.8](#2.2.8) |28 de outubro de 2019 |--- |
 | [2.2.7](#2.2.7) |14 de maio de 2019 |--- |
@@ -199,6 +202,6 @@ Qualquer solicitação para Cosmos DB usando um SDK desativado será rejeitada p
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-Para saber mais sobre Cosmos DB, consulte [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) página de serviço.
+Para saber mais sobre o Cosmos DB, veja [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) página do serviço.

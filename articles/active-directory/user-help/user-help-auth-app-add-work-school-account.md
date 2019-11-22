@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma conta corporativa ou de estudante a um aplicativo autenticador-Azure AD
-description: Como adicionar sua conta corporativa ou de estudante ao aplicativo Microsoft Authenticator para verificação de dois fatores.
+title: Adicionar uma conta corporativa ou de estudante ao aplicativo Microsoft Authenticator-Azure AD
+description: Adicione sua conta corporativa ou de estudante ao aplicativo Microsoft Authenticator para verificar sua identidade ao usar a verificação de dois fatores.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7c9fa41a1278f0e1e54a06c3930e3bbc3d3d3ae
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bcd69fab269e39a8c78a56c08854262ca839d60f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803742"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267131"
 ---
-# <a name="add-your-work-or-school-account"></a>Adicionar sua conta corporativa ou de estudante
+# <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Adicionar sua conta corporativa ou de estudante ao aplicativo Microsoft Authenticator
 
 Se sua organização usa a verificação de dois fatores, você pode configurar sua conta corporativa ou de estudante para usar o aplicativo Microsoft Authenticator como um dos métodos de verificação.
 

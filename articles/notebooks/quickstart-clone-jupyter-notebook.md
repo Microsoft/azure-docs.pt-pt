@@ -1,23 +1,14 @@
 ---
 title: Clonar um bloco de notas Jupyter do GitHub com blocos de notas do Azure
 description: Clonar um bloco de notas do Jupyter partir de um repositório do GitHub e executá-lo na sua conta de blocos de notas do Azure rapidamente.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: d7122b78-6daa-4bea-883b-ff832cfecef3
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: ed239c470a49fc045bd436668f83dff32eac3a66
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 500bd3f85409bb2f5e7b73be0478694695cc9c00
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970126"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277531"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Início rápido: Clonar um bloco de notas
 
@@ -33,7 +24,7 @@ A clonagem, cria uma cópia de um bloco de notas do GitHub na sua conta de bloco
 
     ![Meu link de projetos na parte superior da janela do browser](media/quickstarts/my-projects-link.png)
 
-1. Na página **meus projetos** , selecione o botão de seta para cima (atalho de teclado: T o botão aparece como **carregar o repositório GitHub** quando a janela do navegador é grande o suficiente):
+1. Na página **meus projetos** , selecione o botão de seta para cima (atalho de teclado: U; o botão é exibido como **carregar repositório GitHub** quando a janela do navegador é grande o suficiente):
 
     ![Comando carregar repositório do GitHub na página meus projetos](media/quickstarts/upload-github-repo-command.png)
 
@@ -41,7 +32,7 @@ A clonagem, cria uma cópia de um bloco de notas do GitHub na sua conta de bloco
 
    - **Repositório GitHub**: Microsoft/cognitiva-Services-notebooks (esse nome clona os notebooks Jupyter para serviços cognitivas do Azure em [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
    - **Clonar recursivamente**: (limpo)
-   - **Nome do projeto**: Clone de serviços cognitivas
+   - **Nome do projeto**: Clone de serviços cognitivos
    - **ID do projeto**: clone de serviços cognitivos
    - **Público**: (limpo)
 
@@ -51,7 +42,7 @@ A clonagem, cria uma cópia de um bloco de notas do GitHub na sua conta de bloco
 
 1. Após a conclusão da clonagem, blocos de notas do Azure leva-o para o novo projeto onde pode ver as cópias de todos os arquivos.
 
-    [![](media/quickstarts/completed-clone.png "Vista de um clone concluída")](media/quickstarts/completed-clone.png#lightbox)
+    [![](media/quickstarts/completed-clone.png "View of a completed clone")](media/quickstarts/completed-clone.png#lightbox)
 
 ## <a name="share-a-notebook"></a>Partilhar um bloco de notas
 
@@ -73,7 +64,7 @@ A clonagem, cria uma cópia de um bloco de notas do GitHub na sua conta de bloco
 
 1. Para editar ficheiros diferentes dos blocos de notas, clique com botão direito no projeto e selecione o ficheiro de **Editar ficheiro** (atalho de teclado: eu). A ação de predefinição **executar** (atalho de teclado: r), apenas mostra o conteúdo do ficheiro e não permite a edição.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: criar uma execução de um bloco de notas do Jupyter para fazer a regressão linear](tutorial-create-run-jupyter-notebook.md)

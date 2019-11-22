@@ -1,5 +1,5 @@
 ---
-title: Relatar o provisionamento automático de conta de usuário para aplicativos SaaS | Microsoft Docs
+title: Relatar o provisionamento automático de conta de usuário para aplicativos SaaS
 description: Saiba como verificar o status de trabalhos de provisionamento automático de conta de usuário e como solucionar problemas de provisionamento de usuários individuais.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e5ef4067f22d0e9e015e4d9a646f8b92309010a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: f1eea9cc738897c6de86c2fd73a0967e39b8afd4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033543"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275052"
 ---
-# <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatórios sobre o provisionamento automático de conta de usuário
+# <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: relatórios sobre o provisionamento automático de conta de usuário
 
 O Azure Active Directory (AD do Azure) inclui um [serviço de provisionamento de conta de usuário](user-provisioning.md) que ajuda a automatizar o provisionamento de desprovisionamento de contas de usuário em aplicativos SaaS e outros sistemas, para fins de gerenciamento de ciclo de vida de identidade de ponta a ponta. O Azure AD dá suporte a conectores de provisionamento de usuário pré-integrados para todos os aplicativos e sistemas na seção "em destaque" da [Galeria de aplicativos do Azure ad](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
 
@@ -39,12 +39,12 @@ Os conectores de provisionamento são configurados e definidos usando o [portal 
 
 Este artigo usa os seguintes termos, definidos abaixo:
 
-* **Sistema de origem** -o repositório de usuários do qual o serviço de provisionamento do Azure ad faz a sincronização. Azure Active Directory é o sistema de origem para a maioria dos conectores de provisionamento pré-integrados, no entanto, há algumas exceções (exemplo: Sincronização de entrada do workday).
-* **Sistema de destino** – o repositório de usuários ao qual o serviço de provisionamento do Azure ad faz a sincronização. Normalmente, isso é um aplicativo SaaS (exemplos: Salesforce, ServiceNow, G Suite, Dropbox for Business), mas, em alguns casos, pode ser um sistema local, como Active Directory (exemplo: Sincronização de entrada do WORKDAY para Active Directory).
+* **Sistema de origem** -o repositório de usuários do qual o serviço de provisionamento do Azure ad faz a sincronização. Azure Active Directory é o sistema de origem para a maioria dos conectores de provisionamento pré-integrados, no entanto, há algumas exceções (exemplo: sincronização de entrada de workday).
+* **Sistema de destino** – o repositório de usuários ao qual o serviço de provisionamento do Azure ad faz a sincronização. Esse é normalmente um aplicativo SaaS (exemplos: Salesforce, ServiceNow, G Suite, Dropbox for Business), mas, em alguns casos, pode ser um sistema local, como Active Directory (exemplo: sincronização de entrada de WORKDAY para Active Directory).
 
 ## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Obtendo relatórios de provisionamento do portal do Azure
 
-Para obter informações de relatório de provisionamento para um determinado aplicativo, comece iniciando o [portal do Azure](https://portal.azure.com) e **Azure Active Directory** &gt; os logs de provisionamento de **aplicativos** &gt; empresariais **(versão prévia)** noSeção de atividade. Você também pode navegar até o aplicativo empresarial para o qual o provisionamento está configurado. Por exemplo, se você estiver Provisionando usuários para o LinkedIn Elevate, o caminho de navegação para os detalhes do aplicativo será:
+Para obter informações de relatório de provisionamento para um determinado aplicativo, comece iniciando o [portal do Azure](https://portal.azure.com) e **Azure Active Directory** &gt; **aplicativos empresariais** &gt; **os logs de provisionamento (versão prévia)** na seção **atividade** . Você também pode navegar até o aplicativo empresarial para o qual o provisionamento está configurado. Por exemplo, se você estiver Provisionando usuários para o LinkedIn Elevate, o caminho de navegação para os detalhes do aplicativo será:
 
 **Azure Active Directory > aplicativos empresariais > todos os aplicativos > LinkedIn Elevate**
 
@@ -65,7 +65,7 @@ O **status atual** deve ser o primeiro lugar em que os administradores procuram 
 
 ## <a name="provisioning-logs-preview"></a>Provisionando logs (versão prévia)
 
-Todas as atividades executadas pelo serviço de provisionamento são registradas nos [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)do Azure AD. Você pode acessar os logs de provisionamento no portal do Azure selecionando **Azure Active Directory** &gt; **aplicativos** &gt; empresariais **logs de provisionamento (versão prévia)** na seção **atividade** . Você pode pesquisar os dados de provisionamento com base no nome do usuário ou no identificador no sistema de origem ou no sistema de destino. Para obter detalhes, consulte [Provisionando logs (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Os tipos de eventos de atividade registrados incluem:
+Todas as atividades executadas pelo serviço de provisionamento são registradas nos [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)do Azure AD. Você pode acessar os logs de provisionamento no portal do Azure selecionando **Azure Active Directory** &gt; **aplicativos empresariais** &gt; **Provisionando logs (versão prévia)** na seção **atividade** . Você pode pesquisar os dados de provisionamento com base no nome do usuário ou no identificador no sistema de origem ou no sistema de destino. Para obter detalhes, consulte [Provisionando logs (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Os tipos de eventos de atividade registrados incluem:
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

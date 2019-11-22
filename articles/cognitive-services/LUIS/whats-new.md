@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: diberry
-ms.openlocfilehash: 62ce0ac36223098d013cc75b7f62fc2c68e358ed
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: e03c7489268f3ad7076481de4498c5e202f654b6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953366"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280301"
 ---
 # <a name="whats-new-in-language-understanding"></a>O que há de novo no Reconhecimento vocal
 
@@ -33,14 +33,14 @@ Saiba o que há de novo no serviço. Esses itens incluem notas de versão, víde
     * [Árabe e híndi](luis-language-support.md) em visualização pública.
 * Modelos pré-construídos
     * Os [domínios predefinidos](luis-reference-prebuilt-domains.md) agora estão disponíveis para o público geral (GA)
-    * [Entidades predefinidas](luis-reference-prebuilt-entities.md#japanese-entity-support) japonesas-idade, moeda, número, porcentagem não são compatíveis com v3.
-    * [Entidades predefinidas](luis-reference-prebuilt-entities.md#italian-entity-support) em italiano-idade, moeda, dimensão, número, resolução percentual alterada de v2.
-* Aprimore a experiência do usuário no [portal Preview.Luis.ai](https://preview.luis.ai) – experiência de rotulação remodelada para habilitar a criação e a depuração de modelos complexos. Experimente os tutoriais do portal de visualização:
+    * Não há suporte para [entidades predefinidas](luis-reference-prebuilt-entities.md#japanese-entity-support) japonesas – idade, moeda, número e porcentagem na v3.
+    * [Entidades predefinidas](luis-reference-prebuilt-entities.md#italian-entity-support) em italiano-idade, moeda, dimensão, número e resolução de porcentagem alteradas da v2.
+* Experiência do usuário aprimorada no [portal do preview.Luis.ai](https://preview.luis.ai) – experiência de rotulação remodelada para habilitar a criação e a depuração de modelos complexos. Experimente os tutoriais do portal de visualização:
     * [Somente tentativas](tutorial-intents-only.md)
     * [Entidade aprendida por máquina decomposta](tutorial-machine-learned-entity.md) 
 * Recursos de reconhecimento de idioma avançado- [criando modelos de linguagem sofisticados](luis-concept-entity-types.md) com menos esforço. 
-* Definir recursos de aprendizado de máquina no nível de modelo e habilitar modelos a serem usados como sinais para outro modelo, como usar entidades como recursos para intenções e outras entidades.
-* Novos [limites](luis-boundaries.md) expandidos-máximos superiores para listas de frases e total de frases, novo modelo como limites de recursos
+* Defina os recursos de aprendizado de máquina no nível do modelo e habilite os modelos a serem usados como sinais para outros modelos, por exemplo, usando entidades como recursos para intenções e outras entidades.
+* Novos [limites](luis-boundaries.md) expandidos-máximo mais alto para listas de frases e expressões totais, novo modelo como limites de recursos
 * Extraia informações de texto no formato de estrutura de hierarquia profunda, tornando os aplicativos de conversa mais poderosos.
 
     ![imagem de entidade aprendida por computador](./media/whats-new/deep-entity-extraction-example.png)

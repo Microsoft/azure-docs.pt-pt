@@ -1,5 +1,6 @@
 ---
-title: Diagnosticar um problema de comunicação entre redes – tutorial – Portal do Azure | Microsoft Docs
+title: 'Tutorial: diagnosticar problema de comunicação entre redes-portal do Azure'
+titleSuffix: Azure Network Watcher
 description: Saiba como diagnosticar um problema de comunicação entre uma rede virtual do Azure ligada a outras redes virtuais ou a uma rede no local, através de um gateway de rede do Azure, ao utilizar uma funcionalidade de diagnóstico de VPN do Observador de Rede.
 services: network-watcher
 documentationcenter: na
@@ -15,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: e4dc66a5ca6e18b12586b5b03742fba3d6c3d6c4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0f7ce37bd6454492980525f288212fbff2c06625
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704223"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276150"
 ---
-# <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutorial: Diagnosticar um problema de comunicação entre redes com o portal do Azure
+# <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutorial: Diagnosticar um problema de comunicação entre redes com o Portal do Azure
 
 Um gateway de rede virtual liga uma rede virtual do Azure a outras redes virtuais ou a uma rede no local. Neste tutorial, ficará a saber como:
 
@@ -39,14 +40,14 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para utilizar o diagnóstico de VPN, tem de ter um gateway de VPN existente e em execução. Se não tiver um gateway de VPN existente para diagnosticar, pode implementar um com o [script do PowerShell](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Pode executar o script do PowerShell a partir de:
-- **Uma instalação local do PowerShell**: O script requer o Azure PowerShell `Az` módulo. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Instalar o Azure PowerShell](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
-- **O Azure Cloud Shell**: O [Azure Cloud Shell](https://shell.azure.com/powershell) tem a versão mais recente do PowerShell instalado e configurado e iniciar a sua sessão no Azure.
+- **Uma instalação local do PowerShell**: o script requer o módulo Azure PowerShell `Az`. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Instalar o Azure PowerShell](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+- **O Azure Cloud Shell**: o [Azure Cloud Shell](https://shell.azure.com/powershell) tem a versão mais recente do PowerShell instalada e configurada e inicia a sua sessão no Azure.
 
 O script demora aproximadamente uma hora para criar um gateway de VPN. Os passos restantes presumem que o gateway que está a diagnosticar é aquele implementado por este script. Se diagnosticar o seu próprio gateway existente, os resultados variam.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="enable-network-watcher"></a>Ativar o Observador de Rede
 
@@ -110,7 +111,7 @@ Se tiver criado um gateway de VPN com o script nos [pré-requisitos](#prerequisi
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *TestRG1* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a diagnosticar um problema com o gateway de rede virtual. É recomendável registar a comunicação de rede de e para uma VM para que possa rever o registo para saber se existem anomalias. Para saber como, avance para o próximo tutorial.
 

@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de configurações de delegação restrita de Kerberos para o proxy de aplicativo | Microsoft Docs
+title: Solucionar problemas de delegação restrita de Kerberos-proxy de aplicativo
 description: Resolver problemas de configurações de delegação restrita de Kerberos para o Proxy de aplicações
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ca50cfb8697fdbb8c71054c5a6b4d5e23792eb5
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c5e866f61409960447e17ecb50b035eabd53dc38
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381517"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275686"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Resolver problemas de configurações de delegação restringida de Kerberos para o Proxy de aplicações
 
@@ -56,11 +56,11 @@ O melhor local para posicionar conectores é o mais próximo possível para seus
 
 O que mostra um problema KCD? Existem vários indicações comuns KCD SSO com falhas. Os primeira sinais de um problema são apresentados no browser.
 
-![Exemplo: Erro de configuração de KCD incorreto](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+![Exemplo: erro de configuração KCD incorreto](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
-![Exemplo: Autorização falhou devido a permissões em falta](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
+![Exemplo: falha de autorização devido a permissões ausentes](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
-Essas duas imagens mostram o mesmo sintoma: Falha de SSO. É negado o acesso de utilizador à aplicação.
+Ambas essas imagens mostram o sintoma mesmo: falha SSO. É negado o acesso de utilizador à aplicação.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -84,7 +84,7 @@ As comunicações externas entre o cliente e o front-end do Azure não tem nenhu
 
 Como mencionado anteriormente, as mensagens de erro do navegador fornece algumas boas dicas sobre por que as coisas falharem. Certifique-se de tomar nota do ID de atividade e timestamp na resposta. Estas informações ajudam-lhe correlacionar o comportamento real eventos no registo de eventos de Proxy do Azure.
 
-![Exemplo: Erro de configuração de KCD incorreto](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
+![Exemplo: erro de configuração KCD incorreto](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
 Mostram entradas correspondentes no registo de eventos de ver como eventos 13019 ou 12027. Localizar os registos de eventos do conector no **Applications and Services Logs** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt;  **Conector** &gt; **administrador**.
 
@@ -168,6 +168,6 @@ Se ainda não o conseguir progresso, o suporte da Microsoft pode ajudá-lo. Crie
 - Proxy de aplicações do Azure solicita um tíquete Kerberos antes de enviar sua solicitação para uma aplicação. Alguns aplicativos de terceiros não gostam desse método de autenticação. Esses aplicativos esperam que a negociações mais convencionais para ter lugar. A primeira solicitação é anônima, o que permite que o aplicativo responder com os tipos de autenticação que ele oferece suporte por meio de um erro 401.
 - Multi-HOP autenticação é frequentemente utilizada em cenários em que um aplicativo está em camadas, com um back-end e front-end, em que ambos requerem a autenticação, como o SQL Server Reporting Services. Para configurar o cenário de salto múltiplo, consulte o artigo de suporte a [delegação restrita de Kerberos pode exigir a transição de protocolo em cenários de multi-hop](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Configurar o KCD num domínio gerido](../../active-directory-domain-services/deploy-kcd.md).

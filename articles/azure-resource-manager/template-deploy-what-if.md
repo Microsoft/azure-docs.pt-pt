@@ -1,71 +1,71 @@
 ---
-title: Template deployment what-if (Preview)
-description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
+title: Implantação de modelo What-if (visualização)
+description: Determine quais alterações ocorrerão para seus recursos antes de implantar um modelo de Azure Resource Manager.
 author: mumian
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 11/20/2019
 ms.author: jgao
-ms.openlocfilehash: f399a89ff22dd3d1b360196c81d652b55f30e029
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 19cb674ca7a2dfefc11c7646b23427c722f6e671
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230214"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278304"
 ---
-# <a name="resource-manager-template-deployment-what-if-operation-preview"></a>Resource Manager template deployment what-if operation (Preview)
+# <a name="resource-manager-template-deployment-what-if-operation-preview"></a>Operação What-If da implantação de modelo do Resource Manager (versão prévia)
 
-Before deploying a template, you might want to preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the template. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified template is deployed.
+Antes de implantar um modelo, talvez você queira Visualizar as alterações que ocorrerão. Azure Resource Manager fornece a operação What-If para permitir que você veja como os recursos serão alterados se você implantar o modelo. A operação What-If não faz nenhuma alteração nos recursos existentes. Em vez disso, ele prevê as alterações se o modelo especificado for implantado.
 
 > [!NOTE]
-> The what-if operation is currently in preview. To use it, you must [sign up for the preview](https://aka.ms/armtemplatepreviews). As a preview release, the results may sometimes show that a resource will change when actually no change will happen. We're working to reduce these issues, but we need your help. Please report these issues at [https://aka.ms/armwhatifissues](https://aka.ms/armwhatifissues).
+> A operação What-If está atualmente em visualização. Para usá-lo, você deve [se inscrever para a versão prévia](https://aka.ms/armtemplatepreviews). Como uma versão de visualização, os resultados podem, às vezes, mostrar que um recurso será alterado quando, na verdade, nenhuma alteração ocorrerá. Estamos trabalhando para reduzir esses problemas, mas precisamos de sua ajuda. Informe esses problemas em [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
-You can use the what-if operation with the `New-AzDeploymentWhatIf` PowerShell command or the [Deployments - What If](/rest/api/resources/deployments/whatif) REST operation.
+Você pode usar a operação What-If com o `New-AzDeploymentWhatIf` comando do PowerShell ou as [implantações-What If](/rest/api/resources/deployments/whatif) operação REST.
 
-In PowerShell, the output looks like:
+No PowerShell, a saída é semelhante a:
 
-![Resource Manager template deployment what-if operation fullresourcepayload and change types](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
+![Implantação do modelo do Resource Manager e-se operação fullresourcepayload e tipos de alteração](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
-## <a name="change-types"></a>Change types
+## <a name="change-types"></a>Alterar tipos
 
-The what-if operation lists six different types of changes:
+A operação What-If lista seis tipos diferentes de alterações:
 
-- **Create**: The resource doesn't currently exist but is defined in the template. The resource will be created.
+- **Criar**: o recurso não existe atualmente, mas está definido no modelo. O recurso será criado.
 
-- **Delete**: This change type only applies when using [complete mode](deployment-modes.md) for deployment. The resource exists, but isn't defined in the template. With complete mode, the resource will be deleted. Only resources that [support complete mode deletion](complete-mode-deletion.md) are included in this change type.
+- **Excluir**: esse tipo de alteração se aplica somente ao usar o [modo completo](deployment-modes.md) para implantação. O recurso existe, mas não está definido no modelo. Com o modo completo, o recurso será excluído. Somente os recursos que [dão suporte à exclusão de modo completo](complete-mode-deletion.md) são incluídos nesse tipo de alteração.
 
-- **Ignore**: The resource exists, but isn't defined in the template. The resource won't be deployed or modified.
+- **Ignorar**: o recurso existe, mas não está definido no modelo. O recurso não será implantado ou modificado.
 
-- **NoChange**: The resource exists, and is defined in the template. The resource will be redeployed, but the properties of the resource won't change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
+- **NoChange**: o recurso existe e é definido no modelo. O recurso será reimplantado, mas as propriedades do recurso não serão alteradas. Esse tipo de alteração é retornado quando [ResultFormat](#result-format) é definido como `FullResourcePayloads`, que é o valor padrão.
 
-- **Modify**: The resource exists, and is defined in the template. The resource will be redeployed, and the properties of the resource will change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
+- **Modify**: o recurso existe e é definido no modelo. O recurso será reimplantado e as propriedades do recurso serão alteradas. Esse tipo de alteração é retornado quando [ResultFormat](#result-format) é definido como `FullResourcePayloads`, que é o valor padrão.
 
-- **Deploy**: The resource exists, and is defined in the template. The resource will be redeployed. The properties of the resource may or may not change. The operation returns this change type when it doesn't have enough information to determine if any properties will change. You only see this condition when [ResultFormat](#result-format) is set to `ResourceIdOnly`.
+- **Implantar**: o recurso existe e é definido no modelo. O recurso será reimplantado. As propriedades do recurso podem ou não ser alteradas. A operação retorna esse tipo de alteração quando não tem informações suficientes para determinar se as propriedades serão alteradas. Você só verá essa condição quando [ResultFormat](#result-format) estiver definido como `ResourceIdOnly`.
 
-## <a name="deployment-scope"></a>Deployment scope
+## <a name="deployment-scope"></a>Escopo da implantação
 
-You can use the what-if operation for deployments at either the subscription or resource group level. You set the deployment scope with the `-ScopeType` parameter. The accepted values are `Subscription` and `ResourceGroup`. This article demonstrates resource group deployments.
+Você pode usar a operação What-If para implantações no nível de assinatura ou grupo de recursos. Você define o escopo de implantação com o parâmetro `-ScopeType`. Os valores aceitos são `Subscription` e `ResourceGroup`. Este artigo demonstra implantações de grupo de recursos.
 
-To learn about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md#).
+Para saber mais sobre implantações em nível de assinatura, confira [criar grupos de recursos e recursos no nível da assinatura](deploy-to-subscription.md#).
 
-## <a name="result-format"></a>Result format
+## <a name="result-format"></a>Formato do resultado
 
-You can control the level of detail that is returned about the predicted changes. Set the `ResultFormat` parameter to `FullResourcePayloads` to get a list of resources what will change and details about the properties that will change. Set the `ResultFormat` parameter to `ResourceIdOnly` to get a list of resources that will change. The default value is `FullResourcePayloads`.  
+Você pode controlar o nível de detalhe que é retornado sobre as alterações previstas. Defina o parâmetro `ResultFormat` como `FullResourcePayloads` para obter uma lista de recursos que serão alterados e detalhes sobre as propriedades que serão alteradas. Defina o parâmetro `ResultFormat` como `ResourceIdOnly` para obter uma lista de recursos que serão alterados. O valor predefinido é `FullResourcePayloads`.  
 
-The following screenshots show the two different output formats:
+As capturas de tela a seguir mostram os dois formatos de saída diferentes:
 
-- Full resource payloads
+- Cargas de recursos completas
 
-    ![Resource Manager template deployment what-if operation fullresourcepayloads output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-fullresourcepayload.png)
+    ![Implantação do modelo do Gerenciador de recursos e-se operação fullresourcepayloads saída](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-fullresourcepayload.png)
 
-- Resource ID only
+- Somente ID do recurso
 
-    ![Resource Manager template deployment what-if operation resourceidonly output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-resourceidonly.png)
+    ![Implantação do modelo do Gerenciador de recursos e-se operação resourceidonly saída](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-resourceidonly.png)
 
-## <a name="run-what-if-operation"></a>Run what-if operation
+## <a name="run-what-if-operation"></a>Executar a operação What-If
 
-### <a name="set-up-environment"></a>Set up environment
+### <a name="set-up-environment"></a>Configurar o ambiente
 
-To see how what-if works, let's runs some tests. First, deploy a template from [Azure Quickstart templates that creates a storage account](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json). The default storage account type is `Standard_LRS`. You'll use this storage account to test how changes are reported by what-if.
+Para ver como funciona o que acontece, vamos executar alguns testes. Primeiro, implante um modelo de [modelos de início rápido do Azure que cria uma conta de armazenamento](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json). O tipo de conta de armazenamento padrão é `Standard_LRS`. Você usará essa conta de armazenamento para testar como as alterações são relatadas por What-If.
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -76,9 +76,9 @@ New-AzResourceGroupDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-### <a name="test-modification"></a>Test modification
+### <a name="test-modification"></a>Modificação de teste
 
-After the deployment completes, you're ready to test the what-if operation. Run the what-if command but change the storage account type to `Standard_GRS`.
+Após a conclusão da implantação, você estará pronto para testar a operação What-If. Execute o comando What-If, mas altere o tipo de conta de armazenamento para `Standard_GRS`.
 
 ```azurepowershell-interactive
 New-AzDeploymentWhatIf `
@@ -88,19 +88,19 @@ New-AzDeploymentWhatIf `
   -storageAccountType Standard_GRS
 ```
 
-The what-if output is similar to:
+A saída What-If é semelhante a:
 
-![Resource Manager template deployment what-if operation output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output.png)
+![Saída da operação What-If da implantação de modelo do Resource Manager](./media/template-deploy-what-if/resource-manager-deployment-whatif-output.png)
 
-Notice at the top of the output that colors are defined to indicate the type of changes.
+Observe na parte superior da saída que as cores são definidas para indicar o tipo de alterações.
 
-At the bottom of the output, it shows the sku name (storage account type) will be changed from **Standard_LRS** to **Standard_GRS**.
+Na parte inferior da saída, ele mostra que o nome do SKU (tipo de conta de armazenamento) será alterado de **Standard_LRS** para **Standard_GRS**.
 
-Some of the properties that are listed as deleted won't actually change. In the preceding image, these properties are accessTier, encryption.keySource and others in that section. Properties can be incorrectly reported as deleted when they aren't in the template but are automatically set during deployment. The final deployed resource will have the values set for the properties. As the what-if operation matures, these properties will be filtered out of the result.
+Algumas das propriedades listadas como excluídas não serão realmente alteradas. Na imagem anterior, essas propriedades são accessTier, Encryption. KeySource e outras nessa seção. As propriedades podem ser relatadas incorretamente como excluídas quando não estão no modelo, mas são definidas automaticamente durante a implantação como valores padrão. Esse resultado é considerado "ruído" na resposta What-If. O recurso implantado final terá os valores definidos para as propriedades. Como a operação What-If amadurece, essas propriedades serão filtradas do resultado.
 
-### <a name="test-deletion"></a>Test deletion
+### <a name="test-deletion"></a>Exclusão de teste
 
-The what-if operation supports using [deployment mode](deployment-modes.md). When set to complete mode, resources not in the template are deleted. The following example deploys a [template that has no resources defined](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) in complete mode.
+A operação What-If dá suporte ao uso do [modo de implantação](deployment-modes.md). Quando definido para o modo completo, os recursos que não estão no modelo são excluídos. O exemplo a seguir implanta um [modelo que não tem recursos definidos](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) no modo completo.
 
 ```azurepowershell-interactive
 New-AzDeploymentWhatIf `
@@ -110,15 +110,15 @@ New-AzDeploymentWhatIf `
   -Mode Complete
 ```
 
-Because no resources are defined in the template and the deployment mode is set to complete, the storage account will be deleted.
+Como nenhum recurso está definido no modelo e o modo de implantação está definido como concluído, a conta de armazenamento será excluída.
 
-![Resource Manager template deployment what-if operation output deployment mode complete](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
+![Implantação do modelo do Resource Manager o modo de implantação de saída de operação de conclusão](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
 
-It's important to remember what-if makes no actual changes. The storage account still exists in your resource group.
+É importante lembrar que, se não fizer nenhuma alteração real. A conta de armazenamento ainda existe em seu grupo de recursos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- If you notice incorrect results from the preview release of what-if, please report the issues at [https://aka.ms/armwhatifissues](https://aka.ms/armwhatifissues).
-- To deploy templates with Azure PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md).
-- To deploy templates with REST, see [Deploy resources with Resource Manager templates and Resource Manager REST API](resource-group-template-deploy-rest.md).
-- To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
+- Se você observar resultados incorretos da versão de visualização de What-If, informe os problemas em [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+- Para implantar modelos com Azure PowerShell, consulte [implantar recursos com modelos do Resource Manager e Azure PowerShell](resource-group-template-deploy.md).
+- Para implantar modelos com REST, consulte [implantar recursos com modelos do Resource Manager e a API REST do Gerenciador de recursos](resource-group-template-deploy-rest.md).
+- Para reverter para uma implantação bem-sucedida quando você receber um erro, consulte [reverter em caso de erro para a implantação bem-sucedida](rollback-on-error.md).

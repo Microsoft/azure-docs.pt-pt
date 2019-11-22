@@ -1,5 +1,5 @@
 ---
-title: Como criar e localizar âncoras usando sensores no dispositivo em Java | Microsoft Docs
+title: Relocalidade alta no Java
 description: Explicação detalhada de como criar e localizar âncoras usando sensores no dispositivo em Java.
 author: bucurb
 manager: dacoghl
@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f10251dc0b21e8ca3cd0761652633fe579416ac9
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 2aafaed67e68b5842767de32893eddd829b43164
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093182"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277216"
 ---
 # <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-java"></a>Como criar e localizar âncoras usando sensores no dispositivo em Java
 

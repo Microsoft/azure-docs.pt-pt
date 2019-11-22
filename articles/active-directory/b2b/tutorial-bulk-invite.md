@@ -1,5 +1,5 @@
 ---
-title: Tutorial para convidar em massa usuários de colaboração B2B – Azure Active Directory | Microsoft Docs
+title: Tutorial para convidar em massa usuários de colaboração B2B – Azure AD
 description: Neste tutorial, saberá como utilizar o PowerShell e um ficheiro CSV para enviar convites em massa a utilizadores externos da colaboração B2B do Azure AD.
 services: active-directory
 ms.service: active-directory
@@ -11,14 +11,14 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec1a6ea8f363f2ddd4a9568700d5bff3330443c0
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 1ffcdad43195ce49ef3cd8b695f9ad5009af82fb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128730"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272359"
 ---
-# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutorial: Convidar em massa usuários de colaboração B2B do Azure AD (versão prévia)
+# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutorial: convidar em massa usuários de colaboração B2B do Azure AD (versão prévia)
 
 |     |
 | --- |
@@ -88,7 +88,7 @@ Execute o seguinte comando:
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-Você deve ver os usuários que convidou listados, com um nome UPN no formato *EmailAddress*#EXT #\@*Domain*. Por exemplo, *lstokes_fabrikam. com # ext #\@contoso.onmicrosoft.com*, em que contoso.onmicrosoft.com é a organização da qual você enviou os convites.
+Você deve ver os usuários que convidou listados, com um UPN (nome principal do usuário) no formato *emailaddress*#EXT #\@*domínio*. Por exemplo, *lstokes_fabrikam. com # ext #\@contoso.onmicrosoft.com*, em que contoso.onmicrosoft.com é a organização da qual você enviou os convites.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

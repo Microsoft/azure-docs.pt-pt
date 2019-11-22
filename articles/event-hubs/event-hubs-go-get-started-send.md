@@ -1,26 +1,26 @@
 ---
-title: Enviar e receber eventos através de Go - Event Hubs do Azure | Documentos da Microsoft
-description: Este artigo fornece um passo a passo para criar uma aplicação Go para enviar eventos de Hubs de eventos do Azure.
+title: 'Início rápido: enviar e receber eventos usando o go-hubs de eventos do Azure'
+description: 'Início rápido: Este artigo fornece uma explicação para a criação de um aplicativo go que envia eventos dos hubs de eventos do Azure.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 04/15/2019
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 823ebc985c77785f8b48d12d5919dbbd1b2b1459
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5f52d0ddbf9a66d974732d6d98ca8a5b09cc2d0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821679"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720584"
 ---
-# <a name="send-events-to-or-receive-events-from-event-hubs-using-go"></a>Enviar eventos para ou receber eventos dos Hubs de eventos com Go
+# <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Início rápido: enviar eventos para ou receber eventos de hubs de eventos usando go
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
 
-Este tutorial descreve como escrever aplicações do Go para enviar eventos para ou receber eventos de um hub de eventos. 
+Este tutorial descreve como escrever aplicativos Go para enviar eventos ou receber eventos de um hub de eventos. 
 
 > [!NOTE]
 > Pode transferir este início rápido como uma amostra a partir do [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs), substituir as cadeias de carateres `EventHubConnectionString` e `EventHubName` pelos seus valores de hub de eventos e executá-la. Em alternativa, pode seguir os passos neste tutorial para criar a sua própria.
@@ -31,10 +31,10 @@ Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
 - Vá instalado localmente. Siga [estas instruções](https://golang.org/doc/install) se necessário.
 - Uma conta ativa do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita][] antes de começar.
-- **Criar um espaço de nomes de Hubs de eventos e um hub de eventos**. Utilize o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de eventos e obter as credenciais de gestão a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nomes e um hub de eventos, siga o procedimento [este artigo](event-hubs-create.md).
+- **Crie um namespace de hubs de eventos e um hub de eventos**. Use o [portal do Azure](https://portal.azure.com) para criar um namespace do tipo hubs de eventos e obter as credenciais de gerenciamento que seu aplicativo precisa para se comunicar com o Hub de eventos. Para criar um espaço de nomes e um hub de eventos, siga o procedimento [este artigo](event-hubs-create.md).
 
 ## <a name="send-events"></a>Enviar eventos
-Esta secção mostra-lhe como criar uma aplicação Go para enviar eventos para um hub de eventos. 
+Esta seção mostra como criar um aplicativo Go para enviar eventos para um hub de eventos. 
 
 ### <a name="install-go-package"></a>Instalar o pacote do Go
 
@@ -137,7 +137,7 @@ Estado, como de concessões em partições e os pontos de verificação de event
 
 Exemplos para criar artefactos de armazenamento com o SDK Go estão disponíveis no [repositório de amostras do Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) e no exemplo correspondente a este tutorial.
 
-### <a name="go-packages"></a>Aceda a pacotes
+### <a name="go-packages"></a>Pacotes go
 
 Para receber as mensagens, obter os pacotes de ir para os Hubs de eventos com `go get` ou `dep`:
 
@@ -169,7 +169,7 @@ import (
 
 ### <a name="create-service-principal"></a>Criar um principal de serviço
 
-Crie um novo principal de serviço ao seguir as instruções em [criar um Azure principal de serviço com a CLI 2.0 do Azure](/cli/azure/create-an-azure-service-principal-azure-cli). Guarde as credenciais fornecidas no seu ambiente com os seguintes nomes: Ambos os Azure SDK para Go e os Hubs de eventos pacote estão pré-configuradas para procurar por estes nomes de variáveis.
+Crie um novo principal de serviço ao seguir as instruções em [criar um Azure principal de serviço com a CLI 2.0 do Azure](/cli/azure/create-an-azure-service-principal-azure-cli). Guardar as credenciais fornecidas no seu ambiente com os seguintes nomes: O Azure SDK para Go e os Hubs de eventos de pacote estão pré-configuradas para procurar por estes nomes de variáveis.
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -214,9 +214,9 @@ if err != nil {
 }
 ```
 
-### <a name="create-a-check-pointer-and-a-leaser"></a>Criar um ponteiro de verificação e um leaser 
+### <a name="create-a-check-pointer-and-a-leaser"></a>Criar um ponteiro de verificação e um leasing 
 
-Criar uma **leaser**, responsável pela alocação de uma partição para um recetor específico e um **verificar ponteiro**, responsáveis pela escrita de pontos de verificação para o fluxo de mensagens, de modo a que podem começar a outros recetores ler a partir do desvio correto.
+Crie um **leasing**, responsável por conceder uma partição a um receptor específico e um **ponteiro de verificação**, responsável por escrever pontos de verificação para o fluxo de mensagens para que outros receptores possam começar a ler a partir do deslocamento correto.
 
 Atualmente, uma única **StorageLeaserCheckpointer** está disponível que utiliza o mesmo contentor de armazenamento para gerir as concessões e pontos de verificação. Além dos nomes de conta e contentor de armazenamento, o **StorageLeaserCheckpointer** precisa a credencial que criou no passo anterior e a estrutura de ambiente do Azure para aceder corretamente ao contentor.
 
@@ -233,7 +233,7 @@ if err != nil {
 
 ### <a name="construct-event-processor-host"></a>Construir o anfitrião do processador de eventos
 
-Tem agora as partes necessárias para construir um EventProcessorHost, da seguinte forma. O mesmo **StorageLeaserCheckpointer** é utilizado como um leaser e um ponteiro de verificação, conforme descrito anteriormente:
+Tem agora as partes necessárias para construir um EventProcessorHost, da seguinte forma. O mesmo **StorageLeaserCheckpointer** é usado como um arrendador e um ponteiro de verificação, conforme descrito anteriormente:
 
 ```go
 ctx := context.Background()
@@ -281,11 +281,11 @@ if err != nil {
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-Leia os artigos seguintes:
+## <a name="next-steps"></a>Passos seguintes
+Leia os seguintes artigos:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Funcionalidades e a terminologia nos Hubs de eventos do Azure](event-hubs-features.md)
+- [Funcionalidades e terminologia nos Hubs de Eventos do Azure](event-hubs-features.md)
 - [FAQ dos Hubs de Eventos](event-hubs-faq.md)
 
 

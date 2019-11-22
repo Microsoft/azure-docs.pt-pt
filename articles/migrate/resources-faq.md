@@ -4,14 +4,14 @@ description: Obtenha respostas para perguntas comuns sobre o serviço migraçõe
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: a622a5793e817be2445e60d925354ab37bb8e331
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: dc7dff0119ec849b447754ae54a45911038f6c48
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185767"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284457"
 ---
 # <a name="azure-migrate-common-questions"></a>Migrações para Azure: perguntas comuns
 
@@ -118,16 +118,10 @@ A avaliação do servidor fornece avaliação para ajudar com a preparação da 
 
 ### <a name="whats-the-difference-between-server-assessment-and-the-site-recovery-deployment-planner"></a>Qual é a diferença entre a avaliação do servidor e o Site Recovery Planejador de Implantações?
 
-A avaliação do servidor é uma ferramenta de planejamento de migração. O Site Recovery Planejador de Implantações é uma ferramenta de planejamento de recuperação de desastre. 
+A avaliação do servidor é uma ferramenta de planejamento de migração. O Site Recovery Planejador de Implantações é uma ferramenta de planejamento de recuperação de desastre.
 
 - **Planejar a migração local para o Azure**: se você planeja migrar seus servidores locais para o Azure, use a avaliação do servidor para planejamento de migração. Ele avalia as cargas de trabalho locais e fornece orientações e ferramentas para ajudá-lo a migrar. Depois que o plano de migração estiver em vigor, você poderá usar ferramentas, incluindo migração de servidor de migrações para Azure, para migrar os computadores para o Azure.
 - **Planejar a recuperação de desastre para o Azure**: se você planeja configurar a recuperação de desastre do local para o azure com site Recovery, use o Planejador de Implantações de site Recovery. O Planejador de Implantações fornece uma avaliação profunda e específica Site Recovery do seu ambiente local para fins de recuperação de desastres. Ele fornece recomendações sobre a recuperação de desastre, como replicação e failover.
-
-### <a name="does-azure-migrate-estimate-costs-for-the-enterprise-agreement-ea-program"></a>O Azure migra custos estimados para o programa Enterprise Agreement (EA)?
-
-A avaliação de servidor de migrações para Azure atualmente não dá suporte a estimativas de custo para o [programa Enterprise Agreement](https://azure.microsoft.com/offers/enterprise-agreement-support/). Como alternativa, ao criar uma avaliação, você pode especificar pré- **pago** como a **oferta**e adicionar manualmente a porcentagem de desconto (aplicável à assinatura) como o **desconto** nas propriedades de avaliação:
-
-  ![Propriedades da avaliação](./media/resources-faq/discount.png)
 
 ### <a name="whats-the-difference-between-as-on-premises-and-performance-based-sizing"></a>Qual é a diferença entre o dimensionamento baseado no local e no desempenho?
 

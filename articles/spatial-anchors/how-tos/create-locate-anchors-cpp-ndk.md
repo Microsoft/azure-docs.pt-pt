@@ -1,19 +1,19 @@
 ---
-title: Como criar e localizar âncoras usando âncoras espaciais do Azure C++no/NDK | Microsoft Docs
+title: Criar & Localizar âncoras no C++/NDK
 description: Explicação detalhada de como criar e localizar âncoras usando âncoras espaciais do Azure no C++/NDK.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2578202c2464248c1c765368d308ca669d918057
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9592de0bfb53d0ba3f37cf3d34c6cd7ce3d4d65d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562536"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270287"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>Como criar e localizar âncoras usando âncoras espaciais do Azure C++no/NDK
 
@@ -274,7 +274,7 @@ Saiba mais sobre o método [GetAnchorPropertiesAsync](https://docs.microsoft.com
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
-Saiba mais sobre o [](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#expiration) método de expiração.
+Saiba mais sobre o método de [expiração](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#expiration) .
 
 ```cpp
     std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
@@ -285,7 +285,7 @@ Saiba mais sobre o [](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/clo
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
-Saiba mais sobre o [](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#createwatcher) método createassister.
+Saiba mais sobre o método [Createassister](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#createwatcher) .
 
 ```cpp
     auto criteria = std::make_shared<AnchorLocateCriteria>();

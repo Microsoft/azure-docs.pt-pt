@@ -1,5 +1,5 @@
 ---
-title: Opções de assinatura de certificado de token SAML avançado para aplicativos do Azure AD previamente integrados | Microsoft Docs
+title: Opções de assinatura de certificado de token SAML avançado para aplicativos do Azure AD
 description: Saiba como usar as opções avançadas de assinatura de certificado no token SAML para aplicativos previamente integrados no Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea99344399dbbbc17f0d7381e54ab68ae4bcc78f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 614a90fcc0daef3eb77c43e6b56848c34d160ed5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381277"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274751"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Opções avançadas de assinatura de certificado no token SAML para aplicativos da galeria no Azure Active Directory
 
@@ -57,7 +57,7 @@ Para alterar as opções de assinatura de certificado SAML de um aplicativo e o 
 1. No painel esquerdo, selecione **Aplicações empresariais**. É exibida uma lista dos aplicativos empresariais em sua conta.
 1. Selecione um aplicativo. Uma página de visão geral do aplicativo é exibida.
 
-   ![Exemplo: Página Visão geral do aplicativo](./media/certificate-signing-options/application-overview-page.png)
+   ![Exemplo: página Visão geral do aplicativo](./media/certificate-signing-options/application-overview-page.png)
 
 Em seguida, altere as opções de assinatura de certificado no token SAML para esse aplicativo:
 
@@ -67,13 +67,13 @@ Em seguida, altere as opções de assinatura de certificado no token SAML para e
 1. Na página **selecionar um método de logon único** , selecione **SAML** , se disponível. (Se o **SAML** não estiver disponível, o aplicativo não oferece suporte a SAML e você poderá ignorar o restante deste procedimento e artigo.)
 1. Na página **Configurar logon único com SAML-Preview** , localize o cabeçalho do certificado de **autenticação SAML** e selecione o ícone de **edição** (um lápis). A página **certificado de autenticação SAML** é exibida.
 
-   ![Exemplo: Página certificado de autenticação SAML](./media/certificate-signing-options/saml-signing-page.png)
+   ![Exemplo: página de certificado de autenticação SAML](./media/certificate-signing-options/saml-signing-page.png)
 
 1. Na lista **suspensa opção de assinatura** , escolha **assinar resposta SAML**, **assinar Asserção SAML**ou **assinar resposta e Asserção SAML**. As descrições dessas opções aparecem anteriormente neste artigo nas opções de [assinatura de certificado](#certificate-signing-options).
-1. Na lista suspensa **algoritmo de assinatura** , escolha **SHA-1** ou **SHA-256**. As descrições dessas opções aparecem anteriormente neste artigo na seção algoritmos de [assinatura de certificado](#certificate-signing-algorithms) .
+1. Na lista suspensa **algoritmo de assinatura** , escolha **SHA-1** ou **SHA-256**. As descrições dessas opções aparecem anteriormente neste artigo na seção [algoritmos de assinatura de certificado](#certificate-signing-algorithms) .
 1. Se estiver satisfeito com suas escolhas, selecione **salvar** para aplicar as novas configurações de certificado de autenticação SAML. Caso contrário, selecione o **X** para descartar as alterações.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar o logon único para aplicativos que não estão na Galeria de aplicativos Azure Active Directory](configure-federated-single-sign-on-non-gallery-applications.md)
 * [Solucionar problemas de logon único baseado em SAML](../develop/howto-v1-debug-saml-sso-issues.md)

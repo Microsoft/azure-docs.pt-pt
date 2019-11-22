@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4a0a005d096702b864c770675a427184547a2b44
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a86c809e239a84b2ec6910c47a17b935c440c741
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185710"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287002"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solucionando problemas de erros e avisos comuns do indexador no Azure Pesquisa Cognitiva
 
@@ -291,3 +291,19 @@ Os mapeamentos de campo de saída que referenciam dados não existentes/nulos pr
 
 ## <a name="warning-the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>Aviso: a política de detecção de alteração de dados está configurada para usar a coluna de chave ' X '
 [As políticas de detecção de alteração de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) têm requisitos específicos para as colunas que usam para detectar alterações. Um desses requisitos é que essa coluna é atualizada toda vez que o item de origem é alterado. Outro requisito é que o novo valor dessa coluna seja maior que o valor anterior. As colunas de chave não atendem a esse requisito porque não mudam em cada atualização. Para contornar esse problema, selecione uma coluna diferente para a política de detecção de alteração.
+
+<a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"/>
+
+## <a name="warning-document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>Aviso: o texto do documento parece ser codificado em UTF-16, mas não tem uma marca de ordem de byte
+
+Os [modos de análise do indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) precisam saber como o texto é codificado antes de analisá-lo. As duas maneiras mais comuns de codificar texto são UTF-16 e UTF-8. UTF-8 é uma codificação de comprimento variável em que cada caractere está entre 1 byte e 4 bytes de comprimento. UTF-16 é uma codificação de tamanho fixo em que cada caractere tem 2 bytes de comprimento. O UTF-16 tem duas variantes diferentes, "big endian" e "little endian". A codificação de texto é determinada por uma "marca de ordem de byte", uma série de bytes antes do texto.
+
+| Codificação | Marca de ordem de byte |
+| --- | --- |
+| UTF-16 big endian | 0xFE 0xFF |
+| UTF-16 little endian | 0xFE 0xFF |
+| UTF-8 | 0xEF 0xBB 0xBF |
+
+Se nenhuma marca de ordem de byte estiver presente, presume-se que o texto seja codificado como UTF-8.
+
+Para contornar esse aviso, determine qual é a codificação de texto para esse BLOB e adicione a marca de ordem de byte apropriada.

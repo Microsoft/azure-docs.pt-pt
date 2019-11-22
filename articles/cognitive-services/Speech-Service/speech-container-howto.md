@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: dapine
-ms.openlocfilehash: 4170db596d3d4f4b197120770afa2f6e8b0f8a1c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: MT
+ms.openlocfilehash: b83ece803a72fe6132c1ba98414e95897a0fcc90
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132626"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304874"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar e executar contêineres de serviço de fala
 
@@ -155,10 +155,10 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 
 #### <a name="speech-to-text-locales"></a>Localidades de conversão de fala em texto
 
-Todas as marcas, com exceção de `latest` estão no seguinte formato, em que o `<culture>` indica o contêiner de localidade:
+Todas as marcas, com exceção de `latest` estão no seguinte formato e diferenciam maiúsculas de minúsculas:
 
 ```
-<major>.<minor>.<patch>-<platform>-<culture>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<prerelease>
 ```
 
 A marca a seguir é um exemplo do formato:
@@ -197,10 +197,10 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 #### <a name="text-to-speech-locales"></a>Localidades de conversão de texto em fala
 
-Todas as marcas, com exceção de `latest` estão no seguinte formato, em que o `<culture>` indica a localidade e o `<voice>` indica a voz do contêiner:
+Todas as marcas, com exceção de `latest` estão no seguinte formato e diferenciam maiúsculas de minúsculas:
 
 ```
-<major>.<minor>.<patch>-<platform>-<culture>-<voice>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
 ```
 
 A marca a seguir é um exemplo do formato:

@@ -1,5 +1,6 @@
 ---
-title: Permissões necessárias para usar os recursos do observador de rede do Azure | Microsoft Docs
+title: Permissões de RBAC necessárias para usar os recursos
+titleSuffix: Azure Network Watcher
 description: Saiba quais permissões de controle de acesso baseado em função do Azure são necessárias para trabalhar com os recursos do observador de rede.
 services: network-watcher
 documentationcenter: ''
@@ -14,43 +15,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: kumud
-ms.openlocfilehash: 5bd7e30a6a95d60bda4b7c3da44be1b8046bb71f
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 9d56865a558f027a044e990a2da697dc53e7a311
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163800"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277708"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Permissões de controle de acesso baseado em função necessárias para usar os recursos do observador de rede
 
-O RBAC (controle de acesso baseado em função) do Azure permite que você atribua apenas as ações específicas aos membros da sua organização que eles precisam para concluir suas responsabilidades atribuídas. Para usar os recursos do observador de rede, a conta que você faz logon no Azure, deve ser atribuída às funções internas de [proprietário](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [colaborador](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor)ou [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) , ou atribuída a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) atribuída às ações listadas para cada recurso do observador de rede nas seções a seguir. Para saber mais sobre os recursos do observador de rede, consulte [o que é o observador de rede?](network-watcher-monitoring-overview.md).
+O RBAC (controle de acesso baseado em função) do Azure permite que você atribua apenas as ações específicas aos membros da sua organização que eles precisam para concluir suas responsabilidades atribuídas. Para usar os recursos do observador de rede, a conta que você faz logon no Azure, deve ser atribuída às funções internas de [proprietário](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [colaborador](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor)ou [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) , ou atribuída a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) que recebe as ações listadas para cada recurso do observador de rede nas seções a seguir. Para saber mais sobre os recursos do observador de rede, consulte [o que é o observador de rede?](network-watcher-monitoring-overview.md).
 
 ## <a name="network-watcher"></a>Observador de Rede
 
-| Action                                                              | Descrição                                                           |
+| Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/read                              | Obter um observador de rede                                          |
 | Microsoft.Network/networkWatchers/write                             | Criar ou atualizar um observador de rede                             |
 | Microsoft.Network/networkWatchers/delete                            | Excluir um observador de rede                                       |
 
-## <a name="nsg-flow-logs"></a>Registos do fluxo do NSG
+## <a name="nsg-flow-logs"></a>Logs de fluxo do NSG
 
-| Action                                                              | Descrição                                                           |
+| Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/configureFlowLog/action           | Configurar um log de fluxo                                           |
 | Microsoft.Network/networkWatchers/queryFlowLogStatus/action         | Status da consulta para um log de fluxo                                    |
 
-## <a name="connection-troubleshoot"></a>Resolver problemas de ligação
+## <a name="connection-troubleshoot"></a>Solução de problemas de conexão
 
-| Action                                                              | Descrição                                                           |
+| Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/connectivityCheck/action          | Iniciar um teste de solução de problemas de conexão
 | Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | Resultados da consulta de um teste de solução de problemas de conexão                |
 | Microsoft.Network/networkWatchers/troubleshoot/action               | Executar um teste de solução de problemas de conexão                             |
 
-## <a name="connection-monitor"></a>Monitor de ligação
+## <a name="connection-monitor"></a>Monitor de conexão
 
-| Action                                                              | Descrição                                                           |
+| Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/connectionMonitors/start/action   | Iniciar um monitor de conexão                                     |
 | Microsoft.Network/networkWatchers/connectionMonitors/stop/action    | Parar um monitor de conexão                                      |
@@ -61,7 +62,7 @@ O RBAC (controle de acesso baseado em função) do Azure permite que você atrib
 
 ## <a name="packet-capture"></a>Captura de pacotes
 
-| Action                                                              | Descrição                                                           |
+| Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Consultar o status de uma captura de pacote                           |
 | Microsoft.Network/networkWatchers/packetCaptures/stop/action        | Parar uma captura de pacote                                          |
@@ -71,31 +72,31 @@ O RBAC (controle de acesso baseado em função) do Azure permite que você atrib
 
 ## <a name="ip-flow-verify"></a>Verificação do fluxo de IP
 
-| Action                                                              | Descrição                                                           |
+| Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/ipFlowVerify/action               | Verificar um fluxo de IP                                              |
 
 ## <a name="next-hop"></a>Próximo salto
 
-| Action                                                              | Descrição                                                           |
+| Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/nextHop/action                    | Obter o próximo salto de uma VM                                     |
 
 ## <a name="network-security-group-view"></a>Vista de grupo de segurança de rede
 
-| Action                                                              | Descrição                                                           |
+| Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/securityGroupView/action          | Exibir grupos de segurança                                           |
 
 ## <a name="topology"></a>Topologia
 
-| Action                                                              | Descrição                                                           |
+| Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/topology/action                   | Obter topologia                                                   |
 
 ## <a name="reachability-report"></a>Relatório de acessibilidade
 
-| Action                                                              | Descrição                                                           |
+| Ação                                                              | Descrição                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/azureReachabilityReport/action    | Obter um relatório de acessibilidade do Azure                               |
 

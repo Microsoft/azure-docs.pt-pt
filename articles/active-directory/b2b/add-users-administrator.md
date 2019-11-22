@@ -1,5 +1,5 @@
 ---
-title: Adicionar usuários de colaboração B2B no Azure Active Directory de portal do Azure | Microsoft Docs
+title: Adicionar usuários de colaboração B2B no portal do Azure-Azure AD
 description: Mostra como um administrador pode adicionar usuários convidados ao diretório de uma organização parceira usando a colaboração B2B do Azure Active Directory (Azure AD).
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85905e31b9375bac7f813782cbc224a6e770b7ce
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 7176101a1e6c1da54ddd8b5f22b61b91fbc5115a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013132"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267947"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure
 

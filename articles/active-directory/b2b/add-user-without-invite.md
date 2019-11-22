@@ -1,6 +1,6 @@
 ---
-title: Adicionar convidados B2B sem uma ligação de convite ou e-mail - Azure Active Directory | Documentos da Microsoft
-description: Pode permitir que um utilizador convidado adicione outros utilizadores convidados para o Azure AD sem resgatar um convite em colaboração do Azure Active Directory B2B.
+title: Adicionar convidados B2B sem um link de convite ou email-Azure AD
+description: Você pode permitir que um usuário convidado adicione outros usuários convidados ao seu Azure AD sem resgatar um convite na colaboração Azure Active Directory B2B.
 services: active-directory
 documentationcenter: ''
 ms.service: active-directory
@@ -12,31 +12,31 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81aad3ef9a4a53532d19fdb81bc48fc50931d49c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9efbb941e589cb8e4cf56ee06a697a1557a3cc89
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056056"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74268934"
 ---
-# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Adicionar utilizadores de convidados de colaboração B2B sem uma ligação de convite ou e-mail
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Adicionar usuários convidados de colaboração B2B sem um link ou email de convite
 
-Agora pode convidar utilizadores convidados pelo envio de uma ligação direta para uma aplicação partilhada. Com esse método, os utilizadores convidados já não tem de utilizar o e-mail de convite, exceto em alguns casos especiais. Um utilizador convidado clica na ligação de aplicação, analisa e aceita os termos de privacidade e, em seguida, acede diretamente à aplicação. Para obter mais informações, consulte [resgate de convite de colaboração do B2B](redemption-experience.md).   
+Agora você pode convidar usuários convidados enviando um link direto para um aplicativo compartilhado. Com esse método, os usuários convidados não precisam mais usar o email de convite, exceto em alguns casos especiais. Um usuário convidado clica no link do aplicativo, revisa e aceita os termos de privacidade e, em seguida, acessa o aplicativo diretamente. Para obter mais informações, consulte [resgate de convite de colaboração B2B](redemption-experience.md).   
 
-Antes deste novo método estava disponível, pode convidar utilizadores convidados sem a necessidade do e-mail de convite, adicionando um autor do convite (da sua organização ou de uma organização de parceiro) para o **autor de convites** função de diretório e, em seguida, fazer com que o autor do convite adicionar utilizadores convidados para o diretório, grupos ou aplicações através da IU ou através do PowerShell. (Se utilizar o PowerShell, é possível suprimir o e-mail de convite completamente). Por exemplo:
+Antes que esse novo método estivesse disponível, você poderia convidar os usuários convidados sem exigir o email de convite adicionando um emissor (de sua organização ou de uma organização parceira) à função de diretório do **convite do convidado** e, em seguida, fazendo com que o emissor adicione usuários convidados ao diretório, grupos ou aplicativos por meio da interface do usuário ou por meio do PowerShell. (Se estiver usando o PowerShell, você poderá suprimir o email de convite completamente). Por exemplo:
 
-1. Um utilizador na organização do host (por exemplo, o WoodGrove) convida um utilizador da organização do parceiro (por exemplo, Sam@litware.com) como convidado.
-2. O administrador da organização de anfitrião [configura as políticas](delegate-invitations.md) que permitem Sam identificar e adicione outros utilizadores da organização parceira (Litware). (Sam tem de ser adicionado para o **autor de convites** função.)
-3. Agora, Sam pode adicionar outros utilizadores de Litware para o diretório de WoodGrove, grupos ou aplicações sem a necessidade de convites para ser resgatado. Se o Sam tem os privilégios apropriados enumeração Litware, isso acontece automaticamente.
+1. Um usuário na organização host (por exemplo, WoodGrove) convida um usuário da organização parceira (por exemplo, Sam@litware.com) como convidado.
+2. O administrador na organização de hosts [configura políticas](delegate-invitations.md) que permitem ao Sam identificar e adicionar outros usuários da organização parceira (Litware). (Sam deve ser adicionado à função de emissor de **convidado** .)
+3. Agora, o Sam pode adicionar outros usuários de Litware ao diretório, grupos ou aplicativos do WoodGrove sem precisar que os convites sejam resgatados. Se Sam tiver os privilégios de enumeração apropriados no Litware, isso ocorrerá automaticamente.
  
-Este método original ainda funciona. No entanto, há uma pequena diferença no comportamento. Se utilizar o PowerShell, observará que uma conta de convidado agora tem um **PendingAcceptance** Estado em vez de mostrar imediatamente **aceites**. Embora o estado seja pendente, o utilizador convidado ainda pode iniciar sessão e aceder à aplicação sem clicar num link de convite de e-mail. O estado pendente significa que o utilizador não ainda passou pela [experiência de consentimento](redemption-experience.md#consent-experience-for-the-guest), em que aceitem os termos de privacidade da organização convite. O utilizador convidado verá este ecrã de consentimento quando iniciam sessão pela primeira vez. 
+Esse método original ainda funciona. No entanto, há uma pequena diferença no comportamento. Se você usar o PowerShell, observará que uma conta convidado convidada agora tem um status de **PendingAcceptance** em vez de mostrar imediatamente o **aceito**. Embora o status esteja pendente, o usuário convidado ainda pode entrar e acessar o aplicativo sem clicar em um link de convite por email. O status pendente significa que o usuário ainda não passou pela experiência de [consentimento](redemption-experience.md#consent-experience-for-the-guest), na qual eles aceitam os termos de privacidade da organização que está convidando. O usuário convidado vê essa tela de consentimento quando entra pela primeira vez. 
 
-Se convidar um utilizador no diretório, o utilizador convidado tem de aceder ao recurso específico de inquilino do portal do Azure diretamente a URL (por exemplo, https://portal.azure.com/ *resourcetenant*. onmicrosoft.com) para ver e aceitar os termos de privacidade.
+Se você convidar um usuário para o diretório, o usuário convidado deverá acessar a URL de portal do Azure específica do locatário de recursos diretamente (como https://portal.azure.com/*resourcetenant*. onmicrosoft.com) para exibir e concordar com os termos de privacidade.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
-- [Resgate de convite de colaboração B2B](redemption-experience.md)
+- [Resgate de convite para colaboração B2B](redemption-experience.md)
 - [Delegate invitations for Azure Active Directory B2B collaboration](delegate-invitations.md) (Delegar convites para colaboração do Azure Active Directory B2B)
-- [Como é que os operadores de informações adicionar utilizadores de colaboração B2B?](add-users-information-worker.md)
+- [Como os operadores de informações adicionam usuários de colaboração B2B?](add-users-information-worker.md)
 

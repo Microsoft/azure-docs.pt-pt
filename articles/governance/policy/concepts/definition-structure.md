@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos do Azure em sua organização.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6288a7d013256c39e83ee433e867d15f67c81e57
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: afb06771422b2f8117383b0bde711dc3e1a4d238
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132831"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279463"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -604,6 +604,6 @@ O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas etiquet
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Veja [Compreender os efeitos do Policy](effects.md).
 - Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).
-- Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).
+- Saiba como [obter dados de conformidade](../how-to/get-compliance-data.md).
 - Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
 - Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

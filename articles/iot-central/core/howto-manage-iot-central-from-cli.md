@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: ddf1cfb1cb3997431b83812d03535ed990c88922
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 80f91849a35bcb94b934941a204d4503ddda376b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806876"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278861"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gerenciar IoT Central de CLI do Azure
 
@@ -48,14 +48,14 @@ az iotcentral app create \
   --display-name "My Custom Display Name"
 ```
 
-Esses comandos primeiro criam um grupo de recursos na região leste dos EUA para o aplicativo. A tabela a seguir descreve os parâmetros usados com o comando **AZ iotcentral app Create** :
+Esses comandos primeiro criam um grupo de recursos no local leste dos EUA para o aplicativo. A tabela a seguir descreve os parâmetros usados com o comando **AZ iotcentral app Create** :
 
 | Parâmetro         | Descrição |
 | ----------------- | ----------- |
 | resource-group    | O grupo de recursos que contém o aplicativo. Este grupo de recursos já deve existir em sua assinatura. |
-| localização          | Por padrão, esse comando usa o local do grupo de recursos. No momento, você pode criar um aplicativo IoT Central nas regiões **leste dos EUA**, **oeste dos EUA**, **Europa setentrional**ou **Europa Ocidental** ou na **Austrália** ou **Pacífico Asiático** geografia. |
+| localização          | Por padrão, esse comando usa o local do grupo de recursos. No momento, você pode criar um aplicativo IoT Central no **Estados Unidos**, na **austrália**, no **Pacífico Asiático**ou nos locais da **Europa** . |
 | nome              | O nome do aplicativo no portal do Azure. |
-| Subdomínio         | O subdomínio na URL do aplicativo. No exemplo, a URL do aplicativo é https://mysubdomain.azureiotcentral.com. |
+| subdomínio         | O subdomínio na URL do aplicativo. No exemplo, a URL do aplicativo é https://mysubdomain.azureiotcentral.com. |
 | SKU               | Atualmente, o único valor é **S1** (camada Standard). Consulte [preços de IOT central do Azure](https://azure.microsoft.com/pricing/details/iot-central/). |
 | modelo          | O modelo de aplicativo a ser usado. Para obter mais informações, consulte a tabela a seguir: |
 | nome de exibição      | O nome do aplicativo, conforme exibido na interface do usuário. |
@@ -69,7 +69,7 @@ Esses comandos primeiro criam um grupo de recursos na região leste dos EUA para
 | iotc-devkit-sample@1.0.0 | Cria uma aplicação com modelos de dispositivo prontos para se poder ligar a dispositivos MXChip ou Raspberry Pi. Use este modelo se você for um desenvolvedor de dispositivo experimentando qualquer um desses dispositivos. |
 
 > [!NOTE]
-> No momento, o modelo de **aplicativo de visualização** só está disponível nas regiões **Europa setentrional** e **EUA Central** .
+> Atualmente, o modelo de **aplicativo de visualização** só está disponível nos locais da **Europa** e **dos EUA** .
 
 ## <a name="view-your-applications"></a>Ver as suas aplicações
 

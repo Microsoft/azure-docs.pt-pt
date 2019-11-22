@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 7b46b1108246f0b83fcfce69844d19d01b1994c4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e36cc044e6a4160d16f15b93d8a88d946f476c89
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665651"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287105"
 ---
 # <a name="what-are-wrangling-data-flows"></a>O que são fluxos de dados Wrangling?
 
@@ -37,6 +37,30 @@ Os integradores de dados do cidadão gastam mais de 60% do tempo procurando e pr
 ### <a name="data-validation"></a>Validação de dados
 
 Examine visualmente seus dados de forma livre de código para remover exceções, anomalias e ti de acordo com uma forma para análise rápida.
+
+## <a name="supported-sources"></a>Fontes com suporte
+
+| Conector | Formato de dados | Tipo de autenticação |
+| -- | -- | --|
+| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | CSV | Chave da Conta |
+| [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md) | CSV | Principal de Serviço |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV | Chave de conta, entidade de serviço |
+| [Base de Dados SQL do Azure](connector-azure-sql-database.md) | - | Autenticação do SQL |
+| [Análise de Synapse do Azure](connector-azure-sql-data-warehouse.md) | - | Autenticação do SQL |
+
+## <a name="the-mashup-editor"></a>O editor de mashup
+
+Quando você cria um fluxo de dados do Wrangling, todos os DataSets de origem tornam-se consultas de conjunto e são colocados na pasta **ADFResource** Por padrão, o userquery apontará para a primeira consulta de DataSet. Todas as transformações devem ser feitas no userquery, pois as alterações nas consultas de conjunto de consulta não são suportadas, nem serão persistidas. No momento, não há suporte para a renomeação, adição e exclusão de consultas.
+
+![Wrangling](media/wrangling-data-flow/editor.png)
+
+Atualmente, não há suporte para todas as funções Power Query M para Wrangling de dados, apesar de estarem disponíveis durante a criação. Ao criar os fluxos de dados do Wrangling, a seguinte mensagem de erro será exibida se não houver suporte para uma função:
+
+`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+
+Para obter mais informações sobre as transformações com suporte, consulte [funções de fluxo de dados do Wrangling](wrangling-data-flow-functions.md).
+
+Atualmente, o fluxo de dados Wrangling só dá suporte à gravação em um coletor.
 
 ## <a name="next-steps"></a>Passos seguintes
 

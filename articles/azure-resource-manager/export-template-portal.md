@@ -2,13 +2,13 @@
 title: Exportar modelo no portal do Azure
 description: Use portal do Azure para exportar um modelo de Azure Resource Manager de recursos em sua assinatura.
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 6e05a8bff27e56bc5942a7c16ab63921c489f44c
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 11/21/2019
+ms.openlocfilehash: 9e6a4089758809cbebc6a3c0cd586cb418ca42bf
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149862"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306784"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportação única e de vários recursos para um modelo no portal do Azure
 
@@ -33,7 +33,7 @@ Dependendo da opção escolhida, os modelos exportados têm qualidades diferente
 | O modelo é um instantâneo do estado atual dos recursos. Ele inclui quaisquer alterações manuais feitas após a implantação. | O modelo mostra apenas o estado dos recursos no momento da implantação. As alterações manuais feitas após a implantação não são incluídas. |
 | Você pode selecionar quais recursos de um grupo de recursos para exportar. | Todos os recursos para uma implantação específica estão incluídos. Você não pode escolher um subconjunto desses recursos ou adicionar recursos que foram adicionados em um momento diferente. |
 | O modelo inclui todas as propriedades para os recursos, incluindo algumas propriedades que normalmente não seriam definidas durante a implantação. Talvez você queira remover ou limpar essas propriedades antes de reutilizar o modelo. | O modelo inclui apenas as propriedades necessárias para a implantação. O modelo está pronto para uso. |
-| O modelo provavelmente não inclui todos os parâmetros necessários para reutilização. A maioria dos valores de propriedade são embutidos em código no modelo. Para reimplantar o modelo em outros ambientes, você precisa adicionar parâmetros que aumentam a capacidade de configurar os recursos. | O modelo inclui parâmetros que facilitam a reimplantação em ambientes diferentes. |
+| O modelo provavelmente não inclui todos os parâmetros necessários para reutilização. A maioria dos valores de propriedade são embutidos em código no modelo. Para reimplantar o modelo em outros ambientes, você precisa adicionar parâmetros que aumentam a capacidade de configurar os recursos.  Você também tem a opção de cancelar a seleção de **incluir parâmetros** para poder criar seus próprios parâmetros. | O modelo inclui parâmetros que facilitam a reimplantação em ambientes diferentes. |
 
 Exporte o modelo de um grupo de recursos ou recurso, quando:
 
@@ -62,6 +62,8 @@ Para exportar um ou mais recursos de um grupo de recursos:
 
    ![Mostrar modelo](./media/export-template-portal/show-template.png)
 
+   **Incluir parâmetros** é selecionado por padrão.  Quando selecionado, todos os parâmetros de modelo serão incluídos quando o modelo for gerado. Se você quiser criar seus próprios parâmetros, ative esta caixa de seleção para não incluí-los.
+
 ## <a name="export-template-from-a-resource"></a>Exportar modelo de um recurso
 
 Para exportar um recurso:
@@ -74,7 +76,7 @@ Para exportar um recurso:
 
    ![Exportar recurso](./media/export-template-portal/export-single-resource.png)
 
-1. O modelo exportado é exibido e está disponível para download e implantação. O modelo contém apenas o recurso único.
+1. O modelo exportado é exibido e está disponível para download e implantação. O modelo contém apenas o recurso único. **Incluir parâmetros** é selecionado por padrão.  Quando selecionado, todos os parâmetros de modelo serão incluídos quando o modelo for gerado. Se você quiser criar seus próprios parâmetros, ative esta caixa de seleção para não incluí-los.
 
 ## <a name="export-template-before-deployment"></a>Exportar modelo antes da implantação
 

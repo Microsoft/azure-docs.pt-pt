@@ -1,6 +1,6 @@
 ---
-title: Conhecidos de problemas e resoluções com SCIM 2.0 compatibilidade de protocolo do serviço aprovisionamento de utilizador do Azure AD | Documentos da Microsoft
-description: Como pode resolver problemas de compatibilidade de protocolo comuns enfrentados ao adicionar uma aplicação de externas à galeria que suporta SCIM 2.0 para o Azure AD
+title: Problemas conhecidos com a conformidade do protocolo SCIM 2,0-Azure AD
+description: Como resolver problemas comuns de compatibilidade de protocolo enfrentados ao adicionar um aplicativo inexistente na galeria que dá suporte a SCIM 2,0 ao Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,102 +16,102 @@ ms.date: 12/03/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a0e595d2120d3cdccd42c502a83de9d5ed3ff4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eee480d4a52f77e054bf8f0780707444b6db28b0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963186"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275805"
 ---
-# <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conhecidos e resoluções com SCIM 2.0 compatibilidade de protocolo do serviço aprovisionamento de utilizador do Azure AD
+# <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conhecidos e resoluções com a conformidade do protocolo SCIM 2,0 do serviço de provisionamento de usuários do Azure AD
 
-Azure Active Directory (Azure AD), pode aprovisionar automaticamente os utilizadores e grupos para qualquer aplicativo ou sistema que é apoiado por um serviço da web com a interface definidos na [sistema para o protocolo de gestão de identidade entre domínios (SCIM) 2.0 especificação](https://tools.ietf.org/html/draft-ietf-scim-api-19). 
+O Azure Active Directory (AD do Azure) pode provisionar automaticamente usuários e grupos para qualquer aplicativo ou sistema que seja administrado por um serviço Web com a interface definida no [sistema para especificação de protocolo scim (gerenciamento de identidade entre domínios) 2,0](https://tools.ietf.org/html/draft-ietf-scim-api-19). 
 
-Suporte do Azure AD para o protocolo de SCIM 2.0 é descrito em [usando o sistema de gestão de identidade de entre domínios (SCIM) para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory a aplicações](use-scim-to-provision-users-and-groups.md), que apresenta uma lista a obter partes específicas do protocolo que implementa para aprovisionar automaticamente os utilizadores e grupos do Azure AD para aplicações que suportam SCIM 2.0.
+O suporte do Azure AD para o protocolo SCIM 2,0 é descrito em [usando o sistema para scim (gerenciamento de identidade entre domínios) para provisionar automaticamente usuários e grupos de Azure Active Directory para aplicativos](use-scim-to-provision-users-and-groups.md), que lista as partes específicas do protocolo que ele implementa para provisionar automaticamente usuários e grupos do Azure ad para aplicativos que dão suporte a scim 2,0.
 
-Este artigo descreve problemas atuais e anteriores, com o utilizador do Azure AD a aderência do serviço para o protocolo SCIM 2.0 e como solucionar esses problemas de aprovisionamento.
+Este artigo descreve os problemas atuais e antigos com a adesão do serviço de provisionamento de usuários do Azure AD ao protocolo SCIM 2,0 e como contornar esses problemas.
 
 > [!IMPORTANT]
-> A atualização mais recente para o cliente SCIM aprovisionamento do serviço do Azure AD utilizador foi efetuada a 18 de Dezembro de 2018. Esta atualização, resolvido os problemas de compatibilidade conhecidos listados na tabela abaixo. Consulte as perguntas mais frequentes sobre abaixo para obter mais informações sobre esta atualização.
+> A atualização mais recente do cliente SCIM do serviço de provisionamento de usuários do Azure AD foi feita em 18 de dezembro de 2018. Essa atualização resolveu os problemas de compatibilidade conhecidos listados na tabela a seguir. Consulte as perguntas frequentes abaixo para obter mais informações sobre esta atualização.
 
-## <a name="scim-20-compliance-issues-and-status"></a>Problemas de conformidade de SCIM 2.0 e o Estado
+## <a name="scim-20-compliance-issues-and-status"></a>Problemas de conformidade e status do SCIM 2,0
 
-| **Problema de conformidade de SCIM 2.0** |  **Corrigido?** | **Corrigir a data**  |  
+| **Problema de conformidade do SCIM 2,0** |  **Fixado?** | **Corrigir data**  |  
 |---|---|---|
-| Azure AD requer "/ scim" para ser na raiz do aplicativo do URL de ponto final SCIM  | Sim  |  18 de Dezembro de 2018 | 
-| Atributos de extensão utilizam ponto "."notação antes dos nomes de atributo em vez de dois pontos":" notação |  Sim  | 18 de Dezembro de 2018  | 
-|  Os pedidos de patch para atributos de valores múltiplos contêm sintaxe de filtro de caminho inválido | Sim  |  18 de Dezembro de 2018  | 
-|  Pedidos de criação do grupo contenham um URI de esquema inválido | Sim  |  18 de Dezembro de 2018  |  
+| O Azure AD exige que "/SCIM" esteja na raiz da URL do ponto de extremidade SCIM do aplicativo  | Sim  |  18 de dezembro de 2018 | 
+| Atributos de extensão usam notação de ponto "." antes dos nomes de atributo em vez de dois-pontos ":". notação |  Sim  | 18 de dezembro de 2018  | 
+|  Solicitações de patch para atributos de vários valores contêm sintaxe de filtro de caminho inválida | Sim  |  18 de dezembro de 2018  | 
+|  As solicitações de criação de grupo contêm um URI de esquema inválido | Sim  |  18 de dezembro de 2018  |  
 
-## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>Foram as correções de serviços descritas aplicadas automaticamente ao meu aplicativo SCIM já existente?
+## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>As correções de serviços foram descritas automaticamente aplicadas ao meu aplicativo SCIM já existente?
 
-Não. Como ele seria ter constituíram uma alteração de última hora para aplicações SCIM que tivesse sido codificado para trabalhar com o comportamento mais antigo, as alterações não foram aplicadas automaticamente para aplicações existentes.
+Não. Como teria sido constituído por uma alteração significativa nos aplicativos SCIM que eram codificados para funcionar com o comportamento mais antigo, as alterações não foram aplicadas automaticamente a aplicativos existentes.
 
-As alterações são aplicadas a todos os novos [externas à Galeria SCIM aplicações](configure-single-sign-on-non-gallery-applications.md) configurado no portal do Azure, após a data da correção.
+As alterações são aplicadas a todos os novos [aplicativos de SCIM não Galeria](configure-single-sign-on-non-gallery-applications.md) configurados no portal do Azure, após a data da correção.
 
-Para obter informações sobre como migrar de um utilizador já existente aprovisionar a tarefa para incluir as correções mais recentes, consulte a secção seguinte.
+Para obter informações sobre como migrar um trabalho de provisionamento de usuário pré-existente para incluir as correções mais recentes, consulte a próxima seção.
 
-## <a name="can-i-migrate-an-existing-scim-based-user-provisioning-job-to-include-the-latest-service-fixes"></a>Posso migrar um existente com base em SCIM utilizador aprovisionar a tarefa para incluir as correções mais recentes do serviço?
+## <a name="can-i-migrate-an-existing-scim-based-user-provisioning-job-to-include-the-latest-service-fixes"></a>Posso migrar um trabalho de provisionamento de usuário existente baseado em SCIM para incluir as correções de serviço mais recentes?
 
-Sim. Se já estiver a utilizar esta instância da aplicação para início de sessão único e precisa de migrar a tarefa de aprovisionamento existente para incluir as correções mais recentes, siga o procedimento abaixo. Este procedimento descreve como utilizar o Microsoft Graph API e o Explorador do Microsoft Graph API para remover o seu trabalho de aprovisionamento antigo da sua aplicação SCIM existente e criar um novo que exibe o novo comportamento.
+Sim. Se você já estiver usando essa instância de aplicativo para logon único e precisar migrar o trabalho de provisionamento existente para incluir as correções mais recentes, siga o procedimento abaixo. Este procedimento descreve como usar a API do Microsoft Graph e o Gerenciador de API do Microsoft Graph para remover seu trabalho de provisionamento antigo de seu aplicativo SCIM existente e criar um novo que exiba o novo comportamento.
 
 > [!NOTE]
-> Se seu aplicativo ainda está em desenvolvimento e ainda não foi implementado para o início de sessão único ou o aprovisionamento de utilizadores, a solução mais simples consiste em eliminar a entrada de aplicativo no **do Azure Active Directory > aplicações empresariais**seção do portal do Azure e simplesmente adicionar uma nova entrada para a aplicação utilizando o **Criar aplicação > Galeria não** opção. Esta é uma alternativa ao executar o procedimento abaixo.
+> Se seu aplicativo ainda estiver em desenvolvimento e ainda não tiver sido implantado para logon único ou provisionamento de usuário, a solução mais fácil será excluir a entrada do aplicativo na seção **Azure Active Directory > aplicativos empresariais** do portal do Azure e simplesmente adicionar uma nova entrada para o aplicativo usando a opção **criar aplicativo > não Galeria** . Essa é uma alternativa à execução do procedimento abaixo.
  
-1. Inicie sessão no portal do Azure em https://portal.azure.com.
-2. Na **do Azure Active Directory > aplicações empresariais** seção do portal do Azure, localize e selecione a sua aplicação SCIM existente.
-3. No **propriedades** secção da sua aplicação SCIM existente, copie a **ID de objeto**.
-4. Na nova janela do browser web, aceda a https://developer.microsoft.com/graph/graph-explorer e inicie sessão como administrador de inquilino do Azure AD em que a sua aplicação é adicionada.
-5. No Explorador do gráfico, execute o comando abaixo para localizar o ID da tarefa de aprovisionamento. Substitua o ID de principal (ID de objeto) copiado da terceira etapa de serviço "[object-id]".
+1. Entre no portal do Azure em https://portal.azure.com.
+2. Na seção **Azure Active Directory > aplicativos empresariais** do portal do Azure, localize e selecione o aplicativo scim existente.
+3. Na seção **Propriedades** do aplicativo scim existente, copie a ID de **objeto**.
+4. Em uma nova janela do navegador da Web, acesse https://developer.microsoft.com/graph/graph-explorer e entre como o administrador do locatário do Azure AD em que seu aplicativo é adicionado.
+5. No Gerenciador de gráficos, execute o comando a seguir para localizar a ID do seu trabalho de provisionamento. Substitua "[ID-do-objeto]" pela ID da entidade de serviço (ID de objeto) copiada da terceira etapa.
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
-   ![Obter tarefas](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "obter tarefas") 
+   ![Obter trabalhos](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Obter trabalhos") 
 
 
-6. Nos resultados, copie a cadeia de caracteres completa "ID" que começa com "customappsso" ou "scim".
-7. Execute o comando abaixo para obter a configuração de mapeamento do atributo, por isso, pode fazer uma cópia de segurança. Utilize o mesmo [-id de objeto] como antes e substitua [id da tarefa] com o ID de tarefa de aprovisionamento copiado do último passo.
+6. Nos resultados, copie a cadeia de caracteres "ID" completa que começa com "customappsso" ou "SCIM".
+7. Execute o comando a seguir para recuperar a configuração de mapeamento de atributo, para que você possa fazer um backup. Use o mesmo [Object-ID] como antes e substitua [job-id] pela ID do trabalho de provisionamento copiada da última etapa.
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
-   ![Obter esquema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "obter esquema") 
+   ![Obter esquema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Obter esquema") 
 
-8. Copie a saída JSON do último passo e guarde-o para um arquivo de texto. Contém qualquer personalizados-mapeamentos de atributos adicionados ao seu aplicativo antigo e deve ser aproximadamente alguns milhares de linhas de JSON.
-9. Execute o comando abaixo para eliminar a tarefa de aprovisionamento:
+8. Copie a saída JSON da última etapa e salve-a em um arquivo de texto. Ele contém qualquer mapeamento de atributo personalizado que você adicionou ao seu aplicativo antigo e deve ter aproximadamente algumas milhares de linhas de JSON.
+9. Execute o comando a seguir para excluir o trabalho de provisionamento:
  
    `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
 
-10. Execute o comando abaixo para criar uma nova tarefa de aprovisionamento que tem as correções mais recentes do serviço.
+10. Execute o comando a seguir para criar um novo trabalho de provisionamento que tenha as correções de serviço mais recentes.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
  `{   templateId: "scim"   }`
    
-11. Nos resultados da última etapa, copie a cadeia de caracteres completa "ID" que começa com "scim". Opcionalmente, volte a aplicar seus mapeamentos de atributos antigos ao executar o comando abaixo, substituindo [novo--id da tarefa] com o novo ID de tarefa que acabou de ser copiada e introduzir que o JSON de saída do passo 7 de # como o corpo do pedido.
+11. Nos resultados da última etapa, copie a cadeia de caracteres "ID" completa que começa com "SCIM". Opcionalmente, aplique novamente os mapeamentos de atributo antigos executando o comando a seguir, substituindo [New-Job-ID] pela nova ID do trabalho que você acabou de copiar e inserindo a saída JSON da etapa #7 como o corpo da solicitação.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
  `{   <your-schema-json-here>   }`
 
-12. Devolver a primeira janela do browser e selecione o **aprovisionamento** separador para a sua aplicação.
-13. Verificar a configuração e, em seguida, iniciar a tarefa de aprovisionamento. 
+12. Volte para a primeira janela do navegador da Web e selecione a guia **provisionamento** para seu aplicativo.
+13. Verifique sua configuração e inicie o trabalho de provisionamento. 
 
-## <a name="can-i-add-a-new-non-gallery-app-that-has-the-old-user-provisioning-behavior"></a>Pode adicionar uma nova aplicação de externas à galeria que tem o comportamento de aprovisionamento de utilizador antigo?
+## <a name="can-i-add-a-new-non-gallery-app-that-has-the-old-user-provisioning-behavior"></a>Posso adicionar um novo aplicativo que não seja da galeria que tem o comportamento de provisionamento do usuário antigo?
 
-Sim. Se tivesse codificou uma aplicação ao comportamento antigo que existia antes das correções e tem de implementar uma nova instância do mesmo, siga o procedimento abaixo. Este procedimento descreve como utilizar o Microsoft Graph API e o Explorador do Microsoft Graph API para criar uma tarefa de aprovisionamento SCIM que exiba o comportamento antigo.
+Sim. Se você tiver codificado um aplicativo para o comportamento antigo que existia antes das correções e precisar implantar uma nova instância dele, siga o procedimento abaixo. Este procedimento descreve como usar a API do Microsoft Graph e o Gerenciador de API do Microsoft Graph para criar um trabalho de provisionamento do SCIM que exibe o comportamento antigo.
  
-1. Inicie sessão no portal do Azure em https://portal.azure.com.
-2. na **do Azure Active Directory > aplicações empresariais > Criar aplicação** secção do portal do Azure, crie uma nova **Galeria não** aplicação.
-3. No **propriedades** secção da sua nova aplicação personalizada, copie a **ID de objeto**.
-4. Na nova janela do browser web, aceda a https://developer.microsoft.com/graph/graph-explorer e inicie sessão como administrador de inquilino do Azure AD em que a sua aplicação é adicionada.
-5. No Explorador do gráfico, execute o comando abaixo para inicializar a configuração de aprovisionamento para a sua aplicação.
-   Substitua o ID de principal (ID de objeto) copiado da terceira etapa de serviço "[object-id]".
+1. Entre no portal do Azure em https://portal.azure.com.
+2. na seção **Azure Active Directory > aplicativos empresariais > criar aplicativo** do portal do Azure, crie um novo aplicativo **que não seja da Galeria** .
+3. Na seção **Propriedades** do seu novo aplicativo personalizado, copie a **ID do objeto**.
+4. Em uma nova janela do navegador da Web, acesse https://developer.microsoft.com/graph/graph-explorer e entre como o administrador do locatário do Azure AD em que seu aplicativo é adicionado.
+5. No Gerenciador de gráficos, execute o comando a seguir para inicializar a configuração de provisionamento para seu aplicativo.
+   Substitua "[ID-do-objeto]" pela ID da entidade de serviço (ID de objeto) copiada da terceira etapa.
 
    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
    `{   templateId: "customappsso"   }`
  
-6. Devolver a primeira janela do browser e selecione o **aprovisionamento** separador para a sua aplicação.
-7. Conclua o configuração de provisionamento, tal como faria normalmente de usuários.
+6. Volte para a primeira janela do navegador da Web e selecione a guia **provisionamento** para seu aplicativo.
+7. Conclua a configuração de provisionamento do usuário normalmente.
 
 
-## <a name="next-steps"></a>Passos Seguintes
-[Saiba mais sobre o aprovisionamento e cancelamento de aprovisionamento a aplicações SaaS](user-provisioning.md)
+## <a name="next-steps"></a>Passos seguintes
+[Saiba mais sobre o provisionamento e desprovisionamento para aplicativos SaaS](user-provisioning.md)
 

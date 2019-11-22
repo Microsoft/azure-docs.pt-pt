@@ -1,5 +1,5 @@
 ---
-title: Criar seu primeiro experimento de classificação de ML automatizado
+title: Criar seu primeiro experimento de ML automatizado
 titleSuffix: Azure Machine Learning
 description: Saiba como treinar e implantar um modelo de classificação com o Machine Learning automatizado no Azure Machine Learning Studio.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: ecad41097786a40f7c605a686f085136856c950a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 04035e23c0c650fb6cbf4fdca3b78ce5e814c9d3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581569"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270730"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: criar seu primeiro modelo de classificação com o Machine Learning automatizado
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -27,10 +27,10 @@ Com o Machine Learning automatizado, você pode automatizar tarefas demoradas. O
 Neste tutorial, você aprenderá a executar as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Crie um espaço de trabalho Azure Machine Learning.
+> * Crie uma área de trabalho do Azure Machine Learning.
 > * Execute um experimento de aprendizado de máquina automatizado.
 > * Exibir detalhes do experimento.
-> * Implante o modelo.
+> * Implemente o modelo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -87,7 +87,7 @@ Você conclui as seguintes etapas de configuração e execução do experimento 
         ---|---|---
         Formato de arquivo|Define o layout e o tipo de dados armazenados em um arquivo.| Delimitados
         Delimitador|Um ou mais caracteres para especificar o limite entre&nbsp; regiões separadas e independentes em texto sem formatação ou outros fluxos de dados. |Pontos
-        Encoding|Identifica o bit para a tabela de esquema de caractere a ser usada para ler seu conjunto de seus.| UTF-8
+        Codificação|Identifica o bit para a tabela de esquema de caractere a ser usada para ler seu conjunto de seus.| UTF-8
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de uma, se houver, serão tratados.| Todos os arquivos têm os mesmos cabeçalhos
         Ignorar linhas | Indica quantas linhas, se houver, são ignoradas no conjunto de registros.| Nenhum
 

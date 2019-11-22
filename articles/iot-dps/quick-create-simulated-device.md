@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 3df1bd879c10411800596ce7157be4554fcffaf6
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 71a0be68f91c468813c1ed2fc8764d9714deb54a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903499"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276198"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Início Rápido: Aprovisionar um dispositivo TPM simulado com o SDK C do Azure IoT
 
@@ -115,24 +115,25 @@ Nesta secção, vai compilar e executar um exemplo que irá ler a chave de endos
 
 3. Na janela *Solution Explorer* (Explorador de Soluções) do Visual Studio, navegue para a pasta **Provision\_Tools**. Clique com o botão direito do rato no projeto **tpm_device_provision** e selecione **Configurar como Projeto de Arranque**. 
 
-4. No menu do Visual Studio, selecione **Debug** (Depurar)  > **Start without debugging** (Iniciar sem depuração) para executar a solução. A aplicação lê e apresenta um **_ID de Registo_** e uma **_Chave de Endossamento_** . Copie estes valores. Serão utilizados na secção seguinte na inscrição de dispositivos. 
+4. No menu do Visual Studio, selecione **Debug** (Depurar)  > **Start without debugging** (Iniciar sem depuração) para executar a solução. O aplicativo lê e exibe uma **_ID de registro_** e uma **_chave de endosso_** . Observe ou copie esses valores. Serão utilizados na secção seguinte na inscrição de dispositivos. 
 
 
 <a id="portalenrollment"></a>
 
 ## <a name="create-a-device-enrollment-entry-in-the-portal"></a>Criar uma entrada de inscrição de dispositivos no portal
 
-1. Inicie sessão no portal do Azure, clique no botão **Todos os recursos**, no menu do lado esquerdo, e abra o Serviço Aprovisionamento de Dispositivos.
+1. Entre no portal do Azure, selecione o botão **todos os recursos** no menu esquerdo e abra o serviço de provisionamento de dispositivos.
 
-2. Selecione o separador **Gerir inscrições** e, em seguida, clique no botão **Adicionar inscrição individual** na parte superior. 
+1. Selecione a guia **gerenciar** registros e, em seguida, selecione o botão **adicionar registro individual** na parte superior. 
 
-3. Em **Adicionar inscrição**, introduza as seguintes informações e clique no botão **Guardar**.
-
-    - **Mecanismo:** selecione **TPM** como *Mecanismo* de atestado de identidades.
-    - **Chave de endossamento:** introduza a *Chave de endossamento* gerada para o dispositivo TPM ao executar o projeto *tpm_device_provision*.
-    - **ID de registo:** introduza o *ID de registo* gerado para o dispositivo TPM ao executar o projeto *tpm_device_provision*.
-    - **Dispositivo IoT Edge:** selecione **Desativar**.
-    - **ID do Dispositivo do Hub IoT:** introduza **test-docs-device** para atribuir um ID ao dispositivo.
+1. No painel **adicionar registro** , insira as seguintes informações:
+   - Selecione **TPM** como o *Mecanismo* de atestado de identidades.
+   - Insira a *ID de registro* e a *chave de endosso* do seu dispositivo TPM a partir dos valores que você anotou anteriormente.
+   - Selecione um hub IoT ligado ao seu serviço de aprovisionamento.
+   - Opcionalmente, pode fornecer as seguintes informações:
+       - Insira uma *ID de dispositivo* exclusiva (você pode usar os documentos de teste sugeridos **-dispositivo** ou fornecer seu próprio). Certifique-se de que evita dados confidenciais quando der o nome ao seu dispositivo. Se você optar por não fornecer um, a ID de registro será usada para identificar o dispositivo.
+       - Atualize o **estado inicial do dispositivo duplo** com a configuração inicial pretendida para o dispositivo.
+   - Depois de concluído, pressione o botão **salvar** . 
 
       ![Introduza as informações de inscrição de dispositivos no portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
@@ -182,7 +183,7 @@ Nesta secção, vai configurar o código de exemplo para utilizar o [Advanced Me
 
 6. Clique com o botão direito do rato no projeto **prov\_dev\_client\_sample** e selecione **Definir como Projeto de Arranque**. 
 
-7. No menu do Visual Studio, selecione **Debug** (Depurar)  > **Start without debugging** (Iniciar sem depuração) para executar a solução. Na linha de comandos para recriar o projeto, clique em **Yes** (Sim) para recriar o projeto antes da execução.
+7. No menu do Visual Studio, selecione **Debug** (Depurar)  > **Start without debugging** (Iniciar sem depuração) para executar a solução. No prompt para recriar o projeto, selecione **Sim**para recompilar o projeto antes de executá-lo.
 
     A saída seguinte é um exemplo do cliente do dispositivo de aprovisionamento a arrancar e a ligar com êxito a uma instância do Serviço de Aprovisionamento de Dispositivos para obter informações e registar o hub IoT:
 
@@ -200,23 +201,23 @@ Nesta secção, vai configurar o código de exemplo para utilizar o [Advanced Me
     test-docs-hub.azure-devices.net, deviceId: test-docs-device
     ```
 
-8. Após o aprovisionamento do dispositivo simulado no hub IoT pelo seu serviço de aprovisionamento, o ID aparece no painel **Dispositivos IoT** do hub. 
+8. Depois que o dispositivo simulado for provisionado para o Hub IoT pelo serviço de provisionamento, a ID do dispositivo será exibida com os **dispositivos IOT**do Hub. 
 
     ![O dispositivo é registado no hub IoT](./media/quick-create-simulated-device/hub-registration.png) 
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se quiser continuar a trabalhar e a explorar o exemplo de cliente do dispositivo, não limpe os recursos criados neste Guia Rápido. Se não planear continuar, utilize os passos seguintes para eliminar todos os recursos criados no Guia Rápido.
+Se você planeja continuar trabalhando e explorando o exemplo de cliente do dispositivo, não limpe os recursos criados neste guia de início rápido. Se você não planeja continuar, use as etapas a seguir para excluir todos os recursos criados por este guia de início rápido.
 
 1. Feche a janela da saída do exemplo de dispositivo cliente no seu computador.
 2. Feche a janela do simulador TPM no seu computador.
-3. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Abra **gerenciar registros** para seu serviço e, em seguida, clique na guia registros **individuais** . Selecione a ID de *registro* do dispositivo que você registrou neste início rápido e clique no botão **excluir** na parte superior. 
-4. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Abra **Dispositivos IoT** para o seu hub, selecione o *ID DE DISPOSITIVO* do dispositivo que registou neste Início Rápido e, em seguida, clique no botão **Eliminar** na parte superior.
+3. No menu à esquerda na portal do Azure, selecione **todos os recursos** e, em seguida, selecione o serviço de provisionamento de dispositivos. Abra **gerenciar registros** para seu serviço e, em seguida, selecione a guia registros **individuais** . Marque a caixa de seleção ao lado da *ID de registro* do dispositivo registrado neste guia de início rápido e pressione o botão **excluir** na parte superior do painel. 
+4. No menu à esquerda na portal do Azure, selecione **todos os recursos** e, em seguida, selecione o Hub IOT. Abra **dispositivos IOT** para seu hub, marque a caixa de seleção ao lado da *ID do dispositivo* do dispositivo registrado neste guia de início rápido e, em seguida, pressione o botão **excluir** na parte superior do painel.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, criou um dispositivo simulado TPM no seu computador e aprovisionou-o no seu hub IoT com o Serviço Aprovisionamento de Dispositivos no Hub IoT. Para saber como inscrever o seu dispositivo TPM programaticamente, continue para o Manual de Início Rápido para inscrição programática de um dispositivo TPM. 
+Neste guia de início rápido, você criou um dispositivo simulado do TPM em seu computador e o provisionou no Hub IoT usando o serviço de provisionamento de dispositivos do Hub IoT. Para saber como registrar seu dispositivo TPM programaticamente, continue no início rápido para o registro programático de um dispositivo TPM. 
 
 > [!div class="nextstepaction"]
-> [Manual de Início Rápido do Azure - Inscrever o dispositivo TPM no Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure](quick-enroll-device-tpm-java.md)
+> [Guia de início rápido do Azure-registrar dispositivo TPM no serviço de provisionamento de dispositivos no Hub IoT do Azure](quick-enroll-device-tpm-java.md)

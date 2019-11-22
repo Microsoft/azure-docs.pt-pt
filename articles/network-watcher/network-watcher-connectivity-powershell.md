@@ -1,5 +1,6 @@
 ---
-title: Solucionar problemas de conexões com o observador de rede do Azure-PowerShell | Microsoft Docs
+title: Solucionar problemas de conexões-Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: Saiba como usar o recurso de solução de problemas de conexão do observador de rede do Azure usando o PowerShell.
 services: network-watcher
 documentationcenter: na
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: kumud
-ms.openlocfilehash: 82bd92de8b2cbb0da4d6d37911a6a3f71186b592
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 824799254b2706c64a17921034dbde3e4f60e132
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802049"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275987"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Solucionar problemas de conexões com o observador de rede do Azure usando o PowerShell
 
@@ -64,7 +65,7 @@ Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1
 
 ### <a name="response"></a>Resposta
 
-A resposta a seguir é do exemplo anterior.  Nessa resposta, o `ConnectionStatus` está **inacessível**. Você pode ver que todas as investigações enviadas falharam. A conectividade falhou na solução de virtualização devido a um @no__t configurado pelo usuário com o nome **UserRule_Port80**, configurado para bloquear o tráfego de entrada na porta 80. Essas informações podem ser usadas para pesquisar problemas de conexão.
+A resposta a seguir é do exemplo anterior.  Nessa resposta, o `ConnectionStatus` está **inacessível**. Você pode ver que todas as investigações enviadas falharam. A conectividade falhou na solução de virtualização devido a uma `NetworkSecurityRule` configurada pelo usuário chamada **UserRule_Port80**, configurada para bloquear o tráfego de entrada na porta 80. Essas informações podem ser usadas para pesquisar problemas de conexão.
 
 ```
 ConnectionStatus : Unreachable
@@ -155,7 +156,7 @@ Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1
 
 ### <a name="response"></a>Resposta
 
-No exemplo a seguir, o `ConnectionStatus` é mostrado como **inacessível**. Nos detalhes do `Hops`, você pode ver em `Issues` que o tráfego foi bloqueado devido a um `UserDefinedRoute`. 
+No exemplo a seguir, a `ConnectionStatus` é mostrada como **inacessível**. Na `Hops` detalhes, você pode ver em `Issues` que o tráfego foi bloqueado devido a um `UserDefinedRoute`. 
 
 ```
 ConnectionStatus : Unreachable
@@ -219,7 +220,7 @@ Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1
 
 ### <a name="response"></a>Resposta
 
-Na resposta a seguir, você pode ver que o `ConnectionStatus` é exibido como **acessível**. Quando uma conexão é bem-sucedida, os valores de latência são fornecidos.
+Na resposta a seguir, você pode ver a `ConnectionStatus` mostra como **acessível**. Quando uma conexão é bem-sucedida, os valores de latência são fornecidos.
 
 ```
 ConnectionStatus : Reachable
@@ -271,7 +272,7 @@ Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1
 
 ### <a name="response"></a>Resposta
 
-O JSON a seguir é a resposta de exemplo da execução do cmdlet anterior. Como o destino é acessível, a propriedade `ConnectionStatus` é mostrada como **acessível**.  Você receberá os detalhes sobre o número de saltos necessários para alcançar o blob de armazenamento e a latência.
+O JSON a seguir é a resposta de exemplo da execução do cmdlet anterior. Como o destino é acessível, a propriedade `ConnectionStatus` mostra como **acessível**.  Você receberá os detalhes sobre o número de saltos necessários para alcançar o blob de armazenamento e a latência.
 
 ```json
 ConnectionStatus : Reachable

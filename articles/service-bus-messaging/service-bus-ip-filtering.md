@@ -11,28 +11,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 45415af479c9581ee04b97af4fb5297d09c5769d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 02d6e150e638321e11a8dec9838e360faa00783e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496340"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280947"
 ---
 # <a name="use-firewall-rules"></a>Usar regras de firewall
 
-Para cenários nos quais o barramento de serviço do Azure só é acessível de determinados sites conhecidos, as regras de firewall permitem que você configure regras para aceitar o tráfego originado de endereços IPv4 específicos. Por exemplo, esses endereços podem ser aqueles de um gateway de NAT corporativo.
+Para cenários nos quais o barramento de serviço do Azure só é acessível de determinados sites conhecidos, as regras de firewall permitem que você configure regras para aceitar o tráfego originado de endereços IPv4 específicos. Por exemplo, estes endereços podem ser de um gateway empresarial do NAT.
 
 ## <a name="when-to-use"></a>Quando utilizar
 
 Se você estiver procurando configurar o barramento de serviço de modo que ele deva receber tráfego somente de um intervalo especificado de endereços IP e rejeitar tudo o mais, você pode aproveitar um *Firewall* para bloquear pontos de extremidade do barramento de serviço de outros endereços IP. Por exemplo, você está usando o barramento de serviço com o [Azure Express Route][express-route] para criar conexões privadas com sua infraestrutura local. 
 
-## <a name="how-filter-rules-are-applied"></a>Como as regras de filtro são aplicadas
+## <a name="how-filter-rules-are-applied"></a>Como são aplicadas as regras de filtro
 
-As regras de filtro IP são aplicadas no nível de namespace do barramento de serviço. Portanto, as regras se aplicam a todas as conexões de clientes usando qualquer protocolo com suporte.
+As regras de filtro IP são aplicadas no nível de namespace do barramento de serviço. Por conseguinte, as regras são aplicadas a todas as ligações de clientes usando qualquer protocolo suportado.
 
-Qualquer tentativa de conexão de um endereço IP que não corresponda a uma regra de IP permitida no namespace do barramento de serviço é rejeitada como não autorizada. A resposta não menciona a regra de IP.
+Qualquer tentativa de conexão de um endereço IP que não corresponda a uma regra de IP permitida no namespace do barramento de serviço é rejeitada como não autorizada. A resposta não menciona a regra IP.
 
-## <a name="default-setting"></a>Configuração padrão
+## <a name="default-setting"></a>Definição predefinida
 
 Por padrão, a grade de **filtro IP** no portal para o barramento de serviço está vazia. Essa configuração padrão significa que o namespace aceita conexões com qualquer endereço IP. Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0.
 
@@ -46,7 +46,6 @@ As regras de filtro IP são aplicadas em ordem e a primeira regra que correspond
 > Os serviços confiáveis da Microsoft não têm suporte quando a filtragem de IP (regras de firewall) são implementadas e será disponibilizada em breve.
 >
 > Cenários comuns do Azure que não funcionam com a filtragem de IP (Observe que a lista **não** é exaustiva) –
-> - Azure Monitor
 > - Azure Stream Analytics
 > - Integração com a grade de eventos do Azure
 > - Rotas do Hub IoT do Azure
@@ -65,13 +64,13 @@ O modelo do Resource Manager a seguir permite adicionar uma regra de rede virtua
 
 Parâmetros do modelo:
 
-- **ipMask** é um único endereço IPv4 ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 70.37.104.0/24 representa os endereços IPv4 256 de 70.37.104.0 para 70.37.104.255, com 24 indicando o número de bits de prefixo significativos para o intervalo.
+- **ipMask** é um único endereço IPv4 ou um bloco de endereços IP na notação CIDR. Por exemplo, no CIDR notação 70.37.104.0/24 representa os 256 endereços IPv4 de 70.37.104.0 para 70.37.104.255, com o que indica o número de bits de prefixo significativo para o intervalo de 24.
 
 > [!NOTE]
 > Embora não haja nenhuma regra de negação possível, o modelo de Azure Resource Manager tem a ação padrão definida como **"permitir"** , que não restringe as conexões.
 > Ao tornar as regras de rede virtual ou firewalls, devemos alterar o ***"DefaultAction"***
 > 
-> De
+> from
 > ```json
 > "defaultAction": "Allow"
 > ```

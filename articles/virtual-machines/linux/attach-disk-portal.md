@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 78604a4f6fd5a6bcd21d0adc80c1c60278068836
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9b0602f526991be37b7a9cce1d621dc2138dec48
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037056"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279140"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Usar o portal para anexar um disco de dados a uma VM do Linux 
 Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM do Windows no portal do Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -183,6 +183,15 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
+
+#### <a name="alternate-method-using-parted"></a>Método alternativo usando parte
+O utilitário fdisk precisa de entrada interativa e, portanto, não é ideal para uso em scripts de automação. No entanto, o utilitário em [partes](https://www.gnu.org/software/parted/) pode ser inserido no script e, portanto, se presta melhor em cenários de automação. O utilitário em partes pode ser usado para particionar e formatar um disco de dados. Para as instruções a seguir, usamos um novo disco de dados/dev/sdc e o formato usando o sistema de arquivos [xfs](https://xfs.wiki.kernel.org/) .
+```bash
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+partprobe /dev/sdc1
+```
+Como visto acima, usamos o utilitário [partprobe](https://linux.die.net/man/8/partprobe) para garantir que o kernel esteja ciente imediatamente da nova partição e do sistema de arquivos. A falha ao usar o partprobe pode fazer com que os comandos blkid ou lslbk não retornem o UUID para o novo FileSystem imediatamente.
+
 ### <a name="mount-the-disk"></a>Montar o disco
 Crie um diretório para montar o sistema de arquivos usando `mkdir`. O exemplo a seguir cria um diretório em */DataDrive*:
 

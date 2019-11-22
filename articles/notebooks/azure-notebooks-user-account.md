@@ -1,23 +1,14 @@
 ---
 title: Inicie sessão em blocos de notas do Azure
 description: Configure a sua conta de utilizador para blocos de notas do Azure utilizando uma conta Microsoft ou uma conta de trabalho/escola.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 0d657fcc-26bc-41dd-abf0-3e5cfd66e0e0
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: kraigb
-ms.openlocfilehash: bc93f55a3349498fa82095c2bc2b3178e234c107
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: a2d8c8180dfb5dc31e273c7953a57f40cf31238d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973146"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277628"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>Sua conta de utilizador para blocos de notas do Azure
 
@@ -70,7 +61,7 @@ O administrador de uma conta organizacional tem de fornecer consentimento em nom
 
 Para fornecer consentimento como administrador, utilize o [página de consentimento de administrador](https://notebooks.azure.com/account/adminConsent), este artigo explica o processo.
 
-## <a name="next-steps"></a>Passos Seguintes  
+## <a name="next-steps"></a>Passos seguintes  
 
 > [!div class="nextstepaction"]
 > [Editar o seu ID de utilizador e de perfil](azure-notebooks-user-profile.md)

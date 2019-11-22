@@ -1,5 +1,5 @@
 ---
-title: Visão geral da instância gerenciada do banco de dados SQL do Azure | Microsoft Docs
+title: Visão geral da instância gerenciada do SQL
 description: Este artigo descreve a instância gerenciada do banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 08/05/2019
-ms.openlocfilehash: 0d59b1cfed1de710725a5dfc91341fec0baa6cb4
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 11/04/2019
+ms.openlocfilehash: 6c5b913835b2080f30ff3dd73e6a59c1043ecf5d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331033"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823285"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>O que é a instância gerenciada do banco de dados SQL do Azure?
 
-A instância gerenciada é uma nova opção de implantação do banco de dados SQL do Azure, fornecendo quase 100% de compatibilidade com a versão mais recente do SQL Server (Enterprise Edition) Mecanismo de Banco de Dados, fornecendo uma implementação de [rede virtual nativa (VNet)](../virtual-network/virtual-networks-overview.md) que aborda questões comuns de segurança e um [modelo de negócios](https://azure.microsoft.com/pricing/details/sql-database/) favorável para clientes SQL Server locais. O modelo de implantação de instância gerenciada permite que os clientes existentes do SQL Server migrem e shiftem seus aplicativos locais para a nuvem com alterações mínimas de aplicativo e banco de dados. Ao mesmo tempo, a opção de implantação de instância gerenciada preserva todos os recursos de PaaS (patches automáticos e atualizações de versão, [backups automatizados](sql-database-automated-backups.md), [alta disponibilidade](sql-database-high-availability.md) ), que reduz drasticamente a sobrecarga de gerenciamento e o TCO.
+A instância gerenciada é uma nova opção de implantação do banco de dados SQL do Azure, fornecendo uma compatibilidade de quase 100% com a mais recente SQL Server (Enterprise Edition) Mecanismo de Banco de Dados, fornecendo uma implementação de [rede virtual nativa (VNet)](../virtual-network/virtual-networks-overview.md) que aborda questões de segurança comuns e um [modelo de negócios](https://azure.microsoft.com/pricing/details/sql-database/) favorável para clientes SQL Server locais. O modelo de implantação de instância gerenciada permite que os clientes existentes do SQL Server migrem e shiftem seus aplicativos locais para a nuvem com alterações mínimas de aplicativo e banco de dados. Ao mesmo tempo, a opção de implantação de instância gerenciada preserva todos os recursos de PaaS (patches automáticos e atualizações de versão, [backups automatizados](sql-database-automated-backups.md), [alta disponibilidade](sql-database-high-availability.md) ), que reduz drasticamente a sobrecarga de gerenciamento e o TCO.
 
 > [!IMPORTANT]
 > Para obter uma lista de regiões nas quais a opção de implantação de instância gerenciada está disponível no momento, consulte [regiões com suporte](sql-database-managed-instance-resource-limits.md#supported-regions).
@@ -46,7 +46,7 @@ A instância gerenciada combina os melhores recursos que estão disponíveis no 
 | --- | --- |
 |Nenhuma compra e gerenciamento de hardware <br>Sem sobrecarga de gerenciamento para gerenciar a infraestrutura subjacente <br>Provisionamento rápido e dimensionamento de serviço <br>Aplicação de patch automatizada e atualização de versão <br>Integração com outros serviços de dados de PaaS |SLA de tempo de atividade de 99,99%  <br>[Alta disponibilidade](sql-database-high-availability.md) interna <br>Dados protegidos com [backups automatizados](sql-database-automated-backups.md) <br>Período de retenção de backup configurável pelo cliente <br>[Backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) iniciados pelo usuário <br>Funcionalidade [pontual de restauração de banco de dados](sql-database-recovery-using-backups.md#point-in-time-restore) |
 |**Segurança e conformidade** | **Gerenciamento**|
-|Ambiente isolado ([integração VNet](sql-database-managed-instance-connectivity-architecture.md), serviço de locatário único, computação dedicada e armazenamento) <br>[TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure ad](sql-database-aad-authentication.md), suporte de logon único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entidades de segurança do servidor do Azure AD (logons)</a> (**Visualização pública**) <br>Segue os padrões de conformidade iguais ao banco de dados SQL do Azure <br>[Auditoria do SQL](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API para automatizar o provisionamento e o dimensionamento de serviços <br>portal do Azure funcionalidade para provisionamento e dimensionamento de serviços manuais <br>Serviço de migração de dados
+|Ambiente isolado ([integração VNet](sql-database-managed-instance-connectivity-architecture.md), serviço de locatário único, computação dedicada e armazenamento) <br>[TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure ad](sql-database-aad-authentication.md), suporte de logon único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entidades de segurança do servidor do Azure AD (logons)</a>  <br>Segue os padrões de conformidade iguais ao banco de dados SQL do Azure <br>[Auditoria do SQL](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API para automatizar o provisionamento e o dimensionamento de serviços <br>portal do Azure funcionalidade para provisionamento e dimensionamento de serviços manuais <br>Serviço de migração de dados
 
 > [!IMPORTANT]
 > O banco de dados SQL do Azure (todas as opções de implantação) foi certificado em relação a vários padrões de conformidade. Para obter mais informações, consulte a [central de confiabilidade do Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) , em que você pode encontrar a lista mais atual de certificações de conformidade do banco de dados SQL.
@@ -131,7 +131,7 @@ As operações subsequentes em instâncias gerenciadas implantadas também podem
 Todas as operações de gestão podem ser categorizadas da seguinte forma:
 
 - Implantação de instância (nova criação de instância). 
-- Atualização de instância (alterando Propriedades de instância, como vCores, armazenamento reservado, etc.).
+- Atualização de instância (alterando Propriedades de instância, como vCores ou armazenamento reservado.
 - Exclusão da instância.
 
 Normalmente, as operações em clusters virtuais são mais longas. A duração das operações em clusters virtuais varia – abaixo estão os valores que você normalmente pode esperar, com base em dados de telemetria de serviço existentes:
@@ -153,7 +153,7 @@ A tabela a seguir resume as operações e as durações gerais típicas:
 |Implementação |Primeira instância de outra geração de hardware em uma sub-rede não vazia (por exemplo, primeira instância de Gen 5 em uma sub-rede com instâncias de Gen 4)|Criação de cluster virtual *|90% das operações terminam em 4 horas|
 |Implementação |Primeira instância de criação de 4 vCores, em uma sub-rede vazia ou não vazia|Criação de cluster virtual * *|90% das operações terminam em 4 horas|
 |Implementação |Criação de instância subsequente dentro da sub-rede não vazia (2ª, 3ª, etc. instância)|Redimensionamento de cluster virtual|90% das operações são concluídas em 2,5 horas|
-|**Atualização** |Alteração da propriedade de instância (senha de administrador, logon do AAD, Benefício Híbrido do Azure Flag)|N/A|Até 1 minuto|
+|**Atualização** |Alteração da propriedade de instância (senha de administrador, logon do AAD, Benefício Híbrido do Azure Flag)|N/D|Até 1 minuto|
 |Atualizar |Expansão/redução do armazenamento de instância (Uso Geral camada de serviço)|-Redimensionamento de cluster virtual<br>-Anexando arquivos de banco de dados|90% das operações são concluídas em 2,5 horas|
 |Atualizar |Expansão/redução do armazenamento de instância (Comercialmente Crítico camada de serviço)|-Redimensionamento de cluster virtual<br>-Always On propagação do grupo de disponibilidade|90% das operações são concluídas em 2,5 horas + tempo para propagar todos os bancos de dados (220 GB/hora)|
 |Atualizar |Expansão e redução da vCores (computação de instância) (Uso Geral)|-Redimensionamento de cluster virtual<br>-Anexando arquivos de banco de dados|90% das operações são concluídas em 2,5 horas|
@@ -164,11 +164,11 @@ A tabela a seguir resume as operações e as durações gerais típicas:
 |**Exclusão**|Eliminação da instância|Backup da parte final do log para todos os bancos de dados|90% de operações concluídas em até 1 minuto.<br>Observação: se a última instância na sub-rede for excluída, esta operação agendará a exclusão do cluster virtual após 12 horas * * *|
 |Eliminação|Exclusão de cluster virtual (como operação iniciada pelo usuário)|Exclusão do cluster virtual|90% das operações terminam em até 1,5 horas|
 
-o cluster virtual \* é criado por geração de hardware.
+\* cluster virtual é criado por geração de hardware.
 
-\* @ no__t-1 a opção de implantação 4 vCores foi lançada em junho de 2019 e requer uma nova versão do cluster virtual. Se você tivesse instâncias na sub-rede de destino que foram todas criadas antes de 12 de junho, um novo cluster virtual será implantado automaticamente para hospedar 4 instâncias vCore.
+\*\* a opção de implantação 4 vCores foi lançada em junho de 2019 e requer uma nova versão do cluster virtual. Se você tivesse instâncias na sub-rede de destino que foram todas criadas antes de 12 de junho, um novo cluster virtual será implantado automaticamente para hospedar 4 instâncias vCore.
 
-\* @ no__t-1 @ no__t-2 12 horas é a configuração atual, mas isso pode mudar no futuro, portanto não faça uma dependência difícil. Se você precisar excluir um cluster virtual anteriormente (para liberar a sub-rede, por exemplo), consulte [excluir uma sub-rede depois de excluir uma instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-delete-virtual-cluster.md).
+\*\*\* 12 horas é a configuração atual, mas isso pode mudar no futuro, portanto, não faça uma dependência difícil. Se você precisar excluir um cluster virtual anteriormente (para liberar a sub-rede, por exemplo), consulte [excluir uma sub-rede depois de excluir uma instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-delete-virtual-cluster.md).
 
 ### <a name="instance-availability-during-management"></a>Disponibilidade da instância durante o gerenciamento
 
@@ -221,7 +221,7 @@ A migração de um banco de dados criptografado para uma instância gerenciada t
 
 A opção de implantação de instância gerenciada dá suporte a logons e logons tradicionais do mecanismo de banco de dados do SQL Server integrados ao AAD (Azure Active Directory). Entidades de segurança do servidor do Azure AD (logons) (**Visualização pública**) são a versão da nuvem do Azure de logons de banco de dados local que você está usando em seu ambiente local. As entidades de segurança do servidor do Azure AD (logons) permitem que você especifique usuários e grupos do seu locatário Azure Active Directory como entidades de segurança com escopo de instância verdadeiras, capaz de executar qualquer operação em nível de instância, incluindo consultas entre bancos de dados dentro do mesmo gerenciado cópia.
 
-Uma nova sintaxe é introduzida para criar entidades de segurança do servidor do Azure AD (logons) (**Visualização pública**), **do provedor externo**. Para obter mais informações sobre a sintaxe, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">criar logon</a>e examine o artigo [provisionar um administrador de Azure Active Directory para sua instância gerenciada](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) .
+Uma nova sintaxe é introduzida para criar entidades de segurança do servidor do Azure AD (logons), **do provedor externo**. Para obter mais informações sobre a sintaxe, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">criar logon</a>e examine o artigo [provisionar um administrador de Azure Active Directory para sua instância gerenciada](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) .
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e a autenticação multifator
 
@@ -246,7 +246,7 @@ A autorização refere-se ao que um usuário pode fazer em um banco de dados SQL
 
 A opção de implantação de instância gerenciada destina cenários de usuário com migração de banco de dados em massa de implementações locais ou de banco de dados IaaS. A instância gerenciada suporta várias opções de migração de banco de dados:
 
-### <a name="back-up-and-restore"></a>Cópia de segurança e restauro  
+### <a name="back-up-and-restore"></a>Criar cópias de segurança e restauro  
 
 A abordagem de migração aproveita os backups do SQL para o armazenamento de BLOBs do Azure. Os backups armazenados no Azure Storage blob podem ser restaurados diretamente em uma instância gerenciada usando o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
@@ -268,14 +268,14 @@ A opção de implantação de instância gerenciada dá suporte à compatibilida
   
 O diagrama a seguir descreve a compatibilidade da área de superfície na instância gerenciada:  
 
-![As](./media/sql-database-managed-instance/migration.png)
+![as](./media/sql-database-managed-instance/migration.png)
 
 ### <a name="key-differences-between-sql-server-on-premises-and-in-a-managed-instance"></a>Principais diferenças entre SQL Server local e em uma instância gerenciada
 
 A opção de implantação de instância gerenciada beneficia-se de estar sempre atualizado na nuvem, o que significa que alguns recursos no local SQL Server podem ser obsoletos, desativados ou ter alternativas. Há casos específicos em que as ferramentas precisam reconhecer que um recurso específico funciona de forma ligeiramente diferente ou que o serviço não está em execução em um ambiente que você não controla totalmente:
 
 - A alta disponibilidade é incorporada e pré-configurada usando uma tecnologia semelhante a [Always on grupos de disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
-- Backups automatizados e restauração pontual. O cliente pode iniciar os backups de `copy-only` que não interferem na cadeia de backup automática.
+- Backups automatizados e restauração pontual. O cliente pode iniciar `copy-only` backups que não interferem na cadeia de backup automática.
 - A instância gerenciada não permite especificar caminhos físicos completos para que todos os cenários correspondentes tenham suporte diferentemente: RESTOre DB não dá suporte ao MOVE, CREATE DB não permite caminhos físicos, BULK INSERT funciona apenas com BLOBs do Azure, etc.
 - A instância gerenciada dá suporte à [autenticação do Azure ad](sql-database-aad-authentication.md) como alternativa à nuvem para autenticação do Windows.
 - A instância gerenciada gerencia automaticamente o grupo de arquivos e os arquivos XTP para bancos de dados que contêm objetos OLTP na memória
@@ -297,7 +297,7 @@ A tabela a seguir mostra várias propriedades, acessíveis por meio do Transact 
 |`@@VERSION`|Microsoft SQL Azure (RTM)-12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Esse valor é o mesmo que no banco de dados SQL.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Esse valor é o mesmo que no banco de dados SQL.|
 |`SERVERPROPERTY('EngineEdition')`|8|Esse valor identifica exclusivamente uma instância gerenciada.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS da instância completa no seguinte formato: `<instanceName>`. `<dnsPrefix>`.database.windows.net, em que `<instanceName>` é o nome fornecido pelo cliente, enquanto `<dnsPrefix>` é a parte gerada automaticamente do nome, garantindo a exclusividade do nome DNS global ("wcus17662feb9ce98", para exemplo|Exemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS de instância completa no seguinte formato:`<instanceName>`.`<dnsPrefix>`.Database.Windows.NET, onde `<instanceName>` é o nome fornecido pelo cliente, enquanto `<dnsPrefix>` é gerado automaticamente parte do mesmo garantindo a exclusividade de nome DNS global ("wcus17662feb9ce98", por exemplo)|Exemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Passos seguintes
 

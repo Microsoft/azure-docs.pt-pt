@@ -9,16 +9,16 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 12e6d292779d497d907bb68eece3fc2338f072fd
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 13afdf4d6c45927c60e8de9fd228f70b7c0a3c68
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602069"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286531"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: análise de sentimentos na transmissão em fluxo de dados com o Azure Databricks
 
-Neste tutorial, você aprenderá a executar a análise de sentimentos em um fluxo de dados usando Azure Databricks quase em tempo real. Configure o sistema de ingestão de dados com os Hubs de Eventos do Azure. Consuma as mensagens de Hubs de Eventos para o Azure Databricks através do conector de Hubs de Eventos do Apache Spark. Por fim, você usa APIs de serviço cognitiva para executar a análise de sentimentos nos dados transmitidos.
+Neste tutorial, irá aprender a executar a análise de sentimentos numa sequência de dados com o Azure Databricks em tempo real. Configure o sistema de ingestão de dados com os Hubs de Eventos do Azure. Consuma as mensagens de Hubs de Eventos para o Azure Databricks através do conector de Hubs de Eventos do Apache Spark. Por fim, você usa APIs de serviço cognitiva para executar a análise de sentimentos nos dados transmitidos.
 
 No final deste tutorial, deverá ter transmitido tweets do Twitter em fluxo, que incluem o termo "Azure" nos mesmos, e executado análise de sentimentos nos tweets.
 
@@ -102,7 +102,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
     Aceite todos os outros valores predefinidos que não sejam os seguintes:
 
    * Introduza um nome para o cluster.
-   * Para este artigo, crie um cluster com o tempo de execução **5,2** .
+   * Para este artigo, crie um cluster com o tempo de execução **6,0** .
    * Certifique-se de que seleciona a caixa de verificação **Terminar após \_\_ minutos de atividade**. Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
 
    Selecione o tamanho de nó de operador e de trabalho do cluster adequado para seus critérios técnicos e [orçamento](https://azure.microsoft.com/pricing/details/databricks/?WT.mc_id=sparkeventhubs-docs-alehall).
@@ -176,11 +176,11 @@ Neste tutorial, você usa os [Serviços cognitivas do Azure análise de texto AP
    - Selecione a subscrição do Azure na qual a conta foi criada.
    - Selecione uma localização do Azure.
    - Selecione um escalão de preço para o serviço. Para obter mais informações sobre os preços dos Serviços Cognitivos, veja a [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/?WT.mc_id=sparkeventhubs-docs-alehall).
-   - Especifique se deseja criar um novo grupo de recursos ou selecionar um existente.
+   - Especifique se pretende criar um novo grupo de recursos ou selecione um existente.
 
      Selecione **Criar**.
 
-5. Depois que a conta for criada, na guia **visão geral** , selecione **Mostrar chaves de acesso**.
+5. Depois da conta é criada, do **descrição geral** separador, selecione **Mostrar chaves de acesso**.
 
     ![Mostrar chaves de acesso](./media/databricks-sentiment-analysis-cognitive-services/cognitive-services-get-access-keys.png "Mostrar chaves de acesso")
 
@@ -439,7 +439,7 @@ O resultado assemelha-se agora ao seguinte fragmento:
     ...
     ...
 
-Agora você transmitiu dados dos hubs de eventos do Azure para Azure Databricks quase em tempo real usando o conector de hubs de eventos para Apache Spark. Para obter mais informações sobre como utilizar o conector Hubs de Eventos para Spark, veja a [documentação do conector](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs?WT.mc_id=sparkeventhubs-docs-alehall).
+Agora transmitiu os dados dos Hubs de eventos do Azure para o Azure Databricks em tempo real com o conector de Hubs de eventos para o Apache Spark. Para obter mais informações sobre como utilizar o conector Hubs de Eventos para Spark, veja a [documentação do conector](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs?WT.mc_id=sparkeventhubs-docs-alehall).
 
 ## <a name="run-sentiment-analysis-on-tweets"></a>Executar a análise de sentimentos em tweets
 
@@ -552,7 +552,7 @@ object SentimentDetector extends Serializable {
 }
 ```
 
-Adicione outra célula para definir um UDF do Spark (função definida pelo usuário) que determina o sentimentos.
+Adicione outra célula para definir uma UDF do Spark (função definida pelo utilizador) que determina o sentimento.
 
 ```scala
 // User Defined Function for processing content of messages to return their sentiment.
@@ -614,7 +614,7 @@ Deve ver um resultado como o seguinte fragmento:
 
 Um valor perto de **1** na coluna **Sentimento** sugere uma excelente experiência com o Azure. Um valor perto de **0** sugere problemas sentidos pelos utilizadores ao trabalharem com o Microsoft Azure.
 
-Já está! Usando Azure Databricks, você transmitiu com êxito os dados para os hubs de eventos do Azure, consumiu os dados de fluxo usando o conector de hubs de eventos e executou a análise de sentimentos em dados de streaming quase em tempo real.
+Já está! Com o Azure Databricks, transmitiu com êxito os dados para os Hubs de eventos do Azure, consumiu os dados de transmissão com o conector de Hubs de eventos e, em seguida, executou a análise de sentimentos na transmissão em fluxo de dados em tempo real.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -622,7 +622,7 @@ Depois de executar o tutorial, pode terminar o cluster. Para tal, na área de tr
 
 ![Parar um cluster do databricks](./media/databricks-sentiment-analysis-cognitive-services/terminate-databricks-cluster.png "Parar um cluster do databricks")
 
-Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **terminar depois de \_\_ minutos de inatividade** ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
+Se não terminar manualmente o cluster, este irá parar automaticamente, desde que tenha selecionado a **terminar após \_ \_ minutos de inatividade** caixa de verificação ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a utilizar o Azure Databricks para transmitir dados em fluxo aos Hubs de Eventos do Azure e, em seguida, ler os dados de transmissão em fluxo dos Hubs de Eventos em tempo real. Aprendeu a:

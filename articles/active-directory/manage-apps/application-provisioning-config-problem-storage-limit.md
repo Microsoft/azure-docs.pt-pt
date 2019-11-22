@@ -1,5 +1,5 @@
 ---
-title: Problema ao salvar credenciais de administrador Configurando o aplicativo da galeria do Azure AD | Microsoft Docs
+title: Problema ao salvar credenciais de administrador Configurando o aplicativo da galeria do Azure AD
 description: Como solucionar problemas comuns enfrentados ao configurar o provisionamento de usuário para um aplicativo já listado na Galeria de aplicativos do Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 02/21/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152b704ca597fb473a820124ee6147d6d9bc7845
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 77e48b8921a1ebe3affd981c068da7fa55fdf30f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381474"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275793"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problema ao salvar as credenciais de administrador ao configurar o provisionamento de usuário para um aplicativo da Galeria de Azure Active Directory 
 

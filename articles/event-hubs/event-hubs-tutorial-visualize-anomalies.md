@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 11/05/2019
-ms.openlocfilehash: 0cfff0196ebc20b9b01bc966b3590470d349e86e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3e228fb9d4223ad1d6d906b44ab63c35600faa56
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718007"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307348"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos do Azure
 
@@ -43,7 +43,7 @@ Para concluir este tutorial, precisa de uma subscrição do Azure. Se não tiver
 
 ## <a name="set-up-resources"></a>Configurar os recursos
 
-Para este tutorial, precisa de um espaço de nomes de Hubs de Eventos e de um hub de eventos. Pode criar estes recursos com a CLI do Azure ou com o Azure PowerShell. Utilize o mesmo grupo de recursos e a mesma localização para todos os recursos. Em seguida, no fim, pode remover tudo num único passo ao eliminar o grupo de recursos.
+Para este tutorial, precisa de um espaço de nomes de Hubs de Eventos e de um hub de eventos. Pode criar estes recursos com a CLI do Azure ou com o Azure PowerShell. Utilize o mesmo grupo de recursos e a mesma localização para todos os recursos. Em seguida, no final, pode remover tudo num único passo ao eliminar o grupo de recursos.
 
 As secções seguintes descrevem como executar estes passos obrigatórios. Siga as instruções da CLI *ou* do PowerShell para executar os seguintes passos:
 
@@ -156,7 +156,7 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## <a name="run-app-to-produce-test-event-data"></a>Executar a aplicação para produzir dados de evento de teste
 
-Os [exemplos no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) de Hubs de Eventos incluem uma [aplicação de deteção de anomalias](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/AnomalyDetector) que produz os dados de teste. A aplicação simula a utilização de cartões de crédito ao escrever transações de cartão de crédito no hub de eventos, incluindo a escrita ocasional de várias transações para o mesmo cartão de crédito em várias localizações, de modo a que sejam identificadas como anomalias. Para executar esta aplicação, siga estes passos: 
+Os [exemplos no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) de Hubs de Eventos incluem uma [aplicação de deteção de anomalias](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/AnomalyDetector) que produz os dados de teste. A aplicação simula a utilização de cartões de crédito ao escrever transações de cartão de crédito no hub de eventos, incluindo a escrita ocasional de várias transações para o mesmo cartão de crédito em várias localizações, de modo a que sejam identificadas como anomalias. Para executar esta aplicação, siga estes passos: 
 
 1. Transfira os [exemplos de Hubs de Eventos do Azure](https://github.com/Azure/azure-event-hubs/archive/master.zip) do GitHub e deszipe o ficheiro localmente.
 
@@ -223,7 +223,7 @@ As entradas para a tarefa do Stream Analytics são as transações de cartão de
 
 1. Em **Topologia da Tarefa**, clique em **Saídas**. Este campo é o nome do fluxo de saída, utilizado quando define a consulta para os dados.
 
-2. No painel **Saídas**, clique em **Adicionar**e selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
+2. No painel **Saídas**, clique em **Adicionar** e selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
 
    **Alias de saída**: utilize **contosooutputs**. Este campo é o alias exclusivo para a saída. 
 
@@ -245,7 +245,7 @@ As entradas para a tarefa do Stream Analytics são as transações de cartão de
 
 Esta consulta serve para obter os dados que, por fim, são enviados para a visualização do Power BI. Utiliza **contosoinputs** e **contosooutputs**, que definiu anteriormente quando configurou a tarefa. Esta consulta obtém as transações de cartão de crédito que considera fraudulentas, que são transações nas quais o mesmo número de cartão de crédito tem várias transações em diferentes localizações no mesmo intervalo de cinco segundos.
 
-1. Em **Topologia de Tarefas**, clique em **Consulta**.
+1. Em **Topologia da Tarefa**, clique em **Consulta**.
 
 2. Substitua a consulta pela seguinte: 
 
@@ -290,7 +290,7 @@ Na tarefa do Stream Analytics, clique em **Iniciar**, **Agora** e **Iniciar**. A
 
 1. Execute a aplicação Deteção de Anomalias para enviar dados para o hub de eventos enquanto estiver a configurar a visualização do Power BI. Pode ser necessário executá-la várias vezes, uma vez que gera apenas 1000 transações de cada vez que é executada.
 
-2. Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/).
+2. Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/).
 
 3. Aceda a **A minha área de trabalho**.
 

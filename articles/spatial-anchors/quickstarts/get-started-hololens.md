@@ -1,19 +1,19 @@
 ---
-title: Início rápido-criar aplicativo do HoloLens com âncoras espaciais do Azure | Microsoft Docs
+title: 'Início rápido: criar um aplicativo do HoloLens com DirectX'
 description: Neste guia de início rápido, você aprende a criar um aplicativo do HoloLens usando âncoras espaciais.
 author: craigktreasure
-manager: aliemami
+manager: virivera
 services: azure-spatial-anchors
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7069a3c8b266938e974d1b7130a349e0c9b66b5c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 3814a12657b2634ede02eda83c7e7bcdf78cd7e2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111823"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277105"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Início rápido: criar um aplicativo do HoloLens com âncoras espaciais C++do Azure, no/WinRT e no DirectX
 

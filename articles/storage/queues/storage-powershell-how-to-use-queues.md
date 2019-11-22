@@ -1,5 +1,5 @@
 ---
-title: Executar operações no armazenamento de filas do Azure com o PowerShell-armazenamento do Azure
+title: Executar ações de armazenamento de filas do Azure no PowerShell
 description: Como executar operações no armazenamento de filas do Azure com o PowerShell
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: bf5cf668620eb08e0d808c2052eac59b15af740c
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 98c59555f2b9b93ee3f78da91f85a7728679235d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721216"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269384"
 ---
-# <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Executar operações de armazenamento de filas do Azure com Azure PowerShell
+# <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Realizar operações no armazenamento de Filas do Azure com o Azure PowerShell
 
 O armazenamento de filas do Azure é um serviço para armazenar grandes números de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de HTTP ou HTTPS. Para obter informações detalhadas, consulte [introdução às filas do Azure](storage-queues-introduction.md). Este artigo de instruções aborda as operações comuns de armazenamento de filas. Saiba como:
 
@@ -129,7 +129,7 @@ Se você usar o [Gerenciador de armazenamento do Azure](https://storageexplorer.
 
 As mensagens são lidas em ordem de primeiro a entrar, primeiro a sair. Isso não é garantido. Quando você lê a mensagem da fila, ela se torna invisível para todos os outros processos que procuram na fila. Isso garante que, se o código não processar a mensagem devido a uma falha de hardware ou de software, outra instância do seu código poderá obter a mesma mensagem e tentar novamente.  
 
-Esse **tempo limite** de invisibilidade define por quanto tempo a mensagem permanece invisível antes de estar disponível novamente para processamento. O padrão é 30 segundos.
+Esse **tempo limite de invisibilidade** define por quanto tempo a mensagem permanece invisível antes de estar disponível novamente para processamento. O padrão é 30 segundos.
 
 Seu código lê uma mensagem da fila em duas etapas. Ao chamar o método [Microsoft. Azure. Storage. Queue. CloudQueue. GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) , você obtém a próxima mensagem na fila. Uma mensagem devolvida por **GetMessage** torna-se invisível para quaisquer outras mensagens de leitura de código desta fila. Para concluir a remoção da mensagem da fila, você chama o método [Microsoft. Azure. Storage. Queue. CloudQueue. DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) .
 
@@ -179,7 +179,7 @@ Para remover todos os ativos que você criou neste exercício, remova o grupo de
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo de instruções, você aprendeu sobre o gerenciamento de armazenamento de filas básico com o PowerShell, incluindo como:
 

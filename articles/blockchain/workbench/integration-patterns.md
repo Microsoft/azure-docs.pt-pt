@@ -1,21 +1,21 @@
 ---
-title: Padrões de integração do contrato inteligente no Azure Blockchain Workbench
+title: Padrões de integração do contrato inteligente – Azure Blockchain Workbench
 description: Visão geral dos padrões de integração do contrato inteligente na visualização do Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 7176cddae6affd19df4fe418afcf420f92d624ab
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: MT
+ms.openlocfilehash: 02789b2e4414af8503a655ea954b40031df8ccb7
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579792"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286676"
 ---
 # <a name="smart-contract-integration-patterns"></a>Padrões de integração de contratos inteligentes
 

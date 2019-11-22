@@ -1,5 +1,5 @@
 ---
-title: Gerenciamento de provisionamento de usuário para aplicativos empresariais no Azure Active Directory | Microsoft Docs
+title: Gerenciamento de provisionamento de usuário para aplicativos empresariais no Azure AD
 description: Saiba como gerenciar o provisionamento de conta de usuário para aplicativos empresariais usando o Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26b00670ad93cceab8f570d3a5f56bd095fa80b5
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 77cda523582b513669adcafd3a46b6ac02dd99db
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315257"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285628"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerenciando o provisionamento de conta de usuário para aplicativos empresariais no portal do Azure
 
@@ -53,7 +53,7 @@ O painel de **provisionamento** começa com um menu de **modo** , que mostra os 
 
 Selecione a opção **automática** para especificar as configurações de credenciais de administrador, mapeamentos, início e parada e sincronização.
 
-### <a name="admin-credentials"></a>Credenciais de Administrador
+### <a name="admin-credentials"></a>Credenciais de administrador
 
 Expanda **credenciais de administrador** para inserir as credenciais necessárias para que o Azure ad se conecte à API de gerenciamento de usuários do aplicativo. A entrada necessária varia dependendo do aplicativo. Para saber mais sobre os tipos de credencial e os requisitos para aplicativos específicos, consulte o [tutorial de configuração para esse aplicativo específico](user-provisioning.md).
 
@@ -85,9 +85,4 @@ Se o provisionamento estiver sendo habilitado pela primeira vez para um aplicati
 
 Altere o **status de provisionamento** para **desativado** para pausar o serviço de provisionamento. Nesse estado, o Azure não cria, atualiza ou remove nenhum objeto de usuário ou grupo no aplicativo. Altere o estado de volta para **ativado** e o serviço será selecionado de onde parou.
 
-Marque a caixa de seleção **limpar estado atual e reiniciar sincronização** e selecione **salvar** em:
-
-* Parar o serviço de provisionamento
-* Reinicie os serviços e execute o ciclo inicial novamente
-
-Essa opção permite que os administradores iniciem o processo de implantação de provisionamento novamente.
+**Limpar o estado atual e reiniciar a sincronização** dispara um ciclo inicial. O serviço irá então avaliar todos os usuários no sistema de origem novamente e determinar se eles estão no escopo do provisionamento. Isso pode ser útil quando seu aplicativo está em quarentena no momento ou você precisa fazer uma alteração nos mapeamentos de atributo. Isso não deve ser usado para disparar uma solicitação de exclusão ou desabilitação, pois esses eventos podem ser descartados ao disparar um estado de limpeza e reiniciar. O ciclo inicial também leva mais tempo para ser concluído do que o ciclo incremental típico devido ao número de objetos que precisam ser avaliados. Você pode aprender mais sobre o desempenho de ciclos iniciais e incrementais [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) 

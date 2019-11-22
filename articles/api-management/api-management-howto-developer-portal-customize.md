@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: c8aa3fb124420c933e17b0e9f7e52b7f114a7f61
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 28ef082d6aac5557998f7b67443d4dafd3a0fb15
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012911"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285584"
 ---
 # <a name="access-and-customize-developer-portal"></a>Acessar e personalizar o portal do desenvolvedor
 
@@ -35,10 +35,6 @@ Neste tutorial, ficará a saber como:
 Você pode encontrar mais detalhes no portal do desenvolvedor na [visão geral do portal do desenvolvedor do gerenciamento de API do Azure](api-management-howto-developer-portal.md).
 
 ![Portal do desenvolvedor do gerenciamento de API – modo admin](media/api-management-howto-developer-portal-customize/cover.png)
-
-> [!WARNING]
-> O portal do desenvolvedor está sendo lançado no momento para serviços de gerenciamento de API.
-> Se o serviço for criado recentemente ou for um serviço de camada de desenvolvedor, você já deverá ter a versão mais recente. Caso contrário, você poderá ter problemas (por exemplo, com a funcionalidade de publicação). Espera-se que a distribuição de recursos seja concluída até sexta-feira de 22 de novembro de 2019. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

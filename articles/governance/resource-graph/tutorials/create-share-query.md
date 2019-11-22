@@ -1,40 +1,40 @@
 ---
-title: 'Tutorial: Manage queries in Azure portal'
-description: In this tutorial, you create a Resource Graph Query and share the new query with others in the Azure portal.
-ms.date: 10/23/2019
+title: 'Tutorial: gerenciar consultas no portal do Azure'
+description: Neste tutorial, você cria uma consulta de grafo de recursos e compartilha a nova consulta com outras pessoas na portal do Azure.
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: a1f3213ae1dbd3bc7127b4f4adb8648e9f9adf07
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 00cb3f95112804c81beb6bce6fc35891e6197e60
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74216227"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74303953"
 ---
-# <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Create and share an Azure Resource Graph query in the Azure portal
+# <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: criar e compartilhar uma consulta do grafo de recursos do Azure no portal do Azure
 
-Azure Resource Graph Explorer lets you save your Resource Graph queries directly in the Azure portal. There are two types of queries: _Private_ and _Shared_. A Private query is saved in your Azure portal settings. Whereas a Shared query is a Resource Manager resource that can be managed with role-based access controls (RBAC) and protected with resource locks.
+O Gerenciador de gráficos de recursos do Azure permite salvar suas consultas de grafo de recursos diretamente no portal do Azure. Há dois tipos de consultas: _privado_ e _compartilhado_. Uma consulta privada é salva em suas configurações de portal do Azure. Enquanto uma consulta compartilhada é um recurso do Resource Manager que pode ser gerenciado com controles de acesso baseado em função (RBAC) e protegido com bloqueios de recursos. Os dois tipos de consultas são criptografados em repouso.
 
-By saving queries in the Azure portal, you save the time you might otherwise spend looking for your favorite or commonly used queries. When you share queries, you help your team realize goals of consistency and efficiency through repetition.
+Ao salvar consultas no portal do Azure, você economiza o tempo que, de outra forma, você pode gastar procurando suas consultas favoritas ou comumente usadas. Ao compartilhar consultas, você ajuda sua equipe a perceber as metas de consistência e eficiência por meio de repetição.
 
-In this tutorial, you'll complete the following tasks:
+Neste tutorial, você concluirá as seguintes tarefas:
 
 > [!div class="checklist"]
-> - Create and delete a Private query
-> - Create a Shared query
-> - Discover Shared queries
-> - Delete a Shared query
+> - Criar e excluir uma consulta privada
+> - Criar uma consulta compartilhada
+> - Descobrir consultas compartilhadas
+> - Excluir uma consulta compartilhada
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa de uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-and-delete-a-private-query"></a>Create and delete a Private query
+## <a name="create-and-delete-a-private-query"></a>Criar e excluir uma consulta privada
 
-Private queries are accessible and visible only to the account that creates them. As they're saved in an account's Azure portal settings, they can be created, used, and deleted only from inside the Azure portal. A Private query isn't a Resource Manager resource. To create a new Private query, follow these steps:
+As consultas particulares são acessíveis e visíveis somente para a conta que as cria. À medida que são salvas nas configurações de portal do Azure de uma conta, elas podem ser criadas, usadas e excluídas somente de dentro do portal do Azure. Uma consulta privada não é um recurso do Resource Manager. Para criar uma nova consulta privada, siga estas etapas:
 
-1. From the portal menu, select **All services** or use the Azure search box at the top of all pages. Search for and then select **Resource Graph Explorer**.
+1. No menu do portal, selecione **todos os serviços** ou use a caixa Azure Search na parte superior de todas as páginas. Pesquise e selecione explorador de **grafo de recursos**.
 
-1. On the **Query 1** tab on the Azure Resource Graph Explorer page, enter the following query:
+1. Na guia **consulta 1** da página do Gerenciador de gráficos de recursos do Azure, insira a seguinte consulta:
 
    ```kusto
    Resources
@@ -42,31 +42,31 @@ Private queries are accessible and visible only to the account that creates them
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 
-   Select **Run query** to see the query results in the bottom pane.
+   Selecione **Executar consulta** para ver os resultados da consulta no painel inferior.
 
-   For more information about this query, see [Samples – Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
+   Para obter mais informações sobre essa consulta, consulte [amostras – contagem de máquinas virtuais por tipo de so](../samples/starter.md#count-virtual-machines-by-os-type).
 
 
-1. Select **Save** or **Save as**, enter **Count VMs by OS** as the name, leave the type as **Private query**, and then select **Save** at the bottom of the **Save query** pane. The tab title changes from **Query 1** to **Count VMs by OS**.
+1. Selecione **salvar** ou **salvar como**, digite **contar VMs por sistema operacional** como o nome, deixe o tipo como **consulta privada**e, em seguida, selecione **salvar** na parte inferior do painel **Salvar consulta** . O título da guia muda de **consulta 1** para **contar VMs por sistema operacional**.
 
-1. Move away from Azure Resource Graph Explorer in the Azure portal and then return to it. Notice that the saved query is no longer displayed and the **Query 1** tab has returned.
+1. Afaste-se do Gerenciador de gráficos de recursos do Azure no portal do Azure e, em seguida, retorne a ele. Observe que a consulta salva não é mais exibida e a guia **consulta 1** foi retornada.
 
-1. Select **Open a query**. Make sure that the type is **Private query**. The saved name **Count VMs by OS** now appears in the **Query Name** list. When you select the title link of the saved query, it's loaded into a new tab with that query's name.
+1. Selecione **abrir uma consulta**. Verifique se o tipo é **consulta privada**. O nome salvo **VMs de contagem por so** agora aparece na lista **nome da consulta** . Quando você seleciona o link de título da consulta salva, ele é carregado em uma nova guia com o nome da consulta.
 
    > [!NOTE] 
-   >When a saved query is open and the tab shows its name, selecting the **Save** button updates it with any changes that have been made. To create a new saved query from this open query, select **Save as** and proceed as if you were saving a brand new query.
+   > Quando uma consulta salva é aberta e a guia mostra seu nome, selecionar o botão **salvar** atualiza-o com as alterações que foram feitas. Para criar uma nova consulta salva com base nessa consulta aberta, selecione **salvar como** e continue como se você estivesse salvando uma consulta totalmente nova.
 
-1. To delete the saved query, select **Open a query** again, and verify that the **Type** field is set to **Private query**. On the row of the saved `Count VMs by OS` query, select **Delete** (Recycle bin icon). In the confirmation dialog box, select **Yes** to finish deleting the query.
-   Then, close the **Open a query** pane.
+1. Para excluir a consulta salva, selecione **abrir uma consulta** novamente e verifique se o campo **tipo** está definido como **consulta privada**. Na linha da consulta de `Count VMs by OS` salva, selecione **excluir** (ícone de lixeira). Na caixa de diálogo de confirmação, selecione **Sim** para concluir a exclusão da consulta.
+   Em seguida, feche o painel **abrir uma consulta** .
 
-## <a name="create-a-shared-query"></a>Create a Shared query
+## <a name="create-a-shared-query"></a>Criar uma consulta compartilhada
 
-Unlike a Private query, a Shared query is a Resource Manager resource. This fact means the query gets saved to a resource group, can be managed and controlled with RBAC, and can even be protected with resource locks. As a resource, anyone who has the appropriate permissions can see and use it.
-To create a new Shared query, follow these steps:
+Ao contrário de uma consulta privada, uma consulta compartilhada é um recurso do Resource Manager. Esse fato significa que a consulta é salva em um grupo de recursos, pode ser gerenciada e controlada com o RBAC e pode até mesmo ser protegida com bloqueios de recursos. Como um recurso, qualquer pessoa que tenha as permissões apropriadas pode vê-lo e usá-lo.
+Para criar uma nova consulta compartilhada, siga estas etapas:
 
-1. From the portal menu, select **All services**, or use the Azure search box at the top of all pages to search for and select **Resource Graph Explorer**.
+1. No menu do portal, selecione **todos os serviços**ou use a caixa Azure Search na parte superior de todas as páginas para procurar e selecionar **Gerenciador de grafo de recursos**.
 
-1. On the **Query 1** tab on the Azure Resource Graph Explorer page, enter the following query:
+1. Na guia **consulta 1** da página do Gerenciador de gráficos de recursos do Azure, insira a seguinte consulta:
 
    ```kusto
    Resources
@@ -74,62 +74,62 @@ To create a new Shared query, follow these steps:
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
     
-   Select **Run query** to see the query results in the bottom pane.
+   Selecione **Executar consulta** para ver os resultados da consulta no painel inferior.
 
-   For more information about this query, see [Samples – Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
+   Para obter mais informações sobre essa consulta, consulte [amostras – contagem de máquinas virtuais por tipo de so](../samples/starter.md#count-virtual-machines-by-os-type).
 
-1. Select **Save** or **Save as**.
+1. Selecione **salvar** ou **salvar como**.
 
    
-   ![Save the new query using the save button](../media/create-share-query/save-shared-query-buttons.png)
+   ![Salvar a nova consulta usando o botão salvar](../media/create-share-query/save-shared-query-buttons.png)
 
-1. In the **Save query** pane, enter **Count VMs by OS** for the name.
+1. No painel **Salvar consulta** , insira **contar VMs por sistema operacional** para o nome.
 
-1. Change the type to **Shared query**, set the description to **Count of virtual machines by OS type**, and set **Subscription** to specify where the query resource gets created.
+1. Altere o tipo para **consulta compartilhada**, defina a descrição como **contagem de máquinas virtuais por tipo de sistema operacional**e defina **assinatura** para especificar onde o recurso de consulta será criado.
 
-1. Leave the **Publish to resource-graph-queries resource group** check box selected and the **Resource Group location** set to **(US) West Central US**.
+1. Deixe a caixa de seleção **publicar no recurso-grafo-consultas** selecionada e o **local do grupo de recursos** definido como **(US) Oeste EUA Central**.
 
-1. Select **Save** at the bottom of the **Save query** pane. The tab title changes from **Query 1** to **Count VMs by OS**. The first time the **resource-graph-queries** resource group is used, the save takes longer than expected as the resource group gets created.
+1. Selecione **salvar** na parte inferior do painel **Salvar consulta** . O título da guia muda de **consulta 1** para **contar VMs por sistema operacional**. Na primeira vez que o grupo de recursos **Resource-Graph-queries** é usado, o salvamento demora mais do que o esperado à medida que o grupo de recursos é criado.
    
-   ![Save the new query as a Shared query](../media/create-share-query/save-shared-query-window.png)
+   ![Salvar a nova consulta como uma consulta compartilhada](../media/create-share-query/save-shared-query-window.png)
 
    > [!NOTE] 
-   > You can clear the **Publish to resource-graph-queries resource group** check box if you want to provide the name of an existing resource group to save the shared query into. Using the default named resource group for queries makes Shared queries easier to discover. It also makes the purpose of that resource group more apparent. However, you might opt to select an existing resource group for security reasons based on existing permissions.
+   > Você pode desmarcar a caixa de seleção **publicar no recurso-grafo-consultas** se desejar fornecer o nome de um grupo de recursos existente para salvar a consulta compartilhada. Usar o grupo de recursos nomeado padrão para consultas torna as consultas compartilhadas mais fáceis de descobrir. Ele também torna a finalidade desse grupo de recursos mais aparente. No entanto, você pode optar por selecionar um grupo de recursos existente por motivos de segurança com base em permissões existentes.
 
-1. Move away from Azure Resource Graph Explorer in the Azure portal and then return to it. Notice that the saved query is no longer displayed and the **Query 1** tab has returned.
+1. Afaste-se do Gerenciador de gráficos de recursos do Azure no portal do Azure e, em seguida, retorne a ele. Observe que a consulta salva não é mais exibida e a guia **consulta 1** foi retornada.
 
-1. Select **Open a query**. Verify that the type is set to **Shared query** and the combination of **Subscription** and **Resource group** match where you saved the query. The saved **Count VMs by OS** item now appears in the **Query Name** list. Select the title link of the saved query to load it into a new tab with that query's name. As a Shared query, it displays an icon in the tab next to the title, denoting it as shared.
+1. Selecione **abrir uma consulta**. Verifique se o tipo está definido como **consulta compartilhada** e se a combinação de **assinatura** e **grupo de recursos** corresponde ao local em que você salvou a consulta. As VMs de contagem salvas por item do **sistema operacional** agora aparecem na lista **nome da consulta** . Selecione o link título da consulta salva para carregá-la em uma nova guia com o nome dessa consulta. Como uma consulta compartilhada, ela exibe um ícone na guia ao lado do título, denotando-o como compartilhado.
 
-   ![Show the Shared Query with icon](../media/create-share-query/show-saved-shared-query.png)
+   ![Mostrar a consulta compartilhada com o ícone](../media/create-share-query/show-saved-shared-query.png)
 
    > [!NOTE] 
-   > When a saved query is open and the tab shows its name, the **Save** button updates it with any changes that have been made. To create a new saved query, select **Save as** and proceed as if you were saving a brand new query.
+   > Quando uma consulta salva é aberta e a guia mostra seu nome, o botão **salvar** o atualiza com as alterações feitas. Para criar uma nova consulta salva, selecione **salvar como** e continue como se você estivesse salvando uma consulta totalmente nova.
 
-## <a name="discover-shared-queries"></a>Discover Shared queries
+## <a name="discover-shared-queries"></a>Descobrir consultas compartilhadas
 
-Because a Shared query is a Resource Manager resource, there are several ways to find one:
+Como uma consulta compartilhada é um recurso do Resource Manager, há várias maneiras de encontrar uma:
 
-- From Resource Graph Explorer, select **Open a query** and set the type to **Shared query**.
-- From the Resource Graph queries portal page.
-- From the resource group that the Shared query was saved in.
-- Through a query to Resource Graph.
+- No Gerenciador de gráficos de recursos, selecione **abrir uma consulta** e defina o tipo como **consulta compartilhada**.
+- Na página do portal de consultas do grafo de recursos.
+- No grupo de recursos em que a consulta compartilhada foi salva.
+- Por meio de uma consulta ao grafo de recursos.
 
-### <a name="view-resource-graph-queries"></a>View Resource Graph queries
+### <a name="view-resource-graph-queries"></a>Exibir consultas de grafo de recursos
 
-In the Azure portal, the Resource Graph queries page displays Shared queries that the logged-in account has access to. This page enables filtering by name, subscription, resource group, and other properties of the Resource Graph query. You can also tag, export, and delete Resource Graph queries by using this interface.
+No portal do Azure, a página consultas do grafo de recursos exibe consultas compartilhadas às quais a conta conectada tem acesso. Esta página habilita a filtragem por nome, assinatura, grupo de recursos e outras propriedades da consulta do grafo de recursos. Você também pode marcar, exportar e excluir consultas de grafo de recursos usando essa interface.
 
-Selecting one of the queries opens the Resource Graph query page. Like other Resource Manager resources, this page offers an interactive overview along with the Activity log, access control, and tags. You can also apply a resource lock directly from this page.
+A seleção de uma das consultas abre a página de consulta do gráfico de recursos. Assim como outros recursos do Resource Manager, esta página oferece uma visão geral interativa juntamente com o log de atividades, o controle de acesso e as marcas. Você também pode aplicar um bloqueio de recurso diretamente desta página.
 
-Get to the Resource Graph queries page from the portal menu by selecting **All services** or by using the Azure search box at the top of all pages. Search for and select **Resource Graph Explorer**.
+Acesse a página consultas de grafo de recursos no menu do portal selecionando **todos os serviços** ou usando a caixa Azure Search na parte superior de todas as páginas. Pesquise e selecione **Explorador de grafo de recursos**.
 
-### <a name="list-resource-groups-resources"></a>List Resource groups resources
+### <a name="list-resource-groups-resources"></a>Listar recursos de grupos de recursos
 
-The Resource Graph query is listed alongside other resources that are part of a resource group.
-Selecting the Resource Graph query opens the page for that query. The ellipsis and shortcut menu options (triggered by right-clicking) work the same as on the Resource Graph query page.
+A consulta do grafo de recursos é listada junto com outros recursos que fazem parte de um grupo de recursos.
+Selecionar a consulta de grafo de recursos abre a página para essa consulta. As opções de menu de atalho e reticências (disparadas clicando com o botão direito do mouse) funcionam da mesma forma que na página consulta de grafo de recursos.
 
-### <a name="query-resource-graph"></a>Query Resource Graph
+### <a name="query-resource-graph"></a>Grafo de recursos de consulta
 
-You can find Resource Graph queries through a query to Resource Graph. The following Resource Graph query limits by type `Microsoft.ResourceGraph/queries`, and then uses `project` to list only the name, time modified, and the query itself:
+Você pode encontrar consultas de grafo de recursos por meio de uma consulta ao grafo de recursos. Os seguintes limites de consulta do grafo de recursos por tipo `Microsoft.ResourceGraph/queries`e, em seguida, usa `project` para listar apenas o nome, o tempo modificado e a própria consulta:
 
 ```kusto
 Resources
@@ -137,25 +137,23 @@ Resources
 | project name, properties.timeModified, properties.query
 ```
 
-## <a name="delete-a-shared-query"></a>Delete a Shared query
+## <a name="delete-a-shared-query"></a>Excluir uma consulta compartilhada
 
-If a Shared query is no longer needed, delete it. By deleting a Shared query, you remove the corresponding Resource Manager resource. Any dashboards that the results chart was pinned to now display an error message. When that error message is displayed, use the **Remove from dashboard** button to clean up your dashboard.
+Se uma consulta compartilhada não for mais necessária, exclua-a. Ao excluir uma consulta compartilhada, você remove o recurso do Resource Manager correspondente. Todos os dashboards aos quais o gráfico de resultados foi fixado agora exibem uma mensagem de erro. Quando essa mensagem de erro for exibida, use o botão **remover do painel** para limpar seu painel.
 
-You can delete a Shared query through the following interfaces:
-- Resource Graph queries page
-- Resource Graph query page
-- The **Open a query** page in Resource Graph Explorer
-- Resource groups page
+Você pode excluir uma consulta compartilhada por meio das seguintes interfaces:
+- Página consultas do grafo de recursos
+- Página de consulta do grafo de recursos
+- A página **abrir uma consulta** no Gerenciador de grafo de recursos
+- Página grupos de recursos
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-When you're finished with this tutorial, delete the Private and Shared queries you created if you no longer want them.
+Quando terminar este tutorial, exclua as consultas particulares e compartilhadas que você criou se não quiser mais.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Run your first query by using the [Azure portal](../first-query-portal.md).
-- Get more information about the [query language](../concepts/query-language.md).
-- Learn more about how to [explore resources](../concepts/explore-resources.md).
-- See samples of [Starter queries](../samples/starter.md).
-- See samples of [Advanced queries](../samples/advanced.md).
-- Provide feedback on [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+Neste tutorial, você criou consultas particulares e compartilhadas. Para saber mais sobre a linguagem de gráfico de recursos, continue na página de detalhes da linguagem de consulta.
+
+> [!div class="nextstepaction"]
+> [Obter mais informações sobre a linguagem de consulta](../concepts/query-language.md)

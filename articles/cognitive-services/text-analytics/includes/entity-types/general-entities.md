@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: aahi
-ms.openlocfilehash: 693a81cfb15407541311d7ab053bb2ab6a267b29
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: a4c911fa077c2ec332974fb2f0c5abcdef21307c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73800068"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284150"
 ---
 ## <a name="general-entity-types"></a>Tipos de entidade geral:
 
@@ -49,9 +49,9 @@ Organizações reconhecidas, corporações, agências e outros grupos de pessoas
 |--------------|--------------------------------------------------------------------------------------------------|
 | N/D          | organizações, por exemplo `Microsoft`, `NASA` `National Oceanic and Atmospheric Administration` |
 
-### <a name="phone-number"></a>Número de Telefone
+### <a name="phone-number"></a>Número de telefone
 
-Números de telefone. 
+Números de telefone (somente números de telefone dos EUA). 
 
 Idiomas:
 
@@ -60,7 +60,7 @@ Idiomas:
 
 | Nome do subtipo | Descrição                                  |
 |----------|----------------------------------------------|
-| N/D         | Números de telefone, por exemplo `+1 123-123-123`. |
+| N/D         | Números de telefone dos EUA, por exemplo `(312) 555-0176`. |
 
 ### <a name="email"></a>Email
 
@@ -88,7 +88,7 @@ Idiomas:
 |----------|-------------------------------------------------------|
 | N/D         | URLs para sites, por exemplo `https://www.bing.com`. |
 
-###  <a name="number"></a>Number
+###  <a name="number"></a>Número
 
 Números e quantidades numéricas. 
 

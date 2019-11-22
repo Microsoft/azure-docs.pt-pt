@@ -1,5 +1,6 @@
 ---
-title: Automatizar a auditoria do NSG com o modo de exibição do grupo de segurança do observador de rede do Azure | Microsoft Docs
+title: Automatizar a auditoria do NSG – exibição do grupo de segurança
+titleSuffix: Azure Network Watcher
 description: Esta página fornece instruções sobre como configurar a auditoria de um grupo de segurança de rede
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 8e0eddd07fc0c473e4777d9dd90d0b2c64145e34
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f4c553cd144f7c921121aa943e3c40849891f957
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165144"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278049"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizar a auditoria de NSG com a exibição do grupo de segurança do observador de rede do Azure
 
@@ -49,7 +50,7 @@ Nesse cenário, você irá:
 
 ## <a name="retrieve-rule-set"></a>Recuperar conjunto de regras
 
-A primeira etapa neste exemplo é trabalhar com uma linha de base existente. O exemplo a seguir é um JSON extraído de um grupo de segurança de `Get-AzNetworkSecurityGroup` rede existente usando o cmdlet que é usado como a linha de base para este exemplo.
+A primeira etapa neste exemplo é trabalhar com uma linha de base existente. O exemplo a seguir é um JSON extraído de um grupo de segurança de rede existente usando o cmdlet `Get-AzNetworkSecurityGroup` que é usado como a linha de base para este exemplo.
 
 ```json
 [
@@ -126,7 +127,7 @@ $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 
 ## <a name="retrieve-network-watcher"></a>Recuperar observador de rede
 
-A próxima etapa é recuperar a instância do observador de rede. A `$networkWatcher` variável é passada para o `AzNetworkWatcherSecurityGroupView` cmdlet.
+A próxima etapa é recuperar a instância do observador de rede. A variável `$networkWatcher` é passada para o cmdlet `AzNetworkWatcherSecurityGroupView`.
 
 ```powershell
 $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
@@ -134,7 +135,7 @@ $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network
 
 ## <a name="get-a-vm"></a>Obter uma VM
 
-Uma máquina virtual é necessária para executar o `Get-AzNetworkWatcherSecurityGroupView` cmdlet. O exemplo a seguir obtém um objeto VM.
+Uma máquina virtual é necessária para executar o cmdlet `Get-AzNetworkWatcherSecurityGroupView`. O exemplo a seguir obtém um objeto VM.
 
 ```powershell
 $VM = Get-AzVM -ResourceGroupName "testrg" -Name "testvm1"
@@ -152,7 +153,7 @@ $secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatche
 
 A resposta é agrupada por interfaces de rede. Os diferentes tipos de regras retornadas são regras de segurança efetivas e padrão. O resultado é dividido por como ele é aplicado, seja em uma sub-rede ou em uma NIC virtual.
 
-O script do PowerShell a seguir compara os resultados da exibição do grupo de segurança com uma saída existente de um NSG. O exemplo a seguir é um exemplo simples de como os resultados podem ser comparados com `Compare-Object` o cmdlet.
+O script do PowerShell a seguir compara os resultados da exibição do grupo de segurança com uma saída existente de um NSG. O exemplo a seguir é um exemplo simples de como os resultados podem ser comparados com `Compare-Object` cmdlet.
 
 ```powershell
 Compare-Object -ReferenceObject $nsgbaserules `

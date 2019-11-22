@@ -1,6 +1,6 @@
 ---
-title: Fazer backup e recuperar com o aplicativo Microsoft Authenticator – Azure AD
-description: Saiba como fazer backup e recuperar as credenciais da sua conta usando o aplicativo Microsoft Authenticator.
+title: Fazer backup e recuperar contas com o aplicativo Microsoft Authenticator-Azure AD
+description: Saiba como fazer backup e recuperar as credenciais de conta de backup, usando o aplicativo Microsoft Authenticator.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 08/22/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2404dd443c1e3ede1d3ad5a81888e9f805edb810
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 827213c8d243e9d66c58195e1d9400bed9c3e337
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820267"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267007"
 ---
-# <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Fazer backup e recuperar credenciais de conta com o aplicativo Microsoft Authenticator
+# <a name="backup-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Fazer backup e recuperar credenciais da conta usando o aplicativo Microsoft Authenticator
 
 **Aplica-se a:**
 

@@ -3,12 +3,12 @@ title: Determinar as causas da não conformidade
 description: Quando um recurso não está em conformidade, há muitos motivos possíveis. Saiba como descobrir o que causou a não conformidade.
 ms.date: 04/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6f113080ab84fe7d159766e6543ff61b28f4ead2
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 839e6c61c4a44ba7c7581290408bb997b53b8f96
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959604"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279402"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade
 
@@ -216,6 +216,6 @@ Os dados do histórico de alterações são fornecidos pelo [grafo de recursos d
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Veja [Compreender os efeitos do Policy](../concepts/effects.md).
 - Entenda como [criar políticas programaticamente](programmatically-create.md).
-- Saiba como [obter dados de conformidade](getting-compliance-data.md).
+- Saiba como [obter dados de conformidade](get-compliance-data.md).
 - Saiba como [corrigir recursos sem conformidade](remediate-resources.md).
 - Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

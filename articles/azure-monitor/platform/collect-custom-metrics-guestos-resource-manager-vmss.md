@@ -1,5 +1,5 @@
 ---
-title: Enviar métricas do sistema operacional convidado para o repositório de métrica Azure Monitor usando um modelo de Azure Resource Manager para um conjunto de dimensionamento de máquinas virtuais do Windows
+title: Coletar métricas do conjunto de dimensionamento do Windows no Azure Monitor com o modelo
 description: Enviar métricas do sistema operacional convidado para o repositório de métrica Azure Monitor usando um modelo do Resource Manager para um conjunto de dimensionamento de máquinas virtuais do Windows
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 8ee8c0c9d9724706f9b46013eba14e878832fd02
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 691b2ae7e497c9292975083e3687d9240ce6f3e6
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844964"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286125"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas do sistema operacional convidado para o repositório de métrica Azure Monitor usando um modelo de Azure Resource Manager para um conjunto de dimensionamento de máquinas virtuais do Windows
 
@@ -23,11 +23,11 @@ Usando a extensão Azure Monitor [Windows diagnóstico do Azure (wad)](diagnosti
 
 Este artigo descreve o processo para enviar métricas de desempenho do SO convidado para um conjunto de dimensionamento de máquinas virtuais do Windows para o armazenamento de dados do Azure Monitor. A partir do Windows Diagnóstico do Azure versão 1,11, você pode gravar métricas diretamente no repositório de métricas de Azure Monitor, em que as métricas de plataforma padrão já são coletadas. Ao armazená-los nesse local, você pode acessar as mesmas ações que estão disponíveis para métricas de plataforma. As ações incluem alertas em tempo real, criação de gráficos, roteamento, acesso da API REST e muito mais. No passado, a extensão de Diagnóstico do Azure do Windows gravou no armazenamento do Azure, mas não no armazenamento de dados Azure Monitor.  
 
-Se você for novo nos modelos do Resource Manager, saiba mais sobre implantações de [modelo](../../azure-resource-manager/resource-group-overview.md) e sua estrutura e sintaxe.  
+Se você for novo nos modelos do Resource Manager, saiba mais sobre [implantações de modelo](../../azure-resource-manager/resource-group-overview.md) e sua estrutura e sintaxe.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Sua assinatura deve ser registrada com [Microsoft.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)insights. 
+- Sua assinatura deve ser registrada com [Microsoft. insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - Você precisa ter [Azure PowerShell](/powershell/azure) instalado ou pode usar [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
@@ -267,7 +267,7 @@ Para implantar o modelo do Resource Manager, use Azure PowerShell:
 1. Depois que a implantação for realizada com sucesso, você deverá encontrar o conjunto de dimensionamento de máquinas virtuais na portal do Azure. Ele deve emitir métricas para Azure Monitor. 
 
    > [!NOTE]  
-   > Você pode encontrar erros em volta do **vmSkuSize**selecionado. Nesse caso, volte para o arquivo **azuredeploy. JSON** e atualize o valor padrão do parâmetro **vmSkuSize** . Recomendamos que você experimente o **Standard_DS1_v2**. 
+   > Você pode encontrar erros em volta do **vmSkuSize**selecionado. Nesse caso, volte para o arquivo **azuredeploy. JSON** e atualize o valor padrão do parâmetro **vmSkuSize** . Recomendamos que você tente **Standard_DS1_v2**. 
 
 
 ## <a name="chart-your-metrics"></a>Gráfico de suas métricas 
@@ -292,7 +292,7 @@ Você também pode optar por usar as dimensões nessa métrica para criar um gr�
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
 
 

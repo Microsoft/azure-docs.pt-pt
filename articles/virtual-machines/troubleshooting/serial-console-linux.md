@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 15e0b8a5b3ea64148eb78cb376500adac2410a71
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: a9c1ca3ac55c1c995ac858e758d6930b49c5ea1c
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949674"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287016"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console serial do Azure para Linux
 
@@ -107,7 +107,7 @@ Todo o acesso à consola de série é iniciado a [diagnósticos de arranque](htt
 Se um usuário estiver conectado à consola de série e outro utilizador com êxito pedidos de acesso a essa mesma máquina virtual, o primeiro utilizador será desligado e o segundo utilizador ligado à mesma sessão.
 
 > [!CAUTION]
-> Isso significa que um utilizador que está desligado não terminar a sessão. A capacidade de impor um logout após a desconexão (usando SIGHUP ou mecanismo semelhante) ainda está no roteiro. Para o Windows, há um tempo limite automático habilitado no console administrativo especial (SAC); no entanto, para Linux, você pode definir a configuração de tempo limite do terminal. Para fazer isso, adicione `export TMOUT=600` em seu arquivo *. bash_profile* ou *. Profile* para o usuário que você usa para entrar no console do. Essa configuração atingirá o tempo limite da sessão após 10 minutos.
+> Isso significa que um usuário que está desconectado não será desconectado. A capacidade de impor um logout após a desconexão (usando SIGHUP ou mecanismo semelhante) ainda está no roteiro. Para o Windows, há um tempo limite automático habilitado no console administrativo especial (SAC); no entanto, para Linux, você pode definir a configuração de tempo limite do terminal. Para fazer isso, adicione `export TMOUT=600` em seu arquivo *. bash_profile* ou *. Profile* para o usuário que você usa para entrar no console do. Essa configuração atingirá o tempo limite da sessão após 10 minutos.
 
 ## <a name="accessibility"></a>Acessibilidade
 Acessibilidade é um foco importante para o console serial do Azure. Para esse fim, garantimos que o console serial esteja totalmente acessível.
@@ -124,52 +124,52 @@ Estamos cientes de alguns problemas com o console serial e o sistema operacional
 Problema                           |   Mitigação
 :---------------------------------|:--------------------------------------------|
 Premir **Enter** depois da faixa de ligação não causa um prompt de início de sessão a apresentar. | Para obter mais informações, consulte [Hitting introduza não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Esse problema pode ocorrer se você estiver executando uma VM personalizada, um dispositivo protegido ou uma configuração do GRUB que faz com que o Linux falhe na conexão com a porta serial.
-Console serial texto só ocupa uma parte do tamanho da tela (geralmente, depois de usar um editor de texto). | Os consoles seriais não dão suporte à negociação sobre o tamanho da janela ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), o que significa que não haverá nenhum sinal SIGWINCH enviado para atualizar o tamanho da tela e a VM não terá conhecimento do tamanho do seu terminal. Instale o xterm ou um utilitário semelhante para fornecer o comando `resize` e execute `resize`.
+Console serial texto só ocupa uma parte do tamanho da tela (geralmente, depois de usar um editor de texto). | Os consoles seriais não dão suporte à negociação sobre o tamanho da janela ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), o que significa que não haverá nenhum sinal SIGWINCH enviado para atualizar o tamanho da tela e a VM não terá conhecimento do tamanho do seu terminal. Instale o xterm ou um utilitário semelhante para fornecer o comando `resize` e, em seguida, execute `resize`.
 Colar longas seqüências de caracteres não funciona. | A consola de série limita o comprimento de cadeias de caracteres colado no terminal para 2048 carateres para evitar sobrecarregar a largura de banda da porta serial.
-Entrada de teclado irregular em imagens SLES BYOS. A entrada do teclado é reconhecida apenas esporadicamente. | Isso é um problema com o pacote Plymouth. Plymouth não deve ser executado no Azure porque você não precisa de uma tela inicial e Plymouth interfere na capacidade da plataforma de usar o console serial. Remova Plymouth com `sudo zypper remove plymouth` e reinicialize. Como alternativa, modifique a linha de kernel da configuração do GRUB acrescentando `plymouth.enable=0` ao final da linha. Você pode fazer isso [editando a entrada de inicialização no momento da inicialização](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)ou editando a linha GRUB_CMDLINE_LINUX em `/etc/default/grub`, recriando o grub com o `grub2-mkconfig -o /boot/grub2/grub.cfg` e, em seguida, reinicializando.
+Entrada de teclado irregular em imagens SLES BYOS. A entrada do teclado é reconhecida apenas esporadicamente. | Isso é um problema com o pacote Plymouth. Plymouth não deve ser executado no Azure porque você não precisa de uma tela inicial e Plymouth interfere na capacidade da plataforma de usar o console serial. Remova Plymouth com `sudo zypper remove plymouth` e reinicialize. Como alternativa, modifique a linha de kernel da configuração do GRUB acrescentando `plymouth.enable=0` ao final da linha. Você pode fazer isso [editando a entrada de inicialização no momento da inicialização](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)ou editando a linha de GRUB_CMDLINE_LINUX no `/etc/default/grub`, recriando o GRUB com `grub2-mkconfig -o /boot/grub2/grub.cfg`e reiniciando.
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-**P. Como posso enviar comentários?**
+**P. como posso enviar comentários?**
 
-R. Forneça comentários criando um problema do GitHub em https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), pode enviar comentários por meio azserialhelp@microsoft.com ou na categoria de máquina virtual de https://feedback.azure.com.
+A. Forneça comentários criando um problema do GitHub em https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), pode enviar comentários por meio azserialhelp@microsoft.com ou na categoria de máquina virtual de https://feedback.azure.com.
 
-**P. A consola de série suporta copiar/colar?**
+**P. o console serial dá suporte a copiar/colar?**
 
-R. Sim. Uso **Ctrl**+**Shift**+**C** e **Ctrl**+**Shift** + **V** de copiar e colar no terminal.
+A. Sim. Uso **Ctrl**+**Shift**+**C** e **Ctrl**+**Shift** + **V** de copiar e colar no terminal.
 
-**P. Posso usar o console serial em vez de uma conexão SSH?**
+**P. posso usar o console serial em vez de uma conexão SSH?**
 
-R. Embora esse uso possa parecer tecnicamente possível, o console serial destina-se a ser usado principalmente como uma ferramenta de solução de problemas em situações em que a conectividade via SSH não é possível. É recomendável usar o console serial como uma substituição de SSH pelos seguintes motivos:
+A. Embora esse uso possa parecer tecnicamente possível, o console serial destina-se a ser usado principalmente como uma ferramenta de solução de problemas em situações em que a conectividade via SSH não é possível. É recomendável usar o console serial como uma substituição de SSH pelos seguintes motivos:
 
 - O console serial não tem tanta largura de banda quanto SSH. Como é uma conexão somente de texto, mais interações de GUI pesada são difíceis.
 - O acesso Console serial é atualmente possível apenas usando um nome de usuário e senha. Como as chaves SSH são muito mais seguras do que as combinações de nome de usuário/senha, de uma perspectiva de segurança de entrada, recomendamos o SSH sobre o console serial.
 
-**P. Quem pode habilitar ou desabilitar o console serial para minha assinatura?**
+**P. quem pode habilitar ou desabilitar o console serial para minha assinatura?**
 
-R. Para ativar ou desativar a consola de série a um nível de toda a subscrição, tem de ter permissões de escrita para a subscrição. As funções que tem permissão de escrita incluem funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de escrita.
+A. Para ativar ou desativar a consola de série a um nível de toda a subscrição, tem de ter permissões de escrita para a subscrição. As funções que tem permissão de escrita incluem funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de escrita.
 
-**P. Quem pode acessar o console serial do meu conjunto de dimensionamento de máquinas virtuais/VM?**
+**P. quem pode acessar o console serial do meu conjunto de dimensionamento de máquinas virtuais/VM?**
 
-R. Você deve ter a função colaborador da máquina virtual ou superior para uma VM ou conjunto de dimensionamento de máquinas virtuais para acessar o console serial.
+A. Você deve ter a função colaborador da máquina virtual ou superior para uma VM ou conjunto de dimensionamento de máquinas virtuais para acessar o console serial.
 
-**P. Meu consola de série não é apresentada qualquer coisa, o que fazer?**
+**P. meu console serial não está exibindo nada, o que eu faço?**
 
-R. A imagem é provavelmente mal configurada para acesso à consola de série. Para obter informações sobre como configurar sua imagem para habilitar o console serial, consulte [console serial disponibilidade de distribuição do Linux](#serial-console-linux-distribution-availability).
+A. A imagem é provavelmente mal configurada para acesso à consola de série. Para obter informações sobre como configurar sua imagem para habilitar o console serial, consulte [console serial disponibilidade de distribuição do Linux](#serial-console-linux-distribution-availability).
 
-**P. A consola de série está disponível para os conjuntos de dimensionamento de máquinas virtuais?**
+**P. o console serial está disponível para conjuntos de dimensionamento de máquinas virtuais?**
 
-R. Sim, é! Consulte o [console serial para conjuntos de dimensionamento de máquinas virtuais](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
+A. Sim, é! Consulte o [console serial para conjuntos de dimensionamento de máquinas virtuais](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
-**P. Se eu configurar minha VM ou conjunto de dimensionamento de máquinas virtuais usando apenas a autenticação de chave SSH, ainda poderei usar o console serial para se conectar à minha instância de VM/conjunto de dimensionamento de máquinas virtuais?**
+**P. se eu configuro minha VM ou conjunto de dimensionamento de máquinas virtuais usando apenas a autenticação de chave SSH, ainda posso usar o console serial para se conectar à minha instância de VM/conjunto de dimensionamento de máquinas virtuais?**
 
-R. Sim. Como o console serial não requer chaves SSH, você só precisa configurar uma combinação de nome de usuário/senha. Você pode fazer isso selecionando **Redefinir senha** no portal do Azure e usando essas credenciais para entrar no console serial.
+A. Sim. Como o console serial não requer chaves SSH, você só precisa configurar uma combinação de nome de usuário/senha. Você pode fazer isso selecionando **Redefinir senha** no portal do Azure e usando essas credenciais para entrar no console serial.
 
 ## <a name="next-steps"></a>Passos seguintes
 * Use o console serial para [acessar o grub e o modo de usuário único](serial-console-grub-single-user-mode.md).
 * Use o console serial para [chamadas NMI e SysRq](serial-console-nmi-sysrq.md).
-* Saiba como usar o console serial para [habilitar o grub em vários distribuições](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
+* Saiba como usar o console serial para [habilitar o grub em vários distribuições](serial-console-grub-proactive-configuration.md) 
 * O console serial também está disponível para [VMs do Windows](../windows/serial-console.md).
 * Saiba mais sobre [diagnósticos de arranque](boot-diagnostics.md).
 

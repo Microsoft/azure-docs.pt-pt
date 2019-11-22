@@ -1,6 +1,6 @@
 ---
 title: Preparar para alterar o formato para Azure Monitor logs de diagnóstico
-description: Os logs de diagnóstico do Azure serão movidos para usar blobs de acréscimo em 1º de novembro de 2018.
+description: Descreve o impacto e como atualizar suas ferramentas para lidar com os novos logs de diagnóstico do Azure que foram alterados para usar blobs de acréscimo em 1º de novembro de 2018.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: a5589828570455c61f857dbeadc896e8fef27178
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5e71f4c590e4eafea5a2c6ad52b8df8c7dcf3814
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258392"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307052"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Preparar para alterar o formato para Azure Monitor logs de diagnóstico arquivados em uma conta de armazenamento
 
 > [!WARNING]
-> Se você estiver enviando [logs ou métricas de diagnóstico de recursos do Azure para uma conta de armazenamento usando configurações de diagnóstico de recurso](./../../azure-monitor/platform/archive-diagnostic-logs.md) ou [logs de atividade para uma conta de armazenamento usando perfis de log](./../../azure-monitor/platform/archive-activity-log.md), o formato dos dados na conta de armazenamento será alterado para linhas JSON em 1 de novembro de 2018. As instruções a seguir descrevem o impacto e como atualizar suas ferramentas para lidar com o novo formato. 
+> Se você estiver enviando [logs ou métricas de diagnóstico de recursos do Azure para uma conta de armazenamento usando configurações de diagnóstico de recurso](./../../azure-monitor/platform/archive-diagnostic-logs.md) ou [logs de atividade para uma conta de armazenamento usando perfis de log](./../../azure-monitor/platform/archive-activity-log.md), o formato dos dados na conta de armazenamento será alterado para linhas JSON em Nov. 1, 2018. As instruções a seguir descrevem o impacto e como atualizar suas ferramentas para lidar com o novo formato. 
 >
 > 
 
-## <a name="what-is-changing"></a>O que está a mudar
+## <a name="what-is-changing"></a>O que está sendo alterado
 
 O Azure Monitor oferece uma funcionalidade que permite enviar dados de diagnóstico de recursos e dados de log de atividades para uma conta de armazenamento do Azure, namespace de hubs de eventos ou em um espaço de trabalho Log Analytics no Azure Monitor. Para resolver um problema de desempenho do sistema, em **1º de novembro de 2018 às 12:00, meia-noite UTC** o formato dos dados de log enviados para o armazenamento de BLOBs será alterado. Se você tiver ferramentas que estão lendo dados fora do armazenamento de BLOBs, precisará atualizar suas ferramentas para entender o novo formato de dados.
 
@@ -45,7 +45,7 @@ Você só será afetado por essa alteração se:
 1. Está enviando dados de log para uma conta de armazenamento do Azure usando uma configuração de diagnóstico de recurso e
 2. Têm ferramentas que dependem da estrutura JSON desses logs no armazenamento.
  
-Para identificar se você tem configurações de diagnóstico de recurso que estão enviando dados para uma conta de armazenamento do Azure, navegue até a seção **Monitor** do portal, clique em **configurações de diagnóstico**e identifique os recursos que têm **diagnóstico Status** definido como **habilitado**:
+Para identificar se você tem configurações de diagnóstico de recurso que estão enviando dados para uma conta de armazenamento do Azure, navegue até a seção **Monitor** do portal, clique em **configurações de diagnóstico**e identifique todos os recursos que têm o status de **diagnóstico** definido como **habilitado**:
 
 ![Folha configurações de diagnóstico Azure Monitor](./media/diagnostic-logs-append-blobs/portal-diag-settings.png)
 

@@ -1,14 +1,14 @@
 ---
 title: Obter alterações do recurso
-description: Entenda como localizar quando um recurso foi alterado e obter uma lista das propriedades que foram alteradas.
+description: Entenda como localizar quando um recurso foi alterado, obter uma lista das propriedades que foram alteradas e avaliar as diferenças.
 ms.date: 10/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 25d900276518e51e80021d1fdb1ac80945eb2d5c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 2ed2c0ef8638744aeaa9f31eded14d1716d891ae
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958768"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74303984"
 ---
 # <a name="get-resource-changes"></a>Obter alterações do recurso
 
@@ -168,7 +168,7 @@ Corpo do pedido de exemplo:
 ```json
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}"
+    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"afterTime\":'2019-05-10T00:00:00.000Z\"}"
 }
 ```
 

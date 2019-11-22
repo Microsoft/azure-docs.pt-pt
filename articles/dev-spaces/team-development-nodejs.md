@@ -1,20 +1,16 @@
 ---
 title: Desenvolvimento de equipe com Azure Dev Spaces com node. js e VS Code
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S '
-ms.openlocfilehash: d3eecce7e5704752e0a5ea18b2a5d0f668978028
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: MT
+ms.openlocfilehash: 70904ba89c2fa29217891b18beb8844e825c1d98
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129293"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279740"
 ---
 # <a name="team-development-with-azure-dev-spaces-using-nodejs-and-vs-code"></a>Desenvolvimento de equipe com Azure Dev Spaces usando node. js e VS Code
 

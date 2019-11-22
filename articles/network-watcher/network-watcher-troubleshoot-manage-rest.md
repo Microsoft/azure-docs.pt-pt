@@ -1,6 +1,7 @@
 ---
-title: Resolver problemas de Gateway de rede Virtual e ligações com o observador de rede do Azure - REST | Documentos da Microsoft
-description: Esta página explica como resolver problemas de Gateways de rede Virtual e ligações com o observador de rede do Azure com REST
+title: Solucionar problemas de gateway e conexões de VNET – API REST do Azure
+titleSuffix: Azure Network Watcher
+description: Esta página explica como solucionar problemas de gateways de rede virtual e conexões com o observador de rede do Azure usando REST
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 0f10b9b45f63485417685a0826c047725a264772
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b3898a7c4cd09b59da0fc167b758199119793eb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686121"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277787"
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Resolver problemas de gateway de rede Virtual e ligações com o observador de rede do Azure
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Solucionar problemas de gateway de rede virtual e conexões usando o observador de rede do Azure
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
@@ -29,37 +30,37 @@ ms.locfileid: "64686121"
 > - [CLI do Azure](network-watcher-troubleshoot-manage-cli.md)
 > - [API REST](network-watcher-troubleshoot-manage-rest.md)
 
-Observador de rede oferece muitos recursos que diz respeito à Noções básicas sobre os recursos de rede no Azure. Um desses recursos é o recurso de resolução de problemas. Resolução de problemas de recursos pode ser chamada através do portal, o PowerShell, a CLI ou a REST API. Quando chamado, o observador de rede inspeciona o estado de funcionamento de um Gateway de rede Virtual ou uma ligação e devolve conclusões.
+O observador de rede fornece muitos recursos que se relacionam com a compreensão de seus recursos de rede no Azure. Um desses recursos é a solução de problemas de recursos. A solução de problemas de recursos pode ser chamada por meio do portal, do PowerShell, da CLI ou da API REST. Quando chamado, o observador de rede inspeciona a integridade de um gateway de rede virtual ou uma conexão e retorna suas descobertas.
 
-Este artigo orienta-o por tarefas de gestão diferentes que estão atualmente disponíveis para a resolução de problemas de recursos.
+Este artigo orienta você pelas diferentes tarefas de gerenciamento que estão disponíveis atualmente para solução de problemas de recursos.
 
-- [**Resolver problemas relacionados com um gateway de rede Virtual**](#troubleshoot-a-virtual-network-gateway)
-- [**Resolver problemas de uma ligação**](#troubleshoot-connections)
+- [**Solucionar problemas de um gateway de rede virtual**](#troubleshoot-a-virtual-network-gateway)
+- [**Solucionar problemas de conexão**](#troubleshoot-connections)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-ARMclient é utilizada para chamar a API de REST com o PowerShell. ARMClient encontra-se no chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
+ARMclient é usado para chamar a API REST usando o PowerShell. ARMClient é encontrado no Chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-Este cenário pressupõe que já tiver seguido os passos em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
+Este cenário pressupõe que você já seguiu as etapas em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
 
-Para obter uma lista de visita de tipos de gateway suportados [tipos de Gateway suportados](network-watcher-troubleshoot-overview.md#supported-gateway-types).
+Para obter uma lista de tipos de gateway com suporte, visite [tipos de gateway com suporte](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
 ## <a name="overview"></a>Descrição geral
 
-Solução de problemas de observador de rede fornece a capacidade de resolver os problemas que surgem com ligações e gateways de rede Virtual. Quando é efetuado um pedido para o recurso de resolução de problemas, registos estão a consultar e inspecioná-lo. Quando a inspeção estiver concluída, os resultados são devolvidos. Os pedidos de resolução de problemas API são longos executando solicitações, o que podem demorar vários minutos para retornar um resultado. Os registos são armazenados num contentor numa conta de armazenamento.
+A solução de problemas do observador de rede fornece a capacidade de solucionar problemas que surgem com gateways e conexões de rede virtual. Quando uma solicitação é feita para a solução de problemas de recursos, os logs são consultados e inspecionados. Quando a inspeção for concluída, os resultados serão retornados. As solicitações de API de solução de problemas são solicitações de execução longa, o que pode levar vários minutos para retornar um resultado. Os logs são armazenados em um contêiner em uma conta de armazenamento.
 
-## <a name="log-in-with-armclient"></a>Inicie sessão com ARMClient
+## <a name="log-in-with-armclient"></a>Fazer logon com ARMClient
 
 ```powershell
 armclient login
 ```
 
-## <a name="troubleshoot-a-virtual-network-gateway"></a>Resolver problemas relacionados com um gateway de rede Virtual
+## <a name="troubleshoot-a-virtual-network-gateway"></a>Solucionar problemas de um gateway de rede virtual
 
 
-### <a name="post-the-troubleshoot-request"></a>PUBLICAR o pedido de resolução de problemas
+### <a name="post-the-troubleshoot-request"></a>POSTAR a solicitação de solução de problemas
 
-O exemplo seguinte consulta o estado de um gateway de rede Virtual.
+O exemplo a seguir consulta o status de um gateway de rede virtual.
 
 ```powershell
 
@@ -84,12 +85,12 @@ $requestBody = @"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30" $requestBody -verbose
 ```
 
-Uma vez que esta operação é longa em execução, o URI para consultar a operação e o URI para o resultado é devolvido no cabeçalho de resposta, conforme mostrado na seguinte resposta:
+Como essa operação está em execução longa, o URI para consultar a operação e o URI para o resultado é retornado no cabeçalho de resposta, conforme mostrado na seguinte resposta:
 
 **Valores importantes**
 
-* **Azure-AsyncOperation** -esta propriedade contém o URI para o assíncrono de resolver problemas relacionados com a operação de consulta
-* **Localização** -esta propriedade contém o URI onde os resultados são quando a operação for concluída
+* **Azure-AsyncOperation** -essa propriedade contém o URI para consultar a operação de solução de problemas assíncronos
+* **Local** -essa propriedade contém o URI onde os resultados são quando a operação é concluída
 
 ```
 HTTP/1.1 202 Accepted
@@ -109,15 +110,15 @@ Date: Thu, 12 Jan 2017 18:32:01 GMT
 null
 ```
 
-### <a name="query-the-async-operation-for-completion"></a>A operação assíncrona para a conclusão de consulta
+### <a name="query-the-async-operation-for-completion"></a>Consultar a operação assíncrona para conclusão
 
-Utilize as operações de URI para a consulta para conhecer o progresso da operação, como visto no exemplo a seguir:
+Use o URI de operações para consultar o progresso da operação, conforme mostrado no exemplo a seguir:
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30" -verbose
 ```
 
-Enquanto a operação estiver em curso, a resposta mostra **InProgress** como visto no exemplo a seguir:
+Enquanto a operação estiver em andamento, a resposta mostrará **InProgress** como visto no exemplo a seguir:
 
 ```json
 {
@@ -125,7 +126,7 @@ Enquanto a operação estiver em curso, a resposta mostra **InProgress** como vi
 }
 ```
 
-Quando a operação for concluída o estado muda para **bem-sucedido**.
+Quando a operação for concluída, o status será alterado para **êxito**.
 
 ```json
 {
@@ -135,13 +136,13 @@ Quando a operação for concluída o estado muda para **bem-sucedido**.
 
 ### <a name="retrieve-the-results"></a>Obter os resultados
 
-Assim que o estado devolvido é **bem-sucedido**, chamar um método de introdução sobre a operationresult ainda URI para recuperar os resultados.
+Depois que o status retornado for **bem-sucedido**, chame um método Get no URI operationResult para recuperar os resultados.
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30" -verbose
 ```
 
-As respostas seguintes são exemplos de uma resposta de degradação típica devolvido ao consultar os resultados de um gateway de resolução de problemas. Ver [Noções básicas sobre os resultados](#understanding-the-results) para obter esclarecimentos adicionais sobre o que significa que as propriedades na resposta.
+As respostas a seguir são exemplos de uma resposta de degradação típica retornada ao consultar os resultados da solução de problemas de um gateway. Consulte [noções básicas sobre os resultados](#understanding-the-results) para obter esclarecimentos sobre o que as propriedades na resposta significam.
 
 ```json
 {
@@ -188,9 +189,9 @@ As respostas seguintes são exemplos de uma resposta de degradação típica dev
 ```
 
 
-## <a name="troubleshoot-connections"></a>Resolver problemas de ligações
+## <a name="troubleshoot-connections"></a>Solucionar problemas de conexões
 
-O exemplo seguinte consulta o estado de uma ligação.
+O exemplo a seguir consulta o status de uma conexão.
 
 ```powershell
 
@@ -213,14 +214,14 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
 ```
 
 > [!NOTE]
-> A operação de resolução de problemas não pode ser executada em paralelo numa conexão e seus gateways correspondentes. A operação tem de concluir antes de executá-lo no recurso anterior.
+> A operação de solução de problemas não pode ser executada em paralelo em uma conexão e seus gateways correspondentes. A operação deve ser concluída antes de executá-la no recurso anterior.
 
-Como se trata de uma transação de longa execução, no cabeçalho de resposta, o URI para consultar a operação e o URI para o resultado é devolvido como mostrado na seguinte resposta:
+Como essa é uma transação de longa execução, no cabeçalho de resposta, o URI para consultar a operação e o URI para o resultado é retornado conforme mostrado na seguinte resposta:
 
 **Valores importantes**
 
-* **Azure-AsyncOperation** -esta propriedade contém o URI para o assíncrono de resolver problemas relacionados com a operação de consulta
-* **Localização** -esta propriedade contém o URI onde os resultados são quando a operação for concluída
+* **Azure-AsyncOperation** -essa propriedade contém o URI para consultar a operação de solução de problemas assíncronos
+* **Local** -essa propriedade contém o URI onde os resultados são quando a operação é concluída
 
 ```
 HTTP/1.1 202 Accepted
@@ -240,15 +241,15 @@ Date: Thu, 12 Jan 2017 18:32:01 GMT
 null
 ```
 
-### <a name="query-the-async-operation-for-completion"></a>A operação assíncrona para a conclusão de consulta
+### <a name="query-the-async-operation-for-completion"></a>Consultar a operação assíncrona para conclusão
 
-Utilize as operações de URI para a consulta para conhecer o progresso da operação, como visto no exemplo a seguir:
+Use o URI de operações para consultar o progresso da operação, conforme mostrado no exemplo a seguir:
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/843b1c31-4717-4fdd-b7a6-4c786ca9c501?api-version=2016-03-30"
 ```
 
-Enquanto a operação estiver em curso, a resposta mostra **InProgress** como visto no exemplo a seguir:
+Enquanto a operação estiver em andamento, a resposta mostrará **InProgress** como visto no exemplo a seguir:
 
 ```json
 {
@@ -256,7 +257,7 @@ Enquanto a operação estiver em curso, a resposta mostra **InProgress** como vi
 }
 ```
 
-Quando a operação estiver concluída, o estado muda para **bem-sucedido**.
+Quando a operação for concluída, o status será alterado para **êxito**.
 
 ```json
 {
@@ -264,17 +265,17 @@ Quando a operação estiver concluída, o estado muda para **bem-sucedido**.
 }
 ```
 
-As respostas seguintes são exemplos de uma resposta típica devolvido ao consultar os resultados de uma ligação de resolução de problemas.
+As respostas a seguir são exemplos de uma resposta típica retornada ao consultar os resultados da solução de problemas de uma conexão.
 
 ### <a name="retrieve-the-results"></a>Obter os resultados
 
-Assim que o estado devolvido é **bem-sucedido**, chamar um método de introdução sobre a operationresult ainda URI para recuperar os resultados.
+Depois que o status retornado for **bem-sucedido**, chame um método Get no URI operationResult para recuperar os resultados.
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/843b1c31-4717-4fdd-b7a6-4c786ca9c501?api-version=2016-03-30"
 ```
 
-As respostas seguintes são exemplos de uma resposta típica devolvido ao consultar os resultados de uma ligação de resolução de problemas.
+As respostas a seguir são exemplos de uma resposta típica retornada ao consultar os resultados da solução de problemas de uma conexão.
 
 ```json
 {
@@ -321,12 +322,12 @@ is a transient state while the Azure platform is being updated.",
 }
 ```
 
-## <a name="understanding-the-results"></a>Noções básicas sobre os resultados
+## <a name="understanding-the-results"></a>Compreendendo os resultados
 
-O texto de ação fornece orientações gerais sobre como resolver o problema. Se uma ação possa ser executada para o problema, é fornecida uma ligação com orientações adicionais. No caso em que não existe nenhuma orientação adicional, a resposta fornece o url para abrir um incidente de suporte.  Para obter mais informações sobre as propriedades de resposta e o que está incluído, visite [descrição geral de resolução de problemas de observador de rede](network-watcher-troubleshoot-overview.md)
+O texto da ação fornece orientação geral sobre como resolver o problema. Se uma ação puder ser executada para o problema, será fornecido um link com diretrizes adicionais. No caso em que não há nenhuma orientação adicional, a resposta fornece a URL para abrir um caso de suporte.  Para obter mais informações sobre as propriedades da resposta e o que está incluído, visite [visão geral de solução de problemas do observador de rede](network-watcher-troubleshoot-overview.md)
 
-Para obter instruções sobre o download de arquivos de contas de armazenamento do azure, consulte [introdução ao armazenamento de Blobs do Azure com o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser utilizada é o Explorador de armazenamento. Obter mais informações sobre o Explorador de armazenamento podem ser encontradas aqui na seguinte hiperligação: [Explorador de armazenamento](https://storageexplorer.com/)
+Para obter instruções sobre como baixar arquivos de contas de armazenamento do Azure, consulte Introdução ao [armazenamento de BLOBs do Azure usando o .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é Gerenciador de Armazenamento. Mais informações sobre Gerenciador de Armazenamento podem ser encontradas aqui no seguinte link: [Gerenciador de armazenamento](https://storageexplorer.com/)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se foram alteradas as definições de conectividade VPN que stop, veja [gerir grupos de segurança de rede](../virtual-network/manage-network-security-group.md) rastrear as regras de segurança e de grupo de segurança de rede que podem ser em questão.
+Se as configurações tiverem sido alteradas para interromper a conectividade VPN, consulte [gerenciar grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para rastrear o grupo de segurança de rede e as regras de segurança que podem estar em questão.

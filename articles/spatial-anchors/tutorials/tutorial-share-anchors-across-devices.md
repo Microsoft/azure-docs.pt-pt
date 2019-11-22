@@ -1,19 +1,19 @@
 ---
-title: Tutorial – compartilhar âncoras espaciais do Azure entre sessões e dispositivos | Microsoft Docs
+title: 'Tutorial: compartilhar âncoras entre sessões e dispositivos'
 description: Neste tutorial, você aprenderá a compartilhar identificadores de âncora espacial do Azure entre dispositivos Android/iOS no Unity com um serviço de back-end.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e8a60d5d90b684698d6fcb612278bcae6d4ed08e
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: f0029fcf8e9efdea529212a7cca49cc8660c623f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882308"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276955"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Tutorial: compartilhar âncoras espaciais do Azure entre sessões e dispositivos
 
@@ -77,7 +77,7 @@ Na caixa de diálogo **Configurar plano de hospedagem** , use estas configuraç�
 | Definição | Valor sugerido | Descrição |
 |-|-|-|
 |Plano do Serviço de Aplicações| MySharingServicePlan | Nome do plano de serviço de aplicações. |
-| Localização | Oeste dos E.U.A. | O centro de dados onde o a aplicação Web está alojada. |
+| Localização | EUA Oeste | O centro de dados onde o a aplicação Web está alojada. |
 | Tamanho | Gratuito | O [tipo de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) que determina os recursos de hospedagem. |
 
 Selecione **OK**.

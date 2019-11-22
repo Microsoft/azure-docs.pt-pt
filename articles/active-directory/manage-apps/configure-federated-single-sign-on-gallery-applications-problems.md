@@ -1,5 +1,5 @@
 ---
-title: Problemas ao configurar o logon único federado para aplicativos da galeria do Azure AD | Microsoft Docs
+title: Problemas ao configurar o SSO Federado para aplicativos da galeria do Azure AD
 description: Resolva alguns dos problemas comuns que você pode encontrar ao configurar o logon único federado usando o SAML para aplicativos listados na Galeria de aplicativos do Azure AD
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f4e690b440604a312ddfa8cd320ac200c0f40cf
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 87c2497a781b0d46b3b2f1e281a3d7b327b60952
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381215"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274643"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar o logon único federado para um aplicativo da galeria do Azure AD
 
@@ -42,7 +42,7 @@ Se não for possível configurar o identificador ou a URL de resposta, confirme 
 
 Para saber os padrões pré-configurados para o aplicativo:
 
-1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou coadministrador **.** Vá para a etapa 7. Se você já estiver na folha de configuração de aplicativo no Azure AD.
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou **coadministrador.** Vá para a etapa 7. Se você já estiver na folha de configuração de aplicativo no Azure AD.
 
 2. Abra a **extensão Azure Active Directory** clicando em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -74,7 +74,7 @@ Se os valores não corresponderem com os padrões pré-configurados no Azure AD.
 
 -   Trabalhar com o fornecedor do aplicativo para obter valores que correspondam ao padrão pré-configurado no Azure AD
 
--   Ou, você pode entrar em contato com a <aadapprequest@microsoft.com> equipe do Azure AD em ou deixar um comentário no tutorial para solicitar a atualização dos padrões com suporte para o aplicativo
+-   Ou, você pode entrar em contato com a equipe do Azure AD em <aadapprequest@microsoft.com> ou deixar um comentário no tutorial para solicitar a atualização dos padrões com suporte para o aplicativo
 
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Onde faço para definir o formato EntityId (identificador de usuário)
 
@@ -86,7 +86,7 @@ Azure AD selecione o formato para o atributo NameID (identificador de usuário) 
 
 Para baixar os metadados do aplicativo ou o certificado do Azure AD, siga estas etapas:
 
-1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou coadministrador **.**
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou **coadministrador.**
 
 2. Abra a **extensão Azure Active Directory** clicando em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 

@@ -1,6 +1,6 @@
 ---
 title: Pesquisas salvas em soluções de gerenciamento | Microsoft Docs
-description: As soluções de gerenciamento normalmente incluem pesquisas salvas em Log Analytics para analisar os dados coletados pela solução. Eles também podem definir alertas para notificar o usuário ou executar automaticamente a ação em resposta a um problema crítico. Este artigo descreve como definir Log Analytics pesquisas salvas em um modelo do Resource Manager para que elas possam ser incluídas em soluções de gerenciamento.
+description: As soluções de gerenciamento normalmente incluem consultas de log salvas para analisar os dados coletados pela solução. Este artigo descreve como definir Log Analytics pesquisas salvas em um modelo do Resource Manager.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
@@ -8,17 +8,17 @@ author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce4f3dcbc28668f786c706e7029061e541a76ce9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1f4f0ac5d592a01b284a12e899b0aa5a9a62d122
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553917"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304928"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionando Log Analytics pesquisas e alertas salvos à solução de gerenciamento (versão prévia)
 
 > [!IMPORTANT]
-> Conforme [anunciado anteriormente](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), os espaços de trabalho do log Analytics criados após *1º de junho de 2019* – poderão gerenciar regras de alerta usando **apenas** a [API REST](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)do Azure scheduledQueryRules, [Azure Resource Manager modelo](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) e o [PowerShell cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Os clientes podem facilmente [alternar seus meios preferenciais de gerenciamento de regras de alerta](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) para espaços de trabalho mais antigos para aproveitar Azure monitor scheduledQueryRules como padrão e obter muitos [novos benefícios](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) como a capacidade de usar cmdlets nativos do PowerShell, aumentou período de tempo de lookback em regras, criação de regras em um grupo de recursos ou assinatura separado e muito mais.
+> Conforme [anunciado anteriormente](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), os espaços de trabalho do log Analytics criados após *1º de junho de 2019* – poderão gerenciar regras de alerta usando **apenas** a [API REST](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)do Azure scheduledQueryRules, o modelo de [Azure Resource Manager](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) e o cmdlet do [PowerShell](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Os clientes podem facilmente [alternar seus meios preferenciais de gerenciamento de regras de alerta](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) para espaços de trabalho mais antigos para aproveitar Azure monitor scheduledQueryRules como padrão e obter muitos [novos benefícios](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) como a capacidade de usar cmdlets nativos do PowerShell, um período de tempo de lookback maior em regras, a criação de regras em um grupo de recursos ou assinatura separado e muito mais.
 
 > [!NOTE]
 > Esta é uma documentação preliminar para criar soluções de gerenciamento que estão atualmente em versão prévia. Qualquer esquema descrito abaixo está sujeito a alterações.
@@ -78,12 +78,12 @@ Cada propriedade de uma pesquisa salva é descrita na tabela a seguir.
 | consulta | Consulta a ser executada. |
 
 > [!NOTE]
-> Talvez seja necessário usar caracteres de escape na consulta se eles incluírem caracteres que poderiam ser interpretados como JSON. Por exemplo, se sua consulta foi **AzureActivity | OperationName: "Microsoft. Compute/virtualMachines/Write"** , ele deve ser gravado no arquivo da solução como **AzureActivity | OperationName:/\"Microsoft. Compute/virtualMachines/Write \"** .
+> Talvez seja necessário usar caracteres de escape na consulta se eles incluírem caracteres que poderiam ser interpretados como JSON. Por exemplo, se sua consulta foi **AzureActivity | OperationName: "Microsoft. Compute/virtualMachines/Write"** , ele deve ser gravado no arquivo da solução como **AzureActivity | OperationName:/\"Microsoft. Compute/virtualMachines/Write\"** .
 
 ## <a name="alerts"></a>Alertas
 Os [alertas de log do Azure](../../azure-monitor/platform/alerts-unified-log.md) são criados pelas regras de alerta do Azure que executam consultas de log especificadas em intervalos regulares. Se os resultados da consulta corresponderem aos critérios especificados, um registro de alerta será criado e uma ou mais ações serão executadas usando [grupos de ação](../../azure-monitor/platform/action-groups.md).
 
-Para usuários que estendem alertas para o Azure, as ações agora são controladas nos grupos de ações do Azure. Quando um espaço de trabalho e seus alertas são estendidos para o Azure, você pode recuperar ou adicionar ações usando o [modelo grupo de ação-Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando um espaço de trabalho e seus alertas são estendidos para o Azure, você pode recuperar ou adicionar ações usando o [modelo grupo de ação-Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 As regras de alerta na solução de gerenciamento herdado são formadas pelos três recursos diferentes a seguir.
 
 - **Pesquisa salva.** Define a pesquisa de log que é executada. Várias regras de alerta podem compartilhar uma única pesquisa salva.
@@ -112,10 +112,10 @@ Uma pesquisa salva pode ter uma ou mais agendas com cada agenda que representa u
     }
 As propriedades de recursos de agendamento são descritas na tabela a seguir.
 
-| Nome do elemento | Obrigatório | Descrição |
+| Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| Habilitado       | Sim | Especifica se o alerta está habilitado quando ele é criado. |
-| intervalo      | Sim | Com que frequência a consulta é executada em minutos. |
+| enabled       | Sim | Especifica se o alerta está habilitado quando ele é criado. |
+| interval      | Sim | Com que frequência a consulta é executada em minutos. |
 | queryTimeSpan | Sim | Período de tempo em minutos em que os resultados são avaliados. |
 
 O recurso de agendamento deve depender da pesquisa salva para que ele seja criado antes da agenda.
@@ -123,7 +123,7 @@ O recurso de agendamento deve depender da pesquisa salva para que ele seja criad
 > O nome da agenda deve ser exclusivo em um determinado espaço de trabalho; dois agendamentos não podem ter a mesma ID, mesmo se estiverem associados a pesquisas salvas diferentes. Também nome para todas as pesquisas salvas, agendas e ações criadas com a API Log Analytics devem estar em minúsculas.
 
 ### <a name="actions"></a>Ações
-Uma agenda pode ter várias ações. Uma ação pode definir um ou mais processos a serem executados, como enviar um email ou iniciar um runbook, ou pode definir um limite que determina quando os resultados de uma pesquisa correspondem a alguns critérios. Algumas ações definirão ambos para que os processos sejam executados quando o limite for atingido.
+Uma agenda pode ter várias ações. Uma ação pode definir um ou mais processos para efetuar como enviar um email ou iniciar um runbook ou ele pode definir um limiar que determina quando os resultados de uma pesquisa corresponderem a critérios. Algumas ações definir ambos, para que os processos são executados quando o limiar for cumprido.
 As ações podem ser definidas usando o recurso [grupo de ações] ou recurso de ação.
 
 Há dois tipos de recurso de ação especificados pela propriedade **Type** . Uma agenda requer uma ação de **alerta** , que define os detalhes da regra de alerta e quais ações são tomadas quando um alerta é criado. Os recursos de ação têm um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.
@@ -164,50 +164,50 @@ As ações de alerta têm a seguinte estrutura. Isso inclui variáveis e parâme
 
 As propriedades dos recursos de ação de alerta são descritas nas tabelas a seguir.
 
-| Nome do elemento | Obrigatório | Descrição |
+| Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| `type` | Sim | Tipo da ação.  Este é um **alerta** para ações de alerta. |
-| `name` | Sim | Nome de exibição do alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
+| `type` | Sim | Tipo de ação.  Este é um **alerta** para ações de alerta. |
+| `name` | Sim | Nome a apresentar para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
 | `description` | Não | Descrição opcional do alerta. |
-| `severity` | Sim | Severidade do registro de alerta com os seguintes valores:<br><br> **drasticamente**<br>**alerta**<br>**informativa**
+| `severity` | Sim | Severidade do registro de alerta com os seguintes valores:<br><br> **drasticamente**<br>**alerta**<br>**informational**
 
-#### <a name="threshold"></a>Os
+#### <a name="threshold"></a>Limiar
 Esta seção é necessária. Ele define as propriedades para o limite de alerta.
 
-| Nome do elemento | Obrigatório | Descrição |
+| Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| `Operator` | Sim | Operador para a comparação dos seguintes valores:<br><br>**gt = maior que <br>lt = menor que** |
+| `Operator` | Sim | Operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
 | `Value` | Sim | O valor para comparar os resultados. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Esta seção é opcional. Inclua-o para um alerta de medição de métrica.
 
-| Nome do elemento | Obrigatório | Descrição |
+| Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| `TriggerCondition` | Sim | Especifica se o limite é para o número total de violações ou violações consecutivas dos seguintes valores:<br><br>**Total de <br>Consecutive** |
-| `Operator` | Sim | Operador para a comparação dos seguintes valores:<br><br>**gt = maior que <br>lt = menor que** |
+| `TriggerCondition` | Sim | Especifica se o limite é para o número total de violações ou violações consecutivas dos seguintes valores:<br><br>**Total de<br>consecutivas** |
+| `Operator` | Sim | Operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
 | `Value` | Sim | Número de vezes que os critérios devem ser atendidos para disparar o alerta. |
 
 
 #### <a name="throttling"></a>Limitação
 Esta seção é opcional. Inclua esta seção se desejar suprimir alertas da mesma regra por algum tempo após a criação de um alerta.
 
-| Nome do elemento | Obrigatório | Descrição |
+| Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
 | DurationInMinutes | Sim se o elemento de limitação estiver incluído | Número de minutos para suprimir alertas após a criação de um da mesma regra de alerta. |
 
 #### <a name="azure-action-group"></a>Grupo de ações do Azure
-Todos os alertas no Azure, use o grupo de ações como o mecanismo padrão para manipular ações. Com o grupo de ações, você pode especificar suas ações uma vez e associar o grupo de ações a vários alertas – no Azure. Sem a necessidade, para declarar repetidamente as mesmas ações várias vezes. Os grupos de ação dão suporte a várias ações, incluindo email, SMS, chamada de voz, conexão de ITSM, runbook de automação, URI de webhook e muito mais.
+Todos os alertas no Azure, utilize o grupo de ação como o mecanismo predefinido para a manipulação de ações. Com o grupo de ação, pode especificar as suas ações de uma vez e, em seguida, associar o grupo de ação para múltiplos alertas - em todo o Azure. Sem a necessidade, repetidamente declarar as mesmas ações repetidamente. Os grupos de ação suportam várias ações - incluindo e-mail, SMS, chamada de voz, a ligação ITSM, Runbook de automatização, Webhook URI e muito mais.
 
-Para os usuários que estenderam seus alertas para o Azure – uma agenda agora deve ter detalhes do grupo de ações aprovados junto com o limite para poder criar um alerta. Detalhes de email, URLs de webhook, detalhes de automação do runbook e outras ações, precisam ser definidos no primeiro grupo de ações antes de criar um alerta; é possível criar um [grupo de ações de Azure monitor](../../azure-monitor/platform/action-groups.md) no portal ou usar o [modelo de recurso grupo de ações](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Para o utilizador que tiver expandido o seus alertas no Azure - uma agenda já deve ter os detalhes do grupo de ação transmitidos juntamente com o limiar, para poder criar um alerta. Detalhes de email, URLs de webhook, detalhes de automação do runbook e outras ações, precisam ser definidos no primeiro grupo de ações antes de criar um alerta; é possível criar um [grupo de ações de Azure monitor](../../azure-monitor/platform/action-groups.md) no portal ou usar o [modelo de recurso grupo de ações](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-| Nome do elemento | Obrigatório | Descrição |
+| Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
 | AzNsNotification | Sim | A ID de recurso do grupo de ações do Azure a ser associado ao alerta para tomar as ações necessárias quando os critérios de alerta forem atendidos. |
 | CustomEmailSubject | Não | Linha de assunto personalizada do email enviada para todos os endereços especificados no grupo de ações associado. |
 | CustomWebhookPayload | Não | Conteúdo personalizado a ser enviado a todos os pontos de extremidade de webhook definidos no grupo de ações associado. O formato depende do que o webhook está esperando e deve ser um JSON serializado válido. |
 
-## <a name="sample"></a>Exemplo
+## <a name="sample"></a>Sample
 
 A seguir, um exemplo de uma solução que inclui os seguintes recursos:
 

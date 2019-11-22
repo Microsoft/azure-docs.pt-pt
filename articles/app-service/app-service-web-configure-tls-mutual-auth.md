@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d2823158192ae9fc9182f3f60f82d5bd9c050b09
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: a07fa597305771ed3f4da01f2819297fc9cd3d77
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811633"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271699"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurar a autenticação mútua TLS para o serviço Azure App
 
@@ -31,7 +31,7 @@ Você pode restringir o acesso ao seu aplicativo de serviço de Azure App habili
 
 ## <a name="enable-client-certificates"></a>Habilitar certificados de cliente
 
-Para configurar seu aplicativo para exigir certificados de cliente, você precisa definir a configuração `clientCertEnabled` para seu aplicativo como `true`. Para definir a configuração, execute o seguinte comando na [Cloud Shell](https://shell.azure.com).
+Para configurar seu aplicativo para exigir certificados de cliente, você precisa definir a configuração de `clientCertEnabled` para que seu aplicativo seja `true`. Para definir a configuração, execute o seguinte comando na [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
@@ -41,14 +41,14 @@ az webapp update --set clientCertEnabled=true --name <app_name> --resource-group
 
 Quando você habilita a autenticação mútua para seu aplicativo, todos os caminhos na raiz do seu aplicativo exigirão um certificado de cliente para acesso. Para permitir que determinados caminhos permaneçam abertos para acesso anônimo, você pode definir caminhos de exclusão como parte da configuração do aplicativo.
 
-Os caminhos de exclusão podem ser configurados selecionando **configuração** > **configurações gerais** e definindo um caminho de exclusão. Neste exemplo, qualquer coisa no caminho `/public` para seu aplicativo não solicitaria um certificado de cliente.
+Os caminhos de exclusão podem ser configurados selecionando **configuração** > **configurações gerais** e definindo um caminho de exclusão. Neste exemplo, qualquer coisa em `/public` caminho para seu aplicativo não solicitaria um certificado de cliente.
 
 ![Caminhos de exclusão de certificado][exclusion-paths]
 
 
 ## <a name="access-client-certificate"></a>Acessar certificado do cliente
 
-No serviço de aplicativo, o término do SSL da solicitação ocorre no balanceador de carga de front-end. Ao encaminhar a solicitação para o código do aplicativo com [certificados de cliente habilitados](#enable-client-certificates), o serviço de aplicativo injeta um cabeçalho de solicitação `X-ARR-ClientCert` com o certificado do cliente. O serviço de aplicativo não faz nada com esse certificado de cliente além de encaminhá-lo para seu aplicativo. O código do aplicativo é responsável por validar o certificado do cliente.
+No serviço de aplicativo, o término do SSL da solicitação ocorre no balanceador de carga de front-end. Ao encaminhar a solicitação para o código do aplicativo com [certificados de cliente habilitados](#enable-client-certificates), o serviço de aplicativo injeta um `X-ARR-ClientCert` cabeçalho de solicitação com o certificado do cliente. O serviço de aplicativo não faz nada com esse certificado de cliente além de encaminhá-lo para seu aplicativo. O código do aplicativo é responsável por validar o certificado do cliente.
 
 Para ASP.NET, o certificado do cliente está disponível por meio da propriedade **HttpRequest. ClientCertificate** .
 
@@ -64,7 +64,7 @@ Para outras pilhas de aplicativos (Node. js, PHP, etc.), o certificado do client
 
     namespace ClientCertificateUsageSample
     {
-        public partial class cert : System.Web.UI.Page
+        public partial class Cert : System.Web.UI.Page
         {
             public string certHeader = "";
             public string errorString = "";
@@ -180,7 +180,7 @@ Para outras pilhas de aplicativos (Node. js, PHP, etc.), o certificado do client
 
 ## <a name="nodejs-sample"></a>Exemplo de Node. js
 
-O código de exemplo do node. js a seguir obtém o cabeçalho `X-ARR-ClientCert` e usa a [forjação de nó](https://github.com/digitalbazaar/forge) para converter a cadeia de caracteres PEM codificada em base64 em um objeto de certificado e validá-la:
+O código de exemplo do node. js a seguir obtém o cabeçalho `X-ARR-ClientCert` e usa o [nó-forjado](https://github.com/digitalbazaar/forge) para converter a cadeia de caracteres PEM codificada em base64 em um objeto de certificado e validá-la:
 
 ```javascript
 import { NextFunction, Request, Response } from 'express';

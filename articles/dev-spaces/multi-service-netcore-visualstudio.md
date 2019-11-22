@@ -1,29 +1,25 @@
 ---
-title: Executar vários serviços dependentes com .NET Core e o Visual Studio
-titleSuffix: Azure Dev Spaces
+title: Executando vários serviços dependentes usando o .NET Core e o Visual Studio
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
-keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
-ms.openlocfilehash: dd90dee2f973bb26a43706eb77f15778cb9116a0
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
-ms.translationtype: MT
+description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
+keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
+ms.openlocfilehash: e1e4d12591ec969b70ab1b0eaef430f5a7c7b276
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502970"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279572"
 ---
-# <a name="multi-service-development-with-azure-dev-spaces"></a>Desenvolvimento múltiplos serviço com os espaços de desenvolvimento do Azure
+# <a name="multi-service-development-with-azure-dev-spaces"></a>Desenvolvimento de vários serviços com o Azure Dev Spaces
 
-Neste tutorial, irá aprender como desenvolver aplicativos múltiplos serviços com espaços de desenvolvimento do Azure, juntamente com alguns os benefícios adicionais, que fornece de espaços de desenvolvimento.
+Neste tutorial, você aprenderá a desenvolver aplicativos de vários serviços usando o Azure Dev Spaces, juntamente com alguns dos benefícios adicionados que os espaços de desenvolvimento fornecem.
 
 ## <a name="call-another-container"></a>Chamar outro contentor
-Nesta secção, vai criar um segundo serviço `mywebapi`e ter `webfrontend` chamá-lo. Cada serviço vai ser executado em contentores separados. Em seguida, vai realizar a depuração em ambos os contentores.
+Nesta seção, você vai criar um segundo serviço, `mywebapi`e `webfrontend` chamá-lo. Cada serviço vai ser executado em contentores separados. Em seguida, vai realizar a depuração em ambos os contentores.
 
 ![](media/common/multi-container.png)
 
@@ -32,16 +28,16 @@ Para ser mais rápido, vamos transferir código de exemplo de um repositório do
 
 ### <a name="run-mywebapi"></a>Execute *mywebapi*
 1. Abra o projeto `mywebapi` numa *janela separada do Visual Studio*.
-1. Selecione **Azure Dev Spaces** no menu pendente de definições de início, tal como fez anteriormente para o projeto `webfrontend`. Agora, em vez de criar um novo cluster do AKS, selecione o mesmo que já criou. Tal como antes, mantenha a predefinição `default` em Space (Espaço) e clique em **OK**. Na janela de saída, pode perceber é iniciado do Visual Studio para "entender" este novo serviço no seu espaço de desenvolvimento para acelerar as coisas quando iniciar a depuração.
+1. Selecione **Azure Dev Spaces** no menu pendente de definições de início, tal como fez anteriormente para o projeto `webfrontend`. Agora, em vez de criar um novo cluster do AKS, selecione o mesmo que já criou. Tal como antes, mantenha a predefinição `default` em Space (Espaço) e clique em **OK**. Na janela de saída, você pode notar que o Visual Studio começa a "abrir" esse novo serviço no seu espaço de desenvolvimento, a fim de acelerar o procedimento quando você inicia a depuração.
 1. Prima F5 e aguarde que o serviço seja criado e implementado. Saberá que está pronto quando a barra de estado do Visual Studio ficar cor de laranja
-1. Anote o URL apresentado no ponto final da **espaços de desenvolvimento do Azure para o AKS** painel na **saída** janela. Terá um aspeto semelhante a `http://localhost:<portnumber>`. Poderá parecer que o contentor está a ser executado localmente. Contudo, na verdade, está a ser executado no espaço de programador no Azure.
+1. Anote a URL do ponto de extremidade exibida no painel **Azure dev Spaces para AKs** na janela **saída** . Terá um aspeto semelhante a `http://localhost:<portnumber>`. Poderá parecer que o contentor está a ser executado localmente. Contudo, na verdade, está a ser executado no espaço de programador no Azure.
 2. Quando o projeto `mywebapi` estiver pronto, abra o browser no endereço localhost e acrescente `/api/values` ao URL para invocar a API GET predefinida para `ValuesController`. 
 3. Se todos os passos tiverem sido concluídos com êxito, deverá conseguir ver uma resposta do serviço `mywebapi` com um aspeto semelhante ao seguinte.
 
     ![](media/get-started-netcore-visualstudio/WebAPIResponse.png)
 
 ### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Efetue um pedido de *webfrontend* para *mywebapi*
-Vamos agora escrever código em `webfrontend` que efetua um pedido a `mywebapi`. Mude para a janela do Visual Studio que tem o projeto `webfrontend`. Na `HomeController.cs` arquivo, *substituir* o código para o método About com o código a seguir:
+Vamos agora escrever código em `webfrontend` que efetua um pedido a `mywebapi`. Mude para a janela do Visual Studio que tem o projeto `webfrontend`. No arquivo `HomeController.cs`, *substitua* o código do método about pelo seguinte código:
 
    ```csharp
    public async Task<IActionResult> About()
@@ -66,7 +62,7 @@ Vamos agora escrever código em `webfrontend` que efetua um pedido a `mywebapi`.
    }
    ```
 
-O exemplo de código anterior reencaminha o cabeçalho `azds-route-as` do pedido a receber para o pedido a enviar. Verá posteriormente como isso facilita uma experiência de desenvolvimento mais produtiva no [cenários de equipa](team-development-netcore-visualstudio.md).
+O exemplo de código anterior reencaminha o cabeçalho `azds-route-as` do pedido a receber para o pedido a enviar. Você verá mais tarde como isso facilita uma experiência de desenvolvimento mais produtiva em [cenários de equipe](team-development-netcore-visualstudio.md).
 
 ### <a name="debug-across-multiple-services"></a>Depurar em vários serviços
 1. Neste momento, `mywebapi` ainda deve estar em execução com o depurador anexado. Se não for esse o caso, prima F5 no projeto `mywebapi`.
@@ -76,12 +72,12 @@ O exemplo de código anterior reencaminha o cabeçalho `azds-route-as` do pedido
 1. Clique na ligação "**About**" (Acerca de) na parte superior da página para acionar o ponto de interrupção no projeto `webfrontend`. 
 1. Prima F10 para continuar. O ponto de interrupção no projeto `mywebapi` é acionado.
 1. Prima F5 para continuar. Isso fará com que regresse ao código no projeto `webfrontend`.
-1. Se premir F5 uma vez mais, o pedido será concluído e será devolvida uma página no browser. Na aplicação web, a página sobre apresenta uma mensagem de concatenado por dois serviços: "Olá de webfrontend e Hello do mywebapi."
+1. Se premir F5 uma vez mais, o pedido será concluído e será devolvida uma página no browser. Na aplicação Web, a página About (Sobre) apresentará uma mensagem concatenada pelos dois serviços: "Hello from webfrontend and Hello from mywebapi".
 
 ### <a name="well-done"></a>Já está!
 Tem agora uma aplicação com vários contentores, na qual cada contentor pode ser desenvolvido e implementado separadamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o desenvolvimento em equipe nos espaços de desenvolvimento](team-development-netcore-visualstudio.md)
+> [Saiba mais sobre o desenvolvimento de equipe em espaços de desenvolvimento](team-development-netcore-visualstudio.md)

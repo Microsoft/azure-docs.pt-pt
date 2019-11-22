@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 2140216a27d9c903495da4f7b43f6fdfda62591e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b3b735f7ee644bb017756f3d6378e625fa66d448
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826912"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280795"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -54,6 +54,10 @@ Se você estiver se conectando de dentro do Azure, suas conexões têm uma polí
 Se você estiver se conectando de fora do Azure, suas conexões terão uma política de conexão de `Proxy` por padrão. Uma política de `Proxy` significa que a sessão TCP é estabelecida por meio do gateway do banco de dados SQL do Azure e de todos os pacotes subsequentes fluem por meio do gateway. O diagrama a seguir ilustra esse fluxo de tráfego.
 
 ![Visão geral da arquitetura](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
+
+> [!IMPORTANT]
+> Além disso, abra as portas 14000-14999 para habilitar a [conexão com o DAC](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Endereços IP do gateway da Base de Dados SQL do Azure
 
@@ -97,10 +101,10 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Sudeste Asiático      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | E.A.U. Central          | 20.37.72.64        |
 | Norte dos E.A.U.            | 65.52.248.0        |
-| Sul do Reino Unido             | 51.140.184.11      |
+| Reino Unido Sul             | 51.140.184.11      |
 | Reino Unido Oeste              | 51.141.8.11        |
 | EUA Centro-Oeste      | 13.78.145.25       |
-| Europa Ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| Europa ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
 | EUA Oeste              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
 | EUA Oeste 2            | 13.66.226.202      |
 |                      |                    |

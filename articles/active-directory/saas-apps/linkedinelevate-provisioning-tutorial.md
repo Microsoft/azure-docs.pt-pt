@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar o LinkedIn elevar para aprovisionamento automático de utilizadores no Azure Active Directory | Documentos da Microsoft'
-description: Saiba como configurar o Azure Active Directory para aprovisionar e desaprovisionar contas de utilizador para elevar o LinkedIn.
+title: 'Tutorial: provisionamento de usuário para LinkedIn Elevate – Azure AD'
+description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o LinkedIn Elevate.
 services: active-directory
 documentationcenter: ''
 author: ArvindHarinder1
@@ -15,112 +15,112 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adefb0c88e88a8bfb4b896c0788654e478ff4555
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea6f9923062d960f18203b081702e69a30dd3c9e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963702"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276850"
 ---
-# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: Configurar o LinkedIn elevar para aprovisionamento automático de utilizadores
+# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: configurar o LinkedIn Elevate para o provisionamento automático de usuário
 
-O objetivo deste tutorial é mostrar a os passos que necessários para executar no LinkedIn elevar e o Azure AD, aprovisionar e desaprovisionar contas de utilizador do Azure AD para elevar o LinkedIn.
+O objetivo deste tutorial é mostrar as etapas que você precisa executar no LinkedIn Elevate e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o LinkedIn Elevate.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário descrito neste tutorial parte do princípio de que já tem os seguintes itens:
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Um inquilino do Azure Active Directory
-* Um inquilino de elevar o LinkedIn
-* Uma conta de administrador no LinkedIn elevar com acesso ao centro de contas do LinkedIn
+* Um locatário do LinkedIn Elevate
+* Uma conta de administrador no LinkedIn Elevate com acesso ao centro de contas do LinkedIn
 
 > [!NOTE]
-> O Azure Active Directory se integra com o LinkedIn elevar a utilizar o [SCIM](http://www.simplecloud.info/) protocolo.
+> O Azure Active Directory integra-se com o LinkedIn Elevate usando o protocolo [scim](http://www.simplecloud.info/) .
 
-## <a name="assigning-users-to-linkedin-elevate"></a>Atribuir utilizadores a elevar o LinkedIn
+## <a name="assigning-users-to-linkedin-elevate"></a>Atribuindo usuários ao LinkedIn Elevate
 
-O Azure Active Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores devem receber acesso às aplicações selecionadas. No contexto de aprovisionamento de contas de utilizadores automático, serão sincronizados apenas os utilizadores e grupos que foram "atribuídos" a uma aplicação no Azure AD.
+Azure Active Directory usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de conta de usuário, somente os usuários e grupos que foram "atribuídos" a um aplicativo no Azure AD serão sincronizados.
 
-Antes de configurar e ativar o serviço de aprovisionamento, terá de decidir quais os utilizadores e/ou grupos no Azure AD representam os utilizadores que necessitam de aceder para elevar o LinkedIn. Depois de decidir, pode atribuir esses usuários para elevar o LinkedIn, seguindo as instruções aqui:
+Antes de configurar e habilitar o serviço de provisionamento, você precisará decidir quais usuários e/ou grupos no Azure AD representam os usuários que precisam de acesso ao LinkedIn Elevate. Depois de decidir, você pode atribuir esses usuários ao LinkedIn Elevate seguindo as instruções aqui:
 
-[Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+[Atribuir um usuário ou grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-linkedin-elevate"></a>Dicas importantes para atribuir utilizadores a elevar o LinkedIn
+### <a name="important-tips-for-assigning-users-to-linkedin-elevate"></a>Dicas importantes para atribuir usuários ao LinkedIn Elevate
 
-* Recomenda-se que um único utilizador do Azure AD ser atribuídos a elevar o LinkedIn para testar a configuração de aprovisionamento. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
+* É recomendável que um único usuário do Azure AD seja atribuído ao LinkedIn Elevate para testar a configuração de provisionamento. Usuários e/ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um utilizador para elevar o LinkedIn, tem de selecionar o **utilizador** função na caixa de diálogo atribuição. A função de "Acesso predefinido" não funciona para o aprovisionamento.
+* Ao atribuir um usuário ao LinkedIn Elevate, você deve selecionar a função de **usuário** na caixa de diálogo de atribuição. A função de "acesso padrão" não funciona para provisionamento.
 
-## <a name="configuring-user-provisioning-to-linkedin-elevate"></a>Configurar o aprovisionamento para elevar o LinkedIn
+## <a name="configuring-user-provisioning-to-linkedin-elevate"></a>Configurando o provisionamento de usuário para o LinkedIn Elevate
 
-Esta secção orienta-o ao longo da ligação do Azure AD da elevar o LinkedIn SCIM conta de utilizador API de aprovisionamento e configurar o serviço de aprovisionamento para criar, atualizar e desativar atribuídos a contas de utilizador no LinkedIn, efetuar a elevação com base no utilizador e a atribuição de grupo no Azure AD.
+Esta seção orienta você pela conexão do Azure AD à API de provisionamento de conta de usuário do SCIM do LinkedIn Elevate e na configuração do serviço de provisionamento para criar, atualizar e desabilitar contas de usuário atribuídas no LinkedIn Elevate com base na atribuição de usuário e de grupo no Azure AD.
 
-**Sugestão:** Também pode optar por ativada baseado em SAML início de sessão único para elevar o LinkedIn, seguindo as instruções fornecidas [portal do Azure](https://portal.azure.com). Início de sessão único a pode ser configurada independentemente do serviço de aprovisionamento automático, embora esses dois recursos complementam uma à outra.
+**Dica:** Você também pode optar por habilitar o logon único baseado em SAML para o LinkedIn Elevate, seguindo as instruções fornecidas em [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos se complementem.
 
-### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Para configurar o aprovisionamento automático de utilizadores conta LinkedIn elevar no Azure AD:
+### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Para configurar o provisionamento automático de conta de usuário para o LinkedIn Elevate no Azure AD:
 
-A primeira etapa é obter o token de acesso do LinkedIn. Se for um administrador empresarial, pode Self-aprovisionar um token de acesso. No seu centro de contas, aceda a **configurações &gt; definições globais** e abra o **SCIM configuração** painel.
+A primeira etapa é recuperar seu token de acesso do LinkedIn. Se você for um administrador corporativo, poderá autoprovisionar um token de acesso. Em seu centro de contas, vá para **configurações &gt; configurações globais** e abra o painel de **configuração do scim** .
 
 > [!NOTE]
-> Se estiver a aceder ao centro de contas diretamente em vez de através de uma ligação, pode aceder ao mesmo através dos seguintes passos.
+> Se você estiver acessando o centro de contas diretamente em vez de por meio de um link, poderá acessá-lo usando as etapas a seguir.
 
-1. Inicie sessão no Centro de contas.
+1. Entre no centro de contas.
 
-2. Selecione **administrador &gt; definições de administração** .
+2. Selecione **admin &gt; configurações de administrador** .
 
-3. Clique em **integrações avançadas** na barra lateral esquerda. Será direcionado para o Centro de contas.
+3. Clique em **integrações avançadas** na barra lateral esquerda. Você será direcionado para o centro de contas.
 
-4. Clique em **+ Adicionar nova configuração de SCIM** e siga o procedimento ao preencher cada campo.
-
-    > [!NOTE]
-    > Quando autoassign licenças não estiver ativada, significa que apenas os dados de utilizador estão sincronizados.
-
-    ![LinkedIn elevar o aprovisionamento](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
+4. Clique em **+ Adicionar nova configuração do scim** e siga o procedimento preenchendo cada campo.
 
     > [!NOTE]
-    > Quando a atribuição de autolicense está ativada, tem de observar a instância da aplicação e o tipo de licença. As licenças são atribuídas numa primeira vêm, primeiro servir base até que todas as licenças são executadas.
+    > Quando a atribuição de licenças de autoatribuir não está habilitada, isso significa que apenas os dados do usuário são sincronizados.
 
-    ![LinkedIn elevar o aprovisionamento](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
+    ![Provisionamento do LinkedIn Elevate](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
 
-5. Clique em **gerar token**. Deverá ver sua exibição de token de acesso sob o **token de acesso** campo.
+    > [!NOTE]
+    > Quando a atribuição de licença autolicenciada estiver habilitada, você precisará anotar a instância do aplicativo e o tipo de licença. As licenças são atribuídas em primeiro lugar, servem de base até que todas as licenças sejam executadas.
 
-6. Guarde o token de acesso à sua área de transferência ou o computador antes de sair da página.
+    ![Provisionamento do LinkedIn Elevate](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
 
-7. Em seguida, inicie sessão para o [portal do Azure](https://portal.azure.com)e navegue para o **Azure Active Directory > aplicações empresariais > todos os aplicativos** secção.
+5. Clique em **gerar token**. Você deve ver a exibição do token de acesso no campo **token de acesso** .
 
-8. Se já tiver configurado o LinkedIn elevar para início de sessão único, procure a sua instância do LinkedIn, efetuar a elevação utilizando o campo de pesquisa. Caso contrário, selecione **Add** e procure **LinkedIn elevar** na Galeria de aplicações. Selecione o LinkedIn elevar os resultados da pesquisa e adicioná-lo à sua lista de aplicações.
+6. Salve seu token de acesso na área de transferência ou no computador antes de sair da página.
 
-9. Selecione a sua instância de elevar o LinkedIn, em seguida, selecione o **aprovisionamento** separador.
+7. Em seguida, entre no [portal do Azure](https://portal.azure.com)e navegue até a seção **Azure Active Directory > aplicativos empresariais > todos os aplicativos** .
 
-10. Definir o **modo de aprovisionamento** ao **automática**.
+8. Se você já tiver configurado o LinkedIn Elevate para logon único, pesquise sua instância do LinkedIn Elevate usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise por **LinkedIn Elevate** na Galeria de aplicativos. Selecione LinkedIn Elevate nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
-    ![LinkedIn elevar o aprovisionamento](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
+9. Selecione sua instância do LinkedIn Elevate e, em seguida, selecione a guia **provisionamento** .
 
-11. Preencha os campos seguintes sob **credenciais de administrador** :
+10. Defina o **modo de provisionamento** como **automático**.
 
-    * Na **URL de inquilino** , insira `https://api.linkedin.com`.
+    ![Provisionamento do LinkedIn Elevate](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
-    * Na **segredo de Token** campo, introduza o token de acesso que gerou no passo 1 e clique em **Testar ligação** .
+11. Preencha os campos a seguir em **credenciais de administrador** :
 
-    * Deverá ver uma notificação de êxito no lado upperright do seu portal.
+    * No campo **URL do locatário** , digite `https://api.linkedin.com`.
 
-12. Introduza o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro de aprovisionamento no **notificação por E-Mail** campo e marque a caixa de verificação abaixo.
+    * No campo **token secreto** , insira o token de acesso gerado na etapa 1 e clique em **testar conexão** .
+
+    * Você deverá ver uma notificação de êxito no lado do upperright do seu portal.
+
+12. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **email de notificação** e marque a caixa de seleção abaixo.
 
 13. Clique em **Guardar**.
 
-14. Na **mapeamentos de atributos** secção, reveja os atributos de utilizadores e grupos que serão sincronizados do Azure AD para elevar o LinkedIn. Tenha em atenção que os atributos selecionados como **correspondência** propriedades serão utilizadas para corresponder as contas de utilizador e grupos no LinkedIn elevar para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
+14. Na seção **mapeamentos de atributo** , examine os atributos de usuário e grupo que serão sincronizados do Azure ad para o LinkedIn Elevate. Observe que os atributos selecionados como propriedades **correspondentes** serão usados para corresponder as contas de usuário e grupos no LinkedIn Elevate para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
 
-    ![LinkedIn elevar o aprovisionamento](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
+    ![Provisionamento do LinkedIn Elevate](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
 
-15. Para ativar o Azure AD para elevar o LinkedIn, o serviço de aprovisionamento, altere a **estado de aprovisionamento** para **no** no **definições** secção
+15. Para habilitar o serviço de provisionamento do Azure AD para o LinkedIn Elevate, altere o **status de provisionamento** para **ativado** na seção **configurações**
 
 16. Clique em **Guardar**.
 
-Isso iniciará a sincronização inicial de todos os utilizadores e/ou grupos atribuídos para elevar o LinkedIn na secção utilizadores e grupos. Tenha em atenção que a sincronização inicial demora mais tempo a executar que sincroniza subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e seguir links para aprovisionamento de registos de atividade, que descrevem a todas as ações executadas pelo serviço de aprovisionamento na sua aplicação de elevar o LinkedIn.
+Isso iniciará a sincronização inicial de todos os usuários e/ou grupos atribuídos ao LinkedIn Elevate na seção usuários e grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrerão aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo LinkedIn Elevate.
 
 Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Gerir o aprovisionamento da conta de utilizador para aplicações empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)

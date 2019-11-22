@@ -1,5 +1,5 @@
 ---
-title: Listar recursos de armazenamento do Azure com a biblioteca C++ de cliente de armazenamento para | Microsoft Docs
+title: Listar recursos de armazenamento C++ do Azure com biblioteca de cliente
 description: Saiba como usar as APIs de listagem na biblioteca de cliente Armazenamento do Microsoft Azure C++ para para enumerar contêineres, BLOBs, filas, tabelas e entidades.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
-ms.openlocfilehash: 3a87e39c9435ba02357b4b655e95e96666242b71
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721925"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269455"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listar recursos de armazenamento do Azure noC++
 
@@ -55,12 +55,12 @@ Se você estiver trabalhando com vários aplicativos ou serviços de Threading, 
 
 A escala do armazenamento em nuvem requer listagem segmentada. Por exemplo, você pode ter mais de um milhão de BLOBs em um contêiner de BLOBs do Azure ou em um bilhão de entidades em uma tabela do Azure. Esses não são números teóricos, mas casos reais de uso do cliente.
 
-Portanto, é impraticável listar todos os objetos em uma única resposta. Em vez disso, você pode listar objetos usando paginação. Cada uma das APIs de listagem tem uma sobrecarga segmentada.
+Portanto, é impraticável listar todos os objetos em uma única resposta. Em vez disso, você pode listar objetos usando paginação. Cada uma das APIs de listagem tem uma sobrecarga *segmentada* .
 
 A resposta para uma operação de listagem segmentada inclui:
 
 * *_segment*, que contém o conjunto de resultados retornados para uma única chamada para a API de listagem.
-* *continuation_token*, que é passado para a próxima chamada a fim de obter a próxima página de resultados. Quando não houver mais resultados a serem retornados, o token de continuação será nulo.
+* *continuation_token*, que é passado para a próxima chamada para obter a próxima página de resultados. Quando não houver mais resultados a serem retornados, o token de continuação será nulo.
 
 Por exemplo, uma chamada típica para listar todos os BLOBs em um contêiner pode ser parecida com o trecho de código a seguir. O código está disponível em nossos [exemplos](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
 
@@ -97,7 +97,7 @@ list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, boo
 
 Se você não especificar o parâmetro *max_results* , o valor máximo padrão de até 5000 resultados será retornado em uma única página.
 
-Observe também que uma consulta no armazenamento de tabelas do Azure pode não retornar registros ou menos registros do que o valor do parâmetro *max_results* que você especificou, mesmo se o token de continuação não estiver vazio. Um motivo pode ser que a consulta não pôde ser concluída em cinco segundos. Desde que o token de continuação não esteja vazio, a consulta deve continuar e seu código não deve assumir o tamanho dos resultados do segmento.
+Observe também que uma consulta no armazenamento de tabelas do Azure pode não retornar nenhum registro ou menos registros do que o valor do parâmetro *max_results* especificado, mesmo se o token de continuação não estiver vazio. Um motivo pode ser que a consulta não pôde ser concluída em cinco segundos. Desde que o token de continuação não esteja vazio, a consulta deve continuar e seu código não deve assumir o tamanho dos resultados do segmento.
 
 O padrão de codificação recomendado para a maioria dos cenários é a listagem segmentada, que fornece um progresso explícito de listagem ou consulta e como o serviço responde a cada solicitação. Particularmente para C++ aplicativos ou serviços, o controle de nível inferior do progresso da listagem pode ajudar a controlar a memória e o desempenho.
 
@@ -153,7 +153,7 @@ Embora a listagem de ávidos tenha gerado problemas potenciais, é conveniente s
 
 Se você também estiver usando C# o ou os SDKs do Oracle Java, você deve estar familiarizado com o modelo de programação enumerável, que oferece uma listagem de estilo lento, em que os dados em um determinado deslocamento só serão buscados se for necessário. No C++, o modelo baseado em iterador também fornece uma abordagem semelhante.
 
-Uma API de listagem lenta típica, usando **list_blobs** como exemplo, tem a seguinte aparência:
+Uma API de listagem lenta típica, usando **list_blobs** como um exemplo, tem a seguinte aparência:
 
 ```cpp
 list_blob_item_iterator list_blobs() const;
@@ -192,7 +192,7 @@ Neste artigo, discutimos sobrecargas diferentes para listar APIs para vários ob
 * A listagem lenta é fornecida na biblioteca como um wrapper conveniente em cenários síncronos.
 * Listagem de ávidos não é recomendada e foi removida da biblioteca.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o armazenamento do Azure e C++a biblioteca de cliente do, consulte os recursos a seguir.
 

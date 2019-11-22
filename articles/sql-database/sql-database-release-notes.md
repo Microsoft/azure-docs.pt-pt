@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 5c70d1d7d62b41965d4c81e8bbe0e5b2dc3cbb92
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bdea9af04008ef68578ff8c136760f2493a2ae35
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166249"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279221"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão do banco de dados SQL
 
@@ -80,6 +80,7 @@ Os seguintes recursos estão habilitados no modelo de implantação de instânci
 
 - Os bancos de dados independentes de **agosto de 2019** têm suporte total na instância gerenciada.
 - **Oct 2019** -a restauração de banco de dados pontual interna da camada de Comercialmente Crítico para uso geral não terá sucesso se o banco de dados de origem contiver objetos OLTP na memória.
+- **Outubro de 2019** -você pode usar **Database Mail** recurso com servidores de email externos (não Azure) usando conexão segura.
 - **2019 de novembro** -a consistência do banco de dados é verificada usando `DBCC CHECKDB` após restaurar o banco de dados do armazenamento de blob do Azure
 
 ## <a name="updates"></a>Atualizações

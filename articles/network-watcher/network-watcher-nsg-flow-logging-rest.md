@@ -1,5 +1,6 @@
 ---
-title: Gerenciar logs de fluxo do grupo de segurança de rede com o observador de rede do Azure – API REST | Microsoft Docs
+title: Gerenciar logs de fluxo NSG – API REST do Azure
+titleSuffix: Azure Network Watcher
 description: Esta página explica como gerenciar logs de fluxo do grupo de segurança de rede no observador de rede do Azure com a API REST
 services: network-watcher
 documentationcenter: na
@@ -14,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 88173b24ecfca72e05d6f930b45d732aefad0e56
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 636a422cd46dc6b6274766b92753f04195a829a0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563411"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277938"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configurando logs de fluxo do grupo de segurança de rede usando a API REST
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Portal do Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI do Azure](network-watcher-nsg-flow-logging-cli.md)
-> - [REST API](network-watcher-nsg-flow-logging-rest.md)
+> - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
 Os logs de fluxo do grupo de segurança de rede são um recurso do observador de rede que permite exibir informações sobre o tráfego IP de entrada e saída por meio de um grupo de segurança de rede. Esses logs de fluxo são gravados no formato JSON e mostram os fluxos de entrada e saída por regra, a NIC à qual o fluxo se aplica, informações de 5 tuplas sobre o fluxo (IP de origem/destino, porta de origem/destino, protocolo) e se o tráfego foi permitido ou negado.
 
@@ -60,7 +61,7 @@ armclient login
 
 ## <a name="register-insights-provider"></a>Registar o fornecedor do Insights
 
-Para que o log de fluxo funcione com êxito, o provedor **Microsoft.** insights deve ser registrado. Se você não tiver certeza se o provedor **Microsoft.** insights está registrado, execute o script a seguir.
+Para que o log de fluxo funcione com êxito, o provedor **Microsoft. insights** deve ser registrado. Se você não tiver certeza se o provedor **Microsoft. insights** está registrado, execute o script a seguir.
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -220,7 +221,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 > [!IMPORTANT]
 > Atualmente, há um problema em que [os logs de fluxo do NSG (grupo de segurança de rede)](network-watcher-nsg-flow-logging-overview.md) para o observador de rede não são automaticamente excluídos do armazenamento de BLOBs com base nas configurações da política de retenção. Se você tiver uma política de retenção diferente de zero, recomendamos que você exclua periodicamente os blobs de armazenamento que ultrapassaram seu período de retenção para evitar qualquer cobrança incorrida. Para obter mais informações sobre como excluir o blog de armazenamento de log de fluxo do NSG, consulte [excluir blobs de armazenamento de log de fluxo NSG](network-watcher-delete-nsg-flow-log-blobs.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [Visualizar seus logs de fluxo do NSG com o PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

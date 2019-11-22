@@ -1,5 +1,6 @@
 ---
-title: Gerenciar logs de fluxo do grupo de segurança de rede com o observador de rede do Azure – PowerShell | Microsoft Docs
+title: Gerenciar logs de fluxo NSG-Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: Esta página explica como gerenciar logs de fluxo do grupo de segurança de rede no observador de rede do Azure com o PowerShell
 services: network-watcher
 documentationcenter: na
@@ -14,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 508fe6f7dc6c5fef99e5f62a2ce75b0c81b1577f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 162e499ba44557db388484639c21877fd8b852bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676339"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277973"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configurando logs de fluxo do grupo de segurança de rede com o PowerShell
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Portal do Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI do Azure](network-watcher-nsg-flow-logging-cli.md)
-> - [REST API](network-watcher-nsg-flow-logging-rest.md)
+> - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
 Os logs de fluxo do grupo de segurança de rede são um recurso do observador de rede que permite exibir informações sobre o tráfego IP de entrada e saída por meio de um grupo de segurança de rede. Esses logs de fluxo são gravados no formato JSON e mostram os fluxos de entrada e saída por regra, a NIC à qual o fluxo se aplica, informações de 5 tuplas sobre o fluxo (IP de origem/destino, porta de origem/destino, protocolo) e se o tráfego foi permitido ou negado.
 
@@ -95,7 +96,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 Para obter informações sobre a estrutura do log, visite [visão geral do log de fluxo do grupo de segurança de rede](network-watcher-nsg-flow-logging-overview.md)
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como [Visualizar seus logs de fluxo do NSG com o PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

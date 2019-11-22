@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: fb8f5f2adf497a12b4ed54b381a2dbf85e160b8e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 2a40680b45522d8a8e49a3f01a50a748e1c71b53
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123964"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274068"
 ---
 # <a name="container-security-in-security-center"></a>Segurança do contêiner na central de segurança
 
@@ -32,7 +32,7 @@ Este artigo descreve como você pode melhorar, monitorar e manter a segurança d
 [![guia Segurança do contêiner da central de segurança do Azure](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
 ## <a name="vulnerability-management---scanning-container-images-preview"></a>Gerenciamento de vulnerabilidades-verificação de imagens de contêiner (visualização)
-Para monitorar o registro de contêiner do Azure, conecte-o à central de segurança. Quando uma nova imagem é enviada por push, a central de segurança examina a imagem usando um scanner do fornecedor de verificação de vulnerabilidade líder do setor, Qualys.
+Para monitorar o registro de contêiner do Azure, verifique se você está na camada Standard da central de segurança (consulte [preços](https://docs.microsoft.com/azure/security-center/security-center-pricing.md)). Em seguida, habilite o pacote opcional de registros de contêiner. Quando uma nova imagem é enviada por push, a central de segurança examina a imagem usando um scanner do fornecedor de verificação de vulnerabilidade líder do setor, Qualys.
 
 Quando forem encontrados problemas – por Qualys ou pela central de segurança – você será notificado no painel da central de segurança. Para cada vulnerabilidade, a central de segurança fornece recomendações acionáveis, juntamente com uma classificação de gravidade, e orientações sobre como corrigir o problema. Para obter detalhes das recomendações da central de segurança, consulte a lista de recomendações na [proteção da máquina virtual](security-center-virtual-machine-protection.md##compute-and-app-recs).
 
@@ -55,7 +55,7 @@ O AKS fornece controles de segurança e visibilidade da postura de segurança de
 
 Para obter detalhes das recomendações da central de segurança, consulte [proteção da máquina virtual](security-center-virtual-machine-protection.md).
 
-## <a name="run-time-protection---real-time-threat-detection"></a>Proteção de tempo de execução-detecção de ameaças em tempo real 
+## <a name="run-time-protection---real-time-threat-detection"></a>Proteção de tempo de execução-detecção de ameaças em tempo real
 
 A central de segurança fornece detecção de ameaças em tempo real para seus ambientes em contêineres e gera alertas para atividades suspeitas. Pode utilizar estas informações para remediar rapidamente problemas de segurança e aumentar a segurança dos contentores.
 

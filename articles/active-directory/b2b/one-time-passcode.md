@@ -1,6 +1,6 @@
 ---
-title: Autenticação de código de acesso único para utilizadores de convidados B2B - Azure Active Directory | Documentos da Microsoft
-description: Como utilizar o código de acesso único E-Mail para autenticar utilizadores B2B sem a necessidade de uma conta Microsoft.
+title: Autenticação de senha única para usuários convidados B2B – Azure AD
+description: Como usar o email de senha de uso único para autenticar usuários de convidados B2B sem a necessidade de um conta Microsoft.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,75 +12,75 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13808871d67bb47dce82c5a3493fd89b0dfe1dcd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6d897bb983eb06baa4f1573f1f875eea8bb8afc
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952854"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272312"
 ---
-# <a name="email-one-time-passcode-authentication-preview"></a>Autenticação de código de acesso único por e-mail (pré-visualização)
+# <a name="email-one-time-passcode-authentication-preview"></a>Autenticação de senha de uso único de email (versão prévia)
 
 |     |
 | --- |
-| Código de acesso único e-mail é uma funcionalidade de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| O email de senha de uso único é um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Este artigo descreve como ativar a autenticação de código de acesso único de E-Mail para utilizadores convidados B2B. A funcionalidade de código de acesso único E-Mail autentica utilizadores convidados B2B, quando não pode ser autenticadas através de outros meios, como o Azure AD, uma conta Microsoft (MSA) ou o Federação de Google. Com a autenticação de código de acesso único, não é necessário para criar uma conta Microsoft. Quando o utilizador convidado redeems um convite ou acede a um recurso partilhado, eles poderão solicitar um código temporário, que é enviado para o respetivo endereço de e-mail. Em seguida, eles introduza este código para continuar a iniciar sessão.
+Este artigo descreve como habilitar a autenticação de senha de uso único de email para usuários de convidado B2B. O recurso de senha de email único autentica os usuários convidados B2B quando eles não podem ser autenticados por outros meios como o Azure AD, um conta Microsoft (MSA) ou Google Federation. Com a autenticação de senha de uso único, não há necessidade de criar um conta Microsoft. Quando o usuário convidado resgata um convite ou acessa um recurso compartilhado, ele pode solicitar um código temporário, que é enviado para seu endereço de email. Em seguida, eles inserem esse código para continuar a entrar.
 
-Esta funcionalidade está atualmente disponível para pré-visualização (consulte [aceitar para a pré-visualização](#opting-in-to-the-preview) abaixo). Depois de pré-visualização, esta funcionalidade será ativada por predefinição para todos os inquilinos.
-
-> [!NOTE]
-> Os utilizadores de código de acesso único tem de iniciar sessão através de uma ligação que inclui o contexto do inquilino (por exemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>` ou `https://portal.azure.com/<tenant id>`, ou no caso de um domínio verificado, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Ligações diretas para aplicativos e recursos também funcionam, desde que eles incluem o contexto do inquilino. Os utilizadores convidados são não foi possível iniciar sessão com pontos finais que não têm nenhum contexto de inquilino. Por exemplo, utilizando `https://myapps.microsoft.com`, `https://portal.azure.com`, ou o ponto de extremidade comum as Equipes resultará num erro. 
-
-## <a name="user-experience-for-one-time-passcode-guest-users"></a>Experiência de utilizador para os utilizadores convidados de código de acesso único
-Com a autenticação de código de acesso único, o utilizador convidado pode resgatar o convite ao clicar numa ligação direta ou ao utilizar o e-mail de convite. Em ambos os casos, uma mensagem no navegador indica que será enviado um código para o endereço de e-mail do utilizador convidado. O utilizador convidado seleciona **enviar código**:
- 
-   ![Captura de ecrã que mostra o botão de código de envio](media/one-time-passcode/otp-send-code.png)
- 
-Um código de acesso é enviado para o endereço de e-mail do utilizador. O utilizador obtém o código de acesso de e-mail e insere-la na janela do browser:
- 
-   ![Captura de ecrã que mostra a página de código Enter](media/one-time-passcode/otp-enter-code.png)
- 
-O utilizador convidado já é autenticado e podem ver o recurso partilhado ou continuar a iniciar sessão. 
+Este recurso está disponível para visualização (consulte [optando pela versão prévia](#opting-in-to-the-preview) abaixo). Após a visualização, esse recurso será ativado por padrão para todos os locatários.
 
 > [!NOTE]
-> Códigos de acesso Monouso são válidos durante 30 minutos. Após 30 minutos, esse código de acesso único específico já não é válido e o utilizador tem de pedir um novo. Sessões de usuário expirem após 24 horas. Após esse tempo, o utilizador convidado recebe um novo código de acesso quando acedem o recursos. Expiração da sessão fornece segurança adicional, especialmente quando um utilizador convidado deixa a sua empresa ou já não precisa de acesso.
+> Usuários de senha de uso único devem entrar usando um link que inclui o contexto do locatário (por exemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>` ou `https://portal.azure.com/<tenant id>`, ou no caso de um domínio verificado, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Links diretos para aplicativos e recursos também funcionam contanto que incluam o contexto do locatário. Atualmente, os usuários convidados não podem entrar usando pontos de extremidade que não têm nenhum contexto de locatário. Por exemplo, usar `https://myapps.microsoft.com`, `https://portal.azure.com`ou o ponto de extremidade comum das equipes resultará em um erro. 
 
-## <a name="when-does-a-guest-user-get-a-one-time-passcode"></a>Quando um utilizador convidado obter um código de acesso único?
-
-Quando um utilizador convidado redeems um convite ou utiliza uma ligação a um recurso que foi partilhado consigo, receberá um código de acesso único se:
-- Não têm uma conta do Azure AD 
-- Não têm uma conta Microsoft 
-- O inquilino de convite não configurado o Federação Google para @gmail.com e @googlemail.com utilizadores 
-
-No momento do convite, não existe nenhuma indicação de que o utilizador que está a convidar irá utilizar a autenticação de código de acesso único. Mas quando o utilizador convidado inicia sessão, autenticação de código de acesso único será o método de contingência se a outros métodos de autenticação podem ser utilizados. 
-
-Pode ver os utilizadores convidados que autenticam com códigos de acesso Monouso no portal do Azure acedendo a **do Azure Active Directory** > **relações organizacionais**  >   **Os utilizadores de outras organizações**.
-
-![Captura de ecrã que mostra um utilizador de código de acesso único com o valor de origem de OTP](media/one-time-passcode/otp-users.png)
+## <a name="user-experience-for-one-time-passcode-guest-users"></a>Experiência do usuário para usuários convidados de senha de uso único
+Com a autenticação de senha de uso único, o usuário convidado pode resgatar seu convite clicando em um link direto ou usando o email de convite. Em ambos os casos, uma mensagem no navegador indica que um código será enviado para o endereço de email do usuário convidado. O usuário convidado seleciona **enviar código**:
+ 
+   ![Captura de tela mostrando o botão enviar código](media/one-time-passcode/otp-send-code.png)
+ 
+Uma senha é enviada para o endereço de email do usuário. O usuário recupera a senha do email e a insere na janela do navegador:
+ 
+   ![Captura de tela mostrando a página inserir código](media/one-time-passcode/otp-enter-code.png)
+ 
+O usuário convidado agora é autenticado e pode ver o recurso compartilhado ou continuar a entrar. 
 
 > [!NOTE]
-> Quando um usuário redeems um código de acesso único e mais tarde obtém uma MSA, a conta do Azure AD ou a outra conta federada, este irá continuar a ser autenticadas através de um código de acesso único. Se pretender atualizar o método de autenticação, pode eliminar a conta de utilizador convidado e reinvite-los.
+> Senhas de uso único são válidas por 30 minutos. Após 30 minutos, essa senha de uso único específica não é mais válida e o usuário deve solicitar uma nova. As sessões de usuário expiram após 24 horas. Após esse período, o usuário convidado recebe uma nova senha quando acessa o recurso. A expiração da sessão fornece segurança adicional, especialmente quando um usuário convidado deixa sua empresa ou não precisa mais de acesso.
+
+## <a name="when-does-a-guest-user-get-a-one-time-passcode"></a>Quando um usuário convidado recebe uma senha de uso único?
+
+Quando um usuário convidado resgatar um convite ou usar um link para um recurso que foi compartilhado com eles, ele receberá uma senha de uso único se:
+- Eles não têm uma conta do Azure AD 
+- Eles não têm um conta Microsoft 
+- O locatário que está convidando não configurou o Google Federation para @gmail.com e @googlemail.com usuários 
+
+No momento do convite, não há nenhuma indicação de que o usuário que você está convidando usará a autenticação de senha única. Mas quando o usuário convidado entrar, a autenticação de senha de uso único será o método de fallback se nenhum outro método de autenticação puder ser usado. 
+
+Você pode exibir os usuários convidados que se autenticam com senhas de uso único no portal do Azure acessando **Azure Active Directory** > **relações organizacionais** > **usuários de outras organizações**.
+
+![Captura de tela mostrando um usuário de senha de uso único com o valor de origem de OTP](media/one-time-passcode/otp-users.png)
+
+> [!NOTE]
+> Quando um usuário resgatar uma senha de uso único e posteriormente obtiver uma conta do MSA, do Azure AD ou de outra conta federada, ele continuará a ser autenticado usando uma senha de uso único. Se você quiser atualizar seu método de autenticação, poderá excluir sua conta de usuário convidado e convidá-la novamente.
 
 ### <a name="example"></a>Exemplo
-Utilizador convidado alexdoe@gmail.com é convidado a Fabrikam, o que não tem o Federação Google configurar. Alex não tem uma conta Microsoft. Receberá um código de acesso único para autenticação.
+O alexdoe@gmail.com de usuário convidado é convidado para a Fabrikam, que não tem a configuração do Google Federation configurada. Alex não tem um conta Microsoft. Eles receberão uma senha de uso único para autenticação.
 
-## <a name="opting-in-to-the-preview"></a>Aceitar para a pré-visualização 
-Poderá demorar alguns minutos para que a ação de participação ativa entrem em vigor. Depois disso, apenas os utilizadores convidados recentemente que cumprem as condições acima irão utilizar a autenticação de código de acesso único. Utilizadores convidados que anteriormente resgatar um convite irão continuar a utilizar o mesmo método de autenticação.
+## <a name="opting-in-to-the-preview"></a>Optando pela versão prévia 
+Pode levar alguns minutos para que a ação de aceitação entre em vigor. Depois disso, somente os usuários recentemente convidados que atendem às condições acima usarão a autenticação de senha única. Os usuários convidados que anteriormente resgataram um convite continuarão a usar o mesmo método de autenticação.
 
-### <a name="to-opt-in-using-the-azure-ad-portal"></a>Para optar ativamente por participar com o portal do Azure AD
-1.  Inicie sessão para o [portal do Azure](https://portal.azure.com/) como administrador global do Azure AD.
-2.  No painel de navegação, selecione **do Azure Active Directory**.
-3.  Sob **Manage**, selecione **organizacionais relações**.
+### <a name="to-opt-in-using-the-azure-ad-portal"></a>Para aceitar o uso do portal do AD do Azure
+1.  Entre no [portal do Azure](https://portal.azure.com/) como um administrador global do Azure AD.
+2.  No painel de navegação, selecione **Azure Active Directory**.
+3.  Em **gerenciar**, selecione **relações organizacionais**.
 4.  Selecione **definições**.
-5.  Sob **ativar E-Mail uso único código de acesso para convidados (pré-visualização)** , selecione **Sim**.
+5.  Em **habilitar o email de senha de uso único para convidados (versão prévia)** , selecione **Sim**.
  
-### <a name="to-opt-in-using-powershell"></a>Para optar ativamente por participar com o PowerShell
+### <a name="to-opt-in-using-powershell"></a>Para aceitar o uso do PowerShell
 
-Em primeiro lugar, terá de instalar a versão mais recente do Azure AD PowerShell para o módulo de gráfico (AzureADPreview). Em seguida, vai determinar se as políticas de B2B já existem de colunas e executam os comandos apropriados.
+Primeiro, você precisará instalar a versão mais recente do módulo do Azure AD PowerShell para Graph (AzureADPreview). Em seguida, você determinará se as políticas B2B já existem e executará os comandos apropriados.
 
-#### <a name="prerequisite-install-the-latest-azureadpreview-module"></a>Pré-requisito: Instalar o módulo do AzureADPreview mais recente
+#### <a name="prerequisite-install-the-latest-azureadpreview-module"></a>Pré-requisito: instalar o módulo AzureADPreview mais recente
 Primeiro, verifique quais foram os módulos que instalou. Abra o Windows PowerShell como um utilizador com privilégios elevados (Executar como administrador) e execute o seguinte comando:
  
 ```powershell  
@@ -109,22 +109,22 @@ Se o módulo do AzureADPreview for apresentado sem uma mensagem que indique que 
 
 Poderá receber um aviso a indicar que está a instalar o módulo a partir de um repositório não fidedigno. Isto ocorre se não tiver configurado previamente o repositório PSGallery como um repositório fidedigno. Prima **Y** para instalar o módulo.
 
-#### <a name="check-for-existing-policies-and-opt-in"></a>Verificar as políticas existentes e optar ativamente por participar no
+#### <a name="check-for-existing-policies-and-opt-in"></a>Verificar se há políticas existentes e aceitar
 
-Em seguida, certifique-se atualmente existe um B2BManagementPolicy executando o seguinte:
+Em seguida, verifique se existe uma B2BManagementPolicy no momento executando o seguinte:
 
 ```powershell 
 $currentpolicy =  Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and $_.IsOrganizationDefault -eq $true} | select -First 1
 $currentpolicy -ne $null
 ```
-- Se o resultado é False, a política não existe atualmente. Crie um novo B2BManagementPolicy e optar ativamente por participar na pré-visualização do executando o seguinte:
+- Se a saída for falsa, a política não existirá no momento. Crie um novo B2BManagementPolicy e aceite a visualização executando o seguinte:
 
    ```powershell 
    $policyValue=@("{`"B2BManagementPolicy`":{`"PreviewPolicy`":{`"Features`":[`"OneTimePasscode`"]}}}")
    New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true
    ```
 
-- Se a saída for True, a política de B2BManagementPolicy existe atualmente. Para atualizar a política e escolher a pré-visualização, execute o seguinte:
+- Se a saída for verdadeira, a política B2BManagementPolicy existirá no momento. Para atualizar a política e aceitar a visualização, execute o seguinte:
   
    ```powershell 
    $policy = $currentpolicy.Definition | ConvertFrom-Json
@@ -133,25 +133,25 @@ $currentpolicy -ne $null
    Set-AzureADPolicy -Definition $updatedPolicy -Id $currentpolicy.Id
    ```
 
-## <a name="opting-out-of-the-preview-after-opting-in"></a>Desativar a pré-visualização depois de aceitar
-Pode demorar alguns minutos para que a ação de recusa entrem em vigor. Se desativar a pré-visualização, qualquer usuário de convidado que tiver resgatado um código de acesso único não será capaz de iniciar sessão. Pode eliminar o utilizador convidado e reinvite o utilizador para que eles possam iniciar sessão novamente com outro método de autenticação.
+## <a name="opting-out-of-the-preview-after-opting-in"></a>Recusando a visualização depois de se recusar
+Pode levar alguns minutos para que a ação de aceitação entre em vigor. Se você desativar a visualização, todos os usuários convidados que tiverem resgatado uma senha de uso único não poderão entrar. Você pode excluir o usuário convidado e convidar novamente o usuário para habilitá-los a entrar novamente usando outro método de autenticação.
 
-### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Para desativar a pré-visualização através do portal do Azure AD
-1.  Inicie sessão para o [portal do Azure](https://portal.azure.com/) como administrador global do Azure AD.
-2.  No painel de navegação, selecione **do Azure Active Directory**.
-3.  Sob **Manage**, selecione **organizacionais relações**.
+### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Para desativar a visualização usando o portal do AD do Azure
+1.  Entre no [portal do Azure](https://portal.azure.com/) como um administrador global do Azure AD.
+2.  No painel de navegação, selecione **Azure Active Directory**.
+3.  Em **gerenciar**, selecione **relações organizacionais**.
 4.  Selecione **definições**.
-5.  Sob **ativar E-Mail uso único código de acesso para convidados (pré-visualização)** , selecione **não**.
+5.  Em **habilitar o email de senha de uso único para convidados (versão prévia)** , selecione **não**.
 
-### <a name="to-turn-off-the-preview-using-powershell"></a>Para desativar a pré-visualização com o PowerShell
-Instalar o módulo do AzureADPreview mais recente, se não o tiver feito (consulte [pré-requisitos: Instalar o módulo mais recente do AzureADPreview](#prerequisite-install-the-latest-azureadpreview-module) acima). Em seguida, certifique-se de que a política de pré-visualização do código de acesso único atualmente existe executando o seguinte:
+### <a name="to-turn-off-the-preview-using-powershell"></a>Para desativar a visualização usando o PowerShell
+Instale o módulo AzureADPreview mais recente se você ainda não o tiver (consulte [pré-requisito: instalar o módulo AzureADPreview mais recente](#prerequisite-install-the-latest-azureadpreview-module) acima). Em seguida, verifique se a política de visualização de senha de uso único existe no momento executando o seguinte:
 
 ```powershell 
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and $_.IsOrganizationDefault -eq $true} | select -First 1
 ($currentPolicy -ne $null) -and ($currentPolicy.Definition -like "*OneTimePasscode*")
 ```
 
-Se a saída for True, recusar a pré-visualização ao executar o seguinte:
+Se a saída for verdadeira, cancele a visualização executando o seguinte:
 
 ```powershell 
 $policy = $currentpolicy.Definition | ConvertFrom-Json

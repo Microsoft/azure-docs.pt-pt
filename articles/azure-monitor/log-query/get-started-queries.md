@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: d0e19c8483321189cb38a4eebdbf7b2cb89785ef
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0503ebc7a585210f95eb58b0f11ae1dd0a835264
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933027"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278612"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de log no Azure Monitor
 
@@ -109,7 +109,7 @@ Ao escrever condições de filtro, você pode usar as seguintes expressões:
 |:---|:---|:---|
 | == | Verificar igualdade<br>(diferencia maiúsculas de minúsculas) | `Level == 8` |
 | =~ | Verificar igualdade<br>(não diferencia maiúsculas de minúsculas) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
-| ! =, < > | Verificar desigualdade<br>(as duas expressões são idênticas) | `Level != 4` |
+| !=, <> | Verificar desigualdade<br>(as duas expressões são idênticas) | `Level != 4` |
 | *e*, *ou* | Necessário entre as condições| `Level == 16 or CommandLine != ""` |
 
 Para filtrar por várias condições, você pode usar o **e**o:
@@ -239,4 +239,7 @@ Para tornar a saída mais clara, selecione para exibi-la como um gráfico de tem
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre como [escrever consultas de pesquisa](search-queries.md)
+- Saiba mais sobre como usar dados de cadeia de caracteres em uma consulta de log com o [trabalho com cadeias em consultas de log Azure monitor](string-operations.md).
+- Saiba mais sobre como agregar dados em uma consulta de log com [agregações avançadas em consultas de log de Azure monitor](advanced-aggregations.md).
+- Saiba como unir dados de várias tabelas com [junções em Azure monitor consultas de log](joins.md).
+- Obtenha a documentação sobre toda a linguagem de consulta Kusto na [referência de linguagem KQL](/azure/kusto/query/).

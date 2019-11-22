@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar a margem de atraso para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: provisionamento de usuário para a margem de atraso-Azure AD'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente as contas de usuário para a margem de atraso.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a294254bd52db89179c5644ea7a0f0f04027f30
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a90151679b71364d93446d1acc46a461d2a9d8f9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932478"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278171"
 ---
-# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar a margem de atraso para o provisionamento automático de usuário
+# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: configurar a margem de atraso para o provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser executadas na margem de atraso e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD até a margem de atraso.
 
@@ -34,7 +34,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes ite
 * Um locatário de margem de atraso com o [plano de adição](https://aadsyncfabric.slack.com/pricing) ou melhor habilitado
 * Uma conta de usuário na margem de atraso com permissões de administrador de equipe
 
-Nota: A integração de provisionamento do Azure AD depende da [API scim de margem de atraso](https://api.slack.com/scim), que está disponível para as equipes de margem de atraso no plano mais ou melhor.
+Observação: a integração de provisionamento do Azure AD depende da [API scim de margem de atraso](https://api.slack.com/scim), que está disponível para as equipes de margem de atraso no plano mais ou melhor.
 
 ## <a name="assigning-users-to-slack"></a>Atribuindo usuários à margem de atraso
 
@@ -54,7 +54,7 @@ Antes de configurar e habilitar o serviço de provisionamento, você precisará 
 
 Esta seção orienta você pela conexão do Azure AD com a API de provisionamento de conta de usuário da margem de atraso e pela configuração do serviço de provisionamento para criar, atualizar e desabilitar contas de usuário atribuídas na margem de atraso com base na atribuição de usuário e de grupo no Azure AD.
 
-**Sugestão:** Você também pode optar por habilitar o logon único baseado em SAML para a margem de atraso, seguindo as instruções fornecidas em [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos se complementem.
+**Dica:** Você também pode optar por habilitar o logon único baseado em SAML para a margem de atraso, seguindo as instruções fornecidas em [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos se complementem.
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Para configurar o provisionamento automático de conta de usuário para a margem de atraso no Azure AD:
 
@@ -68,9 +68,9 @@ Esta seção orienta você pela conexão do Azure AD com a API de provisionament
 
    ![Provisionamento de margem de atraso](./media/slack-provisioning-tutorial/Slack1.PNG)
 
-5. Na seção **credenciais de administrador** , cliqueem autorizar. Isso abre uma caixa de diálogo de autorização de margem de atraso em uma nova janela do navegador.
+5. Na seção **credenciais de administrador** , clique em **autorizar**. Isso abre uma caixa de diálogo de autorização de margem de atraso em uma nova janela do navegador.
 
-6. Na nova janela, entre na margem de atraso usando sua conta de administrador da equipe. na caixa de diálogo autorização resultante, selecione a equipe de margem de atraso para a qual você deseja habilitar o provisionamento e, em seguida, selecione autorizar. Depois de concluído, retorne ao portal do Azure para concluir a configuração de provisionamento.
+6. Na nova janela, entre na margem de atraso usando sua conta de administrador da equipe. na caixa de diálogo autorização resultante, selecione a equipe de margem de atraso para a qual você deseja habilitar o provisionamento e, em seguida, selecione **autorizar**. Depois de concluído, retorne ao portal do Azure para concluir a configuração de provisionamento.
 
     ![Caixa de diálogo de autorização](./media/slack-provisioning-tutorial/Slack3.PNG)
 
@@ -118,7 +118,7 @@ Para obter mais informações sobre como ler o registos de aprovisionamento do A
   
   * A pontuação permitida inclui pontos, sublinhados, hifens, apóstrofos, colchetes (por exemplo, **([{}])** ) e separadores (por exemplo **,/;** ).
   
-  * Somente as atualizações se essas duas configurações forem definidas no local de trabalho/a **sincronização de perfil** da organização será habilitada e **os usuários não poderão alterar seu nome de exibição**.
+  * Somente as atualizações se essas duas configurações forem definidas no local de trabalho/a **sincronização de perfil da organização será habilitada** e **os usuários não poderão alterar seu nome de exibição**.
   
 * O atributo de **nome de usuário** da margem de atraso deve ter menos de 21 caracteres e ter um valor exclusivo.
 

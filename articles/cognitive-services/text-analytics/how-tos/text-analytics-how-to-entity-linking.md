@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: aahi
-ms.openlocfilehash: 5933c7ec56ded971e4daf96ea6d4302c04921f2f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
-ms.translationtype: MT
+ms.openlocfilehash: d3869438f299383a0b3096babbd4874c24f08b3a
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031433"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286592"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
@@ -33,7 +33,7 @@ O NER (reconhecimento de entidade nomeada) é a capacidade de identificar difere
 
 ## <a name="named-entity-recognition-v3-public-preview"></a>Visualização pública de reconhecimento de entidade nomeada v3
 
-A [próxima versão do reconhecimento de entidade nomeada]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) agora está disponível para visualização pública. Ele fornece atualizações para vinculação de entidade e reconhecimento de entidade nomeada. 
+A [próxima versão do reconhecimento de entidade nomeada](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) agora está disponível para visualização pública. Ele fornece atualizações para vinculação de entidade e reconhecimento de entidade nomeada.
 
 :::row:::
     :::column span="":::

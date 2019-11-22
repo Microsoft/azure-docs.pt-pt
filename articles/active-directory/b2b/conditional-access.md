@@ -1,5 +1,5 @@
 ---
-title: Acesso condicional para usuários de colaboração B2B-Azure Active Directory | Microsoft Docs
+title: Acesso condicional para usuários de colaboração B2B – Azure AD
 description: Azure Active Directory colaboração B2B dá suporte à autenticação multifator (MFA) para acesso seletivo aos seus aplicativos corporativos
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a54e5006a268347148945fbe7fc5f18cfa41036
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: c0b6ceba4c3c9202e2024b5c163c0e98bb6cbf55
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357128"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273005"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso condicional para usuários de colaboração B2B
 
@@ -75,9 +75,9 @@ Na versão atual, a MFA está sempre na locação de recursos, por motivos de pr
 
 Se a Contoso tiver a política de MFA habilitada para App1, mas não para App2, se olharmos a declaração de MFA da Contoso no token, poderemos ver o seguinte problema:
 
-* Dia 1: Um usuário tem MFA na contoso e está acessando o App1; em seguida, nenhum prompt adicional do MFA é mostrado na Fabrikam.
+* Dia 1: um usuário tem MFA na contoso e está acessando o App1; em seguida, nenhum prompt adicional do MFA é mostrado na Fabrikam.
 
-* Dia 2: O usuário acessou o aplicativo 2 na contoso, portanto, agora, ao acessar a Fabrikam, ele deve se registrar para o MFA.
+* Dia 2: o usuário acessou o aplicativo 2 na contoso, portanto, agora ao acessar a Fabrikam, ele deve se registrar para a MFA lá.
 
 Esse processo pode ser confuso e pode levar a uma queda nas conclusões de entrada.
 
@@ -105,7 +105,7 @@ As políticas de acesso condicional com base no local podem ser impostas para us
 
 Atualmente, as políticas de entrada baseadas em risco não podem ser aplicadas a usuários B2B porque a avaliação de risco é realizada na organização inicial do usuário B2B.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos sobre a colaboração B2B do Azure AD:
 

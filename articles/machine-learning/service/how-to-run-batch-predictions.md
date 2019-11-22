@@ -1,5 +1,5 @@
 ---
-title: Executar a inferência de lote em grandes quantidades de dados
+title: Executar previsões de lote em Big Data
 titleSuffix: Azure Machine Learning
 description: Saiba como obter inferências de forma assíncrona em grandes quantidades de dados usando a inferência de lote no Azure Machine Learning. A inferência de lote fornece recursos de processamento paralelo prontos para uso e otimiza a inferência de alta taxa de transferência, acionamento e esquecer para casos de utilização de Big Data.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 4e7ddf7fc7b18d57b8251d4fb8293ed2f6e83d17
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 3613639b43db1cd5310a7ea5d7fa18f34e22ed44
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929564"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276716"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar a inferência de lote em grandes quantidades de dados usando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -276,7 +276,7 @@ batch_env.spark.precache_packages = False
 - `process_count_per_node`: o número de processos por nó.
 - `environment`: a definição de ambiente do Python. Você pode configurá-lo para usar um ambiente Python existente ou para configurar um ambiente temporário para o experimento. A definição também é responsável por definir as dependências de aplicativo necessárias (opcional).
 - `logging_level`: detalhes do log. Os valores no detalhamento crescente são: `WARNING`, `INFO`e `DEBUG`. O padrão é `INFO` (opcional).
-- `run_invocation_timeout`: o tempo limite de invocação do método `run()` em segundos. O valor padrão é `60`.
+- `run_invocation_timeout`: o tempo limite de invocação do método `run()` em segundos. O valor predefinido é `60`.
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunConfig
@@ -292,7 +292,7 @@ parallel_run_config = ParallelRunConfig(
     node_count=4)
 ```
 
-### <a name="create-the-pipeline-step"></a>Criar a etapa de pipeline
+### <a name="create-the-pipeline-step"></a>Criar o passo de pipeline
 
 Crie a etapa de pipeline usando o script, a configuração de ambiente e os parâmetros. Especifique o destino de computação que você já anexou ao seu espaço de trabalho como o destino de execução para o script. Use `ParallelRunStep` para criar a etapa pipeline de inferência de lote, que usa todos os seguintes parâmetros:
 - `name`: o nome da etapa, com as seguintes restrições de nomenclatura: Unique, 3-32 caracteres e Regex ^\[a-z\]([-a-Z0-9] * [a-Z0-9])? $.

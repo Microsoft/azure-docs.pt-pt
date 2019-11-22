@@ -8,18 +8,18 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2019
 ms.author: ramkris
-ms.openlocfilehash: 0ff281e54df0273cc4c72d1780f4a99fe9719aec
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b6685f8524dc1f3ac080abe81389d091c7cf6f1b
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900174"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306743"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca de executor em massa do .NET: informações de download 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -34,11 +34,14 @@ ms.locfileid: "72900174"
 | |  |
 |---|---|
 | **Descrição**| A biblioteca de executores em massa do .net permite que aplicativos cliente executem operações em massa em contas de Azure Cosmos DB. Essa biblioteca fornece os namespaces BulkImport, BulkUpdate e BulkDelete. O módulo BulkImport pode ingerir documentos em massa de forma otimizada, de modo que a taxa de transferência provisionada para uma coleção seja consumida em sua extensão máxima. O módulo BulkUpdate pode atualizar dados existentes em massa em contêineres Cosmos do Azure como patches. O módulo BulkDelete pode excluir documentos em massa de forma otimizada, de modo que a taxa de transferência provisionada para uma coleção seja consumida em sua extensão máxima.|
-|**Download do SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
+|**Transferência de SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Biblioteca de executor em massa no GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
-|**Documentação da API**|[Documentação de referência da API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
-|**Get started**|[Introdução ao SDK do .NET da biblioteca de executores em massa](bulk-executor-dot-net.md)|
-| **Estrutura com suporte atual**| Microsoft .NET Framework 4.5.2, 4.6.1 e .NET Standard 2,0 |
+|**Documentação da API**|[Documentação de referência da .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
+|**Introdução**|[Introdução ao SDK do .NET da biblioteca de executores em massa](bulk-executor-dot-net.md)|
+| **Estrutura de suporte atual**| Microsoft .NET Framework 4.5.2, 4.6.1 e .NET Standard 2,0 |
+
+> [!NOTE]
+> Se você estiver usando o executor em massa, consulte a versão mais recente 3. x do [SDK do .net](tutorial-sql-api-dotnet-bulk-import.md), que tem o executor em massa incorporado ao SDK. 
 
 ## <a name="release-notes"></a>Notas de versão
 
@@ -50,19 +53,19 @@ ms.locfileid: "72900174"
 
 * Dependência do SDK alterada para > = 2.5.1
 
-### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-Preview2
+### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
 
 * Suporte adicionado para executor em massa de grafo para aceitar TTL em vértices e bordas
 
-### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-Preview2
+### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
 
 * Correção de um problema, que causou exceções durante o dimensionamento elástico de Azure Cosmos DB ao ser executado no modo de gateway. Essa correção torna funcionalmente equivalente à versão 1.4.1.
 
-### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-Preview2
+### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
 
 * Adicionado suporte BulkDelete para contas da API do SQL para aceitar chave de partição, tuplas de ID de documento a serem excluídas. Essa alteração o torna funcionalmente equivalente à versão do 1.4.0.
 
-### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-Preview2
+### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
 * Incluindo MongoBulkExecutor para dar suporte ao .NET Standard 2,0. Esse recurso o torna funcionalmente equivalente à versão 1.3.0, com a adição de suporte a .NET Standard 2,0 como estrutura de destino.
 
@@ -85,7 +88,7 @@ ms.locfileid: "72900174"
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
 * Foi corrigido o alto consumo de CPU em determinados cenários.
-* O rastreamento agora usa o rastreamento. Os usuários podem definir ouvintes para a fonte `BulkExecutorTrace`.
+* O rastreamento agora usa o rastreamento. Os usuários podem definir ouvintes para a fonte de `BulkExecutorTrace`.
 * Correção de um cenário raro que poderia causar um bloqueio ao enviar documentos perto de 2 MB de tamanho.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0

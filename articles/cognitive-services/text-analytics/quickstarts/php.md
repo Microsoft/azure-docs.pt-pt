@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Usando PHP para chamar o API de Análise de Texto'
+title: 'Início Rápido: Utilizar o PHP para chamar a API de Análise de Texto'
 titleSuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para ajudá-lo a começar rapidamente a usar o API de Análise de Texto nos serviços cognitivas do Azure.
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: a1e3484c544478fa6e9414eea1e139b81652ace3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 3b95109ea3389cc8ee7e748e06265870d5f903a4
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135018"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284766"
 ---
-# <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Usando PHP para chamar o serviço de Análise de Texto cognitiva
+# <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Utilizar o PHP para chamar o Serviço Cognitivo de Análise de Texto
 <a name="HOLTop"></a>
 
-Este artigo mostra como detectar o [idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades vinculadas](#Entities) usando as [APIs](//go.microsoft.com/fwlink/?LinkID=759711) de análise de texto com php.
+Este artigo mostra como detectar o [idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades vinculadas](#Entities) usando as [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) com php.
 
-Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter acesso à documentação técnica sobre APIs.
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +34,7 @@ Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter
 
 A API Deteção de Idioma deteta o idioma de um documento de texto através do [método Detetar Idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-1. Crie variáveis `TEXT_ANALYTICS_SUBSCRIPTION_KEY` de ambiente `TEXT_ANALYTICS_ENDPOINT` e para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis.
+1. Crie variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis.
 1. Crie um novo projeto PHP no seu IDE favorito.
 1. Adicione o código indicado abaixo.
 1. Execute o programa.
@@ -101,7 +101,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 **Resposta de deteção de idioma**
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 
@@ -151,7 +151,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos de texto através do [método Sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). O seguinte exemplo classifica dois documentos, um em inglês e outro em espanhol.
 
-1. Crie variáveis `TEXT_ANALYTICS_SUBSCRIPTION_KEY` de ambiente `TEXT_ANALYTICS_ENDPOINT` e para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis.
+1. Crie variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis.
 1. Crie um novo projeto PHP no seu IDE favorito.
 1. Adicione o código indicado abaixo.
 1. Execute o programa.
@@ -224,7 +224,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 **Resposta de análise de sentimentos**
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -244,11 +244,11 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Extrair frases-chave
+## <a name="extract-key-phrases"></a>Extrair expressões-chave
 
 A API de Extração de Expressões-Chave extrai expressões-chave de um documento de texto através do [método Expressões-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). O seguinte exemplo extrai expressões-chave para o documento em inglês e o documento em espanhol.
 
-1. Crie variáveis `TEXT_ANALYTICS_SUBSCRIPTION_KEY` de ambiente `TEXT_ANALYTICS_ENDPOINT` e para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis.
+1. Crie variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis.
 1. Crie um novo projeto PHP no seu IDE favorito.
 1. Adicione o código indicado abaixo.
 1. Execute o programa.
@@ -315,7 +315,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 **Resposta de extração de expressões-chave**
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -359,7 +359,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 A API de Entidades identifica entidades conhecidas num documento de texto através do [método Entidades](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). O seguinte exemplo identifica as entidades dos documentos em inglês.
 
-1. Crie variáveis `TEXT_ANALYTICS_SUBSCRIPTION_KEY` de ambiente `TEXT_ANALYTICS_ENDPOINT` e para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis.
+1. Crie variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis.
 1. Crie um novo projeto PHP no seu IDE favorito.
 1. Adicione o código indicado abaixo.
 1. Execute o programa.
@@ -424,7 +424,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 **Resposta de extração de entidades**
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {  

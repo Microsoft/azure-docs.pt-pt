@@ -1,5 +1,5 @@
 ---
-title: Não é possível acessar este erro de aplicativo corporativo com o aplicativo proxy de aplicativo | Microsoft Docs "
+title: Não é possível acessar este erro de aplicativo corporativo com o aplicativo proxy de aplicativo
 description: Como resolver problemas comuns de acesso com aplicações de Proxy de aplicações do Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e54b54f592082ad998e1f5dfbdcb5ed30e6dc4a
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 3d61f4b4bce9b8287dc13237f071684ea5d135fa
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381413"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275458"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível aceder a esta aplicação empresarial" quando utilizar uma aplicação de Proxy de aplicações
 
@@ -31,13 +31,13 @@ Este artigo ajuda-o a resolver problemas comuns para o erro "não é possível a
 
 Quando vir este erro, encontre o código de estado na página de erro. Esse código se tratar de um dos seguintes códigos de estado:
 
-- **Tempo limite do gateway**: O serviço proxy de aplicativo não pode acessar o conector. Este erro normalmente indica um problema com a atribuição de conector, o conector propriamente dito, ou o funcionamento em rede regras sobre o conector.
-- **Gateway inadequado**: O conector não pode acessar o aplicativo de back-end. Este erro poderá indicar uma configuração incorreta do aplicativo.
-- **Proibido**: O usuário não está autorizado a acessar o aplicativo. Este erro pode acontecer quando o utilizador não está atribuído para a aplicação no Azure Active Directory, ou se o back-end, o utilizador não tem permissão para aceder à aplicação.
+- **Tempo limite do gateway**: serviço o Proxy de aplicações é não é possível alcançar o conector. Este erro normalmente indica um problema com a atribuição de conector, o conector propriamente dito, ou o funcionamento em rede regras sobre o conector.
+- **Gateway inválido**: O conector não consegue aceder à aplicação de back-end. Este erro poderá indicar uma configuração incorreta do aplicativo.
+- **Proibido**: O utilizador não está autorizado a aceder à aplicação. Este erro pode acontecer quando o utilizador não está atribuído para a aplicação no Azure Active Directory, ou se o back-end, o utilizador não tem permissão para aceder à aplicação.
 
 Para encontrar o código, observe o texto à esquerda na parte inferior da mensagem de erro para o campo de "Código de estado". Também procure qualquer dicas adicionais na parte inferior da página.
 
-![Exemplo: Erro de tempo limite do gateway](./media/application-proxy-sign-in-bad-gateway-timeout-error/connection-problem.png)
+![Exemplo: erro de tempo limite de gateway](./media/application-proxy-sign-in-bad-gateway-timeout-error/connection-problem.png)
 
 Para obter detalhes sobre como resolver a causa destes erros e obter mais detalhes sobre as correções sugeridas, consulte a seção correspondente abaixo.
 
@@ -75,9 +75,9 @@ Para verificar a aplicação é atribuído a um grupo de conectores em funcionam
 1. Se o problema é mostrar o grupo do conector, utilize a menu pendente para selecionar o grupo correto e confirme que já não vê quaisquer avisos. Se o grupo do conector prevista é apresentada, clique a mensagem de aviso para abrir a página com a gestão do conector.
 1. A partir daqui, existem algumas formas de fazer uma busca ainda mais:
 
-   - Mova um conector ativo para o grupo: Se você tiver um conector ativo que deve pertencer a esse grupo e tiver a linha de visão para o aplicativo de back-end de destino, você poderá mover o conector para o grupo atribuído. Para tal, clique o conector. No campo do "Grupo de conectores", use a menu pendente para selecionar o grupo correto e clique em Guardar.
-   - Baixe um novo conector para esse grupo: Nessa página, você pode obter o link para [baixar um novo conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o conector num computador com a linha de visão direta para a aplicação de back-end. Normalmente, o conector é instalado no mesmo servidor que o aplicativo. Utilize a ligação de conector de transferência para transferir um conector para o computador de destino. Em seguida, clique o conector e utilize o menu pendente "conector do grupo" para se certificar de que ele pertence ao grupo certo.
-   - Investigue um conector inativo: Se um conector aparecer como inativo, ele não poderá acessar o serviço. Este erro é normalmente devido a algumas portas necessárias a ser bloqueadas. Para resolver esse problema, vá para verificar se todas as portas necessárias são permitidas.
+   - Mova um conector do Active Directory para o grupo: Se tiver um conector do Active Directory deve pertencer a este grupo e com a linha de visão para a aplicação de back-end de destino, pode mover o conector para o grupo atribuído. Para tal, clique o conector. No campo do "Grupo de conectores", use a menu pendente para selecionar o grupo correto e clique em Guardar.
+   - Transferir um novo conector para esse grupo: nesta página, pode obter a ligação para [transferir um novo conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o conector num computador com a linha de visão direta para a aplicação de back-end. Normalmente, o conector é instalado no mesmo servidor que o aplicativo. Utilize a ligação de conector de transferência para transferir um conector para o computador de destino. Em seguida, clique o conector e utilize o menu pendente "conector do grupo" para se certificar de que ele pertence ao grupo certo.
+   - Investigar um conector inativo: se um conector mostra como inativo, não conseguir contactar o serviço. Este erro é normalmente devido a algumas portas necessárias a ser bloqueadas. Para resolver esse problema, vá para verificar se todas as portas necessárias são permitidas.
 
 Depois de utilizar estes passos para garantir que a aplicação é atribuída a um grupo com a trabalhar de conectores, teste o aplicativo novamente. Se ainda não está funcionando, avance para a secção seguinte.
 
@@ -103,6 +103,6 @@ Se continuar a ver o erro, vá para a máquina em que o conector é instalado, a
 
 Se pode entrar nessa máquina, a aplicação para procurar problemas ou erros com o conector propriamente dito. Pode ver alguns erros comuns na [documento de resolução de problemas](application-proxy-troubleshoot.md#connector-errors). Também pode ver diretamente os registos do conector para identificar eventuais erros. Muitas das nossas mensagens de erro poderá partilhar recomendações mais específicas para correções. Para saber como ver os registos, consulte [nossa documentação de conectores](application-proxy-connectors.md#under-the-hood).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Compreender os conectores de Proxy de aplicações do Azure AD](application-proxy-connectors.md)

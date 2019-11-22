@@ -1,6 +1,6 @@
 ---
 title: Arquivar os dados de métricas e de registos do Azure com o Armazenamento do Azure
-description: Arquivar dados de registos e de métricas produzidos no Azure numa conta de armazenamento.
+description: Arquivar dados de log e de métrica gerados pelos recursos do Azure para uma conta de armazenamento.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: e784b76af478f834a7d1104650da1cbd3ca2a31f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d150a1f6793cc20d58bebc67d5c6b58c03139d4
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60552931"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304701"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arquivar os dados de métricas e de registos do Azure com o Armazenamento do Azure
 
@@ -38,7 +38,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -103,7 +103,7 @@ Os dados de monitorização do seu recurso estão agora a ser encaminhados para 
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
 >
-> *Por exemplo*: A métrica "Mensagens recebidas" num Hub de eventos pode ser explorada e representada um por nível de fila. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
+> *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
 >
 >
 
@@ -182,7 +182,7 @@ Pode agora definir com êxito o arquivamento dos dados de monitorização numa c
 
 5. Se tiver criado uma máquina virtual ou uma aplicação lógica nos passos anteriores, elimine-as também.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a configurar os dados de monitorização do seu ambiente do Azure (subscrição, recursos e SO convidado) para serem arquivados numa conta de armazenamento.
 

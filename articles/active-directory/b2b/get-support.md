@@ -1,6 +1,6 @@
 ---
-title: Obter suporte para a colaboração B2B - Azure Active Directory | Documentos da Microsoft
-description: O que é a experiência de suporte para a colaboração do Azure Active Directory B2B?
+title: Obtendo suporte para colaboração B2B-Azure Active Directory
+description: Qual é a experiência de suporte para Azure Active Directory colaboração B2B?
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,31 +12,31 @@ manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7b9ebefb9762b663adcd17fb1fdd656cb4f2ec2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00817acf93295becefab2d1a61de84a3f5519338
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65768433"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272756"
 ---
-# <a name="getting-support-for-b2b-collaboration"></a>Obter suporte para colaboração B2B
+# <a name="getting-support-for-b2b-collaboration"></a>Obtendo suporte para colaboração B2B
 
-Já leu a documentação, fez o certo, mas ainda não é possível obter algo funcionar? Abra um pedido de suporte (requer um plano de suporte):
+Você leu a documentação, fez as coisas certas, mas ainda não consegue fazer algo funcionar? Abra um tíquete de suporte (requer um plano de suporte):
 
-1. Na [do portal do Azure](https://portal.azure.com), navegue para o painel de ajuda e suporte e selecione o novo pedido de suporte:
-   - Tipo de problema: Técnica
-   - Subscrição: Escolha a subscrição afetada
+1. Na [portal do Azure](https://portal.azure.com), navegue até a folha ajuda e suporte e selecione nova solicitação de suporte:
+   - Tipo de problema: técnico
+   - Assinatura: escolha a assinatura afetada
      - Serviço: Active Directory
-     - Plano de suporte: Escolha o plano de suporte relevantes
+     - Plano de suporte: escolha o plano de suporte relevante
 
-   ![Captura de ecrã que mostra um novo pedido de suporte](media/get-support/new-support-request.png)
+   ![Captura de tela mostrando uma nova solicitação de suporte](media/get-support/new-support-request.png)
 
-2. Descreva o problema:
-   - Escolha a gravidade apropriada que reflete o precisa.
-   - Escolha o tipo de problema como utilizador e gestão de grupos
-   - Escolha a categoria como adicionar utilizadores (B2B)
-   - Inclua todas as mensagens de erro, como o CorrelationID, os utilizadores afetados e assim por diante.
+2. Descreva seu problema:
+   - Escolha a severidade apropriada que reflita suas necessidades.
+   - Escolha o tipo de problema como gerenciamento de usuário e grupo
+   - Escolher categoria como adicionar usuários (B2B)
+   - Inclua todas as mensagens de erro, como CorrelationId, usuários afetados e assim por diante.
 
-   ![Captura de ecrã que mostra uma descrição de problema de pedido de suporte](media/get-support/problem-description.png)
+   ![Captura de tela mostrando uma descrição do problema do tíquete de suporte](media/get-support/problem-description.png)
 
-3. Para um representante de suporte em contacto consigo para ainda mais a resolução de problemas, adicione as informações de contacto.
+3. Para obter um representante de suporte para entrar em contato com você para solução de problemas, adicione suas informações de contato.

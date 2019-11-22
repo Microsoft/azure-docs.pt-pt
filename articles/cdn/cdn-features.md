@@ -12,19 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/28/2019
+ms.date: 11/15/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 6826c1340de16891933b290eb29bd4fb8d120974
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 64b906c8a6b52d9c9655f3fe2b13d504d8eed4cb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127928"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278078"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Comparar as funcionalidades do produto CDN do Azure
 
-A CDN (rede de distribuição de conteúdo) do Azure inclui quatro produtos: **Azure CDN Standard da Microsoft**, **CDN do Azure Standard da AKAMAI**, **Azure CDN Standard da Verizon**e **CDN Premium do Azure da Verizon**. Para obter informações sobre como migrar um perfil do **CDN do Azure Standard da Verizon** para o **CDN do Azure Premium da Verizon**, veja [Migrar um perfil do CDN do Azure Standard da Verizon para Premium da Verizon](cdn-migrate.md). Observe que, embora haja um caminho de atualização da Verizon padrão para a Premium Verizon, não há nenhum mecanismo de conversão entre outros produtos neste momento.
+A Rede de Entrega de Conteúdos (CDN) do Azure inclui quatro produtos: **CDN do Azure Standard da Microsoft**, **CDN do Azure Standard da Akamai**, **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon**. Para obter informações sobre como migrar um perfil do **CDN do Azure Standard da Verizon** para o **CDN do Azure Premium da Verizon**, veja [Migrar um perfil do CDN do Azure Standard da Verizon para Premium da Verizon](cdn-migrate.md). Observe que, embora haja um caminho de atualização da Verizon padrão para a Premium Verizon, não há nenhum mecanismo de conversão entre outros produtos neste momento.
 
 A tabela seguinte compara as funcionalidades disponíveis com cada produto.
 
@@ -41,11 +41,11 @@ A tabela seguinte compara as funcionalidades disponíveis com cada produto.
 | [Balanceamento de carga de servidor global (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Remoção rápida](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** , Limpar tudo e a limpeza de curinga não têm suporte da CDN do Azure do Akamai no momento |**&#x2713;** |**&#x2713;** |
 | [Pré-carregamento de recursos](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
-| Definições de cache/cabeçalho (utilizando o [colocação de regras em cache](cdn-caching-rules.md))  |  |**&#x2713;** |**&#x2713;** | |
-| Mecanismo de distribuição de conteúdo baseado em regras personalizável (usando o [mecanismo de regras](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Definições de cache/cabeçalho (utilizando o [motor de regras](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Redirecionamento/reescrita de URL (usando o [mecanismo de regras](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Regras de dispositivos móveis (utilizando o [motor de regras](cdn-rules-engine.md))  |  | | |**&#x2713;** |
+| Definições de cache/cabeçalho (utilizando o [colocação de regras em cache](cdn-caching-rules.md))  |**&#x2713;** usando o [mecanismo de regras padrão](cdn-standard-rules-engine.md)  |**&#x2713;** |**&#x2713;** | |
+| Mecanismo de distribuição de conteúdo baseado em regras personalizável |**&#x2713;** usando o [mecanismo de regras padrão](cdn-standard-rules-engine.md)  | | |**&#x2713;** usando o [mecanismo de regras](cdn-rules-engine.md) |
+| Configurações de cache/cabeçalho  |**&#x2713;** usando o [mecanismo de regras padrão](cdn-standard-rules-engine.md) | | |**&#x2713;** usando o [mecanismo de regras Premium](cdn-rules-engine.md) |
+| Redirecionamento/reescrita de URL |**&#x2713;** usando o [mecanismo de regras padrão](cdn-standard-rules-engine.md)  | | |**&#x2713;** usando o [mecanismo de regras Premium](cdn-rules-engine.md) |
+| Regras de dispositivo móvel  |**&#x2713;** usando o [mecanismo de regras padrão](cdn-standard-rules-engine.md) | | |**&#x2713;** usando o [mecanismo de regras Premium](cdn-rules-engine.md) |
 | [Colocação em cache de cadeias de consulta](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Pilha dupla de IPv4/IPv6 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Suporte HTTP/2](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |

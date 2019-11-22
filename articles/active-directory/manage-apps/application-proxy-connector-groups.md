@@ -1,5 +1,5 @@
 ---
-title: Publicar aplicativos em redes separadas com Aplicativo Azure AD grupos de conectores de proxy | Microsoft Docs
+title: Publicar aplicativos em redes separadas por meio de grupos de conectores-Azure AD
 description: Aborda como criar e gerir grupos de conectores no Proxy de aplicações do Azure AD.
 services: active-directory
 author: msmimart
@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dae4eea3e08818d43482c995595cc9fbc3f91910
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 22fa1de0a0e3bb91480212381e07b17875bf0bf4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381497"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275570"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicações em redes separadas e localizações através de grupos de conectores
 
@@ -40,7 +40,7 @@ Para os conectores de grupo, terá de certificar-se de que [instalados vários c
 
 Utilize estes passos para criar grupos de conectores tantas quanto quiser.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione **do Azure Active Directory** > **aplicações empresariais** > **proxy de aplicações**.
 1. Selecione **novo grupo conector**. No painel do novo grupo conector aparece.
 

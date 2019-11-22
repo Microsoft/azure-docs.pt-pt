@@ -1,19 +1,19 @@
 ---
-title: Como criar e localizar âncoras usando âncoras espaciais do Azure em Java | Microsoft Docs
+title: Criar & Localizar âncoras em Java
 description: Explicação detalhada de como criar e localizar âncoras usando âncoras espaciais do Azure em Java.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7bc4a2251fa07f201d35e385806d2eb49cd8851e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e03fb8bfc221edf209fd2480eedad822983d59a9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562532"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270182"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-java"></a>Como criar e localizar âncoras usando âncoras espaciais do Azure em Java
 
@@ -307,7 +307,7 @@ Saiba mais sobre o método [getAnchorPropertiesAsync](https://docs.microsoft.com
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
-Saiba mais sobre o [](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchor.setexpiration) método SetExpiration.
+Saiba mais sobre o método [SetExpiration](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchor.setexpiration) .
 
 ```java
     Date now = new Date();
@@ -320,7 +320,7 @@ Saiba mais sobre o [](https://docs.microsoft.com/java/api/com.microsoft.azure.sp
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
-Saiba mais sobre o [](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.createwatcher) método createassister.
+Saiba mais sobre o método [Createassister](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.createwatcher) .
 
 ```java
     AnchorLocateCriteria criteria = new AnchorLocateCriteria();

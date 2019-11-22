@@ -5,18 +5,18 @@ services: cdn
 author: SyntaxC4
 ms.service: azure-cdn
 ms.topic: include
-ms.date: 04/13/2018
-ms.author: cfowler
+ms.date: 11/15/2019
+ms.author: magattus
 ms.custom: include file
-ms.openlocfilehash: a9c929018a457449b867ee986210214b4c1690fd
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 5c6f79cb7ad0a31eb3461d6d8e54307537f0491e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593163"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284148"
 ---
 > [!IMPORTANT]
-> Esta é uma funcionalidade de **CDN do Azure Premium da Verizon** apenas e não está disponível com produtos standard da CDN do Azure. Para obter uma comparação das funcionalidades do CDN, consulte [funcionalidades de produtos do CDN do Azure](../articles/cdn/cdn-features.md). 
+> Este é um recurso da **CDN Premium do Azure da Verizon** apenas, para configurar regras na **CDN do Azure da Microsoft** , use o [mecanismo de regras padrão](../articles/cdn/cdn-standard-rules-engine-reference.md). As regras avançadas não estão disponíveis para a **CDN do Azure da Akamai**. Para obter uma comparação completa dos recursos da CDN, consulte [recursos do produto da CDN do Azure](../articles/cdn/cdn-features.md). 
 > 
 > 
 

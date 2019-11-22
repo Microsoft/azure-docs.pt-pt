@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Usando o Go para chamar o API de Análise de Texto'
+title: 'Início Rápido: Utilizar o Go para chamar a API de Análise de Texto'
 titleSuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para ajudá-lo a começar rapidamente a usar o API de Análise de Texto nos serviços cognitivas do Azure.
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: 5c97648bd11a506d3c818584ed7d82d0a12d2e2c
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: d833293d094837c164da855aef197ad927c60ad7
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387497"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286524"
 ---
-# <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Usando o Go para chamar o serviço de Análise de Texto cognitiva 
+# <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Utilizar o Go para chamar o Serviço Cognitivo de Análise de Texto 
 <a name="HOLTop"></a>
 
-Este artigo mostra como detectar o [idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades vinculadas](#Entities) usando as [APIs](//go.microsoft.com/fwlink/?LinkID=759711) de análise de texto com o go.
+Este artigo mostra como detectar o [idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades vinculadas](#Entities) usando as [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) com o go.
 
-Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter acesso à documentação técnica sobre APIs.
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +37,7 @@ Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter
 
 A API Deteção de Idioma deteta o idioma de um documento de texto através do [método Detetar Idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-1. Crie variáveis `TEXT_ANALYTICS_SUBSCRIPTION_KEY` de ambiente `TEXT_ANALYTICS_ENDPOINT` e para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis de ambiente.
+1. Crie variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis de ambiente.
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.
 1. Guarde o ficheiro com uma extensão ".go".
@@ -129,7 +129,7 @@ func main() {
 
 ## <a name="detect-language-response"></a>Resposta da deteção de idioma
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 ```json
 
@@ -178,7 +178,7 @@ func main() {
 
 A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos de texto através do [método Sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). O seguinte exemplo classifica dois documentos, um em inglês e outro em espanhol.
 
-1. Crie variáveis `TEXT_ANALYTICS_SUBSCRIPTION_KEY` de ambiente `TEXT_ANALYTICS_ENDPOINT` e para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis de ambiente.
+1. Crie variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis de ambiente.
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.
 1. Guarde o ficheiro com uma extensão ".go".
@@ -270,7 +270,7 @@ func main() {
 ## <a name="analyze-sentiment-response"></a>Analisar a resposta do sentimento
 
 O resultado será medido como positivo se for mais próximo de 1,0 e negativo se for mais próximo de 0,0.
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 ```json
 {
@@ -290,11 +290,11 @@ O resultado será medido como positivo se for mais próximo de 1,0 e negativo se
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Extrair frases-chave
+## <a name="extract-key-phrases"></a>Extrair expressões-chave
 
 A API de Extração de Expressões-Chave extrai expressões-chave de um documento de texto através do [método Expressões-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). O seguinte exemplo extrai expressões-chave para o documento em inglês e o documento em espanhol.
 
-1. Crie variáveis `TEXT_ANALYTICS_SUBSCRIPTION_KEY` de ambiente `TEXT_ANALYTICS_ENDPOINT` e para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis de ambiente.
+1. Crie variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis de ambiente.
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.
 1. Guarde o ficheiro com uma extensão ".go".
@@ -386,7 +386,7 @@ func main() {
 
 ## <a name="extract-key-phrases-response"></a>Resposta da extração de expressões-chave
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 ```json
 {
@@ -428,9 +428,9 @@ func main() {
 
 ## <a name="identify-entities"></a>Identificar as entidades
 
-A API de Entidades identifica entidades conhecidas num documento de texto através do [método Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). As [entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraem palavras do texto, como "Estados Unidos", e, em seguida, fornecem o link do tipo e/ou da Wikipédia para esta palavra (s). O tipo de "Estados Unidos" é `location`, enquanto o link para a Wikipédia `https://en.wikipedia.org/wiki/United_States`é.  O seguinte exemplo identifica as entidades dos documentos em inglês.
+A API de Entidades identifica entidades conhecidas num documento de texto através do [método Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). As [entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraem palavras do texto, como "Estados Unidos", e, em seguida, fornecem o link do tipo e/ou da Wikipédia para esta palavra (s). O tipo de "Estados Unidos" é `location`, enquanto o link para a Wikipédia é `https://en.wikipedia.org/wiki/United_States`.  O seguinte exemplo identifica as entidades dos documentos em inglês.
 
-1. Crie variáveis `TEXT_ANALYTICS_SUBSCRIPTION_KEY` de ambiente `TEXT_ANALYTICS_ENDPOINT` e para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis de ambiente.
+1. Crie variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` para a chave de assinatura e o ponto de extremidade do Azure do recurso. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis de ambiente.
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.
 1. Guarde o ficheiro com uma extensão ".go".
@@ -520,7 +520,7 @@ func main() {
 
 ## <a name="entity-extraction-response"></a>Resposta de extração de entidades
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 
 ```json
 {  

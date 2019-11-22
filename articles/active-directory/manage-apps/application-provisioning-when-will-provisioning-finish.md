@@ -1,5 +1,5 @@
 ---
-title: O provisionamento de usuário para um aplicativo da galeria do Azure AD está levando horas ou mais | Microsoft Docs
+title: O provisionamento do usuário para o aplicativo da galeria do Azure AD está demorando horas ou mais
 description: Como descobrir por que o provisionamento para seu aplicativo pode estar demorando mais do que o esperado
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca2257a46815dd5e685b9cc746a64cede510d10a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 7425731a8d4adde11cd3f15df2cd27cd8541f615
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034171"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275703"
 ---
 # <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>O provisionamento de usuário para um aplicativo da galeria do Azure AD está demorando horas ou mais
 
@@ -35,6 +35,6 @@ Se o ciclo inicial estiver demorando mais do que algumas horas, há uma coisa qu
 
 -   **Filtros de escopo de usuário.** Os filtros de escopo permitem ajustar os dados que o serviço de provisionamento extrai do Azure AD filtrando os usuários com base em valores de atributo específicos. Para obter mais informações sobre filtros de escopo, consulte [provisionamento de aplicativo baseado em atributo com filtros de escopo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](user-provisioning.md) (Automatizar o aprovisionamento e o desaprovisionamento de utilizadores em Aplicações SaaS com o Azure Active Directory)
 

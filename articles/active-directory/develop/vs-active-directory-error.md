@@ -12,18 +12,18 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26f25daa01288959c38520f9713d35eb975d2df2
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: c6df50db564dac09785b460d158d4276ea8a215e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73941387"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271255"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnosticando erros com o serviço conectado do Azure Active Directory
 
-Ao detectar o código de autenticação anterior, o servidor de conexão do Azure active Director detectou um tipo de autenticação incompatível.
+Ao detectar o código de autenticação anterior, o serviço conectado do Azure Active Directory detectou um tipo de autenticação incompatível.
 
-Para detectar corretamente o código de autenticação anterior em um projeto, o projeto deve ser compilado.  Se você vir esse erro e não tiver um código de autenticação anterior em seu projeto, recompile e tente novamente.
+Para detectar corretamente o código de autenticação anterior em um projeto, o projeto deve ser recriado. Se você vir esse erro e não tiver um código de autenticação anterior em seu projeto, recompile e tente novamente.
 
 ## <a name="project-types"></a>Tipos de projeto
 

@@ -3,12 +3,12 @@ title: Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem
 description: Saiba como usar recursos de segurança no backup do Azure para tornar os backups mais seguros.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 95eb72fe9d918b527cdceec69a0e90a682d62b07
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b6ce2f9400ad46150fbd4ee86f126b137b5f7800
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172711"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278212"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem que usam o backup do Azure
 
@@ -41,7 +41,7 @@ A exclusão reversível tem suporte no momento no EUA Central ocidental, Ásia O
    > [!NOTE]
    > Se algum item de backup excluído por software estiver presente no cofre, o cofre não poderá ser excluído nesse momento. Tente excluir o cofre depois que os itens de backup forem excluídos permanentemente e não houver nenhum item no estado de exclusão reversível no cofre.
 
-4. Para restaurar a VM com exclusão reversível, primeiro ela deve ser restaurada. Para restaurar, escolha a VM com exclusão reversível e, em seguida, clique na opção **restaurar**.
+4. Para restaurar a VM com exclusão reversível, primeiro ela deve ser restaurada. Para restaurar, escolha a VM com exclusão reversível e, em seguida, selecione a opção **restaurar**.
 
    ![Captura de tela de portal do Azure, restaurar VM](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
@@ -60,7 +60,7 @@ A exclusão reversível tem suporte no momento no EUA Central ocidental, Ásia O
 
    ![Captura de tela de portal do Azure, opção retomar backup](./media/backup-azure-security-feature-cloud/resume-backup.png)
 
-Este gráfico de fluxo mostra as diferentes etapas e Estados de um item de backup:
+Este gráfico de fluxo mostra as diferentes etapas e Estados de um item de backup quando a exclusão reversível está habilitada:
 
 ![Ciclo de vida do item de backup excluído por software](./media/backup-azure-security-feature-cloud/lifecycle.png)
 
@@ -68,26 +68,47 @@ Para obter mais informações, consulte a seção [perguntas frequentes](backup-
 
 ## <a name="disabling-soft-delete"></a>Desabilitando a exclusão reversível
 
-A exclusão reversível é habilitada por padrão em cofres recém-criados. Se o recurso de segurança exclusão reversível estiver desabilitado, os dados de backup não serão protegidos contra exclusões acidentais ou mal-intencionadas. Sem o recurso de exclusão reversível, todas as exclusões de itens protegidos resultarão na remoção imediata, sem a capacidade de restaurar. Como os dados de backup no estado de "exclusão reversível" não incorrem em nenhum custo para o cliente, não é recomendável desabilitar esse recurso. A única circunstância em que você deve considerar a desabilitação da exclusão reversível é se você está planejando mover seus itens protegidos para um novo cofre e não pode aguardar os 14 dias necessários antes de excluir e proteger novamente (como em um ambiente de teste).
+A exclusão reversível é habilitada por padrão em cofres recém-criados para proteger dados de backup de exclusões acidentais ou mal-intencionadas.  Não é recomendável desabilitar esse recurso. A única circunstância em que você deve considerar a desabilitação da exclusão reversível é se você está planejando mover seus itens protegidos para um novo cofre e não pode aguardar os 14 dias necessários antes de excluir e proteger novamente (como em um ambiente de teste). Somente um administrador de backup pode desabilitar esse recurso. Se você desabilitar esse recurso, todas as exclusões de itens protegidos resultarão na remoção imediata, sem a capacidade de restaurar. Dados de backup em estado de exclusão reversível antes de desabilitar esse recurso, permanecerão no estado de exclusão reversível. Se você quiser excluí-las permanentemente imediatamente, será necessário restaurar e excluí-las novamente para que sejam excluídas permanentemente.
 
-### <a name="prerequisites-for-disabling-soft-delete"></a>Pré-requisitos para desabilitar a exclusão reversível
-
-- A habilitação ou desabilitação da exclusão reversível para cofres (sem itens protegidos) só pode ser feita na portal do Azure. Isso se aplica a:
-  - Cofres recém-criados que não contêm itens protegidos
-  - Cofres existentes cujos itens protegidos foram excluídos e expirados (além do período de retenção de 14 dias fixo)
-- Se o recurso de exclusão reversível estiver desabilitado para o cofre, você poderá reabilitá-lo, mas não poderá reverter essa opção e desabilitá-la novamente se o cofre contiver itens protegidos.
-- Não é possível desabilitar a exclusão reversível para cofres que contêm itens protegidos ou itens no estado de exclusão reversível. Se você precisar fazer isso, siga estas etapas:
-  - Interromper a proteção de dados excluídos para todos os itens protegidos.
-  - Aguarde até que 14 dias de retenção de segurança expire.
-  - Desabilite a exclusão reversível.
-
-Para desabilitar a exclusão reversível, verifique se os pré-requisitos foram atendidos e siga estas etapas:
+Para desabilitar a exclusão reversível, siga estas etapas:
 
 1. Na portal do Azure, acesse seu cofre e vá para **configurações** -> **Propriedades**.
-2. No painel Propriedades, selecione **configurações de segurança** -> **atualização**.
-3. No painel configurações de segurança, em exclusão reversível, selecione **desabilitar**.
+2. No painel Propriedades, selecione **configurações de segurança** -> **atualização**.  
+3. No painel configurações de segurança, em **exclusão reversível**, selecione **desabilitar**.
+
 
 ![Desabilitar exclusão reversível](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+
+## <a name="permanently-deleting-soft-deleted-backup-items"></a>Excluindo permanentemente itens de backup com exclusão reversível
+
+Dados de backup em estado de exclusão reversível antes de desabilitar esse recurso, permanecerão no estado de exclusão reversível. Se você quiser excluí-las permanentemente, desexclua-as e exclua-as novamente para que sejam excluídas permanentemente. 
+
+Siga estes passos.
+
+1. Siga as etapas para [desabilitar a exclusão reversível](#disabling-soft-delete). 
+2. No portal do Azure, acesse seu cofre, vá para **itens de backup** e escolha a VM com exclusão reversível 
+
+![Escolher VM com exclusão reversível](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+
+3. Selecione a opção **restaurar**.
+
+![Escolha restaurar](./media/backup-azure-security-feature-cloud/choose-undelete.png)
+
+
+4. Uma janela será exibida. Selecione **restaurar**.
+
+![Selecione restaurar](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+
+5. Escolha **excluir dados de backup** para excluir permanentemente os dados de backup.
+
+![Escolha excluir dados de backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+
+6. Digite o nome do item de backup para confirmar que você deseja excluir os pontos de recuperação.
+
+![Digite o nome do item de backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+
+7. Para excluir os dados de backup do item, selecione **excluir**. Uma mensagem de notificação permite que você saiba que os dados de backup foram excluídos.
+
 
 ## <a name="other-security-features"></a>Outros recursos de segurança
 
@@ -139,7 +160,7 @@ Não excluir seguido pela operação de retomada irá proteger o recurso novamen
 
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Posso excluir meu cofre se houver itens com exclusão reversível no cofre?
 
-O cofre dos serviços de recuperação não poderá ser excluído se houver itens de backup em estado de exclusão reversível no cofre. Os itens excluídos por software são excluídos permanentemente após 14 dias após a operação de exclusão. Você pode excluir o cofre somente depois que todos os itens excluídos de maneira reversível tiverem sido limpos.  
+O cofre dos serviços de recuperação não poderá ser excluído se houver itens de backup em estado de exclusão reversível no cofre. Os itens excluídos por software são excluídos permanentemente 14 dias após a operação de exclusão. Se você não puder esperar por 14 dias, [desabilite a exclusão reversível](#disabling-soft-delete), exclua os itens com exclusão reversível e exclua-os novamente para ser excluído permanentemente. Depois de garantir que não há itens protegidos e nenhum item de exclusão reversível, o cofre pode ser excluído.  
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Posso excluir os dados anteriores ao período de exclusão reversível de 14 dias após a exclusão?
 

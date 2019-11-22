@@ -1,5 +1,5 @@
 ---
-title: Relocalação de grande | Microsoft Docs
+title: Relocalidade grosseira
 description: Guia de início rápido de relocalização de alta.
 author: bucurb
 manager: dacoghl
@@ -8,14 +8,14 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 1d9e58f2d7eda818665a6253a8d0508104b17405
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: f03d2fba01dadc443da19416871a93a72289c0c6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093881"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270154"
 ---
-# <a name="coarse-relocalization"></a>Relocalidade grosseira
+# <a name="coarse-relocalization"></a>Relocalização genérica
 
 A relocalização de alta disponibilidade é um recurso que fornece uma resposta inicial para a pergunta: *onde está meu dispositivo agora/qual conteúdo devo observar?* A resposta não é precisa, mas, em vez disso, está no formato: *você está perto dessas âncoras, tente localizar uma delas*.
 

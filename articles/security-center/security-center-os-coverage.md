@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: d91ac6d50faaadf560ae7ff9e9cce5f7bc4b180a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 47e66bfc4550372b571b7263ef5b7f2f149712dc
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803927"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307306"
 ---
 # <a name="supported-platforms"></a>Plataformas suportadas 
 
@@ -91,7 +91,7 @@ Os seguintes recursos de PaaS do Azure têm suporte na central de segurança do 
 * MySQL
 * CosmosDB
 * Conta de armazenamento
-* Serviço de aplicativo
+* Serviço de aplicações
 * Função
 * Serviço Cloud
 * VNet
@@ -101,18 +101,20 @@ Os seguintes recursos de PaaS do Azure têm suporte na central de segurança do 
 * Conta do Batch
 * Conta do Service Fabric
 * Conta de automatização
-* Balanceador de carga
-* Procurar
-* Namespace do barramento de serviço
+* Load balancer
+* Pesquisa
+* Espaço de nomes do Service Bus
 * Stream Analytics
 * Espaço de nomes do hub de eventos
 * Aplicações lógicas
 * Redis
 * Data Lake Analytics
-* Arquivo do Data Lake
-* Key vault
+* Data Lake Store
+* Key Vault
 
 Para saber mais sobre os recursos com suporte para a lista acima de recursos de PaaS, consulte [recursos compatíveis com serviços de PaaS](security-center-services.md#paas-services).
+
+Também há suporte para a proteção para máquinas virtuais que residem no Azure Stack. Para obter mais informações sobre a integração da central de segurança com o Azure Stack, consulte integrar [suas máquinas virtuais Azure Stack à central de segurança](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
 
 ## <a name="next-steps"></a>Passos seguintes
 

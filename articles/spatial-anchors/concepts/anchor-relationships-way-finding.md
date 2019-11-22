@@ -1,85 +1,85 @@
 ---
-title: Relações de âncora e localizar de forma no âncoras espaciais do Azure | Documentos da Microsoft
-description: Saiba mais sobre o modelo conceitual por trás de relações de âncora. Saiba para ligar as âncoras de dentro de um espaço e utilizar a API de próximos para atender a um cenário de forma a localizar.
+title: Relações de âncora e descoberta de formas
+description: Saiba mais sobre o modelo conceitual por trás de relações de ancoragem. Aprenda a conectar âncoras dentro de um espaço e a usar a API próxima para atender a um cenário de descoberta de formas.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 008269a5883750dc8899d896c101c6a05bf7e814
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2fd8f4b7d03be8822c3ec12e2be589054942ce3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969276"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270608"
 ---
-# <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Relações de âncora e localizar de forma no âncoras espaciais do Azure
+# <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Relações de âncora e descoberta de formas em âncoras espaciais do Azure
 
-Ao utilizar relações de âncora, pode criar âncoras conectadas num espaço e, em seguida, fazer perguntas como essas:
+Usando relações de ancoragem, você pode criar âncoras conectadas em um espaço e, em seguida, fazer perguntas como estas:
 
-* Existem as âncoras nas proximidades?
-* Distância são?
+* Há âncoras próximas?
+* O que há de longe?
 
 ## <a name="examples"></a>Exemplos
 
-Poderia usar as âncoras ligadas em casos como esses:
+Você pode usar âncoras conectadas em casos como estes:
 
-* Uma função de trabalho tem de concluir uma tarefa que envolve a visita a vários locais de uma fábrica de industrial. O factory tem âncoras geográficos em cada localização. Uma aplicação móvel ou HoloLens ajuda a orientar a função de trabalho de uma localização para a próxima. A aplicação pela primeira vez pede-lhe as âncoras geográficos próximas e, em seguida, orienta a função de trabalho para a localização seguinte. A aplicação visualmente mostra a direção geral e a distância para a localização seguinte.
+* Um trabalhador precisa concluir uma tarefa que envolve a visita de vários locais em uma fábrica industrial. A fábrica tem âncoras espaciais em cada local. Um HoloLens ou aplicativo móvel ajuda a orientar o trabalhador de um local para o outro. Primeiro, o aplicativo solicita as âncoras espaciais próximas e, em seguida, orienta o trabalho para o próximo local. O aplicativo mostra visualmente a direção geral e a distância para o próximo local.
 
-* Um museu cria as âncoras espaciais ao apresenta pública. Juntos, esses âncoras formam uma apresentação de uma hora de, apresenta o Museu essencial pública. Numa exibição pública, visitantes podem abrir aplicações de realidade mista o Museu no respetivo dispositivo móvel. Em seguida, apontam sua câmera de telefone em todo o espaço para ver a direção geral e a distância para a outra apresenta pública sobre a visita guiada. Como um utilizador percorre na direção de uma exibição pública, a aplicação atualiza a direção geral e a distância para ajudar a orientar o usuário.
+* Um museu cria âncoras espaciais em exibições públicas. Juntas, essas âncoras formam um tour de uma hora das exibições públicas essenciais do Museu. Em uma exibição pública, os visitantes podem abrir o aplicativo de realidade misturada do Museu em seus dispositivos móveis. Em seguida, eles apontam sua câmera de telefone em torno do espaço para ver a direção geral e a distância para as outras exibições públicas no Tour. Como um usuário se aproxima de uma exibição pública, o aplicativo atualiza a direção geral e a distância para ajudar a orientar o usuário.
 
-## <a name="set-up-way-finding"></a>Configurar de forma a localizar
+## <a name="set-up-way-finding"></a>Configurar como encontrar
 
-Está a utilizar uma aplicação que utiliza a direção de linha de visão e a distância entre as âncoras para fornecer orientações *forma a localizar*. Localizar de maneira é diferente no painel de navegação de mão por vez. No painel de navegação, ative a folheio os utilizadores são orientados em torno de paredes, através de portas e entre o chão. Com a forma-localizar, o utilizador obtém as sugestões sobre a direção geral do destino. Mas a inferência de tipos ou dados de conhecimento do espaço também ajudam o usuário navegar pela estrutura para o destino.
+Um aplicativo que usa a direção da linha de visão e a distância entre âncoras para fornecer orientação é usar *a descoberta de formas*. A descoberta de formas é diferente da navegação ativar/desativar. Na navegação ativada por ativação, os usuários são guiados em relação às paredes, por meio de portas e entre os andares. Com a descoberta de formas, o usuário obtém dicas sobre a direção geral do destino. Mas a inferência ou o conhecimento do espaço também ajuda o usuário a navegar pela estrutura até o destino.
 
-Para criar uma experiência de forma a localizar, preparar um espaço para a experiência e desenvolver uma aplicação que os utilizadores irão interagir com. Estes são os passos conceituais:
+Para criar uma experiência de detecção de formas, primeiro Prepare um espaço para a experiência e desenvolva um aplicativo com o qual os usuários irão interagir. Estas são as etapas conceituais:
 
-1. **Planear o espaço**: Decida que localizações dentro do espaço de fará parte da experiência de forma a localizar. Em nossos cenários, o supervisor de fábrica ou o coordenador de apresentação de museu poderá decidir que localizações a incluir a experiência de forma a localizar.
-2. **Ligar as âncoras**: Visite as localizações escolhidas criar âncoras espaciais. Pode fazê-lo num modo de administrador da aplicação pelo utilizador final ou num aplicativo diferente inteiramente. Irá ligar ou se relacionam com cada âncora para os outros. O serviço mantém estas relações.
-3. **Iniciar a experiência de utilizador final**: Os utilizadores executarem a aplicação para localizar uma âncora, que pode estar em qualquer uma das localizações escolhidas. O design geral deve determinar as localizações onde os utilizadores podem introduzir a experiência.
-4. **Encontre nas proximidades âncoras**: Depois do utilizador encontra uma âncora, a aplicação pode pedir nas proximidades âncoras. Este procedimento devolve uma posição entre o dispositivo e estes âncoras.
-5. **Orientar o usuário**: A aplicação pode utilizar o representam a cada um desses âncoras de fornecer orientações sobre a direção geral do utilizador e a distância. Por exemplo, o feed na aplicação da câmara poderá mostrar um ícone e uma seta para representar cada destino potencial, como mostra a imagem seguinte.
-6. **Refinar as orientações**: Como guia-o utilizador, a aplicação periodicamente calcular uma nova posição entre o dispositivo e a âncora de destino. A aplicação continua a refinar as sugestões de orientações para ajudam o utilizador que são recebidos no destino.
+1. **Planejar o espaço**: decida quais locais dentro do espaço serão parte da experiência de descoberta de formas. Em nossos cenários, o supervisor de fábrica ou o coordenador de Tour do Museu pode decidir quais locais devem ser incluídos na experiência de descoberta.
+2. **Conectar âncoras**: visite os locais escolhidos para criar âncoras espaciais. Você pode fazer isso em um modo de administrador do aplicativo de usuário final ou em um aplicativo diferente inteiramente. Você se conectará ou relacionará cada âncora às outras. O serviço mantém essas relações.
+3. **Iniciar a experiência do usuário final**: os usuários executam o aplicativo para localizar uma âncora, que pode estar em qualquer um dos locais escolhidos. Seu design geral deve determinar os locais onde os usuários podem inserir a experiência.
+4. **Localizar âncoras próximas**: depois que o usuário encontra uma âncora, o aplicativo pode solicitar âncoras próximas. Esse procedimento retorna uma pose entre o dispositivo e essas âncoras.
+5. **Orientar o usuário**: o aplicativo pode usar a pose para cada uma dessas âncoras para fornecer orientação sobre a direção e a distância geral do usuário. Por exemplo, o feed de câmera no aplicativo pode mostrar um ícone e uma seta para representar cada destino potencial, como mostra a imagem a seguir.
+6. **Refine as diretrizes**: conforme o usuário percorre, o aplicativo pode calcular periodicamente uma nova pose entre o dispositivo e a âncora de destino. O aplicativo continua a refinar as dicas de orientação que ajudam o usuário a chegar ao destino.
 
-    ![Um exemplo de como uma aplicação pode mostrar a orientação de forma a localizar](./media/meeting-spot.png)
+    ![Um exemplo de como um aplicativo pode mostrar diretrizes de descoberta de formas](./media/meeting-spot.png)
 
-## <a name="connect-anchors"></a>Ligar as âncoras
+## <a name="connect-anchors"></a>Conectar âncoras
 
-Para criar uma experiência de forma a localizar, primeiro tem de colocar as âncoras nas localizações escolhidas. Nesta secção, vamos supor que administrador da aplicação já concluiu a esse trabalho.
+Para criar uma experiência de detecção de formas, primeiro você precisa posicionar as âncoras nos locais escolhidos. Nesta seção, vamos supor que o administrador do aplicativo já terminou esse trabalho.
 
-### <a name="connect-anchors-in-a-single-session"></a>Ligar as âncoras numa única sessão
+### <a name="connect-anchors-in-a-single-session"></a>Conectar âncoras em uma única sessão
 
-Para ligar as âncoras de:
+Para conectar âncoras:
 
-1. Orientá-lo para a primeira localização e criar âncora um com um CloudSpatialAnchorSession.
-2. Orientá-lo para a localização do segundo. A plataforma subjacente do MR/AR controla o movimento.
-3. Crie B de âncora com o mesmo CloudSpatialAnchorSession. Âncoras A e B estão agora ligadas. O serviço de âncoras geográficos mantém esta relação.
+1. Percorra o primeiro local e crie a âncora A usando um CloudSpatialAnchorSession.
+2. Passe para o segundo local. A plataforma de Sr/AR subjacente acompanha o movimento.
+3. Crie a ancoragem B usando o mesmo CloudSpatialAnchorSession. As âncoras A e B agora estão conectadas. O serviço de âncoras espaciais mantém essa relação.
 4. Continue o procedimento para as âncoras restantes.
 
-### <a name="connect-anchors-in-multiple-sessions"></a>Ligar as âncoras em múltiplas sessões
+### <a name="connect-anchors-in-multiple-sessions"></a>Conectar âncoras em várias sessões
 
-Pode ligar as âncoras geográficos através de várias sessões. Usando esse método, pode criar e ligar-se alguns âncoras de uma só vez e, em seguida, mais tarde criar e ligar mais âncoras. 
+Você pode conectar âncoras espaciais em várias sessões. Usando esse método, você pode criar e conectar algumas âncoras ao mesmo tempo e depois criar e conectar mais âncoras.
 
-Para ligar as âncoras através de várias sessões:
+Para conectar âncoras em várias sessões:
 
-1. A aplicação cria algumas âncoras no um CloudSpatialAnchorSession. 
-2. Noutra altura, a aplicação localiza um destes âncoras (por exemplo, A de âncora) utilizando um novo CloudSpatialAnchorSession.
-3. Orientá-lo para uma nova localização. A plataforma subjacente de realidade mista ou realidade aumentada controla o movimento.
-4. Crie âncora C com o mesmo CloudSpatialAnchorSession. Âncoras A, B e C estão agora ligadas. O serviço de âncoras geográficos mantém esta relação.
+1. O aplicativo cria algumas âncoras em um CloudSpatialAnchorSession.
+2. Em um momento diferente, o aplicativo localiza uma dessas âncoras (por exemplo, Anchor A) usando um novo CloudSpatialAnchorSession.
+3. Passe para um novo local. A plataforma subjacente de realidade misturada ou aumento da realidade acompanha o movimento.
+4. Crie a âncora C usando o mesmo CloudSpatialAnchorSession. As âncoras A, B e C agora estão conectadas. O serviço de âncoras espaciais mantém essa relação.
 
-Pode continuar a este procedimento para âncoras mais e mais sessões ao longo do tempo.
+Você pode continuar este procedimento para mais âncoras e mais sessões ao longo do tempo.
 
-### <a name="verify-anchor-connections"></a>Verifique as ligações de âncora
+### <a name="verify-anchor-connections"></a>Verificar conexões de âncora
 
-A aplicação pode verificar que duas âncoras estão ligadas através da emissão de uma consulta para âncoras próximas. Quando o resultado da consulta contém a âncora de destino, a ligação de âncora é verificada. Se as âncoras não estão ligadas, pode experimentar a aplicação para ligá-los novamente. 
+O aplicativo pode verificar se duas âncoras estão conectadas emitindo uma consulta para âncoras próximas. Quando o resultado da consulta contiver a âncora de destino, a conexão de âncora será verificada. Se as âncoras não estiverem conectadas, o aplicativo poderá tentar conectá-las novamente.
 
-Aqui estão algumas razões âncoras falhar para ligar:
+Aqui estão algumas razões pelas quais as âncoras podem falhar ao se conectar:
 
-* Na realidade mista ou realidade aumentada plataforma subjacente perdida o controle durante o processo de ligação de âncoras.
-* Devido a um erro de rede durante a comunicação com o serviço de âncoras espaciais, não foi possível persistir a ligação de âncora.
+* A plataforma de realidade misturada ou ampliada da realidade perdeu o rastreamento durante o processo de conexão de âncoras.
+* Devido a um erro de rede durante a comunicação com o serviço âncoras espaciais, a conexão de ancoragem não pode ser persistente.
 
-### <a name="find-sample-code"></a>Encontrar o código de exemplo
+### <a name="find-sample-code"></a>Localizar código de exemplo
 
-Para obter o código de exemplo que mostra como ligar as âncoras e fazer nas proximidades de consultas, consulte [aplicações de exemplo de âncoras geográficos](https://github.com/Azure/azure-spatial-anchors-samples).
+Para encontrar um código de exemplo que mostra como conectar âncoras e fazer consultas próximas, consulte [aplicativos de exemplo de âncoras espaciais](https://github.com/Azure/azure-spatial-anchors-samples).

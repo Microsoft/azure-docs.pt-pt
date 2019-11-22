@@ -1,23 +1,14 @@
 ---
 title: Criar e partilhar um bloco de notas do Jupyter no Azure
 description: Rapidamente criar e executar um bloco de notas do Jupyter nos blocos de notas do Azure, em seguida, partilhar o bloco de anotações com outras pessoas.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 19e8217bf88427c353fdd4c90c9f421445b7c81a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 71220fa5aa0367d1cb1694582b4f96459a3016e7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970165"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277510"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Início rápido: Criar e partilhar um bloco de notas
 
@@ -33,7 +24,7 @@ ms.locfileid: "71970165"
 
 1. Na **criar novo projeto** pop-up apresentado, introduza ou defina os seguintes detalhes, em seguida, selecione **criar**:
 
-   - **Nome do projeto**: Olá, Mundo em Python
+   - **Nome do projeto**: Hello World no Python
    - **ID do projeto**: hello-world-python
    - **Projeto público**: (limpo)
    - **Criar um README.md**: (limpo)
@@ -42,7 +33,7 @@ ms.locfileid: "71970165"
 
 1. Após alguns instantes, o Azure blocos de notas navega para o novo projeto. Adicionar um bloco de notas para o projeto, selecionando o **+ novo** pendente (que podem aparecer apenas como **+** ), em seguida, selecionar **bloco de notas**:
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "Um novo, vazio do projeto e adicionar o comando de bloco de notas")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
 1. Na **criar novo bloco de notas** pop-up apresentado, introduza um nome de ficheiro para o bloco de notas, tal como *HelloWorldInPython.ipynb* ( *.ipynb* significa que o bloco de notas do IronPython (Jupyter) ) e selecione **Python 3.6** para o idioma (também conhecido como o *kernel*):
 
@@ -92,7 +83,7 @@ ms.locfileid: "71970165"
 
     ![Guardar o ícone na barra de ferramentas de bloco de notas do Jupyter](media/quickstarts/hello-results-save-icon.png)
 
-1. Selecione o **comando de menu** > **fechar e parar** para parar o servidor e fechar a janela do navegador.
+1. Selecione o **comando** de menu > **fechar e parar** para parar o servidor e fechar a janela do navegador.
 
 ## <a name="share-the-notebook"></a>Partilhar o bloco de notas
 
@@ -102,7 +93,7 @@ Na página do projeto, também pode utilizar o **partilha** código de incorpora
 
 ![Comando de partilha do projeto](media/quickstarts/share-project-command.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: criar uma execução de um bloco de notas do Jupyter para fazer a regressão linear](tutorial-create-run-jupyter-notebook.md)

@@ -1,23 +1,14 @@
 ---
 title: Criar um projeto de blocos de notas do Azure com um ambiente personalizado
 description: Crie um novo projeto em blocos de notas do Azure que está configurado com um conjunto específico de pacotes instalados e scripts de inicialização.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 6ec0d2fae285889a731e9b881ea90f15b96c85f2
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: f167d1bf6064cde535d17fa4a336ee13424baba7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973072"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277487"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Início rápido: Criar um projeto com um ambiente personalizado
 
@@ -37,7 +28,7 @@ Um projeto em blocos de notas do Azure é uma coleção de arquivos, como blocos
 
 1. Na **criar novo projeto** pop-up apresentado, introduza ou defina os seguintes detalhes, em seguida, selecione **criar**:
 
-    - **Nome do projeto**: Projeto com um ambiente personalizado
+    - **Nome do projeto**: projeto com um ambiente personalizado
     - **ID do projeto**: ambiente de projeto personalizado
     - **Projeto público**: (limpo)
     - **Criar um README.md**: (limpo)
@@ -70,7 +61,7 @@ Um projeto em blocos de notas do Azure é uma coleção de arquivos, como blocos
 
 1. Para testar o seu ambiente, criar e executar um novo bloco de notas, em seguida, crie uma célula de código com as instruções que dependem de um pacote no ambiente, tais como utilizar o Python `import` instrução. Se a instrução for bem-sucedida, em seguida, o pacote necessário foi instalado com êxito no ambiente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Gerir e configurar projetos em blocos de notas do Azure](configure-manage-azure-notebooks-projects.md)

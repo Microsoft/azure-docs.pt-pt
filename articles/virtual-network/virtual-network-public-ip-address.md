@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 5e71f30723826a18f10d4c8e1b9d34e356c9962b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 9071596d384d09bf6cbc46316a7f33c69c7b32e9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114633"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278462"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Criar, alterar ou eliminar endereços IP públicos
 
@@ -45,7 +45,7 @@ Os endereços IP públicos têm um custo nominal. Para exibir os preços, leia a
 
 ## <a name="create-a-public-ip-address"></a>Crie um endereço IP público
 
-1. Na parte superior, canto esquerdo do portal, selecione **+ criar um recurso**.
+1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**.
 2. Insira o *endereço IP público* na caixa *Pesquisar no Marketplace* . Quando o **endereço IP público** aparecer nos resultados da pesquisa, selecione-o.
 3. Em **endereço IP público**, selecione **criar**.
 4. Insira ou selecione valores para as configurações a seguir, em **criar endereço IP público**e selecione **criar**:

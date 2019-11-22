@@ -1,19 +1,19 @@
 ---
-title: Início rápido-criar aplicativo iOS com âncoras espaciais do Azure | Microsoft Docs
+title: 'Início rápido: criar um aplicativo iOS'
 description: Neste guia de início rápido, você aprende a criar um aplicativo iOS usando âncoras espaciais.
 author: craigktreasure
-manager: aliemami
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a1d2fa083c0083423767484b20e296a3080e4ebe
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 39732ef785fc610572f917be77dec3f560698fb7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092106"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277195"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Início rápido: criar um aplicativo iOS com âncoras espaciais do Azure, em Swift ou Objective-C
 

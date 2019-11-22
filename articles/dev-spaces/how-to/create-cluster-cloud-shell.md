@@ -1,28 +1,24 @@
 ---
-title: Como criar um cluster de Kubernetes ativados para espaços de desenvolvimento do Azure com o Azure Cloud Shell
-titleSuffix: Azure Dev Spaces
+title: Como criar um cluster kubernetes habilitado para Azure Dev Spaces usando Azure Cloud Shell
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 10/04/2018
 ms.topic: conceptual
-description: Saiba como criar rapidamente um cluster do Kubernetes ativado para espaços de desenvolvimento do Azure diretamente a partir do seu browser, sem instalar nada.
-keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
-ms.openlocfilehash: cd0c8c3c26feefe3448ada1cf1575706cd17e525
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+description: Saiba como criar rapidamente um cluster kubernetes habilitado para Azure Dev Spaces diretamente do seu navegador sem instalar nada.
+keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
+ms.openlocfilehash: dbdc9226e417b3142284386ae3586819cda802d9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808685"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280100"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Criar um cluster do Kubernetes com o Azure Cloud Shell
 
-Pode usar [Azure Cloud Shell](/azure/cloud-shell) para criar um cluster do serviço Kubernetes do Azure utilizando o **experimentar** botão a partir desta página. Se não tem sessão iniciada, siga as instruções para iniciar sessão com uma conta do Azure, em seguida, escreva os comandos na linha de comandos do Azure Cloud Shell, quando ele é exibido.
+Você pode usar [Azure cloud Shell](/azure/cloud-shell) para criar um cluster do serviço kubernetes do Azure usando o botão **experimentar** nesta página. Se você não estiver conectado, siga os prompts para entrar com uma conta do Azure e digite os comandos no prompt de Azure Cloud Shell quando ele for exibido.
 
 ## <a name="create-the-cluster"></a>Criar o cluster
 
-Primeiro, crie o grupo de recursos num [região que suporte do Azure Dev espaços][supported-regions].
+Primeiro, crie o grupo de recursos em uma [região com suporte a Azure dev Spaces][supported-regions].
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -34,14 +30,14 @@ Crie um cluster do Kubernetes com o seguinte comando:
 az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
 ```
 
-A criação do cluster demora alguns minutos.  Quando terminar, o resultado é mostrado no formato JSON. Procure `provisioningState` e certifique-se de que tem `Succeeded`.
+A criação do cluster demora alguns minutos.  Ao concluir, a saída é mostrada no formato JSON. Procure `provisioningState` e verifique se ele é `Succeeded`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Ver [do Azure Dev espaços](/azure/dev-spaces/) para obter ligações para tutoriais completas.
+Consulte [Azure dev Spaces](/azure/dev-spaces/) para obter links para tutoriais completos.
 
 > [!IMPORTANT]
-> Muitos dos tutoriais e guias de início rápido do Azure Dev espaços utilizam a CLI de espaços de desenvolvimento do Azure para executar operações. Não é possível instalar a CLI do Azure Dev espaços no Azure Cloud Shell.
+> Muitos dos guias de início rápido e tutoriais do Azure Dev Spaces usam a CLI do Azure Dev Spaces para executar operações. Não é possível instalar a CLI do Azure Dev Spaces no Azure Cloud Shell.
 
 
 [supported-regions]: ../about.md#supported-regions-and-configurations

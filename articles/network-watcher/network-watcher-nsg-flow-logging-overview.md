@@ -1,5 +1,6 @@
 ---
-title: Introdução ao log de fluxo para grupos de segurança de rede com o observador de rede do Azure | Microsoft Docs
+title: Introdução ao log de fluxo para NSGs
+titleSuffix: Azure Network Watcher
 description: Este artigo explica como usar o recurso de logs de fluxo NSG do observador de rede do Azure.
 services: network-watcher
 documentationcenter: na
@@ -14,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: a77cc22c7a56c29b5b42a032af3d0ea0b2c17d88
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 373a3a66044f996edee904c0073dcb0deb58a85b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563513"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277985"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo para grupos de segurança de rede
 
-Os logs de fluxo do NSG (grupo de segurança de rede) são um recurso do observador de rede que permite exibir informações sobre o tráfego IP de entrada e saída por meio de um NSG. Os logs de fluxo são gravados no formato JSON e mostram os fluxos de entrada e saída por regra, a NIC (interface de rede) à qual o fluxo se aplica, informações de 5 tuplas sobre o fluxo (IP de origem/destino, porta de origem/destino e protocolo), se o tráfego tiver sido permitido ou negado, e na versão 2, informações de taxa de transferência (bytes e pacotes).
+Os logs de fluxo do NSG (grupo de segurança de rede) são um recurso do observador de rede que permite exibir informações sobre o tráfego IP de entrada e saída por meio de um NSG. Os logs de fluxo são gravados no formato JSON e mostram os fluxos de entrada e saída por regra, a NIC (interface de rede) à qual o fluxo se aplica, informações de 5 tuplas sobre o fluxo (IP de origem/destino, porta de origem/destino e protocolo), se o tráfego foi permitido ou negado e na versão 2, informações de taxa de transferência (bytes e
 
 
 ![Visão geral dos logs de fluxo](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
@@ -48,7 +49,7 @@ Os logs de fluxo incluem as seguintes propriedades:
 * **hora** em que o evento foi registrado
 * **SystemId** -ID de recurso do grupo de segurança de rede.
 * **categoria** -a categoria do evento. A categoria é sempre **NetworkSecurityGroupFlowEvent**
-* ResourceId-a ID de recurso do NSG
+* **ResourceId** -a ID de recurso do NSG
 * **operationName** -sempre NetworkSecurityGroupFlowEvents
 * **Propriedades** – uma coleção de propriedades do fluxo
     * **Versão** -número de versão do esquema de evento de log de fluxo
@@ -65,7 +66,7 @@ Os logs de fluxo incluem as seguintes propriedades:
                     * **Protocolo** -o protocolo do fluxo. Os valores válidos são **T** para TCP e **U** para UDP
                     * **Fluxo de tráfego** -a direção do fluxo de tráfego. Os valores válidos são **I** para entrada e **O** para saída.
                     * **Decisão de tráfego** -se o tráfego foi permitido ou negado. Os valores válidos são **a** para permitido e **D** para negado.
-                    * **Estado do fluxo – somente versão 2** – captura o estado do fluxo. Os Estados possíveis são **B**: Comece, quando um fluxo é criado. As estatísticas não são fornecidas. **C**: Continuando um fluxo em andamento. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: Terminar, quando um fluxo for encerrado. As estatísticas são fornecidas.
+                    * **Estado do fluxo – somente versão 2** – captura o estado do fluxo. Os Estados possíveis são **B**: Begin, quando um fluxo é criado. As estatísticas não são fornecidas. **C**: Continuando um fluxo em andamento. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: terminar, quando um fluxo for encerrado. As estatísticas são fornecidas.
                     * **Pacotes-origem para destino-somente versão 2** O número total de pacotes TCP ou UDP enviados da origem para o destino desde a última atualização.
                     * **Bytes enviados-origem para destino-versão 2 somente** O número total de bytes de pacotes TCP ou UDP enviados da origem para o destino desde a última atualização. Os bytes de pacote incluem o cabeçalho e a carga do pacote.
                     * **Pacotes-destino para origem-versão 2 somente** O número total de pacotes TCP ou UDP enviados do destino para a origem desde a última atualização.
@@ -73,11 +74,11 @@ Os logs de fluxo incluem as seguintes propriedades:
 
 ## <a name="nsg-flow-logs-version-2"></a>Logs de fluxo NSG versão 2
 
-A versão 2 dos logs apresenta o estado de fluxo. Você pode configurar qual versão dos logs de fluxo você recebe. Para saber como habilitar os logs de fluxo, consulte Habilitando o [log de fluxo do NSG](network-watcher-nsg-flow-logging-portal.md).
+A versão 2 dos logs apresenta o estado de fluxo. Você pode configurar qual versão dos logs de fluxo você recebe. Para saber como habilitar os logs de fluxo, consulte [habilitando o log de fluxo do NSG](network-watcher-nsg-flow-logging-portal.md).
 
 O estado de fluxo *B* é registrado quando um fluxo é iniciado. O estado de fluxo *C* e estado de fluxo *e* são Estados que marcam a continuação de um fluxo e término de fluxo, respectivamente. Ambos os Estados *C* e *e* contêm informações de largura de banda de tráfego.
 
-**Exemplo**: As tuplas de fluxo de uma conversa TCP entre 185.170.185.105:35370 e 10.2.0.4:23:
+**Exemplo**: as tuplas de fluxo de uma conversa TCP entre 185.170.185.105:35370 e 10.2.0.4:23:
 
 "1493763938, 185.170.185.105, 10.2.0.4, 35370, 23, T, I, A, B,,,," "1493695838, 185.170.185.105, 10.2.0.4, 35370, 23, T, I, A, C, 1021, 588096, 8005, 4610880" "1493696138, 185.170.185.105, 10.2.0.4, 35370, 23, T, I, A, E, 52, 29952, 47, 27072"
 
@@ -87,14 +88,14 @@ O texto a seguir é um exemplo de um log de fluxo. Como você pode ver, há vár
 
 ## <a name="nsg-flow-logging-considerations"></a>Considerações de log de fluxo NSG
 
-**Habilitar o log de fluxo NSG em todos os NSGs anexados a um recurso**: O log de fluxo no Azure é configurado no recurso NSG. Um fluxo só será associado a uma regra NSG. Em cenários em que vários NSGs são utilizados, é recomendável que o log de fluxo do NSG esteja habilitado em todos os NSGs aplicados à sub-rede ou interface de rede de um recurso para garantir que todo o tráfego seja registrado. Veja [como o tráfego é avaliado](../virtual-network/security-overview.md#how-traffic-is-evaluated) para obter mais informações sobre grupos de segurança de rede. 
+**Habilitar o log de fluxo de NSG em todos os NSGs anexados a um recurso**: o log de fluxo no Azure está configurado no recurso NSG. Um fluxo só será associado a uma regra NSG. Em cenários em que vários NSGs são utilizados, é recomendável que o log de fluxo do NSG esteja habilitado em todos os NSGs aplicados à sub-rede ou interface de rede de um recurso para garantir que todo o tráfego seja registrado. Veja [como o tráfego é avaliado](../virtual-network/security-overview.md#how-traffic-is-evaluated) para obter mais informações sobre grupos de segurança de rede. 
 
-**Custos de log de fluxo**: O log de fluxo NSG é cobrado no volume de logs produzidos. O alto volume de tráfego pode resultar em volume de log de fluxo grande e nos custos associados. O preço do log de fluxo NSG não inclui os custos subjacentes de armazenamento. Usar o recurso de política de retenção com o log de fluxo do NSG pode resultar em um alto volume de operações de armazenamento e os custos associados. Se você não precisar do recurso de política de retenção, recomendamos que você defina esse valor como 0. Consulte [preços](https://azure.microsoft.com/pricing/details/network-watcher/) do observador de rede e [preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter detalhes adicionais.
+**Custos de log de fluxo**: o log de fluxo de NSG é cobrado no volume de logs produzidos. O alto volume de tráfego pode resultar em volume de log de fluxo grande e nos custos associados. O preço do log de fluxo NSG não inclui os custos subjacentes de armazenamento. Usar o recurso de política de retenção com o log de fluxo do NSG pode resultar em um alto volume de operações de armazenamento e os custos associados. Se você não precisar do recurso de política de retenção, recomendamos que você defina esse valor como 0. Consulte [preços do observador de rede](https://azure.microsoft.com/pricing/details/network-watcher/) e [preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter detalhes adicionais.
 
 > [!IMPORTANT]
 > Atualmente, há um problema em que [os logs de fluxo do NSG (grupo de segurança de rede)](network-watcher-nsg-flow-logging-overview.md) para o observador de rede não são automaticamente excluídos do armazenamento de BLOBs com base nas configurações da política de retenção. Se você tiver uma política de retenção diferente de zero, recomendamos que você exclua periodicamente os blobs de armazenamento que ultrapassaram seu período de retenção para evitar qualquer cobrança incorrida. Para obter mais informações sobre como excluir o blog de armazenamento de log de fluxo do NSG, consulte [excluir blobs de armazenamento de log de fluxo NSG](network-watcher-delete-nsg-flow-log-blobs.md).
 
-**Fluxos de entrada registrados de IPS de Internet para VMs sem IPS públicos**: As VMs que não têm um endereço IP público atribuído por meio de um endereço IP público associado à NIC como um IP público em nível de instância, ou que fazem parte de um pool de back-end do balanceador de carga básico, usam [SNAT padrão](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) e têm um endereço IP atribuído pelo Azure para facilitar conectividade de saída. Como resultado, você poderá ver entradas de log de fluxo de fluxos de endereços IP da Internet, se o fluxo for destinado a uma porta no intervalo de portas atribuídas para SNAT. Embora o Azure não permita esses fluxos para a VM, a tentativa é registrada e aparece no log de fluxo do NSG do observador de rede por design. Recomendamos que o tráfego de Internet de entrada indesejado seja explicitamente bloqueado com NSG.
+**Fluxos de entrada registrados de IPS de Internet para VMs sem IPS públicos**: VMs que não têm um endereço IP público atribuído por meio de um endereço IP público associado à NIC como um IP público em nível de instância, ou que fazem parte de um pool de back-end do Load Balancer básico, usam [SNAT padrão](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) e têm um endereço IP atribuído pelo Azure para facilitar a conectividade de saída. Como resultado, você poderá ver entradas de log de fluxo de fluxos de endereços IP da Internet, se o fluxo for destinado a uma porta no intervalo de portas atribuídas para SNAT. Embora o Azure não permita esses fluxos para a VM, a tentativa é registrada e aparece no log de fluxo do NSG do observador de rede por design. Recomendamos que o tráfego de Internet de entrada indesejado seja explicitamente bloqueado com NSG.
 
 ## <a name="sample-log-records"></a>Registros de log de exemplo
 
@@ -285,9 +286,9 @@ O texto a seguir é um exemplo de um log de fluxo. Como você pode ver, há vár
         ...
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para saber como habilitar os logs de fluxo, consulte Habilitando o [log de fluxo do NSG](network-watcher-nsg-flow-logging-portal.md).
+- Para saber como habilitar os logs de fluxo, consulte [habilitando o log de fluxo do NSG](network-watcher-nsg-flow-logging-portal.md).
 - Para saber como ler os logs de fluxo, consulte [ler logs de fluxo do NSG](network-watcher-read-nsg-flow-logs.md).
 - Para saber mais sobre o log de NSG, consulte [logs de Azure monitor para grupos de segurança de rede (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Para determinar se o tráfego é permitido ou negado para ou de uma VM, consulte [diagnosticar um problema de filtro de tráfego de rede VM](diagnose-vm-network-traffic-filtering-problem.md)

@@ -1,5 +1,5 @@
 ---
-title: Introdução às funções, permissões e segurança com Azure Monitor
+title: Funções, permissões e segurança no Azure Monitor
 description: Saiba como usar funções e permissões internas do Azure Monitor para restringir o acesso aos recursos de monitoramento.
 author: johnkemnetz
 services: azure-monitor
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: c745375eb4f59208af79bbb03d45f8f0eea7f3ca
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 424d57c59dea11a49faf7a7bb32d85772ef4de8c
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260610"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305151"
 ---
-# <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introdução às funções, permissões e segurança com Azure Monitor
+# <a name="roles-permissions-and-security-in-azure-monitor"></a>Funções, permissões e segurança no Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Muitas equipes precisam regular estritamente o acesso a dados e configurações de monitoramento. Por exemplo, se você tiver membros da equipe que trabalham exclusivamente no monitoramento (engenheiros de suporte, engenheiros de DevOps) ou se usar um provedor de serviços gerenciados, talvez você queira conceder a eles acesso apenas aos dados de monitoramento e restringir sua capacidade de criar, modificar ou excluir recursos. Este artigo mostra como aplicar rapidamente uma função de RBAC de monitoramento interno a um usuário no Azure ou criar sua própria função personalizada para um usuário que precisa de permissões de monitoramento limitadas. Em seguida, ele aborda as considerações de segurança para seus recursos relacionados ao Azure Monitor e como você pode limitar o acesso aos dados que eles contêm.
 
 ## <a name="built-in-monitoring-roles"></a>Funções de monitoramento internas
-As funções internas do Azure Monitor são projetadas para ajudar a limitar o acesso a recursos em uma assinatura e, ao mesmo tempo, permitir que os responsáveis pela infraestrutura de monitoramento obtenham e configurem os dados de que precisam. Azure Monitor fornece duas funções prontas para uso: Um leitor de monitoramento e um colaborador de monitoramento.
+As funções internas do Azure Monitor são projetadas para ajudar a limitar o acesso a recursos em uma assinatura e, ao mesmo tempo, permitir que os responsáveis pela infraestrutura de monitoramento obtenham e configurem os dados de que precisam. O Azure Monitor fornece duas funções prontas para uso: um leitor de monitoramento e um colaborador de monitoramento.
 
-### <a name="monitoring-reader"></a>Leitor de Monitorização
+### <a name="monitoring-reader"></a>Leitor de monitoramento
 As pessoas com as quais foi atribuída a função leitor de monitoramento podem exibir todos os dados de monitoramento em uma assinatura, mas não podem modificar nenhum recurso ou editar as configurações relacionadas aos recursos de monitoramento. Essa função é apropriada para os usuários em uma organização, como engenheiros de suporte ou operações, que precisam ser capazes de:
 
 * Exiba painéis de monitoramento no portal e crie seus próprios painéis de monitoramento privados.
@@ -48,7 +48,7 @@ As pessoas com as quais foi atribuída a função leitor de monitoramento podem 
 > 
 > 
 
-### <a name="monitoring-contributor"></a>Contribuidor de Monitorização
+### <a name="monitoring-contributor"></a>Colaborador de monitoramento
 As pessoas que receberam a função de colaborador de monitoramento podem exibir todos os dados de monitoramento em uma assinatura e criar ou modificar as configurações de monitoramento, mas não podem modificar nenhum outro recurso. Essa função é um superconjunto da função leitor de monitoramento e é apropriado para membros da equipe de monitoramento de uma organização ou provedores de serviços gerenciados que, além das permissões acima, também precisam ser capazes de:
 
 * Publique painéis de monitoramento como um painel compartilhado.
@@ -61,7 +61,7 @@ As pessoas que receberam a função de colaborador de monitoramento podem exibir
 * Crie e exclua e execute pesquisas salvas no espaço de trabalho Log Analytics.
 * Crie e exclua a configuração de armazenamento Log Analytics espaço de trabalho.
 
-\*o usuário também deve receber a permissão ListKeys no recurso de destino (conta de armazenamento ou namespace do hub de eventos) para definir um perfil de log ou uma configuração de diagnóstico.
+\*usuário também deve receber a permissão ListKeys no recurso de destino (conta de armazenamento ou namespace do hub de eventos) para definir um perfil de log ou uma configuração de diagnóstico.
 
 > [!NOTE]
 > Essa função não dá acesso de leitura aos dados de log que foram transmitidos para um hub de eventos ou armazenados em uma conta de armazenamento. [Consulte abaixo](#security-considerations-for-monitoring-data) para obter informações sobre como configurar o acesso a esses recursos.
@@ -182,7 +182,7 @@ Azure Monitor precisa acessar seus recursos do Azure para fornecer os serviços 
 ### <a name="secured-storage-accounts"></a>Contas de armazenamento protegidas 
 
 Os dados de monitoramento geralmente são gravados em uma conta de armazenamento. Talvez você queira certificar-se de que os dados copiados para uma conta de armazenamento não possam ser acessados por usuários não autorizados. Para obter mais segurança, você pode bloquear o acesso à rede para permitir que somente os recursos autorizados e os serviços confiáveis da Microsoft acessem uma conta de armazenamento, restringindo uma conta de armazenamento para usar "redes selecionadas".
-![O Azure monitor de diálogo](./media/roles-permissions-security/secured-storage-example.png) configurações do armazenamento do Azure é considerado um destes "serviços confiáveis da Microsoft" se você permitir que serviços da Microsoft confiáveis acessem seu armazenamento protegido, o Azure monitor terá acesso à sua conta de armazenamento protegido; habilitando gravar Azure Monitor logs de diagnóstico, log de atividades e métricas para sua conta de armazenamento nessas condições protegidas. Isso também permitirá que Log Analytics Leia os logs do armazenamento protegido.   
+![](./media/roles-permissions-security/secured-storage-example.png) de diálogo Configurações do armazenamento do Azure Azure Monitor é considerado um destes "serviços confiáveis da Microsoft" se você permitir que serviços da Microsoft confiáveis acessem seu armazenamento protegido, o Azure monitor terá acesso à sua conta de armazenamento protegido; habilitar a gravação Azure Monitor logs de diagnóstico, o log de atividades e as métricas para sua conta de armazenamento nessas condições protegidas. Isso também permitirá que Log Analytics Leia os logs do armazenamento protegido.   
 
 
 Para obter mais informações, consulte [segurança de rede e armazenamento do Azure](../../storage/common/storage-network-security.md)

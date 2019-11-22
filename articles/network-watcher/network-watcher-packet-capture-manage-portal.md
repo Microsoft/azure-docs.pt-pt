@@ -1,5 +1,6 @@
 ---
-title: Gerenciar capturas de pacote com o observador de rede do Azure-portal do Azure | Microsoft Docs
+title: Gerenciar capturas de pacote-portal do Azure
+titleSuffix: Azure Network Watcher
 description: Saiba como gerenciar o recurso de captura de pacote do observador de rede usando o portal do Azure.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 00349a7e681beab447e585139e481c04755b7879
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4950ef8b763967e4e852e319429cc263a4a85f6c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102857"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277857"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerenciar capturas de pacote com o observador de rede do Azure usando o portal
 
@@ -38,29 +39,29 @@ Se um grupo de segurança de rede estiver associado ao adaptador de rede ou à s
 
 ## <a name="start-a-packet-capture"></a>Iniciar uma captura de pacote
 
-1. No navegador, navegue até a [portal do Azure](https://portal.azure.com) e selecione **todos os serviços**e, em seguida, selecione observador de **rede** na **seção rede**.
+1. No navegador, navegue até a [portal do Azure](https://portal.azure.com) e selecione **todos os serviços**e, em seguida, selecione **observador de rede** na **seção rede**.
 2. Selecione **captura de pacote** em **ferramentas de diagnóstico de rede**. Todas as capturas de pacote existentes são listadas, independentemente de seu status.
 3. Selecione **Adicionar** para criar uma captura de pacote. Você pode selecionar valores para as seguintes propriedades:
-   - **Subscrição**: A assinatura para a qual a máquina virtual para a qual você deseja criar a captura de pacote está.
-   - **Grupo de recursos**: O grupo de recursos da máquina virtual.
-   - **Máquina virtual de destino**: A máquina virtual para a qual você deseja criar a captura de pacote.
-   - **Nome da captura de pacote**: Um nome para a captura de pacote.
-   - **Conta de armazenamento ou arquivo**: Selecione **conta de armazenamento**, **arquivo**ou ambos. Se você selecionar **arquivo**, a captura será gravada em um caminho dentro da máquina virtual.
-   - **Caminho do arquivo local**: O caminho local na máquina virtual em que a captura de pacote será salva (válida somente quando o *arquivo* for selecionado). O caminho deve ser um caminho válido. Se você estiver usando uma máquina virtual do Linux, o caminho deverá começar com */var/Captures*.
-   - **Contas de armazenamento**: Selecione uma conta de armazenamento existente se você tiver selecionado *conta de armazenamento*. Essa opção só estará disponível se você tiver selecionado **armazenamento**.
+   - **Assinatura**: a assinatura na qual a máquina virtual para a qual você deseja criar a captura de pacote está.
+   - **Grupo de recursos**: o grupo de recursos da máquina virtual.
+   - **Máquina virtual de destino**: a máquina virtual para a qual você deseja criar a captura de pacote.
+   - **Nome da captura de pacote**: um nome para a captura de pacote.
+   - **Conta de armazenamento ou arquivo**: selecione **conta de armazenamento**, **arquivo**ou ambos. Se você selecionar **arquivo**, a captura será gravada em um caminho dentro da máquina virtual.
+   - **Caminho do arquivo local**: o caminho local na máquina virtual em que a captura de pacote será salva (válida somente quando o *arquivo* for selecionado). O caminho deve ser um caminho válido. Se você estiver usando uma máquina virtual do Linux, o caminho deverá começar com */var/Captures*.
+   - **Contas de armazenamento**: selecione uma conta de armazenamento existente se você selecionou *conta de armazenamento*. Essa opção só estará disponível se você tiver selecionado **armazenamento**.
    
      > [!NOTE]
      > Atualmente, não há suporte para contas de armazenamento Premium no armazenamento de capturas de pacote.
 
-   - **Máximo de bytes por pacote**: O número de bytes de cada pacote que são capturados. Se for deixado em branco, todos os bytes serão capturados.
-   - **Máximo de bytes por sessão**: O número total de bytes capturados. Depois que o valor for atingido, a captura de pacote será interrompida.
-   - **Limite de tempo (segundos)** : O limite de tempo antes que a captura de pacote seja interrompida. O padrão é 18.000 segundos.
+   - **Máximo de bytes por pacote**: o número de bytes de cada pacote que são capturados. Se for deixado em branco, todos os bytes serão capturados.
+   - **Máximo de bytes por sessão**: o número total de bytes capturados. Depois que o valor for atingido, a captura de pacote será interrompida.
+   - **Limite de tempo (segundos)** : o limite de tempo antes que a captura de pacote seja interrompida. O padrão é 18.000 segundos.
    - Filtragem (opcional). Selecionar **+ Adicionar filtro**
-     - **Protocolo**: O protocolo a ser filtrado para a captura de pacote. Os valores disponíveis são TCP, UDP e any.
-     - **Endereço IP local**: Filtra a captura de pacotes para os pacotes em que o endereço IP local corresponde a esse valor.
-     - **Porta local**: Filtra a captura de pacotes para os pacotes em que a porta local corresponde a esse valor.
-     - **Endereço IP remoto**: Filtra a captura de pacotes para os pacotes em que o endereço IP remoto corresponde a esse valor.
-     - **Porta remota**: Filtra a captura de pacotes para os pacotes em que a porta remota corresponde a esse valor.
+     - **Protocolo**: o protocolo a ser filtrado para a captura de pacotes. Os valores disponíveis são TCP, UDP e any.
+     - **Endereço IP local**: filtra a captura de pacotes para os pacotes em que o endereço IP local corresponde a esse valor.
+     - **Porta local**: filtra a captura de pacotes para os pacotes em que a porta local corresponde a esse valor.
+     - **Endereço IP remoto**: filtra a captura de pacotes para os pacotes em que o endereço IP remoto corresponde a esse valor.
+     - **Porta remota**: filtra a captura de pacotes para os pacotes em que a porta remota corresponde a esse valor.
     
      > [!NOTE]
      > Os valores de porta e endereço IP podem ser um único valor, intervalo de valores ou um intervalo, como 80-1024, para a porta. Você pode definir quantos filtros forem necessários.
@@ -98,7 +99,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Se você selecionou **arquivo** quando criou a captura, poderá exibir ou baixar o arquivo do caminho configurado na máquina virtual.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para saber como automatizar as capturas de pacote com alertas de máquina virtual, consulte [criar uma captura de pacote](network-watcher-alert-triggered-packet-capture.md)disparada por alerta.
+- Para saber como automatizar as capturas de pacote com alertas de máquina virtual, consulte [criar uma captura de pacote disparada por alerta](network-watcher-alert-triggered-packet-capture.md).
 - Para determinar se o tráfego específico é permitido dentro ou fora de uma máquina virtual, consulte [diagnosticar um problema de filtro de tráfego de rede de máquina virtual](diagnose-vm-network-traffic-filtering-problem.md).

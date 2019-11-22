@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95a5df4ca14f4be8553c83dfe8b4d09d00341102
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 22c2f3b91b650bcdbf8eb7368023e068a397323f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260386"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305825"
 ---
-# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Início rápido: Criar e gerenciar o compartilhamento de arquivos do Azure com máquinas virtuais do Windows
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Início rápido: criar e gerenciar o compartilhamento de arquivos do Azure com máquinas virtuais do Windows
 
 O artigo demonstra as etapas básicas para criar e usar um compartilhamento de arquivos do Azure. Neste guia de início rápido, a ênfase é configurar rapidamente um compartilhamento de arquivos do Azure para que você possa experimentar como o serviço funciona. Se você precisar de instruções mais detalhadas para criar e usar compartilhamentos de arquivos do Azure em seu próprio ambiente, consulte [usar um compartilhamento de arquivos do Azure com o Windows](storage-how-to-use-files-windows.md).
 
@@ -22,7 +22,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Preparar o ambiente
 
@@ -87,7 +87,7 @@ Nesta fase, já criou uma máquina virtual nova e anexou um disco de dados. Agor
 
 1. Na página **conectar à máquina virtual** , mantenha as opções padrão para se conectar por **endereço IP** no **número da porta** *3389* e selecione **baixar arquivo RDP**.
 1. Abra o arquivo RDP baixado e selecione **conectar** quando solicitado.
-1. Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar uma conta diferente**. Digite o nome deusuário como localhost\username &lt;,&gt; em que username é o nome de usuário do administrador da VM que você criou para a máquina virtual. Insira a senha que você criou para a máquina virtual e, em seguida, selecione **OK**.
+1. Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar uma conta diferente**. Digite o nome de usuário como *localhost\username*, em que &lt;nome de usuário&gt; é o nome de usuário do administrador da VM que você criou para a máquina virtual. Insira a senha que você criou para a máquina virtual e, em seguida, selecione **OK**.
 
    ![Mais opções](./media/storage-files-quick-create-use-windows/local-host2.png)
 
@@ -101,7 +101,7 @@ Nesta fase, já criou uma máquina virtual nova e anexou um disco de dados. Agor
    ![O caminho UNC a partir do painel Ligar dos Ficheiros do Azure](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
 
 1. Na VM, abra o **Explorador de arquivos** e selecione **este PC** na janela. Essa seleção irá alterar os menus disponíveis na faixa de opção. No menu **computador** , selecione **Mapear unidade de rede**.
-1. Selecione a letra de unidade e introduza o caminho UNC. Se você seguiu as sugestões de nomenclatura neste guia de início rápido, copie  *\\qsstorageacct. File. Core. Windows. net\qsfileshare* do **bloco de notas**.
+1. Selecione a letra de unidade e introduza o caminho UNC. Se você seguiu as sugestões de nomenclatura neste guia de início rápido, copie *\\qsstorageacct. File. Core. Windows. net\qsfileshare* do **bloco de notas**.
 
    Certifique-se de que ambas as caixas de seleção estejam marcadas.
 
@@ -173,7 +173,7 @@ Assim como ocorre com instantâneos do VSS locais, você pode exibir os instant�
 
 1. Selecione **restaurar**. Essa ação copia o conteúdo do diretório inteiro recursivamente para o local original no momento em que o instantâneo de compartilhamento foi criado.
 
-   ![Botão restaurar na mensagem de aviso](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png)
+   ![botão restaurar na mensagem de aviso](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) Observação: se o arquivo não tiver sido alterado, você não verá uma versão anterior para esse arquivo porque esse arquivo é da mesma versão que o instantâneo. Isso é consistente com a maneira como isso funciona em um servidor de arquivos do Windows.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

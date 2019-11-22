@@ -1,6 +1,7 @@
 ---
-title: Analisar a segurança de rede com a vista de grupo de segurança de observador de rede do Azure - CLI do Azure | Documentos da Microsoft
-description: Este artigo descreve como utilizar a CLI do Azure para analisar uma segurança de máquinas virtuais com a vista de grupo de segurança.
+title: Analisar a segurança de rede com o modo de exibição do grupo de segurança-CLI do Azure
+titleSuffix: Azure Network Watcher
+description: Este artigo descreverá como usar CLI do Azure para analisar a segurança de máquinas virtuais com o modo de exibição de grupo de segurança.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -14,57 +15,57 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 68222a90eb60ab4f84a34b5e46833128ea081ec1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70460d3b46baa094f227f96733f8ac98fae9285b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724431"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277838"
 ---
-# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Analisar a segurança de Máquina Virtual com a vista de grupo de segurança com a CLI do Azure
+# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Analise sua segurança de máquina virtual com a exibição de grupo de segurança usando CLI do Azure
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
 > - [CLI do Azure](network-watcher-security-group-view-cli.md)
 > - [API REST](network-watcher-security-group-view-rest.md)
 
-Vista de grupo de segurança devolve as regras de segurança de rede configurado e eficaz que são aplicadas a uma máquina virtual. Esta funcionalidade é útil para auditar e diagnosticar os grupos de segurança de rede e regras que estão configuradas numa VM para garantir que o tráfego está a ser corretamente permitido ou negado. Neste artigo, mostramos como obter as regras de segurança configurado e eficaz para uma máquina virtual utilizando a CLI do Azure
+A exibição de grupo de segurança retorna regras de segurança de rede configuradas e efetivas que são aplicadas a uma máquina virtual. Esse recurso é útil para auditar e diagnosticar grupos de segurança de rede e regras configurados em uma VM para garantir que o tráfego seja corretamente permitido ou negado. Neste artigo, mostraremos como recuperar as regras de segurança configuradas e efetivas para uma máquina virtual usando CLI do Azure
 
-Para efetuar os passos neste artigo, precisa [instale a interface de linha de comandos do Azure para Mac, Linux e Windows (CLI)](/cli/azure/install-azure-cli).
+Para executar as etapas neste artigo, você precisa [instalar a interface de linha de comando do Azure para Mac, Linux e Windows (CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este cenário pressupõe que já tiver seguido os passos em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
+Este cenário pressupõe que você já seguiu as etapas em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
 
 ## <a name="scenario"></a>Cenário
 
-O cenário abordado neste artigo obtém as regras de segurança configurado e eficaz para uma máquina virtual especificada.
+O cenário abordado neste artigo recupera as regras de segurança configuradas e efetivas para uma determinada máquina virtual.
 
-## <a name="get-a-vm"></a>Obtenha uma VM
+## <a name="get-a-vm"></a>Obter uma VM
 
-Uma máquina virtual é necessária para executar o `vm list` cmdlet. O comando a seguir lista as máquinas virtuais num grupo de recursos:
+Uma máquina virtual é necessária para executar o cmdlet `vm list`. O comando a seguir lista as máquinas virtuais em um grupo de recursos:
 
 ```azurecli
 az vm list -resource-group resourceGroupName
 ```
 
-Sabe que a máquina virtual, pode utilizar o `vm show` cmdlet para obter o seu Id de recurso:
+Depois de conhecer a máquina virtual, você pode usar o cmdlet `vm show` para obter sua ID de recurso:
 
 ```azurecli
 az vm show -resource-group resourceGroupName -name virtualMachineName
 ```
 
-## <a name="retrieve-security-group-view"></a>Obter vista de grupo de segurança
+## <a name="retrieve-security-group-view"></a>Recuperar exibição de grupo de segurança
 
-A próxima etapa é obter o resultado de vista do grupo de segurança.
+A próxima etapa é recuperar o resultado da exibição do grupo de segurança.
 
 ```azurecli
 az network watcher show-security-group-view --resource-group resourceGroupName --vm vmName
 ```
 
-## <a name="viewing-the-results"></a>Visualizar os resultados
+## <a name="viewing-the-results"></a>Exibindo os resultados
 
-O exemplo seguinte é uma resposta abreviada dos resultados retornados. Os resultados mostram todas as regras de segurança eficazes e aplicado na máquina virtual dividida em grupos de **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, e  **EffectiveSecurityRules**.
+O exemplo a seguir é uma resposta abreviada dos resultados retornados. Os resultados mostram todas as regras de segurança efetivas e aplicadas na máquina virtual dividida em grupos de **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**e **EffectiveSecurityRules**.
 
 ```json
 {
@@ -154,8 +155,8 @@ O exemplo seguinte é uma resposta abreviada dos resultados retornados. Os resul
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Visite [auditoria rede grupos de segurança (NSG) com o observador de rede](network-watcher-nsg-auditing-powershell.md) para aprender a automatizar a validação dos grupos de segurança de rede.
+Visite [auditoria de grupos de segurança de rede (NSG) com o observador de rede](network-watcher-nsg-auditing-powershell.md) para saber como automatizar a validação de grupos de segurança de rede.
 
-Saiba mais sobre as regras de segurança que são aplicadas aos seus recursos de rede, visite a página [descrição geral da vista de grupo de segurança](network-watcher-security-group-view-overview.md)
+Saiba mais sobre as regras de segurança que são aplicadas aos recursos de rede visitando [visão geral do modo de exibição de grupo de segurança](network-watcher-security-group-view-overview.md)

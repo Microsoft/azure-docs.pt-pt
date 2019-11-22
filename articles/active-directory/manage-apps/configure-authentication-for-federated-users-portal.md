@@ -1,5 +1,5 @@
 ---
-title: Configurar a aceleração automática de entrada usando a política de descoberta de realm inicial | Microsoft Docs
+title: Configurar a aceleração automática de entrada usando a descoberta de realm inicial
 description: Saiba como configurar a política de descoberta de realm inicial para autenticação Azure Active Directory para usuários federados, incluindo dicas de domínio e aceleração automática.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f8f51fcd69a7115879aad97bbf696833e87877b
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 174cdc31d7e5f29716febc7f68bbb410f33926c6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477210"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274633"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar o comportamento de entrada Azure Active Directory para um aplicativo usando uma política de descoberta de realm inicial
 
@@ -33,7 +33,7 @@ O usuário pode precisar ser levado para um dos seguintes locais a ser autentica
 
 - O locatário inicial do usuário (pode ser o mesmo locatário do recurso que o usuário está tentando acessar). 
 
-- Conta Microsoft.  O usuário é um convidado no locatário do recurso.
+- conta Microsoft.  O usuário é um convidado no locatário do recurso.
 
 -  Um provedor de identidade local, como o Serviços de Federação do Active Directory (AD FS) (AD FS).
 
@@ -65,9 +65,9 @@ A sintaxe de dica de domínio varia dependendo do protocolo que é usado e norma
 
 **WS-Federation**: WHR = contoso. com na cadeia de caracteres de consulta.
 
-**SAML**:  Uma solicitação de autenticação SAML que contém uma dica de domínio ou uma cadeia de caracteres de consulta WHR = contoso. com.
+**SAML**: uma solicitação de autenticação SAML que contém uma dica de domínio ou uma cadeia de caracteres de consulta WHR = contoso. com.
 
-**Abrir o ID Connect**: Uma cadeia de caracteres de consulta domain_hint = contoso. com. 
+**Open ID Connect**: uma cadeia de caracteres de consulta domain_hint = contoso. com. 
 
 Se uma dica de domínio for incluída na solicitação de autenticação do aplicativo e o locatário for federado com esse domínio, o Azure AD tentará redirecionar a entrada para o IdP configurado para esse domínio. 
 
@@ -170,14 +170,14 @@ Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas em enti
 
 Se nada for retornado, isso significa que você não tem políticas criadas em seu locatário.
 
-### <a name="example-set-hrd-policy-for-an-application"></a>Exemplo: Definir a política de HRD para um aplicativo 
+### <a name="example-set-hrd-policy-for-an-application"></a>Exemplo: definir a política de HRD para um aplicativo 
 
 Neste exemplo, você cria uma política que, quando atribuída a um aplicativo, pode: 
 - Acelera automaticamente os usuários para uma tela de entrada AD FS quando eles estão entrando em um aplicativo quando há um único domínio em seu locatário. 
 - Acelera automaticamente os usuários para uma tela de entrada de AD FS há mais de um domínio federado em seu locatário.
 - Habilita a entrada de nome de usuário/senha não interativa diretamente em Azure Active Directory para usuários federados para os aplicativos aos quais a política está atribuída.
 
-#### <a name="step-1-create-an-hrd-policy"></a>Passo 1: Criar uma política de HRD
+#### <a name="step-1-create-an-hrd-policy"></a>Etapa 1: criar uma política de HRD
 
 A política a seguir acelera automaticamente os usuários para uma tela de entrada AD FS quando eles estão entrando em um aplicativo quando há um único domínio em seu locatário.
 
@@ -206,7 +206,7 @@ Get-AzureADPolicy
 
 Para aplicar a política HRD depois de criá-la, você pode atribuí-la a várias entidades de serviço do aplicativo.
 
-#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Passo 2: Localize a entidade de serviço à qual atribuir a política  
+#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Etapa 2: Localize a entidade de serviço à qual atribuir a política  
 Você precisa do **ObjectID** das entidades de serviço às quais deseja atribuir a política. Há várias maneiras de localizar o **ObjectID** das entidades de serviço.    
 
 Você pode usar o portal ou pode consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Você também pode ir para a [ferramenta Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) e entrar em sua conta do Azure ad para ver todas as entidades de serviço da sua organização. 
@@ -217,7 +217,7 @@ Como você está usando o PowerShell, você pode usar o cmdlet a seguir para lis
 Get-AzureADServicePrincipal
 ```
 
-#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Passo 3: Atribuir a política à entidade de serviço  
+#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Etapa 3: atribuir a política à entidade de serviço  
 Depois de ter o **ObjectID** da entidade de serviço do aplicativo para o qual você deseja configurar a aceleração automática, execute o comando a seguir. Esse comando associa a política HRD que você criou na etapa 1 com a entidade de serviço que você localizou na etapa 2.
 
 ``` powershell
@@ -228,18 +228,18 @@ Você pode repetir esse comando para cada entidade de serviço à qual você des
 
 No caso em que um aplicativo já tem uma política HomeRealmDiscovery atribuída, você não poderá adicionar um segundo.  Nesse caso, altere a definição da política de descoberta de realm inicial atribuída ao aplicativo para adicionar parâmetros adicionais.
 
-#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Passo 4: Verifique a quais entidades de serviço de aplicativo sua política HRD está atribuída
+#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Etapa 4: verificar a quais entidades de serviço de aplicativo sua política de HRD está atribuída
 Para verificar quais aplicativos têm a política HRD configurada, use o cmdlet **Get-AzureADPolicyAppliedObject** . Passe o **ObjectID** da política que você deseja verificar.
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
-#### <a name="step-5-youre-done"></a>Passo 5: Você terminou!
+#### <a name="step-5-youre-done"></a>Etapa 5: você terminou!
 Experimente o aplicativo para verificar se a nova política está funcionando.
 
-### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Exemplo: Listar os aplicativos para os quais a política de HRD está configurada
+### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Exemplo: listar os aplicativos para os quais a política de HRD está configurada
 
-#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Passo 1: Listar todas as políticas que foram criadas em sua organização 
+#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Etapa 1: listar todas as políticas que foram criadas em sua organização 
 
 ``` powershell
 Get-AzureADPolicy
@@ -247,28 +247,28 @@ Get-AzureADPolicy
 
 Observe o **ObjectID** da política para a qual você deseja listar as atribuições.
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Passo 2: Listar as entidades de serviço às quais a política é atribuída  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Etapa 2: listar as entidades de serviço às quais a política é atribuída  
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
-### <a name="example-remove-an-hrd-policy-for-an-application"></a>Exemplo: Remover uma política de HRD para um aplicativo
-#### <a name="step-1-get-the-objectid"></a>Passo 1: Obter o ObjectID
+### <a name="example-remove-an-hrd-policy-for-an-application"></a>Exemplo: remover uma política de HRD para um aplicativo
+#### <a name="step-1-get-the-objectid"></a>Etapa 1: obter o ObjectID
 Use o exemplo anterior para obter a **ObjectID** da política e a entidade de serviço do aplicativo da qual você deseja removê-la. 
 
-#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Passo 2: Remover a atribuição de política da entidade de serviço do aplicativo  
+#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Etapa 2: remover a atribuição de política da entidade de serviço do aplicativo  
 
 ``` powershell
 Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
-#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Passo 3: Marque a remoção listando as entidades de serviço às quais a política está atribuída 
+#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Etapa 3: verificar a remoção listando as entidades de serviço às quais a política é atribuída 
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Para obter mais informações sobre como funciona a autenticação no Azure AD, consulte [cenários de autenticação do Azure ad](../develop/authentication-scenarios.md).
 - Para obter mais informações sobre o logon único do usuário, consulte [logon único para aplicativos no Azure Active Directory](what-is-single-sign-on.md).
 - Visite o [Guia do desenvolvedor Active Directory](../develop/v1-overview.md) para obter uma visão geral de todo o conteúdo relacionado ao desenvolvedor.

@@ -1,5 +1,5 @@
 ---
-title: Enviar métricas do sistema operacional convidado para o armazenamento de dados Azure Monitor para uma máquina virtual do Windows (clássica)
+title: Enviar métricas de VM do Windows clássicas para Azure Monitor banco de dados de métricas
 description: Enviar métricas do sistema operacional convidado para o armazenamento de dados Azure Monitor para uma máquina virtual do Windows (clássica)
 author: anirudhcavale
 services: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: cc0c7c4928fb03cb60bb51f74d74fdc1ab914348
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: af99bd8ea619d17bdc40ea025f0bfcb1c095db52
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844918"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286151"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Enviar métricas do sistema operacional convidado para o armazenamento de dados Azure Monitor para uma máquina virtual do Windows (clássica)
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Enviar métricas do sistema operacional convidado para o banco de dados de métricas de Azure Monitor para uma máquina virtual do Windows (clássica)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 A [extensão de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de Azure monitor (conhecida como "wad" ou "diagnóstico") permite coletar métricas e logs do sistema operacional convidado (SO convidado) em execução como parte de uma máquina virtual, serviço de nuvem ou cluster de Service Fabric. A extensão pode enviar telemetria para [vários locais diferentes.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
-Este artigo descreve o processo para enviar métricas de desempenho do SO convidado para uma máquina virtual do Windows (clássica) para o repositório de métrica Azure Monitor. A partir da versão de diagnóstico 1,11, você pode gravar métricas diretamente no repositório de métricas de Azure Monitor, em que as métricas de plataforma padrão já são coletadas. 
+Este artigo descreve o processo para enviar métricas de desempenho do SO convidado para uma máquina virtual do Windows (clássica) para o banco de dados de métricas Azure Monitor. A partir da versão de diagnóstico 1,11, você pode gravar métricas diretamente no repositório de métricas de Azure Monitor, em que as métricas de plataforma padrão já são coletadas. 
 
 Armazená-los nesse local permite que você acesse as mesmas ações que você faz para métricas de plataforma. As ações incluem alertas quase em tempo real, criação de gráficos, roteamento, acesso de uma API REST e muito mais. No passado, a extensão de diagnóstico gravou no armazenamento do Azure, mas não no armazenamento de dados Azure Monitor. 
 
@@ -31,7 +31,7 @@ O processo descrito neste artigo só funciona em máquinas virtuais clássicas q
 
 - Você deve ser um [administrador de serviços ou coadministrador](../../billing/billing-add-change-azure-subscription-administrator.md) em sua assinatura do Azure. 
 
-- Sua assinatura deve ser registrada com [Microsoft.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)insights. 
+- Sua assinatura deve ser registrada com [Microsoft. insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - Você precisa ter o [Azure PowerShell](/powershell/azure) ou [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
 
@@ -40,12 +40,12 @@ O processo descrito neste artigo só funciona em máquinas virtuais clássicas q
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Criar uma máquina virtual clássica e uma conta de armazenamento
 
 1. Crie uma VM clássica usando o portal do Azure.
-   ![Criar VM clássica](./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png)
+   ![criar uma VM clássica](./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png)
 
 1. Quando você estiver criando essa VM, escolha a opção para criar uma nova conta de armazenamento clássico. Usamos essa conta de armazenamento em etapas posteriores.
 
 1. Na portal do Azure, vá para a folha de recursos de **contas de armazenamento** . Selecione **chaves**e anote o nome da conta de armazenamento e a chave da conta de armazenamento. Você precisa dessas informações em etapas posteriores.
-   ![Chaves de acesso de armazenamento](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
+   ![chaves de acesso de armazenamento](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
@@ -200,9 +200,9 @@ Conceda a esse aplicativo as permissões de "editor de métricas de monitorament
 1. No menu suspenso namespaces, selecione **Azure. VM. Windows. Guest**.
 
 1. No menu suspenso métricas, selecione **confirmados bytes em uso**.
-   ![Plotar métricas](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
+   ![](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png) métricas de plotagem
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
 

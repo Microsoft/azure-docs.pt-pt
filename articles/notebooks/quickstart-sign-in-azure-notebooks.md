@@ -1,25 +1,16 @@
 ---
 title: Entrar para blocos de notas do Azure
 description: Iniciar sessão em blocos de notas do Azure e defina um ID de utilizador, o que lhe dá a capacidade de acessar projetos guardados e partilhar os blocos de notas com outras pessoas rapidamente.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: fb8c94b1-6d0a-4b77-8d14-ae6efcdd99f4
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.author: kraigb
-ms.openlocfilehash: 0c12c8673ff61dcca62c72addcbf0d9b33c2c252
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 234703da9662380a59c7673ca3b34a1b01b7dbef
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973067"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277446"
 ---
-# <a name="quickstart-sign-in-and-set-a-user-id"></a>Início rápido: Iniciar sessão e definir um ID de utilizador
+# <a name="quickstart-sign-in-and-set-a-user-id"></a>Início rápido: Iniciar sessão e defina um ID de utilizador
 
 Embora possa exibir sempre o blocos de notas do Azure sem iniciar sessão, tem de iniciar sessão executar blocos de notas, acessar projetos guardados e blocos de notas e partilhar os seus blocos de notas com outras pessoas.
 
@@ -66,4 +57,4 @@ Para terminar sessão, selecione o seu nome de utilizador no canto superior dire
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Quickstart: Criar e compartilhar um bloco de anotações @ no__t-0
+> [Início rápido: Criar e partilhar um bloco de notas](quickstart-create-share-jupyter-notebook.md)

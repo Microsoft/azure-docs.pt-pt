@@ -1,5 +1,5 @@
 ---
-title: Enviar métricas do sistema operacional convidado para o armazenamento de métrica Azure Monitor usando um modelo do Resource Manager para uma máquina virtual do Windows
+title: Coletar métricas de VM do Windows em Azure Monitor com modelo
 description: Enviar métricas do sistema operacional convidado para o armazenamento de métrica Azure Monitor usando um modelo do Resource Manager para uma máquina virtual do Windows
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: ac8d059c2bcad7aaa005b4afe1fb7814d49f9339
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b6e66bea6dd86409866db1fee3564d21236ecbce
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844954"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286188"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas do sistema operacional convidado para o armazenamento de métrica Azure Monitor usando um modelo do Resource Manager para uma máquina virtual do Windows
 
@@ -25,11 +25,11 @@ Este artigo descreve o processo de envio de métricas de desempenho do sistema o
 
 Armazená-los nesse local permite que você acesse as mesmas ações para métricas de plataforma. As ações incluem alertas quase em tempo real, criação de gráficos, roteamento e acesso de uma API REST e muito mais. No passado, a extensão de diagnóstico gravou no armazenamento do Azure, mas não no armazenamento de dados Azure Monitor.
 
-Se você for novo nos modelos do Resource Manager, saiba mais sobre implantações de [modelo](../../azure-resource-manager/resource-group-overview.md) e sua estrutura e sintaxe.
+Se você for novo nos modelos do Resource Manager, saiba mais sobre [implantações de modelo](../../azure-resource-manager/resource-group-overview.md) e sua estrutura e sintaxe.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Sua assinatura deve ser registrada com [Microsoft.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)insights.
+- Sua assinatura deve ser registrada com [Microsoft. insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
 - Você precisa ter o [Azure PowerShell](/powershell/azure) ou [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
 
@@ -40,7 +40,7 @@ Se você for novo nos modelos do Resource Manager, saiba mais sobre implantaçõ
 A extensão Diagnóstico do Azure usa um recurso chamado "coletores de dados" para rotear métricas e logs para locais diferentes. As etapas a seguir mostram como usar um modelo do Resource Manager e o PowerShell para implantar uma VM usando o novo coletor de dados "Azure Monitor".
 
 ## <a name="author-resource-manager-template"></a>Criar modelo do Resource Manager
-Para este exemplo, você pode usar um modelo de exemplo disponível publicamente. Os modelos iniciais estão em https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows.
+Para este exemplo, você pode usar um modelo de exemplo disponível publicamente. Os modelos de inicialização estão em https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows.
 
 - **Azuredeploy. JSON** é um modelo pré-configurado do Resource Manager para a implantação de uma máquina virtual.
 
@@ -126,7 +126,7 @@ Adicione a configuração de **identidade** ao recurso da VM para garantir que o
     ...
 ```
 
-Adicione a configuração a seguir para habilitar a extensão de diagnóstico em uma máquina virtual do Windows. Para uma máquina virtual baseada no Gerenciador de recursos simples, podemos adicionar a configuração de extensão à matriz de recursos para a máquina virtual. A linha "Sinks"&mdash; "AzMonSink" e o "SinksConfig" correspondente posteriormente na seção&mdash;permitem que a extensão emita métricas diretamente para Azure monitor. Sinta-se à vontade para adicionar ou remover contadores de desempenho conforme necessário.
+Adicione a configuração a seguir para habilitar a extensão de diagnóstico em uma máquina virtual do Windows. Para uma máquina virtual baseada no Gerenciador de recursos simples, podemos adicionar a configuração de extensão à matriz de recursos para a máquina virtual. A linha "Sinks"&mdash; "AzMonSink" e o "SinksConfig" correspondente posteriormente na seção&mdash;habilitar a extensão para emitir métricas diretamente para Azure Monitor. Sinta-se à vontade para adicionar ou remover contadores de desempenho conforme necessário.
 
 
 ```json
@@ -288,6 +288,6 @@ Para implantar o modelo do Resource Manager, aproveitamos Azure PowerShell.
 7. No menu suspenso métricas, selecione **memória\%bytes confirmados em uso**.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
 

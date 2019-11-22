@@ -1,6 +1,6 @@
 ---
-title: Descrição geral de âncoras espaciais do Azure | Documentos da Microsoft
-description: Saiba como as âncoras espaciais do Azure ajuda-o a desenvolver experiências de realidade mista de várias plataformas.
+title: Visão geral das âncoras espaciais do Azure
+description: Saiba como as âncoras espaciais do Azure ajudam você a desenvolver experiências de realidade mista entre plataformas.
 author: craigktreasure
 manager: aliemami
 services: azure-spatial-anchors
@@ -8,33 +8,33 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2451922f0eb49a5ccee036db72eb046760287dca
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 503004cba0d4109adcfee62f7acd108cbcb73eb6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60240489"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277143"
 ---
-# <a name="azure-spatial-anchors-overview"></a>Descrição geral de âncoras espaciais do Azure
+# <a name="azure-spatial-anchors-overview"></a>Visão geral das âncoras espaciais do Azure
 
-Bem-vindo ao Azure âncoras espaciais. Âncoras geográficos Azure capacita os desenvolvedores com funcionalidades essenciais para criar aplicações de realidade mista spatially ciente. Esses aplicativos podem suportar Microsoft HoloLens, os dispositivos baseados no iOS ARKit de suporte e dispositivos baseados em Android ARCore de suporte. Âncoras espaciais do Azure permite aos programadores funciona com plataformas de realidade mista, poderá ver espaços, designar precisos pontos de interesse e recuperar esses pontos de interesse de dispositivos suportados.
-Esses pontos precisos de interesse são referidos como âncoras espaciais.
+Bem-vindo às âncoras espaciais do Azure. As âncoras espaciais do Azure capacitam os desenvolvedores com recursos essenciais para criar aplicativos de realidade misturados com consciência espacial. Esses aplicativos podem dar suporte ao Microsoft HoloLens, dispositivos baseados em iOS com suporte a ARKit e dispositivos baseados em Android que dão suporte a ARCore. O Azure Spatial Anchors permite que os programadores trabalhem com plataformas de realidade mista para reconhecer espaços, designar pontos de interesse precisos e revocar esses pontos de interesse de dispositivos suportados.
+Esses pontos de interesse precisos são chamados de âncoras espaciais.
 
 ![Para várias plataformas](./media/cross-platform.png)
 
 ## <a name="examples"></a>Exemplos
 
-Alguns casos de utilização de exemplo ativados por âncoras geográficos incluem:
+Alguns casos de uso de exemplo habilitados por âncoras espaciais incluem:
 
-- [Experiências de vários utilizadores](tutorials/tutorial-share-anchors-across-devices.md). Âncoras geográficos torna mais fácil para as pessoas no mesmo local participar em aplicações de realidade mista de vários utilizadores. Por exemplo, duas pessoas podem iniciar um jogo de chess de realidade mista, colocando um quadro de virtual chess numa tabela. Em seguida, ao apontar o seu dispositivo na mesa, podem ver e interagir com o quadro de virtual chess em conjunto.
+- [Experiências de vários usuários](tutorials/tutorial-share-anchors-across-devices.md). As âncoras espaciais facilitam para as pessoas no mesmo lugar participarem de aplicativos de realidade misturada de vários usuários. Por exemplo, duas pessoas podem iniciar um jogo de xadrez de realidade misturada colocando um tabuleiro de xadrez virtual em uma tabela. Em seguida, apontando seu dispositivo na tabela, eles podem exibir e interagir com o painel de xadrez virtual juntos.
 
-- [Way-finding](concepts/anchor-relationships-way-finding.md). Os programadores também podem ligar âncoras geográficos em conjunto, criar relações entre elas. Por exemplo, uma aplicação pode incluir uma experiência que tem dois ou mais pontos de interesse que um utilizador tem de interagir com para concluir uma tarefa. Esses pontos de interesse podem ser criados de maneira conectada. Mais tarde, quando o utilizador está a concluir a tarefa de várias etapa, a aplicação pode pedir as âncoras de que estão próximos aquele atual para direcionar o utilizador para a próxima etapa na tarefa.
+- [Como encontrar](concepts/anchor-relationships-way-finding.md). Os desenvolvedores também podem conectar âncoras espaciais, criando relações entre elas. Por exemplo, um aplicativo pode incluir uma experiência que tenha dois ou mais pontos de interesse com os quais um usuário deve interagir para concluir uma tarefa. Esses pontos de interesse podem ser criados de maneira conectada. Posteriormente, quando o usuário estiver concluindo a tarefa de várias etapas, o aplicativo poderá solicitar âncoras que estejam próximas da atual para direcionar o usuário para a próxima etapa na tarefa.
 
-- [Conteúdo virtual persistente do mundo real](how-tos/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor). Uma aplicação pode permitir que um usuário colocar um calendário virtual na parede de sala de conferência, que as pessoas possam ver utiliza uma aplicação de telefone ou um dispositivo de HoloLens. Numa definição industrial, um utilizador pode receber informações contextuais sobre uma máquina ao apontar uma câmara de dispositivo com suporte para ele.
+- [Persistência de conteúdo virtual no mundo real](how-tos/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor). Um aplicativo pode permitir que um usuário Coloque um calendário virtual em uma parede da sala de conferência, que as pessoas possam ver usando um aplicativo de telefone ou um dispositivo HoloLens. Numa configuração industrial, um utilizador pode receber informações contextuais sobre um computador ao apontar para uma câmara de dispositivo suportada.
 
-Âncoras espaciais do Azure é composta por um serviço gerido e SDKs de cliente para plataformas de dispositivos suportados. As secções seguintes fornecem informações sobre como começar a criar aplicações com o âncoras espaciais do Azure.
+O Azure Spatial Anchors é composto por um serviço gerido e por SDKs de cliente para plataformas de dispositivos suportadas. As seções a seguir fornecem informações sobre como começar a criar aplicativos usando âncoras espaciais do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Crie seu primeiro aplicativo com âncoras espaciais.
 

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b4aa4fbff4e1b89b87dd05e0547db8e14ae5835
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 48ddb4c3baa40bf70fe12451f048b2228c8bd441
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927142"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271505"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma Microsoft Identity
 
@@ -41,6 +41,7 @@ A plataforma de identidade da Microsoft implementa o protocolo de autorização 
 * Microsoft Graph: `https://graph.microsoft.com`
 * API de email do Office 365: `https://outlook.office.com`
 * Azure AD Graph: `https://graph.windows.net`
+* Azure Key Vault: `https://vault.azure.net`
 
 > [!NOTE]
 > É altamente recomendável que você use Microsoft Graph em vez do Azure AD Graph, a API de email do Office 365, etc.
@@ -89,7 +90,7 @@ Se um aplicativo executar a entrada usando o [OpenID Connect](active-directory-v
 
 O escopo de `email` pode ser usado com o escopo de `openid` e quaisquer outros. Ele dá ao aplicativo acesso ao endereço de email principal do usuário na forma da declaração de `email`. A declaração de `email` será incluída em um token somente se um endereço de email estiver associado à conta de usuário, que nem sempre é o caso. Se ele usar o escopo de `email`, seu aplicativo deverá estar preparado para lidar com um caso no qual a declaração de `email` não existe no token.
 
-### <a name="profile"></a>criar
+### <a name="profile"></a>profile
 
 O escopo de `profile` pode ser usado com o escopo de `openid` e quaisquer outros. Ele dá ao aplicativo acesso a uma quantidade significativa de informações sobre o usuário. As informações que ele pode acessar incluem, mas não se limitam a, o nome do usuário, o sobrenome, o nome de usuário preferencial e a ID de objeto. Para obter uma lista completa das declarações de perfil disponíveis no parâmetro id_tokens para um usuário específico, consulte a [referência`id_tokens`](id-tokens.md).
 

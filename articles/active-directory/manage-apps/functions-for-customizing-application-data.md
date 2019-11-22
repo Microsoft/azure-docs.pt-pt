@@ -1,5 +1,5 @@
 ---
-title: Escrever expressões para mapeamentos de atributos no Azure Active Directory | Documentos da Microsoft
+title: Gravando expressões para mapeamentos de atributo no Azure AD
 description: Saiba como utilizar os mapeamentos de expressão para transformar valores de atributo num formato aceitável durante o aprovisionamento automatizado de objetos de aplicação SaaS no Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd7abdeef7c13c272a0e4bbf2075c6eda8f73a07
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 5f1880a79f7fdb27b407ecb7ed1b761493fe850d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162383"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274013"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -33,12 +33,12 @@ A sintaxe para expressões para mapeamentos de atributos é que sobrou do Visual
 * Pode passar três tipos de argumentos diferentes em funções:
   
   1. Atributos, que devem estar entre parênteses Retos. Por exemplo: [attributeName]
-  2. Constantes de cadeia de caracteres, têm de estar entre aspas duplas. Por exemplo: "Estados Unidos"
+  2. Constantes de cadeia de caracteres, têm de estar entre aspas duplas. Por exemplo: "United States"
   3. Outras funções. Por exemplo: FunctionOne (`<<argument1>>`, FunctionTwo (`<<argument2>>`))
-* Para constantes de cadeia de caracteres, se precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ele deve ser escrito com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: \\"Contoso\\" "
+* Para constantes de cadeia de caracteres, se precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ele deve ser escrito com o símbolo de barra invertida (\). Por exemplo: "nome da empresa: \\" contoso\\""
 
 ## <a name="list-of-functions"></a>Lista de funções
-[Acrescentar](#append) &nbsp; JunçãoFormatDateTime&nbsp; [](#join) [](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [](#not) [mid](#mid) &nbsp; não&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SubstituirSelectUniqueValue&nbsp; [](#replace) &nbsp; &nbsp; [](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [ SingleAppRoleAssignment](#singleapproleassignment) &nbsp; SplitStripSpaces&nbsp; [](#stripspaces) [](#split)&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; AlternarToLower&nbsp; [](#tolower) [](#switch) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [ingressar](#join) &nbsp;&nbsp;&nbsp;[&nbsp; Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;[&nbsp; NormalizeDiacritics](#normalizediacritics) [não](#not) &nbsp;&nbsp;&nbsp;&nbsp; [substituir](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
 ---
 ### <a name="append"></a>Acrescentar
@@ -93,8 +93,8 @@ Se um dos valores de origem for um atributo com vários valores, cada valor ness
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
 | **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo. |
-| **start** |Necessário |inteiro |Índice no **origem** cadeia de caracteres onde a subcadeia deve começar. Primeiro caractere na cadeia de caracteres terão o índice de 1, o segundo caráter terão índice 2 e assim por diante. |
-| **Comprimento** |Necessário |inteiro |Comprimento da subcadeia. Se o comprimento termina fora o **origem** cadeia de caracteres, a função devolve a subcadeia do **iniciar** índice até o final da **origem** cadeia de caracteres. |
+| **start** |Necessário |número inteiro |Índice no **origem** cadeia de caracteres onde a subcadeia deve começar. Primeiro caractere na cadeia de caracteres terão o índice de 1, o segundo caráter terão índice 2 e assim por diante. |
+| **length** |Necessário |número inteiro |Comprimento da subcadeia. Se o comprimento termina fora o **origem** cadeia de caracteres, a função devolve a subcadeia do **iniciar** índice até o final da **origem** cadeia de caracteres. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -109,7 +109,7 @@ Se um dos valores de origem for um atributo com vários valores, cada valor ness
 | **Origem** |Necessário |Cadeia | Geralmente um atributo de nome ou sobrenome. |
 
 ---
-### <a name="not"></a>não
+### <a name="not"></a>Não
 **Função:**<br> Not(Source)
 
 **Descrição:**<br> Muda o valor booleano do **origem**. Se **origem** valor é "*True*", devolve "*False*". Caso contrário, devolve "*True*".
@@ -199,7 +199,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
 | **Origem** |Necessário |Cadeia |**origem** valor para atualizar. |
-| **delimitador** |Requerido |Cadeia |Especifica o caractere que será usado para dividir a cadeia de caracteres (exemplo: ",") |
+| **delimitador** |Necessário |Cadeia |Especifica o caractere que será usado para dividir a cadeia de caracteres (exemplo: ",") |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -286,9 +286,9 @@ Terá de gerar um utilizador alias ao colocar os primeiros 3 letras do nome pró
 
 **Exemplo de entrada/saída:** <br>
 
-* **Entrada** do (dado): João
-* **Entrada** do (sobrenome): Silva
-* **SAÍDA**:  Davibarros
+* **ENTRADA** (givenName): "João"
+* **ENTRADA** (sobrenome): "Doe"
+* **SAÍDA**: "JohDoe"
 
 ### <a name="remove-diacritics-from-a-string"></a>Remover Diacríticos de uma cadeia de caracteres
 É necessário substituir caracteres que contém marcas de acento sem com caracteres equivalentes que não contenham marcas de acento sem.
@@ -298,8 +298,8 @@ NormalizeDiacritics([givenName])
 
 **Exemplo de entrada/saída:** <br>
 
-* **Entrada** do (dado): "Zoë"
-* **SAÍDA**:  "Zoe"
+* **ENTRADA** (givenName): "Zoë"
+* **SAÍDA**: "Zoe"
 
 ### <a name="split-a-string-into-a-multi-valued-array"></a>Dividir uma cadeia de caracteres em uma matriz de vários valores
 Você precisa usar uma lista delimitada por vírgulas de cadeias de caracteres e dividi-las em uma matriz que pode ser conectada a um atributo de vários valores, como o atributo PermissionSets do Salesforce. Neste exemplo, uma lista de conjuntos de permissões foi populada no extensionAttribute5 no Azure AD.
@@ -309,7 +309,7 @@ Split ([extensionAttribute5], ",")
 
 **Exemplo de entrada/saída:** <br>
 
-* **Entrada** do (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **Entrada** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
 * **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Data de saída como uma cadeia de caracteres num determinado formato
@@ -322,8 +322,8 @@ Por exemplo, que pretende formatar datas do ServiceNow.
 
 **Exemplo de entrada/saída:**
 
-* **Entrada** do (extensionAttribute1): "20150123105347.1Z"
-* **SAÍDA**:  "2015-01-23"
+* **ENTRADA** (extensionAttribute1): "20150123105347.1Z"
+* **SAÍDA**: "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Substituir um valor com base num conjunto predefinido de opções
 
@@ -335,7 +335,7 @@ Se o código de estado não corresponder a qualquer uma das opções predefinida
 
 **Exemplo de entrada/saída:**
 
-* **Entrada** do (estado): "QLD"
+* **ENTRADA** (estado): "QLD"
 * **SAÍDA**: "Austrália/Brisbane"
 
 ### <a name="replace-characters-using-a-regular-expression"></a>Substituir caracteres usando uma expressão regular
@@ -347,8 +347,8 @@ Replace ([mailNickname],, "[a-zA-Z_] *",, "",,)
 
 **Exemplo de entrada/saída:**
 
-* **Entrada** do (mailNickname: "john_doe72"
-* **SAÍDA**: "72"
+* **Entrada** (mailNickname: "john_doe72"
+* **Saída**: "72"
 
 ### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Converter o valor de userPrincipalName (UPN) gerado em letras minúsculas
 No exemplo a seguir, o valor UPN é gerado pela concatenação dos campos de origem nomepreferido e PreferredLastName e a função ToLower opera na cadeia de caracteres gerada para converter todos os caracteres em letras minúsculas. 
@@ -357,9 +357,9 @@ No exemplo a seguir, o valor UPN é gerado pela concatenação dos campos de ori
 
 **Exemplo de entrada/saída:**
 
-* **Entrada** do (Nomepreferido): João
-* **Entrada** do (PreferredLastName): Silva
-* **SAÍDA**: "john.smith@contoso.com"
+* **ENTRADA** (PreferredFirstName): "João"
+* **ENTRADA** (PreferredLastName): "Smith"
+* **Saída**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Gerar um valor exclusivo para o atributo userPrincipalName (UPN)
 Com base do usuário nome próprio, segundo nome e sobrenome, terá de gerar um valor para o atributo UPN e verificar seu exclusividade no diretório de destino AD antes de atribuir o valor para o atributo UPN.
@@ -374,8 +374,8 @@ Com base do usuário nome próprio, segundo nome e sobrenome, terá de gerar um 
 
 **Exemplo de entrada/saída:**
 
-* **Entrada** do (Nomepreferido): João
-* **Entrada** do (PreferredLastName): Silva
+* **ENTRADA** (PreferredFirstName): "João"
+* **ENTRADA** (PreferredLastName): "Smith"
 * **SAÍDA**: "John.Smith@contoso.com" se valor UPN de John.Smith@contoso.com ainda não existir no diretório
 * **SAÍDA**: "J.Smith@contoso.com" se valor UPN de John.Smith@contoso.com já existe no diretório
 * **SAÍDA**: "Jo.Smith@contoso.com" se os dois valores UPN acima já existam no diretório

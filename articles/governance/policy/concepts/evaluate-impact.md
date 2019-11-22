@@ -3,12 +3,12 @@ title: Avaliar o impacto de uma nova política do Azure
 description: Entenda o processo a ser seguido ao introduzir uma nova política em seu ambiente do Azure.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6c1a3ea764aedec7de5eab1f564176eaafead70b
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: e39183b13d2b3cf8c7527f9372879372b2123648
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959833"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279431"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Avaliar o impacto de uma nova política do Azure
 
@@ -71,6 +71,6 @@ A implementação e a atribuição da definição de política não é a etapa f
 - Saiba mais sobre a [estrutura de definição de política](./definition-structure.md).
 - Saiba mais sobre a [estrutura de atribuição de política](./assignment-structure.md).
 - Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).
-- Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).
+- Saiba como [obter dados de conformidade](../how-to/get-compliance-data.md).
 - Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
 - Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

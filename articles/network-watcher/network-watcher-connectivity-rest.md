@@ -1,5 +1,6 @@
 ---
-title: Solucionar problemas de conexões com o observador de rede do Azure-API REST do Azure | Microsoft Docs
+title: Solucionar problemas de conexões – API REST do Azure
+titleSuffix: Azure Network Watcher
 description: Saiba como usar o recurso de solução de problemas de conexão do observador de rede do Azure usando a API REST do Azure.
 services: network-watcher
 documentationcenter: na
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: kumud
-ms.openlocfilehash: 82dd77e8ea36610244b97c1701209d5aa3be2869
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 792556a63b5ca9ef53a33960e8284354972b3895
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017775"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275964"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Solucionar problemas de conexões com o observador de rede do Azure usando a API REST do Azure
 
@@ -38,7 +39,7 @@ Este artigo pressupõe que você tenha os seguintes recursos:
 * Máquinas virtuais com as quais solucionar problemas de conexões.
 
 > [!IMPORTANT]
-> A solução de problemas de conexão exige que a VM da `AzureNetworkWatcherExtension` qual você solucionar problemas tenha a extensão de VM instalada. Para instalar a extensão em uma VM do Windows, visite [extensão da máquina virtual do agente do observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para VM do Linux visite a [extensão da máquina virtual do agente do observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessária no ponto de extremidade de destino.
+> A solução de problemas de conexão exige que a VM da qual você solucionar problemas tenha a extensão de VM `AzureNetworkWatcherExtension` instalada. Para instalar a extensão em uma VM do Windows, visite [extensão da máquina virtual do agente do observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para VM do Linux visite a [extensão da máquina virtual do agente do observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessária no ponto de extremidade de destino.
 
 ## <a name="log-in-with-armclient"></a>Fazer logon com ARMClient
 
@@ -133,7 +134,7 @@ null
 
 ### <a name="response"></a>Resposta
 
-A resposta a seguir é do exemplo anterior.  Nessa resposta, o `ConnectionStatus` está inacessível. Você pode ver que todas as investigações enviadas falharam. A conectividade falhou na solução de virtualização devido a um configurado `NetworkSecurityRule` pelo usuário chamado **UserRule_Port80**, configurado para bloquear o tráfego de entrada na porta 80. Essas informações podem ser usadas para pesquisar problemas de conexão.
+A resposta a seguir é do exemplo anterior.  Nessa resposta, o `ConnectionStatus` está **inacessível**. Você pode ver que todas as investigações enviadas falharam. A conectividade falhou na solução de virtualização devido a uma `NetworkSecurityRule` configurada pelo usuário chamada **UserRule_Port80**, configurada para bloquear o tráfego de entrada na porta 80. Essas informações podem ser usadas para pesquisar problemas de conexão.
 
 ```json
 {
@@ -249,7 +250,7 @@ null
 
 ### <a name="response"></a>Resposta
 
-No exemplo a seguir, o `connectionStatus` é mostrado como **inacessível**. Nos detalhes, você pode ver em `issues` que o tráfego foi bloqueado devido a um `UserDefinedRoute`. `hops`
+No exemplo a seguir, a `connectionStatus` é mostrada como **inacessível**. Na `hops` detalhes, você pode ver em `issues` que o tráfego foi bloqueado devido a um `UserDefinedRoute`.
 
 ```json
 {
@@ -345,7 +346,7 @@ null
 
 ### <a name="response"></a>Resposta
 
-Na resposta a seguir, você pode ver o `connectionStatus` mostra como **acessível**. Quando uma conexão é bem-sucedida, os valores de latência são fornecidos.
+Na resposta a seguir, você pode ver a `connectionStatus` mostra como **acessível**. Quando uma conexão é bem-sucedida, os valores de latência são fornecidos.
 
 ```json
 {
@@ -432,7 +433,7 @@ null
 
 ### <a name="response"></a>Resposta
 
-O exemplo a seguir é a resposta da execução da chamada à API anterior. À medida que a verificação é bem-sucedida `connectionStatus` , a propriedade é exibida como **acessível**.  Você receberá os detalhes sobre o número de saltos necessários para alcançar o blob de armazenamento e a latência.
+O exemplo a seguir é a resposta da execução da chamada à API anterior. À medida que a verificação é bem-sucedida, a propriedade `connectionStatus` mostra como **acessível**.  Você receberá os detalhes sobre o número de saltos necessários para alcançar o blob de armazenamento e a latência.
 
 ```json
 {
@@ -465,8 +466,8 @@ O exemplo a seguir é a resposta da execução da chamada à API anterior. À me
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba como automatizar as capturas de pacote com alertas de máquina virtual exibindo [criar uma captura de pacote](network-watcher-alert-triggered-packet-capture.md)disparada por alerta.
+Saiba como automatizar as capturas de pacote com alertas de máquina virtual exibindo [criar uma captura de pacote disparada por alerta](network-watcher-alert-triggered-packet-capture.md).
 
 Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando verificar [verificação de fluxo de IP](diagnose-vm-network-traffic-filtering-problem.md).

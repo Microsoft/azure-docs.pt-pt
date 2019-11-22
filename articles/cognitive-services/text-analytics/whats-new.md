@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: aahi
-ms.openlocfilehash: 15beb8d3e326f04f1ae61c26f00e9428d95f6bc4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6ef23c03f01cd8e83d4327f358eaf12209659ce8
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031382"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286447"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -29,8 +29,8 @@ A próxima versão do NER (reconhecimento de entidade nomeada) agora está dispo
     * Número de telefone
     * Endereço IP
 
-* Um [novo ponto de extremidade](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) para reconhecer tipos de entidade de informações pessoais (somente em inglês)
-* Separe pontos de extremidade para [reconhecimento de entidade]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) e [vinculação de entidade]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
+* Um [novo ponto de extremidade](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) para reconhecer tipos de entidade de informações pessoais (somente em inglês)
+* Separe pontos de extremidade para [reconhecimento de entidade](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) e [vinculação de entidade](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
 
 A vinculação de entidades dá suporte a inglês e espanhol. O suporte ao idioma NER varia de acordo com o tipo de entidade. 
 
@@ -39,7 +39,7 @@ A vinculação de entidades dá suporte a inglês e espanhol. O suporte ao idiom
 
 ## <a name="sentiment-analysis-v3-public-preview---october-2019"></a>Visualização pública do Análise de Sentimento v3-outubro de 2019
 
-A [próxima versão do análise de sentimento](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) agora está disponível para visualização pública e fornece melhorias significativas na precisão e nos detalhes da categorização e da Pontuação de texto da API. Além disso, ele fornece:
+A [próxima versão do análise de sentimento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) agora está disponível para visualização pública e fornece melhorias significativas na precisão e nos detalhes da categorização e da Pontuação de texto da API. Além disso, ele fornece:
 
 * Rotulagem automática para diferentes sentimentos no texto.
 * Análise de sentimentos e saída em um nível de documento e frase. 

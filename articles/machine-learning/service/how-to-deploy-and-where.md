@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9d7dc724130286298af6e1d4b0babc551f3f2658
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 63d2aa5c9e4ec751d9b95ba0d884e6dc17e207bb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123628"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276800"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -578,6 +578,10 @@ Para obter mais informações, consulte estes documentos:
 ## <a name="deploy-to-target"></a>Implantar no destino
 
 A implantação usa a configuração de implantação de configuração de inferência para implantar os modelos. O processo de implantação é semelhante, independentemente do destino de computação. A implantação em AKS é um pouco diferente, pois você deve fornecer uma referência ao cluster AKS.
+
+### <a name="securing-deployments-with-ssl"></a>Protegendo implantações com SSL
+
+Para obter mais informações sobre como proteger uma implantação de serviço Web, consulte [usar SSL para proteger um serviço Web](how-to-secure-web-service.md#enable).
 
 ### <a id="local"></a>Implantação local
 

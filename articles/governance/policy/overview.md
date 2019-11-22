@@ -3,12 +3,12 @@ title: Descrição Geral do Azure Policy
 description: O Azure Policy é um serviço no Azure utilizado para criar, atribuir e gerir definições de política no seu ambiente do Azure.
 ms.date: 12/06/2018
 ms.topic: overview
-ms.openlocfilehash: e6b74eb2ffe15256523e46f0c246ba9f4d399c4d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
-ms.translationtype: MT
+ms.openlocfilehash: 1e8d00039f7cb2a1dd01eb02e623c37fc1afe126
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959330"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307067"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Visão geral do serviço de Azure Policy
 
@@ -35,7 +35,7 @@ O Azure Policy tem várias permissões, conhecidas como operações, em dois For
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Muitas Funções incorporadas concedem permissão aos recursos do Azure Policy. A função **colaborador de política de recurso (versão prévia)** inclui a maioria das operações Azure Policy. **Proprietário** tem direitos totais. O **colaborador** e o **leitor** podem usar todas as operações de Azure Policy de leitura, mas o **colaborador** também pode disparar a correção.
+Muitas Funções incorporadas concedem permissão aos recursos do Azure Policy. A função **colaborador de política de recurso** inclui a maioria das operações Azure Policy. **Proprietário** tem direitos totais. O **colaborador** e o **leitor** podem usar todas as operações de Azure Policy de leitura, mas o **colaborador** também pode disparar a correção.
 
 Se nenhuma das Funções incorporadas tiver as permissões exigidas, crie uma [função personalizada](../../role-based-access-control/custom-roles.md).
 

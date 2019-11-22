@@ -1,110 +1,73 @@
 ---
-title: Monitorizar visualmente fábricas de dados do Azure
+title: Monitorar visualmente Azure Data Factory
 description: Saiba como monitorar visualmente as fábricas de dados do Azure
 services: data-factory
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: 7b79fd9c87e97e624cce567b57c1c65fefcc151e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 11/19/2018
+ms.openlocfilehash: a4258b51acfa603c156bc35cdb2cbc3b16f37ab0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684632"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278395"
 ---
-# <a name="visually-monitor-azure-data-factories"></a>Monitorizar visualmente fábricas de dados do Azure
-Azure Data Factory é um serviço de integração de dados baseado em nuvem. Você pode usá-lo para criar fluxos de trabalho controlados por dados na nuvem para orquestrar e automatizar a movimentação de dados e a transformação de dados. Usando Azure Data Factory, você pode:
+# <a name="visually-monitor-azure-data-factory"></a>Monitorar visualmente Azure Data Factory
 
-- Criar e agendar fluxos de trabalho condicionados por dados (denominados pipelines) que podem ingerir dados a partir de arquivos de dados diferentes.
-- Processe/transforme os dados usando serviços de computação, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning.
-- Publicar os dados de saída em arquivos de dados como o Azure SQL Data Warehouse para consumo das aplicações de business intelligence (BI).
+Depois de criar e publicar um pipeline no Azure Data Factory, você pode associá-lo a um gatilho ou iniciar manualmente uma execução ad hoc. Você pode monitorar todas as execuções de pipeline nativamente no Azure Data Factory experiência do usuário. Para abrir a experiência de monitoramento, selecione o bloco **monitorar & gerenciar** na folha data factory do [portal do Azure](https://portal.azure.com/). Se você já estiver na UX do ADF, clique no ícone do **Monitor** na barra lateral esquerda.
 
-Neste guia de início rápido, você aprende a monitorar visualmente Data Factory pipelines sem escrever uma única linha de código.
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-
-## <a name="monitor-data-factory-pipelines"></a>Monitorar Data Factory pipelines
-
-Monitore execuções de pipeline e de atividade com uma interface de exibição de lista simples. Todas as execuções são exibidas no fuso horário local do navegador. Se você alterar o fuso horário, todos os campos de data/hora se ajustarão para aquele que você selecionou.  
-
-1. Inicie o Microsoft Edge ou o Google Chrome. Atualmente, a interface do usuário Data Factory tem suporte apenas nesses dois navegadores da Web.
-2. Entre no [portal do Azure](https://portal.azure.com/).
-3. Vá para a folha do data factory criado no portal do Azure. Selecione o bloco **monitorar & gerenciar** para iniciar a experiência de monitoramento do data Factory Visual.
+Todas as execuções de data factory são exibidas no fuso horário local do navegador. Se você alterar o fuso horário, todos os campos de data/hora se ajustarão para aquele que você selecionou.
 
 ## <a name="monitor-pipeline-runs"></a>Monitorizar execuções de pipeline
-A exibição de lista mostra cada execução de pipeline para seus pipelines de Data Factory. Ele inclui estas colunas:
+
+O modo de exibição de monitoramento padrão é a lista de execuções de pipeline no período de tempo selecionado. As seguintes colunas são exibidas:
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
 | Nome do pipeline | Nome do pipeline |
-| Ações | Ação única disponível para exibir execuções de atividade |
+| Ações | Ícones que permitem exibir detalhes da atividade, cancelar ou executar novamente o pipeline |
 | Iniciar execução | Data e hora de início para a execução do pipeline (MM/DD/AAAA, HH: MM: SS AM/PM) |
 | Duração | Duração da execução (HH: MM: SS) |
-| Disparado por | Gatilho manual ou gatilho agendado |
-| Estado | **Com falha, com** **êxito**ou **em andamento** |
+| Disparado por | O nome do gatilho que iniciou o pipeline |
+| Estado | **Com falha, com** **êxito**, **em andamento**, **cancelado**ou **na fila** |
+| Anotações | Marcas filtráveis associadas a um pipeline  |
 | Parâmetros | Parâmetros para a execução do pipeline (pares de nome/valor) |
-| Erro | Erro de execução de pipeline (se houver) |
+| Erro | Se o pipeline falhou, o erro de execução |
 | ID da execução | ID da execução do pipeline |
 
 ![Exibição de lista para monitoramento de execuções de pipeline](media/monitor-visually/pipeline-runs.png)
 
+Você precisa selecionar manualmente o botão **Atualizar** para atualizar a lista de execuções de pipeline e de atividade. No momento, não há suporte para a atualização autoatual.
+
+![Botão atualizar](media/monitor-visually/refresh.png)
+
 ## <a name="monitor-activity-runs"></a>Monitorização de execuções de atividade
-A exibição de lista mostra as execuções de atividade que correspondem a cada execução de pipeline. Para exibir as execuções de atividade para cada execução de pipeline, selecione o ícone de **execuções de atividade** na coluna **ações** . A exibição de lista inclui estas colunas:
+
+Para exibir as execuções de atividade para cada execução de pipeline, selecione o ícone **Exibir execuções de atividade** na coluna **ações** . A exibição de lista mostra as execuções de atividade que correspondem a cada execução de pipeline.
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
 | Nome da atividade | Nome da atividade dentro do pipeline |
-| Tipo de atividade | Tipo de atividade, como **Copy**, **HDInsightSpark**ou **HDInsightHive** |
+| Tipo de atividade | Tipo de atividade, como **Copy**, **ExecuteDataFlow**ou **AzureMLExecutePipeline** |
+| Ações | Ícones que permitem que você veja informações de entrada JSON, informações de saída JSON ou experiências detalhadas de monitoramento específicas da atividade | 
 | Iniciar execução | Data e hora de início para a execução da atividade (MM/DD/AAAA, HH: MM: SS AM/PM) |
 | Duração | Duração da execução (HH: MM: SS) |
-| Estado | **Com falha, com** **êxito**ou **em andamento** |
-| Input | Matriz JSON que descreve as entradas de atividade |
-| Saída | Matriz JSON que descreve as saídas de atividade |
-| Erro | Erro de execução da atividade (se houver) |
+| Estado | **Com falha, com** **êxito**, **em andamento**ou **cancelado** |
+| Integration Runtime | Em que Integration Runtime a atividade foi executada |
+| Propriedades do usuário | Propriedades definidas pelo usuário da atividade |
+| Erro | Se a atividade falhou, o erro de execução |
+| ID da execução | ID da execução da atividade |
 
 ![Exibição de lista para monitoramento de execuções de atividade](media/monitor-visually/activity-runs.png)
 
-> [!IMPORTANT]
-> Você precisa selecionar o botão **Atualizar** na parte superior para atualizar a lista de execuções de pipeline e de atividade. A atualização automática não é suportada atualmente.
+### <a name="promote-user-properties-to-monitor"></a>Promover Propriedades do usuário para monitorar
 
-![Botão atualizar](media/monitor-visually/refresh.png)
-
-## <a name="select-a-data-factory-to-monitor"></a>Selecione um data factory para monitorar
-Passe o mouse sobre o ícone de **Data Factory** no canto superior esquerdo. Selecione o ícone de seta para ver uma lista de assinaturas e data factories do Azure que você pode monitorar.
-
-![Selecione o data factory](media/monitor-visually/select-datafactory.png)
-
-## <a name="configure-the-list-view"></a>Configurar o modo de exibição de lista
-
-### <a name="apply-rich-ordering-and-filtering"></a>Aplicar ordenação e filtragem ricas
-
-Order pipeline é executado em DESC/ASC de acordo com a hora de início da execução. Filtrar execuções de pipeline usando as seguintes colunas:
-
-| **Nome da coluna** | **Descrição** |
-| --- | --- |
-| Nome do pipeline | Nome do pipeline. As opções incluem filtros rápidos para as **últimas 24 horas**, **última semana**e **últimos 30 dias**. Ou selecione uma data e hora personalizadas. |
-| Iniciar execução | Data e hora de início para a execução do pipeline. |
-| Status da execução | O filtro é executado por status: com **êxito**, **com falha**ou **em andamento**. |
-
-![Opções de filtragem](media/monitor-visually/filter.png)
-
-### <a name="add-or-remove-columns"></a>Adicionar ou remover colunas
-Clique com o botão direito do mouse no cabeçalho da exibição de lista e escolha as colunas que você deseja exibir na exibição de lista.
-
-![Opções para colunas](media/monitor-visually/columns.png)
-
-### <a name="adjust-column-widths"></a>Ajustar larguras de coluna
-Aumente e diminua as larguras de coluna no modo de exibição de lista passando o mouse sobre o cabeçalho da coluna.
-
-## <a name="promote-user-properties-to-monitor"></a>Promover Propriedades do usuário para monitorar
-
-Você pode promover qualquer propriedade de atividade de pipeline como uma propriedade de usuário para que ela se torne uma entidade que você pode monitorar. Por exemplo, você pode promover as propriedades de **origem** e **destino** da atividade de cópia em seu pipeline como propriedades do usuário. Você também pode selecionar **gerar automaticamente** para gerar as propriedades de usuário de **origem** e de **destino** para uma atividade de cópia.
+Promova qualquer propriedade de atividade de pipeline como uma propriedade de usuário para que ela se torne uma entidade que você monitora. Por exemplo, você pode promover as propriedades de **origem** e **destino** da atividade de cópia em seu pipeline como propriedades do usuário. Selecione **gerar automaticamente** para gerar as propriedades do usuário de **origem** e de **destino** para uma atividade de cópia.
 
 ![Criar propriedades do usuário](media/monitor-visually/monitor-user-properties-image1.png)
 
@@ -119,9 +82,33 @@ Depois de criar as propriedades do usuário, você pode monitorá-las nos modos 
 
 ![Lista de execuções de atividade com colunas para propriedades de usuário](media/monitor-visually/monitor-user-properties-image4.png)
 
+## <a name="configure-the-list-view"></a>Configurar o modo de exibição de lista
+
+### <a name="order-and-filter"></a>Ordenar e filtrar
+
+Alterne se as execuções de pipeline serão em ordem decrescente ou crescente de acordo com a hora de início da execução. Filtrar execuções de pipeline usando as seguintes colunas:
+
+| **Nome da coluna** | **Descrição** |
+| --- | --- |
+| Nome do pipeline | Filtre pelo nome do pipeline. |
+| Iniciar execução |  Determine o intervalo de tempo das execuções de pipeline exibidas. As opções incluem filtros rápidos para as **últimas 24 horas**, **semana passada**e **últimos 30 dias** ou para selecionar uma data e hora personalizadas. |
+| Status da execução | O filtro é executado por status: **êxito**, **falha**, **enfileirado**, **cancelado**ou **em andamento**. |
+| Anotações | Filtrar por marcas aplicadas a cada pipeline |
+| Execuções | Filtrar se você deseja ver os pipelines do reexecutei |
+
+![Opções de filtragem](media/monitor-visually/filter.png)
+
+### <a name="add-or-remove-columns"></a>Adicionar ou remover colunas
+Clique com o botão direito do mouse no cabeçalho da exibição de lista e escolha as colunas que você deseja exibir na exibição de lista.
+
+![Opções para colunas](media/monitor-visually/columns.png)
+
+### <a name="adjust-column-widths"></a>Ajustar larguras de coluna
+Aumente e diminua as larguras de coluna no modo de exibição de lista passando o mouse sobre o cabeçalho da coluna.
+
 ## <a name="rerun-activities-inside-a-pipeline"></a>Executar atividades novamente dentro de um pipeline
 
-Agora você pode executar novamente as atividades dentro de um pipeline. Selecione **Exibir execuções de atividade**e, em seguida, selecione a atividade no pipeline da qual ponto você deseja executar novamente o pipeline.
+Você pode executar novamente as atividades dentro de um pipeline. Selecione **Exibir execuções de atividade**e, em seguida, selecione a atividade no pipeline da qual ponto você deseja executar novamente o pipeline.
 
 ![Ver execuções de atividades](media/monitor-visually/rerun-activities-image1.png)
 
@@ -139,9 +126,11 @@ Você também pode exibir o histórico de reexecução para uma execução de pi
 
 ## <a name="gantt-views"></a>Exibições de Gantt
 
-Use exibições de Gantt para visualizar rapidamente os pipelines e as execuções de atividade. Você pode examinar o modo de exibição de Gantt por pipeline ou por anotações/marcas que você criou em seus pipelines.
+Use exibições de Gantt para visualizar rapidamente os pipelines e as execuções de atividade.
 
 ![Exemplo de um gráfico de Gantt](media/monitor-visually/gantt1.png)
+
+Você pode examinar o modo de exibição de Gantt por pipeline ou por anotações/marcas que você criou em seus pipelines.
 
 ![Anotações do gráfico de Gantt](media/monitor-visually/gantt2.png)
 
@@ -153,11 +142,6 @@ O comprimento da barra informa a duração do pipeline. Você também pode selec
 Selecione o ícone de **informações** no canto inferior esquerdo. Em seguida, selecione **viagens guiadas** para obter instruções passo a passo sobre como monitorar suas execuções de pipeline e de atividade.
 
 ![Tours guiados](media/monitor-visually/guided-tours.png)
-
-## <a name="feedback"></a>Comentários
-Selecione o ícone de **comentários** para nos enviar comentários sobre vários recursos ou problemas que você possa estar enfrentando.
-
-![Comentários](media/monitor-visually/feedback.png)
 
 ## <a name="alerts"></a>Alertas
 

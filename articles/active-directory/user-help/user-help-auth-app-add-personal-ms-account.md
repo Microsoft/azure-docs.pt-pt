@@ -1,6 +1,6 @@
 ---
-title: Adicionar um conta Microsoft pessoal a um aplicativo autenticador-Azure AD
-description: Como adicionar suas contas pessoais da Microsoft, como para Outlook.com ou Xbox LIVE ao aplicativo Microsoft Authenticator para verificação de dois fatores.
+title: Adicionar um conta Microsoft pessoal ao aplicativo Microsoft Authenticator-Azure AD
+description: Adicione contas pessoais da Microsoft, como para Outlook.com ou Xbox LIVE ao aplicativo Microsoft Authenticator para verificar sua identidade ao usar a verificação de dois fatores.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ca01aad76bfbeba0cf56be8ee74287a79f6346e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 28fd29c1f3f393c37c9e9a8d0995766258c2eb45
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820246"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278907"
 ---
-# <a name="add-your-personal-microsoft-accounts"></a>Adicionar suas contas pessoais da Microsoft
+# <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Adicionar contas pessoais da Microsoft ao aplicativo Microsoft Authenticator
 
 Adicione suas contas pessoais da Microsoft, como para Outlook.com e Xbox LIVE ao aplicativo Microsoft Authenticator para o processo de verificação de dois fatores padrão e o método de entrada de telefone sem senha.
 
