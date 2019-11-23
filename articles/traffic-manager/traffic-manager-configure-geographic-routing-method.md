@@ -1,63 +1,63 @@
 ---
-title: Configurar o roteamento de tráfego geográfico-Gerenciador de tráfego do Azure
-description: Este artigo explica como configurar o método de roteamento de tráfego geográfico usando o Gerenciador de tráfego do Azure
+title: Tutorial - Configure geographic traffic routing with Azure Traffic Manager
+description: This tutorial explains how to configure the geographic traffic routing method using Azure Traffic Manager
 services: traffic-manager
 author: asudbring
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: allensu
-ms.openlocfilehash: f15871705b9839f1c7a7c7f04f6f4a88641673fd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9de1f0b0adc4d82b666adcd4bc9b26e31e7750d6
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031956"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422806"
 ---
-# <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configurar o método de roteamento de tráfego geográfico usando o Gerenciador de tráfego
+# <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Tutorial: Configure the geographic traffic routing method using Traffic Manager
 
-O método de roteamento de tráfego geográfico permite direcionar o tráfego para pontos de extremidade específicos com base na localização geográfica onde as solicitações se originam. Este tutorial mostra como criar um perfil do Gerenciador de tráfego com esse método de roteamento e configurar os pontos de extremidade para receber tráfego de geografias específicos.
+The Geographic traffic routing method allows you to direct traffic to specific endpoints based on the geographic location where the requests originate. This tutorial shows you how to create a Traffic Manager profile with this routing method and configure the endpoints to receive traffic from specific geographies.
 
-## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de tráfego
+## <a name="create-a-traffic-manager-profile"></a>Create a Traffic Manager Profile
 
 1. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiver uma conta, pode inscrever-se para obter uma [avaliação gratuita durante um mês](https://azure.microsoft.com/free/).
 2. Clique em **Criar um recurso** > **Rede** > **Perfil do Gestor de Tráfego** > **Criar**.
-4. No **Criar perfil do Gerenciador de tráfego**:
-    1. Forneça um nome para seu perfil. Esse nome precisa ser exclusivo na zona trafficmanager.net. Para acessar o perfil do Gerenciador de tráfego, use o nome DNS `<profilename>.trafficmanager.net`.
-    2. Selecione o método de roteamento **geográfico** .
-    3. Selecione a assinatura na qual você deseja criar esse perfil.
-    4. Use um grupo de recursos existente ou crie um novo grupo de recursos no qual este perfil será colocado. Se você optar por criar um novo grupo de recursos, use a lista suspensa **local do grupo de recursos** para especificar o local do grupo de recursos. Essa configuração refere-se ao local do grupo de recursos e não tem impacto sobre o perfil do Gerenciador de tráfego implantado globalmente.
-    5. Depois de clicar em **criar**, seu perfil do Gerenciador de tráfego é criado e implantado globalmente.
+4. In the **Create Traffic Manager profile**:
+    1. Provide a name for your profile. This name needs to be unique within the trafficmanager.net zone. To access your Traffic Manager profile, you use the DNS name `<profilename>.trafficmanager.net`.
+    2. Select the **Geographic** routing method.
+    3. Select the subscription you want to create this profile under.
+    4. Use an existing resource group or create a new resource group to place this profile under. If you choose to create a new resource group, use the **Resource Group location** dropdown to specify the location of the resource group. This setting refers to the location of the resource group, and has no impact on the Traffic Manager profile that's deployed globally.
+    5. After you click **Create**, your Traffic Manager profile is created and deployed globally.
 
 ![Criar um perfil do Gestor de Tráfego](./media/traffic-manager-geographic-routing-method/create-traffic-manager-profile.png)
 
-## <a name="add-endpoints"></a>Adicionar pontos de extremidade
+## <a name="add-endpoints"></a>Add endpoints
 
-1. Procure o nome do perfil do Gerenciador de tráfego que você criou na barra de pesquisa do portal e clique no resultado quando ele for mostrado.
-2. Navegue até **configurações** -> **pontos de extremidade** no Gerenciador de tráfego.
-3. Clique em **Adicionar** para mostrar o **ponto de extremidade de adição**.
-3. Clique em **Adicionar** e, em **Adicionar ponto de extremidade** que é exibido, preencha da seguinte maneira:
-4. Selecione **tipo** , dependendo do tipo de ponto de extremidade que você está adicionando. Para perfis de roteamento geográfico usados na produção, é altamente recomendável usar tipos de ponto de extremidade aninhados que contenham um perfil filho com mais de um ponto de extremidade. Para obter mais detalhes, consulte [perguntas frequentes sobre métodos de roteamento de tráfego geográfico](traffic-manager-FAQs.md).
+1. Search for the Traffic Manager profile name you created in the portal’s search bar and click on the result when it is shown.
+2. Navigate to **Settings** -> **Endpoints** in Traffic Manager.
+3. Click **Add** to show the **Add Endpoint**.
+3. Click **Add** and in the **Add endpoint** that is displayed, complete as follows:
+4. Select **Type** depending upon the type of endpoint you are adding. For geographic routing profiles used in production, we strongly recommend using nested endpoint types containing a child profile with more than one endpoint. For more details, see [FAQs about geographic traffic routing methods](traffic-manager-FAQs.md).
 5. Indique um **Nome** pelo qual pretende reconhecer este ponto final.
-6. Determinados campos nesta página dependem do tipo de ponto de extremidade que você está adicionando:
-    1. Se você estiver adicionando um ponto de extremidade do Azure, selecione o **tipo de recurso de destino** e o **destino** com base no recurso para o qual você deseja direcionar o tráfego
-    2. Se você estiver adicionando um ponto de extremidade **externo** , forneça o **FQDN (nome de domínio totalmente qualificado)** para seu ponto de extremidade.
-    3. Se você estiver adicionando um **ponto de extremidade aninhado**, selecione o **recurso de destino** que corresponde ao perfil filho que você deseja usar e especifique a **contagem de pontos de extremidade filhos mínimos**.
-7. Na seção mapeamento geográfico, use a lista suspensa para adicionar as regiões de onde você deseja que o tráfego seja enviado para esse ponto de extremidade. Você deve adicionar pelo menos uma região e pode ter várias regiões mapeadas.
-8. Repita isso para todos os pontos de extremidade que você deseja adicionar a este perfil
+6. Certain fields on this page depend on the type of endpoint you are adding:
+    1. If you are adding an Azure endpoint, select the **Target resource type** and the **Target** based on the resource you want to direct traffic to
+    2. If you are adding an **External** endpoint, provide the **Fully-qualified domain name (FQDN)** for your endpoint.
+    3. If you are adding a **Nested endpoint**, select the **Target resource** that corresponds to the child profile you want to use and specify the **Minimum child endpoints count**.
+7. In the Geo-mapping section, use the drop down to add the regions from where you want traffic to be sent to this endpoint. You must add at least one region, and you can have multiple regions mapped.
+8. Repeat this for all endpoints you want to add under this profile
 
 ![Adicionar um ponto final do Gestor de Tráfego](./media/traffic-manager-geographic-routing-method/add-traffic-manager-endpoint.png)
 
-## <a name="use-the-traffic-manager-profile"></a>Usar o perfil do Gerenciador de tráfego
-1.  Na barra de pesquisa do portal, procure o nome do **perfil do Gerenciador de tráfego** que você criou na seção anterior e clique no perfil do Gerenciador de tráfego nos resultados exibidos.
+## <a name="use-the-traffic-manager-profile"></a>Use the Traffic Manager profile
+1.  In the portal’s search bar, search for the **Traffic Manager profile** name that you created in the preceding section and click on the traffic manager profile in the results that the displayed.
 2. Clique em **Descrição geral**.
-3. O **Perfil do Gestor de Tráfego** mostra o nome DNS do perfil que acabou de criar. Isso pode ser usado por qualquer cliente (por exemplo, navegando até ele usando um navegador da Web) para ser roteado para o ponto de extremidade correto conforme determinado pelo tipo de roteamento.  No caso de roteamento geográfico, o Traffic Manager examina o IP de origem da solicitação de entrada e determina a região da qual ele está se originando. Se essa região for mapeada para um ponto de extremidade, o tráfego será roteado para lá. Se essa região não estiver mapeada para um ponto de extremidade, o Gerenciador de tráfego retornará uma resposta de consulta NODATA.
+3. O **Perfil do Gestor de Tráfego** mostra o nome DNS do perfil que acabou de criar. This can be used by any clients (for example, by navigating to it using a web browser) to get routed to the right endpoint as determined by the routing type.  In the case of geographic routing, Traffic Manager looks at the source IP of the incoming request and determines the region from which it is originating. If that region is mapped to an endpoint, traffic is routed to there. If this region is not mapped to an endpoint, then Traffic Manager returns a NODATA query response.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [método de roteamento de tráfego geográfico](traffic-manager-routing-methods.md#geographic).
-- Saiba como [testar as configurações do Gerenciador de tráfego](traffic-manager-testing-settings.md).
+- Learn more about [Geographic traffic routing method](traffic-manager-routing-methods.md#geographic).
+- Learn how to [test Traffic Manager settings](traffic-manager-testing-settings.md).

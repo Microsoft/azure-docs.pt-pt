@@ -1,81 +1,81 @@
 ---
-title: Metadados com API GenerateAnswer-QnA Maker
+title: Metadata with GenerateAnswer API - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker permite que você adicione metadados, na forma de pares chave/valor, aos seus conjuntos de perguntas/respostas. Você pode filtrar os resultados para consultas de usuário e armazenar informações adicionais que podem ser usadas em conversas de acompanhamento.
+description: QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer sets. You can filter results to user queries, and store additional information that can be used in follow-up conversations.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 8f00ffeff4eb353fa70aa7df60b14c97d4b8e724
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 0190b94cc6195163de4d428c2cae0de3620bdb01
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554871"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422697"
 ---
-# <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API e os metadados do GenerateAnswer
+# <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Get an answer with the GenerateAnswer API and metadata
 
-Para obter a resposta prevista para a pergunta de um usuário, use a API GenerateAnswer. Ao publicar uma base de dados de conhecimento, você pode ver informações sobre como usar essa API na página **publicar** . Você também pode configurar a API para filtrar as respostas com base nas marcas de metadados e testar a base de dados de conhecimento do ponto de extremidade com o parâmetro de cadeia de caracteres de consulta de teste.
+To get the predicted answer to a user's question, use the GenerateAnswer API. When you publish a knowledge base, you can see information about how to use this API on the **Publish** page. You can also configure the API to filter answers based on metadata tags, and test the knowledge base from the endpoint with the test query string parameter.
 
-QnA Maker permite adicionar metadados, na forma de pares de chave e valor, aos seus conjuntos de perguntas e respostas. Você pode usar essas informações para filtrar os resultados para consultas de usuário e armazenar informações adicionais que podem ser usadas em conversas de acompanhamento. Para obter mais informações, consulte [base de dados de conhecimento](../Concepts/knowledge-base.md).
+QnA Maker lets you add metadata, in the form of key and value pairs, to your sets of questions and answers. You can then use this information to filter results to user queries, and to store additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../Concepts/knowledge-base.md).
 
 <a name="qna-entity"></a>
 
-## <a name="store-questions-and-answers-with-a-qna-entity"></a>Armazenar perguntas e respostas com uma entidade QnA
+## <a name="store-questions-and-answers-with-a-qna-entity"></a>Store questions and answers with a QnA entity
 
-É importante entender como QnA Maker armazena os dados de pergunta e resposta. A ilustração a seguir mostra uma entidade QnA:
+It's important to understand how QnA Maker stores the question and answer data. The following illustration shows a QnA entity:
 
-![Ilustração de uma entidade QnA](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
+![Illustration of a QnA entity](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
 
-Cada entidade QnA tem uma ID exclusiva e persistente. Você pode usar a ID para fazer atualizações em uma entidade QnA específica.
+Each QnA entity has a unique and persistent ID. You can use the ID to make updates to a particular QnA entity.
 
 <a name="generateanswer-api"></a>
 
-## <a name="get-answer-predictions-with-the-generateanswer-api"></a>Obter previsões de resposta com a API GenerateAnswer
+## <a name="get-answer-predictions-with-the-generateanswer-api"></a>Get answer predictions with the GenerateAnswer API
 
-Você usa a [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) em seu bot ou aplicativo para consultar sua base de dados de conhecimento com uma pergunta de usuário, para obter a melhor correspondência dos conjuntos de perguntas e respostas.
+You use the [GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) in your bot or application to query your knowledge base with a user question, to get the best match from the question and answer sets.
 
 <a name="generateanswer-endpoint"></a>
 
-## <a name="publish-to-get-generateanswer-endpoint"></a>Publicar para obter ponto de extremidade GenerateAnswer 
+## <a name="publish-to-get-generateanswer-endpoint"></a>Publish to get GenerateAnswer endpoint 
 
-Depois de publicar sua base de dados de conhecimento, seja no [portal de QnA Maker](https://www.qnamaker.ai)ou usando a [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), você pode obter os detalhes do seu ponto de extremidade GenerateAnswer.
+After you publish your knowledge base, either from the [QnA Maker portal](https://www.qnamaker.ai), or by using the [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), you can get the details of your GenerateAnswer endpoint.
 
-Para obter os detalhes do ponto de extremidade:
+To get your endpoint details:
 1. Inicie sessão em [https://www.qnamaker.ai](https://www.qnamaker.ai).
-1. Em **minhas bases de dados de conhecimento**, selecione **Exibir código** para sua base de dados de conhecimento.
-    ![Screenshot de minhas bases de dados de conhecimento ](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
-1. Obtenha os detalhes do ponto de extremidade do GenerateAnswer.
+1. In **My knowledge bases**, select **View Code** for your knowledge base.
+    ![Screenshot of My knowledge bases](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
+1. Get your GenerateAnswer endpoint details.
 
-    ![Captura de tela dos detalhes do ponto de extremidade](../media/qnamaker-how-to-metadata-usage/view-code.png)
+    ![Screenshot of endpoint details](../media/qnamaker-how-to-metadata-usage/view-code.png)
 
-Você também pode obter os detalhes do ponto de extremidade na guia **configurações** da sua base de dados de conhecimento.
+You can also get your endpoint details from the **Settings** tab of your knowledge base.
 
 <a name="generateanswer-request"></a>
 
-## <a name="generateanswer-request-configuration"></a>Configuração de solicitação do GenerateAnswer
+## <a name="generateanswer-request-configuration"></a>GenerateAnswer request configuration
 
-Você chama GenerateAnswer com uma solicitação HTTP POST. Para obter um exemplo de código que mostra como chamar GenerateAnswer, consulte os [guias de início rápido](../quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base). 
+You call GenerateAnswer with an HTTP POST request. For sample code that shows how to call GenerateAnswer, see the [quickstarts](../quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base). 
 
-A solicitação POST usa:
+The POST request uses:
 
-* [Parâmetros de URI](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters) necessários
-* [Propriedade de cabeçalho](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)necessária, `Authorization`, para segurança
-* [Propriedades do corpo](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)necessárias. 
+* Required [URI parameters](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
+* Required [header property](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer), `Authorization`, for security
+* Required [body properties](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto). 
 
-A URL GenerateAnswer tem o seguinte formato: 
+The GenerateAnswer URL has the following format: 
 
 ```
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-Lembre-se de definir a propriedade de cabeçalho HTTP de `Authorization` com um valor da cadeia de caracteres `EndpointKey` com um espaço à direita, em seguida, a chave do ponto de extremidade foi encontrada na página de **configurações** .
+Remember to set the HTTP header property of `Authorization` with a value of the string `EndpointKey` with a trailing space then the endpoint key found on the **Settings** page.
 
-Um exemplo de corpo JSON é semelhante a:
+An example JSON body looks like:
 
 ```json
 {
@@ -93,15 +93,15 @@ Um exemplo de corpo JSON é semelhante a:
 }
 ```
 
-Saiba mais sobre o [rankerType](../concepts/best-practices.md#choosing-ranker-type).
+Learn more about [rankerType](../concepts/best-practices.md#choosing-ranker-type).
 
-O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de limite. 
+The previous JSON requested only answers that are at 30% or above the threshold score. 
 
 <a name="generateanswer-response"></a>
 
-## <a name="generateanswer-response-properties"></a>Propriedades de resposta do GenerateAnswer
+## <a name="generateanswer-response-properties"></a>GenerateAnswer response properties
 
-A [resposta](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) é um objeto JSON, incluindo todas as informações de que você precisa para exibir a resposta e o próximo ativar a conversa, se disponível.
+The [response](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) is a JSON object including all the information you need to display the answer and the next turn in the conversation, if available.
 
 ```json
 {
@@ -125,11 +125,11 @@ A [resposta](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerrunti
 }
 ```
 
-O JSON anterior respondeu com uma resposta com uma pontuação de 38,5%. 
+The previous JSON responded with an answer with a score of 38.5%. 
 
-## <a name="use-qna-maker-with-a-bot-in-c"></a>Usar QnA Maker com um bot emC#
+## <a name="use-qna-maker-with-a-bot-in-c"></a>Use QnA Maker with a bot in C#
 
-A estrutura de bot fornece acesso às propriedades do QnA Maker com a [API getrespondi](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
+The bot framework provides access to the QnA Maker's properties with the [getAnswer API](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -144,13 +144,13 @@ qnaOptions.ScoreThreshold = 0.3F;
 var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
 ```
 
-O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de limite. 
+The previous JSON requested only answers that are at 30% or above the threshold score. 
 
-O bot de suporte tem [um exemplo](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) com esse código.
+The Support bot has [an example](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) with this code.
 
-## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Usar QnA Maker com um bot no node. js
+## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Use QnA Maker with a bot in Node.js
 
-A estrutura de bot fornece acesso às propriedades do QnA Maker com a [API getrespondi](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
+The bot framework provides access to the QnA Maker's properties with the [getAnswer API](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');
@@ -164,25 +164,25 @@ var qnaMakerOptions = {
 var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
 ```
 
-O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de limite. 
+The previous JSON requested only answers that are at 30% or above the threshold score. 
 
-O bot de suporte tem [um exemplo](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) com esse código.
+The Support bot has [an example](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) with this code.
 
 <a name="metadata-example"></a>
 
-## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>Usar metadados para filtrar respostas por marcas de metadados personalizadas
+## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>Use metadata to filter answers by custom metadata tags
 
-A adição de metadados permite filtrar as respostas por essas marcas de metadados. Adicione a coluna de metadados do menu de **Opções de exibição** . Adicione metadados à sua base de dados de conhecimento selecionando o ícone metadados **+** para adicionar um par de metadados. Esse par consiste em uma chave e um valor.
+Adding metadata allows you to filter the answers by these metadata tags. Add the metadata column from the **View Options** menu. Add metadata to your knowledge base by selecting the metadata **+** icon to add a metadata pair. This pair consists of one key and one value.
 
-![Captura de tela da adição de metadados](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
+![Screenshot of adding metadata](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
 <a name="filter-results-with-strictfilters-for-metadata-tags"></a>
 
-## <a name="filter-results-with-strictfilters-for-metadata-tags"></a>Filtrar resultados com strictFilters para marcas de metadados
+## <a name="filter-results-with-strictfilters-for-metadata-tags"></a>Filter results with strictFilters for metadata tags
 
-Considere a pergunta do usuário "quando este hotel é fechado?", em que a intenção é implícita para o restaurante "Paradise".
+Consider the user question "When does this hotel close?", where the intent is implied for the restaurant "Paradise."
 
-Como os resultados são necessários apenas para o restaurante "Paradise", você pode definir um filtro na chamada GenerateAnswer nos metadados "nome do restaurante". O exemplo a seguir mostra isso:
+Because results are required only for the restaurant "Paradise", you can set a filter in the GenerateAnswer call on the metadata "Restaurant Name". The following example shows this:
 
 ```json
 {
@@ -198,9 +198,9 @@ Como os resultados são necessários apenas para o restaurante "Paradise", você
 
 <a name="keep-context"></a>
 
-## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Usar resultados de perguntas e respostas para manter o contexto da conversa
+## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Use question and answer results to keep conversation context
 
-A resposta para o GenerateAnswer contém as informações de metadados correspondentes do conjunto de perguntas e respostas correspondentes. Você pode usar essas informações em seu aplicativo cliente para armazenar o contexto da conversa anterior para uso em conversas posteriores. 
+The response to the GenerateAnswer contains the corresponding metadata information of the matched question and answer set. You can use this information in your client application to store the context of the previous conversation for use in later conversations. 
 
 ```json
 {
@@ -228,11 +228,11 @@ A resposta para o GenerateAnswer contém as informações de metadados correspon
 }
 ```
 
-## <a name="match-questions-only-by-text"></a>Somente correspondência de perguntas, por texto
+## <a name="match-questions-only-by-text"></a>Match questions only, by text
 
-Por padrão, QnA Maker pesquisa perguntas e respostas. Se você quiser pesquisar apenas as perguntas, para gerar uma resposta, use o `RankerType=QuestionOnly` no corpo da POSTAgem da solicitação GenerateAnswer.
+By default, QnA Maker searches through questions and answers. If you want to search through questions only, to generate an answer, use the `RankerType=QuestionOnly` in the POST body of the GenerateAnswer request.
 
-Você pode pesquisar os KB publicados, usando `isTest=false`, ou na KB de teste usando `isTest=true`.
+You can search through the published kb, using `isTest=false`, or in the test kb using `isTest=true`.
 
 ```json
 {
@@ -243,21 +243,21 @@ Você pode pesquisar os KB publicados, usando `isTest=false`, ou na KB de teste 
 }
 ```
 
-## <a name="common-http-errors"></a>Erros comuns de HTTP
+## <a name="common-http-errors"></a>Common HTTP errors
 
 |Código|Explicação|
 |:--|--|
 |2xx|Êxito|
-|400|Os parâmetros da solicitação estão incorretos, o que significa que os parâmetros necessários estão ausentes, malformados ou muito grandes|
-|400|O corpo da solicitação está incorreto, o que significa que o JSON está ausente, malformado ou muito grande|
-|401|Chave inválida|
-|403|Proibido-você não tem as permissões corretas|
-|404|O KB não existe|
-|410|Esta API foi preterida e não está mais disponível|
+|400|Request's parameters are incorrect meaning the required parameters are missing, malformed, or too large|
+|400|Request's body is incorrect meaning the JSON is missing, malformed, or too large|
+|401|Invalid key|
+|403|Forbidden - you do not have correct permissions|
+|404|KB doesn't exist|
+|410|This API is deprecated and is no longer available|
 
 ## <a name="next-steps"></a>Passos seguintes
 
-A página **publicar** também fornece informações para gerar uma resposta com o [postmaster](../Quickstarts/get-answer-from-kb-using-postman.md) e a [ondulação](../Quickstarts/get-answer-from-kb-using-curl.md). 
+The **Publish** page also provides information to [generate an answer](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) with Postman or cURL.
 
 > [!div class="nextstepaction"]
-> [Criar um bot da base de dados de conhecimento](../tutorials/integrate-qnamaker-luis.md)
+> [Create a knowledge base bot](../tutorials/integrate-qnamaker-luis.md)

@@ -1,6 +1,6 @@
 ---
-title: Tutorial - conceder acesso de um utilizador aos recursos do Azure com o modelo RBAC e do Resource Manager | Documentos da Microsoft
-description: Saiba como conceder um acesso de utilizador para recursos do Azure com o controlo de acesso baseado em funções (RBAC) com o modelo Azure Resource Manager.
+title: Tutorial - Grant a user access to Azure resources using RBAC and Resource Manager template
+description: Learn how to grant a user access to Azure resources using role-based access control (RBAC) by using Azure Resource Manager template in this tutorial.
 services: role-based-access-control,azure-resource-manager
 documentationCenter: ''
 author: rolyon
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
-ms.openlocfilehash: edb20221862e6439b3bc574995f4037cbc95f8f9
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: ed143f85b4372348baa1d74b4ec7a7447943a74f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668857"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74418482"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Tutorial: Conceder um acesso de utilizador aos recursos do Azure com o modelo RBAC e do Resource Manager
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Tutorial: Grant a user access to Azure resources using RBAC and Resource Manager template
 
-[Controlo de acesso baseado em funções (RBAC)](overview.md) é a maneira que gerencie o acesso aos recursos do Azure. Neste tutorial, crie um grupo de recursos e conceder um acesso de utilizador para criar e gerir máquinas virtuais no grupo de recursos. Este tutorial concentra-se sobre o processo de implantação de um modelo do Resource Manager para conceder o acesso. Para obter mais informações sobre como desenvolver modelos do Resource Manager, consulte [documentação do Resource Manager](/azure/azure-resource-manager/) e o [referência de modelo](/azure/templates/microsoft.authorization/allversions
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. In this tutorial, you create a resource group and grant a user access to create and manage virtual machines in the resource group. This tutorial focuses on the process of deploying a Resource Manager template to grant the access. For more information on developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.authorization/allversions
 ).
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Conceder acesso para um utilizador com um âmbito de grupo de recursos
+> * Grant access for a user at a resource group scope
 > * Validar a implementação
 > * Limpeza
 
@@ -36,15 +36,15 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para adicionar e remover atribuições de função, tem de ter:
+To add and remove role assignments, you must have:
 
-* `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tal como [administrador de acesso de utilizador](built-in-roles.md#user-access-administrator) ou [proprietário](built-in-roles.md#owner)
+* `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 
 ## <a name="grant-access"></a>Conceder acesso
 
-O modelo utilizado neste início rápido é partir [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). Autorização mais Azure relacionadas com modelos podem ser encontrados [aqui](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization).
+The template used in this quickstart is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). More Azure authorization related templates can be found [here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization).
 
-Para implementar o modelo, selecione **experimente** para abrir o Azure Cloud shell e, em seguida, cole o seguinte script do PowerShell para a janela do shell. Colar o código, com o botão direito da janela do shell e, em seguida, selecione **colar**.
+To deploy the template, select **Try it** to open the Azure Cloud shell, and then paste the following PowerShell script into the shell window. To paste the code, right-click the shell window and then select **Paste**.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -64,14 +64,14 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 ## <a name="validate-the-deployment"></a>Validar a implementação
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Abra o grupo de recursos criado no último procedimento. O nome predefinido é o nome do projeto com **rg** anexado.
+1. Open the resource group created in the last procedure. The default name is the project name with **rg** appended.
 1. Selecione **Controlo de acesso (IAM)** no menu da esquerda.
-1. Selecione **atribuições de funções**. 
-1. Na **nome**, introduza o endereço de e-mail que escreveu no último procedimento. Deverá ver o utilizador com o endereço de e-mail tem o **contribuinte de Máquina Virtual** função.
+1. Selecione **Atribuições de funções**. 
+1. In **Name**, enter the email address you typed in the last procedure. You shall see the user with the email address has the **Virtual Machine Contributor** role.
 
 ## <a name="clean-up"></a>Limpeza
 
-Para remover o grupo de recursos criado no último procedimento, selecione **experimente** para abrir o Azure Cloud shell e, em seguida, cole o seguinte script do PowerShell para a janela do shell.
+To remove the resource group created in the last procedure, select **Try it** to open the Azure Cloud shell, and then paste the following PowerShell script into the shell window.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a same project name you used in the last procedure"
@@ -80,7 +80,7 @@ $resourceGroupName = "${projectName}rg"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conceder um acesso de utilizador aos recursos do Azure utilizando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Tutorial: Grant a user access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)

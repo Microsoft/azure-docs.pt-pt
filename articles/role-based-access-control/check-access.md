@@ -1,6 +1,6 @@
 ---
-title: Início rápido - vista o acesso a um utilizador tem de recursos do Azure | Documentos da Microsoft
-description: Saiba como ver o acesso um utilizador ou de outra entidade de segurança tem de recursos do Azure com o controlo de acesso baseado em funções (RBAC) e o portal do Azure.
+title: Quickstart - View the access a user has to Azure resources
+description: In this QuickStart, learn how to view the access a user or other security principal has to Azure resources using role-based access control (RBAC) and the Azure portal.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,44 +14,44 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f388215b2829066906ee7faf41abb17307bf3fff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b23c10fc2a551b8044b208911dbc048968b06564
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782352"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419613"
 ---
-# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Início rápido: Ver o acesso que um utilizador tem de recursos do Azure
+# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Quickstart: View the access a user has to Azure resources
 
-Pode utilizar o **controlo de acesso (IAM)** painel no [controlo de acesso baseado em funções (RBAC)](overview.md) para ver o acesso um utilizador ou de outra entidade de segurança tem de recursos do Azure. No entanto, algumas vezes é preciso ver rapidamente o acesso a um único utilizador ou de outra entidade de segurança. A maneira mais fácil de fazê-lo é utilizar o **verificar acesso** recurso no portal do Azure.
+You can use the **Access control (IAM)** blade in [role-based access control (RBAC)](overview.md) to view the access a user or another security principal has to Azure resources. However, sometimes you just need to quickly view the access for a single user or another security principal. The easiest way to do this is to use the **Check access** feature in the Azure portal.
 
-## <a name="view-role-assignments"></a>Ver atribuições de funções
+## <a name="view-role-assignments"></a>View role assignments
 
- A maneira como exibir o acesso para um utilizador é listar as suas atribuições de funções. Siga estes passos para ver as atribuições de funções para um único utilizador, grupo, principal de serviço ou uma identidade gerida no âmbito da subscrição.
+ The way that you view the access for a user is to list their roles assignments. Follow these steps to view the role assignments for a single user, group, service principal, or managed identity at the subscription scope.
 
-1. No portal do Azure, clique em **todos os serviços** e, em seguida **subscrições**.
+1. In the Azure portal, click **All services** and then **Subscriptions**.
 
-1. Clique na sua subscrição.
+1. Click your subscription.
 
-1. Clique em **controlo de acesso (IAM)**.
+1. Clique em **Controlo de acesso (IAM)** .
 
-1. Clique nas **verificar acesso** separador.
+1. Click the **Check access** tab.
 
-    ![Controlo de acesso - separador de acesso de verificação](./media/check-access/access-control-check-access.png)
+    ![Access control - Check access tab](./media/check-access/access-control-check-access.png)
 
-1. Na **encontrar** , selecione o tipo de entidade de segurança que pretende verificar o acesso.
+1. In the **Find** list, select the type of security principal you want to check access for.
 
-1. Na caixa de pesquisa, introduza uma cadeia de caracteres para procurar o diretório para os nomes a apresentar, endereços de e-mail ou identificadores de objetos.
+1. In the search box, enter a string to search the directory for display names, email addresses, or object identifiers.
 
-    ![Verifique a lista de seleção de acesso](./media/check-access/check-access-select.png)
+    ![Check access select list](./media/check-access/check-access-select.png)
 
-1. Clique a entidade de segurança para abrir o **atribuições** painel.
+1. Click the security principal to open the **assignments** pane.
 
-    ![Painel de atribuições](./media/check-access/check-access-assignments.png)
+    ![assignments pane](./media/check-access/check-access-assignments.png)
 
-    Neste painel, pode ver as funções atribuídas para a entidade de segurança selecionado e o escopo. Se existirem quaisquer negar atribuições neste âmbito ou herdadas para este âmbito, estes serão apresentados.
+    On this pane, you can see the roles assigned to the selected security principal and the scope. If there are any deny assignments at this scope or inherited to this scope, they will be listed.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conceder um acesso de utilizador aos recursos do Azure utilizando o RBAC e o portal do Azure](quickstart-assign-role-user-portal.md)
+> [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)

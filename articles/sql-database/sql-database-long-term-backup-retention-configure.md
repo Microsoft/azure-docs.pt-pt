@@ -1,6 +1,6 @@
 ---
 title: Gerir a retenção de longa duração de cópia de segurança
-description: Saiba como armazenar backups automatizados no armazenamento de SQL Azure e restaurá-los
+description: Learn how to store automated backups in the SQL Azure storage and then restore them
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -12,203 +12,197 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 08/21/2019
-ms.openlocfilehash: ea9a1da775a64f8ee405ced52df01d0824836c42
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a560f4f1399792a7b150b37c3c048ccc0079b98d
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820026"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420802"
 ---
-# <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerenciar retenção de backup de longo prazo do banco de dados SQL do Azure
+# <a name="manage-azure-sql-database-long-term-backup-retention"></a>Manage Azure SQL Database long-term backup retention
 
-No banco de dados SQL do Azure, você pode configurar um banco de dados único ou em pool com uma EPD (política de retenção de backup) de [longo prazo](sql-database-long-term-retention.md) para reter automaticamente os backups de banco de dados em contêineres de armazenamento de BLOBs do Azure separados por até 10 anos. Em seguida, você pode recuperar um banco de dados usando esses backups usando o portal do Azure ou o PowerShell.
-
-> [!IMPORTANT]
-> Atualmente, o [instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance.md) não oferece suporte à retenção de backup de longo prazo.
-
-## <a name="use-the-azure-portal-to-manage-long-term-backups"></a>Usar o portal do Azure para gerenciar backups de longo prazo
-
-As seções a seguir mostram como usar o portal do Azure para configurar a retenção de longo prazo, Exibir backups em retenção de longo prazo e restaurar o backup de retenção de longo prazo.
-
-### <a name="configure-long-term-retention-policies"></a>Configurar políticas de retenção de longo prazo
-
-Você pode configurar o banco de dados SQL para [manter backups automatizados](sql-database-long-term-retention.md) por um período maior que o período de retenção para sua camada de serviço. 
-
-1. No portal do Azure, selecione o SQL Server e clique em **gerenciar backups**. Na guia **Configurar políticas** , *marque a caixa de seleção do banco de dados no qual você deseja definir ou modificar políticas de retenção de backup de longo prazo*. Se a caixa de seleção ao lado do banco de dados não estiver selecionada, as alterações da política não serão aplicadas a esse banco de dados.  
-
-   ![link gerenciar backups](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
-
-2. No painel **Configurar políticas** , selecione se deseja reter backups semanais, mensais ou anuais e especifique o período de retenção para cada um. 
-
-   ![configurar políticas](./media/sql-database-long-term-retention/ltr-configure-policies.png)
-
-3. Ao concluir, clique em **aplicar**.
+In Azure SQL Database, you can configure a single or a pooled database with a [long-term backup retention](sql-database-long-term-retention.md) policy (LTR) to automatically retain the database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups using the Azure portal or PowerShell.
 
 > [!IMPORTANT]
-> Quando você habilita uma política de retenção de backup de longo prazo, pode levar até 7 dias para o primeiro backup ficar visível e disponível para restauração. Para obter detalhes sobre o Cadance de backup EPD, consulte [retenção de backup de longo prazo](sql-database-long-term-retention.md).
+> [Azure SQL database managed instance](sql-database-managed-instance.md) does not currently support long-term backup retention.
 
-### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Exibir backups e restaurar a partir de um backup usando portal do Azure
+## <a name="using-azure-portal"></a>Utilizar o portal do Azure
 
-Exiba os backups que são retidos para um banco de dados específico com uma política EPD e restaure desses backups. 
+The following sections show you how to use the Azure portal to configure the long-term retention, view backups in long-term retention, and restore backup from long-term retention.
 
-1. No portal do Azure, selecione o SQL Server e clique em **gerenciar backups**. Na guia **backups disponíveis** , selecione o banco de dados para o qual você deseja ver os backups disponíveis.
+### <a name="configure-long-term-retention-policies"></a>Configure long-term retention policies
 
-   ![Selecionar Banco de dados](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
+You can configure SQL Database to [retain automated backups](sql-database-long-term-retention.md) for a period longer than the retention period for your service tier.
 
-3. No painel **backups disponíveis** , examine os backups disponíveis. 
+1. In the Azure portal, select your SQL server and then click **Manage Backups**. On the **Configure policies** tab, select the checkbox for the database on which you want to set or modify long-term backup retention policies. If the checkbox next to the database is not selected, the changes for the policy will not apply to that database.  
 
-   ![Exibir backups](./media/sql-database-long-term-retention/ltr-available-backups.png)
+   ![manage backups link](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
-4. Selecione o backup do qual você deseja restaurar e, em seguida, especifique o novo nome do banco de dados.
+2. In the **Configure policies** pane, select if want to retain weekly, monthly or yearly backups and specify the retention period for each.
+
+   ![configure policies](./media/sql-database-long-term-retention/ltr-configure-policies.png)
+
+3. When complete, click **Apply**.
+
+> [!IMPORTANT]
+> When you enable a long-term backup retention policy, it may take up to 7 days for the first backup to become visible and available to restore. For details of the LTR backup cadance, see [long-term backup retention](sql-database-long-term-retention.md).
+
+### <a name="view-backups-and-restore-from-a-backup"></a>View backups and restore from a backup
+
+View the backups that are retained for a specific database with a LTR policy, and restore from those backups.
+
+1. In the Azure portal, select your SQL server and then click **Manage Backups**. On the **Available backups** tab, select the database for which you want to see available backups.
+
+   ![select database](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
+
+1. In the **Available backups** pane, review the available backups.
+
+   ![view backups](./media/sql-database-long-term-retention/ltr-available-backups.png)
+
+1. Select the backup from which you want to restore, and then specify the new database name.
 
    ![restore](./media/sql-database-long-term-retention/ltr-restore.png)
 
-5. Clique em **OK** para restaurar o banco de dados do backup no armazenamento SQL do Azure para o novo banco de dados.
+1. Click **OK** to restore your database from the backup in Azure SQL storage to the new database.
 
-6. Na barra de ferramentas, clique no ícone de notificação para ver o estado da tarefa de restauro.
+1. Na barra de ferramentas, clique no ícone de notificação para ver o estado da tarefa de restauro.
 
    ![progresso da tarefa de restauro](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
-5. Quando o trabalho de restauração for concluído, abra a página bancos de dados **SQL** para exibir o banco de dados recém restaurado.
+1. When the restore job is completed, open the **SQL databases** page to view the newly restored database.
 
 > [!NOTE]
 > A partir daqui, pode ligar à base de dados restaurada através do o SQL Server Management Studio para efetuar tarefas necessárias, bem como para [extrair alguns dados da base de dados restaurada para copiá-los para a base de dados existente ou para eliminar a base de dados existente e mudar o nome da base de dados restaurada para o nome da base de dados existente](sql-database-recovery-using-backups.md#point-in-time-restore).
->
 
-## <a name="use-powershell-to-manage-long-term-backups"></a>Usar o PowerShell para gerenciar backups de longo prazo
+## <a name="using-powershell"></a>Utilizar o PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
-As seções a seguir mostram como usar o PowerShell para configurar a retenção de backup de longo prazo, Exibir backups no armazenamento do SQL Azure e restaurar de um backup no armazenamento SQL do Azure.
+The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure SQL storage, and restore from a backup in Azure SQL storage.
 
+### <a name="rbac-roles-to-manage-long-term-retention"></a>RBAC roles to manage long-term retention
 
-### <a name="rbac-roles-to-manage-long-term-retention"></a>Funções de RBAC para gerenciar a retenção de longo prazo
+For **Get-AzSqlDatabaseLongTermRetentionBackup** and **Restore-AzSqlDatabase**, you will need to have one of the following roles:
 
-Para **Get-AzSqlDatabaseLongTermRetentionBackup** e **Restore-AzSqlDatabase**, você precisará ter uma das seguintes funções:
+- Subscription Owner role or
+- SQL Server Contributor role or
+- Custom role with the following permissions:
 
-- Função de proprietário da assinatura ou
-- SQL Server função colaborador ou
-- Função personalizada com as seguintes permissões:
+   Microsoft.Sql/locations/longTermRetentionBackups/read  Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read  Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
 
-   Microsoft. SQL/Locations/longTermRetentionBackups/Read Microsoft. SQL/Locations/longTermRetentionServers/longTermRetentionBackups/Read Microsoft. SQL/Locations/longTermRetentionServers/longTermRetentionDatabases/ longTermRetentionBackups/leitura
- 
-Para **Remove-AzSqlDatabaseLongTermRetentionBackup**, você precisará ter uma das seguintes funções:
+For **Remove-AzSqlDatabaseLongTermRetentionBackup**, you will need to have one of the following roles:
 
-- Função de proprietário da assinatura ou
-- Função personalizada com a seguinte permissão:
+- Subscription Owner role or
+- Custom role with the following permission:
 
-   Microsoft. SQL/Locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/Delete
-
+   Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
 > [!NOTE]
-> A função colaborador de SQL Server não tem permissão para excluir backups EPD.
+> The SQL Server Contributor role does not have permission to delete LTR backups.
 
-As permissões de RBAC podem ser concedidas em escopo de *assinatura* ou *grupo de recursos* . No entanto, para acessar backups EPD que pertencem a um servidor descartado, a permissão deve ser concedida no escopo da *assinatura* desse servidor.
+RBAC permissions could be granted in either *subscription* or *resource group* scope. However, to access LTR backups that belong to a dropped server, the permission must be granted in the *subscription* scope of that server.
 
+- Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
-### <a name="create-an-ltr-policy"></a>Criar uma política EPD
+### <a name="create-an-ltr-policy"></a>Create an LTR policy
 
 ```powershell
-# Get the SQL server 
-# $subId = “{subscription-id}”
-# $serverName = “{server-name}”
-# $resourceGroup = “{resource-group-name}” 
-# $dbName = ”{database-name}”
+# get the SQL server
+$subId = "<subscriptionId>"
+$serverName = "<serverName>"
+$resourceGroup = "<resourceGroupName>"
+$dbName = "<databaseName>"
 
 Connect-AzAccount
 Select-AzSubscription -SubscriptionId $subId
 
-# get the server
 $server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroup
 
 # create LTR policy with WeeklyRetention = 12 weeks. MonthlyRetention and YearlyRetention = 0 by default.
-Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W 
+Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName `
+    -ResourceGroupName $resourceGroup -WeeklyRetention P12W
 
 # create LTR policy with WeeklyRetention = 12 weeks, YearlyRetention = 5 years and WeekOfYear = 16 (week of April 15). MonthlyRetention = 0 by default.
-Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
+Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName `
+    -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
 ```
 
-### <a name="view-ltr-policies"></a>Exibir políticas EPD
-Este exemplo mostra como listar as políticas EPD dentro de um servidor
+### <a name="view-ltr-policies"></a>View LTR policies
+
+This example shows how to list the LTR policies within a server
 
 ```powershell
-# Get all LTR policies within a server
-$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | Get-AzSqlDatabaseLongTermRetentionPolicy -Current 
+# get all LTR policies within a server
+$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | `
+    Get-AzSqlDatabaseLongTermRetentionPolicy -Current
 
-# Get the LTR policy of a specific database 
-$ltrPolicies = Get-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup -Current
-```
-### <a name="clear-an-ltr-policy"></a>Limpar uma política EPD
-Este exemplo mostra como limpar uma política EPD de um banco de dados
-
-```powershell
-Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -RemovePolicy
+# get the LTR policy of a specific database
+$ltrPolicies = Get-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName `
+    -ResourceGroupName $resourceGroup -Current
 ```
 
-### <a name="view-ltr-backups"></a>Exibir backups EPD
+### <a name="clear-an-ltr-policy"></a>Clear an LTR policy
 
-Este exemplo mostra como listar os backups EPD em um servidor. 
+This example shows how to clear an LTR policy from a database
 
 ```powershell
-# List all LTR backups under the current subscription in a specific Azure region 
-# The list includes backups for existing servers and dropped servers grouped by the logical database id.
-# Within each group they are ordered by the timestamp, the earliest backup first.
-# Requires Subscription scope permission
-$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location 
+Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName `
+    -ResourceGroupName $resourceGroup -RemovePolicy
+```
 
-# List the LTR backups under a specific resource group in a specific Azure region 
-# The list includes backups from the existing servers only grouped by the logical database id.
-# Within each group they are ordered by the timestamp, the earliest backup first. 
-$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ResourceGroupName $resourceGroup
+### <a name="view-ltr-backups"></a>View LTR backups
 
-# List the LTR backups under an existing server
-# The list includes backups from the existing servers only grouped by the logical database id.
-# Within each group they are ordered by the timestamp, the earliest backup first. 
-$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ResourceGroupName $resourceGroup -ServerName $serverName
+This example shows how to list the LTR backups within a server.
 
-# List the LTR backups for a specific database 
-# The backups are ordered by the timestamp, the earliest backup first. 
+```powershell
+# get the list of all LTR backups in a specific Azure region
+# backups are grouped by the logical database id, within each group they are ordered by the timestamp, the earliest backup first
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location
+
+# get the list of LTR backups from the Azure region under the named server
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName
+
+# get the LTR backups for a specific database from the Azure region under the named server
 $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -DatabaseName $dbName
 
-# List LTR backups only from live databases (you have option to choose All/Live/Deleted)
-# The list includes backups for existing servers and dropped servers grouped by the logical database id.
-# Within each group they are ordered by the timestamp, the earliest backup first.  
-# Requires Subscription scope permission
+# list LTR backups only from live databases (you have option to choose All/Live/Deleted)
 $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -DatabaseState Live
 
-# Only list the latest LTR backup for each database under a server
+# only list the latest LTR backup for each database
 $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -OnlyLatestPerDatabase
 ```
 
-### <a name="delete-ltr-backups"></a>Excluir backups EPD
+### <a name="delete-ltr-backups"></a>Delete LTR backups
 
-Este exemplo mostra como excluir um backup EPD da lista de backups.
+This example shows how to delete an LTR backup from the list of backups.
 
 ```powershell
-# Remove the earliest backup from the list of backups
+# remove the earliest backup
 $ltrBackup = $ltrBackups[0]
 Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
-> [!IMPORTANT]
-> Excluir o backup EPD não é reversível. Para excluir um backup EPD depois que o servidor tiver sido excluído, você deverá ter a permissão de escopo da assinatura. Você pode configurar notificações sobre cada exclusão em Azure Monitor filtrando para a operação ' exclui um backup de retenção de longo prazo '. O log de atividades contém informações sobre quem e quando fez a solicitação. Consulte [criar alertas do log de atividades](../azure-monitor/platform/alerts-activity-log.md) para obter instruções detalhadas.
->
 
-### <a name="restore-from-ltr-backups"></a>Restaurar de backups EPD
-Este exemplo mostra como restaurar de um backup EPD. Observe que essa interface não foi alterada, mas o parâmetro de ID de recurso agora requer a ID de recurso de backup EPD. 
+> [!IMPORTANT]
+> Deleting LTR backup is non-reversible. To delete an LTR backup after the server has been deleted you must have Subscription scope permission. You can set up notifications about each delete in Azure Monitor by filtering for operation ‘Deletes a long term retention backup’. The activity log contains information on who and when made the request. See [Create activity log alerts](../azure-monitor/platform/alerts-activity-log.md) for detailed instructions.
+
+### <a name="restore-from-ltr-backups"></a>Restore from LTR backups
+
+This example shows how to restore from an LTR backup. Note, this interface did not change but the resource id parameter now requires the LTR backup resource id.
 
 ```powershell
-# Restore a specific LTR backup as an P1 database on the server $serverName of the resource group $resourceGroup 
-Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup -TargetDatabaseName $dbName -ServiceObjectiveName P1
+# restore a specific LTR backup as an P1 database on the server $serverName of the resource group $resourceGroup
+Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup `
+    -TargetDatabaseName $dbName -ServiceObjectiveName P1
 ```
 
 > [!IMPORTANT]
-> Para restaurar de um backup EPD após a exclusão do servidor, você deve ter permissões com escopo para a assinatura do servidor e essa assinatura deve estar ativa. Você também deve omitir o parâmetro opcional-ResourceGroupName.  
->
+> To restore from an LTR backup after the server has been deleted, you must have permissions scoped to the server's subscription and that subscription must be active. You must also omit the optional -ResourceGroupName parameter.
 
 > [!NOTE]
-> A partir daqui, você pode se conectar ao banco de dados restaurado usando o SQL Server Management Studio para executar as tarefas necessárias, como para extrair um pouco de dado do banco de dados restaurado a fim de copiá-lo para o existente, ou para excluir o existente e renomear a restauração banco de dados para o nome do banco de dados existente. Confira a [restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore).
+> From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name. See [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ## <a name="next-steps"></a>Passos seguintes
 

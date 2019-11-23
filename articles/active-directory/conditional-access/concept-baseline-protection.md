@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c73b806d227fbe6e1f2c1d5a92d75a9827d69ed8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: a9bb384045c8b2e0a5743fdc301a829792639b7e
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380648"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420555"
 ---
 # <a name="what-are-baseline-policies"></a>What are baseline policies?
 
@@ -26,7 +26,7 @@ Managing customized Conditional Access policies requires an Azure AD Premium lic
 
 ## <a name="baseline-policies"></a>Políticas de linha de base
 
-![Conditional Access baseline policies in the Azure portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
+![Conditional Access baseline policies in the Azure portal](./media/concept-baseline-protection/conditional-access-policies.png)
 
 There are four baseline policies:
 

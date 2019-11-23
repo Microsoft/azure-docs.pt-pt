@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 292f722c2168024afecae804dbbf1b7ebc7233b4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3df9afa35b3ae9f7360a5d4b890d3fce209a4b12
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228591"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423337"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos com C#
 
@@ -79,13 +79,13 @@ This section shows how to create a .NET Core console app that adds an enrollment
 
 1. Open Visual Studio and select **Create a new project**. In **Create a new project**, choose the **Console App (.NET Core)** for C# project template and select **Next**.
 
-1. Name the project *CreateEnrollmentGroup*, and then select **Create**.
+1. Name the project *CreateEnrollmentGroup*, and then press **Create**.
 
     ![Configure Visual C# Windows Classic Desktop project](media//quick-enroll-device-x509-csharp/configure-app-vs2019.png)
 
-1. In **Solution Explorer**, right-click the **CreateEnrollmentGroup** project, and then select **Manage NuGet Packages**.
+1. When the solution opens in Visual Studio, in the **Solution Explorer** pane, right-click the **CreateEnrollmentGroup** project, and then select **Manage NuGet Packages**.
 
-1. In **NuGet Package Manager**, select **Browse**, search for and choose **Microsoft.Azure.Devices.Provisioning.Service**, and then select **Install**.
+1. In **NuGet Package Manager**, select **Browse**, search for and choose **Microsoft.Azure.Devices.Provisioning.Service**, and then press **Install**.
 
     ![Janela Gestor de Pacote NuGet](media//quick-enroll-device-x509-csharp/add-nuget.png)
 
@@ -102,12 +102,12 @@ This section shows how to create a .NET Core console app that adds an enrollment
 1. Add the following fields to the `Program` class, and make the listed changes.  
 
    ```csharp
-   private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
+   private static string ProvisioningConnectionString = "{ProvisioningServiceConnectionString}";
    private static string EnrollmentGroupId = "enrollmentgrouptest";
    private static string X509RootCertPath = @"{Path to a .cer or .pem file for a verified root CA or intermediate CA X.509 certificate}";
    ```
 
-   * Replace the `ProvisioningConnectionString` placeholder value with the connection string of the provisioning service that you want to create the enrollment for.
+   * Replace the `ProvisioningServiceConnectionString` placeholder value with the connection string of the provisioning service that you want to create the enrollment for.
 
    * Replace the `X509RootCertPath` placeholder value with the path to a .pem or .cer file. This file represents the public part of an intermediate or root CA X.509 certificate that has been previously uploaded and verified with your provisioning service.
 
@@ -167,7 +167,7 @@ This section shows how to create a .NET Core console app that adds an enrollment
 
 ## <a name="run-the-enrollment-group-sample"></a>Executar o exemplo do grupo de inscrição
   
-Execute o exemplo no Visual Studio para criar o grupo de inscrição. On successful creation, the Command Prompt window displays the properties of the new enrollment group.
+Execute o exemplo no Visual Studio para criar o grupo de inscrição. A Command Prompt window will appear and start showing confirmation messages. On successful creation, the Command Prompt window displays the properties of the new enrollment group.
 
 You can verify that the enrollment group has been created. Go to the Device Provisioning Service summary, and select **Manage enrollments**, then select **Enrollment Groups**. Deverá ver uma nova entrada de inscrição que corresponde ao ID de registo utilizado no exemplo.
 
@@ -181,9 +181,9 @@ If you plan to explore the C# service sample, don't clean up the resources creat
 
 1. Close the C# sample output window on your computer.
 
-1. Navigate to your Device Provisioning service in the Azure portal, select **Manage enrollments**, and then select **Enrollment Groups**. Select the *Registration ID* for the enrollment entry you created using this quickstart and select **Delete**.
+1. Navigate to your Device Provisioning service in the Azure portal, select **Manage enrollments**, and then select **Enrollment Groups**. Select the *Registration ID* for the enrollment entry you created using this quickstart and press **Delete**.
 
-1. From your Device Provisioning service in the Azure portal, select **Certificates**, choose the certificate you uploaded for this quickstart, and select **Delete** at the top of **Certificate Details**.  
+1. From your Device Provisioning service in the Azure portal, select **Certificates**, choose the certificate you uploaded for this quickstart, and press **Delete** at the top of **Certificate Details**.  
 
 ## <a name="next-steps"></a>Passos seguintes
 

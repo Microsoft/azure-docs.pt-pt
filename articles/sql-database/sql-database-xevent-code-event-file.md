@@ -1,6 +1,6 @@
 ---
-title: Código do arquivo de evento XEvent
-description: Fornece o PowerShell e o Transact-SQL para um exemplo de código de duas fases que demonstra o destino do arquivo de evento em um evento estendido no banco de dados SQL do Azure. O armazenamento do Azure é uma parte necessária deste cenário.
+title: XEvent Event File code
+description: Provides PowerShell and Transact-SQL for a two-phase code sample that demonstrates the Event File target in an extended event on Azure SQL Database. Azure Storage is a required part of this scenario.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -11,67 +11,70 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
-ms.openlocfilehash: 3b1e8881b2e2004a94064e472690ee40414ea02d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 00f31bdf147c4711715cd600fa8a8fd4bac2162a
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822393"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422469"
 ---
-# <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Código de destino do arquivo de evento para eventos estendidos no banco de dados SQL
+# <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Event File target code for extended events in SQL Database
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Você deseja um exemplo de código completo para uma maneira robusta de capturar e relatar informações para um evento estendido.
+You want a complete code sample for a robust way to capture and report information for an extended event.
 
-No Microsoft SQL Server, o [destino do arquivo de evento](https://msdn.microsoft.com/library/ff878115.aspx) é usado para armazenar saídas de eventos em um arquivo de disco rígido local. Mas esses arquivos não estão disponíveis para o banco de dados SQL do Azure. Em vez disso, usamos o serviço de armazenamento do Azure para dar suporte ao destino do arquivo de evento.
+In Microsoft SQL Server, the [Event File target](https://msdn.microsoft.com/library/ff878115.aspx) is used to store event outputs into a local hard drive file. But such files are not available to Azure SQL Database. Instead we use the Azure Storage service to support the Event File target.
 
-Este tópico apresenta um exemplo de código de duas fases:
+This topic presents a two-phase code sample:
 
-* PowerShell, para criar um contêiner de armazenamento do Azure na nuvem.
-* Transact-SQL:
+- PowerShell, to create an Azure Storage container in the cloud.
+- Transact-SQL:
   
-  * Para atribuir o contêiner de armazenamento do Azure a um destino de arquivo de evento.
-  * Para criar e iniciar a sessão de evento e assim por diante.
+  - To assign the Azure Storage container to an Event File target.
+  - To create and start the event session, and so on.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
-* Uma conta e subscrição do Azure. Pode inscrever-se para obter uma [versão de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Qualquer banco de dados no qual você possa criar uma tabela.
+- Uma conta e subscrição do Azure. Pode inscrever-se para obter uma [versão de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Any database you can create a table in.
   
-  * Opcionalmente, você pode [criar um banco de dados de demonstração do **AdventureWorksLT** ](sql-database-get-started.md) em minutos.
-* SQL Server Management Studio (SSMS. exe), idealmente sua última versão de atualização mensal. 
-  Você pode baixar o SSMS. exe mais recente de:
+  - Optionally you can [create an **AdventureWorksLT** demonstration database](sql-database-get-started.md) in minutes.
+
+- SQL Server Management Studio (ssms.exe), ideally its latest monthly update version.
+  You can download the latest ssms.exe from:
   
-  * Tópico intitulado [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-  * [Um link direto para o download.](https://go.microsoft.com/fwlink/?linkid=616025)
-* Você deve ter os [módulos do Azure PowerShell](https://go.microsoft.com/?linkid=9811175) instalados.
-  
-  * Os módulos fornecem comandos como- **New-AzStorageAccount**.
+  - Topic titled [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  - [A direct link to the download.](https://go.microsoft.com/fwlink/?linkid=616025)
 
-## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: código do PowerShell para o contêiner de armazenamento do Azure
+- You must have the [Azure PowerShell modules](https://go.microsoft.com/?linkid=9811175) installed.
 
-Este PowerShell é a fase 1 do exemplo de código de duas fases.
+  - The modules provide commands such as - **New-AzStorageAccount**.
 
-O script começa com comandos para limpeza após uma possível execução anterior e é reutilizável.
+## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Phase 1: PowerShell code for Azure Storage container
 
-1. Cole o script do PowerShell em um editor de texto simples, como o notepad. exe, e salve o script como um arquivo com a extensão **. ps1**.
-2. Inicie o ISE do PowerShell como administrador.
-3. No prompt, digite<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>e pressione Enter.
-4. No ISE do PowerShell, abra o arquivo **. ps1** . Execute o script.
-5. O script primeiro inicia uma nova janela na qual você faz logon no Azure.
-   
-   * Se você executar o script novamente sem interromper a sessão, terá a opção conveniente de comentar o comando **Add-AzureAccount** .
+This PowerShell is phase 1 of the two-phase code sample.
 
-![PowerShell ISE, com o módulo do Azure instalado, pronto para executar o script.][30_powershell_ise]
+The script starts with commands to clean up after a possible previous run, and is rerunnable.
 
-### <a name="powershell-code"></a>Código do PowerShell
+1. Paste the PowerShell script into a simple text editor such as Notepad.exe, and save the script as a file with the extension **.ps1**.
+2. Start PowerShell ISE as an Administrator.
+3. At the prompt, type<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>and then press Enter.
+4. In PowerShell ISE, open your **.ps1** file. Execute o script.
+5. The script first starts a new window in which you log in to Azure.
 
-Este script do PowerShell pressupõe que você já instalou o módulo AZ. Para obter informações, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-Az-ps).
+   - If you rerun the script without disrupting your session, you have the convenient option of commenting out the **Add-AzureAccount** command.
+
+![PowerShell ISE, with Azure module installed, ready to run script.][30_powershell_ise]
+
+### <a name="powershell-code"></a>PowerShell code
+
+This PowerShell script assumes you have already installed the Az module. For information, see [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -123,8 +126,7 @@ Select-AzSubscription -Subscription $subscriptionName;
 Clean up the old Azure Storage Account after any previous run, 
 before continuing this new run.';
 
-If ($storageAccountName)
-{
+if ($storageAccountName) {
     Remove-AzStorageAccount `
         -Name              $storageAccountName `
         -ResourceGroupName $resourceGroupName;
@@ -196,15 +198,13 @@ New-AzStorageContainerStoredAccessPolicy `
 '
 Generate a SAS token for the container.
 ';
-Try
-{
+try {
     $sasTokenWithPolicy = New-AzStorageContainerSASToken `
         -Name    $containerName `
         -Context $context `
         -Policy  $policySasToken;
 }
-Catch 
-{
+catch {
     $Error[0].Exception.ToString();
 }
 
@@ -230,31 +230,28 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 # EOFile
 ```
 
+Take note of the few named values that the PowerShell script prints when it ends. You must edit those values into the Transact-SQL script that follows as phase 2.
 
-Anote os poucos valores nomeados que o script do PowerShell imprime quando termina. Você deve editar esses valores no script Transact-SQL que segue a fase 2.
+## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Phase 2: Transact-SQL code that uses Azure Storage container
 
-## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fase 2: código Transact-SQL que usa o contêiner de armazenamento do Azure
+- In phase 1 of this code sample, you ran a PowerShell script to create an Azure Storage container.
+- Next in phase 2, the following Transact-SQL script must use the container.
 
-* Na fase 1 deste exemplo de código, você executou um script do PowerShell para criar um contêiner de armazenamento do Azure.
-* Em seguida, na fase 2, o script Transact-SQL a seguir deve usar o contêiner.
+The script starts with commands to clean up after a possible previous run, and is rerunnable.
 
-O script começa com comandos para limpeza após uma possível execução anterior e é reutilizável.
+The PowerShell script printed a few named values when it ended. You must edit the Transact-SQL script to use those values. Find **TODO** in the Transact-SQL script to locate the edit points.
 
-O script do PowerShell imprimiu alguns valores nomeados quando ele terminou. Você deve editar o script Transact-SQL para usar esses valores. Localize **todo** no script TRANSACT-SQL para localizar os pontos de edição.
-
-1. Abra SQL Server Management Studio (SSMS. exe).
-2. Conecte-se ao banco de dados do banco de dados SQL do Azure.
-3. Clique para abrir um novo painel de consulta.
-4. Cole o script Transact-SQL a seguir no painel de consulta.
-5. Localize todo o **todo** no script e faça as edições apropriadas.
-6. Salve e, em seguida, execute o script.
-
+1. Open SQL Server Management Studio (ssms.exe).
+2. Connect to your Azure SQL Database database.
+3. Click to open a new query pane.
+4. Paste the following Transact-SQL script into the query pane.
+5. Find every **TODO** in the script and make the appropriate edits.
+6. Save, and then run the script.
 
 > [!WARNING]
-> O valor da chave SAS gerado pelo script do PowerShell anterior pode começar com um '? ' (ponto de interrogação). Ao usar a chave SAS no script T-SQL a seguir, você deve *remover o '? ' à esquerda*. Caso contrário, seus esforços podem ser bloqueados pela segurança.
+> The SAS key value generated by the preceding PowerShell script might begin with a '?' (question mark). When you use the SAS key in the following T-SQL script, you must *remove the leading '?'* . Otherwise your efforts might be blocked by security.
 
-
-### <a name="transact-sql-code"></a>Código Transact-SQL
+### <a name="transact-sql-code"></a>Transact-SQL code
 
 ```sql
 ---- TODO: First, run the earlier PowerShell portion of this two-part code sample.
@@ -262,14 +259,11 @@ O script do PowerShell imprimiu alguns valores nomeados quando ele terminou. Voc
 
 ---- Transact-SQL code for Event File target on Azure SQL Database.
 
-
 SET NOCOUNT ON;
 GO
 
-
 ----  Step 1.  Establish one little table, and  ---------
 ----  insert one row of data.
-
 
 IF EXISTS
     (SELECT * FROM sys.objects
@@ -278,7 +272,6 @@ BEGIN
     DROP TABLE gmTabEmployee;
 END
 GO
-
 
 CREATE TABLE gmTabEmployee
 (
@@ -289,15 +282,12 @@ CREATE TABLE gmTabEmployee
 );
 GO
 
-
 INSERT INTO gmTabEmployee ( EmployeeDescr )
     VALUES ( 'Jane Doe' );
 GO
 
-
 ------  Step 2.  Create key, and  ------------
 ------  Create credential (your Azure Storage container must already exist).
-
 
 IF NOT EXISTS
     (SELECT * FROM sys.symmetric_keys
@@ -306,7 +296,6 @@ BEGIN
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = '0C34C960-6621-4682-A123-C7EA08E3FC46' -- Or any newid().
 END
 GO
-
 
 IF EXISTS
     (SELECT * FROM sys.database_scoped_credentials
@@ -318,7 +307,6 @@ BEGIN
         [https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent] ;
 END
 GO
-
 
 CREATE
     DATABASE SCOPED
@@ -332,7 +320,6 @@ CREATE
         SECRET = 'sv=2014-02-14&sr=c&si=gmpolicysastoken&sig=EjAqjo6Nu5xMLEZEkMkLbeF7TD9v1J8DNB2t8gOKTts%3D'
     ;
 GO
-
 
 ------  Step 3.  Create (define) an event session.  --------
 ------  The event session has an event with an action,
@@ -348,7 +335,6 @@ BEGIN
         ON DATABASE;
 END
 GO
-
 
 CREATE
     EVENT SESSION
@@ -375,7 +361,6 @@ CREATE
     ;
 GO
 
-
 ------  Step 4.  Start the event session.  ----------------
 ------  Issue the SQL Update statements that will be traced.
 ------  Then stop the session.
@@ -390,7 +375,6 @@ ALTER
     STATE = START;
 GO
 
-
 SELECT 'BEFORE_Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 UPDATE gmTabEmployee
@@ -404,14 +388,12 @@ UPDATE gmTabEmployee
 SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 GO
 
-
 ALTER
     EVENT SESSION
         gmeventsessionname240b
     ON DATABASE
     STATE = STOP;
 GO
-
 
 -------------- Step 5.  Select the results. ----------
 
@@ -427,7 +409,6 @@ SELECT
                 null, null, null
             );
 GO
-
 
 -------------- Step 6.  Clean up. ----------
 
@@ -450,8 +431,7 @@ PRINT 'Use PowerShell Remove-AzStorageAccount to delete your Azure Storage accou
 GO
 ```
 
-
-Se o destino não for anexado quando você executar o, você deverá parar e reiniciar a sessão de evento:
+If the target fails to attach when you run, you must stop and restart the event session:
 
 ```sql
 ALTER EVENT SESSION ... STATE = STOP;
@@ -460,13 +440,11 @@ ALTER EVENT SESSION ... STATE = START;
 GO
 ```
 
-
 ## <a name="output"></a>Saída
 
-Quando o script Transact-SQL for concluído, clique em uma célula sob o cabeçalho da coluna **event_data_XML** . Um **\<elemento > de evento** é exibido, que mostra uma instrução UPDATE.
+When the Transact-SQL script completes, click a cell under the **event_data_XML** column header. One **\<event>** element is displayed which shows one UPDATE statement.
 
-Aqui está um **\<** elemento de > de evento que foi gerado durante o teste:
-
+Here is one **\<event>** element that was generated during testing:
 
 ```xml
 <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T19:18:45.420Z">
@@ -507,40 +485,34 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 </event>
 ```
 
+The preceding Transact-SQL script used the following system function to read the event_file:
 
-O script Transact-SQL anterior usou a seguinte função do sistema para ler o event_file:
+- [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
 
-* [sys. fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
+An explanation of advanced options for the viewing of data from extended events is available at:
 
-Uma explicação das opções avançadas para a exibição de dados de eventos estendidos está disponível em:
+- [Advanced Viewing of Target Data from Extended Events](https://msdn.microsoft.com/library/mt752502.aspx)
 
-* [Exibição avançada de dados de destino de eventos estendidos](https://msdn.microsoft.com/library/mt752502.aspx)
+## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Converting the code sample to run on SQL Server
 
+Suppose you wanted to run the preceding Transact-SQL sample on Microsoft SQL Server.
 
-## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Convertendo o exemplo de código para executar em SQL Server
-
-Suponha que você quisesse executar o exemplo anterior de Transact-SQL em Microsoft SQL Server.
-
-* Para simplificar, você desejaria substituir completamente o uso do contêiner de armazenamento do Azure por um arquivo simples, como **C:\myeventdata.xel**. O arquivo seria gravado no disco rígido local do computador que hospeda SQL Server.
-* Você não precisaria de nenhum tipo de instrução Transact-SQL para **criar a chave mestra** e **criar a credencial**.
-* Na instrução **Create Event Session** , em sua cláusula **Add Target** , você substituiria o valor http atribuído a **filename =** por uma cadeia de caracteres de caminho completo como **C:\MyFile.xel**.
+- For simplicity, you would want to completely replace use of the Azure Storage container with a simple file such as *C:\myeventdata.xel*. The file would be written to the local hard drive of the computer that hosts SQL Server.
+- You would not need any kind of Transact-SQL statements for **CREATE MASTER KEY** and **CREATE CREDENTIAL**.
+- In the **CREATE EVENT SESSION** statement, in its **ADD TARGET** clause, you would replace the Http value assigned made to **filename=** with a full path string like *C:\myfile.xel*.
   
-  * Nenhuma conta de armazenamento do Azure precisa estar envolvida.
+  - No Azure Storage account need be involved.
 
 ## <a name="more-information"></a>Mais informações
 
-Para obter mais informações sobre contas e contêineres no serviço de armazenamento do Azure, consulte:
+For more info about accounts and containers in the Azure Storage service, see:
 
-* [Como usar o armazenamento de BLOBs do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [Nomenclatura e Referência para Contentores, Blobs e Metadados](https://msdn.microsoft.com/library/azure/dd135715.aspx)
-* [Trabalhando com o contêiner raiz](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-* [Lição 1: criar uma política de acesso armazenado e uma assinatura de acesso compartilhado em um contêiner do Azure](https://msdn.microsoft.com/library/dn466430.aspx)
-  * [Lição 2: criar uma credencial de SQL Server usando uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/dn466435.aspx)
-* [Eventos estendidos para Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
+- [How to use Blob storage from .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+- [Nomenclatura e Referência para Contentores, Blobs e Metadados](https://msdn.microsoft.com/library/azure/dd135715.aspx)
+- [Working with the Root Container](https://msdn.microsoft.com/library/azure/ee395424.aspx)
+- [Lesson 1: Create a stored access policy and a shared access signature on an Azure container](https://msdn.microsoft.com/library/dn466430.aspx)
+  - [Lesson 2: Create a SQL Server credential using a shared access signature](https://msdn.microsoft.com/library/dn466435.aspx)
+- [Extended Events for Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
-<!--
-Image references.
--->
-
+<!-- Image references. -->
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
-

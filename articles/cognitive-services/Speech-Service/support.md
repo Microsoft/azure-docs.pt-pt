@@ -1,7 +1,7 @@
 ---
-title: Opções de suporte e ajuda-serviço de fala
+title: Support and help options - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Como obter ajuda e suporte para perguntas e problemas ao criar aplicativos que se integram com o serviço de fala
+description: How to obtain help and support for questions and problems when you create applications that integrate with the Speech Service
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -10,116 +10,107 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: f8793975d920e24924fca7c2ae366f70972e6ab7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 925d21d22806ab2854be29b9648aab78138741ec
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468629"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422620"
 ---
-# <a name="support-and-help-options"></a>Opções de suporte e ajuda
+# <a name="support-and-help-options"></a>Support and help options
 
-Você está apenas começando a explorar a funcionalidade dos serviços de fala? Você está implementando um novo recurso para seu aplicativo? Aqui estão sugestões sobre onde você pode obter ajuda como desenvolvedor.
+Are you just starting to explore the functionality of the Speech Services? Are you implementing a new feature to your application? Here are suggestions about where you can get help as a developer.
 
 > [!div class="checklist"]
-> * Mantenha-se informado sobre novos desenvolvimentos nos *Serviços cognitivas do Azure*ou encontre as notícias mais recentes relacionadas ao *serviço de fala*.
-> * As notas de versão contêm informações para todas as versões.
-> * Pesquise para ver se o problema foi discutido pela Comunidade ou se já existe uma documentação existente para o recurso que você deseja implementar.
-> * Se você não encontrar uma resposta satisfatória, faça uma pergunta sobre *Stack Overflow*.
-> * Se você encontrar um problema com um dos exemplos no GitHub, gere um problema do *GitHub* .
-> * Procure uma solução no *Fórum UserVoice*.
+> * Stay informed about new developments in *Azure Cognitive Services*, or find the latest news related to *Speech service*.
+> * Release notes contain information for all releases.
+> * Search to see if your issue was discussed by the community, or if existing documentation for the feature you want to implement already exists.
+> * If you can't find a satisfactory answer, ask a question on *Stack Overflow*.
+> * If you find an issue with one of the samples on GitHub, raise a *GitHub* issue.
+> * Search for a solution in the *UserVoice forum*.
 
 ## <a name="stay-informed"></a>Mantenha-se informado
 
-Notícias sobre serviços cognitivas são coletadas no [blog de serviços cognitivas](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obter as informações mais recentes sobre os serviços de fala, acompanhe o [blog de serviços de fala](https://azure.microsoft.com/blog/tag/speech-service/).
+News about Cognitive Services is collected in the [Cognitive Services blog](https://azure.microsoft.com/blog/topics/cognitive-services/). For the latest information about Speech Services, track the [Speech Services blog](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="release-notes"></a>Notas de versão
 
-As [notas de versão](https://aka.ms/csspeech/whatsnew) são atualizadas assim que uma nova versão estiver disponível. As notas contêm informações sobre novos recursos, aprimoramentos e correções de bugs.
+The [release notes](https://aka.ms/csspeech/whatsnew) are updated as soon as a new release is available. The notes contain information about new features, improvements, and bug fixes.
 
-## <a name="search"></a>Pesquisa
+## <a name="search"></a>Procurar
 
-Você pode encontrar a resposta que precisa na documentação, nos exemplos ou nas respostas para [Stack Overflow](https://www.stackoverflow.com) perguntas ou nos exemplos.
+You might find the answer you need in the documentation, the samples, or answers to [Stack Overflow](https://www.stackoverflow.com) questions or in the samples.
 
-### <a name="scoped-search"></a>Pesquisa com escopo
+### <a name="scoped-search"></a>Scoped Search
 
-Para obter resultados mais rápidos, decodifique sua pesquisa para Stack Overflow, a documentação e exemplos de código usando a seguinte consulta em seu [mecanismo de pesquisa favorito](https://bing.com):
+For faster results, scope your search to Stack Overflow, the documentation, and code samples by using the following query on your [favorite search engine](https://bing.com):
 
 ```
 {Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples)
 ```
 
-Onde *{seus termos de pesquisa}* são suas palavras-chave de pesquisa.
+Where *{Your Search Terms}* is your search keywords.
 
-## <a name="create-an-azure-support-request"></a>Criar uma solicitação de suporte do Azure
+## <a name="create-an-azure-support-request"></a>Create an Azure support request
 
-Os clientes do Azure podem criar e gerenciar solicitações de suporte no portal do Azure.
+Azure customers can create and manage support requests in the Azure portal.
 
 * [Portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-* [portal do Azure para o governo do Estados Unidos](https://portal.azure.us)
+* [Azure portal for the United States government](https://portal.azure.us)
 
-## <a name="post-a-question-to-stack-overflow"></a>Poste uma pergunta para Stack Overflow
+## <a name="post-a-question-to-stack-overflow"></a>Post a question to Stack Overflow
 
-Stack Overflow é o canal preferido para perguntas relacionadas ao desenvolvimento. É onde os membros da Comunidade e os membros da equipe da Microsoft estão diretamente envolvidos em ajudá-lo a resolver seus problemas.
+Stack Overflow is the preferred channel for development-related questions. It's where members of the community and Microsoft team members are directly involved in helping you solve your problems.
 
-Se você não encontrar uma resposta para o problema por meio de pesquisa, envie uma nova pergunta para Stack Overflow. Use uma das seguintes marcas ao formular a pergunta:
-
-|Componente/área  |Etiquetas  |
-|---------|---------|
-|Reconhecimento de Voz |[[Microsoft-cognitiva + Speech-to-Text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|Síntese de fala |[[Microsoft-cognitiva + conversão de texto em fala]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Tradução de Voz |[[Microsoft-cognitiva + Tradução]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|Intenção de fala |[[Microsoft-cognitiva + Luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|SDK de fala geral |[[Microsoft-cognitiva + Microsoft-Speech-API]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-|Assistentes de voz | [[Microsoft-cognitiva + virtual-Assistant + botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
+If you can't find an answer to your problem via search, submit a new question to Stack Overflow by using the [microsoft-cognitive-speech](https://stackoverflow.com/questions/tagged/microsoft-cognitive-speech) tag.
 
 > [!TIP]
-> As postagens a seguir de Stack Overflow contêm dicas sobre como formar perguntas e adicionar código-fonte. Seguir essas diretrizes pode ajudar a aumentar as chances de que os membros da Comunidade avaliem e respondam rapidamente à sua pergunta:  
-> * [Como fazer fazer uma boa pergunta?](https://stackoverflow.com/help/how-to-ask)
-> * [Como criar um exemplo mínimo, completo e verificável](https://stackoverflow.com/help/mcve)
+> The following posts from Stack Overflow contain tips on how to form questions and add source code. Following these guidelines might help increase the chances that community members assess and respond to your question quickly:  
+> * [How do I ask a good question?](https://stackoverflow.com/help/how-to-ask)
+> * [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
 
-## <a name="create-a-github-issue"></a>Criar um problema do GitHub
+## <a name="create-a-github-issue"></a>Create a GitHub issue
 
-Os exemplos são frequentemente postados como código-fonte aberto. Para perguntas e problemas, crie um *problema* no respectivo repositório github. Você também pode enviar uma solicitação de pull. A lista a seguir contém links para os repositórios de exemplo:
+Samples are often posted as open source. For questions and issues, create an *issue* in the respective GitHub repository. You can submit a pull request, too. The following list contains links to the sample repositories:
 
 * [SDK de Voz](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [SDK de dispositivos de fala](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [Speech Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
-Você pode criar um relatório de bugs, uma solicitação de recurso ou fazer uma pergunta geral e compartilhar práticas recomendadas. Para relatórios de bugs, siga o modelo fornecido:
+You can create a bug report, feature request, or ask a general question and share best practices. For bug reports, please follow the provided template:
 
-**Descrever o bug**
+**Describe the bug**
 
-Uma descrição clara e concisa do que é o bug.
+A clear and concise description of what the bug is.
 
-**Para reproduzir**
+**To Reproduce**
 
-Etapas para reproduzir o comportamento:
+Steps to reproduce the behavior:
 1. ...
 2. ...
 
-**Comportamento esperado**
+**Expected behavior**
 
-Uma descrição clara e concisa do que você esperava que aconteça.
+A clear and concise description of what you expected to happen.
 
-**Versão do SDK de fala dos serviços cognitivas**
+**Version of the Cognitive Services Speech SDK**
 
-Qual versão do SDK você está usando.
+Which version of the SDK are you using.
 
-**Plataforma, sistema operacional e linguagem de programação**
+**Platform, Operating System, and Programming Language**
 
- - SO: [por exemplo, Windows, Linux, Android, iOS,...] – seja específico
- - Hardware-x64, x86, ARM,...
- - Navegador [por exemplo, Chrome, Safari] (se aplicável) – seja específico
+ - OS: [e.g. Windows, Linux, Android, iOS, ...] - please be specific
+ - Hardware - x64, x86, ARM, ...
+ - Browser  [e.g. Chrome, Safari] (if applicable)- please be specific
 
-**Contexto adicional**
+**Additional context**
 
- - Mensagens de erro, informações de log, rastreamento de pilha,...
- - Se você relatar um erro para uma interação de serviço específica, relate a SessionId e a hora (incluindo o fuso horário) dos incidentes relatados. A SessionId é relatada em todos os eventos/retornos de chamada recebidos.
- - Qualquer outra informação adicional
+ - Error messages, log information, stack trace, ...
+ - If you report an error for a specific service interaction, report the SessionId and time (incl. timezone) of the reported incidents. The SessionId is reported in all call-backs/events you receive.
+ - Any other additional information
 
 
 ## <a name="uservoice-forum"></a>Fórum do UserVoice
 
-Compartilhe suas ideias para fazer serviços cognitivas e as APIs que o acompanham funcionam melhor para os aplicativos que você desenvolve. Use nossa crescente base de dados de conhecimento para encontrar respostas a perguntas comuns:
+Share your ideas for making Cognitive Services and the accompanying APIs work better for the applications you develop. Use our growing Knowledge Base to find answers to common questions:
 
 [UserVoice](https://cognitive.uservoice.com/)

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: d76ed4a9ecf0f5442c6b8b80c900e7edfc114cc7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 890ad28d99bfc53fa8a3fb40caf0469b31aeee61
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228601"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422968"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Quickstart: Enroll TPM device to IoT Hub Device Provisioning Service using Node.js service SDK
 
@@ -27,7 +27,7 @@ Estes passos explicam como criar através de programação uma inscrição indiv
 
 - Antes de avançar, certifique-se de que executa os passos descritos em [Configurar o Serviço de Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md). 
 -  Certifique-se de que tem o [Node.js v4.0 ou superior](https://nodejs.org) instalado no seu computador.
-- Se pretender inscrever um dispositivo simulado no final deste Manual de Início Rápido, siga os passos em [Criar e aprovisionar um dispositivo simulado](quick-create-simulated-device.md) até ao passo onde pode obter uma chave de endossamento para o dispositivo. Tome nota da chave de endossamento, que irá utilizar mais à frente neste Manual de Início Rápido. **Não siga os passos para criar uma inscrição individual com o portal do Azure.**
+- If you want to enroll a simulated device at the end of this quickstart, follow the steps in [Create and provision a simulated device](quick-create-simulated-device.md) up until the step where you get an endorsement key for the device. Note down the endorsement key, you will use it later in this quickstart. **Não siga os passos para criar uma inscrição individual com o portal do Azure.**
  
 ## <a name="create-the-individual-enrollment-sample"></a>Criar o exemplo de inscrição individual 
 
@@ -70,8 +70,8 @@ Estes passos explicam como criar através de programação uma inscrição indiv
 ## <a name="run-the-individual-enrollment-sample"></a>Executar o exemplo de inscrição individual
   
 1. Para executar o exemplo, precisa da cadeia de ligação para o seu serviço de aprovisionamento. 
-    1. Inicie sessão no portal do Azure, clique no botão **Todos os recursos**, no menu do lado esquerdo, e abra o Serviço Aprovisionamento de Dispositivos. 
-    2. Clique em **Políticas de acesso partilhado** e, em seguida, clique na política de acesso que pretende utilizar para abrir as respetivas propriedades. Na janela **Política de Acesso**, copie e tome nota da cadeia de ligação da chave primária. 
+    1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning service. 
+    2. Select **Shared access policies**, then select the access policy you want to use to open its properties. Na janela **Política de Acesso**, copie e tome nota da cadeia de ligação da chave primária. 
 
        ![Obter a cadeia de ligação do serviço de aprovisionamento a partir do portal](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 
 
@@ -92,21 +92,21 @@ Estes passos explicam como criar através de programação uma inscrição indiv
 
     ![Propriedades de inscrição na saída do comando](./media/quick-enroll-device-tpm-node/output.png) 
 
-4. Verifique se foi criada uma inscrição individual. No portal do Azure, no painel de resumo do Serviço de Aprovisionamento de Dispositivos, selecione **Gerir inscrições**. Selecione o separador **Inscrições Individuais** e clique na nova entrada de inscrição (*primeiro*) para verificar a chave de endossamento e outras propriedades dessa entrada.
+4. Verifique se foi criada uma inscrição individual. No portal do Azure, no painel de resumo do Serviço de Aprovisionamento de Dispositivos, selecione **Gerir inscrições**. Select the **Individual Enrollments** tab and select the new enrollment entry (*first*) to verify the endorsement key and other properties for the entry.
 
     ![Propriedades de inscrição no portal](./media/quick-enroll-device-tpm-node/verify-enrollment-portal.png) 
  
-Agora que criou uma inscrição individual para um dispositivo TPM, se pretender inscrever um dispositivo simulado, pode continuar com os restantes passos em [Criar e aprovisionar um dispositivo simulado](quick-create-simulated-device.md). Ignore os passos para criar uma inscrição individual com o portal do Azure nesse Manual de Início Rápido.
+Agora que criou uma inscrição individual para um dispositivo TPM, se pretender inscrever um dispositivo simulado, pode continuar com os restantes passos em [Criar e aprovisionar um dispositivo simulado](quick-create-simulated-device.md). Be sure to skip the steps to create an individual enrollment using the Azure portal in that quickstart.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Se quiser explorar os exemplos do serviço Node.js, não limpe os recursos criados neste Início Rápido. Se não planear continuar, utilize os passos seguintes para eliminar todos os recursos criados no Guia Rápido.
+If you plan to explore the Node.js service samples, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart.
 
 1. Feche a janela da saída do exemplo de Node.js no seu computador.
 1. Se criou um dispositivo TPM simulado, feche a janela do simulador TPM.
-2. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Individual Enrollments** tab. Select the *Registration ID* for the enrollment entry you created using this Quickstart, and click the **Delete** button at the top of the blade. 
+2. Navigate to your Device Provisioning service in the Azure portal, select **Manage enrollments**, and then select the **Individual Enrollments** tab. Select the check box next to the *Registration ID* for the enrollment entry you created using this quickstart, and press the **Delete** button at the top of the pane. 
  
 ## <a name="next-steps"></a>Passos seguintes
-Neste Manual de Início Rápido, criou através de programação uma entrada de inscrição individual para um dispositivo TPM e, opcionalmente, criou um dispositivo simulado TPM no seu computador e aprovisionou-o no seu hub IoT com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 
+In this quickstart, you’ve programmatically created an individual enrollment entry for a TPM device, and, optionally, created a TPM simulated device on your machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 
  
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md) (Tutoriais do Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure)

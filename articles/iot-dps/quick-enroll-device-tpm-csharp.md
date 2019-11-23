@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 97fb4ad8e0036387fbd897cfa4544bf04726cfa7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a95a50e5931f42e442e11fe593a151dd273449e8
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228625"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422998"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Quickstart: Enroll TPM device to IoT Hub Device Provisioning Service using C# service SDK
 
@@ -51,13 +51,13 @@ This section shows how to create a .NET Core console app that adds an individual
 
 1. Open Visual Studio and select **Create a new project**. In **Create a new project**, choose the **Console App (.NET Core)** project template for C# and select **Next**.
 
-1. Name the project *CreateTpmEnrollment*, and select **Create**.
+1. Name the project *CreateTpmEnrollment*, and press **Create**.
 
     ![Configure Visual C# Windows Classic Desktop project](media/quick-enroll-device-tpm-csharp/configure-tpm-app-vs2019.png)
 
-1. In **Solution Explorer**, right-click the **CreateTpmEnrollment** project, and then select **Manage NuGet Packages**.
+1. When the solution opens in Visual Studio, in the **Solution Explorer** pane, right-click the **CreateTpmEnrollment** project. Select **Manage NuGet Packages**.
 
-1. In **NuGet Package Manager**, select **Browse**, search for and choose **Microsoft.Azure.Devices.Provisioning.Service**, and then select **Install**.
+1. In **NuGet Package Manager**, select **Browse**, search for and choose **Microsoft.Azure.Devices.Provisioning.Service**, and then press **Install**.
 
    ![Janela Gestor de Pacote NuGet](media//quick-enroll-device-tpm-csharp/add-nuget.png)
 
@@ -70,10 +70,10 @@ This section shows how to create a .NET Core console app that adds an individual
    using Microsoft.Azure.Devices.Provisioning.Service;
    ```
 
-1. Add the following fields to the `Program` class, and make the listed changes.
+1. Add the following fields to the `Program` class, making the changes listed below.
 
    ```csharp
-   private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
+   private static string ProvisioningConnectionString = "{ProvisioningServiceConnectionString}";
    private const string RegistrationId = "sample-registrationid-csharp";
    private const string TpmEndorsementKey =
        "AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEAxsj2gUS" +
@@ -87,11 +87,11 @@ This section shows how to create a .NET Core console app that adds an individual
    private const ProvisioningStatus OptionalProvisioningStatus = ProvisioningStatus.Enabled;
    ```
 
-   * Replace the `ProvisioningConnectionString` placeholder value with the connection string of the provisioning service that you want to create the enrollment for.
+   * Replace the `ProvisioningServiceConnectionString` placeholder value with the connection string of the provisioning service that you want to create the enrollment for.
 
    * Opcionalmente, pode alterar o ID do registo, a chave de endossamento, o ID do dispositivo e o estado de aprovisionamento.
 
-   * If you're using this quickstart together with the [Create and provision a simulated TPM device using C# device SDK](quick-create-simulated-device-tpm-csharp.md) quickstart to provision a simulated device, replace the endorsement key and registration ID with the values that you noted down in that quickstart. You can replace the device ID with the value suggested in that quickstart, use your own value, or use the default value in this sample.
+   * If you're using this quickstart together with the [Create and provision a simulated TPM device using C# device SDK](quick-create-simulated-device-tpm-csharp.md) quickstart to provision a simulated device, replace the endorsement key and registration ID with the values that you noted in that quickstart. You can replace the device ID with the value suggested in that quickstart, use your own value, or use the default value in this sample.
 
 1. Add the following method to the `Program` class.  This code creates individual enrollment entry and then calls the `CreateOrUpdateIndividualEnrollmentAsync` method on the `ProvisioningServiceClient` to add the individual enrollment to the provisioning service.
 
@@ -142,7 +142,7 @@ This section shows how to create a .NET Core console app that adds an individual
   
 Execute o exemplo no Visual Studio para criar a inscrição individual para o seu dispositivo TPM.
 
-On successful creation, the Command Prompt window displays the properties of the new individual enrollment.
+A Command Prompt window will appear and start showing confirmation messages. On successful creation, the Command Prompt window displays the properties of the new individual enrollment.
 
 You can verify that the individual enrollment has been created. Go to the Device Provisioning Service summary, and select **Manage enrollments**, then select **Individual Enrollments**. Deverá ver uma nova entrada de inscrição que corresponde ao ID de registo utilizado no exemplo.
 
@@ -158,13 +158,13 @@ If you plan to explore the C# service sample, don't clean up the resources creat
 
 1. Close the C# sample output window on your computer.
 
-1. Navigate to your Device Provisioning service in the Azure portal, select **Manage enrollments**, and then select the **Individual Enrollments** tab. Select the *Registration ID* for the enrollment entry you created using this quickstart, and select **Delete**.
+1. Navigate to your Device Provisioning service in the Azure portal, select **Manage enrollments**, and then select the **Individual Enrollments** tab. Select the check box next to the *Registration ID* for the enrollment entry you created using this quickstart, and press the **Delete** button at the top of the pane.
 
 1. If you followed the steps in [Create and provision a simulated TPM device using C# device SDK](quick-create-simulated-device-tpm-csharp.md) to create a simulated TPM device, do the following steps:
 
     1. Feche a janela do simulador TPM e a janela de saída de exemplo para o dispositivo simulado.
 
-    1. No portal do Azure, navegue para o Hub IoT onde o seu dispositivo foi aprovisionado. In the menu under **Explorers**, select **IoT Devices**, select the check box next to your device, and then select **Delete**.
+    1. No portal do Azure, navegue para o Hub IoT onde o seu dispositivo foi aprovisionado. In the menu under **Explorers**, select **IoT devices**, select the check box next to the *DEVICE ID* of the device you registered in this quickstart, and then press the **Delete** button at the top of the pane.
 
 ## <a name="next-steps"></a>Passos seguintes
 

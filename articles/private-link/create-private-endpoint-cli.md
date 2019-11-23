@@ -1,20 +1,20 @@
 ---
-title: Create an Azure private endpoint using Azure CLI| Microsoft Docs
-description: Learn about Azure private endpoint
+title: Quickstart - Create an Azure private endpoint using Azure CLI
+description: Learn about Azure private endpoint in this Quickstart
 services: private-link
 author: asudbring
 ms.service: private-link
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 467b2426ccd69a27adc9df7ee3ff0304886b8f4a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 67513c2155e956e005b143c3049abe70a2f126f2
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224854"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419824"
 ---
-# <a name="create-a-private-endpoint-using-azure-cli"></a>Create a private endpoint using Azure CLI
+# <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Quickstart: Create a private endpoint using Azure CLI
 Private Endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with Private Link Resources. In this Quickstart, you will learn how to create a VM on a virtual network, a SQL Database Server with a Private Endpoint using Azure CLI. Then, you can access the VM to and securely access the private link resource (a private Azure SQL Database server in this example). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -179,4 +179,3 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos seguintes
 - Learn more about [Azure Private Link](private-link-overview.md)
- 

@@ -1,6 +1,6 @@
 ---
 title: Tarefas de Base de Dados Elástica (pré-visualização)
-description: Configurar trabalhos de banco de dados elástico (versão prévia) para executar scripts Transact-SQL (T-SQL) em um conjunto de um ou mais bancos de dados SQL do Azure
+description: Configure Elastic Database Jobs (preview) to run Transact-SQL (T-SQL) scripts across a set of one or more Azure SQL databases
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -11,33 +11,35 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: f5eaed807e69dcc1a0b7ad426bab91abd2f8309a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 283b4004f34372104eb083496400772884f5965e
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827269"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420372"
 ---
-# <a name="create-configure-and-manage-elastic-jobs"></a>Criar, configurar e gerenciar trabalhos elásticos
+# <a name="create-configure-and-manage-elastic-jobs"></a>Create, configure, and manage elastic jobs
 
-Neste artigo, você aprenderá a criar, configurar e gerenciar trabalhos elásticos. Se você não usou trabalhos elásticos, [saiba mais sobre os conceitos de automação de trabalho no banco de dados SQL do Azure](sql-database-job-automation-overview.md).
+In this article, you will learn how to create, configure, and manage elastic jobs.
+
+If you have not used Elastic jobs, [learn more about the job automation concepts in Azure SQL Database](sql-database-job-automation-overview.md).
 
 ## <a name="create-and-configure-the-agent"></a>Criar e configurar o agente
 
-1. Crie ou identifique uma S0 vazia ou uma base de dados SQL superior. Esse banco de dados será usado como o *banco de dados de trabalho* durante a criação do agente de trabalho elástico.
-2. Crie um agente de Tarefa Elástica no [portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) ou com o [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
+1. Crie ou identifique uma S0 vazia ou uma base de dados SQL superior. This database will be used as the *Job database* during Elastic Job agent creation.
+2. Create an Elastic Job agent in the [portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) or with [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
-   ![Criando um agente de trabalho elástico](media/elastic-jobs-overview/create-elastic-job-agent.png)
+   ![Creating Elastic Job agent](media/elastic-jobs-overview/create-elastic-job-agent.png)
 
 ## <a name="create-run-and-manage-jobs"></a>Criar, executar e gerir tarefas
 
-1. Crie uma credencial para a execução da tarefa na *Base de dados da tarefa* com o [PowerShell](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets) ou o [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
-2. Defina o grupo de destino (as bases de dados nas quais pretende executar a tarefa) com o [PowerShell](elastic-jobs-powershell.md#define-the-target-databases-you-want-to-run-the-job-against) ou o [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
-3. Crie uma credencial do agente de tarefa em cada base de dados onde a tarefa será executada [(adicione o utilizador (ou função) a cada base de dados no grupo)](sql-database-control-access.md). Por consultar um exemplo, veja o [tutorial do PowerShell](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets).
-4. Crie uma tarefa com o [PowerShell](elastic-jobs-powershell.md#create-a-job) ou o [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
-5. Adicione passos de tarefa com o [PowerShell](elastic-jobs-powershell.md#create-a-job-step) ou o [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
-6. Execute uma tarefa com o [PowerShell](elastic-jobs-powershell.md#run-the-job) ou o [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
-7. Monitorize o estado de execução da tarefa com o portal, o [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) ou o [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
+1. Create a credential for job execution in the *Job database* using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
+2. Define the target group (the databases you want to run the job against) using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
+3. Crie uma credencial do agente de tarefa em cada base de dados onde a tarefa será executada [(adicione o utilizador (ou função) a cada base de dados no grupo)](sql-database-control-access.md). Por consultar um exemplo, veja o [tutorial do PowerShell](elastic-jobs-powershell.md).
+4. Create a job using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
+5. Adicione passos de tarefa com o [PowerShell](elastic-jobs-powershell.md) ou o [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
+6. Run a job using [PowerShell](elastic-jobs-powershell.md#run-the-job) or [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
+7. Monitor job execution status using the portal, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) or [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
 
    ![Portal](media/elastic-jobs-overview/elastic-job-executions-overview.png)
 
@@ -48,8 +50,8 @@ As tarefas utilizam [credenciais com âmbito de base de dados](/sql/t-sql/statem
 A configuração das credenciais corretas para executar uma tarefa pode ser um pouco confusa, por isso, tenha em consideração os seguintes pontos:
 
 - As credenciais com âmbito de base de dados têm de ser criadas na *Base de dados da tarefa*.
-- **Todos os bancos de dados de destino devem ter um logon com [permissões suficientes](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) para que o trabalho seja concluído com êxito** (`jobuser` no diagrama abaixo).
-- As credenciais podem ser reutilizadas entre trabalhos e as senhas de credenciais são criptografadas e protegidas de usuários que têm acesso somente leitura aos objetos de trabalho.
+- **All target databases must have a login with [sufficient permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) for the job to complete successfully** (`jobuser` in the diagram below).
+- Credentials can be reused across jobs, and the credential passwords are encrypted and secured from users who have read-only access to job objects.
 
 A imagem seguinte tem como objetivo ajudar a compreender e a configurar as credenciais de tarefa corretas. **Lembre-se de criar o utilizador em todas as bases de dados (todas as *dbs de utilizador de destino*) onde a tarefa tenha de ser executada**.
 
@@ -60,8 +62,8 @@ A imagem seguinte tem como objetivo ajudar a compreender e a configurar as crede
 Algumas considerações sobre melhores práticas para trabalhar com Tarefas Elásticas:
 
 - Limite a utilização das APIs a pessoas de confiança.
-- As credenciais devem ter o mínimo de privilégios necessários para executar o passo de tarefa. Para obter mais informações, consulte [autorização e permissões SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
-- Ao usar um membro do grupo de destino do servidor e/ou do pool, é altamente recomendável criar uma credencial separada com direitos no banco de dados mestre para exibir/listar bancos de dados que são usados para expandir as listas de Database do (s) servidor (es) e/ou pool (s) antes da execução do trabalho.
+- As credenciais devem ter o mínimo de privilégios necessários para executar o passo de tarefa. For more information, see [Authorization and Permissions SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
+- When using a server and/or pool target group member, it is highly suggested to create a separate credential with rights on the master database to view/list databases that is used to expand the database lists of the server(s) and/or pool(s) prior to the job execution.
 
 ## <a name="agent-performance-capacity-and-limitations"></a>Desempenho, capacidade e limitações do agente
 
@@ -75,7 +77,7 @@ Atualmente, a pré-visualização está limitada a 100 tarefas simultâneas.
 
 Para garantir que os recursos não são sobrecarregados quando executar tarefas nas bases de dados num conjunto elástico de SQL, as tarefas podem ser configuradas para limitar o número de bases de dados nas quais uma tarefa pode ser executada ao mesmo tempo.
 
-Defina o número de bancos de dados simultâneos em que um trabalho é executado definindo o parâmetro `@max_parallelism` do procedimento armazenado `sp_add_jobstep` no T-SQL ou `Add-AzSqlElasticJobStep -MaxParallelism` no PowerShell.
+Set the number of concurrent databases a job runs on by setting the `sp_add_jobstep` stored procedure's `@max_parallelism` parameter in T-SQL, or `Add-AzSqlElasticJobStep -MaxParallelism` in PowerShell.
 
 ## <a name="best-practices-for-creating-jobs"></a>Melhores práticas para criar tarefas
 

@@ -1,7 +1,7 @@
 ---
-title: Design de aplicativo iterativo-LUIS
+title: Iterative app design - LUIS
 titleSuffix: Azure Cognitive Services
-description: LUIS aprende melhor em um ciclo iterativo de alterações de modelo, expressão exemplos, publicação e coleta de dados de consultas de ponto de extremidade.
+description: LUIS learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,143 +9,145 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 12a1f2304e4255eb9abd04ab2e2d0726066dd1e6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c1c1b2df301634a435b610c395a1a58aa5573da3
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487771"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422602"
 ---
-# <a name="authoring-cycles-and-versions"></a>Ciclos e versões de criação
+# <a name="iterative-app-design-for-luis"></a>Iterative app design for LUIS
 
-Seu aplicativo LUIS aprende melhor em um ciclo iterativo de:
+A Language Understanding (LUIS) app learns and performs most efficiently with iteration. Here's a typical iteration cycle:
 
-* criar nova versão
-* editar esquema de aplicativo
-    * tentativas com o exemplo declarações
-    * contabilidade
-    * elástica
-* Trem
-* test
-* publicar
-    * testar no ponto de extremidade de previsão para o aprendizado ativo
-* coletar dados de consultas de ponto de extremidade
+* Create new version
+* Edit the LUIS app schema. Isto inclui:
+    * Intents with example utterances
+    * Entidades
+    * Funcionalidades
+* Train, test, and publish
+    * Test at the prediction endpoint for active learning
+* Gather data from endpoint queries
 
 ![Ciclo de criação](./media/luis-concept-app-iteration/iteration.png)
 
-## <a name="building-a-luis-schema"></a>Criando um esquema LUIS
+## <a name="building-a-luis-schema"></a>Building a LUIS schema
 
-A finalidade do esquema de aplicativo é definir o que o usuário está solicitando (a intenção ou a intenção) e quais partes da pergunta fornecem detalhes (entidades) que ajudam a determinar a resposta. 
+An app's schema defines what the user is asking for (the _intention_ or _intent_ ) and what parts of the intent provide details (called _entities_) that are used to help determine the answer. 
 
-O esquema de aplicativo precisa ser específico para os domínios de aplicativo para determinar palavras e frases relevantes, bem como ordenação de palavras típica. 
+The app schema must be specific to the app domains to determine words and phrases that are relevant, as well as to determine typical word ordering. 
 
-O exemplo declarações representa a entrada de usuário que o aplicativo deve obter em tempo de execução. 
+Example utterances represent user inputs, such as recognized speech or text, that the app expects at runtime. 
 
-O esquema requer tentativas e _deve ter_ entidades. 
+The schema requires intents, and _should have_ entities. 
 
-### <a name="example-schema-of-intents"></a>Esquema de exemplo de tentativas
+### <a name="example-schema-of-intents"></a>Example schema of intents
 
-O esquema mais comum é um esquema de intenção organizado com tentativas. Esse tipo de esquema depende do LUIS para determinar a intenção de um usuário. 
+The most common schema is an intent schema organized with intents. This type of schema uses LUIS to determine a user's intention. 
 
-Esse tipo de esquema pode ter entidades se ajuda o LUIS a determinar a intenção. Por exemplo, uma entidade de remessa (como um descritor para uma intenção) ajuda a LUIS a determinar uma intenção de envio. 
+The intent schema type may have entities if it helps LUIS determine the user's intention. For example, a shipping entity (as a descriptor to an intent) helps LUIS determine a shipping intention. 
 
-### <a name="example-schema-of-entities"></a>Esquema de exemplo de entidades
+### <a name="example-schema-of-entities"></a>Example schema of entities
 
-Um esquema de entidade se concentra nas entidades, que são os dados a serem extraídos do declarações. 
+An entity schema focuses on entities, which is the data that is extracted from user utterances. For example, if a user was to say, "I'd like to order three pizzas." There are two entities that would be extracted: _three_ and _pizzas_. These are used to help fulfill the intention, which was to make an order. 
 
-A intenção do expressão é menos ou não importante para o aplicativo cliente. 
+For an entity schema, the intention of the utterance is less important to the client application. 
 
-Um método comum de organizar um esquema de entidade é adicionar todos os declarações de exemplo à intenção de nenhum. 
+A common method of organizing an entity schema is to add all example utterances to the **None** intent. 
 
-### <a name="example-of-a-mixed-schema"></a>Exemplo de um esquema misto
+### <a name="example-of-a-mixed-schema"></a>Example of a mixed schema
 
-O esquema mais potente e maduro é um esquema de intenção com uma gama completa de entidades e recursos. Esse esquema pode começar como um esquema de intenção ou de entidade e aumentar para incluir os conceitos de ambos, uma vez que o aplicativo cliente precisa dessas informações. 
+The most powerful and mature schema is an intent schema with a full range of entities and features. This schema can begin as either an intent or entity schema and grow to include concepts of both, as the client application needs those pieces of information. 
 
-## <a name="add-example-utterances-to-intents"></a>Adicionar declarações de exemplo a intenções
+## <a name="add-example-utterances-to-intents"></a>Add example utterances to intents
 
-LUIS precisa de alguns exemplos de declarações em cada **tentativa**. O exemplo declarações precisa de uma variação suficiente de opção de palavra e de palavra para poder determinar a qual intenção o expressão se destina. 
+LUIS needs a few example utterances in each **intent**. The example utterances need enough variation of word choice and word order to be able to determine which intent the utterance is meant for. 
 
 > [!CAUTION]
-> Não adicione o exemplo declarações em massa. Comece com 15 a 30 exemplos específicos e variados. 
+> Do not add example utterances in bulk. Start with 15 to 30 specific and varying examples. 
 
-Cada exemplo de expressão precisa ter todos os **dados necessários para extrair** e rotulados com **entidades**. 
+Each example utterance needs to have any **required data to extract** designed and labeled with **entities**. 
 
-|Elemento key|Objetivo|
+|Key element|Finalidade|
 |--|--|
-|Intenção|**Classifique** o declarações do usuário em uma única intenção ou ação. Os exemplos incluem `BookFlight` e `GetWeather`.|
-|Entidade|**Extraia** os dados do expressão necessários para concluir a intenção. Os exemplos incluem data e hora de viagem e local.|
+|Intenção|**Classify** user utterances into a single intention, or action. Examples include `BookFlight` and `GetWeather`.|
+|Entidade|**Extract** data from utterance required to complete intention. Examples include date and time of travel, and location.|
 
-Você cria seu aplicativo LUIS para ignorar declarações que não são relevantes para o domínio do seu aplicativo atribuindo o expressão à intenção **None** . 
+A LUIS app can be designed to ignore utterances that aren't relevant to an app's domain by assigning the utterance to the **None** intent.
 
-## <a name="test-and-train-your-app"></a>Testar e treinar seu aplicativo
+## <a name="test-and-train-your-app"></a>Test and train your app
 
-Depois de ter 15 a 30 exemplos diferentes de declarações em cada tentativa, com as entidades necessárias rotuladas, você precisa testar e [treinar](luis-how-to-train.md). 
+After you have 15 to 30 different example utterances in each intent, with the required entities labeled, you need to test and [train](luis-how-to-train.md) your LUIS app. 
 
-## <a name="publish-to-a-prediction-endpoint"></a>Publicar em um ponto de extremidade de previsão
+## <a name="publish-to-a-prediction-endpoint"></a>Publish to a prediction endpoint
 
-Certifique-se de publicar seu aplicativo para que ele esteja disponível nas [regiões de ponto de extremidade de previsão](luis-reference-regions.md) de que você precisa. 
+The LUIS app must be published so that it's available to you in the list [prediction endpoint regions](luis-reference-regions.md).
 
-## <a name="test-your-published-app"></a>Testar seu aplicativo publicado
+## <a name="test-your-published-app"></a>Test your published app
 
-Você pode testar seu aplicativo LUIS publicado do ponto de extremidade de previsão HTTPS. O teste do ponto de extremidade de previsão permite que o LUIS escolha qualquer declarações com baixa confiança para [revisão](luis-how-to-review-endpoint-utterances.md).  
+You can test your published LUIS app from the HTTPS prediction endpoint. Testing from the prediction endpoint allows LUIS to choose any utterances with low-confidence for [review](luis-how-to-review-endpoint-utterances.md).  
 
-## <a name="create-a-new-version-for-each-cycle"></a>Criar uma nova versão para cada ciclo
+## <a name="create-a-new-version-for-each-cycle"></a>Create a new version for each cycle
 
-As versões, em LUIS, são semelhantes às versões na programação tradicional. Cada versão é um instantâneo no momento do aplicativo. Antes de fazer alterações no aplicativo, crie uma nova versão. É mais fácil voltar para uma versão mais antiga e tentar remover tentativas e declarações para um estado anterior.
+Each version is a snapshot in time of the LUIS app. Before you make changes to the app, create a new version. It is easier to go back to an older version than to try to remove intents and utterances to a previous state.
 
-A ID da versão consiste em caracteres, dígitos ou '. ' e não pode ter mais de 10 caracteres.
+The version ID consists of characters, digits or '.' and cannot be longer than 10 characters.
 
-A versão inicial (0,1) é a versão ativa padrão. 
+The initial version (0.1) is the default active version. 
 
-### <a name="begin-by-cloning-an-existing-version"></a>Comece clonando uma versão existente
+### <a name="begin-by-cloning-an-existing-version"></a>Begin by cloning an existing version
 
-Clone uma versão existente para usar como ponto de partida para a nova versão. Depois de clonar uma versão, a nova versão torna-se a versão **ativa** . 
+Clone an existing version to use as a starting point for each new version. After you clone a version, the new version becomes the **active** version. 
 
-### <a name="publishing-slots"></a>Slots de publicação
-Você publica no estágio e nos slots de produção. Cada slot pode ter uma versão diferente ou a mesma versão. Isso é útil para verificar as alterações antes da publicação na produção, que está disponível para bots ou outros aplicativos de chamada LUIS. 
+### <a name="publishing-slots"></a>Publishing slots
 
-Versões treinadas não estão disponíveis automaticamente no ponto de [extremidade](luis-glossary.md#endpoint)do seu aplicativo. Você deve [publicar](luis-how-to-publish-app.md) ou republicar uma versão para que ela esteja disponível no ponto de extremidade do aplicativo. Você pode publicar para **preparo** e **produção**, fornecendo duas versões do aplicativo disponíveis no ponto de extremidade. Se precisar de mais versões do aplicativo disponível em um ponto de extremidade, você deverá exportar a versão e reimportar para um novo aplicativo. O novo aplicativo tem uma ID de aplicativo diferente.
+You can publish to either the stage and/or production slots. Each slot can have a different version or the same version. This is useful for verifying changes before publishing to production, which is available to bots or other LUIS calling apps. 
 
-### <a name="import-and-export-a-version"></a>Importar e exportar uma versão
-Você pode importar uma versão no nível do aplicativo. Essa versão se torna a versão ativa e usa a ID de versão na propriedade `versionId` do arquivo de aplicativo. Você também pode importar para um aplicativo existente, no nível de versão. A nova versão se torna a versão ativa. 
+Trained versions aren't automatically available at your LUIS app's [endpoint](luis-glossary.md#endpoint). You must [publish](luis-how-to-publish-app.md) or republish a version in order for it to be available at your LUIS app endpoint. You can publish to **Staging** and **Production**, giving you two versions of the app available at the endpoint. If more versions of the app need to be available at an endpoint, you should export the version and reimport it to a new app. The new app has a different app ID.
 
-Você pode exportar uma versão no nível do aplicativo ou da versão. A única diferença é que a versão exportada no nível do aplicativo é a versão ativa no momento no nível de versão, você pode escolher qualquer versão a ser exportada na página de **[configurações](luis-how-to-manage-versions.md)** . 
+### <a name="import-and-export-a-version"></a>Import and export a version
 
-O arquivo exportado não contém:
+A version can be imported at the app level. That version becomes the active version and uses the version ID in the `versionId` property of the app file. You can also import into an existing app, at the version level. The new version becomes the active version. 
 
-* informações aprendidas por computador porque o aplicativo é retreinado após ser importado
-* informações do colaborador
+A version can be exported at the app or version level as well. The only difference is that the app-level exported version is the currently active version while at the version level, you can choose any version to export on the **[Settings](luis-how-to-manage-versions.md)** page. 
 
-Para fazer backup do esquema do aplicativo LUIS, exporte uma versão do portal do LUIS.
+The exported file **doesn't** contain:
 
-## <a name="manage-contributor-changes-with-versions-and-apps"></a>Gerenciar alterações de colaborador com versões e aplicativos
+* Machine-learned information, because the app is retrained after it's imported
+* Contributor information
 
-O LUIS fornece o conceito de colaboradores de um aplicativo, fornecendo permissões no nível de recursos do Azure. Combine esse conceito com o controle de versão para fornecer colaboração direcionada. 
+In order to back up your LUIS app schema, export a version from the [LUIS portal](https://www.luis.ai/applications).
 
-Use as técnicas a seguir para gerenciar alterações de colaborador em seu aplicativo.
+## <a name="manage-contributor-changes-with-versions-and-contributors"></a>Manage contributor changes with versions and contributors
 
-### <a name="manage-multiple-versions-inside-the-same-app"></a>Gerenciar várias versões dentro do mesmo aplicativo
-Comece pela [clonagem](luis-how-to-manage-versions.md#clone-a-version), de uma versão base, para cada autor. 
+LUIS uses the concept of contributors to an app, by providing Azure resource-level permissions. Combine this concept with versioning to provide targeted collaboration. 
 
-Cada autor faz alterações em sua própria versão do aplicativo. Quando cada autor estiver satisfeito com o modelo, exporte as novas versões para arquivos JSON.  
+Use the following techniques to manage contributor changes to your app.
 
-Os aplicativos exportados,. JSON ou. Lu, podem ser comparados para alterações. Combine os arquivos para criar um único arquivo da nova versão. Altere a propriedade **VersionId** para significar a nova versão mesclada. Importe essa versão para o aplicativo original. 
+### <a name="manage-multiple-versions-inside-the-same-app"></a>Manage multiple versions inside the same app
 
-Esse método permite que você tenha uma versão ativa, uma versão de estágio e uma versão publicada. Você pode comparar os resultados da versão ativa com uma versão publicada (fase ou produção) no painel de [teste interativo](luis-interactive-test.md).
+Begin by [cloning](luis-how-to-manage-versions.md#clone-a-version) from a base version for each author. 
 
-### <a name="manage-multiple-versions-as-apps"></a>Gerenciar várias versões como aplicativos
-[Exporte](luis-how-to-manage-versions.md#export-version) a versão base. Cada autor importa a versão. A pessoa que importa o aplicativo é o proprietário da versão. Quando terminar de modificar o aplicativo, exporte a versão. 
+Each author makes changes to their own version of the app. When the author is satisfied with the model, export the new versions to JSON files.  
 
-Os aplicativos exportados são arquivos formatados em JSON, que podem ser comparados com a exportação de base para alterações. Combine os arquivos para criar um único arquivo JSON da nova versão. Altere a propriedade **VersionId** no JSON para significar a nova versão mesclada. Importe essa versão para o aplicativo original.
+Exported apps, .json or .lu files, can be compared for changes. Combine the files to create a single file of the new version. Change the `versionId` property to signify the new merged version. Import that version into the original app. 
 
-Saiba mais sobre a criação de contribuições de [colaboradores](luis-how-to-collaborate.md).
+This method allows you to have one active version, one stage version, and one published version. You can compare the results of the active version with a published version (stage or production) in the [interactive testing pane](luis-interactive-test.md).
 
-## <a name="review-endpoint-utterances-to-begin-the-new-authoring-cycle"></a>Examinar o ponto de extremidade declarações para iniciar o novo ciclo de criação
+### <a name="manage-multiple-versions-as-apps"></a>Manage multiple versions as apps
 
-Quando terminar de criar um ciclo de criação, você poderá começar novamente. Comece com [revisar ponto de extremidade de previsão declarações](luis-how-to-review-endpoint-utterances.md) Luis marcado com baixa confiança. Verifique essas declarações para a entidade prevista correta e correta e completa extraída. Depois de revisar e aceitar as alterações, a lista de revisão deve estar vazia.  
+[Export](luis-how-to-manage-versions.md#export-version) the base version. Each author imports the version. The person that imports the app is the owner of the version. When they are done modifying the app, export the version. 
+
+Exported apps are JSON-formatted files, which can be compared with the base export for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app.
+
+Learn more about authoring contributions from [collaborators](luis-how-to-collaborate.md).
+
+## <a name="review-endpoint-utterances-to-begin-the-new-iterative-cycle"></a>Review endpoint utterances to begin the new iterative cycle
+
+When you are done with an iteration cycle, you can repeat the process. Start with [reviewing prediction endpoint utterances](luis-how-to-review-endpoint-utterances.md) LUIS marked with low-confidence. Check these utterances for both correct predicted intent and correct and complete entity extracted. After you review and accept changes, the review list should be empty.  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aprenda conceitos sobre a [colaboração](luis-concept-keys.md).
+Learn concepts about [collaboration](luis-concept-keys.md).

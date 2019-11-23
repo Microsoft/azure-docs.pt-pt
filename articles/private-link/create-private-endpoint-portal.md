@@ -1,20 +1,20 @@
 ---
-title: Manage Private Endpoints in Azure
-description: Learn how to create a Private Endpoint using the Azure portal
+title: Quickstart - Manage Private Endpoints in Azure
+description: Learn how to create a Private Endpoint using the Azure portal in this Quickstart
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 50e358684ebef82e96c4c21e6139434f8581595a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2cb3c1d798e48017604d72d8a438d6a1071199ea
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224791"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419762"
 ---
-# <a name="create-a-private-endpoint-using-azure-portal"></a>Create a Private Endpoint using Azure portal
+# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Quickstart: Create a Private Endpoint using Azure portal
 
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this Quickstart, you will learn how to create a VM on an Azure Virtual Network, a  SQL Database Server with an Azure private endpoint using the Azure Portal. Then, you can securely access the SQL Database Server from the VM.
 
@@ -241,4 +241,3 @@ When you're done using the private endpoint, SQL server, and the VM, delete the 
 ## <a name="next-steps"></a>Passos seguintes
 
 In this quickstart, you created a VM on a virtual network, a SQL database server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the SQL database server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint?](private-endpoint-overview.md).
-
