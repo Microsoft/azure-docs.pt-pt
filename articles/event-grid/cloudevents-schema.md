@@ -1,39 +1,38 @@
 ---
-title: Usar a grade de eventos do Azure com eventos no esquema CloudEvents
-description: Descreve como definir o esquema CloudEvents para eventos na grade de eventos do Azure.
+title: Use Azure Event Grid with events in CloudEvents schema
+description: Describes how to set the CloudEvents schema for events in Azure Event Grid.
 services: event-grid
 author: banisadr
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 11/18/2019
 ms.author: babanisa
-ms.openlocfilehash: 8925110511f6c63a42dd9b121429ac7264cd4aa4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 6a0e24ce7fa11c6373fbaada40cd9f1b1e7f55a2
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170234"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325478"
 ---
-# <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usar o esquema do CloudEvents v 1.0 com a grade de eventos
+# <a name="use-cloudevents-v10-schema-with-event-grid"></a>Use CloudEvents v1.0 schema with Event Grid
 
-Além de seu [esquema de evento padrão](event-schema.md), a grade de eventos do Azure oferece suporte nativo a eventos na [implementação JSON do CloudEvents v 1.0 e da Associação de](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) [protocolo http](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever os dados do evento.
+In addition to its [default event schema](event-schema.md), Azure Event Grid natively supports events in the [JSON implementation of CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) and [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) is an [open specification](https://github.com/cloudevents/spec/blob/v1.0/spec.md) for describing event data.
 
-O CloudEvents simplifica a interoperabilidade fornecendo um esquema de evento comum para publicação e consumo de eventos baseados em nuvem. Esse esquema permite ferramentas uniformes, maneiras padrão de roteamento & manipulação de eventos e maneiras universais de desserializar o esquema de evento externo. Com um esquema comum, você pode integrar facilmente o trabalho entre as plataformas.
+CloudEvents simplifies interoperability by providing a common event schema for publishing, and consuming cloud based events. This schema allows for uniform tooling, standard ways of routing & handling events, and universal ways of deserializing the outer event schema. With a common schema, you can more easily integrate work across platforms.
 
-A CloudEvents está sendo criada por vários [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo a Microsoft, por meio da [nuvem Native Computing Foundation](https://www.cncf.io/). Ele está disponível atualmente como a versão 1,0.
+CloudEvents is being built by several [collaborators](https://github.com/cloudevents/spec/blob/master/community/contributors.md), including Microsoft, through the [Cloud Native Computing Foundation](https://www.cncf.io/). It's currently available as version 1.0.
 
-Este artigo descreve como usar o esquema CloudEvents com a grade de eventos.
+This article describes how to use the CloudEvents schema with Event Grid.
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-## <a name="install-preview-feature"></a>Instale a funcionalidade de pré-visualização
+## <a name="install-preview-feature"></a>Install preview feature
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
-## <a name="cloudevent-schema"></a>Esquema CloudEvent
+## <a name="cloudevent-schema"></a>CloudEvent schema
 
-Aqui está um exemplo de um evento de armazenamento de BLOBs do Azure no formato CloudEvents:
+Here is an example of an Azure Blob Storage event in CloudEvents format:
 
 ``` JSON
 {
@@ -61,27 +60,27 @@ Aqui está um exemplo de um evento de armazenamento de BLOBs do Azure no formato
 }
 ```
 
-Uma descrição detalhada dos campos disponíveis, seus tipos e definições no CloudEvents v 0.1 está [disponível aqui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
+A detailed description of the available fields, their types, and definitions in CloudEvents v0.1 is [available here](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
-Os valores de cabeçalhos para os eventos entregues no esquema CloudEvents e no esquema da grade de eventos são os mesmos, exceto para `content-type`. Para o esquema CloudEvents, esse valor de cabeçalho é `"content-type":"application/cloudevents+json; charset=utf-8"`. Para o esquema de grade de eventos, esse valor de cabeçalho é `"content-type":"application/json; charset=utf-8"`.
+The headers values for events delivered in the CloudEvents schema and the Event Grid schema are the same except for `content-type`. For CloudEvents schema, that header value is `"content-type":"application/cloudevents+json; charset=utf-8"`. For Event Grid schema, that header value is `"content-type":"application/json; charset=utf-8"`.
 
-## <a name="configure-event-grid-for-cloudevents"></a>Configurar a grade de eventos para CloudEvents
+## <a name="configure-event-grid-for-cloudevents"></a>Configure Event Grid for CloudEvents
 
-Você pode usar a grade de eventos para entrada e saída de eventos no esquema CloudEvents. Você pode usar o CloudEvents para eventos do sistema, como eventos de armazenamento de BLOBs e eventos de Hub IoT e eventos personalizados. Ele também pode transformar esses eventos na conexão.
+You can use Event Grid for both input and output of events in CloudEvents schema. You can use CloudEvents for system events, like Blob Storage events and IoT Hub events, and custom events. It can also transform those events on the wire back and forth.
 
 
-| Esquema de entrada       | Esquema de saída
+| Input schema       | Output schema
 |--------------------|---------------------
-| Formato CloudEvents | Formato CloudEvents
-| Formato da grade de eventos  | Formato CloudEvents
-| Formato CloudEvents | Formato da grade de eventos
-| Formato da grade de eventos  | Formato da grade de eventos
+| CloudEvents format | CloudEvents format
+| Event Grid format  | CloudEvents format
+| CloudEvents format | Event Grid format
+| Event Grid format  | Event Grid format
 
-Para todos os esquemas de evento, a grade de eventos requer validação ao publicar em um tópico da grade de eventos e ao criar uma assinatura de evento. Para obter mais informações, consulte [Event Grid segurança e autenticação](security-authentication.md).
+For all event schemas, Event Grid requires validation when publishing to an event grid topic and when creating an event subscription. For more information, see [Event Grid security and authentication](security-authentication.md).
 
-### <a name="input-schema"></a>Esquema de entrada
+### <a name="input-schema"></a>Input schema
 
-Você define o esquema de entrada para um tópico personalizado ao criar o tópico personalizado.
+You set the input schema for a custom topic when you create the custom topic.
 
 Para a CLI do Azure, utilize:
 
@@ -94,7 +93,7 @@ az eventgrid topic create \
   --name <topic_name> \
   -l westcentralus \
   -g gridResourceGroup \
-  --input-schema cloudeventv01schema
+  --input-schema cloudeventschemav1_0
 ```
 
 Para o PowerShell, utilize:
@@ -108,14 +107,14 @@ New-AzureRmEventGridTopic `
   -ResourceGroupName gridResourceGroup `
   -Location westcentralus `
   -Name <topic_name> `
-  -InputSchema CloudEventV01Schema
+  -InputSchema CloudEventSchemaV1_0
 ```
 
-A versão atual do CloudEvents não dá suporte ao processamento em lote de eventos. Para publicar eventos com o esquema CloudEvent em um tópico, publique cada evento individualmente.
+The current version of CloudEvents doesn't support batching of events. To publish events with CloudEvent schema to a topic, publish each event individually.
 
-### <a name="output-schema"></a>Esquema de saída
+### <a name="output-schema"></a>Output schema
 
-Você define o esquema de saída ao criar a assinatura de evento.
+You set the output schema when you create the event subscription.
 
 Para a CLI do Azure, utilize:
 
@@ -126,7 +125,7 @@ az eventgrid event-subscription create \
   --name <event_subscription_name> \
   --source-resource-id $topicID \
   --endpoint <endpoint_URL> \
-  --event-delivery-schema cloudeventv01schema
+  --event-delivery-schema cloudeventschemav1_0
 ```
 
 Para o PowerShell, utilize:
@@ -137,13 +136,17 @@ New-AzureRmEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `
-  -DeliverySchema CloudEventV01Schema
+  -DeliverySchema CloudEventSchemaV1_0
 ```
 
- No momento, você não pode usar um gatilho de grade de eventos para um aplicativo Azure Functions quando o evento é entregue no esquema CloudEvents. Use um gatilho HTTP. Para obter exemplos de como implementar um gatilho HTTP que recebe eventos no esquema CloudEvents, consulte [usar um gatilho http como um gatilho de grade de eventos](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
+ Currently, you can't use an Event Grid trigger for an Azure Functions app when the event is delivered in the CloudEvents schema. Use an HTTP trigger. For examples of implementing an HTTP trigger that receives events in the CloudEvents schema, see [Use an HTTP trigger as an Event Grid trigger](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
+
+ ## <a name="endpoint-validation-with-cloudevents-v10"></a>Endpoint Validation with CloudEvents v1.0
+
+If you are already familiar with Event Grid, you may be aware of Event Grid's endpoint validation handshake for preventing abuse. CloudEvents v1.0 implements its own [abuse protection semantics](security-authentication.md#webhook-event-delivery) using the HTTP OPTIONS method. Pode ler mais sobre o assunto [aqui](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When using the CloudEvents schema for output, Event Grid uses with the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter informações sobre como monitorar entregas de eventos, consulte [monitorar a entrega de mensagens na grade de eventos](monitor-event-delivery.md).
-* Incentivamos você a testar, comentar e [contribuir](https://github.com/cloudevents/spec/blob/master/CONTRIBUTING.md) com o CloudEvents.
-* Para obter mais informações sobre como criar uma assinatura da grade de eventos do Azure, consulte [esquema de assinatura da grade de eventos](subscription-creation-schema.md).
+* For information about monitoring event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
+* We encourage you to test, comment on, and [contribute](https://github.com/cloudevents/spec/blob/master/CONTRIBUTING.md) to CloudEvents.
+* For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).

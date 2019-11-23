@@ -1,111 +1,111 @@
 ---
-title: Exemplo do PCI-DSS v 3.2.1 Blueprint – implantar etapas
-description: Implante as etapas para o cartão de pagamento do setor de informações de Data Security padrão v 3.2.1 Blueprint, incluindo detalhes do parâmetro de artefato Blueprint.
+title: PCI-DSS v3.2.1 blueprint sample - Deploy steps
+description: Deploy steps for the Payment Card Industry Data Security Standard v3.2.1 blueprint sample including blueprint artifact parameter details.
 ms.date: 06/24/2019
-ms.topic: conceptual
-ms.openlocfilehash: b29a1a66b7407558769e506deed5e65f7ecb064c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.topic: sample
+ms.openlocfilehash: f8759a1686a89f4e3f70e1876f661805e5dbda39
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037262"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404008"
 ---
-# <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Implantar a amostra do PCI-DSS v 3.2.1 Blueprint
+# <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Deploy the PCI-DSS v3.2.1 blueprint sample
 
-Para implantar a amostra do plano gráfico do Azure Blueprints PCI-DSS v 3.2.1, as etapas a seguir devem ser executadas:
+To deploy the Azure Blueprints PCI-DSS v3.2.1 blueprint sample, the following steps must be taken:
 
 > [!div class="checklist"]
-> - Criar um novo plano gráfico por meio do exemplo
-> - Marque sua cópia do exemplo como **publicado**
-> - Atribuir sua cópia do plano gráfico a uma assinatura existente
+> - Create a new blueprint from the sample
+> - Mark your copy of the sample as **Published**
+> - Assign your copy of the blueprint to an existing subscription
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
-## <a name="create-blueprint-from-sample"></a>Criar plano gráfico por meio de exemplo
+## <a name="create-blueprint-from-sample"></a>Create blueprint from sample
 
-Primeiro, implemente o exemplo Blueprint criando uma nova especificação técnica em seu ambiente usando o exemplo como um início.
+First, implement the blueprint sample by creating a new blueprint in your environment using the sample as a starter.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
-1. Na página **Guia de introdução** à esquerda, selecione o botão **criar** em _criar um plano gráfico_.
+1. From the **Getting started** page on the left, select the **Create** button under _Create a blueprint_.
 
-1. Encontre o exemplo de plano gráfico **PCI-DSS v 3.2.1** em _outros exemplos_ e selecione **usar este exemplo**.
+1. Find the **PCI-DSS v3.2.1** blueprint sample under _Other Samples_ and select **Use this sample**.
 
-1. Insira os _conceitos básicos_ do exemplo Blueprint:
+1. Enter the _Basics_ of the blueprint sample:
 
-   - **Nome do plano gráfico**: forneça um nome para sua cópia do exemplo de plano gráfico PCI-DSS v 3.2.1.
-   - **Local de definição**: Use as reticências e selecione o grupo de gerenciamento para salvar a cópia do exemplo.
+   - **Blueprint name**: Provide a name for your copy of the PCI-DSS v3.2.1 blueprint sample.
+   - **Definition location**: Use the ellipsis and select the management group to save your copy of the sample to.
 
-1. Selecione a guia _artefatos_ na parte superior da página ou **próximo: artefatos** na parte inferior da página.
+1. Select the _Artifacts_ tab at the top of the page or **Next: Artifacts** at the bottom of the page.
 
-1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
+1. Review the list of artifacts that make up the blueprint sample. Many of the artifacts have parameters that we'll define later. Select **Save Draft** when you've finished reviewing the blueprint sample.
 
-## <a name="publish-the-sample-copy"></a>Publicar a cópia de exemplo
+## <a name="publish-the-sample-copy"></a>Publish the sample copy
 
-Sua cópia do exemplo Blueprint agora foi criada em seu ambiente. Ele é criado no modo de **rascunho** e deve ser **publicado** antes que possa ser atribuído e implantado. A cópia do exemplo Blueprint pode ser personalizada para seu ambiente e precisa, mas essa modificação pode movê-lo para fora do padrão PCI-DSS v 3.2.1.
+Your copy of the blueprint sample has now been created in your environment. It's created in **Draft** mode and must be **Published** before it can be assigned and deployed. The copy of the blueprint sample can be customized to your environment and needs, but that modification may move it away from the PCI-DSS v3.2.1 standard.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
-1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
+1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the blueprint sample and then select it.
 
-1. Selecione **publicar Blueprint** na parte superior da página. Na nova página à direita, forneça uma **versão** para sua cópia do exemplo Blueprint. Essa propriedade será útil se você fizer uma modificação posteriormente. Forneça **observações de alteração** , como "primeira versão publicada do exemplo de plano gráfico PCI-DSS v 3.2.1". Em seguida, selecione **publicar** na parte inferior da página.
+1. Select **Publish blueprint** at the top of the page. In the new page on the right, provide a **Version** for your copy of the blueprint sample. This property is useful for if you make a modification later. Provide **Change notes** such as "First version published from the PCI-DSS v3.2.1 blueprint sample." Then select **Publish** at the bottom of the page.
 
-## <a name="assign-the-sample-copy"></a>Atribuir a cópia de exemplo
+## <a name="assign-the-sample-copy"></a>Assign the sample copy
 
-Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela poderá ser atribuída a uma assinatura dentro do grupo de gerenciamento no qual foi salva. Esta etapa é onde os parâmetros são fornecidos para fazer com que cada implantação da cópia do exemplo de plano gráfico seja exclusiva.
+Once the copy of the blueprint sample has been successfully **Published**, it can be assigned to a subscription within the management group it was saved to. This step is where parameters are provided to make each deployment of the copy of the blueprint sample unique.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
-1. Selecione a página **definições de plantas** à esquerda. Use os filtros para localizar sua cópia do exemplo de plano gráfico e, em seguida, selecione-o.
+1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the blueprint sample and then select it.
 
-1. Selecione **atribuir plano gráfico** na parte superior da página de definição do Blueprint.
+1. Select **Assign blueprint** at the top of the blueprint definition page.
 
-1. Forneça os valores de parâmetro para a atribuição Blueprint:
+1. Provide the parameter values for the blueprint assignment:
 
    - Noções básicas
 
-     - **Assinaturas**: selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
-     - **Nome da atribuição**: o nome é preenchido previamente para você com base no nome do plano gráfico.
-       Altere conforme necessário ou deixe como está.
-     - **Local**: selecione uma região na qual a identidade gerenciada deve ser criada. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versão de definição do Blueprint**: escolha uma versão **publicada** da sua cópia do exemplo Blueprint.
+     - **Subscriptions**: Select one or more of the subscriptions that are in the management group you saved your copy of the blueprint sample to. If you select more than one subscription, an assignment will be created for each using the parameters entered.
+     - **Assignment name**: The name is pre-populated for you based on the name of the blueprint.
+       Change as needed or leave as is.
+     - **Location**: Select a region for the managed identity to be created in. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint sample.
 
-   - Atribuição de bloqueio
+   - Lock Assignment
 
-     Selecione a configuração de bloqueio Blueprint para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
+     Select the blueprint lock setting for your environment. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
 
    - Identidade Gerida
 
-     Deixe a opção de identidade gerenciada _atribuída pelo sistema_ padrão.
+     Leave the default _system assigned_ managed identity option.
 
-   - Parâmetros de artefato
+   - Artifact parameters
 
-     Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele é definido. Esses parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) , pois eles são definidos durante a atribuição do plano gráfico. Para obter uma lista completa ou parâmetros de artefato e suas descrições, consulte [tabela de parâmetros de artefato](#artifact-parameters-table).
+     The parameters defined in this section apply to the artifact under which it's defined. These parameters are [dynamic parameters](../../concepts/parameters.md#dynamic-parameters) since they're defined during the assignment of the blueprint. For a full list or artifact parameters and their descriptions, see [Artifact parameters table](#artifact-parameters-table).
 
-1. Depois que todos os parâmetros forem inseridos, selecione **atribuir** na parte inferior da página. A atribuição Blueprint é criada e a implantação do artefato começa. A implantação leva aproximadamente uma hora. Para verificar o status da implantação, abra a atribuição Blueprint.
+1. Once all parameters have been entered, select **Assign** at the bottom of the page. The blueprint assignment is created and artifact deployment begins. Deployment takes roughly an hour. To check on the status of deployment, open the blueprint assignment.
 
 > [!WARNING]
-> O serviço de plantas do Azure e os exemplos de plantas internas são **gratuitos**. Os recursos do Azure são [cobrados por produto](https://azure.microsoft.com/pricing/). Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para estimar o custo da execução de recursos implantados por este exemplo de Blueprint.
+> The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure resources are [priced by product](https://azure.microsoft.com/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of running resources deployed by this blueprint sample.
 
-## <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefato
+## <a name="artifact-parameters-table"></a>Artifact parameters table
 
-A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
+The following table provides a list of the blueprint artifact parameters:
 
-|Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
+|Artifact name|Artifact type|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[visualização\] auditoria de PCI v 3.2.1: controles de 2018 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de Política|Lista de tipos de recursos | Configuração de diagnóstico de auditoria para tipos de recursos selecionados. O valor padrão é que todos os recursos estão selecionados| 
-|Localizações permitidas|Atribuição de Política|Lista de locais permitidos|Lista de locais de data center permitidos para qualquer recurso a ser implantado. Essa lista é personalizável para os locais do Azure desejados globalmente. Selecione os locais que você deseja permitir.| 
-|Locais permitidos para grupos de recursos|Atribuição de Política |Local permitido |Essa política permite restringir os locais em que sua organização pode criar grupos de recursos. Utilize para impor os requisitos de conformidade geográfica.| 
-|Implantar a auditoria em servidores SQL|Atribuição de Política|Dias de retenção|Retenção de dados em número de dias. O valor padrão é 180, mas o PCI requer 365.| 
-|Implantar a auditoria em servidores SQL|Atribuição de Política|Nome do grupo de recursos para a conta de armazenamento|A auditoria grava eventos de banco de dados em um log de auditoria na sua conta de armazenamento do Azure (uma conta de armazenamento será criada em cada região em que um SQL Server é criado e será compartilhado por todos os servidores nessa região).| 
+|\[Preview\] Audit PCI v3.2.1:2018 controls and deploy specific VM Extensions to support audit requirements|Atribuição de Política|List of Resource Types | Audit diagnostic setting for selected resource types. Default value is all resources are selected| 
+|Localizações permitidas|Atribuição de Política|List Of Allowed Locations|List of data center locations allowed for any resource to be deployed into. This list is customizable to the desired Azure locations globally. Select locations you wish to allow.| 
+|Allowed Locations for resource groups|Atribuição de Política |Allowed Location |This policy enables you to restrict the locations your organization can create resource groups in. Utilize para impor os requisitos de conformidade geográfica.| 
+|Deploy Auditing on SQL servers|Atribuição de Política|Retention days|Data retention in number of days. Default value is 180 but PCI requires 365.| 
+|Deploy Auditing on SQL servers|Atribuição de Política|Resource group name for storage account|Auditing writes database events to an audit log in your Azure Storage account (a storage account will be created in each region where a SQL Server is created that will be shared by all servers in that region).| 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você analisou as etapas para implantar o exemplo de plano gráfico PCI-DSS v 3.2.1, visite os seguintes artigos para saber mais sobre a visão geral e o mapeamento de controle:
+Now that you've reviewed the steps to deploy the PCI-DSS v3.2.1 blueprint sample, visit the following articles to learn about the overview and control mapping:
 
 > [!div class="nextstepaction"]
-> [PCI-DSS v 3.2.1 Blueprint-visão geral](./index.md)
-> [PCI-DSS v 3.2.1 Blueprint – mapeamento de controle](./control-mapping.md)
+> [PCI-DSS v3.2.1 blueprint - Overview](./index.md)
+> [PCI-DSS v3.2.1 blueprint - Control mapping](./control-mapping.md)
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

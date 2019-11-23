@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Pesquisar vídeos usando a API REST do Pesquisa de Vídeo do Bing e o PHP'
+title: 'Quickstart: Search for videos using the REST API and PHP - Bing Video Search'
 titleSuffix: Azure Cognitive Services
-description: Use este guia de início rápido para enviar solicitações de pesquisa de vídeo para a API REST do Pesquisa de Vídeo do Bing usando PHP
+description: Use this quickstart to send video search requests to the Bing Video Search REST API using PHP
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,29 +10,29 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 8ecbba5ef046a284e9b4134f8703580021adb9d8
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 481bc700f86dfd8a28c074134fd5dcc85bb748c4
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500094"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378621"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Início rápido: Pesquisar vídeos usando a API REST do Pesquisa de Vídeo do Bing e o PHP
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Quickstart: Search for videos using the Bing Video Search REST API and PHP
 
-Use este guia de início rápido para fazer sua primeira chamada para a API de Pesquisa de Vídeo do Bing e exibir um resultado de pesquisa da resposta JSON. Esse aplicativo JavaScript simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta. Embora esse aplicativo seja escrito em JavaScript e use o Node. js, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Use this quickstart to make your first call to the Bing Video Search API and view a search result from the JSON response. This simple JavaScript application sends an HTTP video search query to the API, and displays the response. While this application is written in JavaScript and uses Node.js, the API is a RESTful Web service compatible with most programming languages.
 O código de exemplo foi escrito para ser executado com PHP 5.6.
 
 Veja a [Referência da API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) para obter detalhes técnicos sobre as APIs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* PHP 5,6 ou posterior
+* PHP 5.6 or later
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>Executar a aplicação
 
-A [API da Pesquisa de Vídeos do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) devolve resultados de vídeo a partir do motor de busca do Bing.
+A [API de Pesquisa de Vídeos do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) devolve resultados de vídeo a partir motor de busca do Bing.
 
 1. Certifique-se de que o suporte HTTP seguro está ativado em `php.ini`, conforme descrito no comentário de código.
 2. Crie um novo projeto PHP no seu IDE ou editor preferido.
@@ -102,7 +102,7 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 
 ## <a name="json-response"></a>Resposta JSON
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -213,8 +213,8 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo Web de página única](../tutorial-bing-video-search-single-page-app.md)
+> [Build a single-page web app](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Ver também 
 
- [O que é o API de Pesquisa de Vídeo do Bing?](../overview.md)
+ [What is the Bing Video Search API?](../overview.md)

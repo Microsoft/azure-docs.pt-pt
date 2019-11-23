@@ -1,6 +1,6 @@
 ---
-title: Visão geral de segurança do Azure Active Directory (Azure AD) Identity Protection
-description: Saiba como a visão geral de segurança fornece informações sobre a postura de segurança de sua organização.
+title: Azure Active Directory Identity Protection security overview
+description: Learn how the Security overview gives you an insight into your organization’s security posture.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -11,59 +11,59 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adc4acf10fee1b8b2c5e3af18389a49d84e2df14
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: a9550684ad154f28a02ee347fd0a79c1ec286beb
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887237"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382186"
 ---
-# <a name="azure-active-directory-identity-protection---security-overview"></a>Visão geral de Azure Active Directory Identity Protection segurança
+# <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection - Security overview
 
-A [visão geral de segurança](https://aka.ms/IdentityProtectionRefresh) na portal do Azure fornece uma percepção da postura de segurança de sua organização. Ele ajuda a identificar possíveis ataques e a entender a eficácia de suas políticas.
+The [Security overview](https://aka.ms/IdentityProtectionRefresh) in the Azure portal gives you an insight into your organization’s security posture. It helps identify potential attacks and understand the effectiveness of your policies.
 
-A ' visão geral de segurança ' está dividida em duas seções:
+The ‘Security overview’ is broadly divided into two sections:
 
-- As tendências, à esquerda, fornecem uma linha do tempo de risco em sua organização.
-- Os blocos, à direita, destacam as principais questões em andamento na sua organização e sugerem como agir rapidamente.
+- Trends, on the left, provide a timeline of risk in your organization.
+- Tiles, on the right, highlight the key ongoing issues in your organization and suggest how to quickly take action.
 
 ![Descrição geral da segurança](./media/concept-identity-protection-security-overview/01.png)
   
 ## <a name="trends"></a>Tendências
 
-### <a name="new-risky-users-detected"></a>Novos usuários arriscados detectados
+### <a name="new-risky-users-detected"></a>New risky users detected
 
-Este gráfico mostra o número de novos usuários arriscados que foram detectados no período de tempo escolhido. Você pode filtrar a exibição deste gráfico por nível de risco do usuário (baixo, médio, alto). Passe o mouse sobre os incrementos de data UTC para ver o número de usuários arriscados detectados naquele dia. Um clique neste gráfico irá levá-lo para o relatório ' usuários arriscados '. Para corrigir os usuários que estão em risco, considere alterar sua senha.
+This chart shows the number of new risky users that were detected over the chosen time period. You can filter the view of this chart by user risk level (low, medium, high). Hover over the UTC date increments to see the number of risky users detected for that day. A click on this chart will bring you to the ‘Risky users’ report. To remediate users that are at risk, consider changing their password.
 
-### <a name="new-risky-sign-ins-detected"></a>Novas entradas arriscadas detectadas
+### <a name="new-risky-sign-ins-detected"></a>New risky sign-ins detected
 
-Este gráfico mostra o número de entradas arriscadas detectadas no período de tempo escolhido. Você pode filtrar a exibição desse gráfico pelo tipo de risco de entrada (em tempo real ou agregação) e o nível de risco de entrada (baixo, médio, alto). As entradas desprotegidas são entradas de risco em tempo real com êxito que não foram desafiadas pela MFA. (Observação: as entradas que são arriscadas devido a detecções offline não podem ser protegidas em tempo real por políticas de risco de entrada). Passe o mouse sobre os incrementos de data UTC para ver o número de entradas detectadas em risco para esse dia. Um clique neste gráfico irá levá-lo para o relatório ' entradas arriscadas '.
+This chart shows the number of risky sign-ins detected over the chosen time period. You can filter the view of this chart by the sign-in risk type (real-time or aggregate) and the sign-in risk level (low, medium, high). Unprotected sign-ins are successful real-time risk sign-ins that were not MFA challenged. (Note: Sign-ins that are risky because of offline detections cannot be protected in real-time by sign-in risk policies). Hover over the UTC date increments to see the number of sign-ins detected at risk for that day. A click on this chart will bring you to the ‘Risky sign-ins’ report.
 
-## <a name="tiles"></a>Blocos
+## <a name="tiles"></a>Tiles
  
-### <a name="high-risk-users"></a>Usuários de alto risco
+### <a name="high-risk-users"></a>High risk users
 
-O bloco ' usuários de alto risco ' mostra a contagem mais recente de usuários com alta probabilidade de comprometimento de identidade. Elas devem ser uma das principais prioridades para investigação. Um clique no bloco ' usuários de alto risco ' redirecionará para uma exibição filtrada do relatório ' usuários arriscados ', mostrando apenas os usuários com um nível de risco alto. Usando esse relatório, você pode saber mais e corrigir esses usuários com uma redefinição de senha.
+The ‘High risk users’ tile shows the latest count of users with high probability of identity compromise. These should be a top priority for investigation. A click on the ‘High risk users’ tile will redirect to a filtered view of the ‘Risky users’ report showing only users with a risk level of high. Using this report, you can learn more and remediate these users with a password reset.
 
 ![Descrição geral da segurança](./media/concept-identity-protection-security-overview/02.png)
 
-### <a name="medium-risk-users"></a>Usuários de risco médio
-O bloco ' usuários de risco médio ' mostra a contagem mais recente de usuários com probabilidade média de comprometimento de identidade. Um clique no bloco "usuários de risco médio" redirecionará para uma exibição filtrada do relatório "usuários arriscados", mostrando apenas os usuários com um nível médio de risco. Usando esse relatório, você pode investigar e corrigir esses usuários.
+### <a name="medium-risk-users"></a>Medium risk users
+The ‘Medium risk users’ tile shows the latest count of users with medium probability of identity compromise. A click on ‘Medium risk users’ tile will redirect to a filtered view of the ‘Risky users’ report showing only users with a risk level of medium. Using this report, you can further investigate and remediate these users.
 
-### <a name="unprotected-risky-sign-ins"></a>Entradas arriscadas desprotegidas
+### <a name="unprotected-risky-sign-ins"></a>Unprotected risky sign-ins
 
-O bloco ' entradas arriscadas não protegidas ' mostra a contagem da semana passada de entradas de risco em tempo real bem-sucedidas, que não foram bloqueadas ou que MFA desafiada por uma política de acesso condicional, uma política de risco de proteção de identidade ou uma MFA por usuário. Esses logons são potencialmente comprometidos que foram bem-sucedidos e não são desafiados pela MFA. Para proteger essas entradas no futuro, aplique uma política de risco de entrada. Um clique no bloco "entradas arriscadas desprotegidas" redirecionará para a folha configuração de política de risco de entrada, na qual você pode configurar a política de risco de entrada para exigir MFA em uma entrada com um nível de risco especificado.
+The ‘Unprotected risky sign-ins' tile shows the last week’s count of successful, real-time risky sign-ins that were not blocked or MFA challenged by a Conditional Access policy, Identity Protection risk policy, or per-user MFA. These are potentially compromised logins that were successful and not MFA challenged. To protect such sign-ins in future, apply a sign-in risk policy. A click on ‘Unprotected risky sign-ins' tile will redirect to the sign-in risk policy configuration blade where you can configure the sign-in risk policy to require MFA on a sign-in with a specified risk level.
 
-### <a name="legacy-authentication"></a>Autenticação herdada
+### <a name="legacy-authentication"></a>Legacy authentication
 
-O bloco ' autenticação herdada ' mostra a contagem da última semana de autenticações herdadas na sua organização. Os protocolos de autenticação herdados não dão suporte a métodos de segurança modernos, como uma MFA. Para impedir a autenticação herdada, você pode aplicar uma política de acesso condicional. Um clique no bloco "autenticação herdada" o redirecionará para a "Pontuação segura de identidade".
+The ‘Legacy authentication’ tile shows the last week’s count of legacy authentications in your organization. Legacy authentication protocols do not support modern security methods such as an MFA. To prevent legacy authentication, you can apply a Conditional Access policy. A click on ‘Legacy authentication’ tile will redirect you to the ‘Identity Secure Score’.
 
-### <a name="identity-secure-score"></a>Pontuação segura de identidade
+### <a name="identity-secure-score"></a>Identity Secure Score
 
-A pontuação de segurança de identidade mede e compara sua postura de segurança com os padrões do setor. Se você clicar no bloco ' identidade segura (visualização) ', ele será redirecionado para a folha ' identidade segura ', em que você pode aprender mais sobre como melhorar sua postura de segurança.
+The Identity Secure Score measures and compares your security posture to industry patterns. If you click on ‘Identity Secure Score (Preview)’ tile, it will redirect to the ‘Identity Secure Score’ blade where you can learn more about improving your security posture.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que é risco](concept-identity-protection-risks.md)
+- [What is risk](concept-identity-protection-risks.md)
 
-- [Políticas disponíveis para mitigar riscos](concept-identity-protection-policies.md)
+- [Policies available to mitigate risks](concept-identity-protection-policies.md)

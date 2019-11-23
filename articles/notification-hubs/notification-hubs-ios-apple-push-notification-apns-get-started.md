@@ -1,5 +1,5 @@
 ---
-title: Enviar notificações push para aplicações iOS com Hubs de Notificação do Azure | Microsoft Docs
+title: Send push notifications to iOS apps using Azure Notification Hubs | Microsoft Docs
 description: Neste tutorial, irá aprender a utilizar os Notification Hubs do Azure para enviar notificações push para uma aplicação iOS.
 services: notification-hubs
 documentationcenter: ios
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 452ccfc796fcd2a390c7380f4c6b2ced2057dc3b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 032ca8d4ecbcf1fc7f3c22cbe5a0ee934fc5e17c
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822345"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407365"
 ---
-# <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Tutorial: enviar notificações push para aplicações iOS com Hubs de Notificação do Azure
+# <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Tutorial: Send push notifications to iOS apps using Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
 > * [Swift](notification-hubs-ios-push-notifications-swift-apps-get-started.md)
 
-Neste tutorial, você usa os hubs de notificação do Azure para enviar notificações por push para um aplicativo iOS. Irá criar uma aplicação iOS em branco que recebe notificações push com o [Serviço Apple Push Notification (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1).
+In this tutorial, you use Azure Notification Hubs to send push notifications to an iOS application. Irá criar uma aplicação iOS em branco que recebe notificações push com o [Serviço Apple Push Notification (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1).
 
-Neste tutorial, siga os passos seguintes:
+Neste tutorial, siga os seguintes passos:
 
 > [!div class="checklist"]
-> * Gerar o ficheiro de pedido de assinatura de certificado
+> * Gerar o ficheiro de solicitação de assinatura de certificado
 > * Pedir que a aplicação envie notificações push
 > * Criar um perfil de aprovisionamento para a aplicação
 > * Configurar o Hub de Notificação para notificações push do iOS
@@ -44,16 +44,16 @@ Neste tutorial, siga os passos seguintes:
 > * Enviar notificações push de teste
 > * Verificar que a aplicação recebe notificações
 
-O código completo deste tutorial pode ser encontrado [no GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples).
+The complete code for this tutorial can be found [on GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, poderá [criar uma conta gratuita do Azure](https://azure.microsoft.com/free).
+* Uma conta ativa do Azure. If you don't have an account, you can [create a free Azure account](https://azure.microsoft.com/free).
 * [Framework de Mensagens do Windows Azure]
 * Versão mais recente do [Xcode].
-* Um dispositivo compatível com iOS versão 10 (ou posterior)
+* An iOS version 10 (or later)-capable device
 * Associação ao [Programa de Programador da Apple](https://developer.apple.com/programs/)
   
   > [!NOTE]
@@ -71,126 +71,411 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
 2. Ao definir as opções para o seu novo projeto, não se esqueça de utilizar o mesmo **Nome do Produto** e **Identificador de Organização** que utilizou quando definiu o identificador de pacote no portal de Programador da Apple.
 
-    ![Xcode – opções do projeto][11]
-
-3. Em Navegador de Projeto, clique no nome do projeto, clique no separador **Geral** e localize **Assinatura**. Certifique-se de que seleciona a Equipa adequada para a conta de Programador da Apple. XCode deve obter automaticamente o Perfil de Aprovisionamento que criou anteriormente com base no identificador de pacote.
+3. Under Project Navigator, select your project name under **Targets**, then select the **Signing & Capabilities** tab. Make sure you select the appropriate **Team** for your Apple Developer account. XCode deve obter automaticamente o Perfil de Aprovisionamento que criou anteriormente com base no identificador de pacote.
 
     Se não vir o novo perfil de aprovisionamento que criou no Xcode, tente atualizar os perfis para a sua identidade de assinatura. Clique em **Xcode** na barra de menus, clique em **Preferências**, clique em **Conta** clique no botão **Ver Detalhes**, clique na sua identidade de assinatura e clique no botão atualizar no canto inferior direito.
 
     ![Xcode – perfil de aprovisionamento][9]
 
-4. Selecione o separador **Capacidades** e certifique-se de ativar as Notificações Push
+4. In the **Signing & Capabilities** tab, select **+ Capability**.  Double-click **Push Notifications** to enable it.
 
     ![Xcode – capacidades de push][12]
 
-5. Adicione os módulos do SDK dos hubs de notificação do Azure.
+5. Add the Azure Notification Hubs SDK modules.
 
-   Você pode integrar o SDK dos hubs de notificação do Azure em seu aplicativo usando [Cocoapods](https://cocoapods.org) ou adicionando manualmente os binários ao seu projeto.
+   You can integrate the Azure Notification Hubs SDK in your app by using [Cocoapods](https://cocoapods.org) or by manually adding the binaries to your project.
 
-   - Integração via Cocoapods
+   - Integration via Cocoapods
 
-     Adicione as seguintes dependências ao seu `podfile` para incluir o SDK dos hubs de notificação do Azure em seu aplicativo.
+     Add the following dependencies to your `podfile` to include Azure Notification Hubs SDK into your app.
 
      ```ruby
      pod 'AzureNotificationHubs-iOS'
      ```
 
-     Execute `pod install` para instalar o Pod recém-definido e abra o `.xcworkspace`.
+     Run `pod install` to install your newly defined pod and open your `.xcworkspace`.
 
      > [!NOTE]
-     > Se você vir um erro como **[!] Não é possível encontrar uma especificação para AzureNotificationHubs-iOS** durante a execução de `pod install`, execute `pod repo update` para obter o pods mais recente do repositório Cocoapods e, em seguida, execute `pod install`.
+     > If you see an error such as **[!] Unable to find a specification for AzureNotificationHubs-iOS** while running `pod install`, please run `pod repo update` to get the latest pods from the Cocoapods repository, and then run `pod install`.
 
-   - Integração via Carthage
+   - Integration via Carthage
 
-     Adicione as seguintes dependências ao seu `Cartfile` para incluir o SDK dos hubs de notificação do Azure em seu aplicativo.
+     Add the following dependencies to your `Cartfile` to include Azure Notification Hubs SDK into your app.
 
      ```ruby
      github "Azure/azure-notificationhubs-ios"
      ```
 
-     Dependências Next, Update e Build:
+     Next, update, and build dependencies:
 
      ```shell
      $ carthage update
      ```
 
-     Para obter mais informações sobre como usar o Carthage, consulte o [repositório GitHub do Carthage](https://github.com/Carthage/Carthage).
+     For more information about using Carthage, see the [Carthage GitHub repository](https://github.com/Carthage/Carthage).
 
-   - Integração copiando os binários em seu projeto
+   - Integration by copying the binaries into your project
 
-     1. Baixe a estrutura [SDK dos hubs de notificação do Azure](https://github.com/Azure/azure-notificationhubs-ios/releases) fornecida como um arquivo zip e descompacte-a.
+     1. Download the [Azure Notification Hubs SDK](https://github.com/Azure/azure-notificationhubs-ios/releases) framework provided as a zip file and unzip it.
 
      2. No Xcode, clique com o botão direito do rato no projeto e clique na opção **Adicionar Ficheiros a** para adicionar a pasta **WindowsAzureMessaging.framework** ao seu projeto Xcode. Selecione **Opções** e certifique-se de que **Copiar itens, se necessário** está selecionado e, em seguida, clique em **Adicionar**.
 
         ![Deszipar o Azure SDK][10]
 
-6. Adicione um novo ficheiro de cabeçalho ao projeto com o nome `HubInfo.h`. Este ficheiro detém as constantes para o Hub de Notificação. Adicione as seguintes definições e substitua os marcadores de posição literais de cadeia pelo seu *nome do hub* e pela *DefaultListenSharedAccessSignature* anotado anteriormente.
+6. Add a new header file to your project named **Constants.h**. To do so, right-click the project name and select **New File...** . Then select **Header File**. Este ficheiro detém as constantes para o Hub de Notificação. Em seguida, selecione **Seguinte**. Name the file **Constants.h**.
+
+7. Add the following code to the Constants.h file:
 
     ```objc
-    #ifndef HubInfo_h
-    #define HubInfo_h
+    #ifndef Constants_h
+    #define Constants_h
 
-    #define HUBNAME @"<Enter the name of your hub>"
-    #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
+    extern NSString* const NHInfoConnectionString;
+    extern NSString* const NHInfoHubName;
+    extern NSString* const NHUserDefaultTags;
 
-    #endif /* HubInfo_h */
+    #endif /* Constants_h */
     ```
 
-7. Abra o ficheiro `AppDelegate.h` e adicione as diretivas de importação seguintes:
+8. Add the implementation file for Constants.h. To do so, right-click the project name and select **New File...** . Select **Objective-C File**, and then select **Next**. Name the file **Constants.m**.
+
+    ![Add .m file](media/notification-hubs-ios-get-started/new-file-objc.png)
+
+9. Open the **Constants.m** file and replace its contents with the following code. Replace the string literal placeholders `NotificationHubConnectionString` and `NotificationHubConnectionString` with the hub name and the **DefaultListenSharedAccessSignature**, respectively, as you  previously obtained from the portal:
+
+    ```objc
+    #import <Foundation/Foundation.h>
+    #import "Constants.h"
+
+    NSString* const NHInfoConnectionString = @"NotificationHubConnectionString";
+    NSString* const NHInfoHubName = @"NotificationHubName";
+    NSString* const NHUserDefaultTags = @"notification_tags";
+    ```
+
+10. Open your project's **AppDelegate.h** file and replace its contents with the following code:
+
+    ```objc
+    #import <UIKit/UIKit.h>
+    #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
+    #import <UserNotifications/UserNotifications.h> 
+
+    @interface AppDelegate : UIResponder <UIApplicationDelegate,UNUserNotificationCenterDelegate>
+
+    @property (strong, nonatomic) UIWindow *window;
+
+    - (void)handleRegister;
+    - (void)handleUnregister;
+
+    @end
+
+    ```
+
+11. In the project's **AppDelegate.m** file, add the following `import` statements:
+
+    ```objc
+    #import "Constants.h"
+    #import "NotificationDetailViewController.h"
+    ```
+
+12. Also in your **AppDelegate.m** file, add the following line of code in the `didFinishLaunchingWithOptions` method based on your version of iOS. Este código regista o seu identificador de dispositivo com APNs:
+
+    ```objc
+    [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
+    ```
+
+13. In the same **AppDelegate.m** file, replace all the code after `didFinishLaunchingWithOptions` with the following code:
+
+    ```objc
+    // Tells the app that a remote notification arrived that indicates there is data to be fetched.
+
+    - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+        NSLog(@"Received remote (silent) notification");
+        [self logNotificationDetails:userInfo];
+
+        //
+        // Let the system know the silent notification has been processed.
+        //
+        completionHandler(UIBackgroundFetchResultNoData);
+    }
+
+    // Tells the delegate that the app successfully registered with Apple Push Notification service (APNs).
+
+    - (void) application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+        NSMutableSet *tags = [[NSMutableSet alloc] init];
+
+        // Load and parse stored tags
+        NSString *unparsedTags = [[NSUserDefaults standardUserDefaults] valueForKey:NHUserDefaultTags];
+        if (unparsedTags.length > 0) {
+            NSArray *tagsArray = [unparsedTags componentsSeparatedByString: @","];
+            [tags addObjectsFromArray:tagsArray];
+        }
+
+        // Register the device with the Notification Hub.
+        // If the device has not already been registered, this will create the registration.
+        // If the device has already been registered, this will update the existing registration.
+        //
+        SBNotificationHub* hub = [self getNotificationHub];
+        [hub registerNativeWithDeviceToken:deviceToken tags:tags completion:^(NSError* error) {
+            if (error != nil) {
+                NSLog(@"Error registering for notifications: %@", error);
+            } else {
+                [self showAlert:@"Registered" withTitle:@"Registration Status"];
+            }
+        }];
+    }
+
+    // UNUserNotificationCenterDelegate methods
+    //
+    // Asks the delegate how to handle a notification that arrived while the app was running in the  foreground.
+
+    - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+        NSLog(@"Received notification while the application is in the foreground");
+
+        // The system calls this delegate method when the app is in the foreground. This allows the app to handle the notification
+        // itself (and potentially modify the default system behavior).
+
+        // Handle the notification by displaying custom UI.
+        //
+        [self showNotification:notification.request.content.userInfo];
+
+        // Use 'options' to specify which default behaviors to enable.
+        // - UNAuthorizationOptionBadge: Apply the notification's badge value to the app’s icon.
+        // - UNAuthorizationOptionSound: Play the sound associated with the notification.
+        // - UNAuthorizationOptionAlert: Display the alert using the content provided by the notification.
+        //
+        // In this case, do not pass UNAuthorizationOptionAlert because the notification was handled by the app.
+        //
+        completionHandler(UNAuthorizationOptionBadge | UNAuthorizationOptionSound);
+    }
+
+    // Asks the delegate to process the user's response to a delivered notification.
+    //
+
+    - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler {
+        NSLog(@"Received notification while the application is in the background");
+
+        // The system calls this delegate method when the user taps or responds to the system notification.
+
+        // Handle the notification response by displaying custom UI
+        //
+        [self showNotification:response.notification.request.content.userInfo];
+
+        // Let the system know the response has been processed.
+        //
+        completionHandler();
+    }
+
+    // App logic and helpers
+
+    - (SBNotificationHub *)getNotificationHub {
+        NSString *hubName = [[NSBundle mainBundle] objectForInfoDictionaryKey:NHInfoHubName];
+        NSString *connectionString = [[NSBundle mainBundle] objectForInfoDictionaryKey:NHInfoConnectionString];
+
+        return [[SBNotificationHub alloc] initWithConnectionString:connectionString notificationHubPath:hubName];
+    }
+
+    - (void)handleRegister {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+
+        UNAuthorizationOptions options =  UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
+        [center requestAuthorizationWithOptions:(options) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            if (error != nil) {
+                NSLog(@"Error requesting for authorization: %@", error);
+            }
+        }];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+
+    - (void)handleUnregister {
+        //
+        // Unregister the device with the Notification Hub.
+        //
+        SBNotificationHub *hub = [self getNotificationHub];
+        [hub unregisterNativeWithCompletion:^(NSError* error) {
+            if (error != nil) {
+                NSLog(@"Error unregistering for push: %@", error);
+            } else {
+                [self showAlert:@"Unregistered" withTitle:@"Registration Status"];
+            }
+        }];
+    }
+
+    - (void)logNotificationDetails:(NSDictionary *)userInfo {
+        if (userInfo != nil) {
+            UIApplicationState state = [UIApplication sharedApplication].applicationState;
+            BOOL background = state != UIApplicationStateActive;
+            NSLog(@"Received %@notification: \n%@", background ? @"(background) " : @"", userInfo);
+        }
+    }
+
+    - (void)showAlert:(NSString *)message withTitle:(NSString *)title {
+        if (title == nil) {
+            title = @"Alert";
+        }
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:alert animated:YES completion:nil];
+    }
+
+    - (void)showNotification:(NSDictionary *)userInfo {
+        [self logNotificationDetails:userInfo];
+
+        NotificationDetailViewController *notificationDetail = [[NotificationDetailViewController alloc] initWithUserInfo:userInfo];
+        [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:notificationDetail animated:YES completion:nil];
+    }
+
+    @end
+    ```
+
+    This code connects to the notification hub using the connection information you specified in **Constants.h**. Em seguida, atribui o token do dispositivo Notification Hub para que este possa enviar notificações.
+
+### <a name="notificationdetailviewcontroller"></a>NotificationDetailViewController
+
+1. Similar the previous instructions, add another header file named **NotificationDetailViewController.h**. Replace the contents of the new header file with the following code:
+
+    ```objc
+    #import <UIKit/UIKit.h>
+
+    NS_ASSUME_NONNULL_BEGIN
+
+    @interface NotificationDetailViewController : UIViewController
+
+    @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+    @property (strong, nonatomic) IBOutlet UILabel *bodyLabel;
+    @property (strong, nonatomic) IBOutlet UIButton *dismissButton;
+
+    @property (strong, nonatomic) NSDictionary *userInfo;
+
+    - (id)initWithUserInfo:(NSDictionary *)userInfo;
+
+    @end
+
+    NS_ASSUME_NONNULL_END
+    ```
+
+2. Add the implementation file **NotificationDetailViewController.m**. Replace the contents of the file with the following code, which implements the `UIViewController` methods:
+
+    ```objc
+    #import "NotificationDetailViewController.h"
+
+    @interface NotificationDetailViewController ()
+
+    @end
+
+    @implementation NotificationDetailViewController
+
+    - (id)initWithUserInfo:(NSDictionary *)userInfo {
+        self = [super initWithNibName:@"NotificationDetail" bundle:nil];
+        if (self) {
+            _userInfo = userInfo;
+        }
+        return self;
+    }
+
+    - (void)viewDidLayoutSubviews {
+        [self.titleLabel sizeToFit];
+        [self.bodyLabel sizeToFit];
+    }
+
+    - (void)viewDidLoad {
+        [super viewDidLoad];
+
+        NSString *title = nil;
+        NSString *body = nil;
+
+        NSDictionary *aps = [_userInfo valueForKey:@"aps"];
+        NSObject *alertObject = [aps valueForKey:@"alert"];
+        if (alertObject != nil) {
+            if ([alertObject isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *alertDict = (NSDictionary *)alertObject;
+                title = [alertDict valueForKey:@"title"];
+                body = [alertObject valueForKey:@"body"];
+            } else if ([alertObject isKindOfClass:[NSString class]]) {
+                body = (NSString *)alertObject;
+            } else {
+                NSLog(@"Unable to parse notification content. Unexpected format: %@", alertObject);
+            }
+        }
+
+        if (title == nil) {
+            title = @"<unset>";
+        }
+
+        if (body == nil) {
+            body = @"<unset>";
+        }
+
+        self.titleLabel.text = title;
+        self.bodyLabel.text = body;
+    }
+
+    - (IBAction)handleDismiss:(id)sender {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+
+    @end
+    ```
+
+### <a name="viewcontroller"></a>ViewController
+
+1. In the project's **ViewController.h** file, add the following `import` statements:
 
     ```objc
     #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
     #import <UserNotifications/UserNotifications.h>
-    #import "HubInfo.h"
     ```
 
-8. No arquivo `AppDelegate.m`, adicione o código a seguir no método `didFinishLaunchingWithOptions` com base na sua versão do iOS. Este código regista o seu identificador de dispositivo com APNs:
+2. Also in **ViewController.h**, add the following property declarations after the `@interface` declaration:
 
     ```objc
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
-
-    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    @property (strong, nonatomic) IBOutlet UITextField *tagsTextField;
+    @property (strong, nonatomic) IBOutlet UIButton *registerButton;
+    @property (strong, nonatomic) IBOutlet UIButton *unregisterButton;
     ```
 
-9. No mesmo ficheiro, adicione os seguintes métodos:
+3. In the project's **ViewController.m** implementation file, replace the contents of the file with the following code:
 
     ```objc
-    (void) application:(UIApplication *) application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
-     SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
-                                 notificationHubPath:HUBNAME];
+    #import "ViewController.h"
+    #import "Constants.h"
+    #import "AppDelegate.h"
 
-     [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError* error) {
-         if (error != nil) {
-             NSLog(@"Error registering for notifications: %@", error);
-         }
-         else {
-             [self MessageBox:@"Registration Status" message:@"Registered"];
-         }
-     }];
-     }
+    @interface ViewController ()
 
-    (void)MessageBox:(NSString *) title message:(NSString *)messageText
-    {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:messageText preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alert addAction:okAction];
-        [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:alert animated:YES completion:nil];
+    @end
+
+    @implementation ViewController
+
+    // UIViewController methods
+
+    - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+        // Simple method to dismiss keyboard when user taps outside of the UITextField.
+        [self.view endEditing:YES];
     }
-    ```
 
-    Este código liga-se ao Notification Hub utilizando as informações de ligação que especificou em HubInfo.h. Em seguida, atribui o token do dispositivo Notification Hub para que este possa enviar notificações.
+    - (void)viewDidLoad {
+        [super viewDidLoad];
 
-10. No mesmo ficheiro, adicione o método seguinte para apresentar um **UIAlert** caso a notificação seja recebida enquanto a aplicação está ativa:
-
-    ```objc
-    (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
-      NSLog(@"%@", userInfo);
-      [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
+        // Load raw tags text from storage and initialize the text field
+        self.tagsTextField.text = [[NSUserDefaults standardUserDefaults] valueForKey:NHUserDefaultTags];
     }
+
+    - (IBAction)handleRegister:(id)sender {
+        // Save raw tags text in storage
+        [[NSUserDefaults standardUserDefaults] setValue:self.tagsTextField.text forKey:NHUserDefaultTags];
+
+    // Delegate processing the register action to the app delegate.
+    [[[UIApplication sharedApplication] delegate] performSelector:@selector(handleRegister)];
+    }
+
+    - (IBAction)handleUnregister:(id)sender {
+        [[[UIApplication sharedApplication] delegate] performSelector:@selector(handleUnregister)];
+    }
+
+    @end
     ```
 
-11. Para confirmar que não existem falhas, crie e execute a aplicação no dispositivo.
+4. Para confirmar que não existem falhas, crie e execute a aplicação no dispositivo.
 
 ## <a name="send-test-push-notifications"></a>Enviar notificações push de teste
 
@@ -216,22 +501,18 @@ Para testar as notificações push no iOS, tem de implementar a aplicação para
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste exemplo simples, difundiu notificações push para todos os dispositivos iOS. Para saber como enviar notificações push para dispositivos iOS específicos, avance para o tutorial seguinte:
+Neste exemplo simples, difundiu notificações push para todos os dispositivos iOS. Para saber como enviar notificações push para dispositivos iOS específicos, avance para o seguinte tutorial:
 
 > [!div class="nextstepaction"]
 >[Enviar notificações push para dispositivos específicos](notification-hubs-ios-xplat-segmented-apns-push-notification.md)
 
 <!-- Images. -->
-[6]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png
-[7]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png
 [8]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app.png
 [9]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app2.png
 [10]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app3.png
 [11]: ./media/notification-hubs-ios-get-started/notification-hubs-xcode-product-name.png
 [12]: ./media/notification-hubs-ios-get-started/notification-hubs-enable-push.png
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
-[31]: ./media/notification-hubs-ios-get-started/notification-hubs-ios-ui.png
-[32]: ./media/notification-hubs-ios-get-started/notification-hubs-storyboard-view.png
 [33]: ./media/notification-hubs-ios-get-started/notification-hubs-test1.png
 [35]: ./media/notification-hubs-ios-get-started/notification-hubs-test3.png
 

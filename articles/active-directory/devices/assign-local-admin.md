@@ -1,6 +1,6 @@
 ---
-title: Como gerenciar o grupo de administradores locais em dispositivos adicionados ao Azure AD | Microsoft Docs
-description: Saiba como atribuir funções do Azure ao grupo de administradores locais de um dispositivo Windows.
+title: How to manage local administrators on Azure AD joined devices
+description: Learn how to assign Azure roles to the local administrators group of a Windows device.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,86 +11,86 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b222e67d06bc9fa0fabcc0bc3c0ddd2c6855fbc3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: fd8087e9eaa11ced5da9b445af9d33377b4391c0
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271294"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379666"
 ---
-# <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerenciar o grupo de administradores locais em dispositivos ingressados no Azure AD
+# <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>How to manage the local administrators group on Azure AD joined devices
 
-Para gerenciar um dispositivo Windows, você precisa ser um membro do grupo Administradores local. Como parte do processo de ingresso do Azure Active Directory (Azure AD), o Azure AD atualiza a associação desse grupo em um dispositivo. Você pode personalizar a atualização de associação para atender às suas necessidades de negócios. Uma atualização de associação é, por exemplo, útil se você quiser permitir que sua equipe de suporte técnico realize tarefas que exijam direitos de administrador em um dispositivo.
+To manage a Windows device, you need to be a member of the local administrators group. As part of the Azure Active Directory (Azure AD) join process, Azure AD updates the membership of this group on a device. You can customize the membership update to satisfy your business requirements. A membership update is, for example, helpful if you want to enable your helpdesk staff to do tasks requiring administrator rights on a device.
 
-Este artigo explica como a atualização de associação funciona e como você pode personalizá-la durante uma junção do Azure AD. O conteúdo deste artigo não se aplica a uma junção **híbrida** do Azure AD.
+This article explains how the membership update works and how you can customize it during an Azure AD Join. The content of this article doesn't apply to a **hybrid** Azure AD join.
 
 ## <a name="how-it-works"></a>Como funciona
 
-Quando você conecta um dispositivo Windows com o Azure AD usando uma junção do Azure AD, o Azure AD adiciona os seguintes princípios de segurança ao grupo local de administradores no dispositivo:
+When you connect a Windows device with Azure AD using an Azure AD join, Azure AD adds the following security principles to the local administrators group on the device:
 
-- A função de administrador global do Azure AD
-- A função de administrador de dispositivos do Azure AD 
-- O usuário que está executando a junção do Azure AD   
+- The Azure AD global administrator role
+- The Azure AD device administrator role 
+- The user performing the Azure AD join   
 
-Ao adicionar funções do Azure AD ao grupo local de administradores, você pode atualizar os usuários que podem gerenciar um dispositivo a qualquer momento no Azure AD sem modificar nada no dispositivo. No momento, não é possível atribuir grupos a uma função de administrador.
-O AD do Azure também adiciona a função de administrador de dispositivos do Azure AD ao grupo local de administradores para dar suporte ao princípio de privilégios mínimos (PoLP). Além dos administradores globais, você também pode habilitar os usuários que *só* receberam a função de administrador de dispositivos para gerenciar um dispositivo. 
+By adding Azure AD roles to the local administrators group, you can update the users that can manage a device anytime in Azure AD without modifying anything on the device. Currently, you cannot assign groups to an administrator role.
+Azure AD also adds the Azure AD device administrator role to the local administrators group to support the principle of least privilege (PoLP). In addition to the global administrators, you can also enable users that have been *only* assigned the device administrator role to manage a device. 
 
-## <a name="manage-the-global-administrators-role"></a>Gerenciar a função de administradores globais
+## <a name="manage-the-global-administrators-role"></a>Manage the global administrators role
 
-Para exibir e atualizar a associação da função de administrador global, consulte:
+To view and update the membership of the global administrator role, see:
 
-- [Exibir todos os membros de uma função de administrador no Azure Active Directory](../users-groups-roles/directory-manage-roles-portal.md)
-- [Atribuir um usuário a funções de administrador no Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
+- [View all members of an administrator role in Azure Active Directory](../users-groups-roles/directory-manage-roles-portal.md)
+- [Assign a user to administrator roles in Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 
-## <a name="manage-the-device-administrator-role"></a>Gerenciar a função de administrador do dispositivo 
+## <a name="manage-the-device-administrator-role"></a>Manage the device administrator role 
 
-No portal do Azure, você pode gerenciar a função de administrador do dispositivo na página **dispositivos** . Para abrir a página **dispositivos** :
+In the Azure portal, you can manage the device administrator role on the **Devices** page. To open the **Devices** page:
 
-1. Entre em seu [portal do Azure](https://portal.azure.com) como administrador global ou administrador de dispositivo.
-1. Procure e selecione *Azure Active Directory*.
-1. Na seção **gerenciar** , clique em **dispositivos**.
-1. Na página **dispositivos** , clique em **configurações do dispositivo**.
+1. Sign in to your [Azure portal](https://portal.azure.com) as a global administrator or device administrator.
+1. Search for and select *Azure Active Directory*.
+1. In the **Manage** section, click **Devices**.
+1. On the **Devices** page, click **Device settings**.
 
-Para modificar a função de administrador do dispositivo, configure **Administradores locais adicionais em dispositivos ingressados no Azure ad**.  
+To modify the device administrator role, configure **Additional local administrators on Azure AD joined devices**.  
 
-![Administradores locais adicionais](./media/assign-local-admin/10.png)
+![Additional local administrators](./media/assign-local-admin/10.png)
 
 >[!NOTE]
-> Esta opção requer um locatário Azure AD Premium. 
+> This option requires an Azure AD Premium tenant. 
 
-Os administradores de dispositivo são atribuídos a todos os dispositivos ingressados no Azure AD. Você não pode definir o escopo de administradores de dispositivo para um conjunto específico de dispositivos. A atualização da função de administrador do dispositivo não tem necessariamente um impacto imediato nos usuários afetados. Em dispositivos em que um usuário já está conectado, a atualização de privilégio ocorre quando *ambas* as ações abaixo acontecem:
+Device administrators are assigned to all Azure AD joined devices. You cannot scope device administrators to a specific set of devices. Updating the device administrator role doesn't necessarily have an immediate impact on the affected users. On devices where a user is already signed into, the privilege update takes place when *both* the below actions happen:
 
-- 4 horas passaram para o Azure AD emitir um novo token de atualização primário com os privilégios apropriados. 
-- O usuário sai e faz logon, não bloqueia/desbloqueie, para atualizar seu perfil.
+- 4 hours have passed for Azure AD to issue a new Primary Refresh Token with the appropriate privileges. 
+- User signs out and signs back in, not lock/unlock, to refresh their profile.
 
-## <a name="manage-regular-users"></a>Gerenciar usuários regulares
+## <a name="manage-regular-users"></a>Manage regular users
 
-Por padrão, o Azure AD adiciona o usuário que está executando a junção do Azure AD ao grupo de administradores no dispositivo. Se você quiser impedir que usuários regulares se tornem administradores locais, terá as seguintes opções:
+By default, Azure AD adds the user performing the Azure AD join to the administrator group on the device. If you want to prevent regular users from becoming local administrators, you have the following options:
 
-- [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) -o Windows AutoPilot fornece uma opção para impedir que o usuário primário execute o join de se tornar um administrador local. Você pode fazer isso [criando um perfil do AutoPilot](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
-- [Registro em massa](https://docs.microsoft.com/intune/windows-bulk-enroll) – uma junção do Azure ad executada no contexto de um registro em massa ocorre no contexto de um usuário criado automaticamente. Os usuários que se conectarem depois que um dispositivo tiver sido ingressado não serão adicionados ao grupo de administradores.   
+- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) - Windows Autopilot provides you with an option to prevent primary user performing the join from becoming a local administrator. You can accomplish this by [creating an Autopilot profile](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
+- [Bulk enrollment](https://docs.microsoft.com/intune/windows-bulk-enroll) - An Azure AD join that is performed in the context of a bulk enrollment happens in the context of an auto-created user. Users signing in after a device has been joined are not added to the administrators group.   
 
-## <a name="manually-elevate-a-user-on-a-device"></a>Elevar um usuário manualmente em um dispositivo 
+## <a name="manually-elevate-a-user-on-a-device"></a>Manually elevate a user on a device 
 
-Além de usar o processo de ingresso no Azure AD, você também pode elevar manualmente um usuário normal para se tornar um administrador local em um dispositivo específico. Esta etapa exige que você já seja um membro do grupo local de administradores. 
+In addition to using the Azure AD join process, you can also manually elevate a regular user to become a local administrator on one specific device. This step requires you to already be a member of the local administrators group. 
 
-A partir da versão **10 1709 do Windows** , você pode executar essa tarefa em **Configurações-> contas-> outros usuários**. Selecione **Adicionar um usuário corporativo ou de estudante**, insira o UPN do usuário **em conta de usuário** e selecione *administrador* em **tipo de conta**  
+Starting with the **Windows 10 1709** release, you can perform this task from **Settings -> Accounts -> Other users**. Select **Add a work or school user**, enter the user's UPN under **User account** and select *Administrator* under **Account type**  
  
-Além disso, você também pode adicionar usuários usando o prompt de comando:
+Additionally, you can also add users using the command prompt:
 
-- Se os usuários do locatário estiverem sincronizados do Active Directory local, use `net localgroup administrators /add "Contoso\username"`.
-- Se os usuários do locatário forem criados no Azure AD, use `net localgroup administrators /add "AzureAD\UserUpn"`
+- If your tenant users are synchronized from on-premises Active Directory, use `net localgroup administrators /add "Contoso\username"`.
+- If your tenant users are created in Azure AD, use `net localgroup administrators /add "AzureAD\UserUpn"`
 
 ## <a name="considerations"></a>Considerações 
 
-Você não pode atribuir grupos à função de administrador do dispositivo, somente usuários individuais são permitidos.
+You cannot assign groups to the device administrator role, only individual users are allowed.
 
-Os administradores de dispositivo são atribuídos a todos os dispositivos ingressados no Azure AD. Eles não podem ter o escopo definido para um conjunto específico de dispositivos.
+Device administrators are assigned to all Azure AD Joined devices. They can't be scoped to a specific set of devices.
 
-Quando você remove usuários da função de administrador do dispositivo, eles ainda têm o privilégio de administrador local em um dispositivo, desde que eles estejam conectados a ele. O privilégio é revogado durante a próxima entrada ou após 4 horas quando um novo token de atualização primário é emitido.
+When you remove users from the device administrator role, they still have the local administrator privilege on a device as long as they are signed in to it. The privilege is revoked during the next sign-in, or after 4 hours when a new primary refresh token is issued.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma descrição geral sobre como gerir dispositivos no portal do Azure, veja [Managing devices using the Azure portal](device-management-azure-portal.md) (Gerir dispositivos no portal do Azure)
-- Para saber mais sobre o acesso condicional baseado em dispositivo, confira [configurar Azure Active Directory políticas de acesso condicional com base no dispositivo](../conditional-access/require-managed-devices.md).
+- To learn more about device-based Conditional Access, see [configure Azure Active Directory device-based Conditional Access policies](../conditional-access/require-managed-devices.md).
