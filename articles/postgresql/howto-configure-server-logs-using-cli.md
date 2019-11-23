@@ -25,7 +25,7 @@ Para percorrer este guia de instruções, você precisa de:
 ## <a name="configure-logging"></a>Configurar registro em log
 Você pode configurar o servidor para acessar logs de consulta e logs de erros. Os logs de erros podem ter informações de vácuo, conexão e ponto de verificação automáticos.
 1. Ative o registro em log.
-2. Para habilitar o log de consultas, atualize **log @ no__t-1statement** e **log @ no__t-3min @ no__t-4duration @ no__t-5statement**.
+2. Para habilitar o log de consultas, atualize **log\_instrução** e **log\_instrução min\_Duration\_** .
 3. Período de retenção de atualização.
 
 Para obter mais informações, consulte [Personalizando parâmetros de configuração do servidor](howto-configure-server-parameters-using-cli.md).
@@ -33,7 +33,7 @@ Para obter mais informações, consulte [Personalizando parâmetros de configura
 ## <a name="list-logs"></a>Listar logs
 Para listar os arquivos de log disponíveis para o servidor, execute o comando [AZ postgres Server-logs List](/cli/azure/postgres/server-logs) .
 
-Você pode listar os arquivos de log para o servidor **mydemoserver.Postgres.Database.Azure.com** no grupo de recursos **MyResource**Group. Em seguida, direcione a lista de arquivos de log para um arquivo de texto chamado **log @ no__t-1files\_list.txt**.
+Você pode listar os arquivos de log para o servidor **mydemoserver.Postgres.Database.Azure.com** no grupo de recursos **MyResource**Group. Em seguida, direcione a lista de arquivos de log para um arquivo de texto chamado **log\_arquivos\_List. txt**.
 ```azurecli-interactive
 az postgres server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```

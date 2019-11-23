@@ -95,7 +95,7 @@ Você deseja dar acesso ao seu par, Joe, a capacidade de criar e gerenciar tíqu
 
     ![Novo pedido de suporte](./media/create-manage-support-requests-using-access-control/new-support-request.png)
 
-8. Ao clicar em "todas as solicitações de suporte", Joe poderá ver a lista de solicitações de suporte criadas para esta assinatura ![Case exibição de detalhes @ no__t-1
+8. Ao clicar em "todas as solicitações de suporte", Joe poderá ver a lista de solicitações de suporte criadas para esta assinatura ![exibição de detalhes do caso](./media/create-manage-support-requests-using-access-control/case-details-view.png)
 
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>Remover o acesso à solicitação de suporte no portal do Azure
 

@@ -48,7 +48,7 @@ Você também deve ter registrado sua assinatura para usar o provedor de recurso
      Selecione uma subscrição a partir das subscrições existentes.
    * **Grupo de recursos**   
      Utilize um Grupo de Recursos existente ou crie um novo.
-   * **Location**  
+   * **Localização**  
      Selecione a região onde quer ter a conta e os respetivos recursos subordinados a localizar.  
 
      ![Nova conta NetApp](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
@@ -62,7 +62,7 @@ Você também deve ter registrado sua assinatura para usar o provedor de recurso
 >
 > `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
 
-## <a name="next-steps"></a>Passos Seguintes  
+## <a name="next-steps"></a>Passos seguintes  
 
 [Configurar um conjunto de capacidade](azure-netapp-files-set-up-capacity-pool.md)
 

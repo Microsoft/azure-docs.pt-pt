@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Key Vault - Linux - Azure AD
+title: Tutorial`:` usar uma identidade gerenciada para acessar Azure Key Vault-Linux-Azure AD
 description: Um tutorial que o orienta pelo processo de utilização de uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -40,7 +40,7 @@ Saiba como:
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Conceder o acesso da VM a um segredo armazenado num Key Vault  
 
-Com as identidades de serviço geridas para recursos do Azure, o seu código pode obter tokens de acesso para autenticação em recursos que suportam a autenticação do Azure Active Directory. However, not all Azure services support Azure AD authentication. To use managed identities for Azure resources with those services, store the service credentials in Azure Key Vault, and use managed identities for Azure resources to access Key Vault to retrieve the credentials. 
+Com as identidades de serviço geridas para recursos do Azure, o seu código pode obter tokens de acesso para autenticação em recursos que suportam a autenticação do Azure Active Directory. No entanto, nem todos os serviços do Azure dão suporte à autenticação do Azure AD. Para usar identidades gerenciadas para recursos do Azure com esses serviços, armazene as credenciais de serviço no Azure Key Vault e use identidades gerenciadas para recursos do Azure para acessar Key Vault para recuperar as credenciais. 
 
 Primeiro, é preciso criar um Key Vault e conceder o acesso de identidade gerida atribuída pelo sistema da VM ao Key Vault.   
 
@@ -49,7 +49,7 @@ Primeiro, é preciso criar um Key Vault e conceder o acesso de identidade gerida
 3. Localize o Key Vault na mesma subscrição e grupo de recursos da VM que criou anteriormente. 
 4. Selecione **Políticas de acesso** e clique em **Adicionar novo**. 
 5. Em Configurar a partir do modelo, selecione **Gestão de Segredos**. 
-6. Selecione **Selecionar Principal** e, no campo de pesquisa, introduza o nome da VM que criou anteriormente.  Select the VM in the result list and click **Select**. 
+6. Selecione **Selecionar Principal** e, no campo de pesquisa, introduza o nome da VM que criou anteriormente.  Selecione a VM na lista de resultados e clique em **selecionar**. 
 7. Clique em **OK** para concluir a adição da nova política de acesso e em **OK** para concluir a seleção da política de acesso. 
 8. Clique em **Criar** para concluir a criação do Key Vault. 
 
@@ -60,17 +60,17 @@ Em seguida, adicione um segredo ao Key Vault para que possa mais tarde obter o s
 1. Selecione **Todos os Recursos** e localize e selecione o Key Vault que criou. 
 2. Selecione **Segredos** e clique em **Adicionar**. 
 3. Selecione **Manual** em **Opções de carregamento**. 
-4. Introduza o nome e o valor do segredo.  The value can be anything you want. 
+4. Introduza o nome e o valor do segredo.  O valor pode ser qualquer coisa que você desejar. 
 5. Deixe as datas de ativação e expiração claras e mantenha **Ativado** como **Sim**. 
 6. Clique em **Criar** para criar o segredo. 
  
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Obter um token de acesso com a identidade da VM e utilizá-lo para obter o segredo a partir do Key Vault  
 
-Para concluir estes passos, precisa de um cliente SSH.  If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). Se precisar de ajuda para configurar as chaves do seu cliente SSH, veja [Como utilizar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md) ou [Como criar e utilizar um par de chaves SSH públicas e privadas para VMs do Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Para concluir estes passos, precisa de um cliente SSH.  Se você estiver usando o Windows, poderá usar o cliente SSH no [subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about). Se precisar de ajuda para configurar as chaves do seu cliente SSH, veja [Como utilizar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md) ou [Como criar e utilizar um par de chaves SSH públicas e privadas para VMs do Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
  
 1. No portal, navegue para a VM do Linux e, em **Descrição Geral**, clique em **Ligar**. 
 2. **Ligue** à VM com o cliente SSH que escolher. 
-3. In the terminal window, using CURL, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Key Vault.  
+3. Na janela do terminal, usando a ONDULAção, faça uma solicitação para as identidades gerenciadas locais para o ponto de extremidade de recursos do Azure para obter um token de acesso para Azure Key Vault.  
  
     O pedido CURL para o token de acesso encontra-se abaixo.  
     
@@ -91,7 +91,7 @@ Para concluir estes passos, precisa de um cliente SSH.  If you are using Window
     "token_type":"Bearer"} 
     ```
     
-    Pode utilizar este token de acesso para autenticação no Azure Key Vault.  The next CURL request shows how to read a secret from Key Vault using CURL and the Key Vault REST API.  You’ll need the URL of your Key Vault, which is in the **Essentials** section of the **Overview** page of the Key Vault.  You will also need the access token you obtained on the previous call. 
+    Pode utilizar este token de acesso para autenticação no Azure Key Vault.  A próxima solicitação de rotação mostra como ler um segredo de Key Vault usando a rotação e a API REST Key Vault.  Você precisará da URL da sua Key Vault, que está na seção **Essentials** da página **visão geral** da Key Vault.  Você também precisará do token de acesso obtido na chamada anterior. 
         
     ```bash
     curl https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01 -H "Authorization: Bearer <ACCESS TOKEN>" 

@@ -443,7 +443,7 @@ Neste artigo, abordaremos as etapas que você pode executar para implantar siste
 * Conheça as diferenças entre o modelo de implantação Azure Resource Manager e o modelo de implantação clássico do Azure.
 * Saiba mais sobre os modos de quorum do Windows Server failover clustering, para que você possa selecionar o modelo certo para sua implantação do Azure.
 * Saiba mais sobre o armazenamento compartilhado do Windows Server failover clustering nos serviços do Azure.
-* Saiba como ajudar a proteger componentes de ponto único de falha, como aplicativos avançados de ABAP (programação de aplicativos de negócios), ASCS (serviços centrais do/SCS) e sistemas de gerenciamento de banco de dados (DBMS) e componentes redundantes, como o aplicativo SAP Servidor, no Azure.
+* Saiba como ajudar a proteger componentes de ponto único de falha, como ABAP (programação de aplicativos de negócios avançado), ASCS (serviços centrais do/SCS) e sistemas de gerenciamento de bancos de dados (DBMS) e componentes redundantes, como o servidor de aplicativos SAP, no Azure.
 * Siga um exemplo passo a passo de uma instalação e configuração de um sistema SAP de alta disponibilidade em um cluster de clustering de failover do Windows Server no Azure usando Azure Resource Manager.
 * Saiba mais sobre as etapas adicionais necessárias para usar o clustering de failover do Windows Server no Azure, mas que não são necessárias em uma implantação local.
 
@@ -469,13 +469,13 @@ Estes artigos abordam as implantações do SAP no Azure:
 
 Essas notas SAP estão relacionadas ao tópico do SAP no Azure:
 
-| Número da nota | Cargo |
+| Número da nota | Título |
 | --- | --- |
-| [1928533] |Aplicativos SAP no Azure: Produtos com suporte e dimensionamento |
-| [2015553] |SAP em Microsoft Azure: Pré-requisitos de suporte |
+| [1928533] |Aplicativos SAP no Azure: produtos e dimensionamento com suporte |
+| [2015553] |SAP em Microsoft Azure: pré-requisitos de suporte |
 | [1999351] |Monitoramento do Azure aprimorado para SAP |
 | [2178632] |Principais métricas de monitoramento para SAP em Microsoft Azure |
-| [1999351] |Virtualização no Windows: Monitoramento avançado |
+| [1999351] |Virtualização no Windows: monitoramento avançado |
 | [2243692] |Uso do armazenamento de SSD Premium do Azure para instância do SAP DBMS |
 
 Saiba mais sobre as [limitações das assinaturas do Azure][azure-subscription-service-limits-subscription], incluindo limitações padrão gerais e limites máximos.
@@ -500,7 +500,7 @@ No Azure Resource Manager, você não precisa de um grupo de recursos do Azure p
 
 No Azure Resource Manager, você pode instalar várias instâncias ASCS/SCS do SID (identificador do sistema SAP) em um cluster. Instâncias de vários SIDs são possíveis devido ao suporte para vários endereços IP para cada balanceador de carga interno do Azure.
 
-Para usar o modelo de implantação clássico do Azure, siga os procedimentos [descritos no SAP NetWeaver no Azure: Clustering de instâncias do SAP ASCS/SCS usando o clustering de failover do Windows Server no Azure com](https://go.microsoft.com/fwlink/?LinkId=613056)o sios datakeeper.
+Para usar o modelo de implantação clássico do Azure, siga os procedimentos descritos no [SAP NetWeaver no Azure: clustering de instâncias do SAP ASCS/SCS usando o clustering de failover do Windows Server no Azure com o sios Datakeeper](https://go.microsoft.com/fwlink/?LinkId=613056).
 
 > [!IMPORTANT]
 > É altamente recomendável que você use o modelo de implantação Azure Resource Manager para suas instalações do SAP. Ele oferece muitos benefícios que não estão disponíveis no modelo de implantação clássico. Saiba mais sobre os [modelos de implementação][virtual-machines-azure-resource-manager-architecture-benefits-arm] do Azure.   
@@ -518,14 +518,14 @@ Você pode escolher entre quatro modos de quorum ao usar o clustering de failove
 * **Maioria de nós**. Cada nó do cluster pode votar. O cluster funciona apenas com a maioria dos votos, ou seja, com mais da metade dos votos. Recomendamos essa opção para clusters que têm um número desigual de nós. Por exemplo, três nós em um cluster de sete nós podem falhar e o cluster ainda atinge a maioria e continua a ser executado.  
 * **Maioria de nós e discos**. Cada nó e um disco designado (uma testemunha de disco) no armazenamento de cluster podem votar quando estão disponíveis e em comunicação. O cluster funciona apenas com a maioria dos votos, ou seja, com mais da metade dos votos. Esse modo faz sentido em um ambiente de cluster com um número par de nós. Se metade dos nós e o disco estiverem online, o cluster permanecerá em um estado íntegro.
 * **Maioria dos nós e compartilhamento de arquivos**. Cada nó, mais um compartilhamento de arquivo designado (uma testemunha de compartilhamento de arquivos) que o administrador cria pode votar, independentemente de os nós e o compartilhamento de arquivos estarem disponíveis e em comunicação. O cluster funciona apenas com a maioria dos votos, ou seja, com mais da metade dos votos. Esse modo faz sentido em um ambiente de cluster com um número par de nós. Ele é semelhante ao modo maioria dos nós e discos, mas usa um compartilhamento de arquivos testemunha em vez de um disco testemunha. Esse modo é fácil de implementar, mas se o compartilhamento de arquivos em si não estiver altamente disponível, ele poderá se tornar um ponto único de falha.
-* **Sem maioria: Somente**disco. O cluster terá um quorum se um nó estiver disponível e em comunicação com um disco específico no armazenamento de cluster. Somente os nós que também estão em comunicação com esse disco podem ingressar no cluster. Recomendamos que você não use esse modo.
+* **Sem maioria: somente disco**. O cluster terá um quorum se um nó estiver disponível e em comunicação com um disco específico no armazenamento de cluster. Somente os nós que também estão em comunicação com esse disco podem ingressar no cluster. Recomendamos que você não use esse modo.
 
 ## <a name="fdfee875-6e66-483a-a343-14bbaee33275"></a>Clustering de failover do Windows Server local
 A Figura 1 mostra um cluster de dois nós. Se a conexão de rede entre os nós falhar e ambos os nós permanecerem funcionando, um disco de quorum ou compartilhamento de arquivos determinará qual nó continuará a fornecer os aplicativos e serviços do cluster. O nó que tem acesso ao disco de quorum ou compartilhamento de arquivos é o nó que garante que os serviços continuem.
 
 Como este exemplo usa um cluster de dois nós, usamos o modo de quorum maioria dos nós e compartilhamentos de arquivos. A maioria dos nós e discos também é uma opção válida. Em um ambiente de produção, recomendamos que você use um disco de quorum. Você pode usar a tecnologia de rede e de sistema de armazenamento para torná-la altamente disponível.
 
-![Figura 1: Exemplo de uma configuração de clustering de failover do Windows Server para SAP ASCS/SCS no Azure][sap-ha-guide-figure-1000]
+![Figura 1: exemplo de uma configuração de clustering de failover do Windows Server para SAP ASCS/SCS no Azure][sap-ha-guide-figure-1000]
 
 _**Figura 1:** Exemplo de uma configuração de clustering de failover do Windows Server para SAP ASCS/SCS no Azure_
 
@@ -551,7 +551,7 @@ Em comparação com as implantações bare-metal ou nuvem privada, as máquinas 
 
 Neste artigo, discutiremos os principais conceitos e as etapas adicionais necessárias para criar um cluster de serviços centrais de alta disponibilidade do SAP no Azure. Mostramos como configurar a ferramenta de terceiros SIOS datakeeper e como configurar o balanceador de carga interno do Azure. Você pode usar essas ferramentas para criar um cluster de failover do Windows com uma testemunha de compartilhamento de arquivos no Azure.
 
-![Figura 2: Configuração do Windows Server failover clustering no Azure sem um disco compartilhado][sap-ha-guide-figure-1001]
+![Figura 2: configuração do Windows Server failover clustering no Azure sem um disco compartilhado][sap-ha-guide-figure-1001]
 
 _**Figura 2:** Configuração do Windows Server failover clustering no Azure sem um disco compartilhado_
 
@@ -562,9 +562,9 @@ Você precisa de armazenamento compartilhado de cluster para uma instância do S
 2. Execute o SIOS datakeeper Cluster Edition em ambos os nós da máquina virtual.
 3. Configure o SIOS datakeeper Cluster Edition para que ele espelhe o conteúdo do volume anexado do VHD adicional da máquina virtual de origem para o volume anexado do VHD adicional da máquina virtual de destino. O SIOS datakeeper abstrai os volumes locais de origem e de destino e os apresenta ao clustering de failover do Windows Server como um disco compartilhado.
 
-Obtenha mais informações sobre o [sios](https://us.sios.com/products/datakeeper-cluster/)datakeeper.
+Obtenha mais informações sobre o [sios Datakeeper](https://us.sios.com/products/datakeeper-cluster/).
 
-![Figura 3: Configuração do Windows Server failover clustering no Azure com SIOS datakeeper][sap-ha-guide-figure-1002]
+![Figura 3: configuração do Windows Server failover clustering no Azure com o SIOS datakeeper][sap-ha-guide-figure-1002]
 
 _**Figura 3:** Configuração do Windows Server failover clustering no Azure com SIOS datakeeper_
 
@@ -591,7 +591,7 @@ Para obter mais informações sobre como proteger os componentes do SAP em cená
 ### <a name="93faa747-907e-440a-b00a-1ae0a89b1c0e"></a>Servidor de aplicativos SAP de alta disponibilidade
 Normalmente, você não precisa de uma solução específica de alta disponibilidade para o servidor de aplicativos SAP e as instâncias de caixa de diálogo. Você obtém alta disponibilidade por redundância e configurará várias instâncias de caixa de diálogo em diferentes instâncias de máquinas virtuais do Azure. Você deve ter pelo menos duas instâncias do aplicativo SAP instaladas em duas instâncias de máquinas virtuais do Azure.
 
-![Figura 4: Servidor de aplicativos SAP de alta disponibilidade][sap-ha-guide-figure-2000]
+![Figura 4: servidor de aplicativos SAP de alta disponibilidade][sap-ha-guide-figure-2000]
 
 _**Figura 4:** Servidor de aplicativos SAP de alta disponibilidade_
 
@@ -607,21 +607,21 @@ Como a conta de armazenamento do Azure é um possível ponto único de falha, é
 ### <a name="f559c285-ee68-4eec-add1-f60fe7b978db"></a>Instância do SAP ASCS/SCS de alta disponibilidade
 A Figura 5 é um exemplo de uma instância do SAP ASCS/SCS de alta disponibilidade.
 
-![Figura 5: Instância do SAP ASCS/SCS de alta disponibilidade][sap-ha-guide-figure-2001]
+![Figura 5: instância do SAP ASCS/SCS de alta disponibilidade][sap-ha-guide-figure-2001]
 
 _**Figura 5:** Instância do SAP ASCS/SCS de alta disponibilidade_
 
 #### <a name="b5b1fd0b-1db4-4d49-9162-de07a0132a51"></a>Alta disponibilidade da instância do SAP ASCS/SCS com o clustering de failover do Windows Server no Azure
 Em comparação com as implantações bare-metal ou nuvem privada, as máquinas virtuais do Azure exigem etapas adicionais para configurar o clustering de failover do Windows Server. Para criar um cluster de failover do Windows, você precisa de um disco de cluster compartilhado, vários endereços IP, vários nomes de host virtual e um balanceador de carga interno do Azure para clustering de uma instância do SAP ASCS/SCS. Discutiremos isso em mais detalhes posteriormente neste artigo.
 
-![Figura 6: Clustering de failover do Windows Server para uma configuração do SAP ASCS/SCS no Azure usando o SIOS datakeeper][sap-ha-guide-figure-1002]
+![Figura 6: clustering de failover do Windows Server para uma configuração do SAP ASCS/SCS no Azure usando o SIOS datakeeper][sap-ha-guide-figure-1002]
 
 _**Figura 6:** Windows Server failover clustering para uma configuração do SAP ASCS/SCS no Azure com o SIOS datakeeper_
 
 ### <a name="ddd878a0-9c2f-4b8e-8968-26ce60be1027"></a>Instância de DBMS de alta disponibilidade
 O DBMS também é um ponto único de contato em um sistema SAP. Você precisa protegê-lo usando uma solução de alta disponibilidade. A Figura 7 mostra uma solução SQL Server Always On de alta disponibilidade no Azure, com o clustering de failover do Windows Server e o balanceador de carga interno do Azure. SQL Server Always On replica os dados do DBMS e os arquivos de log usando sua própria replicação de DBMS. Nesse caso, você não precisa de discos compartilhados de cluster, o que simplifica toda a configuração.
 
-![Figura 7: Exemplo de um DBMS SAP de alta disponibilidade, com SQL Server Always On][sap-ha-guide-figure-2003]
+![Figura 7: exemplo de um DBMS SAP de alta disponibilidade, com SQL Server Always On][sap-ha-guide-figure-2003]
 
 _**Figura 7:** Exemplo de um DBMS SAP de alta disponibilidade, com SQL Server Always On_
 
@@ -640,7 +640,7 @@ A Figura 8 mostra um exemplo de uma arquitetura de alta disponibilidade do SAP N
 - Um cluster dedicado é usado para a instância do DBMS.
 - As instâncias do servidor de aplicativos SAP são implantadas em suas próprias VMs dedicadas.
 
-![Figura 8: Modelo de arquitetura 1 de alta disponibilidade do SAP, com cluster dedicado para ASCS/SCS e DBMS][sap-ha-guide-figure-2004]
+![Figura 8: modelo de arquitetura de alta disponibilidade do SAP 1, com cluster dedicado para ASCS/SCS e DBMS][sap-ha-guide-figure-2004]
 
 _**Figura 8:** Modelo de arquitetura 1 de alta disponibilidade do SAP, clusters dedicados para ASCS/SCS e DBMS_
 
@@ -648,23 +648,23 @@ _**Figura 8:** Modelo de arquitetura 1 de alta disponibilidade do SAP, clusters 
 
 A Figura 9 mostra um exemplo de uma arquitetura de alta disponibilidade do SAP NetWeaver no Azure para **um** sistema SAP. Esse cenário é configurado da seguinte maneira:
 
-- Um cluster dedicado é usado para a instância do SAP ASCS/SCS e para o DBMS.
+- Um cluster dedicado é **usado para a instância do SAP** ASCS/SCS e para o DBMS.
 - As instâncias do servidor de aplicativos SAP são implantadas nas próprias VMs dedicadas.
 
-![Figura 9: Modelo de arquitetura 2 de alta disponibilidade do SAP, com um cluster dedicado para ASCS/SCS e um cluster dedicado para DBMS][sap-ha-guide-figure-2005]
+![Figura 9: modelo de arquitetura 2 de alta disponibilidade do SAP, com um cluster dedicado para ASCS/SCS e um cluster dedicado para DBMS][sap-ha-guide-figure-2005]
 
 _**Figura 9:** Modelo de arquitetura 2 de alta disponibilidade do SAP, com um cluster dedicado para ASCS/SCS e um cluster dedicado para DBMS_
 
 ### <a name="deployment-scenario-using-architectural-template-3"></a>Cenário de implantação usando o modelo de arquitetura 3
 
-A Figura 10 mostra um exemplo de uma arquitetura de alta disponibilidade do SAP NetWeaver no Azure para **dois** sistemas SAP &lt;,&gt; com SID1&gt;e &lt;SID2. Esse cenário é configurado da seguinte maneira:
+A Figura 10 mostra um exemplo de uma arquitetura de alta disponibilidade do SAP NetWeaver no Azure para **dois** sistemas SAP, com &lt;SID1&gt; e &lt;&gt;de SID2. Esse cenário é configurado da seguinte maneira:
 
-- Um cluster dedicado é usado para a instância SID1 do SAP ASCS/SCS *e* para a instância de SID2 do SAP ASCS/SCS (um cluster).
+- Um cluster dedicado é **usado para a instância SID1 do SAP** ASCS/SCS *e* para a instância de SID2 do SAP ASCS/SCS (um cluster).
 - Um cluster dedicado é usado para SID1 DBMS e outro cluster dedicado é usado para DBMS SID2 (dois clusters).
 - As instâncias do servidor de aplicativos SAP para o sistema SAP SID1 têm suas próprias VMs dedicadas.
 - As instâncias do servidor de aplicativos SAP para o sistema SAP SID2 têm suas próprias VMs dedicadas.
 
-![Figura 10: Modelo de arquitetura de alta disponibilidade do SAP 3, com um cluster dedicado para instâncias diferentes do ASCS/SCS][sap-ha-guide-figure-6003]
+![Figura 10: modelo de arquitetura de alta disponibilidade do SAP 3, com um cluster dedicado para instâncias diferentes do ASCS/SCS][sap-ha-guide-figure-6003]
 
 _**Figura 10:** Modelo de arquitetura de alta disponibilidade do SAP 3, com um cluster dedicado para instâncias diferentes do ASCS/SCS_
 
@@ -684,7 +684,7 @@ Para preparar a infraestrutura para o modelo de arquitetura 1:
 
 - Na portal do Azure, na folha **parâmetros** , na caixa **SYSTEMAVAILABILITY** , selecione **ha**.
 
-  ![Figura 11: Definir parâmetros de Azure Resource Manager de alta disponibilidade do SAP][sap-ha-guide-figure-3000]
+  ![Figura 11: definir parâmetros de Azure Resource Manager de alta disponibilidade do SAP][sap-ha-guide-figure-3000]
 
 _**Figura 11:** Definir parâmetros de Azure Resource Manager de alta disponibilidade do SAP_
 
@@ -693,7 +693,7 @@ _**Figura 11:** Definir parâmetros de Azure Resource Manager de alta disponibil
 
   * **Máquinas virtuais**:
     * Máquinas virtuais do servidor de aplicativos SAP: <*SAPSystemSID*>-di-<*número*>
-    * Máquinas virtuais de cluster ASCS/SCS: <*SAPSystemSID*>-ASCS-*número* <>
+    * Máquinas virtuais de cluster ASCS/SCS: <*SAPSystemSID*>-ASCS-*número* de <>
     * Cluster DBMS: <*SAPSystemSID*>-db-<*número*>
 
   * **Placas de rede para todas as máquinas virtuais, com endereços IP associados**:
@@ -716,7 +716,7 @@ _**Figura 11:** Definir parâmetros de Azure Resource Manager de alta disponibil
     * Com uma porta de RDP (Open external protocolo RDP) para a máquina virtual <*SAPSystemSID*>-ASCs-0
 
 > [!NOTE]
-> Todos os endereços IP das placas de rede e dos balanceadores de carga internos do Azure são dinâmicos por padrão. Altere-os para endereços IP estáticos. Descreveremos como fazer isso posteriormente neste artigo.
+> Todos os endereços IP das placas de rede e dos balanceadores de carga internos do Azure são **dinâmicos** por padrão. Altere-os para endereços IP **estáticos** . Descreveremos como fazer isso posteriormente neste artigo.
 >
 >
 
@@ -737,7 +737,7 @@ Para sistemas SAP de produção, implante máquinas virtuais do Azure com [conec
    ```
 
    O campo **ID** mostra a **subnetid**.
-4. Para obter uma lista de todos os valores de subnetid, execute este comando do PowerShell:
+4. Para obter uma lista de todos os valores de **subnetid** , execute este comando do PowerShell:
 
    ```PowerShell
    (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
@@ -752,7 +752,7 @@ Para sistemas SAP de produção, implante máquinas virtuais do Azure com [conec
 ### <a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a>Implantar instâncias SAP somente na nuvem para teste e demonstração
 Você pode implantar seu sistema SAP de alta disponibilidade em um modelo de implantação somente em nuvem. Esse tipo de implantação é principalmente útil para casos de uso de demonstração e teste. Não é adequado para casos de uso de produção.
 
-- Na portal do Azure, na folha **parâmetros** , na caixa **NEWOREXISTINGSUBNET** , selecione **novo**. Deixe o campo subnetid vazio.
+- Na portal do Azure, na folha **parâmetros** , na caixa **NEWOREXISTINGSUBNET** , selecione **novo**. Deixe o campo **subnetid** vazio.
 
   O modelo SAP Azure Resource Manager cria automaticamente a rede virtual e a sub-rede do Azure.
 
@@ -798,7 +798,7 @@ Para configurar o modelo de vários SID do ASCS/SCS, no [modelo de vários SID d
   -  **Disponibilidade do sistema**. Selecione **ha**.
   -  **Nome de usuário administrador e senha de administrador**. Crie um novo usuário que possa ser usado para entrar no computador.
   -  **Sub-rede nova ou existente**. Defina se uma nova rede virtual e sub-rede devem ser criadas ou se uma sub-rede existente deve ser usada. Se você já tiver uma rede virtual conectada à sua rede local, selecione **existente**.
-  -  **ID da sub-rede**. Se você deseja implantar a VM em uma VNet existente em que você tem uma sub-rede definida, a VM deve ser atribuída, nomear a ID dessa sub-rede específica. A ID geralmente tem esta aparência:/subscriptions/<*ID da assinatura*>/resourceGroups/<*nome do grupo de recursos*>/Providers/Microsoft.Network/virtualNetworks/< nome da*rede virtual*>/Subnets/<*sub-rede nome* do>
+  -  **ID da sub-rede**. Se você deseja implantar a VM em uma VNet existente em que você tem uma sub-rede definida, a VM deve ser atribuída, nomear a ID dessa sub-rede específica. A ID geralmente tem esta aparência:/subscriptions/<*ID da assinatura*>/resourceGroups/<*nome do grupo de recursos*>/Providers/Microsoft.Network/virtualNetworks/< nome da*rede virtual*>/Subnets/<*nome da sub-rede*>
 
 O modelo implanta um Azure Load Balancer instância, que dá suporte a vários sistemas SAP.
 
@@ -813,8 +813,8 @@ A lista a seguir contém todas as regras de balanceamento de carga (em que x é 
 - Portas específicas do Windows para cada sistema SAP: 445, 5985
 - Portas ASCS (número de instância x0): 32x0, 36x0, 39x0, 81x0, 5x013, 5x014, 5x016
 - Portas SCS (número de instância X1): 32x1, 33x1, 39x1, 81x1, 5x113, 5x114, 5x116
-- Portas ASCS ERS no Linux (número de instância x2): 33x2, 5x213, 5x214, 5x216
-- Portas SCS ERS no Linux (número de instância do X3): 33x3, 5x313, 5x314, 5x316
+- Portas ASCS ERS no Linux (número de instância x2): 33X2, 5x213, 5x214, 5x216
+- Portas SCS ERS no Linux (número da instância X3): 33x3, 5x313, 5x314, 5x316
 
 O balanceador de carga está configurado para usar as seguintes portas de investigação (em que x é o número do sistema SAP, por exemplo, 1, 2, 3...):
 - Porta de investigação do balanceador de carga interno do ASCS/SCS: 620x0
@@ -867,9 +867,9 @@ Para definir os endereços IP de DNS necessários, execute as etapas a seguir.
 2. Selecione suas configurações com base no tipo de rede que você tem. Para obter mais informações, consulte os seguintes recursos:
    * [Conectividade de rede corporativa (entre instalações)][planning-guide-2.2]: Adicione os endereços IP dos servidores DNS locais.  
    Você pode estender os servidores DNS locais para as máquinas virtuais que estão em execução no Azure. Nesse cenário, você pode adicionar os endereços IP das máquinas virtuais do Azure em que você executa o serviço DNS.
-   * Para implantações isoladas no Azure: Implante uma máquina virtual adicional na mesma instância de rede virtual que serve como um servidor DNS. Adicione os endereços IP das máquinas virtuais do Azure que você configurou para executar o serviço DNS.
+   * Para implantações isoladas no Azure: implante uma máquina virtual adicional na mesma instância de rede virtual que serve como um servidor DNS. Adicione os endereços IP das máquinas virtuais do Azure que você configurou para executar o serviço DNS.
 
-   ![Figura 12: Configurar servidores DNS para a rede virtual do Azure][sap-ha-guide-figure-3001]
+   ![Figura 12: configurar servidores DNS para a rede virtual do Azure][sap-ha-guide-figure-3001]
 
    _**Figura 12:** Configurar servidores DNS para a rede virtual do Azure_
 
@@ -902,7 +902,7 @@ Você pode criar manualmente os outros dois nomes de host virtual, **PR1-ASCs-SA
 ### <a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a>Definir endereços IP estáticos para as máquinas virtuais SAP
 Depois de implantar as máquinas virtuais para usar em seu cluster, você precisará definir endereços IP estáticos para todas as máquinas virtuais. Faça isso na configuração de rede virtual do Azure e não no sistema operacional convidado.
 
-1. Na portal do Azure, selecione **grupo** > de recursos**configurações** > de**placa** > de rede**endereço IP**.
+1. No portal do Azure, selecione **grupo de recursos** > **placa de rede** > **configurações** > **endereço IP**.
 2. Na folha **endereços IP** , em **atribuição**, selecione **estático**. Na caixa **endereço IP** , digite o endereço IP que você deseja usar.
 
    > [!NOTE]
@@ -910,7 +910,7 @@ Depois de implantar as máquinas virtuais para usar em seu cluster, você precis
    >
    >
 
-   ![Figura 13: Definir endereços IP estáticos para a placa de rede de cada máquina virtual][sap-ha-guide-figure-3002]
+   ![Figura 13: definir endereços IP estáticos para a placa de rede de cada máquina virtual][sap-ha-guide-figure-3002]
 
    _**Figura 13:** Definir endereços IP estáticos para a placa de rede de cada máquina virtual_
 
@@ -945,7 +945,7 @@ Para definir um endereço IP estático para o balanceador de carga interno do Az
 2. Defina o endereço IP do balanceador de carga interno **PR1-lb-ASCs** para o endereço IP do nome de host virtual da instância do SAP ASCS/SCS.
 3. Defina o endereço IP do balanceador de carga interno **PR1-lb-DBMS** para o endereço IP do nome de host virtual da instância do DBMS.
 
-   ![Figura 14: Definir endereços IP estáticos para o balanceador de carga interno para a instância do SAP ASCS/SCS][sap-ha-guide-figure-3003]
+   ![Figura 14: definir endereços IP estáticos para o balanceador de carga interno para a instância do SAP ASCS/SCS][sap-ha-guide-figure-3003]
 
    _**Figura 14:** Definir endereços IP estáticos para o balanceador de carga interno para a instância do SAP ASCS/SCS_
 
@@ -1003,7 +1003,7 @@ Em seguida, crie esses pontos de extremidade de balanceamento de carga para as p
 
 _**Tabela 2:** Números de porta das instâncias do SCS Java do SAP NetWeaver_
 
-![Figura 15: Regras de balanceamento de carga padrão do ASCS/SCS para o balanceador de carga interno do Azure][sap-ha-guide-figure-3004]
+![Figura 15: regras de balanceamento de carga padrão do ASCS/SCS para o balanceador de carga interno do Azure][sap-ha-guide-figure-3004]
 
 _**Figura 15:** Regras de balanceamento de carga padrão do ASCS/SCS para o balanceador de carga interno do Azure_
 
@@ -1013,18 +1013,18 @@ Defina o endereço IP do balanceador de carga **PR1-lb-DBMS** para o endereço I
 
 Se você quiser usar números diferentes para as instâncias do SAP ASCS ou SCS, deverá alterar os nomes e os valores de suas portas a partir dos valores padrão.
 
-1. No portal do Azure, selecione >   **< *Sid*>-lb-ASCs Load**Balancer**regras de balanceamento**de carga.
+1. No portal do Azure, selecione **<*Sid*>-lb-ASCs Load balancer** > **regras de balanceamento de carga**.
 2. Para todas as regras de balanceamento de carga que pertencem à instância do SAP ASCS ou SCS, altere estes valores:
 
-   * Name
-   * Port
+   * Nome
+   * Porta
    * Porta de back-end
 
    Por exemplo, se você quiser alterar o número da instância ASCS padrão de 00 para 31, será necessário fazer as alterações para todas as portas listadas na tabela 1.
 
    Aqui está um exemplo de uma atualização para a porta *lbrule3200*.
 
-   ![Figura 16: Alterar as regras de balanceamento de carga padrão do ASCS/SCS para o balanceador de carga interno do Azure][sap-ha-guide-figure-3005]
+   ![Figura 16: alterar as regras de balanceamento de carga padrão do ASCS/SCS para o balanceador de carga interno do Azure][sap-ha-guide-figure-3005]
 
    _**Figura 16:** Alterar as regras de balanceamento de carga padrão do ASCS/SCS para o balanceador de carga interno do Azure_
 
@@ -1032,32 +1032,32 @@ Se você quiser usar números diferentes para as instâncias do SAP ASCS ou SCS,
 
 Depois de atribuir um endereço IP estático às máquinas virtuais, adicione as máquinas virtuais ao domínio.
 
-![Figura 17: Adicionar uma máquina virtual a um domínio][sap-ha-guide-figure-3006]
+![Figura 17: adicionar uma máquina virtual a um domínio][sap-ha-guide-figure-3006]
 
 _**Figura 17:** Adicionar uma máquina virtual a um domínio_
 
 ### <a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a>Adicionar entradas de registro em ambos os nós de cluster da instância do SAP ASCS/SCS
 
-Azure Load Balancer tem um balanceador de carga interno que fecha as conexões quando as conexões ficam ociosas por um período de tempo definido (um tempo limite de ociosidade). Os processos de trabalho do SAP em instâncias de caixa de diálogo abrem conexões com o processo de enfileiramento da SAP assim que a primeira solicitação de enfileiramento/retirada da fila precisa ser enviada. Essas conexões geralmente permanecem estabelecidas até que o processo de trabalho ou o processo de enfileiramento seja reiniciado. No entanto, se a conexão estiver ociosa por um período de tempo definido, o balanceador de carga interno do Azure fechará as conexões. Isso não é um problema porque o processo de trabalho do SAP restabelece a conexão com o processo de enfileiramento, caso ele não exista mais. Essas atividades são documentadas nos rastreamentos de desenvolvedor de processos SAP, mas elas criam uma grande quantidade de conteúdo extra nesses rastreamentos. É uma boa ideia alterar o TCP/IP `KeepAliveTime` e `KeepAliveInterval` em ambos os nós de cluster. Combine essas alterações nos parâmetros TCP/IP com parâmetros de perfil do SAP, descritos posteriormente neste artigo.
+Azure Load Balancer tem um balanceador de carga interno que fecha as conexões quando as conexões ficam ociosas por um período de tempo definido (um tempo limite de ociosidade). Os processos de trabalho do SAP em instâncias de caixa de diálogo abrem conexões com o processo de enfileiramento da SAP assim que a primeira solicitação de enfileiramento/retirada da fila precisa ser enviada. Essas conexões geralmente permanecem estabelecidas até que o processo de trabalho ou o processo de enfileiramento seja reiniciado. No entanto, se a conexão estiver ociosa por um período de tempo definido, o balanceador de carga interno do Azure fechará as conexões. Isso não é um problema porque o processo de trabalho do SAP restabelece a conexão com o processo de enfileiramento, caso ele não exista mais. Essas atividades são documentadas nos rastreamentos de desenvolvedor de processos SAP, mas elas criam uma grande quantidade de conteúdo extra nesses rastreamentos. É uma boa ideia alterar o `KeepAliveTime` de TCP/IP e `KeepAliveInterval` em ambos os nós de cluster. Combine essas alterações nos parâmetros TCP/IP com parâmetros de perfil do SAP, descritos posteriormente neste artigo.
 
 Para adicionar entradas de registro em ambos os nós de cluster da instância do SAP ASCS/SCS, primeiro adicione essas entradas de registro do Windows em ambos os nós de cluster do Windows para SAP ASCS/SCS:
 
-| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Caminho | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome da variável |`KeepAliveTime` |
 | Tipo de variável |REG_DWORD (Decimal) |
-| Value |120000 |
+| Valor |120000 |
 | Link para a documentação |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Tabela 3:** Alterar o primeiro parâmetro TCP/IP_
 
 Em seguida, adicione essas entradas de registro do Windows em ambos os nós de cluster do Windows para SAP ASCS/SCS:
 
-| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Caminho | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome da variável |`KeepAliveInterval` |
 | Tipo de variável |REG_DWORD (Decimal) |
-| Value |120000 |
+| Valor |120000 |
 | Link para a documentação |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Tabela 4:** Alterar o segundo parâmetro TCP/IP_
@@ -1082,23 +1082,23 @@ A configuração de um cluster de clustering de failover do Windows Server para 
 
 3. Insira o nome da rede (nome do host virtual) do cluster.
 
-   ![Figura 19: Insira o nome do cluster][sap-ha-guide-figure-3008]
+   ![Figura 19: inserir o nome do cluster][sap-ha-guide-figure-3008]
 
    _**Figura 19:** Insira o nome do cluster_
 
 4. Depois de criar o cluster, execute um teste de validação de cluster.
 
-   ![Figura 20: Executar a verificação de validação de cluster][sap-ha-guide-figure-3009]
+   ![Figura 20: executar a verificação de validação de cluster][sap-ha-guide-figure-3009]
 
    _**Figura 20:** Executar a verificação de validação de cluster_
 
    Você pode ignorar quaisquer avisos sobre discos neste ponto do processo. Você adicionará uma testemunha de compartilhamento de arquivos e os discos de SIOS compartilhados mais tarde. Neste estágio, você não precisa se preocupar em ter um quorum.
 
-   ![Figura 21: Nenhum disco de quorum foi encontrado][sap-ha-guide-figure-3010]
+   ![Figura 21: nenhum disco de quorum é encontrado][sap-ha-guide-figure-3010]
 
    _**Figura 21:** Nenhum disco de quorum foi encontrado_
 
-   ![Figura 22: O recurso de cluster principal precisa de um novo endereço IP][sap-ha-guide-figure-3011]
+   ![Figura 22: o recurso de cluster principal precisa de um novo endereço IP][sap-ha-guide-figure-3011]
 
    _**Figura 22:** O recurso de cluster principal precisa de um novo endereço IP_
 
@@ -1106,17 +1106,17 @@ A configuração de um cluster de clustering de failover do Windows Server para 
 
    Por exemplo, precisamos atribuir um endereço IP (em nosso exemplo, **10.0.0.42**) para o nome de host virtual do cluster **PR1-ASCs-vir**.
 
-   ![Figura 23: Na caixa de diálogo Propriedades, altere o endereço IP][sap-ha-guide-figure-3012]
+   ![Figura 23: na caixa de diálogo Propriedades, altere o endereço IP][sap-ha-guide-figure-3012]
 
    _**Figura 23:** Na caixa de diálogo **Propriedades** , altere o endereço IP_
 
-   ![Figura 24: Atribuir o endereço IP reservado para o cluster][sap-ha-guide-figure-3013]
+   ![Figura 24: atribuir o endereço IP reservado para o cluster][sap-ha-guide-figure-3013]
 
    _**Figura 24:** Atribuir o endereço IP reservado para o cluster_
 
 6. Coloque o nome do host virtual do cluster online.
 
-   ![Figura 25: O serviço principal do cluster está em execução e com o endereço IP correto][sap-ha-guide-figure-3014]
+   ![Figura 25: o serviço principal do cluster está em execução e com o endereço IP correto][sap-ha-guide-figure-3014]
 
    _**Figura 25:** O serviço principal do cluster está em execução e com o endereço IP correto_
 
@@ -1130,7 +1130,7 @@ A configuração de um cluster de clustering de failover do Windows Server para 
 
 8. Insira um nome para o segundo host de nó de cluster.
 
-   ![Figura 27: Insira o nome de host do segundo nó de cluster][sap-ha-guide-figure-3016]
+   ![Figura 27: inserir o nome de host do segundo nó de cluster][sap-ha-guide-figure-3016]
 
    _**Figura 27:** Insira o nome de host do segundo nó de cluster_
 
@@ -1139,13 +1139,13 @@ A configuração de um cluster de clustering de failover do Windows Server para 
    >
    >
 
-   ![Figura 28: Não marque a caixa de seleção][sap-ha-guide-figure-3017]
+   ![Figura 28: não marcar a caixa de seleção][sap-ha-guide-figure-3017]
 
-   _**Figura 28:** Não marque a caixa de seleção_
+   _**Figura 28:** Não **marque a** caixa de seleção_
 
-   Você pode ignorar avisos sobre quorum e discos. Você definirá o quorum e compartilhará o disco mais tarde, conforme descrito em instalando o [sios Datakeeper Cluster Edition para o disco de compartilhamento de cluster do SAP ASCS/SCS][sap-ha-guide-8.12.3].
+   Você pode ignorar avisos sobre quorum e discos. Você definirá o quorum e compartilhará o disco mais tarde, conforme descrito em [instalando o sios Datakeeper Cluster Edition para o disco de compartilhamento de cluster do SAP ASCS/SCS][sap-ha-guide-8.12.3].
 
-   ![Figura 29: Ignorar avisos sobre o quorum de disco][sap-ha-guide-figure-3018]
+   ![Figura 29: ignorar avisos sobre o quorum de disco][sap-ha-guide-figure-3018]
 
    _**Figura 29:** Ignorar avisos sobre o quorum de disco_
 
@@ -1172,7 +1172,7 @@ A configuração de uma testemunha de compartilhamento de arquivos de cluster en
 
 2. Adicione o objeto de nome do cluster.
 
-   ![Figura 30: Atribuir as permissões no compartilhamento para o objeto de nome do cluster][sap-ha-guide-figure-3019]
+   ![Figura 30: atribuir as permissões no compartilhamento para o objeto de nome do cluster][sap-ha-guide-figure-3019]
 
    _**Figura 30:** Atribuir as permissões no compartilhamento para o objeto de nome do cluster_
 
@@ -1180,11 +1180,11 @@ A configuração de uma testemunha de compartilhamento de arquivos de cluster en
 
 3. Para adicionar o objeto de nome de cluster à lista, selecione **Adicionar**. Altere o filtro para verificar se há objetos de computador, além daqueles mostrados na figura 31.
 
-   ![Figura 31: Alterar os tipos de objeto para incluir computadores][sap-ha-guide-figure-3020]
+   ![Figura 31: alterar os tipos de objeto para incluir computadores][sap-ha-guide-figure-3020]
 
    _**Figura 31:** Alterar os tipos de objeto para incluir computadores_
 
-   ![Figura 32: Marque a caixa de seleção computadores][sap-ha-guide-figure-3021]
+   ![Figura 32: marque a caixa de seleção computadores][sap-ha-guide-figure-3021]
 
    _**Figura 32:** Marque a caixa de seleção **computadores**_
 
@@ -1192,7 +1192,7 @@ A configuração de uma testemunha de compartilhamento de arquivos de cluster en
 
 5. Selecione a guia **segurança** do compartilhamento e, em seguida, defina permissões mais detalhadas para o objeto de nome do cluster.
 
-   ![Figura 33: Definir os atributos de segurança para o objeto de nome do cluster no quorum de compartilhamento de arquivos][sap-ha-guide-figure-3022]
+   ![Figura 33: definir os atributos de segurança para o objeto de nome do cluster no quorum de compartilhamento de arquivos][sap-ha-guide-figure-3022]
 
    _**Figura 33:** Definir os atributos de segurança para o objeto de nome do cluster no quorum de compartilhamento de arquivos_
 
@@ -1200,31 +1200,31 @@ A configuração de uma testemunha de compartilhamento de arquivos de cluster en
 
 1. Abra o assistente para definir configurações de quorum.
 
-   ![Figura 34: Iniciar o assistente para definir a configuração de quorum do cluster][sap-ha-guide-figure-3023]
+   ![Figura 34: iniciar o assistente para definir configuração de quorum do cluster][sap-ha-guide-figure-3023]
 
    _**Figura 34:** Iniciar o assistente para definir a configuração de quorum do cluster_
 
 2. Na página **selecionar configuração de quorum** , selecione **selecionar a testemunha de quorum**.
 
-   ![Figura 35: Configurações de quorum das quais você pode escolher][sap-ha-guide-figure-3024]
+   ![Figura 35: configurações de quorum das quais você pode escolher][sap-ha-guide-figure-3024]
 
    _**Figura 35:** Configurações de quorum das quais você pode escolher_
 
 3. Na página **selecionar testemunha de quorum** , selecione **Configurar uma testemunha de compartilhamento de arquivos**.
 
-   ![Figura 36: Selecionar a testemunha de compartilhamento de arquivos][sap-ha-guide-figure-3025]
+   ![Figura 36: selecionar a testemunha de compartilhamento de arquivos][sap-ha-guide-figure-3025]
 
    _**Figura 36:** Selecionar a testemunha de compartilhamento de arquivos_
 
-4. Insira o caminho UNC para o compartilhamento de arquivos (em nosso exemplo \\, domcontr-0\FSW). Para ver uma lista das alterações que você pode fazer, selecione **Avançar**.
+4. Insira o caminho UNC para o compartilhamento de arquivos (em nosso exemplo, \\domcontr-0\FSW). Para ver uma lista das alterações que você pode fazer, selecione **Avançar**.
 
-   ![Figura 37: Definir o local do compartilhamento de arquivos para o compartilhamento de testemunha][sap-ha-guide-figure-3026]
+   ![Figura 37: definir o local do compartilhamento de arquivos para o compartilhamento de testemunha][sap-ha-guide-figure-3026]
 
    _**Figura 37:** Definir o local do compartilhamento de arquivos para o compartilhamento de testemunha_
 
 5. Selecione as alterações desejadas e, em seguida, selecione **Avançar**. Você precisa reconfigurar com êxito a configuração do cluster, conforme mostrado na figura 38.  
 
-   ![Figura 38: Confirmação de que você reconfigurou o cluster][sap-ha-guide-figure-3027]
+   ![Figura 38: confirmação de que você reconfigurou o cluster][sap-ha-guide-figure-3027]
 
    _**Figura 38:** Confirmação de que você reconfigurou o cluster_
 
@@ -1252,11 +1252,11 @@ Há duas maneiras de adicionar o .NET Framework 3,5:
 
 - Use o assistente para adicionar funções e recursos no Windows, conforme mostrado na figura 39.
 
-  ![Figura 39: Instalar o .NET Framework 3,5 usando o assistente para adicionar funções e recursos][sap-ha-guide-figure-3028]
+  ![Figura 39: instalar o .NET Framework 3,5 usando o assistente para adicionar funções e recursos][sap-ha-guide-figure-3028]
 
   _**Figura 39:** Instalar o .NET Framework 3,5 usando o assistente para adicionar funções e recursos_
 
-  ![Figura 40: Barra de progresso da instalação quando você instala o .NET Framework 3,5 usando o assistente para adicionar funções e recursos][sap-ha-guide-figure-3029]
+  ![Figura 40: barra de progresso da instalação quando você instala o .NET Framework 3,5 usando o assistente para adicionar funções e recursos][sap-ha-guide-figure-3029]
 
   _**Figura 40:** Barra de progresso da instalação quando você instala o .NET Framework 3,5 usando o assistente para adicionar funções e recursos_
 
@@ -1283,25 +1283,25 @@ Para instalar o SIOS datakeeper:
 
    ![Instalador do SIOS][sap-ha-guide-figure-3030]
 
-   ![Figura 41: Primeira página da instalação do SIOS datakeeper][sap-ha-guide-figure-3031]
+   ![Figura 41: primeira página da instalação do SIOS datakeeper][sap-ha-guide-figure-3031]
 
    _**Figura 41:** Primeira página da instalação do SIOS datakeeper_
 
 2. Na caixa de diálogo mostrada na Figura 42, selecione **Sim**.
 
-   ![Figura 42: O datakeeper informa que um serviço será desabilitado][sap-ha-guide-figure-3032]
+   ![Figura 42: o datakeeper informa que um serviço será desabilitado][sap-ha-guide-figure-3032]
 
    _**Figura 42:** O datakeeper informa que um serviço será desabilitado_
 
 3. Na caixa de diálogo mostrada na Figura 43, recomendamos que você selecione **conta de domínio ou servidor**.
 
-   ![Figura 43: Seleção de usuário para SIOS datakeeper][sap-ha-guide-figure-3033]
+   ![Figura 43: seleção de usuário para SIOS datakeeper][sap-ha-guide-figure-3033]
 
    _**Figura 43:** Seleção de usuário para SIOS datakeeper_
 
 4. Insira o nome de usuário e as senhas da conta de domínio que você criou para o SIOS datakeeper.
 
-   ![Figura 44: Insira o nome de usuário de domínio e a senha para a instalação do SIOS datakeeper][sap-ha-guide-figure-3034]
+   ![Figura 44: inserir o nome de usuário do domínio e a senha para a instalação do SIOS datakeeper][sap-ha-guide-figure-3034]
 
    _**Figura 44:** Insira o nome de usuário de domínio e a senha para a instalação do SIOS datakeeper_
 
@@ -1319,36 +1319,36 @@ Depois de instalar o SIOS datakeeper em ambos os nós, você precisará iniciar 
 
 1. Inicie a ferramenta de gerenciamento e configuração do datakeeper e, em seguida, selecione **conectar servidor**. (Na figura 46, essa opção está circulada em vermelho.)
 
-   ![Figura 46: Ferramenta de gerenciamento e configuração do SIOS datakeeper][sap-ha-guide-figure-3036]
+   ![Figura 46: ferramenta de gerenciamento e configuração do SIOS datakeeper][sap-ha-guide-figure-3036]
 
    _**Figura 46:** Ferramenta de gerenciamento e configuração do SIOS datakeeper_
 
 2. Insira o nome ou endereço TCP/IP do primeiro nó ao qual a ferramenta de gerenciamento e configuração deve se conectar e, em uma segunda etapa, o segundo nó.
 
-   ![Figura 47: Insira o nome ou endereço TCP/IP do primeiro nó ao qual a ferramenta de gerenciamento e configuração deve se conectar e, em uma segunda etapa, o segundo nó][sap-ha-guide-figure-3037]
+   ![Figura 47: inserir o nome ou endereço TCP/IP do primeiro nó ao qual a ferramenta de gerenciamento deve se conectar e, em uma segunda etapa, o segundo nó][sap-ha-guide-figure-3037]
 
    _**Figura 47:** Insira o nome ou endereço TCP/IP do primeiro nó ao qual a ferramenta de gerenciamento e configuração deve se conectar e, em uma segunda etapa, o segundo nó_
 
 3. Crie o trabalho de replicação entre os dois nós.
 
-   ![Figura 48: Criar um trabalho de replicação][sap-ha-guide-figure-3038]
+   ![Figura 48: criar um trabalho de replicação][sap-ha-guide-figure-3038]
 
    _**Figura 48:** Criar um trabalho de replicação_
 
    Um assistente orienta você pelo processo de criação de um trabalho de replicação.
 4. Defina o nome, o endereço TCP/IP e o volume de disco do nó de origem.
 
-   ![Figura 49: Definir o nome do trabalho de replicação][sap-ha-guide-figure-3039]
+   ![Figura 49: definir o nome do trabalho de replicação][sap-ha-guide-figure-3039]
 
    _**Figura 49:** Definir o nome do trabalho de replicação_
 
-   ![Figura 50: Definir os dados base para o nó, que deve ser o nó de origem atual][sap-ha-guide-figure-3040]
+   ![Figura 50: definir os dados base para o nó, que deve ser o nó de origem atual][sap-ha-guide-figure-3040]
 
    _**Figura 50:** Definir os dados base para o nó, que deve ser o nó de origem atual_
 
 5. Defina o nome, o endereço TCP/IP e o volume de disco do nó de destino.
 
-   ![Figura 51: Defina os dados base para o nó, que deve ser o nó de destino atual][sap-ha-guide-figure-3041]
+   ![Figura 51: definir os dados base para o nó, que deve ser o nó de destino atual][sap-ha-guide-figure-3041]
 
    _**Figura 51:** Defina os dados base para o nó, que deve ser o nó de destino atual_
 
@@ -1356,25 +1356,25 @@ Depois de instalar o SIOS datakeeper em ambos os nós, você precisará iniciar 
 
 7. Outra configuração que você precisa verificar é se a replicação ocorre de forma assíncrona ou síncrona. *Ao proteger as configurações do SAP ASCS/SCS, você deve usar a replicação síncrona*.  
 
-   ![Figura 52: Definir detalhes de replicação][sap-ha-guide-figure-3042]
+   ![Figura 52: definir detalhes de replicação][sap-ha-guide-figure-3042]
 
    _**Figura 52:** Definir detalhes de replicação_
 
 8. Defina se o volume que é replicado pelo trabalho de replicação deve ser representado a uma configuração de cluster do Windows Server failover clustering como um disco compartilhado. Para a configuração do SAP ASCS/SCS, selecione **Sim** para que o cluster do Windows Veja o volume replicado como um disco compartilhado que pode ser usado como um volume de cluster.
 
-   ![Figura 53: Selecione Sim para definir o volume replicado como um volume de cluster][sap-ha-guide-figure-3043]
+   ![Figura 53: selecione Sim para definir o volume replicado como um volume de cluster][sap-ha-guide-figure-3043]
 
    _**Figura 53:** Selecione **Sim** para definir o volume replicado como um volume de cluster_
 
    Depois que o volume é criado, a ferramenta de gerenciamento e configuração do datakeeper mostra que o trabalho de replicação está ativo.
 
-   ![Figura 54: O espelhamento síncrono do datakeeper para o disco de compartilhamento do SAP ASCS/SCS está ativo][sap-ha-guide-figure-3044]
+   ![Figura 54: o espelhamento síncrono do datakeeper para o disco de compartilhamento do SAP ASCS/SCS está ativo][sap-ha-guide-figure-3044]
 
    _**Figura 54:** O espelhamento síncrono do datakeeper para o disco de compartilhamento do SAP ASCS/SCS está ativo_
 
    Gerenciador de Cluster de Failover agora mostra o disco como um disco do datakeeper, como mostra a Figura 55.
 
-   ![Figura 55: Gerenciador de Cluster de Failover mostra o disco que o datakeeper replicau][sap-ha-guide-figure-3045]
+   ![Figura 55: o Gerenciador de Cluster de Failover mostra o disco que o datakeeper replicau][sap-ha-guide-figure-3045]
 
    _**Figura 55:** Gerenciador de Cluster de Failover mostra o disco que o datakeeper replicau_
 
@@ -1415,13 +1415,13 @@ A instalação do SAP com uma instância ASCS/SCS de alta disponibilidade envolv
 
    O endereço IP do nome de host virtual SAP ASCS/SCS (**PR1-ASCS-SAP**) é o mesmo que o endereço IP de Azure Load Balancer (**PR1-lb-ASCS**).
 
-   ![Figura 56: Definir a entrada DNS para o nome virtual do cluster do SAP ASCS/SCS e o endereço TCP/IP][sap-ha-guide-figure-3046]
+   ![Figura 56: definir a entrada DNS para o nome virtual do cluster do SAP ASCS/SCS e o endereço TCP/IP][sap-ha-guide-figure-3046]
 
    _**Figura 56:** Definir a entrada DNS para o nome virtual do cluster do SAP ASCS/SCS e o endereço TCP/IP_
 
-2. Para definir o endereço IP atribuído ao nome de host virtual, selecione**domínio**do **Gerenciador** > de DNS.
+2. Para definir o endereço IP atribuído ao nome de host virtual, selecione **Gerenciador de DNS** > **domínio**.
 
-   ![Figura 57: Novo nome virtual e endereço TCP/IP para configuração de cluster do SAP ASCS/SCS][sap-ha-guide-figure-3047]
+   ![Figura 57: novo nome virtual e endereço TCP/IP para configuração de cluster do SAP ASCS/SCS][sap-ha-guide-figure-3047]
 
    _**Figura 57:** Novo nome virtual e endereço TCP/IP para configuração de cluster do SAP ASCS/SCS_
 
@@ -1430,11 +1430,11 @@ A instalação do SAP com uma instância ASCS/SCS de alta disponibilidade envolv
 1. Execute a primeira opção de nó de cluster no nó A do cluster. Por exemplo, no host **PR1-ASCs-0** .
 2. Para manter as portas padrão para o balanceador de carga interno do Azure, selecione:
 
-   * **Sistema ABAP**: Número da instância de **ASCS** **00**
-   * **Sistema Java**: Número de instância do **SCS** **01**
-   * **ABAP + Java System**: Número da instância **ASCS** **00** e **SCS** número da instância **01**
+   * **Sistema ABAP**: número de instância **ASCS** **00**
+   * **Sistema Java**: número de instância do **SCS** **01**
+   * **ABAP + Java System**: número da instância **ASCS** **00** e o número de instância do **SCS** **01**
 
-   Para usar números de instância diferentes de 00 para a instância ABAP ASCS e 01 para a instância do SCS do Java, primeiro você precisa alterar as regras de balanceamento de carga padrão do balanceador de carga interno do Azure, descritas em [alterar as regras de balanceamento de carga padrão do ASCS/SCS para o Azure balanceador de carga interno][sap-ha-guide-8.9].
+   Para usar números de instância diferentes de 00 para a instância ABAP ASCS e 01 para a instância do SCS Java, primeiro você precisa alterar as regras de balanceamento de carga padrão do balanceador de carga interno do Azure, descritas em [alterar as regras de balanceamento de carga padrão do ASCS/SCS para o balanceador de carga interno do Azure][sap-ha-guide-8.9].
 
 As próximas tarefas não são descritas na documentação de instalação padrão do SAP.
 
@@ -1445,7 +1445,7 @@ As próximas tarefas não são descritas na documentação de instalação padr�
 
 #### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a>Modificar o perfil SAP da instância do ASCS/SCS
 
-Você precisa adicionar um novo parâmetro de perfil. O parâmetro de perfil impede que as conexões entre os processos de trabalho do SAP e o servidor de enfileiramento sejam encerradas quando estiverem ociosas por muito tempo. Mencionamos o cenário do problema em [Adicionar entradas do registro em ambos os nós de cluster da instância do SAP ASCS/SCS][sap-ha-guide-8.11]. Nessa seção, também introduzimos duas alterações em alguns parâmetros básicos de conexão TCP/IP. Em uma segunda etapa, você precisa definir o servidor de enfileiramento para `keep_alive` enviar um sinal para que as conexões não atinjam o limite de ociosidade do balanceador de carga interno do Azure.
+Você precisa adicionar um novo parâmetro de perfil. O parâmetro de perfil impede que as conexões entre os processos de trabalho do SAP e o servidor de enfileiramento sejam encerradas quando estiverem ociosas por muito tempo. Mencionamos o cenário do problema em [Adicionar entradas do registro em ambos os nós de cluster da instância do SAP ASCS/SCS][sap-ha-guide-8.11]. Nessa seção, também introduzimos duas alterações em alguns parâmetros básicos de conexão TCP/IP. Em uma segunda etapa, você precisa definir o servidor de enfileiramento para enviar um sinal de `keep_alive` para que as conexões não atinjam o limite de ociosidade do balanceador de carga interno do Azure.
 
 Para modificar o perfil SAP da instância do ASCS/SCS:
 
@@ -1481,7 +1481,7 @@ Para adicionar uma porta de investigação:
 
 2. Defina uma porta de investigação. O número da porta de investigação padrão é **0**. Em nosso exemplo, usamos a porta de investigação **62000**.
 
-   ![Figura 58: A porta de investigação de configuração de cluster é 0 por padrão][sap-ha-guide-figure-3048]
+   ![Figura 58: a porta de investigação de configuração do cluster é 0 por padrão][sap-ha-guide-figure-3048]
 
    _**Figura 58:** A porta de investigação de configuração de cluster padrão é 0_
 
@@ -1555,7 +1555,7 @@ Para adicionar uma porta de investigação:
 
    ```
 
-   ![Figura 59: Investigar a porta do cluster depois de definir o novo valor][sap-ha-guide-figure-3049]
+   ![Figura 59: investigar a porta do cluster depois de definir o novo valor][sap-ha-guide-figure-3049]
 
    _**Figura 59:** Investigar a porta do cluster depois de definir o novo valor_
 
@@ -1569,7 +1569,7 @@ Você precisa abrir uma porta de investigação do firewall do Windows em ambos 
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
   ```
 
-O **ProbePort** é definido como **62000**. Agora você pode acessar o compartilhamento  **\\** de arquivos arquivos ascsha-clsap\sapmnt de outros hosts, como de **ascsha-DBAs**.
+O **ProbePort** é definido como **62000**. Agora você pode acessar o compartilhamento de arquivos **\\arquivos ascsha-clsap\sapmnt** de outros hosts, como de **ascsha-DBAs**.
 
 ### <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a>Instalar a instância do banco de dados
 
@@ -1583,7 +1583,7 @@ Para instalar o segundo cluster, siga as etapas no guia de instalação do SAP.
 
 Altere o tipo de início do serviço do Windows ERS do SAP para **automático (atraso na inicialização)** em ambos os nós de cluster.
 
-![Figura 60: Alterar o tipo de serviço da instância ERS do SAP para atraso automático][sap-ha-guide-figure-3050]
+![Figura 60: alterar o tipo de serviço para a instância do SAP ERS para atraso automático][sap-ha-guide-figure-3050]
 
 _**Figura 60:** Alterar o tipo de serviço da instância ERS do SAP para atraso automático_
 
@@ -1593,7 +1593,7 @@ Instale a instância do PAS (servidor de aplicativos primário) <*SID*>-di-0 na 
 
 ### <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a>Instalar o servidor de aplicativos do SAP adicional
 
-Instale um servidor de aplicativos SAP adicional (AAS) em todas as máquinas virtuais que você designou para hospedar uma instância do servidor de aplicativos SAP. Por exemplo, em <*Sid*>-di-1 para <*Sid*>-di-&lt;n&gt;.
+Instale um servidor de aplicativos SAP adicional (AAS) em todas as máquinas virtuais que você designou para hospedar uma instância do servidor de aplicativos SAP. Por exemplo, em <*sid*>-di-1 para <*Sid*>-di-&lt;n&gt;.
 
 > [!NOTE]
 > Isso conclui a instalação de um sistema SAP NetWeaver de alta disponibilidade. Em seguida, continue com o teste de failover.
@@ -1607,13 +1607,13 @@ Instale um servidor de aplicativos SAP adicional (AAS) em todas as máquinas vir
 
 O grupo de clusters do **SAP PR1** está em execução no nó A do cluster. Por exemplo, em **PR1-ASCs-0**. Atribua a unidade de disco compartilhada S, que faz parte do grupo de clusters **SAP PR1** e que a instância do ASCS/SCS usa, para o nó a do cluster.
 
-![Figura 61: Gerenciador de Cluster de Failover: O grupo de clusters do SAP < SID > está em execução no nó A do cluster][sap-ha-guide-figure-5000]
+![Figura 61: Gerenciador de Cluster de Failover: o SID do SAP < > grupo de clusters está em execução no nó A do cluster][sap-ha-guide-figure-5000]
 
-_**Figura 61:** Gerenciador de Cluster de Failover: O grupo de clusters do SAP <*SID*> está em execução no nó A do cluster_
+_**Figura 61:** Gerenciador de Cluster de Failover: o*Sid*do SAP < > grupo de clusters está em execução no nó A do cluster_
 
 Na ferramenta de gerenciamento e configuração do SIOS datakeeper, você pode ver que os dados do disco compartilhado são replicados de forma síncrona da unidade do volume de origem S no nó A do cluster a para a unidade do volume de destino S no nó B do cluster. Por exemplo, ele é replicado de **PR1-ASCs-0 [10.0.0.40]** para **PR1-ASCs-1 [10.0.0.41]** .
 
-![Figura 62: No SIOS datakeeper, replique o volume local do nó A do cluster para o nó B do cluster][sap-ha-guide-figure-5001]
+![Figura 62: no SIOS datakeeper, replique o volume local do nó A do cluster para o nó B do cluster][sap-ha-guide-figure-5001]
 
 _**Figura 62:** No SIOS datakeeper, replique o volume local do nó A do cluster para o nó B do cluster_
 
@@ -1636,12 +1636,12 @@ _**Figura 62:** No SIOS datakeeper, replique o volume local do nó A do cluster 
 
    Após o failover, o grupo de clusters do SAP <*SID*> está em execução no nó B do cluster. Por exemplo, ele está em execução em **PR1-ASCs-1**.
 
-   ![Figura 63: Em Gerenciador de Cluster de Failover, o SID do SAP < > grupo de clusters está em execução no nó B do cluster][sap-ha-guide-figure-5002]
+   ![Figura 63: em Gerenciador de Cluster de Failover, o SID do SAP < > grupo de clusters está em execução no nó B do cluster][sap-ha-guide-figure-5002]
 
-   _**Figura 63**: Em Gerenciador de Cluster de Failover, o*Sid*do SAP < > grupo de clusters está em execução no nó B do cluster_
+   _**Figura 63**: em Gerenciador de cluster de failover, o*SID*do SAP < > grupo de clusters está em execução no nó B do cluster_
 
    O disco compartilhado agora está montado no nó B do cluster. o SIOS datakeeper está replicando dados da unidade do volume de origem S no nó B do cluster para a unidade do volume de destino S no nó A do cluster. Por exemplo, ele está replicando de **PR1-ASCs-1 [10.0.0.41]** para **PR1-ASCs-0 [10.0.0.40]** .
 
-   ![Figura 64: O SIOS datakeeper Replica o volume local do nó B do cluster para o nó A do cluster][sap-ha-guide-figure-5003]
+   ![Figura 64: o SIOS datakeeper Replica o volume local do nó B do cluster para o nó A do cluster][sap-ha-guide-figure-5003]
 
    _**Figura 64:** O SIOS datakeeper Replica o volume local do nó B do cluster para o nó A do cluster_

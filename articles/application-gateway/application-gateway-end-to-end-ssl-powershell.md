@@ -16,7 +16,7 @@ ms.locfileid: "72286463"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurar o SSL de ponta a ponta usando o gateway de aplicativo com o PowerShell
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Aplicativo Azure gateway dá suporte à criptografia de ponta a ponta de tráfego. O gateway de aplicativo encerra a conexão SSL no gateway de aplicativo. Em seguida, o gateway aplica as regras de roteamento ao tráfego, criptografa novamente o pacote e encaminha o pacote para o servidor back-end apropriado com base nas regras de roteamento definidas. Qualquer resposta do servidor Web atravessa o mesmo processo para o utilizador final.
 
@@ -167,7 +167,7 @@ Todos os itens de configuração são definidos antes da criação do gateway de
    > [!NOTE]
    > A investigação padrão Obtém a chave pública da Associação SSL *padrão* no endereço IP do back-end e compara o valor de chave pública que ele recebe para o valor de chave pública que você fornece aqui. 
    > 
-   > Se você estiver usando cabeçalhos de host e Indicação de Nome de Servidor (SNI) no back-end, a chave pública recuperada poderá não ser o site pretendido para o qual o tráfego flui. Se você estiver em dúvida, visite https://127.0.0.1/ nos servidores back-end para confirmar qual certificado é usado para a associação SSL *padrão* . Use a chave pública dessa solicitação nesta seção. Se você estiver usando cabeçalhos de host e SNI em associações HTTPS e não receber uma resposta e um certificado de uma solicitação de navegador manual para https://127.0.0.1/ nos servidores back-end, deverá configurar uma associação SSL padrão neles. Se você não fizer isso, as investigações falharão e o back-end não estará na lista de permissões.
+   > Se você estiver usando cabeçalhos de host e Indicação de Nome de Servidor (SNI) no back-end, a chave pública recuperada poderá não ser o site pretendido para o qual o tráfego flui. Se você estiver em dúvida, visite https://127.0.0.1/ nos servidores de back-end para confirmar qual certificado é usado para a associação SSL *padrão* . Use a chave pública dessa solicitação nesta seção. Se você estiver usando cabeçalhos de host e SNI em associações HTTPS e não receber uma resposta e um certificado de uma solicitação de navegador manual para https://127.0.0.1/ nos servidores back-end, deverá configurar uma associação SSL padrão neles. Se você não fizer isso, as investigações falharão e o back-end não estará na lista de permissões.
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
@@ -200,7 +200,7 @@ Todos os itens de configuração são definidos antes da criação do gateway de
    $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-10. Configure o tamanho da instância do gateway de aplicação. Os tamanhos disponíveis são **padrão @ no__t-1Small**, **Standard @ no__t-3Medium**e **Standard @ no__t-5Large**.  Para a capacidade, os valores disponíveis são de **1** a **10**.
+10. Configure o tamanho da instância do gateway de aplicação. Os tamanhos disponíveis são **standard\_Small**, **Standard\_Medium**e **Standard\_grande**.  Para a capacidade, os valores disponíveis são de **1** a **10**.
 
     ```powershell
     $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -217,7 +217,7 @@ Todos os itens de configuração são definidos antes da criação do gateway de
     - **TLSV1_1**
     - **TLSV1_2**
     
-    O exemplo a seguir define a versão mínima do protocolo como **TLSv1_2** e habilita **TLS @ no__t-2ECDHE @ no__t-3ECDSA @ no__t-4WITH @ no__t-5AES @ no__t-6128 @ no__t-7GCM @ no__t-8SHA256**, **TLS @ no__t-10ECDHE @ no__t-11ECDSA @ no__t-12WITH @ no __t-13AES @ no__t-14256 @ no__t-15GCM @ no__t-16SHA384**e **TLS @ NO__T-18RSA @ NO__T-19WITH @ NO__T-20AES @ no__t-21128 @ NO__T-22GCM @ NO__T-23SHA256** .
+    O exemplo a seguir define a versão mínima do protocolo para **TLSv1_2** e habilita o **TLS\_ECDHE\_ecdsa\_com\_aes\_128\_GCM\_sha256**, **tls\_ECDHE\_ECDSA\_with\_AES\_256\_** GCM\_Sha384 e **tls\_RSA\_with\_AES\_128\_GCM\_SHA256** apenas.
 
     ```powershell
     $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
@@ -310,7 +310,7 @@ As etapas anteriores levaram você durante a criação de um aplicativo com SSL 
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. Defina uma política SSL. No exemplo a seguir, **tlsv 1.0** e **tlsv 1.1** estão desabilitados e os conjuntos de codificação **TLS @ no__t-3ECDHE @ no__t-4ECDSA @ no__t-5WITH @ no__t-6AES @ no__t-7128 @ no__t-8GCM @ no__t-9SHA256**, **TLS @ no__t-11ECDHE @ no__t-12ECDSA @ no__ t-13WITH @ no__t-14AES @ no__t-15256 @ no__t-16GCM @ no__t-17SHA384**e **TLS @ NO__T-19RSA @ NO__T-20WITH @ NO__T-21AES @ no__t-22128 @ NO__T-23GCM @ NO__T-24SHA256** são os únicos permitidos.
+2. Defina uma política SSL. No exemplo a seguir, o **tlsv 1.0** e o **tlsv 1.1** estão desabilitados e os conjuntos de codificação **TLS\_ECDHE\_ECDSA\_com\_AES\_128\_** GCM\_SHA256, **tls\_ECDHE\_ECDSA\_with\_AES\_256\_** GCM\_Sha384 e **tls\_RSA\_with\_AES\_128\_GCM\_SHA256** são os únicos permitidos.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw

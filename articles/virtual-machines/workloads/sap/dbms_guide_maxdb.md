@@ -313,8 +313,8 @@ Este documento aborda várias áreas diferentes a serem consideradas ao implanta
 
 ## <a name="specifics-for-the-sap-maxdb-deployments-on-windows"></a>Especificações para as implantações do SAP MaxDB no Windows
 ### <a name="sap-maxdb-version-support-on-azure"></a>Suporte de versão do SAP MaxDB no Azure
-Atualmente, o SAP oferece suporte ao SAP MaxDB versão 7,9 ou superior para uso com produtos baseados no SAP NetWeaver no Azure. Todas as atualizações para o SAP MaxDB Server ou drivers JDBC e ODBC a serem usadas com produtos baseados no SAP NetWeaver são fornecidas exclusivamente por meio do SAP Service <https://support.sap.com/swdc>Marketplace em.
-Informações gerais sobre como executar o SAP NetWeaver no SAP MaxDB podem ser <https://www.sap.com/community/topic/maxdb.html>encontradas em.
+Atualmente, o SAP oferece suporte ao SAP MaxDB versão 7,9 ou superior para uso com produtos baseados no SAP NetWeaver no Azure. Todas as atualizações para o SAP MaxDB Server ou drivers JDBC e ODBC a serem usadas com produtos baseados no SAP NetWeaver são fornecidas exclusivamente por meio do SAP Service Marketplace em <https://support.sap.com/swdc>.
+Informações gerais sobre como executar o SAP NetWeaver no SAP MaxDB podem ser encontradas em <https://www.sap.com/community/topic/maxdb.html>.
 
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-maxdb-dbms"></a>Versões do Microsoft Windows e tipos de VM do Azure com suporte para DBMS do SAP MaxDB
 Para localizar a versão do Microsoft Windows com suporte para o DBMS do SAP MaxDB no Azure, consulte:
@@ -338,9 +338,9 @@ As práticas recomendadas de armazenamento do Azure para SAP MaxDB seguem as rec
 
 Em suma, você precisa:
 
-* Se você usar contas de armazenamento do Azure, defina a conta de armazenamento do Azure que contém os volumes de dados e de log do SAP MaxDB (arquivos de dados e de log) com o **LRS (armazenamento redundante local** ) conforme especificado em [considerações para a implantação de DBMS de máquinas virtuais do Azure para SAP carga de trabalho](dbms_guide_general.md).
+* Se você usar contas de armazenamento do Azure, defina a conta de armazenamento do Azure que contém os volumes de dados e de log do SAP MaxDB (arquivos de dados e de log) com o **LRS (armazenamento redundante local** ) conforme especificado em [considerações para a implantação de DBMS de máquinas virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md).
 * Separe o caminho de e/s para volumes de dados do SAP MaxDB (arquivos de dados) do caminho de e/s para volumes de log (arquivos de log). Isso significa que os volumes de dados do SAP MaxDB (arquivos de dados) precisam ser instalados em uma unidade lógica e os volumes de log do SAP MaxDB (arquivos de log) precisam ser instalados em outra unidade lógica.
-* Defina o tipo de cache apropriado para cada disco, dependendo se você usá-lo para volumes de log ou dados do SAP MaxDB (arquivos de dados e de log) e se usar o Azure Standard ou o armazenamento Premium do Azure, conforme descrito em [Considerações sobre a implantação do DBMS de máquinas virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md).
+* Defina o tipo de cache apropriado para cada disco, dependendo se você usá-lo para volumes de log ou dados do SAP MaxDB (arquivos de dados e de log) e se usar o Azure Standard ou o armazenamento Premium do Azure, conforme descrito em [considerações para a implantação de DBMS de máquinas virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md).
 * Desde que a cota de IOPS atual por disco atenda aos requisitos, é possível armazenar todos os volumes de dados em um único disco montado e também armazenar todos os volumes de log de banco de dado em outro único disco montado.
 * Se mais IOPS e/ou espaço forem necessários, é recomendável usar os pools de armazenamento do Microsoft Windows (disponíveis somente no Microsoft Azure Server 2012 e superior) para criar um grande dispositivo lógico em vários discos montados. Para obter mais detalhes, consulte também [Considerações sobre implantação de DBMS de máquinas virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md). Essa abordagem simplifica a sobrecarga de administração para gerenciar o espaço em disco e evita o esforço de distribuição manual de arquivos em vários discos montados.
 * é altamente recomendável usar o armazenamento Premium do Azure para implantações MaxDB. 
@@ -459,7 +459,7 @@ Aqui, você tem duas opções:
    1. Instale o servidor de cache do SAP local, próximo ao navegador da Web local (opção na figura abaixo)
    2. Configure o Azure ExpressRoute, que oferece uma conexão de rede dedicada de alta velocidade e de baixa latência entre datacenter local e Datacenter do Azure.
 
-![Opção para instalar o servidor de cache do SAP local](./media/dbms_maxdb_deployment_guide/900-sap-cache-server-on-premises.png)
+![opção para instalar o servidor de cache do SAP local](./media/dbms_maxdb_deployment_guide/900-sap-cache-server-on-premises.png)
 <a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a>
 
 #### <a name="backup--restore"></a>Cópia de Segurança / Restauro

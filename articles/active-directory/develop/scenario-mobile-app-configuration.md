@@ -82,7 +82,7 @@ var app = PublicClientApplicationBuilder.Create(clientId)
                                         .Build();
 ```
 
-Há outros métodos de*parâmetro* que definem o pai da interface do usuário, substituem a autoridade padrão, especificam um nome de cliente e uma versão (para telemetria), especificam um URI de redirecionamento, especificam o alocador de http a ser usado (por exemplo, para lidar com proxies, especifique telemetria e registro em log). Este é o tópico dos parágrafos a seguir.
+Há outros métodos de*parâmetro* que definem o pai da interface do usuário, substituem a autoridade padrão, especificam um nome de cliente e uma versão (para telemetria), especificam um URI de redirecionamento, especificam o alocador http a ser usado (por exemplo, para manipular proxies, especificar telemetria e registro em log). Este é o tópico dos parágrafos a seguir.
 
 ##### <a name="specifying-the-parent-uiwindowactivity"></a>Especificando a interface do usuário/janela/atividade pai
 

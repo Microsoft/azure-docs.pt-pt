@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Elium para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: configurar o Elium para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Elium.
 services: active-directory
 documentationcenter: ''
@@ -22,7 +22,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71709525"
 ---
-# <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Tutorial: Configurar o Elium para provisionamento automático de usuário
+# <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Tutorial: configurar o Elium para o provisionamento automático de usuário
 
 Este tutorial mostra como configurar o Elium e o Azure Active Directory (Azure AD) para provisionar e desprovisionar automaticamente usuários ou grupos para o Elium.
 
@@ -55,7 +55,7 @@ Ao atribuir um usuário ao Elium, você deve selecionar uma função válida esp
 
 Antes de configurar o Elium para o provisionamento automático de usuário com o Azure AD, você deve habilitar o sistema de provisionamento do SCIM (gerenciamento de identidade entre domínios) no Elium. Siga estes passos.
 
-1. Entre no Elium e vá para **o meu perfil** > **configurações**.
+1. Entre no Elium e vá para **meu perfil** > **configurações**.
 
     ![Item de menu configurações em Elium](media/Elium-provisioning-tutorial/setting.png)
 
@@ -112,13 +112,13 @@ Para configurar o provisionamento automático de usuário para Elium no Azure AD
 
     ![Configuração automática para o modo de provisionamento](common/provisioning-automatic.png)
 
-1. Na seção **credenciais de administrador** , digite **\<tenantURL @ no__t-3/scim/v2** no campo **URL do locatário** . (O **urldolocatário** é o valor recuperado anteriormente do console de administração do Elium.) Além disso, digite o valor do **token de segredo** Elium no campo **token secreto** . Por fim, selecione **testar conexão** para verificar se o Azure AD pode se conectar ao Elium. Se a conexão falhar, verifique se sua conta do Elium tem permissões de administrador e tente novamente.
+1. Na seção **credenciais de administrador** , digite **\<urldolocatário\>/scim/v2** no campo **URL do locatário** . (O **urldolocatário** é o valor recuperado anteriormente do console de administração do Elium.) Além disso, digite o valor do **token de segredo** Elium no campo **token secreto** . Por fim, selecione **testar conexão** para verificar se o Azure AD pode se conectar ao Elium. Se a conexão falhar, verifique se sua conta do Elium tem permissões de administrador e tente novamente.
 
     ![URL do locatário e campos de token secreto em credenciais de administrador](common/provisioning-testconnection-tenanturltoken.png)
 
 1. No campo **email de notificação** , insira o endereço de email de uma pessoa ou grupo que receberá as notificações de erro de provisionamento. Em seguida, marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha** .
 
-    ![E-mail de Notificação](common/provisioning-notification-email.png)
+    ![Email de notificação](common/provisioning-notification-email.png)
 
 1. Clique em **Guardar**.
 

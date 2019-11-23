@@ -27,10 +27,10 @@ ms.locfileid: "72388854"
 > [!NOTE]
 > O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
 >
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Visão geral
-Este tutorial apresenta o recurso de sincronização offline dos aplicativos móveis do Azure para Cordova. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel @ no__t-0viewing, adicionando ou modificando dados @ no__t-1even quando não há conexão de rede. As alterações são armazenadas em um banco de dados local.  Quando o dispositivo estiver online novamente, essas alterações serão sincronizadas com o serviço remoto.
+## <a name="overview"></a>Descrição geral
+Este tutorial apresenta o recurso de sincronização offline dos aplicativos móveis do Azure para Cordova. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel&mdash;exibir, adicionar ou modificar dados&mdash;mesmo quando não há conexão de rede. As alterações são armazenadas em um banco de dados local.  Quando o dispositivo estiver online novamente, essas alterações serão sincronizadas com o serviço remoto.
 
 Este tutorial se baseia na solução de início rápido do Cordova para aplicativos móveis que você cria ao concluir o tutorial [Início rápido de Apache Cordova]. Neste tutorial, você atualiza a solução de início rápido para adicionar recursos offline de aplicativos móveis do Azure.  Também destacamos o código específico offline no aplicativo.
 
@@ -179,7 +179,7 @@ Nesta seção, você modifica o projeto do cliente para simular um cenário offl
 
 5. Adicional Use o Visual Studio para exibir a tabela do banco de dados SQL do Azure para ver que os mesmos não foram alterados.
 
-    No Visual Studio, abra **Gerenciador de servidores**. Navegue até seu banco de dados no **Azure**-> bancos de dados**SQL**. Clique com o botão direito do mouse no banco de dados e selecione **abrir no Pesquisador de objetos do SQL Server**. Agora você pode navegar até a tabela do banco de dados SQL e seu conteúdo.
+    No Visual Studio, abra **Gerenciador de servidores**. Navegue até seu banco de dados no **Azure**->bancos de dados **SQL**. Clique com o botão direito do mouse no banco de dados e selecione **abrir no Pesquisador de objetos do SQL Server**. Agora você pode navegar até a tabela do banco de dados SQL e seu conteúdo.
 
 ## <a name="optional-test-the-reconnection-to-your-mobile-backend"></a>Adicional Testar a reconexão com o back-end móvel
 

@@ -91,15 +91,15 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. O aplicativo SAP Cloud for Customer espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique em **Editar** ícone para abrir a caixa de diálogo atributos de usuário.
 
-    ![imagem](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 1. Na seção **atributos de usuário** na caixa de diálogo **atributos de usuário & declarações** , execute as seguintes etapas:
 
     a. Clique no **ícone Editar** para abrir a caixa de diálogo **gerenciar declarações do usuário** .
 
-    ![imagem](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
+    ![image](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
 
-    ![imagem](./media/sap-customer-cloud-tutorial/tutorial_usermailedit.png)
+    ![image](./media/sap-customer-cloud-tutorial/tutorial_usermailedit.png)
 
     b. Selecione **transformação** como **fonte**.
 
@@ -112,25 +112,25 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **XML de metadados de Federação** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download do certificado](common/metadataxml.png)
+    ![O link de download de certificado](common/metadataxml.png)
 
 1. Na seção **Configurar a nuvem do SAP para o cliente** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo usuário** na parte superior da tela.
+1. Selecione **novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao SAP Cloud for Customer.
 
@@ -138,7 +138,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Na lista de aplicativos, selecione **SAP Cloud for Customer**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![O link "usuários e grupos"](common/users-groups-blade.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -152,7 +152,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 1. Abra uma nova janela do navegador da Web e entre no site da empresa do SAP Cloud for Customer como um administrador.
 
-2. No lado esquerdo do menu, clique em **provedores de identidade**  @ no__t-2**provedores de identidade corporativa** > **Adicionar** e, em pop-up, adicionar o nome do provedor de identidade como o **Azure ad**, clique em **salvar** e em **SAML configuração de 2,0**.
+2. No lado esquerdo do menu, clique em **provedores de identidade** > **provedores de identidade corporativa** > **Adicionar** e, em pop-up, adicionar o nome do provedor de identidade como o **Azure ad**, clique em **salvar** e, em seguida, clique em **configuração do SAML 2,0**.
 
     ![Configuração do SAP](./media/sap-customer-cloud-tutorial/configure01.png)
 
@@ -172,7 +172,7 @@ Para permitir que os usuários do Azure AD entrem no SAP Cloud for Customer, ele
 
 1. Entre no SAP Cloud for Customer como um administrador de segurança.
 
-2. No lado esquerdo do menu, clique em **usuários & autorizações**  @ no__t-2 gerenciamento de **usuário** > **Adicionar usuário**.
+2. No lado esquerdo do menu, clique em **usuários & autorizações** >gerenciamento de  **usuários** > **Adicionar usuário**.
 
     ![Configuração do SAP](./media/sap-customer-cloud-tutorial/configure03.png)
 
@@ -194,7 +194,7 @@ Para permitir que os usuários do Azure AD entrem no SAP Cloud for Customer, ele
 
 ## <a name="test-sso"></a>Testar SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Ao clicar no bloco SAP Cloud for Customer no painel de acesso, você deverá entrar automaticamente no SAP Cloud for Customer para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

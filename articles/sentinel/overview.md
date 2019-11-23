@@ -51,7 +51,7 @@ Para o Azure Sentinel integrado, primeiro você precisa [se conectar às suas fo
 
 ## <a name="workbooks"></a>Livros
 
-Depois de [conectar suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, você pode monitorar os dados usando a integração do Azure Sentinel com Azure monitor pastas de trabalho, que fornece versatilidade na criação de pastas de trabalho personalizadas. Enquanto as pastas de trabalho são exibidas de forma diferente no Azure Sentinel, pode ser útil ver como [criar relatórios interativos com pastas de trabalho do Azure monitor](../azure-monitor/app/usage-workbooks.md). O Azure Sentinel permite que você crie pastas de trabalho personalizadas em seus dados e também vem com modelos de pasta de trabalho internos para que você possa obter informações rapidamente em seus dados assim que você conectar uma fonte de dados.
+Depois de [conectar suas fontes de dados](quickstart-onboard.md) ao Azure Sentinel, você pode monitorar os dados usando a integração do Azure Sentinel com pastas de trabalho do Azure monitor, que fornece versatilidade na criação de pastas de trabalho personalizadas. Enquanto as pastas de trabalho são exibidas de forma diferente no Azure Sentinel, pode ser útil ver como [criar relatórios interativos com pastas de trabalho do Azure monitor](../azure-monitor/app/usage-workbooks.md). O Azure Sentinel permite que você crie pastas de trabalho personalizadas em seus dados e também vem com modelos de pasta de trabalho internos para que você possa obter informações rapidamente em seus dados assim que você conectar uma fonte de dados.
 
 ![Dashboards](./media/tutorial-monitor-data/access-workbooks.png)
 
@@ -59,7 +59,7 @@ Depois de [conectar suas fontes](quickstart-onboard.md) de dados ao Azure Sent
 
 Para ajudá-lo a reduzir o ruído e minimizar o número de alertas que você precisa examinar e investigar, o Azure Sentinel usa [a análise para correlacionar alertas em incidentes](tutorial-detect-threats-built-in.md). **Incidentes** são grupos de alertas relacionados que, juntos, criam uma possível ameaça acionável que você pode investigar e resolver. Use as regras de correlação internas no estado em que se encontram ou use-as como um ponto de partida para criar suas próprias. O Azure Sentinel também fornece regras de aprendizado de máquina para mapear seu comportamento de rede e, em seguida, procurar anomalias em seus recursos. Essas análises conectam os pontos, combinando alertas de baixa fidelidade sobre entidades diferentes em potenciais incidentes de segurança de alta fidelidade.
 
-![Incidentes](./media/tutorial-investigate-cases/incident-severity.png)
+![Incidente](./media/tutorial-investigate-cases/incident-severity.png)
 
 
 ## <a name="security-automation--orchestration"></a>& Orquestração da automação de segurança
@@ -68,7 +68,7 @@ Automatize suas tarefas comuns e [Simplifique a orquestração de segurança com
 
 Por exemplo, se você usar o sistema de tíquetes do ServiceNow, poderá usar as ferramentas fornecidas para usar os aplicativos lógicos do Azure para automatizar seus fluxos de trabalho e abrir um tíquete no ServiceNow cada vez que um evento específico for detectado.
 
-![Manuais de procedimentos](./media/tutorial-respond-threats-playbook/logic-app.png)
+![Playbooks](./media/tutorial-respond-threats-playbook/logic-app.png)
 
 
 ## <a name="investigation"></a>Investigação

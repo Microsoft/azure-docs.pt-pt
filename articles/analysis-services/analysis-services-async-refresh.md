@@ -101,16 +101,16 @@ Não é necessário especificar parâmetros. O padrão é aplicado.
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | O tipo de processamento a ser executado. Os tipos são alinhados com os tipos de [comando de atualização](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) TMSL: Full, clearValues, calcula, datasomente, Automatic e unfragment. Não há suporte para adicionar tipo.      |   Automático      |
 | `CommitMode`     | Enum  | Determina se os objetos serão confirmados em lotes ou somente quando forem concluídos. Os modos incluem: padrão, transacional, partialBatch.  |  transacional       |
-| `MaxParallelism` | inteiro   | Esse valor determina o número máximo de threads nos quais executar comandos de processamento em paralelo. Esse valor é alinhado com a propriedade MaxParallelism que pode ser definida no [comando TMSL Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) ou usando outros métodos.       | 10        |
-| `RetryCount`     | inteiro   | Indica o número de vezes que a operação tentará novamente antes de falhar.      |     0    |
-| `Objects`        | Array | Uma matriz de objetos a ser processada. Cada objeto inclui: "tabela" ao processar a tabela inteira ou "tabela" e "partição" ao processar uma partição. Se nenhum objeto for especificado, todo o modelo será atualizado. |   Processar todo o modelo      |
+| `MaxParallelism` | Int   | Esse valor determina o número máximo de threads nos quais executar comandos de processamento em paralelo. Esse valor é alinhado com a propriedade MaxParallelism que pode ser definida no [comando TMSL Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) ou usando outros métodos.       | 10        |
+| `RetryCount`     | Int   | Indica o número de vezes que a operação tentará novamente antes de falhar.      |     0    |
+| `Objects`        | Matriz | Uma matriz de objetos a ser processada. Cada objeto inclui: "tabela" ao processar a tabela inteira ou "tabela" e "partição" ao processar uma partição. Se nenhum objeto for especificado, todo o modelo será atualizado. |   Processar todo o modelo      |
 
 CommitMode é igual a partialBatch. Ele é usado ao fazer uma carga inicial de conjuntos de grandes volumes que podem levar horas. Se a operação de atualização falhar depois de confirmar com êxito um ou mais lotes, os lotes confirmados com êxito permanecerão confirmados (eles não serão revertidos com êxito em lotes confirmados).
 
 > [!NOTE]
 > No momento da gravação, o tamanho do lote é o valor de MaxParallelism, mas esse valor pode ser alterado.
 
-## <a name="get-refreshesrefreshid"></a>OBTER/refreshes/\<renovaid >
+## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
 
 Para verificar o status de uma operação de atualização, use o verbo GET na ID de atualização. Aqui está um exemplo do corpo da resposta. Se a operação estiver em andamento, **InProgress** será retornado no status.
 
@@ -160,7 +160,7 @@ Para obter uma lista de operações de atualização históricas para um modelo,
 ]
 ```
 
-## <a name="delete-refreshesrefreshid"></a>EXCLUIR/refreshes/\<renovaid >
+## <a name="delete-refreshesrefreshid"></a>DELETE /refreshes/\<refreshId>
 
 Para cancelar uma operação de atualização em andamento, use o verbo DELETE na ID de atualização.
 
@@ -211,7 +211,7 @@ Consulte [criar entidade de serviço-portal do Azure](../active-directory/develo
 3.  Execute o exemplo.
 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 [Exemplos](analysis-services-samples.md)   
 [API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   

@@ -29,8 +29,8 @@ Criar e configurar um cofre de chaves para uso com o Azure Disk Encryption envol
 
 Essas etapas são ilustradas nos seguintes guias de início rápido:
 
-- [Criar e criptografar uma VM Linux com CLI do Azure](disk-encryption-cli-quickstart.md)
-- [Criar e criptografar uma VM Linux com Azure PowerShell](disk-encryption-cli-quickstart.md)
+- [Criar e encriptar uma VM do Linux com a CLI do Azure](disk-encryption-cli-quickstart.md)
+- [Criar e encriptar uma VM do Linux com o Azure PowerShell](disk-encryption-cli-quickstart.md)
 
 Você também pode, se desejar, gerar ou importar uma chave de criptografia de chave (KEK).
 
@@ -41,7 +41,7 @@ Você também pode, se desejar, gerar ou importar uma chave de criptografia de c
 
 As etapas neste artigo podem ser concluídas com o [CLI do Azure](/cli/azure/), o [módulo Azure PowerShell Az](/powershell/azure/overview)ou o [portal do Azure](https://portal.azure.com). 
 
-Embora o portal possa ser acessado por meio de seu navegador, CLI do Azure e Azure PowerShell exigem a instalação local; consulte criptografia de disco [Azure para Linux: Instale as ferramentas @ no__t-0 para obter detalhes.
+Embora o portal possa ser acessado por meio de seu navegador, CLI do Azure e Azure PowerShell exigem a instalação local; consulte [Azure Disk Encryption para Linux: instalar ferramentas](disk-encryption-linux.md#install-tools-and-connect-to-azure) para obter detalhes.
 
 ### <a name="connect-to-your-azure-account"></a>Ligar à sua conta do Azure
 
@@ -55,7 +55,7 @@ az login
 Connect-AzAccount
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 *Se você já tiver um grupo de recursos, poderá pular para [criar um cofre de chaves](#create-a-key-vault).*
 
@@ -117,19 +117,19 @@ Se você não habilitou o cofre de chaves para criptografia de disco, implantaç
 
 Uso [atualização do Cofre de chaves de az](/cli/azure/keyvault#az-keyvault-update) para ativar a encriptação de disco para o Cofre de chaves. 
 
- - **Habilitar Key Vault para criptografia de disco:** Habilitado para criptografia de disco é necessário. 
+ - **Ativar o Key Vault para encriptação de disco:** ativado para o disco de encriptação é necessário. 
 
      ```azurecli-interactive
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-disk-encryption "true"
      ```  
 
- - **Habilite Key Vault para implantação, se necessário:** Permite que o provedor de recursos Microsoft. Compute recupere segredos desse cofre de chaves quando esse cofre de chaves é referenciado na criação de recursos, por exemplo, ao criar uma máquina virtual.
+ - **Ativar o Key Vault para a implementação, se necessário:** permite que o fornecedor de recursos Microsoft. Compute obter segredos a partir deste cofre de chaves, quando este Cofre de chaves é referenciado na criação de recursos, por exemplo, quando criar uma máquina virtual.
 
      ```azurecli-interactive
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-deployment "true"
      ``` 
 
- - **Habilite Key Vault para implantação de modelo, se necessário:** Permitir que o Gerenciador de recursos recupere segredos do cofre.
+ - **Ativar o Key Vault para a implementação de modelo, se necessário:** permitir que o Resource Manager para obter segredos a partir do cofre.
      ```azurecli-interactive  
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-template-deployment "true"
      ```
@@ -137,19 +137,19 @@ Uso [atualização do Cofre de chaves de az](/cli/azure/keyvault#az-keyvault-upd
 ###  <a name="azure-powershell"></a>Azure PowerShell
  Use o cmdlet do PowerShell do cofre de chaves [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) para habilitar a criptografia de disco para o cofre de chaves.
 
-  - **Habilitar Key Vault para criptografia de disco:** O EnabledForDiskEncryption é necessário para a criptografia de disco do Azure.
+  - **Ativar o Key Vault para encriptação de disco:** EnabledForDiskEncryption é necessária para a encriptação de disco do Azure.
       
      ```azurepowershell-interactive 
      Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup" -EnabledForDiskEncryption
      ```
 
-  - **Habilite Key Vault para implantação, se necessário:** Permite que o provedor de recursos Microsoft. Compute recupere segredos desse cofre de chaves quando esse cofre de chaves é referenciado na criação de recursos, por exemplo, ao criar uma máquina virtual.
+  - **Ativar o Key Vault para a implementação, se necessário:** permite que o fornecedor de recursos Microsoft. Compute obter segredos a partir deste cofre de chaves, quando este Cofre de chaves é referenciado na criação de recursos, por exemplo, quando criar uma máquina virtual.
 
      ```azurepowershell-interactive
       Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup" -EnabledForDeployment
      ```
 
-  - **Habilite Key Vault para implantação de modelo, se necessário:** Permite que Azure Resource Manager obtenha segredos desse cofre de chaves quando esse cofre de chaves é referenciado em uma implantação de modelo.
+  - **Ativar o Key Vault para a implementação de modelo, se necessário:** permite que o Azure Resource Manager para obter segredos a partir deste cofre de chaves, quando este Cofre de chaves é referenciado numa implementação do modelo.
 
      ```azurepowershell-interactive             
      Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup" -EnabledForTemplateDeployment

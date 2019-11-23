@@ -27,7 +27,7 @@ ms.locfileid: "72024939"
 
 Neste guia de início rápido, você implanta um aplicativo Python simples [no serviço de aplicativo no Linux](app-service-linux-intro.md), que fornece um serviço de hospedagem na Web altamente escalonável e com aplicação de patch automática. Use a interface de linha de comando do Azure (o [CLI do Azure](/cli/azure/install-azure-cli)) por meio do Azure cloud shell interativo baseado em navegador, para que você possa seguir as etapas usar um computador Mac, Linux ou Windows.
 
-![Aplicação de exemplo em execução no Azure](media/quickstart-python/hello-world-in-browser.png)
+![Aplicação Web de exemplo em execução no Azure](media/quickstart-python/hello-world-in-browser.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -118,7 +118,7 @@ http://<app_name>.azurewebsites.net
 
 O código de exemplo do Python está em execução no serviço de aplicativo no Linux com uma imagem interna.
 
-![Aplicação de exemplo em execução no Azure](media/quickstart-python/hello-world-in-browser.png)
+![Aplicação Web de exemplo em execução no Azure](media/quickstart-python/hello-world-in-browser.png)
 
 **Parabéns!** Implementou a sua primeira aplicação Python no Serviço de Aplicações no Linux.
 
@@ -165,10 +165,10 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicativo Python com PostgreSQL @ no__t-0
+> [Tutorial: aplicativo Python com PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Configurar o aplicativo Python](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Implantar do repositório de contêiner privado @ no__t-0
+> [Tutorial: implantar do repositório de contêiner privado](tutorial-custom-docker-image.md)

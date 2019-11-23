@@ -34,7 +34,7 @@ O processo geral é:
 
 O processo é semelhante se você quiser que o aplicativo lógico execute uma ação diferente.
 
-## <a name="create-an-activity-log-alert-administrative"></a>Criar um alerta do log de atividades: Administrativa
+## <a name="create-an-activity-log-alert-administrative"></a>Criar um alerta do log de atividades: administrativo
 
 1.  Na portal do Azure, selecione **criar um recurso** no canto superior esquerdo.
 
@@ -46,7 +46,7 @@ O processo é semelhante se você quiser que o aplicativo lógico execute uma a�
 
 4.  Selecione **criar** para criar o aplicativo lógico. Uma mensagem pop-up indica que o aplicativo lógico é criado. Selecione **Iniciar recurso** para abrir o **Designer de aplicativos lógicos**.
 
-5.  Selecione o gatilho: **Quando uma solicitação HTTP é recebida**.
+5.  Selecione o gatilho: **quando uma solicitação HTTP é recebida**.
 
     O ![aplicativo lógico dispara](media/action-groups-logic-app/logic-app-triggers.png "gatilhos de aplicativo lógico")
 
@@ -111,7 +111,7 @@ O processo é semelhante se você quiser que o aplicativo lógico execute uma a�
 
 12. Configure a ação do Microsoft Teams. O **Designer de aplicativos lógicos** solicita que você se autentique na sua conta do Office 365. Escolha a **ID da equipe** e a **ID do canal** para o qual enviar a mensagem.
 
-13. Configure a mensagem usando uma combinação de texto estático e referências para o \<fields @ no__t-1 no conteúdo dinâmico. Copie e cole o texto a seguir no campo de **mensagem** :
+13. Configure a mensagem usando uma combinação de texto estático e referências aos campos de \<\> no conteúdo dinâmico. Copie e cole o texto a seguir no campo de **mensagem** :
 
     ```text
       Activity Log Alert: <eventSource>
@@ -120,12 +120,12 @@ O processo é semelhante se você quiser que o aplicativo lógico execute uma a�
       resourceId: <resourceId>
     ```
 
-    Em seguida, pesquise e substitua o \<fields @ no__t-1 por marcas de conteúdo dinâmico do mesmo nome.
+    Em seguida, pesquise e substitua os campos de \<\> com as marcas de conteúdo dinâmico do mesmo nome.
 
     > [!NOTE]
     > Há dois campos dinâmicos chamados **status**. Adicione ambos os campos à mensagem. Use o campo que está no recipiente da propriedade **activityLog** e exclua o outro campo. Focalize o cursor sobre o campo **status** para ver a referência de campo totalmente qualificada, conforme mostrado na seguinte captura de tela:
 
-    ação de equipes de @no__t 0Microsoft: Poste uma mensagem @ no__t-0 @ no__t-1Microsoft Teams Action: Poste uma mensagem @ no__t-0
+    ![Ação do Microsoft Teams: postar uma mensagem](media/action-groups-logic-app/teams-action-post-message.png "ação do Microsoft Teams: postar uma mensagem")
 
 14. Na parte superior do **Designer de aplicativos lógicos**, selecione **salvar** para salvar seu aplicativo lógico.
 
@@ -196,7 +196,7 @@ As entradas de integridade do serviço do Azure fazem parte do log de atividades
 
    1. Na condição **se verdadeiro** , siga as instruções nas etapas 11 a 13 em [criar um alerta do log de atividades](#create-an-activity-log-alert-administrative) para adicionar a ação do Microsoft Teams.
 
-   1. Defina a mensagem usando uma combinação de HTML e conteúdo dinâmico. Copie e cole o conteúdo a seguir no campo de **mensagem** . Substitua os campos `[incidentType]`, `[trackingID]`, `[title]` e `[communication]` por marcas de conteúdo dinâmico de mesmo nome:
+   1. Defina a mensagem usando uma combinação de HTML e conteúdo dinâmico. Copie e cole o conteúdo a seguir no campo de **mensagem** . Substitua os campos `[incidentType]`, `[trackingID]`, `[title]`e `[communication]` por marcas de conteúdo dinâmico do mesmo nome:
 
        ```html
        <p>
@@ -285,7 +285,7 @@ O processo de criação de um alerta de métrica é semelhante à [criação de 
 
       (media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Ação") de ![ação post]da condição verdadeira do alerta de métrica de uma condição post de alerta de métrica
 
-  1. Na condição **If false** , defina uma ação do Microsoft Teams para comunicar que o alerta de métrica não corresponde às expectativas do aplicativo lógico. Inclua a carga JSON. Observe como fazer referência ao conteúdo dinâmico `triggerBody` na expressão `json()`.
+  1. Na condição **If false** , defina uma ação do Microsoft Teams para comunicar que o alerta de métrica não corresponde às expectativas do aplicativo lógico. Inclua a carga JSON. Observe como referenciar o `triggerBody` conteúdo dinâmico na expressão `json()`.
 
       ![](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Ação do alerta de métrica") de ação falsa de alerta de métrica de condição de publicação
 

@@ -23,7 +23,7 @@ ms.locfileid: "73685775"
 > * [Visão geral de segurança](sql-data-warehouse-overview-manage-security.md)
 > * [Autenticação](sql-data-warehouse-authentication.md)
 > * [Criptografia (Portal)](sql-data-warehouse-encryption-tde.md)
-> * [Criptografia (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+> * [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 > 
 > 
 
@@ -53,13 +53,13 @@ Para desabilitar o TDE para um SQL Data Warehouse, siga as etapas abaixo:
 ## <a name="encryption-dmvs"></a>DMVs de criptografia
 A criptografia pode ser confirmada com as DMVs a seguir:
 
-* [sys. databases]
-* [sys. dm_pdw_nodes_database_encryption_keys]
+* [sys.databases]
+* [sys.dm_pdw_nodes_database_encryption_keys]
 
 <!--MSDN references-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
-[sys. databases]: https://msdn.microsoft.com/library/ms178534.aspx
-[sys. dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx
+[sys.databases]: https://msdn.microsoft.com/library/ms178534.aspx
+[sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png

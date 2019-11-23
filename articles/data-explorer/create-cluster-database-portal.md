@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar um cluster de Data Explorer do Azure e um banco de dados'
+title: 'Início Rápido: criar um cluster e uma base de dados do Azure Data Explorer'
 description: Neste início rápido, aprenderá a criar um cluster e uma base de dados do Azure Data Explorer, e dados para ingerir (carregar).
 author: orspod
 ms.author: orspodek
@@ -14,7 +14,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71326718"
 ---
-# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início rápido: Criar um cluster de Data Explorer do Azure e um banco de dados
+# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início Rápido: criar um cluster e uma base de dados do Azure Data Explorer
 
 > [!div class="op_single_selector"]
 > * [Portal](create-cluster-database-portal.md)
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](http
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-cluster"></a>Criar um cluster
 
@@ -51,12 +51,12 @@ Crie um cluster de Data Explorer do Azure com um conjunto definido de recursos d
 
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Subscription | A sua subscrição | Selecione a subscrição do Azure que quer utilizar para o cluster.|
-    | Resource group | Seu grupo de recursos | Use um grupo de recursos existente ou crie um novo grupo de recursos. |
+    | Subscrição | A sua subscrição | Selecione a subscrição do Azure que quer utilizar para o cluster.|
+    | Grupo de recursos | Seu grupo de recursos | Use um grupo de recursos existente ou crie um novo grupo de recursos. |
     | Nome do cluster | Um nome exclusivo de cluster | Escolha um nome exclusivo que identifique o seu cluster. O nome de domínio *[região].kusto.windows.net* é anexado ao nome de cluster que indicar. O nome pode conter apenas letras minúsculas e números. Ele deve conter de 4 a 22 caracteres.
     | Região | *Oeste dos EUA* ou *oeste dos EUA 2* | Selecione *oeste dos EUA* ou *oeste dos EUA 2* (se estiver usando zonas de disponibilidade) para este guia de início rápido. Para um sistema de produção, selecione a região que melhor se adequa às suas necessidades.
-    | Zonas de Disponibilidade | *1*, *2*e/ou *3* | Coloque as instâncias de cluster em várias zonas de disponibilidade na mesma região (opcional). [Zonas de disponibilidade do Azure](/azure/availability-zones/az-overview) são locais físicos exclusivos na mesma região do Azure. Eles protegem um cluster Data Explorer do Azure e dados de uma falha parcial da região. Os nós de cluster são criados, por padrão, na mesma data center. Ao selecionar várias zonas de disponibilidade, você pode eliminar um único ponto de falha e garantir a alta disponibilidade. A implantação em zonas de disponibilidade só é possível durante a criação do cluster e não pode ser modificada em uma data posterior.
-    | Especificações de computação | *D13_v2* | Selecione a especificação de preço mais baixa para este início rápido. Para um sistema de produção, selecione a especificação que melhor se adequa às suas necessidades.
+    | Zonas de disponibilidade | *1*, *2*e/ou *3* | Coloque as instâncias de cluster em várias zonas de disponibilidade na mesma região (opcional). [Zonas de disponibilidade do Azure](/azure/availability-zones/az-overview) são locais físicos exclusivos na mesma região do Azure. Eles protegem um cluster Data Explorer do Azure e dados de uma falha parcial da região. Os nós de cluster são criados, por padrão, na mesma data center. Ao selecionar várias zonas de disponibilidade, você pode eliminar um único ponto de falha e garantir a alta disponibilidade. A implantação em zonas de disponibilidade só é possível durante a criação do cluster e não pode ser modificada em uma data posterior.
+    | Especificações do dispositivo | *D13_v2* | Selecione a especificação de preço mais baixa para este início rápido. Para um sistema de produção, selecione a especificação que melhor se adequa às suas necessidades.
     | | | |
 
 1. Selecione **examinar + criar** para examinar os detalhes do cluster e **criar** para provisionar o cluster. O provisionamento normalmente leva cerca de 10 minutos.
@@ -96,7 +96,7 @@ Agora que tem o cluster e a base de dados, pode executar consultas e comandos. A
 
     O conjunto de resultados mostra **TestDatabase**, a única base de dados no cluster.
 
-1. Cole o comando `.show tables` na janela de consulta e selecione **executar**.
+1. Cole o `.show tables` de comando na janela de consulta e selecione **executar**.
 
     Este comando devolve um conjunto de resultados vazio porque ainda não tem quaisquer tabelas. Vai adicionar uma tabela no próximo artigo desta série.
 
@@ -123,6 +123,6 @@ Se você planeja seguir outros guias de início rápido e tutoriais, mantenha os
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingerir dados do hub de eventos para o Azure Data Explorer @ no__t-0
+> [Início Rápido: Ingerir dados do Hub de Eventos para o Azure Data Explorer](ingest-data-event-hub.md)
 
 

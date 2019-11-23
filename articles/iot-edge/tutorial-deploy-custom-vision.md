@@ -1,6 +1,6 @@
 ---
-title: Tutorial implantar Visão Personalizada classificador em um dispositivo-Azure IoT Edge | Microsoft Docs
-description: Neste tutorial, saiba como fazer com que um modelo de pesquisa Visual computacional seja executado como um contêiner usando Visão Personalizada e IoT Edge.
+title: Tutorial implementar classificador de visão personalizada a um dispositivo - Azure IoT Edge | Documentos da Microsoft
+description: Neste tutorial, saiba como fazer com que um modelo de imagem digitalizada executado como um contêiner com visão personalizada e IoT Edge.
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -32,7 +32,8 @@ Neste tutorial, ficará a saber como:
 
 <center>
 
-![Diagram-arquitetura do tutorial, preparar e implantar o classificador @ no__t-1 @ no__t-2
+Diagrama ![-arquitetura do tutorial, estágio e implantação](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
+classificador </center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -101,7 +102,7 @@ A criação de um classificador de imagens precisa de um conjunto de imagens de 
 
 5. Selecione **Upload 10 files** (Até 10 ficheiros). 
 
-   ![Carregar arquivos marcados do Hemlock para Visão Personalizada](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
+   ![Carregar ficheiros de hemlock etiquetado de visão personalizada](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
 
 6. Quando as imagens estiverem carregadas, selecione **Done** (Concluído).
 
@@ -119,7 +120,7 @@ A criação de um classificador de imagens precisa de um conjunto de imagens de 
 
 1. Depois de preparar o classificador, selecione **Export** (Exportar), na página Performance (Desempenho) do mesmo. 
 
-   ![Exportar seu classificador de imagem treinado](./media/tutorial-deploy-custom-vision/export.png)
+   ![Exportar o seu classificador de preparação de imagem](./media/tutorial-deploy-custom-vision/export.png)
 
 2. Selecione **DockerFile** para a plataforma. 
 
@@ -151,7 +152,7 @@ Uma solução é uma forma lógica de desenvolver e organizar vários módulos p
    | Indicar um nome para a solução | Introduza um nome descritivo para a solução, como **CustomVisionSolution**, ou aceite o predefinido. |
    | Selecionar modelo de módulo | Escolha **Python Module** (Módulo de Python). |
    | Indicar um nome para o módulo | Dê o nome **classifier** ao módulo.<br><br>É importante que o nome do módulo esteja em minúsculas. Quando referencia módulos, o IoT Edge é sensível a maiúsculas e minúsculas e esta solução utiliza uma biblioteca que formata todos os pedidos em minúsculas. |
-   | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A imagem de contentor é pré-preenchida no passo anterior. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure.<br><br>A cadeia de caracteres final é semelhante a **\<registry Name\>.azurecr.io/Classifier**. |
+   | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A imagem de contentor é pré-preenchida no passo anterior. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure.<br><br>A cadeia de caracteres final é semelhante a **\<nome do registro\>. azurecr.Io/Classifier**. |
  
    ![Fornecer repositório de imagens do Docker](./media/tutorial-deploy-custom-vision/repository.png)
 

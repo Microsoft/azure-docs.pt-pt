@@ -23,7 +23,7 @@ Somente instalações do Windows do Ferramentas do Azure Data Lake para Visual S
 
 ## <a name="set-up-the-u-sql-local-run-environment"></a>Configurar o ambiente de execução local do U-SQL
 
-1. Selecione CTRL + SHIFT + P para abrir a paleta de comandos e, em seguida, digite **ADL: Baixe o pacote de execução local @ no__t-0 para baixar os pacotes.  
+1. Selecione CTRL + SHIFT + P para abrir a paleta de comandos e, em seguida, digite **ADL: baixar o pacote de execução local** para baixar os pacotes.  
 
    ![Baixar os pacotes de dependência do ADL LocalRun](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/downloadtheadllocalrunpackage.png)
 
@@ -36,7 +36,7 @@ Somente instalações do Windows do Ferramentas do Azure Data Lake para Visual S
 
     ![Instalar o BuildTools](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallBuildTools.png)
 
-   2,2 para instalar o **Win10SDK 10240**, clique em sdksetup. exe na pasta LocalRunDependency/win10sdk_ 10.0.10240 _2 e siga as instruções do assistente.  
+   2,2 para instalar o **Win10SDK 10240**, clique em sdksetup. exe na pasta LocalRunDependency/Win10SDK_10.0.10240 _2 e siga as instruções do assistente.  
 
     ![Instalar o Win10SDK 10240](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallWin10SDK.png)
 
@@ -45,39 +45,40 @@ Somente instalações do Windows do Ferramentas do Azure Data Lake para Visual S
 
 
 ## <a name="start-the-local-run-service-and-submit-the-u-sql-job-to-a-local-account"></a>Iniciar o serviço de execução local e enviar o trabalho do U-SQL para uma conta local 
-Para o usuário da primeira vez, use **ADL: Baixe o pacote de execução local @ no__t-0 para baixar pacotes de execução local, se você não tiver [configurado o ambiente de execução local do U-SQL](#set-up-the-u-sql-local-run-environment).
+Para o usuário da primeira vez, use **ADL: baixar pacote de execução local** para baixar pacotes de execução local, se você não tiver [configurado o ambiente de execução local do U-SQL](#set-up-the-u-sql-local-run-environment).
 
-1. Selecione CTRL + SHIFT + P para abrir a paleta de comandos e, em seguida, digite **ADL: Inicie o serviço de execução local @ no__t-0.   
+1. Selecione CTRL + SHIFT + P para abrir a paleta de comandos e, em seguida, digite **ADL: iniciar serviço de execução local**.   
 2. Selecione **aceitar** para aceitar os termos de licença para software Microsoft pela primeira vez. 
 
    ![Aceitar os termos de licença para software Microsoft](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/AcceptEULA.png)   
 3. O console cmd é aberto. Para usuários de primeira hora, você precisa inserir **3**e, em seguida, localizar o caminho da pasta local para a entrada e saída de dados. Se você não conseguir definir o caminho com barras invertidas, tente barras invertidas. Para outras opções, você pode usar os valores padrão.
 
    ![Data Lake ferramentas para Visual Studio Code executar cmd](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-cmd.png)
-4. Selecione CTRL + SHIFT + P para abrir a paleta de comandos, digite **ADL: Envie o trabalho @ no__t-0 e selecione **local** para enviar o trabalho para sua conta local.
+4. Selecione CTRL + SHIFT + P para abrir a paleta de comandos, digite **ADL: Enviar trabalho**e, em seguida, selecione **local** para enviar o trabalho para sua conta local.
 
    ![Ferramentas de Data Lake para Visual Studio Code selecione local](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-select-local.png)
 5. Depois de enviar o trabalho, você poderá exibir os detalhes de envio. Para exibir os detalhes de envio, selecione **jobUrl** na janela **saída** . Você também pode exibir o status de envio do trabalho no console cmd. Digite **7** no console do cmd se você quiser saber mais detalhes do trabalho.
 
-   ![Data Lake Tools para Visual Studio Code saída de execução local @ no__t-1 @ no__t-2Data Lake Tools for Visual Studio Code execução local status cmd @ no__t-3 
+   ![Data Lake Tools para Visual Studio Code saída de execução local](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-result.png)
+   ![Data Lake Tools for Visual Studio Code status cmd de execução local](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-localrun-cmd-status.png) 
 
 
 ## <a name="start-a-local-debug-for-the-u-sql-job"></a>Iniciar uma depuração local para o trabalho do U-SQL  
 Para o usuário da primeira vez:
 
-1. Use **ADL: Baixe o pacote de execução local @ no__t-0 para baixar pacotes de execução local, se você não tiver [configurado o ambiente de execução local do U-SQL](#set-up-the-u-sql-local-run-environment).
+1. Use **ADL: baixar pacote de execução local** para baixar pacotes de execução local, se você não tiver [configurado o ambiente de execução local do U-SQL](#set-up-the-u-sql-local-run-environment).
 2. Instale SDK do .NET Core 2,0 como sugerido na caixa de mensagem, se não estiver instalado.
  
-   @ no__t-1reminder instala dotnet @ no__t-2
+  lembrete de ![instala dotnet](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png)
 3. Instale C# o para Visual Studio Code conforme sugerido na caixa de mensagem se não estiver instalado. Clique em **instalar** para continuar e reinicie o VSCode.
 
     ![Lembrete para instalarC#](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/install-csharp.png)
 
 Siga as etapas abaixo para executar a depuração local:
   
-1. Selecione CTRL + SHIFT + P para abrir a paleta de comandos e, em seguida, digite **ADL: Inicie o serviço de execução local @ no__t-0. O console cmd é aberto. Verifique se a **DataRoot** está definida.
+1. Selecione CTRL + SHIFT + P para abrir a paleta de comandos e, em seguida, digite **ADL: iniciar serviço de execução local**. O console cmd é aberto. Verifique se a **DataRoot** está definida.
 2. Defina um ponto de interrupção C# no code-behind.
-3. Volte ao editor de scripts, clique com o botão direito do mouse e selecione **ADL: Depuração local @ no__t-0.
+3. Volte ao editor de scripts, clique com o botão direito do mouse e selecione **ADL: depuração local**.
     
    ![Data Lake de ferramentas para Visual Studio Code resultado de depuração local](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-debug-result.png)
 

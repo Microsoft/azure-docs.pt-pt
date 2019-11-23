@@ -40,7 +40,7 @@ Depois que o Firewall do aplicativo Web da Microsoft for implantado e estiver ob
     
 1. No portal do Azure Sentinel, selecione **conectores de dados**.
 1. Na página conectores de dados, selecione o bloco **WAF** .
-1. Vá para [recurso de gateway de aplicativo](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) and escolha seu WAF.
+1. Vá para [recurso de gateway de aplicativo](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) e escolha seu WAF.
     1. Selecione **configurações de diagnóstico**.
     1. Selecione **+ Adicionar configuração de diagnóstico** na tabela.
     1. Na página **configurações de diagnóstico** , digite um **nome** e selecione **Enviar para log Analytics**.

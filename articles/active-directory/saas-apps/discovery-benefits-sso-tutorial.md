@@ -83,11 +83,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Na **configuração básica do SAML** section o aplicativo é pré-configurado no modo  initiated **IDP**e as URLs necessárias já estão preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando em **salvar** button.
+1. Na seção **configuração básica do SAML** o aplicativo é pré-configurado no modo de iniciado pelo **IDP** e as URLs necessárias já estão preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
 
 1. Benefícios de descoberta o aplicativo SSO espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique em **Editar** ícone para abrir a caixa de diálogo atributos de usuário.
 
-    ![imagem](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
     a. Clique no ícone **Editar** para abrir a caixa de diálogo **identificador de usuário exclusivo (ID de nome)** .
 
@@ -112,25 +112,25 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download do certificado](common/certificatebase64.png)
+    ![O link de download de certificado](common/certificatebase64.png)
 
 1. Na seção **Configurar o SSO de benefícios da descoberta** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo usuário** na parte superior da tela.
+1. Selecione **novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso aos benefícios de descoberta SSO.
 
@@ -138,7 +138,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Na lista de aplicativos, selecione **benefícios de descoberta SSO**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![O link "usuários e grupos"](common/users-groups-blade.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -150,15 +150,15 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ## <a name="configure-discovery-benefits-sso-sso"></a>Configurar benefícios de descoberta SSO do SSO
 
-Para configurar o logon único em **benefícios de descoberta** , o lado do SSO, você precisa enviar o **certificado (Base64)** baixado e as URLs copiadas apropriadas de portal do Azure para a [equipe de suporte do SSO dos benefícios da descoberta](mailto:Jsimpson@DiscoveryBenefits.com). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
+Para configurar o logon único em **benefícios de descoberta** , o lado do SSO, você precisa enviar o **certificado (Base64)** baixado e as URLs copiadas apropriadas de portal do Azure para a [equipe de suporte do SSO dos benefícios da descoberta](mailto:Jsimpson@DiscoveryBenefits.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-discovery-benefits-sso-test-user"></a>Criar benefícios de descoberta usuário de teste do SSO
 
-Nesta seção, você criará um usuário chamado Brenda Simon nos benefícios de descoberta SSO. Trabalhe com a [equipe de suporte do SSO dos benefícios da descoberta](mailto:Jsimpson@DiscoveryBenefits.com) para adicionar os usuários na plataforma de SSO benefícios da descoberta. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Simon nos benefícios de descoberta SSO. Trabalhe com a [equipe de suporte do SSO dos benefícios da descoberta](mailto:Jsimpson@DiscoveryBenefits.com) para adicionar os usuários na plataforma de SSO benefícios da descoberta. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ## <a name="test-sso"></a>Testar SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Ao clicar no bloco de SSO benefícios de descoberta no painel de acesso, você deverá ser conectado automaticamente ao SSO benefícios da descoberta para o qual você configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

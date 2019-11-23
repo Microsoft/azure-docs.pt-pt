@@ -36,7 +36,7 @@ O status recuperado por qualquer um desses métodos pode ser qualquer um dos seg
 
 Se o status de integridade do back-end de um servidor estiver íntegro, isso significará que o gateway de aplicativo encaminhará as solicitações para esse servidor. Mas se a integridade do back-end para todos os servidores em um pool de back-end não estiver íntegra ou for desconhecida, você poderá encontrar problemas ao tentar acessar aplicativos. Este artigo descreve os sintomas, a causa e a resolução de cada um dos erros mostrados.
 
-<a name="backend-health-status-unhealthy"></a>Status de integridade de back-end: Estado de funcionamento incorreto
+<a name="backend-health-status-unhealthy"></a>Status de integridade de back-end: não íntegro
 -------------------------------
 
 Se o status de integridade do back-end não estiver íntegro, a exibição do portal será semelhante à captura de tela a seguir:
@@ -81,15 +81,15 @@ Depois que você receber um status de servidor back-end não íntegro para todos
 A mensagem exibida na coluna **detalhes** fornece informações mais detalhadas sobre o problema e, com base neles, você pode começar a solucionar o problema.
 
 > [!NOTE]
-> A solicitação de investigação padrão é enviada no formato de \<protocol @ no__t-1://127.0.0.1: \<port @ no__t-3/. Por exemplo, http://127.0.0.1:80 para uma investigação http na porta 80. Somente os códigos de status HTTP de 200 a 399 são considerados íntegros. O protocolo e a porta de destino são herdados das configurações de HTTP. Se você quiser que o gateway de aplicativo teste em um protocolo diferente, nome de host ou caminho e reconheça um código de status diferente como íntegro, configure uma investigação personalizada e associe-a às configurações de HTTP.
+> A solicitação de investigação padrão é enviada no formato de \<protocolo\>://127.0.0.1:\<porta\>/. Por exemplo, http://127.0.0.1:80 para uma investigação http na porta 80. Somente os códigos de status HTTP de 200 a 399 são considerados íntegros. O protocolo e a porta de destino são herdados das configurações de HTTP. Se você quiser que o gateway de aplicativo teste em um protocolo diferente, nome de host ou caminho e reconheça um código de status diferente como íntegro, configure uma investigação personalizada e associe-a às configurações de HTTP.
 
 <a name="error-messages"></a>Mensagens de erro
 ------------------------
 #### <a name="backend-server-timeout"></a>Tempo limite do servidor de back-end
 
-**Mensagem:** O tempo gasto pelo back-end para responder à investigação de integridade do Application Gateway @ no__t-0s é maior que o limite de tempo limite na configuração de investigação.
+**Mensagem:** O tempo gasto pelo back-end para responder à investigação de integridade do gateway de aplicativo\'s é maior que o limite de tempo limite na configuração de investigação.
 
-**Faz** Depois que o gateway de aplicativo envia uma solicitação de investigação HTTP (S) para o servidor de back-end, ele aguarda uma resposta do servidor back-end por um período configurado. Se o servidor back-end não responder dentro do período configurado (o valor de tempo limite), ele será marcado como não íntegro até que ele comece a responder dentro do período de tempo limite configurado novamente.
+**Causa:** Depois que o gateway de aplicativo envia uma solicitação de investigação HTTP (S) para o servidor de back-end, ele aguarda uma resposta do servidor back-end por um período configurado. Se o servidor back-end não responder dentro do período configurado (o valor de tempo limite), ele será marcado como não íntegro até que ele comece a responder dentro do período de tempo limite configurado novamente.
 
 **Resolução:** Verifique por que o servidor ou aplicativo de back-end não está respondendo dentro do período de tempo limite configurado e verifique também as dependências do aplicativo. Por exemplo, verifique se o banco de dados tem algum problema que possa disparar um atraso em resposta. Se você estiver ciente do comportamento do aplicativo e ele deve responder somente após o valor de tempo limite, aumente o valor de tempo limite das configurações de investigação personalizadas. Você deve ter uma investigação personalizada para alterar o valor de tempo limite. Para obter informações sobre como configurar uma investigação personalizada, [consulte a página de documentação](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
 
@@ -105,9 +105,9 @@ Para aumentar o valor de tempo limite, siga estas etapas:
 
 #### <a name="dns-resolution-error"></a>Erro de resolução de DNS
 
-**Mensagem:** O gateway de aplicativo não pôde criar uma investigação para este back-end. Isso geralmente acontece quando o FQDN do back-end não foi inserido corretamente. 
+**Mensagem:** O gateway de aplicativo não pôde criar uma investigação para este back-end. Normalmente, esta situação acontece quando o FQDN do back-end não foi inserido corretamente. 
 
-**Faz** Se o pool de back-end for do tipo endereço IP/FQDN ou serviço de aplicativo, o gateway de aplicativo será resolvido para o endereço IP do FQDN inserido por meio do DNS (sistema de nomes de domínio) (padrão do Azure ou personalizado) e tentará se conectar ao servidor na porta TCP mencionada nas configurações de HTTP. Mas se essa mensagem for exibida, ela sugere que o gateway de aplicativo não pôde resolver com êxito o endereço IP do FQDN inserido.
+**Causa:** Se o pool de back-end for do tipo endereço IP/FQDN ou serviço de aplicativo, o gateway de aplicativo será resolvido para o endereço IP do FQDN inserido por meio do DNS (sistema de nomes de domínio) (padrão do Azure ou personalizado) e tentará se conectar ao servidor na porta TCP mencionada nas configurações de HTTP. Mas se essa mensagem for exibida, ela sugere que o gateway de aplicativo não pôde resolver com êxito o endereço IP do FQDN inserido.
 
 **Resolução:**
 
@@ -127,7 +127,7 @@ Para aumentar o valor de tempo limite, siga estas etapas:
 Verifique se o back-end responde na porta usada para a investigação.
 Verifique também se algum NSG/UDR/firewall está bloqueando o acesso ao IP e à porta desse back-end
 
-**Faz** Após a fase de resolução DNS, o gateway de aplicativo tenta se conectar ao servidor de back-end na porta TCP configurada nas configurações de HTTP. Se o gateway de aplicativo não puder estabelecer uma sessão TCP na porta especificada, a investigação será marcada como não íntegra com essa mensagem.
+**Causa:** Após a fase de resolução DNS, o gateway de aplicativo tenta se conectar ao servidor de back-end na porta TCP configurada nas configurações de HTTP. Se o gateway de aplicativo não puder estabelecer uma sessão TCP na porta especificada, a investigação será marcada como não íntegra com essa mensagem.
 
 **Solução:** Se você receber esse erro, siga estas etapas:
 
@@ -155,7 +155,7 @@ Verifique também se algum NSG/UDR/firewall está bloqueando o acesso ao IP e à
     ```
 1.  Se você não encontrar problemas com NSG ou UDR, verifique o servidor back-end para problemas relacionados a aplicativos que estão impedindo clientes de estabelecer uma sessão TCP nas portas configuradas. Algumas coisas a serem verificadas:
 
-    a.  Abra um prompt de comando (Win + R-\> cmd), insira `netstat` e selecione Enter.
+    a.  Abra um prompt de comando (Win + R-\> cmd), insira `netstat`e selecione Enter.
 
     b.  Verifique se o servidor está escutando na porta configurada. Por exemplo:
     ```
@@ -168,20 +168,20 @@ Verifique também se algum NSG/UDR/firewall está bloqueando o acesso ao IP e à
 
 #### <a name="http-status-code-mismatch"></a>Incompatibilidade de código de status HTTP
 
-**Mensagem:** O código de status da resposta HTTP do back-end @ no__t-0s não correspondeu à configuração de investigação. Esperado: {HTTPStatusCode0} recebido: {HTTPStatusCode1}.
+**Mensagem:** O código de status da resposta HTTP do back-end\'s não correspondeu à configuração de investigação. Esperado: {HTTPStatusCode0} recebido: {HTTPStatusCode1}.
 
-**Faz** Depois que a conexão TCP tiver sido estabelecida e um handshake SSL for feito (se o SSL estiver habilitado), o gateway de aplicativo enviará a investigação como uma solicitação HTTP GET para o servidor de back-end. Conforme descrito anteriormente, a investigação padrão será \<protocol @ no__t-1://127.0.0.1: \<port @ no__t-3/, e considerará códigos de status de resposta no Rage 200 a 399 como íntegro. Se o servidor retornar qualquer outro código de status, ele será marcado como não íntegro com essa mensagem.
+**Causa:** Depois que a conexão TCP tiver sido estabelecida e um handshake SSL for feito (se o SSL estiver habilitado), o gateway de aplicativo enviará a investigação como uma solicitação HTTP GET para o servidor de back-end. Conforme descrito anteriormente, a investigação padrão será \<protocolo\>://127.0.0.1:\<porta\>/e considera códigos de status de resposta no Rage 200 a 399 como íntegros. Se o servidor retornar qualquer outro código de status, ele será marcado como não íntegro com essa mensagem.
 
 **Solução:** Dependendo do código de resposta do servidor de back-end, você pode executar as etapas a seguir. Alguns dos códigos de status comuns estão listados aqui:
 
 | **Ao** | **Ações** |
 | --- | --- |
-| Incompatibilidade de código de status de investigação: 401 recebido | Verifique se o servidor back-end requer autenticação. As investigações do gateway de aplicativo não podem passar credenciais para autenticação neste momento. Permita que \"HTTP 401 @ no__t-1 em um código de status de investigação corresponda ou teste a um caminho em que o servidor não requer autenticação. | |
-| Incompatibilidade de código de status de investigação: 403 recebido | Acesso proibido. Verifique se o acesso ao caminho é permitido no servidor de back-end. | |
-| Incompatibilidade de código de status de investigação: 404 recebido | Página não encontrada. Verifique se o caminho do nome do host está acessível no servidor de back-end. Altere o nome do host ou o parâmetro de caminho para um valor acessível. | |
-| Incompatibilidade de código de status de investigação: 405 recebido | As solicitações de investigação para o gateway de aplicativo usam o método HTTP GET. Verifique se o servidor permite esse método. | |
-| Incompatibilidade de código de status de investigação: 500 recebido | Erro interno do servidor. Verifique a integridade do servidor back-end e se os serviços estão em execução. | |
-| Incompatibilidade de código de status de investigação: 503 recebido | Serviço indisponível. Verifique a integridade do servidor back-end e se os serviços estão em execução. | |
+| Incompatibilidade de código de status de investigação: recebido 401 | Verifique se o servidor back-end requer autenticação. As investigações do gateway de aplicativo não podem passar credenciais para autenticação neste momento. Permita que \"HTTP 401\" em um código de status de investigação corresponder ou sondar um caminho em que o servidor não exija autenticação. | |
+| Incompatibilidade de código de status de investigação: recebido 403 | Acesso proibido. Verifique se o acesso ao caminho é permitido no servidor de back-end. | |
+| Incompatibilidade de código de status de investigação: recebido 404 | Página não encontrada. Verifique se o caminho do nome do host está acessível no servidor de back-end. Altere o nome do host ou o parâmetro de caminho para um valor acessível. | |
+| Incompatibilidade de código de status de investigação: recebido 405 | As solicitações de investigação para o gateway de aplicativo usam o método HTTP GET. Verifique se o servidor permite esse método. | |
+| Incompatibilidade de código de status de investigação: recebido 500 | Erro interno do servidor. Verifique a integridade do servidor back-end e se os serviços estão em execução. | |
+| Incompatibilidade de código de status de investigação: recebido 503 | Serviço indisponível. Verifique a integridade do servidor back-end e se os serviços estão em execução. | |
 
 Ou, se você acredita que a resposta é legítima e deseja que o gateway de aplicativo aceite outros códigos de status como íntegros, você pode criar uma investigação personalizada. Essa abordagem é útil em situações em que o site de back-end precisa de autenticação. Como as solicitações de investigação não carregam nenhuma credencial do usuário, elas falharão e um código de status HTTP 401 será retornado pelo servidor de back-end.
 
@@ -189,11 +189,11 @@ Para criar uma investigação personalizada, siga [estas etapas](https://docs.mi
 
 #### <a name="http-response-body-mismatch"></a>Incompatibilidade de corpo de resposta HTTP
 
-**Mensagem:** O corpo da resposta HTTP de back-end @ no__t-0s não correspondeu à configuração de investigação. O corpo da resposta recebida não contém {String}.
+**Mensagem:** O corpo da resposta HTTP do back-end\'s não correspondeu à configuração de investigação. O corpo da resposta recebida não contém {String}.
 
-**Faz** Ao criar uma investigação personalizada, você tem a opção de marcar um servidor de back-end como íntegro, combinando uma cadeia de caracteres do corpo da resposta. Por exemplo, você pode configurar o gateway de aplicativo para aceitar "não autorizado" como uma cadeia de caracteres para corresponder. Se a resposta do servidor back-end para a solicitação de investigação contiver a cadeia de caracteres **não autorizada**, ela será marcada como íntegra. Caso contrário, ele será marcado como não íntegro com esta mensagem.
+**Causa:** Ao criar uma investigação personalizada, você tem a opção de marcar um servidor de back-end como íntegro, combinando uma cadeia de caracteres do corpo da resposta. Por exemplo, você pode configurar o gateway de aplicativo para aceitar "não autorizado" como uma cadeia de caracteres para corresponder. Se a resposta do servidor back-end para a solicitação de investigação contiver a cadeia de caracteres **não autorizada**, ela será marcada como íntegra. Caso contrário, ele será marcado como não íntegro com esta mensagem.
 
-**Solução:** Para resolver este problema, siga estes passos:
+**Solução:** Para resolver esse problema, siga estas etapas:
 
 1.  Acesse o servidor back-end localmente ou em um computador cliente no caminho de investigação e verifique o corpo da resposta.
 
@@ -207,7 +207,7 @@ Saiba mais sobre a [correspondência de investigação do gateway de aplicativo]
 
 **Mensagem:** O certificado do servidor usado pelo back-end não é assinado por uma autoridade de certificação (CA) conhecida. Lista de permissões do back-end no gateway de aplicativo, carregando o certificado raiz do certificado do servidor usado pelo back-end.
 
-**Faz** O SSL de ponta a ponta com o gateway de aplicativo v2 exige que o certificado do servidor back-end seja verificado para considerar o servidor íntegro.
+**Causa:** O SSL de ponta a ponta com o gateway de aplicativo v2 exige que o certificado do servidor back-end seja verificado para considerar o servidor íntegro.
 Para que um certificado SSL seja confiável, esse certificado do servidor back-end deve ser emitido por uma autoridade de certificação que está incluída no repositório confiável do gateway de aplicativo. Se o certificado não foi emitido por uma autoridade de certificação confiável (por exemplo, se um certificado autoassinado foi usado), os usuários devem carregar o certificado do emissor no gateway de aplicativo.
 
 **Solução:** Siga estas etapas para exportar e carregar o certificado raiz confiável para o gateway de aplicativo. (Essas etapas são para clientes Windows.)
@@ -218,7 +218,7 @@ Para que um certificado SSL seja confiável, esse certificado do servidor back-e
 
 1.  Insira `certmgr.msc` e selecione Enter. Você também pode procurar por Gerenciador de certificados no menu **Iniciar** .
 
-1.  Localize o certificado, normalmente em `\Certificates - Current User\\Personal\\Certificates\`, e abra-o.
+1.  Localize o certificado, normalmente em `\Certificates - Current User\\Personal\\Certificates\`e abra-o.
 
 1.  Selecione o certificado raiz e, em seguida, selecione **Exibir certificado**.
 
@@ -240,7 +240,7 @@ Para obter mais informações sobre como extrair e carregar certificados raiz co
 
 **Mensagem:** O certificado raiz do certificado do servidor usado pelo back-end não corresponde ao certificado raiz confiável adicionado ao gateway de aplicativo. Certifique-se de adicionar o certificado raiz correto para a lista de permissões de back-end
 
-**Faz** O SSL de ponta a ponta com o gateway de aplicativo v2 exige que o certificado do servidor back-end seja verificado para considerar o servidor íntegro.
+**Causa:** O SSL de ponta a ponta com o gateway de aplicativo v2 exige que o certificado do servidor back-end seja verificado para considerar o servidor íntegro.
 Para que um certificado SSL seja confiável, o certificado do servidor back-end deve ser emitido por uma autoridade de certificação que está incluída no repositório confiável do gateway de aplicativo. Se o certificado não foi emitido por uma autoridade de certificação confiável (por exemplo, um certificado autoassinado foi usado), os usuários devem carregar o certificado do emissor no gateway de aplicativo.
 
 O certificado que foi carregado nas configurações de HTTP do gateway de aplicativo deve corresponder ao certificado raiz do certificado do servidor de back-end.
@@ -280,7 +280,7 @@ Se a saída não mostrar a cadeia completa do certificado que está sendo retorn
 
 **Mensagem:** O CN (nome comum) do certificado de back-end não corresponde ao cabeçalho de host da investigação.
 
-**Faz** O gateway de aplicativo verifica se o nome do host especificado nas configurações de HTTP de back-end corresponde ao do CN apresentado pelo certificado SSL do servidor de back-end. Esse é o comportamento de SKU Standard_v2 e WAF_v2. O Indicação de Nome de Servidor do SKU padrão e do WAF (SNI) é definido como o FQDN no endereço do pool de back-end.
+**Causa:** O gateway de aplicativo verifica se o nome do host especificado nas configurações de HTTP de back-end corresponde ao do CN apresentado pelo certificado SSL do servidor de back-end. Isso é Standard_v2 e WAF_v2 comportamento de SKU. O Indicação de Nome de Servidor do SKU padrão e do WAF (SNI) é definido como o FQDN no endereço do pool de back-end.
 
 Na SKU v2, se houver uma investigação padrão (nenhuma investigação personalizada foi configurada e associada), a SNI será definida a partir do nome do host mencionado nas configurações de HTTP. Ou, se "escolher nome do host do endereço de back-end" for mencionado nas configurações de HTTP, em que o pool de endereços de back-end contém um FQDN válido, essa configuração será aplicada.
 
@@ -319,9 +319,9 @@ Para Linux usando OpenSSL:
 
 #### <a name="backend-certificate-is-invalid"></a>O certificado de back-end é inválido
 
-**Mensagem:** O certificado de back-end é inválido. A data atual não está dentro do \"Valid de @ no__t-1 e \"Valid para o intervalo de datas @ no__t-3 no certificado.
+**Mensagem:** O certificado de back-end é inválido. A data atual não está dentro do \"válido de\" e \"válido para\" intervalo de datas no certificado.
 
-**Faz** Cada certificado é fornecido com um intervalo de validade e a conexão HTTPS não será segura, a menos que o certificado SSL do servidor seja válido. Os dados atuais devem estar dentro do intervalo **válido de** e **válido para** . Se não for, o certificado será considerado inválido e isso criará um problema de segurança no qual o gateway de aplicativo marca o servidor de back-end como não íntegro.
+**Causa:** Cada certificado é fornecido com um intervalo de validade e a conexão HTTPS não será segura, a menos que o certificado SSL do servidor seja válido. Os dados atuais devem estar dentro do intervalo **válido de** e **válido para** . Se não for, o certificado será considerado inválido e isso criará um problema de segurança no qual o gateway de aplicativo marca o servidor de back-end como não íntegro.
 
 **Solução:** Se o seu certificado SSL tiver expirado, renove o certificado com seu fornecedor e atualize as configurações do servidor com o novo certificado. Se for um certificado autoassinado, você deverá gerar um certificado válido e carregar o certificado raiz nas configurações de HTTP do gateway de aplicativo. Para tal, siga estes passos:
 
@@ -335,7 +335,7 @@ Para Linux usando OpenSSL:
 
 **Mensagem:** A validade do certificado de back-end não pôde ser verificada. Para descobrir o motivo, marque o diagnóstico de SSL aberto para a mensagem associada ao código de erro {errorCode}
 
-**Faz** Esse erro ocorre quando o gateway de aplicativo não pode verificar a validade do certificado.
+**Causa:** Esse erro ocorre quando o gateway de aplicativo não pode verificar a validade do certificado.
 
 **Solução:** Para resolver esse problema, verifique se o certificado em seu servidor foi criado corretamente. Por exemplo, você pode usar o [OpenSSL](https://www.openssl.org/docs/man1.0.2/man1/verify.html) para verificar o certificado e suas propriedades e, em seguida, tentar recarregar o certificado nas configurações de http do gateway de aplicativo.
 

@@ -21,7 +21,7 @@ O Azure Data Explorer fornece duas opções para se conectar a dados no Excel: U
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* Uma conta de email organizacional que seja membro do Azure Active Directory, para que você possa se conectar ao [cluster de ajuda do azure data Explorer](https://dataexplorer.azure.com/clusters/help/databases/Samples) 
+* Uma conta de email organizacional que seja membro do Azure Active Directory, para que você possa se conectar ao [cluster de ajuda do azure Data Explorer](https://dataexplorer.azure.com/clusters/help/databases/Samples) 
 <br>ou</br>
 * Crie [um cluster de teste e um banco de dados](create-cluster-database-portal.md) e entre no [aplicativo de interface do usuário da Web do Azure data Explorer](https://dataexplorer.azure.com/).
 

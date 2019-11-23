@@ -34,9 +34,9 @@ Procurando informações sobre os códigos de erro AADSTS que são retornados do
 > Esta documentação é fornecida para diretrizes de desenvolvedor e administrador, mas nunca deve ser usada pelo próprio cliente. Os códigos de erro estão sujeitos a alterações a qualquer momento para fornecer mensagens de erro mais granulares que se destinam a ajudar o desenvolvedor durante a criação de seu aplicativo. Os aplicativos que usam uma dependência de texto ou números de código de erro serão quebrados ao longo do tempo.
 
 ## <a name="lookup-current-error-code-information"></a>Pesquisar informações do código de erro atual
-Os códigos de erro e as mensagens estão sujeitos a alterações.  Para obter as informações mais atuais, dê uma olhada [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) na página para encontrar descrições de erro AADSTS, correções e algumas soluções alternativas sugeridas.  
+Os códigos de erro e as mensagens estão sujeitos a alterações.  Para obter as informações mais recentes, dê uma olhada na página [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) para encontrar descrições de erro AADSTS, correções e algumas soluções alternativas sugeridas.  
 
-Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você recebeu o código de erro "AADSTS16000", faça uma pesquisa [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) em para "16000".  Você também pode vincular diretamente a um erro específico adicionando o número de código de erro à URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000).
+Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você recebeu o código de erro "AADSTS16000", faça uma pesquisa em [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) para "16000".  Você também pode vincular diretamente a um erro específico adicionando o número de código de erro à URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000).
 
 ## <a name="aadsts-error-codes"></a>Códigos de erro AADSTS
 
@@ -101,7 +101,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS50089 | O fluxo de token expirou - falha na autenticação. Peça ao usuário para tentar entrar novamente com o nome de usuário-senha. |
 | AADSTS50097 | DeviceAuthenticationRequired-a autenticação do dispositivo é necessária. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized-a assinatura JWT é inválida. |
-| AADSTS50105 | EntitlementGrantsNotFound-o usuário conectado não está atribuído a uma função para o aplicativo conectado. Atribua o usuário ao aplicativo. Para obter mais informações[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role):. |
+| AADSTS50105 | EntitlementGrantsNotFound-o usuário conectado não está atribuído a uma função para o aplicativo conectado. Atribua o usuário ao aplicativo. Para obter mais informações:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role). |
 | AADSTS50107 | InvalidRealmUri-o objeto de realm de Federação solicitado não existe. Contacte o administrador do inquilino. |
 | AADSTS50120 | ThresholdJwtInvalidJwtFormat-problema com o cabeçalho JWT. Contacte o administrador do inquilino. |
 | AADSTS50124 | ClaimsTransformationInvalidInputParameter-a transformação de declarações contém um parâmetro de entrada inválido. Contacte o administrador de inquilinos para atualizar a política. |
@@ -197,7 +197,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS90015 | QueryStringTooLong-a cadeia de caracteres de consulta é muito longa. |
 | AADSTS90016 | MissingRequiredClaim-o token de acesso não é válido. A declaração necessária está ausente. |
 | AADSTS90019 | MissingTenantRealm-o Azure AD não pôde determinar o identificador do locatário a partir da solicitação. |
-| AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat-o formato do nome da entidade de segurança não é válido ou não atende `name[/host][@realm]` ao formato esperado. O nome da entidade de segurança é obrigatório, o host e o realm são opcionais e podem ser definidos como NULL. |
+| AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat-o formato de nome da entidade de segurança não é válido ou não atende ao formato de `name[/host][@realm]` esperado. O nome da entidade de segurança é obrigatório, o host e o realm são opcionais e podem ser definidos como NULL. |
 | AADSTS90023 | InvalidRequest-a solicitação de serviço de autenticação não é válida. |
 | AADSTS9002313 | InvalidRequest-a solicitação está malformada ou é inválida. -O problema aqui é porque houve algo errado com a solicitação para um determinado ponto de extremidade. A sugestão para esse problema é obter um rastreamento Fiddler do erro que está ocorrendo e procurando ver se a solicitação está realmente formatada ou não corretamente. |
 | AADSTS90024 | RequestBudgetExceededError-ocorreu um erro transitório. Tente novamente. |
@@ -207,7 +207,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS90043 | NationalCloudAuthCodeRedirection-o recurso está desabilitado. |
 | AADSTS90051 | InvalidNationalCloudId-o identificador de nuvem nacional contém um identificador de nuvem inválido. |
 | AADSTS90055 | TenantThrottlingError-há muitas solicitações de entrada. Essa exceção é lançada para locatários bloqueados. |
-| AADSTS90056 | BadResourceRequest-para resgatar o código de um token de acesso, o aplicativo deve enviar uma solicitação post para `/token` o ponto de extremidade. Além disso, antes de isso, você deve fornecer um código de autorização e enviá-lo na solicitação post `/token` para o ponto de extremidade. Consulte este artigo para obter uma visão geral do fluxo de código de autorização [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)do OAuth 2,0:. Direcione o usuário para o `/authorize` ponto de extremidade, o que retornará um authorization_code. Ao lançar uma solicitação para o `/token` ponto de extremidade, o usuário Obtém o token de acesso. Faça logon na portal do Azure e marque **registros de aplicativo pontos de extremidade de >** para confirmar que os dois pontos de extremidade foram configurados corretamente. |
+| AADSTS90056 | BadResourceRequest-para resgatar o código de um token de acesso, o aplicativo deve enviar uma solicitação POST para o ponto de extremidade `/token`. Além disso, antes de isso, você deve fornecer um código de autorização e enviá-lo na solicitação POST para o ponto de extremidade `/token`. Consulte este artigo para obter uma visão geral do fluxo de código de autorização do OAuth 2,0: [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code). Direcione o usuário para o ponto de extremidade `/authorize`, que retornará um authorization_code. Ao lançar uma solicitação para o ponto de extremidade `/token`, o usuário Obtém o token de acesso. Faça logon na portal do Azure e marque **registros de aplicativo pontos de extremidade de >** para confirmar que os dois pontos de extremidade foram configurados corretamente. |
 | AADSTS90072 | PassThroughUserMfaError-a conta externa com a qual o usuário se conecta não existe no locatário ao qual ele se conectou; Portanto, o usuário não pode atender aos requisitos de MFA para o locatário. A conta deve ser adicionada primeiro como um usuário externo no locatário. Saia e entre com uma conta de usuário diferente do Azure AD. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid-ocorreu um erro quando o serviço tentou processar uma mensagem do WS-Federation. A mensagem não é válida. |
 | AADSTS90082 | OrgIdWsFederationNotSupported-a política de autenticação selecionada para a solicitação não tem suporte no momento. |
@@ -221,7 +221,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS90093 | GraphUserUnauthorized-grafo retornado com um código de erro proibido para a solicitação. |
 | AADSTS90094 | AdminConsentRequired-o consentimento do administrador é necessário. |
 | AADSTS90100 | InvalidRequestParameter-o parâmetro está vazio ou não é válido. |
-| AADSTS901002 | AADSTS901002: Não há suporte para o parâmetro de solicitação ' Resource '. |
+| AADSTS901002 | AADSTS901002: não há suporte para o parâmetro de solicitação ' Resource '. |
 | AADSTS90101 | InvalidEmailAddress-os dados fornecidos não são um endereço de email válido. O endereço de email deve estar no formato `someone@example.com`. |
 | AADSTS90102 | InvalidUriParameter-o valor deve ser um URI absoluto válido. |
 | AADSTS90107 | InvalidXml-a solicitação não é válida. Verifique se os dados não têm caracteres inválidos.|
@@ -231,10 +231,10 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS90120 | InvalidDeviceFlowRequest-a solicitação já foi autorizada ou recusada. |
 | AADSTS90121 | InvalidEmptyRequest-solicitação vazia inválida.|
 | AADSTS90123 | IdentityProviderAccessDenied-o token não pode ser emitido porque a identidade ou o provedor de emissão de declaração negou a solicitação. |
-| AADSTS90124 | V1ResourceV2GlobalEndpointNotSupported-o recurso não tem suporte nos pontos `/common` de `/consumers` extremidade ou. Em vez `/organizations` disso, use o ponto de extremidade específico do locatário. |
+| AADSTS90124 | V1ResourceV2GlobalEndpointNotSupported-não há suporte para o recurso nos pontos de extremidade `/common` ou `/consumers`. Em vez disso, use o ponto de extremidade específico do `/organizations` ou do locatário. |
 | AADSTS90125 | DebugModeEnrollTenantNotFound-o usuário não está no sistema. Certifique-se de que você inseriu o nome de usuário corretamente. |
 | AADSTS90126 | DebugModeEnrollTenantNotInferred-não há suporte para o tipo de usuário neste ponto de extremidade. O sistema não pode inferir o locatário do usuário do nome de usuário. |
-| AADSTS90130 | NonConvergedAppV2GlobalEndpointNotSupported-o aplicativo não tem suporte nos pontos `/common` de `/consumers` extremidade ou. Em vez `/organizations` disso, use o ponto de extremidade específico do locatário. |
+| AADSTS90130 | NonConvergedAppV2GlobalEndpointNotSupported-não há suporte para o aplicativo nos pontos de extremidade `/common` ou `/consumers`. Em vez disso, use o ponto de extremidade específico do `/organizations` ou do locatário. |
 | AADSTS120000 | PasswordChangeIncorrectCurrentPassword |
 | AADSTS120002 | PasswordChangeInvalidNewPasswordWeak |
 | AADSTS120003 | PasswordChangeInvalidNewPasswordContainsMemberName |
@@ -263,7 +263,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS220501 | InvalidCrlDownload |
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource-o recurso não está configurado para aceitar tokens somente de dispositivo. |
 | AADSTS240001 | BulkAADJTokenUnauthorized-o usuário não está autorizado a registrar dispositivos no Azure AD. |
-| AADSTS240002 | RequiredClaimIsMissing-o id_token não pode ser usado `urn:ietf:params:oauth:grant-type:jwt-bearer` como Grant.|
+| AADSTS240002 | RequiredClaimIsMissing-a id_token não pode ser usada como concessão de `urn:ietf:params:oauth:grant-type:jwt-bearer`.|
 | AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy-o administrador de locatários configurou uma política de segurança que bloqueia essa solicitação. Verifique as políticas de segurança definidas no nível de locatário para determinar se sua solicitação atende aos requisitos de política. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest-o aplicativo não foi encontrado no diretório/locatário. Isso pode acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou consentido por qualquer usuário no locatário. Você pode ter configurado incorretamente o valor do identificador para o aplicativo ou enviado sua solicitação de autenticação para o locatário incorreto. |
 | AADSTS700020 | InteractionRequired-a concessão de acesso requer interação. |
@@ -273,6 +273,6 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS1000002 | BindCompleteInterruptError-a associação foi concluída com êxito, mas o usuário deve ser informado. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled-o aplicativo está desabilitado. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Tem uma pergunta ou não consegue encontrar o que está procurando? Crie um problema do GitHub ou consulte [Opções de suporte e ajuda para os desenvolvedores](active-directory-develop-help-support.md) aprenderem sobre outras maneiras que você pode obter ajuda e suporte.

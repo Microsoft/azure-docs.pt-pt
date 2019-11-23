@@ -53,14 +53,14 @@ Independentemente da versão usada, a integração VNet dá ao seu aplicativo We
 O recurso de integração VNet:
 
 * requer um plano de preços Standard, Premium ou PremiumV2 
-* dá suporte a TCP e UDP
+* Dá suporte a TCP e UDP
 * funciona com aplicativos do serviço de aplicativo e aplicativos de funções
 
 Há algumas coisas para as quais a integração VNet não oferece suporte, incluindo:
 
 * montando uma unidade
 * A integração do AD 
-* NetBios
+* A NetBios
 
 ## <a name="regional-vnet-integration"></a>Integração de VNet regional 
 
@@ -175,13 +175,13 @@ Se você estiver criando apenas o gateway para uso com a integração VNet do se
 Para habilitar a integração VNet em seu aplicativo: 
 
 1. Vá para seu aplicativo na portal do Azure e abra configurações do aplicativo e selecione rede > integração VNet. O ASP deve estar em um SKU Standard ou melhor para usar o recurso de integração VNet. 
- interface do usuário de integração do @no__t 0VNet @ no__t-1
+ interface do usuário de integração VNet ![][1]
 
 1. Selecione **Adicionar VNet**. 
- Integração de VNet de @no__t 0Add @ no__t-1
+ ![Adicionar integração VNet][2]
 
 1. Selecione sua VNet. 
-  ![Select sua VNet @ no__t-1
+  ![selecionar sua][8] VNet
   
 Seu aplicativo será reiniciado após esta última etapa.  
 
@@ -249,7 +249,7 @@ O recurso de integração VNet regional não tem nenhum custo adicional para uso
 
 Há três encargos relacionados ao uso do recurso de integração VNet exigido pelo gateway:
 
-* Cobranças do tipo de preço do ASP – seus aplicativos precisam estar em um plano do serviço de aplicativo Standard, Premium ou PremiumV2. Você pode ver mais detalhes sobre esses custos aqui: [Preço do serviço de aplicativo][ASPricing]. 
+* Cobranças do tipo de preço do ASP – seus aplicativos precisam estar em um plano do serviço de aplicativo Standard, Premium ou PremiumV2. Você pode ver mais detalhes sobre esses custos aqui: [preços do serviço de aplicativo][ASPricing]. 
 * Custos de transferência de dados – há um encargo para a saída de dados, mesmo que a VNet esteja na mesma data center. Esses encargos são descritos em [transferência de dados detalhes de preços][DataPricing]. 
 * Custos de gateway de VPN – há um custo para o gateway de VNet que é necessário para a VPN ponto a site. Os detalhes estão na página de [preços do gateway de VPN][VNETPricing] .
 

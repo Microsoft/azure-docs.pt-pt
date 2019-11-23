@@ -74,17 +74,17 @@ Leia também o [SAP Help portal for SAP lama](https://help.sap.com/viewer/p/SAP_
 O conector do Azure é fornecido a partir do SAP LaMa 3,0 SP05. Recomendamos sempre instalar o pacote de suporte mais recente e o patch para o SAP LaMa 3,0. O conector do Azure usa uma entidade de serviço para autorizar contra Microsoft Azure. Siga estas etapas para criar uma entidade de serviço para o SAP Landscape Management (LaMa).
 
 1. Ir para https://portal.azure.com
-1. Abrir a folha Azure Active Directory
+1. Abra o painel Azure Active Directory
 1. Clique em Registros de aplicativo
 1. Clique em Adicionar
-1. Insira um nome, selecione tipo de aplicativo "aplicativo Web/API", insira uma URL de logon (por exemplo, http: \//localhost) e clique em criar
-1. A URL de logon não é usada e pode ser qualquer URL válida
+1. Insira um nome, selecione tipo de aplicativo "aplicativo Web/API", insira uma URL de logon (por exemplo, http:\//localhost) e clique em criar
+1. O URL de início de sessão não é utilizado e pode ser qualquer URL válido
 1. Selecione o novo aplicativo e clique em chaves na guia Configurações
 1. Insira uma descrição para uma nova chave, selecione "nunca expira" e clique em salvar
 1. Anote o valor. Ele é usado como a senha para a entidade de serviço
-1. Anote a ID do aplicativo. Ele é usado como o nome de usuário da entidade de serviço
+1. Anote o ID da aplicação. Ele é usado como o nome de usuário da entidade de serviço
 
-A entidade de serviço não tem permissões para acessar os recursos do Azure por padrão. Você precisa conceder permissões de entidade de serviço para acessá-las.
+O Principal de serviço não tem permissões para aceder aos seus recursos do Azure por predefinição. Você precisa conceder permissões de entidade de serviço para acessá-las.
 
 1. Ir para https://portal.azure.com
 1. Abra a folha grupos de recursos
@@ -92,7 +92,7 @@ A entidade de serviço não tem permissões para acessar os recursos do Azure po
 1. Clique em controle de acesso (IAM)
 1. Clique em Adicionar atribuição de função
 1. Selecione o colaborador da função
-1. Insira o nome do aplicativo que você criou acima
+1. Introduza o nome da aplicação que criou acima
 1. Clicar em Guardar
 1. Repita a etapa de 3 a 8 para todos os grupos de recursos que você deseja usar no SAP LaMa
 
@@ -101,7 +101,7 @@ Abra o site do SAP LaMa e navegue até infraestrutura. Acesse a guia gerenciador
 * Rótulo: escolha um nome para a instância do conector
 * Nome de usuário: ID do aplicativo da entidade de serviço
 * Senha: chave da entidade de serviço/senha
-* URL: manter o @no__t padrão-0
+* URL: manter https://management.azure.com/ padrão
 * Intervalo de monitoramento (segundos): deve ser pelo menos 300
 * ID da assinatura: ID da assinatura do Azure
 * ID de locatário Azure Active Directory: ID do locatário Active Directory
@@ -133,7 +133,7 @@ O SAP LaMa se comunica com a máquina virtual usando o agente de host do SAP. Se
 
 Crie uma nova máquina virtual com um dos sistemas operacionais com suporte listados na observação SAP [2343511]. Adicione outras configurações de IP para as instâncias do SAP. Cada instância precisa de pelo menos no endereço IP e deve ser instalada usando um nome de host virtual.
 
-A instância ASCS do SAP NetWeaver precisa de discos para/sapmnt/\<SAPSID >,/usr/SAP/\<SAPSID >,/usr/SAP/trans e/usr/SAP/\<sapsid > ADM. Os servidores de aplicativos SAP NetWeaver não precisam de discos adicionais. Tudo relacionado à instância do SAP deve ser armazenado no ASCS e exportado via NFS. Caso contrário, no momento, não é possível adicionar servidores de aplicativos adicionais usando o SAP LaMa.
+A instância ASCS do SAP NetWeaver precisa de discos para/sapmnt/\<SAPSid >,/usr/SAP/\<SAPSid >,/usr/SAP/trans e/usr/SAP/\<sapsid > ADM. Os servidores de aplicativos SAP NetWeaver não precisam de discos adicionais. Tudo relacionado à instância do SAP deve ser armazenado no ASCS e exportado via NFS. Caso contrário, no momento, não é possível adicionar servidores de aplicativos adicionais usando o SAP LaMa.
 
 ![SAP NetWeaver ASCS no Linux](media/lama/sap-lama-ascs-app-linux.png)
 
@@ -220,7 +220,7 @@ Os modelos têm os seguintes parâmetros:
 
 * _artifactsLocation: o URI de base, em que os artefatos exigidos por esse modelo estão localizados. Quando o modelo é implantado usando os scripts que o acompanha, um local privado na assinatura será usado e esse valor será gerado automaticamente. Necessário apenas se você não implantar o modelo do GitHub.
 
-* _artifactsLocationSasToken: o sasToken necessário para acessar o _artifactsLocation. Quando o modelo for implantado usando os scripts que o acompanha, um sasToken será gerado automaticamente. Necessário apenas se você não implantar o modelo do GitHub.
+* _artifactsLocationSasToken: o sasToken necessário para acessar _artifactsLocation. Quando o modelo for implantado usando os scripts que o acompanha, um sasToken será gerado automaticamente. Necessário apenas se você não implantar o modelo do GitHub.
 
 ### <a name="sap-hana"></a>SAP HANA
 
@@ -246,7 +246,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-as
 
 Execute SWPM e use *ah1-ASCs* para o *nome de host da instância ASCs*.
 
-![Linux @ no__t-1 Linux  
+![Linux][Logo_Linux] Linux  
 Adicione o seguinte parâmetro de perfil ao perfil do agente de host do SAP, que está localizado em/usr/SAP/hostctrl/exe/host_profile. Para obter mais informações, consulte SAP Note [2628497].
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
@@ -289,7 +289,7 @@ Na conta do NetApp, o pool de capacidade especifica o tamanho e o tipo de discos
 
 ![Pool de capacidade do SAP LaMa NetApp criado ](media/lama/sap-lama-capacitypool-list.png)
 
-Os volumes de NFS agora podem ser definidos. Como haverá volumes para vários sistemas em um pool, um esquema de nomenclatura autoexplicado deverá ser escolhido. Adicionar o SID ajuda a agrupar volumes relacionados juntos. Para o ASCS e a instância do as, as seguintes montagens são necessárias: */sapmnt/\<SID @ no__t-2*, */usr/SAP/\<SID @ no__t-5*e */Home/\<sid @ no__t-8adm*. Opcionalmente, */usr/SAP/trans* é necessário para o diretório de transporte central, que é pelo menos usado por todos os sistemas de um cenário.
+Os volumes de NFS agora podem ser definidos. Como haverá volumes para vários sistemas em um pool, um esquema de nomenclatura autoexplicado deverá ser escolhido. Adicionar o SID ajuda a agrupar volumes relacionados juntos. Para o ASCS e a instância as, as seguintes montagens são necessárias: */sapmnt/\<sid\>* , */usr/sap/\<Sid\>* e */Home/\<Sid\>ADM*. Opcionalmente, */usr/SAP/trans* é necessário para o diretório de transporte central, que é pelo menos usado por todos os sistemas de um cenário.
 
 > [!NOTE]
 > Durante a fase BETA, o nome dos volumes deve ser exclusivo na assinatura.
@@ -336,7 +336,7 @@ Após a instalação bem-sucedida, o sistema deve ser descoberto no SAP LaMa.
 
 Os pontos de montagem devem ser assim para o ASCS e a instância do as:
 
-pontos de montagem de @no__t 0SAP LaMa no LaMa ](media/lama/sap-lama-ascs.png) (este é um exemplo. Os endereços IP e o caminho de exportação são diferentes dos usados antes)
+![pontos de montagem do SAP LaMa no LaMa ](media/lama/sap-lama-ascs.png) (este é um exemplo. Os endereços IP e o caminho de exportação são diferentes dos usados antes)
 
 
 #### <a name="install-sap-hana"></a>Instalar o SAP HANA
@@ -371,7 +371,7 @@ Antes de iniciar o SWPM (Gerenciador de provisionamento de software) SAP, você 
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-di-0 -n 255.255.255.128
 ```
 
-É recomendável usar o parâmetro de perfil do SAP NetWeaver bancos de HDB/hdb_use_ident para definir a identidade usada para localizar a chave no USERSTORE do HDB. Você pode adicionar esse parâmetro manualmente após a instalação da instância do banco de dados com SWPM ou executar SWPM com
+É recomendável usar bancos de parâmetros de perfil do SAP NetWeaver/HDB/hdb_use_ident para definir a identidade usada para localizar a chave no USERSTORE do HDB. Você pode adicionar esse parâmetro manualmente após a instalação da instância do banco de dados com SWPM ou executar SWPM com
 
 ```bash
 # from https://blogs.sap.com/2015/04/14/sap-hana-client-software-different-ways-to-set-the-connectivity-data/
@@ -455,7 +455,7 @@ Use *AS1-di-0* para o *nome de host da instância do Pas* na *instância do serv
 ### <a name="errors-and-warnings-during-a-system-copy"></a>Erros e avisos durante uma cópia do sistema
 
 * Ocorreu um erro ao validar a etapa de provisionamento do sistema
-  * Causado por: com. SAP. NW. LM. ACI. Engine. base. API. util. Exception. HAOperationException chamando '/usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0 @ no__t-0status = 5 @ no__t-1port = 35013 PF =/usr/SAP/hostctrl/exe/host_ Perfil-R-T dev_lvminfo-u sistema-p gancho-R ' | /usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0 @ no__t-2status = 5 @ no__t-3port = 35013 PF =/usr/SAP/hostctrl/exe/host_profile-R-T dev_lvminfo-u sistema-p Hook-R
+  * Causado por: com. SAP. NW. LM. ACI. Engine. base. API. util. Exception. HAOperationException chamando '/usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0\;status = 5\;Port = 35013 PF =/usr/SAP/hostctrl/exe/host_profile-R-T dev_lvminfo-u sistema-p Hook-r ' | /usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0\;status = 5\;Port = 35013 PF =/usr/SAP/hostctrl/exe/host_profile-R-T dev_lvminfo-u sistema-p Hook-R
   * Solução  
     Fazer backup de todos os bancos de dados no sistema HANA de origem
 
@@ -467,21 +467,21 @@ Use *AS1-di-0* para o *nome de host da instância do Pas* na *instância do serv
 ### <a name="errors-and-warnings-during-a-system-clone"></a>Erros e avisos durante um clone do sistema
 
 * Erro ao tentar registrar o agente de instância na etapa *registro forçado e iniciar o agente de instância* do servidor de aplicativos ou ASCS
-  * Erro ao tentar registrar o agente de instância. (RemoteException: ' falha ao carregar os dados da instância do perfil ' \\as1-ASCs \ sapmnt \ AS1 \ SYS \ Profile \ AS1_D00_as1-di-0 ': não é possível acessar o perfil ' \\as1-ASCs \ sapmnt \ AS1 \ SYS \ Profile \ AS1_D00_as1-di-0 ': nenhum arquivo ou diretório. ')
+  * Erro ao tentar registrar o agente de instância. (RemoteException: ' falha ao carregar dados de instância do perfil '\\as1-ascs\sapmnt\AS1\SYS\profile\ AS1_D00_as1-di-0 ': não é possível acessar o perfil '\\as1-ascs\sapmnt\AS1\SYS\profile\ AS1_D00_as1-di-0 ': nenhum arquivo ou diretório. ')
   * Solução  
    Verifique se o compartilhamento sapmnt no ASCS/SCS tem acesso completo para SAP_AS1_GlobalAdmin
 
 * Erro na etapa *habilitar proteção de inicialização para clone*
-  * Falha ao abrir o arquivo ' \\as1-ASCs \ sapmnt \ AS1 \ SYS \ Profile \ AS1_D00_as1-di-0 ' causa: não há tal arquivo ou diretório
+  * Falha ao abrir o arquivo '\\as1-ascs\sapmnt\AS1\SYS\profile\ AS1_D00_as1-di-0 ' causa: nenhum arquivo ou diretório desse tipo
   * Solução  
     A conta de computador do servidor de aplicativos precisa de acesso de gravação ao perfil
 
 ### <a name="errors-and-warnings-during-create-system-replication"></a>Erros e avisos durante a criação da replicação do sistema
 
 * Exceção ao clicar em criar replicação do sistema
-  * Causado por: com. SAP. NW. LM. ACI. Engine. base. API. util. Exception. HAOperationException chamando '/usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0 @ no__t-0status = 5 @ no__t-1port = 35013 PF =/usr/SAP/hostctrl/exe/host_ Perfil-R-T dev_lvminfo-u sistema-p gancho-R ' | /usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0 @ no__t-2status = 5 @ no__t-3port = 35013 PF =/usr/SAP/hostctrl/exe/host_profile-R-T dev_lvminfo-u sistema-p Hook-R
+  * Causado por: com. SAP. NW. LM. ACI. Engine. base. API. util. Exception. HAOperationException chamando '/usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0\;status = 5\;Port = 35013 PF =/usr/SAP/hostctrl/exe/host_profile-R-T dev_lvminfo-u sistema-p Hook-r ' | /usr/SAP/hostctrl/exe/sapacext-a ShowHanaBackups-m HN1-f 50-h HN1-DB-o Level = 0\;status = 5\;Port = 35013 PF =/usr/SAP/hostctrl/exe/host_profile-R-T dev_lvminfo-u sistema-p Hook-R
   * Solução  
-    Testar se sapacext pode ser executado como `<hanasid` > ADM
+    Testar se sapacext pode ser executado como `<hanasid`> ADM
 
 * Erro quando a cópia completa não está habilitada na etapa de armazenamento
   * Ocorreu um erro ao relatar uma mensagem de atributo de contexto para o caminho IStorageCopyData. storageVolumeCopyList: 1 e o campo targetStorageSystemId
@@ -503,29 +503,29 @@ Use *AS1-di-0* para o *nome de host da instância do Pas* na *instância do serv
 ### <a name="errors-and-warnings-during-application-server-installation"></a>Erros e avisos durante a instalação do servidor de aplicativos
 
 * Erro ao executar a etapa SAPinst: getProfileDir
-  * ERRO: (último erro relatado pela etapa: capturada ESAPinstException na chamada do módulo: validador da etapa ' | NW_DI | IND | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | IND | getSid | 0 | NW_readProfileDir | IND | IND | IND | IND | readProfile | 0 | getProfileDir ' relatou um erro: o nó \\ \ as1-ascs\sapmnt\AS1\SYS\profile não existe. Iniciar o SAPinst no modo interativo para resolver esse problema)
+  * ERRO: (último erro relatado pela etapa: capturada ESAPinstException na chamada do módulo: validador da etapa ' | NW_DI | IND | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | IND | getSid | 0 | NW_readProfileDir | IND | IND | IND | IND | readProfile | 0 | getProfileDir ' relatou um erro: o nó \\\as1-ascs\sapmnt\AS1\SYS\profile não existe. Iniciar o SAPinst no modo interativo para resolver esse problema)
   * Solução  
     Verifique se o SWPM está em execução com um usuário que tem acesso ao perfil. Este usuário pode ser configurado no assistente de instalação do servidor de aplicativos
 
 * Erro ao executar a etapa SAPinst: askUnicode
-  * ERRO: (último erro relatado pela etapa: capturada ESAPinstException na chamada do módulo: validador da etapa ' | NW_DI | IND | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | IND | getSid | 0 | NW_getUnicode | IND | IND | IND | IND | Unicode | 0 | askUnicode ' relatou um erro: iniciar o SAPinst no modo interativo para resolver esse problema)
+  * ERRO: (último erro relatado pela etapa: capturada ESAPinstException na chamada do módulo: validador da etapa ' | NW_DI | IND | IND | IND | IND | 0 | 0 | NW_GetSidFromProfiles | IND | IND | IND | IND | getSid | 0 | NW_getUnicode | IND | IND | IND | IND | Unicode | 0 | askUnicode ' relatou um erro: iniciar SAPinst no modo interativo para resolver esse problema)
   * Solução  
     Se você usar um kernel SAP recente, o SWPM não poderá determinar se o sistema é mais um sistema Unicode usando o servidor de mensagens do ASCS. Consulte a observação do SAP [2445033] para obter mais detalhes.  
     Esse problema será corrigido em um novo pacote de suporte/patch do SAP LaMa.  
     Defina o parâmetro de perfil OS_UNICODE = UC no perfil padrão do seu sistema SAP para contornar esse problema.
 
 * Erro ao executar a etapa SAPinst: dCheckGivenServer
-  * Erro ao executar a etapa SAPinst: dCheckGivenServer "Version =" 1.0 "erro: (último erro relatado pela etapa: \<p > instalação foi cancelada pelo usuário. \</p >
+  * Erro ao executar a etapa SAPinst: dCheckGivenServer "Version =" 1.0 "erro: (último erro relatado pela etapa: \<p > instalação foi cancelada pelo usuário. \</p>
   * Solução  
     Verifique se o SWPM está em execução com um usuário que tem acesso ao perfil. Este usuário pode ser configurado no assistente de instalação do servidor de aplicativos
 
 * Erro ao executar a etapa SAPinst: checkClient
-  * Erro ao executar a etapa SAPinst: checkClient "Version =" 1.0 "erro: (último erro relatado pela etapa: \<p > instalação foi cancelada pelo usuário. \</p >)
+  * Erro ao executar a etapa SAPinst: checkClient "Version =" 1.0 "erro: (último erro relatado pela etapa: \<p > instalação foi cancelada pelo usuário. \</p>)
   * Solução  
     Verifique se o Microsoft ODBC driver for SQL Server está instalado na máquina virtual na qual você deseja instalar o servidor de aplicativos
 
 * Erro ao executar a etapa SAPinst: copyScripts
-  * Último erro relatado pela etapa: falha na chamada do sistema. DETALHES: erro 13 (0x0000000d) (permissão negada) na execução da chamada do sistema ' fopenU ' com parâmetro (\\ \ AS1-ASCs/sapmnt/AS1/SYS/exe/UC/NTAMD64/strdbs. cmd, w), linha (494) no arquivo (\ Bas/Bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/ syslib/FileSystem/syxxcfstrm2. cpp), rastreamento de pilha:  
+  * Último erro relatado pela etapa: falha na chamada do sistema. DETALHES: erro 13 (0x0000000d) (permissão negada) na execução da chamada do sistema ' fopenU ' com o parâmetro (\\\ AS1-ASCs/sapmnt/AS1/SYS/exe/UC/NTAMD64/strdbs. cmd, w), linha (494) no arquivo (\ Bas/Bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), rastreamento de pilha:  
   CThrThread. cpp: 85: CThrThread:: threadFunction ()  
   CSiServiceSet. cpp: 63: CSiServiceSet:: executeService ()  
   CSiStepExecute. cpp: 913: CSiStepExecute:: Execute ()  
@@ -537,13 +537,13 @@ Use *AS1-di-0* para o *nome de host da instância do Pas* na *instância do serv
   syxxcfile. cpp: 233: CSyFileImpl:: openStream (ISyFile:: eFileOpenMode)  
   syxxcfstrm. cpp: 29: CSyFileStreamImpl:: CSyFileStreamImpl (CSyFileStream *, iastring, ISyFile:: eFileOpenMode)  
   syxxcfstrm. cpp: 265: CSyFileStreamImpl:: Open ()  
-  syxxcfstrm2. cpp: 58: CSyFileStream2Impl:: CSyFileStream2Impl (const CSyPath & \\ \ AW1-ASCs/sapmnt/AW1/SYS/exe/UC/NTAMD64/strdbs. cmd, 0x4)  
+  syxxcfstrm2. cpp: 58: CSyFileStream2Impl:: CSyFileStream2Impl (const CSyPath & \\\ AW1-ASCs/sapmnt/AW1/SYS/exe/UC/NTAMD64/strdbs. cmd, 0x4)  
   syxxcfstrm2. cpp: 456: CSyFileStream2Impl:: Open ()
   * Solução  
     Verifique se o SWPM está em execução com um usuário que tem acesso ao perfil. Este usuário pode ser configurado no assistente de instalação do servidor de aplicativos
 
 * Erro ao executar a etapa SAPinst: askPasswords
-  * Último erro relatado pela etapa: falha na chamada do sistema. DETALHES: erro 5 (0x00000005) (acesso negado.) na execução da chamada do sistema ' NetValidatePasswordPolicy ' com o parâmetro (...), linha (359) no arquivo (\ Bas/Bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/Account/synxcaccmg. cpp), rastreamento de pilha:  
+  * Último erro relatado pela etapa: falha na chamada do sistema. DETALHES: erro 5 (0x00000005) (acesso negado.) na execução da chamada do sistema ' NetValidatePasswordPolicy ' com parâmetro (...), linha (359) no arquivo (\ Bas/Bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), rastreamento de pilha:  
   CThrThread. cpp: 85: CThrThread:: threadFunction ()  
   CSiServiceSet. cpp: 63: CSiServiceSet:: executeService ()  
   CSiStepExecute. cpp: 913: CSiStepExecute:: Execute ()  

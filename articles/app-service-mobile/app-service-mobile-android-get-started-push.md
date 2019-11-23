@@ -28,9 +28,9 @@ ms.locfileid: "72389018"
 > [!NOTE]
 > O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
 >
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do Android] para que uma notificação por push seja enviada ao dispositivo toda vez que um registro for inserido.
 
@@ -63,7 +63,7 @@ Você precisa do seguinte:
 
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
-## <a name="add-push-notifications-to-your-app"></a>Adicionar notificações push à sua aplicação
+## <a name="add-push-notifications-to-your-app"></a>Adicionar notificações push à aplicação
 
 Nesta seção, você atualizará seu aplicativo cliente Android para lidar com notificações por push.
 
@@ -94,7 +94,7 @@ Agora que você concluiu este tutorial, considere continuar com um dos seguintes
 * [Adicione autenticação ao seu aplicativo Android](app-service-mobile-android-get-started-users.md).
   Saiba como adicionar autenticação ao projeto de início rápido de tarefas pendentes no Android usando um provedor de identidade com suporte.
 * [Habilite a sincronização offline para seu aplicativo Android](app-service-mobile-android-get-started-offline-data.md).
-  Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de aplicativos móveis. Com a sincronização offline, os usuários podem interagir com um aplicativo móvel @ no__t-0viewing, adicionando ou modificando dados @ no__t-1even quando não há conexão de rede.
+  Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de aplicativos móveis. Com a sincronização offline, os usuários podem interagir com um aplicativo móvel&mdash;exibir, adicionar ou modificar dados&mdash;mesmo quando não há conexão de rede.
 
 <!-- URLs -->
 [Início rápido do Android]: app-service-mobile-android-get-started.md

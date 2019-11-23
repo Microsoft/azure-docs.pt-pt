@@ -60,7 +60,7 @@ Você pode usar um [pacote de configuração](service-fabric-application-and-ser
 
 Adicione uma seção TransportSettings no arquivo Settings. xml.
 
-Por padrão, o código de ator procura SectionName como "&lt;ActorName @ no__t-1TransportSettings". Se isso não for encontrado, ele verificará SectionName como "TransportSettings".
+Por padrão, o código de ator procura SectionName como "&lt;Actorname&gt;TransportSettings". Se isso não for encontrado, ele verificará SectionName como "TransportSettings".
 
   ```xml
   <Section Name="MyActorServiceTransportSettings">
@@ -79,7 +79,7 @@ Por padrão, o código de ator procura SectionName como "&lt;ActorName @ no__t-1
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Definir configurações de FabricTransport para o assembly de cliente do ator
 
-Se o cliente não estiver sendo executado como parte de um serviço, você poderá criar um arquivo "&lt;Client exe Name&gt;.settings.xml" no mesmo local que o arquivo client. exe. Em seguida, adicione uma seção TransportSettings nesse arquivo. SectionName deve ser "TransportSettings".
+Se o cliente não estiver sendo executado como parte de um serviço, você poderá criar um arquivo "&lt;nome exe do cliente&gt;. Settings. xml" no mesmo local que o arquivo client. exe. Em seguida, adicione uma seção TransportSettings nesse arquivo. SectionName deve ser "TransportSettings".
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>

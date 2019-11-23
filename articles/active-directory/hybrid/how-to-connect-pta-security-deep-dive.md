@@ -72,7 +72,7 @@ As seções a seguir discutem essas fases em detalhes.
 
 ### <a name="authentication-agent-installation"></a>Instalação do agente de autenticação
 
-Somente os administradores globais podem instalar um agente de autenticação (usando Azure AD Connect ou autônomo) em um servidor local. A instalação adiciona duas novas entradas à lista de**programas e recursos** do **painel de controle**@no__t **-1 @no__t**-3:
+Somente os administradores globais podem instalar um agente de autenticação (usando Azure AD Connect ou autônomo) em um servidor local. A instalação adiciona duas novas entradas ao **painel de controle** > **programas** > lista **de programas e recursos** :
 - O próprio aplicativo do agente de autenticação. Esse aplicativo é executado com privilégios de [NetworkService](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx) .
 - O aplicativo de atualizador que é usado para atualizar automaticamente o agente de autenticação. Este aplicativo é executado com privilégios [LocalSystem](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) .
 
@@ -104,7 +104,7 @@ Os agentes de autenticação usam as seguintes etapas para se registrarem com o 
     -  Nenhum dos outros serviços do Azure AD usam essa autoridade de certificação.
     - A entidade do certificado (nome distinto ou DN) é definida como sua ID de locatário. Esse DN é um GUID que identifica exclusivamente seu locatário. Esse DN escopou o certificado para uso somente com seu locatário.
 6. O Azure AD armazena a chave pública do agente de autenticação em um banco de dados SQL do Azure, ao qual somente o Azure AD tem acesso.
-7. O certificado (emitido na etapa 5) é armazenado no servidor local no repositório de certificados do Windows (especificamente no local [CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE) ). Ele é usado pelo agente de autenticação e pelos aplicativos de atualizador.
+7. O certificado (emitido na etapa 5) é armazenado no servidor local no repositório de certificados do Windows (especificamente no local de [CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE) ). Ele é usado pelo agente de autenticação e pelos aplicativos de atualizador.
 
 ### <a name="authentication-agent-initialization"></a>Inicialização do agente de autenticação
 
@@ -141,7 +141,7 @@ A autenticação de passagem manipula uma solicitação de entrada do usuário d
 8. O STS do Azure AD coloca a solicitação de validação de senha, que consiste nos valores de nome de usuário e senha criptografada, na fila do barramento de serviço específica para seu locatário.
 9. Como os agentes de autenticação inicializados estão persistentemente conectados à fila do barramento de serviço, um dos agentes de autenticação disponíveis recupera a solicitação de validação de senha.
 10. O agente de autenticação localiza o valor da senha criptografada que é específico para sua chave pública, usando um identificador e descriptografa-o usando sua chave privada.
-11. O agente de autenticação tenta validar o nome de usuário e a senha no local Active Directory usando a [API LogonUser do Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) com o parâmetro **DwLogonType** definido como **LOGON32_LOGON_NETWORK**. 
+11. O agente de autenticação tenta validar o nome de usuário e a senha no local Active Directory usando a [API LogonUser do Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) com o parâmetro **dwLogonType** definido como **LOGON32_LOGON_NETWORK**. 
     - Essa API é a mesma API usada pelo Serviços de Federação do Active Directory (AD FS) (AD FS) para conectar usuários em um cenário de entrada federado.
     - Essa API depende do processo de resolução padrão no Windows Server para localizar o controlador de domínio.
 12. O agente de autenticação recebe o resultado de Active Directory, como êxito, nome de usuário ou senha incorretos ou senha expirada.
@@ -167,7 +167,7 @@ Para renovar a confiança de um agente de autenticação com o Azure AD:
     - Essas chaves são geradas por meio da criptografia padrão RSA de 2048 bits.
     - A chave privada nunca deixa o servidor local.
 3. O agente de autenticação faz uma solicitação de "renovação de certificado" para o Azure AD por HTTPS, com os seguintes componentes incluídos na solicitação:
-    - O certificado existente que é recuperado do local CERT_SYSTEM_STORE_LOCAL_MACHINE no repositório de certificados do Windows. Não há um administrador global envolvido neste procedimento, portanto, não há nenhum token de acesso necessário em nome do administrador global.
+    - O certificado existente que é recuperado do local de CERT_SYSTEM_STORE_LOCAL_MACHINE no repositório de certificados do Windows. Não há um administrador global envolvido neste procedimento, portanto, não há nenhum token de acesso necessário em nome do administrador global.
     - A chave pública gerada na etapa 2.
     - Uma solicitação de assinatura de certificado (CSR ou solicitação de certificado). Essa solicitação se aplica a um novo certificado de identidade digital, com o Azure AD como sua autoridade de certificação.
 4. O Azure AD valida o certificado existente na solicitação de renovação de certificado. Em seguida, ele verifica se a solicitação veio de um agente de autenticação registrado em seu locatário.
@@ -176,8 +176,8 @@ Para renovar a confiança de um agente de autenticação com o Azure AD:
     - Use a autoridade de certificação raiz do Azure AD para assinar o certificado.
     - Defina a entidade do certificado (nome distinto ou DN) para sua ID de locatário, um GUID que identifica exclusivamente seu locatário. O DN tem como escopo o certificado somente para seu locatário.
 6. O Azure AD armazena a nova chave pública do agente de autenticação em um banco de dados SQL do Azure ao qual apenas ele tem acesso. Ele também invalida a chave pública antiga associada ao agente de autenticação.
-7. O novo certificado (emitido na etapa 5) é armazenado no servidor no repositório de certificados do Windows (especificamente no local [CERT_SYSTEM_STORE_CURRENT_USER](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_CURRENT_USER) ).
-    - Como o procedimento de renovação de confiança ocorre de forma não interativa (sem a presença do administrador global), o agente de autenticação não tem mais acesso para atualizar o certificado existente no local CERT_SYSTEM_STORE_LOCAL_MACHINE. 
+7. O novo certificado (emitido na etapa 5) é armazenado no servidor no repositório de certificados do Windows (especificamente no local de [CERT_SYSTEM_STORE_CURRENT_USER](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_CURRENT_USER) ).
+    - Como o procedimento de renovação de confiança ocorre de forma não interativa (sem a presença do administrador global), o agente de autenticação não tem mais acesso para atualizar o certificado existente no local de CERT_SYSTEM_STORE_LOCAL_MACHINE. 
     
    > [!NOTE]
    > Esse procedimento não remove o certificado em si do local CERT_SYSTEM_STORE_LOCAL_MACHINE.

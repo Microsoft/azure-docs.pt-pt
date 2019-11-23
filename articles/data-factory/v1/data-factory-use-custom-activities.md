@@ -90,10 +90,10 @@ public IDictionary<string, string> Execute(
 
 O método usa quatro parâmetros:
 
-- **linkservices**. Essa propriedade é uma lista enumerável de serviços vinculados do repositório de dados referenciados por conjuntos de dados de entrada/saída para a atividade.
+- **linkedServices**. Essa propriedade é uma lista enumerável de serviços vinculados do repositório de dados referenciados por conjuntos de dados de entrada/saída para a atividade.
 - **conjuntos**de os. Esta propriedade é uma lista enumerável de conjuntos de dados de entrada/saída para a atividade. Você pode usar esse parâmetro para obter os locais e esquemas definidos pelos conjuntos de dados de entrada e saída.
 - **atividade**. Essa propriedade representa a atividade atual. Ele pode ser usado para acessar propriedades estendidas associadas à atividade personalizada. Consulte [acessar propriedades estendidas](#access-extended-properties) para obter detalhes.
-- **agente de log**. Esse objeto permite escrever comentários de depuração que são exibidos no log do usuário para o pipeline.
+- **logger**. Esse objeto permite escrever comentários de depuração que são exibidos no log do usuário para o pipeline.
 
 O método retorna um dicionário que pode ser usado para encadear atividades personalizadas em conjunto no futuro. Este recurso ainda não está implementado, portanto, retorne um dicionário vazio do método.
 
@@ -550,11 +550,11 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e a saída
 
    | Slicer | Hora de início | Ficheiro de saída |
    |:--- |:--- |:--- |
-   | 1 |2016-11-16T00:00:00 |2016-11-16-00. txt |
-   | 2 |2016-11-16T01:00:00 |2016-11-16-01. txt |
-   | 3 |2016-11-16T02:00:00 |2016-11-16 -02. txt |
-   | 4 |2016-11-16T03:00:00 |2016-11-16 -03. txt |
-   | 5 |2016-11-16T04:00:00 |2016-11-16 -04. txt |
+   | 1 |2016-11-16T00:00:00 |2016-11-16-00.txt |
+   | 2 |2016-11-16T01:00:00 |2016-11-16-01.txt |
+   | 3 |2016-11-16T02:00:00 |2016-11-16-02.txt |
+   | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
+   | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
     Lembre-se de que todos os arquivos em uma pasta de entrada fazem parte de uma fatia com os horários de início mencionados acima. Quando essa fatia é processada, a atividade personalizada examina cada arquivo e produz uma linha no arquivo de saída com o número de ocorrências do termo de pesquisa ("Microsoft"). Se houver três arquivos na pasta de entrada, haverá três linhas no arquivo de saída para cada fatia por hora: 2016-11-16-00. txt, 2016-11-16:01:00:00. txt, etc.
 3. Para implantar o **OutputDataset**, clique em **implantar** na barra de comandos.
@@ -699,7 +699,7 @@ A solução de problemas consiste em algumas técnicas básicas:
    Além disso, verifique **System-0. log** para quaisquer mensagens de erro e exceções do sistema.
 4. Inclua o arquivo **PDB** no arquivo zip para que os detalhes do erro tenham informações como **pilha de chamadas** quando ocorrer um erro.
 5. Todos os ficheiros no ficheiro zip da atividade personalizada têm de estar no **nível superior** sem subpastas.
-6. Certifique-se de que **AssemblyName** (MyDotNetActivity. dll), **EntryPoint**(MyDotNetActivityNS. MyDotNetActivity), **PackageFile** (customactivitycontainer/MyDotNetActivity. zip) e **packageLinkedService** (deve apontar para para o armazenamento de BLOBs do Azure de **uso geral**que contém o arquivo zip), defina os valores corretos.
+6. Verifique se o **AssemblyName** (MyDotNetActivity. dll), **EntryPoint**(MyDotNetActivityNS. MyDotNetActivity), **PackageFile** (customactivitycontainer/MyDotNetActivity. zip) e **packageLinkedService** (devem apontar para o armazenamento de blob do Azure de **uso geral**que contém o arquivo zip) estão definidos para os valores corretos.
 7. Se corrigir um erro e pretender processar de novo o setor, clique com o botão direito do rato no setor no painel **OutputDataset** e clique em **Executar**.
 8. Se você vir o erro a seguir, você está usando o pacote de armazenamento do Azure da versão > 4.3.0. Data Factory iniciador de serviço requer a versão 4,3 do WindowsAzure. Storage. Consulte a seção [isolamento de AppDomain](#appdomain-isolation) para uma solução alternativa se você precisar usar a versão mais recente do assembly de armazenamento do Azure.
 
@@ -1022,7 +1022,7 @@ namespace DataFactoryAPITestApp
 O exemplo de [ambiente Azure data Factory local](https://github.com/gbrueckl/Azure.DataFactory.LocalEnvironment) no GitHub inclui uma ferramenta que permite que você depure atividades personalizadas do .net no Visual Studio.
 
 ## <a name="sample-custom-activities-on-github"></a>Atividades personalizadas de exemplo no GitHub
-| Exemplo | Qual atividade personalizada faz |
+| Sample | Qual atividade personalizada faz |
 | --- | --- |
 | [Downloader de dados http](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample). |Baixa dados de um ponto de extremidade HTTP para o armazenamento de C# BLOBs do Azure usando atividade personalizada no data Factory. |
 | [Exemplo de Análise de Sentimento do Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Invoca um modelo do Azure Machine Learning Studio e análise de sentimentos, pontuação, previsão, etc. |

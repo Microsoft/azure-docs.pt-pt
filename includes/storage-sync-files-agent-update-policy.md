@@ -14,8 +14,8 @@ ms.locfileid: "72391753"
 O agente de Sincronização de Arquivos do Azure é atualizado regularmente para adicionar novas funcionalidades e resolver problemas. Recomendamos que você configure Microsoft Update para obter atualizações para o agente de Sincronização de Arquivos do Azure como estão disponíveis.
 
 #### <a name="major-vs-minor-agent-versions"></a>Versões do agente principal vs. secundária
-* As versões principais do agente geralmente contêm novos recursos e têm um número crescente como a primeira parte do número de versão. Por exemplo: \*2. \*. \* @ no__t-3
-* As versões secundárias do agente também são chamadas de "patches" e liberadas com mais frequência do que as versões principais. Geralmente, eles contêm correções de bugs e melhorias menores, mas não há novos recursos. Por exemplo: \* @ no__t-1.3. \* @ no__t-3
+* As versões principais do agente geralmente contêm novos recursos e têm um número crescente como a primeira parte do número de versão. Por exemplo: \*2.\*.\*\*
+* As versões secundárias do agente também são chamadas de "patches" e liberadas com mais frequência do que as versões principais. Geralmente, eles contêm correções de bugs e melhorias menores, mas não há novos recursos. Por exemplo: \*\*. 3.\*\*
 
 #### <a name="upgrade-paths"></a>Caminhos de atualização
 Há quatro maneiras aprovadas e testadas para instalar as atualizações do agente de Sincronização de Arquivos do Azure. 
@@ -61,7 +61,7 @@ Sincronização de Arquivos do Azure é um serviço de nuvem, que apresenta cont
 - As versões principais do agente têm suporte por pelo menos seis meses a partir da data da versão inicial.
 - Garantimos que há uma sobreposição de pelo menos três meses entre o suporte das principais versões do agente. 
 - Os avisos são emitidos para servidores registrados usando um agente em breve para ser expirado pelo menos três meses antes da expiração. Você pode verificar se um servidor registrado está usando uma versão mais antiga do agente na seção servidores registrados de um serviço de sincronização de armazenamento.
-- O tempo de vida de uma versão secundária do agente está associado à versão principal associada. Por exemplo, quando a versão do agente 3,0 é lançada, as versões 2 do agente. \* serão todas definidas para expirar em conjunto.
+- O tempo de vida de uma versão secundária do agente está associado à versão principal associada. Por exemplo, quando a versão do agente 3,0 é lançada, as versões 2 do agente.\* todos serão definidos para expirar juntos.
 
 > [!Note]
 > A instalação de uma versão do agente com um aviso de expiração exibirá um aviso, mas terá sucesso. A tentativa de instalar ou conectar-se a uma versão de agente expirada não tem suporte e será bloqueada.

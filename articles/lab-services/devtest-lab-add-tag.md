@@ -32,15 +32,15 @@ Os recursos com suporte nas marcas incluem
 * Endereços IP
 * Balanceadores de carga
 * Contas de armazenamento
-* Managed Disks
+* Managed disks
 
 Você pode aplicar marcas ao [criar um laboratório](devtest-lab-create-lab.md) e, posteriormente, gerenciá-los por meio da folha marcas em configuração e configurações.
 
-Cada marca é composta de um par **nome**@no__t**valor** -1. Por exemplo, você pode criar uma marca com o nome *costcenter* que tem um valor de *34543*. Uma marca como esta pode ajudá-lo a identificar mais tarde os recursos de laboratório que são faturáveis para essa área específica da sua organização. Você precisa escolher nomes e valores que façam sentido para o modo como você deseja organizar sua assinatura.
+Cada marca é composta de um par de **nome**/**valor** . Por exemplo, você pode criar uma marca com o nome *costcenter* que tem um valor de *34543*. Uma marca como esta pode ajudá-lo a identificar mais tarde os recursos de laboratório que são faturáveis para essa área específica da sua organização. Você precisa escolher nomes e valores que façam sentido para o modo como você deseja organizar sua assinatura.
 
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Etapas para gerenciar marcas em um laboratório existente
 
-1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Iniciar sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessário, selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** na lista. Seu laboratório já pode ter sido mostrado no painel em **todos os recursos**.
 1. Na lista de laboratórios, selecione o laboratório no qual você deseja adicionar ou gerenciar marcas.
 1. Na área **visão geral** do laboratório, selecione **configuração e políticas**.
@@ -48,7 +48,7 @@ Cada marca é composta de um par **nome**@no__t**valor** -1. Por exemplo, você 
     ![Botão configuração e políticas](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
 1. À esquerda em **gerenciar**, selecione **marcas**.
-1. Para criar uma nova marca para este laboratório, insira um **nome**@no__t par**valor** -1 e selecione **salvar**. Você também pode selecionar uma marca existente na lista para exibir ou gerenciar os recursos associados a essa marca.
+1. Para criar uma nova marca para este laboratório, insira um **nome**/par de **valor** e selecione **salvar**. Você também pode selecionar uma marca existente na lista para exibir ou gerenciar os recursos associados a essa marca.
 
     ![Gerenciar marcas](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
 

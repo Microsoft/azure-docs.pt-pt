@@ -50,25 +50,25 @@ Consulte [cobertura de geocodificação](https://docs.microsoft.com/azure/azure-
 
    Para fazer a tendência geográfica dos resultados para a área relevante para o usuário, você sempre deve adicionar a entrada de local detalhada máxima possível. Para restringir os resultados da pesquisa, considere adicionar os seguintes tipos de entrada:
 
-   1. Defina o parâmetro `countrySet`, por exemplo, "US, FR". O comportamento de pesquisa padrão é Pesquisar o mundo inteiro, potencialmente retornando resultados desnecessários. Se a consulta não incluir o parâmetro `countrySet`, a pesquisa poderá retornar resultados imprecisos. Por exemplo, procurar uma cidade chamada **Bellevue** retornará resultados dos EUA e da França, já que há cidades chamadas **Bellevue** na França e nos EUA.
+   1. Defina o parâmetro `countrySet`, por exemplo, "US, FR". O comportamento de pesquisa padrão é Pesquisar o mundo inteiro, potencialmente retornando resultados desnecessários. Se a consulta não incluir `countrySet` parâmetro, a pesquisa poderá retornar resultados imprecisos. Por exemplo, procurar uma cidade chamada **Bellevue** retornará resultados dos EUA e da França, já que há cidades chamadas **Bellevue** na França e nos EUA.
 
    2. Você pode usar os parâmetros `btmRight` e `topleft` para definir a caixa delimitadora para restringir a pesquisa a uma área específica no mapa.
 
-   3. Para influenciar a área de relevância dos resultados, você pode definir os parâmetros de coordenadas `lat`and `lon` e definir o raio da área de pesquisa usando o parâmetro `radius`.
+   3. Para influenciar a área de relevância dos resultados, você pode definir os parâmetros de coordenação `lat`e `lon` e definir o raio da área de pesquisa usando o parâmetro `radius`.
 
 
    **Parâmetros de pesquisa difusa**
 
-   1. O `minFuzzyLevel` e o `maxFuzzyLevel`, ajudam a retornar correspondências relevantes mesmo quando os parâmetros de consulta não correspondem exatamente às informações desejadas. A maioria das consultas de pesquisa usa como padrão `minFuzzyLevel=1` e `maxFuzzyLevel=2` para obter o desempenho e reduzir resultados incomuns. Veja um exemplo de termo de pesquisa "restrant", que é correspondido a "restaurante" quando o `maxFuzzyLevel` é definido como 2. Os níveis de fuzzing padrão podem ser substituídos de acordo com as necessidades de solicitação. 
+   1. A `minFuzzyLevel` e `maxFuzzyLevel`, ajudam a retornar correspondências relevantes mesmo quando os parâmetros de consulta não correspondem exatamente às informações desejadas. A maioria das consultas de pesquisa usa como padrão `minFuzzyLevel=1` e `maxFuzzyLevel=2` para obter desempenho e reduzir resultados incomuns. Veja um exemplo de termo de pesquisa "restrant", que é correspondido a "restaurante" quando o `maxFuzzyLevel` é definido como 2. Os níveis de fuzzing padrão podem ser substituídos de acordo com as necessidades de solicitação. 
 
    2. Você também pode especificar o conjunto exato de tipos de resultados a serem retornados usando o parâmetro `idxSet`. Para essa finalidade, você pode enviar uma lista de índices separados por vírgulas, a ordem do item não importa. Estes são os índices com suporte:
 
-       * `Addr` @ no__t-1**intervalos de endereços**: para algumas ruas, há pontos de endereço que são interpolados do início e do fim da rua; esses pontos são representados como intervalos de endereços.
-       * `Geo` @ no__t-1**geografia**: áreas em um mapa que representam a divisão administrativa de um terreno, ou seja, país, estado, cidade.
-       * `PAD` @ no__t-1**endereço de ponto**: aponta em um mapa em que um endereço específico com um nome de rua e número pode ser encontrado em um índice, por exemplo, Soquel Dr 2501. É o nível mais alto de precisão disponível para endereços.  
-       * `POI` @ no__t-1**pontos de interesse**: pontos em um mapa que vale a pena dar atenção e podem ser interessantes.  [Obter o endereço de pesquisa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) não retornará depois.  
-       * `Str` @ no__t-1**Streets**: representação de ruas no mapa.
-       * `XStr` @ no__t-1**Cross Streets/interseções**: representação de junções; locais onde duas ruas se cruzam.
+       * `Addr`**intervalos de endereços** - : para algumas ruas, há pontos de endereço que são interpolados do início e do fim da rua; esses pontos são representados como intervalos de endereços.
+       * `Geo` - **geografia**: áreas em um mapa que representam a divisão administrativa de um terreno, ou seja, país, estado, cidade.
+       * `PAD`**endereço de ponto**de  - : pontos em um mapa em que um endereço específico com um nome e número de rua pode ser encontrado em um índice, por exemplo, Soquel Dr 2501. É o nível mais alto de precisão disponível para endereços.  
+       * `POI`**pontos de  - de interesse**: pontos em um mapa que vale a pena dar atenção e podem ser interessantes.  [Obter o endereço de pesquisa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) não retornará depois.  
+       * `Str` - **Streets**: representação de ruas no mapa.
+       * `XStr` - **entre ruas/interseções**: representação de junções; locais onde duas ruas se cruzam.
 
 
        **Exemplos de uso**:
@@ -133,7 +133,7 @@ O parâmetro `language` permite que você defina em quais resultados de pesquisa
 
 ### <a name="predictive-mode-auto-suggest"></a>Modo de previsão (sugestão automática)
 
-Para encontrar mais correspondências para consultas parciais, o parâmetro `typeahead` deve ser definido como ' true '. A consulta será interpretada como uma entrada parcial e a pesquisa entrará no modo de previsão. Caso contrário, o serviço assumirá que todas as informações relevantes foram passadas.
+Para encontrar mais correspondências para consultas parciais, `typeahead` parâmetro deve ser definido como ' true '. A consulta será interpretada como uma entrada parcial e a pesquisa entrará no modo de previsão. Caso contrário, o serviço assumirá que todas as informações relevantes foram passadas.
 
 Na consulta de exemplo abaixo, você pode ver que o serviço de endereço de pesquisa é consultado por "Microsoft" com o parâmetro `typeahead` definido como **true**. Se você observar a resposta, poderá ver que o serviço de pesquisa interpretou a consulta como consulta parcial e a resposta contém resultados para consulta sugerida automaticamente.
 
@@ -265,7 +265,7 @@ JavaScript/TypeScript:
 encodeURIComponent(query)
 ```
 
-C#VB
+C#/VB:
 ```csharp
 Uri.EscapeDataString(query)
 ```
@@ -311,7 +311,7 @@ url.QueryEscape(query)
 
 ## <a name="best-practices-for-poi-search"></a>Práticas recomendadas para pesquisa do POI
 
-A pesquisa de POI (pontos de interesse) permite solicitar resultados de POI por nome, por exemplo, Pesquisar negócios por nome. Aconselhamos que você use o parâmetro `countrySet` para especificar países onde seu aplicativo precisa de cobertura, pois o comportamento padrão será Pesquisar o mundo inteiro, potencialmente retornando resultados desnecessários e/ou resultará em tempos de pesquisa mais longos.
+A pesquisa de POI (pontos de interesse) permite solicitar resultados de POI por nome, por exemplo, Pesquisar negócios por nome. Recomendamos que você use o parâmetro `countrySet` para especificar os países em que seu aplicativo precisa de cobertura, pois o comportamento padrão será Pesquisar o mundo inteiro, potencialmente retornando resultados desnecessários e/ou resultará em tempos de pesquisa mais longos.
 
 ### <a name="brand-search"></a>Pesquisa de marca
 

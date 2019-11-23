@@ -41,10 +41,10 @@ O tipo de retorno da função do Azure deve ser um `JObject`válido. (Tenha em m
 
 | **Propriedade**  | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
-| nome  | Nome da atividade no pipeline  | String | sim |
-| tipo  | O tipo de atividade é ' AzureFunctionActivity ' | String | sim |
-| Serviço vinculado | O serviço vinculado da função do Azure para o Aplicativo de funções do Azure correspondente  | Referência de serviço vinculado | sim |
-| Nome da função  | Nome da função no Aplicativo de funções do Azure que esta atividade chama | String | sim |
+| nome  | Nome da atividade no pipeline  | Cadeia | sim |
+| tipo  | O tipo de atividade é ' AzureFunctionActivity ' | Cadeia | sim |
+| serviço vinculado | O serviço vinculado da função do Azure para o Aplicativo de funções do Azure correspondente  | Referência de serviço vinculado | sim |
+| Nome da função  | Nome da função no Aplicativo de funções do Azure que esta atividade chama | Cadeia | sim |
 | método  | Método de API REST para a chamada de função | Tipos de cadeia de caracteres com suporte: "GET", "POST", "PUT"   | sim |
 | cabeçalho  | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: "headers": {"Accept-Language": "en-US", "Content-Type": "Application/JSON"} | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Não |
 | conteúdo  | corpo enviado junto com a solicitação para o método de API de função  | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) ou objeto.   | Necessário para os métodos PUT/POST |

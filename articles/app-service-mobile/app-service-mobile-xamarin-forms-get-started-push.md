@@ -28,9 +28,9 @@ ms.locfileid: "72388525"
 > [!NOTE]
 > O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
 >
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Neste tutorial, você adicionará notificações por push a todos os projetos que resultaram do [início rápido do Xamarin. Forms](app-service-mobile-xamarin-forms-get-started.md). Isso significa que uma notificação por push é enviada para todos os clientes de plataforma cruzada toda vez que um registro é inserido.
 
@@ -86,7 +86,7 @@ Com o back-end configurado com FCM, você pode adicionar componentes e códigos 
 
 #### <a name="implementing-the-firebase-instance-id-service"></a>Implementando o serviço de ID de instância firebase
 
-1. Adicione uma nova classe ao projeto **Droid** chamado `FirebaseRegistrationService` e verifique se as seguintes instruções `using` estão presentes na parte superior do arquivo:
+1. Adicione uma nova classe ao projeto **Droid** chamado `FirebaseRegistrationService`e verifique se as instruções `using` a seguir estão presentes na parte superior do arquivo:
 
     ```csharp
     using System.Threading.Tasks;
@@ -96,7 +96,7 @@ Com o back-end configurado com FCM, você pode adicionar componentes e códigos 
     using Microsoft.WindowsAzure.MobileServices;
     ```
 
-1. Substitua a classe vazia `FirebaseRegistrationService` pelo seguinte código:
+1. Substitua a classe de `FirebaseRegistrationService` vazia pelo código a seguir:
 
     ```csharp
     [Service]
@@ -123,13 +123,13 @@ Com o back-end configurado com FCM, você pode adicionar componentes e códigos 
     }
     ```
 
-    A classe `FirebaseRegistrationService` é responsável pela geração de tokens de segurança que autorizam o aplicativo a acessar o FCM. O método `OnTokenRefresh` é invocado quando o aplicativo recebe um token de registro de FCM. O método recupera o token da propriedade `FirebaseInstanceId.Instance.Token`, que é atualizada de forma assíncrona pelo FCM. O método `OnTokenRefresh` é invocado frequentemente, porque o token só é atualizado quando o aplicativo é instalado ou desinstalado, quando o usuário exclui dados do aplicativo, quando o aplicativo apaga a ID da instância ou quando a segurança do token foi afetados. Além disso, o serviço de ID de instância FCM solicitará que o aplicativo atualize seu token periodicamente, normalmente a cada 6 meses.
+    A classe `FirebaseRegistrationService` é responsável pela geração de tokens de segurança que autorizam o aplicativo a acessar o FCM. O método `OnTokenRefresh` é invocado quando o aplicativo recebe um token de registro de FCM. O método recupera o token da propriedade `FirebaseInstanceId.Instance.Token`, que é atualizada de forma assíncrona pelo FCM. O método `OnTokenRefresh` é invocado com pouca frequência, porque o token só é atualizado quando o aplicativo é instalado ou desinstalado, quando o usuário exclui os dados do aplicativo, quando o aplicativo apaga a ID da instância ou quando a segurança do token é comprometida. Além disso, o serviço de ID de instância FCM solicitará que o aplicativo atualize seu token periodicamente, normalmente a cada 6 meses.
 
     O método `OnTokenRefresh` também invoca o método `SendRegistrationTokenToAzureNotificationHub`, que é usado para associar o token de registro do usuário ao Hub de notificação do Azure.
 
 #### <a name="registering-with-the-azure-notification-hub"></a>Registrando com o Hub de notificação do Azure
 
-1. Adicione uma nova classe ao projeto **Droid** chamado `AzureNotificationHubService` e verifique se as seguintes instruções `using` estão presentes na parte superior do arquivo:
+1. Adicione uma nova classe ao projeto **Droid** chamado `AzureNotificationHubService`e verifique se as instruções `using` a seguir estão presentes na parte superior do arquivo:
 
     ```csharp
     using System;
@@ -139,7 +139,7 @@ Com o back-end configurado com FCM, você pode adicionar componentes e códigos 
     using Newtonsoft.Json.Linq;
     ```
 
-1. Substitua a classe vazia `AzureNotificationHubService` pelo seguinte código:
+1. Substitua a classe de `AzureNotificationHubService` vazia pelo código a seguir:
 
     ```csharp
     public class AzureNotificationHubService
@@ -172,7 +172,7 @@ Com o back-end configurado com FCM, você pode adicionar componentes e códigos 
 
 #### <a name="displaying-the-contents-of-a-push-notification"></a>Exibindo o conteúdo de uma notificação por push
 
-1. Adicione uma nova classe ao projeto **Droid** chamado `FirebaseNotificationService` e verifique se as seguintes instruções `using` estão presentes na parte superior do arquivo:
+1. Adicione uma nova classe ao projeto **Droid** chamado `FirebaseNotificationService`e verifique se as instruções `using` a seguir estão presentes na parte superior do arquivo:
 
     ```csharp
     using Android.App;
@@ -183,7 +183,7 @@ Com o back-end configurado com FCM, você pode adicionar componentes e códigos 
     using Firebase.Messaging;
     ```
 
-1. Substitua a classe vazia `FirebaseNotificationService` pelo seguinte código:
+1. Substitua a classe de `FirebaseNotificationService` vazia pelo código a seguir:
 
     ```csharp
     [Service]
@@ -388,7 +388,7 @@ Esta seção destina-se à execução dos projetos WinApp e WinPhone81 do Xamari
 
     Esse método obtém o canal de notificação por push e registra um modelo para receber notificações de modelo do hub de notificação. Uma notificação de modelo que dá suporte a *messageParam* será entregue a esse cliente.
 
-3. No App.xaml.cs, atualize a definição do método de manipulador de eventos **Onlaunched** adicionando o modificador `async`. Em seguida, adicione a seguinte linha de código ao final do método:
+3. No App.xaml.cs, atualize a definição do método de manipulador de eventos **Onlaunched** adicionando o modificador de `async`. Em seguida, adicione a seguinte linha de código ao final do método:
 
     ```csharp
     await InitNotificationsAsync();
@@ -421,7 +421,7 @@ Você também pode continuar com um dos seguintes tutoriais:
 * [Adicionar autenticação à aplicação](app-service-mobile-xamarin-forms-get-started-users.md)  
   Saiba como autenticar os utilizadores da aplicação com um fornecedor de identidade.
 * [Permitir sincronização offline para a sua aplicação](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
-  Saiba como adicionar suporte offline à aplicação com um back-end de Aplicações Móveis. Com a sincronização offline, os usuários podem interagir com um aplicativo móvel @ no__t-0viewing, adicionando ou modificando dados @ no__t-1even quando não há conexão de rede.
+  Saiba como adicionar suporte offline à aplicação com um back-end de Aplicações Móveis. Com a sincronização offline, os usuários podem interagir com um aplicativo móvel&mdash;exibir, adicionar ou modificar dados&mdash;mesmo quando não há conexão de rede.
 
 <!-- Images. -->
 

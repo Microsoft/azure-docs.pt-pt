@@ -15,7 +15,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/16/2019
 ms.locfileid: "72390552"
 ---
-## <a name="benefits"></a>Vantagens 
+## <a name="benefits"></a>Benefícios 
 
 Reservar o host inteiro oferece os seguintes benefícios:
 
@@ -103,7 +103,7 @@ Diferentes `types` para a mesma série de VMs serão de fornecedores de CPU dife
 
 Consulte a página de [preços](https://aka.ms/ADHPricing) do host para saber mais.
 
-Durante a visualização, teremos suporte para o seguinte host SKU\types: DSv3_Type1 e ESv3_Type1
+Durante a versão prévia, ofereceremos suporte ao seguinte host SKU\types: DSv3_Type1 e ESv3_Type1
 
  
 ## <a name="host-life-cycle"></a>Ciclo de vida do host
@@ -115,6 +115,6 @@ O Azure monitora e gerencia o status de integridade de seus hosts. Os seguintes 
 |----------|----------------|
 | Host disponível     | Não há problemas conhecidos com o host.   |
 | Host em investigação  | Estamos com alguns problemas com o host que estamos procurando. Esse é um estado de transição necessário para que o Azure tente e identifique o escopo e a causa raiz do problema identificado. As máquinas virtuais em execução no host podem ser afetadas. |
-| Desalocação pendente do host   | O Azure não pode restaurar o host de volta para um estado íntegro e pedir que você reimplante suas máquinas virtuais fora desse host. Se @no__t- *0 estiver habilitado* , suas máquinas virtuais serão reparadas para o hardware íntegro. Caso contrário, sua máquina virtual pode estar em execução em um host que está prestes a falhar.|
+| Desalocação pendente do host   | O Azure não pode restaurar o host de volta para um estado íntegro e pedir que você reimplante suas máquinas virtuais fora desse host. Se o *`autoReplaceOnFailure` estiver habilitado* , suas máquinas virtuais serão reparadas para o hardware íntegro. Caso contrário, sua máquina virtual pode estar em execução em um host que está prestes a falhar.|
 | Host desalocado  | Todas as máquinas virtuais foram removidas do host. Você não está mais sendo cobrado por esse host, pois o hardware foi retirado da rotação.   |
 

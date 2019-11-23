@@ -45,7 +45,7 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
     |    Serviços Web do AD    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    N/A       |    Resposta de eco    |
+    |    ICMPv4             |    N/D       |    Resposta de eco    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
     |    Kerberos           |    88        |    TCP           |
@@ -86,9 +86,9 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
 
     * **DNS primário**  
         Esse é o DNS necessário para as operações de autenticação SMB e de ingresso no domínio do Active Directory. 
-    * @No__t **DNS secundário**-1  
+    *   de **DNS secundário**  
         Esse é o servidor DNS secundário para garantir que os serviços de nome redundantes. 
-    * **Controlador**  
+    * **Domínio**  
         Esse é o nome de domínio de seu Active Directory Domain Services que você deseja unir.
     * **Prefixo do servidor SMB (conta do computador)**  
         Esse é o prefixo de nomenclatura para a conta do computador no Active Directory que Azure NetApp Files será usado para a criação de novas contas.

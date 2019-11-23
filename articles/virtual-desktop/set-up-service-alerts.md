@@ -14,7 +14,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 09/30/2019
 ms.locfileid: "71676436"
 ---
-# <a name="tutorial-set-up-service-alerts"></a>Tutorial: Configurar alertas de serviço
+# <a name="tutorial-set-up-service-alerts"></a>Tutorial: configurar alertas de serviço
 
 Você pode usar a integridade do serviço do Azure para monitorar problemas de serviço e comunicados de integridade da área de trabalho virtual do Windows. A integridade do serviço do Azure pode notificá-lo com diferentes tipos de alertas (por exemplo, email ou SMS), ajudá-lo a entender o efeito de um problema e mantê-lo atualizado à medida que o problema for resolvido. A integridade do serviço do Azure também pode ajudá-lo a reduzir o tempo de inatividade e a se preparar para a manutenção planejada e as alterações que podem afetar a disponibilidade de seus recursos.
 
@@ -27,9 +27,9 @@ Para saber mais sobre a integridade do serviço do Azure, consulte a [documenta�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Tutorial: Criar um locatário na área de trabalho virtual do Windows @ no__t-0
-- [Tutorial: Criar entidades de serviço e atribuições de função com o PowerShell @ no__t-0
-- [Tutorial: Criar um pool de hosts com o Azure Marketplace @ no__t-0
+- [Tutorial: criar um locatário na área de trabalho virtual do Windows](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory)
+- [Tutorial: criar entidades de serviço e atribuições de função com o PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell)
+- [Tutorial: criar um pool de hosts com o Azure Marketplace](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace)
 
 ## <a name="create-service-alerts"></a>Criar alertas de serviço
 
@@ -48,7 +48,7 @@ Recomendamos que você crie alertas de serviço para os seguintes tipos de event
 
 Para configurar alertas de serviço:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **integridade do serviço.**
 3. Use as instruções em [criar alertas do log de atividades em notificações de serviço](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) para configurar seus alertas e notificações.
 

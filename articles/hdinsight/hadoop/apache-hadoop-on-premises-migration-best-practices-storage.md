@@ -96,7 +96,7 @@ O ADLS Gen 2 é criado com base no [armazenamento de BLOBs do Azure](../../stor
 
 Um recurso fundamental do Data Lake Storage Gen2 é a adição de um [namespace hierárquico](../../storage/data-lake-storage/namespace.md) ao serviço de armazenamento de BLOBs, que organiza objetos/arquivos em uma hierarquia de diretórios para acesso a dados de alto desempenho. A estrutura hierárquica permite que operações como renomear ou excluir um diretório sejam operações de metadados atômicas únicas no diretório, em vez de enumerar e processar todos os objetos que compartilham o prefixo de nome do diretório.
 
-No passado, a análise baseada em nuvem tinha de comprometer as áreas de desempenho, gerenciamento e segurança. Os principais recursos do Azure Data Lake Storage (ADLS) Gen2 são os seguintes:
+No passado, análise baseada na cloud tinha de comprometer nas áreas de desempenho, gerenciamento e segurança. Os principais recursos do Azure Data Lake Storage (ADLS) Gen2 são os seguintes:
 
 - **Acesso compatível com Hadoop**: o Azure data Lake Storage Gen2 permite que você gerencie e acesse dados da mesma forma que faria com um [sistema de arquivos distribuído do Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). O novo [Driver ABFS](../../storage/data-lake-storage/abfs-driver.md) está disponível em todos os ambientes de Apache Hadoop que estão incluídos no [Azure HDInsight](../index.yml). Esse driver permite que você acesse os dados armazenados no Data Lake Storage Gen2.
 
@@ -157,13 +157,13 @@ Por padrão, o HDInsight tem acesso completo aos dados nas contas de armazenamen
 
     |Propriedade do token|Descrição|
     |---|---|
-    |Nome_da_Diretiva|O nome a ser usado para a política armazenada a ser criada.|
+    |policy_name|O nome a ser usado para a política armazenada a ser criada.|
     |storage_account_name|O nome da sua conta de armazenamento.|
     |storage_account_key|A chave para a conta de armazenamento.|
     |storage_container_name|O contêiner na conta de armazenamento ao qual você deseja restringir o acesso.|
     |example_file_path|O caminho para um arquivo que é carregado no contêiner.|
 
-2. O arquivo SASToken.py vem com as permissões `ContainerPermissions.READ + ContainerPermissions.LIST` e pode ser ajustado com base no caso de uso.
+2. O arquivo SASToken.py vem com as permissões de `ContainerPermissions.READ + ContainerPermissions.LIST` e pode ser ajustado com base no caso de uso.
 
 3. Execute o script da seguinte maneira: `python SASToken.py`
 
@@ -185,7 +185,7 @@ Há três coisas importantes a serem lembradas sobre o uso de tokens SAS no Azur
 
 1. Quando os tokens SAS são criados com permissões de "leitura + lista", os usuários que acessam o contêiner de blob com esse token SAS não poderão "gravar e excluir" dados. Os usuários que acessam o contêiner de blob com esse token SAS e tentarem uma operação de gravação ou exclusão receberão uma mensagem como `"This request is not authorized to perform this operation"`.
 
-2. Quando os tokens SAS são gerados com as permissões `READ + LIST + WRITE` (para restringir `DELETE` somente), comandos como `hadoop fs -put` primeiro gravam em um arquivo `\_COPYING\_` e, em seguida, tentam renomear o arquivo. Essa operação HDFS é mapeada para um `copy+delete` para WASB. Como a permissão `DELETE` não foi fornecida, o "Put" falharia. A operação `\_COPYING\_` é um recurso do Hadoop destinado a fornecer algum controle de simultaneidade. Atualmente, não há como restringir apenas a operação "excluir" sem afetar as operações de "gravação" também.
+2. Quando os tokens SAS são gerados com permissões de `READ + LIST + WRITE` (para restringir `DELETE` somente), comandos como `hadoop fs -put` primeiro gravam em um arquivo `\_COPYING\_` e, em seguida, tentam renomear o arquivo. Essa operação HDFS é mapeada para um `copy+delete` para WASB. Como a permissão `DELETE` não foi fornecida, o "Put" falharia. A operação de `\_COPYING\_` é um recurso do Hadoop destinado a fornecer algum controle de simultaneidade. Atualmente, não há como restringir apenas a operação "excluir" sem afetar as operações de "gravação" também.
 
 3. Infelizmente, o provedor de credenciais do Hadoop e o provedor de chave de descriptografia (ShellDecryptionKeyProvider) atualmente não funcionam com os tokens SAS e, portanto, não podem ser protegidos da visibilidade no momento.
 

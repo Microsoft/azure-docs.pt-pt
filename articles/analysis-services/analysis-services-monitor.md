@@ -37,7 +37,7 @@ Para executar um diagnóstico mais aprofundado, controlar o desempenho e identif
 
 Use esta tabela para determinar quais métricas são melhores para seu cenário de monitoramento. Somente as métricas da mesma unidade podem ser mostradas no mesmo gráfico.
 
-|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Comprimento da fila de trabalhos do pool de comandos|Contagem|Média|Número de trabalhos na fila do pool de threads de comando.|
 |CurrentConnections|Conexão: conexões atuais|Contagem|Média|Número atual de conexões de cliente estabelecidas.|

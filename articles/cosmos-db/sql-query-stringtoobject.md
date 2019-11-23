@@ -56,7 +56,7 @@ Aqui está o conjunto de resultados.
 ```
 
  Veja a seguir exemplos de entrada inválida.
-Mesmo que eles sejam válidos em uma consulta, eles não serão analisados para objetos válidos. As cadeias dentro da cadeia de caracteres do objeto devem ter escape "{\\" a @ no__t-1 ": \\" Str @ no__t-3 "}" ou a aspa ao redor deve ser um único "{" a ":" Str "}".
+Mesmo que eles sejam válidos em uma consulta, eles não serão analisados para objetos válidos. As cadeias dentro da cadeia de caracteres do objeto devem ter escape "{\\" a\\":\\" Str\\"}" ou a aspa ao redor deve ser única ' {"a": "Str"} '.
 
 As aspas simples ao redor dos nomes de propriedade não são JSON válidos.
 

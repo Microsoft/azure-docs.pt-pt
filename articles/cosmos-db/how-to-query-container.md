@@ -19,7 +19,7 @@ Este artigo explica como consultar um contêiner (coleção, gráfico ou tabela)
 
 ## <a name="in-partition-query"></a>Consulta na partição
 
-Quando você consulta dados de contêineres, se a consulta tiver um filtro de chave de partição especificado, Azure Cosmos DB tratará a consulta automaticamente. Ele roteia a consulta para as partições correspondentes aos valores de chave de partição especificados no filtro. Por exemplo, a consulta a seguir é roteada `DeviceId` para a partição, que contém todos os documentos correspondentes ao valor `XMS-0001`de chave de partição.
+Quando você consulta dados de contêineres, se a consulta tiver um filtro de chave de partição especificado, Azure Cosmos DB tratará a consulta automaticamente. Ele roteia a consulta para as partições correspondentes aos valores de chave de partição especificados no filtro. Por exemplo, a consulta a seguir é roteada para a partição de `DeviceId`, que contém todos os documentos correspondentes ao valor de chave de partição `XMS-0001`.
 
 ```csharp
 // Query using partition key into a class called, DeviceReading
@@ -30,7 +30,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
 
 ## <a name="cross-partition-query"></a>Consulta entre partições
 
-A consulta a seguir não tem um filtro na chave de partição`DeviceId`() e é distribuídada para todas as partições em que ele é executado no índice da partição. Para executar uma consulta entre partições, defina `EnableCrossPartitionQuery` como true (ou `x-ms-documentdb-query-enablecrosspartition`  na API REST).
+A consulta a seguir não tem um filtro na chave de partição (`DeviceId`) e é distribuídada para todas as partições em que ele é executado no índice da partição. Para executar uma consulta entre partições, defina `EnableCrossPartitionQuery` como true (ou `x-ms-documentdb-query-enablecrosspartition` na API REST).
 
 A propriedade EnableCrossPartitionQuery aceita um valor booliano. Quando definido como true e se a sua consulta não tiver uma chave de partição, Azure Cosmos DB fãs a consulta entre partições. O Fan out é feito emitindo consultas individuais para todas as partições. Para ler os resultados da consulta, os aplicativos cliente devem consumir os resultados do FeedResponse e verificar a Propriedade ContinuationToken. Para ler todos os resultados, continue Iterando nos dados até que o ContinuationToken seja nulo. 
 
@@ -59,9 +59,9 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 
 Pode gerir a execução paralela da consulta ao otimizar os parâmetros abaixo:
 
-- **MaxDegreeOfParallelism**: Define o número máximo de conexões de rede simultâneas com as partições do contêiner. Se você definir essa propriedade como-1, o SDK gerenciará o grau de paralelismo. Se o `MaxDegreeOfParallelism` não for especificado ou definido como 0, que é o valor padrão, haverá uma única conexão de rede para as partições do contêiner.
+- **MaxDegreeOfParallelism**: define o número máximo de ligações de rede simultâneas às partições do contentor. Se você definir essa propriedade como-1, o SDK gerenciará o grau de paralelismo. Se o  de `MaxDegreeOfParallelism`não for especificado ou definido como 0, que é o valor padrão, haverá uma única conexão de rede com as partições do contêiner.
 
-- **MaxBufferedItemCount**: Compensa a latência da consulta em relação à utilização de memória do lado do cliente. Se essa opção for omitida ou para definir como-1, o SDK gerenciará o número de itens armazenados em buffer durante a execução de consulta paralela.
+- **MaxBufferedItemCount**: negoceia a latência da consulta em relação à utilização da memória do lado do cliente. Se essa opção for omitida ou para definir como-1, o SDK gerenciará o número de itens armazenados em buffer durante a execução de consulta paralela.
 
 Com o mesmo estado da coleção, uma consulta paralela retorna resultados na mesma ordem que uma execução serial. Ao executar uma consulta entre partições que inclui operadores de classificação (ORDENAr por, TOP), o SDK do Azure Cosmos DB emite a consulta paralelamente entre partições. Ele mescla resultados parcialmente classificados no lado do cliente para produzir resultados ordenados globalmente.
 

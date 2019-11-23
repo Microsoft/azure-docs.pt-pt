@@ -1,7 +1,7 @@
 ---
-title: High availability ports overview in Azure
+title: Descrição geral das portas de elevada disponibilidade no Azure
 titleSuffix: Azure Load Balancer
-description: Learn about high availability ports load balancing on an internal load balancer.
+description: Saiba mais sobre num Balanceador de carga interno de balanceamento de carga de portas de elevada disponibilidade.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -20,88 +20,88 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74215082"
 ---
-# <a name="high-availability-ports-overview"></a>High availability ports overview
+# <a name="high-availability-ports-overview"></a>Descrição geral das portas de elevada disponibilidade
 
-Azure Standard Load Balancer helps you load-balance TCP and UDP flows on all ports simultaneously when you're using an internal load balancer. 
+Balanceador de carga de Standard do Azure ajuda-o a fluxos TCP e UDP de balanceamento de carga em todas as portas em simultâneo quando estiver a utilizar um balanceador de carga interno. 
 
-A high availability (HA) ports load-balancing rule is a variant of a load-balancing rule, configured on an internal Standard Load Balancer. You can simplify the use of a load balancer by providing a single rule to load-balance all TCP and UDP flows that arrive on all ports of an internal Standard Load Balancer. The load-balancing decision is made per flow. This action is based on the following five-tuple connection: source IP address, source port, destination IP address, destination port, and protocol
+Uma regra de balanceamento de carga de portas de alta disponibilidade (HA) é uma variante de uma regra de balanceamento de carga, configurada em um Standard Load Balancer interno. Pode simplificar o uso de um balanceador de carga ao fornecer uma única regra balancear a carga todos os fluxos TCP e UDP que chegam em todas as portas de um balanceador de carga de padrão interno. A decisão de balanceamento de carga é feita por fluxo. Esta ação se baseia na seguinte conexão de cinco tuplas: endereço IP de origem, porta de origem, endereço IP de destino, porta de destino e protocolo
 
-The HA ports load-balancing rules help you with critical scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can also help when a large number of ports must be load-balanced. 
+As regras de balanceamento de carga das portas de HA ajudam com cenários críticos, como alta disponibilidade e escala para NVAs (soluções de virtualização de rede) dentro de redes virtuais. Também pode ajudar a funcionalidade quando tem de ser um grande número de portas com balanceamento de carga. 
 
-The HA ports load-balancing rules is configured when you set the front-end and back-end ports to **0** and the protocol to **All**. The internal load balancer resource then balances all TCP and UDP flows, regardless of port number
+As regras de balanceamento de carga das portas de alta disponibilidade são configuradas quando você define as portas de front-end e back-end como **0** e o protocolo como **todos**. O recurso de balanceador de carga interno equilibra todos os fluxos TCP e UDP, independentemente do número da porta
 
-## <a name="why-use-ha-ports"></a>Why use HA ports?
+## <a name="why-use-ha-ports"></a>Por que usar portas HA?
 
-### <a name="nva"></a>Network virtual appliances
+### <a name="nva"></a>Aplicações virtuais de rede
 
-You can use NVAs to help secure your Azure workload from multiple types of security threats. When you use NVAs in these scenarios, they must be reliable and highly available, and they must scale out for demand.
+Pode utilizar NVAs para ajudar a proteger sua carga de trabalho do Azure de múltiplos tipos de ameaças de segurança. Quando utilizar NVAs nestes cenários, têm de ser fiável e altamente disponíveis e devem aumentar horizontalmente para a pedido.
 
-You can achieve these goals simply by adding NVA instances to the back-end pool of your internal load balancer and configuring an HA ports load-balancer rule.
+Pode alcançar essas metas simplesmente adicionando instâncias da NVA para o conjunto de back-end do seu Balanceador de carga interno e configurar um HA portas a regra de Balanceador de carga.
 
-For NVA HA scenarios, HA ports offer the following advantages:
-- Provide fast failover to healthy instances, with per-instance health probes
-- Ensure higher performance with scale-out to *n*-active instances
-- Provide *n*-active and active-passive scenarios
-- Eliminate the need for complex solutions, such as Apache ZooKeeper nodes for monitoring appliances
+Para a NVA HA cenários, as portas HA oferecem as seguintes vantagens:
+- Fornecer a ativação pós-falha rápida para instâncias de bom estado de funcionamento, por instância sondas de estado de funcionamento
+- Certifique-se com o aumento na horizontal para um desempenho mais elevado *n*-instâncias ativas
+- Fornecer *n*-cenários de Active Directory e ativa-passiva
+- Eliminar a necessidade de soluções complexas, como nós do ZooKeeper do Apache para monitorização de aplicações
 
-The following diagram presents a hub-and-spoke virtual network deployment. The spokes force-tunnel their traffic to the hub virtual network and through the NVA, before leaving the trusted space. The NVAs are behind an internal Standard Load Balancer with an HA ports configuration. All traffic can be processed and forwarded accordingly. When configured as show in the following diagram, an HA Ports load-balancing rule additionally provides flow symmetry for ingress and egress traffic.
+O diagrama seguinte apresenta uma implementação de rede virtual do hub-and-spoke. A imposição de túnel spokes seu tráfego de rede virtual do concentrador e através da NVA, antes de deixarem o espaço fidedigno. As NVAs estão por trás de um balanceador de carga interno padrão com uma configuração de portas HA. Todo o tráfego pode ser processado e encaminhado em conformidade. Quando configurado como mostrado no diagrama a seguir, uma regra de balanceamento de carga de portas de alta disponibilidade também fornecerá simetria de fluxo para tráfego de entrada e saída.
 
 <a node="diagram"></a>
-![Diagram of hub-and-spoke virtual network, with NVAs deployed in HA mode](./media/load-balancer-ha-ports-overview/nvaha.png)
+![diagrama de rede virtual Hub-e-spoke, com NVAs implantado no modo HA](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 >[!NOTE]
-> If you are using NVAs, confirm with their providers how to best use HA ports and to learn which scenarios are supported.
+> Se estiver a utilizar NVAs, certifique-se com os respetivos fornecedores de como usar da melhor maneira portas HA e para saber quais cenários são suportados.
 
-### <a name="load-balancing-large-numbers-of-ports"></a>Load-balancing large numbers of ports
+### <a name="load-balancing-large-numbers-of-ports"></a>Balanceamento de carga grandes números de portas
 
-You can also use HA ports for applications that require load balancing of large numbers of ports. You can simplify these scenarios by using an internal [Standard Load Balancer](load-balancer-standard-overview.md) with HA ports. A single load-balancing rule replaces multiple individual load-balancing rules, one for each port.
+Também pode utilizar portas HA para aplicações que requerem balanceamento de carga de um grande número de portas. Pode simplificar a esses cenários, utilizando um interno [Balanceador de carga Standard](load-balancer-standard-overview.md) com portas HA. Uma única regra de balanceamento de carga substitui várias balanceamento de carga regras individuais, uma para cada porta.
 
-## <a name="region-availability"></a>Disponibilidade regional
+## <a name="region-availability"></a>Disponibilidade de região
 
-The HA ports feature is available in all the global Azure regions.
+A funcionalidade de portas HA está disponível em todas as regiões do Azure global.
 
-## <a name="supported-configurations"></a>Supported configurations
+## <a name="supported-configurations"></a>Configurações suportadas
 
-### <a name="a-single-non-floating-ip-non-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>A single, non-floating IP (non-Direct Server Return) HA-ports configuration on an internal Standard Load Balancer
+### <a name="a-single-non-floating-ip-non-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>Uma configuração de portas HA de IP (não - devolução direta do servidor) única, não flutuante num Standard Balanceador de carga interno
 
-This configuration is a basic HA ports configuration. You can configure an HA ports load-balancing rule on a single front-end IP address by doing the following:
-1. While configuring Standard Load Balancer, select the **HA ports** check box in the Load Balancer rule configuration.
-2. For **Floating IP**, select **Disabled**.
+Esta configuração é uma configuração de portas HA básica. Pode configurar um HA regra de balanceamento de carga de portas num único endereço IP de front-end ao fazer o seguinte:
+1. Ao configurar o Balanceador de carga Standard, selecione o **portas HA** caixa de verificação na configuração de regra de Balanceador de carga.
+2. Para **IP flutuante**, selecione **desativado**.
 
-This configuration does not allow any other load-balancing rule configuration on the current load balancer resource. It also allows no other internal load balancer resource configuration for the given set of back-end instances.
+Esta configuração não permite quaisquer outra balanceamento de carga na configuração da regra no recurso de Balanceador de carga atual. Também permite que não existem outra interno configuração Balanceador de carga recursos para determinado conjunto de instâncias de back-end.
 
-However, you can configure a public Standard Load Balancer for the back-end instances in addition to this HA ports rule.
+No entanto, pode configurar um balanceador de carga Standard público para as instâncias de back-end além desta regra de portas HA.
 
-### <a name="a-single-floating-ip-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>A single, floating IP (Direct Server Return) HA-ports configuration on an internal Standard Load Balancer
+### <a name="a-single-floating-ip-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>Uma configuração de portas HA de IP (devolução direta do servidor) única, vírgula flutuante num Standard Balanceador de carga interno
 
-You can similarly configure your load balancer to use a load-balancing rule with **HA Port** with a single front end by setting the **Floating IP** to **Enabled**. 
+Da mesma forma pode configurar o Balanceador de carga a utilizar uma regra de balanceamento de carga com **portas HA** com um único front-end ao definir o **IP flutuante** para **ativado**. 
 
-By using this configuration, you can add more floating IP load-balancing rules and/or a public load balancer. However, you cannot use a non-floating IP, HA-ports load-balancing configuration on top of this configuration.
+Ao utilizar esta configuração, pode adicionar mais flutuantes balanceamento de carga regras de IP e/ou um balanceador de carga público. No entanto, não é possível utilizar um IP de vírgula flutuante, portas HA configuração de balanceamento de carga sobre esta configuração.
 
-### <a name="multiple-ha-ports-configurations-on-an-internal-standard-load-balancer"></a>Multiple HA-ports configurations on an internal Standard Load Balancer
+### <a name="multiple-ha-ports-configurations-on-an-internal-standard-load-balancer"></a>Várias configurações de portas HA num Standard Balanceador de carga interno
 
-If your scenario requires that you configure more than one HA port front end for the same back-end pool, you can do the following: 
-- Configure more than one front-end private IP address for a single internal Standard Load Balancer resource.
-- Configure multiple load-balancing rules, where each rule has a single unique front-end IP address selected.
-- Select the **HA ports** option, and then set **Floating IP** to **Enabled** for all the load-balancing rules.
+Se o seu cenário requer que configure mais do que um HA porta front-end para o mesmo conjunto de back-end, pode fazer o seguinte: 
+- Configure mais do que um front-end endereço IP privado para um único recurso de Balanceador de carga interno.
+- Configure várias regras de balanceamento de carga, onde cada regra tem um endereço IP de front-end exclusivo único selecionado.
+- Selecione o **portas HA** opção e, em seguida, defina **IP flutuante** para **ativado** para todas as regras de balanceamento de carga.
 
-### <a name="an-internal-load-balancer-with-ha-ports-and-a-public-load-balancer-on-the-same-back-end-instance"></a>An internal load balancer with HA ports and a public load balancer on the same back-end instance
+### <a name="an-internal-load-balancer-with-ha-ports-and-a-public-load-balancer-on-the-same-back-end-instance"></a>Um balanceador de carga interno com portas HA e um balanceador de carga público na mesma instância de back-end
 
-You can configure *one* public Standard Load Balancer resource for the back-end resources, along with a single internal Standard Load Balancer with HA ports.
+Pode configurar *um* recurso de Balanceador de carga Standard público para os recursos de back-end, juntamente com uma única Standard Balanceador de carga interno com portas HA.
 
 >[!NOTE]
->This capability is currently available via Azure Resource Manager templates, but it is not available via the Azure portal.
+>Esta capacidade está atualmente disponível através de modelos Azure Resource Manager, mas não está disponível através do portal do Azure.
 
 ## <a name="limitations"></a>Limitações
 
-- HA ports load-balancing rules are available only for internal Standard Load Balancer.
-- The combining of an HA ports load-balancing rule and a non-HA ports load-balancing rule is not supported.
-- Existing IP fragments will be forwarded by HA Ports load-balancing rules to same destination as first packet.  IP fragmenting a UDP or TCP packet is not supported.
-- The HA ports load-balancing rules are not available for IPv6.
-- Flow symmetry (primarily for NVA scenarios) is supported with backend instance and a single NIC (and single IP configuration) only when used as shown in the diagram above and using HA Ports load-balancing rules. It is not provided in any other scenario. This means that two or more Load Balancer resources and their respective rules make independent decisions and are never coordinated. See the description and diagram for [network virtual appliances](#nva). When you are using multiple NICs or sandwiching the NVA between a public and internal Load Balancer, flow symmetry is not available.  You may be able to work around this by source NAT'ing the ingress flow to the IP of the appliance to allow replies to arrive on the same NVA.  However, we strongly recommend using a single NIC and using the reference architecture shown in the diagram above.
+- As regras de balanceamento de carga das portas de alta disponibilidade estão disponíveis somente para Standard Load Balancer internas.
+- A combinação de um HA portas a regra de balanceamento de carga e um portas não HA não é suportada a regra de balanceamento de carga.
+- Os fragmentos IP existentes serão encaminhados pelas regras de balanceamento de carga das portas de alta disponibilidade para o mesmo destino que o primeiro pacote.  Não há suporte para a fragmentação de IP de um pacote UDP ou TCP.
+- As regras de balanceamento de carga das portas de alta disponibilidade não estão disponíveis para IPv6.
+- A simetria do Flow (principalmente para cenários NVA) tem suporte com a instância de back-end e uma única NIC (e configuração de IP único) somente quando usada, conforme mostrado no diagrama acima, e usando regras de balanceamento de carga de portas de alta disponibilidade. Ele não é fornecido em nenhum outro cenário. Isso significa que dois ou mais recursos de Load Balancer e suas respectivas regras tomam decisões independentes e nunca são coordenados. Consulte a descrição e diagrama para [aplicações virtuais de rede](#nva). Quando você estiver usando várias NICs ou sanduíches do NVA entre um Load Balancer público e interno, a simetria do fluxo não estará disponível.  Você pode solucionar isso por fonte NAT'ing o fluxo de entrada para o IP do dispositivo para permitir que as respostas cheguem no mesmo NVA.  No entanto, é altamente recomendável usar uma única NIC e usar a arquitetura de referência mostrada no diagrama acima.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Configure HA ports on an internal Standard Load Balancer](load-balancer-configure-ha-ports.md)
-- [Learn about Standard Load Balancer](load-balancer-standard-overview.md)
+- [Configurar portas HA num Standard Balanceador de carga interno](load-balancer-configure-ha-ports.md)
+- [Saiba mais sobre o Balanceador de carga Standard](load-balancer-standard-overview.md)

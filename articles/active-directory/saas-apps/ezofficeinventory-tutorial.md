@@ -94,37 +94,37 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. O aplicativo EZOfficeInventory espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-    ![imagem](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 1. Além de acima, o aplicativo EZOfficeInventory espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seu requisito.
 
     | Nome | Atributo de origem|
     | ---------------| --------------- |
-    | First_name | User. excertoname |
+    | First_name | user.givenname |
     | Last_name | User. sobrenome |
-    | E-mail | User. mail |
+    | Email | user.mail |
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download do certificado](common/certificatebase64.png)
+    ![O link de download de certificado](common/certificatebase64.png)
 
 1. Na seção **Configurar EZOfficeInventory** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo usuário** na parte superior da tela.
+1. Selecione **novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao EZOfficeInventory.
 
@@ -132,7 +132,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Na lista de aplicativos, selecione **EZOfficeInventory**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![O link "usuários e grupos"](common/users-groups-blade.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -146,7 +146,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 1. Abra uma nova janela do navegador da Web e entre no site da empresa do EZOfficeInventory como um administrador.
 
-2. No canto superior direito da página, clique em **perfil** and e navegue até **configurações**@no__t **-3 Complementos**.
+2. No canto superior direito da página, clique em **perfil** e, em seguida, navegue até **configurações** > **Complementos**.
 
     ![Configuração do EZOfficeInventory](./media/ezofficeinventory-tutorial/configure01.png)
 
@@ -164,7 +164,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
     e. Na caixa de texto **nome** , digite **first_name**.
 
-    f. Na caixa de texto **sobrenome** , insira **last_name**.
+    f. Na caixa de texto **sobrenome** , digite **last_name**.
 
     g. Na caixa de texto **email** , insira o **email**.
 
@@ -178,7 +178,7 @@ Nesta seção, um usuário chamado Brenda Simon é criado em EZOfficeInventory. 
 
 ## <a name="test-sso"></a>Testar SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Ao clicar no bloco do EZOfficeInventory no painel de acesso, você deverá ser conectado automaticamente ao EZOfficeInventory para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

@@ -48,7 +48,7 @@ Quando a instalação de um conector falha, a causa raiz geralmente é uma das s
 
 2.  Se qualquer uma dessas portas não for bem-sucedida, verifique se o firewall ou proxy de back-end tem acesso aos domínios e portas necessários, confira [preparar seu ambiente local](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
-3.  Abra um navegador (guia separada) e vá para a seguinte página da Web: <https://login.microsoftonline.com>, certifique-se de que você pode fazer logon nessa página.
+3.  Abra um navegador (guia separada) e vá para a seguinte página da Web: <https://login.microsoftonline.com>, verifique se você pode fazer logon nessa página.
 
 ## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Verificar o suporte de componentes de computador e back-end para certificado de confiança de proxy de aplicativo
 
@@ -71,9 +71,9 @@ Quando a instalação de um conector falha, a causa raiz geralmente é uma das s
 
 **Para verificar se as credenciais estão corretas:**
 
-Conecte-se a <https://login.microsoftonline.com> e use as mesmas credenciais. Verifique se o logon foi bem-sucedido. Você pode verificar a função de usuário acessando **Azure Active Directory** - @ no__t-2 **usuários e grupos** - @ no__t-5 **todos os usuários**. 
+Conecte-se a <https://login.microsoftonline.com> e use as mesmas credenciais. Verifique se o logon foi bem-sucedido. Você pode verificar a função de usuário acessando **Azure Active Directory** -&gt; **usuários e grupos** -&gt; **todos os usuários**. 
 
 Selecione sua conta de usuário e, em seguida, "função de diretório" no menu resultante. Verifique se a função selecionada é "administrador do aplicativo". Se não for possível acessar nenhuma das páginas ao longo dessas etapas, você não terá a função necessária.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Entender os conectores de Proxy de Aplicativo do AD do Azure](application-proxy-connectors.md)
+[Compreender os conectores de Proxy de aplicações do Azure AD](application-proxy-connectors.md)

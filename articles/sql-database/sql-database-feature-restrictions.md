@@ -65,9 +65,9 @@ A exibição `sys.sql_feature_restrictions` apresenta todas as restrições de r
 
 | Nome da coluna | Data type | Descrição |
 |-------------|-----------|-------------|
-| Classes       | nvarchar(128 | Classe de objeto ao qual a restrição se aplica |
-| objeto      | nvarchar (256) | Nome do objeto ao qual a restrição se aplica |
-| recurso     | nvarchar(128 | Recurso que é restrito |
+| Classe       | nvarchar(128) | Classe de objeto ao qual a restrição se aplica |
+| objeto      | nvarchar(256) | Nome do objeto ao qual a restrição se aplica |
+| recurso     | nvarchar(128) | Recurso que é restrito |
 
 ## <a name="feature-restrictions"></a>Restrições de recursos
 

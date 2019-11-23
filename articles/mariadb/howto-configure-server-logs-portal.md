@@ -23,12 +23,12 @@ As etapas neste artigo exigem que você tenha o [banco de dados do Azure para o 
 ## <a name="configure-logging"></a>Configurar registro em log
 Configure o acesso ao log de consultas lentas. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione o banco de dados do Azure para o servidor MariaDB.
 
 3. Na seção **monitoramento** na barra lateral, selecione **logs do servidor**. 
-   ![Screenshot de opções de logs de servidor @ no__t-1
+   ![captura de tela de opções de logs do servidor](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
 
 4. Para ver os parâmetros do servidor, selecione **clique aqui para habilitar logs e configurar parâmetros de log**.
 
@@ -71,10 +71,10 @@ Após o início do log, você pode exibir uma lista de logs de consultas lentas 
 1. Especifique quais coletores de dados enviarão os logs de consulta lentos (conta de armazenamento, Hub de eventos ou espaço de trabalho Log Analytics).
 
 1. Selecione **MySqlSlowLogs** como o tipo de log.
-![Screenshot das opções de configuração de configurações de diagnóstico @ no__t-1
+![captura de tela das opções de configuração de configurações de diagnóstico](./media/howto-configure-server-logs-portal/configure-diagnostic-setting.png)
 
 1. Depois de configurar os coletores de dados para canalizar os logs de consulta lentos, selecione **salvar**.
-![Screenshot das opções de configuração de configurações de diagnóstico, com salvar realçado @ no__t-1
+![captura de tela das opções de configuração de configurações de diagnóstico, com salvar realçado](./media/howto-configure-server-logs-portal/save-diagnostic-setting.png)
 
 1. Acesse os logs de consulta lento explorando-os nos coletores de dados que você configurou. Pode levar até 10 minutos para que os logs sejam exibidos.
 

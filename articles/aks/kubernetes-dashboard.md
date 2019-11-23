@@ -22,7 +22,7 @@ Para obter mais informações sobre o painel do kubernetes, consulte [painel de 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-As etapas detalhadas neste documento pressupõem que você criou um cluster AKs e estabeleceu uma `kubectl` conexão com o cluster. Se você precisar criar um cluster AKS, consulte o guia de [início rápido do AKS][aks-quickstart].
+As etapas detalhadas neste documento pressupõem que você criou um cluster AKS e estabeleceu uma conexão de `kubectl` com o cluster. Se você precisar criar um cluster AKS, consulte o guia de [início rápido do AKS][aks-quickstart].
 
 Precisa também da versão 2.0.46 ou posterior da CLI do Azure instalada e configurada. Executar `az --version` para localizar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
 
@@ -34,7 +34,7 @@ Para iniciar o painel do kubernetes, use o comando [AZ AKs Browse][az-aks-browse
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Esse comando cria um proxy entre o sistema de desenvolvimento e a API kubernetes e abre um navegador da Web para o painel do kubernetes. Se um navegador da Web não abrir no painel do kubernetes, copie e cole o endereço da URL anotado na CLI do Azure `http://127.0.0.1:8001`, normalmente.
+Esse comando cria um proxy entre o sistema de desenvolvimento e a API kubernetes e abre um navegador da Web para o painel do kubernetes. Se um navegador da Web não abrir no painel do kubernetes, copie e cole o endereço da URL anotado na CLI do Azure, geralmente `http://127.0.0.1:8001`.
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)
@@ -119,7 +119,7 @@ Para editar uma implantação:
 
 1. Selecione **implantações** no menu esquerdo e escolha sua implantação do *Nginx* .
 1. Selecione **Editar** na barra de navegação superior direita.
-1. Localize o `spec.replica` valor, em torno da linha 20. Para aumentar o número de réplicas para o aplicativo, altere esse valor de *1* para *3*.
+1. Localize o valor `spec.replica`, em torno da linha 20. Para aumentar o número de réplicas para o aplicativo, altere esse valor de *1* para *3*.
 1. Selecione **Atualizar** quando estiver pronto.
 
 ![Editar a implantação para atualizar o número de réplicas](./media/kubernetes-dashboard/edit-deployment.png)

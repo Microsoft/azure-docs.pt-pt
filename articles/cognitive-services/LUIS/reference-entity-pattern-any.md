@@ -17,7 +17,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71695099"
 ---
-# <a name="patternany-entity"></a>Entidade de Pattern.any 
+# <a name="patternany-entity"></a>Entidade Pattern.any 
 
 Padrão. any é um espaço reservado de comprimento variável usado somente no modelo de um padrão expressão para marcar onde a entidade começa e termina.  
 
@@ -29,7 +29,7 @@ Padrão. todas as entidades precisam ser marcadas nos exemplos de modelo de [pad
 
 ## <a name="usage"></a>Utilização
 
-Dado um aplicativo cliente que pesquisa livros com base no título, o padrão. qualquer extração do título completo. Um modelo expressão usando o padrão. qualquer para essa pesquisa de livro é `Was {BookTitle} written by an American this year[?]`. 
+Dado um aplicativo cliente que pesquisa livros com base no título, o padrão. qualquer extração do título completo. Um modelo expressão usando o padrão. qualquer para essa pesquisa de catálogo é `Was {BookTitle} written by an American this year[?]`. 
 
 Na tabela a seguir, cada linha tem duas versões do expressão. A principal expressão é como a LUIS inicialmente vê o expressão. Não fica claro onde o título do livro começa e termina. O expressão inferior usa um padrão. qualquer entidade para marcar o início e o fim da entidade. 
 
@@ -37,7 +37,7 @@ Na tabela a seguir, cada linha tem duas versões do expressão. A principal expr
 |--|
 |`Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?`<br><br>Foi **o homem que assumiu sua esposa por um chapéu e outras histórias clínicas** escritas por um American este ano?|
 |`Was Half Asleep in Frog Pajamas written by an American this year?`<br><br>A **metade estava em suspensão no Frog Pajamas** escrito por um American este ano?|
-|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>Foi @no__t tristeza particular do bolo de limão: Um romance @ no__t-0 escrito por um American este ano?|
+|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>**O tristeza particular do bolo de limão: um romance** escrito por um American este ano?|
 |`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>Foi **um wocket em meu bolso!** escrito por um American este ano?|
 ||
 

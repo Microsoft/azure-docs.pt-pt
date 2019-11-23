@@ -1,5 +1,5 @@
 ---
-title: Tarefas para o líder do projeto no processo de ciência de dados de equipe
+title: Tarefas para o projeto levam no Team Data Science Process
 description: Uma explicação detalhada das tarefas de um líder de projeto em uma equipe de processo de ciência de dados de equipe
 author: marktab
 manager: cgronlun
@@ -48,7 +48,7 @@ Este tutorial pressupõe que o [gerente do grupo](group-manager-tasks.md) e o [l
 Para clonar repositórios e modificar o conteúdo em seu computador local ou Máquina Virtual de Ciência de Dados (DSVM) ou configurar o armazenamento de arquivos do Azure e montá-lo em seu DSVM, você também precisará do seguinte:
 
 - Uma subscrição do Azure.
-- Git instalado em seu computador. Se você estiver usando um DSVM, o git será pré-instalado. Caso contrário, consulte o [Apêndice plataformas e ferramentas](platforms-and-tools.md#appendix).
+- Git instalado em seu computador. Se você estiver usando um DSVM, o git será pré-instalado. Caso contrário, consulte a [apêndice de ferramentas e plataformas](platforms-and-tools.md#appendix).
 - Se você quiser usar um DSVM, o DSVM do Windows ou Linux criado e configurado no Azure. Para obter mais informações e instruções, consulte a [documentação do máquina virtual de ciência de dados](/azure/machine-learning/data-science-virtual-machine/).
 - Para um DSVM do Windows, o [Gerenciador de credenciais do git (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado em seu computador. No arquivo *README.MD* , role para baixo até a seção **baixar e instalar** e selecione o **instalador mais recente**. Baixe o instalador *. exe* da página do instalador e execute-o. 
 - Para um DSVM do Linux, uma chave pública SSH configurada em seu DSVM e adicionada no Azure DevOps. Para obter mais informações e instruções, consulte a seção **criar chave pública SSH** no [Apêndice plataformas e ferramentas](platforms-and-tools.md#appendix). 
@@ -57,7 +57,7 @@ Para clonar repositórios e modificar o conteúdo em seu computador local ou Má
 
 Para criar um repositório de projeto no projeto **myTeam** de sua equipe:
 
-1. Acesse a página de **Resumo** do projeto da sua equipe em *https: \/ @ no__t-3 @ no__t-4Server name >/\<organization name >/\<team Name >* , por exemplo, **https: \//dev. Azure. com/DataScienceUnit/myTeam**e Selecione **repositórios** na navegação à esquerda. 
+1. Acesse a página de **Resumo** do projeto da sua equipe em *https:\//nome do servidor \<>/\<nome da organização >/\<nome da equipe*>, por exemplo, **https:\//dev.Azure.com/DataScienceUnit/myTeam**e selecione **repositórios** na barra de navegação à esquerda. 
    
 1. Selecione o nome do repositório na parte superior da página e, em seguida, selecione **novo repositório** na lista suspensa.
    
@@ -83,7 +83,7 @@ Para popular o repositório do seu projeto com o conteúdo do seu repositório d
    
    ![Selecionar importação](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. Na caixa de diálogo **importar um repositório git** , selecione **git** como o **tipo de origem**e insira a URL para o repositório do **teamtemplate** em **clonar URL**. A URL é *https: \/ @ no__t-2 @ no__t-3Server name >/\<organization name >/\<team name >/_git/\<team modelo Repository name >* . Por exemplo: **https: \//dev. Azure. com/DataScienceUnit/myTeam/_git/teamtemplate**. 
+1. Na caixa de diálogo **importar um repositório git** , selecione **git** como o **tipo de origem**e insira a URL para o repositório do **teamtemplate** em **clonar URL**. A URL é *https:\//nome do servidor \<>/\<nome da organização >/\<nome da equipe >/_git/\<nome do repositório de modelos de equipe >* . Por exemplo: **https:\//dev.Azure.com/DataScienceUnit/myTeam/_git/TeamTemplate**. 
    
 1. Selecione **importar**. O conteúdo do seu repositório de modelos de equipe é importado para o repositório do projeto. 
    
@@ -95,6 +95,6 @@ Se você precisar personalizar o conteúdo do repositório do seu projeto para a
 
 Aqui estão os links para descrições detalhadas das outras funções e tarefas definidas pelo processo de ciência de dados de equipe:
 
-- [Tarefas do gerente de grupo para uma equipe de ciência de dados](group-manager-tasks.md)
-- [Tarefas do líder de equipe para uma equipe de ciência de dados](team-lead-tasks.md)
+- [Tarefas do Gestor de grupo para uma equipa de ciência de dados](group-manager-tasks.md)
+- [Tarefas de líder de equipe para uma equipa de ciência de dados](team-lead-tasks.md)
 - [Tarefas de colaborador individuais para uma equipe de ciência de dados](project-ic-tasks.md)

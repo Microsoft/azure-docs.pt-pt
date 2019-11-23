@@ -45,7 +45,7 @@ Aqui está uma comparação rápida:
 || Machine Learning Studio (clássico) | Azure Machine Learning |
 |---| --- | --- |
 | Arrastar e soltar interface | Sim | Sim- [Designer de Azure Machine Learning (versão prévia)](../service/concept-designer.md) |
-| Testes | Escalonável (limite de dados de treinamento de 10 GB) | Dimensionar com destino de computação |
+| Experimentação | Escalonável (limite de dados de treinamento de 10 GB) | Dimensionar com destino de computação |
 | Módulos para interface do tipo "arrastar e soltar" | Muitos | Conjunto inicial de [módulos](../algorithm-module-reference/module-reference.md) populares|
 |Treinamento de destinos de computação| Destino de computação proprietário, somente suporte de CPU| Dá suporte a Azure Machine Learning computação (GPU ou CPU) e VMs de notebook.<br/>([Outros cálculos com suporte no SDK](../service/concept-compute-target.md#train))|
 |Destinos de computação do inferência| Formato de serviço da Web proprietário, não personalizável |  Serviço kubernetes do Azure e computação AML <br/>([Outros cálculos com suporte no SDK](../service/how-to-deploy-and-where.md)) |

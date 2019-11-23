@@ -310,7 +310,7 @@ ms.locfileid: "70099994"
 
 
 Com o Microsoft Azure, você pode migrar seu aplicativo SAP existente em execução no IBM DB2 para Linux, UNIX e Windows (LUW) para máquinas virtuais do Azure. Com o SAP no IBM DB2 para LUW, os administradores e desenvolvedores ainda podem usar as mesmas ferramentas de desenvolvimento e administração, que estão disponíveis localmente.
-Informações gerais sobre como executar o SAP Business Suite no IBM DB2 para LUW podem ser encontradas na SCN (rede de comunidade SAP <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>) em.
+Informações gerais sobre como executar o SAP Business Suite no IBM DB2 para LUW podem ser encontradas na SCN (rede de comunidade SAP) em <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
 
 Para obter mais informações e atualizações sobre o SAP no DB2 para LUW no Azure, consulte a observação do SAP [2233094]. 
 
@@ -318,18 +318,18 @@ Os vários artigos sobre carga de trabalho do SAP no Azure foram lançados.  É 
 
 As seguintes notas SAP estão relacionadas ao SAP no Azure em relação à área abordada neste documento:
 
-| Número da nota | Cargo |
+| Número da nota | Título |
 | --- | --- |
-| [1928533] |Aplicativos SAP no Azure: Produtos com suporte e tipos de VM do Azure |
-| [2015553] |SAP em Microsoft Azure: Pré-requisitos de suporte |
+| [1928533] |Aplicativos SAP no Azure: produtos com suporte e tipos de VM do Azure |
+| [2015553] |SAP em Microsoft Azure: pré-requisitos de suporte |
 | [1999351] |Solução de problemas de monitoramento aprimorado do Azure para SAP |
 | [2178632] |Principais métricas de monitoramento para SAP em Microsoft Azure |
-| [1409604] |Virtualização no Windows: Monitoramento avançado |
-| [2191498] |SAP no Linux com o Azure: Monitoramento avançado |
-| [2233094] |DB6: Aplicativos SAP no Azure usando IBM DB2 para Linux, UNIX e Windows-informações adicionais |
-| [2243692] |VM do Linux em Microsoft Azure (IaaS): Problemas de licença do SAP |
-| [1984787] |SUSE LINUX Enterprise Server 12: Notas de instalação |
-| [2002167] |Red Hat Enterprise Linux 7. x: Instalação e atualização |
+| [1409604] |Virtualização no Windows: monitoramento avançado |
+| [2191498] |SAP no Linux com o Azure: monitoramento avançado |
+| [2233094] |DB6: aplicativos SAP no Azure usando IBM DB2 para Linux, UNIX e Windows-informações adicionais |
+| [2243692] |VM do Linux em Microsoft Azure (IaaS): problemas de licença do SAP |
+| [1984787] |SUSE LINUX Enterprise Server 12: notas de instalação |
+| [2002167] |Red Hat Enterprise Linux 7. x: instalação e atualização |
 | [1597355] |Recomendação de espaço de permuta para Linux |
 
 Como uma PR-Read para este documento, você deve ter lido as [Considerações sobre o documento para a implantação do DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md) , bem como outros guias na documentação da carga de trabalho do [SAP no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
@@ -341,8 +341,8 @@ O SAP no IBM DB2 para LUW em Microsoft Azure serviços de máquina virtual tem s
 Para obter informações sobre os produtos SAP com suporte e os tipos de VM do Azure, consulte a observação do SAP [1928533].
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração do IBM DB2 para Linux, UNIX e Windows para instalações do SAP em VMs do Azure
-### <a name="storage-configuration"></a>Configuração do Armazenamento
-Todos os arquivos de banco de dados devem ser armazenados no sistema de arquivos NTFS com base em discos anexados diretamente. Esses discos são montados na VM do Azure e são baseados no armazenamento de BLOBs<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>de páginas do Azure<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>() ou Managed disks (). Qualquer tipo de unidade de rede ou compartilhamentos remotos como os seguintes serviços de arquivo do Azure **não** tem suporte para arquivos de banco de dados: 
+### <a name="storage-configuration"></a>Configuração de armazenamento
+Todos os arquivos de banco de dados devem ser armazenados no sistema de arquivos NTFS com base em discos anexados diretamente. Esses discos são montados na VM do Azure e são baseados no armazenamento de BLOBs de páginas do Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Qualquer tipo de unidade de rede ou compartilhamentos remotos como os seguintes serviços de arquivo do Azure **não** tem suporte para arquivos de banco de dados: 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
@@ -359,7 +359,7 @@ Como alternativa, você pode usar pools de armazenamento do Windows (disponívei
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-Para os discos que contêm os caminhos de armazenamento do DB2 para seus diretórios sapdata e saptmp, você deve especificar um tamanho de setor de disco físico de 512 KB. Ao usar pools de armazenamento do Windows, você deve criar manualmente os pools de armazenamento por meio `-LogicalSectorSizeDefault`da interface de linha de comando usando o parâmetro. Para obter mais informações, <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>consulte.
+Para os discos que contêm os caminhos de armazenamento do DB2 para seus diretórios sapdata e saptmp, você deve especificar um tamanho de setor de disco físico de 512 KB. Ao usar pools de armazenamento do Windows, você deve criar manualmente os pools de armazenamento por meio da interface de linha de comando usando o parâmetro `-LogicalSectorSizeDefault`. Para obter mais informações, consulte <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
 Para a VM da série M do Azure, a latência de gravação nos logs de transação pode ser reduzida por fatores, em comparação com o desempenho do armazenamento Premium do Azure, ao usar o Azure Acelerador de Gravação. Portanto, você deve implantar os Acelerador de Gravação do Azure para os VHD que formam o volume para os logs de transação do DB2. Os detalhes podem ser lidos no [acelerador de gravação](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)do documento.
 
@@ -396,7 +396,7 @@ Para implantações do DB2 no Windows, é altamente recomendável usar a funcion
 ### <a name="specifics-for-linux-deployments"></a>Especificações para implantações do Linux
 Desde que a cota de IOPS atual por disco seja suficiente, é possível armazenar todos os arquivos de banco de dados em um único disco. Embora você sempre deva separar os arquivos de dados e os arquivos de log de transações em discos/VHDs diferentes.
 
-Como alternativa, se a taxa de transferência de IOPS ou de e/s de um único VHD do Azure não for suficiente, você poderá usar o LVM (Gerenciador de volume lógico) ou MDADM conforme descrito nas considerações de documento [para implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md) para criar uma dispositivo lógico grande em vários discos.
+Como alternativa, se a taxa de transferência de IOPS ou de e/s de um único VHD do Azure não for suficiente, você poderá usar o LVM (Gerenciador de volume lógico) ou o MDADM conforme descrito nas considerações de documento [para a implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md) para criar um dispositivo lógico grande em vários discos.
 Para os discos que contêm os caminhos de armazenamento do DB2 para seus diretórios sapdata e saptmp, você deve especificar um tamanho de setor de disco físico de 512 KB.
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->

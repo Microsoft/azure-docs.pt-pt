@@ -79,7 +79,7 @@ Para aplicar uma ACL aos seus certificados para seus Service Fabric processos de
 
 ## <a name="secure-a-service-fabric-cluster-certificate-by-common-name"></a>Proteger um certificado de Cluster Service Fabric por nome comum
 
-Para proteger seu cluster de Service Fabric por certificado `Common Name`, use a propriedade de modelo [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames)do Resource Manager, da seguinte maneira:
+Para proteger o cluster de Service Fabric por `Common Name`de certificado, use a propriedade de modelo [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames)do Resource Manager, da seguinte maneira:
 
 ```json
 "certificateCommonNames": {
@@ -96,16 +96,16 @@ Para proteger seu cluster de Service Fabric por certificado `Common Name`, use a
 > [!NOTE]
 > Os clusters de Service Fabric usarão o primeiro certificado válido encontrado no repositório de certificados do host. No Windows, esse será o certificado com a data de expiração mais recente que corresponde ao nome comum e à impressão digital do emissor.
 
-Domínios do Azure, como * \<YOUR SUBDOMAIN\>.cloudapp.azure.com ou \<YOUR SUBDOMAIN\>.trafficmanager.net, pertencem à Microsoft. As autoridades de certificação não emitirão certificados para domínios para usuários não autorizados. A maioria dos usuários precisará comprar um domínio de um registrador ou ser um administrador de domínio autorizado, para que uma autoridade de certificação emita um certificado com esse nome comum.
+Domínios do Azure, como *\<seu subdomínio\>. cloudapp.azure.com ou \<seu subdomínio\>. trafficmanager.net, pertencem à Microsoft. As autoridades de certificação não emitirão certificados para domínios para usuários não autorizados. A maioria dos usuários precisará comprar um domínio de um registrador ou ser um administrador de domínio autorizado, para que uma autoridade de certificação emita um certificado com esse nome comum.
 
 Para obter detalhes adicionais sobre como configurar o serviço DNS para resolver seu domínio para um endereço IP da Microsoft, examine como configurar o [DNS do Azure para hospedar seu domínio](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns).
 
 > [!NOTE]
 > Depois de delegar os servidores de nome de seus domínios aos servidores de nome de zona DNS do Azure, adicione os dois registros a seguir à sua zona DNS:
-> - Um registro ' A ' para o APEX do domínio que não é um `Alias record set` para todos os endereços IP que seu domínio personalizado resolverá.
+> - Um registro ' A ' para o APEX do domínio que não é um `Alias record set` a todos os endereços IP que seu domínio personalizado resolverá.
 > - Um registro ' C' para subdomínios da Microsoft que você provisionou que não são `Alias record set`. Por exemplo, você pode usar o seu Gerenciador de tráfego ou o nome DNS do Load Balancer.
 
-Para atualizar seu portal para exibir um nome DNS personalizado para seu Service Fabric cluster `"managementEndpoint"`, atualize as propriedades de modelo do Resource Manager de cluster a seguir Service Fabric:
+Para atualizar seu portal para exibir um nome DNS personalizado para o `"managementEndpoint"`de Cluster Service Fabric, atualize as propriedades de modelo do Resource Manager de cluster a seguir Service Fabric:
 
 ```json
  "managementEndpoint": "[concat('https://<YOUR CUSTOM DOMAIN>:',parameters('nt0fabricHttpGatewayPort'))]",
@@ -171,7 +171,7 @@ Os clusters do Azure Service Fabric são hospedados em conjuntos de dimensioname
 Para obter uma lista de serviços que o MSI pode usar para autenticar no, consulte [Serviços do Azure que dão suporte à autenticação Azure Active Directory](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
 
 
-Para habilitar a identidade gerenciada atribuída pelo sistema durante a criação de um conjunto de dimensionamento de máquinas virtuais ou um conjunto de dimensionamento de máquinas virtuais existente, declare a seguinte Propriedade `"Microsoft.Compute/virtualMachinesScaleSets"`:
+Para habilitar a identidade gerenciada atribuída pelo sistema durante a criação de um conjunto de dimensionamento de máquinas virtuais ou de um conjunto de dimensionamento de máquinas virtuais existente, declare a seguinte propriedade de `"Microsoft.Compute/virtualMachinesScaleSets"`:
 
 ```json
 "identity": { 
@@ -217,7 +217,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [Recomendamos que você implemente uma configuração padrão do setor que seja amplamente conhecida e bem testada, como linhas de base de segurança da Microsoft, em oposição à criação de uma linha de base por conta própria](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); uma opção para provisioná-los em seus conjuntos de dimensionamento de máquinas virtuais é usar o manipulador de extensão de DSC (configuração de estado desejado) do Azure para configurar as VMs à medida que elas ficam online, para que estejam executando o software de produção.
 
 ## <a name="azure-firewall"></a>Azure Firewall
-o firewall de @no__t 0Azure é um serviço de segurança de rede gerenciado e baseado em nuvem que protege os recursos de rede virtual do Azure. Trata-se de um firewall totalmente com estado como um serviço com alta disponibilidade interna e escalabilidade de nuvem irrestrita. ](https://docs.microsoft.com/azure/firewall/overview); Isso habilita a capacidade de limitar o tráfego HTTP/S de saída a uma lista especificada de FQDN (nomes de domínio totalmente qualificados), incluindo curingas. Esta funcionalidade não requer terminação de SSL. É recomendável que você aproveite as [marcas de FQDN do firewall do Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags) para atualizações do Windows e para habilitar o tráfego de rede para os pontos de extremidade do Microsoft Windows Update podem fluir pelo firewall. [Implantar o Firewall do Azure usando um modelo](https://docs.microsoft.com/azure/firewall/deploy-template) fornece um exemplo para a definição do modelo de recurso Microsoft. Network/azureFirewalls. Regras de firewall comuns a Service Fabric aplicativos é permitir o seguinte para sua rede virtual de clusters:
+[O Firewall do Azure é um serviço de segurança de rede gerenciado baseado em nuvem que protege os recursos de rede virtual do Azure. Trata-se de um firewall totalmente com estado como um serviço com alta disponibilidade interna e escalabilidade de nuvem irrestrita.](https://docs.microsoft.com/azure/firewall/overview) Isso habilita a capacidade de limitar o tráfego HTTP/S de saída a uma lista especificada de FQDN (nomes de domínio totalmente qualificados), incluindo curingas. Esta funcionalidade não requer terminação de SSL. É recomendável que você aproveite as [marcas de FQDN do firewall do Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags) para atualizações do Windows e para habilitar o tráfego de rede para os pontos de extremidade do Microsoft Windows Update podem fluir pelo firewall. [Implantar o Firewall do Azure usando um modelo](https://docs.microsoft.com/azure/firewall/deploy-template) fornece um exemplo para a definição do modelo de recurso Microsoft. Network/azureFirewalls. Regras de firewall comuns a Service Fabric aplicativos é permitir o seguinte para sua rede virtual de clusters:
 
 - *download.microsoft.com
 - *servicefabric.azure.com
@@ -263,7 +263,7 @@ Por padrão, o Windows Defender antivírus é instalado no Windows Server 2016. 
 > Consulte a documentação de antimalware para obter regras de configuração se você não estiver usando o Windows Defender. Não há suporte para o Windows Defender no Linux.
 
 ## <a name="platform-isolation"></a>Isolamento de plataforma
-Por padrão, Service Fabric aplicativos recebem acesso ao próprio Service Fabric do tempo de execução, que se manifesta em diferentes formas: [variáveis de ambiente](service-fabric-environment-variables-reference.md) apontando para caminhos de arquivo no host correspondente aos arquivos de aplicativo e malha, um ponto de extremidade de comunicação entre processos que aceita solicitações específicas do aplicativo e o certificado do cliente que a malha espera que o aplicativo use para se autenticar. Na eventualidade de que o serviço hospede o código não confiável, é aconselhável desabilitar esse acesso ao tempo de execução da it-a menos que seja explicitamente necessário. O acesso ao tempo de execução é removido usando a seguinte declaração na seção de políticas do manifesto do aplicativo: 
+Por padrão, os aplicativos Service Fabric recebem acesso ao próprio Service Fabric do tempo de execução, que se manifesta em diferentes formas: [variáveis de ambiente](service-fabric-environment-variables-reference.md) apontando para caminhos de arquivo no host correspondente a arquivos de malha e aplicativo, um ponto de extremidade de comunicação entre processos que aceita solicitações específicas de aplicativo e o certificado de cliente que a malha espera que o aplicativo use para se autenticar. Na eventualidade de que o serviço hospede o código não confiável, é aconselhável desabilitar esse acesso ao tempo de execução da it-a menos que seja explicitamente necessário. O acesso ao tempo de execução é removido usando a seguinte declaração na seção de políticas do manifesto do aplicativo: 
 
 ```xml
 <ServiceManifestImport>
@@ -276,8 +276,8 @@ Por padrão, Service Fabric aplicativos recebem acesso ao próprio Service Fabri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Criar um cluster em VMs, ou computadores, executando o Windows Server: [Service Fabric a criação do cluster para Windows Server](service-fabric-cluster-creation-for-windows-server.md).
-* Criar um cluster em VMs, ou computadores, executando o Linux: [Crie um cluster do Linux](service-fabric-cluster-creation-via-portal.md).
+* Crie um cluster em VMs ou computadores executando o Windows Server: [Service Fabric a criação de cluster para o Windows Server](service-fabric-cluster-creation-for-windows-server.md).
+* Criar um cluster em VMs ou computadores executando o Linux: [criar um cluster do Linux](service-fabric-cluster-creation-via-portal.md).
 * Saiba mais sobre [as opções de suporte do Service Fabric](service-fabric-support.md).
 
 [Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png

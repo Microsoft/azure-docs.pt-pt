@@ -92,7 +92,7 @@ Para obter mais informações sobre a criação de clusters, veja [Criar um clus
 
 Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databricks e, em seguida, executar fragmentos de código para configurar a conta de armazenamento.
 
-1. No [portal do Azure](https://portal.azure.com), aceda à área de trabalho do Azure Databricks que criou e selecione **Iniciar Área de Trabalho**.
+1. No [Portal do Azure](https://portal.azure.com), aceda à área de trabalho do Azure Databricks que criou e selecione **Iniciar Área de Trabalho**.
 
 2. No painel esquerdo, selecione **Área de Trabalho**. No menu pendente **Área de Trabalho**, selecione **Criar** > **Bloco de Notas**.
 
@@ -121,7 +121,7 @@ Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databr
     > [!NOTE]
     > Esse bloco de código acessa diretamente o Data Lake ponto de extremidade Gen2 usando o OAuth, mas há outras maneiras de conectar o espaço de trabalho do databricks à sua conta de Data Lake Storage Gen2. Por exemplo, você pode montar o contêiner usando o OAuth ou usar um acesso direto com chave compartilhada. <br>Para ver exemplos dessas abordagens, consulte o artigo [Azure data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) no site do Azure Databricks.
 
-5. Nesse bloco de código, substitua os valores de espaço reservado `storage-account-name`, `appID`, `password` e `tenant-id` nesse bloco de código pelos valores que você coletou quando criou a entidade de serviço. Defina o valor de espaço reservado `container-name` como qualquer nome que você deseja dar ao contêiner.
+5. Nesse bloco de código, substitua os valores de espaço reservado `storage-account-name`, `appID`, `password`e `tenant-id` nesse bloco de código pelos valores que você coletou ao criar a entidade de serviço. Defina o valor do espaço reservado `container-name` como qualquer nome que você deseja dar ao contêiner.
 
     > [!NOTE]
     > Em uma configuração de produção, considere armazenar sua chave de autenticação no Azure Databricks. Em seguida, adicione uma chave de pesquisa ao bloco de código em vez da chave de autenticação. Depois de concluir este guia de início rápido, consulte o artigo [Azure data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) no site do Azure Databricks para ver exemplos dessa abordagem.
@@ -202,7 +202,7 @@ Quando tiver concluído este artigo, você poderá encerrar o cluster. Na área 
 
 ![Parar um cluster do Databricks](./media/data-lake-storage-quickstart-create-databricks-account/terminate-databricks-cluster.png "Parar um cluster do Databricks")
 
-Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **terminar após \_ @ no__t-2 minutos de inatividade** ao criar o cluster. Se definir esta opção, o cluster para depois de estar inativo durante o período de tempo designado.
+Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **terminar depois de \_\_ minutos de inatividade** ao criar o cluster. Se definir esta opção, o cluster para depois de estar inativo durante o período de tempo designado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

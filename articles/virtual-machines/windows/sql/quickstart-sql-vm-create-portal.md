@@ -20,7 +20,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/02/2019
 ms.locfileid: "71828368"
 ---
-# <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Início rápido: Crie uma máquina virtual do SQL Server 2017 Windows no portal do Azure
+# <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: criar uma máquina virtual do SQL Server 2017 do Windows no portal do Azure
 
 > [!div class="op_single_selector"]
 > * [Windows](quickstart-sql-vm-create-portal.md)
@@ -43,7 +43,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. Selecione **SQL do Azure** no menu à esquerda da portal do Azure. Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite *SQL do Azure* na caixa de pesquisa.
 1. Selecione **+ Adicionar** para abrir a página **selecionar opção de implantação do SQL** . Você pode exibir informações adicionais selecionando **Mostrar detalhes** no bloco **máquinas virtuais do SQL** .
-1. Selecione a **licença de SQL Server gratuita: SQL Server desenvolvedor 2017 na imagem do Windows Server 2016 @ no__t-0 da lista suspensa.
+1. Selecione a **licença de SQL Server gratuita: imagem do SQL Server 2017 Developer on Windows Server 2016** no menu suspenso.
 
    ![Nova janela de procura](./media/quickstart-sql-vm-create-portal/select-sql-2017-vm-image.png)
 
@@ -57,13 +57,13 @@ Na guia **noções básicas** , forneça as seguintes informações:
 
 1. Na seção **detalhes do projeto** , selecione sua assinatura do Azure e, em seguida, selecione **criar nova** para criar um novo grupo de recursos. Digite _SQLVM-RG_ para o nome.
 
-   ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+   ![Subscrição](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
 1. Em **detalhes da instância**:
     1. Digite _SQLVM_ para o **nome da máquina virtual**. 
     1. Escolha um local para a sua **região**. 
     1. Para a finalidade deste guia de início rápido, deixe **as opções de disponibilidade** definidas como _sem redundância de infraestrutura necessária_. Para obter mais informações sobre as opções de disponibilidade, consulte [disponibilidade](../../windows/availability.md). 
-    1. Na lista **imagem** , selecione _licença de SQL Server gratuita: SQL Server desenvolvedor 2017 no Windows Server 2016_. 
+    1. Na lista de **imagens** , selecione _licença de SQL Server gratuita: desenvolvedor de SQL Server 2017 no Windows Server 2016_. 
     1. Escolha **alterar o tamanho** do **tamanho** da máquina virtual e selecione a oferta **básica a2** . Certifique-se de limpar seus recursos depois de concluí-los para evitar cobranças inesperadas. 
 
    ![Detalhes da instância](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
@@ -74,9 +74,9 @@ Na guia **noções básicas** , forneça as seguintes informações:
 
 1. Em **regras de porta de entrada**, escolha **permitir portas selecionadas** e, em seguida, selecione **RDP (3389)** na lista suspensa. 
 
-   ![Regras de porta de entrada](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
+   ![Regras da porta de entrada](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
 
-## <a name="sql-server-settings"></a>Definições de SQL Server
+## <a name="sql-server-settings"></a>Definições do SQL Server
 
 Na guia **configurações de SQL Server** , configure as seguintes opções:
 
@@ -86,7 +86,7 @@ Na guia **configurações de SQL Server** , configure as seguintes opções:
    ![Configurações de segurança do SQL Server](media/quickstart-sql-vm-create-portal/sql-server-settings.png)
 
 
-1. Altere todas as outras configurações, se necessário, e selecione revisar **+ criar**. 
+1. Altere todas as outras configurações, se necessário, e selecione **revisar + criar**. 
 
    ![Examinar + criar](media/quickstart-sql-vm-create-portal/review-create.png)
 

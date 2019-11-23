@@ -24,9 +24,9 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 09/30/2019
 ms.locfileid: "71679844"
 ---
-# <a name="accounts--tenant-profiles-android"></a>Contas & perfis de locatário (Android)
+# <a name="accounts--tenant-profiles-android"></a>Contas e perfis de inquilino (Android)
 
-Este artigo fornece uma visão geral do que um `account` está na plataforma Microsoft Identity.
+Este artigo fornece uma visão geral do que é um `account` na plataforma de identidade da Microsoft.
 
 A API da MSAL (biblioteca de autenticação da Microsoft) substitui o termo *usuário* pela *conta*do termo. Um dos motivos é que um usuário (agente humano ou de software) pode ter ou pode usar várias contas. Essas contas podem estar na própria organização do usuário e/ou em outras organizações das quais o usuário é membro.
 
@@ -62,17 +62,17 @@ Uma conta na plataforma Microsoft Identity consiste em:
 No diagrama acima:
 
 - A conta `bob@contoso.com` é criada no Windows Server local Active Directory (origem do registro no local).
-- A conta `tom@live.com` é criada no locatário conta Microsoft.
+- A conta `tom@live.com` é criada no locatário do conta Microsoft.
 - `bob@contoso.com` tem acesso a pelo menos um recurso nos seguintes locatários Azure Active Directory:
   - contoso.com (sistema em nuvem de registro vinculado ao sistema local de registro)
   - fabrikam.com
   - woodgrovebank.com
   - Um perfil de locatário para `bob@contoso.com` existe em cada um desses locatários.
-- o `tom@live.com` tem acesso aos recursos nos seguintes locatários da Microsoft:
+- `tom@live.com` tem acesso aos recursos nos seguintes locatários da Microsoft:
   - contoso.com
   - fabrikam.com
   - Um perfil de locatário para `tom@live.com` existe em cada um desses locatários.
-- As informações sobre Tom e Bob em outros locatários podem ser diferentes daquelas no sistema de registro. Eles podem diferir por atributos como cargo, local do escritório e assim por diante. Eles podem ser membros de grupos e/ou funções dentro de cada organização (Azure Active Directory locatário). Nós nos referimos a essas informações como perfil de locatário bob@contoso.com.
+- As informações sobre Tom e Bob em outros locatários podem ser diferentes daquelas no sistema de registro. Eles podem diferir por atributos como cargo, local do escritório e assim por diante. Eles podem ser membros de grupos e/ou funções dentro de cada organização (Azure Active Directory locatário). Nós nos referimos a essas informações como bob@contoso.com perfil de locatário.
 
 No diagrama, bob@contoso.com e tom@live.com têm acesso a recursos em locatários diferentes do Azure Active Directory. Para obter mais informações, consulte [adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
@@ -126,7 +126,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 > Para ver uma lista de declarações disponíveis no objeto Account, consulte [declarações em um id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token)
 
 > [!TIP]
-> Para incluir declarações adicionais em seu id_token, consulte a documentação de declarações opcionais em [How para: Fornecer declarações opcionais para seu aplicativo do Azure AD @ no__t-0
+> Para incluir declarações adicionais em seu id_token, consulte a documentação de declarações opcionais em [como fornecer declarações opcionais para seu aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims)
 
 ### <a name="access-tenant-profile-claims"></a>Acessar declarações de perfil de locatário
 

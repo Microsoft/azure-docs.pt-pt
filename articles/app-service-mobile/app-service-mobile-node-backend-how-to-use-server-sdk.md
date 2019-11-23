@@ -28,7 +28,7 @@ ms.locfileid: "72388666"
 > [!NOTE]
 > O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
 >
->  Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+>  Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 Este artigo fornece informações detalhadas e exemplos que mostram como trabalhar com um back-end do node. js no recurso aplicativos móveis do serviço de Azure App.
 
@@ -108,7 +108,7 @@ Você pode encontrar o código para esse aplicativo básico no [exemplo de aplic
 
 O Visual Studio 2015 requer uma extensão para desenvolver aplicativos node. js dentro do IDE. Para começar, instale as [Ferramentas do node. js 1,1 para Visual Studio]. Quando você concluir a instalação, crie um aplicativo Express 4. x:
 
-1. Abra a caixa de diálogo **novo projeto** (de **arquivo** > **novo** **projeto** > ).
+1. Abra a caixa de diálogo **novo projeto** (de **arquivo** > **novo** **projeto**de > ).
 1. Expanda **modelos** > **JavaScript** > **node. js**.
 1. Selecione o **aplicativo Azure node. js Express 4 básico**.
 1. Preencha o nome do projeto. Selecione **OK**.
@@ -120,7 +120,7 @@ O Visual Studio 2015 requer uma extensão para desenvolver aplicativos node. js 
 
    ![Instalar novos pacotes do NPM][2]
 1. Selecione **fechar**.
-1. Abra o arquivo app. js para adicionar suporte para o SDK de aplicativos móveis. Na linha 6 na parte inferior das instruções da biblioteca `require`, adicione o seguinte código:
+1. Abra o arquivo app. js para adicionar suporte para o SDK de aplicativos móveis. Na linha 6 na parte inferior da biblioteca `require` instruções, adicione o seguinte código:
 
     ```javascript
     var bodyParser = require('body-parser');
@@ -271,7 +271,7 @@ table.dynamicSchema = false;
 module.exports = table;
 ```
 
-Se você definir tabelas estaticamente, também deverá chamar o método `tables.initialize()` para criar o esquema de banco de dados na inicialização. O método `tables.initialize()` retorna uma [promessa] para que o serviço Web não atenda solicitações antes que o banco de dados seja inicializado.
+Se você definir tabelas estaticamente, também deverá chamar o método `tables.initialize()` para criar o esquema de banco de dados na inicialização. O método `tables.initialize()` retorna uma [promessa] para que o serviço Web não atenda solicitações antes de o banco de dados ser inicializado.
 
 ### <a name="howto-sqlexpress-setup"></a>Usar SQL Server Express como um armazenamento de dados de desenvolvimento em seu computador local
 
@@ -378,16 +378,16 @@ A maioria das configurações no arquivo azureMobile. js tem uma configuração 
 | Configuração do aplicativo | configuração do azureMobile. js | Descrição | Valores válidos |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |nome |Nome do aplicativo |string |
-| **MS_MobileLoggingLevel** |log. Level |Nível mínimo de log das mensagens a serem registradas |erro, aviso, informações, detalhado, depuração, insimples |
-| **MS_DebugMode** |verificação |Habilita ou desabilita o modo de depuração |verdadeiro, falso |
-| **MS_TableSchema** |Data. Schema |Nome de esquema padrão para tabelas SQL |Cadeia de caracteres (padrão: dbo) |
-| **MS_DynamicSchema** |Data. dynamicSchema |Habilita ou desabilita o modo de depuração |verdadeiro, falso |
-| **MS_DisableVersionHeader** |versão (definida como indefinida) |Desabilita o cabeçalho X-ZUMO-Server-Version |verdadeiro, falso |
-| **MS_SkipVersionCheck** |skipversioncheck |Desabilita a verificação de versão da API do cliente |verdadeiro, falso |
+| **MS_MobileLoggingLevel** |logging.level |Nível mínimo de log das mensagens a serem registradas |erro, aviso, informações, detalhado, depuração, insimples |
+| **MS_DebugMode** |verificação |Habilita ou desabilita o modo de depuração |VERDADEIRO, FALSO |
+| **MS_TableSchema** |data.schema |Nome de esquema padrão para tabelas SQL |Cadeia de caracteres (padrão: dbo) |
+| **MS_DynamicSchema** |data.dynamicSchema |Habilita ou desabilita o modo de depuração |VERDADEIRO, FALSO |
+| **MS_DisableVersionHeader** |versão (definida como indefinida) |Desabilita o cabeçalho X-ZUMO-Server-Version |VERDADEIRO, FALSO |
+| **MS_SkipVersionCheck** |skipversioncheck |Desabilita a verificação de versão da API do cliente |VERDADEIRO, FALSO |
 
 Para definir uma configuração de aplicativo:
 
-1. Inicie sessão no [portal do Azure].
+1. Iniciar sessão no [portal do Azure].
 1. Selecione **todos os recursos** ou **serviços de aplicativos**e, em seguida, selecione o nome do seu aplicativo móvel.
 1. O painel **configurações** é aberto por padrão. Se não estiver, selecione **configurações**.
 1. No menu **geral** , selecione **configurações do aplicativo**.
@@ -404,8 +404,8 @@ Alterar a maioria das configurações de aplicativo requer uma reinicialização
 
 O uso do banco de dados SQL do Azure como um repositório é idêntico em todos os tipos de aplicativos de serviço Azure App. Se você ainda não tiver feito isso, siga estas etapas para criar um back-end de aplicativos móveis:
 
-1. Inicie sessão no [portal do Azure].
-1. No canto superior esquerdo da janela, selecione o botão **+ novo** > **Web + Celular** **aplicativo móvel**> e, em seguida, forneça um nome para o back-end de seus aplicativos móveis.
+1. Iniciar sessão no [portal do Azure].
+1. No canto superior esquerdo da janela, selecione o botão **+ novo** > **Web + celular** > **aplicativo móvel**e forneça um nome para o back-end dos seus aplicativos móveis.
 1. Na caixa **grupo de recursos** , digite o mesmo nome que o seu aplicativo.
 1. O plano do serviço de aplicativo padrão é selecionado. Se você quiser alterar o plano do serviço de aplicativo:
 
@@ -428,7 +428,7 @@ Você pode optar por conectar um banco de dados SQL existente ao back-end de seu
 > Se você já tiver um banco de dados no mesmo local que o back-end dos aplicativos móveis, poderá selecionar **usar um banco de dados existente** e, em seguida, selecionar esse banco de dados. Não recomendamos o uso de um banco de dados em um local diferente devido a latências mais altas.
 
 1. No novo back-end de aplicativos móveis, selecione **configurações** > **aplicativo móvel** > **dados** >  **+ Adicionar**.
-1. No painel **Adicionar conexão de dados** , selecione **SQL Database-definir configurações necessárias** > **criar um novo banco de dados**. Digite o nome do novo banco de dados na caixa **nome** .
+1. No painel **Adicionar conexão de dados** , selecione **SQL Database-definir configurações necessárias** > **criar um novo banco de**dados. Digite o nome do novo banco de dados na caixa **nome** .
 1. Selecione **servidor**. No painel **novo servidor** , insira um nome de servidor exclusivo na caixa **nome do servidor** e forneça um logon de administrador do servidor e uma senha adequados. Verifique se a seleção de permitir que os **Serviços do Azure acessem o servidor** está selecionada. Selecione **OK**.
 
    ![Criar uma Base de Dados SQL do Azure][6]
@@ -438,7 +438,7 @@ Você pode optar por conectar um banco de dados SQL existente ao back-end de seu
 
 <!--- END OF ALTERNATE INCLUDE -->
 
-A criação do banco de dados pode levar alguns minutos. Use a área **notificações** para monitorar o progresso da implantação. Não progredi até que o banco de dados seja implantado com êxito. Depois que o banco de dados é implantado, uma cadeia de conexão é criada para a instância do banco de dados SQL em suas configurações de aplicativo de back-end de aplicativos móveis. Você pode ver essa configuração de aplicativo em **configurações** > **configurações de aplicativo** > **cadeias de conexão**.
+A criação do banco de dados pode levar alguns minutos. Use a área **notificações** para monitorar o progresso da implantação. Não progredi até que o banco de dados seja implantado com êxito. Depois que o banco de dados é implantado, uma cadeia de conexão é criada para a instância do banco de dados SQL em suas configurações de aplicativo de back-end de aplicativos móveis. Você pode ver essa configuração de aplicativo em **configurações** > **configurações do aplicativo** > **cadeias de conexão**.
 
 ### <a name="howto-tables-auth"></a>Exigir autenticação para acesso a tabelas
 
@@ -481,7 +481,7 @@ A propriedade Access pode ter um destes três valores:
 Se a propriedade de acesso for indefinida, o acesso não autenticado será permitido.
 
 ### <a name="howto-tables-getidentity"></a>Usar declarações de autenticação com suas tabelas
-Você pode configurar várias declarações que são solicitadas quando a autenticação é configurada. Essas declarações não estão normalmente disponíveis por meio do objeto `context.user`. No entanto, você pode recuperá-los usando o método `context.user.getIdentity()`. O método `getIdentity()` retorna uma promessa que resolve para um objeto. O objeto é codificado pelo método de autenticação (`facebook`, `google`, `twitter`, `microsoftaccount` ou `aad`).
+Você pode configurar várias declarações que são solicitadas quando a autenticação é configurada. Essas declarações não estão normalmente disponíveis por meio do objeto `context.user`. No entanto, você pode recuperá-los usando o método `context.user.getIdentity()`. O método `getIdentity()` retorna uma promessa que resolve para um objeto. O objeto é codificado pelo método de autenticação (`facebook`, `google`, `twitter`, `microsoftaccount`ou `aad`).
 
 Por exemplo, se você configurar conta Microsoft autenticação e solicitar a declaração de endereços de email, poderá adicionar o endereço de email ao registro com o seguinte controlador de tabela:
 
@@ -680,7 +680,7 @@ Em seguida, você pode habilitar o suporte a Swagger no construtor de aplicativo
 var mobile = azureMobileApps({ swagger: true });
 ```
 
-Provavelmente, você só desejará habilitar o suporte a Swagger em edições de desenvolvimento. Você pode fazer isso usando a configuração de aplicativo `NODE_ENV`:
+Provavelmente, você só desejará habilitar o suporte a Swagger em edições de desenvolvimento. Você pode fazer isso usando a configuração do aplicativo `NODE_ENV`:
 
 ```javascript
 var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
@@ -690,7 +690,7 @@ O ponto de extremidade `swagger` está localizado em http://*seusite*. azurewebs
 
 Você também pode adicionar a opção Swagger ao seu arquivo azureMobile. js se desejar apenas o suporte do Swagger para o desenvolvimento local.
 
-## <a name="a-namepushpush-notifications"></a>notificações de @no__t 0Push
+## <a name="a-namepushpush-notifications"></a>notificações por push <a name="push"/>
 
 Os aplicativos móveis se integram aos hubs de notificação do Azure para que você possa enviar notificações por push direcionadas para milhões de dispositivos em todas as principais plataformas. Usando os hubs de notificação, você pode enviar notificações por push para dispositivos iOS, Android e Windows. Para saber mais sobre tudo o que você pode fazer com os hubs de notificação, consulte [visão geral dos hubs de notificação](../notification-hubs/notification-hubs-push-notification-overview.md).
 
@@ -803,7 +803,7 @@ Cada parâmetro é um dos verbos padrão RESTful: GET, POST, PATCH ou DELETE. O 
 
 ### <a name="howto-customapi-auth"></a>Exigir autenticação para acesso a uma API personalizada
 
-O SDK de aplicativos móveis implementa a autenticação da mesma maneira para o ponto de extremidade `tables` e APIs personalizadas. Para adicionar autenticação à API desenvolvida na seção anterior, adicione uma propriedade `access`:
+O SDK de aplicativos móveis implementa a autenticação da mesma maneira para o ponto de extremidade `tables` e APIs personalizadas. Para adicionar autenticação à API desenvolvida na seção anterior, adicione uma propriedade de `access`:
 
 ```javascript
 var api = {
@@ -833,7 +833,7 @@ api.get.access = 'authenticated';
 module.exports = api;
 ```
 
-O mesmo token que é usado para o ponto de extremidade `tables` deve ser usado para APIs personalizadas que exigem autenticação.
+O mesmo token que é usado para o ponto de extremidade de `tables` deve ser usado para APIs personalizadas que exigem autenticação.
 
 ### <a name="howto-customapi-auth"></a>Lidar com carregamentos de arquivos grandes
 

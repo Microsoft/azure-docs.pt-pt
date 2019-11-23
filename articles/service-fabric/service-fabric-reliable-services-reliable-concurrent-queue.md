@@ -62,7 +62,7 @@ IReliableConcurrentQueue<int> queue = await this.StateManager.GetOrAddAsync<IRel
 ### <a name="enqueueasync"></a>EnqueueAsync
 Aqui estão alguns trechos de código para usar EnqueueAsync seguidos por suas saídas esperadas.
 
-- *Case 1: Tarefa de enfileiramento único @ no__t-0
+- *Caso 1: tarefa de enfileiramento único*
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -81,7 +81,7 @@ Suponha que a tarefa foi concluída com êxito e que não havia transações sim
 > 20, 10
 
 
-- *Case 2: Tarefa de enfileiramento paralelo @ no__t-0
+- *Caso 2: tarefa de enfileiramento paralelo*
 
 ```
 // Parallel Task 1
@@ -110,7 +110,7 @@ Suponha que as tarefas foram concluídas com êxito, que as tarefas foram execut
 Aqui estão alguns trechos de código para usar TryDequeueAsync seguidos pelas saídas esperadas. Suponha que a fila já esteja preenchida com os seguintes itens na fila:
 > 10, 20, 30, 40, 50, 60
 
-- *Case 1: Tarefa única de remoção da fila @ no__t-0
+- *Caso 1: tarefa de remoção de uma única fila*
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -125,7 +125,7 @@ using (var txn = this.StateManager.CreateTransaction())
 
 Suponha que a tarefa foi concluída com êxito e que não havia transações simultâneas modificando a fila. Como nenhuma inferência pode ser feita sobre a ordem dos itens na fila, qualquer um dos três itens pode ser removido da fila, em qualquer ordem. A fila tentará manter os itens na ordem original (enfileirada), mas pode ser forçada a reordená-los devido a falhas ou operações simultâneas.  
 
-- *Case 2: Tarefa de remoção de fila paralela @ no__t-0
+- *Caso 2: tarefa paralela de remoção da fila*
 
 ```
 // Parallel Task 1
@@ -153,7 +153,7 @@ Suponha que as tarefas foram concluídas com êxito, que as tarefas foram execut
 
 O mesmo item *não* será exibido em ambas as listas. Portanto, se dequeue1 tiver *10*, *30*, então dequeue2 teria *20*, *40*.
 
-- *Case 3: Remover a ordem da fila com a anulação da transação @ no__t-0
+- *Caso 3: remover a ordem da fila com a anulação da transação*
 
 A anulação de uma transação com as filas em andamento coloca os itens de volta no cabeçalho da fila. A ordem na qual os itens são colocados de volta no início da fila não é garantida. Vamos examinar o código a seguir:
 
@@ -275,7 +275,7 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-drain"></a>Dreno de melhor esforço
-Uma descarga da fila não pode ser garantida devido à natureza simultânea da estrutura de dados.  É possível que, mesmo que nenhuma operação de usuário na fila esteja em andamento, uma chamada específica para TryDequeueAsync pode não retornar um item que foi anteriormente enfileirado e confirmado.  O item enfileirado tem garantia de *tornar-se visível para remover* a fila, no entanto, sem um mecanismo de comunicação fora de banda, um consumidor independente não pode saber que a fila atingiu um estado estável mesmo que todos os produtores tenham sido interrompidos e não novas operações de enfileiramento são permitidas. Portanto, a operação de descarga é o melhor esforço conforme implementado abaixo.
+Uma descarga da fila não pode ser garantida devido à natureza simultânea da estrutura de dados.  É possível que, mesmo que nenhuma operação de usuário na fila esteja em andamento, uma chamada específica para TryDequeueAsync pode não retornar um item que foi anteriormente enfileirado e confirmado.  O item enfileirado tem garantia de *tornar-se visível para a* remoção da fila, no entanto, sem um mecanismo de comunicação fora de banda, um consumidor independente não pode saber que a fila atingiu um estado estável mesmo que todos os produtores tenham sido interrompidos e nenhuma nova operação de enfileiramento seja permitida. Portanto, a operação de descarga é o melhor esforço conforme implementado abaixo.
 
 O usuário deve parar todas as tarefas de produtor e consumidor adicionais e aguardar que as transações em andamento sejam confirmadas ou anuladas antes de tentar drenar a fila.  Se o usuário souber o número esperado de itens na fila, ele poderá configurar uma notificação que sinalizará que todos os itens foram removidas da fila.
 

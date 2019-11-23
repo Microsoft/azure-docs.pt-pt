@@ -24,7 +24,7 @@ Este artigo mostra como você pode encontrar notícias, vídeos e outros itens p
 
 Por exemplo, você pode encontrar itens de notícias com base em critérios de pesquisa e fazer com que o Twitter poste esses itens como tweets no seu feed do Twitter.
 
-Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/). Se você for novo em aplicativos lógicos, examine [o que é o aplicativo lógico do Azure e o](../logic-apps/logic-apps-overview.md) [Quickstart: Crie seu primeiro aplicativo lógico @ no__t-0.
+Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/). Se você for novo em aplicativos lógicos, examine [o que é o início rápido e aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) [: Crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Para obter informações técnicas específicas do conector, consulte a [referência do conector do pesquisa do Bing](https://docs.microsoft.com/connectors/bingsearch/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -45,7 +45,7 @@ Em aplicativos lógicos do Azure, cada aplicativo lógico deve começar com um [
 
 2. Na caixa de pesquisa, insira "pesquisa do Bing" como filtro. Na lista de gatilhos, selecione o gatilho desejado.
 
-   Este exemplo usa este gatilho: **Pesquisa do Bing-no novo artigo de notícias**
+   Este exemplo usa este gatilho: **pesquisa do Bing novo artigo de notícias**
 
    ![Localizar Pesquisa do Bing gatilho](./media/connectors-create-api-bing-search/add-trigger.png)
 
@@ -54,13 +54,13 @@ Ou, se sua conexão já existir, forneça as informações necessárias para o g
 
    Para este exemplo, forneça critérios para retornar artigos de notícias correspondentes de Pesquisa do Bing.
 
-   | Propriedade | Necessário | Value | Descrição |
+   | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
    | Search Query | Sim | <*search-words*> | Insira as palavras-chave de pesquisa que você deseja usar. |
    | Market | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas você pode selecionar outro valor. |
    | Safe Search | Sim | <*search-level*> | O nível de filtro para excluir conteúdo adulto. O padrão é "moderado", mas você seleciona outro nível. |
-   | Count | Não | <*results-count*> | Retorna o número de resultados especificado. O padrão é 20, mas você pode especificar outro valor. O número real de resultados retornados pode ser menor que o número especificado. |
-   | Offset | Não | <*ignore-value*> | O número de resultados a serem ignorados antes de retornar os resultados |
+   | Contagem | Não | <*results-count*> | Retorna o número de resultados especificado. O padrão é 20, mas você pode especificar outro valor. O número real de resultados retornados pode ser menor que o número especificado. |
+   | Desvio | Não | > *de <de ignorar valor* | O número de resultados a serem ignorados antes de retornar os resultados |
    |||||
 
    Por exemplo:
@@ -105,13 +105,13 @@ Na lista ações, selecione a ação desejada.
 
    Para este exemplo, forneça os critérios para retornar um subconjunto dos resultados do gatilho.
 
-   | Propriedade | Necessário | Value | Descrição |
+   | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
    | Search Query | Sim | <*search-expression*> | Insira uma expressão para consultar os resultados do gatilho. Você pode selecionar um dos campos na lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
    | Market | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas você pode selecionar outro valor. |
    | Safe Search | Sim | <*search-level*> | O nível de filtro para excluir conteúdo adulto. O padrão é "moderado", mas você seleciona outro nível. |
-   | Count | Não | <*results-count*> | Retorna o número de resultados especificado. O padrão é 20, mas você pode especificar outro valor. O número real de resultados retornados pode ser menor que o número especificado. |
-   | Offset | Não | <*ignore-value*> | O número de resultados a serem ignorados antes de retornar os resultados |
+   | Contagem | Não | <*results-count*> | Retorna o número de resultados especificado. O padrão é 20, mas você pode especificar outro valor. O número real de resultados retornados pode ser menor que o número especificado. |
+   | Desvio | Não | > *de <de ignorar valor* | O número de resultados a serem ignorados antes de retornar os resultados |
    |||||
 
    Por exemplo, suponha que você queira os resultados cujo nome de categoria inclua a palavra "Tech".
@@ -152,10 +152,10 @@ Na lista ações, selecione a ação desejada.
 
 1. Quando as informações de conexão forem solicitadas, forneça estes detalhes:
 
-   | Propriedade | Necessário | Value | Descrição |
+   | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Nome da Ligação | Sim | < *-nome da conexão*> | O nome a ser criado para a conexão |
-   | Versão da API | Sim | API < *-versão*> | Por padrão, a versão Pesquisa do Bing API é definida como a versão atual. Você pode selecionar uma versão anterior conforme necessário. |
+   | Nome da Ligação | Sim | <*nome da conexão*> | O nome a ser criado para a conexão |
+   | Versão da API | Sim | API <> *de versão* | Por padrão, a versão Pesquisa do Bing API é definida como a versão atual. Você pode selecionar uma versão anterior conforme necessário. |
    | Chave de API | Sim | <*API-key*> | A chave de API Pesquisa do Bing que você obteve anteriormente. Se você não tiver uma chave, obtenha sua [chave de API agora mesmo](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 

@@ -313,14 +313,14 @@ Neste documento, cobre várias áreas diferentes a serem consideradas ao implant
 ## <a name="specifics-to-sap-ase-on-windows"></a>Especificações do SAP ASE no Windows
 A partir do Microsoft Azure, você pode migrar seus aplicativos SAP ASE existentes para máquinas virtuais do Azure. O SAP ASE em uma máquina virtual do Azure permite que você reduza o custo total de propriedade de implantação, gerenciamento e manutenção de aplicativos de amplitude empresarial migrando facilmente esses aplicativos para Microsoft Azure. Com o SAP ASE em uma máquina virtual do Azure, os administradores e desenvolvedores ainda podem usar as mesmas ferramentas de desenvolvimento e administração que estão disponíveis localmente.
 
-Os SLAs para máquinas virtuais do Azure podem ser encontrados aqui:<https://azure.microsoft.com/support/legal/sla/virtual-machines>
+Os SLAs para máquinas virtuais do Azure podem ser encontrados aqui: <https://azure.microsoft.com/support/legal/sla/virtual-machines>
 
 O Microsoft Azure oferece vários tipos diferentes de máquina virtual que permitem executar os menores sistemas SAP e cenários até grandes sistemas SAP e cenários com milhares de usuários. Os números de SAPS de dimensionamento SAP de diferentes SKUs de VM certificadas pelo SAP são fornecidos na observação SAP [1928533].
 
 Instruções e recomendações relacionadas ao uso do armazenamento do Azure, implantação de VMs SAP ou monitoramento SAP feitos em [considerações para a implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md) também se aplicam a implantações do SAP ASE.
 
 ### <a name="sap-ase-version-support"></a>Suporte de versão do SAP ASE
-Atualmente, o SAP oferece suporte ao SAP ASE versão 16,0 para uso com produtos SAP Business Suite. Todas as atualizações para o servidor SAP ASE ou drivers JDBC e ODBC a serem usadas com produtos SAP Business Suite são fornecidas exclusivamente por meio do SAP Service Marketplace <https://support.sap.com/swdc>em:.
+Atualmente, o SAP oferece suporte ao SAP ASE versão 16,0 para uso com produtos SAP Business Suite. Todas as atualizações para o servidor do SAP ASE ou drivers JDBC e ODBC a serem usadas com produtos SAP Business Suite são fornecidas exclusivamente por meio do SAP Service Marketplace em: <https://support.sap.com/swdc>.
 
 Não baixe atualizações para o servidor do SAP ASE ou para os drivers JDBC e ODBC diretamente dos sites do Sybase. Para obter informações detalhadas sobre patches, que têm suporte para uso com produtos SAP locais e em máquinas virtuais do Azure, consulte as seguintes notas SAP:
 
@@ -331,9 +331,9 @@ Informações gerais sobre como executar o SAP Business Suite no SAP ASE podem s
 
 ### <a name="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms"></a>Diretrizes de configuração do SAP ASE para instalações SAP ASE relacionadas ao SAP em VMs do Azure
 #### <a name="structure-of-the-sap-ase-deployment"></a>Estrutura da implantação do SAP ASE
-Os executáveis do SAP ASE devem ser localizados ou instalados na unidade do sistema do disco do sistema operacional da VM (\)unidade c:. Normalmente, a maioria dos bancos de dados de ferramentas e sistema do SAP ASE não está apresentando alta carga de trabalho. Portanto, os bancos de dados de ferramentas e sistema (Mestre, modelo, saptools, sybmgmtdb, sybsystemdb) podem permanecer em C:\ Dirigir. 
+Os executáveis do SAP ASE devem ser localizados ou instalados na unidade do sistema do disco do sistema operacional da VM (unidade c:\). Normalmente, a maioria dos bancos de dados de ferramentas e sistema do SAP ASE não está apresentando alta carga de trabalho. Portanto, os bancos de dados de ferramentas e sistema (Mestre, modelo, saptools, sybmgmtdb, sybsystemdb) podem permanecer em C:\ Dirigir. 
 
-Uma exceção pode ser o banco de dados temporário, que, no caso de algumas cargas de trabalho do SAP ERP e de todas as de BW, talvez exijam um volume maior de operações de e/s. Volumes ou IOPS que não podem ser fornecidos pelo disco do sistema operacional da VM (unidade\)C:.
+Uma exceção pode ser o banco de dados temporário, que, no caso de algumas cargas de trabalho do SAP ERP e de todas as de BW, talvez exijam um volume maior de operações de e/s. Volumes ou IOPS que não podem ser fornecidos pelo disco do sistema operacional da VM (unidade C:\).
 
 Dependendo da versão do SAPInst/SWPM usada para instalar, a configuração da instância do SAP ASE poderia ser semelhante a:
 
@@ -378,9 +378,9 @@ Assim como acontece com sistemas locais, várias etapas são necessárias para h
 
 e os links gerados na transação DBACockpit se assemelham a:
 
-> https:\//fullyqualifiedhostname>:44300/SAP/BC/Webdynpro\</SAP/dba_cockpit
+> https:\//\<fullyqualifiedhostname >: 44300/SAP/BC/Webdynpro/SAP/dba_cockpit
 > 
-> http:\//fullyqualifiedhostname>:8000/SAP/BC/Webdynpro\</SAP/dba_cockpit
+> http:\//\<fullyqualifiedhostname >: 8000/SAP/BC/Webdynpro/SAP/dba_cockpit
 > 
 > 
 
@@ -461,9 +461,9 @@ O HADR do SAP ASE não requer um Load Balancer interno do Azure e não tem depen
 ## <a name="specifics-to-sap-ase-on-linux"></a>Especificações do SAP ASE no Linux
 A partir do Microsoft Azure, você pode migrar facilmente seus aplicativos SAP ASE existentes para as máquinas virtuais do Azure. O SAP ASE em uma máquina virtual permite reduzir o custo total de propriedade da implantação, do gerenciamento e da manutenção de aplicativos de amplitude empresarial, migrando facilmente esses aplicativos para Microsoft Azure. Com o SAP ASE em uma máquina virtual do Azure, os administradores e desenvolvedores ainda podem usar as mesmas ferramentas de desenvolvimento e administração que estão disponíveis localmente.
 
-Para implantar VMs do Azure, é importante conhecer os SLAs oficiais, que podem ser encontrados aqui:<https://azure.microsoft.com/support/legal/sla>
+Para implantar VMs do Azure, é importante conhecer os SLAs oficiais, que podem ser encontrados aqui: <https://azure.microsoft.com/support/legal/sla>
 
-As informações de dimensionamento SAP e uma lista de SKUs de VM certificadas pelo SAP são fornecidas na observação SAP [1928533]. Documentos adicionais de dimensionamento do SAP para máquinas virtuais do Azure <https://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> podem ser encontrados aqui e aqui<https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+As informações de dimensionamento SAP e uma lista de SKUs de VM certificadas pelo SAP são fornecidas na observação SAP [1928533]. Documentos adicionais de dimensionamento do SAP para máquinas virtuais do Azure podem ser encontrados aqui <https://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> e aqui <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
 Instruções e recomendações relacionadas ao uso do armazenamento do Azure, implantação de VMs SAP ou monitoramento do SAP se aplicam a implantações do SAP ASE em conjunto com aplicativos SAP, conforme indicado nos quatro primeiros capítulos deste documento.
 
@@ -473,7 +473,7 @@ As duas notas SAP a seguir incluem informações gerais sobre o ASE no Linux e A
 * [1941500]
 
 ### <a name="sap-ase-version-support"></a>Suporte de versão do SAP ASE
-Atualmente, o SAP oferece suporte ao SAP ASE versão 16,0 para uso com produtos SAP Business Suite. Todas as atualizações para o servidor SAP ASE ou drivers JDBC e ODBC a serem usadas com produtos SAP Business Suite são fornecidas exclusivamente por meio do SAP Service Marketplace <https://support.sap.com/swdc>em:.
+Atualmente, o SAP oferece suporte ao SAP ASE versão 16,0 para uso com produtos SAP Business Suite. Todas as atualizações para o servidor do SAP ASE ou drivers JDBC e ODBC a serem usadas com produtos SAP Business Suite são fornecidas exclusivamente por meio do SAP Service Marketplace em: <https://support.sap.com/swdc>.
 
 Para instalações locais, não baixe atualizações para o servidor do SAP ASE ou para os drivers JDBC e ODBC diretamente dos sites do Sybase. Para obter informações detalhadas sobre patches, que têm suporte para uso com produtos do SAP Business Suite locais e em máquinas virtuais do Azure, consulte as seguintes notas SAP:
 
@@ -531,9 +531,9 @@ Assim como acontece com sistemas locais, várias etapas são necessárias para h
 
 e os links gerados na transação DBACockpit serão semelhantes a este:
 
-> https:\//fullyqualifiedhostname>:44300/SAP/BC/Webdynpro\</SAP/dba_cockpit
+> https:\//\<fullyqualifiedhostname >: 44300/SAP/BC/Webdynpro/SAP/dba_cockpit
 > 
-> http:\//fullyqualifiedhostname>:8000/SAP/BC/Webdynpro\</SAP/dba_cockpit
+> http:\//\<fullyqualifiedhostname >: 8000/SAP/BC/Webdynpro/SAP/dba_cockpit
 > 
 > 
 

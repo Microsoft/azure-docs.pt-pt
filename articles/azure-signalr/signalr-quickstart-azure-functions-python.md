@@ -14,7 +14,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71709500"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Início rápido: Criar uma sala de chat com o serviço de Azure Functions e Signalr usando o Python
+# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Início rápido: criar uma sala de chat com Azure Functions e o serviço de Signalr usando o Python
 
 O Serviço Azure SignalR permite-lhe adicionar facilmente funcionalidades em tempo real à sua aplicação. As Funções do Azure são uma plataforma sem servidor que lhe permite executar código sem ter de gerir qualquer infraestrutura. Neste início rápido, saiba como utilizar o Serviço SignalR e as Funções para criar uma aplicação de chat em tempo real sem servidor.
 
@@ -74,7 +74,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
 1. Em **local.settings.json**, cole a cadeia de ligação no valor da definição **AzureSignalRConnectionString**. Guarde o ficheiro.
 
-1. As funções do Python são organizadas em pastas. Em cada pasta há dois arquivos: o *Function. JSON* define as associações que são usadas na função e *\_ @ no__t-3init @ no__t-4\_.py* é o corpo da função. Existem duas funções acionadas por HTTP nesta aplicação de funções:
+1. As funções do Python são organizadas em pastas. Em cada pasta há dois arquivos: o *Function. JSON* define as associações que são usadas na função e *\_\_init\_\_. py* é o corpo da função. Existem duas funções acionadas por HTTP nesta aplicação de funções:
 
     - **negociar** - Utiliza o enlace de entrada *SignalRConnectionInfo* para gerar e devolver informações de ligação válidas.
     - **mensagens** - Recebe uma mensagem de chat no corpo do pedido e utiliza o enlace de saída *SignalR* para difundir a mensagem a todas as aplicações cliente ligadas.

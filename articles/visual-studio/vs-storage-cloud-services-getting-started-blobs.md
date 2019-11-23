@@ -23,8 +23,8 @@ ms.locfileid: "72298801"
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução ao armazenamento de BLOBs do Azure e aos serviços conectados do Visual Studio (projetos de serviços de nuvem)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="overview"></a>Visão geral
-Este artigo descreve como começar a usar o armazenamento de BLOBs do Azure depois de criar ou referenciar uma conta de armazenamento do Azure usando a caixa de diálogo **Adicionar serviços conectados** do Visual Studio em um projeto de serviços de nuvem do Visual Studio. Mostraremos como acessar e criar contêineres de BLOB e como executar tarefas comuns, como carregar, listar e baixar BLOBs. Os exemplos são escritos em C @ no__t-0 e usam a [biblioteca de cliente armazenamento do Microsoft Azure para .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+## <a name="overview"></a>Descrição geral
+Este artigo descreve como começar a usar o armazenamento de BLOBs do Azure depois de criar ou referenciar uma conta de armazenamento do Azure usando a caixa de diálogo **Adicionar serviços conectados** do Visual Studio em um projeto de serviços de nuvem do Visual Studio. Mostraremos como acessar e criar contêineres de BLOB e como executar tarefas comuns, como carregar, listar e baixar BLOBs. Os exemplos são escritos em C\# e usam a [biblioteca de cliente armazenamento do Microsoft Azure para .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 O armazenamento de BLOBs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Um único blob pode ter qualquer tamanho. Os BLOBs podem ser coisas como imagens, arquivos de áudio e vídeo, dados brutos e arquivos de documentos.
 

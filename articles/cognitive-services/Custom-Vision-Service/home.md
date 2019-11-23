@@ -19,7 +19,7 @@ ms.locfileid: "72177814"
 ---
 # <a name="what-is-custom-vision"></a>O que é a Visão Personalizada?
 
-Visão Personalizada é um serviço cognitiva que permite criar, implantar e aprimorar seus próprios classificadores de imagem. Um classificador de imagem é um serviço de ia que aplica rótulos (que representam _classes_) a imagens, de acordo com suas características visuais. Ao contrário do serviço de [Pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) , visão personalizada permite que você determine os rótulos a serem aplicados.
+A Visão Personalizada é um serviço cognitivo que lhe permite criar, implementar e melhorar os seus classificadores de imagens. Um classificador de imagem é um serviço de ia que aplica rótulos (que representam _classes_) a imagens, de acordo com suas características visuais. Ao contrário do serviço de [Pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) , visão personalizada permite que você determine os rótulos a serem aplicados.
 
 ## <a name="what-it-does"></a>O que faz
 
@@ -31,9 +31,9 @@ A funcionalidade de Visão Personalizada pode ser dividida em duas funcionalidad
 
 ### <a name="optimization"></a>Otimização
 
-O serviço de Visão Personalizada é otimizado para reconhecer rapidamente as principais diferenças entre imagens, para que você possa começar a fazer o protótipo do seu modelo com uma pequena quantidade de dados. 50 imagens por rótulo geralmente são um bom começo. No entanto, o serviço não é ideal para detectar diferenças sutis em imagens (por exemplo, detectar pequenas rachaduras ou recuos em cenários de garantia de qualidade).
+O serviço Visão Personalizada está otimizado para reconhecer rapidamente as principais diferenças entre imagens, pelo que pode começar a prototipar o seu modelo com uma pequena quantidade de dados. 50 imagens por rótulo geralmente são um bom começo. No entanto, o serviço não é ideal para detectar diferenças sutis em imagens (por exemplo, detectar pequenas rachaduras ou recuos em cenários de garantia de qualidade).
 
-Além disso, você pode escolher entre várias variedades do Visão Personalizada algoritmo otimizado para imagens com determinado material da entidade @ no__t-0for exemplo, pontos de referência ou itens de varejo. Para obter mais informações, consulte a guia [criar um classificador](getting-started-build-a-classifier.md) .
+Além disso, você pode escolher entre várias variedades do Visão Personalizada algoritmo otimizado para imagens com determinado material de assunto&mdash;por exemplo, pontos de referência ou itens de varejo. Para obter mais informações, consulte a guia [criar um classificador](getting-started-build-a-classifier.md) .
 
 ## <a name="what-it-includes"></a>O que inclui
 

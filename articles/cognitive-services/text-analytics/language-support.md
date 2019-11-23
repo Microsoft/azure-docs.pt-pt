@@ -50,11 +50,11 @@ O suporte a idiomas é inicialmente distribuído na visualização, graduando pa
 | Idioma              | Código do idioma | Sentimento | Frases-chave | Reconhecimento de Entidades Nomeadas | Vinculação de entidade |       Notas        |
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | Árabe                |     `ar`      |           |             |           ✔ \*           |                |                    |
-| Tcheco                 |     `cs`      |           |             |           ✔ \*           |                |                    |
+| Checo                 |     `cs`      |           |             |           ✔ \*           |                |                    |
 | Chinês-simplificado    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                |                    |
 | Chinês-tradicional   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
 | Dinamarquês                |     `da`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
-| Holandês                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
+| Neerlandês                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Português               |     `en`      |   ✔ \**   |      ✔      |          ✔ \*\*          |     ✔ \**      |                    |
 | Finlandês               |     `fi`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Francês                |     `fr`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
@@ -77,7 +77,7 @@ o suporte ao idioma \* está em versão prévia
 
 \** também disponível no [análise de sentimento v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview) e/ou em visualizações públicas do [reconhecimento de entidade nomeada v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview) .
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 [Página de documentação de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/)   
 [Página de Produto dos Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)

@@ -27,9 +27,9 @@ ms.locfileid: "72388708"
 > [!NOTE]
 > O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
 >
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 Este guia mostra como executar cenários comuns usando a biblioteca de cliente gerenciado para aplicativos móveis do Azure App Service para aplicativos Windows e Xamarin. Se você for novo em aplicativos móveis, considere primeiro concluir o tutorial de [início rápido dos aplicativos móveis do Azure][1] . Neste guia, nos concentramos no SDK gerenciado do lado do cliente. Para saber mais sobre os SDKs do lado do servidor para aplicativos móveis, consulte a documentação do [SDK do servidor .net][2] ou o [SDK do servidor node. js][3].
 
 ## <a name="reference-documentation"></a>Documentação de referência
@@ -42,13 +42,13 @@ A plataforma .NET dá suporte às seguintes plataformas:
 * Versões do Xamarin Android para API 19 a 24 (KitKat até nougat)
 * Versões do Xamarin iOS para iOS versões 8,0 e posteriores
 * Plataforma Universal do Windows
-* Windows Phone 8,1
+* Windows Phone 8.1
 * Windows Phone 8,0, exceto para aplicativos do Silverlight
 
 A autenticação "fluxo de servidor" usa uma WebView para a interface do usuário apresentada.  Se o dispositivo não puder apresentar uma interface do usuário do WebView, serão necessários outros métodos de autenticação.  Esse SDK, portanto, não é adequado para o tipo de inspeção ou para dispositivos de forma restrita.
 
 ## <a name="setup"></a>Instalação e pré-requisitos
-Supomos que você já criou e publicou seu projeto de back-end de aplicativo móvel, que inclui pelo menos uma tabela.  No código usado neste tópico, a tabela é denominada `TodoItem` e tem as seguintes colunas: `Id`, `Text` e `Complete`. Esta tabela é a mesma tabela criada quando você conclui o [início rápido dos aplicativos móveis do Azure][1].
+Supomos que você já criou e publicou seu projeto de back-end de aplicativo móvel, que inclui pelo menos uma tabela.  No código usado neste tópico, a tabela é denominada `TodoItem` e tem as seguintes colunas: `Id`, `Text`e `Complete`. Esta tabela é a mesma tabela criada quando você conclui o [início rápido dos aplicativos móveis do Azure][1].
 
 O tipo de lado do cliente tipado C# correspondente no é a seguinte classe:
 
@@ -73,7 +73,7 @@ Para saber como criar tabelas em seu back-end de aplicativos móveis, consulte o
 Use um dos seguintes métodos para instalar o pacote SDK do cliente gerenciado para aplicativos móveis do [NuGet][9]:
 
 * **Visual Studio** Clique com o botão direito do mouse em seu projeto, clique em **gerenciar pacotes NuGet**, procure o pacote `Microsoft.Azure.Mobile.Client` e clique em **instalar**.
-* **Xamarin Studio** Clique com o botão direito do mouse em seu projeto, clique em **adicionar** > **adicionar pacotes NuGet**, procure o pacote `Microsoft.Azure.Mobile.Client` e clique em **Adicionar pacote**.
+* **Xamarin Studio** Clique com o botão direito do mouse em seu projeto, clique em **adicionar** > **adicionar pacotes NuGet**, pesquise o pacote `Microsoft.Azure.Mobile.Client` e, em seguida, clique em **Adicionar pacote**.
 
 Em seu arquivo de atividade principal, lembre-se de adicionar a seguinte instrução **using** :
 
@@ -82,7 +82,7 @@ using Microsoft.WindowsAzure.MobileServices;
 ```
 
 > [!NOTE]
-> Note que todos os pacotes de suporte referenciados no projeto Android têm de ter a mesma versão. O SDK tem dependência `Xamarin.Android.Support.CustomTabs` para a plataforma Android. portanto, se o seu projeto usar pacotes de suporte mais recentes, você precisará instalar este pacote com a versão necessária diretamente para evitar conflitos.
+> Note que todos os pacotes de suporte referenciados no projeto Android têm de ter a mesma versão. O SDK tem `Xamarin.Android.Support.CustomTabs` dependência para a plataforma Android, portanto, se o seu projeto usar pacotes de suporte mais recentes, você precisará instalar este pacote com a versão necessária diretamente para evitar conflitos.
 
 ### <a name="symbolsource"></a>Como trabalhar com símbolos de depuração no Visual Studio
 Os símbolos para o namespace Microsoft. Azure. Mobile estão disponíveis em [simbolizate][10].  Consulte as [instruções de simbolismo][11] para integrar o simbolizate ao Visual Studio.
@@ -94,7 +94,7 @@ O código a seguir cria o objeto [MobileServiceClient][12] que é usado para ace
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-No código anterior, substitua `MOBILE_APP_URL` pela URL do back-end do aplicativo móvel, que é encontrado na folha para o back-end do aplicativo móvel no [portal do Azure]. O objeto MobileServiceClient deve ser um singleton.
+No código anterior, substitua `MOBILE_APP_URL` pela URL do back-end do aplicativo móvel, que é encontrada na folha para o back-end do aplicativo móvel no [portal do Azure]. O objeto MobileServiceClient deve ser um singleton.
 
 ## <a name="work-with-tables"></a>Trabalhar com tabelas
 A seção a seguir fornece detalhes sobre como Pesquisar e recuperar registros e modificar os dados na tabela.  Os tópicos a seguir são abordados:
@@ -193,7 +193,7 @@ List<TodoItem> items = await todoTable
     .ToListAsync();
 ```
 
-Os dois métodos são equivalentes e podem ser usados de maneira intercambiável.  A opção anterior @ no__t-0of concatena vários predicados em uma consulta @ no__t-1is mais compacta e recomendado.
+Os dois métodos são equivalentes e podem ser usados de maneira intercambiável.  A opção anterior&mdash;de concatenar vários predicados em uma consulta&mdash;é mais compacta e recomendada.
 
 A cláusula `Where` dá suporte a operações que são convertidas no subconjunto OData. As operações incluem:
 
@@ -335,7 +335,7 @@ Os aplicativos móveis dão suporte a valores de cadeia de caracteres personaliz
 * Os registros são mais fáceis de Mesclar de tabelas ou bancos de dados diferentes.
 * Os valores de IDs podem se integrar melhor com a lógica de um aplicativo.
 
-Quando um valor de ID de cadeia de caracteres não é definido em um registro inserido, o back-end do aplicativo móvel gera um valor exclusivo para a ID. Você pode usar o método [GUID. NewGuid] para gerar seus próprios valores de ID, seja no cliente ou no back-end.
+Quando um valor de ID de cadeia de caracteres não é definido em um registro inserido, o back-end do aplicativo móvel gera um valor exclusivo para a ID. Você pode usar o método [Guid.NewGuid] para gerar seus próprios valores de ID, seja no cliente ou no back-end.
 
 ```csharp
 JObject jo = new JObject();
@@ -359,10 +359,10 @@ jo.Add("Complete", false);
 var inserted = await table.UpdateAsync(jo);
 ```
 
-Um campo `id` deve ser especificado ao fazer uma atualização. O back-end usa o campo `id` para identificar a linha a ser atualizada. O campo `id` pode ser obtido do resultado da chamada `InsertAsync`. Um `ArgumentException` será gerado se você tentar atualizar um item sem fornecer o valor de `id`.
+Um campo de `id` deve ser especificado ao fazer uma atualização. O back-end usa o campo `id` para identificar a linha a ser atualizada. O campo `id` pode ser obtido do resultado da chamada `InsertAsync`. Um `ArgumentException` será gerado se você tentar atualizar um item sem fornecer o valor de `id`.
 
 ### <a name="deleting"></a>Como excluir dados em um back-end de aplicativo móvel
-O código a seguir ilustra como usar o método [DeleteAsync] para excluir uma instância existente. A instância é identificada pelo campo `id` definido no `todoItem`.
+O código a seguir ilustra como usar o método [DeleteAsync] para excluir uma instância existente. A instância é identificada pelo campo `id` definido na `todoItem`.
 
 ```csharp
 await todoTable.DeleteAsync(todoItem);
@@ -376,14 +376,14 @@ jo.Add("id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 await table.DeleteAsync(jo);
 ```
 
-Quando você faz uma solicitação de exclusão, uma ID deve ser especificada. Outras propriedades não são passadas para o serviço ou são ignoradas no serviço. O resultado de uma chamada `DeleteAsync` geralmente é `null`. A ID a ser transmitida pode ser obtida do resultado da chamada `InsertAsync`. Um `MobileServiceInvalidOperationException` é gerado quando você tenta excluir um item sem especificar o campo `id`.
+Quando você faz uma solicitação de exclusão, uma ID deve ser especificada. Outras propriedades não são passadas para o serviço ou são ignoradas no serviço. O resultado de uma chamada de `DeleteAsync` geralmente é `null`. A ID a ser transmitida pode ser obtida do resultado da chamada de `InsertAsync`. Um `MobileServiceInvalidOperationException` é gerado quando você tenta excluir um item sem especificar o campo `id`.
 
 ### <a name="optimisticconcurrency"></a>Como: usar a simultaneidade otimista para a resolução de conflitos
 Dois ou mais clientes podem gravar alterações no mesmo item ao mesmo tempo. Sem a detecção de conflitos, a última gravação substituiria as atualizações anteriores. O **controle de simultaneidade otimista** pressupõe que cada transação pode confirmar e, portanto, não usa nenhum bloqueio de recurso.  Antes de confirmar uma transação, o controle de simultaneidade otimista verifica se nenhuma outra transação modificou os dados. Se os dados tiverem sido modificados, a transação de confirmação será revertida.
 
-Os aplicativos móveis dão suporte ao controle de simultaneidade otimista controlando as alterações em cada item usando a coluna de Propriedade do sistema `version` que é definida para cada tabela no back-end do aplicativo móvel. Sempre que um registro é atualizado, os aplicativos móveis definem a propriedade `version` para esse registro como um novo valor. Durante cada solicitação de atualização, a propriedade `version` do registro incluído com a solicitação é comparada à mesma propriedade para o registro no servidor. Se a versão passada com a solicitação não corresponder ao back-end, a biblioteca de cliente gerará uma exceção `MobileServicePreconditionFailedException<T>`. O tipo incluído com a exceção é o registro do back-end que contém a versão dos servidores do registro. O aplicativo pode usar essas informações para decidir se deseja executar a solicitação de atualização novamente com o valor de `version` correto do back-end para confirmar as alterações.
+Os aplicativos móveis dão suporte ao controle de simultaneidade otimista controlando as alterações em cada item usando a coluna de propriedades do sistema `version` que é definida para cada tabela no back-end do aplicativo móvel. Sempre que um registro é atualizado, os aplicativos móveis definem a propriedade `version` para esse registro como um novo valor. Durante cada solicitação de atualização, a propriedade `version` do registro incluído na solicitação é comparada com a mesma propriedade para o registro no servidor. Se a versão passada com a solicitação não corresponder ao back-end, a biblioteca de cliente gerará uma exceção de `MobileServicePreconditionFailedException<T>`. O tipo incluído com a exceção é o registro do back-end que contém a versão dos servidores do registro. O aplicativo pode usar essas informações para decidir se deseja executar a solicitação de atualização novamente com o valor de `version` correto do back-end para confirmar as alterações.
 
-Defina uma coluna na classe de tabela para a propriedade do sistema `version` para habilitar a simultaneidade otimista. Por exemplo:
+Defina uma coluna na classe de tabela para a propriedade `version` System para habilitar a simultaneidade otimista. Por exemplo:
 
 ```csharp
 public class TodoItem
@@ -503,7 +503,7 @@ MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => 
 await items.LoadMoreItemsAsync();
 ```
 
-Quando você usa a coleção criada chamando `ToCollectionAsync` ou `ToCollection`, você obtém uma coleção que pode ser associada a controles da interface do usuário.  Esta coleção tem reconhecimento de paginação.  Como a coleção está carregando dados da rede, o carregamento às vezes falha. Para lidar com essas falhas, substitua o método `OnException` em `MobileServiceIncrementalLoadingCollection` para tratar exceções resultantes de chamadas para `LoadMoreItemsAsync`.
+Ao usar a coleção criada chamando `ToCollectionAsync` ou `ToCollection`, você obtém uma coleção que pode ser associada aos controles da interface do usuário.  Esta coleção tem reconhecimento de paginação.  Como a coleção está carregando dados da rede, o carregamento às vezes falha. Para lidar com essas falhas, substitua o método `OnException` em `MobileServiceIncrementalLoadingCollection` para manipular exceções resultantes de chamadas para `LoadMoreItemsAsync`.
 
 Considere se a tabela tem muitos campos, mas você só deseja exibir alguns deles em seu controle. Você pode usar as diretrizes na seção anterior "[selecionar colunas específicas](#selecting)" para selecionar colunas específicas a serem exibidas na interface do usuário.
 
@@ -528,7 +528,7 @@ As tabelas offline usam um repositório SQLite local para armazenar dados para u
    * **Tempo de execução de Windows 8.1:** Instale o [SQLite para Windows 8.1][3].
    * **Windows Phone 8,1:** Instale o [SQLite para Windows Phone 8,1][4].
    * **Plataforma universal do Windows** Instale [o SQLite para as janelas universais][5].
-3. (Opcional). Para dispositivos Windows, clique em **referências**@no__t-**1 Adicionar referência...** , expanda a pasta do **Windows** > **extensões**e, em seguida, habilite o SQLite apropriado para o SDK **do windows** juntamente com o **tempo de execução do Visual 2013 C++ para o SDK do Windows** .
+3. (Opcional). Para dispositivos Windows, clique em **referências** > **Adicionar referência...** , expanda a pasta do **Windows** > **extensões**e habilite o SQLite apropriado para o SDK **do windows** juntamente com o **tempo de execução do Visual C++ 2013 para o SDK do Windows** .
     Os nomes do SDK do SQLite variam um pouco com cada plataforma Windows.
 
 Antes que uma referência de tabela possa ser criada, o repositório local deve ser preparado:
@@ -832,7 +832,7 @@ private async System.Threading.Tasks.Task Authenticate()
 
 Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor de [MobileServiceAuthenticationProvider] para o valor de seu provedor.
 
-Em um fluxo de servidor, Azure App serviço gerencia o fluxo de autenticação OAuth exibindo a página de entrada do provedor selecionado.  Depois que o provedor de identidade retornar, Azure App serviço gerará um token de autenticação do serviço de aplicativo. O método [LoginAsync] retorna um [MobileServiceUser], que fornece o [ID] do usuário autenticado e o [MobileServiceAuthenticationToken], como um token Web JSON (JWT). Este token pode ser colocado em cache e reutilizado até expirar. Para obter mais informações, consulte [Caching The Authentication token](#caching).
+Em um fluxo de servidor, Azure App serviço gerencia o fluxo de autenticação OAuth exibindo a página de entrada do provedor selecionado.  Depois que o provedor de identidade retornar, Azure App serviço gerará um token de autenticação do serviço de aplicativo. O método [LoginAsync] retorna um [MobileServiceUser], que fornece o [userid] do usuário autenticado e o [MobileServiceAuthenticationToken], como um token Web JSON (JWT). Este token pode ser colocado em cache e reutilizado até expirar. Para obter mais informações, consulte [Caching The Authentication token](#caching).
 
 ### <a name="caching"></a>Armazenando em cache o token de autenticação
 Em alguns casos, a chamada para o método login pode ser evitada após a primeira autenticação bem-sucedida, armazenando o token de autenticação do provedor.  Os aplicativos Microsoft Store e UWP podem usar [PasswordVault] para armazenar em cache o token de autenticação atual após uma entrada bem-sucedida, da seguinte maneira:
@@ -870,7 +870,7 @@ client.Logout();
 vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 ```
 
-Os aplicativos xamarin usam as APIs do [xamarin. auth] para armazenar credenciais com segurança em um objeto de **conta** . Para obter um exemplo de como usar essas APIs, consulte o arquivo de código [AuthStore.cs] no [exemplo de compartilhamento de fotos do ContosoMoments](https://github.com/azure-appservice-samples/ContosoMoments).
+Os aplicativos xamarin usam as APIs do [Xamarin.Auth] para armazenar credenciais com segurança em um objeto de **conta** . Para obter um exemplo de como usar essas APIs, consulte o arquivo de código [AuthStore.cs] no [exemplo de compartilhamento de fotos do ContosoMoments](https://github.com/azure-appservice-samples/ContosoMoments).
 
 Ao usar a autenticação gerenciada pelo cliente, você também pode armazenar em cache o token de acesso obtido do seu provedor, como o Facebook ou o Twitter. Esse token pode ser fornecido para solicitar um novo token de autenticação do back-end, da seguinte maneira:
 
@@ -904,7 +904,7 @@ private async void InitNotificationsAsync()
 }
 ```
 
-Se você estiver enviando por push para o WNS, deverá [obter um SID de pacote Microsoft Store](#package-sid).  Para obter mais informações sobre aplicativos do Windows, incluindo como se registrar para registros de modelo, consulte [Adicionar notificações push à aplicação].
+Se você estiver enviando por push para o WNS, deverá [obter um SID de pacote Microsoft Store](#package-sid).  Para obter mais informações sobre as aplicações do Windows, incluindo como registar a registos de modelo, consulte [Adicionar notificações push à aplicação].
 
 Não há suporte para a solicitação de marcas do cliente.  As solicitações de marca são silenciosamente descartadas do registro.
 Se você quiser registrar seu dispositivo com marcas, crie uma API personalizada que use a API de hubs de notificação para executar o registro em seu nome.  Chame a API personalizada em vez do método `RegisterNativeAsync()`.
@@ -914,11 +914,11 @@ Um SID de pacote é necessário para habilitar notificações por push em aplica
 
 Para obter esse valor:
 
-1. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse no projeto do aplicativo Microsoft Store, clique em **armazenar** > **associar aplicativo à loja...** .
+1. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse no projeto do aplicativo Microsoft Store, clique em **armazenar** > **associar o aplicativo à loja...** .
 2. No assistente, clique em **Avançar**, entre com seu conta Microsoft, digite um nome para seu aplicativo em **reservar um novo nome de aplicativo**e clique em **reservar**.
 3. Depois que o registro do aplicativo for criado com êxito, selecione o nome do aplicativo, clique em **Avançar**e, em seguida, clique em **associar**.
 4. Faça logon no [centro de desenvolvimento do Windows] usando sua conta da Microsoft. Em **meus aplicativos**, clique no registro do aplicativo que você criou.
-5. Clique em **Gerenciamento de aplicativos** >  identidade de**aplicativo**e role para baixo até encontrar o SID do **pacote**.
+5. Clique em **Gerenciamento de aplicativos** > identidade do **aplicativo**e role para baixo até encontrar o SID do **pacote**.
 
 Muitos usos do SID do pacote o tratam como um URI; nesse caso, você precisa usar *MS-App://* como o esquema. Anote a versão do SID do pacote formada por concatenar esse valor como um prefixo.
 
@@ -972,7 +972,7 @@ Para enviar notificações utilizando esses modelos registrados, consulte as API
 
 ## <a name="misc"></a>Tópicos diversos
 ### <a name="errors"></a>Como tratar erros
-Quando ocorre um erro no back-end, o SDK do cliente gera um `MobileServiceInvalidOperationException`.  O exemplo a seguir mostra como tratar uma exceção que é retornada pelo back-end:
+Quando ocorre um erro no back-end, o SDK do cliente gera uma `MobileServiceInvalidOperationException`.  O exemplo a seguir mostra como tratar uma exceção que é retornada pelo back-end:
 
 ```csharp
 private async void InsertTodoItem(TodoItem todoItem)
@@ -1071,11 +1071,11 @@ public class MyHandler : DelegatingHandler
 [Selecionar]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
 [Saltar]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
-[ID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
+[UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Posição]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
 [Portal do Azure]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
-[GUID. NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
+[Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
 [Centro de desenvolvimento do Windows]: https://dev.windows.com/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
@@ -1089,6 +1089,6 @@ public class MyHandler : DelegatingHandler
 [Documentação do OData v3]: https://www.odata.org/documentation/odata-version-3-0/
 [Fiddler]: https://www.telerik.com/fiddler
 [Json.NET]: https://www.newtonsoft.com/json
-[Xamarin. auth]: https://components.xamarin.com/view/xamarin.auth/
+[Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/
 [AuthStore.cs]: https://github.com/azure-appservice-samples/ContosoMoments
 [ContosoMoments photo sharing sample]: https://github.com/azure-appservice-samples/ContosoMoments

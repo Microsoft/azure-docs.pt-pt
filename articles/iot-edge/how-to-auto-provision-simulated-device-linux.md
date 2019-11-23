@@ -31,7 +31,7 @@ Este artigo mostra como testar o provisionamento automático em um dispositivo I
 > O TPM 2,0 é necessário ao usar o atestado de TPM com o DPS e só pode ser usado para criar registros individuais, não de grupo.
 
 > [!TIP]
-> Este artigo descreve como testar o provisionamento de DPS usando um simulador de TPM, mas grande parte dele se aplica ao hardware físico do TPM, como o [Infineon OPTIGA @ no__t-1 TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), um dispositivo certificado pelo Azure para IOT.
+> Este artigo descreve como testar o provisionamento de DPS usando um simulador de TPM, mas grande parte dele se aplica ao hardware físico do TPM, como o [Infineon OPTIGA&trade; TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), um dispositivo certificado pelo Azure para IOT.
 >
 > Se você estiver usando um dispositivo físico, poderá pular para a seção [recuperar informações de provisionamento de um dispositivo físico](#retrieve-provisioning-information-from-a-physical-device) neste artigo.
 
@@ -65,13 +65,13 @@ Se vir um erro ao criar o novo comutador virtual, certifique-se de que não exis
 
 1. Transferir um ficheiro de imagem de disco a utilizar para a máquina virtual e guarde-o localmente. Por exemplo, [Ubuntu server](https://www.ubuntu.com/download/server). 
 
-2. No Gerenciador do Hyper-V novamente, selecione **nova** > **máquina virtual** no menu **ações** .
+2. No Gerenciador do Hyper-V novamente, selecione **novo** > **máquina virtual** no menu **ações** .
 
 3. Concluir o **Assistente de Nova Máquina Virtual** com as seguintes configurações específicas:
 
-   1. **Especificar geração**: Selecione **geração 2**. As máquinas virtuais de geração 2 têm virtualização aninhada habilitada, que é necessária para executar IoT Edge em uma máquina virtual.
-   2. **Configurar rede**: Defina o valor de **conexão** com o comutador virtual que você criou na seção anterior. 
-   3. **Opções de instalação**: Selecione **instalar um sistema operacional de um arquivo de imagem inicializável** e navegue até o arquivo de imagem de disco que você salvou localmente.
+   1. **Especificar geração**: selecione **geração 2**. As máquinas virtuais de geração 2 têm virtualização aninhada habilitada, que é necessária para executar IoT Edge em uma máquina virtual.
+   2. **Configurar redes**: defina o valor de **ligação** ao comutador virtual que criou na secção anterior. 
+   3. **Opções de instalação**: selecione **instalar um sistema operativo a partir de um ficheiro de imagem inicializável** e procure o ficheiro de imagem de disco que guardou localmente.
 
 4. Selecione **concluir** no Assistente para criar a máquina virtual.
 
@@ -102,7 +102,7 @@ Na máquina virtual, crie uma ferramenta que você possa usar para recuperar a *
 1. Entre em sua VM e siga as etapas em [configurar um ambiente de desenvolvimento do Linux](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) para instalar e criar o SDK do dispositivo IOT do Azure para C.
 
    >[!TIP]
-   >No decorrer deste artigo, você copiará e colará a partir da máquina virtual, o que não é fácil por meio do aplicativo de conexão do Gerenciador do Hyper-V. Talvez você queira se conectar à máquina virtual por meio do Gerenciador do Hyper-V uma vez para recuperar seu endereço IP: `ifconfig`. Em seguida, você pode usar o endereço IP para se conectar por `ssh <username>@<ipaddress>`meio de SSH:.
+   >No decorrer deste artigo, você copiará e colará a partir da máquina virtual, o que não é fácil por meio do aplicativo de conexão do Gerenciador do Hyper-V. Talvez você queira se conectar à máquina virtual por meio do Gerenciador do Hyper-V uma vez para recuperar seu endereço IP: `ifconfig`. Em seguida, você pode usar o endereço IP para se conectar por meio de SSH: `ssh <username>@<ipaddress>`.
 
 1. Execute os comandos a seguir para criar a ferramenta SDK que recupera as informações de provisionamento do dispositivo do simulador TPM.
 
@@ -122,11 +122,11 @@ Na máquina virtual, crie uma ferramenta que você possa usar para recuperar a *
    ./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe
    ```
 
-1. Usando o Visual Studio, abra a solução gerada no diretório `cmake` chamado `azure_iot_sdks.sln` e crie-a usando o comando **Compilar solução** no menu **Compilar** .
+1. Usando o Visual Studio, abra a solução gerada no diretório `cmake` chamado `azure_iot_sdks.sln`e Compile-a usando o comando **Compilar solução** no menu **Compilar** .
 
 1. No painel **Explorador de Soluções** do Visual Studio, navegue para a pasta **Aprovisionar\_Ferramentas**. Clique com o botão direito do rato no projeto **tpm_device_provision** e selecione **Configurar como Projeto de Arranque**.
 
-1. Execute a solução usando um dos comandos **Iniciar** no menu **depurar** . A janela saída exibe a **ID de registro** do simulador do TPM e a **chave de endosso**, que você deve copiar para uso posterior ao criar um registro individual para seu dispositivo no você pode fechar esta janela (com ID de registro e Chave de endosso), mas deixe a janela do simulador do TPM em execução.
+1. Execute a solução usando um dos comandos **Iniciar** no menu **depurar** . A janela saída exibe a **ID de registro** do simulador do TPM e a **chave de endosso**, que você deve copiar para uso posterior ao criar um registro individual para seu dispositivo no você pode fechar esta janela (com a ID de registro e a chave de endosso), mas deixar a janela do simulador do TPM em execução.
 
 ## <a name="retrieve-provisioning-information-from-a-physical-device"></a>Recuperar informações de provisionamento de um dispositivo físico
 

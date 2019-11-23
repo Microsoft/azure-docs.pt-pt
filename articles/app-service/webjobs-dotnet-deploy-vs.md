@@ -66,7 +66,7 @@ Você pode usar o Visual Studio para alterar o trabalho Web para ser executado c
 
 ## <a name="webjobs-as-net-framework-console-apps"></a>Trabalhos Web como aplicativos de console .NET Framework  
 
-Quando o Visual Studio implanta um projeto de aplicativo de console .NET Framework habilitado para trabalhos Web, ele copia os arquivos de tempo de execução para a pasta apropriada no aplicativo (*App_Data/Jobs/Continuous* para webjobs contínuos e *App_Data/Jobs/disparados* para Trabalhos Web agendados ou sob demanda).
+Quando o Visual Studio implanta um projeto de aplicativo de console .NET Framework habilitado para trabalhos Web, ele copia os arquivos de tempo de execução para a pasta apropriada no aplicativo (*App_Data/Jobs/Continuous* para webjobs contínuos e *App_Data/Jobs/Triggered* para trabalhos Web agendados ou sob demanda).
 
 Um projeto habilitado para trabalhos Web tem os seguintes itens adicionados a ele:
 
@@ -101,7 +101,7 @@ Tem duas opções:
 
 #### <a id="convertlink"></a>Habilitar a implantação automática de webjobs com um projeto Web
 
-1. Clique com o botão direito do mouse no projeto Web no **Gerenciador de soluções**e clique em **Adicionar** > **projeto existente como WebJob do Azure**.
+1. Clique com o botão direito do mouse no projeto Web em **Gerenciador de soluções**e, em seguida, clique em **Adicionar** > **projeto existente como WebJob do Azure**.
    
     ![Projeto existente como WebJob do Azure](./media/webjobs-dotnet-deploy-vs/eawj.png)
    
@@ -137,7 +137,7 @@ Para criar um novo projeto habilitado para trabalhos Web, você pode usar o mode
 > 
 
 #### <a id="createnolink"></a>Usar o modelo de novo projeto de trabalhos Web para um WebJob independente
-1. Clique em **arquivo**@no__t-**1 novo projeto**e, na caixa de diálogo **novo projeto** , clique em **nuvem** > **Azure WebJob (.NET Framework)** .
+1. Clique em **arquivo** > **novo projeto**e, na caixa de diálogo **novo projeto** , clique em **nuvem** > **Azure WebJob (.NET Framework)** .
    
     ![Caixa de diálogo novo projeto mostrando o modelo WebJob](./media/webjobs-dotnet-deploy-vs/np.png)
 2. Siga as instruções mostradas anteriormente para [tornar o projeto de aplicativo de console um projeto de trabalhos Web independente](#convertnolink).
@@ -164,8 +164,8 @@ Os campos nessa caixa de diálogo correspondem aos campos na caixa de diálogo *
 > 
 > 
 
-### <a id="publishsettings"></a>webjob-Publish-Settings. JSON
-Quando você configura um aplicativo de console para a implantação de trabalhos Web, o Visual Studio instala o pacote NuGet [Microsoft. Web. webjobs. publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) e armazena informações de agendamento em um arquivo *webjob-Publish-Settings. JSON* no projetoPasta de propriedades do projeto de trabalhos Web. Aqui está um exemplo desse arquivo:
+### <a id="publishsettings"></a>webjob-publish-settings.json
+Quando você configura um aplicativo de console para a implantação de trabalhos Web, o Visual Studio instala o pacote NuGet [Microsoft. Web. webjobs. publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) e armazena informações de agendamento em um arquivo *webjob-Publish-Settings. JSON* na pasta Project *Properties* do projeto webjobs. Aqui está um exemplo desse arquivo:
 
         {
           "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
@@ -179,7 +179,7 @@ Quando você configura um aplicativo de console para a implantação de trabalho
 
 Você pode editar esse arquivo diretamente e o Visual Studio fornece o IntelliSense. O esquema de arquivo é armazenado em [https://schemastore.org](https://schemastore.org/schemas/json/webjob-publish-settings.json) e pode ser exibido lá.  
 
-### <a id="webjobslist"></a>trabalhos Web-List. JSON
+### <a id="webjobslist"></a>webjobs-list.json
 Quando você vincula um projeto habilitado para trabalhos Web a um projeto da Web, o Visual Studio armazena o nome do projeto webjobs em um arquivo *webjobs-lista. JSON* na pasta *Propriedades* do projeto Web. A lista pode conter vários projetos de trabalhos Web, conforme mostrado no exemplo a seguir:
 
         {
@@ -197,7 +197,7 @@ Quando você vincula um projeto habilitado para trabalhos Web a um projeto da We
 Você pode editar esse arquivo diretamente e o Visual Studio fornece o IntelliSense. O esquema de arquivo é armazenado em [https://schemastore.org](https://schemastore.org/schemas/json/webjobs-list.json) e pode ser exibido lá.
 
 ### <a id="deploy"></a>Implantar um projeto de trabalhos Web
-Um projeto do webjobs que você vinculou a um projeto Web é implantado automaticamente com o projeto Web. Para obter informações sobre a implantação de projeto Web, consulte os **guias de instruções** > **implantar aplicativo** no painel de navegação esquerdo.
+Um projeto do webjobs que você vinculou a um projeto Web é implantado automaticamente com o projeto Web. Para obter informações sobre a implantação de projeto Web, consulte os **guias de instruções** > **implantar o aplicativo** no painel de navegação esquerdo.
 
 Para implantar um projeto de trabalhos Web por si só, clique com o botão direito do mouse no projeto em **Gerenciador de soluções** e clique em **publicar como Azure WebJob...** . 
 
@@ -215,7 +215,7 @@ O webjobs usa um arquivo *Settings. Job* para determinar quando um WebJob é exe
 }
 ```
 
-Esse arquivo deve estar localizado na raiz da pasta webjobs, ao longo do script do WebJob, como `wwwroot\app_data\jobs\triggered\{job name}` ou `wwwroot\app_data\jobs\continuous\{job name}`. Ao implantar um WebJob do Visual Studio, marque as propriedades do arquivo `settings.job` como **copiar se mais recente**. 
+Esse arquivo deve estar localizado na raiz da pasta webjobs, ao longo do script do WebJob, como `wwwroot\app_data\jobs\triggered\{job name}` ou `wwwroot\app_data\jobs\continuous\{job name}`. Ao implantar um WebJob do Visual Studio, marque as propriedades do arquivo de `settings.job` como **cópia, se for mais recente**. 
 
 Quando você [cria um WebJob na portal do Azure](webjobs-create.md), o arquivo Settings. Job é criado para você.
 
@@ -233,10 +233,10 @@ As configurações a seguir são suportadas pelos trabalhos Web:
 
 | **Definição** | **Tipo**  | **Descrição** |
 | ----------- | --------- | --------------- |
-| `is_in_place` | Tudo | Permite que o trabalho seja executado no local sem ser copiado primeiro para uma pasta temporária. Para saber mais, consulte [diretório de trabalho de trabalhos](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)Web. |
+| `is_in_place` | Todos | Permite que o trabalho seja executado no local sem ser copiado primeiro para uma pasta temporária. Para saber mais, consulte [diretório de trabalho de trabalhos](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)Web. |
 | `is_singleton` | Contínuo | Só execute os trabalhos Web em uma única instância quando expandido. Para saber mais, consulte [definir um trabalho contínuo como singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
 | `schedule` | Ativou | Execute o WebJob em uma agenda baseada em CRON. PARA saber mais, consulte o [artigo de referência do gatilho de temporizador](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
-| `stopping_wait_time`| Tudo | Permite o controle do comportamento de desligamento. Para saber mais, confira [desligamento normal](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
+| `stopping_wait_time`| Todos | Permite o controle do comportamento de desligamento. Para saber mais, confira [desligamento normal](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## <a name="next-steps"></a>Passos seguintes
 

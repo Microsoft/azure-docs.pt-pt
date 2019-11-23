@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Logon único contínuo | Microsoft Docs'
+title: 'Azure AD Connect: logon único contínuo | Microsoft Docs'
 description: Este tópico descreve o logon único contínuo do Azure Active Directory (Azure AD) e como ele permite que você forneça o verdadeiro logon único para usuários da área de trabalho corporativa dentro de sua rede corporativa.
 services: active-directory
 keywords: o que é Azure AD Connect, instalar Active Directory, componentes necessários para o Azure AD, SSO, logon único
@@ -51,10 +51,10 @@ O SSO contínuo pode ser combinado com os métodos de entrada de [sincronizaçã
 
 ## <a name="feature-highlights"></a>Destaques de recursos
 
-- O nome de usuário de entrada pode ser o nome de usuário padrão local (`userPrincipalName`) ou outro atributo configurado em Azure AD Connect (`Alternate ID`). Ambos os casos de uso funcionam porque o SSO contínuo usa a declaração `securityIdentifier` no tíquete Kerberos para pesquisar o objeto de usuário correspondente no Azure AD.
+- O nome de usuário de entrada pode ser o nome de usuário padrão local (`userPrincipalName`) ou outro atributo configurado em Azure AD Connect (`Alternate ID`). Ambos os casos de uso funcionam porque o SSO contínuo usa a declaração de `securityIdentifier` no tíquete Kerberos para pesquisar o objeto de usuário correspondente no Azure AD.
 - O SSO contínuo é um recurso oportunista. Se ele falhar por algum motivo, a experiência de entrada do usuário voltará ao seu comportamento regular, ou seja, o usuário precisará inserir sua senha na página de entrada.
-- Se um aplicativo (por exemplo, `https://myapps.microsoft.com/contoso.com`) encaminha um parâmetro `domain_hint` (OpenID Connect) ou `whr` (SAML)-identificando seu locatário ou @no__t parâmetro-3-identificando o usuário, em sua solicitação de entrada do Azure AD, os usuários são conectados automaticamente sem eles inserindo nomes de acessadores ou senhas.
-- Os usuários também terão uma experiência de logon silenciosa se um aplicativo (por exemplo, `https://contoso.sharepoint.com`) enviar solicitações de entrada para pontos de extremidade do Azure AD configurados como locatários, ou seja, `https://login.microsoftonline.com/contoso.com/<..>` ou `https://login.microsoftonline.com/<tenant_ID>/<..>`-em vez do ponto de extremidade comum do Azure AD – ou seja, `https://login.microsoftonline.com/common/<...>`.
+- Se um aplicativo (por exemplo, `https://myapps.microsoft.com/contoso.com`) encaminhar um parâmetro `domain_hint` (OpenID Connect) ou `whr` (SAML)-identificando seu locatário ou `login_hint` parâmetro-identificando o usuário, em sua solicitação de entrada do Azure AD, os usuários serão automaticamente conectados sem que insiram nomes de usuários ou senhas.
+- Os usuários também terão uma experiência de logon silenciosa se um aplicativo (por exemplo, `https://contoso.sharepoint.com`) enviar solicitações de entrada para os pontos de extremidade do Azure AD configurados como locatários, ou seja, `https://login.microsoftonline.com/contoso.com/<..>` ou `https://login.microsoftonline.com/<tenant_ID>/<..>`, em vez do Endpoint comum do Azure AD, ou seja, `https://login.microsoftonline.com/common/<...>`.
 - Há suporte para sair. Isso permite que os usuários escolham outra conta do Azure AD para entrar, em vez de serem conectados automaticamente usando o SSO contínuo automaticamente.
 - Os clientes do Office 365 Win32 (Outlook, Word, Excel e outros) com versões 16.0.8730. xxxx e superior têm suporte usando um fluxo não interativo. Para o OneDrive, você precisará ativar o [recurso de configuração silenciosa do onedrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de logon silencioso.
 - Ele pode ser habilitado por meio de Azure AD Connect.
@@ -63,19 +63,19 @@ O SSO contínuo pode ser combinado com os métodos de entrada de [sincronizaçã
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sim @ no__t-0|Sim|Sim|Sim @ no__t-0 @ no__t-1 @ no__t-2|N/A
-|Windows 8.1|Sim @ no__t-0|N/A|Sim|Sim @ no__t-0 @ no__t-1 @ no__t-2|N/A
-|Windows 8|Sim @ no__t-0|N/A|Sim|Sim @ no__t-0 @ no__t-1 @ no__t-2|N/A
-|Windows 7|Sim @ no__t-0|N/A|Sim|Sim @ no__t-0 @ no__t-1 @ no__t-2|N/A
-|Windows Server 2012 R2 ou superior|Sim @ no__t-0 @ no__t-1|N/A|Sim|Sim @ no__t-0 @ no__t-1 @ no__t-2|N/A
-|Mac OS X|N/A|N/A|Sim @ no__t-0 @ no__t-1 @ no__t-2|Sim @ no__t-0 @ no__t-1 @ no__t-2|Sim @ no__t-0 @ no__t-1 @ no__t-2
+|Windows 10|Sim\*|Sim|Sim|Sim\*\*\*|N/D
+|Windows 8.1|Sim\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows 8|Sim\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows 7|Sim\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows Server 2012 R2 ou superior|Sim\*\*|N/D|Sim|Sim\*\*\*|N/D
+|Mac OS X|N/D|N/D|Sim\*\*\*|Sim\*\*\*|Sim\*\*\*
 
 
-\*Requires o Internet Explorer versões 10 ou posteriores
+\*requer o Internet Explorer versões 10 ou posteriores
 
-\* @ no__t-1Requires Internet Explorer versões 10 ou superior. Desabilitar o modo protegido avançado
+\*\*requer o Internet Explorer versões 10 ou posteriores. Desabilitar o modo protegido avançado
 
-\* @ no__t-1 @ no__t-2Requires [configuração adicional](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*\*requer [configuração adicional](how-to-connect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >Para o Windows 10, a recomendação é usar o [ingresso no Azure ad](../active-directory-azureadjoin-overview.md) para obter a experiência ideal de logon único com o Azure AD.

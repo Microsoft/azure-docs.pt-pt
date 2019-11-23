@@ -280,6 +280,6 @@ Supondo um cenário típico do Azure de uma instância do servidor de aplicativo
   * [Iniciar ou parar o SAP junto com o servidor Unix iniciar/parar](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
   * [Iniciando e parando os agentes de gerenciamento do SAP NetWeaver](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre alta disponibilidade completa com reconhecimento de aplicativos do SAP NetWeaver, consulte [alta disponibilidade de aplicativos SAP no Azure IaaS][sap-high-availability-architecture-scenarios-sap-app-ha].

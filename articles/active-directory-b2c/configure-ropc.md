@@ -25,14 +25,14 @@ O fluxo de credenciais de senha do proprietário do recurso (ROPC) é um fluxo d
 
 No Azure Active Directory B2C (Azure AD B2C), há suporte para as seguintes opções:
 
-- **Cliente nativo**: A interação do usuário durante a autenticação ocorre quando o código é executado em um dispositivo do lado do usuário. O dispositivo pode ser um aplicativo móvel em execução em um sistema operacional nativo, como Android e iOS.
-- **Fluxo do cliente público**: Somente as credenciais do usuário, coletadas por um aplicativo, são enviadas na chamada à API. As credenciais do aplicativo não são enviadas.
-- **Adicionar novas declarações**: O conteúdo do token de ID pode ser alterado para adicionar novas declarações.
+- **Cliente nativo**: a interação do usuário durante a autenticação ocorre quando o código é executado em um dispositivo do lado do usuário. O dispositivo pode ser um aplicativo móvel em execução em um sistema operacional nativo, como Android e iOS.
+- **Fluxo do cliente público**: somente as credenciais do usuário, coletadas por um aplicativo, são enviadas na chamada à API. As credenciais do aplicativo não são enviadas.
+- **Adicionar novas declarações**: o conteúdo do token de ID pode ser alterado para adicionar novas declarações.
 
 Não há suporte para os seguintes fluxos:
 
-- **Servidor para servidor**: O sistema de proteção de identidade precisa de um endereço IP confiável coletado do chamador (o cliente nativo) como parte da interação. Em uma chamada à API do lado do servidor, somente o endereço IP do servidor é usado. Se um limite dinâmico de autenticações com falha for excedido, o sistema de proteção de identidade poderá identificar um endereço IP repetido como um invasor.
-- **Fluxo de cliente confidencial**: A ID do cliente do aplicativo é validada, mas o segredo do aplicativo não é validado.
+- **Servidor para servidor**: o sistema de proteção de identidade precisa de um endereço IP confiável coletado do chamador (o cliente nativo) como parte da interação. Em uma chamada à API do lado do servidor, somente o endereço IP do servidor é usado. Se um limite dinâmico de autenticações com falha for excedido, o sistema de proteção de identidade poderá identificar um endereço IP repetido como um invasor.
+- **Fluxo de cliente confidencial**: a ID do cliente do aplicativo é validada, mas o segredo do aplicativo não é validado.
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Criar um fluxo de usuário do proprietário do recurso
 
@@ -58,22 +58,22 @@ Não há suporte para os seguintes fluxos:
 ## <a name="test-the-user-flow"></a>Testar o fluxo do usuário
 
 Use seu aplicativo de desenvolvimento de API favorito para gerar uma chamada à API e examine a resposta para depurar seu fluxo de usuário. Construa uma chamada como esta com as informações na tabela a seguir como o corpo da solicitação POST:
-- Substitua *@no__t -1yourtenant. onmicrosoft. com >* pelo nome do seu locatário B2C.
+- Substitua *\<seulocatario. onmicrosoft. com >* pelo nome do seu locatário B2C.
 - Substitua *\<B2C_1A_ROPC_Auth >* pelo nome completo da política de credenciais de senha do proprietário do recurso.
 - Substitua *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3 >* com a ID do aplicativo do seu registro.
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Chave | Value |
+| Chave | Valor |
 | --- | ----- |
-| username | leadiocl@outlook.com |
-| password | Passxword1 |
-| grant_type | password |
+| o nome de utilizador | leadiocl@outlook.com |
+| palavra-passe | Passxword1 |
+| grant_type | palavra-passe |
 | scope | OpenID \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
-| response_type | id_token do token |
+| response_type | id_token de token |
 
-*Client_id* é o valor que você anotou anteriormente como a ID do aplicativo. *Offline_access* será opcional se você quiser receber um token de atualização. O nome de usuário e a senha que você usa devem ser credenciais de uma usuária existente em seu locatário Azure AD B2C.
+*Client_id* é o valor que você anotou anteriormente como a ID do aplicativo. *Offline_access* é opcional se você deseja receber um token de atualização. O nome de usuário e a senha que você usa devem ser credenciais de uma usuária existente em seu locatário Azure AD B2C.
 
 A solicitação POST real é semelhante ao seguinte:
 
@@ -104,7 +104,7 @@ Construa uma chamada POST como a mostrada aqui com as informações na tabela a 
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Chave | Value |
+| Chave | Valor |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
@@ -112,7 +112,7 @@ Construa uma chamada POST como a mostrada aqui com as informações na tabela a 
 | resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
-*Client_id* e *Resource* são os valores que você ANOTOU anteriormente como a ID do aplicativo. *Refresh_token* é o token que você recebeu na chamada de autenticação mencionado anteriormente.
+*Client_id* e *recurso* são os valores que você ANOTOU anteriormente como a ID do aplicativo. *Refresh_token* é o token que você recebeu na chamada de autenticação mencionado anteriormente.
 
 Uma resposta bem-sucedida é semelhante ao exemplo a seguir:
 
@@ -132,7 +132,7 @@ Uma resposta bem-sucedida é semelhante ao exemplo a seguir:
 }
 ```
 > [!NOTE]
-> Ao criar usuários via API do Graph, o aplicativo precisa ter permissões "OpenID", "offline_access" e "Profile" de Microsoft Graph.
+> Ao criar usuários por meio de API do Graph, o aplicativo precisa ter permissões "OpenID", "offline_access" e "perfil" de Microsoft Graph.
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementar com seu SDK nativo preferido ou usar o app-AUTH
 

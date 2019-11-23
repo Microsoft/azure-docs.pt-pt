@@ -26,10 +26,10 @@ ms.locfileid: "72388988"
 > [!NOTE]
 > O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
 >
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Visão geral
-Este tutorial aborda o recurso de sincronização offline de aplicativos móveis do Azure para Android. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel @ no__t-0viewing, adicionando ou modificando dados @ no__t-1even quando não há conexão de rede. As alterações são armazenadas em um banco de dados local. Depois que o dispositivo estiver online novamente, essas alterações serão sincronizadas com o back-end remoto.
+## <a name="overview"></a>Descrição geral
+Este tutorial aborda o recurso de sincronização offline de aplicativos móveis do Azure para Android. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel&mdash;exibir, adicionar ou modificar dados&mdash;mesmo quando não há conexão de rede. As alterações são armazenadas em um banco de dados local. Depois que o dispositivo estiver online novamente, essas alterações serão sincronizadas com o back-end remoto.
 
 Se esta for sua primeira experiência com os aplicativos móveis do Azure, você deve primeiro concluir o tutorial [criar um aplicativo Android]. Se você não usar o projeto baixado do servidor de início rápido, deverá adicionar os pacotes de extensão de acesso a dados ao seu projeto. Para obter mais informações sobre pacotes de extensão de servidor, consulte [trabalhar com o SDK do servidor de back-end do .net para aplicativos móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
@@ -46,7 +46,7 @@ Para enviar por push e efetuar pull de alterações entre o dispositivo e os ser
 2. No método `onCreate`, comente a inicialização existente de `mToDoTable` e remova a marca de comentário desta definição:
    
         mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
-3. No `refreshItemsFromTable`, comente a definição de `results` e remova a marca de comentário desta definição:
+3. Em `refreshItemsFromTable` comente a definição de `results` e remova a marca de comentário desta definição:
    
         // Offline Sync
         final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
@@ -98,7 +98,7 @@ Quando você pressiona esse botão, uma nova tarefa em segundo plano é iniciada
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 * [Sincronização de Dados Offline em Aplicações Móveis do Azure]
-* [Cobertura de nuvem: sincronização offline nos serviços móveis do Azure] \(note: o vídeo está nos serviços móveis, mas a sincronização offline funciona de maneira semelhante nos aplicativos móveis do Azure @ no__t-2
+* [Cobertura de nuvem: sincronização offline nos serviços móveis do Azure] \(Observação: o vídeo está nos serviços móveis, mas a sincronização offline funciona de maneira semelhante nos aplicativos móveis do Azure\)
 
 <!-- URLs. -->
 

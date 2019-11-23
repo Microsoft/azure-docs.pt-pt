@@ -35,11 +35,11 @@ Para a versão prévia, há suporte para esses recursos:
 
 ## <a name="regions"></a>Regiões
 O serviço do construtor de imagens do Azure estará disponível para visualização nessas regiões. As imagens podem ser distribuídas fora dessas regiões.
-- Este dos E.U.A.
-- Este dos E.U.A. 2
-- E.U.A. Centro-Oeste
-- Oeste dos E.U.A.
-- E.U.A. Oeste 2
+- EUA Leste
+- EUA Leste 2
+- EUA Centro-Oeste
+- EUA Oeste
+- EUA Oeste 2
 
 ## <a name="os-support"></a>Suporte do so
 O AIB dará suporte a imagens do sistema operacional base do Azure Marketplace:
@@ -72,9 +72,9 @@ O construtor de imagens do Azure é um serviço do Azure totalmente gerenciado q
 ![Desenho conceitual do processo do construtor de imagem do Azure](./media/virtual-machines-image-builder-overview/image-builder-process.png)
 
 1. Crie o modelo de imagem como um arquivo. JSON. Esse arquivo. JSON contém informações sobre a origem, as personalizações e a distribuição da imagem. Há vários exemplos no [repositório GitHub do Azure Image Builder](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
-1. Enviá-lo para o serviço; isso criará um artefato de modelo de imagem no grupo de recursos que você especificar. Em segundo plano, o Image Builder baixará a imagem de origem ou a ISO e os scripts, conforme necessário. Eles são armazenados em um grupo de recursos separado que é criado automaticamente em sua assinatura, no formato: IT_ @ no__t-0DestinationResourceGroup > _ @ no__t-1TemplateName >. 
-1. Depois que o modelo de imagem for criado, você poderá criar a imagem. No construtor de imagem de plano de fundo usa o modelo e os arquivos de origem para criar uma VM (D1v2), rede, IP público e armazenamento no grupo de recursos IT_ @ no__t-0DestinationResourceGroup > _ @ no__t-1TemplateName >.
-1. Como parte da criação da imagem, o Image Builder distribui a imagem de acordo com o modelo e, em seguida, exclui os recursos adicionais no grupo de recursos IT_ @ no__t-0DestinationResourceGroup > _ @ no__t-1TemplateName > que foi criado para o processo.
+1. Enviá-lo para o serviço; isso criará um artefato de modelo de imagem no grupo de recursos que você especificar. Em segundo plano, o Image Builder baixará a imagem de origem ou a ISO e os scripts, conforme necessário. Eles são armazenados em um grupo de recursos separado que é criado automaticamente em sua assinatura, no formato: IT_\<DestinationResourceGroup > _\<TemplateName >. 
+1. Depois que o modelo de imagem for criado, você poderá criar a imagem. No construtor de imagem de plano de fundo usa o modelo e os arquivos de origem para criar uma VM (D1v2), rede, IP público e armazenamento na IT_\<DestinationResourceGroup > _\<TemplateName > grupo de recursos.
+1. Como parte da criação da imagem, o Image Builder distribui a imagem de acordo com o modelo e, em seguida, exclui os recursos adicionais na IT_\<DestinationResourceGroup > _\<TemplateName > grupo de recursos que foi criado para o processo.
 
 
 ## <a name="permissions"></a>Permissões

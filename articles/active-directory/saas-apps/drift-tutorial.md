@@ -84,7 +84,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Na **configuração básica do SAML** section o aplicativo é pré-configurado no modo  initiated **IDP**e as URLs necessárias já estão preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando em **salvar** button.
+1. Na seção **configuração básica do SAML** o aplicativo é pré-configurado no modo de iniciado pelo **IDP** e as URLs necessárias já estão preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
 
     a. Clique em **definir URLs adicionais**.
  
@@ -96,35 +96,35 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 6. Seu aplicativo de descompasso espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-    ![imagem](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 7. Além de acima, o aplicativo descompasso espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seu requisito. 
 
     | Nome | Atributo de origem|
     | ---------------| --------------- |    
-    | Nome | User. DisplayName |
+    | Nome | user.displayname |
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **XML de metadados de Federação** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download do certificado](common/metadataxml.png)
+    ![O link de download de certificado](common/metadataxml.png)
 
 1. Na seção **Configurar descompasso** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo usuário** na parte superior da tela.
+1. Selecione **novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao descompasso.
 
@@ -132,7 +132,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Na lista de aplicativos, selecione **descompasso**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![O link "usuários e grupos"](common/users-groups-blade.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -154,7 +154,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 3. Se você quiser configurar o descompasso manualmente, abra uma nova janela do navegador da Web e entre no site da empresa descompasso como administrador e execute as seguintes etapas:
 
-4. No lado esquerdo da barra de menus, clique no **ícone de configurações**  > **configurações do aplicativo**  > **autenticação** e execute as seguintes etapas:
+4. No lado esquerdo da barra de menus, clique no **ícone de configurações** > **configurações do aplicativo** > **autenticação** e execute as seguintes etapas:
 
     ![O link do administrador](./media/drift-tutorial/tutorial_drift_admin.png)
 
@@ -173,7 +173,7 @@ Nesta seção, um usuário chamado Brenda Simon é criado em descompasso. O desc
 
 ## <a name="test-sso"></a>Testar SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Ao clicar no bloco descompasso no painel de acesso, você deverá ser automaticamente conectado ao descompasso para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

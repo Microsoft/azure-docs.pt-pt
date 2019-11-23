@@ -79,7 +79,7 @@ Aqui está o fluxo de dados de alto nível para o e o resumo das etapas para có
 * Se o computador host hibernar, o gateway não responderá às solicitações de dados. Portanto, configure um **plano de energia** apropriado no computador antes de instalar o gateway. Se o computador estiver configurado para hibernar, a instalação do gateway solicitará uma mensagem.
 * Você deve ser um administrador no computador para instalar e configurar o gateway de gerenciamento de dados com êxito. Você pode adicionar outros usuários ao grupo local do Windows **usuários do gateway de gerenciamento de dados** . Os membros desse grupo são capazes de usar a ferramenta de **Configuration Manager do gerenciamento de dados gateway** para configurar o gateway.
 
-À medida que as execuções de atividade de cópia acontecem em uma frequência específica, o uso de recursos (CPU, memória) no computador também segue o mesmo padrão com tempos ociosos e de pico. A utilização de recursos também depende muito da quantidade de dados que estão sendo movidos. Quando vários trabalhos de cópia estiverem em andamento, você verá o uso do recurso subir durante horários de pico.
+À medida que as execuções de atividade de cópia acontecem em uma frequência específica, o uso de recursos (CPU, memória) no computador também segue o mesmo padrão com tempos ociosos e de pico. Utilização de recursos também depende muito a quantidade de dados a ser movidos. Quando vários trabalhos de cópia estiverem em andamento, você verá o uso do recurso subir durante horários de pico.
 
 ### <a name="installation-options"></a>Opções de instalação
 O gateway de gerenciamento de dados pode ser instalado das seguintes maneiras:
@@ -98,7 +98,7 @@ O gateway de gerenciamento de dados pode ser instalado das seguintes maneiras:
 4. Na página de **boas-vindas** , selecione um **idioma** e clique em **Avançar**.
 5. **Aceite** o contrato de licença de usuário final e clique em **Avançar**.
 6. Selecione a **pasta** para instalar o gateway e clique em **Avançar**.
-7. Na página **pronto para instalar** , clique em **instalar**.
+7. Sobre o **pronto para instalar o** página, clique em **instalar**.
 8. Clique em **concluir** para concluir a instalação.
 9. Obtenha a chave do portal do Azure. Consulte a próxima seção para obter instruções passo a passo.
 10. Na página **registrar gateway** do **Gerenciamento de dados gateway Configuration Manager** em execução no seu computador, execute as seguintes etapas:
@@ -144,8 +144,8 @@ No nível de firewall corporativo, você precisa configurar os seguintes domíni
 | Nomes de domínio | Portas | Descrição |
 | --- | --- | --- |
 | *.servicebus.windows.net |443 |Usado para comunicação com o back-end do serviço de movimentação de dados |
-| *. core.windows.net |443 |Usado para cópia em etapas usando o blob do Azure (se configurado)|
-| *. frontend.clouddatahub.net |443 |Usado para comunicação com o back-end do serviço de movimentação de dados |
+| *.core.windows.net |443 |Usado para cópia em etapas usando o blob do Azure (se configurado)|
+| *.frontend.clouddatahub.net |443 |Usado para comunicação com o back-end do serviço de movimentação de dados |
 | *.servicebus.windows.net |9350-9354, 5671 |Retransmissão do barramento de serviço opcional sobre TCP usado pelo assistente de cópia |
 
 No nível do firewall do Windows, essas portas de saída são normalmente habilitadas. Caso contrário, você pode configurar os domínios e as portas adequadamente no computador do gateway.
@@ -382,7 +382,7 @@ A tabela a seguir fornece os possíveis status de um **nó de gateway**:
 Estado  | Comentários/cenários
 :------- | :------------------
 Online | Nó conectado ao serviço de Data Factory.
-Está | O nó está offline.
+Offline | O nó está offline.
 Upgrade | O nó está sendo atualizado automaticamente.
 Limitado | Devido a um problema de conectividade. Pode ser devido ao problema de porta HTTP 8050, problema de conectividade do barramento de serviço ou problema de sincronização de credenciais.
 Inativo | O nó está em uma configuração diferente da configuração de outros nós de maioria.<br/><br/> Um nó pode ficar inativo quando não puder se conectar a outros nós.
@@ -393,7 +393,7 @@ Estado | Comentários
 :----- | :-------
 Precisa de registro | Nenhum nó ainda está registrado para este gateway lógico
 Online | Os nós de gateway estão online
-Está | Nenhum nó no status online.
+Offline | Nenhum nó no status online.
 Limitado | Nem todos os nós neste gateway estão em estado íntegro. Esse status é um aviso de que algum nó pode estar inoperante! <br/><br/>Pode ser devido a um problema de sincronização de credenciais no nó Dispatcher/de trabalho.
 
 ## <a name="scale-up-gateway"></a>Escalar verticalmente o gateway
@@ -479,7 +479,7 @@ Se você estiver procurando uma abordagem baseada em API para criptografar as cr
 
 Há mais uma abordagem para definir credenciais usando o editor de Data Factory. Se você criar um SQL Server serviço vinculado usando o editor e inserir as credenciais em texto sem formatação, as credenciais serão criptografadas usando um certificado que o serviço de Data Factory possui. Ele não usa o certificado que o gateway está configurado para usar. Embora essa abordagem possa ser um pouco mais rápida em alguns casos, ela é menos segura. Portanto, recomendamos que você siga essa abordagem apenas para fins de desenvolvimento/teste.
 
-## <a name="powershell-cmdlets"></a>Cmdlets Powershell
+## <a name="powershell-cmdlets"></a>Cmdlets do PowerShell
 Esta seção descreve como criar e registrar um gateway usando cmdlets Azure PowerShell.
 
 1. Inicie o **Azure PowerShell** no modo de administrador.

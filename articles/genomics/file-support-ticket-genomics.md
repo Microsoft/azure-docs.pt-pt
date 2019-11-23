@@ -32,7 +32,7 @@ Em seguida, selecione `New support request`.
 
 ![Nova solicitação de suporte](./media/file-support-ticket/new-support-request.png "nova solicitação de suporte") 
 
-Preencha o `Basics`, incluindo `Issue type` e seu `Subscription`. Selecione o @no__t mais relevante-0 para o seu problema; como exemplo na imagem abaixo, `Technical` foi selecionado. Certifique-se de selecionar `Microsoft Genomics` como o serviço relevante.  `Microsoft Genomics` será listado na categoria `Intelligence and Analytics`.   Depois de selecionar `Microsoft Genomics`, você também será solicitado a fornecer seu tipo de `Support plan`.
+Preencha as `Basics`, incluindo `Issue type` e sua `Subscription`. Selecione o `Issue type` mais relevante para o seu problema; como exemplo na imagem abaixo, `Technical` foi selecionado. Certifique-se de selecionar `Microsoft Genomics` como o serviço relevante.  `Microsoft Genomics` será listado na categoria `Intelligence and Analytics`.   Depois de selecionar `Microsoft Genomics`, você também será solicitado a fornecer o tipo de `Support plan`.
 
 Noções básicas do ![Solicitação de suporte](./media/file-support-ticket/support-request-basics.png "solicitação de suporte Basic")
 

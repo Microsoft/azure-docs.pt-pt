@@ -44,7 +44,7 @@ Os **grupos de segurança** devem ser [habilitados para email](https://docs.micr
   
     |Permissão|Descrição|  
     |----------------|-----------------|  
-    |**None**|Os membros não podem modificar o esquema do modelo e não podem consultar dados.|  
+    |**Nenhum**|Os membros não podem modificar o esquema do modelo e não podem consultar dados.|  
     |**Leitura**|Os membros podem consultar dados (com base em filtros de linha), mas não podem modificar o esquema do modelo.|  
     |**Leitura e processo**|Os membros podem consultar dados (com base em filtros em nível de linha) e executar processar e processar todas as operações, mas não podem modificar o esquema do modelo.|  
     |**Process**|Os membros podem executar processar e processar todas as operações. Não é possível modificar o esquema do modelo e não é possível consultar dados.|  
@@ -137,7 +137,7 @@ Os filtros de linha podem ser definidos somente para funções com permissões d
   
 Os filtros de linha se aplicam às linhas especificadas e linhas relacionadas. Quando uma tabela tem várias relações, os filtros aplicam segurança para a relação que está ativa. Os filtros de linha são interseccionados com outros Filers de linha definidos para tabelas relacionadas, por exemplo:  
   
-|Tabelas|Expressão DAX|  
+|Tabela|Expressão DAX|  
 |-----------|--------------------|  
 |Região|= Region [país] = "EUA"|  
 |ProductCategory|= ProductCategory [name] = "bicicletas"|  

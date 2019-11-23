@@ -15,7 +15,7 @@ ms.locfileid: "72326643"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Cláusula WHERE em Azure Cosmos DB
 
-A cláusula WHERE opcional (`WHERE <filter_condition>`) especifica a (s) condição (ões) que os itens JSON de origem devem satisfazer para que a consulta as inclua nos resultados. Um item JSON deve avaliar as condições especificadas para `true` a serem consideradas para o resultado. A camada de índice usa a cláusula WHERE para determinar o menor subconjunto de itens de origem que podem fazer parte do resultado.
+A cláusula WHERE opcional (`WHERE <filter_condition>`) especifica a (s) condição (ões) que os itens JSON de origem devem satisfazer para que a consulta as inclua nos resultados. Um item JSON deve avaliar as condições especificadas para `true` ser considerado para o resultado. A camada de índice usa a cláusula WHERE para determinar o menor subconjunto de itens de origem que podem fazer parte do resultado.
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -29,16 +29,16 @@ WHERE <filter_condition>
 
 - `<filter_condition>`  
   
-   Especifica a condição a ser atendida para os documentos a serem retornados.  
+   Especifica as condições para ser atendidas para que os documentos a serem retornados.  
   
 - `<scalar_expression>`  
   
-   Expressão que representa o valor a ser computado. Consulte [expressões escalares](sql-query-scalar-expressions.md) para obter detalhes.  
+   Expressão que representa o valor a ser calculada. Consulte [expressões escalares](sql-query-scalar-expressions.md) para obter detalhes.  
   
 
 ## <a name="remarks"></a>Observações
   
-  Para que o documento seja retornado, uma expressão especificada como condição de filtro deve ser avaliada como true. Somente o valor booliano true atenderá à condição, qualquer outro valor: indefinido, nulo, falso, número, matriz ou objeto não atenderá à condição. 
+  Para que o documento a ser devolvida uma expressão especificada como filtro de condição deve ser avaliado como true. Apenas o valor booleano true satisfaça a condição, qualquer outro valor: indefinido, nulo, FALSO, número, matriz ou objeto não satisfaçam a condição. 
 
 ## <a name="examples"></a>Exemplos
 
@@ -64,17 +64,17 @@ Os resultados são:
 
 ### <a name="scalar-expressions-in-the-where-clause"></a>Expressões escalares na cláusula WHERE
 
-O exemplo anterior mostrou uma consulta de igualdade simples. A API do SQL também dá suporte a várias [expressões escalares](sql-query-scalar-expressions.md). As usadas com mais frequência são expressões binárias e unários. Referências de Propriedade do objeto JSON de origem também são expressões válidas.
+O exemplo anterior mostrou uma consulta simples de igualdade. A API do SQL também dá suporte a várias [expressões escalares](sql-query-scalar-expressions.md). O uso mais comum é expressões binário e unário. Referências de propriedade do objeto JSON de origem também são as expressões válidas.
 
 Você pode usar os seguintes operadores binários com suporte:  
 
 |**Tipo de operador**  | **Valores** |
 |---------|---------|
-|Operações | +,-,*,/,% |
-|Nível    | \|, &, ^, < <, > >, > > > (deslocamento à direita de preenchimento zero) |
-|Lógico    | E, OU, NÃO      |
-|Comparação | =,! =, &lt;, &gt;, &lt; =, &gt; =, < > |
-|String     |  \| @ no__t-1 (concatenar) |
+|Operações aritméticas | +,-,*,/,% |
+|bit a bit    | \|, &, ^, <<>>,, >>> (shift direita do preenchimento de zero) |
+|Lógica    | E, EM ALTERNATIVA, NÃO      |
+|Comparação | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
+|Cadeia     |  \|\| (concatenar) |
 
 As consultas a seguir usam operadores binários:
 
@@ -104,10 +104,10 @@ Você também pode usar os operadores unários +,-, ~, e não em consultas, conf
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Você também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` retorna o item JSON que contém a propriedade `isRegistered` com valor igual a `true`. Qualquer outro valor, como `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>` ou `<array>`, exclui o item do resultado. 
+Você também pode usar referências de propriedade em consultas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` retorna o item JSON que contém a propriedade `isRegistered` com valor igual a `true`. Qualquer outro valor, como `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`ou `<array>`, exclui o item do resultado. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução](sql-query-getting-started.md)
-- [Exemplos do .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Cláusula FROM](sql-query-from.md)

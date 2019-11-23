@@ -192,7 +192,7 @@ A validação automática normalmente leva algumas horas. Se você não vir seu 
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>O domínio personalizado não está mapeado para o ponto final da CDN
 
 >[!NOTE]
->Se você estiver usando a **CDN do Azure da Akamai**, o CNAME a seguir deverá ser configurado para habilitar a validação automatizada de domínio. "_acme-Challenge. &lt;Custom domínio hostname @ no__t-1-> CNAME-> &lt;custom domínio hostname&gt;.ak-acme-challenge.azureedge.net"
+>Se você estiver usando a **CDN do Azure da Akamai**, o CNAME a seguir deverá ser configurado para habilitar a validação automatizada de domínio. "_acme-Challenge.&lt;nome de host de domínio personalizado&gt;-> CNAME-> &lt;nome de host de domínio personalizado&gt;. ak-acme-challenge.azureedge.net "
 
 Se a entrada de registro CNAME contiver o subdomínio cdnverify, siga o restante das instruções nesta etapa.
 

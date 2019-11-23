@@ -83,29 +83,29 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Na **configuração básica do SAML** section o aplicativo é pré-configurado no modo  initiated **IDP**e as URLs necessárias já estão preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando em **salvar** button.
+1. Na seção **configuração básica do SAML** o aplicativo é pré-configurado no modo de iniciado pelo **IDP** e as URLs necessárias já estão preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize **certificado (bruto)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download do certificado](common/certificateraw.png)
+    ![O link de download de certificado](common/certificateraw.png)
 
 1. Navegue até a seção **gerenciar** no lado esquerdo da página, clique na **guia Propriedades** e, em seguida, copie a **URL de acesso do usuário** e salve-a no computador.
 
     ![Propriedades de logon único](./media/in-case-of-crisis-mobile-tutorial/properties.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo usuário** na parte superior da tela.
+1. Selecione **novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao no caso de crise-móvel.
 
@@ -113,7 +113,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Na lista de aplicativos, selecione **no caso de crise-móvel**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![O link "usuários e grupos"](common/users-groups-blade.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -125,15 +125,15 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ## <a name="configure-in-case-of-crisis---mobile-sso"></a>Configurar no caso de crise-SSO móvel
 
-Para configurar o logon único no **no caso do lado do crise-móvel** , você precisa enviar o **certificado (bruto)** baixado e a **URL de acesso do usuário** copiada do portal do Azure para o [no caso da equipe de suporte de crises-móveis](https://www.rockdovesolutions.com/features/enterprise-ready). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
+Para configurar o logon único no **no caso do lado do crise-móvel** , você precisa enviar o **certificado (bruto)** baixado e a **URL de acesso do usuário** copiada do portal do Azure para o [no caso da equipe de suporte de crises-móveis](https://www.rockdovesolutions.com/features/enterprise-ready). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-in-case-of-crisis---mobile-test-user"></a>Criar no caso de crise – usuário de teste móvel
 
-Nesta seção, você criará um usuário chamado Brenda Simon no caso de crise-móvel. Trabalhe com o [em caso de crise – equipe de suporte móvel](https://www.rockdovesolutions.com/features/enterprise-ready) para adicionar os usuários no caso de uma plataforma móvel de crise. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Simon no caso de crise-móvel. Trabalhe com o [em caso de crise – equipe de suporte móvel](https://www.rockdovesolutions.com/features/enterprise-ready) para adicionar os usuários no caso de uma plataforma móvel de crise. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ## <a name="test-sso"></a>Testar SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Ao clicar no no caso do bloco de crises móveis no painel de acesso, você deverá ser conectado automaticamente ao no caso de crise-móvel para o qual você configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

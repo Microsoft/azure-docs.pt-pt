@@ -68,9 +68,9 @@ Os microserviços com estado simplificam os designs de aplicativos porque eles e
 
 Os diagramas a seguir ilustram as diferenças entre a criação de um aplicativo sem estado e um com estado. Aproveitando os modelos de programação [Reliable Services](service-fabric-reliable-services-introduction.md) e [Reliable Actors](service-fabric-reliable-actors-introduction.md) , os serviços com estado reduzem a complexidade do aplicativo enquanto alcançam alta taxa de transferência e baixa latência.
 
-Aqui está um aplicativo de exemplo que usa serviços sem estado: ![Application que usa serviços sem estado @ no__t-1
+Aqui está um aplicativo de exemplo que usa serviços sem estado: ![aplicativo que usa serviços sem estado][Image1]
 
-Aqui está um aplicativo de exemplo que usa serviços com estado: ![Application que usa serviços com estado @ no__t-1
+Aqui está um exemplo de aplicativo que usa serviços com estado: ![aplicativo que usa serviços com estado][Image2]
 
 ## <a name="next-steps"></a>Passos seguintes
 

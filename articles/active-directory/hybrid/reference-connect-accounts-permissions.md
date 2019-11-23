@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Contas e permissões | Microsoft Docs'
+title: 'Azure AD Connect: contas e permissões | Microsoft Docs'
 description: Este tópico descreve as contas usadas e criadas e as permissões necessárias.
 services: active-directory
 documentationcenter: ''
@@ -24,7 +24,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/04/2019
 ms.locfileid: "71960238"
 ---
-# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Contas e permissões
+# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: contas e permissões
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Contas usadas para Azure AD Connect
 
@@ -40,9 +40,9 @@ O Azure AD Connect usa 3 contas para sincronizar informações do Active Directo
 
 Além dessas três contas usadas para executar o Azure AD Connect, você também precisará das seguintes contas adicionais para instalar o Azure AD Connect.  Nomeadamente:
 
-- **Conta de administrador local**: O administrador que está instalando Azure AD Connect e quem tem permissões de administrador local no computador.
+- **Conta de administrador local**: o administrador que está instalando Azure ad Connect e quem tem permissões de administrador local no computador.
 
-- **AD DS conta de administrador corporativo**: Opcionalmente, usada para criar a "conta do conector de AD DS" acima.
+- **AD DS conta de administrador corporativo**: opcionalmente, usada para criar a "conta do conector de AD DS" acima.
 
 - **Conta de administrador global do Azure ad**: usada para criar a conta do conector do Azure AD e configurar o Azure AD.
 
@@ -61,7 +61,7 @@ Além dessas três contas usadas para executar o Azure AD Connect, você também
 > [!NOTE]
 > A função de administrador global não é necessária após a configuração inicial e a única conta necessária será a conta de função de **contas de sincronização de diretórios** . Isso não necssarily significa que você desejará apenas remover a conta com a função de administrador global. É melhor alterar a função para uma função menos poderosa, pois a remoção total da conta pode apresentar problemas se você precisar executar novamente o assistente novamente. Ao reduzir o privilégio da função, você sempre poderá reelevar os privilégios se precisar utilizar o assistente de Azure AD Connect novamente. 
 
-## <a name="installing-azure-ad-connect"></a>A instalar o Azure AD Connect
+## <a name="installing-azure-ad-connect"></a>Instalando o Azure AD Connect
 O assistente de instalação do Azure AD Connect oferece dois caminhos diferentes:
 
 * Nas configurações expressas, o assistente requer mais privilégios.  Isso é para que ele possa definir sua configuração facilmente, sem exigir que você crie usuários ou Configure permissões.
@@ -88,7 +88,7 @@ A conta do conector de AD DS é criada para leitura e gravação no AD do Window
 
 | Permissão | Utilizado para |
 | --- | --- |
-| <li>Replicar alterações de diretório</li><li>Replicar todas as alterações de diretório |Sincronização de hash de palavra-passe |
+| <li>Replicar alterações de diretório</li><li>Replicar todas as alterações de diretório |Sincronização de hash de senha |
 | Ler/gravar todas as propriedades usuário |Importar e trocar híbrido |
 | Ler/gravar todas as propriedades iNetOrgPerson |Importar e trocar híbrido |
 | Ler/gravar todas as propriedades grupo |Importar e trocar híbrido |
@@ -103,9 +103,9 @@ Veja a seguir um resumo das páginas do assistente de instalação expressa, das
 
 | Página do assistente | Credenciais coletadas | Permissões necessárias | Usado para |
 | --- | --- | --- | --- |
-| N/A |Usuário executando o assistente de instalação |Administrador do servidor local |<li>Cria a conta de serviço ADSync que é usada como para executar o serviço de sincronização. |
+| N/D |Usuário executando o assistente de instalação |Administrador do servidor local |<li>Cria a conta de serviço ADSync que é usada como para executar o serviço de sincronização. |
 | Ligar ao Azure AD |Credenciais de diretório do Azure AD |Função de administrador global no Azure AD |<li>Habilitando a sincronização no diretório do AD do Azure.</li>  <li>Criação da conta do conector do AD do Azure que é usada para operações de sincronização em andamento no Azure AD.</li> |
-| Ligar ao AD DS |Credenciais de Active Directory local |Membro do grupo de administradores de empresa (EA) no Active Directory |<li>Cria a conta do conector de AD DS no Active Directory e concede permissões a ela. Essa conta criada é usada para ler e gravar informações de diretório durante a sincronização.</li> |
+| Ligar ao AD DS |Credenciais de Active Directory local |Membro do grupo de administradores de empresa (EA) no Active Directory |<li>Cria a conta do conector de AD DS no Active Directory e concede permissões a ela. Essa conta criada é usada para ler e gravar informações de diretório durante a sincronização.</li> |
 
 
 ## <a name="custom-installation-settings"></a>Configurações de instalação personalizadas
@@ -120,13 +120,13 @@ Veja a seguir um resumo das páginas do assistente de instalação personalizada
 
 | Página do assistente | Credenciais coletadas | Permissões necessárias | Usado para |
 | --- | --- | --- | --- |
-| N/A |Usuário executando o assistente de instalação |<li>Administrador do servidor local</li><li>Se estiver usando uma SQL Server completa, o usuário deverá ser o administrador do sistema (SA) no SQL</li> |Por padrão, o cria a conta local que é usada como a conta de serviço do mecanismo de sincronização. A conta é criada somente quando o administrador não especifica uma conta específica. |
+| N/D |Usuário executando o assistente de instalação |<li>Administrador do servidor local</li><li>Se estiver usando uma SQL Server completa, o usuário deverá ser o administrador do sistema (SA) no SQL</li> |Por padrão, o cria a conta local que é usada como a conta de serviço do mecanismo de sincronização. A conta é criada somente quando o administrador não especifica uma conta específica. |
 | Instalar serviços de sincronização, opção de conta de serviço |Credenciais de conta de usuário local ou do AD |Usuário, as permissões são concedidas pelo assistente de instalação |Se o administrador especificar uma conta, essa conta será usada como a conta de serviço para o serviço de sincronização. |
 | Ligar ao Azure AD |Credenciais de diretório do Azure AD |Função de administrador global no Azure AD |<li>Habilitando a sincronização no diretório do AD do Azure.</li>  <li>Criação da conta do conector do AD do Azure que é usada para operações de sincronização em andamento no Azure AD.</li> |
-| Ligar os seus diretórios |As credenciais de Active Directory local para cada floresta que está conectada ao Azure AD |As permissões dependem de quais recursos você habilita e podem ser encontradas em criar a conta do conector de AD DS |Essa conta é usada para ler e gravar informações de diretório durante a sincronização. |
+| Ligar os diretórios |As credenciais de Active Directory local para cada floresta que está conectada ao Azure AD |As permissões dependem de quais recursos você habilita e podem ser encontradas em criar a conta do conector de AD DS |Essa conta é usada para ler e gravar informações de diretório durante a sincronização. |
 | Servidores do AD FS |Para cada servidor na lista, o assistente coleta credenciais quando as credenciais de entrada do usuário que executa o assistente não são suficientes para se conectar |Administrador de domínio |Instalação e configuração da função de servidor AD FS. |
 | Servidores proxy de aplicativo Web |Para cada servidor na lista, o assistente coleta credenciais quando as credenciais de entrada do usuário que executa o assistente não são suficientes para se conectar |Administrador local no computador de destino |Instalação e configuração da função de servidor WAP. |
-| Credenciais de confiança do proxy |Credenciais de confiança do serviço de Federação (as credenciais que o proxy usa para se registrar para um certificado de confiança do FS |Conta de domínio que é um administrador local do servidor de AD FS |Registro inicial do certificado de confiança FS-WAP. |
+| Credenciais de confiança de proxy |Credenciais de confiança do serviço de Federação (as credenciais que o proxy usa para se registrar para um certificado de confiança do FS |Conta de domínio que é um administrador local do servidor de AD FS |Registro inicial do certificado de confiança FS-WAP. |
 | AD FS página conta de serviço, "usar uma opção de conta de usuário de domínio" |Credenciais da conta de usuário do AD |Usuário de domínio |A conta de usuário do Azure AD cujas credenciais são fornecidas é usada como a conta de entrada do serviço de AD FS. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>Criar a conta do conector de AD DS
@@ -134,7 +134,7 @@ Veja a seguir um resumo das páginas do assistente de instalação personalizada
 >[!IMPORTANT]
 >Um novo módulo do PowerShell chamado ADSyncConfig. psm1 foi introduzido com Build **1.1.880.0** (lançado em agosto de 2018) que inclui uma coleção de cmdlets para ajudá-lo a configurar as permissões de Active Directory corretas para a conta do conector de AD DS do Azure.
 >
->Para obter mais informações, consulte [Azure AD Connect: Configurar a permissão de conta do conector de AD DS @ no__t-0
+>Para obter mais informações, consulte a [permissão Azure ad Connect: configurar a conta do conector de AD DS](how-to-connect-configure-ad-ds-connector-account.md)
 
 A conta que você especificar na página **conectar seus diretórios** deve estar presente no Active Directory antes da instalação.  Azure AD Connect versão 1.1.524.0 e posterior tem a opção de permitir que o assistente de Azure AD Connect crie a **conta do conector de AD DS** usada para se conectar ao Active Directory.  
 
@@ -145,21 +145,21 @@ As permissões que você precisa dependem dos recursos opcionais que você habil
 | Funcionalidade | Permissões |
 | --- | --- |
 | recurso ms-DS-ConsistencyGuid |Permissões de gravação para o atributo ms-DS-ConsistencyGuid documentado em [conceitos de design – usando MS-DS-ConsistencyGuid como sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
-| Sincronização de hash de palavra-passe |<li>Replicar alterações de diretório</li>  <li>Replicar todas as alterações de diretório |
-| Implementação híbrida do Exchange |Permissões de gravação para os atributos documentados no [write-back híbrido do Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) para usuários, grupos e contatos. |
+| Sincronização de hash de senha |<li>Replicar alterações de diretório</li>  <li>Replicar todas as alterações de diretório |
+| Implantação híbrida do Exchange |Permissões de gravação para os atributos documentados no [write-back híbrido do Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) para usuários, grupos e contatos. |
 | Pasta pública de email do Exchange |Permissões de leitura para os atributos documentados na [pasta pública do Exchange mail](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) para pastas públicas. | 
-| Repetição de escrita da palavra-passe |Permissões de gravação para os atributos documentados em [introdução ao gerenciamento de senhas](../authentication/howto-sspr-writeback.md) para usuários. |
-| Repetição de escrita de dispositivos |Permissões concedidas com um script do PowerShell, conforme descrito em [write-back do dispositivo](how-to-connect-device-writeback.md). |
-| Repetição de Escrita do Grupo |Permite que você write-back de **grupos do Office 365** em uma floresta com o Exchange instalado.  Para obter mais informações, consulte [Group write-back](how-to-connect-preview.md#group-writeback).|
+| Repetição de escrita de palavras-passe |Permissões de gravação para os atributos documentados em [introdução ao gerenciamento de senhas](../authentication/howto-sspr-writeback.md) para usuários. |
+| Repetição de escrita do dispositivo |Permissões concedidas com um script do PowerShell, conforme descrito em [write-back do dispositivo](how-to-connect-device-writeback.md). |
+| Repetição de escrita do grupo |Permite que você write-back de **grupos do Office 365** em uma floresta com o Exchange instalado.  Para obter mais informações, consulte [Group write-back](how-to-connect-preview.md#group-writeback).|
 
-## <a name="upgrade"></a>Actualizar
+## <a name="upgrade"></a>Atualizar
 Ao atualizar de uma versão do Azure AD Connect para uma nova versão, você precisará das seguintes permissões:
 
 >[!IMPORTANT]
 >A partir do Build 1.1.484, Azure AD Connect introduziu um bug de regressão que exige permissões sysadmin para atualizar o banco de dados SQL.  Esse bug é corrigido no Build 1.1.647.  Se estiver atualizando para essa compilação, você precisará de permissões de sysadmin.  As permissões de dbo não são suficientes.  Se você tentar atualizar Azure AD Connect sem ter permissões de sysadmin, a atualização falhará e Azure AD Connect deixará de funcionar corretamente mais tarde.  A Microsoft está ciente disso e está trabalhando para corrigir isso.
 
 
-| Principal | Permissões necessárias | Utilizado para |
+| Beneficiário | Permissões necessárias | Utilizado para |
 | --- | --- | --- |
 | Usuário executando o assistente de instalação |Administrador do servidor local |Atualizar binários. |
 | Usuário executando o assistente de instalação |Membro de ADSyncAdmins |Faça alterações nas regras de sincronização e outras configurações. |
@@ -201,10 +201,10 @@ Legenda
 - sMSA- [conta de serviço gerenciado autônomo](https://technet.microsoft.com/library/dd548356.aspx)
 - gMSA- [conta de serviço gerenciado de grupo](https://technet.microsoft.com/library/hh831782.aspx)
 
-| | LocalDB</br>Expresso | LocalDB/LocalSQL</br>Personalizar | SQL remoto</br>Personalizar |
+| | LocalDB</br>Express | LocalDB/LocalSQL</br>Personalizado | SQL remoto</br>Personalizado |
 | --- | --- | --- | --- |
 | **computador autônomo/de grupo de trabalho** | Não suportado | **VSA**</br>Conta local (2008)</br>Conta local |  Não suportado |
-| **computador ingressado no domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta do domínio</br>sMSA, gMSA | **gMSA**</br>Conta do domínio |
+| **computador ingressado no domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta de domínio</br>sMSA, gMSA | **gMSA**</br>Conta de domínio |
 | **Controlador de domínio** | **Conta de domínio** | *gMSA*</br>**Conta de domínio**</br>sMSA| *gMSA*</br>**Conta de domínio**|
 
 #### <a name="virtual-service-account"></a>Conta de serviço virtual
@@ -225,8 +225,8 @@ Também há suporte para usar uma [conta de serviço gerenciado autônomo](https
 
 Esse recurso requer o Windows Server 2012 ou posterior. Se você precisar usar um sistema operacional mais antigo e usar o SQL remoto, deverá usar uma [conta de usuário](#user-account).
 
-#### <a name="user-account"></a>Conta de utilizador
-Uma conta de serviço local é criada pelo assistente de instalação do (a menos que você especifique a conta a ser usada em configurações personalizadas). A conta é prefixada **AAD_** e usada para que o serviço de sincronização real seja executado como. Se você instalar Azure AD Connect em um controlador de domínio, a conta será criada no domínio. A conta de serviço **AAD_** deverá estar localizada no domínio se:
+#### <a name="user-account"></a>Conta de usuário
+Uma conta de serviço local é criada pelo assistente de instalação do (a menos que você especifique a conta a ser usada em configurações personalizadas). A conta é prefixada **AAD_** e usada para que o serviço de sincronização real seja executado como. Se você instalar Azure AD Connect em um controlador de domínio, a conta será criada no domínio. A conta de serviço **AAD_** deve estar localizada no domínio se:
    - Você usa um servidor remoto executando o SQL Server
    - Você usa um proxy que requer autenticação
 
@@ -261,7 +261,7 @@ Para obter informações adicionais sobre como gerenciar ou redefinir a senha pa
 ## <a name="related-documentation"></a>Documentação relacionada
 Se você não leu a documentação sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md), a tabela a seguir fornecerá links para tópicos relacionados.
 
-|Tópico |Associar|  
+|Tópico |Ligação|  
 | --- | --- |
 |Transferir o Azure AD Connect | [Transferir o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Instalar utilizando as definições rápidas | [Instalação rápida do Azure AD Connect](how-to-connect-install-express.md)|

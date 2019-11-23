@@ -28,9 +28,9 @@ ms.locfileid: "72388636"
 > [!NOTE]
 > O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
 >
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do Windows](app-service-mobile-windows-store-dotnet-get-started.md) para que uma notificação por push seja enviada ao dispositivo toda vez que um registro for inserido.
 
@@ -44,7 +44,7 @@ Se você não usar o projeto baixado do servidor de início rápido, será neces
 
 Você precisa enviar seu aplicativo para a Microsoft Store e, em seguida, configurar o projeto de servidor para integrar com o [Windows Notification Services (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) para enviar por push.
 
-1. No Visual Studio Gerenciador de Soluções, clique com o botão direito do mouse no projeto de aplicativo UWP, clique em **armazenar** > **associar aplicativo à loja...** .
+1. No Visual Studio Gerenciador de Soluções, clique com o botão direito do mouse no projeto de aplicativo UWP, clique em **armazenar** > **associar o aplicativo à loja...** .
 
     ![Associar o aplicativo ao Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
 
@@ -66,7 +66,7 @@ Você precisa enviar seu aplicativo para a Microsoft Store e, em seguida, config
 
 ## <a id="update-service"></a>Atualizar o servidor para enviar notificações por push
 
-Use o procedimento abaixo que corresponda ao tipo de projeto de back-end @ no__t-0either [.net backend](#dotnet) ou o [back-end do node. js](#nodejs).
+Use o procedimento abaixo que corresponda ao tipo de projeto de back-end&mdash;o back-end do [.net](#dotnet) ou o [back-end do node. js](#nodejs).
 
 ### <a name="dotnet"></a>Projeto de back-end .NET
 

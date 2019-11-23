@@ -189,7 +189,7 @@ A tabela a seguir mostra as definições de configuração para uma propriedade 
 
 ## <a name="add-customizations"></a>Adicionar personalizações
 
-Use personalizações quando precisar modificar uma interface importada ou adicionar recursos específicos de IoT Central a um recurso. Você só pode personalizar campos que não interrompem a compatibilidade de interface. Por exemplo, pode:
+Use personalizações quando precisar modificar uma interface importada ou adicionar recursos específicos de IoT Central a um recurso. Você só pode personalizar campos que não interrompem a compatibilidade de interface. Pode, por exemplo:
 
 - Personalize o nome de exibição e as unidades de um recurso.
 - Adicione uma cor padrão a ser usada quando o valor for exibido em um gráfico.

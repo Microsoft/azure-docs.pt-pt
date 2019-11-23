@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização de Azure AD Connect: Impedir exclusões acidentais | Microsoft Docs'
+title: 'Sincronização de Azure AD Connect: impedir exclusões acidentais | Microsoft Docs'
 description: Este tópico descreve o recurso impedir exclusões acidentais (evitando exclusões acidentais) no Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -23,7 +23,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/02/2019
 ms.locfileid: "71827133"
 ---
-# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronização de Azure AD Connect: Impedir eliminações acidentais
+# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronização do Azure AD Connect: impedir eliminações acidentais
 Este tópico descreve o recurso impedir exclusões acidentais (evitando exclusões acidentais) no Azure AD Connect.
 
 Ao instalar Azure AD Connect, impedir exclusões acidentais é habilitada por padrão e configurada para não permitir uma exportação com mais de 500 exclusões. Esta funcionalidade foi concebida para proteger contra alterações acidentais de configuração e alterações ao seu diretório no local, que poderiam afetar muitos utilizadores e outros objetos.
@@ -41,12 +41,12 @@ Se houver muitas exclusões em etapas para serem exportadas para o Azure AD, a e
 
 ![Impedir exclusão acidental de email](./media/how-to-connect-sync-feature-prevent-accidental-deletes/email.png)
 
-> *Hello (contato técnico). Em (hora) o serviço de Sincronização de Identidades detectou que o número de exclusões excedeu o limite de exclusão configurado para o (nome da organização). Um total de objetos (número) foram enviados para exclusão nesta Sincronização de Identidades execução. Isso atingiu ou excedeu o valor de limite de exclusão configurado de objetos (número). Precisamos que você forneça a confirmação de que essas exclusões devem ser processadas antes de continuarmos. Consulte impedindo exclusões acidentais para obter mais informações sobre o erro listado nesta mensagem de email.*
+> *Olá (contato técnico). Em (hora) o serviço de Sincronização de Identidades detectou que o número de exclusões excedeu o limite de exclusão configurado para o (nome da organização). Um total de objetos (número) foram enviados para exclusão nesta Sincronização de Identidades execução. Isso atingiu ou excedeu o valor de limite de exclusão configurado de objetos (número). Precisamos que você forneça a confirmação de que essas exclusões devem ser processadas antes de continuarmos. Consulte impedindo exclusões acidentais para obter mais informações sobre o erro listado nesta mensagem de email.*
 >
 > 
 
-Você também pode ver o status `stopped-deletion-threshold-exceeded` quando procura na interface do usuário do **Synchronization Service Manager** para o perfil de exportação.
-![Prevent acidentalmente exclui a sincronização Service Manager interface do usuário @ no__t-1
+Você também pode ver o status `stopped-deletion-threshold-exceeded` ao examinar a interface do usuário do **Synchronization Service Manager** para o perfil de exportação.
+![impedir que as exclusões acidentais sincronizem a interface do usuário Service Manager](./media/how-to-connect-sync-feature-prevent-accidental-deletes/syncservicemanager.png)
 
 Se isso era inesperado, investigue e tome as medidas corretivas. Para ver quais objetos estão prestes a serem excluídos, faça o seguinte:
 
@@ -72,5 +72,5 @@ Se todas as exclusões forem desejadas, faça o seguinte:
 ## <a name="next-steps"></a>Passos seguintes
 **Tópicos de visão geral**
 
-* [Sincronização do Azure AD Connect: Entender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização de Azure AD Connect: entender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

@@ -57,7 +57,7 @@ Além das instruções Transact-SQL relacionadas aos recursos sem suporte descri
 - Funções: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
 - Hardware: sintaxe relacionada a configurações de servidor relacionadas a hardware: como memória, threads de trabalho, afinidade de CPU, sinalizadores de rastreamento. Use camadas de serviço e tamanhos de computação em vez disso.
 - `KILL STATS JOB`
-- nomes `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` e quatro partes
+- nomes de `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`e quatro partes
 - .NET Framework: integração CLR com SQL Server
 - Pesquisa semântica
 - Credenciais do servidor: use [credenciais no escopo do banco de dados](https://msdn.microsoft.com/library/mt270260.aspx) .

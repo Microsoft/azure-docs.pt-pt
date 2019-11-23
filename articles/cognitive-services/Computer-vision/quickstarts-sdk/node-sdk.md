@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Biblioteca de cliente Pesquisa Visual Computacional para node. js | Microsoft Docs'
+title: 'Início rápido: biblioteca de cliente Pesquisa Visual Computacional para node. js | Microsoft Docs'
 description: Introdução à biblioteca de cliente Pesquisa Visual Computacional para node. js...
 services: cognitive-services
 author: PatrickFarley
@@ -16,7 +16,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/06/2019
 ms.locfileid: "71981836"
 ---
-# <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Início rápido: Biblioteca de cliente Pesquisa Visual Computacional para node. js
+# <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Início rápido: biblioteca de cliente Pesquisa Visual Computacional para node. js
 
 Introdução à biblioteca de cliente Pesquisa Visual Computacional para node. js. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. 
 
@@ -25,7 +25,7 @@ Use a biblioteca de cliente Pesquisa Visual Computacional para node. js para:
 * [Analisar uma imagem](#analyze-an-image)
 * [Ler texto impresso e manuscrito](#read-printed-and-handwritten-text)
 
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)@no__t-[1 código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [pacote (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-computervision) | [amostras](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) |  | [(NPM)](https://www.npmjs.com/package/azure-cognitiveservices-computervision) | [amostras](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0) do [código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +51,7 @@ Em uma janela de console (como cmd, PowerShell ou bash), crie um novo diretório
 mkdir myapp && cd myapp
 ```
 
-Execute o comando `npm init` para criar um aplicativo de nó com um arquivo `package.json`. 
+Execute o comando `npm init` para criar um aplicativo de nó com um arquivo de `package.json`. 
 
 ```console
 npm init
@@ -59,13 +59,13 @@ npm init
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca de cliente
 
-Instale os pacotes `ms-rest-azure` e `azure-cognitiveservices-computervision` NPM:
+Instale o `ms-rest-azure` e `azure-cognitiveservices-computervision` pacotes NPM:
 
 ```console
 npm install azure-cognitiveservices-computervision ms-rest-azure
 ```
 
-O arquivo `package.json` do seu aplicativo será atualizado com as dependências.
+O arquivo de `package.json` do seu aplicativo será atualizado com as dependências.
 
 ### <a name="prepare-the-nodejs-script"></a>Preparar o script node. js
 
@@ -73,7 +73,7 @@ Crie um novo arquivo, *index. js*, e abra-o em um editor de texto. Adicione as s
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imports)]
 
-Em seguida, defina uma função `computerVision` e declare uma série assíncrona com a função principal e a função de retorno de chamada. Você adicionará o código de início rápido à função principal e chamará `computerVision` na parte inferior do script.
+Em seguida, defina uma função `computerVision` e declare uma série assíncrona com função principal e função de retorno de chamada. Você adicionará o código de início rápido à função principal e chamará `computerVision` na parte inferior do script.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_begin)]
 
@@ -83,7 +83,7 @@ Em seguida, defina uma função `computerVision` e declare uma série assíncron
 
 As classes e interfaces a seguir tratam de alguns dos principais recursos do SDK Pesquisa Visual Computacional node. js.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) | Essa classe é necessária para todas as funcionalidades de Pesquisa Visual Computacional. Você a instancia com suas informações de assinatura e a usa para fazer a maioria das operações de imagem.|
 |[VisualFeatureTypes](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest)| Essa enumeração define os diferentes tipos de análise de imagem que podem ser feitas em uma operação de análise padrão. Você especifica um conjunto de valores de **VisualFeatureTypes** dependendo de suas necessidades. |
@@ -189,7 +189,7 @@ O código a seguir imprime os atributos de cor detectados na imagem, como as cor
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_colors)]
 
-Defina a função auxiliar `printColorScheme` para imprimir os detalhes do esquema de cores no console.
+Defina a função auxiliar `printColorScheme` para imprimir os detalhes do esquema de cores no console do.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_colors_print)]
 
@@ -211,7 +211,7 @@ Defina a função auxiliar `formatRectDomain` para analisar os dados de localiza
 
 ### <a name="get-the-image-type"></a>Obter o tipo de imagem
 
-O código a seguir imprime informações sobre o tipo de imagem @ no__t-0whether é Clip-Art ou desenho de linha.
+O código a seguir imprime informações sobre o tipo de imagem&mdash;se é Clip-Art ou desenho de linha.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype)]
 

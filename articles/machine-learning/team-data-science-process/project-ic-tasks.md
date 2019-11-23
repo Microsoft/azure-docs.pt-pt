@@ -1,5 +1,5 @@
 ---
-title: Tarefas para um colaborador individual no processo de ciência de dados de equipe
+title: Tarefas para um colaborador individual no Team Data Science Process
 description: Uma explicação detalhada das tarefas para um colaborador individual em um projeto de equipe de ciência de dados.
 author: marktab
 manager: cgronlun
@@ -17,7 +17,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/10/2019
 ms.locfileid: "72244276"
 ---
-# <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tarefas para um colaborador individual no processo de ciência de dados de equipe
+# <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tarefas para um colaborador individual no Team Data Science Process
 
 Este tópico descreve as tarefas que um *colaborador individual* conclui para configurar um projeto no TDSP ( [processo de ciência de dados de equipe](overview.md) ). O objetivo é trabalhar em um ambiente de equipe colaborativa que padronize o TDSP. O TDSP foi projetado para ajudar a melhorar a colaboração e o aprendizado de equipe. Para obter uma descrição das funções de pessoal e de suas tarefas associadas que são manipuladas por uma equipe de ciência de dados padronizando no TDSP, consulte [funções e tarefas do processo de ciência de dados de equipe](roles-tasks.md).
 
@@ -45,7 +45,7 @@ Este tutorial pressupõe que os seguintes recursos e permissões foram configura
 Para clonar repositórios e modificar o conteúdo em seu computador local ou DSVM, ou montar o armazenamento de arquivos do Azure em seu DSVM, você precisará do seguinte:
 
 - Uma subscrição do Azure.
-- Git instalado em seu computador. Se você estiver usando um DSVM, o git será pré-instalado. Caso contrário, consulte o [Apêndice plataformas e ferramentas](platforms-and-tools.md#appendix).
+- Git instalado em seu computador. Se você estiver usando um DSVM, o git será pré-instalado. Caso contrário, consulte a [apêndice de ferramentas e plataformas](platforms-and-tools.md#appendix).
 - Se você quiser usar um DSVM, o DSVM do Windows ou Linux criado e configurado no Azure. Para obter mais informações e instruções, consulte a [documentação do máquina virtual de ciência de dados](/azure/machine-learning/data-science-virtual-machine/).
 - Para um DSVM do Windows, o [Gerenciador de credenciais do git (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado em seu computador. No arquivo *README.MD* , role para baixo até a seção **baixar e instalar** e selecione o **instalador mais recente**. Baixe o instalador *. exe* da página do instalador e execute-o. 
 - Para um DSVM do Linux, uma chave pública SSH configurada em seu DSVM e adicionada no Azure DevOps. Para obter mais informações e instruções, consulte a seção **criar chave pública SSH** no [Apêndice plataformas e ferramentas](platforms-and-tools.md#appendix). 
@@ -55,7 +55,7 @@ Para clonar repositórios e modificar o conteúdo em seu computador local ou DSV
 
 Para trabalhar com repositórios localmente e enviar por push suas alterações para os repositórios de equipe e projeto compartilhados, primeiro copie ou *clone* os repositórios em seu computador local. 
 
-1. No Azure DevOps, acesse a página de resumo do projeto da sua equipe em *https: \/ @ no__t-2 @ no__t-3Server name >/\<organization name >/\<team name >* , por exemplo, **https: \//dev. Azure. com/DataScienceUnit/myTeam**.
+1. No Azure DevOps, vá para a página de resumo do projeto da sua equipe em *https:\//nome do servidor \<>/\<nome da organização >/\<nome da equipe*>, por exemplo, **https:\//dev.Azure.com/DataScienceUnit/myTeam**.
    
 1. Selecione **repositórios** no painel de navegação esquerdo e, na parte superior da página, selecione o repositório que você deseja clonar.
    
@@ -100,7 +100,7 @@ Se sua equipe ou projeto tiver ativos compartilhados no armazenamento de arquivo
 
 Aqui estão os links para descrições detalhadas das outras funções e tarefas definidas pelo processo de ciência de dados de equipe:
 
-- [Tarefas do gerente de grupo para uma equipe de ciência de dados](group-manager-tasks.md)
-- [Tarefas do líder de equipe para uma equipe de ciência de dados](team-lead-tasks.md)
-- [Tarefas do líder de projeto para uma equipe de ciência de dados](project-lead-tasks.md)
+- [Tarefas do Gestor de grupo para uma equipa de ciência de dados](group-manager-tasks.md)
+- [Tarefas de líder de equipe para uma equipa de ciência de dados](team-lead-tasks.md)
+- [Tarefas de líder de projeto para uma equipa de ciência de dados](project-lead-tasks.md)
 

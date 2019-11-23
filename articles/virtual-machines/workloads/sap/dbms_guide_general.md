@@ -58,13 +58,13 @@ Neste documento, são introduzidas considerações sobre a execução de sistema
 Em todo o documento, estes termos são usados:
 
 * **IaaS**: Infraestrutura como serviço.
-* **PaaS**: Plataforma como serviço.
-* **SaaS**: Software como serviço.
-* **Componente SAP**: Um aplicativo SAP individual, como o ECC (componente central de ERP), o Business Warehouse (BW), o Solution Manager ou o Enterprise Portal (EP). Os componentes do SAP podem ser baseados em tecnologias tradicionais de ABAP ou Java ou em um aplicativo não baseado em NetWeaver, como objetos comerciais.
-* **Ambiente SAP**: Um ou mais componentes SAP agrupados logicamente para executar uma função de negócios, como desenvolvimento, garantia de qualidade, treinamento, recuperação de desastres ou produção.
-* **Cenário SAP**: Este termo refere-se a todos os ativos do SAP no cenário de ti de um cliente. A estrutura da SAP inclui todos os ambientes de produção e não produto.
-* **Sistema SAP**: A combinação de uma camada DBMS e uma camada de aplicativo de, por exemplo, um sistema de desenvolvimento SAP ERP, um sistema de teste SAP Business Warehouse ou um sistema de produção SAP CRM. Nas implantações do Azure, dividir essas duas camadas entre locais e o Azure não tem suporte. Como resultado, um sistema SAP é implantado localmente ou implantado no Azure. Você pode implantar os diferentes sistemas de uma estrutura SAP no Azure ou no local. Por exemplo, você pode implantar os sistemas de desenvolvimento e teste do SAP CRM no Azure, mas implantar o sistema de produção do SAP CRM local.
-* **Entre instalações**: Descreve um cenário em que as VMs são implantadas em uma assinatura do Azure que tem conectividade site a site, multissite ou Azure ExpressRoute entre os data centers locais e o Azure. Na documentação comum do Azure, esses tipos de implantações também são descritos como cenários entre instalações. 
+* **PaaS**: plataforma como serviço.
+* **SaaS**: software como serviço.
+* **Componente SAP**: um aplicativo SAP individual, como um componente central de ERP (ECC), Business Warehouse (BW), Solution Manager ou Enterprise Portal (EP). Os componentes do SAP podem ser baseados em tecnologias tradicionais de ABAP ou Java ou em um aplicativo não baseado em NetWeaver, como objetos comerciais.
+* **Ambiente SAP**: um ou mais componentes SAP agrupados logicamente para executar uma função de negócios, como desenvolvimento, garantia de qualidade, treinamento, recuperação de desastres ou produção.
+* **Cenário SAP**: este termo refere-se a todos os ativos do SAP no cenário de ti de um cliente. A estrutura da SAP inclui todos os ambientes de produção e não produto.
+* **Sistema SAP**: a combinação de uma camada DBMS e uma camada de aplicativo de, por exemplo, um sistema de desenvolvimento SAP ERP, um sistema de teste SAP Business Warehouse ou um sistema de produção SAP CRM. Nas implantações do Azure, dividir essas duas camadas entre locais e o Azure não tem suporte. Como resultado, um sistema SAP é implantado localmente ou implantado no Azure. Você pode implantar os diferentes sistemas de uma estrutura SAP no Azure ou no local. Por exemplo, você pode implantar os sistemas de desenvolvimento e teste do SAP CRM no Azure, mas implantar o sistema de produção do SAP CRM local.
+* **Entre instalações**: descreve um cenário em que as VMs são implantadas em uma assinatura do Azure que tem conectividade site a site, multissite ou Azure ExpressRoute entre os data centers locais e o Azure. Na documentação comum do Azure, esses tipos de implantações também são descritos como cenários entre instalações. 
 
     O motivo para a conexão é estender domínios locais, Active Directory locais e o DNS local para o Azure. O cenário local é estendido para os ativos do Azure da assinatura. Com essa extensão, as VMs podem fazer parte do domínio local. Os usuários de domínio do domínio local podem acessar os servidores e executar serviços nessas VMs, como os serviços DBMS. A comunicação e a resolução de nomes entre as VMs implantadas localmente e as VMs implantadas no Azure são possíveis. Esse cenário é o cenário mais comum em uso para implantar ativos do SAP no Azure. Para obter mais informações, consulte [planejamento e design para o gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
@@ -78,27 +78,27 @@ Em todo o documento, estes termos são usados:
 Algumas documentações da Microsoft descrevem cenários entre instalações de maneira um pouco diferente, especialmente para configurações de alta disponibilidade do DBMS. No caso dos documentos relacionados ao SAP, o cenário entre instalações se resume à conectividade de [ExpressRoute](https://azure.microsoft.com/services/expressroute/) de site a site ou privada e uma estrutura SAP que é distribuída entre o local e o Azure.
 
 ## <a name="resources"></a>Recursos
-Há outros artigos disponíveis sobre a carga de trabalho do SAP no Azure. Comece com [a carga de trabalho do SAP no Azure: ](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) Comece e escolha sua área de interesse.
+Há outros artigos disponíveis sobre a carga de trabalho do SAP no Azure. Comece com a [carga de trabalho do SAP no Azure: comece](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) e escolha sua área de interesse.
 
 As seguintes notas SAP estão relacionadas ao SAP no Azure em relação à área abordada neste documento.
 
-| Número da nota | Cargo |
+| Número da nota | Título |
 | --- | --- |
-| [1928533] |Aplicativos SAP no Azure: Produtos com suporte e tipos de VM do Azure |
-| [2015553] |SAP em Microsoft Azure: Pré-requisitos de suporte |
+| [1928533] |Aplicativos SAP no Azure: produtos com suporte e tipos de VM do Azure |
+| [2015553] |SAP em Microsoft Azure: pré-requisitos de suporte |
 | [1999351] |Solução de problemas de monitoramento aprimorado do Azure para SAP |
 | [2178632] |Principais métricas de monitoramento para SAP em Microsoft Azure |
-| [1409604] |Virtualização no Windows: Monitoramento avançado |
-| [2191498] |SAP no Linux com o Azure: Monitoramento avançado |
-| [2039619] |Aplicativos SAP em Microsoft Azure usando o banco de dados Oracle: Produtos e versões com suporte |
-| [2233094] |DB6: Aplicativos SAP no Azure usando IBM DB2 para Linux, UNIX e Windows: Informações adicionais |
-| [2243692] |VM do Linux em Microsoft Azure (IaaS): Problemas de licença do SAP |
-| [1984787] |SUSE LINUX Enterprise Server 12: Notas de instalação |
-| [2002167] |Red Hat Enterprise Linux 7. x: Instalação e atualização |
+| [1409604] |Virtualização no Windows: monitoramento avançado |
+| [2191498] |SAP no Linux com o Azure: monitoramento avançado |
+| [2039619] |Aplicativos SAP em Microsoft Azure usando o banco de dados Oracle: produtos e versões com suporte |
+| [2233094] |DB6: aplicativos SAP no Azure usando IBM DB2 para Linux, UNIX e Windows: informações adicionais |
+| [2243692] |VM do Linux em Microsoft Azure (IaaS): problemas de licença do SAP |
+| [1984787] |SUSE LINUX Enterprise Server 12: notas de instalação |
+| [2002167] |Red Hat Enterprise Linux 7. x: instalação e atualização |
 | [2069760] |Instalação e atualização do SAP Oracle Linux 7. x |
 | [1597355] |Recomendação de espaço de permuta para Linux |
-| [2171857] |Oracle Database 12c: Suporte ao sistema de arquivos no Linux |
-| [1114181] |Oracle Database 11g: Suporte ao sistema de arquivos no Linux |
+| [2171857] |Oracle Database 12c: suporte ao sistema de arquivos no Linux |
+| [1114181] |Oracle Database 11g: suporte ao sistema de arquivos no Linux |
 
 
 Para obter informações sobre todas as notas SAP para Linux, consulte o [wiki da Comunidade SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes).
@@ -156,7 +156,7 @@ Como já declarado, se o requisito de IOPS exceder o que um único VHD pode forn
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Somente MDADM e Gerenciador de volumes lógicos (LVM) têm suporte para criar um RAID de software no Linux. Para obter mais informações, consulte:
+> Somente MDADM e Gerenciador de volumes lógicos (LVM) têm suporte para criar um RAID de software no Linux. Para obter mais informações, veja:
 >
 > - [Configurar o RAID de software no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid) usando o MDADM
 > - [Configurar o LVM em uma VM do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm) usando o LVM
@@ -290,7 +290,7 @@ Essas práticas recomendadas são o resultado de centenas de implantações de c
 
 
 > [!IMPORTANT]
-> Não há suporte para a configuração de soluções de virtualização de [rede](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e a camada DBMS de um sistema SAP baseado em SAP NetWeaver, Hybris ou S/4HANA. Essa restrição destina-se a questões de desempenho e funcionalidade. O caminho de comunicação entre a camada do aplicativo SAP e a camada do DBMS deve ser direto. A restrição não inclui as [regras ASG (grupo de segurança de aplicativo) e NSG](https://docs.microsoft.com/azure/virtual-network/security-overview) se essas regras ASG e NSG permitem um caminho de comunicação direta. 
+> Não há suporte para a configuração de soluções de [virtualização de rede](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e a camada DBMS de um sistema SAP baseado em SAP NetWeaver, Hybris ou S/4HANA. Essa restrição destina-se a questões de desempenho e funcionalidade. O caminho de comunicação entre a camada do aplicativo SAP e a camada do DBMS deve ser direto. A restrição não inclui as [regras ASG (grupo de segurança de aplicativo) e NSG](https://docs.microsoft.com/azure/virtual-network/security-overview) se essas regras ASG e NSG permitem um caminho de comunicação direta. 
 >
 > Outros cenários em que as soluções de virtualização de rede não têm suporte estão em:
 >
@@ -301,11 +301,11 @@ Essas práticas recomendadas são o resultado de centenas de implantações de c
 >
 
 > [!IMPORTANT]
-> Outro design *sem* suporte é a diferenciação da camada do aplicativo SAP e da camada DBMS em diferentes redes virtuais do Azure que não [](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) são emparelhadas entre si. É recomendável separar a camada do aplicativo SAP e a camada do DBMS usando sub-redes em uma rede virtual do Azure em vez de usar diferentes redes virtuais do Azure. 
+> Outro design *sem* suporte é a diferenciação da camada do aplicativo SAP e da camada DBMS em diferentes redes virtuais do Azure que não são [emparelhadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre si. É recomendável separar a camada do aplicativo SAP e a camada do DBMS usando sub-redes em uma rede virtual do Azure em vez de usar diferentes redes virtuais do Azure. 
 >
-> Se você decidir não seguir a recomendação e, em vez disso, separar as duas camadas em redes virtuais diferentes, as duas redes virtuais [](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)deverão ser emparelhadas. 
+> Se você decidir não seguir a recomendação e, em vez disso, separar as duas camadas em redes virtuais diferentes, as duas redes virtuais deverão ser [emparelhadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). 
 >
-> Lembre-se de que o tráfego [](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) de rede entre duas redes virtuais emparelhadas do Azure está sujeito a custos de transferência. Um grande volume de dados que consiste em muitos terabytes é trocado entre a camada do aplicativo SAP e a camada do DBMS. Você pode acumular custos substanciais se a camada do aplicativo SAP e a camada do DBMS estiverem separadas entre duas redes virtuais emparelhadas do Azure.
+> Lembre-se de que o tráfego de rede entre duas redes virtuais [emparelhadas](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) do Azure está sujeito a custos de transferência. Um grande volume de dados que consiste em muitos terabytes é trocado entre a camada do aplicativo SAP e a camada do DBMS. Você pode acumular custos substanciais se a camada do aplicativo SAP e a camada do DBMS estiverem separadas entre duas redes virtuais emparelhadas do Azure.
 
 Use duas VMs para sua implantação de DBMS de produção em um conjunto de disponibilidade do Azure. Use também roteamento separado para a camada de aplicativo SAP e o tráfego de gerenciamento e operações para as duas VMs DBMS. Veja a imagem seguinte:
 
@@ -317,7 +317,7 @@ O uso de endereços IP virtuais privados usados em funcionalidades como SQL Serv
 
 Se houver um failover do nó do banco de dados, não há necessidade de o aplicativo SAP reconfigurar. Em vez disso, as arquiteturas de aplicativos SAP mais comuns se reconectam ao endereço IP virtual privado. Enquanto isso, o balanceador de carga reage ao failover de nó redirecionando o tráfego para o endereço IP virtual privado para o segundo nó.
 
-O Azure oferece dois [SKUs](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)de balanceador de carga diferentes: um SKU básico e um SKU Standard. A menos que você queira implantar nas zonas de disponibilidade do Azure, o SKU do Load Balancer básico funciona bem.
+O Azure oferece dois [SKUs de balanceador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)diferentes: um SKU básico e um SKU Standard. A menos que você queira implantar nas zonas de disponibilidade do Azure, o SKU do Load Balancer básico funciona bem.
 
 O tráfego entre as VMs do DBMS e a camada do aplicativo SAP sempre é roteado pelo balanceador de carga o tempo todo? A resposta depende de como você configura o balanceador de carga. 
 

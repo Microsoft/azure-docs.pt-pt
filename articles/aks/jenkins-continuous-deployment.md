@@ -33,11 +33,11 @@ Para concluir este tutorial, você precisará destes itens:
 
 - Noções básicas sobre kubernetes, git, CI/CD e imagens de contêiner
 
-- Um [cluster AKs][aks-quickstart] e o `kubectl` configurados com as [credenciais do cluster AKs][aks-credentials]
+- Um [cluster AKs][aks-quickstart] e `kubectl` configurados com as [credenciais do cluster AKs][aks-credentials]
 
 - Um [registro de ACR (registro de contêiner do Azure)][acr-quickstart], o nome do servidor de logon do ACR e o cluster AKs configurado para [autenticar com o registro do ACR][acr-authentication]
 
-- O CLI do Azure versão 2.0.46 ou posterior instalado e configurado. Execute @ no__t-0 para localizar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
+- O CLI do Azure versão 2.0.46 ou posterior instalado e configurado. Execute `az --version` para localizar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
 
 - [Docker instalado][docker-install] em seu sistema de desenvolvimento
 
@@ -72,7 +72,7 @@ Para criar as imagens de contêiner necessárias para o aplicativo de exemplo, u
 docker-compose up -d
 ```
 
-As imagens base necessárias são puxadas e os contêineres de aplicativo são criados. Em seguida, você pode usar o comando [Docker images][docker-images] para ver a imagem criada. Foram transferidas ou criadas três imagens. A imagem `azure-vote-front` contém a aplicação e utilizar a imagem `nginx-flask` como base. A imagem `redis` é usada para iniciar uma instância de Redis:
+As imagens base necessárias são puxadas e os contêineres de aplicativo são criados. Em seguida, você pode usar o comando [Docker images][docker-images] para ver a imagem criada. Foram transferidas ou criadas três imagens. A imagem `azure-vote-front` contém a aplicação e utilizar a imagem `nginx-flask` como base. A imagem de `redis` é usada para iniciar uma instância de Redis:
 
 ```
 $ docker images
@@ -89,7 +89,7 @@ Antes de poder enviar por push a imagem de contêiner *Azure-vote-front* para AC
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Use o comando [Docker tag][docker-tag] para marcar a imagem com o nome do servidor de logon do ACR e um número de versão `v1`. Forneça seu próprio nome `<acrLoginServer>` obtido na etapa anterior:
+Use o comando [Docker tag][docker-tag] para marcar a imagem com o nome do servidor de logon do ACR e um número de versão de `v1`. Forneça seu próprio nome de `<acrLoginServer>` obtido na etapa anterior:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
@@ -166,7 +166,7 @@ Abra um navegador da Web na URL exibida e insira a chave de desbloqueio. Siga os
 
 Uma variável de ambiente Jenkins é usada para armazenar o nome do servidor de logon do ACR. Essa variável é referenciada durante o trabalho de Build do Jenkins. Para criar essa variável de ambiente, conclua as seguintes etapas:
 
-- No lado esquerdo do portal do Jenkins, selecione **gerenciar Jenkins** > **Configurar sistema**
+- No lado esquerdo do portal do Jenkins, selecione **gerenciar Jenkins** > **Configurar o sistema**
 - Em **propriedades globais**, selecione **variáveis de ambiente**. Adicione uma variável com o nome `ACR_LOGINSERVER` e o valor do seu servidor de logon do ACR.
 
     ![Variáveis de ambiente Jenkins](media/aks-jenkins/env-variables.png)
@@ -230,13 +230,13 @@ Clique em **OK** e retorne ao portal do Jenkins.
 Na home page do seu portal do Jenkins, selecione **novo item** no lado esquerdo:
 
 1. Insira *Azure-vote* como nome do trabalho. Escolha **projeto Freestyle**e, em seguida, selecione **OK**
-1. Na seção **geral** , selecione **projeto do GitHub** e insira a URL do repositório bifurcado, como *https: \//github. com/\<your-GitHub-Account @ no__t-5/Azure-votação-app-Redis*
-1. Na seção **Gerenciamento de código-fonte** , selecione **git**, insira a URL do repositório bifurcado *. Git* , como *https: \//GitHub. com/\<your-GitHub-Account @ no__t-6/Azure-Voting-app-Redis. git*
+1. Na seção **geral** , selecione **projeto do GitHub** e insira a URL do repositório bifurcado, como *https:\//github.com/\<sua conta do GitHub\>/Azure-Voting-app-Redis*
+1. Na seção **Gerenciamento de código-fonte** , selecione **git**, insira a URL do repositório bifurcado *. Git* , como *https:\//github.com/\<sua conta do GitHub\>/Azure-Voting-app-Redis.git*
 
 1. Na seção **gatilhos de Build** , selecione **gatilho de gancho do GitHub para sondagem de GITscm**
 1. Em **ambiente de compilação**, selecione **usar textos ou arquivos secretos**
 1. Em **associações**, selecione **Adicionar** > **nome de usuário e senha (separados)**
-   - Insira `ACR_ID` para a **variável username**e `ACR_PASSWORD` para a **variável Password**
+   - Insira `ACR_ID` para a **variável de nome de usuário**e `ACR_PASSWORD` para a **variável de senha**
 
      ![Associações Jenkins](media/aks-jenkins/bindings.png)
 

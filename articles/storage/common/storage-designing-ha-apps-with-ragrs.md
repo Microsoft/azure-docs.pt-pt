@@ -27,7 +27,7 @@ As contas de armazenamento configuradas para replicação com redundância geogr
 
 Este artigo mostra como projetar seu aplicativo para lidar com uma interrupção na região primária. Se a região primária ficar indisponível, seu aplicativo poderá se adaptar para executar operações de leitura em vez da região secundária. Verifique se sua conta de armazenamento está configurada para RA-GRS ou RA-GZRS antes de começar.
 
-Para obter informações sobre quais regiões primárias são emparelhadas com quais regiões secundárias, @no__t consulte 0Business – continuidade e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Para obter informações sobre quais regiões primárias são emparelhadas com quais regiões secundárias, consulte [continuidade de negócios e recuperação de desastres (BCDR): regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 Há trechos de código incluídos neste artigo e um link para um exemplo completo no final que você pode baixar e executar.
 
@@ -74,7 +74,7 @@ Essas são as outras considerações que discutiremos no restante deste artigo.
 
 * Dados consistentes eventualmente e a hora da última sincronização
 
-* Testes
+* Testar
 
 ## <a name="running-your-application-in-read-only-mode"></a>Executando seu aplicativo no modo somente leitura
 
@@ -100,7 +100,7 @@ Há várias maneiras de lidar com solicitações de atualização durante a exec
 
 A biblioteca de cliente de armazenamento do Azure ajuda a determinar quais erros podem ser repetidos. Por exemplo, um erro 404 (recurso não encontrado) pode ser repetido porque repetir não é provável que ele resulte em sucesso. Por outro lado, um erro 500 não pode ser repetido porque é um erro de servidor e pode ser simplesmente um problema transitório. Para obter mais detalhes, confira o [código-fonte aberto para a classe ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) na biblioteca de cliente de armazenamento do .net. (Procure o método ShouldRetry.)
 
-### <a name="read-requests"></a>Pedidos de leitura
+### <a name="read-requests"></a>Solicitações de leitura
 
 As solicitações de leitura podem ser redirecionadas para o armazenamento secundário se houver um problema com o armazenamento primário. Conforme observado acima no [uso de dados eventualmente consistentes](#using-eventually-consistent-data), deve ser aceitável que seu aplicativo leia dados obsoletos potencialmente. Se você estiver usando a biblioteca de cliente de armazenamento para acessar dados do secundário, poderá especificar o comportamento de repetição de uma solicitação de leitura definindo um valor para a propriedade **locationmode** como um dos seguintes:
 
@@ -202,14 +202,14 @@ A tabela a seguir mostra um exemplo do que pode acontecer quando você atualiza 
 | **Momento** | **Aciona**                                            | **Replicação**                       | **Hora da última sincronização** | **Disso** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transação A: <br> Inserir funcionário <br> entidade no primário |                                   |                    | Transação A inserida no primário,<br> Ainda não replicado. |
-| T1       |                                                            | Transação A <br> replicado para<br> secundária | T1 | Transação A replicada para secundária. <br>Hora da última sincronização atualizada.    |
+| T1       |                                                            | Transação A <br> replicado para<br> secundário | T1 | Transação A replicada para secundária. <br>Hora da última sincronização atualizada.    |
 | T2       | Transação B:<br>Atualizar<br> Entidade de funcionário<br> no primário  |                                | T1                 | Transação B gravada no primário,<br> Ainda não replicado.  |
-| T3       | Transação C:<br> Atualizar <br>administrador<br>entidade de função em<br>primária |                    | T1                 | Transação C gravada no primário,<br> Ainda não replicado.  |
-| *T4*     |                                                       | Transação C <br>replicado para<br> secundária | T1         | Transação C replicada para secundário.<br>LastSyncTime não atualizado porque <br>a transação B ainda não foi replicada.|
+| T3       | Transação C:<br> Atualizar <br>administradores<br>entidade de função em<br>Primary |                    | T1                 | Transação C gravada no primário,<br> Ainda não replicado.  |
+| *T4*     |                                                       | Transação C <br>replicado para<br> secundário | T1         | Transação C replicada para secundário.<br>LastSyncTime não atualizado porque <br>a transação B ainda não foi replicada.|
 | *T5*     | Ler entidades <br>do secundário                           |                                  | T1                 | Você Obtém o valor obsoleto para o funcionário <br> entidade porque a transação B não <br> replicado ainda. Você Obtém o novo valor para<br> entidade de função de administrador porque C tem<br> replicados. A hora da última sincronização ainda não<br> atualizado porque a transação B<br> Não foi replicado. Você pode informar ao<br>a entidade da função de administrador está inconsistente <br>Porque a data/hora da entidade é posterior <br>a hora da última sincronização. |
-| *T6*     |                                                      | Transação B<br> replicado para<br> secundária | T6                 | *T6* – todas as transações por meio de C têm <br>replicado, hora da última sincronização<br> é atualizado. |
+| *T6*     |                                                      | Transação B<br> replicado para<br> secundário | T6                 | *T6* – todas as transações por meio de C têm <br>replicado, hora da última sincronização<br> é atualizado. |
 
-Neste exemplo, suponha que o cliente alterne para a leitura da região secundária em T5. Ele pode ler com êxito a entidade de **função de administrador** neste momento, mas a entidade contém um valor para a contagem de administradores que não são consistentes com o número de entidades de **funcionário** marcadas como administradores no secundário região neste momento. O cliente poderia simplesmente exibir esse valor, com o risco de que ele seja informações inconsistentes. Como alternativa, o cliente pode tentar determinar se a **função de administrador** está em um estado potencialmente inconsistente porque as atualizações ocorreram fora de ordem e, em seguida, informar o usuário desse fato.
+Neste exemplo, suponha que o cliente alterne para a leitura da região secundária em T5. Ele pode ler com êxito a entidade de **função de administrador** neste momento, mas a entidade contém um valor para a contagem de administradores que não são consistentes com o número de entidades de **funcionário** marcadas como administradores na região secundária neste momento. O cliente poderia simplesmente exibir esse valor, com o risco de que ele seja informações inconsistentes. Como alternativa, o cliente pode tentar determinar se a **função de administrador** está em um estado potencialmente inconsistente porque as atualizações ocorreram fora de ordem e, em seguida, informar o usuário desse fato.
 
 Para reconhecer que ele tem dados potencialmente inconsistentes, o cliente pode usar o valor da *hora da última sincronização* que você pode obter a qualquer momento consultando um serviço de armazenamento. Isso informa a hora em que os dados na região secundária eram consistentes pela última vez e quando o serviço aplicou todas as transações antes desse ponto no tempo. No exemplo mostrado acima, depois que o serviço insere a entidade **Employee** na região secundária, a hora da última sincronização é definida como *T1*. Ele permanece em *T1* até que o serviço atualize a entidade **Employee** na região secundária quando ela estiver definida como *T6*. Se o cliente recuperar a hora da última sincronização quando ler a entidade em *T5*, ela poderá compará-la com o carimbo de data/hora na entidade. Se o carimbo de data/hora na entidade for posterior à hora da última sincronização, a entidade estará em um estado potencialmente inconsistente e você poderá tomar a ação apropriada para seu aplicativo. O uso deste campo exige que você saiba quando a última atualização para a primária foi concluída.
 
@@ -246,7 +246,7 @@ $lastSyncTime=$(az storage account show \
     --output tsv)
 ```
 
-## <a name="testing"></a>Testes
+## <a name="testing"></a>Testar
 
 É importante testar se o aplicativo se comporta conforme o esperado quando encontra erros com nova tentativa. Por exemplo, você precisa testar se o aplicativo alterna para o secundário e para o modo somente leitura quando detecta um problema e alterna de volta quando a região primária fica disponível novamente. Para fazer isso, você precisa de uma maneira de simular erros com nova tentativa e controlar com que frequência eles ocorrem.
 
@@ -266,7 +266,7 @@ Você pode estender esse exemplo para interceptar um intervalo maior de solicita
 
 Se você tiver tornado os limites para alternar o aplicativo para o modo somente leitura configurável, será mais fácil testar o comportamento com volumes de transações de não produção.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter mais informações sobre como ler a partir da região secundária, incluindo outro exemplo de como a última propriedade de hora de sincronização está definida, consulte [Opções de redundância de armazenamento do Azure e armazenamento com redundância geográfica com acesso de leitura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 

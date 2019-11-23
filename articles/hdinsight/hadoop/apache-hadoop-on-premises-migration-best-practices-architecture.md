@@ -32,7 +32,7 @@ Os clusters do Azure HDInsight são projetados para um tipo específico de uso d
 |IoT/streaming|Kafka, Storm, Spark|
 |Processamento transacional NoSQL|HBase|
 |Consultas interativas e mais rápidas com cache na memória|Interactive Query|
-|Ciência de Dados|Serviços de ML, Spark|
+|Ciência de dados|Serviços de ML, Spark|
 
 A tabela a seguir mostra os diferentes métodos que podem ser usados para criar um cluster HDInsight.
 

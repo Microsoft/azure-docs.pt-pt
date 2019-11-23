@@ -44,7 +44,7 @@ Para criar uma partilha de ficheiros do Azure, pode utilizar uma Conta de Armaze
 
 
 ## <a name="create-file-share-through-powershell"></a>Criar a partilha de Ficheiros através do PowerShell
-Para preparar para utilizar o PowerShell, transfira e instale os cmdlets do Azure PowerShell. Consulte [como instalar e configurar Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)  for as instruções de instalação e ponto de instalação.
+Para preparar para utilizar o PowerShell, transfira e instale os cmdlets do Azure PowerShell. Consulte [como instalar e configurar Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) para as instruções de instalação e ponto de instalação.
 
 > [!Note]  
 > É recomendado que transfira e instale ou atualize para o módulo do Azure PowerShell mais recente.
@@ -73,7 +73,7 @@ Para preparar para utilizar o PowerShell, transfira e instale os cmdlets do Azur
     Consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [introdução ao CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 2. **Crie uma cadeia de ligação para a conta de armazenamento na qual quer criar a partilha.**  
-    Substitua  ```<storage-account>```  and  ```<resource_group>```  with o nome da conta de armazenamento e o grupo de recursos no exemplo a seguir:
+    Substitua ```<storage-account>``` e ```<resource_group>``` pelo nome da conta de armazenamento e pelo grupo de recursos no exemplo a seguir:
 
    ```azurecli
     current_env_conn_string=$(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)

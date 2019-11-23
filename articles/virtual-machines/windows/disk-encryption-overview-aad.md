@@ -1,6 +1,6 @@
 ---
 title: Azure Disk Encryption com o Azure AD (versão anterior)
-description: Este artigo fornece pré-requisitos para usar o Microsoft Azure a criptografia de disco para VMs IaaS.
+description: Este artigo fornece pré-requisitos para utilizar o Microsoft Azure Disk Encryption para VMs de IaaS.
 author: msmbaldwin
 ms.service: security
 ms.topic: article
@@ -22,12 +22,12 @@ Este artigo complementa [Azure Disk Encryption para VMs do Windows](disk-encrypt
 
 ## <a name="networking-and-group-policy"></a>Rede e Política de Grupo
 
-**Para habilitar o recurso de Azure Disk Encryption usando a sintaxe de parâmetro AAD mais antiga, as VMs de IaaS devem atender aos seguintes requisitos de configuração de ponto de extremidade de rede:** 
-  - Para obter um token para se conectar ao cofre de chaves, a VM IaaS deve ser capaz de se conectar a um ponto de extremidade Azure Active Directory, @no__t -0login. microsoftonline. com @ no__t-1.
-  - Para gravar as chaves de criptografia em seu cofre de chaves, a VM IaaS deve ser capaz de se conectar ao ponto de extremidade do cofre de chaves.
-  - A VM IaaS deve ser capaz de se conectar a um ponto de extremidade de armazenamento do Azure que hospeda o repositório de extensões do Azure e uma conta de armazenamento do Azure que hospeda os arquivos VHD.
-  -  Se sua política de segurança limitar o acesso de VMs do Azure à Internet, você poderá resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída com os IPs. Para obter mais informações, consulte [Azure Key Vault atrás de um firewall](../../key-vault/key-vault-access-behind-firewall.md).
-  - No Windows, se o TLS 1,0 tiver sido explicitamente desabilitado e a versão do .NET não tiver sido atualizada para 4,6 ou superior, a seguinte alteração no registro permitirá que o ADE selecione a versão mais recente do TLS:
+**Para ativar a funcionalidade de encriptação de disco do Azure com o AAD mais antigo sintaxe do parâmetro, as VMs de IaaS tem de cumprir os seguintes requisitos de configuração do ponto final de rede:** 
+  - Para obter um token para ligar ao seu Cofre de chaves, a VM de IaaS tem de ser capaz de ligar a um ponto de extremidade do Azure Active Directory \[login.microsoftonline.com\].
+  - Para escrever as chaves de encriptação para o seu Cofre de chaves, a VM de IaaS tem de conseguir ligar ao ponto final do Cofre de chaves.
+  - A VM de IaaS tem de ser capaz de ligar a um ponto de extremidade de armazenamento do Azure que aloja o repositório de extensão do Azure e uma conta de armazenamento do Azure que aloja os ficheiros VHD.
+  -  Se a política de segurança limita o acesso a partir de VMs do Azure para a Internet, pode resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída para os IPs. Para obter mais informações, consulte [do Azure Key Vault protegido por uma firewall](../../key-vault/key-vault-access-behind-firewall.md).
+  - No Windows, se TLS 1.0 tem sido explicitamente desabilitado e a versão do .NET não foi atualizada para 4.6 ou superior, a alteração de registo seguinte irá permitir ADE selecionar a versão mais recente do TLS:
     
         [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
         "SystemDefaultTlsVersions"=dword:00000001
@@ -38,10 +38,10 @@ Este artigo complementa [Azure Disk Encryption para VMs do Windows](disk-encrypt
         "SchUseStrongCrypto"=dword:00000001` 
      
 
-**Política de Grupo:**
- - A solução Azure Disk Encryption usa o protetor de chave externa do BitLocker para VMs IaaS do Windows. Para VMs ingressadas no domínio, não envie nenhuma política de grupo que imponha protetores de TPM. Para obter informações sobre a política de grupo para "permitir BitLocker sem um TPM compatível", consulte [referência do bitlocker política de grupo](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
+**Política de grupo:**
+ - A solução Azure Disk Encryption utiliza o protetor de chave externo do BitLocker para VMs de IaaS do Windows. Para VMs associados ao domínio, não enviar por push as políticas de grupo que impõem protetores TPM. Para informações sobre a política de grupo para "Permitir BitLocker sem um TPM compatível", consulte [referência de política de grupo de BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
--  A política do BitLocker em máquinas virtuais ingressadas no domínio com a política de grupo personalizada deve incluir a seguinte configuração: [Configurar o armazenamento do usuário das informações de recuperação do BitLocker-> permitir chave de recuperação de 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption falhará quando as configurações de política de grupo personalizadas para o BitLocker forem incompatíveis. Em computadores que não têm a configuração de política correta, aplique a nova política, force a nova política a ser atualizada (gpupdate. exe/Force) e, em seguida, a reinicialização pode ser necessária.  
+-  A política do BitLocker em máquinas virtuais ingressadas no domínio com a política de grupo personalizada deve incluir a seguinte configuração: [Configurar o armazenamento do usuário das informações de recuperação do BitLocker-> permitir chave de recuperação de 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption falhará quando as configurações de política de grupo personalizadas para o BitLocker forem incompatíveis. Nas máquinas que não tinham a definição de política correta, aplicar a nova política, forçar a nova política de atualização (gpupdate.exe /force) e, em seguida, reiniciar poderá ser necessário.  
 
 ## <a name="encryption-key-storage-requirements"></a>Requisitos de armazenamento de chave de criptografia  
 

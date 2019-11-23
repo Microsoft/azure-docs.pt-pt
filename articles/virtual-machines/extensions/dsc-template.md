@@ -5,7 +5,7 @@ services: virtual-machines-windows
 author: bobbytreed
 manager: carmonm
 tags: azure-resource-manager
-keywords: DSC
+keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -179,17 +179,17 @@ Para obter uma lista dos argumentos que estão disponíveis para o script de con
 
 | Nome da propriedade | Tipo | Descrição |
 | --- | --- | --- |
-| Settings. wmfVersion |string |Especifica a versão do Windows Management Framework (WMF) que deve ser instalada em sua VM. Definir essa propriedade como **mais recente** instala a versão mais recente do WMF. Atualmente, os únicos valores possíveis para essa propriedade são **4,0**, **5,0**, **5,1**e **mais recente**. Esses valores possíveis estão sujeitos a atualizações. O valor padrão é **mais recente**. |
-| Settings. Configuration. URL |string |Especifica o local da URL do qual baixar o arquivo. zip de configuração DSC. Se a URL fornecida exigir um token SAS para acesso, defina a propriedade **protectedSettings. configurationUrlSasToken** como o valor do seu token SAS. Essa propriedade será necessária se **Settings. Configuration. script** ou **Settings. Configuration. Function** forem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chamará o script de configuração padrão para definir metadados de local Configuration Manager (LCM) e os argumentos deverão ser fornecidos. |
-| Settings. Configuration. script |string |Especifica o nome do arquivo do script que contém a definição de sua configuração DSC. Esse script deve estar na pasta raiz do arquivo. zip que é baixado da URL especificada pela propriedade **Settings. Configuration. URL** . Essa propriedade será necessária se **Settings. Configuration. URL** ou **Settings. Configuration. script** forem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chamará o script de configuração padrão para definir os metadados do LCM e os argumentos deverão ser fornecidos. |
-| Settings. Configuration. Function |string |Especifica o nome da sua configuração DSC. A configuração nomeada deve ser incluída no script que o **Settings. Configuration. script** define. Essa propriedade será necessária se **Settings. Configuration. URL** ou **Settings. Configuration. Function** forem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chamará o script de configuração padrão para definir os metadados do LCM e os argumentos deverão ser fornecidos. |
-| Settings. configurationArguments |Coleção |Define todos os parâmetros que você deseja passar para sua configuração DSC. Esta propriedade não está criptografada. |
-| Settings. configurationData. URL |string |Especifica a URL da qual baixar seu arquivo de dados de configuração (. psd1) para usar como entrada para sua configuração DSC. Se a URL fornecida exigir um token SAS para acesso, defina a propriedade **protectedSettings. configurationDataUrlSasToken** como o valor do seu token SAS. |
-| Settings. privacy. dataCollection |string |Habilita ou desabilita a coleta de telemetria. Os únicos valores possíveis para essa propriedade são **habilitar**, **desabilitar**, **' '** ou **$NULL**. Deixar essa propriedade em branco ou NULL habilita a telemetria. O valor padrão é **' '** . Para obter mais informações, consulte [coleta de dados de extensão de DSC do Azure](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
-| Settings. AdvancedOptions. downloadMappings |Coleção |Define locais alternativos dos quais baixar o WMF. Para obter mais informações, consulte [extensão de DSC do Azure 2,8 e como mapear downloads das dependências de extensão para seu próprio local](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
-| protectedSettings. configurationArguments |Coleção |Define todos os parâmetros que você deseja passar para sua configuração DSC. Esta propriedade é criptografada. |
-| protectedSettings. configurationUrlSasToken |string |Especifica o token SAS a ser usado para acessar a URL que o **Settings. Configuration. URL** define. Esta propriedade é criptografada. |
-| protectedSettings. configurationDataUrlSasToken |string |Especifica o token SAS a ser usado para acessar a URL que o **Settings. configurationData. URL** define. Esta propriedade é criptografada. |
+| settings.wmfVersion |string |Especifica a versão do Windows Management Framework (WMF) que deve ser instalada em sua VM. Definir essa propriedade como **mais recente** instala a versão mais recente do WMF. Atualmente, os únicos valores possíveis para essa propriedade são **4,0**, **5,0**, **5,1**e **mais recente**. Esses valores possíveis estão sujeitos a atualizações. O valor padrão é **mais recente**. |
+| settings.configuration.url |string |Especifica o local da URL do qual baixar o arquivo. zip de configuração DSC. Se a URL fornecida exigir um token SAS para acesso, defina a propriedade **protectedSettings. configurationUrlSasToken** como o valor do seu token SAS. Essa propriedade será necessária se **Settings. Configuration. script** ou **Settings. Configuration. Function** forem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chamará o script de configuração padrão para definir metadados de local Configuration Manager (LCM) e os argumentos deverão ser fornecidos. |
+| settings.configuration.script |string |Especifica o nome do arquivo do script que contém a definição de sua configuração DSC. Esse script deve estar na pasta raiz do arquivo. zip que é baixado da URL especificada pela propriedade **Settings. Configuration. URL** . Essa propriedade será necessária se **Settings. Configuration. URL** ou **Settings. Configuration. script** forem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chamará o script de configuração padrão para definir os metadados do LCM e os argumentos deverão ser fornecidos. |
+| settings.configuration.function |string |Especifica o nome da sua configuração DSC. A configuração nomeada deve ser incluída no script que o **Settings. Configuration. script** define. Essa propriedade será necessária se **Settings. Configuration. URL** ou **Settings. Configuration. Function** forem definidas. Se nenhum valor for fornecido para essas propriedades, a extensão chamará o script de configuração padrão para definir os metadados do LCM e os argumentos deverão ser fornecidos. |
+| settings.configurationArguments |Coleção |Define todos os parâmetros que você deseja passar para sua configuração DSC. Esta propriedade não está criptografada. |
+| settings.configurationData.url |string |Especifica a URL da qual baixar seu arquivo de dados de configuração (. psd1) para usar como entrada para sua configuração DSC. Se a URL fornecida exigir um token SAS para acesso, defina a propriedade **protectedSettings. configurationDataUrlSasToken** como o valor do seu token SAS. |
+| settings.privacy.dataCollection |string |Habilita ou desabilita a coleta de telemetria. Os únicos valores possíveis para essa propriedade são **habilitar**, **desabilitar**, **' '** ou **$NULL**. Deixar essa propriedade em branco ou NULL habilita a telemetria. O valor padrão é **' '** . Para obter mais informações, consulte [coleta de dados de extensão de DSC do Azure](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
+| settings.advancedOptions.downloadMappings |Coleção |Define locais alternativos dos quais baixar o WMF. Para obter mais informações, consulte [extensão de DSC do Azure 2,8 e como mapear downloads das dependências de extensão para seu próprio local](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
+| protectedSettings.configurationArguments |Coleção |Define todos os parâmetros que você deseja passar para sua configuração DSC. Esta propriedade é criptografada. |
+| protectedSettings.configurationUrlSasToken |string |Especifica o token SAS a ser usado para acessar a URL que o **Settings. Configuration. URL** define. Esta propriedade é criptografada. |
+| protectedSettings.configurationDataUrlSasToken |string |Especifica o token SAS a ser usado para acessar a URL que o **Settings. configurationData. URL** define. Esta propriedade é criptografada. |
 
 ## <a name="default-configuration-script"></a>Script de configuração padrão
 
@@ -198,15 +198,15 @@ Você pode usar o script de configuração padrão da extensão DSC para configu
 
 | Nome da propriedade | Tipo | Descrição |
 | --- | --- | --- |
-| protectedSettings. configurationArguments. RegistrationKey |PSCredential |Propriedade necessária. Especifica a chave usada para o registro de um nó com o serviço de automação do Azure como a senha de um objeto de credencial do PowerShell. Esse valor pode ser descoberto automaticamente usando o método **listkeys** em relação à conta de automação.  Consulte o [exemplo](#example-using-referenced-azure-automation-registration-values). |
-| Settings. configurationArguments. RegistrationUrl |string |Propriedade necessária. Especifica a URL do ponto de extremidade de automação onde o nó tenta se registrar. Esse valor pode ser descoberto automaticamente usando o método de **referência** em relação à conta de automação. |
-| Settings. configurationArguments. NodeConfigurationName |string |Propriedade necessária. Especifica a configuração de nó na conta de automação a ser atribuída ao nó. |
-| Settings. configurationArguments. ConfigurationMode |string |Especifica o modo para o LCM. As opções válidas incluem **ApplyOnly**, **ApplyandMonitor**e **ApplyandAutoCorrect**.  O valor padrão é **ApplyandMonitor**. |
-| Settings. configurationArguments. RefreshFrequencyMins | UInt32 | Especifica com que frequência o LCM tenta verificar se há atualizações na conta de automação.  O valor padrão é **30**.  O valor mínimo é **15**. |
-| Settings. configurationArguments. ConfigurationModeFrequencyMins | UInt32 | Especifica com que frequência o LCM valida a configuração atual. O valor padrão é **15**. O valor mínimo é **15**. |
-| Settings. configurationArguments. RebootNodeIfNeeded | boolean | Especifica se um nó pode ser reinicializado automaticamente se uma operação de DSC solicitar. O valor padrão é **false**. |
-| Settings. configurationArguments. ActionAfterReboot | string | Especifica o que acontece após uma reinicialização ao aplicar uma configuração. As opções válidas são **ContinueConfiguration** e **StopConfiguration**. O valor padrão é **ContinueConfiguration**. |
-| Settings. configurationArguments. AllowModuleOverwrite | boolean | Especifica se o LCM substitui os módulos existentes no nó. O valor padrão é **false**. |
+| protectedSettings.configurationArguments.RegistrationKey |PSCredential |Propriedade necessária. Especifica a chave usada para o registro de um nó com o serviço de automação do Azure como a senha de um objeto de credencial do PowerShell. Esse valor pode ser descoberto automaticamente usando o método **listkeys** em relação à conta de automação.  Consulte o [exemplo](#example-using-referenced-azure-automation-registration-values). |
+| settings.configurationArguments.RegistrationUrl |string |Propriedade necessária. Especifica a URL do ponto de extremidade de automação onde o nó tenta se registrar. Esse valor pode ser descoberto automaticamente usando o método de **referência** em relação à conta de automação. |
+| settings.configurationArguments.NodeConfigurationName |string |Propriedade necessária. Especifica a configuração de nó na conta de automação a ser atribuída ao nó. |
+| settings.configurationArguments.ConfigurationMode |string |Especifica o modo para o LCM. As opções válidas incluem **ApplyOnly**, **ApplyandMonitor**e **ApplyandAutoCorrect**.  O valor padrão é **ApplyandMonitor**. |
+| settings.configurationArguments.RefreshFrequencyMins | uint32 | Especifica com que frequência o LCM tenta verificar se há atualizações na conta de automação.  O valor padrão é **30**.  O valor mínimo é **15**. |
+| settings.configurationArguments.ConfigurationModeFrequencyMins | uint32 | Especifica com que frequência o LCM valida a configuração atual. O valor padrão é **15**. O valor mínimo é **15**. |
+| settings.configurationArguments.RebootNodeIfNeeded | boolean | Especifica se um nó pode ser reinicializado automaticamente se uma operação de DSC solicitar. O valor padrão é **false**. |
+| settings.configurationArguments.ActionAfterReboot | string | Especifica o que acontece após uma reinicialização ao aplicar uma configuração. As opções válidas são **ContinueConfiguration** e **StopConfiguration**. O valor padrão é **ContinueConfiguration**. |
+| settings.configurationArguments.AllowModuleOverwrite | boolean | Especifica se o LCM substitui os módulos existentes no nó. O valor padrão é **false**. |
 
 ## <a name="settings-vs-protectedsettings"></a>configurações versus protectedSettings
 
@@ -294,7 +294,7 @@ O exemplo a seguir obtém o **RegistrationUrl** e o **RegistrationKey** referenc
 
 ## <a name="update-from-a-previous-format"></a>Atualizar a partir de um formato anterior
 
-As configurações em um formato anterior da extensão (e que têm as propriedades públicas **ModulesUrl**, **ModuleName**, **ModuleVersion**, **ConfigurationFunction**, **SasToken**ou **Propriedades**) automaticamente adapte-se ao formato atual da extensão.
+Todas as configurações em um formato anterior da extensão (e que têm as propriedades públicas **ModulesUrl**, **ModuleName**, **ModuleVersion**, **ConfigurationFunction**, **SasToken**ou **Properties**) se adaptam automaticamente ao formato atual da extensão.
 Eles são executados exatamente como antes.
 
 O esquema a seguir mostra a aparência do esquema de configurações anterior:
@@ -331,19 +331,19 @@ Veja como o formato anterior se adapta ao formato atual:
 
 | Nome da propriedade atual | Equivalente ao esquema anterior |
 | --- | --- |
-| Settings. wmfVersion |Configurações. WMFVersion |
-| Settings. Configuration. URL |Configurações. ModulesUrl |
-| Settings. Configuration. script |Primeira parte das configurações. ConfigurationFunction (antes de \\ @ no__t-1) |
-| Settings. Configuration. Function |Segunda parte das configurações. ConfigurationFunction (após \\ @ no__t-1) |
-| settings.configuration.module.name | Configurações. Módulo do |
-| Settings. Configuration. módulo. Version | Configurações. ModuleVersion |
-| Settings. configurationArguments |Configurações. Properties |
-| Settings. configurationData. URL |protectedSettings. DataBlobUri (sem token SAS) |
-| Settings. privacy. dataCollection |Configurações. Privacidade. dataCollection |
-| Settings. AdvancedOptions. downloadMappings |Configurações. AdvancedOptions. DownloadMappings |
-| protectedSettings. configurationArguments |protectedSettings. Properties |
-| protectedSettings. configurationUrlSasToken |Configurações. SasToken |
-| protectedSettings. configurationDataUrlSasToken |Token SAS de protectedSettings. DataBlobUri |
+| settings.wmfVersion |settings.WMFVersion |
+| settings.configuration.url |settings.ModulesUrl |
+| settings.configuration.script |Primeira parte das configurações. ConfigurationFunction (antes de \\\\) |
+| settings.configuration.function |Segunda parte das configurações. ConfigurationFunction (após \\\\) |
+| settings.configuration.module.name | settings.ModuleSource |
+| settings.configuration.module.version | settings.ModuleVersion |
+| settings.configurationArguments |settings.Properties |
+| settings.configurationData.url |protectedSettings. DataBlobUri (sem token SAS) |
+| settings.privacy.dataCollection |settings.Privacy.dataCollection |
+| settings.advancedOptions.downloadMappings |settings.AdvancedOptions.DownloadMappings |
+| protectedSettings.configurationArguments |protectedSettings.Properties |
+| protectedSettings.configurationUrlSasToken |settings.SasToken |
+| protectedSettings.configurationDataUrlSasToken |Token SAS de protectedSettings. DataBlobUri |
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -351,9 +351,9 @@ Aqui estão alguns dos erros que você pode encontrar e como você pode corrigi-
 
 ### <a name="invalid-values"></a>Valores inválidos
 
-"Privacy. dataCollection é ' {0} '.
+"Privacy. dataCollection é '{0}'.
 Os únicos valores possíveis são ' ', ' Enable ' e ' Disable ' ".
-"WmfVersion é ' {0} '.
+"WmfVersion é '{0}'.
 Somente os valores possíveis são... e ' Latest ' ".
 
 **Problema**: um valor fornecido não é permitido.
@@ -363,7 +363,7 @@ Para obter mais informações, consulte a tabela em [detalhes](#details).
 
 ### <a name="invalid-url"></a>URL inválido
 
-"ConfigurationData. URL é ' {0} '. Esta não é uma URL válida "" DataBlobUri é ' {0} '. Esta não é uma URL válida "" Configuration. a URL é ' {0} '. Esta não é uma URL válida "
+"ConfigurationData. URL é '{0}'. Esta não é uma URL válida "" DataBlobUri é '{0}'. Esta não é uma URL válida "" Configuration. a URL é '{0}'. Esta não é uma URL válida "
 
 **Problema**: uma URL fornecida não é válida.
 
@@ -398,7 +398,7 @@ Siga o formato fornecido nos exemplos anteriores. Observe as aspas, vírgulas e 
 
 ### <a name="duplicate-configurationarguments"></a>ConfigurationArguments duplicado
 
-"Encontrados argumentos duplicados ' {0} ' nos configurationArguments públicos e protegidos"
+"Encontrados argumentos duplicados '{0}' no configurationArguments público e protegido"
 
 **Problema**: o *ConfigurationArguments* em configurações públicas e *ConfigurationArguments* nas configurações protegidas têm propriedades com o mesmo nome.
 

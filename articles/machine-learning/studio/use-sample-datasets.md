@@ -358,28 +358,28 @@ Observe que, para algumas empresas, não foi possível encontrar um artigo, port
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing. csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing.csv</a></td>
   <td>
 O DataSet contém dados do cliente e indicações sobre sua resposta a uma campanha de mala direta. Cada linha representa um cliente. O conjunto de dados contém nove recursos sobre dados demográficos do usuário e comportamento passado e três colunas de rótulo (visita, conversão e gasto).  Visite é uma coluna binária que indica que um cliente visitou após a campanha de marketing. Conversão indica que um cliente comprou algo. Gastos é o valor que foi gasto.  O conjunto de dados foi disponibilizado por Kevin Hillstrom para análise de email MineThatData e desafio de data mining.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test. csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test.csv</a></td>
   <td>
 Recursos dos exemplos de teste no conjunto de RCV1-v2 Reuters News. O conjunto de 781K tem artigos de notícias em conjunto com suas IDs (primeira coluna do conjunto de um). Cada artigo é indexado, stopworded e originado. O conjunto de alterações foi disponibilizado por David. D. Lewis.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train. csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train.csv</a></td>
   <td>
 Recursos de exemplos de treinamento no conjunto de notícias RCV1-v2 Reuters News. O conjunto de 23K tem artigos de notícias em conjunto com suas IDs (primeira coluna do conjunto de um). Cada artigo é indexado, stopworded e originado. O conjunto de alterações foi disponibilizado por David. D. Lewis.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection. csv</a><br></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td>
 Conjunto de dados da competição do KDD Cup 1999 e das ferramentas de Data Mining (<a href="https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99. html</a>).
 <p></p>
@@ -388,14 +388,14 @@ O conjunto de testes foi baixado e armazenado no armazenamento de BLOBs do Azure
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2. topics. qrels. csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
 Atribuições de tópico para artigos de notícias no conjunto de RCV1-v2 Reuters News. Um artigo de notícias pode ser atribuído a vários tópicos. O formato de cada linha é "&lt;nome do tópico&gt; &lt;ID do documento&gt; 1". O conjunto de conteúdo contém atribuições de tópico 2.6 M. O conjunto de alterações foi disponibilizado por David. D. Lewis.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance. txt</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
 Esses dados vêm do desafio de avaliação de desempenho do KDD Cup 2010 Student (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">avaliação de desempenho do aluno</a>). Os dados usados são o conjunto de treinamento Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Conjunto de dados de desafio do desafio do KDD Cup 2010 Education Data Mining. Encontre-o em <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads. jsp</a>.
 <p></p>

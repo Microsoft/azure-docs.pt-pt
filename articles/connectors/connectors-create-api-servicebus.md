@@ -48,7 +48,7 @@ Você pode usar gatilhos que obtêm respostas do barramento de serviço e dispon
 
 Confirme se seu aplicativo lógico tem permissões para acessar o namespace do barramento de serviço.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
 
 1. Vá para o *namespace*do barramento de serviço. Na página namespace, em **configurações**, selecione **políticas de acesso compartilhado**. Em **declarações**, verifique se você tem permissões de **Gerenciamento** para esse namespace.
 
@@ -63,7 +63,7 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do b
       ![Copiar cadeia de conexão do namespace do barramento de serviço](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Para confirmar se a cadeia de conexão está associada ao namespace do barramento de serviço ou a uma entidade de mensagens, como uma fila, pesquise a cadeia de conexão para o `EntityPath`  parameter. Se você encontrar esse parâmetro, a cadeia de conexão será para uma entidade específica e não será a cadeia de caracteres correta a ser usada com seu aplicativo lógico.
+   > Para confirmar se a cadeia de conexão está associada ao namespace do barramento de serviço ou a uma entidade de mensagens, como uma fila, pesquise a cadeia de conexão para o parâmetro `EntityPath` . Se você encontrar esse parâmetro, a cadeia de conexão será para uma entidade específica e não será a cadeia de caracteres correta a ser usada com seu aplicativo lógico.
 
 ## <a name="add-service-bus-trigger"></a>Adicionar gatilho do barramento de serviço
 

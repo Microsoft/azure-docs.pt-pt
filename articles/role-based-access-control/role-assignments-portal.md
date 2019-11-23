@@ -29,7 +29,7 @@ O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira como
 
 Para adicionar e remover atribuições de função, você deve ter:
 
-- permissões `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, como [administrador de acesso do usuário](built-in-roles.md#user-access-administrator) ou [proprietário](built-in-roles.md#owner)
+- permissões de `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, como [administrador de acesso do usuário](built-in-roles.md#user-access-administrator) ou [proprietário](built-in-roles.md#owner)
 
 ## <a name="overview-of-access-control-iam"></a>Visão geral do controle de acesso (IAM)
 
@@ -69,13 +69,13 @@ A primeira coisa que você precisa decidir é onde abrir a folha de controle de 
 
 1. Clique no recurso específico.
 
-1. Clique em **controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)** .
 
     Veja a seguir um exemplo da folha controle de acesso (IAM) para uma assinatura. Se você fizer alterações de controle de acesso aqui, elas se aplicarão à assinatura inteira.
 
     ![Folha de controle de acesso (IAM) para uma assinatura](./media/role-assignments-portal/access-control-subscription.png)
 
-## <a name="view-roles-and-permissions"></a>Ver funções e permissões
+## <a name="view-roles-and-permissions"></a>Exibir funções e permissões
 
 Uma definição de função é uma coleção de permissões que é utilizada para atribuições de funções. O Azure tem mais [de 70 funções internas para recursos do Azure](built-in-roles.md). Siga estas etapas para exibir as funções e permissões disponíveis.
 
@@ -91,7 +91,7 @@ Uma definição de função é uma coleção de permissões que é utilizada par
 
    ![Atribuições de funções](./media/role-assignments-portal/role-assignments.png)
 
-## <a name="view-role-assignments"></a>Ver atribuições de funções
+## <a name="view-role-assignments"></a>Exibir atribuições de função
 
 Ao gerenciar o acesso, você deseja saber quem tem acesso, quais são suas permissões e em qual escopo. Para listar o acesso de um usuário, grupo, entidade de serviço ou identidade gerenciada, você vê suas atribuições de função.
 
@@ -137,7 +137,7 @@ No RBAC, para conceder acesso, você atribui uma função a um usuário, grupo, 
 
 1. Clique na guia **atribuições de função** para exibir todas as atribuições de função neste escopo.
 
-1. Clique em **Adicionar** > **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
+1. Clique em **adicionar** > **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
 
    Se você não tiver permissões para atribuir funções, a opção Adicionar atribuição de função será desabilitada.
 
@@ -165,7 +165,7 @@ Para tornar um usuário um administrador de uma assinatura do Azure, atribua a e
 
 1. Clique no separador **Atribuições de funções** para ver todas as atribuições de funções para esta subscrição.
 
-1. Clique em **Adicionar** > **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
+1. Clique em **adicionar** > **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
 
    Se você não tiver permissões para atribuir funções, a opção Adicionar atribuição de função será desabilitada.
 
@@ -181,7 +181,7 @@ Para tornar um usuário um administrador de uma assinatura do Azure, atribua a e
 
    Após alguns instantes, é atribuída ao utilizador a função Proprietário no âmbito da subscrição.
 
-## <a name="remove-role-assignments"></a>Remover atribuições de funções
+## <a name="remove-role-assignments"></a>Remover atribuições de função
 
 No RBAC, para remover o acesso, remova uma atribuição de função. Siga estas etapas para remover o acesso.
 
@@ -205,7 +205,7 @@ No RBAC, para remover o acesso, remova uma atribuição de função. Siga estas 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Tutorial: Conceder a um usuário acesso aos recursos do Azure usando o RBAC e o portal do Azure @ no__t-0
-* [Tutorial: Conceder a um usuário acesso aos recursos do Azure usando RBAC e Azure PowerShell @ no__t-0
+* [Tutorial: conceder a um usuário acesso aos recursos do Azure usando o RBAC e o portal do Azure](quickstart-assign-role-user-portal.md)
+* [Tutorial: conceder a um usuário acesso aos recursos do Azure usando RBAC e Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 * [Solucionar problemas de RBAC para recursos do Azure](troubleshooting.md)
-* [Organizar os recursos com grupos de gestão do Azure](../governance/management-groups/overview.md)
+* [Organize your resources with Azure management groups](../governance/management-groups/overview.md) (Organizar os recursos com os grupos de gestão do Azure)

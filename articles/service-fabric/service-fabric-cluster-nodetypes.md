@@ -29,12 +29,12 @@ A figura a seguir mostra um cluster que tem dois tipos de nó, chamados FrontEnd
 ![Um cluster que tem dois tipos de nó][NodeTypes]
 
 ## <a name="map-virtual-machine-scale-set-instances-to-nodes"></a>Mapear instâncias do conjunto de dimensionamento de máquinas virtuais para nós
-Conforme mostrado na figura anterior, as instâncias do conjunto de dimensionamento começam na instância 0 e, em seguida, aumentam em 1. A numeração é refletida nos nomes dos nós. Por exemplo, Node BackEnd_0 é a instância 0 do conjunto de dimensionamento de back-end. Esse conjunto de dimensionamento específico tem cinco instâncias, chamadas BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 e BackEnd_4.
+Conforme mostrado na figura anterior, as instâncias do conjunto de dimensionamento começam na instância 0 e, em seguida, aumentam em 1. A numeração é refletida nos nomes dos nós. Por exemplo, o nó BackEnd_0 é a instância 0 do conjunto de dimensionamento de back-end. Esse conjunto de dimensionamento específico tem cinco instâncias, chamadas BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 e BackEnd_4.
 
 Quando você escala verticalmente um conjunto de dimensionamento, uma nova instância é criada. O novo nome da instância do conjunto de dimensionamento normalmente é o nome do conjunto de dimensionamento mais o próximo número da instância. Em nosso exemplo, é BackEnd_5.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Mapear conjunto de dimensionamento de balanceamento de carga para tipos de nó e conjuntos de dimensionamento
-Se você implantou o cluster no portal do Azure ou usou o modelo de Azure Resource Manager de exemplo, todos os recursos em um grupo de recursos são listados. Você pode ver os balanceadores de carga para cada conjunto de dimensionamento ou tipo de nó. O nome do balanceador de carga usa o seguinte formato: **lb-&lt;node nome do tipo @ no__t-2**. Um exemplo é LB-sfcluster4doc-0, conforme mostrado na figura a seguir:
+Se você implantou o cluster no portal do Azure ou usou o modelo de Azure Resource Manager de exemplo, todos os recursos em um grupo de recursos são listados. Você pode ver os balanceadores de carga para cada conjunto de dimensionamento ou tipo de nó. O nome do balanceador de carga usa o seguinte formato: **lb-&lt;nome do tipo de nó&gt;** . Um exemplo é LB-sfcluster4doc-0, conforme mostrado na figura a seguir:
 
 ![Recursos][Resources]
 
@@ -79,17 +79,17 @@ A seguir estão as descrições de propriedade:
 | --- | --- | --- | --- |
 | nome | string | --- | nome exclusivo para a extensão |
 | tipo | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | --- | Identifica o sistema operacional Service Fabric está carregando para |
-| autoUpgradeMinorVersion | verdadeiro ou falso | --- | Habilitar a atualização automática de versões secundárias do Runtime da it |
-| Programa | Microsoft. Azure. infabric | --- | nome do editor de extensão de Service Fabric |
+| autoUpgradeMinorVersion | true ou false | --- | Habilitar a atualização automática de versões secundárias do Runtime da it |
+| publicador | Microsoft.Azure.ServiceFabric | --- | nome do editor de extensão de Service Fabric |
 | clusterEndpont | string | --- | URI: porta para ponto de extremidade de gerenciamento |
 | nodeTypeRef | string | --- | nome do nodeType |
-| durabilityLevel | bronze, prata, ouro, platina | --- | tempo permitido para pausar a infraestrutura imutável do Azure |
-| enableParallelJobs | verdadeiro ou falso | --- | Habilitar computação ParallelJobs como remover VM e reinicializar VM no mesmo conjunto de dimensionamento em paralelo |
+| durabilityLevel | bronze, silver, gold, platinum | --- | tempo permitido para pausar a infraestrutura imutável do Azure |
+| enableParallelJobs | true ou false | --- | Habilitar computação ParallelJobs como remover VM e reinicializar VM no mesmo conjunto de dimensionamento em paralelo |
 | nicPrefixOverride | string | --- | Prefixo de sub-rede como "10.0.0.0/24" |
-| Osnames | Cadeia de caracteres [] | --- | Nomes comuns de certificados de cluster instalados |
+| commonNames | string[] | --- | Nomes comuns de certificados de cluster instalados |
 | x509StoreName | string | --- | Nome do repositório onde o certificado de cluster instalado está localizado |
 | typeHandlerVersion | 1.1 | --- | Versão da extensão. 1,0 a versão clássica da extensão é recomendada para atualizar para o 1,1 |
-| Caminho | string | --- | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo. 
+| dataPath | string | --- | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo. 
 
 ## <a name="next-steps"></a>Passos seguintes
 * Consulte a [visão geral do recurso "implantar em qualquer lugar" e uma comparação com clusters gerenciados pelo Azure](service-fabric-deploy-anywhere.md).

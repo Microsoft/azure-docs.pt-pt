@@ -54,7 +54,7 @@ Conecte-se ao [console serial, abra uma instância do PowerShell](serial-console
 
 2. Baixe a atualização apropriada para um disco de dados novo ou existente que esteja anexado a uma VM em funcionamento da mesma região:
 
-   - **10.0.14393.594**: [KB4073562 ou uma atualização](https://support.microsoft.com/help/4073562) posterior
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) ou uma atualização posterior
    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) ou uma atualização posterior
 
 3. Desanexe o disco do utilitário da VM de trabalho e, em seguida, anexe-o à VM quebrada.
@@ -79,7 +79,7 @@ Conecte-se ao [console serial, abra uma instância do PowerShell](serial-console
 
 5. Na VM de resgate, inicie o editor do registro (regedit. exe).
 
-6. Selecione a chave **HKEY_LOCAL_MACHINE** e, em seguida, selecione **arquivo** > **Carregar Hive** no menu.
+6. Selecione a chave de **HKEY_LOCAL_MACHINE** e, em seguida, selecione **arquivo** > **Carregar Hive** no menu.
 
 7. Localize o arquivo do sistema na pasta **\Windows\System32\config** .
 
@@ -97,7 +97,7 @@ Conecte-se ao [console serial, abra uma instância do PowerShell](serial-console
 
 12. Baixe a atualização apropriada:
 
-    - **10.0.14393.594**: [KB4073562 ou uma atualização](https://support.microsoft.com/help/4073562) posterior
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) ou uma atualização posterior
     - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) ou uma atualização posterior
 
 13. Anexe o disco do sistema como um disco de dados em uma VM de resgate na qual você pode baixar a atualização.

@@ -23,7 +23,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/08/2019
 ms.locfileid: "72030650"
 ---
-# <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>Tutorial: Notificações por push para aplicativos iOS Swift que usam a API REST dos hubs de notificação
+# <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>Tutorial: notificações por push para aplicativos iOS Swift que usam a API REST dos hubs de notificação
 
 > [!div class="op_single_selector"]
 > * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
@@ -89,7 +89,7 @@ Nesta seção, você criará o aplicativo iOS que se conectará ao Hub de notifi
 
 1. Atualize o **devsettings. plist** para incluir as seguintes entradas de configuração usando seus próprios valores do hub de notificação que você provisionou:
 
-   | Chave                            | Type                     | Value                     |
+   | Chave                            | Tipo                     | Valor                     |
    |--------------------------------| -------------------------| --------------------------|
    | notificationHubKey             | Cadeia                   | \<hubKey >                  |
    | notificationHubKeyName         | Cadeia                   | \<hubKeyName>              |
@@ -100,7 +100,7 @@ Nesta seção, você criará o aplicativo iOS que se conectará ao Hub de notifi
 
    ![Resumo do Essentials dos hubs de notificação](./media/notification-hubs-ios-push-notifications-swift-apps-get-started/hub-essentials.png)
 
-   Você também pode encontrar os valores **notificationHubKeyName** e **notificationHubKey** navegando até **políticas de acesso** e selecionando a respectiva **política de acesso**, como `DefaultFullSharedAccessSignature`. Depois disso, copie da **cadeia de conexão primária** o valor prefixado com `SharedAccessKeyName=` para `notificationHubKeyName` e o valor prefixado com `SharedAccessKey=` para o `notificationHubKey`.
+   Você também pode encontrar os valores **notificationHubKeyName** e **notificationHubKey** navegando até **políticas de acesso** e selecionando a respectiva **política de acesso**, como `DefaultFullSharedAccessSignature`. Depois disso, copie da **cadeia de conexão primária** o valor prefixado com `SharedAccessKeyName=` para `notificationHubKeyName` e o valor prefixado com `SharedAccessKey=` para a `notificationHubKey`.
 
    A cadeia de conexão deve estar no seguinte formato:
 
@@ -108,7 +108,7 @@ Nesta seção, você criará o aplicativo iOS que se conectará ao Hub de notifi
    Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<notificationHubKeyName>;SharedAccessKey=<notificationHubKey>
    ```
 
-   Para simplificar, especifique `DefaultFullSharedAccessSignature` para que você possa usar o token para enviar notificações. Na prática, o `DefaultListenSharedAccessSignature` seria uma opção melhor para situações em que você deseja apenas receber notificações.
+   Para simplificar, especifique `DefaultFullSharedAccessSignature` para que você possa usar o token para enviar notificações. Na prática, a `DefaultListenSharedAccessSignature` seria uma opção melhor para situações em que você só deseja receber notificações.
 
 1. Em **navegador de projeto**, selecione o **nome do projeto** e, em seguida, selecione a guia **geral** .
 
@@ -116,7 +116,7 @@ Nesta seção, você criará o aplicativo iOS que se conectará ao Hub de notifi
 
 1. Localize **assinatura**e, em seguida, selecione a **equipe** apropriada para sua **conta de desenvolvedor da Apple**. O valor da **equipe** deve corresponder ao que você criou para seus certificados e perfis.
 
-1. O Xcode deve extrair automaticamente o valor apropriado do **perfil de provisionamento** com base no **identificador do pacote**. Se você não vir o novo valor do **perfil de provisionamento** , tente atualizar os perfis para a **identidade de assinatura** selecionando o **Xcode** > **preferências** > **conta**do  > **Exibir detalhes**. Selecione **identidade de assinatura**e, em seguida, selecione o botão **Atualizar** no canto inferior direito para baixar os perfis.
+1. O Xcode deve extrair automaticamente o valor apropriado do **perfil de provisionamento** com base no **identificador do pacote**. Se você não vir o novo valor de **perfil de provisionamento** , tente atualizar os perfis para a **identidade de assinatura** selecionando **Xcode** > **preferências** > **conta** > **Exibir detalhes**. Selecione **identidade de assinatura**e, em seguida, selecione o botão **Atualizar** no canto inferior direito para baixar os perfis.
 
 1. Selecione a guia **recursos** e verifique se as **notificações por push** estão habilitadas.
 
@@ -171,7 +171,7 @@ Nesta seção, você criará o aplicativo iOS que se conectará ao Hub de notifi
     return true
     ```
 
-    Esse código recupera os valores de configuração de **devsettings. plist**, define a classe **AppDelegate** como o delegado **UNUserNotificationCenter** , solicita autorização para notificações por push e, em seguida, chama  **registerForRemoteNotifications**.
+    Esse código recupera os valores de configuração de **devsettings. plist**, define a classe **AppDelegate** como o delegado **UNUserNotificationCenter** , solicita autorização para notificações por push e, em seguida, chama **registerForRemoteNotifications**.
 
     Para simplificar, o código dá suporte *somente para IOS 10 e posterior*. Você pode adicionar suporte para versões anteriores do sistema operacional usando condicionalmente as respectivas APIs e abordagens como faria normalmente.
 
@@ -297,7 +297,7 @@ Para os fins deste exemplo Swift, você usará a biblioteca **CommonCrypto** de 
 
 Para adicionar e configurar o cabeçalho de ponte:
 
-1. No Xcode, selecione **arquivo** > **novo**arquivo de**cabeçalho**do**arquivo**de  >  @no__t. Nomeie o arquivo de cabeçalho **BridgingHeader. h**.
+1. No Xcode, selecione **arquivo** > **novo** arquivo **de >  > ** **arquivo de cabeçalho**. Nomeie o arquivo de cabeçalho **BridgingHeader. h**.
 
 1. Edite o arquivo para importar **CommonHMAC. h**:
 
@@ -410,7 +410,7 @@ Siga estas etapas para chamar a API de **instalações** :
 
 1. Configure os cabeçalhos de solicitação da seguinte maneira:
 
-   | Chave           | Value            |
+   | Chave           | Valor            |
    | ------------- | ---------------- |
    | Tipo de conteúdo  | application/json |
    | Autorização | \<sasToken>       |
@@ -658,12 +658,12 @@ Você pode enviar notificações por meio da [API REST](/rest/api/notificationhu
 
 1. Configure os cabeçalhos de solicitação da seguinte maneira:
 
-   | Chave                            | Value                          |
+   | Chave                            | Valor                          |
    | ------------------------------ | ------------------------------ |
    | Tipo de conteúdo                   | application/json;charset=utf-8 |
    | Autorização                  | \<sasToken>                     |
-   | ServiceBusNotification-Format  | Modelo                       |
-   | Tags                           | "12345"                        |
+   | ServiceBusNotification-Format  | modelo                       |
+   | Etiquetas                           | "12345"                        |
 
 1. Configure o **corpo** da solicitação para usar **JSON (Application. JSON) bruto** com o seguinte conteúdo JSON:
 

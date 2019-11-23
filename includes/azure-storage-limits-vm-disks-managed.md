@@ -15,18 +15,17 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 09/18/2019
 ms.locfileid: "67184250"
 ---
-**HDD Standard discos gerenciados**
-[!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
+**HDD Standard Managed disks** [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
-**SSD Standard discos gerenciados**
-[!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-**SSD Premium discos gerenciados: Limites por disco**
+**SSD Standard Managed disks** [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
+
+**SSD Premium discos gerenciados: limites por disco**
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-**SSD Premium discos gerenciados: Limites por VM**
+**SSD Premium discos gerenciados: limites por VM**
 
-| Resource | Limite predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
 | IOPS máximo por VM |IOPS de 80.000 com VM GS5 |
 | Taxa de transferência máxima por VM |2\.000 MB/s com VM GS5 |

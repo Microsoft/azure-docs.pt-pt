@@ -24,21 +24,21 @@ ms.locfileid: "71316788"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
-O Azure Sentinel usa o [RBAC (controle de acesso baseado em função)](../role-based-access-control/role-assignments-portal.md)para fornecer [funções](../role-based-access-control/built-in-roles.md) internas que podem ser atribuídas a usuários, grupos e serviços no Azure.
+O Azure Sentinel usa o [RBAC (controle de acesso baseado em função)](../role-based-access-control/role-assignments-portal.md)para fornecer [funções internas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a usuários, grupos e serviços no Azure.
 
 Usando o RBAC, você pode usar e criar funções dentro de sua equipe de operações de segurança para conceder acesso apropriado ao Azure Sentinel. Com base nas funções, você tem controle refinado sobre o que os usuários com acesso ao Azure Sentinel podem ver. Você pode atribuir funções de RBAC no espaço de trabalho do Azure Sentinel diretamente ou a uma assinatura ou a um grupo de recursos ao qual o espaço de trabalho pertence.
 
 Há três funções internas de sentinela do Azure específicas.  
 **Todas as funções internas do Azure Sentinel concedem acesso de leitura aos dados em seu espaço de trabalho do Azure Sentinel.**
-- **Leitor do Azure Sentinel**: Um usuário atribuído com essa função tem direitos de exibição para o Azure Sentinel. O usuário pode exibir incidentes e dados, mas não pode fazer alterações.
-- **Respondente do Azure Sentinel**: Um usuário atribuído com essa função pode ler e executar ações em incidentes, como alterações de atribuição e gravidade.
-- **Colaborador do Azure Sentinel**: Um usuário atribuído com essa função pode ler e executar ações em incidentes e criar e excluir regras analíticas.
+- **Leitor do Azure Sentinel**: um usuário atribuído com essa função tem direitos de exibição para o Azure Sentinel. O usuário pode exibir incidentes e dados, mas não pode fazer alterações.
+- **Respondente do Azure Sentinel**: um usuário atribuído com essa função pode ler e executar ações em incidentes, como alterações de atribuição e gravidade.
+- **Colaborador do Azure Sentinel**: um usuário atribuído com essa função pode ler e executar ações em incidentes e criar e excluir regras analíticas.
 
 Além das funções RBAC dedicadas do Azure Sentinel, há funções do Azure e Log Analytics RBAC que podem conceder um conjunto mais amplo de permissões que incluem acesso ao seu espaço de trabalho do Azure Sentinel e a outros recursos:
 
-- **Funções do Azure:** [Proprietário](../role-based-access-control/built-in-roles.md#owner), [colaborador](../role-based-access-control/built-in-roles.md#contributor)e [leitor](../role-based-access-control/built-in-roles.md#reader). As funções do Azure concedem acesso em todos os seus recursos do Azure, incluindo espaços de trabalho Log Analytics e recursos do Azure Sentinel.
+- **Funções do Azure:** [proprietário](../role-based-access-control/built-in-roles.md#owner), [colaborador](../role-based-access-control/built-in-roles.md#contributor)e [leitor](../role-based-access-control/built-in-roles.md#reader). As funções do Azure concedem acesso em todos os seus recursos do Azure, incluindo espaços de trabalho Log Analytics e recursos do Azure Sentinel.
 
--   **Log Analytics funções:** [Colaborador de log Analytics](../role-based-access-control/built-in-roles.md#log-analytics-contributor), [log Analytics Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). Log Analytics funções concedem acesso em todos os seus espaços de trabalho do Log Analytics. 
+-   **Log Analytics funções:** [colaborador de log Analytics](../role-based-access-control/built-in-roles.md#log-analytics-contributor), [log Analytics Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). Log Analytics funções concedem acesso em todos os seus espaços de trabalho do Log Analytics. 
 
 > [!NOTE]
 > Log Analytics funções também concedem acesso de leitura em todos os recursos do Azure, mas só atribuirão permissões de gravação a recursos de Log Analytics.
@@ -56,7 +56,7 @@ Por exemplo, um usuário atribuído com as funções **leitor do Azure Sentinel 
 
 A tabela a seguir exibe funções e ações permitidas no Azure Sentinel. Um X indica que a ação é permitida para essa função.
 
-| Role | Criar e executar guias estratégicos| Criar e editar painéis, regras analíticas e outros recursos do Azure Sentinel | Gerenciar incidentes (ignorar, atribuir, etc.) | Exibir dados, incidentes, painéis e outros recursos do Azure Sentinel |
+| Função | Criar e executar guias estratégicos| Criar e editar painéis, regras analíticas e outros recursos do Azure Sentinel | Gerenciar incidentes (ignorar, atribuir, etc.) | Exibir dados, incidentes, painéis e outros recursos do Azure Sentinel |
 |--- |---|---|---|---|
 | Leitor do Azure Sentinel | -- | -- | -- | X |
 | Respondente do Azure Sentinel|--|--| X | X |

@@ -23,8 +23,8 @@ ms.locfileid: "72298745"
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao armazenamento de filas do Azure e aos serviços conectados do Visual Studio (projetos de trabalho Web)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Visão geral
-Este artigo descreve como começar a usar o armazenamento de filas do Azure em um projeto do Azure WebJob do Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure usando a caixa de diálogo **Adicionar serviços conectados** do Visual Studio. Quando você adiciona uma conta de armazenamento a um projeto do WebJob usando a caixa de diálogo **Adicionar serviços conectados** do Visual Studio, os pacotes do NuGet do armazenamento do Azure apropriados são instalados, as referências do .net apropriadas são adicionadas ao projeto e cadeias de conexão para a conta de armazenamento é atualizada no arquivo app. config.  
+## <a name="overview"></a>Descrição geral
+Este artigo descreve como começar a usar o armazenamento de filas do Azure em um projeto do Azure WebJob do Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure usando a caixa de diálogo **Adicionar serviços conectados** do Visual Studio. Quando você adiciona uma conta de armazenamento a um projeto do WebJob usando a caixa de diálogo **Adicionar serviços conectados** do Visual Studio, os pacotes do NuGet do armazenamento do Azure apropriados são instalados, as referências apropriadas do .NET são adicionadas ao projeto e as cadeias de conexão para a conta de armazenamento são atualizadas no arquivo app. config.  
 
 Este artigo fornece C# exemplos de código que mostram como usar o SDK do Azure WebJobs versão 1. x com o serviço de armazenamento de filas do Azure.
 
@@ -89,9 +89,9 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 ## <a name="types-the-queuetrigger-attribute-works-with"></a>Tipos com os quais o atributo QueueTrigger funciona
 Você pode usar **QueueTrigger** com os seguintes tipos:
 
-* **Strings**
+* **string**
 * Um tipo POCO serializado como JSON
-* **Byte []**
+* **byte[]**
 * **CloudQueueMessage**
 
 ## <a name="polling-algorithm"></a>Algoritmo de sondagem
@@ -114,7 +114,7 @@ Você pode obter as seguintes propriedades de mensagem adicionando parâmetros �
 * **cadeia de caracteres** queueTrigger (contém texto da mensagem)
 * ID da **cadeia de caracteres**
 * **cadeia de caracteres** popReceipt
-* dequeueCount **int**
+* **int** dequeueCount
 
 Se você quiser trabalhar diretamente com a API de armazenamento do Azure, também poderá adicionar um parâmetro **CloudStorageAccount** .
 
@@ -191,7 +191,7 @@ Para obter mais informações, consulte [desligamento normal de trabalhos](http:
 Para gravar uma função que cria uma nova mensagem da fila, use o atributo **Queue** . Como o **QueueTrigger**, você passa o nome da fila como uma cadeia de caracteres ou pode [definir o nome da fila dinamicamente](#how-to-set-configuration-options).
 
 ### <a name="string-queue-messages"></a>Mensagens da fila de cadeias de caracteres
-O exemplo de código não assíncrono a seguir cria uma nova mensagem de fila na fila chamada "outputqueue" com o mesmo conteúdo da mensagem de fila recebida na fila denominada "inputqueue". (Para funções assíncronas, use **IAsyncCollector @ no__t-1T >** conforme mostrado posteriormente nesta seção.)
+O exemplo de código não assíncrono a seguir cria uma nova mensagem de fila na fila chamada "outputqueue" com o mesmo conteúdo da mensagem de fila recebida na fila denominada "inputqueue". (Para funções assíncronas, use **IAsyncCollector\<t >** conforme mostrado posteriormente nesta seção.)
 
 ```csharp
 public static void CreateQueueMessage(
@@ -217,7 +217,7 @@ public static void CreateQueueMessage(
 O SDK serializa automaticamente o objeto para JSON. Uma mensagem da fila sempre é criada, mesmo se o objeto for nulo.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Criar várias mensagens ou em funções assíncronas
-Para criar várias mensagens, crie o tipo de parâmetro para a fila de saída **ICollector @ no__t-1T >** ou **IAsyncCollector @ no__t-3T >** , conforme mostrado no exemplo a seguir.
+Para criar várias mensagens, torne o tipo de parâmetro para a fila de saída **ICollector\<t >** ou **IAsyncCollector\<t >** , conforme mostrado no exemplo a seguir.
 
 ```csharp
 public static void CreateQueueMessages(
@@ -326,13 +326,13 @@ Se você precisar fazer algum trabalho em sua função antes de associar um blob
 O atributo **blob** pode ser usado com os seguintes tipos:
 
 * **Fluxo** (leitura ou gravação, especificado usando o parâmetro de Construtor FileAccess)
-* **Pelos**
+* **TextReader**
 * **TextWriter**
 * **cadeia de caracteres** (leitura)
 * **cadeia de caracteres de saída** (gravação; cria um blob somente se o parâmetro de cadeia de caracteres não for nulo quando a função retornar)
 * POCO (leitura)
 * out POCO (gravação; sempre cria um blob, cria como objeto nulo se o parâmetro POCO é nulo quando a função retorna)
-* **CloudBlobStream** (gravação)
+* **CloudBlobStream** (write)
 * **ICloudBlob** (leitura ou gravação)
 * **CloudBlockBlob** (leitura ou gravação)
 * **CloudPageBlob** (leitura ou gravação)
@@ -545,7 +545,7 @@ No painel do SDK de trabalhos Web, as 100 linhas de saída de console mais recen
 
 ![Alternar saída](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-Em um WebJob contínuo, os logs de aplicativo aparecem no/data/Jobs/Continuous/ *{nomedotrabalhoweb}* /job_log.txt no sistema de arquivos do aplicativo Web.
+Em um WebJob contínuo, os logs de aplicativo aparecem no/data/Jobs/Continuous/ *{nomedotrabalhoweb}* /job_log. txt no sistema de arquivos do aplicativo Web.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!

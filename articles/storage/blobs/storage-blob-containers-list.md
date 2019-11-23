@@ -32,7 +32,7 @@ As sobrecargas para esses métodos fornecem opções adicionais para o gerenciam
 
 Por padrão, uma operação de listagem retorna até 5000 resultados por vez. Para retornar um conjunto menor de resultados, forneça um valor diferente de zero para o parâmetro `maxresults` ao chamar um dos métodos **ListContainerSegmented** .
 
-Se sua conta de armazenamento contiver mais de 5000 contêineres ou se você tiver especificado um valor para `maxresults` de modo que a operação de listagem retorne um subconjunto de contêineres na conta de armazenamento, o armazenamento do Azure retornará um *token de continuação* com a lista de recipientes. Um token de continuação é um valor opaco que você pode usar para recuperar o próximo conjunto de resultados do armazenamento do Azure.
+Se sua conta de armazenamento contiver mais de 5000 contêineres ou se você tiver especificado um valor para `maxresults` de modo que a operação de listagem retorne um subconjunto de contêineres na conta de armazenamento, o armazenamento do Azure retornará um *token de continuação* com a lista de contêineres. Um token de continuação é um valor opaco que você pode usar para recuperar o próximo conjunto de resultados do armazenamento do Azure.
 
 Em seu código, verifique o valor do token de continuação para determinar se ele é nulo. Quando o token de continuação é nulo, o conjunto de resultados é concluído. Se o token de continuação não for nulo, chame **ListContainersSegmented** ou **ListContainersSegmentedAsync** novamente, passando o token de continuação para recuperar o próximo conjunto de resultados, até que o token de continuação seja nulo.
 
@@ -97,7 +97,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-[Listar contêineres](/rest/api/storageservices/list-containers2) 
+[Listar contêineres](/rest/api/storageservices/list-containers2)
 [enumerando recursos de blob](/rest/api/storageservices/enumerating-blob-resources)

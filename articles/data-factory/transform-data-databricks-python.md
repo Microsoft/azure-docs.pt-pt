@@ -68,7 +68,7 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 |descrição|Texto que descreve o que a atividade faz.|Não|
 |tipo|Para a atividade de Python do databricks, o tipo de atividade é DatabricksSparkPython.|Sim|
 |linkedServiceName|Nome do serviço vinculado do databricks no qual a atividade do Python é executada. Para saber mais sobre esse serviço vinculado, consulte o artigo [Serviços vinculados de computação](compute-linked-services.md) .|Sim|
-|pythonfile|O URI do arquivo Python a ser executado. Há suporte apenas para caminhos DBFS.|Sim|
+|pythonFile|O URI do arquivo Python a ser executado. Há suporte apenas para caminhos DBFS.|Sim|
 |parâmetros|Parâmetros de linha de comando que serão passados para o arquivo Python. Esta é uma matriz de cadeias de caracteres.|Não|
 |DLLs|Uma lista de bibliotecas a serem instaladas no cluster que executará o trabalho. Pode ser uma matriz de cadeia de caracteres <, objeto >|Não|
 

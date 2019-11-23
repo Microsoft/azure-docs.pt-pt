@@ -34,14 +34,14 @@ Para obter a definição de cada um dos parâmetros listados, consulte a seção
 ## <a name="show-server-configuration-parameter-details"></a>Mostrar detalhes do parâmetro de configuração do servidor
 Para mostrar detalhes sobre um parâmetro de configuração específico para um servidor, execute o comando [AZ MySQL Server Configuration show](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-show) .
 
-Este exemplo mostra detalhes do parâmetro de configuração do servidor **@ no__t-1query @ no__t-2log** para o servidor **mydemoserver.mysql.Database.Azure.com** no grupo de recursos **MyResource Group.**
+Este exemplo mostra detalhes da **consulta de\_lenta\_** parâmetro de configuração do servidor de log para **mydemoserver.mysql.Database.Azure.com** do servidor no grupo de recursos **MyResource Group.**
 ```azurecli-interactive
 az mysql server configuration show --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="modify-a-server-configuration-parameter-value"></a>Modificar um valor de parâmetro de configuração de servidor
 Você também pode modificar o valor de um determinado parâmetro de configuração de servidor, que atualiza o valor de configuração subjacente para o mecanismo do servidor MySQL. Para atualizar a configuração, use o comando [AZ MySQL Server Configuration Set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) . 
 
-Para atualizar o parâmetro de configuração de servidor **@ no__t-1query @ no__t-2log** de servidor lento **no grupo** de recursos **MyResource Group.**
+Para atualizar a **consulta de\_lenta\_** parâmetro de configuração do servidor de log do **mydemoserver.mysql.Database.Azure.com** do servidor no grupo de recursos **MyResource Group.**
 ```azurecli-interactive
 az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
 ```
@@ -49,7 +49,7 @@ Se você quiser redefinir o valor de um parâmetro de configuração, omita o pa
 ```azurecli-interactive
 az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
-Esse código redefine a configuração **lenta @ no__t-1query @ no__t-2log** para o valor padrão **off**. 
+Esse código redefine a **consulta de\_lenta\_** configuração de log para o valor padrão **desativado**. 
 
 ## <a name="working-with-the-time-zone-parameter"></a>Trabalhar com o parâmetro de fuso horário
 
@@ -74,7 +74,7 @@ SELECT name FROM mysql.time_zone_name;
 
 O fuso horário de nível global pode ser definido usando o comando [AZ MySQL Server Configuration Set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) .
 
-O comando a seguir atualiza o parâmetro de configuração de servidor **time @ no__t-1zone** do servidor **mydemoserver.mysql.Database.Azure.com** em grupo de recursos **MyResource** Group para **US/Pacífico**.
+O comando a seguir atualiza a **hora\_** parâmetro de configuração de servidor de zona do servidor **mydemoserver.mysql.Database.Azure.com** em grupo de recursos **MyResource** Group para **US/Pacífico**.
 
 ```azurecli-interactive
 az mysql server configuration set --name time_zone --resource-group myresourcegroup --server mydemoserver --value "US/Pacific"

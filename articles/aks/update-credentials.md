@@ -20,7 +20,7 @@ Por padrão, os clusters AKS são criados com uma entidade de serviço que tem u
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisa do CLI do Azure versão 2.0.65 ou posterior instalado e configurado. Execute @ no__t-0 para localizar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
+Você precisa do CLI do Azure versão 2.0.65 ou posterior instalado e configurado. Execute `az --version` para localizar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
 
 ## <a name="choose-to-update-or-create-a-service-principal"></a>Optar por atualizar ou criar uma entidade de serviço
 
@@ -67,7 +67,7 @@ O resultado será semelhante ao seguinte exemplo. Tome nota do seu `appId` e `pa
 }
 ```
 
-Agora, defina variáveis para a ID da entidade de serviço e o segredo do cliente usando a saída de seu próprio comando [AZ ad SP Create-for-RBAC][az-ad-sp-create] , conforme mostrado no exemplo a seguir. O *SP_ID* é sua *AppID*e o *SP_SECRET* é sua *senha*:
+Agora, defina variáveis para a ID da entidade de serviço e o segredo do cliente usando a saída de seu próprio comando [AZ ad SP Create-for-RBAC][az-ad-sp-create] , conforme mostrado no exemplo a seguir. A *SP_ID* é sua *appId*e a *SP_SECRET* é sua *senha*:
 
 ```azurecli-interactive
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5

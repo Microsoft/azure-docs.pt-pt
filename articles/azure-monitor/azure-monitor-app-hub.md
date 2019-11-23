@@ -131,7 +131,7 @@ ms.locfileid: "72899169"
                                                             <a href="https://docs.microsoft.com/azure/azure-monitor/app/configuration-with-applicationinsights-config#channel-parameters-java
 "> config. xml</a><br>
                                                             
-do <a href="https://github.com/Microsoft/ApplicationInsights-Java">repositório GitHub do SDK de Java</a> de software livre                                                        </p>
+do <a href="https://github.com/Microsoft/ApplicationInsights-Java">repositório GitHub do SDK de Java</a> de software livre                                                         </p>
                                                         <br><br>
                                                         <h3>Aplicativos .NET</h3>
                                                         <p>
@@ -149,14 +149,14 @@ do <a href="https://github.com/Microsoft/ApplicationInsights-Java">repositório 
                                                             <a href="./app/profiler-aspnetcore-linux.md">ASP.NET Core criação de perfil</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Métricas e eventos personalizados</a><br>
                                                             
-do <a href="https://github.com/Microsoft/ApplicationInsights-aspnetcore">repositório GitHub</a> de software livre SDK do .NET Core                                                        </p>
+do <a href="https://github.com/Microsoft/ApplicationInsights-aspnetcore">repositório GitHub</a> de software livre SDK do .NET Core                                                         </p>
                                                         <br><br>
                                                           <h3>Aplicativos node. js</h3>
                                                         <p>
                                                             <a href="./app/nodejs.md">Configuração detalhada do monitoramento</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Métricas e eventos personalizados</a><br>
                                                             
-de <a href="https://github.com/Microsoft/ApplicationInsights-node.js">repositório GitHub do SDK do node. js de código aberto</a>                                                        </p>
+de <a href="https://github.com/Microsoft/ApplicationInsights-node.js">repositório GitHub do SDK do node. js de código aberto</a>                                                         </p>
                                                         <br><br>
                                                         <h3>Monitoramento no lado do cliente/navegador</h3>
                                                         <p>
@@ -176,7 +176,7 @@ de <a href="https://github.com/Microsoft/ApplicationInsights-node.js">repositór
                                                     <div class="cardText">
                                                         <h3>Análise de comportamento do usuário</h3>
                                                         <p>
-                                                            <a href="./app/usage-overview.md">Descrição geral</a><br>
+                                                            <a href="./app/usage-overview.md">Descrição Geral</a><br>
                                                             <a href="./app/usage-send-user-context.md">Enviar IDs de contexto de usuário</a><br>
                                                             <a href="./app/usage-segmentation.md">Usuários, sessões e eventos</a><br>
                                                             <a href="./app/usage-funnels.md">Funis</a><br>
@@ -209,7 +209,7 @@ de <a href="https://github.com/Microsoft/ApplicationInsights-node.js">repositór
                                                         <br><br>
                                                         <h3>Modelo de dados</h3>
                                                         <p>
-                                                            <a href="./app/data-model.md">Descrição geral</a><br>
+                                                            <a href="./app/data-model.md">Descrição Geral</a><br>
                                                             <a href="./app/data-model-request-telemetry.md">Pedido</a><br>
                                                             <a href="./app/data-model-dependency-telemetry.md">Dependência</a><br>
                                                             <a href="./app/data-model-exception-telemetry.md">Exceção</a><br>
@@ -217,7 +217,7 @@ de <a href="https://github.com/Microsoft/ApplicationInsights-node.js">repositór
                                                             <a href="./app/data-model-event-telemetry.md">Evento</a><br>
                                                             <a href="./app/data-model-metric-telemetry.md">Métricas</a><br>
                                                             
-de <a href="./app/data-model-context.md">contexto</a>                                                            </p>
+de <a href="./app/data-model-context.md">contexto</a>                                                             </p>
                                                         </p>
                                                     </div>
                                                 </div>

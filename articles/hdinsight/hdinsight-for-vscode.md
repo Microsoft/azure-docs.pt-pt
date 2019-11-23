@@ -36,7 +36,7 @@ Depois de atender aos pré-requisitos, você pode instalar as ferramentas do Spa
 
 1. Abra o Visual Studio Code.
 
-2. Na barra de menus, navegue até **Exibir** **extensões** > .
+2. Na barra de menus, navegue até **Exibir** **extensões**de > .
 
 3. Na caixa de pesquisa, insira **Spark & Hive**.
 
@@ -111,17 +111,17 @@ Você pode vincular um cluster normal usando um nome de usuário gerenciado pelo
 
 2. Selecione o tipo de cluster vinculado **Livy ponto de extremidade genérico**.
 
-3. Insira o ponto de extremidade Livy genérico. Por exemplo: http @ no__t-0//10.172.41.42:18080.
+3. Insira o ponto de extremidade Livy genérico. Por exemplo: http\://10.172.41.42:18080.
 
 4. Selecione tipo de autorização **básico** ou **nenhum**.  Se você selecionar **básico**:  
-    &emsp;A. Insira seu nome de usuário do Ambari; o padrão é **admin**.  
-    &emsp;B. Insira sua senha do Ambari.
+    &emsp;um. Insira seu nome de usuário do Ambari; o padrão é **admin**.  
+    &emsp;b. Insira sua senha do Ambari.
 
 5. Examine a exibição de **saída** para verificação.
 
 ## <a name="list-clusters"></a>Listar clusters
 
-1. Na barra de menus, navegue para **exibir** > **paleta de comandos...** e insira **Spark/Hive: list cluster**.
+1. Na barra de menus, navegue até **exibir** > **paleta de comandos...** e insira **Spark/Hive: listar cluster**.
 
 2. Selecione a assinatura desejada.
 
@@ -284,32 +284,32 @@ O método 2 envia um arquivo e observa que a pasta. vscode é adicionada automat
 
     | nome | descrição | tipo |
     | :- | :- | :- |
-    | Grupo | Arquivo que contém o aplicativo a ser executado | Caminho (obrigatório) |
-    | proxyUser | Usuário a representar ao executar o trabalho | String |
-    | className | Classe principal do aplicativo Java/Spark | String |
+    | file | Arquivo que contém o aplicativo a ser executado | Caminho (obrigatório) |
+    | proxyUser | Usuário a representar ao executar o trabalho | Cadeia |
+    | className | Classe principal do aplicativo Java/Spark | Cadeia |
     | args | Argumentos de linha de comando para o aplicativo | Lista de cadeias de caracteres |
-    | Jars | Jars a serem usados nesta sessão | Lista de cadeias de caracteres | 
+    | jars | Jars a serem usados nesta sessão | Lista de cadeias de caracteres | 
     | pyFiles | Arquivos Python a serem usados nesta sessão | Lista de cadeias de caracteres |
-    | arquivos | Arquivos a serem usados nesta sessão | Lista de cadeias de caracteres |
-    | driverMemory | Quantidade de memória a ser usada para o processo de driver | String |
-    | driverCores | Número de núcleos a serem usados para o processo de driver | inteiro |
-    | executorMemory | Quantidade de memória a ser usada por processo de executor | String |
-    | executorCores | Número de núcleos a serem usados para cada executor | inteiro |
-    | numExecutors | Número de executores a serem iniciados para esta sessão | inteiro |
-    | zip | Arquivos mortos a serem usados nesta sessão | Lista de cadeias de caracteres |
-    | fila | Nome da fila de YARN a ser enviada| String |
-    | nome | Nome desta sessão | String |
+    | files | Arquivos a serem usados nesta sessão | Lista de cadeias de caracteres |
+    | driverMemory | Quantidade de memória a ser usada para o processo de driver | Cadeia |
+    | driverCores | Número de núcleos a serem usados para o processo de driver | Int |
+    | executorMemory | Quantidade de memória a ser usada por processo de executor | Cadeia |
+    | executorCores | Número de núcleos a serem usados para cada executor | Int |
+    | numExecutors | Número de executores a serem iniciados para esta sessão | Int |
+    | archives | Arquivos mortos a serem usados nesta sessão | Lista de cadeias de caracteres |
+    | fila | Nome da fila de YARN a ser enviada| Cadeia |
+    | nome | Nome desta sessão | Cadeia |
     | conf | Propriedades de configuração do Spark | Mapa de chave = Val |
 
     Corpo da resposta o objeto do lote criado.
 
     | nome | descrição | tipo |
     | :- | :- | :- |
-    | ID | ID da sessão | inteiro |
-    | appId | ID do aplicativo desta sessão | String |
+    | ID | ID da sessão | Int |
+    | appId | ID do aplicativo desta sessão | Cadeia |
     | appInfo | Informações detalhadas do aplicativo | Mapa de chave = Val |
-    | Façam | Linhas de log | Lista de cadeias de caracteres |
-    | state |Estado do lote | String |
+    | log | Linhas de log | Lista de cadeias de caracteres |
+    | state |Estado do lote | Cadeia |
 
     > [!NOTE]
     > A configuração Livy atribuída é exibida no painel de saída quando você envia o script.
@@ -389,7 +389,7 @@ Ao enviar o trabalho para um cluster HDInsight, você será solicitado a vincula
   >
   >![Ferramentas do hive do Spark & para Visual Studio Code Reader vinculado](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
-## <a name="azure-data-lake-storage-gen2"></a>Ger2 de Armazenamento do Azure Data Lake
+## <a name="azure-data-lake-storage-gen2"></a>Armazenamento do Azure Data Lake Ger2
 
 ### <a name="browse-a-data-lake-storage-gen2-account"></a>Procurar uma conta de Data Lake Storage Gen2
 

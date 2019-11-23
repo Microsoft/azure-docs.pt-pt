@@ -146,7 +146,7 @@ Use o Maven para executar o exemplo.
 mvn package spring-boot:run
 ```
 
-A saída deve ser parecida com a seguinte.
+O resultado deverá ser semelhante ao seguinte.
 
 ```bash
 bash-3.2$ mvn package spring-boot:run
@@ -282,7 +282,7 @@ Você deve ver o aplicativo em execução com a URL remota na barra de endereço
 
  ![Aplicativo Spring boot em execução com uma URL remota](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
 
-## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
+## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 

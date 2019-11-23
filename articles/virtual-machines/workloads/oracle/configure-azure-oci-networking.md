@@ -45,7 +45,7 @@ A imagem a seguir mostra uma visão geral de alto nível da interconexão:
     * Ao criar o ExpressRoute, escolha **Oracle Cloud FastConnect** como o provedor de serviços. Para criar um circuito do ExpressRoute, consulte o [guia passo a passo](../../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
     * Um circuito do Azure ExpressRoute fornece opções de largura de banda granulares, enquanto FastConnect dá suporte a 1, 2, 5 ou 10 Gbps. Portanto, é recomendável escolher uma dessas opções de largura de banda correspondentes em ExpressRoute.
 
-    ![Criar circuito do ExpressRoute](media/configure-azure-oci-networking/exr-create-new.png)
+    ![Criar circuito de ExpressRoute](media/configure-azure-oci-networking/exr-create-new.png)
 1. Anote sua chave de **serviço**do ExpressRoute. Você precisa fornecer a chave ao configurar o circuito do FastConnect.
 
     ![Chave de serviço do ExpressRoute](media/configure-azure-oci-networking/exr-service-key.png)
@@ -57,7 +57,7 @@ A imagem a seguir mostra uma visão geral de alto nível da interconexão:
 1. Crie um DRG (gateway de roteamento dinâmico). Você precisará disso ao criar seu circuito FastConnect. Para obter mais informações, consulte a documentação do [Gateway de roteamento dinâmico](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm) .
 1. Crie um circuito FastConnect em seu locatário do Oracle. Para obter mais informações, consulte a [documentação do Oracle](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
   
-    * Em configuração do FastConnect, selecione **Microsoft Azure: ExpressRoute @ no__t-0 como o provedor.
+    * Em configuração do FastConnect, selecione **Microsoft Azure: ExpressRoute** como o provedor.
     * Selecione o gateway de roteamento dinâmico que você provisionou na etapa anterior.
     * Selecione a largura de banda a ser provisionada. Para um desempenho ideal, a largura de banda deve corresponder à largura de banda selecionada ao criar o circuito de ExpressRoute.
     * Em **chave de serviço do provedor**, Cole a chave de serviço do ExpressRoute.

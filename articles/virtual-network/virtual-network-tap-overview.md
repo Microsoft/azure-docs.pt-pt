@@ -43,7 +43,7 @@ O TAP (ponto de acesso ao terminal) da rede virtual do Azure permite transmitir 
 - [Segurança de ativação](https://awakesecurity.com/technology-partners/microsoft-azure/)
 - [Nuvem do Cisco Stealthwatch](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
 - [Darktrace](https://www.darktrace.com/en/azure/)
-- [ExtraHop Reveal (x)](https://www.extrahop.com/partners/tech-partners/microsoft/)
+- [ExtraHop Reveal(x)](https://www.extrahop.com/partners/tech-partners/microsoft/)
 - [Fidelis segurança cibernética](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [LANGuardian NetFort](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
@@ -58,7 +58,7 @@ A imagem a seguir mostra como o toque da rede virtual funciona. Você pode adici
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de criar um toque de rede virtual, você deve ter recebido um email de confirmação que você está inscrito na versão prévia e ter uma ou mais máquinas virtuais criadas usando [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) modelo de implantação e uma solução de parceiro para agregar o TOQUE em tráfego na mesma região do Azure. Se você não tiver uma solução de parceiro em sua rede virtual, consulte [soluções de parceiros](#virtual-network-tap-partner-solutions) para implantar uma. Você pode usar o mesmo recurso de toque de rede virtual para agregar o tráfego de várias interfaces de rede na mesma assinatura ou em assinaturas diferentes. Se as interfaces de rede monitoradas estiverem em assinaturas diferentes, as assinaturas deverão ser associadas ao mesmo locatário Azure Active Directory. Além disso, as interfaces de rede monitoradas e o ponto de extremidade de destino para agregar o tráfego de toque podem estar em redes virtuais emparelhadas na mesma região. Se você estiver usando esse modelo de implantação, verifique se o [emparelhamento de rede virtual](virtual-network-peering-overview.md) está habilitado antes de configurar o toque da rede virtual.
+Antes de criar um toque de rede virtual, você deve ter recebido um email de confirmação que você está inscrito na versão prévia e ter uma ou mais máquinas virtuais criadas usando [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) modelo de implantação e uma solução de parceiro para agregar o tráfego de toque na mesma região do Azure. Se você não tiver uma solução de parceiro em sua rede virtual, consulte [soluções de parceiros](#virtual-network-tap-partner-solutions) para implantar uma. Você pode usar o mesmo recurso de toque de rede virtual para agregar o tráfego de várias interfaces de rede na mesma assinatura ou em assinaturas diferentes. Se as interfaces de rede monitoradas estiverem em assinaturas diferentes, as assinaturas deverão ser associadas ao mesmo locatário Azure Active Directory. Além disso, as interfaces de rede monitoradas e o ponto de extremidade de destino para agregar o tráfego de toque podem estar em redes virtuais emparelhadas na mesma região. Se você estiver usando esse modelo de implantação, verifique se o [emparelhamento de rede virtual](virtual-network-peering-overview.md) está habilitado antes de configurar o toque da rede virtual.
 
 ## <a name="permissions"></a>Permissões
 
@@ -66,9 +66,9 @@ As contas usadas para aplicar a configuração TAP em interfaces de rede devem s
 
 | Ação | Nome |
 |---|---|
-| Microsoft. Network/virtualNetworkTaps/* | Necessário para criar, atualizar, ler e excluir um recurso de toque de rede virtual |
-| Microsoft. Network/networkInterfaces/Read | Necessário para ler o recurso de interface de rede no qual o toque será configurado |
-| Microsoft. Network/tapConfigurations/* | Necessário para criar, atualizar, ler e excluir a configuração de toque em uma interface de rede |
+| Microsoft.Network/virtualNetworkTaps/* | Necessário para criar, atualizar, ler e excluir um recurso de toque de rede virtual |
+| Microsoft.Network/networkInterfaces/read | Necessário para ler o recurso de interface de rede no qual o toque será configurado |
+| Microsoft.Network/tapConfigurations/* | Necessário para criar, atualizar, ler e excluir a configuração de toque em uma interface de rede |
 
 ## <a name="next-steps"></a>Passos seguintes
 

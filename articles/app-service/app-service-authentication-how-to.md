@@ -185,7 +185,7 @@ Quando o token de acesso do seu provedor (não o [token de sessão](#extend-sess
 - **Conta da Microsoft**: ao [definir as configurações de autenticação da conta da Microsoft](configure-authentication-provider-microsoft.md), selecione o escopo de `wl.offline_access`.
 - **Azure Active Directory**: no [https://resources.azure.com](https://resources.azure.com), execute as seguintes etapas:
     1. Na parte superior da página, selecione **leitura/gravação**.
-    2. No navegador esquerdo, navegue até **assinaturas** >  **_\<assinatura\_nome_**  > **resourceGroups** > \<de recursos\_do **_grupo\_nome_** > >  **provedores** > **Microsoft. Web** > **sites** >  **_\<aplicativo\_nome_** > > **config** > **authsettings**. 
+    2. No navegador esquerdo, navegue até **assinaturas** >  **_\<assinatura\_nome_**  > **resourceGroups** >  **_\<recursos\_grupo\_nome_** > > **provedores** > **Microsoft. Web** > **sites** >  **_\<aplicativo\_nome_** > > **config** > **authsettings**. 
     3. Clique em **Editar**.
     4. Modifique a propriedade a seguir. Substitua _\<ID do\_do aplicativo >_ com a ID do aplicativo Azure Active Directory do serviço que você deseja acessar.
 
@@ -232,7 +232,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Tanto a conta da Microsoft quanto a Azure Active Directory permitem que você entre em vários domínios. Por exemplo, a conta da Microsoft permite contas _Outlook.com_, _Live.com_e _hotmail.com_ . O Azure AD permite qualquer número de domínios personalizados para as contas de entrada. No entanto, talvez você queira acelerar seus usuários diretamente para sua própria página de entrada do Azure AD com marca (como `contoso.com`). Para sugerir o nome de domínio das contas de entrada, siga estas etapas.
 
-Em [https://resources.azure.com](https://resources.azure.com), navegue até **assinaturas** >  **_\< assinatura\_ nome_**  > **resourceGroups** >  **_\< recursos\_ grupo\_ nome_** > >  **provedores** > **Microsoft. Web** > **sites** >  **_\< aplicativo\_ nome_** > > **config** > **authsettings**. 
+Em [https://resources.azure.com](https://resources.azure.com), navegue até **assinaturas** >  **_\<assinatura\_nome_**  > **resourceGroups** >  **_\<recursos\_grupo\_nome_** > > **provedores** > **Microsoft. Web** > **sites** >  **_\<aplicativo\_nome >_**  > **configuração** > **authsettings**. 
 
 Clique em **Editar**, modifique a seguinte propriedade e, em seguida, clique em **Put**. Certifique-se de substituir _\<nome de\_de domínio >_ pelo domínio desejado.
 

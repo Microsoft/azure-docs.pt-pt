@@ -53,7 +53,7 @@ Você pode criar fábricas de dados usando uma das seguintes ferramentas/SDKs:
 * **Azure PowerShell** Confira [criar e monitorar Azure data Factory usando o Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) para obter um tutorial/instruções para criar um data Factory usando o PowerShell. Consulte [Data Factory][adf-powershell-reference] o conteúdo de referência do cmdlet na biblioteca MSDN para obter uma documentação abrangente dos cmdlets data Factory.
 * **Biblioteca de classes .net** Você pode criar fábricas de dados programaticamente usando Data Factory SDK do .NET. Consulte [criar, monitorar e gerenciar fábricas de dados usando o SDK do .net](data-factory-create-data-factories-programmatically.md) para obter uma explicação sobre como criar um data Factory usando o SDK do .net. Consulte [Data Factory referência da biblioteca de classes][msdn-class-library-reference] para obter uma documentação abrangente de data Factory SDK do .net.
 * **API REST** Você também pode usar a API REST exposta pelo serviço de Azure Data Factory para criar e implantar fábricas de dados. Consulte [Data Factory referência da API REST][msdn-rest-api-reference] para obter uma documentação abrangente de data Factory API REST.
-* **Modelo de Azure Resource Manager** Consulte [o tutorial: Crie sua primeira data Factory do Azure usando Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) modelo fo detalhes.
+* **Modelo de Azure Resource Manager** Consulte [o tutorial: criar seu primeiro data Factory do Azure usando Azure Resource Manager modelo](data-factory-build-your-first-pipeline-using-arm.md) fo detalhes.
 
 ### <a name="can-i-rename-a-data-factory"></a>Posso renomear uma data factory?
 Não. Como outros recursos do Azure, o nome de uma data factory do Azure não pode ser alterado.
@@ -66,16 +66,16 @@ Sim. Use o botão **mover** na folha data Factory, conforme mostrado no diagrama
 ### <a name="what-are-the-compute-environments-supported-by-data-factory"></a>Quais são os ambientes de computação com suporte pelo Data Factory?
 A tabela a seguir fornece uma lista de ambientes de computação com suporte pelo Data Factory e as atividades que podem ser executadas neles.
 
-| Ambiente de computação | activities |
+| Ambiente de computação | atividades |
 | --- | --- |
 | [Cluster Hdinsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster hdinsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[Dotnet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [streaming do Hadoop](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning atividades: Recurso de atualização e execução em lote](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Atividades de Machine Learning: Execução de Lotes e Atualizar Recurso](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimento Armazenado](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Como Azure Data Factory comparar com SQL Server Integration Services (SSIS)? 
-Consulte o [Azure data Factory vs. Apresentação](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) do SSIS de um de nossos MVPs (profissionais mais valiosos): Reza Rad. Algumas das alterações recentes no Data Factory podem não estar listadas no deck de slides. Estamos continuamente adicionando mais recursos para Azure Data Factory. Estamos continuamente adicionando mais recursos para Azure Data Factory. Vamos incorporar essas atualizações à comparação de tecnologias de integração de dados da Microsoft em um momento posterior neste ano.   
+Consulte a apresentação [Azure data Factory versus SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) de um de nossos MVPs (profissionais mais valorizados): reza Rad. Algumas das alterações recentes no Data Factory podem não estar listadas no deck de slides. Estamos continuamente adicionando mais recursos para Azure Data Factory. Estamos continuamente adicionando mais recursos para Azure Data Factory. Vamos incorporar essas atualizações à comparação de tecnologias de integração de dados da Microsoft em um momento posterior neste ano.   
 
 ## <a name="activities---faq"></a>Atividades-perguntas frequentes
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Quais são os diferentes tipos de atividades que você pode usar em um pipeline Data Factory?
@@ -170,7 +170,7 @@ Você pode executar novamente uma fatia de uma das seguintes maneiras:
 
 * Use o aplicativo monitorar e gerenciar para executar novamente uma janela de atividade ou uma fatia. Consulte [executar novamente as janelas de atividades selecionadas](data-factory-monitor-manage-app.md#perform-batch-actions) para obter instruções.   
 * Clique em **executar** na barra de comandos na folha **fatia de dados** para a fatia no portal do Azure.
-* Execute o cmdlet **set-AzDataFactorySliceStatus** com o status definido como aguardando a fatia.   
+* Execute o cmdlet **set-AzDataFactorySliceStatus** com o status definido como **aguardando** a fatia.   
 
     ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
@@ -185,7 +185,7 @@ Você também pode fazer o seguinte no portal do Azure:
 1. Clique no bloco **conjuntos** de dados na folha **Data FACTORY** para sua data Factory.
 2. Clique no conjunto de informações específico na folha **conjuntos de valores** .
 3. Selecione a fatia na qual você está interessado na lista de **fatias recentes** na folha **tabela** .
-4. Clique na lista execução da atividade na folha **fatia de dados** .
+4. Clique **na lista execução da atividade na** folha **fatia de dados** .
 5. Clique no bloco **Propriedades** na folha **detalhes da execução da atividade** .
 6. Você deve ver o campo **duração** com um valor. Esse valor é o tempo necessário para processar a fatia.   
 

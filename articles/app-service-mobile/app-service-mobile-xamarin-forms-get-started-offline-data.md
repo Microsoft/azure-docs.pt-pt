@@ -27,9 +27,9 @@ ms.locfileid: "72388430"
 > [!NOTE]
 > O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
 >
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 Este tutorial apresenta o recurso de sincronização offline de aplicativos móveis do Azure para Xamarin. Forms. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede. As alterações são armazenadas em um banco de dados local. Quando o dispositivo estiver online novamente, essas alterações serão sincronizadas com o serviço remoto.
 
 Este tutorial se baseia na solução de início rápido do Xamarin. Forms para aplicativos móveis que você cria ao concluir o tutorial [criar um aplicativo Xamarin iOS]. A solução de início rápido do Xamarin. Forms contém o código para dar suporte à sincronização offline, que só precisa ser habilitada. Neste tutorial, você atualizará a solução de início rápido para ativar os recursos offline dos aplicativos móveis do Azure. Também destacamos o código específico offline no aplicativo. Se você não usar a solução de início rápido baixada, deverá adicionar os pacotes de extensão de acesso de dados ao seu projeto. Para obter mais informações sobre pacotes de extensão de servidor, consulte [trabalhar com o SDK do servidor de back-end do .net para aplicativos móveis do Azure][1].
@@ -37,7 +37,7 @@ Este tutorial se baseia na solução de início rápido do Xamarin. Forms para a
 Para saber mais sobre o recurso de sincronização offline, consulte o tópico [sincronização de dados offline em aplicativos móveis do Azure][2].
 
 ## <a name="enable-offline-sync-functionality-in-the-quickstart-solution"></a>Habilitar a funcionalidade de sincronização offline na solução de início rápido
-O código de sincronização offline é incluído no projeto usando C# diretivas de pré-processador. Quando o símbolo **offline @ no__t-1SYNC @ no__t-2ENABLED** é definido, esses caminhos de código são incluídos na compilação. Para aplicativos do Windows, você também deve instalar a plataforma SQLite.
+O código de sincronização offline é incluído no projeto usando C# diretivas de pré-processador. Quando o símbolo **habilitado para\_de sincronização OFFLINE\_** é definido, esses caminhos de código são incluídos na compilação. Para aplicativos do Windows, você também deve instalar a plataforma SQLite.
 
 1. No Visual Studio, clique com o botão direito do mouse na solução > **gerenciar pacotes NuGet para solução...** , procure e instale o pacote NuGet **Microsoft. Azure. Mobile. Client. SQLiteStore** para todos os projetos na solução.
 2. No Gerenciador de Soluções, abra o arquivo TodoItemManager.cs do projeto com **portátil** no nome, que é o projeto de biblioteca de classes portátil e remova a marca de comentário da seguinte diretiva de pré-processador:
@@ -55,7 +55,7 @@ O código de sincronização offline é incluído no projeto usando C# diretivas
     Os nomes do SDK do SQLite variam um pouco com cada plataforma Windows.
 
 ## <a name="review-the-client-sync-code"></a>Examinar o código de sincronização do cliente
-Aqui está uma breve visão geral do que já está incluído no código do tutorial dentro das diretivas `#if OFFLINE_SYNC_ENABLED`. A funcionalidade de sincronização offline está no arquivo de projeto TodoItemManager.cs no projeto de biblioteca de classes portátil. Para obter uma visão geral conceitual do recurso, consulte [sincronização de dados offline em aplicativos móveis do Azure][2].
+Aqui está uma breve visão geral do que já está incluído no código do tutorial dentro das diretivas de `#if OFFLINE_SYNC_ENABLED`. A funcionalidade de sincronização offline está no arquivo de projeto TodoItemManager.cs no projeto de biblioteca de classes portátil. Para obter uma visão geral conceitual do recurso, consulte [sincronização de dados offline em aplicativos móveis do Azure][2].
 
 * Antes que qualquer operação de tabela possa ser executada, o repositório local deve ser inicializado. O banco de dados de armazenamento local é inicializado no construtor da classe **TodoItemManager** usando o seguinte código:
 
@@ -144,7 +144,7 @@ Nesta seção, modifique o projeto do cliente para simular um cenário offline u
 4. Feche o aplicativo e reinicie-o para verificar se os novos itens criados são persistidos no repositório local.
 5. Adicional Use o Visual Studio para exibir a tabela do banco de dados SQL do Azure para ver que os mesmos não foram alterados.
 
-    No Visual Studio, abra **Gerenciador de servidores**. Navegue até seu banco de dados no **Azure**-> bancos de dados**SQL**. Clique com o botão direito do mouse no banco de dados e selecione **abrir no Pesquisador de objetos do SQL Server**. Agora você pode navegar até a tabela do banco de dados SQL e seu conteúdo.
+    No Visual Studio, abra **Gerenciador de servidores**. Navegue até seu banco de dados no **Azure**->bancos de dados **SQL**. Clique com o botão direito do mouse no banco de dados e selecione **abrir no Pesquisador de objetos do SQL Server**. Agora você pode navegar até a tabela do banco de dados SQL e seu conteúdo.
 
 ## <a name="update-the-client-app-to-reconnect-your-mobile-backend"></a>Atualizar o aplicativo cliente para reconectar seu back-end móvel
 Nesta seção, reconecte o aplicativo ao back-end móvel, que simula o aplicativo voltado para um estado online. Quando você executa o gesto de atualização, os dados são sincronizados com o back-end móvel.

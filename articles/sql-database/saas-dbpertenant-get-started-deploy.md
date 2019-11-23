@@ -110,7 +110,7 @@ Internamente no aplicativo, cada locatário Obtém um banco de dados SQL implant
 
 Uma página central de **eventos do Hub** fornece uma lista de links para os locatários em sua implantação.
 
-1. Use a URL para abrir o Hub de eventos em seu navegador da Web: http://events.wingtip-dpt.&lt; user&gt;.trafficmanager.net. Substitua&gt; de usuário &lt;pelo valor de usuário da implantação.
+1. Use a URL para abrir o Hub de eventos em seu navegador da Web: http://events.wingtip-dpt.&lt; usuário&gt;. trafficmanager.net. Substitua&gt; de usuário &lt;pelo valor de usuário da implantação.
 
     ![Hub de eventos](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
@@ -122,7 +122,7 @@ Uma página central de **eventos do Hub** fornece uma lista de links para os loc
 
 O aplicativo Wingtip usa o [*Gerenciador de tráfego do Azure*](../traffic-manager/traffic-manager-overview.md) para controlar a distribuição de solicitações de entrada. A URL para acessar a página de eventos para um locatário específico usa o seguinte formato:
 
-- http://events.wingtip-dpt.&lt; user&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
 
     As partes do formato anterior são explicadas na tabela a seguir.
 
@@ -130,7 +130,7 @@ O aplicativo Wingtip usa o [*Gerenciador de tráfego do Azure*](../traffic-mana
     | :-------------- | :---------------- |
     | http://events.wingtip-dpt | As partes de eventos do aplicativo Wingtip.<br /><br /> *-DPT* distingue a implementação de *banco de dados por locatário* do Wingtip tickets de outras implementações. Os exemplos são as implementações *únicas* de aplicativo por locatário ( *-SA*) ou de *banco de dados multilocatário* ( *-MT*). |
     | . *&lt;&gt;de usuário* | *AF1* no exemplo. |
-    | . trafficmanager.net/ | Gerenciador de tráfego, URL base. |
+    | .trafficmanager.net/ | Gerenciador de tráfego, URL base. |
     | fabrikamjazzclub | Identifica o locatário chamado Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |
 
@@ -183,7 +183,7 @@ Se você quiser controlar e monitorar os trabalhos em segundo plano, use os segu
     - *sp_CpuLoadGenerator* loops em uma instrução SQL SELECT que causa uma alta carga de CPU. O intervalo de tempo entre os problemas de SELECT varia de acordo com os valores de parâmetro para criar uma carga de CPU controlável. Os níveis de carga e os intervalos são aleatórios para simular cargas mais realistas.
     - Esse arquivo. SQL é armazenado em *WingtipTenantDB\\dbo\\storedprocedures\\* .
 
-4. Se `$OneTime = $false`, o gerador de carga iniciará os trabalhos em segundo plano e continuará a ser executado. A cada 10 segundos, ele monitora os novos locatários que são provisionados. Se você definir `$OneTime = $true`, o LoadGenerator iniciará os trabalhos em segundo plano e interromperá a execução em primeiro plano. Para este tutorial, deixe `$OneTime = $false`.
+4. Se `$OneTime = $false`, o gerador de carga iniciará os trabalhos em segundo plano e continuará a ser executado. A cada 10 segundos, ele monitora os novos locatários que são provisionados. Se você definir `$OneTime = $true`, o LoadGenerator iniciará os trabalhos em segundo plano e, em seguida, interromperá a execução em primeiro plano. Para este tutorial, deixe `$OneTime = $false`.
 
    Use CTRL-C ou Stop Operation Ctrl-Break se você quiser parar ou reiniciar o gerador de carga.
 

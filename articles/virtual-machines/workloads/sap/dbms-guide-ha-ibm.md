@@ -86,7 +86,7 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 | [IBM DB2 HADR 11,1][db2-hadr-11.1] |
 | [IBM DB2 HADR R 10,5][db2-hadr-10.5] |
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 Para obter alta disponibilidade, o IBM DB2 LUW com HADR é instalado em pelo menos duas máquinas virtuais do Azure, que são implantadas em um [conjunto de disponibilidade do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) ou entre [zonas de disponibilidade do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). 
 
 Os gráficos a seguir exibem uma configuração de duas VMs do Azure do servidor de banco de dados. Ambas as VMs do Azure do servidor de banco de dados têm seu próprio armazenamento anexado e estão em execução. No HADR, uma instância de banco de dados em uma das VMs do Azure tem a função da instância primária. Todos os clientes estão conectados a esta instância primária. Todas as alterações nas transações de banco de dados são mantidas localmente no log de transações do DB2. Como os registros de log de transações são persistidos localmente, os registros são transferidos via TCP/IP para a instância do banco de dados no segundo servidor de banco de dados, no servidor em espera ou na instância em espera. A instância em espera atualiza o banco de dados local rolando os registros de log de transações transferidos. Dessa forma, o servidor em espera é mantido em sincronia com o servidor primário.
@@ -131,7 +131,7 @@ Conclua o processo de planejamento antes de executar a implantação. O planejam
 | Definir grupos de recursos do Azure | Grupos de recursos em que você implanta VM, VNet, Azure Load Balancer e outros recursos. Pode ser existente ou novo. |
 | Definição de rede virtual/sub-rede | Onde as VMs para IBM DB2 e Azure Load Balancer estão sendo implantadas. Pode ser existente ou criado recentemente. |
 | Máquinas virtuais que hospedam o IBM DB2 LUW | Tamanho da VM, armazenamento, rede, endereço IP. |
-| Nome de host virtual e IP virtual para banco de dados IBM DB2| O IP virtual ou o nome do host que é usado para conexão de servidores de aplicativos SAP. **DB-virt-hostname**, **DB-virt-IP**. |
+| Nome de host virtual e IP virtual para banco de dados IBM DB2| O IP virtual ou o nome do host que é usado para conexão de servidores de aplicativos SAP. **db-virt-hostname**, **db-virt-ip**. |
 | Isolamento do Azure | Isolamento do Azure ou isolamento SBD (altamente recomendado). Método para evitar situações de divisão Brain. |
 | VM SBD | Tamanho da máquina virtual SBD, armazenamento, rede. |
 | Azure Load Balancer | Uso de básico ou padrão (recomendado), porta de investigação para banco de dados DB2 (nossa recomendação 62500) **porta-investigação**. |
@@ -201,7 +201,7 @@ Para configurar a instância de banco de dados do IBM DB2 LUW principal:
 
 Para configurar o servidor de banco de dados em espera usando o procedimento de cópia do sistema SAP homogêneo, execute estas etapas:
 
-1. Selecione a opção de **cópia do sistema** > **sistemas de destino** > **Distributed** > **instância do banco de dados**.
+1. Selecione a opção de **cópia do sistema** > **sistemas de destino** > instância de banco de **dados** > **distribuída** .
 1. Como um método de cópia, selecione **sistema homogêneo** para que você possa usar o backup para restaurar um backup na instância do servidor em espera.
 1. Quando você chegar à etapa sair para restaurar o banco de dados para a cópia homogênea do sistema, saia do instalador. Restaure o banco de dados de um backup do host primário. Todas as fases de instalação subsequentes já foram executadas no servidor de banco de dados primário.
 1. Configure o HADR para IBM DB2.
@@ -408,7 +408,7 @@ sudo crm configure property maintenance-mode=false</pre></code>
 
 #  <a name="stonith-sbd----stonithexternalsbd-started-azibmdb02"></a>stonith-SBD (stonith: External/SBD): azibmdb02 iniciado
 #  <a name="resource-group-g_ip_db2ptr_ptr"></a>Grupo de recursos: g_ip_db2ptr_PTR
-#      <a name="rsc_ip_db2ptr_ptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR (OCF:: Heartbeat: IPaddr2): iniciado azibmdb02
+#      <a name="rsc_ip_db2ptr_ptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR (OCF:: Heartbeat: IPaddr2): Started azibmdb02
 #      <a name="rsc_nc_db2ptr_ptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (OCF:: Heartbeat: qualquer coisa): iniciado azibmdb02
 #  <a name="masterslave-set-msl_db2_db2ptr_ptr-rsc_db2_db2ptr_ptr"></a>Conjunto mestre/escravo: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
 #      <a name="masters--azibmdb02-"></a>Mestres: [azibmdb02]
@@ -501,7 +501,7 @@ Use a ferramenta de configuração do J2EE para verificar ou atualizar a URL JDB
  
 1. Entre no servidor de aplicativos primário da instância J2EE e execute: `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. No quadro à esquerda, escolha **armazenamento de segurança**.
-1. No quadro à direita, escolha a chave JDBC/pool/\<SAPSID >/URL.
+1. No quadro à direita, escolha a chave JDBC/pool/\<SAPSid >/URL.
 1. Altere o nome do host na URL JDBC para o nome do host virtual.
      `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
 1. Selecione **Adicionar**.
@@ -527,7 +527,7 @@ Você pode usar compartilhamentos NFS altamente disponíveis existentes para tra
 
 Esta seção descreve como você pode testar a configuração do DB2 HADR. *Cada teste pressupõe que você está conectado como raiz do usuário* e o IBM DB2 primário está em execução na máquina virtual *azibmdb01* .
 
-O status inicial de todos os casos de teste é explicado aqui: (crm_mon-r ou CRM status)
+O status inicial de todos os casos de teste é explicado aqui: (status de crm_mon-r ou CRM)
 
 - o **status do CRM** é um instantâneo do status do pacemaker no tempo de execução 
 - **crm_mon-r** é uma saída contínua do status do pacemaker
@@ -596,9 +596,9 @@ Migre o recurso de volta para *azibmdb01* e desmarque as restrições de local
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- a **migração de recursos do crm \<res_name > \<> do host:** Cria restrições de local e pode causar problemas com tomada
-- **RES_NAME de recursos de CRM limpar \<** : limpa as restrições de local
-- **limpeza de recursos de crm \<res_name >** : limpa todos os erros do recurso
+- **\<de migração de recursos de crm res_name > \<> do host:** Cria restrições de local e pode causar problemas com tomada
+- **\<de recursos de CRM limpar res_name >** : limpa as restrições de local
+- **\<de limpeza de recursos de crm res_name >** : limpa todos os erros do recurso
 
 ### <a name="test-the-fencing-agent"></a>Testar o agente de isolamento
 

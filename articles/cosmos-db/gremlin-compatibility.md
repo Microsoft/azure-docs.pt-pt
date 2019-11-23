@@ -25,15 +25,15 @@ Azure Cosmos DB mecanismo de grafo segue a especificação de etapas de passagem
 
 * ***[Gremlin Bytecode](http://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** é uma especificação agnóstica de linguagem de programação para percursos em gráfico. Cosmos DB grafo ainda não dá suporte a ele. Use ```GremlinClient.SubmitAsync()``` e passe passagem como uma cadeia de texto.
 
-* Atualmente, não há suporte para ***a cardinalidade ```property(set, 'xyz', 1)```*** . Em vez disso, use ```property(list, 'xyz', 1)```.
+* a cardinalidade do conjunto de ***```property(set, 'xyz', 1)```*** não tem suporte hoje. Em vez disso, use ```property(list, 'xyz', 1)```.
 
 * ***```match()```*** permite consultar grafos usando correspondência de padrão declarativa. Essa funcionalidade não está disponível.
 
 * Não há suporte para ***objetos como propriedades*** em vértices ou bordas. As propriedades apenas podem ser matrizes ou tipos primitivos.
 
-* Não há suporte para a ***classificação por propriedades de matriz*** ```.order().by(<array property>)```. A ordenação é suportada apenas por tipos primitivos.
+* Não há suporte para ***a classificação por propriedades de matriz*** ```.order().by(<array property>)```. A ordenação é suportada apenas por tipos primitivos.
 
-* Não há suporte para ***tipos JSON não primitivos*** . Use os tipos ```string```, ```number``` ou ```true``` @ no__t-3 @ no__t-4. Não há suporte para valores ```null```. 
+* Não há suporte para ***tipos JSON não primitivos*** . Use ```string```tipos de ```false``` /, ```number```ou ```true```. Não há suporte para valores de ```null```. 
 
 * O serializador ***GraphSONv3*** não está disponível hoje.
 

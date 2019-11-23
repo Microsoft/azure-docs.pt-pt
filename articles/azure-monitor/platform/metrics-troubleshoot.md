@@ -29,7 +29,7 @@ Clicou no botão **Selecionar um recurso**, mas não vê o seu recurso na caixa 
 
 1. Confirme que selecionou o grupo de recursos correto.
     > [!WARNING]
-    > Para obter o melhor desempenho, quando você abre o Metrics Explorer pela primeira vez, o menu suspenso **grupo de recursos** não tem grupos de recursos previamente selecionados. Tem de escolher, pelo menos, um grupo antes de poder ver quaisquer recursos.
+    > Para obter o melhor desempenho, quando abrir pela primeira vez o explorador de métricas, a lista pendente **Grupo de recursos** não tem qualquer grupo de recursos previamente selecionado. Tem de escolher, pelo menos, um grupo antes de poder ver quaisquer recursos.
 
 ## <a name="chart-shows-no-data"></a>O gráfico não mostra dados
 
@@ -80,22 +80,22 @@ Este problema pode ocorrer quando o dashboard foi criado com uma métrica que fo
 ## <a name="chart-shows-dashed-line"></a>Gráfico mostra linha tracejada
 
 Os gráficos de métricas do Azure usam o estilo de linha tracejado para indicar que há um valor ausente (também conhecido como "valor nulo") entre dois pontos de dados de intervalo de tempo conhecidos. Por exemplo, se no seletor de tempo você escolheu a granularidade de tempo "1 minuto", mas a métrica foi relatada às 07:26, 07:27, 07:29 e 07:30 (Observe uma lacuna de minuto entre o segundo e o terceiro ponto de dados), uma linha tracejada se conectará a 07:27 e 07:29 e uma linha sólida se conectará todos os outros pontos de dados. A linha tracejada cai para zero quando a métrica usa a agregação **Count** e **sum** . Para as agregações **AVG**, **min** ou **Max** , a linha tracejada conecta dois pontos de dados conhecidos mais próximos. Além disso, quando os dados estão em falta no lado mais à direita ou mais à esquerda do gráfico, a linha tracejada expande-se para a direção do ponto de dados em falta.
-  imagem ![metric @ no__t-1
+  ![](./media/metrics-troubleshoot/missing-data-point-line-chart.png) de imagem métrica
 
-**Solução:** Esse comportamento é por design. É útil para identificar pontos de dados em falta. O gráfico de linhas é uma opção superior para a visualização de tendências de métricas de alta densidade, mas pode ser difícil interpretar para as métricas com valores esparsos, especialmente quando valores corelacionados com o intervalo de tempo são importantes. A linha tracejada facilita a leitura destes gráficos, mas se o gráfico ainda não for claro, considere ver as métricas com um tipo de gráfico diferente. Por exemplo, um gráfico de gráficos dispersos para a mesma métrica claramente mostra cada intervalo de tempo apenas visualizando um ponto quando há um valor e ignorando o ponto de dados quando o valor está ausente: imagem ![metric @ no__t-1
+**Solução:** Esse comportamento é por design. É útil para identificar pontos de dados em falta. O gráfico de linhas é uma opção superior para a visualização de tendências de métricas de alta densidade, mas pode ser difícil interpretar para as métricas com valores esparsos, especialmente quando valores corelacionados com o intervalo de tempo são importantes. A linha tracejada facilita a leitura destes gráficos, mas se o gráfico ainda não for claro, considere ver as métricas com um tipo de gráfico diferente. Por exemplo, um gráfico de plotagem disperso para a mesma métrica claramente mostra cada intervalo de tempo apenas visualizando um ponto quando há um valor e ignorando o ponto de dados quando o valor está ausente: ![imagem métrica](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
 
    > [!NOTE]
    > Se continuar a preferir um gráfico de linhas para a sua métrica, mover o rato sobre o gráfico pode ajudar a avaliar a granularidade do tempo ao destacar o ponto de dados no local do ponteiro do rato.
 
 ## <a name="chart-shows-unexpected-drop-in-values"></a>O gráfico mostra valores de queda inesperados
 
-Em muitos casos, a queda percebida nas métricas resulta da falta de compreensão dos dados apresentados no gráfico. Pode deixar-se enganar por uma queda nas somas ou contagens quando o gráfico mostra os minutos mais recentes, uma vez que os últimos pontos de dados métricos não ainda não foram recebidos nem processados pelo Azure. Consoante o serviço, a latência das métricas de processamento pode ficar dentro de um intervalo de alguns minutos. Para gráficos mostrando um intervalo de tempo recente com uma granularidade de 1 ou 5 minutos, uma queda do valor nos últimos minutos torna-se mais perceptível: imagem ![metric @ no__t-1
+Em muitos casos, a queda percebida nas métricas resulta da falta de compreensão dos dados apresentados no gráfico. Pode deixar-se enganar por uma queda nas somas ou contagens quando o gráfico mostra os minutos mais recentes, uma vez que os últimos pontos de dados métricos não ainda não foram recebidos nem processados pelo Azure. Consoante o serviço, a latência das métricas de processamento pode ficar dentro de um intervalo de alguns minutos. Para gráficos mostrando um intervalo de tempo recente com uma granularidade de 1 ou 5 minutos, uma queda do valor nos últimos minutos torna-se mais perceptível: ![imagem de métrica](./media/metrics-troubleshoot/drop-in-values.png)
 
 **Solução:** Esse comportamento é por design. Acreditamos que é vantajoso mostrar os dados assim que os recebemos, mesmo quando são *parciais* ou *incompletos*. Tal permite-lhe tirar conclusões importantes mais cedo e iniciar imediatamente a investigação. Por exemplo, para uma métrica que mostra o número de falhas, ver um valor X parcial indica-nos que havia, pelo menos, X falhas num determinado minuto. Pode iniciar a investigação do problema imediatamente, ao invés de esperar para ver a quantidade exata de falhas que aconteceram nesse minuto, algo que pode não ser tão importante. O gráfico vai ser atualizado depois de recebermos todo o conjunto de dados, mas, nessa altura, também pode mostrar novos pontos de dados incompletos de minutos mais recentes.
 
 ## <a name="cannot-pick-guest-os-namespace-and-metrics"></a>Não é possível escolher o namespace e as métricas do SO convidado
 
-As máquinas virtuais e os conjuntos de dimensionamento de máquinas virtuais têm duas categorias de métricas: métricas de **host de máquina virtual** que são coletadas pelo ambiente de hospedagem do Azure e métricas de **SO convidado (clássico)** coletadas pelo [agente de monitoramento ](agents-overview.md)em execução em suas máquinas virtuais. Instale o agente de monitorização ao ativar a [Extensão de Diagnóstico do Azure](diagnostics-extension-overview.md).
+As máquinas virtuais e os conjuntos de dimensionamento de máquinas virtuais têm duas categorias de métricas: métricas de **host de máquina virtual** que são coletadas pelo ambiente de hospedagem do Azure e métricas de **SO convidado (clássico)** coletadas pelo [agente de monitoramento](agents-overview.md) em execução em suas máquinas virtuais. Instale o agente de monitorização ao ativar a [Extensão de Diagnóstico do Azure](diagnostics-extension-overview.md).
 
 Por predefinição, as métricas do SO convidado são armazenadas na conta de Armazenamento do Azure, que escolhe no separador **Definições de diagnóstico** do seu recurso. Se as métricas do SO convidado não forem recolhidas ou se o Explorador de Métricas não conseguir aceder às mesmas, apenas será apresentado o espaço de nomes de métricas do **Anfitrião de Máquinas Virtuais**:
 
@@ -109,7 +109,7 @@ Por predefinição, as métricas do SO convidado são armazenadas na conta de Ar
 
 1. Verifique se o provedor de recursos **Microsoft. insights** está [registrado para sua assinatura](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 
-1. Verifique se a conta de armazenamento não está protegida pelo firewall. Portal do Azure precisa acessar a conta de armazenamento para recuperar dados de métricas e plotar os gráficos.
+1. Confirme que a conta de armazenamento não está protegida pela firewall. O portal do Azure precisa do acesso à conta de armazenamento para obter dados de métricas e para delinear os gráficos.
 
 1. Utilize o [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para validar que as métricas estão a fluir para a conta de armazenamento. Se não forem recolhidas métricas, siga o [guia de resolução de problemas de Extensão de Diagnóstico do Azure](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 

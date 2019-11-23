@@ -91,11 +91,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download do certificado](common/certificatebase64.png)
+    ![O link de download de certificado](common/certificatebase64.png)
 
-1. Para modificar a **assinatura** options de acordo com seu requisito, clique em **Editar** button para abrir o **certificado de autenticação SAML** dialog.
+1. Para modificar as opções de de **assinatura** de acordo com seu requisito, clique no botão **Editar** para abrir o **certificado de autenticação SAML** caixa de diálogo.
 
-     ![imagem](common/edit-certificate.png)
+     ![image](common/edit-certificate.png)
 
      ![Configuração do Freshworks](./media/freshworks-tutorial/response.png)
 
@@ -107,19 +107,19 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo usuário** na parte superior da tela.
+1. Selecione **novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao Freshworks.
 
@@ -127,7 +127,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Na lista de aplicativos, selecione **Freshworks**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![O link "usuários e grupos"](common/users-groups-blade.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -141,7 +141,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 1. Abra uma nova janela do navegador da Web e entre no site da empresa do Freshworks como administrador e execute as seguintes etapas:
 
-2. No lado esquerdo do menu, clique em **segurança** icon, em seguida, verifique a opção **logon único** e selecione **SSO do SAML** em **métodos de autenticação**.
+2. No lado esquerdo do menu, clique no ícone **segurança** , em seguida, marque a opção **logon único** e selecione **SSO do SAML** em **métodos de autenticação**.
 
     ![Configuração do Freshworks](./media/freshworks-tutorial/configure01.png)
 
@@ -161,11 +161,11 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ### <a name="create-freshworks-test-user"></a>Criar usuário de teste do Freshworks
 
-Nesta seção, você criará um usuário chamado B. Simon em Freshworks. Trabalhe com a [equipe de suporte ao cliente do Freshworks](mailto:support@freshworks.com) para adicionar os usuários na plataforma do Freshworks. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará um usuário chamado B. Simon em Freshworks. Trabalhe com a [equipe de suporte ao cliente do Freshworks](mailto:support@freshworks.com) para adicionar os usuários na plataforma do Freshworks. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ## <a name="test-sso"></a>Testar SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Ao clicar no bloco do Freshworks no painel de acesso, você deverá ser conectado automaticamente ao Freshworks para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

@@ -61,7 +61,7 @@ Pode atualizar a API do seu back-end no portal do Azure, seguindo estes passos:
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Exemplos de política de APIM](policy-samples.md)

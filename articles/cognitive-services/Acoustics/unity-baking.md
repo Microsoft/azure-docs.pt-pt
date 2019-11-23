@@ -143,7 +143,7 @@ O nome da cena é usado para conectar a cena a arquivos que armazenam o posicion
 2. Uma breve descrição do que você pode fazer nessa guia.
 3. Use essas opções para definir a resolução de simulação grande ou fina. A grande velocidade é mais rápida, mas há compensações. Para obter detalhes, consulte [resoluções de distorta](bake-resolution.md).
 4. Especifica onde colocar os arquivos de dados acústicos. Selecione o botão " **...** " para acessar um seletor de pasta. O local padrão é *assets/AcousticsData*. Uma subpasta do *Editor* também é criada neste local. Para obter mais informações, consulte [arquivos de dados adicionados pelo processo de distorta](#Data-Files), posteriormente neste artigo.
-5. O prefixo especificado aqui é usado para nomear os arquivos de dados para esta cena. O padrão é "Acoustics_ *[Scene Name]* ".
+5. O prefixo especificado aqui é usado para nomear os arquivos de dados para esta cena. O padrão é "Acoustics_ *[nome da cena]* ".
 6. Depois que as investigações são calculadas, os controles que acabamos de descrever são desabilitados. Selecione o botão **limpar** para apagar os cálculos e habilitar os controles para que você possa recalcular com as novas configurações.
 7. Selecione **calcular** para voxelize a cena e calcular os locais dos pontos de investigação. O cálculo é feito localmente em seu computador. Ele deve ser feito antes de fazer um distorta.
 
@@ -224,9 +224,9 @@ Por exemplo, em nossos testes em uma máquina de 8 núcleos, Intel Xeon E5-1660 
 Instale e configure o Docker no PC que processará a simulação:
 1. Instale o [Docker desktop](https://www.docker.com/products/docker-desktop).
 2. Abra configurações do Docker, vá para **avançado**e configure os recursos para pelo menos 8 GB de RAM. Quanto mais CPUs você puder alocar para o Docker, maior será a medida que o torta for concluído.  
-configurações do Docker ![Sample @ no__t-1
+![configurações do Docker de exemplo](media/docker-settings.png)
 1. Vá para **unidades compartilhadas**e ative o compartilhamento para a unidade que é usada para processamento.  
-opções de unidade compartilhada ![Docker @ no__t-1
+![opções de unidade compartilhada do Docker](media/docker-shared-drives.png)
 
 ### <a name="run-the-local-bake"></a>Executar o distorta local
 1. Selecione o botão **preparar torta local** na guia **distorta** . Em seguida, selecione um local de pasta para salvar os arquivos de entrada e scripts de execução. Em seguida, você pode executar o distorta em qualquer computador, desde que ele atenda aos requisitos mínimos de hardware e instale o Docker copiando a pasta para esse computador.
@@ -238,14 +238,14 @@ opções de unidade compartilhada ![Docker @ no__t-1
 Os quatro arquivos de dados a seguir são criados durante o processo de distorta. Uma delas contém os resultados da simulação e é fornecida com seu título. Os outros armazenam dados relacionados ao editor Unity.
 
 Resultado da simulação:
-* *Ativos/AcousticsData/acústica @ no__t-1 [scenename]. Ace. bytes*: esse arquivo é a tabela de pesquisa de tempo de execução. Ele contém os resultados da simulação e os elementos de cena acústico voxelized. Você pode alterar o nome e o local desse arquivo na guia **investigações** .
+* *Ativos/AcousticsData/acústicos\_[scenename]. Ace. bytes*: esse arquivo é a tabela de pesquisa de tempo de execução. Ele contém os resultados da simulação e os elementos de cena acústico voxelized. Você pode alterar o nome e o local desse arquivo na guia **investigações** .
 
    *Tenha cuidado para não excluir o arquivo de resultado da simulação. Não é recuperável, exceto por rebaking a cena.*
 
 Arquivos de dados do editor:
-* *Ativos/editor/[scenename] \_AcousticsParameters. Asset*: esse arquivo armazena os dados inseridos nos campos na interface do usuário acústica. Você não pode alterar o nome e o local deste arquivo.
-* *Ativos/AcousticsData/editor/Acoustics_ [scenename]. Vox*: esse arquivo armazena a geometria acústica voxelized e as propriedades do material que são computadas quando você seleciona o botão **calcular** na guia **investigações** . Você pode alterar o nome e o local desse arquivo na guia **investigações** .
-* *Ativos/AcousticsData/editor/acústica @ no__t-1 [scenename] @no__t -2config. xml*: esse arquivo armazena os parâmetros de simulação que são computados quando você seleciona **calcular**. Você pode alterar o nome e o local desse arquivo na guia **investigações** .
+* *Ativos/editor/[scenename]\_AcousticsParameters. Asset*: esse arquivo armazena os dados inseridos nos campos na interface do usuário acústica. Você não pode alterar o nome e o local deste arquivo.
+* *Ativos/AcousticsData/editor/Acoustics_ [scenename]. Vox*: esse arquivo armazena a geometria de voxelized acústicos e as propriedades de material que são computadas quando você seleciona o botão **calcular** na guia **investigações** . Você pode alterar o nome e o local desse arquivo na guia **investigações** .
+* *Ativos/AcousticsData/editor/acústica\_[scenename]\_config. xml*: esse arquivo armazena os parâmetros de simulação que são computados quando você seleciona **calcular**. Você pode alterar o nome e o local desse arquivo na guia **investigações** .
 
 ## <a name="set-up-the-acoustics-lookup-table"></a>Configurar a tabela de pesquisa acústica
 Arraste o **projeto acústica** pré-fabricado do painel de projeto para sua cena:

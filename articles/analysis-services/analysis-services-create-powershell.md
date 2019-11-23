@@ -42,7 +42,7 @@ Entre em sua assinatura do Azure usando o comando [Connect-AzAccount](/powershel
 Connect-AzAccount
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo. Quando criar o servidor, tem de especificar um grupo de recursos na sua subscrição. Se você ainda não tiver um grupo de recursos, poderá criar um novo usando o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) . O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na região E.U.A. Oeste.
 

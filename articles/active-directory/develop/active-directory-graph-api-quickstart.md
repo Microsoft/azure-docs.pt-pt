@@ -39,7 +39,7 @@ Este artigo se aplica ao Azure AD API do Graph. Para obter informações semelha
 
 No API do Graph, para acessar dados de diretório e objetos (em outras palavras, recursos ou entidades) nos quais você deseja executar operações CRUD, você pode usar URLs com base no protocolo OData (Open Data). As URLs usadas em API do Graph consistem em quatro partes principais: raiz de serviço, identificador de locatário, caminho de recurso e opções de cadeia de caracteres de consulta: `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. Veja o exemplo da seguinte URL: `https://graph.windows.net/contoso.com/groups?api-version=1.6`.
 
-* **Raiz do serviço**: no Azure ad API do Graph, a raiz do serviço é sempre https://graph.windows.net.
+* **Raiz do serviço**: no Azure ad API do Graph, a raiz do serviço sempre é https://graph.windows.net.
 * **Identificador de locatário**: Esta seção pode ser um nome de domínio (registrado) verificado, no exemplo anterior, contoso.com. Ele também pode ser uma ID de objeto de locatário ou o alias "MyOrganization" ou "me". Para obter mais informações, consulte [endereçando entidades e operações no Azure AD API do Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview).
 * **Caminho do recurso**: Esta seção de uma URL identifica o recurso a ser interagindo (usuários, grupos, um usuário específico ou um grupo específico, etc.) No exemplo acima, são os "grupos" de nível superior para tratar esse conjunto de recursos. Você também pode abordar uma entidade específica, por exemplo "users/{objectId}" ou "users/userPrincipalName".
 * **Parâmetros de consulta**: um ponto de interrogação (?) separa a seção caminho do recurso da seção parâmetros de consulta. O parâmetro de consulta "API-Version" é necessário em todas as solicitações no Azure AD API do Graph. O Azure AD API do Graph também dá suporte às seguintes opções de consulta OData: **$Filter**, **$OrderBy**, **$Expand**, **$Top**e **$Format**. Atualmente, não há suporte para as seguintes opções de consulta: **$Count**, **$inlinecount**e **$Skip**. Para obter mais informações, consulte [consultas com suporte, filtros e opções de paginação no Azure AD API do Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
@@ -107,7 +107,7 @@ No exemplo a seguir, use o depurador da Web do Fiddler para criar um novo grupo 
    ```
    
    > [!NOTE]
-   > Substitua seu token de acesso &lt;your @ no__t-1 pelo token de acesso do seu diretório do Azure AD.
+   > Substitua seu &lt;seu token de acesso&gt; com o token de acesso para seu diretório do Azure AD.
 
 5. No campo **corpo da solicitação** , digite o seguinte JSON:
    

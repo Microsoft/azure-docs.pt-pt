@@ -99,7 +99,7 @@ Se você usou a solução Gerenciamento de Atualizações, opcionalmente, talvez
 
 * Atualizar agendas-cada uma terá nomes que correspondam às implantações de atualização que você criou)
 
-* Grupos de Hybrid Worker criados para a solução-cada um será nomeado de forma semelhante a machine1. contoso. com _9ceb8108-26c9-4051-b6b3-227600d715c8).
+* Grupos de Hybrid Worker criados para a solução-cada um será nomeado de forma semelhante a machine1. contoso. com_9ceb8108-26c9-4051-b6b3-227600d715c8).
 
 Se você usou a solução Iniciar/Parar VMs fora do horário comercial, opcionalmente, talvez queira remover os itens a seguir que não são mais necessários após a remoção da solução.
 
@@ -113,7 +113,7 @@ Como alternativa, você também pode desvincular seu espaço de trabalho de sua 
 
 Ao integrar vários computadores, pode haver computadores que mostram como **não podem ser habilitados**. Há diferentes motivos pelos quais algumas máquinas podem não estar habilitadas. As seções a seguir mostram possíveis motivos para o **não permitir** o estado em uma VM durante a tentativa de integração.
 
-### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>Relatórios de VM para um espaço de trabalho diferente: ' \<workspaceName @ no__t-1 '.  Altere a configuração para usá-la para habilitar
+### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>Os relatórios da VM para um espaço de trabalho diferente: '\<WorkspaceName\>'.  Altere a configuração para usá-la para habilitar
 
 **Causa**: esse erro mostra que a VM que você está tentando carregar relatórios em outro espaço de trabalho.
 
@@ -151,7 +151,7 @@ Ao integrar vários computadores, pode haver computadores que mostram como **nã
 
 Para remover uma VM do Gerenciamento de Atualizações:
 
-* No espaço de trabalho Log Analytics, remova a VM da pesquisa salva para a configuração de escopo `MicrosoftDefaultScopeConfig-Updates`. As pesquisas salvas podem ser encontradas em **geral** em seu espaço de trabalho.
+* No espaço de trabalho Log Analytics, remova a VM da pesquisa salva para o `MicrosoftDefaultScopeConfig-Updates`de configuração de escopo. As pesquisas salvas podem ser encontradas em **geral** em seu espaço de trabalho.
 * Remova o [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente de log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passos seguintes

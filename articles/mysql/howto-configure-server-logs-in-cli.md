@@ -24,8 +24,8 @@ Para percorrer este guia de instruções, você precisa de:
 
 ## <a name="configure-logging"></a>Configurar registro em log
 Você pode configurar o servidor para acessar o log de consultas lentas do MySQL executando as seguintes etapas:
-1. Ative o log de consultas lentas definindo o parâmetro **@ no__t-1query @ no__t-2log com lentidão** como on.
-2. Ajuste outros parâmetros, como **Long @ no__t-1query @ no__t-2time** e **log @ no__t-4slow @ no__t-5admin @ no__t-6statements**.
+1. Ative o log de consultas lentas definindo a **consulta de\_lenta\_** parâmetro de log como on.
+2. Ajuste outros parâmetros, como **longo\_consulta\_tempo** e **log\_instruções de\_do administrador de\_lentas**.
 
 Para saber como definir o valor desses parâmetros por meio de CLI do Azure, consulte [como configurar parâmetros de servidor](howto-configure-server-parameters-using-cli.md).
 
@@ -40,7 +40,7 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>Listar logs para o servidor de banco de dados do Azure para MySQL
 Para listar os arquivos de log de consulta lenta disponíveis para seu servidor, execute o comando [AZ MySQL Server-logs List](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) .
 
-Você pode listar os arquivos de log para o servidor **mydemoserver.mysql.Database.Azure.com** no grupo de recursos **MyResource**Group. Em seguida, direcione a lista de arquivos de log para um arquivo de texto chamado **log @ no__t-1files\_list.txt**.
+Você pode listar os arquivos de log para o servidor **mydemoserver.mysql.Database.Azure.com** no grupo de recursos **MyResource**Group. Em seguida, direcione a lista de arquivos de log para um arquivo de texto chamado **log\_arquivos\_List. txt**.
 ```azurecli-interactive
 az mysql server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
