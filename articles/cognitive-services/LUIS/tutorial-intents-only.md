@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: prever intenções-LUIS'
+title: 'Tutorial: Predict intentions - LUIS'
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, crie um aplicativo personalizado que prevê a intenção de um usuário. Esta aplicação é o tipo mais simples de aplicação LUIS, porque não extrai vários elementos de dados do texto da expressão, como endereços de e-mail ou datas.
+description: In this tutorial, create a custom app that predicts a user's intention. Esta aplicação é o tipo mais simples de aplicação LUIS, porque não extrai vários elementos de dados do texto da expressão, como endereços de e-mail ou datas.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,22 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 1e39126324de486d118f808b37672c9fd08af711
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4d096ee829a425af3763c212daf5049acccf9f19
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822765"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325894"
 ---
-# <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Tutorial: compilar o aplicativo LUIS para determinar as intenções do usuário
+# <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutorial: Build a LUIS app to determine user intentions
 
-Neste tutorial, você cria um aplicativo personalizado que prevê a intenção de um usuário com base no expressão (texto). 
+In this tutorial, you create a custom app that predicts a user's intention based on the utterance (text). 
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 > [!div class="checklist"]
 > * Criar uma nova aplicação 
@@ -32,25 +32,25 @@ Neste tutorial, você cria um aplicativo personalizado que prevê a intenção d
 > * Adicionar expressões de exemplo
 > * Preparar a aplicação
 > * Publicar aplicação
-> * Obter previsão de intenção do ponto de extremidade
+> * Get intent prediction from endpoint
 
 
 [!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
 
-## <a name="user-intentions-as-intents"></a>Intenções do usuário como tentativas
+## <a name="user-intentions-as-intents"></a>User intentions as intents
 
-A finalidade do aplicativo é determinar a intenção do texto de idioma natural, de conversação: 
+The purpose of the app is to determine the intention of conversational, natural language text: 
 
 `I'd like to order a veggie pizza with a salad on the side.`
 
 Estas intenções estão categorizadas em **Intenções**. 
 
-|Intenção|Objetivo|
+|Intenção|Finalidade|
 |--|--|
-|`ModifyOrder`|Determinar a ordem de pizza do usuário.|
-|`Greeting`|Iniciar conversa de bot.|
-|`ConfirmOrder`|Confirme a ordem de pizza.|
-|`None`|Determine se o usuário está solicitando algo que o aplicativo não deve responder. Essa tentativa se fornecida como parte da criação do aplicativo e não pode ser excluída. |
+|`ModifyOrder`|Determine user's pizza order.|
+|`Greeting`|Begin bot conversation.|
+|`ConfirmOrder`|Confirm pizza order.|
+|`None`|Determine if user is asking something the app is not supposed to answer. This intent if provided as part of app creation and can't be deleted. |
 
 ## <a name="create-a-new-app"></a>Criar uma nova aplicação
 
@@ -58,13 +58,13 @@ Estas intenções estão categorizadas em **Intenções**.
 
 ## <a name="create-a-new-intent"></a>Criar uma nova intenção 
 
-1. No [portal do Luis de visualização](https://preview.luis.ai), dentro da seção **Build** do aplicativo, selecione **+ criar**. Insira o nome da nova tentativa listado abaixo e, em seguida, selecione **concluído**.
+1. In the portal, inside the app's **Build** section, select **+ Create**. Enter the new intent name, `OrderPizza`, then select **Done**.
 
-    A intenção de `OrderPizza` é prevista quando: um usuário deseja solicitar uma pizza. 
+    The `OrderPizza` intent is predicted when: a user wants to order a pizza. 
 
-1. Adicione vários exemplos de declarações a essa intenção que você espera que um usuário pergunte:
+1. Add several example utterances to this intent that you expect a user to ask:
 
-    |`OrderPizza` exemplo declarações|
+    |`OrderPizza` example utterances|
     |--|
     |`can i get a pepperoni pizza and a can of coke please`|
     |`can i get a small pizza with onions peppers and olives`|
@@ -74,15 +74,15 @@ Estas intenções estão categorizadas em **Intenções**.
 
     ![Adicionar expressões de exemplo](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    Ao fornecer o _exemplo declarações_, você está treinando Luis sobre quais tipos de declarações devem ser previstos para essa intenção. 
+    By providing _example utterances_, you are training LUIS about what kinds of utterances should be predicted for this intent. 
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]    
 
-## <a name="create-remaining-intents"></a>Criar tentativas restantes
+## <a name="create-remaining-intents"></a>Create remaining intents
 
-1. Crie a tentativa de `Greeting` e adicione o exemplo a seguir declarações. Essa é a intenção de determinar se um usuário está começando uma conversa de ordem de pizza nova.
+1. Create the `Greeting` intent and add the following example utterances. This is the intent to determine if a user is beginning a new pizza order conversation.
 
-    |`Greeting` exemplo declarações|
+    |`Greeting` example utterances|
     |--|
     |`Hi`|
     |`Hello`|
@@ -90,9 +90,9 @@ Estas intenções estão categorizadas em **Intenções**.
     |`Start`|
     |`Begin`|
 
-1. Crie a tentativa de `Confirm` e adicione o exemplo a seguir declarações. Essa é a intenção de determinar se um usuário é solicitado e aceita os detalhes do pedido. 
+1. Create the `Confirm` intent and add the following example utterances. This is the intent to determine if a user is done ordering and accepts the order details. 
 
-    |`Confirm` exemplo declarações|
+    |`Confirm` example utterances|
     |--|
     |`Go ahead`|
     |`ok`|
@@ -100,7 +100,7 @@ Estas intenções estão categorizadas em **Intenções**.
     |`Sure`|
 
 
-## <a name="none-intent-example-utterances"></a>Exemplo de intenção de nenhum declarações
+## <a name="none-intent-example-utterances"></a>None intent example utterances
 
 [!INCLUDE [Follow these steps to add the None intent to the app](includes/add-example-utterances-none-intent.md)]
 
@@ -108,21 +108,21 @@ Estas intenções estão categorizadas em **Intenções**.
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## <a name="publish-the-app"></a>Publicar o aplicativo 
+## <a name="publish-the-app"></a>Publish the app 
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)] 
 
-## <a name="get-intent-prediction"></a>Obter previsão de intenção
+## <a name="get-intent-prediction"></a>Get intent prediction
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vá para o final da URL na barra de endereços e digite:
+1. Go to the end of the URL in the address bar and enter:
 
     `get a medium vegetarian pizza for delivery` 
 
-    Isso não é exatamente o mesmo que um exemplo de expressão, portanto, é um bom teste para ver se o LUIS pode aprender o que deve ser previsto com essa intenção.
+    This is not exactly the same as an example utterance so it is a good test to see if LUIS can learn what should be predicted with this intent.
 
-    O último parâmetro de cadeia de consulta é `q`, a expressão **query**. Esta expressão não é igual a nenhuma das expressões de exemplo. É um bom teste e deverá devolver a intenção `OrderPizza` como a intenção com a melhor classificação. 
+    O último parâmetro de cadeia de consulta é `query`, a expressão **query**. Esta expressão não é igual a nenhuma das expressões de exemplo. É um bom teste e deverá devolver a intenção `OrderPizza` como a intenção com a melhor classificação. 
 
     ```JSON
     {
@@ -148,15 +148,15 @@ Estas intenções estão categorizadas em **Intenções**.
     }
     ```
 
-    A matriz de entidades está vazia porque esta aplicação não tem entidades atualmente. 
+    The entities array is empty because this app currently does not have any entities (unit of data inside the utterance to extract). 
 
-    O resultado JSON identifica a intenção com a melhor classificação como a propriedade **`prediction.topIntent`** . Todas as pontuações estão entre 1 e 0, com a melhor pontuação sendo mais próxima de 1. 
+    O resultado JSON identifica a intenção com a melhor classificação como a propriedade **`prediction.topIntent`** . All scores are between 1 and 0, with the better score being closer to 1. 
 
-1. Altere o parâmetro de **consulta** de URL para direcionar a intenção de **saudação** :
+1. Change the URL **query** parameter to target the **Greeting** intent:
 
     `Howdy`
 
-    Isso não é exatamente o mesmo que um exemplo de expressão, portanto, é um bom teste para ver se o LUIS pode aprender o que deve ser previsto com essa intenção. 
+    This is not exactly the same as an example utterance so it is a good test to see if LUIS can learn what should be predicted with this intent. 
 
     ```json
     {
@@ -182,27 +182,27 @@ Estas intenções estão categorizadas em **Intenções**.
     }    
     ```
  
-    Essa previsão tem uma pontuação de confiança de 44%. Para aumentar a pontuação de confiança, adicione entre 15 e 30 exemplos de declarações.  
+    This prediction has a 44% confidence score. To increase the confidence score, add between 15 and 30 example utterances.  
 
-## <a name="client-application-next-steps"></a>Próximas etapas do aplicativo cliente
+## <a name="client-application-next-steps"></a>Client-application next steps
 
-Depois de devolver a resposta JSON, o LUIS conclui este pedido. O LUIS não fornece respostas às expressões do utilizador, apenas identifica o tipo de informação que está a ser pedida em linguagem natural. O acompanhamento de conversação é fornecido pelo aplicativo cliente, como um bot do Azure. 
+Depois de devolver a resposta JSON, o LUIS conclui este pedido. O LUIS não fornece respostas às expressões do utilizador, apenas identifica o tipo de informação que está a ser pedida em linguagem natural. The conversational follow-up is provided by the client application such as an Azure Bot. 
 
 
 [!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* [Tipos de entidades](luis-concept-entity-types.md)
-* [Como treinar](luis-how-to-train.md)
+* [Types of entities](luis-concept-entity-types.md)
+* [How to train](luis-how-to-train.md)
 * [Como publicar](luis-how-to-publish-app.md)
-* [Como testar no portal do LUIS](luis-interactive-test.md)
-* [Bot do Azure](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [How to test in LUIS portal](luis-interactive-test.md)
+* [Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este tutorial criou um aplicativo LUIS, criou tentativas, adicionou um exemplo de declarações a cada tentativa, adicionou um exemplo declarações à intenção de nenhum, treinado, publicado e testado no ponto de extremidade. Estes são os passos básicos de criação de um modelo do LUIS. 
+This tutorial created a LUIS app, created intents, added example utterances to each intent, added example utterances to the None intent, trained, published, and tested at the endpoint. Estes são os passos básicos de criação de um modelo do LUIS. 
 
 > [!div class="nextstepaction"]
-> [Adicionar intenções e entidades pré-concebidas a esta aplicação](tutorial-machine-learned-entity.md)
+> [Add a decomposable entity to this app](tutorial-machine-learned-entity.md)

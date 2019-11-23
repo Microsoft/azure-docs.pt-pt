@@ -1,95 +1,91 @@
 ---
-title: Modelos de tokens do Azure Blockchain
-description: Os modelos de tokens do Azure Blockchain são modelos padronizados e reutilizáveis que simplificam a criação e a implantação de tokens baseados em razão.
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
+title: Azure Blockchain Tokens templates
+description: Azure Blockchain Tokens templates are standardized and reusable templates that simplify the creation and deployment of ledger-based tokens.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: brendal
-ms.openlocfilehash: 5b8fc2bd4d2cedadb4c50f7ec11def8bea7b37c4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 9600a6a251552acd319cc68d2bd281584d65546d
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577278"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324974"
 ---
-# <a name="azure-blockchain-tokens-templates"></a>Modelos de tokens do Azure Blockchain
+# <a name="azure-blockchain-tokens-templates"></a>Azure Blockchain Tokens templates
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-Um modelo de tokens Blockchain do Azure é um modelo padronizado e reutilizável que simplifica a criação e a implantação de tokens baseados em razão. Um modelo consiste em uma fórmula, que se baseia na gramática de [ttf (estrutura de taxonomia de token)](overview.md#token-taxonomy-framework) . A gramática abrange o tipo de token base e o conjunto de comportamentos para o token.  
+An Azure Blockchain Tokens template is a standardized and reusable template that simplifies the creation and deployment of ledger-based tokens. A template consists of a formula, which is based off the [Token Taxonomy Framework (TTF)](overview.md#token-taxonomy-framework) grammar. The grammar encompasses the base token type and the set of behaviors for the token.  
 
-Por exemplo, o modelo de token **τϜ {d, m, b, r}** descreve um token de base fungível que é dividable, mentable, gravável e tem suporte de função.
+For example, **τϜ{d,m,b,r}** token template describes a fungible base token that is sub-dividable, mintable, burnable, and has role support.
   
-## <a name="base-token-types"></a>Tipos de token base
+## <a name="base-token-types"></a>Base token types
 
-Ao definir e criar o token baseado em razão para seu ativo específico, é importante considerar qual token base usar.
+When defining and creating the ledger-based token for your particular asset, it is important to consider what base token to use.
 
-### <a name="fungible"></a>Fungível
+### <a name="fungible"></a>Fungible
 
-Os tokens fungível (τF) têm um valor intercambiável entre si, desde que estejam na mesma classe ou série. Um token tem o mesmo valor de outro token ou uma determinada quantidade de tokens tem o mesmo valor de outra quantidade igual. Por exemplo, um dólar é um token fungível. Se duas pessoas estiverem mantendo uma fatura de dólar, elas poderão trocar as faturas de dólar sem conseqüência. As notas de dólar têm valor igual. 
+Fungible tokens (𝜏F) have interchangeable value with each other as long as they are in the same class or series. One token has the same value as another token or a given quantity of tokens has the same value as another equal quantity. For example, a dollar is a fungible token. If two people are each holding a dollar bill, they can exchange these dollar bills without consequence. The dollar bills have equal value. 
 
-### <a name="non-fungible"></a>Não fungível
+### <a name="non-fungible"></a>Non-Fungible
 
-Os tokens não fungível (τN) não são intercambiáveis com outros tokens do mesmo tipo, pois normalmente têm valores diferentes. Por exemplo, um título de propriedade é um token não fungível. Os títulos de propriedade para dois Apartments diferentes em um apartamento complexo não são necessariamente de valor igual, devido ao local da unidade ou do chão da unidade. O valor percebido dos dois tokens de título de propriedade não é igual.
+Non-fungible tokens (𝜏N) are not interchangeable with other tokens of the same type as they typically have different values. For example, a property title is a non-fungible token. Property titles to two different apartments in an apartment complex are not necessarily of equal value, due to either the location of the unit or which floor the unit is on. The perceived value of the two property title tokens are not equal.
 
 ### <a name="hybrid"></a>Híbrido
 
-Tokens híbridos são tokens que têm componentes de tokens fungível e tokens não fungível. Um token híbrido é um tipo de token base que possui uma classe do outro tipo de token.
+Hybrid tokens are tokens that have components of both fungible tokens and non-fungible tokens. A hybrid token is a base token type that owns a class of the other token type.
 
-#### <a name="hybrid-non-fungible-base-with-fungible-segments"></a>Base não fungível híbrida com segmentos fungível
+#### <a name="hybrid-non-fungible-base-with-fungible-segments"></a>Hybrid non-fungible base with fungible segments
 
-Uma base não fungível híbrida com token de segmentos fungível tem uma base diferente de fungível com segmentos de token fungível.
-Por exemplo, um tíquete de concerto é um token híbrido em que a data e a hora do concerto são o token de base não fungível. Os tíquetes em várias seções de assentos para o conjunto fornecido são os segmentos com tokens fungível. Os tíquetes são intercambiáveis em suas seções individuais de assentos, mas não em seções.
+A hybrid non-fungible base with fungible segments token has a non-fungible base with fungible token segments.
+For example, a concert ticket is a hybrid token where the date and time of the concert is the non-fungible base token. The tickets in various seating sections for the given concert are the segments with fungible tokens. The tickets are exchangeable in their individual seating sections, but not across sections.
 
-#### <a name="hybrid-fungible-base-with-non-fungible-segments"></a>Base fungível híbrida com segmentos não fungível
+#### <a name="hybrid-fungible-base-with-non-fungible-segments"></a>Hybrid fungible base with non-fungible segments
 
-Uma base de fungível híbrida com um token de segmentos não fungível tem uma base fungível com segmentos de token não fungível. Por exemplo, uma segurança com suporte de hipoteca é um token híbrido em que vários proprietários são a base fungível que é dividida em vários proprietários. A segurança é intercambiável. As hipotecas individuais são os segmentos não fungível que representam a segurança específica da hipoteca com suporte.
+A hybrid fungible base with a non-fungible segments token has a fungible base with non-fungible token segments. For example, a mortgage backed security is a hybrid token where multiple owners are the fungible base that is split across many owners. The security is interchangeable. The individual mortgages are the non-fungible segments that represent the specific mortgage backed security.
 
-## <a name="token-behaviors"></a>Comportamentos de token
+## <a name="token-behaviors"></a>Token behaviors
 
-Um comportamento de token define os recursos ou as restrições do token. O comportamento inclui propriedades de suporte que fazem parte da definição do token. Os comportamentos podem ser aplicados em todos os tipos de token ou apenas um. Os comportamentos podem ser internos ou externos, dependendo de quais são os efeitos do comportamento. Um comportamento interno habilita ou restringe as propriedades no próprio token. Um comportamento externo habilita ou restringe a invocação do comportamento de um ator externo.
+A token behavior defines capabilities or restrictions of the token. The behavior includes supporting properties that are a part of the token definition. Behaviors can be applied across all token types or just one. Behaviors can be internal or external depending on what the behavior effects. An internal behavior enables or restricts properties on the token itself. An external behavior enables or restricts the invocation of the behavior from an external actor.
 
-Para obter mais informações sobre os comportamentos de token de geração de tokens (TTF) dos tokens de Blockchain do Azure com suporte, consulte [composição de token](composability.md).
+For more information about Azure Blockchain Tokens supported Token Taxonomy Framework (TTF) token behaviors, see [token composability](composability.md).
 
-## <a name="pre-built-token-templates"></a>Modelos de token pré-criados
+## <a name="pre-built-token-templates"></a>Pre-built token templates
 
-Os tokens Blockchain do Azure fornecem quatro modelos de token pré-criados que podem ser usados sem modificação. Você pode chamar esses modelos predefinidos para a maioria dos casos de uso para começar a criar, implantar e gerenciar seus tokens rapidamente.
+Azure Blockchain Tokens provides four pre-built token templates that can be used without modification. You can call into these pre-built templates for most use cases to get started creating, deploying, and managing your tokens quickly.
 
-### <a name="commodity-tokens"></a>Tokens de mercadoria
+### <a name="commodity-tokens"></a>Commodity tokens
 
-Os tokens de mercadoria têm um valor consistente e são transferíveis. Por exemplo, um cilindro de óleo ou uma unidade de energia.
+Commodity tokens have consistent value and are transferrable. For example, a barrel of oil or a unit of energy.
 
-**τF {~ d, t, m, b, r}** -fungível, completo, transferível, mentable, gravável e tem suporte de função
+**𝜏F{~d,t,m,b,r}** - fungible, whole, transferable, mintable, burnable, and have role support
 
-Muitos cenários de blockchain exigem transparência e visibilidade na cadeia de suprimentos ou em várias organizações. Os tokens de mercadoria são baseados nesses casos de uso comuns. Os tokens são intercambiáveis e consistentes. O modelo de token de mercadoria é flexível e personalizável com metadados.
+Many blockchain scenarios require transparency and visibility across the supply chain or multiple organizations. Commodity tokens are based off these common use cases. The tokens are interchangeable and consistent. The commodity token template is flexible and customizable with metadata.
 
-### <a name="qualified-tokens"></a>Tokens qualificados
+### <a name="qualified-tokens"></a>Qualified tokens
 
-Os tokens qualificados representam algo obtido e geralmente são associados a uma entidade e não podem ser transferidos. Por exemplo, um diploma ou uma violação de estacionamento.
+Qualified tokens represent something earned and are usually associated with one entity and cannot be transferred. For example, a diploma or a parking violation.
 
-**τN {s, ~ t}** -não fungível, singleton e não transferível
+**𝜏N{s,~t}** - non-fungible, singleton, and non-transferable
 
-Vários cenários de auditoria e atestado exigem que a propriedade do token não possa ser alterada. Há um conjunto de casos de uso, que têm a necessidade de fornecer um token qualificado se a associação for boa ou ruim.
+Various audit and attestation scenarios require that the ownership of the token cannot be changed. There is a set of use cases, which have a need to provide a qualified token whether the association is good or bad.
 
-### <a name="asset-tokens"></a>Tokens de ativo
+### <a name="asset-tokens"></a>Asset tokens
 
-Os tokens de ativo têm um valor exclusivo dependente do item e não são mercadoria. Por exemplo, um artefato de museu ou um título de propriedade.
+Asset tokens have unique value dependent on the item and are not commoditized. For example, a museum artifact or a property title.
 
-**τN {s, t}** -não fungível, singleton e transferível
+**𝜏N{s,t}** - non-fungible, singleton, and transferable
 
-Tokens de ativo podem ser confundidos com tokens de mercadoria. A principal diferença entre os dois tokens é que os tokens de ativo são inerentemente exclusivos e o valor é independente do tipo de token. Por exemplo, um pedaço de arte como uma pintura de óleo por um artista estabelecido é um token de ativo. No entanto, uma impressão de arte do Mona Lisa é considerada um token de mercadoria. Da mesma forma, um título de propriedade é um token de ativo desde que o valor exista nas qualidades subjetivas da propriedade.
+Asset tokens may be confused with commodity tokens. The major difference between the two tokens is that asset tokens are inherently unique, and value is independent of the type of token it is. For example, a piece of art like an oil painting by an established artist is an asset token. However, an art print of the Mona Lisa is considered a commodity token. Similarly, a property title is an asset token since the value exists in the subjective qualities of the property.
 
-### <a name="ticket-tokens"></a>Tokens de tíquete
+### <a name="ticket-tokens"></a>Ticket tokens
 
-Tokens de tíquete têm valor consistente, mas normalmente expiram. Por exemplo, um tíquete de plano.
+Ticket tokens have consistent value but typically expire. For example, a plane ticket.
 
-**τN {m, b, r}** -não fungível, mentable, gravável e tem suporte de função.
+**𝜏N{m,b,r}** - non-fungible, mintable, burnable, and have role support.
 
-Tokens de tíquete normalmente têm uma data de expiração que os torna diferentes de um token de mercadoria regular. Por exemplo, um bilhete de avião, um bilhete de concerto ou um bilhete esportivo têm opções de assentos atribuídos com datas específicas de uso. Você não pode trocar tíquetes entre datas ou áreas de assentos facilmente.
+Ticket tokens typically have an expiry date that makes them different from a regular commodity token. For example, an airplane ticket, concert ticket, or sports ticket all have options of assigned seating with specific dates of use. You cannot easily interchange tickets between dates or seating areas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você precisar de mais flexibilidade para seu cenário, saiba como criar seus próprios modelos de token usando a [composição de tokens](composability.md).
+If you require more flexibility for your scenario, learn about creating your own token templates using [token composability](composability.md).

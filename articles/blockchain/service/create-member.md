@@ -1,71 +1,65 @@
 ---
-title: Criar um membro do serviço Blockchain do Azure-portal do Azure
-description: Crie um membro do serviço Blockchain do Azure para um consórcio Blockchain usando o portal do Azure.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Create an Azure Blockchain Service member - Azure portal
+description: Create an Azure Blockchain Service member for a blockchain consortium using the Azure portal.
 ms.date: 11/18/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
 ms.reviewer: janders
-manager: femila
-ms.openlocfilehash: 9b08bf030d66c058ef1ec7c57f1fb2517046c522
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
-ms.translationtype: HT
+ms.openlocfilehash: 9cdc38993aec79552dca0bb51ca2d75462c5306b
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285111"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325274"
 ---
-# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Início rápido: criar um membro Blockchain do serviço Blockchain do Azure usando o portal do Azure
+# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Quickstart: Create an Azure Blockchain Service blockchain member using the Azure portal
 
-Neste guia de início rápido, você implanta um novo membro do blockchain e o consórcio no serviço Blockchain do Azure usando o portal do Azure.
+In this quickstart, you deploy a new blockchain member and consortium in Azure Blockchain Service using the Azure portal.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-blockchain-member"></a>Crie um membro de blockchain
 
-Crie um membro blockchain que execute o protocolo de razão de quorum em um consórcio novo ou existente.
+Create a blockchain member that runs the Quorum ledger protocol in a new or existing consortium.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
-1. Selecione **Blockchain** > **serviço Blockchain do Azure (versão prévia)** .
+1. Select **Blockchain** > **Azure Blockchain Service (preview)** .
 
-    ![Criar serviço](./media/create-member/create-member.png)
+    ![Create Service](./media/create-member/create-member.png)
 
     Definição | Descrição
     --------|------------
-    Subscrição | Selecione a assinatura do Azure que você deseja usar para o serviço. Se tiver várias subscrições, escolha a subscrição na qual o recurso é cobrado.
-    Grupo de recursos | Crie um novo nome de grupo de recursos ou escolha um existente em sua assinatura.
-    Região | Escolha uma região para criar o membro. Todos os membros do consórcio devem estar no mesmo local.
-    Protocolo | Atualmente, a versão prévia do serviço Blockchain do Azure dá suporte ao protocolo de quorum.
-    Consórcio | Para um novo consórcio, insira um nome exclusivo. Se estiver unindo um consórcio por meio de um convite, escolha o consórcio que você está unindo.
-    Nome | Escolha um nome exclusivo para o membro do serviço Blockchain do Azure. O nome do membro blockchain pode conter apenas letras minúsculas e números. O primeiro caráter tem de ser uma letra. O valor deve ter entre 2 e 20 caracteres.
-    Senha da conta do membro | A senha da conta de membro é usada para criptografar a chave privada para a conta Ethereum que é criada para o seu membro. Use a conta de membro e a senha da conta do membro para o gerenciamento do consórcio.
-    Descrição | Descrição do consórcio.
-    Preços | A configuração de nó e o custo para o novo serviço. Selecione o link **alterar** para escolher entre as camadas **Standard** e **Basic** .
-    Senha do nó | A senha para o nó de transação padrão do membro. Use a senha para autenticação básica ao se conectar ao ponto de extremidade público do nó de transação padrão do membro do blockchain.
+    Subscrição | Select the Azure subscription that you want to use for your service. Se tiver várias subscrições, escolha a subscrição na qual o recurso é cobrado.
+    Grupo de recursos | Create a new resource group name or choose an existing one from your subscription.
+    Região | Choose a region to create the member. All members of the consortium must be in the same location.
+    Protocolo | Currently, Azure Blockchain Service Preview supports the Quorum protocol.
+    Consórcio | For a new consortium, enter a unique name. If joining a consortium through an invite, choose the consortium you are joining.
+    Nome | Choose a unique name for the Azure Blockchain Service member. The blockchain member name can only contain lowercase letters and numbers. O primeiro caráter tem de ser uma letra. The value must be between 2 and 20 characters long.
+    Member account password | The member account password is used to encrypt the private key for the Ethereum account that is created for your member. You use the member account and member account password for consortium management.
+    Descrição | Description of the consortium.
+    Preços | The node configuration and cost for your new service. Select the **Change** link to choose between **Standard** and **Basic** tiers.
+    Node password | The password for the member's default transaction node. Use the password for basic authentication when connecting to blockchain member's default transaction node public endpoint.
 
-1. Selecione **examinar + criar** para validar suas configurações. Selecione **criar** para provisionar o serviço. O provisionamento leva cerca de 10 minutos.
-1. Selecione **notificações** na barra de ferramentas para monitorar o processo de implantação.
-1. Após a implantação, navegue até o membro blockchain.
+1. Select **Review + create** to validate your settings. Select **Create** to provision the service. Provisioning takes about 10 minutes.
+1. Select **Notifications** on the toolbar to monitor the deployment process.
+1. After deployment, navigate to your blockchain member.
 
-Selecione **visão geral**, você pode exibir as informações básicas sobre seu serviço, incluindo o endereço RootContract e a conta de membro.
+Select **Overview**, you can view the basic information about your service including the RootContract address and member account.
 
-![Visão geral do membro do Blockchain](./media/create-member/overview.png)
+![Blockchain member overview](./media/create-member/overview.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Você pode usar o membro que criou para o próximo início rápido ou tutorial. Quando não for mais necessário, você poderá excluir os recursos excluindo o `myResourceGroup` grupo de recursos criado para o guia de início rápido.
+You can use the member you created for the next quickstart or tutorial. When no longer needed, you can delete the resources by deleting the `myResourceGroup` resource group you created for the quickstart.
 
-Para excluir o grupo de recursos:
+To delete the resource group:
 
-1. No portal do Azure, navegue até o **grupo de recursos** no painel de navegação esquerdo e selecione o grupo de recursos que deseja excluir.
-2. Selecione **Eliminar grupo de recursos**. Verifique a exclusão inserindo o nome do grupo de recursos e selecione **excluir**.
+1. In the Azure portal, navigate to **Resource group** in the left navigation pane and select the resource group you want to delete.
+2. Selecione **Eliminar grupo de recursos**. Verify deletion by entering the resource group name and select **Delete**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você implantou um membro do serviço Blockchain do Azure e um novo consórcio. Experimente o próximo início rápido para usar o kit de desenvolvimento do Azure Blockchain para Ethereum para anexar a um consórcio no serviço Blockchain do Azure.
+In this quickstart, you deployed an Azure Blockchain Service member and a new consortium. Try the next quickstart to use  Azure Blockchain Development Kit for Ethereum to attach to a consortium on Azure Blockchain Service.
 
 > [!div class="nextstepaction"]
-> [Usar Visual Studio Code para se conectar a uma rede do Azure Blockchain Service Consortium](connect-vscode.md)
+> [Use Visual Studio Code to connect to an Azure Blockchain Service consortium network](connect-vscode.md)
